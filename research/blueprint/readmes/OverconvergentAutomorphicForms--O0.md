@@ -1,6 +1,6 @@
 # Overconvergent Hilbert modular forms and analytic coefficients
 
-This specification covers layers O0–O7 of the roadmap at target level. It builds Hilbert weights and analytic coefficient representations, equivariant coefficient sheaves from cocycles, the perfectoid overconvergent Hilbert sheaves of Birkbeck–Heuer–Williams with their integral lattices and arithmetic descent, the independent Andreatta–Iovita–Pilloni (AIP) sheaves and their comparison, cusp forms and Hecke operators with the compact controlling operator, and ordinary Igusa forms. Every target is a declaration below whose direct inputs end in the pinned libraries, in exact nodes of other roadmaps, in one supplier request or in one of three recorded gaps. O1, O2, O4 and O6 are closed; O0, O3, O5 and O7 are planned, each with its precise remaining input. All implementation statuses are unchecked.
+This specification covers layers O0–O7 of the roadmap at target level. It builds Hilbert weights and analytic coefficient representations, equivariant coefficient sheaves from cocycles, the perfectoid overconvergent Hilbert sheaves of Birkbeck–Heuer–Williams with their integral lattices and arithmetic descent, the independent Andreatta–Iovita–Pilloni (AIP) sheaves and their comparison, cusp forms and Hecke operators with the compact controlling operator, and ordinary Igusa forms. Every target is a declaration below whose direct inputs end in the pinned libraries, in exact nodes of other roadmaps, in two supplier requests or in one of three recorded gaps. O1, O2, O4 and O6 are closed; O0, O3, O5 and O7 are planned, each with its precise remaining input. All implementation statuses are unchecked.
 
 The [packet](../packets/OverconvergentAutomorphicForms--O0.json) and the [suggested Lean file](../suggested/OverconvergentAutomorphicForms--O0.lean) describe the same declarations. The Lean file states what is statable on carriers that exist at the pins (the algebra 𝒪_p, its norm and principal units, point characters, the weight map, right cocycles, congruence-unit cancellation and the valuation step of the integral comparison); every other target here is stated in this document with its intended signature, because its carriers (rigid weight spaces, analytic induction, coefficient sheaves, Hilbert towers, AIP torsors, compactifications) belong to the supplying roadmaps.
 
@@ -18,7 +18,7 @@ Finite projective analytic coefficients use the algebraic representation togethe
 
 | Supplier (TauCetiRoadmap status) | What is consumed, by upstream section |
 | --- | --- |
-| LocallyAnalyticRepresentationsOfLocalGroups (atlas) | LR.6 character variety of a topologically finitely generated abelian locally analytic group (it represents the weight functors of 𝒪_p^× and of T(K)); LR.2 analytic vectors; LR.6 Jacquet–Emerton functor and its properties. The Hecke eigenvariety geometry in Ding's setting is the one request. |
+| LocallyAnalyticRepresentationsOfLocalGroups (atlas) | LR.6 character variety of a topologically finitely generated abelian locally analytic group (it represents the weight functors of 𝒪_p^× and of T(K)); LR.2 analytic vectors; LR.6 Jacquet–Emerton functor and its properties. The Hecke eigenvariety geometry in Ding's setting is the substantive open request. |
 | LocallyAnalyticDistributions (PR) | §0.3: analytic functions on finite polydisc charts, chart pullback, compact restriction to smaller radius, compact-type duality; §4.1: complete continuity and property (Pr); §4.15: affinoid-valued analytic stages, their completed scalar tensors, and analyticity of the universal character at a common radius on each affinoid chart. |
 | CompletedCohomologyPartII (PR) | §§1.1–1.3 fixed-exponent colimits, local-group action and tame Hecke; §2.1 completed cohomology; §2.6 adic topology; §2.10 unitary Banach completion. Its definite-unitary adapter §8.5 is for GL_3 with all p-places varying, so Ding's general-n single-place model is built in O0. |
 | AdicSpacesPartII, Part III, Part IV (main) | Part II R0: completed tensor products of Banach modules and the reduced-reduction criterion A₀=A°; Part III R3: traces of finite locally free maps, pull–identify–trace operators, strictly completely continuous restriction, Tate acyclicity, spectral norms; Part IV R5: completed coefficient sheaves, local equalizers and perfectoid-times-smooth products. (Atlas node ids keep the stage names AdicSpacesPartII R3/R5.) |
@@ -28,7 +28,7 @@ Finite projective analytic coefficients use the algebraic representation togethe
 | HodgeTateAndCanonicalSubgroups (PR) | §3.8 quotients and the Hasse radius; §3.10 Hilbert canonical subgroups; §3.12 the 𝒪_F/p^n-linear canonical generator (n≥2, p unramified, or H=H′[p^n]); §4.1, §4.3, §4.4, §4.6, §4.7 canonical/anticanonical loci, Atkin–Lehner, the Hodge–Tate coordinate and cz+d, period-map inclusions (strict endpoint for p≥3, inclusive for p=2), ramified period comparison; §5.1 Igusa torsors and the ordinary tower, §5.3–5.4 the modified lattice ω^int, §5.8 the AIP torsor, §5.10 the Hodge–Tate lift, §5.11 the AIP factor, §5.12 the tower–torsor comparison. That roadmap leaves to this one the coefficient sheaves, the finite-character integral generator with unit pullback, the structure-sheaf invariants of the torsor, the Frobenius restriction comparison of AIP Theorem 6.7(3) (all O5) and p-Hecke operators (O6). |
 | PerfectoidShimuraVarieties (PR) | §5.4 the three Hilbert towers, §5.5 the ℤ_p^× span, §5.5a and §5.6 E(p^n) and the 𝒪_p^×-valued Weil pairing, §5.7 polarization torsors, §5.8 level torsors and Z_∞, §5.10 period maps and domains. |
 | AutomorphicBundles (PR) | B0.2 ineffective-fibre descent, B0.8 sections as equivariant functions, B2.3 highest-weight conventions, B4.12 the split Hilbert coefficient, B5.10 geometric Hecke operators, B5.16–B5.19 Hilbert q-expansions, expansion principle, cusp constants and Hecke action on coefficients. It leaves q-expansions of p-adic analytic families to consumers; they are O6 here. |
-| ShimuraCompactifications (PR) | C3.5 toric acyclicity, C3.8 boundary ideals along refinements; C5.22 Koecher on normalized models (every open, every coefficient ring), C5.24 its ordinary-locus form, C5.26 the formal Koecher principle; C6.11 arithmetic Koecher, C6.12 cusp forms and the boundary ideal, C6.21 fine Hilbert toroidal compactification, C6.38 geometric q-expansion, C6.42 cusp ideals on minimal and toroidal models, C6.43 models at all primes, C6.46 Hasse neighbourhoods, C6.48 finite-level boundary maps. It states no higher direct images to the minimal compactification; that theorem is O6 here. |
+| ShimuraCompactifications (PR) | C3.5 toric acyclicity, C3.6a formal functions for proper algebraic spaces (the explicit stage interface below), C3.8 boundary ideals along refinements; C5.22 Koecher on normalized models (every open, every coefficient ring), C5.24 its ordinary-locus form, C5.26 the formal Koecher principle; C6.11 arithmetic Koecher, C6.12 cusp forms and the boundary ideal, C6.21 fine Hilbert toroidal compactification, C6.38 geometric q-expansion, C6.42 cusp ideals on minimal and toroidal models, C6.43 models at all primes, C6.46 Hasse neighbourhoods, C6.48 finite-level boundary maps. It states no higher direct images to the minimal compactification; that theorem is O6 here. |
 | PadicFamilies, L2a (atlas) | The compact-operator eigenvariety engine consumes O6's controlling operator; it is separate from the Jacquet eigenvariety of Ding. |
 
 ## Domains and integral comparison contracts
@@ -47,7 +47,7 @@ O7 forms lim_m colim_i O(𝔐_i)/p^m on formal affine patches and sheafifies, in
 
 ## Layer targets and acceptance
 
-O0 specialises compact-torus weights and analytic coefficient representations and includes Ding's definite-unitary completed coefficients: lim_k colim_{U_℘} of finite automorphic function spaces with the inverse algebraic action, an admissible unitary Banach representation whose restriction to a compact open H is C(H,E)^s with s≥1. Its Jacquet–Emerton eigenvariety geometry is the one request.
+O0 specialises compact-torus weights and analytic coefficient representations and includes Ding's definite-unitary completed coefficients: lim_k colim_{U_℘} of finite automorphic function spaces with the inverse algebraic action, an admissible unitary Banach representation whose restriction to a compact open H is C(H,E)^s with s≥1. Its Jacquet–Emerton eigenvariety geometry is the substantive open request.
 
 O1 constructs right vector cocycles, equalizer sheaves, gauge changes and coefficient operations, and line effectivity by Heuer's dense-open criterion. O2 pins the Hilbert factor cz+d, the left cocycle law, the admitted domains, levels and algebraic specialisations. O3 supplies integral equalizers, fixed-radius sections and the radius colimit with conditional integral pullbacks.
 
@@ -55,7 +55,7 @@ O4 defines the geometric small and full and the arithmetic intermediate and full
 
 O5 constructs the AIP sheaf independently, proves its torsor invariants, finite-character factor and Frobenius restriction comparison, and compares it with the perfectoid sheaf geometrically and arithmetically, naturally in weight, level and radius.
 
-O6 distinguishes boundary extension from cusp vanishing. Koecher needs g>1 and is proved through the ordinary locus; g=1 uses the cusp calculation. Cusp forms use the boundary ideal; the higher direct images of torsion line bundles twisted by −D to the minimal compactification vanish. Family q-expansions at p-level cusps satisfy the expansion principle when the cusps meet every component of the ordinary Igusa tower. Tame T_a has normalizer 1/q_a and degree q_a+1; wild U_𝔭 has degree q_𝔭 and normalizer 1/q_𝔭; the controlling product ∏U_𝔭^{e_𝔭} improves all directions and is completely continuous, while a single partial operator need not be.
+O6 distinguishes boundary extension from cusp vanishing. Koecher needs g>1 and is proved through the ordinary locus; g=1 uses the cusp calculation. Cusp forms use the boundary ideal; the higher direct images of torsion line bundles twisted by −D to the minimal compactification vanish. Family q-expansions at p-level cusps take values in the weight coefficient line with its cusp-unit action. Their expansion principle requires the chosen cusp lifts to meet every relevant finite-level ordinary Igusa component on each weight chart. Tame T_a has normalizer 1/q_a and degree q_a+1; wild U_𝔭 has degree q_𝔭 and normalizer 1/q_𝔭; the controlling product ∏U_𝔭^{e_𝔭} improves all directions and is completely continuous, while a single partial operator need not be.
 
 O7 identifies ordinary coefficient models and their restriction, Hecke and expansion diagrams. Weighted functions satisfy f(tu)=κ(u)⁻¹f(t). No Hida control theorem is inferred.
 
@@ -648,7 +648,7 @@ Weight spaces and locally analytic representations. Hilbert torus weights, bound
 
 **Hypotheses.**
 
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Boundedness is affinoid-image boundedness. The corrected pro-p supremum is a useful diagnostic, not the universal-coordinate annulus of AIP Proposition 2.8.
 
@@ -697,7 +697,7 @@ Weight spaces and locally analytic representations. Hilbert torus weights, bound
 
 **Hypotheses.**
 
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 
 **Direct inputs.**
@@ -1297,7 +1297,7 @@ Hilbert automorphy factors and domains. Admitted domain, cz+d factor/law, geomet
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - At a prime ramified in F use the unsplit 𝒪_F/p^n-linear canonical generator of HodgeTateAndCanonicalSubgroups §3.12, available for n≥2, for p unramified, or for H=H′[p^n] (at level one this uses the level-two subgroup and ε≤p^(−3), §3.10), and its comparison with the saturated Hodge–Tate kernel in §4.7, with scalar conormal-degree estimates before passage to a splitting field. The period-map inclusions of §4.6 are strict at the endpoint for p≥3 and inclusive for p=2; no integral embedding-wise product decomposition of 𝒪_p⊗O_C is used.
@@ -1337,12 +1337,12 @@ Hilbert automorphy factors and domains. Admitted domain, cz+d factor/law, geomet
 
 - `TauCeti.Overconvergent.Test.O2_admitted_hilbert_domain_ordinary` (degenerate): ε=0 gives the ordinary anticanonical domain.
 - `TauCeti.Overconvergent.Test.O2_admitted_hilbert_domain_levelZero` (compatibility): At n=0 the definition is transported by AL_1, with pε on its level-domain and ε on its tame target.
-- `TauCeti.Overconvergent.Test.O2_admitted_hilbert_domain_radius` (non-example): For p=3 and m=1 the sufficient bound is ε≤1/9; ε=1/3 fails the selected admission inequality even for the trivial continuous character.
+- `TauCeti.Overconvergent.Test.O2_admitted_hilbert_domain_radius` (non-example): For p=3 and m=1 the sufficient bound is ε<1/9; both ε=1/9 and ε=1/3 fail the selected admission inequality even for the trivial continuous character.
 
 **Acceptance.**
 
 - AL_n:X_{Γ0*(p^n)}(p^nε)_a≅X(ε) scales the source radius; at level zero AL_1 uses source pε and target ε.
-- At p=3,m=1 the sufficient bound is ε≤1/9; ε=1/3 is outside this admitted range.
+- At p=3,m=1 the sufficient bound is ε<1/9; both ε=1/9 and ε=1/3 are outside this admitted range.
 - ε=0 is the ordinary domain, whereas overconvergent forms use the positive admitted radii.
 
 #### Hilbert automorphy factors
@@ -1356,7 +1356,7 @@ Hilbert automorphy factors and domains. Admitted domain, cz+d factor/law, geomet
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use T4’s left fractional-linear coordinate convention. For a right action explicitly convert x·γ=γ⁻¹x and invert the coefficient cocycle as in O1.
@@ -1420,7 +1420,7 @@ Hilbert automorphy factors and domains. Admitted domain, cz+d factor/law, geomet
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 
@@ -1461,7 +1461,7 @@ Hilbert automorphy factors and domains. Admitted domain, cz+d factor/law, geomet
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 
@@ -1516,7 +1516,7 @@ Hilbert automorphy factors and domains. Admitted domain, cz+d factor/law, geomet
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Maps of weight families pull back the specified character and its analytic extension. Claims about sheaves do not assert arbitrary nonflat base change of global sections.
@@ -1554,7 +1554,7 @@ Hilbert automorphy factors and domains. Admitted domain, cz+d factor/law, geomet
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - The embeddings and classical differential eigenlines are defined over L; integer exponents may be negative since the factors are lines.
@@ -1601,7 +1601,7 @@ Integral coefficients and variation in weight. Integral lattice, conditional int
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - The coefficient chart is equipped with A+ and the character extension has integral unit values. Integral local invertibility requires the independent AIP unit-trivialization input and the comparison; characteristic-zero averaging does not supply it.
@@ -1657,7 +1657,7 @@ Integral coefficients and variation in weight. Integral lattice, conditional int
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Work locally on quasicompact base and weight patches whose inverse images in the profinite level torsor are quasicompact. P9 supplies O+[1/p]=O on these inverse images, and the equivariance multipliers and their inverses are integral units. A global sections statement additionally requires a finite such cover with bounded denominators.
@@ -1693,7 +1693,7 @@ Integral coefficients and variation in weight. Integral lattice, conditional int
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Maps of weight families pull back the specified character and its analytic extension. Claims about sheaves do not assert arbitrary nonflat base change of global sections.
@@ -1734,7 +1734,7 @@ Integral coefficients and variation in weight. Integral lattice, conditional int
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Fix a positive prime-to-p polarisation ideal c. Both ε=0 and ε>0 have meanings, but they are different domains.
@@ -1788,7 +1788,7 @@ Integral coefficients and variation in weight. Integral lattice, conditional int
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - At a bounded family choose the positive cofinal system admitted for that family; compare choices via a common cofinal subsystem.
@@ -1844,7 +1844,7 @@ Integral coefficients and variation in weight. Integral lattice, conditional int
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use T5’s exact canonical-subgroup range and modified differential theorem; the Rapoport condition is not imposed globally.
@@ -1888,7 +1888,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -1945,7 +1945,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2002,7 +2002,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2063,7 +2063,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2160,7 +2160,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2206,7 +2206,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2264,7 +2264,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2302,7 +2302,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2347,7 +2347,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2408,7 +2408,7 @@ Arithmetic descent and polarization classes. Four independent presentations, quo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - An arithmetic family is κ_ar=(w,t), with geometric κ=ρ(w,t). n≥1 or ∞; level zero is transported separately by AL_1.
@@ -2449,7 +2449,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use the independent AIP formal weight chart indexed by I=[p^k,p^k′], 0≤k≤k′, with r_AIP≥3 and r_AIP+k≥n_AIP≥k′+2 for odd p (≥k′+4 for p=2). Set n′=n_AIP−k′−2 (or −4). These are universal-coordinate conditions; δ is not silently identified with the corrected pro-p supremum.
 - Choose a positive or ordinary radius in the intersection of the canonical-subgroup, analytic-character and AIP torsor admissibility ranges.
@@ -2474,7 +2474,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 
 1. Import T5’s canonical subgroup, modified lattice, Hodge–Tate congruence and the frame torsor; retain its B_n-action.
 2. Extend the universal-coordinate character via AIP Proposition 2.8 on W_F^0. For a full weight retain the finite torsion character χ and its independent eigencomponent on the normalized finite Igusa cover (§6.4, p.29).
-3. Take actual κ⁻¹ analytic O and O+ eigenfunctions. Keep the universal formal line and the full finite-character coherent factor separate. Identification of that formal factor with the analytic integral lattice is O5/finite-character-integral-generator, which supplies the unit generator on the tower and leaves integral local freeness on the base open; the analytic integral equalizer is already defined independently.
+3. Take actual κ⁻¹ analytic O and O⁺ eigenfunctions. Keep the universal formal line and the full finite-character coherent factor separate. O5/finite-character-integral-generator describes the actual analytic finite-character equalizer and the unit on its split tower product; comparison with a completed tensor of formal integral lattices remains an additional input. Positive-radius integral local freeness is the recorded gap.
 4. On every complete algebraically closed valued test point of the admitted B_n-torsor, both κ(b) and κ(b)⁻¹ belong to the valuation ring. For the small analytic factor this is AIP Lemma4.4’s topologically nilpotent congruence; for the finite factor it follows from finite order. This is a unit-valued multiplier condition, not the existence of a unit-valued eigenfunction.
 
 **Source matches.**
@@ -2560,7 +2560,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use the independent AIP formal weight chart indexed by I=[p^k,p^k′], 0≤k≤k′, with r_AIP≥3 and r_AIP+k≥n_AIP≥k′+2 for odd p (≥k′+4 for p=2). Set n′=n_AIP−k′−2 (or −4). These are universal-coordinate conditions; δ is not silently identified with the corrected pro-p supremum.
 - Choose a positive or ordinary radius in the intersection of the canonical-subgroup, analytic-character and AIP torsor admissibility ranges.
@@ -2611,7 +2611,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use the independent AIP formal weight chart indexed by I=[p^k,p^k′], 0≤k≤k′, with r_AIP≥3 and r_AIP+k≥n_AIP≥k′+2 for odd p (≥k′+4 for p=2). Set n′=n_AIP−k′−2 (or −4). These are universal-coordinate conditions; δ is not silently identified with the corrected pro-p supremum.
 - Choose a positive or ordinary radius in the intersection of the canonical-subgroup, analytic-character and AIP torsor admissibility ranges.
@@ -2680,7 +2680,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use the independent AIP formal weight chart indexed by I=[p^k,p^k′], 0≤k≤k′, with r_AIP≥3 and r_AIP+k≥n_AIP≥k′+2 for odd p (≥k′+4 for p=2). Set n′=n_AIP−k′−2 (or −4). These are universal-coordinate conditions; δ is not silently identified with the corrected pro-p supremum.
 - Choose a positive or ordinary radius in the intersection of the canonical-subgroup, analytic-character and AIP torsor admissibility ranges.
@@ -2724,7 +2724,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use the independent AIP formal weight chart indexed by I=[p^k,p^k′], 0≤k≤k′, with r_AIP≥3 and r_AIP+k≥n_AIP≥k′+2 for odd p (≥k′+4 for p=2). Set n′=n_AIP−k′−2 (or −4). These are universal-coordinate conditions; δ is not silently identified with the corrected pro-p supremum.
 - Choose a positive or ordinary radius in the intersection of the canonical-subgroup, analytic-character and AIP torsor admissibility ranges.
@@ -2764,14 +2764,14 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 
 **ID:** `OverconvergentAutomorphicForms:O5/aip-torsor-structure-invariants`. **Kind:** theorem.
 
-**Statement.** Let f: 𝔉_m(ε)→X(ε) be the analytic AIP frame torsor, an étale torsor under the analytic group B_m=𝒪_p^×(1+I′_m Res𝔾̂_a) over the Igusa-level Hasse neighbourhood, and let U be a reduced affinoid weight base over L, with f_U=f×id_U. (1) For every open V⊆X(ε)×U, a function on f_U⁻¹(V) that is invariant under the B_m-action (its two pullbacks to B_m×_{X(ε)}𝔉_m(ε)×U agree) is the pullback of a unique function on V, and it is power-bounded exactly when that function is: (f_U*O)^{B_m}=O and (f_U*O⁺)^{B_m}=O⁺ as sheaves on X(ε)×U. (2) Every point x of X(ε)×U has a preimage y after a finite separable extension of its completed residue field, and |g(x)|=|(f_U*g)(y)| for every g∈O(V); in particular a section is power-bounded if and only if its pullback is.
+**Statement.** Let f: 𝔉_m(ε)→X(ε) be the analytic AIP frame torsor, a torsor locally trivial for the étale topology under the analytic group B_m=𝒪_p^×(1+I′_m Res𝔾̂_a) over the Hasse neighbourhood X(ε), and let U be a reduced affinoid weight base over L, with f_U=f×id_U. (1) For every open V⊆X(ε)×U, a function on f_U⁻¹(V) that is invariant under the B_m-action (its two pullbacks to B_m×_{X(ε)}𝔉_m(ε)×U agree) is the pullback of a unique function on V, and it is power-bounded exactly when that function is: (f_U*O)^{B_m}=O and (f_U*O⁺)^{B_m}=O⁺ as sheaves on X(ε)×U. (2) Every point x of X(ε)×U has a preimage y after a finite separable extension of its completed residue field, and |g(x)|=|(f_U*g)(y)| for every g∈O(V); in particular a section is power-bounded if and only if its pullback is.
 
 **Proposed declaration:** `TauCeti.Overconvergent.aip_torsor_structure_invariants`.
 
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - Use the torsor of HodgeTateAndCanonicalSubgroups §5.8 in the range m≥1, ε≤p^(−(m+1)) of §5.10; its structure group B_m is an analytic group space over X(ε), not a profinite deck group.
 - Invariance means invariance under the action morphism of the group space B_m, not only under its L-points.
 - The weight base enters only as a parameter: B_m acts on the first factor of 𝔉_m(ε)×U.
@@ -2789,7 +2789,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 1. Étale locally on X(ε) the torsor is trivial: choose an étale cover V_i→X(ε) with 𝔉_m×_X V_i≅B_m×_X V_i (aipTorsor_structureGroup of HodgeTateAndCanonicalSubgroups §5.8).
 2. On the trivial torsor B_m×V_i×U an invariant function satisfies g(b,v,u)=g(1,v,u): restrict the invariance identity along the unit section of B_m. So g is the pullback of its restriction along the unit section, and that restriction is power-bounded when g is; pullback preserves power-boundedness.
 3. O and O⁺ are sheaves on the étale site of an analytic adic space (AdicEtaleGeometry A1, the étale structure sheaves), so the local descriptions on the V_i×U glue to every open V, and uniqueness follows from surjectivity of the étale cover.
-4. For (2), an étale surjection of analytic adic spaces is surjective on points with finite separable extensions of completed residue fields; the valuation at y restricts to the valuation at x on the residue field, so |g(x)|=|(f_U*g)(y)|. O⁺ is the subsheaf of functions of absolute value at most one at every point, which gives the power-boundedness criterion.
+4. For (2), first lift x through one of the étale splitting covers V_i×U→X(ε)×U, using a finite separable extension of its completed residue field. The unit section of the trivialized B_m-torsor then gives a point y of 𝔉_m(ε)×U. Its valuation restricts to that at x, giving |g(x)|=|(f_U*g)(y)|. This uses the étale cover, not an assertion that f_U itself is étale: its fibres have positive dimension. Testing O⁺ at all valued points gives the criterion.
 
 **Source matches.**
 
@@ -2806,17 +2806,17 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 
 **ID:** `OverconvergentAutomorphicForms:O5/finite-character-integral-generator`. **Kind:** theorem.
 
-**Statement.** Let H be the torsion subgroup of 𝒪_p^×, let χ:H→A^× be the finite part of a bounded weight family with coefficients in a reduced affinoid A over L, viewed through (𝒪_F/p²)^×→H, and let h:IG₂→X(ε) be the normalized level-two Igusa cover. Put w_χ=(h*O_{IG₂}⊗̂A)^{χ⁻¹} and w_χ⁺=(h*O⁺_{IG₂}⊗̂A⁺)^{χ⁻¹}, the subsheaves on which (𝒪_F/p²)^× acts through χ⁻¹. (1) w_χ is an invertible sheaf on X(ε)×Spa(A) and w_χ⁺=w_χ∩(h*O⁺⊗̂A⁺) is its pointwise integral subsheaf. (2) On the anticanonical perfectoid tower π:X_∞→X(ε) the universal trivialization of the dual canonical subgroup is a section σ of IG₂×_X X_∞→X_∞; the function e_{χ,σ} with e_{χ,σ}(σ·a)=χ(a)⁻¹ on IG₂×_X X_∞ is an O⁺-unit with e_{χ,σ·a}=χ(a)e_{χ,σ}, it generates π*w_χ⁺ freely, and its pullback along σ is 1. (3) Consequently w_χ⁺ is the twisted-invariant character sheaf of the tower for the integral cocycle γ↦χ(d_γ mod p²), with d_γ the lower-right entry of γ in Γ₀*(p^∞). No local freeness of w_χ⁺ over O⁺ of X(ε) is asserted.
+**Statement.** Let H be the torsion subgroup of 𝒪_p^×, choose the retraction G=(𝒪_F/p²)^×→H of AIP Lemma 2.4, and write χ:G→A^× for the finite part of a bounded weight family over U=Spa(A,A⁺). For the level-two Igusa torsor h:IG₂→X(ε), form the actual analytic product h_U:IG₂×U→X(ε)×U. Define w_χ=(h_U*O)^{χ⁻¹} and w_χ⁺=(h_U*O⁺)^{χ⁻¹}=w_χ∩h_U*O⁺. (1) w_χ is an analytic line and w_χ⁺ is its pointwise integral eigenfunction subsheaf. (2) The admitted full anticanonical cover π:X_∞→X(ε), with the appropriate scaled Atkin–Lehner map, supplies a section σ of the pulled-back Igusa torsor. On IG₂×_X X_∞×U, e_{χ,σ}(σ·a,u)=χ(a,u)⁻¹ is an O⁺-unit; e_{χ,σ·a}=χ(a)e_{χ,σ} and σ*e_{χ,σ}=1. The eigenfunction sheaves formed on this split product are freely generated by e_{χ,σ}, over O and O⁺ respectively. Rational finite étale base change identifies the former with π_U*w_χ; no identification of the integral eigenfunction sheaf with the ordinary O⁺-module pullback π_U*w_χ⁺ is asserted. (3) On the Čech overlap of π, define a(y₁,y₂)∈G by σ(y₂)=σ(y₁)·a(y₁,y₂). Evaluation along σ identifies w_χ⁺ with integral functions g on X_∞×U satisfying g(y₂)=χ(a(y₁,y₂))⁻¹g(y₁). On the subgroup Γ₀*(p^∞) the BHW action gives a=d_γ mod p²; invariance under this subgroup alone descends only to its own intermediate quotient, not to X(ε). Integral local freeness on X(ε)×U and identification with a completed tensor of formal integral lattices require additional input.
 
 **Proposed declaration:** `TauCeti.Overconvergent.finite_character_integral_generator`.
 
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
-- χ factors through (𝒪_F/p²𝒪_F)^× by AIP ADIC Lemma 2.4; χ may have p-power order when F_𝔭 contains p-power roots of unity.
-- IG₂ is the normalization of X(ε) in the Igusa torsor of level two of HodgeTateAndCanonicalSubgroups §5.1, in its range (including ε≤p^(−3) at a ramified prime when level one is used); the anticanonical tower is that of PerfectoidShimuraVarieties §5.4 with the domains of §5.10.
-- Coefficients are base changed by the mixed completed tensor product of AdicSpacesPartIV R5; finite-group eigen-decompositions are taken after inverting p unless the group order is a unit in A⁺.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
+- Choose the finite-character projection of AIP ADIC Lemma 2.4; χ may have p-power order when a completion F_𝔭 contains p-power roots of unity. Every value of χ and its inverse is a valuation unit, regardless of its order.
+- Use the actual level-two Igusa torsor of HodgeTateAndCanonicalSubgroups §5.1, with ε≤p^(−3) and the other admission conditions of §§5.10–5.12. The tower carries its universal dual-canonical-subgroup trivialization. The corresponding normalized formal cover need not be an étale torsor integrally.
+- Use the smooth weight product and its O⁺ sheaf supplied by AdicSpacesPartIV R5. Neither (h*O⁺)⊗̂A⁺=h_U*O⁺ nor integral eigenspace base change is presumed; an integral averaging projector requires the order of the group being averaged to be invertible.
 
 **Direct inputs.**
 
@@ -2829,23 +2829,26 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 - `PerfectoidSpaces:P9/integral-matrix-coboundary-effectivity`
 - `AdicEtaleGeometry:A1/etale-structure-sheaf`
 - `OverconvergentAutomorphicForms:O0/principal-units`
+- `AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product`
 
 **Proof outline.**
 
-1. Over the analytic space X(ε) the Igusa cover is a finite étale (𝒪_F/p²)^×-torsor (HodgeTateAndCanonicalSubgroups §5.1), so h*O is a locally free O-algebra with a free regular representation fibrewise; its χ⁻¹-isotypic part w_χ is invertible by finite étale descent of the trivial line upstairs (AIP ADIC §6.4 states coherence on the formal model and invertibility on the analytic fibre and the ordinary locus).
-2. The level structure on the anticanonical tower trivializes the dual canonical subgroup (HodgeTateAndCanonicalSubgroups §5.1 universal trivialization, through PerfectoidShimuraVarieties §5.10), giving the section σ and the splitting IG₂×_X X_∞≅X_∞×(𝒪_F/p²)^×. On this split cover the χ⁻¹-eigenfunctions are exactly O_{X_∞}·e_{χ,σ}, and e_{χ,σ} takes values in χ(H)⊂μ_∞, so it is an O⁺-unit; changing σ by a multiplies it by χ(a).
-3. A deck transformation γ moves σ to σ·(d_γ mod p²) (the Igusa generator transforms by the diagonal entry, as in HodgeTateAndCanonicalSubgroups §5.12), so the eigenline pulled back to X_∞ is the twisted character sheaf of PerfectoidTowers §P9.9 with cocycle χ(d_γ); descent of O and O⁺ along the tower (§P9.6, §P9.7 and the all-open equalizer of §P9.11) identifies w_χ and w_χ⁺ with its twisted invariants.
-4. Integral local freeness on the base would require a unit eigenfunction for this cocycle on X_∞ itself (PerfectoidTowers §P9.13 criterion); e_{χ,σ} lives on the split cover and does not supply one. This is recorded as an open integral-freeness question, not asserted.
+1. Finite étale descent on the actual analytic product makes w_χ a line. Since p is inverted, the χ-isotypic projection commutes with rational scalar extension. AIP ADIC §6.4, p.29, supplies coherence of the formal factor and invertibility on its analytic fibre and ordinary locus; its positive-radius formal integral freeness is not a consequence.
+2. The universal Igusa section σ splits the pulled-back finite torsor. On this split product a χ⁻¹-eigenfunction is determined by its value on σ, and is integral exactly when that value is integral, because χ(a) and χ(a)⁻¹ have valuation one. This proves freeness of the eigenfunctions newly formed upstairs, without interchanging an integral equalizer and tensor pullback.
+3. Use the full Čech relation of π, whose transition a(y₁,y₂) is defined by comparing the two Igusa sections. Evaluate eigenfunctions on σ to get g(y₂)=χ(a)⁻¹g(y₁). Conversely this relation makes g·e_{χ,σ} invariant on the pulled-back Igusa torsor, so all-open function descent (PerfectoidTowers §§P9.6,P9.11) gives its unique integral eigenfunction downstairs. For the restricted BHW action of Γ₀*(p^∞), a=d_γ mod p² by HodgeTateAndCanonicalSubgroups §§5.2,5.12; that restricted formula does not replace the full relation over X(ε).
+4. An O⁺-unit on IG₂×_X X_∞ does not give a base-local unit eigenfunction on X_∞ itself. The integral-coboundary criterion applies to that latter requirement and its specified lattice. Keep both positive-radius integral freeness and comparison with completed formal lattices conditional; a nonflat integral pullback cannot discharge them.
 
 **Source matches.**
 
 - [AIP-ADIC-2016](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/Hilbert_adicfinal.pdf), §6.4, the sheaf w_χ before Theorem 6.7, p.29; Lemma 2.4, pp.7–8: The finite part of the universal character factors through (𝒪_F/p²)^×, and its eigensheaf in the normalized Igusa cover is stated to be coherent and invertible on the ordinary locus and on the analytic fibre only.
 - [BHW-2023](https://aif.centre-mersenne.org/item/10.5802/aif.3560.pdf), §7.2, Proposition 7.11 and Lemma 7.12, pp.1762–1763: On the anticanonical tower the level structure gives the Igusa generator and its transformation by the diagonal entry.
 
+- [AIP-CUSP-2016](https://www.imo.universite-paris-saclay.fr/~pilloni/AIP2.pdf), Proposition 3.14 and Remark 3.15, p.17: Rational base change of coefficient lines is established after passage to the analytic fibre; the following remark explicitly leaves an integral finite-group-cohomology obstruction.
+
 **Acceptance.**
 
 - For χ trivial, w_χ⁺=O⁺ and e_{χ,σ}=1.
-- For χ of order prime to p with |H| invertible in A⁺, the isotypic projector is integral and w_χ⁺ is a direct summand of h*O⁺⊗̂A⁺; for χ of p-power order the projector has denominators and w_χ⁺ is the intersection with the integral functions, not the image of a projector.
+- If the order of the entire group being averaged is invertible in the integral coefficient ring, its character projector is integral. Without that hypothesis, in particular for a p-primary finite character, define w_χ⁺ by intersection with actual integral functions, not by a projector with denominators. Finite-order character values remain units in either case.
 - Model non-example: over C_p let T be the coordinate of the annulus |p|≤|T|≤1, y²=T the double cover and χ the sign character. After base change to the cover itself, which splits it, the eigensheaf has the unit generator equal to ±1 on the two sheets; on the annulus the integral sign-eigensheaf {a·y : |a(x)|·|T(x)|^{1/2}≤1 at every point} has no O⁺-generator near a point of irrational radius, since an invertible function there has |a|=|c|·|T|^k with k an integer. A unit eigenfunction on a split cover therefore does not give integral freeness downstairs.
 
 #### Frobenius and inclusion pullbacks of the AIP sheaf
@@ -2859,7 +2862,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - M_r is the analytic adic space of AIP ADIC §6.4 over the weight space, with |H̃a^{p^{r+1}}|≥sup_{α∈m}|α|; φ is defined on M_{r+1} because a level-one canonical subgroup exists there and the quotient lands in M_r (HodgeTateAndCanonicalSubgroups §3.8).
 - The isomorphism is built from the Frobenius morphism of the modified frame torsors (AIP ADIC §4.3.2 and Proposition 6.5); it is not a numerical identification of radii.
 
@@ -2904,7 +2907,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - C6 supplies the toroidal/minimal neighbourhoods, boundary Cartier ideal, extensions of the coefficient line and boundary-compatible maps.
@@ -2961,7 +2964,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use C6’s normality, compactification maps and minimal-boundary codimension hypotheses; at g=1 the minimal boundary has codimension one.
@@ -3008,7 +3011,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - π1 is finite locally free of degree q_a+1 for the prime cyclic-subgroup correspondence. The normalization is 1/q_a, not reciprocal degree.
@@ -3075,7 +3078,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - The actual extra level and anticanonical subgroup condition are C[𝔭^{en}]=D[𝔭^{en}]. The chosen domains must support this correspondence.
@@ -3150,7 +3153,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use a finite tame level automorphism, with its actual action on the coefficient torsor. This is separate from the central projective quotient and positive-unit polarisation action.
@@ -3212,7 +3215,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - All correspondence and AIP chart hypotheses used above hold on the common source and target domains.
@@ -3258,7 +3261,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use AutomorphicBundles B5.16–B5.18 with their exact algebraic-weight, prime-to-p level and coefficient-ring hypotheses for classical expansions; p-level and family expansions are O6/padic-hilbert-q-expansion.
@@ -3305,7 +3308,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use the sufficiently small tame level, compactified coefficient model, positive cofinal partial-radius range and finite-level cusp vanishing hypotheses of AIP CUSP Theorems 3.16 and 4.4. For arithmetic descent work in characteristic zero, where the finite Δ projector is defined.
@@ -3350,7 +3353,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use C6’s coherent cusp pushforward and the relative compactness W,V required by AdicSpacesPartII:R3. Source S(W) satisfies (Pr).
@@ -3391,7 +3394,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use compatible finite-level partial-radius correspondences and a fixed positive radius vector v. The arithmetic class quotient gives a canonical endomorphism; G* requires the stated polarisation representative maps.
@@ -3454,7 +3457,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use all hypotheses of fixed-cusp-banach-modules, compact-radius-restriction and controlling-hilbert-operator.
@@ -3494,7 +3497,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use integral coefficient maps, trace preserving O+ on the supplied finite locally free integral correspondence models, and integral polarisation transport.
@@ -3536,7 +3539,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use the precise formal Igusa normalization, boundary divisor and sufficiently small analytic character χ of AIP CUSP §3.6. The structural vanishing for torsion invertible sheaves twisted by −D is O6/hilbert-cusp-higher-vanishing.
 - The chosen minimal neighbourhood is an actual global-Hasse affinoid strict neighbourhood inside the partial-radius region; AIP CUSP Proposition 3.22’s Hattori footnote explicitly requires this refinement.
@@ -3576,7 +3579,7 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - Use the fine Hilbert toroidal compactification of ShimuraCompactifications C6.21 for an admissible fan system with the unit-group action, its minimal compactification and the cusp ideal comparison of C6.42.
 - L(−D) means L⊗I_D with I_D the ideal of the reduced boundary divisor; the statement is false for L itself (without −D) in general, where R¹ can be nonzero at the cusps.
 - For g=1 the minimal compactification is the toroidal one and the statement is trivial.
@@ -3589,40 +3592,41 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 - `ShimuraCompactifications:C3/roadmap/toric-structure-sheaf-vanishing`
 - `ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal`
 - `HilbertModularVarietiesAndShimuraCurves:H3/arithmetic-quotient`
+- `ShimuraCompactifications:C3`
 
 **Proof outline.**
 
-1. Higher direct images along the proper map h′ can be computed on formal completions along each cusp (theorem on formal functions, ShimuraCompactifications C3.6a), where M̄ becomes the quotient of a formal torus embedding along the fan Σ_c by the totally positive unit group of the cusp, acting freely on Σ_c minus the origin.
-2. On the torus embedding the cohomology of O(−D) is computed from the support function: the strictly positive monomials give an acyclic complex in positive degrees (the toric vanishing of ShimuraCompactifications C3.5 together with the boundary-ideal version C3.8).
-3. Pass to the quotient by the unit group: a finite-index subgroup acts freely on the cones, so the cohomology of the quotient is the group cohomology of invariants, which vanishes in positive degree for the strictly positive part (AIP CUSP Appendix Lemma 6.3 and Proposition 6.4).
-4. A torsion line bundle is trivial on the formal cusp neighbourhood after a finite étale cover of degree e, and the argument is unchanged (as noted in AIP ADIC proof of Theorem 8.2); the Hasse blow-up is an isomorphism near the cusps, which lie in the ordinary locus.
+1. Compute the higher direct images on completed cusp neighbourhoods using proper formal functions for algebraic spaces (ShimuraCompactifications C3.6a). The toroidal completion is the quotient of the formal torus embedding attached to Σ_c by the cusp unit group U. This contraction to the minimal model is different from a refinement of fans.
+2. For the trivial line, choose a U-invariant polarization function h and its ample divisor D_h=−∑_ρ a_ρD_ρ (AIP CUSP Definition 6.1 and Proposition 6.2). Take ℓ>max a_ρ. The toric power map Φ_ℓ is finite flat and U-equivariant, and Lemma 6.3 gives a U-equivariant split injection O(⌊D_h/ℓ⌋)=O(−D)→Φ_ℓ*O(D_h). Its monomial splitting uses no division by ℓ and remains available in residue characteristic dividing ℓ.
+3. Complete along the boundary and descend this split map to the formal quotient by U. The cohomology of O(−D) is a direct summand of that of O(D_h), since Φ_ℓ is finite. After replacing h by a sufficiently large positive multiple, formal ample vanishing kills the latter in positive degree (AIP CUSP Proposition 6.4, pp.32–33). This is not vanishing of unrestricted group cohomology of U.
+4. For a torsion line L use the torsion-twisted extension of this split-power-map argument explicitly stated in the proof of AIP ADIC Theorem 8.2, p.35; retain L throughout the equivariant splitting and ample-vanishing step. Its order is not assumed prime to p, and no degree-e finite étale trivialization or averaging by 1/e is used. Formal functions gives the integral and completed statements. The normalized Hasse modification is an isomorphism near the ordinary cusps, so the same local calculation proves the modified-model assertion.
 
 **Source matches.**
 
-- [AIP-CUSP-2016](https://www.imo.universite-paris-saclay.fr/~pilloni/AIP2.pdf), Appendix, Lemma 6.3 and Proposition 6.4, pp.32–33; Theorem 3.17, p.18: Higher direct images of the cusp ideal from the toroidal to the minimal compactification vanish, by a computation on the formal cusp neighbourhoods modulo units.
+- [AIP-CUSP-2016](https://www.imo.universite-paris-saclay.fr/~pilloni/AIP2.pdf), Appendix, Definition 6.1, Proposition 6.2, Lemma 6.3 and Proposition 6.4, pp.31–33; Theorem 3.17, p.18: A U-equivariant split toric power map makes the cohomology of the cusp ideal a direct summand of ample-twist cohomology on the formal quotient; this proves the contraction vanishing.
 - [AIP-ADIC-2016](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/Hilbert_adicfinal.pdf), Theorem 8.2 and its proof, p.35: The same vanishing holds for torsion invertible sheaves twisted by −D, by the proof of the appendix proposition without change.
 
 **Acceptance.**
 
 - For L=O this is the structural vanishing R^i h′*O(−D)=0, i>0.
-- Non-example: without the twist by −D the statement fails; for g=2 over a field of characteristic zero the cusp singularities of the minimal compactification are minimally elliptic, so R¹h′*O has length one at each cusp.
+- The boundary twist is essential: the theorem makes no vanishing assertion for R^i h′*L without −D. In particular, toric acyclicity along a refinement alone does not establish vanishing for the contraction to a minimal cusp.
 - Consequence used in O6: the pushforward of a cusp coefficient sheaf to the minimal model computes its cohomology, so sections over an affinoid of the minimal model are acyclic.
 
 #### q-expansions of overconvergent Hilbert families
 
 **ID:** `OverconvergentAutomorphicForms:O6/padic-hilbert-q-expansion`. **Kind:** construction.
 
-**Statement.** For a bounded weight family over a reduced affinoid A, a finite p-level n≥0 and an unramified cusp c of the toroidal compactification at that level, construct q_c:H⁰(X(ε)×Spa(A),ω^κ)→(A⊗̂D_c)⟦q^ξ:ξ∈M_c^+∪{0}⟧^{U_c}, by restricting to the completed toric chart of c, where the Tate object has a canonical multiplicative p-divisible part and a canonical differential, hence a canonical point of the AIP frame torsor and of the Igusa tower. q_c is A-linear, compatible with change of radius, level (through the finite boundary maps) and weight, and at an algebraic weight it is the classical Hilbert q-expansion after the conversion (w,t)↦(ν=w,w_AIP=t⁻¹). If a set S of cusps meets every connected component of the ordinary Igusa tower at the level used, ⊕_{c∈S}q_c is injective (q-expansion principle).
+**Statement.** For a bounded smooth weight family over U=Spa(A,A⁺), a finite p-level n≥0, and an unramified cusp label c together with a Tate uniformization, a splitting and a compatible Igusa generator, construct the A-linear expansion q_c:H⁰(X(ε)×U,ω^κ)→D_{c,κ}⟦q^ξ:ξ∈M_c^+∪{0}⟧^{U_c}. Here D_{c,κ} is the analytic coefficient line obtained by evaluating the κ⁻¹-eigenfunction on the chosen Tate frame, with its κ-dependent cusp-unit action; the series are completed along the toroidal boundary with the support condition of the cusp chart. These choices trivialize the coefficient line locally, and changing them transports both coefficients and exponents. At an algebraic weight D_{c,κ} specializes to the classical coefficient line of AutomorphicBundles B5.16, after the conversion (w,t)↦(ν=w,w_AIP=t⁻¹). Expansions commute with radius, weight and finite-level boundary maps. If the chosen cusp lifts meet every connected component of the ordinary Igusa cover at the finite level used to trivialize the weight on each analytic chart, their simultaneous expansion is injective; an infinite tower statement is understood through these finite-level charts.
 
 **Proposed declaration:** `TauCeti.Overconvergent.padicHilbertQExpansion`.
 
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
-- Cusps and their charts are those of ShimuraCompactifications C6.21 and C6.38 (Dimitrov's q-expansion at a uniformized cusp), with coefficient lines D_c as in AutomorphicBundles B5.16; finite p-level cusps are reached through the boundary maps of C6.48.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
+- Use the cusp charts of ShimuraCompactifications C6.21,C6.38 and the finite-p-level boundary maps C6.48. Retain the cusp fractional exponent lattice, chosen Tate splitting and Igusa generator. B5.16 supplies only algebraic coefficient lines; D_{c,κ} for an analytic weight is constructed here by the actual AIP frame and its transformation law.
 - The weight family has image in an affinoid of weight space and a common radius, as in O0/bounded-weight-families; ε is in the range of O2/admitted-hilbert-domain.
-- The injectivity statement requires S to meet every connected component of the ordinary Igusa tower; meeting every component of the Hilbert variety is not enough at Igusa or Iwahori level.
+- The sufficient injectivity condition concerns the cusp lifts on every relevant ordinary Igusa component, with ordinary density in each anticanonical component. A component condition on the Hilbert base alone does not automatically verify this condition. The smooth weight base ensures that the normality/identity-principle argument is applicable.
 
 **Direct inputs.**
 
@@ -3639,10 +3643,10 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 
 **Proof outline.**
 
-1. Restrict to the formal neighbourhood of c: the cusps lie in the ordinary locus, so the completed toric chart lies in every Hasse neighbourhood X(ε) (ShimuraCompactifications C6.46).
-2. Over the chart the Tate HBAV has canonical subgroup μ_{p^n}⊗𝔞⁻¹ and differential from dt/t, which give a canonical point of the Igusa tower and a canonical modified frame; evaluating a κ⁻¹-eigenfunction at this frame gives an element of (A⊗̂D_c)⟦q⟧, invariant under the units U_c of the cusp.
-3. Compatibility with level and radius follows from C6.48 and the functoriality of frames; at algebraic weight the frame evaluation is the classical expansion of AutomorphicBundles B5.16 after the weight conversion of O0/weight-comparison.
-4. Injectivity: a section with vanishing expansions vanishes on the formal neighbourhood of each c∈S; the ordinary formal Igusa tower is normal, so the section vanishes on each connected component of the ordinary locus met by S, and by the identity principle on the connected smooth space X(ε) of each such component it vanishes (as in AIP ADIC §8.4 for the ordinary restriction).
+1. Restrict to the completed toroidal chart: cusps are ordinary, so this chart lies in each admitted Hasse neighbourhood (C6.46). Its topology and positive-exponent support condition are part of the expansion target.
+2. The Tate object and chosen Igusa generator give the modified differential frame. Evaluation of an actual κ⁻¹-eigenfunction defines the coefficient-line-valued series. Under a cusp unit the generator, differential and exponents transform together; use this transformation to define the U_c-action on D_{c,κ} and prove the required invariant relation. No weight-independent scalar target or choice-free Igusa generator is assumed.
+3. Functoriality of the Tate object, the frames and C6.48 gives the radius and level diagrams; weight pullback commutes with evaluation. At algebraic weights, identify the frame line with B5.16 after O0/weight-comparison. Vanishing of all cusp constants agrees with the boundary ideal.
+4. For injectivity work on each finite ordinary Igusa chart trivializing the coefficient action. Zero expansions give zero germs on the chosen completed cusp neighbourhoods; use the normal componentwise q-expansion/identity argument and the stipulated component coverage there. Restricting from a smooth anticanonical component to its dense ordinary open is injective, so the original section vanishes. Do not extend the algebraic arbitrary-coefficient Iwahori assertion of B5.17 beyond its prime-to-p hypotheses.
 
 **Source matches.**
 
@@ -3657,10 +3661,10 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 
 **API.**
 
-- `TauCeti.Overconvergent.padicHilbertQExpansion` (data): The A-linear map q_c from sections over X(ε)×Spa(A) to (A⊗̂D_c)⟦q^ξ⟧^{U_c}.
+- `TauCeti.Overconvergent.padicHilbertQExpansion` (data): The A-linear map q_c into completed D_{c,κ}-valued series with the specified support condition and κ-dependent cusp-unit action.
 - `TauCeti.Overconvergent.padicHilbertQExpansion_restrict` (functoriality): q_c commutes with restriction to a smaller radius and with change of p-level along the boundary maps.
 - `TauCeti.Overconvergent.padicHilbertQExpansion_specialize` (compatibility): Specialization at an algebraic weight gives AutomorphicBundles' classical Hilbert q-expansion after the weight conversion.
-- `TauCeti.Overconvergent.padicHilbertQExpansion_injective` (characterisation): If S meets every connected component of the ordinary Igusa tower, ⊕_{c∈S}q_c is injective.
+- `TauCeti.Overconvergent.padicHilbertQExpansion_injective` (characterisation): If the chosen cusp lifts meet every relevant finite-level ordinary Igusa component, their simultaneous expansion is injective.
 - `TauCeti.Overconvergent.padicHilbertQExpansion_constantTerm` (relation): The constant term at c vanishes for every cusp exactly on cusp sections.
 
 **Unit tests.**
@@ -3668,12 +3672,12 @@ Boundary, cusp forms, and Hecke operators. Boundary/cusp distinction, tame/diamo
 - `TauCeti.Overconvergent.Test.padicHilbertQExpansion_trivial_weight` (degenerate): For κ trivial, q_c(1)=1.
 - `TauCeti.Overconvergent.Test.padicHilbertQExpansion_classical` (compatibility): For F=Q, n=0 and κ(x)=x^k, q_∞ agrees with the q-expansion of the corresponding classical form of weight k.
 - `TauCeti.Overconvergent.Test.padicHilbertQExpansion_unit_invariance` (characterisation): Coefficients satisfy a(εξ)=a(ξ) twisted by the coefficient-line action for ε in the units of the cusp; an expansion that is not unit-invariant is not in the image.
-- `TauCeti.Overconvergent.Test.padicHilbertQExpansion_iwahori_nonexample` (non-example): At Iwahori level, cusps meeting every Hilbert component but not every Igusa component do not give an injective map.
+- `TauCeti.Overconvergent.Test.padicHilbertQExpansion_iwahori_nonexample` (non-example): On an unrestricted disconnected Igusa chart, a nonzero function supported on a component omitted by the cusp lifts has zero selected expansions. A Hilbert-base component count alone does not verify the sufficient injectivity hypothesis for weighted forms.
 
 **Acceptance.**
 
 - For F=Q, n=0 and κ(x)=x^k this is the q-expansion of an overconvergent modular form of weight k at ∞.
-- Non-example: at Iwahori level a single cusp on each Hilbert component need not meet every component of the special fibre, so its expansion does not determine the form.
+- Component test: for unrestricted functions on a disconnected ordinary Igusa cover, a function supported on an omitted component has zero expansions at all chosen cusp lifts. For a descended weight-eigenspace, failure of the stated sufficient component condition calls for an additional descent argument; it does not by itself prove noninjectivity.
 - Constant terms: a section is cuspidal (O6/hilbert-cusp-forms) exactly when q_c has vanishing constant term at every cusp of the level.
 
 ### OverconvergentAutomorphicForms:O7
@@ -3691,7 +3695,7 @@ Ordinary Igusa forms and the Hida comparison. Ordered Igusa completion, weighted
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use T5’s actual ordinary formal Igusa tower with finite-etale transition maps. The inverse limit defines the formal completed structural ring; an identification with the actual analytic tower O+ is the separate O7 comparison target, with the exact hypotheses still recorded as a gap.
 
@@ -3749,7 +3753,7 @@ Ordinary Igusa forms and the Hida comparison. Ordered Igusa completion, weighted
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use compatible integral weight coefficients: modulo p^m the character is locally constant and factors through a finite quotient on each fixed affinoid formal patch.
 
@@ -3809,7 +3813,7 @@ Ordinary Igusa forms and the Hida comparison. Ordered Igusa completion, weighted
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - The ordinary base formal patch is flat, topologically of finite presentation, and formally smooth over the integral coefficient ring. Its finite Igusa covers are finite étale and surjective, so the ordinary finite-level special fibres are geometrically reduced. Use the open ordinary Rapoport moduli locus: arbitrary normalized positive-radius models are not included.
 - For each finite level put A_i=O(Ig_i,an) with its uniform spectral norm and R_i=O(𝔐_i). At a discretely valued level R_i={a:‖a‖≤1} by the reduced-reduction criterion (AdicSpacesPartII R0), the ordinary charts being formally smooth (HodgeTateAndCanonicalSubgroups §5.1); after the coefficient-field extension this identity is the recorded open input. Pullback A_i→A_j is isometric, as its analytic map is surjective.
@@ -3863,7 +3867,7 @@ Ordinary Igusa forms and the Hida comparison. Ordered Igusa completion, weighted
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε<1/(c_p p^m) for p≥3 and 0≤ε≤1/(4·2^m) for p=2 (HodgeTateAndCanonicalSubgroups §4.6; the endpoint is excluded for p≥3); when m=1 at a prime ramified in F also ε≤p^(−3) (§§3.10, 5.1). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use the ordinary torsor frame comparison of T5 and O5. The map on integral sections uses the actual completed structural sheaf comparison.
@@ -3923,7 +3927,7 @@ Ordinary Igusa forms and the Hida comparison. Ordered Igusa completion, weighted
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use actual ordinary formal torsor and the completion comparison on patches; κ is bounded with integral unit values.
 
@@ -3970,7 +3974,7 @@ Ordinary Igusa forms and the Hida comparison. Ordered Igusa completion, weighted
 **Hypotheses.**
 
 - F is a totally real number field of degree g; p is any rational prime, including ramified primes.
-- Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
+- Tame level N is prime to p and sufficiently small for the geometric Hilbert moduli schemes; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity. Arithmetic finite-level torsors are taken over the quotient stacks, or on coarse spaces over the respective action-free loci supplied by H3.6, H4.17 and S5.8; N≥4 alone does not assert freeness of a polarization or diagonal action.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Use the compactified ordinary correspondences, the family q-expansion O6/padic-hilbert-q-expansion and the integral traces of O6; retain the same normalizers and arithmetic transport.
 
@@ -4003,7 +4007,7 @@ Ordinary Igusa forms and the Hida comparison. Ordered Igusa completion, weighted
 
 ## Coverage and exact remaining inputs
 
-The inventory is 79 declarations (5 definitions, 31 constructions, 5 lemmas, 23 theorems, 13 comparisons, 2 applications), 134 API items, 119 unit tests, 32 planets, 38 pinned baseline citations, 1 supplier request and 3 recorded gaps.
+The inventory is 79 declarations (5 definitions, 31 constructions, 5 lemmas, 23 theorems, 13 comparisons, 2 applications), 133 API items, 113 unit tests, 32 planets, 38 pinned baseline citations, 2 supplier requests and 3 recorded gaps.
 
 | Stage | Status | Remaining |
 | --- | --- | --- |
@@ -4016,11 +4020,15 @@ The inventory is 79 declarations (5 definitions, 31 constructions, 5 lemmas, 23 
 | OverconvergentAutomorphicForms:O6 | closed | None. |
 | OverconvergentAutomorphicForms:O7 | planned | The unit-ball identification of ordinary Igusa charts after base change to the nondiscrete perfectoid field is a recorded gap; the completion argument is planned under it. |
 
-### Supplier request
+### Supplier requests
 
 **`LocallyAnalyticRepresentationsOfLocalGroups:LR.6`.** Build the Hecke eigenvariety from the coherent Jacquet dual of LR.6/jacquet-emerton-properties and the full torus character variety LR.6/character-variety, and supply the definite-unitary dimension/depth theorem and the classical-density/reducedness argument of Ding Proposition 4.14 (n≥2, equidimension n·d_K, Cohen–Macaulayness of the coherent sheaf, reducedness), with the actual Hecke spectral algebra and s≥1. The cited Breuil–Hellmann–Schraen inputs (their Lemma 3.10, Proposition 3.11, Corollary 3.12 and §5.2, Corollary 3.20, and the two companion results Ding cites) must be audited, not assumed. Generic Jacquet modules and character spaces are already LR.6 nodes and are not requested again; the completed coefficients and the local model Π|H≅C(H,E)^s are planned here in O0/unitary-completed-coefficients.
 
 Consumers: `OverconvergentAutomorphicForms:O0/unitary-jacquet-eigenvariety`, `OverconvergentAutomorphicForms:O0/unitary-eigenvariety-geometry`, `OverconvergentAutomorphicForms:O0/unitary-eigenvariety-reduced`.
+
+**`ShimuraCompactifications:C3`.** Use the already specified C3.6a ToroidalRefinement.algebraicSpace_formalFunctions contract: proper locally Noetherian algebraic-space coherent higher direct images, their completion along a coherent ideal and the inverse limit of thickenings, with étale localization. The current supplier README states this target; its atlas packet has no finer node id. This request records the interface, not a new construction here.
+
+Consumer: `OverconvergentAutomorphicForms:O6/hilbert-cusp-higher-vanishing`.
 
 ### Recorded gaps
 
@@ -4041,6 +4049,12 @@ Consumers: `OverconvergentAutomorphicForms:O7/igusa-completion-comparison`, `Ove
 - Rigid weight spaces of compact abelian p-adic groups such as 𝒪_p^× are represented by the character variety of LR.6; PadicMeasuresIwasawaAlgebras (TauCetiRoadmap main) builds no rigid structure on its character spaces, and LocallyAnalyticDistributions §4.15 makes the universal character analytic on affinoid charts. O0 imports LR.6/character-variety and LocallyAnalyticDistributions §4.15 and adds no weight-space theory.
 - LR.2/LR.6 supply analytic vectors, noncompact character varieties and coherent Jacquet modules, but not the Hecke eigenvariety geometry Ding Proposition 4.14 uses. LocallyAnalyticRepresentationsOfLocalGroups, Part II: coherent Jacquet eigenvarieties, with the Hecke spectral algebra, dimension/depth and classical-density reducedness. Ding's completed coefficients stay in O0.
 - ShimuraCompactifications (TauCetiRoadmap PR) stops at the pushforward of the cusp ideal (its C6.42) and states no higher direct images to the minimal compactification; AIP's appendix theorem is planned here as O6/hilbert-cusp-higher-vanishing. Keep O6/hilbert-cusp-higher-vanishing here; a later ShimuraCompactifications Part II on cusp cohomology imports it rather than restating it.
+
+## Independent review of revision 4
+
+Accepted by Codex — codex-bnuA6h on 20 October 2026, [review report](../reviews/REV-OverconvergentAutomorphicForms--O0~4.md), issue #11303. This is a complete target-level plan under PROTOCOL §§0 and 3, with the three explicit gaps above; it is not a closed roadmap or an implementation. All 79 contracts, all 38 baseline statements at the pins, the seven source versions, named supplier interfaces, APIs/tests and 32 planets were checked. The register records 67 verified, six corrected and six conditional/unverifiable targets. The corrections concern strict p=3 admission, torsor topology and point lifting, finite-character integral pullback and full Čech descent, cusp vanishing and line-valued family expansions; arithmetic coarse torsors explicitly retain their free-locus hypotheses.
+
+The suggested Lean file follows the current WORKERS shape: light real-bodied definitions over pinned carriers, statable milestones, and two meaningful proved examples per kept weight-map/cocycle definition. Geometric carriers remain reader targets. It elaborated with 15 `sorry` warnings and no other diagnostics; the packet validator reported zero errors and warnings. Earlier exhaustive-prototype requirements in the historical review do not apply to this shape. All implementation statuses remain unchecked. Source-issue verdicts and earlier reviews remain in packet history.
 
 ## Pinned baseline
 

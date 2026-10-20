@@ -177,7 +177,8 @@ def trivial : RightCocycle Γ X C where
   map_mul' _ _ _ := (mul_one 1).symm
 
 theorem apply_one (J : RightCocycle Γ X C) (x : X) : J.toFun 1 x = 1 := by
-  sorry
+  apply mul_left_cancel (a := J.toFun 1 x)
+  simpa using (J.map_mul' 1 1 x).symm
 
 end RightCocycle
 
@@ -189,14 +190,21 @@ theorem right_cocycle_of_left {Γ X C : Type*} [Group Γ] [Group C] [MulAction �
     (K (γ * δ)⁻¹ x)⁻¹ = (K γ⁻¹ x)⁻¹ * (K δ⁻¹ (γ⁻¹ • x))⁻¹ := by
   sorry
 
-/-- Matrix-valued cocycles do not commute: reversing the order of the two factors in the
-cocycle law changes the value. -/
+/-- The cocycle inverse occurs at the translated point, in the order fixed by the law. -/
+example {Γ X C : Type*} [Group Γ] [Group C] [MulAction Γᵐᵒᵖ X]
+    (J : RightCocycle Γ X C) (γ : Γ) (x : X) :
+    J.toFun γ x * J.toFun γ⁻¹ (MulOpposite.op γ • x) = 1 := by
+  rw [← J.map_mul', mul_inv_cancel, J.apply_one]
+
+/-- A noncommutative example of this actual cocycle structure detects reversed factors. -/
 example :
-    (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) ℚ) * !![1, 0; 1, 1] ≠
-      (!![1, 0; 1, 1] : Matrix (Fin 2) (Fin 2) ℚ) * !![1, 1; 0, 1] := by
-  intro h
-  have h00 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℚ ↦ M 0 0) h
-  norm_num [Matrix.mul_apply, Fin.sum_univ_succ] at h00
+    let J : RightCocycle (Equiv.Perm (Fin 3)) (Equiv.Perm (Fin 3))ᵐᵒᵖ
+        (Equiv.Perm (Fin 3)) :=
+      { toFun := fun γ _ ↦ γ, map_mul' := fun _ _ _ ↦ rfl }
+    let γ := Equiv.swap (0 : Fin 3) 1
+    let δ := Equiv.swap (1 : Fin 3) 2
+    J.toFun (γ * δ) 1 ≠ J.toFun δ (MulOpposite.op γ • 1) * J.toFun γ 1 := by
+  decide
 
 /-! ## Layer O4: arithmetic descent and polarization classes -/
 
@@ -241,10 +249,6 @@ theorem aip_translation_valuation_units (v : Valuation A Γ₀) (u : Aˣ)
 theorem finiteOrder_value_one (v : Valuation A Γ₀) (u : Aˣ) (d : ℕ) (hd : 0 < d)
     (hu : u ^ d = 1) : v (u : A) = 1 := by
   sorry
-
-/-- The sign character at `p = 2`: negation preserves integrality. -/
-example (v : Valuation A Γ₀) (a : A) : v (-a) ≤ 1 ↔ v a ≤ 1 := by
-  rw [Valuation.map_neg]
 
 end Valuation
 
