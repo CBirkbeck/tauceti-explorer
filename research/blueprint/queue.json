@@ -153168,6 +153168,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticRegulators~codex2.md"
+  },
+  {
+   "id": "REV-PKG-EllipticKTheory~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EllipticKTheory~codex2.md",
+    "research/blueprint/packages/EllipticKTheory/review.json",
+    "research/blueprint/packages/EllipticKTheory/README.md",
+    "research/blueprint/packages/EllipticKTheory/Suggested.lean",
+    "research/blueprint/packages/EllipticKTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EllipticKTheory~codex2.md"
   }
  ]
 }
