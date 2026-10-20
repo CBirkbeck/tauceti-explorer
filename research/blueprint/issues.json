@@ -5372,5 +5372,6 @@
  "FIX-PKG-EllipticRegulators~adv2": 11408,
  "REV-PKG-RefinedTraceMethods~codex3": 11415,
  "FIX-PKG-MotivesAndAlgebraicCycles~adv2": 11416,
- "REV-PKG-PadicHodgeRegulators~codex1": 11419
+ "REV-PKG-PadicHodgeRegulators~codex1": 11419,
+ "FIX-PKG-HabiroCyclotomicCompletions~adv2": 11421
 }
