@@ -264134,14 +264134,15 @@
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
     "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "Precomposition with (x²,N(x)) gives the positive norm character, whereas Definition 6.1 p.1756 and equation (9.1) p.1781 use the inverse. The corrected group map is necessary; the preprint keeps the discrepancy."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "Evaluating a product character on the printed positive-norm coordinate yields t(N(x)), while the intended formula requires its inverse. The inverse-norm coordinate fixes precisely this sign."
   },
   {
    "id": "OverconvergentAutomorphicForms/E2",
@@ -264159,14 +264160,15 @@
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
     "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "The Teichmüller character over Q_p is a bounded point but has all-unit deviation 1 on nontrivial prime-to-p torsion. The printed strict all-unit criterion and its epsilon consequence fail; a pro-p diagnostic does not itself identify AIP coordinates."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "A nontrivial prime-to-p Teichmüller character is a bounded point with all-unit deviation equal to one. Thus the printed strict all-unit criterion fails; the principal pro-p diagnostic and AIP coordinates must remain separate."
   },
   {
    "id": "OverconvergentAutomorphicForms/E3",
@@ -264184,14 +264186,15 @@
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
     "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "For p=3 and κ(4)=ζ_9 the printed radius 3^(−7/6) includes 4³−1 of norm 3^(−2), where the character is nontrivial, and 4^(9·3^j)−1 tends to zero with trivial character. The identity principle contradicts that claimed analytic extension."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "At p=3 the finite character with κ(4)=ζ₉ would extend to a ball containing 4³, where its value is ζ₃, while its kernel has a sequence accumulating at one in that ball. Analytic uniqueness contradicts the stated radius."
   },
   {
    "id": "OverconvergentAutomorphicForms/E4",
@@ -264209,14 +264212,15 @@
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
     "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "The locally rank-one O_F/p^m module in Definition 7.1 has cardinality p^(mg), not p^m except in degree one."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "The given local O_F/p^m module model has p^(m[F:Q]) elements, so the displayed p^m order misses the field degree."
   },
   {
    "id": "OverconvergentAutomorphicForms/E5",
@@ -264234,14 +264238,15 @@
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
     "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "Remark 6.9’s Banach citation belongs to AIP CUSP Theorem 3.16 p.18 and the arithmetic form Theorem 4.4 p.28; AIP ADIC has no cited Theorem 3.16."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "The cited Theorem 3.16 is in the cusp paper, with its arithmetic fixed-radius version in Theorem 4.4; the adic paper is the wrong bibliographic entry."
   },
   {
    "id": "OverconvergentAutomorphicForms/E6",
@@ -264257,14 +264262,15 @@
     "The dated title/erratum/correction web searches on 2026-10-08 found no correction in the returned results; absence is not established and no author was contacted.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
     "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "The frame map goes from the perfectoid cover to the AIP frame torsor, so pullback takes AIP eigenfunctions to perfectoid eigenfunctions. Theorem 7.14’s displayed arrow reverses that named map; its proof constructs the correct direction."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "Pulling functions back along the map from the perfectoid tower to AIP frames goes from AIP eigenfunctions to perfectoid ones. The named pullback arrow in the display is reversed, although its inverse exists."
   },
   {
    "id": "OverconvergentAutomorphicForms/E7",
@@ -264279,14 +264285,15 @@
     "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
     "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
     "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "Definition 8.17 uses all congruence units. The unit −7−4√3 is 1 mod 4 and negative at both embeddings. Norm congruence, rather than positivity alone, proves cancellation for the actual central kernel."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "All tame-congruent units enter Definition 8.17. In Q(√3), −7−4√3 is congruent to one mod 4 and negative at both embeddings, so positivity omits representatives. Their norm-congruence argument repairs the cancellation."
   },
   {
    "id": "OverconvergentAutomorphicForms/E8",
@@ -264301,14 +264308,15 @@
     "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
     "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
     "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "At an odd ramified quadratic extension, evaluation of O_C[X]/(X²−p) has component differences divisible by 2√p. It misses (1,0), so the integral embedding product used in Proposition 5.18’s proof is false. This does not disprove the inclusion theorem with an unsplit proof."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "For the ramified quadratic algebra, integral embedding evaluation has component differences divisible by 2√p, excluding (1,0). This refutes the integral product step, without refuting the period inclusion with an unsplit proof."
   },
   {
    "id": "OverconvergentAutomorphicForms/E9",
@@ -264323,14 +264331,15 @@
     "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
     "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
     "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.",
-    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum.",
+    "Independent revision-5 review, 2026-10-20: inspected the Centre Mersenne article page, arXiv:1902.03985 history and Heuer publication page; title/author searches with erratum/correction returned no public correction in the inspected results. Compared the published PDF and the relevant v4 passages directly. Existing atlas corrections remain credited; no novelty or absence claim and no author contact."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
    "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
-   "reviewReason": "The antidiagonal span action is diag(t,1), which changes a general affine period coordinate. Only diag(u,1)π_HT(x) is invariant under (x,u)↦(diag(t,1)x,t⁻¹u); first projection alone is not."
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~5",
+   "reviewReason": "The span relation acts by diag(t,1) on the geometric factor, which changes a nonzero affine period coordinate. The map diag(u,1)π_HT(x) is invariant; projection to x is not."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-1",
@@ -289161,6 +289170,86 @@
    "status": "confirmed",
    "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
    "reviewReason": "The allowed case a=b=1,h=1,k=2,h′=1 makes the displayed root ratio undefined and puts μ at its lattice pole. The main theorem’s 1≤a<b guard supplies the intended scope."
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E629",
+   "kind": "misprint",
+   "locator": "Publisher PDF, §5, definition of e⁺(a),e⁻(a) before Lemma5.3, printed p.573",
+   "printed": "The displayed e⁻(a) repeats the positive sign of the exponential pair in e⁺(a).",
+   "correction": "Use e⁻(a)=(1/16)a(−1)²1−(1/4)(i(a)+i(−a)), with the same oscillator term as e⁺(a).",
+   "reason": "The odd-pairing sign involution fixes the oscillator term and negates both exponential states; it therefore exchanges e⁺ and e⁻. With the repeated plus sign the two vectors coincide and that exchange argument cannot give the asserted frame.",
+   "affects": "the proof",
+   "known": "No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.",
+   "searched": [
+    "Publisher/author source and the version records in sourceVersions, checked2026-10-20.",
+    "Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Masahiko Miyamoto, A new construction of the moonshine vertex operator algebra over the real number field, Annals of Mathematics 159 (2004), 535–596, publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E630",
+   "kind": "misprint",
+   "locator": "Publisher PDF, §5, proof of Lemma5.3, printed p.573",
+   "printed": "The proof writes the commutator of τ_e and y(m) as1, although the lemma states it is0.",
+   "correction": "The endomorphism commutator is0.",
+   "reason": "The proof says the involution acts identically on the Heisenberg oscillator space; commuting with every oscillator mode means commutator0. Substituting the zero mode on the vacuum also rules out the identity endomorphism.",
+   "affects": "the proof",
+   "known": "No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.",
+   "searched": [
+    "Publisher/author source and the version records in sourceVersions, checked2026-10-20.",
+    "Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Masahiko Miyamoto, A new construction of the moonshine vertex operator algebra over the real number field, Annals of Mathematics 159 (2004), 535–596, publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E631",
+   "kind": "error",
+   "locator": "Author-hosted PDF, §9,15D paragraph, p.29",
+   "printed": "The full conjugate of Γ₀(5) by diag(3,1) is identified as the modular group fixing the15D function.",
+   "correction": "Use the order3 multiplier kernel inside that conjugate eigengroup. It has index3 and contains Γ₀(45). The full conjugate acts by cube-root scalars.",
+   "reason": "The displayed eta quotient f=(η(3τ)/η(15τ))² has f(τ+1/3)=e(−1/3)f(τ), and f³=T_{5B}(3τ)−6. Translation by1/3 belongs to the displayed conjugate group and fails to fix its q^{−1} leading term. Thus the eigengroup and fixing group differ. Conway–Norton §5’s n|h notation makes precisely this kernel distinction.",
+   "affects": "a stated result",
+   "known": "No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.",
+   "searched": [
+    "Publisher/author source and the version records in sourceVersions, checked2026-10-20.",
+    "Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E632",
+   "kind": "misprint",
+   "locator": "arXiv:math/0506321v1, Lemma5.11 and the first line of its proof, p.10",
+   "printed": "The second input of each displayed intertwining-operator type repeats β₁, including the definition of m_γ.",
+   "correction": "Use M(β₂,0) as the second input on the left and in m_γ, and M(β₂,α₂) as the second input on the right. The output has β₁+β₂ in all three places.",
+   "reason": "The next line defines m_γ as a fusion coefficient of M(β₁,0) with M(β₂,0), and the following associativity computation retains these distinct supports. Fusion adds the 1/16-support labels; the repeated β₁ would instead give zero support and contradict the stated output when β₁≠β₂.",
+   "affects": "the proof",
+   "known": "The misprint is present in the visually checked v1 page. No separate correction was located in the inspected arXiv record and public title/lemma/erratum searches. The published2007 text was not collated; no claim about its typography is made. Awaiting independent review.",
+   "searched": [
+    "arXiv:math/0506321 abstract/version record, checked2026-10-20; v1 PDF p.10 visually inspected.",
+    "Public searches for both paper titles, erratum and Lemma5.11; author publication listing identifies the2007 journal article but no correction was located in the inspected results."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Chongying Dong, Robert L. Griess Jr. and Ching Hung Lam, On the Uniqueness of the Moonshine Vertex Operator Algebra, arXiv:math/0506321v1, 2005; preprint pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "QuadraticFormInvariantsPartII/E1",
