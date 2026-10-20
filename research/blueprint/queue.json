@@ -152702,6 +152702,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-K2SymbolsBrauerPartII.md"
+  },
+  {
+   "id": "REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsCyclotomicMainConjecture"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/review.json",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/README.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/Suggested.lean",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3.md"
   }
  ]
 }
