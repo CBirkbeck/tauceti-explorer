@@ -152683,8 +152683,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv3.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv3.md",
+   "note": "claimed on GitHub issue #11328"
   },
   {
    "id": "DESIGN-K2SymbolsBrauerPartII",
@@ -152859,9 +152860,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-IntegralIwasawaTheory~adv.md",
-   "note": "claimed on GitHub issue #11339"
+   "note": "deliverables arrived from an external worker on issue #11339",
+   "finishedAt": "2026-10-20T10:21:44Z"
   },
   {
    "id": "FIX-PKG-HabiroNumberFields~adv",
@@ -152918,8 +152920,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-MotivicEtaleKTheoryPartII~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-MotivicEtaleKTheoryPartII~codex.md",
+   "note": "claimed on GitHub issue #11345"
   }
  ]
 }
