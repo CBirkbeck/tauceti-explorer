@@ -1,0 +1,118 @@
+{
+  "id": "K2SymbolsBrauerPartII",
+  "title": "K₂ symbols and Brauer groups, Part II: Galois symbols and Tate comparison",
+  "area": "automorphic",
+  "parent": "K2SymbolsBrauer",
+  "summary": "This Part II moves the complete Galois-symbol layer of K₂ symbols and Brauer groups beyond its motivic suppliers. It compares the existing Galois symbol with explicit Kummer cups, primitive-root contractions, cyclic symbol algebras, arithmetic norm-residue symbols, all-place reciprocity, Tate localization maps and the finite étale Chern class, retaining the root, residue and product signs at every comparison.",
+  "readme": "# K₂ symbols and Brauer groups, Part II\n\nThis Part II moves the complete Galois-symbol layer of K₂ symbols and Brauer groups beyond its motivic suppliers. It compares the existing Galois symbol with explicit Kummer cups, primitive-root contractions, cyclic symbol algebras, arithmetic norm-residue symbols, all-place reciprocity, Tate localization maps and the finite étale Chern class, retaining the root, residue and product signs at every comparison.\n\nThe precise scope is the former K2SymbolsBrauer Layer 14, not an independent construction of motivic cohomology. Base Layers 1–13 remain suppliers. MotivicEtaleKTheory M.1–M.3 and the low-degree finite Chern branch of M.8 precede this roadmap. Existing ClassFieldTheory and QuadraticFormInvariants constructions are imported with their actual maps. The full reader document supplies hypotheses, APIs, tests and a conservation table.\n\nConventions: κ(a)(g)=g(α)/α; cup order (a,b); YX=ζXY; arithmetic Frobenius; tame uniformizer in the right slot; product-normalized classical-to-Quillen comparison. All fields and invertible coefficients are allowed where the corresponding source theorem permits them.\n\nThe plan is complete and every stage is planned; supplier requests are not claims of library implementation.\n",
+  "prerequisites": [
+    "K2SymbolsBrauer",
+    "MotivicEtaleKTheory",
+    "GeneralAlgebraicKTheory",
+    "ClassicalArithmeticCompletion",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  ],
+  "stages": [
+    {
+      "key": "KBII.1",
+      "title": "Coefficient models and Brauer symbols",
+      "description": "Read the imported tensor-valued Galois symbol in Tau Ceti’s Kummer and cup APIs; construct primitive-root trivializations of all integer twists, their contraction to weight one and the Brauer symbol. Prove root-change, field-naturality and residue dictionaries.",
+      "requires": [
+        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.3",
+        "K2SymbolsBrauer:T.2"
+      ]
+    },
+    {
+      "key": "KBII.2",
+      "title": "Cyclic symbol algebras",
+      "description": "Construct the degree-m symbol algebra without an irreducibility hypothesis, its monomial basis, universal property, central simplicity, scalar extension and splitting maps. Prove the proper-degree matrix-corner theorem and identify its Brauer class with the ordered Kummer cup.",
+      "requires": [
+        "K2SymbolsBrauerPartII:KBII.1",
+        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.3"
+      ]
+    },
+    {
+      "key": "KBII.3",
+      "title": "Local norm-residue and Hilbert symbols",
+      "description": "Factor the supplier’s arithmetic norm-residue symbol through classical K₂ and split it when all roots of unity have order m. Define the total conic helper, compare the unit restriction with the existing Hilbert symbol, and prove the arithmetic invariant formula with its universal minus sign.",
+      "requires": [
+        "K2SymbolsBrauerPartII:KBII.2",
+        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.3"
+      ]
+    },
+    {
+      "key": "KBII.4",
+      "title": "All-place reciprocity on K₂",
+      "description": "Construct the local-factor family on K₂ for number fields containing μ_m, including real and complex places and m=1. Prove finite support and identify the imported product law with the imported sum of Brauer invariants.",
+      "requires": [
+        "K2SymbolsBrauerPartII:KBII.3",
+        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.3"
+      ]
+    },
+    {
+      "key": "KBII.5",
+      "title": "Tate and finite Chern comparisons",
+      "description": "Transport the existing Tate local, global and S-integer isomorphisms through the actual coefficient, localization and residue maps, including ℓ=2 and real places. Retain the global-function-field target through an explicit supplier request. Compare finite Chern classes on the integral-reduction image, retaining the Bockstein quotient.",
+      "requires": [
+        "K2SymbolsBrauerPartII:KBII.4",
+        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.3",
+        "MotivicEtaleKTheory:M.2",
+        "MotivicEtaleKTheory:M.8",
+        "GeneralAlgebraicKTheory:K.7"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "weibel",
+      "title": "The K-book: An introduction to algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author copy dated 29 August 2013, corresponding to Graduate Studies in Mathematics 145; findings below concern this copy only",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "readSections": [
+        "III.6.2–6.2.5, pp.232–234; III.6.9–6.10.4, pp.240–243; VI.8.6, p.515, read 2026-10-20."
+      ]
+    },
+    {
+      "id": "milne",
+      "title": "Class Field Theory",
+      "authors": "J. S. Milne",
+      "edition": "Version 4.03, 6 August 2020; printed page numbers",
+      "url": "https://www.jmilne.org/math/CourseNotes/CFTc.pdf",
+      "sha256": "63e7c0a2b6a62ac365ba8b2145cc89ecffa1a53370c28d358a954a9abc60e4d5",
+      "readSections": [
+        "III.3, Proposition 3.6 and Lemma 3.7, p.109; III.4, pp.111–115; V.5, pp.178–179; VII.8, pp.219–222, read 2026-10-20."
+      ]
+    },
+    {
+      "id": "tate",
+      "title": "Relations between K₂ and Galois cohomology",
+      "authors": "John Tate",
+      "edition": "Inventiones mathematicae 36 (1976), 257–274, version of record, GDZ scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0036/LOG_0020.pdf",
+      "sha256": "5d1ee68e3f9cc49ba6cac8269e1c9ca510411c6a154f36b559290849a72db7b7",
+      "readSections": [
+        "Entire article, pp.257–274, page images read 2026-10-20; especially §§2–6, diagram (3.3), Theorems 5.1, 5.4 and 6.2."
+      ]
+    },
+    {
+      "id": "soule",
+      "title": "Groupes arithmétiques et K-théorie des anneaux d’entiers de corps de nombres",
+      "authors": "Christophe Soulé",
+      "edition": "Doctorat d’État thesis, Université Paris VII, June 1978; author-hosted transcription",
+      "url": "https://www.ihes.fr/~soule/documents/These_Christophe_Soule.pdf",
+      "sha256": "19bb0877616c262fcb83c9fe6ad88f98747f117f23805b6154e19174dbb659a7",
+      "readSections": [
+        "Proposition 2.2.2.3 and its proof, pp.42–44; §§2.2.3.1–2.2.3.3, pp.45–49, including finite-coefficient reduction, Chern factorization and the warning on finite-by-finite products; read 2026-10-20."
+      ]
+    }
+  ],
+  "status": "draft"
+}
