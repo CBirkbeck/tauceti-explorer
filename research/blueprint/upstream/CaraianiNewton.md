@@ -177,7 +177,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 23
 
 - **PotentialAutomorphyInfrastructure** — Reusable infrastructure for potential automorphy over CM fields. Plan 1/1 accepted · package not yet · CN needs 5/6 layers · **Tau Ceti: pull request #1081 open** · cites outside the 94: PotentialAutomorphyInfrastructurePartII (2)
-- **SmallRamificationAndAbelianVarietyBaseCases** — Small ramification and the base cases for Serre modularity. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #970 open**
+- **SmallRamificationAndAbelianVarietyBaseCases** — Small ramification and the base cases for Serre modularity. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #970 open** · reviewer recommends approval
 
 ## Tier 24
 

@@ -745,10 +745,10 @@
       "head": "4a67a7e",
       "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "recommendation": "approve",
+        "head": "4a67a7e",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "EndoscopicTransferAndUnitaryTraceComparison": {
