@@ -1656,8 +1656,12 @@
     "KTheoryLowDegrees": {
       "stage": "pr",
       "pr": 1248,
-      "head": "d57634b",
-      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running"
+      "head": "ca13fbf",
+      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
+      "review": {
+        "current": false,
+        "note": "final-review repairs applied at ca13fbf; confirmation pass pending"
+      }
     },
     "HeckeStacksAndLocalShtukas": {
       "stage": "pr",
