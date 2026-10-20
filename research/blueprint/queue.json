@@ -154504,6 +154504,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-OverconvergentAutomorphicForms~codex.md"
+  },
+  {
+   "id": "FIX-PKG-DrinfeldModulesAndTModules~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DrinfeldModulesAndTModules"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-DrinfeldModulesAndTModules~adv.md",
+    "research/blueprint/packages/DrinfeldModulesAndTModules/review.json",
+    "research/blueprint/packages/DrinfeldModulesAndTModules/README.md",
+    "research/blueprint/packages/DrinfeldModulesAndTModules/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-DrinfeldModulesAndTModules~adv.md"
   }
  ]
 }
