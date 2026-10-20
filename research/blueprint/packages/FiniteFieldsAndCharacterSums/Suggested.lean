@@ -147,8 +147,8 @@ noncomputable def linearizedOf {K : Type*} [CommSemiring K] (q : ℕ) (a : ℕ �
     K[X] :=
   a.sum fun i c => C c * X ^ (q ^ i)
 
-example {K : Type*} [CommSemiring K] (q : ℕ) :
-    linearizedOf q (0 : ℕ →₀ K) = 0 := by
+example {K : Type*} [CommSemiring K] (q i : ℕ) (c : K) :
+    linearizedOf q (Finsupp.single i c) = C c * X ^ (q ^ i) := by
   simp [linearizedOf]
 
 section Linearized
@@ -197,9 +197,12 @@ theorem canonicalAddChar_eq_exp (x : F) (t : ℤ) (ht : (t : ZMod p) = Algebra.t
   sorry
 
 example {R : Type*} [CommMonoid R] (ζ : R) (hζ : ζ ^ p = 1) :
-    traceAddChar F p ζ hζ 0 = 1 := by simp
+    traceAddChar (ZMod p) p ζ hζ 1 = ζ := by
+  simp [traceAddChar, AddChar.zmodChar_apply, ZMod.val_one]
 
-example : canonicalAddChar F p 0 = 1 := by simp
+example (x : ZMod p) :
+    canonicalAddChar (ZMod p) p x = ZMod.stdAddChar x := by
+  simp [canonicalAddChar]
 
 end CanonicalCharacter
 /-- A primitive character identifies field elements with all additive characters by multiplicative shifts. -/
@@ -225,10 +228,11 @@ theorem hasseDavenport_lifting (χ : MulChar F ℂ) (ψ : AddChar F ℂ)
     (hψ : ψ.IsPrimitive) :
     gaussSum (liftNorm E χ) (liftTrace E ψ) =
       (-1 : ℂ) ^ (Module.finrank F E - 1) * gaussSum χ ψ ^ Module.finrank F E := by sorry
-example (χ : MulChar F ℂ) : liftNorm E χ 0 = 0 := by
-  exact (liftNorm E χ).map_zero
+example (χ : MulChar F ℂ) (u : Fˣ) : liftNorm F χ u = χ u := by
+  simp [liftNorm]
 
-example (ψ : AddChar F ℂ) : liftTrace E ψ 0 = 1 := by simp
+example (ψ : AddChar F ℂ) (x : F) : liftTrace F ψ x = ψ x := by
+  simp [liftTrace]
 
 end CharacterLifts
 
@@ -284,8 +288,12 @@ theorem projectiveEval_pair_uniform (d : ℕ) (hd : 1 ≤ d) (x y : Option F) (h
       projectiveEval d x P = u ∧ projectiveEval d y P = v} =
       Fintype.card F ^ (d - 1) := by sorry
 
-example (d : ℕ) (P : Polynomial.degreeLT F (d + 1)) :
-    projectiveEval d none P = (P : F[X]).coeff d := rfl
+example :
+    projectiveEval 2 none
+      (⟨X, by simp [Polynomial.mem_degreeLT]⟩ : Polynomial.degreeLT (ZMod 3) 3) = 0 ∧
+    projectiveEval 2 (some 2)
+      (⟨X, by simp [Polynomial.mem_degreeLT]⟩ : Polynomial.degreeLT (ZMod 3) 3) = 2 := by
+  norm_num [projectiveEval, Polynomial.coeff_X]
 
 /-- Enumerate bounded-degree polynomials through their coefficient vectors. -/
 local instance degreeLTFintype (d : ℕ) : Fintype (Polynomial.degreeLT F (d + 1)) :=
@@ -410,9 +418,13 @@ example {R : Type*} [CommRing R] [Nontrivial R] :
   obtain ⟨u, _, hu⟩ := h ⊤ (by simp)
   exact hu (by simp)
 
-example {F : Type*} [Field F] (g : F[X]) (hg : g.Monic) :
-    quotientTopCoefficient g hg 0 = 0 := by
-  simp [quotientTopCoefficient]
+example {F : Type*} [Field F] :
+    quotientTopCoefficient (X ^ 2 : F[X]) (monic_X_pow 2)
+      (AdjoinRoot.mk (X ^ 2) X) = 1 := by
+  unfold quotientTopCoefficient
+  rw [AdjoinRoot.modByMonicHom_mk]
+  rw [(Polynomial.modByMonic_eq_self_iff (monic_X_pow 2)).mpr (by simp)]
+  simp
 
 end FF2
 
@@ -518,9 +530,15 @@ example : IsMDS (⊥ : Submodule F (ι → F)) := by
   intro c hc hne
   exact False.elim (hne (by simpa using hc))
 
-example (α : ι → F) (k : ℕ) : reedSolomonEncode α k 0 = 0 := by simp
+example (α : ι → F) :
+    reedSolomonEncode α 2 (⟨X, by simp [Polynomial.mem_degreeLT]⟩ : degreeLT F 2) = α := by
+  ext i
+  simp [reedSolomonEncode]
 
-example (α : ι → F) (k : ℕ) : (0 : ι → F) ∈ reedSolomon α k := by simp
+example (α : ι → F) : (fun _ => (1 : F)) ∈ reedSolomon α 1 := by
+  refine ⟨⟨1, by simp [Polynomial.mem_degreeLT]⟩, ?_⟩
+  ext i
+  simp [reedSolomonEncode]
 
 end Codes
 section PrincipalUnits
@@ -574,11 +592,8 @@ theorem bent_correlation_norm (ψ : AddChar F ℂ) (B : E → F)
     (hB : IsTraceBent ψ B) (α : Eˣ) (hα : orderOf α = N) (t : ZMod N) :
     ‖periodicCorr ψ (fun i => B ((α : E) ^ i.val))
       (traceWord (F := F) α 1) t + ψ (B 0)‖ = Real.sqrt (Fintype.card E) := by sorry
-example {M : ℕ} [NeZero M] (t : ZMod M) (v : ZMod M → F) :
-    shiftWord t (shiftWord (-t) v) = v := by
-  funext i
-  simp [shiftWord]
-example (α : Eˣ) : traceWord (F := F) α 0 = 0 := by
+example : shiftWord (1 : ZMod 3) id 0 = 1 := by rfl
+example : traceWord (F := ZMod 3) (1 : (ZMod 3)ˣ) 1 = fun _ => 1 := by
   funext i
   simp [traceWord]
 
@@ -639,7 +654,8 @@ theorem gmw_block_count (α : Kˣ) (hα : orderOf α = N) (h : ℕ) (hh : 1 ≤ 
     Nat.card {i : ZMod N // ∀ k : Fin j, gmwSequence α h hh hcop (i + (k : ℕ)) = w k} =
       Fintype.card K / p^j - if w = 0 then 1 else 0 := by sorry
 
-example (α : Kˣ) : geometricSequence α (fun _ : L => (0 : ZMod p)) = 0 := rfl
+example (α : Kˣ) :
+    geometricSequence α (fun _ : L => (1 : ZMod p)) = fun _ => 1 := rfl
 
 example (α : Kˣ) :
     gmwSequence (L := L) α 1 (by decide) (by simp) =
@@ -672,15 +688,21 @@ def hermitianEval (l : ℕ) : hermitianMessageSpace p K l →ₗ[K] (HermitianPo
 def hermitianCode (l : ℕ) : TauCeti.LinearCode K (HermitianPoints p K) :=
   LinearMap.range (hermitianEval p K l)
 
-example : ((⟨(0, 0), by simp⟩ : HermitianPoints 2 K) : K × K) = (0, 0) := rfl
+example : ¬ (0 : K)^2 + 0 = (1 : K)^3 := by simp
 
 example : (1 : MvPolynomial (Fin 2) K) ∈ hermitianMessageSpace p K 0 := by
   apply Submodule.subset_span
   exact ⟨0, 0, by omega, by omega, by simp⟩
 
-example (l : ℕ) : hermitianEval p K l 0 = 0 := by simp
+example (l : ℕ) (h : (1 : MvPolynomial (Fin 2) K) ∈ hermitianMessageSpace p K l) :
+    hermitianEval p K l ⟨1, h⟩ = fun _ => 1 := by
+  ext z
+  simp [hermitianEval]
 
-example (l : ℕ) : (0 : HermitianPoints p K → K) ∈ hermitianCode p K l := by simp
+example : (fun _ : HermitianPoints p K => (1 : K)) ∈ hermitianCode p K 0 := by
+  refine ⟨⟨1, Submodule.subset_span ⟨0, 0, by omega, by omega, by simp⟩⟩, ?_⟩
+  ext z
+  simp [hermitianEval]
 
 end Hermitian
 /-- Over the field of p^2 elements the Hermitian affine curve has p^3 points. -/
@@ -728,8 +750,9 @@ theorem sotoAndrade_norm_le (h2 : Module.finrank F K = 2)
 
 example (ε : Fˣ →* ℂˣ) : unitCharZero ε (0 : F) = 0 := by
   simp [unitCharZero]
-example : (1 : (ZMod 3)ˣ) ∈ NormOneUnits (ZMod 3) (ZMod 3) := by
-  exact (NormOneUnits (ZMod 3) (ZMod 3)).one_mem
+example : Units.mk0 (2 : ZMod 3) (by decide) ∉ NormOneUnits (ZMod 3) (ZMod 3) := by
+  simp [NormOneUnits]
+  decide
 
 example : sotoAndradeSum (F := ZMod 2) (K := ZMod 2) 1 1 1 = 0 := by
   classical
@@ -756,7 +779,7 @@ def upperHalfPlaneDistance (δ : F) (z w : UpperHalfPlane F) : F :=
 
 /-- The adjacency matrix acts by summation with counting measure. -/
 def terrasAdjacency (δ a : F) : (UpperHalfPlane F → ℂ) →ₗ[ℂ] (UpperHalfPlane F → ℂ) :=
-  Matrix.toLin' (fun z w => if upperHalfPlaneDistance δ z w = a then (1 : ℂ) else 0)
+  Matrix.toLin' (fun z w => if z ≠ w ∧ upperHalfPlaneDistance δ z w = a then (1 : ℂ) else 0)
 
 /-- The mixed character sum left after counting the two horizontal square roots. -/
 def principalSeriesSum (ε₂ χ : Fˣ →* ℂˣ) (δ a : F) : ℂ :=
@@ -776,11 +799,19 @@ theorem terras_eigenvalue_character_sum (h2 : Module.finrank F K = 2)
 
 example (δ : F) (z : UpperHalfPlane F) : upperHalfPlaneDistance δ z z = 0 := by
   simp [upperHalfPlaneDistance]
-example (δ a : F) : terrasAdjacency δ a 0 = 0 := by simp
+example (δ a : F) (z : UpperHalfPlane F) :
+    terrasAdjacency δ a (Pi.single z 1) z = 0 := by
+  classical
+  change (∑ w : UpperHalfPlane F,
+    (if z ≠ w ∧ upperHalfPlaneDistance δ z w = a then (1 : ℂ) else 0) *
+      ((Pi.single z (1 : ℂ)) : UpperHalfPlane F → ℂ) w) = 0
+  simp [Pi.single_apply]
 
-example (ε₂ : Fˣ →* ℂˣ) (δ : F) : principalSeriesSum ε₂ 1 δ 0 =
-    ∑ y : Fˣ, unitCharZero ε₂ (δ * ((y : F) - 1)^2) := by
-  simp [principalSeriesSum]
+example : principalSeriesSum 1 1 (2 : ZMod 3) 1 = 2 := by
+  have h : ∀ y : (ZMod 3)ˣ, (y : ZMod 3) + 2 * ((y : ZMod 3) - 1)^2 ≠ 0 := by decide
+  simp only [principalSeriesSum, one_mul, unitCharZero, h, dite_false, MonoidHom.one_apply,
+    Units.val_one, mul_one, Finset.sum_const, Finset.card_univ, nsmul_eq_mul]
+  norm_num [ZMod.card_units, show Nat.totient 3 = 2 from by decide]
 
 end Terras
 /-! ## Layer 5: arithmetic estimates and secret-sharing fibres -/

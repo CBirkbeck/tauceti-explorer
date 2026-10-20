@@ -252,19 +252,19 @@ Used by: [Local acyclicity of the universal polynomial sheaf](#FF2-polynomial-fa
 
 <a id="contract-F1-R01"></a>
 
-### From PadicDifferentialEquationsAndRigidCohomology:RD.6
+### From PadicDifferentialEquationsAndRigidCohomology:RD.1.64
 
-Export the precise coefficient norm theorem for the actual native series Theta_q=rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)), q=p^f,f>0,pi^(p−1)=−p. With K a complete ultrametric characteristic-zero normed field, an explicitly norm-preserving Q_p embedding and r=‖pi‖, supply ∀n, ‖PowerSeries.coeff n Theta_q‖≤r^(n(p−1)^2/(p q)), equivalently normalized v_p(A_n)≥n(p−1)/(p q). The coefficient interface uses the Robert-sign series; the inverse Frobenius factor requires the opposite sign. The inherited source locator is Alain M. Robert, A Course in p-adic Analysis (Springer, 2000), VII §2.1–2.4, pp. 386–397, using Artin–Hasse integrality, the strict growth-modulus condition and bounded coefficients on smaller radii. The q-product radius is p^((p−1)/(p q)); taking the limiting real radius gives the non-strict coefficient bound. Do not numerically substitute exp(pi(1−1)) to obtain Theta_p(1); formal composition and analytic evaluation differ at that boundary. Factorial, digit, continuity and moving-tail arguments belong to the Gamma comparison.
+Use RD.1.64's coefficient estimate for theta(X)=exp(pi(X−X^p)), valid for every prime p, including 2. For q=p^f, f>0, the formal identity Theta_q=∏_{i<f}theta(X^(p^i)) telescopes to rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)). Here K is a complete ultrametric characteristic-zero normed field with an explicitly norm-preserving Q_p embedding, pi^(p−1)=−p and r=‖pi‖. Layer 1 derives the finite-product coefficient bound locally: in a coefficient of degree n, ∑_{i<f}p^i n_i=n, so ∑_{i<f}n_i≥n/p^(f−1); the ultrametric convolution inequality and RD.1.64 give v_p(A_n)≥n(p−1)/(p q), equivalently ‖PowerSeries.coeff n Theta_q‖≤r^(n(p−1)^2/(p q)). This is the estimate in [Robert (2001)](#source-47), Appendix 1, printed p.167. The coefficient interface uses the Robert-sign series; the inverse Frobenius factor requires the opposite sign. Its open-disc radius is at least p^((p−1)/(p q)). Do not numerically substitute exp(pi(1−1)) to obtain Theta_p(1); formal composition and analytic evaluation differ at that boundary. Factorial, digit, continuity and moving-tail arguments belong to the Gamma comparison.
 
-**Source gap.** The Robert book locators have not been independently verified. The coefficient and compatible-root identities are precise supplier obligations; the Gamma proof route below is conditional on their delivery.
+The all-prime coefficient estimate is thus a consequence of the stated RD.1.64 export; it needs no stronger coefficient theorem from RD.6. The compatible-root splitting identity is a separate input below.
 
 Used by: [Exact Gamma route to the Hasse–Davenport product](#FF1-hasse-davenport-product-completion).
 
 <a id="contract-F1-R02"></a>
 
-### From PadicDifferentialEquationsAndRigidCohomology:RD.6
+### From PadicDifferentialEquationsAndRigidCohomology:RD.6.46
 
-Export the actual native splitting-value interface in addition to the preceding coefficient-bound request. For p prime, a normalized complete ultrametric nonarchimedean local field K with residueF of cardinalityq=p^f,f>0, an explicit norm-preserving Q_p embedding, chosen primitive p-th rootzeta and compatiblepi^(p−1)=−p, prove ∀u:Fˣ, tsum_n coeff_n(rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)))*tau(u)^n = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u). Use the actual native TauCeti.teichmuller lift tau inK, actual formal coefficients and existing trace character. Explain chosen-root compatibility: the Dwork rootTheta_p(1) is primitive and congruent1+pi modulo pi², and the normalizedpi associated withzeta must giveTheta_p(1)=zeta. Include p=2 (pi=−2,zeta=−1) and the small-prime checks. Convert the inverse Frobenius sign explicitly when comparing this coefficient sum to a Frobenius trace. Source: Robert2000 VII2.4 pp.393–397 and Robert2001 Appendix2 p.169, for the chosen-root normalization. The consumer already proves summability on‖z‖≤1 from the coefficient bound and proves the actual Teichmuller norm1, so this request does not outsource convergence, finite orthogonality or the Gamma comparison. In this application choose K as the completion of the cyclotomic character-value field at the chosen prime above p; include existence of a compatible pi for the chosen zeta with pi/(zeta−1) ≡ 1 modulo the maximal ideal, equivalently pi ≡ zeta−1 modulo (zeta−1)^2.
+Use RD.6.46 `dworkCharacter_splitting_value` and its compatible-root bijection for odd p; extend that same native interface to p=2. For p prime, a normalized complete ultrametric nonarchimedean local field K with residueF of cardinalityq=p^f,f>0, an explicit norm-preserving Q_p embedding, chosen primitive p-th rootzeta and compatiblepi^(p−1)=−p, prove ∀u:Fˣ, tsum_n coeff_n(rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)))*tau(u)^n = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u). Use the actual native TauCeti.teichmuller lift tau inK, actual formal coefficients and existing trace character. Explain chosen-root compatibility: the Dwork rootTheta_p(1) is primitive and congruent1+pi modulo pi², and the normalizedpi associated withzeta must giveTheta_p(1)=zeta. Include p=2 (pi=−2,zeta=−1) and the small-prime checks. Convert the inverse Frobenius sign explicitly when comparing this coefficient sum to a Frobenius trace. Source: [Robert (2001)](#source-47), Appendix 2, printed p.169, for the splitting identity and chosen-root normalization, including p=2. The current RD.6.46 and RD.6.48 statements assume odd p; their extension to p=2 remains a required supplier target. The coefficient theorem RD.1.64 already includes p=2. The consumer already proves summability on‖z‖≤1 from the coefficient bound and proves the actual Teichmuller norm1, so this request does not outsource convergence, finite orthogonality or the Gamma comparison. In this application choose K as the completion of the cyclotomic character-value field at the chosen prime above p; include existence of a compatible pi for the chosen zeta with pi/(zeta−1) ≡ 1 modulo the maximal ideal, equivalently pi ≡ zeta−1 modulo (zeta−1)^2.
 
 Used by: [Exact Gamma route to the Hasse–Davenport product](#FF1-hasse-davenport-product-completion).
 
@@ -1121,7 +1121,7 @@ See [Shoup](#source-1) — Exercise 19.1, printed p. 515.
 
 #### The upper bound n Π_F(n) ≤ q^n
 
-For every n ∈ ℕ, n · Π_F(n) ≤ q^n. Equivalently Π_F(n)/q^n ≤ 1/n, which is Bary-Soroker–Koukoulopoulos–Kozma's Σ_{deg I = n} 1/‖I‖ ≤ 1/n.
+For every n ∈ ℕ, n · Π_F(n) ≤ q^n. For n≥1, equivalently Π_F(n)/q^n ≤ 1/n, which is Bary-Soroker–Koukoulopoulos–Kozma's Σ_{deg I = n} 1/‖I‖ ≤ 1/n. At n=0 use Π_F(0)=0 and the undivided inequality 0≤1.
 
 The hypotheses are as follows. F a finite field with q elements
 
@@ -2167,6 +2167,8 @@ In particular, verify the following values and consequences.
 
 See [Cohen](#source-33) — §11.7.4, Lemma 11.7.14 and proof of Corollary 11.7.15, pp.392–394; Gamma distribution Theorem 11.6.14, pp.372–375.
 
+**Source gap.** These book locators are unverified. The elementary digit-sum calculation is explicit above; the factorial derivation additionally requires the exact Gamma multiplication theorem from L3. Numerical digit checks do not supply that theorem or verify its source.
+
 <a id="FF1-hasse-davenport-product-completion"></a>
 
 #### Exact Gamma route to the Hasse–Davenport product
@@ -2175,7 +2177,7 @@ For all χ, g(χ^m,ψ)∏_{1≤j<m}g(ρ^j,ψ)=χ(m)^m∏_{0≤j<m}g(χρ^j,ψ). 
 
 The hypotheses are as follows. F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits. m>0 divides q−1; ρ has exact order m; ψ is primitive. In particular m is a unit in F. χ may be trivial, χ^m may be trivial, and p may be 2.
 
-A proof proceeds as follows. For m=1 the identity is immediate. Choose a generator ω of the multiplicative character group, with the Teichmüller and prime-above-p conventions above. Write ρ=ω^{−td}, gcd(t,m)=1, d=(q−1)/m, and χ=ω^{−a}. Permuting j removes t; replacing a by its residue b mod d permutes the numerator and leaves χ^m and χ(m)^m unchanged. If b=0, χ is a power of ρ, so the numerator is a permutation of all ρ^j factors. As a is a multiple of d, χ^m=1 and χ(m)^m=1. Use g(1,ψ)=−1 to split off the j=0 factor. This case avoids the excluded exponent q−1 endpoint. For 0<b<d first use the canonical trace character. Compare all character values inside their cyclotomic coefficient field and its completion at the chosen prime above p, and then transport through an injective complex embedding. Apply the Robert–Gross–Koblitz comparison with both the coefficient bound and the compatible chosen-root splitting identity from the Dwork contract. It gives the source-negative sum −g(ω^{-r},ψ)=π^{s(r)}∏_{i<f}Γ_p(e(r,i)), with compatible π^{p−1}=−p, for 0≤r<q−1. Use the maximal-ideal chosen-root normalization printed in Cohen Lemma 11.7.12: its modulus is the fraktur prime ideal 𝔭, not the rational integer p. Apply digit-product-distribution to cancel the π powers. The exact L3 Gamma multiplication quotient, with k=mb, equals ω(m)^{mb}=χ(m)^{−m}. There are m source-negative sums on each side, so their signs cancel. Multiplication by χ(m)^m gives the target. The exact prime-to-p Teichmüller identity is stronger than a congruence modulo the cyclotomic prime. L3 identifies the Gamma quotient by proving its normalized (p−1)st power is 1 and its residue is 1; reduction is injective on these prime-to-p roots. For p=2 the exponent p−1 is 1, so the equality is exact before reduction. No claim that an arbitrary p-power root congruent to 1 must be trivial is used. For arbitrary primitive ψ, use the shift parametrisation and gaussSum_mulShift_eq. Both sides acquire the same χ^{-m}(u)∏_{1≤j<m}ρ^{-j}(u) factor. All Gauss factors are nonzero by the native nontrivial theorem or the trivial value −1. This route is arithmetic and p-adic analytic; it does not use étale cohomology or Poincare duality.
+A proof proceeds as follows. For m=1 the identity is immediate. Choose a generator ω of the multiplicative character group, with the Teichmüller and prime-above-p conventions above. Write ρ=ω^{−td}, gcd(t,m)=1, d=(q−1)/m, and χ=ω^{−a}. Permuting j removes t; replacing a by its residue b mod d permutes the numerator and leaves χ^m and χ(m)^m unchanged. If b=0, χ is a power of ρ, so the numerator is a permutation of all ρ^j factors. As a is a multiple of d, χ^m=1 and χ(m)^m=1. Use g(1,ψ)=−1 to split off the j=0 factor. This case avoids the excluded exponent q−1 endpoint. For 0<b<d first use the canonical trace character. Compare all character values inside their cyclotomic coefficient field and its completion at the chosen prime above p, and then transport through an injective complex embedding. Apply the Robert–Gross–Koblitz comparison with both the coefficient bound and the compatible chosen-root splitting identity from the Dwork contract. It gives the source-negative sum −g(ω^{-r},ψ)=π^{s(r)}∏_{i<f}Γ_p(e(r,i)), with compatible π^{p−1}=−p, for 0≤r<q−1. Use the compatible-root normalization of Robert (2001), Appendix 2, p.169: pi≡zeta−1 modulo the square of the cyclotomic uniformizer ideal. This concerns the prime above p, not reduction modulo the rational integer p. Apply digit-product-distribution to cancel the π powers. The exact L3 Gamma multiplication quotient, with k=mb, equals ω(m)^{mb}=χ(m)^{−m}. There are m source-negative sums on each side, so their signs cancel. Multiplication by χ(m)^m gives the target. The exact prime-to-p Teichmüller identity is stronger than a congruence modulo the cyclotomic prime. L3 identifies the Gamma quotient by proving its normalized (p−1)st power is 1 and its residue is 1; reduction is injective on these prime-to-p roots. For p=2 the exponent p−1 is 1, so the equality is exact before reduction. No claim that an arbitrary p-power root congruent to 1 must be trivial is used. For arbitrary primitive ψ, use the shift parametrisation and gaussSum_mulShift_eq. Both sides acquire the same χ^{-m}(u)∏_{1≤j<m}ρ^{-j}(u) factor. All Gauss factors are nonzero by the native nontrivial theorem or the trivial value −1. This route is arithmetic and p-adic analytic; it does not use étale cohomology or Poincare duality.
 
 In particular, verify the following values and consequences.
 
@@ -2187,7 +2189,9 @@ In particular, verify the following values and consequences.
 
 *Needs:* [Distribution of digit sums and digit factorials](#FF1-digit-product-distribution), [The Teichmüller character of a prime of a number field](#FF1-teichmuller-character), [The prime above p in Q(ζ_m, ζ_p)](#FF1-prime-above-p-in-cyclotomic-compositum), [The canonical additive character of a finite field](#FF1-canonical-additive-character), [Every additive character is a multiplicative shift of a primitive one](#FF1-additive-characters-are-shifts), [Transport of Gauss sums along ring homomorphisms, and the shift identity](#FF1-gauss-sum-transport), `DirichletPadicLFunctions:L3/gross-koblitz-source-multiplication-theorem`, `DirichletPadicLFunctions:L3/gross-koblitz-multiplication-teichmuller`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-power`, `DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.6`, `gaussSum_one_left`, `gaussSum_ne_zero_of_nontrivial`, `gaussSum_mulShift_eq`.
 
-See [Conrad, Gauss–Jacobi](#source-5) — Appendix p.19, (A.6), denominator convention and footnote 9; [Cohen](#source-33) — §11.7.4, Corollary 11.7.15 and Theorem 11.7.16(1), complete proofs pp.392–395; Lemma 11.7.12 pp.390–391.
+See [Conrad, Gauss–Jacobi](#source-5) — Appendix p.19, (A.6), denominator convention and footnote 9, for the product identity; [Robert (2001)](#source-47) — Appendix 2, p.169, for compatible roots. The inherited Gamma-route locators are [Cohen](#source-33), §11.7.4, Corollary 11.7.15 and Theorem 11.7.16(1), pp.392–395; Lemma 11.7.12 pp.390–391.
+
+**Source gap.** The Cohen locators and their support for the exact Gamma multiplication route are unverified. Conrad verifies the target identity, not this Gamma proof route. The route remains conditional on the precise L3 multiplication/comparison exports and the all-prime RD splitting extension; it must not be certified from a congruence alone.
 
 ### 1.7 Gauss sums over products and étale algebras
 
@@ -2485,7 +2489,7 @@ Let F be a finite field with q elements, n ∣ q − 1, λ a multiplicative char
 
 The hypotheses are as follows. n ∣ q − 1 (so n is prime to p and χ(n) ≠ 0); λ of order n; ψ ≠ 1.
 
-A proof proceeds as follows. Use [Completion of the Hasse–Davenport product plan](#FF1-hasse-davenport-product-completion) for the exact product identity, with its chosen-root Gross–Koblitz comparison and exact Morita Gamma multiplication input. The completion is the single proof route for this target, not a second independent product theorem. The completion retains two analytic supplier obligations: the coefficient norm estimate for the actual Robert-sign Dwork series and the actual trace-character splitting identity for compatible pi, zeta and Teichmuller lifts, including p=2. Use both precise RD.6 supplier contracts above. Do not conclude from a root-of-unity ratio and its residue alone: reduction does not detect a p-power root of unity. Exact Gamma multiplication is what removes that ambiguity. Recover n=2 from the duplication formula and check the trivial-character factors using g(1)=-1.
+A proof proceeds as follows. Use [Completion of the Hasse–Davenport product plan](#FF1-hasse-davenport-product-completion) for the exact product identity, with its chosen-root Gross–Koblitz comparison and exact Morita Gamma multiplication input. The completion is the single proof route for this target, not a second independent product theorem. The completion uses RD.1.64 and the finite-product coefficient derivation above, together with RD.6.46 for the actual trace-character splitting identity at odd p. Its splitting extension to p=2 remains required for compatible pi, zeta and Teichmuller lifts. Use the two precise Dwork contracts above. Do not conclude from a root-of-unity ratio and its residue alone: reduction does not detect a p-power root of unity. Exact Gamma multiplication is what removes that ambiguity. Recover n=2 from the duplication formula and check the trivial-character factors using g(1)=-1.
 
 In particular, verify the following values and consequences.
 
@@ -3020,11 +3024,19 @@ See [Kowalski](#source-4) — Chapter 4, (4.12), pp. 44–45, and (4.16), pp. 48
 
 #### The coefficient pairing on a polynomial quotient
 
-For a finite field F, monic g∈F[X] of degree d≥1, let R=AdjoinRoot(g) and ℓ(r) be coefficient d−1 of its unique representative of degree<d. The F-bilinear pairing B(r,h)=ℓ(rh) is nondegenerate, including when g has repeated factors. For 0≤j≤d, the annihilator of the subspace degree<j is the subspace degree<d−j. For nontrivial ψ:F→ℂ, ψ∘ℓ is a primitive additive character of R.
+For a finite field F, monic g∈F[X] of degree d≥1, let R=AdjoinRoot(g) and define quotientTopCoefficient g hg r, denoted ℓ(r), to be coefficient d−1 of its unique representative of degree<d. The F-bilinear pairing B(r,h)=ℓ(rh) is nondegenerate, including when g has repeated factors. For 0≤j≤d, the annihilator of the subspace degree<j is the subspace degree<d−j. For nontrivial ψ:F→ℂ, ψ∘ℓ is a primitive additive character of R.
 
 The hypotheses are as follows. g monic and d≥1; no squarefree hypothesis.
 
 A proof proceeds as follows. For a nonzero representative r of degree k, multiply by X^(d−1−k): no reduction occurs and ℓ is its nonzero leading coefficient. Scaling by F proves nondegeneracy. Products of degrees<j and <d−j have degree<d−1, so the second subspace lies in the annihilator. The perfect pairing gives dimension d−j and hence equality. If a≠0, B(a,·) surjects onto F; composition with a nontrivial ψ cannot be trivial. This is Mathlib’s AddChar.IsPrimitive condition.
+
+Provide `quotientTopCoefficient_mk`, identifying ℓ(mk g f) with coefficient d−1 of f %ₘ g; `quotientTopCoefficient_linear`, bundling its F-linearity; and `polynomialQuotientFrobeniusPairing`, giving the nondegeneracy and primitive-character assertions. The annihilator theorem includes j=0 and j=d.
+
+**Checks.**
+
+- For g=X², ℓ(mk g X)=1, whereas ℓ(mk g 1)=0. Reading the constant coefficient reverses these values.
+- For g=X³, ℓ(mk g X)=0 and ℓ(mk g X²)=1. Reading the leading coefficient of the representative gives the wrong first value.
+- For g=X²+1, ℓ(mk g X²)=0 after reduction to −1; the pairing B(X,X) is zero although B(X,1)=1. This distinguishes multiplication followed by reduction from a coordinate dot product.
 
 In particular, verify the following values and consequences.
 
@@ -3995,7 +4007,7 @@ In particular, verify the following values and consequences.
 
 *Needs:* `SchemeAndStackFoundations:SF.2`, `EtaleDualityAndPerverseSheaves:EDC.2`.
 
-See [Fouvry–Kowalski–Michel–Sawin](#source-13) — section 4.1, (4.2), p. 11; [Deligne, Sommes trig.](#source-10) — [Sommes trig.] Remarques 1.18 b), volume p. 178.
+See [Fouvry–Kowalski–Michel–Sawin](#source-13) — section 4.1, (4.2), p. 11; [Deligne, Sommes trig.](#source-10) — [Sommes trig.] Remarques 1.18 b)–d), volume pp.178–179, for H⁰_c, duality and the H²_c coinvariant description respectively.
 
 <a id="FF2-modified-pole-order"></a>
 
@@ -6471,7 +6483,7 @@ In particular, verify the following values and consequences.
 
 *Needs:* [Coprimality lifts along an ideal in the Jacobson radical](#FF3-strict-coprimality-lifts).
 
-See [Milne](#source-19) — Lemma 7.35 and its proof, pp. 121-122.
+See [Milne](#source-19) — Lemma 7.35 and its proof, pp. 121-122. This is the local-ring prototype; the stated general-ring version uses the Jacobson-radical argument above, rather than assuming R/I is a field.
 
 <a id="FF3-hensel-step"></a>
 
@@ -6526,7 +6538,7 @@ In particular, verify the following values and consequences.
 
 *Needs:* [Uniqueness of monic lifts of a coprime factorization](#FF3-uniqueness-of-monic-lifts), `Ideal.Quotient.factor`, `Ideal.jacobson`.
 
-See [Milne](#source-19) — Lemma 7.35 and its proof, pp. 121-122.
+See [Milne](#source-19) — Lemma 7.35 and its proof, pp. 121-122. This is the local-ring prototype; the stated general-ring version uses the Jacobson-radical argument above, rather than assuming R/I is a field.
 
 <a id="FF3-hensel-lifting-over-complete-rings"></a>
 
@@ -10397,7 +10409,7 @@ Provide the following interface.
 
 **Checks.**
 
-- `terrasGraph_zero`: terrasGraph 0 = ⊥ (no edges).
+- `terrasGraph_zero`: terrasGraph 0 = ⊥ (no edges). The adjacency operator must also exclude z=w: for every z, its value on the delta word at z, evaluated at z, is zero, including a=0. The distance-only matrix would instead have diagonal 1 at a=0.
 - `terrasGraph_four_delta_matching`: Every vertex of terrasGraph (4δ) has degree 1.
 - `terrasGraph_adj_s`: (terrasGraph a).Adj s (x + y s) ↔ x² − δ(y − 1)² = a y and (x, y) ≠ (0, 1).
 - `terrasGraph_not_complete`: For q ≥ 5 and a ∉ {0, 4δ}, terrasGraph a ≠ ⊤ (degree q + 1 < q(q − 1) − 1).
@@ -11337,3 +11349,11 @@ Public University of Manchester course notes, version November 12, 2023.
 Accessibility revision dated April 19, 2026; Exercise 5.23, pp. 109–110.
 
 [Source location](https://cse.buffalo.edu/faculty/atri/courses/coding-theory/book/ada-coding-book.pdf).
+
+<a id="source-47"></a>
+
+### Alain M. Robert — The Gross–Koblitz formula revisited
+
+Rendiconti del Seminario Matematico della Università di Padova 105 (2001), 157–170. Appendix 1, printed p.167, gives the coefficient estimate; Appendix 2, printed p.169, gives the compatible-root splitting identity for every prime.
+
+[Source location](https://www.numdam.org/article/RSMUP_2001__105__157_0.pdf).
