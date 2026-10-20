@@ -14,7 +14,7 @@ Ordinary control, classical Hecke algebras, and representations attached to irre
 
 The general compact-support cochain construction is a prerequisite. Its ordinary real-archimedean comparison and the bounded Burns–Flach integral model at 2 are arithmetic targets here. Likewise, Fitting continuity and lifting bounded numbers of relations are supplied below in the exact form needed for the finite-to-infinite argument; no theorem about compatible finite matrices is assumed. Integral invertible-lattice detection over a finite group order is stated separately from agreement at height one.
 
-This roadmap does not prove Leopoldt or Greenberg for arbitrary number fields, does not assume Vandiver, and does not prove a noncommutative main conjecture. The endpoint in algebraic K-theory belongs to **SpecialValuesBirchTate**: this roadmap gives its cohomological and Iwasawa inputs. The finite exterior-bidual interface needed for the Rubin–Stark consequence is constructed in §12.6. Broader Euler-system contraction and transfer theory belongs to **EulerSystemsAndKolyvaginSystems**. The rational cyclotomic main conjecture also has an Euler-system proof in **EulerSystemsCyclotomicMainConjecture** §3; the Eisenstein construction here is a distinct proof interface, and the resulting theorem is shared rather than declared twice.
+This roadmap does not prove Leopoldt or Greenberg for arbitrary number fields, does not assume Vandiver, and does not prove a noncommutative main conjecture. The special-value statements here stop at étale cohomology and Iwasawa modules; their algebraic K-theory interpretation is given downstream by SpecialValuesBirchTate, which consumes the cohomological and Iwasawa inputs proved here. The finite exterior-bidual interface needed for the Rubin–Stark consequence is constructed in §12.6. Broader Euler-system contraction and transfer theory belongs to **EulerSystemsAndKolyvaginSystems**. A second, Euler-system proof of the rational cyclotomic main conjecture is given downstream by EulerSystemsCyclotomicMainConjecture, which consumes this roadmap; the Eisenstein construction here is a distinct proof interface, and the resulting theorem is shared rather than declared twice.
 
 ## Conventions
 
@@ -1347,7 +1347,7 @@ For n=2 prove the finite comparison
 #(ℤ₂(1)⊗A^−)^Γ = |f_F(u⁻¹)|₂⁻¹.
 ```
 
-The series argument is `u⁻¹−1` when f is written in T. Use all finite Tor terms in the two exact sequences before their Euler quotients cancel. The discrete group uses invariants. This is the Iwasawa input to Kolster's `#K₂(O_F)(2)=2^d#(ℤ₂(1)⊗A^−)^Γ`, whose K-theory proof is supplied by SpecialValuesBirchTate. (Kolster 1989, Theorem 1 and Lemma 2, pp. 249–250.)
+The series argument is `u⁻¹−1` when f is written in T. Use all finite Tor terms in the two exact sequences before their Euler quotients cancel. The discrete group uses invariants. This is the Iwasawa input to Kolster's `#K₂(O_F)(2)=2^d#(ℤ₂(1)⊗A^−)^Γ`; the K-theory side of that formula is not a target here, and its proof is given downstream by SpecialValuesBirchTate. (Kolster 1989, Theorem 1 and Lemma 2, pp. 249–250.)
 
 **Checks.**
 
@@ -1403,7 +1403,7 @@ At F=ℚ and p=2, `ζ_ℚ(−1)=−1/12` has valuation −2 and `w₂(ℚ)=24` h
 
 ### Dependencies
 
-Layers 0–11; the supplied higher Fitting and exterior-annihilator algebra; finite S-unit and ray reciprocity; Artin formalism and interpolation uniqueness. The special-value statements stop at étale cohomology and the Iwasawa norm-minus class module. SpecialValuesBirchTate supplies their K-theory interpretation.
+Layers 0–11; the supplied higher Fitting and exterior-annihilator algebra; finite S-unit and ray reciprocity; Artin formalism and interpolation uniqueness. The special-value statements stop at étale cohomology and the Iwasawa norm-minus class module; their K-theory interpretation is given downstream by SpecialValuesBirchTate.
 
 ## Downstream consumers
 
