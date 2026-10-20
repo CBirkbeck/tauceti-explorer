@@ -30095,7 +30095,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles",
@@ -30109,7 +30109,7 @@
     "BP-PerfectoidSpaces",
     "BP-ShimuraCompactifications"
    ],
-   "note": "released on GitHub issue #10836"
+   "note": "claimed on GitHub issue #10836"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms",
@@ -151994,9 +151994,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv.md",
-   "note": "claimed on GitHub issue #11259"
+   "note": "deliverables arrived from an external worker on issue #11259",
+   "finishedAt": "2026-10-20T01:31:58Z"
   },
   {
    "id": "FIX-PKG-EisensteinIdealAndRationalTorsion~adv2",
@@ -152101,9 +152102,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex.md",
-   "note": "claimed on GitHub issue #11269"
+   "note": "deliverables arrived from an external worker on issue #11269",
+   "finishedAt": "2026-10-20T01:32:03Z"
   },
   {
    "id": "FIX-PKG-ArithmeticKTheory~adv",
@@ -152142,8 +152144,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~adv.md",
+   "note": "claimed on GitHub issue #11276"
   },
   {
    "id": "REV-PKG-EulerSystemsAndKolyvaginSystems~codex3",
