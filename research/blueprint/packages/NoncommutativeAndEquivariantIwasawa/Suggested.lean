@@ -101,30 +101,6 @@ end Canonical
 
 /-! ## Layer 6: The main theorems for totally real fields -/
 
-section UniformSmoothing
-
-/-- Every finite intersection of the nested ideals `p ^ n * ℤ_p` contains a nonzero element
-(§6.25). This does not give a nonzero element of their infinite intersection. -/
-example (p : ℕ) [Fact p.Prime] (n : ℕ) :
-    (p : ℤ_[p]) ^ n ≠ 0 ∧
-      ∀ m ≤ n, (p : ℤ_[p]) ^ n ∈ (Ideal.span {(p : ℤ_[p]) ^ m} : Ideal ℤ_[p]) := by
-  constructor
-  · exact pow_ne_zero n (by exact_mod_cast (Fact.out : p.Prime).ne_zero)
-  · intro m hmn
-    rw [Ideal.mem_span_singleton]
-    exact pow_dvd_pow _ hmn
-
-/-- The infinite intersection in the preceding example is zero (§6.25). Thus compactness
-cannot preserve the required nontrivial cyclotomic image when solving each conductor separately;
-the uniform smoothing element of §6.24 is chosen independently of the conductor instead. -/
-example (p : ℕ) [Fact p.Prime] (x : ℤ_[p])
-    (h : ∀ n : ℕ, x ∈ (Ideal.span {(p : ℤ_[p]) ^ n} : Ideal ℤ_[p])) : x = 0 := by
-  by_contra hx
-  have hh := (PadicInt.mem_span_pow_iff_le_valuation x hx (x.valuation + 1)).mp (h _)
-  omega
-
-end UniformSmoothing
-
 section Carry
 
 /-- The carry exponent of the twisted group ring presentation (§6.7): for representatives
