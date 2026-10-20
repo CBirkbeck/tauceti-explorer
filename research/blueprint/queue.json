@@ -153023,6 +153023,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-PolylogarithmFunctions~codex.md"
+  },
+  {
+   "id": "PKG-HabiroCohomologyFoundationsPartII~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroCohomologyFoundationsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/packages/HabiroCohomologyFoundationsPartII/README.md",
+    "research/blueprint/packages/HabiroCohomologyFoundationsPartII/Suggested.lean",
+    "research/blueprint/packages/HabiroCohomologyFoundationsPartII/metadata.toml",
+    "research/blueprint/handoff/PKG-HabiroCohomologyFoundationsPartII~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundationsPartII~codex.md"
   }
  ]
 }
