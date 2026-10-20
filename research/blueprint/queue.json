@@ -50255,7 +50255,9 @@
     "PKG-AutomorphicCongruences"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicCongruences.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10892",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "PKG-AutomorphicFormsOnReductiveGroups",
@@ -150446,9 +150448,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicPadicLFunctions~codex.md",
-   "note": "released on GitHub issue #10881"
+   "note": "claimed on GitHub issue #10881"
   },
   {
    "id": "FIX-PKG-StableHomotopyKTheory~adv",
@@ -152402,7 +152404,7 @@
     "research/blueprint/handoff/BP-OverconvergentAutomorphicForms--O0~4.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0~4.md",
    "scope": [
     "OverconvergentAutomorphicForms:O0",
@@ -152417,7 +152419,8 @@
    "after": [
     "REV-OverconvergentAutomorphicForms--O0~3"
    ],
-   "revisionOf": "BP-OverconvergentAutomorphicForms--O0"
+   "revisionOf": "BP-OverconvergentAutomorphicForms--O0",
+   "note": "claimed on GitHub issue #11299"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O0~4",
@@ -153142,9 +153145,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~codex2.md",
-   "note": "claimed on GitHub issue #11367"
+   "note": "deliverables arrived from an external worker on issue #11367",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "REV-PKG-IntegralIwasawaTheory~codex2",
@@ -153272,9 +153276,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-PadicHodgeRegulators~codex.md",
-   "note": "claimed on GitHub issue #11377"
+   "note": "deliverables arrived from an external worker on issue #11377",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "FIX-PKG-MotivicEtaleKTheoryPartII~adv",
@@ -153314,8 +153319,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex2.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex2.md",
+   "note": "deliverables arrived from an external worker on issue #11380",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "FIX-PKG-GrossZagierAndArithmeticHeights~adv2",
@@ -153355,9 +153362,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~codex2.md",
-   "note": "claimed on GitHub issue #11383"
+   "note": "deliverables arrived from an external worker on issue #11383",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "REV-PKG-K2SymbolsBrauerPartII~codex1",
@@ -153441,9 +153449,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-SpecialValuesBirchTate~adv2.md",
-   "note": "claimed on GitHub issue #11394"
+   "note": "deliverables arrived from an external worker on issue #11394",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "FIX-PKG-HabiroCohomologyFoundations~adv4",
@@ -153461,8 +153470,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundations~adv4.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundations~adv4.md",
+   "note": "deliverables arrived from an external worker on issue #11401",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "FIX-PKG-HabiroRings~adv3",
@@ -153480,9 +153491,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv3.md",
-   "note": "claimed on GitHub issue #11403"
+   "note": "deliverables arrived from an external worker on issue #11403",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "FIX-PKG-HabiroCohomologyFoundationsPartII~adv1",
@@ -153500,9 +153512,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundationsPartII~adv1.md",
-   "note": "claimed on GitHub issue #11405"
+   "note": "deliverables arrived from an external worker on issue #11405",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "FIX-PKG-RefinedTraceMethods~adv3",
@@ -153520,9 +153533,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv3.md",
-   "note": "claimed on GitHub issue #11406"
+   "note": "deliverables arrived from an external worker on issue #11406",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "REV-PKG-GrossZagierAndArithmeticHeights~codex2",
@@ -153541,8 +153555,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~codex2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~codex2.md",
+   "note": "claimed on GitHub issue #11407"
   },
   {
    "id": "FIX-PKG-EllipticRegulators~adv2",
@@ -153560,8 +153575,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticRegulators~adv2.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticRegulators~adv2.md",
+   "note": "deliverables arrived from an external worker on issue #11408",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "REV-PKG-RefinedTraceMethods~codex3",
@@ -153580,8 +153597,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex3.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex3.md",
+   "note": "deliverables arrived from an external worker on issue #11415",
+   "finishedAt": "2026-10-20T14:31:27Z"
   },
   {
    "id": "FIX-PKG-MotivesAndAlgebraicCycles~adv2",
@@ -153599,8 +153618,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-MotivesAndAlgebraicCycles~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-MotivesAndAlgebraicCycles~adv2.md",
+   "note": "claimed on GitHub issue #11416"
   },
   {
    "id": "REV-PKG-PadicHodgeRegulators~codex1",
@@ -153619,8 +153639,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeRegulators~codex1.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeRegulators~codex1.md",
+   "note": "claimed on GitHub issue #11419"
   },
   {
    "id": "FIX-PKG-HabiroCyclotomicCompletions~adv2",
@@ -153638,8 +153659,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCyclotomicCompletions~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCyclotomicCompletions~adv2.md",
+   "note": "claimed on GitHub issue #11421"
   },
   {
    "id": "FIX-PKG-AutomorphicCongruences~adv1",
@@ -153657,8 +153679,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicCongruences~adv1.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicCongruences~adv1.md",
+   "note": "claimed on GitHub issue #11424"
   }
  ]
 }
