@@ -152168,6 +152168,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsAndKolyvaginSystems~codex3.md",
    "note": "claimed on GitHub issue #11277"
+  },
+  {
+   "id": "FIX-PKG-RefinedTraceMethods~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-RefinedTraceMethods~adv.md",
+    "research/blueprint/packages/RefinedTraceMethods/review.json",
+    "research/blueprint/packages/RefinedTraceMethods/README.md",
+    "research/blueprint/packages/RefinedTraceMethods/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv.md"
   }
  ]
 }
