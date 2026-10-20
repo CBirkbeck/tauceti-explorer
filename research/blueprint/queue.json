@@ -152743,6 +152743,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-PolylogarithmFunctions.md"
+  },
+  {
+   "id": "DESIGN-HabiroCohomologyFoundationsPartII",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroCohomologyFoundationsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/HabiroCohomologyFoundationsPartII.json",
+    "research/blueprint/packets/HabiroCohomologyFoundationsPartII.json",
+    "research/blueprint/readmes/HabiroCohomologyFoundationsPartII.md",
+    "research/blueprint/suggested/HabiroCohomologyFoundationsPartII.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-HabiroCohomologyFoundationsPartII.md"
   }
  ]
 }
