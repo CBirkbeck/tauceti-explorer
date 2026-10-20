@@ -67,7 +67,7 @@ The genuine orthogonal/cyclotomic comparison uses the Barwick–Glasman model th
 
 ## How to read the build
 
-Layers 1–3 construct the cyclic, parametrized Tate, cyclotomic, genuine and Cartier objects on top of the imported finite-group and circle Borel functors, with the free E₁ form of Bökstedt periodicity, the Witt description of π₀TR and representation-graded TR. Layer 4 constructs K-theory of small stable infinity categories, the motive foundations, the trace and its derivative, nilpotent and henselian comparisons. Layer 5 constructs stable operations and relative topological coefficients, Layer 6 the even and q-Hodge comparisons, including the framed smooth comparison, and Layer 7 the refined finite-coefficient calculation. Layer 8 adds to the imported perfectoid, quasisyntomic, AΩ and prismatic trace comparisons the descent theorem, the cotangent filtration of THH, the décalage and Segal comparisons over O_C, convergence, trace Adams operations and the characteristic-p and K-theoretic syntomic sheaves. Layer 9 proves the ordinary-reduction Beilinson square for associative rings, its K-theoretic form for henselian rings and the integral refinements of the imported graded square. Named interfaces retain their exact hypotheses, residual actions and completion conventions. `Suggested.lean` records only the Cartier, diagonal q-divided-power, high-powered and ordinary coefficient statements that can already be typed on the available carriers; all spectral and higher-categorical constructions below are mathematical targets.
+Layers 1–3 construct the cyclic, parametrized Tate, cyclotomic, genuine and Cartier objects on top of the imported finite-group and circle Borel functors, with the free E₁ form of Bökstedt periodicity, the Witt description of π₀TR and representation-graded TR. Layer 4 constructs K-theory of small stable infinity categories, the motive foundations, the trace and its derivative, nilpotent and henselian comparisons. Within that layer construct the two concrete K-theory functors of §4.9 first: they depend only on the external stable-category and model K-theory suppliers. Then read §§4.1–4.8, the invariant predicates and examples in the remainder of §4.9, and §§4.10–4.20. The K-theory applications in §§4.4–4.8 use those already constructed functors; neither concrete K-theory construction uses motives or traces. Layer 5 constructs stable operations and relative topological coefficients, Layer 6 the even and q-Hodge comparisons, including the framed smooth comparison, and Layer 7 the refined finite-coefficient calculation. Layer 8 adds to the imported perfectoid, quasisyntomic, AΩ and prismatic trace comparisons the descent theorem, the cotangent filtration of THH, the décalage and Segal comparisons over O_C, convergence, trace Adams operations and the characteristic-p and K-theoretic syntomic sheaves. Layer 9 proves the ordinary-reduction Beilinson square for associative rings, its K-theoretic form for henselian rings and the integral refinements of the imported graded square. Named interfaces retain their exact hypotheses, residual actions and completion conventions. `Suggested.lean` records only the Cartier, diagonal q-divided-power, high-powered and ordinary coefficient statements that can already be typed on the available carriers; all spectral and higher-categorical constructions below are mathematical targets.
 
 ## Layer 1: Cyclic enhancements of Hochschild homology
 
@@ -583,17 +583,17 @@ Also establish π_*(HZ^{tC_2}) = 𝔽_2[t^{±1}]: π_even = ℤ/2, π_odd = 0. �
 
 ### 2.3 The finite-action Verdier quotient
 
-**Tate endomorphisms in the finite-action Verdier quotient.** For a commutative ring spectrum R and a prime p, let Q=Fun(BC_p,Perf(R))/Perf(R[C_p]), where the latter is its full stable subcategory of induced perfect modules. The quotient has the tensor structure induced by tensoring over R, and its endomorphism ring of the trivial R-object is R^{tC_p}. Consequently there is an exact symmetric monoidal functor Perf(R^{tC_p})→Q; its nonconnective K-theory is a module over K(R^{tC_p}). General stable Verdier quotients, their Ind mapping formula and the symmetric monoidal quotient universal property are imports from EDS E5; this target is the finite-action/Tate specialization used in LMMT item 49. The commutative hypothesis supplies the symmetric monoidal conclusion; no such structure is asserted for an arbitrary E_1 coefficient ring.
+**Tate endomorphisms in the finite-action Verdier quotient.** For a commutative ring spectrum R and a prime p, let Q=Fun(BC_p,Perf(R))/Perf(R[C_p]), where the latter is its full stable subcategory of induced perfect modules. The quotient has the tensor structure induced by tensoring over R, and its endomorphism ring of the trivial R-object is R^{tC_p}. Consequently there is an exact symmetric monoidal functor Perf(R^{tC_p})→Q. Its K-theoretic application is stated after constructing stable-category K-theory, in §4.10. General stable Verdier quotients, their Ind mapping formula and the symmetric monoidal quotient universal property are imports from EDS E5; this target is the finite-action/Tate specialization used in LMMT item 49. The commutative hypothesis supplies the symmetric monoidal conclusion; no such structure is asserted for an arbitrary E_1 coefficient ring.
 
 Throughout this statement, R an E∞ ring spectrum; p prime; Perf(R[C_p]) means the full thick induced subcategory inside Fun(BC_p,Perf(R)).
 
 ([NS](#ns), arXiv:1707.01799v2, Theorem I.3.3(ii), pp. 19–20; Theorem I.3.6, p. 23; Lemma I.3.8(iii), pp. 24–25 (same numbered results in Acta version); [LMMT](#lmmt), Remark 3.9, pp. 15–16.)
 
-The construction proceeds as follows. Induced perfect R[C_p]-modules form a thick tensor ideal because C_p is finite; identify that ideal with Perf(R[C_p]). Use EDS’s filtered-cofiber formula for mapping spectra in the quotient. The finite-action version of the NS induced-object calculation kills the orbit term and leaves the Tate term for End_Q(R). Apply the symmetric monoidal quotient universal property. The endomorphism ring of its tensor unit determines the exact tensor functor from its perfect modules. Apply GeneralAlgebraicKTheory §13.7’s model-based products and the multiplicativity of the stable-category K-theory of §4.9, through the products of §4.10, to obtain the K(R^{tC_p}) module; no chromatic-localization theorem is replanned here.
+The construction proceeds as follows. Induced perfect R[C_p]-modules form a thick tensor ideal because C_p is finite; identify that ideal with Perf(R[C_p]). Use EDS’s filtered-cofiber formula for mapping spectra in the quotient. The finite-action version of the NS induced-object calculation kills the orbit term and leaves the Tate term for End_Q(R). Apply the symmetric monoidal quotient universal property. The endomorphism ring of its tensor unit determines the exact tensor functor from its perfect modules.
 
 Also establish For rational R, Tate vanishes and the induced ideal is all of Fun(BC_p,Perf(R)); the quotient is zero. For R=HF_p the tensor unit has a nonzero Tate endomorphism ring with homotopy F_p[t±1]⊗Λ(e) for odd p, |t|=−2, |e|=−1 (for p=2 it is F_2[e±1], |e|=−1). The quotient uses the thick induced ideal; replacing it by all objects perfect only over R would incorrectly kill its unit in characteristic p.
 
-*Needs:* BordismFormalGroups §F6.5 and AInfCohomology §AI.7.2 (the lax symmetric monoidal Tate functor, with its residual C_p form); BordismFormalGroups §F6.5 (the induced-object tensor ideal and Tate vanishing); EnhancedDerivedSheaves E5:abstract; GeneralAlgebraicKTheory Layers 5–6; GeneralAlgebraicKTheory §§10.10–10.11, 11.15–11.16 and 13.6.
+*Needs:* BordismFormalGroups §F6.5 and AInfCohomology §AI.7.2 (the lax symmetric monoidal Tate functor, with its residual C_p form); BordismFormalGroups §F6.5 (the induced-object tensor ideal and Tate vanishing); EnhancedDerivedSheaves E5:abstract.
 
 ### 2.4 Postnikov bounds and the Tate fixpoint lemma
 
@@ -656,7 +656,7 @@ Provide the following operations and identities.
 
 - `CyclicObject.realize_const`: The realisation of a constant cyclic object c is c with trivial T-action.
 - `CyclicObject.realize_circle`: The representable cyclic set Λ(−, [0]) has underlying simplicial set the simplicial circle Δ¹/∂Δ¹ (n + 1 simplices in degree n) and realises to T with its translation action.
-- `CyclicObject.realize_not_simplicial`: A simplicial structure alone does not determine the circle action supplied by a cyclic enhancement. Trivial actions always exist; the test must distinguish compatible cyclic enhancements, not assert absence of any action.
+- `CyclicObject.realize_not_just_space`: The representable Λ(−,[0]) and the constant cyclic space T both have underlying realisation T, but the former has translation action and the latter trivial action. Their homotopy orbits are respectively contractible and T×BT, so retaining only the realised space loses data.
 
 Also establish The cyclic set Λ^1 (the simplicial circle with its cyclic structure) realises to T with its translation action. For the cyclic bar construction of a discrete group G, |B^{cyc}G| ≃ LBG with the rotation action. The supplying diagram is coherent: maps and universal properties are expressed in mapping spaces, not by strict commutative squares of ordinary morphisms.
 
@@ -1022,10 +1022,10 @@ Provide the following operations and identities.
 **Checks.**
 
 - `THH.ofCat_zero`: THH of the zero category is 0.
-- `THH.ofCat_matrix`: THH(Perf(M_n(R))) ≃ THH(R) via the Morita equivalence.
+- `THH.ofCat_matrix`: For n≥1, THH(Perf(M_n(R))) ≃ THH(R) via the Morita equivalence.
 - `THH.ofCat_not_K`: THH is not K-theory: THH(Perf(𝔽_p)) has π_2 = 𝔽_p while K_2(𝔽_p) = 0.
 
-Also establish THH(Perf(R)) ≃ THH(R) for a discrete ring R; THH(M_n(R)) ≃ THH(R). For a ℤ-linear category, THH is formed from the Eilenberg–Mac Lane spectra of its Hom-groups.
+Also establish THH(Perf(R)) ≃ THH(R) for a discrete ring R; for n≥1, THH(M_n(R)) ≃ THH(R). For a ℤ-linear category, THH is formed from the Eilenberg–Mac Lane spectra of its Hom-groups.
 
 *Needs:* §2.7 (Topological Hochschild homology of an E_1-ring); §2.6 (Geometric realisation of cyclic objects and the circle action); EnhancedDerivedSheaves E5:abstract — stable infinity category; EnhancedDerivedSheaves E5:presentability — compact objects.
 
@@ -1137,7 +1137,7 @@ Also establish For G = C_p, H = C_p: GSp_{≥C_p} ≃ Sp via Φ^{C_p}.
 
 **Isotropy separation for cyclic p-groups.** For G cyclic of p-power order and X ∈ GSp there is a natural fibre sequence X_{hG} → X^G → (Φ^{C_p}X)^{G/C_p}; applied to X → B_G X it maps to the norm sequence X_{hG} → X^{hG} → X^{tG}, the right-hand square is lax symmetric monoidal, and this gives a lax symmetric monoidal structure on −^{tG} with −^{hG} → −^{tG} lax symmetric monoidal (agreeing with BordismFormalGroups §F6.5 and AInfCohomology §AI.7.2 (the lax symmetric monoidal Tate functor, with its residual C_p form)).
 
-Throughout this statement, G = C_{p^n}.
+Throughout this statement, G = C_{p^n}, with p prime and n≥1.
 
 ([NS](#ns), Chapter II, §II.2, Proposition II.2.13 (attributed to Hesselholt–Madsen [47, Prop. 2.1]), Acta p. 254, with the following discussion pp. 254-255.)
 
@@ -1169,7 +1169,7 @@ Provide the following operations and identities.
 
 - `GenuineCircleSpectrum.zero`: The zero object has all fixed points 0.
 - `GenuineCircleSpectrum.fixed_trivial`: −^{C_1} is the underlying spectrum.
-- `GenuineCircleSpectrum.not_fully_genuine`: TSp_F does not see fixed points for T itself: X^T is not part of the structure (F-genuine only), unlike fully genuine T-spectra.
+- `GenuineCircleSpectrum.not_fully_genuine`: Let E_F be the universal T-space for the family of finite subgroups. In fully genuine T-spectra the cofibre of Σ∞E_F₊→S has geometric H-fixed points zero for every finite H, but geometric T-fixed points S. Its image in TSp_F is zero while it is nonzero fully genuinely.
 
 Also establish Restriction TSp_F → C_{p^∞}Sp → C_{p^n}Sp is compatible with −^{C_{p^k}}, k ≤ n.
 
@@ -1213,13 +1213,13 @@ Also establish Bökstedt's THH of an orthogonal ring spectrum is an orthogonal c
 
 *Needs:* §2.14 (Genuine cyclotomic spectra); §2.12 (Geometric fixed points via complete universes); §2.12 (Orthogonal spectra).
 
-**TR and genuine TC.** For a genuine p-cyclotomic spectrum X with restriction R : X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} ≃ X^{C_{p^{n−1}}} and inclusion of fixed points F : X^{C_{p^n}} → X^{C_{p^{n−1}}}: TR^{n+1}(X; p) := X^{C_{p^n}}, TR(X, p) := lim_R X^{C_{p^n}}, and TC^{gen}(X, p) := Eq(TR(X, p) ⇉ TR(X, p)) for (id, F) ≃ lim_n Eq(X^{C_{p^n}} ⇉ X^{C_{p^{n−1}}}) for (R, F). For a genuine cyclotomic X, TC^{gen}(X) is the pullback X^{hT} ×_{∏_p (X^∧_p)^{hT}} ∏_p TC^{gen}(X, p)^∧_p (NS18 diagram (1), Goodwillie's corrected definition). The Verschiebung V : X^{C_{p^{n−1}}} → X^{C_{p^n}} is the transfer; R, F, V satisfy FV is the residual C_p norm on π_* (equal to p when that residual action is trivial, in particular for circle-equivariant inputs), RF = FR, RV = VR, and for a commutative ring A there are natural ring isomorphisms W_n(A)≅π_0TR^n(A;p), compatible with R, F and V, and W(A)≅π_0TR(A;p). More generally, for a connective E₁-ring A, π₀ of the topological Cartier module TR(A;p) is W(π₀A) with its Witt vector Frobenius and Verschiebung when π₀A is commutative.
+**TR and genuine TC.** For a genuine p-cyclotomic spectrum X with restriction R : X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} ≃ X^{C_{p^{n−1}}} and inclusion of fixed points F : X^{C_{p^n}} → X^{C_{p^{n−1}}}: TR^{n+1}(X; p) := X^{C_{p^n}}, TR(X, p) := lim_R X^{C_{p^n}}, and TC^{gen}(X, p) := Eq(TR(X, p) ⇉ TR(X, p)) for (id, F) ≃ lim_n Eq(X^{C_{p^n}} ⇉ X^{C_{p^{n−1}}}) for (R, F). For a genuine cyclotomic X, TC^{gen}(X) is the pullback X^{hT} ×_{∏_p (X^∧_p)^{hT}} ∏_p TC^{gen}(X, p)^∧_p (NS18 diagram (1), Goodwillie's corrected definition). The Verschiebung V : X^{C_{p^{n−1}}} → X^{C_{p^n}} is the transfer; R, F, V satisfy FV is the residual C_p norm on π_* (equal to p when that residual action is trivial, in particular for circle-equivariant inputs), RF = FR, RV = VR, and for a commutative ring A there are natural ring isomorphisms W_n(A)≅π_0TR^n(A;p), compatible with R, F and V, and W(A)≅π_0TR(A;p). The extension to connective E₁-rings with commutative π₀ is stated with the Cartier heart in §3.4.
 
-Throughout this statement, X a genuine (p-)cyclotomic spectrum; A a commutative ring, or a connective E₁-ring with π₀A commutative, for the Witt identification.
+Throughout this statement, X a genuine (p-)cyclotomic spectrum; A a commutative ring for the Witt identification here.
 
 ([NS](#ns), Chapter II, §II.4, Definition II.4.4 (Acta p. 263; R and F recalled on p. 262) and the pullback square (1) with footnote 22 (Acta p. 266); [HM97](#hm97), §2, Theorem 2.3, p. 18; [AN](#an), §6.1, Theorem 6.1, p. 57.)
 
-The construction proceeds as follows. Define TR and TC^gen as limits/equalizers in Sp (NS18 Definition II.4.4). Integral TC^gen by the pullback (1) (NS18 p. 266 and footnote 22). Define V as the transfer for C_{p^{n−1}} ⊂ C_{p^n} and record the relations (the finite-index restriction/transfer formula; the p∞-only prototype must retain the residual action). For the Witt identification, construct the ring maps W_n(A)→π_0TR^n(A;p) from the zero-skeleton of the cyclic bar construction and the Teichmüller-type map, and show by induction on n, using the restriction cofibre sequence with the homotopy orbits of the previous level, that they are isomorphisms with RI=IR, FI=IF and VI=IV (Hesselholt–Madsen Theorem 2.3). Pass to the limit along R. The general connective case is Antieau–Nikolaus Theorem 6.1 through the cyclotomic heart of §3.4.
+The construction proceeds as follows. Define TR and TC^gen as limits/equalizers in Sp (NS18 Definition II.4.4). Integral TC^gen by the pullback (1) (NS18 p. 266 and footnote 22). Define V as the transfer for C_{p^{n−1}} ⊂ C_{p^n} and record the relations (the finite-index restriction/transfer formula; the p∞-only prototype must retain the residual action). For the Witt identification, construct the ring maps W_n(A)→π_0TR^n(A;p) from the zero-skeleton of the cyclic bar construction and the Teichmüller-type map, and show by induction on n, using the restriction cofibre sequence with the homotopy orbits of the previous level, that they are isomorphisms with RI=IR, FI=IF and VI=IV (Hesselholt–Madsen Theorem 2.3). Pass to the limit along R.
 
 Provide the following operations and identities.
 
@@ -1230,7 +1230,7 @@ Provide the following operations and identities.
 - `TR.relations`: RF = FR and RV = VR. On π_* at each finite fixed-point level, FV(m)=Σ_{g∈C_p}g·m for the residual C_p action. This equals p·m when that action is trivial, in particular for a residual circle action; no equality of coherent spectrum maps with p·id is asserted from this homotopy-group computation.
 - `TCgen`: TC^gen(X, p) = Eq(id, F on TR(X, p)) and integral TC^gen by the pullback (1).
 - `TR.pi0_witt`: For THH(A), A commutative: π_0TR^n(A; p) ≅ W_n(A) as rings, with F, V, R matching Mathlib's WittVector.frobenius, WittVector.verschiebung and truncation.
-- `TR.pi0_witt_limit`: π_0TR(A; p) ≅ W(A) compatibly with F and V; for connective E₁ A with π₀A commutative, the Cartier module π₀TR(A;p) is W(π₀A).
+- `TR.pi0_witt_limit`: For a commutative ring A, π_0TR(A; p) ≅ W(A) compatibly with F and V.
 
 **Checks.**
 
@@ -1242,9 +1242,9 @@ Provide the following operations and identities.
 
 Also establish TR^1(X; p) = X (underlying spectrum). π_0TR^n(𝔽_p; p) = W_n(𝔽_p) = ℤ/p^n.
 
-*Needs:* §2.14 (Genuine cyclotomic spectra); §2.13 (Isotropy separation for cyclic p-groups); §3.4 (The derived V-complete Cartier heart); `WittVector`; `WittVector.frobenius`; `WittVector.verschiebung`.
+*Needs:* §2.14 (Genuine cyclotomic spectra); §2.13 (Isotropy separation for cyclic p-groups); `WittVector`; `WittVector.frobenius`; `WittVector.verschiebung`.
 
-**Representation spheres and representation-graded TR.** For a finite group G and a finite-dimensional real orthogonal G-representation V, the representation sphere S^V is the one-point compactification of V with its G-action; its suspension spectrum in GSp is ⊗-invertible, with S^V⊗S^W≃S^{V⊕W} naturally in isometries, S^{ℝ^n}=Σ^nS for the trivial representation, and Φ^H(S^V⊗X)≃S^{V^H}⊗Φ^H X for every subgroup H⊆G. For a finite-dimensional complex T-representation λ the spheres S^λ restricted to the finite subgroups C_n⊂T define an invertible object of TSp_F, compatibly with restriction to C_{p^∞}Sp. For a genuine p-cyclotomic spectrum X, n≥1 and q∈ℤ put TR^n_{q−λ}(X;p):=π_q((S^λ⊗X)^{C_{p^{n−1}}}), and write λ′:=ρ_p^*(λ^{C_p}) for the C_p-fixed subrepresentation regarded as a T-representation through the p-th root T≅T/C_p. Then there are a restriction R:TR^n_{q−λ}(X;p)→TR^{n−1}_{q−λ′}(X;p), a Frobenius F:TR^n_{q−λ}(X;p)→TR^{n−1}_{q−λ}(X;p) given by inclusion of fixed points, a Verschiebung V in the opposite direction given by the transfer, and a natural long exact sequence
+**Representation spheres and representation-graded TR.** For a finite group G and a finite-dimensional real orthogonal G-representation V, the representation sphere S^V is the one-point compactification of V with its G-action; its suspension spectrum in GSp is ⊗-invertible, with S^V⊗S^W≃S^{V⊕W} naturally in isometries, S^{ℝ^n}=Σ^nS for the trivial representation, and Φ^H(S^V⊗X)≃S^{V^H}⊗Φ^H X for every subgroup H⊆G. For a finite-dimensional complex T-representation λ the spheres S^λ restricted to the finite subgroups C_n⊂T define an invertible object of TSp_F, compatibly with restriction to C_{p^∞}Sp. For a genuine p-cyclotomic spectrum X, n≥1 and q∈ℤ put TR^n_{q−λ}(X;p):=π_q((S^λ⊗X)^{C_{p^{n−1}}}), and write λ′:=ρ_p^*(λ^{C_p}) for the C_p-fixed subrepresentation regarded as a T-representation through the p-th root T≅T/C_p. For n≥2 there are a restriction R:TR^n_{q−λ}(X;p)→TR^{n−1}_{q−λ′}(X;p), a Frobenius F:TR^n_{q−λ}(X;p)→TR^{n−1}_{q−λ}(X;p) given by inclusion of fixed points, a Verschiebung V in the opposite direction given by the transfer, and a natural long exact sequence
 
 ```text
 ⋯ → π_q((S^λ⊗X)_{hC_{p^{n−1}}}) → TR^n_{q−λ}(X;p) →R TR^{n−1}_{q−λ′}(X;p) → π_{q−1}((S^λ⊗X)_{hC_{p^{n−1}}}) → ⋯
@@ -1252,28 +1252,28 @@ Also establish TR^1(X; p) = X (underlying spectrum). π_0TR^n(𝔽_p; p) = W_n(�
 
 For λ=0 these are the groups and operators of the preceding target. For X=THH(A) they are the groups TR^n_{q−λ}(A;p)=[S^q∧(T/C_{p^{n−1}})_+, T(A)∧S^λ]_T of Hesselholt and Madsen.
 
-Throughout this statement, G finite; V orthogonal and λ complex finite-dimensional; X a genuine p-cyclotomic spectrum; n≥1; the residual action on λ^{C_p} is transported along T≅T/C_p, z↦z^p, as in the Conventions.
+Throughout this statement, G finite; V orthogonal and λ complex finite-dimensional; X a genuine p-cyclotomic spectrum; n≥1 for the groups and n≥2 for R, F, V and the long exact sequence; the residual action on λ^{C_p} is transported along T≅T/C_p, z↦z^p, as in the Conventions.
 
 ([H05](#h05), §3.2, (3.8), p. 78, and Proposition 1, p. 79, for orthogonal T-spectra indexed by T-representations; §3.10, p. 94, for TR^n_{q−λ}, λ′=ρ_p^*λ^{C_p}, the restriction map and the long exact sequence; §3.12, pp. 99–100, for the perfect-field values; [NS](#ns), Chapter II, §II.2, Definitions II.2.2–II.2.5, Acta pp. 247–249, for orthogonal G-spectra evaluated on representations.)
 
-The construction proceeds as follows. Representation spheres are suspension spectra of finite based G-CW complexes, so they lie in GSp^O and pass to GSp; their inverses come from the orthogonal-spectrum evaluation at representations used in §2.12. Since (S^V)^H=S^{V^H}, the geometric fixed points of S^V⊗X follow from §2.12 (Geometric fixed points via complete universes) and the monoidality of Φ^H. For T use the finite subgroups only, as in TSp_F. Apply §2.13 (Isotropy separation for cyclic p-groups) to S^λ⊗X with G=C_{p^{n−1}}: the third term is (Φ^{C_p}(S^λ⊗X))^{C_{p^{n−2}}}≃(S^{λ^{C_p}}⊗Φ^{C_p}X)^{C_{p^{n−2}}}, and the cyclotomic structure Φ^{C_p}X≃X, transported along ρ_p, identifies it with (S^{λ′}⊗X)^{C_{p^{n−2}}}. F is restriction of fixed points and V the transfer for C_{p^{n−2}}⊂C_{p^{n−1}}.
+The construction proceeds as follows. Representation spheres are suspension spectra of finite based G-CW complexes, so they lie in GSp^O and pass to GSp; their inverses come from the orthogonal-spectrum evaluation at representations used in §2.12. Since (S^V)^H=S^{V^H}, the geometric fixed points of S^V⊗X follow from §2.12 (Geometric fixed points via complete universes) and the monoidality of Φ^H. For T use the finite subgroups only, as in TSp_F. For n≥2 apply §2.13 (Isotropy separation for cyclic p-groups) to S^λ⊗X with G=C_{p^{n−1}}: the third term is (Φ^{C_p}(S^λ⊗X))^{C_{p^{n−2}}}≃(S^{λ^{C_p}}⊗Φ^{C_p}X)^{C_{p^{n−2}}}, and the cyclotomic structure Φ^{C_p}X≃X, transported along ρ_p, identifies it with (S^{λ′}⊗X)^{C_{p^{n−2}}}. F is restriction of fixed points and V the transfer for C_{p^{n−2}}⊂C_{p^{n−1}}.
 
 Provide the following operations and identities.
 
 - `representationSphere`: S^V∈GSp for orthogonal G-representations, with S^V⊗S^W≃S^{V⊕W} and the inverse S^{−V}.
 - `representationSphere.geometricFixedPoints`: Φ^H(S^V⊗X)≃S^{V^H}⊗Φ^H X.
 - `representationSphere.circle`: S^λ∈TSp_F for complex T-representations, compatible with restriction to every C_n.
-- `TR.representationGraded`: TR^n_{q−λ}(X;p) with R to the index λ′, F and V.
-- `TR.representationGraded.cofibre`: the long exact sequence with the homotopy-orbit term π_*((S^λ⊗X)_{hC_{p^{n−1}}}).
+- `TR.representationGraded`: TR^n_{q−λ}(X;p) for n≥1, with R to the index λ′, F and V for n≥2.
+- `TR.representationGraded.cofibre`: for n≥2, the long exact sequence with the homotopy-orbit term π_*((S^λ⊗X)_{hC_{p^{n−1}}}).
 
 **Checks.**
 
 - `TR.representationGraded.zero`: For λ=0, λ′=0 and TR^n_{q−0}(X;p)=TR^n_q(X;p) with the operators of the preceding target.
-- `TR.representationGraded.underlying`: For n=1, TR^1_{q−λ}(X;p)=π_{q−2d}(X) with d=dim_ℂλ, because the underlying spectrum of S^λ⊗X is Σ^{2d}X. For X=THH(A) this is THH_{q−2d}(A), as on p. 99 of H05.
+- `TR.representationGraded.underlying`: For n=1, TR^1_{q−λ}(X;p)=π_{q−2d}(X) with d=dim_ℂλ, because the underlying spectrum of S^λ⊗X is Σ^{2d}X. For X=THH(A) this is THH_{q−2d}(A), as on p. 99 of H05. At n=1 there is no restriction to a level TR⁰ and the displayed long exact sequence is not asserted.
 - `TR.representationGraded.restrictionIndex`: For the standard representation λ=ℂ(1), C_p acts freely on the unit sphere and λ′=0; for λ=ℂ(p), C_p acts trivially and λ′=ℂ(1). Using λ itself at level n−1 would give the wrong target of R.
 - `TR.representationGraded.perfectField`: For a perfect field k of characteristic p put ℓ_s=dim_ℂ(λ^{C_{p^s}}) for s≥0 and ℓ_s=∞ for s<0. Then TR^n_{q−λ}(k;p) is zero for q odd and W_r(k) for q=2m with ℓ_{n−r}≤m<ℓ_{n−1−r} (H05 §3.12, pp. 99–100). For λ=0 this gives W_n(k) in every even degree q≥0, the value of π_*TR^n(k;p). For λ=ℂ(1) and n=2 it gives k in degree 0 and W_2(k) in degrees 2m with m≥1.
 
-Also establish For q<dim_ℝλ and connective X the homotopy-orbit term vanishes, so R is an isomorphism for q<dim_ℝλ and surjective for q=dim_ℝλ (H05 p. 94).
+Also establish For n≥2, q<dim_ℝλ and connective X the homotopy-orbit term vanishes, so R is an isomorphism for q<dim_ℝλ and surjective for q=dim_ℝλ (H05 p. 94).
 
 *Needs:* §2.12 (Genuine G-spectra, genuine and geometric fixed points); §2.12 (Geometric fixed points via complete universes); §2.13 (Isotropy separation for cyclic p-groups); §2.14 (Genuine C_{p^∞}-spectra and F-genuine T-spectra); §2.14 (Genuine cyclotomic spectra); §2.14 (TR and genuine TC); BordismFormalGroups §F6.5 (finite-group Borel norm and Tate cofiber).
 
@@ -1475,6 +1475,7 @@ Provide the following operations and identities.
 - `CartierModule.zero`: The zero group has a unique Cartier structure and is both initial and terminal.
 - `CartierModule.integer`: On ℤ, V=id and F=p define a Cartier structure; F=V=id does not when p>1.
 - `CartierModule.no_vf_axiom`: On M=(ℤ/p)², let F(x,y)=(x,0) and V(x,y)=(0,x). Then FV=0=p·id, but VF(1,0)=(0,1)≠0=p·(1,0). A definition that also imposed VF=p would incorrectly exclude M.
+- `CartierModule.morphism_checks_operators`: At p=2 on ℤ, the structures (F,V)=(2·id,id) and (id,2·id) both satisfy FV=2·id. The identity map commutes with FV but fails to commute with F, since 2≠1 on 1∈ℤ; it is not a Cartier morphism. Identity maps of a single structure and the zero map between any two structures are Cartier morphisms.
 
 Also establish An additive approximate inverse need not commute with either operator until multiplied by its denominator.
 
@@ -1574,17 +1575,17 @@ Also establish TR(X)/V recovers X for bounded-below X with its cyclotomic struct
 
 *Needs:* §3.3 (Derived V-completeness); §3.4 (The cyclotomic t-structure); §2.17 (The restriction pullback for genuine fixed points); §2.14 (TR and genuine TC); AInfCohomology §AI.7.2 (`AInf.Trace.tateOrbit`); §2.15 (Genuine and naive cyclotomic spectra agree on bounded below objects); EnhancedDerivedSheaves E3 — kan extensions along functors.
 
-**The derived V-complete Cartier heart.** TR identifies the heart of CycSp_T,p with the full subcategory of derived V-complete p-typical Cartier modules. For every bounded-below X and every integer i, the Cartier module corresponding to π_i^cycX is (π_iTR(X),F,V). A bounded-below topological Cartier module is V-complete iff every π_i is derived V-complete. The heart equivalence is an equivalence of abelian categories; it is not an identification of the underlying spectra of a heart object and its Cartier module.
+**The derived V-complete Cartier heart.** TR identifies the heart of CycSp_T,p with the full subcategory of derived V-complete p-typical Cartier modules. For every bounded-below X and every integer i, the Cartier module corresponding to π_i^cycX is (π_iTR(X),F,V). A bounded-below topological Cartier module is V-complete iff every π_i is derived V-complete. The heart equivalence is an equivalence of abelian categories; it is not an identification of the underlying spectra of a heart object and its Cartier module. For every connective E₁-ring A with commutative π₀A, construct `TR.pi0_witt_connective`: π₀TR(A;p)≅W(π₀A) as Cartier modules, with the Witt Frobenius and Verschiebung. This extends the discrete comparison of §2.14 (Antieau–Nikolaus Theorem 6.1, p. 57).
 
 Throughout this statement, Fix a prime p. Spectra, functor categories and all limits are coherent infinity-categorical objects.
 
 ([AN](#an), Introduction to §3, p. 15; Theorem 3.26, p. 28; Proposition 3.28, pp. 28–29; Theorem 1, p. 2, and the discussion after Theorem 2, p. 3; Theorem 6.14, p. 60.)
 
-The construction proceeds as follows. Use t-exactness and full faithfulness of TR to embed the heart into discrete topological Cartier modules, identified with Cart_p. Apply the discrete completeness criterion and the essential-image theorem. For the degreewise completeness criterion, induct on finite Postnikov intervals and pass to the left-complete limit (AN Proposition 3.28). Take π_i of the t-exact TR functor to obtain the Cartier realization of cyclotomic homotopy.
+The construction proceeds as follows. Use t-exactness and full faithfulness of TR to embed the heart into discrete topological Cartier modules, identified with Cart_p. Apply the discrete completeness criterion and the essential-image theorem. For the degreewise completeness criterion, induct on finite Postnikov intervals and pass to the left-complete limit (AN Proposition 3.28). Take π_i of the t-exact TR functor to obtain the Cartier realization of cyclotomic homotopy. Right t-exactness of THH and the cyclotomic long exact sequence identify π₀^cycTHH(A) with π₀^cycTHH(π₀A); the discrete Witt comparison of §2.14 then gives `TR.pi0_witt_connective` (AN Theorem 6.1).
 
 Also establish For a perfect F_p-algebra k, the Cartier realization of THH(k) is W(k) with its F,V (AN Theorem 6.14); higher underlying homotopy of THH(k) remains visible after forgetting the heart embedding.
 
-*Needs:* §3.4 (TR as V-complete topological Cartier modules); §3.3 (Derived V-completeness); §3.4 (The cyclotomic t-structure).
+*Needs:* §3.4 (TR as V-complete topological Cartier modules); §3.3 (Derived V-completeness); §3.4 (The cyclotomic t-structure); §2.14 (TR and genuine TC); §2.7 (THH of an E₁-ring); `WittVector`.
 
 ### 3.5 Detecting quasi-isogenies and null Frobenius
 
@@ -1748,7 +1749,7 @@ Provide the following operations and identities.
 
 - `RigidCategory.spectra`: Sp is rigid and its compact objects are finite spectra.
 - `RigidCategory.indRigid`: Ind(A) is rigid when small stable idempotent-complete monoidal A has every object dualizable.
-- `RigidCategory.unitNotCompact`: A presentable monoidal stable category with noncompact unit fails the definition even if multiplication has a continuous right adjoint.
+- `RigidCategory.unitNotCompact`: In C=∏_{i∈ℕ}D(k) with pointwise tensor product, put e_i=k in coordinate i and zero elsewhere. Then ⊕_i e_i is the unit (k)_i, but ⊕_i Map(1,e_i)→Map(1,⊕_i e_i) induces ⊕_i k→∏_i k on π₀ and misses the all-ones element. The unit is not compact, so C fails the definition.
 
 Also establish Sp is rigid with compact sphere unit. A rigid category can fail to be compactly generated.
 
@@ -1826,20 +1827,20 @@ Also establish For compactly generated C it agrees with the classical κ-Calkin 
 
 ([E-mot](#e-mot), §1.6 and Definition 1.2, pp. 20–21.)
 
-The construction proceeds as follows. Use the enhanced exact sequence and idempotent completion supplied by E5. Specify accessibility and the actual κ-filtered colimits admitted by T. Distinguish the functor’s construction from its localizing property: concrete nonconnective K-theory is imported from GeneralAlgebraicKTheory.
+The construction proceeds as follows. Use the enhanced exact sequence and idempotent completion supplied by E5. Specify accessibility and the actual κ-filtered colimits admitted by T. Distinguish the functor’s construction from its localizing property: concrete nonconnective K-theory on small stable ∞-categories is constructed in §4.9 and compared there with the ring and model constructions of GeneralAlgebraicKTheory.
 
 Provide the following operations and identities.
 
 - `AccessibleLocalizingInvariant.exactSequence`: F(A) → F(B) → F(C) is a cofiber sequence for each exact sequence.
 - `AccessibleLocalizingInvariant.map`: Exact functors give maps in T with coherent identity and composition.
 - `AccessibleLocalizingInvariant.filteredColimit`: F commutes with the specified κ-filtered colimits.
-- `AccessibleLocalizingInvariant.ofKTheory`: The imported concrete nonconnective K-theory functor satisfies this interface; the universal property is a property, not its definition.
+- `AccessibleLocalizingInvariant.ofKTheory`: The concrete nonconnective K-theory functor of §4.9 satisfies this interface; the universal property is a property, not its definition.
 
 **Checks.**
 
 - `AccessibleLocalizingInvariant.zero`: F(0) ≃ 0.
 - `AccessibleLocalizingInvariant.split`: F(A⊕B) ≃ F(A)⊕F(B) with the two inclusions and projections.
-- `AccessibleLocalizingInvariant.connectiveKNotEnough`: Let k be a field and R=k[x,y]/(xy(1−x−y)). Then K_{−1}(R)=Z ([WeiK](#weik), III, Example 4.3.1, p. 31). For A=Perf(R), the suspension exact sequence A→FκA→ΣκA has K₀(FκA)=0 by the countable-sum swindle and K₀(ΣκA)=K_{−1}(R)=Z. Hence connective K cannot give a fiber sequence: its long exact sequence would require 0→Z to be surjective. Here Fκ and Σκ are the cone and idempotent-completed suspension categories of [BGT](#bgt), Definition 9.1 and Lemma 9.4, p. 57, and Definition 9.6, p. 58; their general stable-category K construction remains the explicit supplier gap above.
+- `AccessibleLocalizingInvariant.connectiveKNotEnough`: Let k be a field and R=k[x,y]/(xy(1−x−y)). Then K_{−1}(R)=Z ([WeiK](#weik), III, Example 4.3.1, p. 31). For A=Perf(R), the suspension exact sequence A→FκA→ΣκA has K₀(FκA)=0 by the countable-sum swindle and K₀(ΣκA)=K_{−1}(R)=Z. Hence connective K cannot give a fiber sequence: its long exact sequence would require 0→Z to be surjective. Here Fκ and Σκ are the cone and idempotent-completed suspension categories of [BGT](#bgt), Definition 9.1 and Lemma 9.4, p. 57, and Definition 9.6, p. 58; their general stable-category K construction is supplied by §4.9 (Connective K-theory of small stable ∞-categories; Nonconnective K-theory by the suspension construction).
 
 Also establish A split exact sequence yields a direct sum in T. An additive invariant that is not exact-localizing does not satisfy this definition.
 
@@ -1977,18 +1978,18 @@ Also establish E = Sp gives rigid absolute localizing motives. For merely E₁ b
 
 ### 4.9 Localizing and truncating small-category invariants
 
-**Connective K-theory of small stable ∞-categories.** For a small stable ∞-category C let S_n(C)=Gap([n],C) be the full subcategory of Fun(N(Ar[n]),C) of diagrams F with every F(i,i) a zero object and every square F(i,j)→F(i,k), F(j,j)→F(j,k) (i<j<k) a pushout. Restricting to the row F(0,1)→…→F(0,n) is an equivalence Gap([n],C)≃Fun(Δ^{n−1},C), so each S_n(C) is stable and the simplicial structure maps are exact. Passing to maximal ∞-groupoids levelwise and iterating gives a connective spectrum K(C) with Ω^∞K(C)≃Ω|S_•(C)^≃|. K is functorial in exact functors, preserves filtered colimits, and sends split-exact sequences to split fibre sequences. On Cat^perf_∞ it is the connective K-theory used in this layer. For a small Waldhausen category with factorizations and DKHS-saturated weak equivalences, and for perfect modules over a small pretriangulated spectral category, it agrees with Waldhausen K-theory of the corresponding model; in particular K(Perf(A)) is the connective K-theory of a ring A supplied by GeneralAlgebraicKTheory. On a stable C that is not idempotent complete, K(C) is distinguished from K(Idem C).
+**Connective K-theory of small stable ∞-categories.** For a small stable ∞-category C let S_n(C)=Gap([n],C) be the full subcategory of Fun(N(Ar[n]),C) of diagrams F with every F(i,i) a zero object and every square F(i,j)→F(i,k), F(j,j)→F(j,k) (i<j<k) a pushout. For n≥1, restricting to the row F(0,1)→…→F(0,n) is an equivalence Gap([n],C)≃Fun(Δ^{n−1},C), so each S_n(C) is stable and the simplicial structure maps are exact. Passing to maximal ∞-groupoids levelwise and iterating gives a connective spectrum K(C) with Ω^∞K(C)≃Ω|S_•(C)^≃|. K is functorial in exact functors, preserves filtered colimits, and sends split-exact sequences to split fibre sequences. On Cat^perf_∞ it is the connective K-theory used in this layer. For a small Waldhausen category with factorizations and DKHS-saturated weak equivalences, and for perfect modules over a small pretriangulated spectral category, it agrees with Waldhausen K-theory of the corresponding model; in particular K(Perf(A)) is the connective K-theory of a ring A supplied by GeneralAlgebraicKTheory. On a stable C that is not idempotent complete, K(C) is distinguished from K(Idem C).
 
 Throughout this statement, C a small stable ∞-category and exact functors; universes fixed before forming Ind and κ-compact objects; filtered colimits computed in Cat^perf_∞.
 
 ([BGT](#bgt), §7.1, Definition 7.1, Lemma 7.3 and Remark 7.4, p. 44; Theorem 7.8, p. 47; Corollary 7.9 and Proposition 7.10, p. 48.)
 
-The construction proceeds as follows. Lemma 7.3 identifies Gap([n],C) with the row category, so it is stable and the face maps are exact. Realize the maximal groupoids levelwise; additivity of the S-construction gives split-exact sequences to fibre sequences (BGT Proposition 7.10). Gap([n],−), maximal groupoids and geometric realization commute with filtered colimits. Compare with Waldhausen's S-construction by BGT Theorem 7.8 under its simplicial model hypotheses, and by Corollary 7.9 for perfect modules over pretriangulated spectral categories. The DG and Frobenius comparisons of GeneralAlgebraicKTheory then identify the ring case.
+The construction proceeds as follows. For n≥1, Lemma 7.3 identifies Gap([n],C) with the row category; S₀(C) is the contractible zero category. Thus every S_n(C) is stable and the face maps are exact. Realize the maximal groupoids levelwise; additivity of the S-construction gives split-exact sequences to fibre sequences (BGT Proposition 7.10). Gap([n],−), maximal groupoids and geometric realization commute with filtered colimits. Compare with Waldhausen's S-construction by BGT Theorem 7.8 under its simplicial model hypotheses, and by Corollary 7.9 for perfect modules over pretriangulated spectral categories. The DG and Frobenius comparisons of GeneralAlgebraicKTheory then identify the ring case.
 
 Provide the following operations and identities.
 
 - `stableK.sConstruction`: S_n(C)=Gap([n],C) with its face and degeneracy functors.
-- `stableK.gap_row`: Gap([n],C)≃Fun(Δ^{n−1},C) by restriction to the row.
+- `stableK.gap_row`: For n≥1, Gap([n],C)≃Fun(Δ^{n−1},C) by restriction to the row; S₀(C) is contractible.
 - `stableK`: The connective spectrum K(C), functorial in exact functors.
 - `stableK.additive`: Split-exact sequences go to split fibre sequences, and finite products to products.
 - `stableK.filtered`: K preserves filtered colimits of small stable ∞-categories.
@@ -1999,7 +2000,7 @@ Provide the following operations and identities.
 - `stableK.zero`: S_n(0) is contractible for every n, and K(0) is the zero spectrum.
 - `stableK.first_stages`: S₀(C) is contractible and S₁(C)≃C. Keeping only the diagonal zero objects would make S₁(C) contractible for nonzero C.
 - `stableK.idempotents`: For R=k×k with k a field, the stable category of bounded finite-free R-complexes has K₀=ℤ, mapping diagonally into K₀(Perf R)=ℤ². The summand (k,0) is missing before idempotent completion, so raw K is not invariant under Idem.
-- `stableK.pi0`: For idempotent-complete C, K₀(C) is the Grothendieck group of the homotopy category with [Y]=[X]+[Z] for every cofibre sequence. For C=Perf(F), F a field, it is ℤ by rank; the monoid of isomorphism classes without this relation is ℕ.
+- `stableK.pi0`: For idempotent-complete C, K₀(C) is the Grothendieck group of the homotopy category with [Y]=[X]+[Z] for every cofibre sequence. For C=Perf(F), F a field, it is ℤ by Euler characteristic: [F[1]]=−[F], and the nonzero complex F⊕F[1] has class zero. Group completion using direct-sum relations alone would instead give ⊕_{j∈ℤ}ℤ, recording each cohomological degree separately; the cofibre relation is essential.
 
 **Nonconnective K-theory by the suspension construction.** Fix an uncountable regular cardinal κ and a universe containing it. For a small stable C put F_κ(C)=(Ind_ω C)^κ, the κ-compact Ind-objects, and Σ_κ(C)=F_κ(C)/C, the idempotent-completed Verdier quotient. F_κ(C) has countable coproducts, so K(F_κC)=0 by the Eilenberg swindle. The exact sequences C→F_κC→Σ_κC give maps K(Σ_κ^{(n)}C)→ΩK(Σ_κ^{(n+1)}C), and IK(C)=colim_n Ω^nK(Σ_κ^{(n)}C). Then IK sends exact sequences of small stable ∞-categories to fibre sequences, is Morita invariant (IK(C)≃IK(Idem C)), and receives a natural map K→IK inducing K_i(C)≅IK_i(C) for i>0, and also for i=0 when C is idempotent complete. IK preserves κ-filtered colimits, and all filtered colimits. Its value is independent of κ. On Perf(A) it agrees with the Bass–Thomason–Trobaugh nonconnective K-theory supplied by GeneralAlgebraicKTheory, and on DHKS-saturated Waldhausen categories with factorization with the corresponding nonconnective model.
 
@@ -2065,9 +2066,9 @@ Throughout this statement, Small idempotent-complete stable ∞-categories with 
 
 The construction proceeds as follows. On a suitably small subcategory of κ-compact stable categories, use the spectral presheaf Day convolution and extend functors by filtered colimits (BGT Proposition 5.12 and Corollary 5.13, p. 24). Localize at zero objects and split-exact, respectively exact, sequences. Tensoring with an exact stable category preserves these relations (BGT Lemma 5.5 and Propositions 5.6–5.7, pp. 22–23), so the EDS monoidal localization criterion applies. This is a source proof plan, not an assertion that the EDS generic definition already includes that criterion. Identify the localized covariant representable at Perf(S) with K by BGT Theorem 7.13 (p. 49) and with IK using the finitary restriction of §4.6 (The category of relative localizing motives) and BGT Theorem 9.8 (p. 58). The unit comparison is Theorems 5.14–5.15, pp. 24–25. No relative κ-finitary tensor statement is imported from Layers 4 and 7.
 
-Also establish The unit comparison uses K for split-exact invariants and IK for exact invariants, and is natural in small stable categories. TC is excluded from both finitary categories; THH and each finite TC^n belong to the localizing category.
+Also establish The unit comparison uses K for split-exact invariants and IK for exact invariants, and is natural in small stable categories. TC is excluded from both finitary categories; THH and each finite TC^n belong to the localizing category. For the commutative ring spectrum R and finite-action quotient Q of §2.3, the exact tensor functor Perf(R^{tC_p})→Q induces a module structure on IK(Q) over IK(Perf(R^{tC_p})), hence over K(R^{tC_p}) via K→IK. This uses multiplicativity of the concrete K-theories, rather than an additional definition of K (LMMT Remark 3.9, pp. 15–16).
 
-*Needs:* §4.6 (The category of relative localizing motives); GeneralAlgebraicKTheory Layers 5–6; GeneralAlgebraicKTheory §§10.10–10.11, 11.15–11.16 and 13.6 — nonconnective spectrum and derived invariance; EnhancedDerivedSheaves E5:abstract — symmetric monoidal infinity category; EnhancedDerivedSheaves E5:abstract — stable infinity category; EnhancedDerivedSheaves E5:presentability — presentable categories; EnhancedDerivedSheaves E5:presentability — compact objects.
+*Needs:* §4.9 (Connective K-theory of small stable ∞-categories; Nonconnective K-theory by the suspension construction); §2.3 (Tate endomorphisms in the finite-action Verdier quotient); §4.6 (The category of relative localizing motives); GeneralAlgebraicKTheory Layers 5–6; GeneralAlgebraicKTheory §§10.10–10.11, 11.15–11.16 and 13.6 — nonconnective spectrum and derived invariance; EnhancedDerivedSheaves E5:abstract — symmetric monoidal infinity category; EnhancedDerivedSheaves E5:abstract — stable infinity category; EnhancedDerivedSheaves E5:presentability — presentable categories; EnhancedDerivedSheaves E5:presentability — compact objects.
 
 **The Dennis trace.** The topological Dennis trace is the natural transformation of additive invariants K → THH on small stable ∞-categories corresponding to 1 ∈ π_0Nat(K, THH) ≅ π_0THH(S) = ℤ; on objects it sends x to id_x ∈ C(x,x), a 0-simplex of the cyclic nerve. Composed with linearisation THH(A) → HH(A/ℤ) it gives the classical Dennis trace K_n(A) → HH_n(A/ℤ); in degree 0 it is the Hattori–Stallings trace K_0(A) → A/[A,A], [P] ↦ trace of an idempotent representing P; in degree 1 the class of a unit u ∈ A^× ⊂ K_1(A) maps to the class of u^{−1} ⊗ u ∈ HH_1(A) in the convention where the degree-one Dennis comparison is positive (for commutative A, d log u ∈ Ω¹_A). Blumberg–Mandell §9 uses the opposite generator and writes −t^{−1}σt; transporting that comparison reverses the sign.
 
@@ -2091,7 +2092,7 @@ Provide the following operations and identities.
 - `dennisTrace.zero_category`: On the zero category the trace is 0 → 0.
 - `dennisTrace.not_iso`: The Dennis trace K_1(ℤ) = ℤ/2 → HH_1(ℤ) = 0 is not injective: it is not an isomorphism in general.
 
-Also establish Degree 0: K_0(A) → HH_0(A) = A/[A,A] sends [A^n] ↦ n. Degree 1, A = ℤ[t^{±1}]: [t] ↦ t^{−1}dt (d log t). In degree 0 the Dennis trace of a perfect module agrees with the Chern character of DGAInfinity layer 9 in HH_0 (both are the Hattori–Stallings trace of an idempotent), the comparison asked for by RT-AREA-ktheory-2/44.
+Also establish Degree 0: K_0(A) → HH_0(A) = A/[A,A] sends [A^n] ↦ n. Degree 1, A = ℤ[t^{±1}]: [t] ↦ t^{−1}dt (d log t). In degree 0 the Dennis trace of a perfect module agrees with the Chern character of DGAInfinity layer 9 in HH_0 (both are the Hattori–Stallings trace of an idempotent).
 
 *Needs:* GeneralAlgebraicKTheory Layers 5–6; GeneralAlgebraicKTheory §§3.12–3.14; §2.11 (THH of spectral and stable ∞-categories); §2.8 (THH relative to THH(ℤ) is Hochschild homology); §4.9 (Localizing and truncating invariants); DGAInfinity Layer 9 (ordinary Hochschild character); §4.10 (K-theory units of finitary invariants).
 
@@ -2334,7 +2335,7 @@ Provide the following operations and identities.
 
 - `CyclotomicTrace.infinitesimallySifted.constant`: A constant functor has zero relative functor and satisfies the condition.
 - `CyclotomicTrace.infinitesimallySifted.forget`: For the underlying-spectrum functor the relative extension value is I; compatible sifted extension colimits preserve it.
-- `CyclotomicTrace.infinitesimallySifted.fixed_base_insufficient`: Checking only δ=0 at a fixed A does not test a diagram where A varies or a nonsplit extension.
+- `CyclotomicTrace.infinitesimallySifted.fixed_base_insufficient`: The nonsplit square-zero extension ℤ/4→𝔽₂ has relative underlying-spectrum value H𝔽₂. It cannot be identified with the split extension 𝔽₂[ε]/ε²→𝔽₂: the source of the former has characteristic 4 and that of the latter characteristic 2. A test restricted to split extensions would omit this input.
 
 *Needs:* §4.14 (Connective bimodules and square-zero extensions); EnhancedDerivedSheaves E0.
 
@@ -2656,7 +2657,7 @@ Provide the following operations and identities.
 
 - `QHodgeTrace.CompatibleSphericalLifts.invert_two`: A=R=Z[1/2] has the canonical localization lifts; the p=2 input is trivial.
 - `QHodgeTrace.CompatibleSphericalLifts.polynomial`: Polynomial lifts over the toric spherical base satisfy the local reduction conditions.
-- `QHodgeTrace.CompatibleSphericalLifts.not_arbitrary`: An E₁ ku-algebra lifting R without the spherical reductions and lifted cover cannot be used as this global input.
+- `QHodgeTrace.CompatibleSphericalLifts.not_arbitrary`: For R=ℤ_p{x}_∞/x, the E₁ ku-lift in [W](#w), Paragraph 1.11, p. 5, does not produce a q-deformation. Thus even an existing ku-lift cannot replace the spherical reductions and lifted cover required here.
 
 *Needs:* §6.1 (Spherical lifts and the base hypotheses); HabiroRings HR.1 — perfectly covered; DerivedDeRhamCohomology Layer 0 — quasisyntomic condition; EnhancedDerivedSheaves E0; StableHomotopyKTheory §7.23.
 
@@ -3079,8 +3080,8 @@ Provide the following operations and identities.
 **Checks.**
 
 - `qHodgeFiltration.zero_degree`: fil^0_{q-Hdg} = q-dR_{R/A}.
-- `qHodgeFiltration.polynomial`: For R = ℤ_p[x] and i≥1, fil^i = ((q−1)^iℤ_p[x][[q−1]] → (q−1)^{i−1}ℤ_p[x][[q−1]]dx) (Raksit's example, §6.10 (The framed comparison (Raksit; Wagner Theorem 6.10)), Check `framedTrace.line`).
-- `qHodgeFiltration.not_qadic`: fil^⋆_{q-Hdg} is not the (q−1)-adic filtration (q−1)^⋆q-dR: on ℤ_p[x] the degree-1 term contains dx in filtration i−1, not i.
+- `qHodgeFiltration.polynomial`: For the p-completed polynomial algebra R=ℤ_p⟨x⟩ and i≥1, fil^i = ((q−1)^iR[[q−1]] → (q−1)^{i−1}R[[q−1]]dx) (Raksit's example, §6.10 (The framed comparison (Raksit; Wagner Theorem 6.10)), Check `framedTrace.line`).
+- `qHodgeFiltration.not_qadic`: fil^⋆_{q-Hdg} is not the (q−1)-adic filtration (q−1)^⋆q-dR: on ℤ_p⟨x⟩ the degree-1 term contains dx in filtration i−1, not i.
 
 Also establish Modulo β, ψ^0_R becomes the comparison dR_{R/A} → gr^0 HC⁻ of Antieau/HRW.
 
@@ -3221,7 +3222,7 @@ Provide the following operations and identities.
 
 *Needs:* PrismaticCohomology Layer 0 (δ-rings; the δ-structure with δ(x_i) = 0); PrismaticCohomologyPartII §5.1 ([p]_q) and §§5.7–5.8 (q-PD envelopes of completely regular sequences, with flatness, base change and reduction to PD envelopes; BS Lemma 16.10); HabiroRings HR.1 (the toric Λ-structure and its Adams operations); `MvPolynomial`; `MvPolynomial.aeval`.
 
-**The framed Čech resolution (Wagner 6.12 and Lemma 6.13).** Keep the framed input of §6.10 (Framed smooth inputs (Wagner Examples 6.7–6.8)). Let A → P^• and S_A → S_{P^•} be the Čech nerves of A → P and S_A → S_P, put ku_{P^•} = ku ⊗ S_{P^•}, and write x_k^{(r)} ∈ P^n = P^{⊗_A(n+1)} for the k-th coordinate in the r-th tensor factor. Let R_n = S^{⊗_A(n+1)}, let J_n = ker(R_n → S) be its diagonal ideal, and let R̂_n be the J_n-adic completion of R_n. Let q-D^n be the h-completion of the subring of (R̂_n ⊗ ℚ)[[h]] generated by R̂_n[[h]] and all δ^{(e)}_q(x_k^{(r)}, x_k^{(s)}) with e ≥ 1, 1 ≤ r, s ≤ n+1 and 1 ≤ k ≤ d. Filter it by the ideals generated by h in degree 1 and by δ^{(e)}_q(x_k^{(r)},x_k^{(s)}) in degree e, and let fil^⋆q-D̂^• be the completed cosimplicial filtered ring. The completion along J_n is needed. The differences x_k^{(r)} − x_k^{(s)} generate an ideal I_n with R_n/I_n = S^{⊗_P(n+1)}, and since P → S is étale this ring is S times a complementary factor; so J_n = I_n + (e) for an element e that is idempotent modulo I_n. After completion along J_n the complementary factor disappears and J_nR̂_n = I_nR̂_n. Wagner's 6.12 forms the subring inside (S^{⊗_A(n+1)} ⊗ ℚ)[[h]] itself, which agrees with this one when S ⊗_P S = S, for instance for S = P or a localisation of P, but not for a general étale framing. Then there is a canonical isomorphism of cosimplicial graded ℤ[β][[t]]-modules π_{2∗}TC⁻(ku_{S,□}/ku_{P^•}) ≅ fil^⋆q-D̂^•.
+**The framed Čech resolution (Wagner 6.12 and Lemma 6.13).** Keep the framed input of §6.10 (Framed smooth inputs (Wagner Examples 6.7–6.8)). Let A → P^• and S_A → S_{P^•} be the Čech nerves of A → P and S_A → S_P, put ku_{P^•} = ku ⊗ S_{P^•}, and write x_k^{(r)} ∈ P^n = P^{⊗_A(n+1)} for the k-th coordinate in the r-th tensor factor. Let R_n = S^{⊗_A(n+1)}, let J_n = ker(R_n → S) be its diagonal ideal, and let R̂_n be the J_n-adic completion of R_n. Let q-D^n be the h-completion of the subring of (R̂_n ⊗ ℚ)[[h]] generated by R̂_n[[h]] and all δ^{(e)}_q(x_k^{(r)}, x_k^{(s)}) with e ≥ 1, 1 ≤ r, s ≤ n+1 and 1 ≤ k ≤ d. Filter it by the ideals generated by h in degree 1 and by δ^{(e)}_q(x_k^{(r)},x_k^{(s)}) in degree e, and let fil^⋆q-D̂^• be the completed cosimplicial filtered ring. The completion along J_n is needed. The differences x_k^{(r)} − x_k^{(s)} generate an ideal I_n with R_n/I_n = S^{⊗_P(n+1)}, and since P → S is étale this ring is S times a complementary factor; so J_n = I_n + (e) for an element e that is idempotent modulo I_n. After completion along J_n the complementary factor disappears and J_nR̂_n = I_nR̂_n. Wagner's 6.12 forms the subring inside (S^{⊗_A(n+1)} ⊗ ℚ)[[h]] itself. When S ⊗_P S = S, for instance for S = P or a localisation of P, its completed filtration agrees with fil^⋆q-D̂^•: the coordinate differences already generate J_n, and filtration completion includes completion along this ideal. For a general étale framing the coordinate differences leave extra diagonal components, so completion along the full J_n is essential even after filtration completion. Then there is a canonical isomorphism of cosimplicial graded ℤ[β][[t]]-modules π_{2∗}TC⁻(ku_{S,□}/ku_{P^•}) ≅ fil^⋆q-D̂^•.
 
 Throughout this statement, the framed input as above; ℤ[β][[t]] is identified with the Rees ring of (q−1)^⋆ℤ[[q−1]] as in §6.9 (The comparison map ψ^0_R and the q-Hodge filtration).
 
@@ -3274,7 +3275,7 @@ Throughout this statement, the framed input as above; the clause data of the coo
 
 ([W](#w), §6.2, Remark 6.14, p. 86; §4.4, Theorem 4.27 and Remark 4.28, p. 50; [W-Hab](#w-hab), §3.2, Example 3.12, pp. 25–26, and §3.1, Remark 3.6, pp. 22–23.)
 
-The construction proceeds as follows. Compare the completed filtrations on qΩ_{S/A} by `framedTrace` and `framedTrace.twoAdic`, and identify the map in filtration degree zero with ψ^0_S through the gluing of §6.10 (Global even filtrations by profinite and rational gluing). Check the clauses on the static cosimplicial models of `framedCech`: there each clause map is a map of cosimplicial filtered rings, determined by its underlying map because all transition maps are injective, so the squares between clauses commute strictly and pass to the totalisation. Pull back along qdR_{S/A} → qΩ_{S/A} by HabiroCohomologyFoundations §4.1 (`QHodgeFiltration.ofUnderived`). Transport the multiplicative structure of Remark 4.28 along the equivalence of pairs, and apply HabiroCohomologyFoundations §4.23 to the Habiro–Hodge complex. The derived commutative refinement comes from the E∞-lift, as in Remark 6.14.
+The construction proceeds as follows. Compare the completed filtrations on qΩ_{S/A} by `framedTrace` and `framedTrace.twoAdic`, and identify the map in filtration degree zero with ψ^0_S through the gluing of §6.10 (Global even filtrations by profinite and rational gluing). Check the clauses on the static cosimplicial models of `framedCech`: there each clause map is a map of cosimplicial filtered rings, determined by its underlying map because all transition maps are injective, so the squares between clauses commute strictly and pass to the totalisation. Pull back along qdR_{S/A} → qΩ_{S/A} by HabiroCohomologyFoundations §4.1 (`QHodgeFiltration.ofUnderived`). Transport the multiplicative structure of Remark 4.28 along the equivalence of pairs, and apply HabiroCohomologyFoundations §4.23 to the Habiro–Hodge complex. For the stronger derived commutative refinement, totalise the cosimplicial static filtered commutative rings of `framedCech` in filtered derived commutative algebras and transport across `framedTrace` (Remark 6.14). An E∞-algebra structure on the underlying complex alone is not a substitute for this refinement.
 
 Provide the following operations and identities.
 
@@ -3340,7 +3341,7 @@ Provide the following operations and identities.
 
 - `cyclonicKu.m_one`: ku^{C_1} = ku.
 - `cyclonicKu.pi0_C2`: π_0(ku^{C_2}) = ℤ[q]/(q² − 1) = RU(C_2).
-- `cyclonicKU.not_bounded_below`: KU^{ΦC_m} is not bounded below, so the bounded-below cyclonic machinery does not apply to KU directly; KU-filtrations are defined by β-localisation.
+- `cyclonicKU.not_bounded_below`: For m=1, KU^{ΦC_1}=KU has π_{−2j}=ℤ for every j≥1, by Bott periodicity. Thus the bounded-below cyclonic machinery cannot be applied to KU itself; KU-filtrations are defined by β-localisation.
 
 Also establish m = 1: ku^{C_1} = ku, π_* = ℤ[β].
 
@@ -3417,7 +3418,7 @@ Provide the following operations and identities.
 
 - `cyclonicEvenFiltration.ku`: fil_{ev,S¹}TC^{−(m)}(ku/ku) ≃ τ_{≥2⋆}((ku^{C_m})^{h(S¹/C_m)}).
 - `cyclonicEvenFiltration.zero`: The filtration of 0 is 0.
-- `cyclonicEvenFiltration.no_direct_KU`: Applying the bounded-below formula directly to THH(KU_R/KU_A) (not bounded below) is not justified; the β-localisation of the ku filtration is used instead.
+- `cyclonicEvenFiltration.no_direct_KU`: For m=1 and A=R=ℤ[1/2], THH(KU_R/KU_A)=KU[1/2] has π_{−2j}=ℤ[1/2] for every j≥1. It is not bounded below, so it fails the hypothesis of the direct formula; use β-localisation of the ku filtration.
 
 Also establish For m = 1 this is the filtration of §6.6 (Even-filtered circle fixed points and Tate). The KU filtrations are 2-periodic (β^{±1} shifts weight by ±1).
 
@@ -3530,7 +3531,7 @@ Also establish The ordinary comparison is a realization map, not an equivalence 
 
 **Killing an idempotent pro-algebra.** In a presentable symmetric monoidal stable C, a κ-small pro-object A=pro-lim_i A_i with left-unital multiplication and unit defines the full subcategory Ind(C)^A of M with extended internal Hom(A,M)=ind-colim_(i,k) Hom_C(A_i,M_k)=0. It has a reflector j*. If A is idempotent and eventually trace-class, the dual ind-object ind-colim_i A_i∨ is nuclear and idempotent and there is a cofiber ind-colim_i A_i∨ → 1 → j*(1). The reflector is then symmetric monoidal, j*(1) an idempotent E∞ algebra, and j*(M)≃M⊗j*(1). The ordinary-object version uses Hom_C(A,−)=0 and requires stabilization or sequential-Hom commutation for its iterative formula.
 
-([MW](#mw), Constructions 2.6, 2.9 and 2.11, pp. 12–15; Proposition 2.14, pp. 15–16.)
+([MW](#mw), Constructions 2.6, 2.9 and 2.11, pp. 12–15; Lemma 2.14, pp. 15–16.)
 
 The construction proceeds as follows. Apply the reflective localization to the extended Hom-orthogonal subcategory. For pro A iterate Hom(fib(1 → A),−); extended Hom commutes with filtered colimits in Ind. For idempotent A the iteration stabilizes and gives the dual cofiber. Trace-class comparison of preduals makes this construction preserved by symmetric monoidal functors; general pro-algebras lack this asserted multiplicativity.
 
@@ -4188,7 +4189,7 @@ Earlier layers 1, 2, 3, 4. Use the named Mathlib and Tau Ceti inputs under the s
 
 KTheoryFiniteLocalFields uses graded and representation-graded TR, the cyclotomic trace, Bökstedt periodicity, the Witt description of π₀TR and henselian rigidity, including Gabber's rigidity; its full truncated-polynomial computation is its own. GeneralAlgebraicKTheoryPartII uses the K-theory of small stable infinity categories, the Tate constructions, the cyclotomic trace and localizing motives. ChromaticHomotopyTheory uses the parametrized Tate constructions of §2.5 and the K(1)-local sphere of §6.8.
 
-HabiroCohomologyFoundationsPartII uses the spherical inputs of §6.1, the q-Hodge comparisons of §§6.9–6.10, including the framed comparison and the framed trace pair of §6.10 for its agreement with the canonical algebraic filtration, the cyclonic coefficient and Habiro–Hodge comparisons of §§6.11–6.13, the number-field realisation of §6.14, the finite-coefficient calculation of §7.6 and the interface of §8.8, with their stated lift, coherence and prime-two restrictions. HabiroCohomologyFoundations and HabiroRings precede this roadmap and use none of its statements. Applications to arithmetic K-theory use the nilpotent and henselian trace theorems, continuity modulo p, truncating excision, continuous invariants and the K-theoretic Beilinson square.
+HabiroCohomologyFoundationsPartII uses the spherical inputs of §6.1, the q-Hodge comparisons of §§6.9–6.10, including the framed comparison and the framed trace pair of §6.10 for its agreement with the canonical algebraic filtration, the cyclonic coefficient and Habiro–Hodge comparisons of §§6.11–6.13, the number-field realisation of §6.14, the finite-coefficient calculation of §7.6 and the interface of §8.8, with their stated lift, coherence and prime-two restrictions. The supplier layers HabiroCohomologyFoundations 1–5 and HabiroRings HR.1, HR.2 and HR.5 precede these trace constructions and use none of their statements. Applications to arithmetic K-theory use the nilpotent and henselian trace theorems, continuity modulo p, truncating excision, continuous invariants and the K-theoretic Beilinson square.
 
 ## References
 
@@ -4198,7 +4199,7 @@ Page references use the editions below. The published and arXiv BMS paginations 
 **[AMMN]** Benjamin Antieau, Akhil Mathew, Matthew Morrow, Thomas Nikolaus, *[On the Beilinson fiber square](https://arxiv.org/pdf/2003.12541v2)*. arXiv:2003.12541v2 (29 Sep 2021).
 
 <a id="an"></a>
-**[AN]** Benjamin Antieau and Thomas Nikolaus, *[Cartier modules and cyclotomic spectra](https://arxiv.org/pdf/1809.01714v2)*. arXiv:1809.01714v2, 12 January 2020; final journal version JAMS 34 (2021), 1–78. Locators here use the arXiv v2 printed pages..
+**[AN]** Benjamin Antieau and Thomas Nikolaus, *[Cartier modules and cyclotomic spectra](https://arxiv.org/pdf/1809.01714v2)*. arXiv:1809.01714v2, 12 January 2020; final journal version JAMS 34 (2021), 1–78. Locators here use the arXiv v2 printed pages.
 
 <a id="ar"></a>
 **[AR]** Benjamin Antieau and Noah Riggenbach, *[Cyclotomic synthetic spectra](https://arxiv.org/pdf/2411.19929v1)*. arXiv:2411.19929v1 (29 November 2024).

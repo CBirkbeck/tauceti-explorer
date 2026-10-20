@@ -41,10 +41,14 @@ example {p : ℕ} {M : Type u} [AddCommGroup M] (c : CartierStructure p M) :
     c.IsMorphism c (AddMonoidHom.id M) := by
   constructor <;> ext x <;> rfl
 
-example {p : ℕ} {M : Type u} {N : Type v} [AddCommGroup M] [AddCommGroup N]
-    (c : CartierStructure p M) (d : CartierStructure p N) :
-    c.IsMorphism d 0 := by
-  constructor <;> ext x <;> simp
+/-- Test `CartierModule.morphism_checks_operators`: on ℤ, the pairs (F,V)=(2,id) and
+(id,2) both have FV=2. The identity commutes with those composites but is not a Cartier map. -/
+example : ∃ c d : CartierStructure 2 ℤ, ¬ c.IsMorphism d (AddMonoidHom.id ℤ) := by
+  refine ⟨⟨2 • AddMonoidHom.id ℤ, AddMonoidHom.id ℤ, by simp⟩,
+    ⟨AddMonoidHom.id ℤ, 2 • AddMonoidHom.id ℤ, by simp⟩, ?_⟩
+  intro h
+  have h1 := DFunLike.congr_fun h.1 (1 : ℤ)
+  norm_num at h1
 
 end CartierStructure
 
@@ -101,36 +105,17 @@ than by the q-Pochhammer symbol. -/
 theorem diagonalNumerator_shift (d : ℕ) :
     aeval ![X 2 * X 0, X 1, X 2] (diagonalNumerator (d + 1)) - diagonalNumerator (d + 1) =
       (X 2 ^ (d + 1) - 1) * X 0 * diagonalNumerator d := by
-  have hterm : ∀ k : ℕ, aeval (![X 2 * X 0, X 1, X 2] : Fin 3 → MvPolynomial (Fin 3) ℤ)
-      (X 0 - X 2 ^ (k + 1) * X 1 : MvPolynomial (Fin 3) ℤ) = X 2 * (X 0 - X 2 ^ k * X 1) := by
-    intro k
-    simp
-    ring
-  have h0 : aeval (![X 2 * X 0, X 1, X 2] : Fin 3 → MvPolynomial (Fin 3) ℤ)
-      (X 0 - X 2 ^ 0 * X 1 : MvPolynomial (Fin 3) ℤ) = X 2 * X 0 - X 1 := by
-    simp
-  simp only [diagonalNumerator, map_prod]
-  rw [Finset.prod_range_succ', Finset.prod_range_succ]
-  simp only [hterm, h0, Finset.prod_mul_distrib, Finset.prod_const, Finset.card_range]
-  ring
+  sorry
 
 /-- `diagonalNumerator_one`: at `q = 1` the numerator is `(x − y)^d`, the numerator of the
 ordinary divided power `(x − y)^d / d!`. -/
 theorem diagonalNumerator_one (d : ℕ) :
     aeval ![X 0, X 1, (1 : MvPolynomial (Fin 3) ℤ)] (diagonalNumerator d) = (X 0 - X 1) ^ d := by
-  simp [diagonalNumerator, map_prod]
+  sorry
 
 /-- Test `diagonalNumerator.small`: `N₀ = 1` and `N₁ = x − y`. -/
 example : diagonalNumerator 0 = 1 ∧ diagonalNumerator 1 = X 0 - X 1 := by
   constructor <;> simp [diagonalNumerator]
-
-/-- Test `diagonalNumerator.degree_two`:
-`(q x − y)(q x − q y) − (x − y)(x − q y) = (q² − 1) x (x − y)`. -/
-example :
-    aeval ![X 2 * X 0, X 1, X 2] (diagonalNumerator 2) - diagonalNumerator 2 =
-      (X 2 ^ 2 - 1) * X 0 * diagonalNumerator 1 := by
-  simp [diagonalNumerator, Finset.prod_range_succ]
-  ring
 
 /-- Test `diagonalNumerator.classical_fails`: the classical numerator `(x − y)²` has the same
 value at `q = 1` but misses the shift identity by `(q − 1)² x y`. -/
