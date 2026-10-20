@@ -112,9 +112,9 @@
   "VectorBundlesAndIsocrystals": 24,
   "WeilConjectures": 24,
   "RelativeFarguesFontaine": 25,
-  "GeneralAlgebraicKTheory": 6,
+  "GeneralAlgebraicKTheory": 5,
   "JacobianChallengePartII": 15,
-  "StableHomotopyKTheory": 5,
+  "StableHomotopyKTheory": 4,
   "SchemeKTheoryOperations": 9,
   "VStackSheavesAndLisseCategories": 26,
   "MordellLawrenceVenkatesh": 26,
@@ -129,6 +129,7 @@
   "HermitianKTheoryOfPoincareCategories": 14,
   "CompletedCohomologyAndLocalGlobalCompatibility": 30,
   "EulerSystemsAndKolyvaginSystems": 16,
-  "KTheoryFiniteLocalFields": 18
+  "KTheoryFiniteLocalFields": 18,
+  "K2SymbolsBrauer": 11
  }
 }

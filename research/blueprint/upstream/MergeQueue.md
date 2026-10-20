@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-20T11:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-20T12:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #914 FreeGroupsAndLimitGroups — ready (approved at an earlier head)
@@ -12,6 +12,7 @@ Generated 2026-10-20T11:50Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
@@ -19,7 +20,7 @@ Generated 2026-10-20T11:50Z from the README supplier graph of every open pull re
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
@@ -28,26 +29,25 @@ Generated 2026-10-20T11:50Z from the README supplier graph of every open pull re
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
 - #820 DiamondsAndVStacks — draft; waits on #1199
-- #896 CharacteristicClasses (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 - #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — draft; waits on #820
-- #942 TangentialBordism (kim-em, other author)
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — draft; waits on #940
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #785, #940
 
 ## Wave 7
@@ -69,6 +69,7 @@ Generated 2026-10-20T11:50Z from the README supplier graph of every open pull re
 
 ## Wave 11
 - #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #849, #248, #446
+- #1302 K2SymbolsBrauer — draft; waits on #1212, #1227, #1248, #1142
 
 ## Wave 12
 - #858 ArithmeticGaloisDuality — draft; waits on #792, #816, #849, #853, #856, #940
@@ -89,7 +90,7 @@ Generated 2026-10-20T11:50Z from the README supplier graph of every open pull re
 ## Wave 15
 - #869 SelmerIwasawaCohomology — draft; waits on #816, #849, #852, #858, #879, #940, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #785, #848, #850, #852, #853
-- #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #1103, #1104
+- #873 LefschetzPencilsAndVanishingCycles — draft; waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #1103, #1104
 - #1202 LanglandsParameterStacks — ready (approved at an earlier head); waits on #1034, #785, #856
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #848, #849, #852, #853
 
