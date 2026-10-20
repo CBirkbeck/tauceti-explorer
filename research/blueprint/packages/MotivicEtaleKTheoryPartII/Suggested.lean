@@ -52,14 +52,12 @@ def dualTwist (d j : ℤ) : ℤ := d + 1 - j
 /-- The dual datum has weight `-2 - w` (§1.1, `motiveWeight_dual`). -/
 theorem motiveWeight_dual (d i j : ℤ) :
     motiveWeight (dualDegree d i) (dualTwist d j) = -2 - motiveWeight i j := by
-  unfold motiveWeight dualDegree dualTwist
-  ring
+  sorry
 
 /-- Dualizing twice returns the degree and the twist (§1.1; the README Check `dualTwist_dualTwist`). -/
 theorem dualDegree_dualTwist_involutive (d i j : ℤ) :
     dualDegree d (dualDegree d i) = i ∧ dualTwist d (dualTwist d j) = j := by
-  unfold dualDegree dualTwist
-  constructor <;> ring
+  sorry
 
 /-- `h¹(E)(1)` has weight `-1` and is its own dual datum (§1.1, `weight_elliptic_center`). -/
 example : motiveWeight 1 1 = -1 ∧ dualDegree 1 1 = 1 ∧ dualTwist 1 1 = 1 := by
@@ -92,37 +90,27 @@ noncomputable def artinFactorRank (r : ℤ) : ℕ :=
 period map `α`: the dimension count of `realExactness_artin` (§§1.4, 2.4). -/
 theorem artinFactorRank_add_tatePlusDim {r : ℤ} (hr : 2 ≤ r) :
     artinFactorRank K r + tatePlusDim K r = Module.finrank ℚ K := by
-  have h := card_add_two_mul_card_eq_rank K
-  unfold artinFactorRank tatePlusDim
-  split_ifs <;> omega
+  sorry
 
 /-- In twist one the sequence `0 → H¹_f ⊗ ℝ → coker α → H⁰_f(h⁰(K))^* ⊗ ℝ → 0` has a
 one-dimensional last term (§§1.4, 2.4; Dirichlet). -/
 theorem artinFactorRank_one_add :
     artinFactorRank K 1 + 1 + tatePlusDim K 1 = Module.finrank ℚ K := by
-  have h := card_add_two_mul_card_eq_rank K
-  have hc := card_eq_nrRealPlaces_add_nrComplexPlaces K
-  have hpos : 0 < Fintype.card (InfinitePlace K) := Fintype.card_pos
-  have hodd : ¬ Even (1 : ℤ) := by decide
-  unfold artinFactorRank tatePlusDim Units.rank
-  split_ifs <;> omega
+  sorry
 
 /-- For `ℚ` the factor `H¹_f(ℚ(3)) = K₅(ℤ) ⊗ ℚ` is a line, while `H¹_f(ℚ(2)) = K₃(ℤ) ⊗ ℚ` and
 `H¹_f(ℚ(1)) = ℤ^× ⊗ ℚ` vanish (§1.4, `artinFactorRank_rat`). -/
 theorem artinFactorRank_rat :
     artinFactorRank ℚ 3 = 1 ∧ artinFactorRank ℚ 2 = 0 ∧ artinFactorRank ℚ 1 = 0 := by
+  sorry
+
+/-- Parity separates the nonzero rational factor in twist three from twist two (§1.4). -/
+example : artinFactorRank ℚ 3 = 1 ∧ artinFactorRank ℚ 2 = 0 := by
   have h1 : Module.finrank ℚ ℚ = 1 := Module.finrank_self ℚ
   have hr : nrRealPlaces ℚ = 1 := nrRealPlaces_eq_one_of_finrank_eq_one h1
   have hc : nrComplexPlaces ℚ = 0 := nrComplexPlaces_eq_zero_of_finrank_eq_one h1
-  have h3 : ¬ Even (3 : ℤ) := by decide
-  have h2 : Even (2 : ℤ) := by decide
-  refine ⟨?_, ?_, ?_⟩
-  · unfold artinFactorRank
-    simp [h3, hr, hc]
-  · unfold artinFactorRank
-    simp [h2, hc]
-  · unfold artinFactorRank Units.rank
-    simp
+  norm_num [artinFactorRank, hr, hc, show ¬ Even (3 : ℤ) by decide,
+    show Even (2 : ℤ) by decide]
 
 /-- The infinity involution acts on `ℚ(1)` by `-1` and on `ℚ(2)` by `+1`, so `B⁺(ℚ(1)) = 0` and
 `B⁺(ℚ(2)) = ℚ` (§1.4, `tatePlusDim_rat`). -/
@@ -150,15 +138,13 @@ variable {W : Type*} [AddCommGroup W] [Module ℂ W] {ω : TauCeti.Hodge.Conjuga
 of `delignePeriodMap_injective` (§2.1, `hodge_F_zero_inf_conjF_zero_eq_bot`). -/
 theorem hodge_F_zero_inf_conjF_zero_eq_bot (hs : TauCeti.Hodge.HodgeStructureOn W ω n)
     (hn : n < 0) : hs.F 0 ⊓ hs.conjF 0 = ⊥ := by
-  have hle : hs.conjF 0 ≤ hs.conjF (n + 1 - 0) := hs.conjF_antitone (by omega)
-  exact eq_bot_iff.2 (le_trans (inf_le_inf_left _ hle) (hs.isCompl_F_conjF 0).inf_eq_bot.le)
+  sorry
 
 /-- In weight at least `-1`, `F⁰` and its conjugate span: the Hodge-theoretic content of
 `delignePeriodMap_surjective` (§2.1, `hodge_F_zero_sup_conjF_zero_eq_top`). -/
 theorem hodge_F_zero_sup_conjF_zero_eq_top (hs : TauCeti.Hodge.HodgeStructureOn W ω n)
     (hn : -1 ≤ n) : hs.F 0 ⊔ hs.conjF 0 = ⊤ := by
-  have hle : hs.conjF (n + 1 - 0) ≤ hs.conjF 0 := hs.conjF_antitone (by omega)
-  exact eq_top_iff.2 (le_trans (hs.isCompl_F_conjF 0).sup_eq_top.ge (sup_le_sup_left hle _))
+  sorry
 
 end HodgeWeights
 
@@ -174,35 +160,23 @@ reindexing of Mathlib's `NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT`). 
 theorem tendsto_mul_dedekindZeta_one_add :
     Tendsto (fun s : ℝ ↦ (s : ℂ) * dedekindZeta K (1 + s)) (𝓝[>] 0)
       (𝓝 (dedekindZeta_residue K)) := by
-  have hg : Tendsto (fun s : ℝ ↦ 1 + s) (𝓝[>] 0) (𝓝[>] 1) := by
-    rw [tendsto_nhdsWithin_iff]
-    refine ⟨?_, ?_⟩
-    · have h : Tendsto (fun s : ℝ ↦ 1 + s) (𝓝 0) (𝓝 (1 + 0)) :=
-        tendsto_const_nhds.add tendsto_id
-      rw [add_zero] at h
-      exact h.mono_left nhdsWithin_le_nhds
-    · filter_upwards [self_mem_nhdsWithin] with s hs
-      simp only [Set.mem_Ioi] at hs ⊢
-      linarith
-  refine ((tendsto_sub_one_mul_dedekindZeta_nhdsGT K).comp hg).congr ?_
-  intro s
-  simp only [Function.comp_apply]
-  push_cast
-  ring_nf
+  sorry
 
 end ClassNumber
 
 /-!
 ## Targets stated in the README only
 
-Layer 1: `KTheoreticMotive` and its API, `motivicFactorZero`, `motivicFactorOne` and their API,
+Layer 1: `KTheoreticMotive`, `coefficientCopower` and their API, `motivicFactorZero`,
+`motivicFactorOne` and their API,
 `weight_vanishing`, `artinMotiveFactors`, `ellipticMotiveFactors`.
 Layer 2: `delignePeriodMap` and its API, `realDeligneComplex`, `cycleClassReal`,
 `beilinsonRegulatorReal`, `heightPairingReal`, `RegulatorsCommuteWithCoefficients`,
 `regulatorsCommute_artin`, `regulatorsCommute_elliptic`, `RealExactness` and its API,
 `realExactness_artin`, `neronTatePairing_posDef_real`, `realExactness_elliptic`,
 `fundamentalLineRealComparison` and its API.
-Layer 3: `padicRealizationZero`, `padicRealizationOne` and their API, `PadicRealizationFinite`,
+Layer 3: `padicRealizationZero`, `padicRealizationOne` and their API,
+`padicRealizationOne_mem_g`, `padicRealizationOne_mem_f_goodReduction`, `PadicRealizationFinite`,
 `blochKatoCondition_orthogonal`, `PadicRealizationIso` and its API, `padicRealization_artin`,
 `padicRealization_elliptic`, `compactCochainsWithInfinity`, `selmerComplex_artin`,
 `fundamentalLinePadicComparison` and its API.
