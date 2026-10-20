@@ -643,9 +643,9 @@
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "c18e4b5",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "GL2AutomorphicRepresentationsAndTransfer": {
