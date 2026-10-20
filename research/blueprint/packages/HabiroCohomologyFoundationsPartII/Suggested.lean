@@ -11,7 +11,9 @@ filtered enhanced carriers that are not at the pins, so they are README targets 
 
 Design choices made explicit here:
 * the exponent conditions for spherical quotient lifts are stated prime by prime, with the
-  evenness condition at `2` built in, so that `α = 2` is admissible at odd primes only;
+  evenness condition at `2` built in, so that `α = 2` is admissible at odd primes only.
+  The predicates themselves are total on natural inputs; their spectral application assumes
+  that `p` is prime, while the implication between predicates holds for every natural `p`;
 * the trace inversion condition is a condition on the chosen integer `Δ`, not on the ring
   `𝓞 F[1/Δ]`, and keeps `0 < Δ`, `6 ∣ Δ` and `discr F ∣ Δ` as separate conjuncts.
 -/
@@ -105,15 +107,5 @@ theorem TraceInversion.isUnit_two_three {F : Type*} [Field F] [NumberField F] {�
   exact (Commute.all _ _).isUnit_mul_iff.mp hu
 
 end TraceInversion
-
-/-!
-The following README targets are not stated here, because their carriers (spectra with
-circle and genuine cyclic actions, filtered enhanced modules, chosen q-Hodge pairs and
-Habiro-complete objects) are not at the pins: `TraceInput` and its constructors (§1.1),
-`tracePair` (§1.2), `traceHabiro` and its interface (§1.3), `quotientLift` and its
-consequences (§2.1), `perfectedLiftNaive` and `perfectedLiftNaive_qReg` (§2.2),
-`tracePair_quasiRegular` (§2.3), `canonicalFramedTrace` (§3.3),
-`genuineRealisation` (§4.1) and `numberFieldTraceExports` (§4.2).
--/
 
 end TauCetiRoadmap.HabiroCohomologyFoundationsPartII
