@@ -153621,6 +153621,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeRegulators~codex1.md"
+  },
+  {
+   "id": "FIX-PKG-HabiroCyclotomicCompletions~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroCyclotomicCompletions"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HabiroCyclotomicCompletions~adv2.md",
+    "research/blueprint/packages/HabiroCyclotomicCompletions/review.json",
+    "research/blueprint/packages/HabiroCyclotomicCompletions/README.md",
+    "research/blueprint/packages/HabiroCyclotomicCompletions/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCyclotomicCompletions~adv2.md"
   }
  ]
 }
