@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-20T19:30Z",
+ "updated": "2026-10-20T19:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -265,7 +265,7 @@
   "LocallyAnalyticDistributions": {
    "stage": "pr",
    "pr": 854,
-   "head": "3fd4e00",
+   "head": "8f2b3da",
    "depends_on": [
     780,
     813,
@@ -339,7 +339,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "567ff2b",
+   "head": "5b7027c",
    "depends_on": [
     779,
     856,
@@ -377,7 +377,7 @@
   "SelmerIwasawaCohomology": {
    "stage": "pr",
    "pr": 869,
-   "head": "98e5bda",
+   "head": "17f6056",
    "depends_on": [
     858,
     779,
@@ -494,7 +494,7 @@
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "stage": "pr",
    "pr": 879,
-   "head": "7852c2c",
+   "head": "c991f29",
    "depends_on": [
     849,
     857,
@@ -575,7 +575,7 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "38709b4",
+   "head": "e189846",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
@@ -1090,11 +1090,11 @@
   "PadicHodgeTheory": {
    "stage": "pr",
    "pr": 1062,
-   "head": "b855272",
+   "head": "13bf65f",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1762,7 +1762,7 @@
   "EulerSystemsCyclotomicMainConjecture": {
    "stage": "pr",
    "pr": 1311,
-   "head": "d950df8",
+   "head": "277eace",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": null,
