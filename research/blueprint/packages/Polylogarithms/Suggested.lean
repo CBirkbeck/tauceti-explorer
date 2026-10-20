@@ -4,10 +4,13 @@ import Mathlib
 # Polylogarithms: representative target signatures
 
 The roadmap is README.md. This file records light definitions and milestone signatures on
-the pinned APIs and is not exhaustive. Complex logarithms use Mathlib's principal branch;
-the single-valued functions are real-valued. Rational cycles are tested by their universal
-relations, without constructing a second Bloch-group carrier. Determinants use selected
-archimedean embeddings and the discriminant normalization of the README.
+the pinned APIs and is not exhaustive. The classical and single-valued polylogarithms and the
+Bloch–Wigner function belong to the roadmap PolylogarithmFunctions; they are restated below by
+their defining formulas so that the regulator statements typecheck at the pins. Rational cycles
+are tested by their universal relations, without constructing a second Bloch-group carrier.
+Determinants use selected archimedean embeddings and the discriminant normalization of the
+README. The weight-four theorem for the explicit cycles defined here is proved in
+Polylogarithms, Part II, and is not stated in this file.
 -/
 
 namespace TauCetiRoadmap.Polylogarithms
@@ -17,8 +20,11 @@ open NumberField
 
 universe u
 
-/-- The natural-index classical polylogarithm, with the lower boundary value on the cut.
-The integral is a direct native-carrier definition; its analytic properties are targets. -/
+/-! ## The single-valued polylogarithms of PolylogarithmFunctions -/
+
+/-- The natural-index classical polylogarithm `Liₙ`, with the lower boundary value on the cut.
+This is PolylogarithmFunctions' function, with its API and Checks there; an implementation uses
+that declaration. -/
 noncomputable def polylog (n : ℕ) (z : ℂ) : ℂ :=
   if n = 0 then z / (1 - z)
   else if n = 1 then -Complex.log (1 - z)
@@ -26,16 +32,20 @@ noncomputable def polylog (n : ℕ) (z : ℂ) : ℂ :=
     ∫ t : ℝ in (0 : ℝ)..1,
       ((-Real.log t) ^ (n - 2) : ℝ) * (-Complex.log (1 - (t : ℂ) * z)) / (t : ℂ)
 
-/-- Zagier's Bernoulli combination, using `bernoulli 1 = -1/2`; its intended range is n ≥ 2. -/
+/-- Zagier's Bernoulli combination `Lₙ`, using `bernoulli 1 = -1/2`, for `n ≥ 2`; the
+PolylogarithmFunctions function restated by its formula. -/
 noncomputable def singleValued (n : ℕ) (z : ℂ) : ℝ :=
   let s : ℂ := ∑ k ∈ Finset.range n,
     ((2 : ℂ) ^ k * (bernoulli k : ℂ) / (k.factorial : ℂ)) *
       polylog (n - k) z * (Real.log ‖z‖ : ℂ) ^ k
   if Odd n then s.re else s.im
 
-/-- The Bloch–Wigner function, with the logarithmic term vanishing at z = 0 by totalization. -/
+/-- The Bloch–Wigner function `D = L₂`, restated from PolylogarithmFunctions; the logarithmic
+term vanishes at `z = 0` by totalization. -/
 noncomputable def blochWigner (z : ℂ) : ℝ :=
   (polylog 2 z).im + Complex.arg (1 - z) * Real.log ‖z‖
+
+/-! ## Explicit symbols, cycles and determinants -/
 
 /-- The rationalized unit vector; zero has no unit and is assigned the zero vector. -/
 noncomputable def unitVector {F : Type u} [Field F] (x : F) :
@@ -77,8 +87,9 @@ def IsCycle3 {F : Type u} [Field F] (c : F →₀ ℚ) : Prop :=
     FiveTermFunction b →
       c.sum (fun x a => a • (b x ⊗ₜ[ℚ] unitVector x)) = 0
 
-/-- A weight-four cycle in the explicit complex is tested against the weight-three
-presentation, retaining the full kernel condition without constructing that quotient. -/
+/-- An explicit raw weight-four cycle: a rational symbol sum whose image `Σ aₓ [x]₃ ⊗ u(x)`
+vanishes in the explicit weight-three group tensor the units, tested against every function on
+the explicit weight-three presentation without constructing that quotient. -/
 def IsCycle4 {F : Type u} [Field F] (c : F →₀ ℚ) : Prop :=
   ∀ (V : Type u) [AddCommGroup V] [Module ℚ V] (b : F → V),
     TrilogRelationFunction b →
@@ -96,7 +107,7 @@ noncomputable def normalizedPeriod {F : Type u} [Field F] [NumberField F]
   Real.pi ^ (n * (Module.finrank ℚ F - Fintype.card ι)) /
     Real.sqrt |(NumberField.discr F : ℝ)| * (periodMatrix n σ c).det
 
-/-! ## Headline theorems -/
+/-! ## Headline theorem -/
 
 /-- Weight-three Zagier existence, including the actual rational cycle condition.
 Goncharov, Advances 1995, Theorem 1.1; the row equivalence selects every infinite place. -/
@@ -108,66 +119,6 @@ theorem zagier_three_exists (F : Type u) [Field F] [NumberField F]
         normalizedPeriod 3 (fun i => (e i).embedding) c =
           (q : ℝ) * (NumberField.dedekindZeta F 3).re := by
   sorry
-
-/-- Weight-four existence in the explicit complex. It asserts no converse lifting from
-the inductive presentation. Goncharov–Rudenko v5, Theorems 1.2–1.3 and complex (44). -/
-theorem zagier_four_exists (F : Type u) [Field F] [NumberField F]
-    (e : Fin (InfinitePlace.nrComplexPlaces F) ≃
-      {v : InfinitePlace F // v.IsComplex}) :
-    ∃ c : Fin (InfinitePlace.nrComplexPlaces F) → F →₀ ℚ,
-      (∀ j, IsCycle4 (c j)) ∧ ∃ q : ℚ, q ≠ 0 ∧
-        normalizedPeriod 4 (fun i => (e i).val.embedding) c =
-          (q : ℝ) * (NumberField.dedekindZeta F 4).re := by
-  sorry
-
-/-- The five-term identity which makes the analytic dilogarithm a regulator. -/
-theorem blochWigner_fiveTerm (x y : ℂ) (hx0 : x ≠ 0) (hx1 : x ≠ 1)
-    (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
-    blochWigner x - blochWigner y + blochWigner (y / x) -
-      blochWigner ((1 - x⁻¹) / (1 - y⁻¹)) +
-        blochWigner ((1 - x) / (1 - y)) = 0 := by
-  sorry
-
-/-! ## Layer 1: analytic polylogarithms -/
-
-/-- The defining series on the open unit disc. -/
-theorem polylog_hasSum (n : ℕ) (z : ℂ) (hz : ‖z‖ < 1) :
-    HasSum (fun k : ℕ => z ^ (k + 1) / ((k + 1 : ℕ) : ℂ) ^ n) (polylog n z) := by
-  sorry
-
-/-- The endpoint value in every convergent weight. -/
-theorem polylog_one (n : ℕ) (hn : 2 ≤ n) :
-    polylog n 1 = riemannZeta (n : ℂ) := by
-  sorry
-
-/-- The Bernoulli combination in weight two agrees with the explicit Bloch–Wigner formula. -/
-theorem singleValued_two (z : ℂ) : singleValued 2 z = blochWigner z := by
-  sorry
-
-/-- Inversion and conjugation have different parity signs. -/
-theorem singleValued_inversion (n : ℕ) (hn : 2 ≤ n) (z : ℂ) (hz : z ≠ 0) :
-    singleValued n z + (-1 : ℝ) ^ n * singleValued n z⁻¹ = 0 := by
-  sorry
-
-/-- The real differential, valid also on the classical branch cut away from 1. -/
-theorem blochWigner_differential (z : ℂ) (hz0 : z ≠ 0) (hz1 : z ≠ 1) :
-    DifferentiableAt ℝ blochWigner z ∧ ∀ v : ℂ,
-      fderiv ℝ blochWigner z v =
-        -Real.log ‖z‖ * (v / (1 - z)).im - Real.log ‖1 - z‖ * (v / z).im := by
-  sorry
-
-/-- Positivity uses the upper half-plane, not the principal-branch slit. -/
-theorem blochWigner_pos (z : ℂ) (hz : 0 < z.im) : 0 < blochWigner z := by
-  sorry
-
-example (z : ℂ) : polylog 1 z = -Complex.log (1 - z) := by
-  simp [polylog]
-
-example : polylog 0 (1 / 2 : ℂ) = 1 := by
-  norm_num [polylog]
-
-example : blochWigner 0 = 0 := by
-  simp [blochWigner, polylog]
 
 /-! ## Layer 2: volume and certified evaluation -/
 
@@ -286,17 +237,12 @@ example : tripleRatio (fun i : Fin 6 =>
   norm_num [tripleRatio, Matrix.det_fin_three, Matrix.of_apply, Matrix.cons_val_two,
     Matrix.vecHead, Matrix.vecTail]
 
-/-- The real single-valued trilogarithm satisfies its explicit presentation. -/
+/-- The real single-valued trilogarithm satisfies the explicit weight-three presentation,
+including the endpoint form of the three-term relation; it therefore descends to the explicit
+group. -/
 theorem singleValued_three_relations :
     TrilogRelationFunction (singleValued 3) := by
   sorry
-
-/-- The endpoint is a nonzero trilogarithm class, rather than a degenerate zero symbol. -/
-theorem singleValued_three_one : singleValued 3 1 = (riemannZeta 3).re := by
-  sorry
-
-example (z : ℂ) (hz : ‖z‖ = 1) : singleValued 3 z = (polylog 3 z).re := by
-  simp [singleValued, Finset.sum_range_succ, hz, show Odd (3 : ℕ) from by decide]
 
 example {F : Type u} [Field F] : unitVector (0 : F) = 0 := by
   simp [unitVector]
@@ -323,25 +269,17 @@ example {F : Type u} [Field F] : IsCycle4 (Finsupp.single (1 : F) (1 : ℚ)) := 
   intro V _ _ b _
   simp [Finsupp.sum_single_index, unitVector]
 
-/-! ## Layer 4: determinant conventions and lifting -/
+example : IsCycle4 (Finsupp.single (2 : ℚ) (1 : ℚ) + Finsupp.single (2⁻¹ : ℚ) 1) := by
+  intro V _ _ b hb
+  have hinv : b 2 = b 2⁻¹ := hb.2.1 2 (by norm_num)
+  have hunit : Units.mk0 (2⁻¹ : ℚ) (by norm_num) = (Units.mk0 (2 : ℚ) (by norm_num))⁻¹ := by
+    ext; simp
+  have hu : unitVector (2⁻¹ : ℚ) = -unitVector (2 : ℚ) := by
+    simp [unitVector, hunit, TensorProduct.tmul_neg]
+  rw [Finsupp.sum_add_index' (by simp) (by intros; simp [add_smul])]
+  simp [Finsupp.sum_single_index, ← hinv, hu, TensorProduct.tmul_neg]
 
-/-- The canonical weight-four correction vanishes on explicit cycles, giving 5/16
-times the classical period. The assertion concerns a whole cycle, not each symbol. -/
-theorem weightFour_cycle_period {F : Type u} [Field F] (σ : F →+* ℂ)
-    (c : F →₀ ℚ) (hc : IsCycle4 c) :
-    c.sum (fun x a => (a : ℝ) * blochWigner (σ x) *
-      (Real.log ‖σ x‖) ^ 2) = 0 ∧
-    c.sum (fun x a => (a : ℝ) *
-      ((5 * singleValued 4 (σ x) + (1 / 3 : ℝ) * blochWigner (σ x) *
-        (Real.log ‖σ x‖) ^ 2) / 16)) =
-      (5 / 16 : ℝ) * c.sum (fun x a => (a : ℝ) * singleValued 4 (σ x)) := by
-  sorry
-
-example : (5 * (16 : ℚ) + (1 / 3 : ℚ) * 0 * 1 ^ 2) / 16 = 5 := by
-  norm_num
-
-example : (5 * (16 : ℚ) + (1 / 3 : ℚ) * 48 * 1 ^ 2) / 16 = 6 := by
-  norm_num
+/-! ## Layer 4: determinants, explicit cycles and lifting -/
 
 /-- For a presentation square, a cycle lifts precisely when its boundary can be
 cancelled by an element of the presentation kernel. This does not assume kernel surjectivity. -/
@@ -352,6 +290,18 @@ theorem cycleLift_iff {C D E J : Type*}
     (hsquare : q.comp a = b.comp p) (y : D) (hy : b y = 0)
     (x : C) (hx : p x = y) :
     (∃ z : C, p z = y ∧ a z = 0) ↔ ∃ k : C, p k = 0 ∧ a k = a x := by
+  sorry
+
+/-- If the comparison map on the target of the first differentials is injective, every
+inductive cycle comes from an explicit one. In weight three it is the identification of the
+two presentations of `B₂` tensored with the units, so every inductive weight-three cycle lifts. -/
+theorem cycleLift_of_injective {C D E J : Type*}
+    [AddCommGroup C] [Module ℚ C] [AddCommGroup D] [Module ℚ D]
+    [AddCommGroup E] [Module ℚ E] [AddCommGroup J] [Module ℚ J]
+    (p : C →ₗ[ℚ] D) (a : C →ₗ[ℚ] E) (b : D →ₗ[ℚ] J) (q : E →ₗ[ℚ] J)
+    (hsquare : q.comp a = b.comp p) (hp : Function.Surjective p)
+    (hq : Function.Injective q) (y : D) (hy : b y = 0) :
+    ∃ x : C, p x = y ∧ a x = 0 := by
   sorry
 
 /-- Even weights use no rows over a totally real field; the determinant is 1, not 0. -/
@@ -368,6 +318,16 @@ example : periodMatrix 3 (fun _ : Fin 1 => (Rat.castHom ℂ))
 example (σ : Fin 0 → ℚ →+* ℂ) (c : Fin 0 → ℚ →₀ ℚ) :
     normalizedPeriod 4 σ c = Real.pi ^ 4 := by
   norm_num [normalizedPeriod, NumberField.discr_rat]
+
+/-- Over a totally real field an even weight has no rows, and the empty determinant is a
+nonzero rational multiple of `ζ_F(n)`: Borel's even-weight rationality, through
+BorelRegulators. -/
+theorem zagierExistence_totallyRealEven (F : Type u) [Field F] [NumberField F]
+    [NumberField.IsTotallyReal F] (n : ℕ) (hn : 2 ≤ n) (heven : Even n)
+    (σ : Fin 0 → F →+* ℂ) (c : Fin 0 → F →₀ ℚ) :
+    ∃ q : ℚ, q ≠ 0 ∧
+      normalizedPeriod n σ c = (q : ℝ) * (NumberField.dedekindZeta F n).re := by
+  sorry
 
 /-! ## Layer 5: curve regulator formulas -/
 
@@ -418,19 +378,24 @@ README targets whose carriers require further construction:
 Bloch–Wigner descent, embedding regulators and the Borel comparison; the upper-half-space
 metric adapter, ideal regions, compact truncations, cusp estimates and ideal tetrahedron volume;
 rational unit-circle arithmetic certificates; explicit Bloch groups and geometric trilogarithm
-presentations; the Bigrassmannian, Gale duality and its signed configuration maps; primitive
-K-theory comparisons, transfers and regulator-image containment; inductive higher Bloch groups,
-specialization and their complexes; the three distinct Zagier assertions, presentation lifting
-and its obstruction; weight-four polynomial residues and the stated homotopy conjecture;
-compact test-form LF topology, currents, LF and normalization adapters for cycle integrals;
-relative Chow families with arbitrary Noetherian characteristic-zero base change,
-tautological multiplicity-bearing incidence cycles and their faces, logarithmic Green forms;
-logarithmic r and Wang forms, normal-variety residues and current identities; Deligne and support
-complexes, cubical/simplicial/mixed regulators and the universal Beilinson comparison; Chow
-parameter forms via resolved smooth test families and Arakelov cones; curve complexes,
-Chow dilogarithms and reciprocity homotopies;
-weight-three curve Chern comparison, generalized elliptic trilogarithms and their Fourier pairing;
-the completed-unit Leopoldt adapter and the full p-adic embedding regulator matrix.
+presentations, with the quotient forms isCycle3_iff_delta_eq_zero and
+isCycle4_iff_mem_explicitRawCycleFour of the cycle predicates; the Bigrassmannian, Gale
+duality and its signed configuration maps; primitive K-theory comparisons, transfers and
+regulator-image containment; inductive higher Bloch groups, specialization and their complexes;
+the three distinct Zagier assertions, the explicit raw weight-four cycles and their inductive
+classes, the cycle obstruction and the weight-three lift; weight-four polynomial residues and
+the stated homotopy conjecture; compact test-form LF topology, currents, LF and normalization
+adapters for cycle integrals; relative Chow families with arbitrary Noetherian
+characteristic-zero base change, tautological multiplicity-bearing incidence cycles and their
+faces, logarithmic Green forms; logarithmic r and Wang forms, normal-variety residues and
+current identities; Deligne and support complexes, cubical/simplicial/mixed regulators and the
+universal Beilinson comparison; Chow parameter forms via resolved smooth test families and
+Arakelov cones; curve complexes, Chow dilogarithms and reciprocity homotopies; weight-three
+curve Chern comparison, generalized elliptic trilogarithms and their Fourier pairing; the
+completed-unit Leopoldt adapter and the full p-adic embedding regulator matrix; the
+trilogarithm derivative values singleValued_three_derivative_two and
+singleValued_three_derivative_negOne, and the endpoint statement
+singleValued_three_derivative_one.
 -/
 
 end TauCetiRoadmap.Polylogarithms
