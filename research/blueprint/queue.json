@@ -152531,9 +152531,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv.md",
-   "note": "claimed on GitHub issue #11315"
+   "note": "deliverables arrived from an external worker on issue #11315",
+   "finishedAt": "2026-10-20T05:16:40Z"
   },
   {
    "id": "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3",
@@ -152551,8 +152552,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3.md",
+   "note": "claimed on GitHub issue #11317"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations~codex4",
