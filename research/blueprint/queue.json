@@ -152425,6 +152425,25 @@
     "BP-OverconvergentAutomorphicForms--O0~4"
    ],
    "state": "pending"
+  },
+  {
+   "id": "FIX-PKG-RefinedTraceMethods~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-RefinedTraceMethods~adv2.md",
+    "research/blueprint/packages/RefinedTraceMethods/review.json",
+    "research/blueprint/packages/RefinedTraceMethods/README.md",
+    "research/blueprint/packages/RefinedTraceMethods/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv2.md"
   }
  ]
 }
