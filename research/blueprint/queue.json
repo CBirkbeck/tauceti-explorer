@@ -152703,8 +152703,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-K2SymbolsBrauerPartII.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-K2SymbolsBrauerPartII.md",
+   "note": "claimed on GitHub issue #11330"
   },
   {
    "id": "REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3",
@@ -152744,8 +152745,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-PolylogarithmFunctions.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-PolylogarithmFunctions.md",
+   "note": "claimed on GitHub issue #11333"
   },
   {
    "id": "DESIGN-HabiroCohomologyFoundationsPartII",
@@ -152763,8 +152765,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-HabiroCohomologyFoundationsPartII.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-HabiroCohomologyFoundationsPartII.md",
+   "note": "claimed on GitHub issue #11334"
   },
   {
    "id": "DESIGN-MotivicEtaleKTheoryPartII",
@@ -152803,8 +152806,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv2.md",
+   "note": "claimed on GitHub issue #11336"
   },
   {
    "id": "FIX-PKG-Polylogarithms~adv2",
@@ -152841,8 +152845,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv2.md",
+   "note": "claimed on GitHub issue #11338"
   },
   {
    "id": "FIX-PKG-IntegralIwasawaTheory~adv",
