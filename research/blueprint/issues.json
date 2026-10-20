@@ -5391,5 +5391,6 @@
  "REV-PKG-PadicHodgeRegulators~codex2": 11453,
  "FIX-PKG-AutomorphicCongruences~adv": 11458,
  "FIX-PKG-FunctionFieldArithmetic~adv1": 11464,
- "FIX-PKG-HabiroRings~adv4": 11465
+ "FIX-PKG-HabiroRings~adv4": 11465,
+ "REV-PKG-HabiroCohomologyFoundations~codex7": 11466
 }
