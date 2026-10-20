@@ -4,7 +4,6 @@ Generated 2026-10-20T09:30Z from the README supplier graph of every open pull re
 
 ## Wave 1
 - #248 LFunctions (roed-math, other author)
-- #279 ComplexManifolds (Paul-Lez, other author)
 - #284 HomotopySpheres (Paul-Lez, other author)
 - #417 PointProcesses (mccorvie, other author)
 - #446 CFSGBasicProperties (kim-em, other author)
@@ -14,11 +13,13 @@ Generated 2026-10-20T09:30Z from the README supplier graph of every open pull re
 - #889 VonNeumannAlgebras (kim-em, other author)
 - #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
+- #918 RealAnalyticGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1056 FormalConnectionsOpers (kim-em, other author)
+- #1102 LocalPurity (tdupu, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
@@ -26,10 +27,8 @@ Generated 2026-10-20T09:30Z from the README supplier graph of every open pull re
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head); waits on #899
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
-- #918 RealAnalyticGeometry (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
-- #1056 FormalConnectionsOpers (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
@@ -59,7 +58,7 @@ Generated 2026-10-20T09:30Z from the README supplier graph of every open pull re
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
 
 ## Wave 9
-- #848 ComplexComparisonPartII — draft; waits on #1199, #853, #857, #868, #1056, #279, #887, #896, #918, #954, #973, #992
+- #848 ComplexComparisonPartII — draft; waits on #1199, #853, #857, #868, #1056, #887, #896, #918, #954, #973, #992
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
 
 ## Wave 10
@@ -143,7 +142,7 @@ Generated 2026-10-20T09:30Z from the README supplier graph of every open pull re
 
 ## Wave 23
 - #1000 ArakelovGeometryAndAbelianHeights — ready (approved at an earlier head); waits on #1002, #848, #849, #852, #853, #858, #879, #966
-- #1038 ShimuraData — ready (approved at an earlier head); waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279
+- #1038 ShimuraData — ready (approved at an earlier head); waits on #1037, #785, #792, #848, #849, #871, #933, #966
 - #1062 PadicHodgeTheory — ready; waits on #1002, #1042, #1044, #1057, #785, #816, #820, #849, #852, #856, #857, #858, #868, #869, #875, #879, #923, #940, #966
 - #1172 ArithmeticStatisticsPartIV — ready (approved at an earlier head); waits on #1126, #1167, #1171
 - #1173 ArithmeticStatisticsPartII — ready (approved at an earlier head); waits on #1167, #1171, #849, #851, #852, #853, #858, #869
