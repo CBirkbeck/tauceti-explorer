@@ -12,8 +12,6 @@ filtered enhanced carriers that are not at the pins, so they are README targets 
 Design choices made explicit here:
 * the exponent conditions for spherical quotient lifts are stated prime by prime, with the
   evenness condition at `2` built in, so that `α = 2` is admissible at odd primes only;
-* the numerator of the q-divided power on the diagonal is a polynomial in the variables
-  `(x, y, q)`, in this order, and the q-shift acts on `x`;
 * the trace inversion condition is a condition on the chosen integer `Δ`, not on the ring
   `𝓞 F[1/Δ]`, and keeps `0 < Δ`, `6 ∣ Δ` and `discr F ∣ Δ` as separate conjuncts.
 -/
@@ -53,55 +51,15 @@ example (p α : ℕ) (h : E2QuotientExponent p α) : E1QuotientExponent p α := 
   · exact ⟨h.1, by omega⟩
   · omega
 
-end QuotientExponents
-
-/-! ## Layer 3: Framed smooth algebras -/
-
-section DiagonalDividedPowers
-
-open MvPolynomial
-
-/-- The numerator `(x − y)(x − q y) ⋯ (x − q^{d−1} y)` of the q-divided power
-`δ^{(d)}_q(x, y)` on the diagonal, in `ℤ[x, y, q]` with variables `0 = x`, `1 = y`, `2 = q`.
-Dividing by `[d]_q!` gives the generators of the q-PD envelope of `(x − y)`
-(KU Lemma 6.11, p.84; README §3.2). -/
-noncomputable def diagonalNumerator (d : ℕ) : MvPolynomial (Fin 3) ℤ :=
-  ∏ i ∈ Finset.range d, (X 0 - X 2 ^ i * X 1)
-
-/-- The q-shift identity behind `∇_{q,x} δ^{(d+1)}_q(x, y) = δ^{(d)}_q(x, y)`:
-replacing `x` by `q x` changes the numerator by `(q^{d+1} − 1) · x` times the previous one.
-Dividing by `(q − 1) · x · [d+1]_q!` gives the q-derivative formula of README §3.2,
-which fixes the normalisation by `[d]_q!` rather than by the q-Pochhammer symbol. -/
-theorem diagonalNumerator_shift (d : ℕ) :
-    aeval ![X 2 * X 0, X 1, X 2] (diagonalNumerator (d + 1)) - diagonalNumerator (d + 1) =
-      (X 2 ^ (d + 1) - 1) * X 0 * diagonalNumerator d := by
-  have hterm : ∀ k : ℕ, aeval (![X 2 * X 0, X 1, X 2] : Fin 3 → MvPolynomial (Fin 3) ℤ)
-      (X 0 - X 2 ^ (k + 1) * X 1 : MvPolynomial (Fin 3) ℤ) = X 2 * (X 0 - X 2 ^ k * X 1) := by
-    intro k
-    simp
-    ring
-  have h0 : aeval (![X 2 * X 0, X 1, X 2] : Fin 3 → MvPolynomial (Fin 3) ℤ)
-      (X 0 - X 2 ^ 0 * X 1 : MvPolynomial (Fin 3) ℤ) = X 2 * X 0 - X 1 := by
-    simp
-  simp only [diagonalNumerator, map_prod]
-  rw [Finset.prod_range_succ', Finset.prod_range_succ]
-  simp only [hterm, h0, Finset.prod_mul_distrib, Finset.prod_const, Finset.card_range]
-  ring
-
--- The two-term witness: `(q x − y)(q x − q y) − (x − y)(x − q y) = (q² − 1) x (x − y)`.
+-- At `2` the sixth power enters the `E₂` range, while the fourth and seventh do not;
+-- at `3` the cube enters the range and the square does not.
 example :
-    aeval ![X 2 * X 0, X 1, X 2] (diagonalNumerator 2) - diagonalNumerator 2 =
-      (X 2 ^ 2 - 1) * X 0 * diagonalNumerator 1 := by
-  simp [diagonalNumerator, Finset.prod_range_succ]
-  ring
+    ¬ E2QuotientExponent 2 4 ∧ ¬ E2QuotientExponent 2 7 ∧ E2QuotientExponent 2 6 ∧
+      ¬ E2QuotientExponent 3 2 ∧ E2QuotientExponent 3 3 := by
+  unfold E2QuotientExponent
+  decide
 
-/-- At `q = 1` the numerator is `(x − y)^d`, the numerator of the ordinary divided power
-`(x − y)^d / d!`. -/
-theorem diagonalNumerator_one (d : ℕ) :
-    aeval ![X 0, X 1, (1 : MvPolynomial (Fin 3) ℤ)] (diagonalNumerator d) = (X 0 - X 1) ^ d := by
-  simp [diagonalNumerator, map_prod]
-
-end DiagonalDividedPowers
+end QuotientExponents
 
 /-! ## Layer 4: Number-field trace specialisations -/
 
@@ -116,11 +74,17 @@ condition (HabiroRings, number-field coefficients); README §4.1. -/
 def TraceInversion (F : Type*) [Field F] [NumberField F] (Δ : ℤ) : Prop :=
   0 < Δ ∧ (6 : ℤ) ∣ Δ ∧ discr F ∣ Δ
 
--- `Δ = 6` is admissible for `ℚ`; `Δ = 1` is not, although `discr ℚ = 1` divides it.
-example : TraceInversion ℚ 6 ∧ ¬ TraceInversion ℚ 1 := by
-  refine ⟨⟨by norm_num, dvd_refl _, by simp⟩, ?_⟩
-  rintro ⟨-, h, -⟩
-  omega
+-- `Δ = 6` is admissible for `ℚ`; `1` fails divisibility, while `0` and `−6` fail positivity.
+example :
+    TraceInversion ℚ 6 ∧ ¬ TraceInversion ℚ 1 ∧
+      ¬ TraceInversion ℚ 0 ∧ ¬ TraceInversion ℚ (-6) := by
+  refine ⟨⟨by norm_num, dvd_refl _, by simp⟩, ?_, ?_, ?_⟩
+  · rintro ⟨-, h, -⟩
+    omega
+  · rintro ⟨h, -, -⟩
+    omega
+  · rintro ⟨h, -, -⟩
+    omega
 
 /-- Under the trace inversion condition, `2` and `3` are units of `𝓞 F[1/Δ]`: the integer `Δ`
 becomes a unit, `6` divides it, and a product of commuting elements is a unit exactly when
@@ -148,8 +112,7 @@ circle and genuine cyclic actions, filtered enhanced modules, chosen q-Hodge pai
 Habiro-complete objects) are not at the pins: `TraceInput` and its constructors (§1.1),
 `tracePair` (§1.2), `traceHabiro` and its interface (§1.3), `quotientLift` and its
 consequences (§2.1), `perfectedLiftNaive` and `perfectedLiftNaive_qReg` (§2.2),
-`tracePair_quasiRegular` (§2.3), `framedTrace` and `framedTrace_einfty` (§3.1),
-`qPDDiagonal` and `framedCech` (§3.2), `canonicalFramedTrace` (§3.3),
+`tracePair_quasiRegular` (§2.3), `canonicalFramedTrace` (§3.3),
 `genuineRealisation` (§4.1) and `numberFieldTraceExports` (§4.2).
 -/
 
