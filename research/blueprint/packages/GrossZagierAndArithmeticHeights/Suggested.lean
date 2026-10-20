@@ -23,51 +23,6 @@ open Filter Topology
 
 namespace TauCetiRoadmap.GrossZagierAndArithmeticHeights
 
-/-! ## Layer 0a: arithmetic witnesses for the CM level comparisons -/
-
-/-- Gaussian level five (README 0a.3): the row-convention multiplication matrix lies in
-`R₀(5)`, has norm one and squares to `-1`. Transposing the level condition rejects it. -/
-example : let M : Matrix (Fin 2) (Fin 2) ℤ := !![2, -1; 5, -2]
-    M * M = -1 ∧ M.det = 1 ∧ (5 : ℤ) ∣ M 1 0 ∧ ¬ (5 : ℤ) ∣ M 0 1 := by
-  decide
-
-/-- Eisenstein level seven (README 0a.3): the extra unit satisfies its quadratic relation
-inside the lower-left level order. -/
-example : let M : Matrix (Fin 2) (Fin 2) ℤ := !![-3, -1; 7, 2]
-    M * M + M + 1 = 0 ∧ M.det = 1 ∧ (7 : ℤ) ∣ M 1 0 := by
-  decide
-
-/-- An order-three coefficient distinguishes the two Artin conventions (README 0a.1, 0.5).
-A quadratic coefficient cannot detect this error. -/
-example : (2 : ZMod 7) ^ 3 = 1 ∧ (2 : ZMod 7)⁻¹ = 4 ∧
-    (2 : ZMod 7)⁻¹ ≠ 2 := by
-  have h : (2 : ZMod 7)⁻¹ = 4 := ZMod.inv_eq_of_mul_eq_one 7 2 4 (by decide)
-  rw [h]
-  decide
-
-/-- The nonprimitive norm-four ideal in README 0a.2 has a two-dimensional 2-torsion
-kernel, unlike a cyclic kernel of order four. -/
-example : (∀ x : ZMod 2 × ZMod 2, 2 • x = 0) ∧ 2 • (1 : ZMod 4) ≠ 0 := by
-  decide
-
-/-- For the false elliptic triple of README 0a.5, `[2]` has degree sixteen, compared
-with degree four on its Morita elliptic factor. Pullback multiplies the differential by two;
-scaling the chosen differential by two divides a weight-two value by four and its square
-by sixteen. -/
-example : ((2 : ℚ) ^ 2) ^ 2 = 16 ∧ (2 : ℚ) ^ 2 = 4 ∧
-    (2 : ℚ) * (1 / 2) = 1 ∧ ((2 : ℚ) ^ 2)⁻¹ = 1 / 4 ∧
-    (((2 : ℚ) ^ 2)⁻¹) ^ 2 = 1 / 16 ∧
-    ((2 : ℚ) ^ 2)⁻¹ * (2 : ℚ) ^ 2 = 1 := by
-  norm_num
-
-/-- Atkin--Lehner reverses the level orientation and subtracts its ideal class
-(README 0.12). The norm-two class of discriminant `-23` has order three. -/
-example : let w : ZMod 3 × Bool → ZMod 3 × Bool :=
-      fun (a, orientation) => (a + if orientation then 1 else -1, !orientation)
-    w (0, false) = (2, true) ∧ w (w (0, false)) = (0, false) ∧
-      w (0, false) ≠ (1, true) := by
-  decide
-
 /-! ## Layer 0: normalization and character conventions -/
 
 /-- The CM unit index `u = #(O_K^×/{±1})`, as half the number of roots of unity of `K`. It is
@@ -88,8 +43,9 @@ example (K : Type*) [Field K] [NumberField K]
   rw [unitIndex, h]
   norm_num
 
-/-- The classification of the unit index of an imaginary quadratic field (README 0.4): `u = 3`
-for discriminant `-3`, `u = 2` for `-4`, and `u = 1` otherwise. -/
+/-- The unit index of an imaginary quadratic field (README 0.4): `u = 3` for discriminant `-3`,
+`u = 2` for `-4`, and `u = 1` otherwise. It halves the unit count of TauCetiRoadmap's
+ImaginaryQuadraticClassNumber, H1.2. -/
 theorem unitIndex_of_imaginaryQuadratic (K : Type*) [Field K] [NumberField K]
     [NumberField.IsTotallyComplex K] (hK : Module.finrank ℚ K = 2) :
     unitIndex K =
@@ -223,26 +179,6 @@ theorem heegnerAverage_pairing {W : Type*} [AddCommGroup W] [Module L W]
       ((Fintype.card G : L) ^ 2)⁻¹ * B (heegnerFinite ρ χ x) (heegnerFinite ρ' χ⁻¹ y) := by
   sorry
 end Characters
-
-/-- The three-term orbit sum over `𝔽₇` (README 8.8): forward character weights give the
-inverse eigenvalue under the cyclic coordinate shift. Replacing it by the forward eigenvalue
-fails already at the first coordinate. -/
-example : let e₀ : Fin 3 → ZMod 7 := ![1, 0, 0]
-    let e₁ : Fin 3 → ZMod 7 := ![0, 1, 0]
-    let e₂ : Fin 3 → ZMod 7 := ![0, 0, 1]
-    let w := e₀ + (2 : ZMod 7) • e₁ + (4 : ZMod 7) • e₂
-    (fun i => w (i - 1)) = (4 : ZMod 7) • w ∧
-      (fun i => w (i - 1)) ≠ (2 : ZMod 7) • w ∧
-      (fun i => w (i + 1)) = (2 : ZMod 7) • w := by decide
-
-/-- A two-term sign orbit has trace `(1,-1)` and probability average `(1/2,-1/2)`
-(README 8.8). The bilinear self-pairing is divided by four, not by two. -/
-example : let w : Fin 2 → ℚ := ![1, 0] - ![0, 1]
-    let a := (2 : ℚ)⁻¹ • w
-    a = ![1 / 2, -1 / 2] ∧
-      (∑ i : Fin 2, a i * a i) = (2 : ℚ)⁻¹ ^ 2 * (∑ i : Fin 2, w i * w i) ∧
-      (∑ i : Fin 2, a i * a i) ≠ (2 : ℚ)⁻¹ * (∑ i : Fin 2, w i * w i) := by
-  norm_num [Fin.sum_univ_two, funext_iff, Fin.forall_fin_two]
 
 /-! ## Layer 9: weight-two anticyclotomic functions and logarithms -/
 
