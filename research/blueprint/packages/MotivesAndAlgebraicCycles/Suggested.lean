@@ -11,6 +11,8 @@ milestone signatures statable against the pinned APIs and is not exhaustive.
 The coefficient functional records the source vector and target covector;
 the antipode milestone assumes rigidity rather than a Hopf structure. Rational
 classes are inverse images of Hodge pieces under an explicit comparison map.
+The real-cycle coefficient action is conjugate linear. Rational height positivity
+keeps the parity sign and a specified domain without asserting complex positivity.
 -/
 
 noncomputable section
@@ -125,6 +127,56 @@ example : rationalClassesOfType (Algebra.linearMap ℚ ℂ) (tate 0) 1 = ⊥ := 
 
 end HodgeClasses
 
+namespace RealCycleChecks
+
+/-- The weight-four quadratic coefficient action in README §7.11, grouped as
+two pairs. This is an actual conjugate-linear map on the existing complex module. -/
+def weightFourAction : ((ℂ × ℂ) × (ℂ × ℂ)) →ₗ⋆[ℂ] ((ℂ × ℂ) × (ℂ × ℂ)) where
+  toFun v := ((star v.1.2, -star v.1.1), (star v.2.2, -star v.2.1))
+  map_add' v w := by ext <;> simp [add_comm]
+  map_smul' a v := by ext <;> simp [smul_eq_mul]
+
+/-- Squaring the coefficient action gives minus the original vector. -/
+example (v : (ℂ × ℂ) × (ℂ × ℂ)) : weightFourAction (weightFourAction v) = -v := by
+  ext <;> simp [weightFourAction]
+
+/-- Conjugation changes the sign of the imaginary coefficient before the
+minus sign in the second slot; a complex-linear substitute fails this check. -/
+example : weightFourAction ((Complex.I, 0), (0, 0)) = ((0, Complex.I), (0, 0)) := by
+  ext <;> simp [weightFourAction]
+
+end RealCycleChecks
+
+namespace Heights
+
+variable {V : Type u} [AddCommGroup V] [Module ℚ V]
+
+/-- Strict signed rational positivity on a supplied subspace, README §7.17.
+The geometric application supplies `h(x,y) = h_raw(x,L^m y)` and its symmetry.
+This predicate does not assert positivity after scalar extension to ℂ. -/
+def rationalHeightPositive (p : ℕ) (h : V →ₗ[ℚ] V →ₗ[ℚ] ℝ)
+    (P : Submodule ℚ V) : Prop :=
+  ∀ x ∈ P, x ≠ 0 → 0 < (-1 : ℝ) ^ p * h x x
+
+/-- Signed positivity detects zero from self-height on its specified domain. -/
+theorem rationalHeightPositive_zero_iff (p : ℕ) (h : V →ₗ[ℚ] V →ₗ[ℚ] ℝ)
+    (P : Submodule ℚ V) (hh : rationalHeightPositive p h P) (x : V) (hx : x ∈ P) :
+    h x x = 0 ↔ x = 0 := by
+  sorry
+
+/-- The curve parity sign accepts a negative raw pairing. -/
+example : rationalHeightPositive 1 (-(LinearMap.mul ℚ ℝ)) ⊤ := by
+  intro x _ hx
+  simpa using (mul_self_pos.mpr hx)
+
+/-- Omitting that sign rejects the positive raw pairing already at one. -/
+example : ¬ rationalHeightPositive 1 (LinearMap.mul ℚ ℝ) ⊤ := by
+  intro h
+  have h1 := h 1 (by simp) (by norm_num)
+  norm_num at h1
+
+end Heights
+
 /-
 The remaining definitions require geometric or categorical carriers not supplied
 at the pins. They remain targets with exact signatures, APIs and Checks in README:
@@ -144,7 +196,9 @@ formal periods, their torsor and marked point, Artin and pure Tate subcategories
 Layer 7: geometric Hodge/Tate and standard conjecture predicates, Bloch–Beilinson
 and Murre filtrations, motivic t-structures, integral and real cycle defects,
 admissibility and obstruction predicates, compatible Hodge–Tate classes,
-Beilinson–Bloch and height predicates, unitary arithmetic theta applications.
+Beilinson–Bloch, geometric primitive height domains and their construction,
+complex height positivity and unitary arithmetic theta applications. The
+rational positivity predicate above only takes an already supplied pairing.
 -/
 
 end TauCetiRoadmap.MotivesAndAlgebraicCycles
