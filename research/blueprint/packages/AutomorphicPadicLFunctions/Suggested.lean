@@ -14,6 +14,7 @@ namespace TauCetiRoadmap.AutomorphicPadicLFunctions
 /-! ## Layer 0: ray-class evaluation and Euler corrections -/
 
 #check TauCeti.GlobalNumberFields.classMap_surjective
+#check riemannZeta_zero
 
 /-- The finite weighted Fourier kernel underlying the conductor-normalized ray Gauss sum. -/
 def finiteGaussCore {A R : Type*} [Fintype A] [CommRing R]
@@ -82,26 +83,44 @@ example : admissibleWeight (id : Fin 2 → Fin 2) ![0, 2] ![1, 0] := by
   · simp [Fin.forall_fin_two]
   · exact ⟨2, by simp [Fin.forall_fin_two]⟩
 
-example : ¬ admissibleWeight (fun s : Fin 2 => 1 - s) ![2, 3] ![0, 0] := by
-  intro h
-  have h0 := (h.1 0).1
-  norm_num at h0
+example :
+    ¬ admissibleWeight (fun s : Fin 2 => 1 - s) ![2, 3] ![0, 0] ∧
+    ¬ admissibleWeight (id : Fin 2 → Fin 2) ![-1, -1] ![0, 0] ∧
+    ¬ admissibleWeight (id : Fin 2 → Fin 2) ![0, 0] ![0, 1] := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro h
+    have h0 := (h.1 0).1
+    norm_num at h0
+  · intro h
+    have h0 := (h.1 0).2
+    norm_num at h0
+  · intro h
+    obtain ⟨w, hw⟩ := h.2
+    have h0 := hw 0
+    have h1 := hw 1
+    norm_num at h0 h1
+    omega
 
 /-- The polynomial bounds on a critical index; global character compatibility is additional. -/
 def criticalBox {σ : Type*} (k j : σ → ℤ) : Prop :=
   ∀ s, 0 ≤ j s ∧ j s ≤ k s
 
-example : criticalBox (![2, 3] : Fin 2 → ℤ) ![0, 3] := by
+example :
+    criticalBox (![2, 3] : Fin 2 → ℤ) ![0, 3] ∧
+    criticalBox (![0, 0] : Fin 2 → ℤ) ![0, 0] := by
   simp [criticalBox, Fin.forall_fin_two]
 
-example : ¬ criticalBox (![2, 3] : Fin 2 → ℤ) ![0, 4] := by
+example :
+    ¬ criticalBox (![2, 3] : Fin 2 → ℤ) ![0, 4] ∧
+    ¬ criticalBox (![2, 3] : Fin 2 → ℤ) ![-1, 0] := by
   simp [criticalBox, Fin.forall_fin_two]
 
 /-- The parity contribution from complex degrees and real critical indices. -/
 def orientationSign (complexDegree realDegree : ℕ) : ℤ :=
   (-1) ^ (complexDegree + realDegree)
 
-example : orientationSign 0 2 = 1 ∧ orientationSign 0 3 = -1 := by
+example : orientationSign 0 0 = 1 ∧ orientationSign 0 2 = 1 ∧
+    orientationSign 0 3 = -1 := by
   norm_num [orientationSign]
 
 example : orientationSign 1 2 = -1 ∧ orientationSign 1 3 = 1 := by
@@ -205,10 +224,12 @@ localCharacterMuDefect, finisThetaSpace, integralThetaEigenlattice,
 finisLocalCorrection, unitaryDoublingDatum, ordinaryUnitaryLattice,
 ehlsHypotheses, unitaryDifferentialOperator, ehlsEisensteinMeasure,
 hermitianSiegelDatum, bigCellSection, panchishkinUnramified, DL_completedMeasure,
-ewSetting, ewSiegelMeasure, klingenFamily, normalisationComparison.
+ewSetting, ewSiegelMeasure, klingenFamily, normalisationComparison,
+anticyclotomicRayQuotient.
 
 The required PadicFamilies supplier extensions are partialZetaDistribution,
 hilbertCuspData, hilbertEisensteinSeries, ordinaryDeligneModule, ordinaryHilbertIgusaTower,
+PadicHilbertForm,
 deligneRibetMeasure, deligneRibetParityDefect, deligneRibetPseudomeasure, ordinaryCMType,
 ordinaryCMPoint, cmPeriodData, katzDifferentialOperator, katzEisensteinMeasure,
 katzHidaTilouineMeasure and groupRingEisensteinFamily. Their full signatures,
