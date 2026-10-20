@@ -152929,6 +152929,26 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/PKG-MotivicEtaleKTheoryPartII~codex.md",
    "note": "claimed on GitHub issue #11345"
+  },
+  {
+   "id": "REV-PKG-K2SymbolsBrauer~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-K2SymbolsBrauer~codex2.md",
+    "research/blueprint/packages/K2SymbolsBrauer/review.json",
+    "research/blueprint/packages/K2SymbolsBrauer/README.md",
+    "research/blueprint/packages/K2SymbolsBrauer/Suggested.lean",
+    "research/blueprint/packages/K2SymbolsBrauer/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~codex2.md"
   }
  ]
 }
