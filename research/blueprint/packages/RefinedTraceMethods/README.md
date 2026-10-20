@@ -26,7 +26,7 @@ Write T for the topological circle. In a residual action identify T/Cₘ with T 
 
 K is connective algebraic K-theory, IK is the concrete nonconnective theory, and Kinv=fib(IK→TC). KU and ku are complex topological K-theory spectra; β has degree 2. Use β=[H]−1 on S², x=c₁(H), and q−1=βt for the chosen complex orientation t of degree −2. Completions in rings such as Z[β][[t]] are graded completions: in any fixed total degree retain exactly the allowed infinite series, rather than an ungraded Laurent product.
 
-For a prime p, F(R;Zₚ)=F(R)^∧ₚ and F(R;Qₚ)=F(R)^∧ₚ[1/p]. Complete before inverting p. All p-adic derived complexes use derived p-completion. Quasisyntomic rings are p-complete with bounded p-power torsion and p-completed cotangent amplitude [0,1] homologically. Their general site is not the site over one chosen prism. Nygaard completion and Hodge completion are distinct operations. An uncompleted derived de Rham object is not replaced by its Hodge completion in the graded Beilinson square.
+For a prime p, F(R;Zₚ)=F(R)^∧ₚ and F(R;Qₚ)=F(R)^∧ₚ[1/p]. Complete before inverting p. All p-adic derived complexes use derived p-completion. The quasisyntomic site used for the BMS cover calculations has p-complete rings with bounded p-power torsion and p-completed cotangent amplitude [0,1] homologically. In §8.12, the larger p-quasisyntomic domain means bounded p-power torsion and L_(R/Z)⊗^L_R R/p of cohomological Tor-amplitude [−1,0], without p-completeness. For example Z belongs to the latter domain. Neither site is the site over one chosen prism. Nygaard completion and Hodge completion are distinct operations. An uncompleted derived de Rham object is not replaced by its Hodge completion in the graded Beilinson square.
 
 A refined invariant takes values in a nuclear ind-category; its realization map is part of the construction. Do not identify an ind-object with its realized colimit. The locally rigid sequential construction and the general rationally indexed trace-class envelope have separate size hypotheses. Monoidal statements over an E₁ coefficient use ordered left/right modules; symmetry requires an explicit E₂ or commutative refinement.
 
@@ -58,11 +58,31 @@ The following are precise inputs, not assumptions that the indicated higher theo
 
 ### Unresolved prerequisite contracts
 
-**K on general small stable infinity categories.** Layers 4 and 7 require the concrete functors K and IK on all small stable infinity categories, with exact-sequence localization, Morita invariance and filtered-colimit compatibility, together with comparison to the ring, DG and Frobenius models above. GeneralAlgebraicKTheory §13.6 supplies only enhanced model comparisons and explicitly excludes this general extension. The missing construction is the stable-category S-construction and its nonconnective suspension/delooping, not a definition of IK as a motive mapping spectrum. BGT §§7 and 9 (Theorems 7.13 and 9.8, pp. 49 and 58) compare the concrete theory with motive corepresentability only after those constructions. Until a lower-tier extension supplies the concrete construction and its model comparisons, §§4.6 and 4.9–4.11 and their refined uses have an open prerequisite.
+**K on general small stable infinity categories.** Layers 4 and 7 require concrete functors on Cat^perf_∞, the small idempotent-complete stable infinity categories and exact functors. Connective K must preserve split-exact sequences and all filtered colimits; IK must preserve all exact sequences and all filtered colimits. Both must be Morita invariant after extension to arbitrary small stable categories by idempotent completion, and agree with the supplied ring, DG and Frobenius models under their comparison hypotheses. GeneralAlgebraicKTheory §13.6 supplies only enhanced model comparisons and explicitly excludes this general extension.
 
-**Habiro and low-degree contracts.** HabiroRings, HabiroCohomologyFoundations, K2SymbolsBrauer and KTheoryFiniteLocalFields have no identified supplier layers discharging the contracts above. These are required constructions rather than available imports. In particular, KTheoryLowDegrees §§13.2–13.4 supplies a Steinberg/plus comparison, not relative Dennis–Stein symbols. The scalar and q-Hodge objects needed in Layers 6–8, the symbols in §4.19 and the π₀TR/Witt comparison in §2.14 remain open prerequisites.
+The missing supplier must construct S_n(C) as the category of gap diagrams on Ar([n]): diagonal entries are zero and the gap squares are pushouts. Iterated S-constructions, maximal subgroupoids and realization give the connective spectrum K_S(C) (BGT §7.1, Definition 7.1 and Lemma 7.3, pp. 43–45). On a category not assumed idempotent complete, distinguish this raw functor from K_S(Idem C); a Morita claim for raw K_S would lose its K₀ distinction. The Waldhausen comparison requires the model hypotheses in BGT Theorem 7.8 and Corollary 7.9, pp. 47–48; it is not invariance under an arbitrary triangulated equivalence.
+
+For nonconnective K, the supplier must construct Fκ(C)=(Ind_ω C)^κ and Σκ(C)=Fκ(C)/C at a specified uncountable regular κ and larger universe, use the countable-coproduct swindle for K_S(Fκ(C)), and form colim_r Ω^r K_S(Σκ^r(C)). It must prove the delooping transitions, comparison for different admissible κ, Morita invariance and localization, as well as K_i(C)≅IK_i(C) for i>0 and also i=0 when C is idempotent complete. BGT §9.1, Lemma 9.4, Definition 9.6 and Lemma 9.7, pp. 57–58, and §9.3, Proposition 9.32 and Remark 9.33, pp. 63–64, give the construction and comparison. Lemma 9.7 alone gives κ-filtered continuity; the all-filtered-colimit assertion additionally uses the argument concluding Theorem 9.8 on p. 63. BGT Theorems 7.13 and 9.8, pp. 49 and 58, identify the already constructed spectra with motive mapping spectra. Until a correctly owned extension supplies these constructions and comparisons, §§4.6 and 4.9–4.11 and their refined uses have an open prerequisite.
+
+**Checks.**
+
+- `stableKContract.zero`: S_n(0) is contractible for every n, and both K_S(0) and IK(0) are zero spectra.
+- `stableKContract.first_stages`: S₀(C) is contractible and S₁(C)≃C; using only the diagonal zero objects would incorrectly make S₁(C) contractible for nonzero C.
+- `stableKContract.idempotents`: For R=k×k with k a field, the stable category of bounded finite-free R-complexes has K₀=Z, mapping diagonally into K₀(Perf R)=Z² after idempotent completion. The summand (k,0) is missing from the former category. Thus raw K_S cannot satisfy the required Morita statement.
+- `stableKContract.cardinal`: For uncountable regular κ, the ordinary filtered poset N is not κ-filtered: its countable collection of objects has no upper bound in N. A κ-filtered continuity proof alone therefore does not establish sequential continuity.
+
+**Habiro and low-degree contracts.** HabiroRings, HabiroCohomologyFoundations, K2SymbolsBrauer and KTheoryFiniteLocalFields have no identified upstream supplier layers discharging the contracts above. Their atlas packages locate the intended owners: HabiroRings HR.1–HR.2 and HR.5–HR.6 for scalars, solid completion and relative/number-field comparisons; HabiroCohomologyFoundations §§2.1–2.7 and Layer 4 for derived q-de Rham and chosen q-Hodge/gluing inputs; K2SymbolsBrauer §§13.8–13.11 and 13.13 for relative Dennis–Stein symbols; KTheoryFiniteLocalFields §4.2 for π₀TR/Witt and §§5.16–5.17 for the truncated-polynomial/characteristic-p inputs. These are owner locators, not upstream imports. K2SymbolsBrauer §13.9 additionally records that the full generation/kernel proof of the relative presentation is unobtained; merely promoting its statement would not close that proof input. KTheoryLowDegrees §§13.2–13.4 supplies a Steinberg/plus comparison, not relative Dennis–Stein symbols. Thus the scalar and q-Hodge objects needed in Layers 6–8, the symbols in §4.19 and the π₀TR/Witt comparison in §2.14 remain open prerequisites. Later trace comparisons in HabiroCohomologyFoundations Layer 6 consume this roadmap and cannot supply its earlier scalar inputs.
 
 **Chromatic coefficients.** The j input in §6.8 requires K(1)-localization and the structured stable-Adams fixed-point comparison with the local sphere, including the prime-two variant. Derived p-completion and the Moore towers in StableHomotopyKTheory Layer 7 do not provide these constructions. The local THH comparison using j therefore also has an unresolved prerequisite.
+
+**Henselian finite-coefficient trace and change of site.** For every commutative henselian pair (R,I), every prime ℓ and n≥1, the required rigidity input is Fconn(R)/ℓ^n≃Fconn(R/I)/ℓ^n, where Fconn=fib(K→TC) uses connective K as in §4.12. CMM Theorem 4.36, p. 36, proves the mod-ℓ assertion; the cofiber sequences for successive coefficient powers give the stated finite-power version. When m≥1 is invertible in R, also require Gabber's reduction equivalence K(R)/m≃K(R/I)/m (CMM Theorem 1.4, p. 3). Its atlas owner is KTheoryFiniteLocalFields §2.1, which is not yet an upstream supplier. No such assertion for arbitrary negative K-groups is included. For strictly henselian local R of residue characteristic p, require K(R)/p^n≃TC(R)/p^n (CMM Theorem 6.1, p. 50, and the same coefficient induction). These inputs do not themselves prove §8.12's derived comparison of sites. The henselian trace input and the full change-of-site proof have no located supplier here; the nilpotent DGM theorem and the localizing Kinv=fib(IK→TC) cannot replace Fconn in this contract.
+
+**Checks.**
+
+- `henselianTraceContract.zero_ideal`: I=0 gives the identity on Fconn/ℓ^n and zero relative K and TC. The unit ideal is excluded for nonzero R by I⊆Jac(R).
+- `henselianTraceContract.non_nilpotent`: (Z_p,pZ_p) is a henselian pair with a nonnilpotent ideal; it tests the extension beyond §4.17 rather than another application of nilpotent DGM.
+- `henselianTraceContract.strictness`: At p=2, F₂ is henselian but not strictly henselian: K(F₂)/2 is connective while π_(−1)(TC(F₂)/2)=F₂. Hence the strict-local conclusion cannot be used for arbitrary residue fields. Over a separably closed field of characteristic 2, CMM Theorem 6.1 gives the trace equivalence.
+- `henselianTraceContract.integral_failure`: For R=(F_p[[x]])^perf and I the kernel of R→F_p, relative K₁ is a nonzero uniquely p-divisible group, whereas relative TC is p-complete. Thus finite-coefficient rigidity is not integral rigidity (CMM Remark 4.39, p. 37).
 
 ### Proof inputs that remain explicit construction targets
 
@@ -2945,28 +2965,35 @@ Also establish For k = ℤ: fil_{ev,hS¹}HC⁻_■(R/A) recovers the BMS2/Antiea
 
 ### 6.8 Image of J and the local coefficient comparisons
 
-**The connective image-of-J spectrum j.** For a prime p, define j=τ_{≥0}L_{K(1)}S as the connective E∞ cover of the K(1)-local sphere. At odd p, the K(1)-local sphere is modeled by KU_p^{h(𝔽_p^××ℤ)}, where ℤ acts through a principal-unit Adams operation; taking the finite fixed points first gives the Adams summand. This avoids a false ψ^g−1:ku_p→Σ²ku_p formula: the connective Adams-summand construction has a 2p−2 shift. Separately, Devalapurkar’s thesis uses j_{p,0}=τ_{≥0}(KU_p^{hΓ₀}), Γ₀=ℤ as in Lemma 6.2.1 and Notation 6.2.8. The variants are distinguished in the THH comparisons.
+**The connective image-of-J spectrum j.** For a prime p, define J_p=L_{K(1)}S and j=τ_{≥0}J_p, with the E∞ structure induced by the structured local sphere. Here K(1)-localization means localization at KU/p-equivalences: a map f is inverted exactly when (KU/p)⊗f is an equivalence, and a local Y has Map(A,Y)=0 for every (KU/p)-acyclic A. This localization is distinct from p-completion. The required chromatic input includes its reflective universal property and the coherent action of Zₚ× on KU_p by E∞ Adams automorphisms, acting on β by ψ^a(β)=aβ.
+
+At odd p, J_p≃KU_p^{h(μ_(p−1)×Z)}, where the infinite cyclic factor acts by ψ^(1+p). Taking the finite fixed points first gives the periodic Adams summand L_p, with π_*L_p=Zₚ[v₁±¹] and |v₁|=2p−2; its connective cover is ℓ_p. At p=2, use B_2=KU_2^{h{±1}}≃KO_2 and the underlying-spectrum fiber sequence J_2→KO_2→^(ψ³−1)KO_2. The E∞ structure comes from the coherent fixed-point diagram, not from treating the difference ψ³−1 as a unital ring map. In particular π₀j=Z₂⊕Z/2 as an abelian group at 2; the formula π₀j=Zₚ applies only at odd p. Thus this all-prime connective-cover convention must be distinguished from a prime-two image-of-J convention with π₀=Z₂.
+
+Separately, Devalapurkar's thesis uses j_{p,0}=τ_{≥0}(KU_p^{hΓ₀}), Γ₀=Z as in Lemma 6.2.1 and Notation 6.2.8. At odd p it omits the μ_(p−1) fixed points. Keep that variant and its specified action in the THH comparisons; neither ordinary p-completion nor a formula on coefficient groups identifies these E∞-rings.
 
 Throughout this statement, p a prime; K(1)-localisation at p and its structured fixed-point comparison; these are unresolved prerequisites, separate from derived p-completion.
 
-([W](#w), §4.1, Theorem 4.12 (Devalapurkar–Raksit [DR25]), p. 40; [D-thesis](#d-thesis), §6.2, Notation 6.2.8, printed p. 225 (PDF p. 234); [DR](#dr), Notation 0.1.2 and Remark 0.1.3, p. 2.)
+([R-Gal](#r-gal), §§5.5.1–5.5.2, pp. 32–33; [W](#w), §4.1, Theorem 4.12 (Devalapurkar–Raksit [DR25]), p. 40; [D-thesis](#d-thesis), §6.2, Notation 6.2.8, printed p. 225 (PDF p. 234); [DR](#dr), Notation 0.1.2 and Remark 0.1.3, p. 2.)
 
-The construction proceeds as follows. **Prerequisite gap.** StableHomotopyKTheory Layer 7 supplies ordinary prime completion and Moore spectra, not K(1)-localization, continuous stable Adams actions, the Adams summand or its fixed-point identification with the local sphere. Supply that chromatic extension, including the prime-two variant and its E∞ maps, before taking the connective cover. Keep j_{p,0} separate. The coefficient formulas and local THH comparisons below retain this prerequisite.
+The construction proceeds as follows. **Prerequisite gap.** StableHomotopyKTheory Layer 7 supplies ordinary prime completion and Moore spectra, not the KU/p-localization and structured Adams descent just specified. A chromatic extension must construct that localization, the continuous action and the finite/discrete fixed-point comparisons with J_p before taking connective covers. At odd p compute the fiber of ψ^(1+p)−1 on L_p, using ((1+p)^((p−1)k)−1) on π_(2(p−1)k). Its valuation is 1+v_p(k) for k≥1. At 2, ψ³ acts identically on π₁KO₂=Z/2 and π₀KO₂=Z₂. The long exact fiber sequence therefore gives 0→Z/2→π₀J₂→Z₂→0, split by the completed sphere unit. This computes the extra degree-zero summand. The coefficient computation does not supply the unresolved coherent chromatic construction.
 
 Provide the following operations and identities.
 
 - `imageOfJ`: j = τ_{≥0}S_{K(1)} at p, an E_∞-ring.
-- `imageOfJ.toKu`: j → ku_p (unit of the Adams summand), an E_∞-map.
-- `imageOfJ.pi0`: π_0 j = ℤ_p.
-- `imageOfJ.variant`: Devalapurkar's j_{p,0}.
+- `imageOfJ.toKu`: The connective cover of the fixed-point map J_p→KU_p, giving an E∞-map j→ku_p.
+- `imageOfJ.pi0_odd`: For p odd, π₀j≅Zₚ.
+- `imageOfJ.pi0_two`: For p=2, π₀j≅Z₂⊕Z/2 as an abelian group, with the second summand the boundary of η∈π₁KO₂.
+- `imageOfJ.variant`: Devalapurkar's j_{p,0}, retaining Γ₀ and its action.
 
 **Checks.**
 
-- `imageOfJ.pi0_test`: π_0 j = ℤ_p.
+- `imageOfJ.pi0_odd_test`: For p=3 the Adams summand has π₁=0, so the fiber sequence gives π₀j=Z₃.
+- `imageOfJ.pi0_two_test`: For p=2 the nonzero boundary of η contributes Z/2 to π₀j. In contrast fib(ψ³−1:KU₂→KU₂) has π₀=Z₂ since π₁KU₂=0; substituting KU₂ for KO₂ loses this summand.
 - `imageOfJ.connective`: π_n j = 0 for n < 0.
+- `imageOfJ.positive_index`: At p=3 the formula gives π₃j=Z/3 and π₁₁j=Z/9 (k=1 and k=3). At k=0 the degree is −1 and the connective cover is zero, so that index is excluded.
 - `imageOfJ.not_sphere`: j ≠ S^∧_p for p odd: the element β_1 ∈ π_{2p²−2p−2}S^∧_p of the cokernel of J maps to zero in π_*j.
 
-Also establish π_0 j = ℤ_p; π_{2(p−1)k−1} j ≅ ℤ/p^{v_p(k)+1} for p odd (image of J in the stable stems).
+Also establish π₀j=Zₚ for p odd and π_(2(p−1)k−1)j≅Z/p^(v_p(k)+1) for p odd and k≥1. These formulas concern j with the full finite-unit fixed points; they are not formulas for j_{p,0}.
 
 *Needs:* §5.1 (Coherent stable lifts of the supplied Adams operations); GeneralizedCohomology G5.4 and G3.8; GeneralizedCohomology G3.8; StableHomotopyKTheory §§7.14–7.18; StableHomotopyKTheory Layer 7.
 
@@ -2986,7 +3013,7 @@ Also establish At p = 2 this replaces §6.8 (Devalapurkar's comparison of THH(�
 
 Throughout this statement, p odd.
 
-([DR](#dr), §0.1, Remark 0.1.5, p. 2; [W](#w), §4.1, Theorem 4.12 (Devalapurkar–Raksit [DR25]), p. 40.)
+([DR](#dr), §0.1, Theorem 0.1.4, p. 2; [W](#w), §4.1, Theorem 4.12 (Devalapurkar–Raksit [DR25]), p. 40.)
 
 The construction proceeds as follows. Import Devalapurkar–Raksit's theorem (arXiv 2505.02218) as stated in Wagner Theorem 4.12; its proof (via K(1)-local and Tate-orbit arguments) follows their paper. Record the failure at p = 2 (Wagner §4.2).
 
@@ -4230,7 +4257,7 @@ Also establish The relative trace complex corresponds to φ^*Δ before completin
 
 ### 8.12 Characteristic-p TC and syntomic K-sheaves
 
-**The even TC sheaf in characteristic p.** On QRSPerfd_(F_p), for i≥0 there is an exact sequence of sheaves 0 → π_(2i)TC(−;Z_p) → π_(2i)TC⁻(−;Z_p) →^(φ−can) π_(2i)TP(−;Z_p) → 0. For i>0 the corresponding divided-Frobenius-minus-one operator on a QRSP ring is pointwise surjective; in weight zero surjectivity is sheaf-local by Artin–Schreier covers. Thus TC is locally even on this site. This stops before identifying its even K-groups, which is downstream GeneralAlgebraicKTheory Part II.
+**The even TC sheaf in characteristic p.** On QRSPerfd_(F_p), for i≥0 there is an exact sequence of sheaves 0 → π_(2i)TC(−;Z_p) → π_(2i)TC⁻(−;Z_p) →^(φ−can) π_(2i)TP(−;Z_p) → 0. For i>0 the corresponding divided-Frobenius-minus-one operator on a QRSP ring is pointwise surjective; in weight zero surjectivity is sheaf-local by Artin–Schreier covers. Thus TC is locally even on this site. The even K-group identification additionally needs the unresolved henselian trace and site-comparison contract below; no located Part II supplies it.
 
 ([BMS](#bms), Lemma 8.19 and TC-sheaf part of Proposition 8.20, pp. 280–281.)
 
@@ -4240,15 +4267,32 @@ Also establish TC(F_p;Z_p) still has π_(−1)=Z_p at the point; the sheaf state
 
 *Needs:* §8.6 (The crystalline trace comparison); §8.10 (The TC-internal negative-degree calculation); §8.9 (Syntomic complexes as graded TC); DerivedDeRhamCohomology Layer 5 — quasisyntomic site; DerivedDeRhamCohomology Layer 5 — quasiregular semiperfectoid rings.
 
-**Syntomic complexes from sheafified even K-groups.** For a p-quasisyntomic scheme X, n≥1 and i≥0, the finite syntomic complex Z/p^n(i)_X in D(X_et,Z/p^n) is the derived pushforward from the syntomic site of X to its étale site of the sheafification of the presheaf K_(2i)(−;Z/p^n). Here p-quasisyntomic means bounded p-power torsion and L_(R/Z)⊗^L_R R/p of Tor-amplitude [−1,0] on affine opens. This is Bhatt–Mathew’s announced Example 1.6, not an identification of the un-sheafified K-group presheaf or of the two sites.
+**Syntomic complexes from sheafified even K-groups.** For a p-quasisyntomic scheme X, n≥1 and i≥0, let ν:X_syn→X_et be the morphism of sites and put A_(i,n)=a_syn(π_(2i)(K(−)/p^n)), initially an abelian sheaf on X_syn. Construct its Z/p^n-module structure after sheafification and a natural equivalence Z/p^n(i)_X≃Rν_*(A_(i,n)[0]) in D(X_et,Z/p^n). Here p-quasisyntomic means bounded p-power torsion and L_(R/Z)⊗^L_R R/p of Tor-amplitude [−1,0] on affine opens; p-completeness is not assumed. K is connective and K/p^n is its cofiber of multiplication, so π_(2i)(K/p^n) includes its Bockstein contribution and is not replaced by K_(2i)/p^n. No Z/p^n-module structure on the pointwise Moore-coefficient groups is assumed. This is Bhatt–Mathew's announced Example 1.6, with sheafification before placement in degree zero and derived pushforward.
 
-([BM](#bm), Example 1.6, p. 2.)
+([BM](#bm), Examples 1.2, 1.4–1.6, pp. 1–2; [CMM](#cmm), Theorems 4.36 and 6.1, pp. 36 and 50.)
 
-The construction proceeds as follows. Use the finite-coefficient K-spectrum from GeneralAlgebraicKTheory Layers 5–6 and the trace constructed in Layer 4. Identify the even TC sheaves and the independently supplied finite syntomic complexes on their specified site. The further proof must construct the syntomic-to-étale derived pushforward comparison and its descent. **Proof gap.** Bhatt–Mathew Example 1.6 announces this result without proving it there. Its rigidity input is the finite-coefficient henselian theorem of CMM Theorem 4.36 (p. 36), together with prime-to-p rigidity, not the nilpotent DGM theorem. Neither a general henselian rigidity supplier nor the required change-of-site proof is supplied by the preceding layers. Consequently this application is an explicit remaining proof obligation; it is not exported as an established consequence of the earlier trace construction.
+The construction proceeds as follows. Use the finite-coefficient K-spectrum from GeneralAlgebraicKTheory Layers 5–6 and the connective trace of §4.11. The henselian input is the Fconn contract above: CMM Theorem 4.36 uses fib(K→TC), not this roadmap's localizing Kinv=fib(IK→TC). CMM Proposition 4.34, p. 35, compares birelative fibers under an ideal isomorphism; it does not identify every connective and nonconnective relative K-spectrum. For strictly henselian local rings of residue characteristic p, CMM Theorem 6.1, p. 50, supplies K/p^n≃TC/p^n. On the p-inverted locus use prime-to-p rigidity and the étale K-theory comparison. These stalk comparisons must be promoted to the stated sheaf and derived-pushforward comparison, using the arithmetic gluing of syntomic complexes (BM Examples 1.2 and 1.4), compatibly on the overlap of the p-henselian and p-inverted pieces.
+
+**Proof gap.** The required argument must compare the syntomic sheaf A_(i,n), its higher direct images under ν, and the independent syntomic complex on every p-quasisyntomic X. The preceding p-complete QRSP TC computation alone covers neither the p-inverted piece nor this change of site. Bhatt–Mathew Example 1.6 announces the result without this proof. The henselian trace, prime-to-p and derived change-of-site contracts remain prerequisites; they are not consequences of nilpotent DGM or of truncating Kinv. In particular, replacing X by its p-completion would remove examples such as Spec Z and change the target's domain.
+
+Provide the following operations and identities.
+
+- `syntomicEvenKSheaf`: A_(i,n)=a_syn π_(2i)(K/p^n), with the K-spectrum's finite coefficients taken before the homotopy group.
+- `syntomicEvenKSheaf.coefficientModule`: Multiplication by p^n vanishes on A_(i,n), making the degree-zero sheaf a Z/p^n-module.
+- `syntomicEvenKSheaf.comparison`: Z/p^n(i)_X≃Rν_*(A_(i,n)[0]), natural in p-quasisyntomic X, i≥0 and n≥1.
+- `syntomicEvenKSheaf.coefficients`: Compatibility with reduction in n, the Bockstein maps and the coefficient exact sequences.
+- `syntomicEvenKSheaf.gluing`: Compatibility with restriction to X[1/p] and to the p-henselian pieces in the defining syntomic gluing square.
+
+**Checks.**
+
+- `syntomicEvenKSheaf.weight_zero`: For i=0, the derived pushforward is the constant étale Z/p^n sheaf, with no extra cohomology sheaves.
+- `syntomicEvenKSheaf.weight_one`: For i=1, it is fib(p^n:G_m→G_m) in the étale derived category, equivalently the derived fppf pushforward of μ_(p^n) (BM Example 1.5, p. 2). This fixes the degree: no additional shift is inserted.
+- `syntomicEvenKSheaf.noncomplete_domain`: X=Spec Z satisfies the cotangent and torsion hypotheses but is not p-complete; the comparison must include its generic locus, rather than only Spec Z_p.
+- `syntomicEvenKSheaf.coefficient_boundary`: The universal coefficient sequence is 0→K_(2i)(U)/p^n→π_(2i)(K(U)/p^n)→K_(2i−1)(U)[p^n]→0. For p=2, n=i=1 and U=Spec Z, the last term is K₁(Z)[2]=Z/2 (the units calculation also used in §4.10). Replacing the middle term by its canonical subgroup K₂(Z)/2 discards this nonzero quotient before sheafification. No splitting of this sequence is asserted.
 
 Also establish The sheafification precedes derived pushforward; replacing it by pointwise K_(2i) gives a different statement. Weights i=0 and i=1 must agree with the imported constant and Kummer syntomic sheaves.
 
-*Needs:* §8.9 (Syntomic complexes as graded TC); §8.12 (The even TC sheaf in characteristic p); §4.11 (The cyclotomic trace); §4.17 (The Dundas–Goodwillie–McCarthy theorem); §4.18 (K^inv is truncating); GeneralAlgebraicKTheory Layers 5–6; PrismaticCohomologyPartIII §§6.8–6.9 and 6.31; DerivedDeRhamCohomology Layer 5 — quasisyntomic site; GeneralAlgebraicKTheory §3.2; PrismaticCohomologyPartIII §§6.8–6.9 and 6.31 — syntomic complex.
+*Needs:* §8.9 (Syntomic complexes as graded TC); §8.12 (The even TC sheaf in characteristic p); §4.11 (The cyclotomic trace); §4.12 (Relative K-theory, relative TC and K^inv); GeneralAlgebraicKTheory Layers 5–6; PrismaticCohomologyPartIII §§6.8–6.9 and 6.31; DerivedDeRhamCohomology Layer 5 — quasisyntomic site; the unresolved henselian finite-coefficient trace, prime-to-p rigidity and derived change-of-site contracts above.
 
 ### 8.13 The coherent Habiro trace interface
 
@@ -4582,6 +4626,9 @@ Page references use the editions below. The published and arXiv BMS paginations 
 
 <a id="p"></a>
 **[P]** Piotr Pstrągowski, *[Perfect even modules and the even filtration](https://arxiv.org/pdf/2304.04685v2)*. arXiv:2304.04685v2 (24 Oct 2024).
+
+<a id="r-gal"></a>
+**[R-Gal]** John Rognes, *[Galois extensions of structured ring spectra](https://arxiv.org/pdf/math/0502183v2)*. arXiv:math/0502183v2 (6 December 2005), §§5.5.1–5.5.2, pp. 32–33.
 
 <a id="r"></a>
 **[R]** Sam Raskin, *[On the Dundas-Goodwillie-McCarthy theorem](https://arxiv.org/abs/1807.06709v1)*. arXiv:1807.06709v1 (17 Jul 2018).
