@@ -2877,9 +2877,9 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 
 **Proof outline.**
 
-1. The quotient isogeny A→A/C₁ maps the modified lattice ω^int of A/C₁ to that of A and carries the AIP frame torsor at radius r+1 to the one at radius r (HodgeTateAndCanonicalSubgroups §3.8 for the Hasse radius; AIP ADIC §4.3.2 for the frame map).
+1. For F:A→A′=A/C₁, pullback F* compares the modified differential lattices. On the admitted Igusa charts the normalized frame map is w↦p w, where the target frame is viewed in ω_A′ through the generic-fibre identification F*. Check that p w belongs to the target modified lattice and satisfies its Hodge–Tate congruence; raw pullback on integral differentials is not asserted invertible (AIP ADIC §4.3.2, Proposition 4.8, p.19).
 2. Frobenius commutes with the B_m-action up to the isogeny on frames, so eigenfunctions of weight κ pull back to eigenfunctions of weight κ; this gives w_I≅φ*w_I (AIP ADIC Proposition 6.5) and, after descent to the Iwasawa algebra, the same for s*ω^κ.
-3. The finite-character factor w_χ is compatible because the dual canonical subgroup of A/C₁ is identified with that of A at the Igusa level used, so the Igusa covers correspond; tensor the two isomorphisms.
+3. Retain the Igusa level in the finite-character comparison. The canonical quotient gives H_{n+1}(A)→H_n(A′) and the dual injection Fᴰ:H_n(A′)ᴰ→H_{n+1}(A)ᴰ. A level-(n+1) frame ψ induces ψ′ uniquely by Fᴰψ′=ψ∘(×p), hence Ig_{n+1,r}→Ig_{n,r−1}. For χ factoring modulo p² use the level-three common refinement, its forgetful map to level two for A, and this Frobenius map to level two for A′. Equivariance under reduction of the deck group compares the χ-eigenfunctions; forgetful compatibility descends the comparison. Tensor with the universal-character isomorphism. This uses the level-changing maps, rather than assuming an unqualified same-level identification (AIP ADIC §4.3.2, p.19, and Theorem 6.7(3), p.29).
 4. Compatibility with O5/geometric-aip-comparison: the Hodge–Tate frame of the anticanonical tower is carried by the same isogeny, so evaluation along frames commutes with i* and φ*.
 
 **Source matches.**
@@ -2891,6 +2891,7 @@ Independent AIP construction and comparison. Independent AIP coefficients, unive
 - At an algebraic weight k it is the identification of the classical weight-k sheaves of A and A/C₁ induced on modified lattices by the canonical isogeny (AIP ADIC §4.3.2).
 - The map is not the identity of underlying sheaves: i and φ are different morphisms, and for nonconstant weight the isomorphism depends on the isogeny.
 - Cocycle check: the isomorphisms for M_{r+2}→M_{r+1} and M_{r+1}→M_r compose to the one for the iterated Frobenius; the comparison gives no compactness, which is O6/controlling-complete-continuity.
+- For a nontrivial χ modulo p², compute the map on a level-three frame using ×p:O_F/p²→O_F/p³ and reduction of its deck transformation. The resulting level-two χ-eigenvalue must agree on both pullbacks; replacing ×p by an identity between the two residue modules fails this check.
 
 ### OverconvergentAutomorphicForms:O6
 
@@ -4049,6 +4050,12 @@ Consumers: `OverconvergentAutomorphicForms:O7/igusa-completion-comparison`, `Ove
 - Rigid weight spaces of compact abelian p-adic groups such as 𝒪_p^× are represented by the character variety of LR.6; PadicMeasuresIwasawaAlgebras (TauCetiRoadmap main) builds no rigid structure on its character spaces, and LocallyAnalyticDistributions §4.15 makes the universal character analytic on affinoid charts. O0 imports LR.6/character-variety and LocallyAnalyticDistributions §4.15 and adds no weight-space theory.
 - LR.2/LR.6 supply analytic vectors, noncompact character varieties and coherent Jacquet modules, but not the Hecke eigenvariety geometry Ding Proposition 4.14 uses. LocallyAnalyticRepresentationsOfLocalGroups, Part II: coherent Jacquet eigenvarieties, with the Hecke spectral algebra, dimension/depth and classical-density reducedness. Ding's completed coefficients stay in O0.
 - ShimuraCompactifications (TauCetiRoadmap PR) stops at the pushforward of the cusp ideal (its C6.42) and states no higher direct images to the minimal compactification; AIP's appendix theorem is planned here as O6/hilbert-cusp-higher-vanishing. Keep O6/hilbert-cusp-higher-vanishing here; a later ShimuraCompactifications Part II on cusp cohomology imports it rather than restating it.
+
+## Independent review of revision 5
+
+Accepted by Codex — codex-RdtZaC on 20 October 2026, [review report](../reviews/REV-OverconvergentAutomorphicForms--O0~5.md), issue #11494. The fresh register covers all 79 targets: 72 verified, one corrected and six conditional/unverifiable. Acceptance is for the complete target-level plan with the three stated gaps; O0, O3, O5 and O7 remain planned. No implementation status changes.
+
+The Frobenius proof now retains the canonical-subgroup and Igusa level change n+1→n, its dual injection, and normalized frame scaling from AIP ADIC §4.3.2, Proposition 4.8, p.19. A finite-character check uses a common level-three refinement for a character modulo p². This comparison does not assume the positive-radius full-character integral freeness still missing in O5. The O7 unit-ball gap stays here; P9 supplies actual function descent. All 38 baseline statements and the consumed source/supplier interfaces were independently checked; prior reviews and source-issue verdicts remain in history. The unchanged suggested Lean file elaborates with 15 `sorry` warnings only.
 
 ## Independent review of revision 4
 
