@@ -201,6 +201,41 @@ example :
   have h00 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℚ ↦ M 0 0) h
   norm_num [Matrix.mul_apply, Fin.sum_univ_succ] at h00
 
+/-! ## Layer 6: the wild coefficient-map normalization -/
+
+namespace HilbertAutomorphy
+
+variable {R : Type*} [CommRing R]
+
+/-- The lower-row denominator of the Hilbert fractional coordinate action. -/
+def lowerFactor (γ : Matrix (Fin 2) (Fin 2) R) (z : R) : R :=
+  γ 1 0 * z + γ 1 1
+
+/-- Conjugation by the uniformizer matrix preserves the denominator after scaling z.
+The uniformizer is a unit in the generic-fibre coefficient algebra. -/
+theorem wild_factor_conjugation (ϖ : Rˣ) (γ : Matrix (Fin 2) (Fin 2) R) (z : R) :
+    lowerFactor
+      (Matrix.diagonal ![(ϖ : R), 1] * γ *
+        Matrix.diagonal ![((ϖ⁻¹ : Rˣ) : R), 1]) ((ϖ : R) * z) =
+      lowerFactor γ z := by
+  sorry
+
+/-- A diagonal acts on the denominator through its lower diagonal entry. -/
+example (a d z : R) : lowerFactor !![a, 0; 0, d] z = d := by
+  simp [lowerFactor]
+
+/-- At p=5 the reversed conjugation changes a unit denominator from 126 to 3126. -/
+example :
+    lowerFactor
+      ((!![5, 0; 0, 1] : Matrix (Fin 2) (Fin 2) ℚ) * !![1, 0; 25, 1] *
+        !![1 / 5, 0; 0, 1]) 25 = 126 ∧
+    lowerFactor
+      ((!![1 / 5, 0; 0, 1] : Matrix (Fin 2) (Fin 2) ℚ) * !![1, 0; 25, 1] *
+        !![5, 0; 0, 1]) 25 = 3126 := by
+  norm_num [lowerFactor, Matrix.mul_apply, Fin.sum_univ_succ]
+
+end HilbertAutomorphy
+
 /-! ## Layer 8: Siegel and general-group coefficient comparisons -/
 
 namespace Siegel
