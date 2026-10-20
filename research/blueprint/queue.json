@@ -151944,9 +151944,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-CyclotomicClassGroupsAndStickelberger~codex.md",
-   "note": "claimed on GitHub issue #11246"
+   "note": "deliverables arrived from an external worker on issue #11246",
+   "finishedAt": "2026-10-20T00:27:31Z"
   },
   {
    "id": "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4",
@@ -152004,8 +152005,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv2.md",
+   "note": "claimed on GitHub issue #11260"
   },
   {
    "id": "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5",
