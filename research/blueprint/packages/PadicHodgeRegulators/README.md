@@ -696,7 +696,7 @@ See CC99 §II.1, ThéorèmeII.1.3, p.12; TheoremIV.2.1, pp.20–22, §IV.3, p.23
 - The source's (1−τ) lift by itself represents −κ(u) under the fixed positive Kummer convention; using it without the conversion fails the preceding comparison. The derivative identity alone is insufficient to select a sign.
 - Under ε↦εᵃ, the derivative acquires a⁻¹ and v₁ acquires a; Δf_u⊗v₁ is unchanged.
 - For f=1+π, Δf=1 and h_Iw(v₁)=κ_Iw(ε)≠0, although each finite-level rational Kummer class is zero. A proof using only those rational classes fails this Check.
-- At p=5, P_{ℚ₅(1)}(κ(6),logχ)=log₅(6)≠0, whereas P_{ℚ₅}(logχ,κ(6))=−log₅(6). After division by log₅(6), this is the alternating two-coordinate model det[[1,0],[0,1]]=1 and det[[0,1],[1,0]]=−1, computed in Suggested.lean. The model checks the arithmetic sign; the cohomological identification is the positive adjunction above.
+- At p=5, P_{ℚ₅(1)}(κ(6),logχ)=log₅(6)≠0, whereas P_{ℚ₅}(logχ,κ(6))=−log₅(6). After division by log₅(6), this is the alternating two-coordinate model det[[1,0],[0,1]]=1 and det[[0,1],[1,0]]=−1. The model checks the arithmetic sign; the cohomological identification is the positive adjunction above.
 
 ### Examples
 
@@ -2027,13 +2027,22 @@ See LLZ2011 Theorem4.16 and proof, p.1124.
 
 ### 9.28 Rank-two modular specialization relation
 
-For the nonordinary modular representation V=V_(fbar)(k-1) in LLZ Section1C6 (p odd, weight k>=2, p not dividing N, coefficient E containing eigenvalues, source Frobenius exclusions), use the prescribed ordered bases and M(0)=[[0,p^(k-1)],[-1,a_p]]. Then at the trivial Delta component (1-a_p+p^(k-2)) Col_2(z)(0)=p^(k-2)(p-1) Col_1(z)(0); at nontrivial eta, Col_2(z)^eta(0)=0. For k=2 the quotient functional on the ordered pair (Col_1,Col_2) is rho(g,h)=(p-1)g(0)-(2-a_p)h(0), valued in E. Its kernel is the actual rational image, and it is surjective when the coefficients are not both zero.
+For the nonordinary modular representation V=V_(fbar)(k-1) in LLZ Section1C6 (p odd, weight k>=2, p not dividing N, coefficient E containing eigenvalues, source Frobenius exclusions), retain arbitrary nebentypus. The general target `modularSpecialization_general` is the specialization-line condition of §§9.25–9.26 with the actual Frobenius Φ on D_cris(V) and actual ordered matrix M: in the trivial Delta component,
 
-See LLZ2011 Lemma5.6, Corollary5.7, text before Proposition5.9 and Proposition5.9, pp.1126-1127.
+```text
+Col(z)(0) M(0) ∈ (1−Φ)(1−p⁻¹Φ⁻¹)⁻¹ Fil⁰ D_cris(V).
+```
+
+For nontrivial eta replace the period subspace on the right by Φ Fil⁰, as in §9.25. These matrix conditions, imposed at all weights 0≤i≤k−2 with their corresponding Φ-operators and Δ-character, give the exact rational image by §9.26. They use the actual characteristic polynomial Z²−a_p(f̄)Z+ε_f̄(p)p^(k−1) before twisting; neither the determinant character nor the ordered basis may be suppressed.
+
+In the **trivial-nebentypus specialization** of LLZ §1C6, p.1106, use its prescribed ordered bases and M(0)=[[0,p^(k-1)],[-1,a_p]]. Then at the trivial Delta component (1-a_p+p^(k-2)) Col_2(z)(0)=p^(k-2)(p-1) Col_1(z)(0); at nontrivial eta, Col_2(z)^eta(0)=0. For k=2 the quotient functional on the ordered pair (Col_1,Col_2) is rho(g,h)=(p-1)g(0)-(2-a_p)h(0), valued in E. Its kernel is the actual rational image, and it is surjective when the coefficients are not both zero. The arbitrary-nebentypus matrix target remains alongside this explicit case.
+
+See LLZ2011 §1C6, pp.1105–1106 (including its standing trivial-nebentypus convention); Proposition4.8, Corollaries4.9–4.10 and Theorem4.12, pp.1120–1123 (general matrix form); Lemma5.6, Corollary5.7, text before Proposition5.9 and Proposition5.9, pp.1126–1127 (the displayed scalar specialization).
 
 **Checks.**
 
 - At p=5,k=2,a_p=0 the vector (1,2) satisfies 2 h=4 g and our rho=0, while the printed rho is -6.
+- With nontrivial ε_f̄(p), the untwisted Frobenius determinant is ε_f̄(p)p^(k−1). Substituting the trivial-nebentypus companion matrix would change that determinant; use the actual Φ and M in `modularSpecialization_general`.
 
 ### 9.29 Integral Coleman image has finite cokernel
 
@@ -2048,7 +2057,7 @@ integralWachLowerInclusion:
 
 For y∈(φ(π)ʰφ*N(T))^{ψ=0}, the twist identity identifies φ(π)ʰφ*N(T) with φ*M⊗v_h⊂M⊗v_h; φ acts trivially on the representation vector v_h in the étale module. Thus x=Σ_{n≥0}φⁿy converges in M⊗v_h⊂N(T), **over the original 𝒪_E**. Telescoping gives (1−φ)x=y. Continuity of ψ in the weak topology of D(T), ψφ=id and ψy=0 give ψx=x. The finite free 𝔪-adic topology on M embeds in that weak topology. Consequently x belongs to the actual D(T), not merely D(V), proving the lower inclusion. It also proves uniqueness within M⊗v_h, since a φ-fixed vector in this contracting module is zero. This is the integral geometric-series argument suggested by LLZWach2010 Proposition4.6 and the first paragraph of Proposition4.11's proof, with contraction proved here for every nonordinary modular lattice. Their special-basis restrictions (C),(D) are not imported into this proof. Neither are their later cyclic-quotient or surjectivity assertions extended by it.
 
-**From the lower inclusion to the coordinate ideal.** Let F=φ*N(T) and u=χ(γ). If G is γ's Wach matrix, G≡1 mod π, so its matrix on F is φ(G)≡1 mod φ(π). Also γ(φ(π))/φ(π)≡u mod φ(π). Thus γ acts on φ(π)ⁱF/φ(π)^{i+1}F by uⁱ, and ∏_{i=0}^{h−1}(γ−uⁱ)F⊂φ(π)ʰF. This argument is integral; the factors commute, and all modules and ψ-zero submodules are Γ-stable. In the integral good-basis isomorphism F^{ψ=0}≃Λ_𝒪(G∞)² it sends X_k times each coordinate basis vector into the proved lower submodule, where X_k=∏_{i=0}^{k−2}(X−χ(γ)ⁱ+1). Applying the lower inclusion and then a coordinate projection gives X_kΛ_𝒪⊂Im Col_j^η for every Δ-character η.
+**From the lower inclusion to the coordinate ideal.** Let F=φ*N(T) and u=χ(γ). If G is γ's Wach matrix, G≡1 mod π, so its matrix on F is φ(G)≡1 mod φ(π). Also γ(φ(π))/φ(π)≡u mod φ(π). Since γ∈Γ₁, u∈1+pℤₚ and γ acts trivially on R/(φ(π)): modulo (1+π)ᵖ−1, raising 1+π to u leaves it unchanged. Together with φ(G)≡1 this includes the coefficient action, not just the basis matrix. Thus γ acts on φ(π)ⁱF/φ(π)^{i+1}F by uⁱ, and ∏_{i=0}^{h−1}(γ−uⁱ)F⊂φ(π)ʰF. This argument is integral; the factors commute, and all modules and ψ-zero submodules are Γ-stable. In the integral good-basis isomorphism F^{ψ=0}≃Λ_𝒪(G∞)² it sends X_k times each coordinate basis vector into the proved lower submodule, where X_k=∏_{i=0}^{k−2}(X−χ(γ)ⁱ+1). Applying the lower inclusion and then a coordinate projection gives X_kΛ_𝒪⊂Im Col_j^η for every Δ-character η.
 
 Let X_j^η=∏_{i∈I_j^η}(X−χ(γ)ⁱ+1) be the rational image generator of §9.28/LLZ Corollary5.3. Integral Weierstrass division by this monic distinguished polynomial gives (X_j^ηΛ_E)∩Λ_𝒪=X_j^ηΛ_𝒪: the integral remainder is zero if it vanishes after inverting ϖ_E. Hence
 
@@ -2161,7 +2170,7 @@ See RJ2018 TheoremI.15, p.914; SectionIC9, PropositionI.28, CorollaryI.29, p.920
 
 For an elliptic curve A with split multiplicative reduction at odd p, the actual Col_infty:H^1_(infty,s)(Q_p,T_p A)->Lambda is injective and its image is contained in the augmentation ideal ker(Lambda->Z_p). This is containment, not image equality or an exceptional-zero derivative formula.
 
-See Rubin2000 III Section5.8, Proposition5.14(b), printed p.52.
+See Rubin2000 III Section5.8, Proposition5.14, final assertion, printed p.52.
 
 **Checks.**
 
