@@ -743,13 +743,14 @@
     "SmallRamificationAndAbelianVarietyBaseCases": {
       "stage": "pr",
       "pr": 970,
-      "head": "4a67a7e",
+      "head": "6b64f84",
       "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 6b64f84; confirmation pass pending"
       }
     },
     "EndoscopicTransferAndUnitaryTraceComparison": {
