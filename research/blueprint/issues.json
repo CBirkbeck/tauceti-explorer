@@ -5406,5 +5406,6 @@
  "REV-OverconvergentAutomorphicForms--O0~5": 11494,
  "REV-QSeriesPartitionsAndMockModularForms~4": 11495,
  "REV-PKG-HabiroRings~codex5": 11499,
- "FIX-PKG-FiniteFieldsAndCharacterSums~adv": 11506
+ "FIX-PKG-FiniteFieldsAndCharacterSums~adv": 11506,
+ "REV-PKG-DrinfeldModulesAndTModules~codex1": 11513
 }
