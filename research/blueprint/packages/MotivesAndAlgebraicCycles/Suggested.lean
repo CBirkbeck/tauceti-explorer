@@ -185,7 +185,14 @@ diagonal decompositions, intermediate indices and universal CH₀ support.
 Layer 1: pure motives with twists, tensor, duality and adequacy quotients.
 Layer 2: Weil cohomology and its geometric Betti, de Rham and étale realizations.
 Layer 3: numerical motives, their radical criterion and signed symmetry.
-Layer 4: geometric and compact-support motives, relative cycles, bivariant cycle
+Layer 4: finite correspondences, transfer presheaves and Nisnevich sheaves,
+Suslin and Tate complexes, boundary Picard, relative finite cycles and
+standard-triple excision, contraction, Gersten resolutions and strict homotopy
+invariance, effective derived localization and
+its unbounded compact comparison, higher Chow complexes and moving/localization
+with transfers and good-position descent, cancellation, exact cdh pullback and
+the complex comparison;
+then geometric and compact-support motives, relative cycles, bivariant cycle
 complexes, motivic Gysin maps, Chow embedding and motivic measure.
 Layer 5: diagram endomorphism coalgebras and universal diagram categories, good
 pairs, cellular/Čech comparison, Nori motives, Tate localization, relative de Rham
