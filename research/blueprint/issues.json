@@ -5318,5 +5318,6 @@
  "REV-PadicHodgeRegulators~3": 11302,
  "REV-OverconvergentAutomorphicForms--O0~4": 11303,
  "FIX-PKG-RefinedTraceMethods~adv2": 11304,
- "FIX-PKG-K2SymbolsBrauer~adv2": 11306
+ "FIX-PKG-K2SymbolsBrauer~adv2": 11306,
+ "FIX-PKG-HabiroRings~adv": 11307
 }
