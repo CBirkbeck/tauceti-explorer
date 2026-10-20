@@ -153339,6 +153339,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~codex2.md"
+  },
+  {
+   "id": "REV-PKG-K2SymbolsBrauerPartII~codex1",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K2SymbolsBrauerPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-K2SymbolsBrauerPartII~codex1.md",
+    "research/blueprint/packages/K2SymbolsBrauerPartII/review.json",
+    "research/blueprint/packages/K2SymbolsBrauerPartII/README.md",
+    "research/blueprint/packages/K2SymbolsBrauerPartII/Suggested.lean",
+    "research/blueprint/packages/K2SymbolsBrauerPartII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauerPartII~codex1.md"
   }
  ]
 }
