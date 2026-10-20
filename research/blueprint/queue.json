@@ -30133,8 +30133,9 @@
    ],
    "avoidAccountOf": "BP-OverconvergentAutomorphicForms",
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10806"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10806",
+   "finishedAt": "2026-10-20T03:58:39Z"
   },
   {
    "id": "BP-PotentialAutomorphyInfrastructure",
@@ -54643,8 +54644,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FunctionFieldArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10767"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10767",
+   "finishedAt": "2026-10-20T03:58:42Z"
   },
   {
    "id": "REV-PKG-FunctionFieldArithmetic",
@@ -55455,8 +55457,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GlobalShtukasAndFunctionFieldLanglands.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10768"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10768",
+   "finishedAt": "2026-10-20T03:58:47Z"
   },
   {
    "id": "REV-PKG-GlobalShtukasAndFunctionFieldLanglands",
@@ -56363,8 +56366,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10771"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10771",
+   "finishedAt": "2026-10-20T03:58:52Z"
   },
   {
    "id": "REV-PKG-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -150438,9 +150442,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicPadicLFunctions~codex.md",
-   "note": "claimed on GitHub issue #10881"
+   "note": "released on GitHub issue #10881"
   },
   {
    "id": "FIX-PKG-StableHomotopyKTheory~adv",
@@ -152247,9 +152251,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-NoncommutativeAndEquivariantIwasawa~codex2.md",
-   "note": "claimed on GitHub issue #11293"
+   "note": "deliverables arrived from an external worker on issue #11293",
+   "finishedAt": "2026-10-20T03:58:57Z"
   },
   {
    "id": "REV-PKG-KTheoryFiniteLocalFields~codex2",
@@ -152268,9 +152273,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex2.md",
-   "note": "claimed on GitHub issue #11294"
+   "note": "deliverables arrived from an external worker on issue #11294",
+   "finishedAt": "2026-10-20T03:59:00Z"
   },
   {
    "id": "FIX-PKG-BorelRegulators~adv3",
@@ -152445,8 +152451,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv2.md",
+   "note": "claimed on GitHub issue #11304"
   },
   {
    "id": "FIX-PKG-K2SymbolsBrauer~adv2",
@@ -152464,9 +152471,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv2.md",
-   "note": "claimed on GitHub issue #11306"
+   "note": "released on GitHub issue #11306"
   },
   {
    "id": "FIX-PKG-HabiroRings~adv",
@@ -152503,8 +152510,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundations~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundations~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11308",
+   "finishedAt": "2026-10-20T03:59:03Z"
   },
   {
    "id": "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv",
@@ -152522,8 +152531,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv.md",
+   "note": "claimed on GitHub issue #11315"
   }
  ]
 }
