@@ -175,6 +175,17 @@ example : (1 + X : ℚ[X]).eval (2 / (-2)) = 0 ∧
     (1 - X : ℚ[X]).eval (4 / 2) = -1 := by
   norm_num
 
+/-- At the χ-ray derivative prime `p=3`, `Q=2`, `T=ℤ₃(1)`, the finite local
+module is `𝔽₃` and `P(F⁻¹)=2`. No endomorphism of the whole module divides this
+action by the ray degree three (README 2.8). -/
+example : ¬ ∃ A : Module.End (ZMod 3) (ZMod 3),
+    (3 : ZMod 3) • A = (2 : ZMod 3) • LinearMap.id := by
+  rintro ⟨A, h⟩
+  have h1 := congrArg (fun f : Module.End (ZMod 3) (ZMod 3) => f 1) h
+  change (3 : ZMod 3) * A 1 = 2 at h1
+  rw [show (3 : ZMod 3) = 0 by decide, zero_mul] at h1
+  exact (by decide : (0 : ZMod 3) ≠ 2) h1
+
 /-- The polynomial identity behind Rubin's Example IV.8.2 (`T = ℤ_p(1)`, `P(x) = 1 − x`):
 `P(x) − P(N x) = (N − 1) x`. -/
 theorem eulerPoly_gm_congruence {R : Type*} [CommRing R] (n : R) :
@@ -229,6 +240,21 @@ example (σ : G) : liftedNorm σ 1 = MonoidAlgebra.of ℤ G σ := by
   simp [liftedNorm]
 
 end Derivative
+
+/-- A χ-twisted norm equation with `P=1-X` and `M=3` does not by itself make
+the derivative invariant. Here `F⁻¹=F`, `y=2Nx`, and `Fσ=σ⁻¹F`. This is a
+finite norm module, not a global Euler family with rigidity (README 3.16). -/
+example :
+    let σ : Matrix (Fin 3) (Fin 3) (ZMod 3) := !![0, 0, 1; 1, 0, 0; 0, 1, 0]
+    let F : Matrix (Fin 3) (Fin 3) (ZMod 3) := !![-1, 0, 0; 0, 0, -1; 0, -1, 0]
+    let x : Fin 3 → ZMod 3 := ![1, 0, 0]
+    let y := (2 : ZMod 3) • (1 + σ + σ ^ 2).mulVec x
+    σ ^ 3 = 1 ∧ F ^ 2 = 1 ∧ F * σ = σ ^ 2 * F ∧ σ.mulVec y = y ∧
+      (1 + σ + σ ^ 2).mulVec x = y - F.mulVec y ∧
+      (σ - 1).mulVec ((σ + (2 : ZMod 3) • σ ^ 2).mulVec x) =
+        -(1 + σ + σ ^ 2).mulVec x ∧
+      (σ - 1).mulVec ((σ + (2 : ZMod 3) • σ ^ 2).mulVec x) ≠ 0 := by
+  decide
 
 /-! ## Layer 3: the finite–singular polynomial
 
