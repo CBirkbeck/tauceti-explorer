@@ -5,8 +5,8 @@ import Mathlib
 
 The roadmap is README.md. This file records light definitions and representative signatures
 statable against the pinned APIs; it is not exhaustive. It fixes the order of the homological
-comparison, uses actual unnormalised group-homology cycles, distinguishes root multiples from
-division over coefficients, and retains the inverse scalar in the finite Chern comparison.
+comparison, uses actual unnormalised group-homology cycles, and distinguishes root multiples from
+division over coefficients.
 -/
 
 namespace TauCetiRoadmap.K3BlochGroups
@@ -98,23 +98,6 @@ theorem bar_noncycle (g : G) (hg : g ≠ 1) :
 
 end K3Homological
 
-/-- The sphere-unit witness is the transposition on two free summands (§1.5). -/
-example : (Matrix.det (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)) = -1 := by
-  norm_num [Matrix.det_fin_two]
-
-/-! ## Layer 2: Decomposable and indecomposable K₃ -/
-
-/-- The number-field model retains a nonzero decomposable element in the kernel. -/
-theorem rational_quotient_kernel : (24 : ZMod 48) ≠ 0 ∧
-    ZMod.castHom (show 24 ∣ 48 by decide) (ZMod 24) (24 : ZMod 48) = 0 := by
-  sorry
-
-/-- The rational K₃ quotient model has no additive section. -/
-theorem rational_quotient_nonsplit : ¬ ∃ s : ZMod 24 →+ ZMod 48,
-    (ZMod.castHom (show 24 ∣ 48 by decide) (ZMod 24)).toAddMonoidHom.comp s =
-      AddMonoidHom.id (ZMod 24) := by
-  sorry
-
 /-! ## Layer 3: Bloch presentations with integral conventions -/
 
 namespace Symbols
@@ -160,11 +143,6 @@ example (h : Admissible (2 : ℚ) 3) :
     fiveTermRaw (2 : ℚ) 3 h = rawSymbol 2 - rawSymbol 3 + rawSymbol (3 / 2) -
       rawSymbol (3 / 4) + rawSymbol (1 / 2) := by
   norm_num [fiveTermRaw]
-
-/-- The ordered valuation pairing sends the boundary of [3] to −1 (§3.5). -/
-theorem blochBoundary_valuation_sign : padicValRat 2 (3 : ℚ) * padicValRat 3 (1 - (3 : ℚ)) -
-    padicValRat 3 (3 : ℚ) * padicValRat 2 (1 - (3 : ℚ)) = -1 := by
-  sorry
 
 end Symbols
 
@@ -241,14 +219,16 @@ example :
       !![1, 1, 0, 0; 0, -1, 0, 0; 0, 0, 0, 1; 0, 0, 1, 0] := by
   decide
 
-/-- The power-two endomorphism acts on cyclic H₃ with weight two, rather than weight one. -/
-theorem cyclic_seven_power_two
-    (φ : K3Homological.integralRep (Multiplicative (ZMod 7)) ⟶
-      Rep.res (powMonoidHom 2) (K3Homological.integralRep (Multiplicative (ZMod 7))))
+/-- `cyclicHomology_maps` (§4.15): the power-`a` endomorphism of a cyclic group of order `m`
+acts on `H_{2j-1}(C_m, ℤ) ≅ ℤ/m` by `a ^ j`, with the identity coefficient map. At `m = 7`,
+`a = 2`, `j = 2` this is multiplication by `4` on `H₃`, the weight-two action of §4.18. -/
+theorem cyclicHomology_power_map (m : ℕ) [NeZero m] (a j : ℕ) (hj : 1 ≤ j)
+    (φ : K3Homological.integralRep (Multiplicative (ZMod m)) ⟶
+      Rep.res (powMonoidHom a) (K3Homological.integralRep (Multiplicative (ZMod m))))
     (hφ : φ.hom.toLinearMap = LinearMap.id) :
-    ∃ e : groupHomology (K3Homological.integralRep (Multiplicative (ZMod 7))) 3 ≃+
-        ZMod 7,
-      ∀ z, e (groupHomology.map (powMonoidHom 2) φ 3 z) = 4 * e z := by
+    ∃ e : groupHomology (K3Homological.integralRep (Multiplicative (ZMod m))) (2 * j - 1) ≃+
+        ZMod m,
+      ∀ z, e (groupHomology.map (powMonoidHom a) φ (2 * j - 1) z) = (a : ZMod m) ^ j * e z := by
   sorry
 
 /-! ## Layer 5: Finite fields and arithmetic examples -/
@@ -322,12 +302,6 @@ example (δ : P →+ W) (m : ℕ) (h : δ (m • (0 : P)) = 0)
     exact nsmul_zero m
   simp [rootCoefficient, hz]
 
-/-- Tensoring a kernel inclusion with a nonflat ring can destroy injectivity (§6.4). -/
-theorem nonflat_kernel_control : (∃ t : (Int.castAddHom (ZMod 2)).ker ⊗[ℤ] ZMod 2,
-    t ≠ 0 ∧ TensorProduct.map (Int.castAddHom (ZMod 2)).ker.subtype.toIntLinearMap
-      (LinearMap.id : ZMod 2 →ₗ[ℤ] ZMod 2) t = 0) ∧ ¬ IsUnit (2 : ZMod 2) := by
-  sorry
-
 end Roots
 
 section Lifts
@@ -351,12 +325,6 @@ theorem SuslinLift.unique_difference (q : K →+ B) (i : T →+ K)
 example : Fintype.card
     (SuslinLift (ZMod.castHom (show 6 ∣ 24 by decide) (ZMod 6)).toAddMonoidHom 1) = 4 := by
   decide
-
-/-- The finite-field torsor model has four lifts but no additive choice of lifts. -/
-theorem finite_lift_nonsplit : ¬ ∃ s : ZMod 6 →+ ZMod 24,
-    (ZMod.castHom (show 6 ∣ 24 by decide) (ZMod 6)).toAddMonoidHom.comp s =
-      AddMonoidHom.id (ZMod 6) := by
-  sorry
 
 example (q : K →+ B) (i : T →+ K) (hi : ∀ t, q (i t) = 0)
     (β : B) (a : SuslinLift q β) : SuslinLift.translate q i hi β a 0 = a := by
@@ -415,39 +383,16 @@ theorem BarLiftCertificate.trivial_boundary [Subsingleton G]
 
 end BarLifts
 
-section FiniteCoefficients
+/-!
+## Targets stated only in README.md
 
-variable {K E H : Type*} [AddCommGroup K] [AddCommGroup E] [AddCommGroup H]
-
-/-- Compose genuine finite Chern and étale Bloch equivalences in the direction r⁻¹c. -/
-def finiteCoefficientBlochEquiv (c : K ≃+ H) (r : E ≃+ H) : K ≃+ E := c.trans r.symm
-
-/-- Evaluation and the inverse characterize the finite-coefficient comparison. -/
-theorem finiteCoefficientBlochEquiv_spec (c : K ≃+ H) (r : E ≃+ H) (x : K) (y : E) :
-    r (finiteCoefficientBlochEquiv c r x) = c x ∧
-      (finiteCoefficientBlochEquiv c r).symm y = c.symm (r y) := by
-  sorry
-
-/-- The comparison scalar is inverted on the ordinary modulo subgroup. -/
-theorem finiteCoefficientBlochEquiv_on_quotient {n : ℕ} {L : Type*}
-    [AddCommGroup L] [Module (ZMod n) L] [Module (ZMod n) H]
-    (c : K ≃+ H) (r : E ≃+ H) (jK : L →+ K) (jB : L →+ E)
-    (h₀ : L →ₗ[ZMod n] H) (γ : (ZMod n)ˣ)
-    (hc : ∀ x, c (jK x) = h₀ x) (hr : ∀ x, r (jB x) = (γ : ZMod n) • h₀ x)
-    (x : L) : finiteCoefficientBlochEquiv c r (jK x) =
-      jB (((γ⁻¹ : (ZMod n)ˣ) : ZMod n) • x) := by
-  sorry
-
-example (c r : ZMod 5 ≃+ ZMod 5) (hc : ∀ x, c x = (2 : ZMod 5) * x)
-    (hr : ∀ x, r x = (3 : ZMod 5) * x) : finiteCoefficientBlochEquiv c r 1 = 4 := by
-  apply r.injective
-  change r (r.symm (c 1)) = r 4
-  rw [r.apply_symm_apply, hc, hr]
-  decide
-
-example (c r : ZMod 1 ≃+ ZMod 1) : finiteCoefficientBlochEquiv c r 0 = 0 := by
-  exact map_zero _
-
-end FiniteCoefficients
+Their carriers (Quillen `K₃`, plus constructions, the pre-Bloch and Bloch quotients, group
+hyperhomology, motivic and étale cohomology) are not at the pins. Among them: `bStPlus`, `K3ind`,
+`milnorToQuillen3`, `motivicEdgeQuotientEquiv`, `antisymSquare`, `crossRatio`, `preBloch`,
+`blochBoundary`, `blochGroup`, `extBloch`, `cgzBloch`, `configComplex`, `psiGL2`, `psiGL3`,
+`pi3Ind`, `enhancedTor`, `closureTorsionDetector`, `finiteStabilization`, `finiteK3Bloch`,
+`realRogersHom`, `FiveTermCertificate`, `BoundaryCertificate`, `finiteChernIndEquiv`, and the
+theorems of §§1.5, 2.2, 4.5, 4.16, 4.21 and 5.2.
+-/
 
 end TauCetiRoadmap.K3BlochGroups
