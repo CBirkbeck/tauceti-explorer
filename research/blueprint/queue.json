@@ -154220,6 +154220,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-FunctionFieldArithmetic~codex2.md"
+  },
+  {
+   "id": "FIX-PKG-HabiroRings~adv5",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HabiroRings~adv5.md",
+    "research/blueprint/packages/HabiroRings/review.json",
+    "research/blueprint/packages/HabiroRings/README.md",
+    "research/blueprint/packages/HabiroRings/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv5.md"
   }
  ]
 }
