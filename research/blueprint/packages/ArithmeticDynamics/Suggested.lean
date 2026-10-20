@@ -185,6 +185,19 @@ theorem classicalFatou_uniformConjugate [UniformSpace Y] (f : X → X) (h : X �
 /-- Equicontinuity is local and therefore gives the open/closed decomposition. -/
 theorem isOpen_classicalFatou (f : X → X) :
     IsOpen (classicalFatou f) ∧ IsClosed (classicalJulia f) := sorry
+
+/-- The identity has no Julia points on any uniform space. -/
+example : classicalFatou (id : X → X) = Set.univ ∧
+    classicalJulia (id : X → X) = ∅ := by
+  have hF : classicalFatou (id : X → X) = Set.univ := by
+    ext x
+    simp only [Set.mem_univ, iff_true]
+    refine ⟨Set.univ, isOpen_univ, Set.mem_univ x, ?_⟩
+    apply UniformEquicontinuous.uniformEquicontinuousOn
+    intro U hU
+    filter_upwards [hU] with xy hxy n
+    simpa using hxy
+  exact ⟨hF, by simp [classicalJulia, hF]⟩
 end Uniform
 
 section Sphere

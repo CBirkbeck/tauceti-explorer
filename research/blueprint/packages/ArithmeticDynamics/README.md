@@ -1409,7 +1409,7 @@ Let R be a valuation ring with fraction field K and residue field k. A rational 
 
 R a valuation ring (e.g. ℤ_(p), ℤ_p, the valuation ring of a complete nonarchimedean field), K = Frac R, k = R/𝔪.
 
-Define HasGoodReduction R f by the existence of an integral homogeneous lift with a unit coefficient and unit resultant. The normalization condition prevents the degree-zero pair from reducing to (0, 0); for positive degree it already follows from a unit resultant. Reduce a normalized integral lift coefficientwise. Its residue pair is nonzero because a unit coefficient survives, and its resultant is nonzero because it is the residue of a unit. Normalized lifts of the same map differ by an R-unit, so their reduced classes agree; the degree remains d. For a polynomial p of positive degree n, the standard lift is normalized because its second form is X₁^n, and its resultant is lead(p)^n. Thus good reduction is equivalent to a unit leading coefficient. Constants, including nonunits and zero, have good reduction via a normalized constant pair. Degree-one maps from GL₂(R): resultant det γ ∈ R^×.
+Define HasGoodReduction R f by the existence of an integral homogeneous lift with a unit coefficient and unit resultant. The normalization condition prevents the degree-zero pair from reducing to (0, 0); for positive degree it already follows from a unit resultant. Reduce a normalized integral lift coefficientwise. Its residue pair is nonzero because a unit coefficient survives, and its resultant is nonzero because it is the residue of a unit. Normalized lifts of the same map differ by an R-unit, so their reduced classes agree; the degree remains d. For an integral polynomial p ∈ R[X] of positive degree n, the standard lift is normalized because its second form is X₁^n, and its resultant is lead(p)^n. Thus, under the integral-coefficient hypothesis, good reduction is equivalent to a unit leading coefficient. Constants, including nonunits and zero, have good reduction via a normalized constant pair. Degree-one maps from GL₂(R): resultant det γ ∈ R^×.
 
 *Needs:* [Rational self-maps of ℙ¹ over a field](#target-arithmeticdynamics-dy-0-rational-map-of-the-projective-line); [Homogeneous lifts of a degree-d self-map of ℙ¹](#target-arithmeticdynamics-dy-0-homogeneous-lift); [The resultant of a pair of binary forms](#target-arithmeticdynamics-dy-0-resultant-of-a-rational-map); `mathlib:ValuationRing`; `mathlib:IsLocalRing.ResidueField`; `mathlib:IsLocalRing.residue`; `mathlib:IsFractionRing`; `mathlib:MvPolynomial.map`; `mathlib:Polynomial.resultant_map_map`; `mathlib:IsLocalRing.residue_ne_zero_iff_isUnit`.
 
@@ -1431,6 +1431,7 @@ The reusable interface consists of the following statements.
 - **`TauCeti.ArithmeticDynamics.RationalMap.hasGoodReduction_sq_add`** (computation): z² + c with c ∈ ℤ has good reduction over every ℤ_[p].
 - **`TauCeti.ArithmeticDynamics.RationalMap.conj_changes_reduction`** (characterisation): z²/2 is conjugate over ℚ_[2] to z², which has good reduction, while z²/2 does not.
 - **`TauCeti.ArithmeticDynamics.RationalMap.hasGoodReduction_constant_two`** (degenerate): The constant polynomial 2 has good reduction over ℤ_[2], although its leading coefficient is not a unit. This tests the positive-degree hypothesis in the polynomial criterion.
+- **`TauCeti.ArithmeticDynamics.RationalMap.not_hasGoodReduction_nonintegral_monic`** (non-example): Over ℚ₂, z² + 1/2 has unit leading coefficient but bad reduction. Its normalized integral lift is (2X₀² + X₁², 2X₁²), with resultant 16; the reduced forms (X₁², 0) have the common zero ∞. This tests the integral-coefficient hypothesis.
 
 **Endpoint checks.** (z² + 2)/z over ℚ has resultant 2 on its normalised lift (X₀² + 2X₁², X₀X₁): bad reduction at 2 (the reduction (X₀², X₀X₁) has the common zero [0 : 1] and degree drops), good at every odd p. z² + c, c ∈ ℤ: good reduction everywhere. z²/2 is conjugate over ℚ to z² (good reduction) but has bad reduction at 2.
 
@@ -1877,13 +1878,13 @@ Let K be algebraically closed of characteristic 0 and f a rational map of degree
 
 K algebraically closed, characteristic 0 (Milnor works over ℂ); deg f = 2.
 
-By conjugation invariance (The symmetric functions σᵢ of the fixed-point multipliers) replace f by a normal form (Milnor's normal forms for quadratic maps). Fixed point normal form z(z + b)/(cz + 1), bc ≠ 1: the fixed points are 0, ∞ and (1 − b)/(1 − c) with multipliers b, c and (2 − b − c)/(1 − bc) (The multiplier of a rational map at a fixed point, direct computation); then bc(2 − b − c)/(1 − bc) − b − c − (2 − b − c)/(1 − bc) + 2 = 0 is a polynomial identity after clearing 1 − bc. Normal form z + 1/z: the single fixed point ∞ has multiplicity 3 and multiplier 1 (multiplier_eq_one_iff), so σ₃ = 1 = σ₁ − 2.
+By conjugation invariance (The symmetric functions σᵢ of the fixed-point multipliers) replace f by a normal form (Milnor's normal forms for quadratic maps). Fixed point normal form z(z + b)/(cz + 1), bc ≠ 1: the fixed points, counted with multiplicity, are 0, ∞ and [1 − b : 1 − c] with multipliers b, c and (2 − b − c)/(1 − bc). The third coordinate pair is nonzero because bc ≠ 1; it is ∞ when c = 1, and is affine (1 − b)/(1 − c) only when c ≠ 1 (The multiplier of a rational map at a fixed point, direct computation); then bc(2 − b − c)/(1 − bc) − b − c − (2 − b − c)/(1 − bc) + 2 = 0 is a polynomial identity after clearing 1 − bc. Normal form z + 1/z: the single fixed point ∞ has multiplicity 3 and multiplier 1 (multiplier_eq_one_iff), so σ₃ = 1 = σ₁ − 2.
 
 *Needs:* [The symmetric functions σᵢ of the fixed-point multipliers](#target-arithmeticdynamics-dy-0-multiplier-symmetric-functions); [Milnor's normal forms for quadratic maps](#target-arithmeticdynamics-dy-0-quadratic-fixed-point-normal-form); [The multiplier of a rational map at a fixed point](#target-arithmeticdynamics-dy-0-fixed-point-multiplier); [The fixed points of a rational map, with multiplicity](#target-arithmeticdynamics-dy-0-fixed-points-of-a-rational-map).
 
 ([milnor-1993](#reference-milnor-1993), §3, Lemma 3.1, p. 3 (arXiv v1) — Exactly the relation; [milnor-1993](#reference-milnor-1993), Appendix C, (22), p. 42 (arXiv v1) — The computation used in place of Milnor's index-formula proof (which integrates dz/(z − f(z)) and is not algebraic).)
 
-**Endpoint checks.** z²: (0, 2, 0) gives σ₃ = 0 = 2 − 2. z(z + 2)/(3z + 1): μ = (2, 3, 3/5) and 18/5 = 2 + 3 + 3/5 − 2.
+**Endpoint checks.** z²: (0, 2, 0) gives σ₃ = 0 = 2 − 2. z(z + 2)/(3z + 1): μ = (2, 3, 3/5) and 18/5 = 2 + 3 + 3/5 − 2. For b = 0, c = 1, f(z) = z²/(z + 1) has fixed-point divisor [0] + 2[∞] and multipliers (0, 1, 1); σ₃ = 0 = σ₁ − 2. Its third fixed point cannot be represented by affine division by 1 − c.
 
 <a id="target-arithmeticdynamics-dy-0-moduli-space-of-quadratic-maps"></a>
 
@@ -1935,9 +1936,9 @@ The reusable interface consists of the following statements.
 - **`tateLimit`** (data): tateLimit φ h α : S → ℝ.
 - **`tateLimit_def`** (characterisation): tateLimit φ h α P = limUnder atTop (n ↦ h(φⁿ P)/αⁿ).
 - **`tateLimit_congr_of_bounded`** (relation): α > 1, h ∘ φ − αh bounded and h' − h bounded ⇒ tateLimit φ h' α = tateLimit φ h α.
-- **`tateLimit_const_mul`** (relation): tateLimit φ (c · h) α = c · tateLimit φ h α.
-- **`tateLimit_iterate`** (relation): tateLimit φ^[k] h (α^k) = tateLimit φ h α for k ≥ 1.
-- **`tateLimit_nonneg`** (other): h ≥ 0 ⇒ tateLimit φ h α ≥ 0.
+- **`tateLimit_const_mul`** (relation): Under α > 1 and bounded h ∘ φ − αh, tateLimit φ (c · h) α = c · tateLimit φ h α.
+- **`tateLimit_iterate`** (relation): Under α > 1 and bounded h ∘ φ − αh, tateLimit φ^[k] h (α^k) = tateLimit φ h α for k ≥ 1.
+- **`tateLimit_nonneg`** (other): Under α > 1 and bounded h ∘ φ − αh, h ≥ 0 ⇒ tateLimit φ h α ≥ 0.
 
 **Checks.**
 
@@ -2691,7 +2692,7 @@ Applications include Benedetto Propositions 4.22–4.24, pp.39–40 — Distingu
 
 ### 2.9 Berkovich Fatou and Julia sets
 
-For a topological self-map f on X put forwardSaturation(f,U)=⋃_{n≥0} f^n(U). A dynamically stable open set U has infinite complement XorwardSaturation(f,U). The omission Fatou set is the union of such U and the omission Julia set is its complement. On the weak/Gelfand topology of P¹,an_K these are F_Ber and J_Ber. Define on the actual seminorm carrier from TB.0; the strong tree metric and the classical chordal topology are distinct topologies. Do not define stability by omitting only two points or even three points in arbitrary characteristic.
+For a topological self-map f on X put forwardSaturation(f,U)=⋃_{n≥0} f^n(U). A dynamically stable open set U has infinite complement X∖forwardSaturation(f,U). The omission Fatou set is the union of such U and the omission Julia set is its complement. On the weak/Gelfand topology of P¹,an_K these are F_Ber and J_Ber. Define on the actual seminorm carrier from TB.0; the strong tree metric and the classical chordal topology are distinct topologies. Do not define stability by omitting only two points or even three points in arbitrary characteristic.
 
 K is complete, algebraically closed and nontrivially nonarchimedean for the Berkovich specialization.
 
@@ -3423,13 +3424,13 @@ Setting: v is a nonarchimedean absolute value on K with valuation ring 𝒪 = {a
 
 v discrete normalised p = char k > 0 f good reduction Mixed characteristic: char K = 0, so ord(p) is finite; ord is additive and ord(π) = 1, whereas v is the multiplicative absolute value.
 
-Reduce as in Periods of points under good reduction (Morton–Silverman) to g = f^{m r} with 0 of exact period p^e, fixed mod 𝔪 with multiplier ≡ 1. Let k₀ ≤ e − 1 be the first index with b_{k₀} > ord(p) (k₀ = e if none). For k < k₀, Valuation recursion along p-power iterates (Hutz) gives inductively b_k ≥ 2^k and c_k ≥ 2^{k−1} (p odd), respectively b_k ≥ F_{k+1} and c_k ≥ F_k (p = 2), starting from b₀, c₀ ≥ 1 and b₁ ≥ 2. If b_{e−1} ≤ ord(p) then 2^{e−1} ≤ b_{e−1} ≤ ord(p) (resp. F_e ≤ ord(2)). If b_{e−1} > ord(p) then (p − 1)·c_{e−1} ≤ ord(p) by Valuation recursion along p-power iterates (Hutz). The b_k increase strictly (each term of the b-recursion exceeds b_k), so b_k ≥ ord(p) + 1 for all k ≥ k₀, and the c-recursion gives c_{k+1} ≥ min(ord(p) + 1, p·c_k) for k₀ ≤ k ≤ e − 2. If for some such k the minimum were ord(p) + 1, then (inductively) c_{e−1} ≥ ord(p) + 1 > ord(p)/(p − 1), a contradiction; so c_{k+1} ≥ p·c_k along the chain and c_{e−1} ≥ p^{e−1−k₀}·c_{k₀} ≥ 2^{e−2} for p odd (using c_{k₀} ≥ 2^{k₀−1}, or c₀ ≥ 1 if k₀ = 0), respectively ≥ F_{e−1} for p = 2 (F_{i+1} ≤ 2F_i). Hence 2^{e−1} ≤ (p − 1)·2^{e−2} ≤ ord(p) for p odd, and F_{e−1} ≤ c_{e−1} ≤ ord(2) for p = 2 (Mathlib's Nat.fib); in the first case likewise F_{e−1} ≤ F_e ≤ ord(2).
+For e = 0 the asserted inequalities hold with truncated natural subtraction: 2⁰ = 1 ≤ ord(p) and F₀ = 0 ≤ ord(2); no b_{e−1} or c_{e−1} estimate is needed. For e = 1 the bounds are again 1 ≤ ord(p) and F₀ = 0 ≤ ord(2). Assume henceforth e ≥ 2. Reduce as in Periods of points under good reduction (Morton–Silverman) to g = f^{m r} with 0 of exact period p^e, fixed mod 𝔪 with multiplier ≡ 1. Let k₀ be the first index k < e with b_k > ord(p), or k₀ = e if none exists. For k < k₀, Valuation recursion along p-power iterates (Hutz) gives inductively b_k ≥ 2^k and, for k ≥ 1, c_k ≥ 2^{k−1} (p odd), respectively b_k ≥ F_{k+1} and c_k ≥ F_k (p = 2), starting from b₀, c₀ ≥ 1 and b₁ ≥ 2. If b_{e−1} ≤ ord(p) then 2^{e−1} ≤ b_{e−1} ≤ ord(p) (resp. F_e ≤ ord(2)). If b_{e−1} > ord(p) then (p − 1)·c_{e−1} ≤ ord(p) by Valuation recursion along p-power iterates (Hutz). The b_k increase strictly (each term of the b-recursion exceeds b_k), so b_k ≥ ord(p) + 1 for all k ≥ k₀, and the c-recursion gives c_{k+1} ≥ min(ord(p) + 1, p·c_k) for k₀ ≤ k ≤ e − 2. If for some such k the minimum were ord(p) + 1, then (inductively) c_{e−1} ≥ ord(p) + 1 > ord(p)/(p − 1), a contradiction; so c_{k+1} ≥ p·c_k along the chain and c_{e−1} ≥ p^{e−1−k₀}·c_{k₀} ≥ 2^{e−2} for p odd (using c_{k₀} ≥ 2^{k₀−1}, or c₀ ≥ 1 if k₀ = 0), respectively ≥ F_{e−1} for p = 2 (F_{i+1} ≤ 2F_i). Hence 2^{e−1} ≤ (p − 1)·2^{e−2} ≤ ord(p) for p odd, and F_{e−1} ≤ c_{e−1} ≤ ord(2) for p = 2 (Mathlib's Nat.fib); in the first case likewise F_{e−1} ≤ F_e ≤ ord(2).
 
 *Needs:* [Valuation recursion along p-power iterates (Hutz)](#target-arithmeticdynamics-dy-2-p-power-iterate-valuation-recursion); [Periods of points under good reduction (Morton–Silverman)](#target-arithmeticdynamics-dy-2-periods-under-good-reduction); `mathlib:Nat.fib`.
 
 ([hutz-2009](#reference-hutz-2009), Theorem 2, p. 2, and its proof with Lemma 23, pp. 16–17 (arXiv v3; the proof of Lemma 23 has a gap, see [Correction 10](#correction-10)) — The bound, which the target restates as 2^{e−1} ≤ ord(p) and F_{e−1} ≤ ord(2) with the repaired induction; [hutz-2009](#reference-hutz-2009), Corollary 3, p. 2 (arXiv v3) — The case K = ℚ_p.)
 
-**Endpoint checks.** f(z) = z² − z − 1 over ℚ₂: e = 1 and F₀ = 0 ≤ 1. Over ℚ₃ no rational cycle of a map of good reduction has n = m·r·9.
+**Endpoint checks.** f(z) = z² − z − 1 over ℚ₂: e = 1 and F₀ = 0 ≤ 1. For f(z) = z⁴ and the fixed point 1 over ℚ₃, m = r = 1 and e = 0: the odd-prime bound is 1 ≤ 1 without an iterate index −1. Over ℚ₃ no rational cycle of a map of good reduction has n = m·r·9.
 
 <a id="target-arithmeticdynamics-dy-2-zieve-rational-cycle-adapter"></a>
 
@@ -4455,7 +4456,7 @@ The reusable interface consists of the following statements.
 
 - **`TauCeti.ArithmeticDynamics.PoonenConjecture_test_three`** (computation): −1/4 has exact period 3 for z² − 29/16, so the bound 4 cannot be lowered.
 - **`TauCeti.ArithmeticDynamics.PoonenConjecture_test_four`** (compatibility): The conjecture implies minimalPeriod ≠ 4, the statement of Morton's theorem.
-- **`TauCeti.ArithmeticDynamics.PoonenConjecture_test_nonexample`** (non-example): The analogous statement with 3 in place of 4 is false.
+- **`TauCeti.ArithmeticDynamics.PoonenConjecture_test_nonexample`** (non-example): Over ℚ̄, a primitive 15th root of unity has exact period 4 for z², since the multiplicative order of 2 modulo 15 is 4. The rational-field restriction cannot be dropped.
 
 **Endpoint checks.** Sharpness of the bound 4: z² − 29/16 has the rational 3-cycle −1/4 ↦ −7/4 ↦ 5/4.
 
@@ -6278,7 +6279,7 @@ The reusable interface consists of the following statements.
 
 - **`AdelicMetric.test_standard_negLogNorm`** (degenerate): For the standard metric, −log‖x₁‖_v(z) = log⁺|z|_v for z ∈ K̄.
 - **`AdelicMetric.test_gauss_radius_metric`** (computation): For R ≥ 1, φ_v(z) = log max(|z|_v, R) − log⁺|z|_v at one place (0 elsewhere) is an adelic metric with φ_v(∞) = 0 and φ_v(0) = log R.
-- **`AdelicMetric.test_average_standard`** (compatibility): The average of the standard metric with itself is the standard metric.
+- **`AdelicMetric.test_average_radius`** (computation): Average the standard metric with the one-place radius metric above for R > 1. The resulting potential is φ_v/2, with value (log R)/2 at 0 and 0 at ∞. This distinguishes the geometric mean from an unnormalized product of norms.
 - **`AdelicMetric.test_not_adelic_all_primes`** (non-example): φ_p = 1 for every prime p (over ℚ) is not an adelic metric.
 
 **Endpoint checks.** The standard metric φ = 0 gives −log‖x₁‖_v(z) = log⁺|z|_v. At a place v and R ≥ 1, φ_v(z) = log max(|z|_v, R) − log⁺|z|_v extends continuously to P¹_v^an with φ_v(∞) = 0; with φ_w = 0 elsewhere it is an adelic metric.
@@ -6729,7 +6730,7 @@ Removing ∞ from F_n changes [F_n]_v by a measure of total variation ≤ 2/|F_n
 
 Let ρ be an adelic measure over K whose potentials are Hölder in the sense that ω_{g_{ρ,v}}(r) ≤ C₀ r^κ for 0 < r < 1 and all v ∈ N(ρ), for some C₀ > 0 and 0 < κ ≤ 1. There is C > 0 depending only on ρ such that for every place v, every test function φ ∈ D_v (TB.6) with Dirichlet norm ⟨φ, φ⟩_v and regularisation constant Lip_v(φ) (|∫ φ dm_{x,r,v} − φ(ι_v x)| ≤ Lip_v(φ) r), and every Galois-stable finite F ⊂ K̄ with |F| ≥ 2: |∫ φ d[F]_v − ∫ φ dρ_v| ≤ Lip_v(φ) |F|^{−1/κ} + (⟨φ, φ⟩_v r_v^{−1} (2h_ρ(F) + C log|F| / |F|))^{1/2}.
 
-ρ adelic with Hölder potentials at the places of N(ρ). The square root and the factor 2/r_v correct FRL Theorem 7 ([Correction 23](#correction-23), [Correction 24](#correction-24)).
+ρ adelic with Hölder potentials at the places of N(ρ). The square root is the authors’ correction to FRL Theorem 7 ([Correction 23](#correction-23)). The explicit factor 2/r_v is the conservative estimate derived below with this roadmap’s weighted, half-energy height convention ([Correction 24](#correction-24)); it is not the formula printed in their corrigendum.
 
 Let N be N(ρ) together with all infinite places. The standard potentials at the added places have modulus zero, so the Hölder bound still holds. Put r := |F|^{−1/κ} ≤ |F|^{−1}. Summing Lower bound for the local energy of [F] − ρ over N ∪ {v} and using Nonnegativity of the local energy against the standard measure at finite places at the other places: Σ_{w∈N∪{v}} r_w ([F]_r − ρ_w, [F]_r − ρ_w)_w ≤ 2h_ρ(F) + (|N| + 1) max_w r_w (2C₀|F|^{−1} + 2r + log|F|/(κ|F|)). The place weights satisfy 0 < r_w ≤ 1, uniformly over all w; thus the constant is independent of the place v. Each regularised term is ≥ 0 (TB.6 positivity), so r_v ([F]_r − ρ_v, [F]_r − ρ_v)_v ≤ 2h_ρ(F) + C log|F|/|F|. Cauchy–Schwarz for the Dirichlet form (TB.6): |∫ φ d([F]_r − ρ_v)| ≤ ⟨φ, φ⟩_v^{1/2} ([F]_r − ρ_v, [F]_r − ρ_v)_v^{1/2}. |∫ φ d([F]_r − [F])| ≤ Lip_v(φ) r = Lip_v(φ)|F|^{−1/κ}.
 
@@ -7723,7 +7724,7 @@ For a set X, a map g : X → X and α ∈ X, the preimage tree T(g, α) is the l
 
 No hypotheses for the definition; regularity is the theorem Under non-collision the preimage tree is the complete d-ary tree. Pinned convention: fⁿ denotes composition iterates (f.comp^[n] X, with f⁰ = X), never powers.
 
-Level n is the subtype {x // g^[n] x = α}; parent x := g x, with g^[n] (g x) = g^[n+1] x = α (Function.iterate_succ_apply). polyPreimageTree_mem_rootSet: (y ↦ f(y))^[n] x = α ⟺ aeval x (fⁿ) = α (Polynomial.iterate_comp_eval₂) ⟺ x ∈ rootSet (fⁿ − α) L, the polynomial fⁿ − α being nonzero because deg fⁿ = (deg f)ⁿ ≥ 1 for n ≥ 1 (Polynomial.natDegree_iterate_comp) and fⁿ − α = X − α for n = 0. hom/iso: a map h with h ∘ g = g' ∘ h and h(α) = α' sends g^{-n}(α) into g'^{-n}(α') and commutes with the correspondings; a bijection gives an isomorphism.
+Level n is the subtype {x // g^[n] x = α}; parent x := g x, with g^[n] (g x) = g^[n+1] x = α (Function.iterate_succ_apply). For deg f ≥ 1, polyPreimageTree_mem_rootSet: (y ↦ f(y))^[n] x = α ⟺ aeval x (fⁿ) = α (Polynomial.iterate_comp_eval₂) ⟺ x ∈ rootSet (fⁿ − α) L, the polynomial fⁿ − α being nonzero because deg fⁿ = (deg f)ⁿ ≥ 1 for n ≥ 1 (Polynomial.natDegree_iterate_comp) and fⁿ − α = X − α for n = 0. hom/iso: a map h with h ∘ g = g' ∘ h and h(α) = α' sends g^{-n}(α) into g'^{-n}(α') and commutes with the correspondings; a bijection gives an isomorphism.
 
 *Needs:* [Level towers and rooted trees](#target-arithmeticdynamics-dy-5-level-tower); `mathlib:Nat.iterate`; `mathlib:Polynomial.rootSet`; `mathlib:Polynomial.mem_rootSet`; `mathlib:Polynomial.iterate_comp_eval₂`; `mathlib:Polynomial.natDegree_iterate_comp`; `mathlib:Polynomial.aeval`.
 
@@ -7746,6 +7747,7 @@ The reusable interface consists of the following statements.
 - **`TauCeti.ArithmeticDynamics.preimageTree.test_identity`** (degenerate): For g = id every level of T(id, α) has exactly one element.
 - **`TauCeti.ArithmeticDynamics.preimageTree.test_critical_collision`** (non-example): T(z ↦ z², 0) on ℂ is not 2-regular (0 is a critical value; each level is {0}).
 - **`TauCeti.ArithmeticDynamics.preimageTree.test_rootSet`** (compatibility): For deg f ≥ 1, membership in level n of T(f, α; L) is membership in (fⁿ − α).rootSet L.
+- **`TauCeti.ArithmeticDynamics.preimageTree.test_constant_rootSet`** (non-example): For f = 0 and α = 0 over ℚ, the set-theoretic level 1 is all of ℚ, whereas Polynomial.rootSet (0 : ℚ[X]) ℚ is empty. Thus the rootSet comparison requires positive degree even though the self-map tree does not.
 
 **Endpoint checks.** For z ↦ z² on ℂ and α = 1, level n is the set of 2ⁿ-th roots of unity and has 2ⁿ elements. For z ↦ z² on ℂ and α = 0 every level is {0}: the tree is not 2-regular (critical collision).
 
@@ -8133,7 +8135,7 @@ Let k be algebraically closed of characteristic 0, d ≥ 2 and N ≥ 1. There is
 
 k algebraically closed of characteristic 0; d ≥ 2.
 
-f_0 = x^d + a_1x + a_0 with a_0a_1 ≠ 0 generic has simple critical points (roots of dx^{d−1} + a_1) and distinct critical values f_0(w_i) = a_0 + a_1 w_i (d−1)/d. Write v_i = f_0(w_i), which are distinct. Choose λ with f_0′(λ) ≠ 0 and c = f_0(λ) different from every v_i; only finitely many λ are excluded. For f_µ(x) = f_0(µx + λ), the critical point (w_i − λ)/µ has first image v_i. Compare these orbit values as polynomials in µ. At equal time n, the difference of the i and j orbits has leading term µ^{n−1}(f_0′(λ))^{n−1}(v_i−v_j). At unequal times n < m it has leading term µ^{n−1}(f_0′(λ))^{n−1}(v_i−c). Taylor expansion and induction give these terms, including n = 1. Thus every prohibited relation is a nonzero polynomial in µ. Avoid µ = 0 and the finitely many roots of these finitely many polynomials, using Polynomial.card_roots′. This supplies the properness argument in Juul Lemma 3.6, p. 11. If needed for the monic generic family, conjugate by x ↦ u x with u^{d−1} = lc(f_µ)⁻¹, which exists because k is algebraically closed. The conjugate u⁻¹ f_µ(ux) is monic and preserves the critical orbit relations and multiplicities.
+f_0 = x^d + a_1x + a_0 with a_0a_1 ≠ 0 generic has simple critical points (roots of dx^{d−1} + a_1) and distinct critical values f_0(w_i) = a_0 + a_1 w_i (d−1)/d. Write v_i = f_0(w_i), which are distinct. Choose λ with f_0′(λ) ≠ 0 and c = f_0(λ) different from every v_i; only finitely many λ are excluded. For f_µ(x) = f_0(µx + λ), the critical point (w_i − λ)/µ has first image v_i. Compare these orbit values as polynomials in µ. At equal time n and i ≠ j, the difference of the i and j orbits has lowest nonzero Taylor term at µ = 0 equal to µ^{n−1}(f_0′(λ))^{n−1}(v_i−v_j), modulo µⁿ. At unequal times n < m, its lowest nonzero Taylor term is µ^{n−1}(f_0′(λ))^{n−1}(v_i−c), modulo µⁿ. Taylor expansion and induction give these terms, including n = 1; these are not claims about the highest-degree coefficients in µ. Thus every prohibited relation is a nonzero polynomial in µ. Avoid µ = 0 and the finitely many roots of these finitely many polynomials, using Polynomial.card_roots′. This supplies the properness argument in Juul Lemma 3.6, p. 11. If needed for the monic generic family, conjugate by x ↦ u x with u^{d−1} = lc(f_µ)⁻¹, which exists because k is algebraically closed. The conjugate u⁻¹ f_µ(ux) is monic and preserves the critical orbit relations and multiplicities.
 
 *Needs:* `mathlib:IsAlgClosed`; `mathlib:Polynomial.card_roots'`; [Affine conjugation does not change the preimage tree or its Galois action](#target-arithmeticdynamics-dy-5-affine-conjugation-invariance).
 
@@ -8523,13 +8525,13 @@ Assume deg f = d ≥ 1 and fⁿ − α separable for all n. Then G_∞(f, α) ha
 
 deg f ≥ 1; all fⁿ − α separable.
 
-G_∞ is closed and is the inverse limit of the G_n (arboreal-image-inverse-limit); Aut(T_∞) = lim Aut(T_n) (tree-automorphism-inverse-limit). For a closed subgroup H of a profinite group lim Γ_n with images H_n: the maps Γ/H → Γ_n/H_n are surjective and [Γ : H] = sup_n [Γ_n : H_n] (a finite set of cosets of H is separated at some finite level; conversely distinct cosets at level n stay distinct). Boundedness of a non-decreasing integer sequence is eventual constancy; level-index-recursion translates constancy into maximal relative degrees.
+G_∞ is closed and is the inverse limit of the G_n (arboreal-image-inverse-limit); Aut(T_∞) = lim Aut(T_n) (tree-automorphism-inverse-limit). For a closed subgroup H of a profinite group lim Γ_n with images H_n, the maps of coset sets Γ/H → Γ_n/H_n are surjective. Any finite collection of distinct cosets of H is separated at some common finite level: closedness separates each pair, and finitely many pairs admit a common larger level. Consequently the finite-level indices are bounded iff Γ/H is finite. In that bounded case the natural-valued Subgroup.index is the largest finite-level index, hence their supremum. The unbounded case is expressed by infinitude of Γ/H; a cardinal-valued supremum then lies in ℕ ∪ {∞}, whereas Subgroup.index returns 0. Boundedness of their non-decreasing integer sequence is eventual constancy; level-index-recursion translates constancy into maximal relative degrees.
 
 *Needs:* [The index recursion for level images](#target-arithmeticdynamics-dy-5-level-index-recursion); [G_∞ is closed, equals Gal(K_∞/K), and is the inverse limit of the G_n](#target-arithmeticdynamics-dy-5-arboreal-image-inverse-limit); [Aut(T) is the inverse limit of the finite groups Aut(T_n)](#target-arithmeticdynamics-dy-5-tree-automorphism-inverse-limit); `mathlib:Subgroup.index`; `mathlib:Subgroup.FiniteIndex`.
 
 ([jones-arboreal-survey](#reference-jones-arboreal-survey), §1.1, Question 1.1, p. 4 — The index whose computation through finite levels is this theorem; [jones-arboreal-survey](#reference-jones-arboreal-survey), §2.2, p. 10 — Maximal layers for all large n give finite index.)
 
-**Endpoint checks.** x² + 1 over ℚ at 0: index 1. x^d + b with d ≥ 3: infinite index (infinite-index-unicritical).
+**Endpoint checks.** x² + 1 over ℚ at 0: index 1. x^d + b with d ≥ 3: infinite index (infinite-index-unicritical). For the trivial closed subgroup H of the infinite binary-tree automorphism group, the finite-level indices grow without bound, but Mathlib’s Subgroup.index H is 0 because the coset space is infinite. Thus an index formula with a cardinal-valued supremum must use ℕ ∪ {∞}, or restrict its natural-valued conclusion to the bounded case.
 
 <a id="target-arithmeticdynamics-dy-5-juul-maximality-over-function-field"></a>
 
@@ -11327,7 +11329,7 @@ Locator: favre-rivera-letelier-2006, (32)–(33) and Remarque 5.6, p. 36–37; T
 
 |∫ ϕ dρ| ≤ ⟨ϕ, ϕ⟩^{1/2} (ρ, ρ)^{1/2}; accordingly (34), Theorem 3, Corollaries 1.4 and 1.6 and Theorem 5 hold with the square root of the bracket (e.g. (h_ρ(F) + C log|F|/|F|)^{1/2} Lip(ϕ) in Theorem 3), and Remarque 5.6 should read ⟨ϕ, ϕ⟩ ≤ C Lip(ϕ)².
 
-Homogeneity: replacing ρ by tρ multiplies the left side of (32) by |t| and the right side by t², so the printed inequality fails for small t (take ρ = t(δ_{ζ_{0,1}} − δ_{ζ_{0,2}}) and a test function with ∫ϕ d(δ_{ζ_{0,1}} − δ_{ζ_{0,2}}) ≠ 0). Likewise ⟨ϕ, ϕ⟩ is quadratic in ϕ and Lip(ϕ) linear. The proof of Theorem 7 gives the square-root form.
+Homogeneity: replacing ρ by tρ multiplies the left side of (32) by |t| and the right side by t², so the printed inequality fails for small t (take ρ = t(δ_{ζ_{0,1}} − δ_{ζ_{0,2}}) and a test function with ∫ϕ d(δ_{ζ_{0,1}} − δ_{ζ_{0,2}}) ≠ 0). Likewise ⟨ϕ, ϕ⟩ is quadratic in ϕ and Lip(ϕ) linear. The proof of Theorem 7 gives the square-root form. The authors’ [2007 corrigendum](#reference-favre-rivera-letelier-2007-corrigendum), p. 1, explicitly corrects (32)–(33), Theorems 3, 5, 7 and Corollaries 1.4, 1.6.
 
 <a id="correction-24"></a>
 
@@ -11335,9 +11337,9 @@ Homogeneity: replacing ρ by tρ multiplies the left side of (32) by |t| and the
 
 Locator: favre-rivera-letelier-2006, proof of Théorème 7, p. 37 (arXiv v2).
 
-The bound is 2h_ρ(F) + M(…) (h_ρ is half the sum of the weighted local energies), and passing to (·,·)_{v0} divides by N_{v0}; so (34) should read |…| ≤ Lip(ϕ)|F|^{−1/κ} + (⟨ϕ, ϕ⟩ N_v^{−1} (2h_ρ(F) + C log|F|/|F|))^{1/2}.
+With the weighted half-energy convention used here, the proof gives the conservative bound 2h_ρ(F) + M(…) (h_ρ is half the sum of the weighted local energies), and passing to (·,·)_{v0} divides by N_{v0}. Accordingly this roadmap uses |…| ≤ Lip(ϕ)|F|^{−1/κ} + (⟨ϕ, ϕ⟩ N_v^{−1} (2h_ρ(F) + C log|F|/|F|))^{1/2}.
 
-By (28), Σ_v ((·,·))_v = 2h_ρ(F); the other local terms are ≥ 0 (Lemma 5.4 and positivity), which bounds the v₀-term by 2h_ρ(F) + error, not h_ρ(F); and ((·,·))_{v0} = N_{v0}(·,·)_{v0}.
+By (28), Σ_v ((·,·))_v = 2h_ρ(F); the other local terms are ≥ 0 (Lemma 5.4 and positivity), which bounds the v₀-term by 2h_ρ(F) + error, not h_ρ(F); and ((·,·))_{v0} = N_{v0}(·,·)_{v0}. This is the displayed derivation of the roadmap’s normalization; the authors’ 2007 corrigendum corrects the square root but retains h_ρ(F) inside its printed bracket.
 
 <a id="correction-25"></a>
 
@@ -11867,7 +11869,15 @@ Matthew Baker; Robert Rumely, *Equidistribution of small points, rational dynami
 
 Charles Favre; Juan Rivera-Letelier, *Équidistribution quantitative des points de petite hauteur sur la droite projective*. arXiv:math/0407471v2 (24 January 2006), 46 pp.; published Math. Ann. 335 (2006) 311–361. Locators are to arXiv v2.
 
-[Source](https://arxiv.org/pdf/math/0407471v2).
+[Source](https://arxiv.org/pdf/math/0407471v2). Read together with the authors’ [2007 corrigendum](#reference-favre-rivera-letelier-2007-corrigendum).
+
+<a id="reference-favre-rivera-letelier-2007-corrigendum"></a>
+
+### favre-rivera-letelier-2007-corrigendum
+
+Charles Favre; Juan Rivera-Letelier, *Corrigendum à l’article « Équidistribution quantitative des points de petite hauteur sur la droite projective »*. Author version dated 9 January 2007, 3 pp.; published Math. Ann. 339 (2007) 799–801. Page 1 supplies the square-root corrections used here.
+
+[Source](https://www.cmls.polytechnique.fr/perso/favre/corrigendum.pdf).
 
 
 <a id="reference-benedetto-aws-2010"></a>
