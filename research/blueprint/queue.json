@@ -152534,6 +152534,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv.md",
    "note": "claimed on GitHub issue #11315"
+  },
+  {
+   "id": "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "NoncommutativeAndEquivariantIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3.md",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/review.json",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/README.md",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3.md"
   }
  ]
 }
