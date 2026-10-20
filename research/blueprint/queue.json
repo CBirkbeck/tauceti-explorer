@@ -51561,8 +51561,9 @@
     "PKG-CompletedCohomologyAndLocalGlobalCompatibility"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CompletedCohomologyAndLocalGlobalCompatibility.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10895"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10895",
+   "finishedAt": "2026-10-20T01:11:52Z"
   },
   {
    "id": "PKG-CompletedCohomologyPartII",
@@ -152077,9 +152078,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex2.md",
-   "note": "claimed on GitHub issue #11268"
+   "note": "deliverables arrived from an external worker on issue #11268",
+   "finishedAt": "2026-10-20T01:11:56Z"
   },
   {
    "id": "REV-PKG-RefinedTraceMethods~codex",
@@ -152118,8 +152120,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv.md",
+   "note": "claimed on GitHub issue #11275"
   },
   {
    "id": "REV-PKG-MotivesAndAlgebraicCycles~adv",
