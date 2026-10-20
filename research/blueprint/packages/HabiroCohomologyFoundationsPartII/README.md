@@ -19,7 +19,7 @@ It builds on the following roadmaps and plans none of their objects again.
 | --- | --- |
 | HabiroCohomologyFoundations Layers 1–5 | The global and derived q-de Rham complexes, the filtered quotient convention, chosen q-Hodge pairs, the q-Hodge complex, twisted filtrations and partial descents, the Habiro–Hodge object with its descent theorem and multiplicative upgrades, the exported interface of §4.28, the canonical smooth filtration, the naive filtration of quasi-regular quotients with its section, and the finite-coefficient pairs of §5.26. |
 | RefinedTraceMethods Layers 6 and 8 | Spherical bases and compatible spherical lifts (§6.1), the local and global trace comparisons with their q-Hodge filtration (§§6.9–6.10), cyclonic spectra, TC⁻⁽ᵐ⁾ and the Habiro–Hodge comparison over KU (§§6.11–6.13), étale spherical lifts and the number-field ring comparison (§6.14), and the coherent Habiro trace interface (§8.8). |
-| HabiroRings HR.1, HR.2, HR.5–HR.7 | Perfectly covered Λ-rings, Habiro completion, the relative Habiro ring with its compatible roots, Taylor maps and Taylor equalizer, the number-field coefficient rings, the étale Habiro–Hodge comparison, and the examples where constant families do not glue. |
+| HabiroRings HR.1, HR.2, HR.5 and HR.7 | Perfectly covered Λ-rings, Habiro completion, the relative Habiro ring with its compatible roots, Taylor maps and Taylor equalizer, the number-field coefficient rings, and the examples where constant families do not glue. The étale Habiro–Hodge identification is supplied by HabiroCohomologyFoundations §4.21. |
 | StableHomotopyKTheory §7.32 | Burklund's towers of Eₙ-algebra quotients in a stably Eₘ-monoidal category. |
 | [PrismaticCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1057) Layer 0 and [PrismaticCohomologyPartII](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1065) Layers 3 and 5 | δ-rings and the toric δ-structure; the Nygaard filtration by Frobenius divisibility on quasiregular semiperfectoid prisms, the relative Nygaard filtration on the Frobenius twist with its graded pieces and the Lη_I factorisation, and Nygaard completion; q-PD envelopes with their flatness and base change. |
 | [PrismaticCohomologyPartIII](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1070) §7.0 and [AInfCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1044) §AI.7.2 | The motivic filtrations of Bhatt–Morrow–Scholze on THH, TC⁻ and TP by quasisyntomic descent of double-speed Postnikov truncations, and the absolute and relative trace–prismatic comparisons with Nygaard-completed prismatic cohomology. |
@@ -71,14 +71,13 @@ No Tau Ceti declaration is used. The current Tau Ceti library and the current Ta
 - **§6.9.** The comparison ψ⁰_R : qdR_{R/A} → gr⁰_{ev,hS¹}TC⁻_■(ku_R/ku_A), the local q-Hodge filtration as the pullback along ψ⁰_R, the p-complete comparison for p > 2 (KU Theorem 4.8 with Remark 4.9, p.39), the comparison at p = 2 in case (E₁) (KU Theorem 4.14, p.43), and the identity-cover description (KU Theorem 4.17, p.45): for R p-torsion free, p-quasi-lci, with R/p relatively semiperfect and a connective E₁-S_A-algebra lift, the q-Hodge filtration is the ordinary preimage of the combined Hodge and h-adic filtration under qdR_{R/A} → dR_{R/A}[1/p][[h]], independent of the lift and a filtered E∞-algebra.
 - **§6.10.** `globalEvenFiltration` and `globalComparison` (KU 4.21–4.26, pp.47–50), the global theorem (KU Theorems 1.2 and 4.27, pp.3, 50) under 4.18 and the addendum (R₂) of 4.18a (p.49): the completed q-Hodge filtration F̂ is Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻(ku_R/ku_A) as graded ℤ[β][[t]]-modules, its reduction by β is the Hodge filtration, its completed rationalisation is the combined filtration, and (R,F) is a pair; completeness, the Eₙ₋₁-monoidality of Remark 4.28 (p.50) and the identification of qHdg with gr⁰ after Bott inversion; and the coordinate filtration of ℤ[x] with S[x] (KU Theorem 1.4, p.3). This section states only the one-variable coordinate example.
 - **§§6.11–6.13.** Cyclonic spectra, cyclonic ku and KU, the cyclonic base coherence (A₂) of KU 5.43 (p.70), TC^{−(m)} and its cyclonic even filtration, the twisted comparison (KU Theorem 5.51, p.73) and the Habiro–Hodge comparison qHdg_{R/A}[β^{±1}] ≃ Σ^{−2∗}gr^∗ lim_m fil_{ev,S¹}TC^{−(m)}(KU_R/KU_A) under 4.18, 2 ∈ R^× and (A₂) (KU Theorem 5.63, pp.79–80).
-- **§6.14.** Unique étale E∞-lifts of étale algebras (Lurie, Higher Algebra Theorem 7.5.0.6) and the ring isomorphism H_{𝒪_F[1/Δ]} ≅ π₀ lim_m (THH(KU⊗S_{𝒪_F[1/Δ]}/KU)^{C_m})^{h(S¹/C_m)} for 6 | Δ and disc(F) | Δ (KU Corollary 6.15, p.86).
+- **§6.14.** Unique étale E∞-lifts of étale algebras (Lurie, Higher Algebra Theorem 7.5.0.6, p.1374) and the ring isomorphism H_{𝒪_F[1/Δ]} ≅ π₀ lim_m (THH(KU⊗S_{𝒪_F[1/Δ]}/KU)^{C_m})^{h(S¹/C_m)} for 6 | Δ and disc(F) | Δ (KU Corollary 6.15, p.86).
 - **§8.8.** The coherent Habiro trace interface: the S¹ and genuine finite C_m maps, complete even filtrations and graded module comparisons, with the multiplicative enhancement only under the chosen Eₙ hypotheses.
 
 ### From HabiroRings
 
 - **HR.1–HR.2.** Perfectly covered Λ-rings, derived Habiro completion and the completed tensor product.
 - **HR.5.** `HabiroRings.relativeHabiro` (H_{R/A} for R étale over A, with `proj`, `completionEquiv`, `cyclotomicCompletionEquiv`, `quotientEquiv` H_{R/A}/(q^m−1) ≃ qW_m(R/A), `map`), `HabiroRings.CompatibleRoots` (ζ_{mn} = ζ_mζ_n for coprime m,n and ζ_{p^a} = ζ_{p^{a+1}}^p), `coeffAlgebra` (the full tensor algebra R^{(m)}⊗ℤ[ζ_m]), `taylorFactor` T_m, `canonicalMap`, `frobeniusMap`, `taylorComponent` τ_m, the Taylor equalizer presentation of H_{R/A}, and the number-field coefficient section: for disc(F) | Δ, 𝒪_F[1/Δ] is étale over ℤ and the Taylor equalizer is the ring of GSWZ Definition 1.1 (pp.6–7).
-- **HR.6.** For R étale over A, the Habiro–Hodge object of the h-adic pair is H_{R/A}, naturally in pairs and compatibly with cyclotomic quotients and completions.
 - **HR.7.** The localized cubic ring ℤ[∛2][1/6], where constant Taylor families do not glue.
 
 ### From StableHomotopyKTheory
@@ -113,7 +112,7 @@ Provide the following operations and laws.
 - `TraceInput.lifts`: the underlying compatible spherical lifts, with `localChoice p` returning the branch and local datum at p.
 - `TraceInput.ofEtale`: for R étale over A and torsion free (automatic when A is torsion free), the input whose datum at every prime is the identity cover (E₁) of the unique étale E∞-lift of R̂_p (RefinedTraceMethods §6.14); R/p is relatively semiperfect because the relative Frobenius of an étale algebra is an isomorphism. Every A-algebra map of étale algebras lifts uniquely to a morphism of these inputs.
 - `TraceInput.ofFramed`: for S smooth over A with an étale framing □ : A[x₁,…,x_d] → S and Ŝ₂ 2-torsion free, the input of KU Examples 6.7–6.8 (pp.82–83): at odd p the (E₂) choice given by the unique étale E∞-lift S_{S,□} of S_A[x₁,…,x_d] → S, and at p = 2 the (E₁) choice with cover Ŝ₂ → (Â₂⟨x₁^{1/2^∞},…,x_d^{1/2^∞}⟩ ⊗_{Â₂⟨x₁,…,x_d⟩} Ŝ₂)^∧₂, whose Čech nerve is lifted by base change of the Čech nerve of S_A[x₁,…,x_d] → S_A[x₁^{1/2^∞},…,x_d^{1/2^∞}] along S_A[x₁,…,x_d] → S_{S,□}.
-- `TraceInput.ofIdentityCover`: for R p-torsion free with R/p relatively semiperfect over Â_p and a connective p-complete E₁-S_{Â_p}-algebra lift of R̂_p at every prime, the input choosing the identity cover (E₁) everywhere (KU §4.3, p.45).
+- `TraceInput.ofIdentityCover`: for an A-algebra R with L_{R/A} of Tor-amplitude [0,1], and, at every prime p, R p-torsion free, R/p relatively semiperfect over Â_p and a connective p-complete E₁-S_{Â_p}-algebra lift of R̂_p, the input choosing the identity cover (E₁) everywhere (KU §4.3, p.45; global Assumption 4.18(R), p.46). The global cotangent condition is separate from the conditions on the p-completions.
 - `TraceInput.unit`: R = A with the lift S_A at every prime, as an identity-cover input when A is torsion free.
 
 **Checks.**
@@ -121,6 +120,7 @@ Provide the following operations and laws.
 - `TraceInput.invertTwo`: A = R = ℤ[1/2] with S[1/2]: the condition at 2 is empty because R̂₂ = 0, and the input exists without any datum at 2. For R = ℤ the datum at 2 must be an (E₁) choice; the identity cover of S is one.
 - `TraceInput.polynomial`: for R = ℤ[x] with S[x] the (E₂) choice is available at every prime, but the input must use the (E₁) cover ℤ₂⟨x⟩ → ℤ₂⟨x^{1/2^∞}⟩ at 2. A definition accepting (E₂) at 2 would require the E₂ comparison of KU Theorem 4.8 at p = 2, which the source does not prove (KU §4.2, issues (!) and (!!), p.43).
 - `TraceInput.kuLift`: for p fixed, the ring ℤ_p{x}_∞/x has an E₁-algebra lift over ku (KU 1.11, p.5), but such a lift is not a local datum of an input: RefinedTraceMethods' Check `SphericalLift.ku_not_enough`. By §2.2 this ring has no spherical E₁-lift at all.
+- `TraceInput.rationalAmplitude`: over A = ℤ, let R = ℚ[u,v]/(u²,uv,v²). Every p-completion is zero and has the zero spherical lift, and R is torsion free. Nevertheless R is not quasi-lci: at (u,v) its defining ideal has height 2 and needs three generators, so L_{R/ℚ} ≃ L_{R/ℤ} is not of Tor-amplitude [0,1]. Thus it cannot be an identity-cover input. Testing only the p-completions would incorrectly admit it.
 - `TraceInput.mixedBranch`: for R = ℤ[x] and an odd prime p, the identity of ℤ[x] is not a morphism from the input choosing (E₂) at p to the one choosing the (E₁) cover ℤ_p⟨x⟩ → ℤ_p⟨x^{1/p^∞}⟩ at p; comparing the two filtrations is a separate statement (for quasi-regular quotients it is §2.3), not part of the category.
 
 *Needs:* RefinedTraceMethods §6.1 (`CyclotomicBase`, `QHodgeTrace.CompatibleSphericalLifts`), §6.14 (étale lifts); HabiroRings HR.1; HabiroCohomologyFoundations §5.15 (relative semiperfectness, p-quasi-lci); Mathlib `Algebra.Etale`, `Algebra.Smooth`, `MvPolynomial`.
@@ -182,14 +182,14 @@ Provide the following operations and laws.
 
 **Checks.**
 
-- `traceHabiro_etale`: for R finite étale over A with `TraceInput.ofEtale`, traceHabiro(R,L) is the static relative Habiro ring H_{R/A} of HabiroRings HR.5 (HabiroCohomologyFoundations §4.21; HabiroRings HR.6; QH Corollary 3.13, p.27), and its h-completion is R[[h]]. A construction returning a new coefficient ring instead of H_{R/A} fails `HabiroRings.relativeHabiro_quotient_qWitt`: traceHabiro/(q^m−1) must be qW_m(R/A), with no classes in positive q-Witt degree.
+- `traceHabiro_etale`: for R finite étale over A with `TraceInput.ofEtale`, traceHabiro(R,L) is the static relative Habiro ring H_{R/A} of HabiroRings HR.5 (HabiroCohomologyFoundations §4.21; QH Corollary 3.13, p.27), and its h-completion is R[[h]]. A construction returning a new coefficient ring instead of H_{R/A} fails `HabiroRings.relativeHabiro_quotient_qWitt`: traceHabiro/(q^m−1) must be qW_m(R/A), with no classes in positive q-Witt degree.
 - `traceHabiro_unitFiltration`: for the unit input over A = ℤ, traceHabiro is Habiro's ring lim_m ℤ[q]^∧_{q^m−1}, and the filtered quotient of F^i = h^{max(i,0)}ℤ[[h]] by h is ℤ in degrees ≤ 0 and 0 in positive degrees; the degreewise quotient incorrectly leaves ℤ in degree one.
 - `traceHabiro_polynomial`: for R = ℤ[x] with S[x], traceHabiro(R,L)^∧_h is the complex ℤ[x][[h]] → ℤ[x][[h]]dx with x^r ↦ (q^r−1)x^{r−1}dx. The q-de Rham complex has x^r ↦ [r]_q x^{r−1}dx instead; at r = 2 the two coefficients are q²−1 and 1+q, which differ already at q = 1 (0 against 2). Returning qΩ as the h-completion fails this.
-- `traceHabiro_kuLiftInsufficient`: the perfected exponent-one quotient ℤ_p{x}_∞/x of KU 1.11 (p.5) admits an E₁-lift over ku, but no input over it exists: its naive filtration is not a q-deformation (HabiroCohomologyFoundations §5.20; QH Example 4.24, pp.63–64) and §2.2 shows it has no spherical E₁-lift. A constructor that accepted a ku-lift would produce a filtration violating clause (b).
+- `traceHabiro_kuLiftInsufficient`: the perfected exponent-one quotient ℤ_p{x}_∞/x of KU 1.11 (p.5) admits an E₁-lift over ku, but no input over it exists: QH Lemma 3.3 (p.22), using Example 4.24 (pp.63–64), excludes any q-Hodge pair on its q-de Rham complex, whereas an input would produce one. Its naive filtration is not a q-deformation (HabiroCohomologyFoundations §5.20), and §2.2 also excludes a spherical E₁-lift. A constructor that accepted a ku-lift would produce a filtration violating clause (b).
 - `traceHabiro_mOne`: at m = 1 the ascending filtration on traceHabiro/(q−1) has gr_i ≃ Σ^{−i}dR^i_{R/A}; for R = ℤ[x] the reduction has H⁰ = ℤ[x] and H¹ = ℤ[x]dx with zero differential, while F_tr/β is the descending Hodge filtration of dR_{ℤ[x]/ℤ}, whose H¹ is ⊕_{r≥1}(ℤ/r)x^{r−1}dx. The two filtrations live on different objects and are not exchanged.
 - `traceHabiro_zero`: for R = 0, traceHabiro = 0 although the uncompleted trace pair is the nonzero constant filtration on ℚ[[h]] (`tracePair_zero`); H_{0/A} = 0 (HabiroRings `relativeHabiro_zero`).
 
-*Needs:* §§1.1–1.2; HabiroCohomologyFoundations §§4.14–4.24 and §4.28 (`qHabiroHodge`, `HabiroHodgeDescent`, `qHodge.periodic`); HabiroRings HR.2, HR.5, HR.6; RefinedTraceMethods §§6.11–6.13 (cyclonic coefficients, KU Theorem 5.63) and §8.8 (coherent Habiro trace interface).
+*Needs:* §§1.1–1.2; HabiroCohomologyFoundations §§4.14–4.24 and §4.28 (`qHabiroHodge`, `HabiroHodgeDescent`, `qHodge.periodic`); HabiroRings HR.2, HR.5; RefinedTraceMethods §§6.11–6.13 (cyclonic coefficients, KU Theorem 5.63) and §8.8 (coherent Habiro trace interface).
 
 ### Examples
 
@@ -197,7 +197,7 @@ For A = R = ℤ the trace pair is the h-adic filtration on ℤ[[h]], its Habiro 
 
 ### Dependencies
 
-HabiroCohomologyFoundations §§2.1–2.3, 4.1, 4.14–4.24, 4.28 and 5.15; RefinedTraceMethods §§6.1, 6.9–6.14 and 8.8; HabiroRings HR.1, HR.2, HR.5, HR.6.
+HabiroCohomologyFoundations §§2.1–2.3, 4.1, 4.14–4.24, 4.28 and 5.15; RefinedTraceMethods §§6.1, 6.9–6.14 and 8.8; HabiroRings HR.1, HR.2, HR.5.
 
 ## Layer 2: Quasi-regular quotients
 
@@ -359,17 +359,17 @@ since ∏_{i≤d}(qx − q^iy) = (qx − y)·q^d·∏_{i<d}(x − q^iy); dividin
 ∇_{q,x} δ^{(d)}_q(x,y) = δ^{(d−1)}_q(x,y),      ∇_{q,y} δ^{(d)}_q(x,y) = −δ^{(d−1)}_q(x,qy),
 ```
 
-so the q-derivatives preserve q-D, and for the toric Λ-structure δ^{(d)}_q(x,y) = (q−1)^d λ^d((x−y)/(q−1)) in the localisation inverting the q-factorials. The proof follows the source: (p, q−1) and (p,(q;q)_d) are regular sequences in q-D, since q-D/(q−1) is the p-torsion-free PD envelope; the Adams operations ψ^ℓ, ℓ ≠ p, extend to q-D; (q−1)ψ^n((x−y)/(q−1)) ∈ q-D because x^{p^a} − y^{p^a} is divisible by every Φ_{p^i}(q), i ≤ a, using flatness of q-D over ℤ_p[[q−1]]; the relation ψ_t = −t (d/dt) log λ_{−t} gives the λ-operations after inverting p, and q-D[1/p] ∩ q-D[(q;q)_d^{−1}] = q-D concludes. (Pridham Lemma 1.3, cited there, supplies the λ-ring formula.)
+so the q-derivatives preserve q-D, and for the toric Λ-structure δ^{(d)}_q(x,y) = (q−1)^d λ^d((x−y)/(q−1)) after inverting h and the q-factorials, so that the argument of λ^d and its Adams operations are defined. The proof follows the source: (p, q−1) and (p,(q;q)_d) are regular sequences in q-D, since q-D/(q−1) is the p-torsion-free PD envelope; the Adams operations ψ^ℓ, ℓ ≠ p, extend to q-D; (q−1)ψ^n((x−y)/(q−1)) ∈ q-D because x^{p^a} − y^{p^a} is divisible by every Φ_{p^i}(q), i ≤ a, using flatness of q-D over ℤ_p[[q−1]]; the relation ψ_t = −t (d/dt) log λ_{−t} gives the λ-operations after inverting p, and q-D[1/p] ∩ q-D[(q;q)_d^{−1}] = q-D concludes. (Pri Lemma 1.3, §1.1, p.3, supplies the λ-ring formula with x and y exchanged.)
 
 **Lemma `TauCeti.QHodge.Trace.framedCech`** (KU 6.12 and Lemma 6.13, pp.84–86). Let P^• be the Čech nerve of A → P = A[x₁,…,x_d], S_{P^•} that of S_A → S_A[x₁,…,x_d], and x_k^{(r)} ∈ P^n the k-th coordinate from the r-th tensor factor. Let q-D^n be the h-completion of the subalgebra of (S^{⊗_A(n+1)}⊗ℚ)[[h]] generated by S^{⊗_A(n+1)}[[h]] and δ^{(e)}_q(x_k^{(r)}, x_k^{(s)}) for all e ≥ 1, r, s and k, filtered by the ideals generated by h in degree 1 and δ^{(e)}_q(x_k^{(r)},x_k^{(s)}) in degree e, and let fil^⋆q-D̂^• be the completed cosimplicial filtered ring. Then π_{2∗}TC⁻(ku_{S,□}/ku_{P^•}) ≅ fil^⋆q-D̂^• as cosimplicial graded ℤ[β][[t]]-modules. The proof applies KU Theorem 4.27 to S over each P^n, with base lift S_{P^n} and identity-cover data at every prime (S/p is relatively semiperfect over P^n, being a quotient of the étale P^n-algebra S^{⊗(n+1)}); these inputs over P^n are part of this target, since the source applies Theorem 4.27 without listing them. The arithmetic fracture square of the completed filtration has static corners (checked modulo β); at p the q-PD envelope of the regular ideal ker(S^{⊗(n+1)} → S)^∧_p contains the elements by `qPDDiagonal` and the unique δ-structure on the p-completely étale extension, and they lie in the q-Hodge filtration by KU Theorem 4.17; rationally P → S étale gives dR^∧_{S/P^n} ≃ dR^∧_{S/S^{⊗(n+1)}}; the resulting filtered map is an isomorphism modulo β.
 
-The proof of `framedTrace` then computes the even filtration by the resolution, fil^⋆_{ev}TC⁻(ku_{S,□}/ku_A) ≃ lim_Δ τ_{≥2⋆}TC⁻(ku_{S,□}/ku_{P^•}), and compares the totalisation of fil^⋆q-D̂^• with the coordinate filtration through the double complex fil^{⋆−j}q-D̂^•⊗_{P^•}Ω^j_{P^•/A} with differential ∇_q: each column is quasi-isomorphic to the zeroth one (checked modulo h by the Poincaré lemma for the completed Hodge-filtered de Rham complex), and the rows in positive form degree are acyclic (Stacks Tag 07L7), as in the proof of BS Theorem 16.22 (p.115; KU, proof of Theorem 6.10, p.86).
+The proof of `framedTrace` then computes the even filtration by the resolution, fil^⋆_{ev}TC⁻(ku_{S,□}/ku_A) ≃ lim_Δ τ_{≥2⋆}TC⁻(ku_{S,□}/ku_{P^•}), and compares the totalisation of fil^⋆q-D̂^• with the coordinate filtration through the double complex fil^{⋆−j}q-D̂^•⊗_{P^•}Ω^j_{P^•/A} with differential ∇_q: each column is quasi-isomorphic to the zeroth one (checked modulo h by the Poincaré lemma for the completed Hodge-filtered de Rham complex), and the rows in positive form degree are acyclic (Stacks Example 60.19.1, Tag 07L7), as in the proof of BS Theorem 16.22 (p.115; KU, proof of Theorem 6.10, p.86).
 
 **Checks.**
 
 - d = 2: δ^{(2)}_q(x,y) = (x−y)(x−qy)/(1+q) reduces to (x−y)²/2 at q = 1, and ∇_{q,x}δ^{(2)}_q(x,y) = x − y: indeed (qx−y)(qx−qy) − (x−y)(x−qy) = (q²−1)x(x−y), the case d = 1 of `diagonalNumerator_shift`. A normalisation by the q-Pochhammer symbol (q;q)_d in place of [d]_q! turns the formula into ∇_{q,x}γ̃^d = −(q−1)^{−1}γ̃^{d−1}: a sign and a factor (q−1)^{−1}.
 - At q = 1 the numerator becomes (x − y)^d (`diagonalNumerator_one`), so the q-divided powers specialise to the ordinary divided powers of x − y. The classical numerator (x − y)^d specialises in the same way but fails the shift identity: (qx−y)² − (x−y)² − (q²−1)x(x−y) = (q−1)²xy.
-- Sign normalisation: λ¹((x−y)/(q−1)) = (x−y)/(q−1) = δ^{(1)}/(q−1), whereas (x−y)/(1−q) has the opposite sign. With the Pochhammer symbol (q;q)_d = ∏_{k=1}^d(1−q^k) one has (q−1)^d/(q;q)_d = (−1)^d/[d]_q!, so the elements written with (q;q)_d in the source differ from δ^{(d)} by (−1)^d (see Remarks on the sources).
+- Sign normalisation: λ¹((x−y)/(q−1)) = (x−y)/(q−1) = δ^{(1)}/(q−1), whereas (x−y)/(1−q) has the opposite sign. With the Pochhammer symbol (q;q)_d = ∏_{k=1}^d(1−q^k) one has (q−1)^d/(q;q)_d = (−1)^d/[d]_q!, so h^d times the elements written with (q;q)_d in the source differ from δ^{(d)} by (−1)^d (see Remarks on the sources).
 - At p, ∏_{i<p}(x−q^iy) ≡ x^p − y^p = φ(x−y) modulo [p]_q = Φ_p(q), and [p−1]_q! is a unit of ℤ_p[[q−1]]; so δ^{(p)}_q(x,y) lies in q-D exactly because φ(x−y)/[p]_q does, while δ^{(e)} for e < p already lies in ℤ_p[x,y][[q−1]], where [e]_q! is a unit.
 - In cosimplicial degree 0, q-D^0 = S[[h]] with the h-adic filtration: no δ-elements are adjoined since x^{(1)} − x^{(1)} = 0.
 
@@ -421,7 +421,7 @@ TraceInversion F Δ  :⇔  0 < Δ,  6 ∣ Δ  and  disc(F) ∣ Δ,
 
 with disc(F) = `NumberField.discr F` ∈ ℤ. The coefficient ring is R = 𝒪_F[1/Δ], the localisation of 𝓞 F away from Δ. The condition disc(F) | Δ makes R étale over ℤ (HabiroRings, number-field coefficient section); 6 | Δ is the additional hypothesis of the trace realisation, which needs 2 ∈ R^× for KU Theorem 5.63 (RefinedTraceMethods §6.13). Prove `TraceInversion.isUnit_two_three`: under the condition, 2 and 3 are units of R, because Δ becomes a unit in R, 6 divides Δ, and a product of commuting elements is a unit exactly when both factors are (Mathlib `IsLocalization.Away.algebraMap_isUnit`, `isUnit_of_dvd_unit`, `Commute.isUnit_mul_iff`).
 
-For such F and Δ let S_R be the unique étale E∞-S-algebra lifting R (RefinedTraceMethods §6.14; Lurie, Higher Algebra Theorem 7.5.0.6) and put
+For such F and Δ let S_R be the unique étale E∞-S-algebra lifting R (RefinedTraceMethods §6.14; Lurie, Higher Algebra Theorem 7.5.0.6, p.1374) and put
 
 ```text
 P_R := π₀ lim_{m ∈ ℕ, ordered by divisibility} ( THH(KU⊗S_R/KU)^{C_m} )^{h(S¹/C_m)}.
@@ -433,7 +433,7 @@ The order of operations is part of the definition: genuine C_m-fixed points of t
 ε_R : H_{R/ℤ} ≅ P_R
 ```
 
-(KU Corollary 6.15, p.86; Corollary 1.15, p.8), with H_{R/ℤ} the relative Habiro ring of HabiroRings HR.5. The proof there uses periodic KU, obtained from the connective cyclonic construction by Bott inversion, and the static Habiro–Hodge object of the étale algebra (HabiroRings HR.6; QH Corollary 3.13, p.27). Neither homotopy C_m-fixed points nor lim_m π₀ is substituted for the expression above, and connective ku is not substituted for KU.
+(KU Corollary 6.15, p.86; Corollary 1.15, p.8), with H_{R/ℤ} the relative Habiro ring of HabiroRings HR.5. The proof there uses periodic KU, obtained from the connective cyclonic construction by Bott inversion, and the static Habiro–Hodge object of the étale algebra (HabiroCohomologyFoundations §4.21; QH Corollary 3.13, p.27). Neither homotopy C_m-fixed points nor lim_m π₀ is substituted for the expression above, and connective ku is not substituted for KU.
 
 Provide `TauCeti.QHodge.Trace.TraceInversion`, `TraceInversion.isUnit_two_three`, `TraceInversion.etale` (R is étale over ℤ and finite étale over ℤ[1/Δ]), `TauCeti.QHodge.Trace.genuineRealisation` (the ring P_R) and `genuineRealisation.epsilon` (the imported ε_R).
 
@@ -444,7 +444,7 @@ Provide `TauCeti.QHodge.Trace.TraceInversion`, `TraceInversion.isUnit_two_three`
 - `TraceInversion.cubic`: for F = ℚ(∛2), disc(F) = −108 = −2²·3³; Δ = 108 is admissible and R = ℤ[∛2][1/6] (HabiroRings HR.7).
 - `genuineRealisation.order`: replacing (THH^{C_m})^{h(S¹/C_m)} by THH^{hC_m} followed by the residual action, or by TR-type restriction limits, changes the object: cyclonic spectra carry no restriction maps (RefinedTraceMethods §6.12, Check `TCminusM.not_TR`), and the limit is along the divisibility maps of KU Remark 5.62.
 
-*Needs:* Mathlib `NumberField.discr`, `Rat.numberField_discr`, `NumberField.RingOfIntegers`, `Localization.Away`, `IsLocalization.Away.algebraMap_isUnit`, `map_dvd`, `isUnit_of_dvd_unit`, `Commute.isUnit_mul_iff`; HabiroRings HR.5 (number-field coefficients), HR.6; RefinedTraceMethods §§6.11–6.14.
+*Needs:* Mathlib `NumberField.discr`, `Rat.numberField_discr`, `NumberField.RingOfIntegers`, `Localization.Away`, `IsLocalization.Away.algebraMap_isUnit`, `map_dvd`, `isUnit_of_dvd_unit`, `Commute.isUnit_mul_iff`; HabiroRings HR.5 (number-field coefficients); HabiroCohomologyFoundations §4.21; RefinedTraceMethods §§6.11–6.14.
 
 ### 4.2 Cyclotomic and Taylor maps on the realisation
 
@@ -470,14 +470,14 @@ Provide the following operations and laws.
 **Checks.**
 
 - `numberFieldTraceExports_rational`: for F = ℚ and Δ = 6, R = ℤ[1/6] has identity Adams operations and H_{R/ℤ} is the Habiro completion of ℤ[1/6][q] (HabiroRings, untwisted case). The m = 1 completion is ℤ[1/6][[h]], and h maps to the formal parameter.
-- `numberFieldTraceExports_mOne`: at m = 1, ζ₁ = 1 and qW₁(R/ℤ) = R; reducing τ₁ modulo h gives ρ₁. This does not identify the uncompleted ring P_R with R, nor is τ₁ injective: for R = ℤ[1/6] the prime-edge relations at 2 and 3 are empty, the Taylor equalizer splits into factors indexed by the 2- and 3-adic valuations of the root orders, and τ₁ is zero on every factor other than the one containing order one (the splitting of HabiroRings HR.7 for ℤ[1/p], applied at p = 2 and p = 3; HR.6).
+- `numberFieldTraceExports_mOne`: at m = 1, ζ₁ = 1 and qW₁(R/ℤ) = R; reducing τ₁ modulo h gives ρ₁. This does not identify the uncompleted ring P_R with R, nor is τ₁ injective: for R = ℤ[1/6] the prime-edge relations at 2 and 3 are empty, the Taylor equalizer splits into factors indexed by the 2- and 3-adic valuations of the root orders, and τ₁ is zero on every factor other than the one containing order one (HabiroCyclotomicCompletions §5.3, imported through HabiroRings HR.5, and GSWZ Remark 1.2, p.7).
 - `numberFieldTraceExports_twisted`: for F = ℚ(i), Δ = 12 and R = ℤ[i][1/6], the constant family f_m = i does not glue at p = 7, m = 1: f₁(x + ζ₇ − 1) = i, while φ₇(f₇) = φ₇(i) = i⁷ = −i in ℤ₇[i][ζ₇][[x]], since 7 is inert in ℚ(i) and the Frobenius of ℤ₇[i] raises roots of unity of order prime to 7 to the seventh power. At p = 2 and p = 3 the relation is empty because R̂₂ = R̂₃ = 0. The twisted family f_m = φ_m(i), with φ_m the product of the Frobenius elements φ_ℓ^{v_ℓ(m)} over the primes ℓ ∤ Δ (they exist globally because F is abelian over ℚ; GSWZ footnote 1, p.6), glues: φ₇(f₇) = φ₇(−i) = i = f₁. Treating every coefficient as a constant Taylor family fails the gluing law.
 - `numberFieldTraceExports_nonabelian`: for F = ℚ(∛2), Δ = 108 and R = ℤ[∛2][1/6], at p = 5 one has x³ − 2 ≡ (x − 3)(x² + 3x + 4) mod 5 with an irreducible quadratic factor, so the completed Frobenius at 5 moves the quadratic component of ∛2 and the constant family ∛2 fails the gluing law; no global field automorphism replaces this Frobenius (HabiroRings HR.7). Every element of P_R nevertheless has a Taylor family satisfying the twisted equalizer.
 - `numberFieldTraceExports_gluing`: every family (f_m)_m ∈ ∏_m T_m satisfying all prime-edge relations is τ(z) for exactly one z ∈ P_R; an unrestricted product of independent expansion rings is strictly larger, already for F = ℚ, Δ = 6, where (1, 0, 0, …) fails the relation at p = 5, m = 1.
 - `numberFieldTraceExports_inversion`: for F = ℚ and Δ = 1 the coefficient ring ℤ is étale over ℤ but TraceInversion fails; this construction cannot be invoked there, although HabiroRings constructs H_{ℤ/ℤ}.
 - `numberFieldTraceExports_degreeZero`: ε_R is a ring isomorphism with π₀ of the spectral limit. It supplies no K₃-indexed module, regulator line or higher homotopy comparison, and does not interchange π₀ with the limit.
 
-*Needs:* §4.1; HabiroRings HR.5 (`relativeHabiro`, `CompatibleRoots`, `coeffAlgebra`, `taylorFactor`, `canonicalMap`, `frobeniusMap`, `taylorComponent`, the Taylor equalizer, number-field coefficients), HR.6, HR.7; RefinedTraceMethods §6.14.
+*Needs:* §4.1; HabiroRings HR.5 (`relativeHabiro`, `CompatibleRoots`, `coeffAlgebra`, `taylorFactor`, `canonicalMap`, `frobeniusMap`, `taylorComponent`, the Taylor equalizer, number-field coefficients), HR.7; RefinedTraceMethods §6.14.
 
 ### Examples
 
@@ -485,7 +485,7 @@ For F = ℚ and Δ = 6 the realisation P_R is the Habiro completion of ℤ[1/6][
 
 ### Dependencies
 
-Layer 1 (only through the étale case of §1.3); HabiroRings HR.5, HR.6, HR.7; RefinedTraceMethods §§6.11–6.14; Mathlib number-field discriminants and localisations.
+Layer 1 (only through the étale case of §1.3); HabiroRings HR.5, HR.7; HabiroCohomologyFoundations §4.21; RefinedTraceMethods §§6.11–6.14; Mathlib number-field discriminants and localisations.
 
 ## Downstream consumers
 
@@ -509,5 +509,6 @@ Locators use the printed pagination of the following fixed public versions. Numb
 - **Bu:** Robert Burklund, [Multiplicative structures on Moore spectra](https://arxiv.org/pdf/2203.14787v2), arXiv:2203.14787v2. Used: Theorems 1.1, 1.4 (with footnote 4) and 1.5, pp.1–2; Remarks 5.5 and 5.7, p.12.
 - **BS:** Bhargav Bhatt and Peter Scholze, [Prisms and prismatic cohomology](https://arxiv.org/pdf/1905.08229v4), arXiv:1905.08229v4. Used: Theorem 15.3, pp.103–104; Proposition 15.7, p.105; Lemma 16.10, pp.110–111; Theorem 16.22, p.115, as supplied by the prismatic roadmaps.
 - **BMS2:** Bhargav Bhatt, Matthew Morrow and Peter Scholze, [Topological Hochschild homology and integral p-adic Hodge theory](https://arxiv.org/pdf/1802.03261v2), arXiv:1802.03261v2. Used: Theorem 1.12, pp.6–7, as supplied by AInfCohomology §AI.7.2 and PrismaticCohomologyPartIII §7.0.
-- **HA:** Jacob Lurie, [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), September 2017 version, Theorem 7.5.0.6, as supplied by RefinedTraceMethods §6.14.
-- **Stacks:** The Stacks Project, [Tag 07L7](https://stacks.math.columbia.edu/tag/07L7), the acyclicity used in the proof of `framedTrace`.
+- **HA:** Jacob Lurie, [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), September 2017 version, Theorem 7.5.0.6, p.1374, as supplied by RefinedTraceMethods §6.14.
+- **Pri:** Jonathan P. Pridham, [On q-de Rham cohomology via Λ-rings](https://arxiv.org/pdf/1608.07142v4), arXiv:1608.07142v4, §1.1, Remark 1.2 and Lemma 1.3, p.3. Used for the λ-ring localisation and the normalised diagonal generators.
+- **Stacks:** The Stacks Project, [Example 60.19.1, Tag 07L7](https://stacks.math.columbia.edu/tag/07L7), §60.19, the acyclicity used in the proof of `framedTrace`.
