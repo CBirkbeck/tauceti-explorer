@@ -153817,6 +153817,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCyclotomicCompletions~codex2.md"
+  },
+  {
+   "id": "REV-PKG-HabiroRings~codex3",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HabiroRings~codex3.md",
+    "research/blueprint/packages/HabiroRings/review.json",
+    "research/blueprint/packages/HabiroRings/README.md",
+    "research/blueprint/packages/HabiroRings/Suggested.lean",
+    "research/blueprint/packages/HabiroRings/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex3.md"
   }
  ]
 }
