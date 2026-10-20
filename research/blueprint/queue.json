@@ -152471,9 +152471,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv2.md",
-   "note": "released on GitHub issue #11306"
+   "note": "claimed on GitHub issue #11306"
   },
   {
    "id": "FIX-PKG-HabiroRings~adv",
