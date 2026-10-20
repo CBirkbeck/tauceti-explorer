@@ -7,7 +7,7 @@ The roadmap is `README.md`; this file is not exhaustive. It records the light de
 milestone statements of the roadmap that can be written against the pinned Mathlib and Tau Ceti, so
 that contributors and reviewers converge on names, signatures and conventions. Everything that needs
 carriers absent at the pins (`K₂` of curves, Deligne cohomology, the Bloch–Wigner function, modular
-units, syntomic regulators) is specified in the README only; the closing comment lists those targets.
+units, syntomic regulators) is specified in the README only.
 
 Design choices made explicit here:
 
@@ -305,6 +305,31 @@ theorem sum_torsionFourier_mul_ellipticR (C : ℕ) [NeZero C] (τ : ℂ) (hτ : 
           (((mn.1 : ℂ) * τ + mn.2) ^ 2 * ((mn.1 : ℂ) * starRingEnd ℂ τ + mn.2)) := by
   sorry
 
+/-! ## Layer 5: Bloch's CM example -/
+
+/-- The coefficient of the real trace on the CM regulator, for the involution
+`z ↦ u * conj z` and an endomorphism `a` (§5.1). -/
+noncomputable def cmRealTraceFactor (u a : ℂ) : ℂ :=
+  (a + u * starRingEnd ℂ a) / 2
+
+/-- The real trace coefficient lies on the fixed real line when `u * conj u = 1`. -/
+theorem cmRealTraceFactor_fixed (u a : ℂ) (hu : u * starRingEnd ℂ u = 1) :
+    u * starRingEnd ℂ (cmRealTraceFactor u a) = cmRealTraceFactor u a := by
+  simp only [cmRealTraceFactor, map_div₀, map_add, map_mul, map_ofNat,
+    Complex.conj_conj]
+  calc
+    u * ((starRingEnd ℂ a + starRingEnd ℂ u * a) / 2) =
+        (u * starRingEnd ℂ a + (u * starRingEnd ℂ u) * a) / 2 := by ring
+    _ = (a + u * starRingEnd ℂ a) / 2 := by rw [hu]; ring
+
+example : cmRealTraceFactor 1 1 = 1 ∧ cmRealTraceFactor (-1) 1 = 0 := by
+  constructor <;> norm_num [cmRealTraceFactor]
+
+example : cmRealTraceFactor I 1 = (1 + I) / 2 ∧ cmRealTraceFactor (-1) I = I := by
+  constructor
+  · simp [cmRealTraceFactor]
+  · simp [cmRealTraceFactor]
+
 /-! ## Layer 6: Integral parts and the Beilinson statement -/
 
 section Determinant
@@ -470,23 +495,5 @@ example {M K : Type*} [AddCommGroup M] [Module ℚ M] [Field K] [CharZero K] (rI
 example : WeightTwoBeilinsonRelation (Algebra.linearMap ℚ ℝ)
     (2 • AddMonoidHom.id ℚ) 3 6 := by
   refine ⟨1, 3, 1, Or.inl rfl, by norm_num, by norm_num, ?_, ?_, ?_, ?_⟩ <;> norm_num
-
-/-
-Targets of the README that are not stated above because their carriers are absent at the pins:
-the normalised uniformisation and the de Rham–Betti period comparison (§§1.2–1.3, 1.6, 1.10);
-the Deligne target, its orbit coordinates and the factor `r_Beil = 2 r_E` (§§2.1–2.3, 2.6–2.9);
-the Bloch–Wigner orbit sum, Bloch's companion, the Green function, Goncharov's function and the
-truncation proof of the Steinberg relations (§§3.1–3.3, 3.5, 3.8–3.15); Bloch's classes `S_a` and their regulators, the lift
-formula, the weighted terms `L`, `M`, `B` and the trace formula (§§4.3, 4.5–4.15, 4.17–4.18);
-the Hecke character, the transforms on `O/CO`, the class `U`, the Gauss coefficient and the general
-CM L-value theorem, CMRealStructure and cmRealStructureTransport (§§5.1–5.18); the integral part, the regulator on it, Beilinson's conjecture and
-potentially good integrality, curveK2_adamsWeightTwo and localCurveIntegralImage
-(§§6.1–6.9, 6.11, 6.13); real-analytic Eisenstein series, Kronecker's
-limit formulas, Manin–Drinfeld, modular units, the Rankin–Selberg integral, Brunault's explicit
-theorems, Schappacher–Scholl's theorems and Beilinson's theorem for modular elliptic curves
-(§§7.1–7.26, 7.29–7.34, 7.36–7.41); the six-torsion and quadratic certificates, the syntomic
-pairing, the Néron period dictionary and the weight-two p-adic Beilinson conjecture
-(§§8.1–8.13, 8.15–8.16, 8.18).
--/
 
 end TauCetiRoadmap.EllipticRegulators
