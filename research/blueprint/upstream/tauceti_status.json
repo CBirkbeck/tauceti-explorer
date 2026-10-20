@@ -432,9 +432,9 @@
       "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "691599e",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "NeronModelsAndSemistableAbelianVarietiesPartII": {
