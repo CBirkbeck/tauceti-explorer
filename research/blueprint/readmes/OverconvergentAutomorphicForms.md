@@ -2,7 +2,7 @@
 
 This roadmap constructs analytic coefficient representations and their equivariant sheaves, then applies them to Hilbert modular forms, integral lattices, Hecke operators and ordinary Igusa forms. Its higher rank branch treats Siegel coefficients and coefficient families on supplied toroidal and Bruhat period domains. The Hilbert endpoint compares two independently defined coefficient constructions: functions on the perfectoid tower and Andreatta–Iovita–Pilloni (AIP) frame-torsor eigenfunctions. The comparison retains weights, lattices, polarizations, Hecke actions and expansions.
 
-The companion [packet](../packets/OverconvergentAutomorphicForms.json) assembles 92 existing targets from the retained O0 and O8 part packets and adds four targets: normalized Siegel analytic coefficients, the BP/Siegel induction convention adapter, the stronger Siegel factor bound, and effective arithmetic descent. Every stable target ID is retained. The packet's `importedTargets` is the full effective contract catalogue for the imported IDs; `assemblyRefinement` identifies corrections to those contracts. The source packets remain the owners of their IDs. Prior reviews of the parts do not accept this assembly or its new refinements.
+The companion [packet](../packets/OverconvergentAutomorphicForms.json) assembles 92 existing targets from the retained O0 and O8 part packets and adds four targets: normalized Siegel analytic coefficients, the BP/Siegel induction convention adapter, the stronger Siegel factor bound, and effective arithmetic descent. Every stable target ID is retained. The packet's `importedTargets` is the full effective contract catalogue for the imported IDs; `assemblyRefinement` identifies corrections to those contracts. The source packets remain the owners of their IDs. The independent assembly review accepts this complete planning pass after the corrections recorded in the packet. All remaining supplier obligations are explicit; prior part verdicts remain provenance.
 
 Every target, hypothesis, API, test and Check is stated here. The [suggested Lean file](../suggested/OverconvergentAutomorphicForms.lean) gives light definitions over pinned library types, end statements and a few proved examples. Geometric types absent from the pins remain mathematical targets here. Every implementation status is unchecked. All nine layers are planned; none is declared closed.
 
@@ -20,12 +20,12 @@ Every target, hypothesis, API, test and Check is stated here. The [suggested Lea
 | HodgeTateAndCanonicalSubgroups, T3–T6 | Canonical-domain bounds, Hilbert coordinates and modified lattices, AIP torsors and the logarithmic Hodge–Tate/de Rham comparison. |
 | PerfectoidShimuraVarieties, S1, S3, S5 and S6 | Infinite level towers, row-graph charts, completed arithmetic deck groups, Weil pairings, toroidal period maps and Bruhat reductions. |
 | AutomorphicBundles, B0, B2, B4 and B5 | Associated-bundle conventions, highest weights, Hilbert/Siegel algebraic coefficients and classical expansions. |
-| ShimuraCompactifications, C6 | Ordinary and near-ordinary models, cusp geometry, boundary ideal pushforward, Koecher and p-level comparisons. Higher cusp formal cohomology remains a precise extension request. |
+| ShimuraCompactifications, C6 | Ordinary and near-ordinary models, cusp geometry, boundary ideal pushforward, Koecher and p-level comparisons. Higher cusp formal cohomology and bounded analytic-family Koecher at p-level remain precise extension requests. |
 | PadicFamilies, L2a | The compact-operator eigenvariety engine consumes O6's compactness result. It is separate from the Jacquet eigenvariety in Ding. |
 
 The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The [reviewed library audit](../../../data/library-coverage.json), AUDIT-15 for O0–O8, leaves these analytic/geometric targets unimplemented. The 65 declarations listed below supply existing substrates, not adic or analytic enhancements inferred from their names.
 
-The current read-only TauCetiRoadmap main was checked at `0d144d044dacebca17b654695b6f1ad58f159b27`, and the current Tau Ceti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Nearby AdicSpaces and ModularForms readers and the relevant AlgebraicVectorBundles interfaces were read. Declarations in all nine post-snapshot roadmaps and the four Completed roadmaps were screened. Existing locally free bundles, classical operators, restricted products and arithmetic foundations remain with their owners. None supplies the missing p-adic analytic induction or geometric coefficient equalizers planned here. O6's nonarchimedean compactness over affinoids is distinct from real/complex Hilbert-space compact-operator theory.
+The current read-only TauCetiRoadmap main was checked at `0d144d044dacebca17b654695b6f1ad58f159b27`, and the current Tau Ceti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The original planning pass read nearby AdicSpaces and ModularForms material. This independent review read the complete AdicSpaces and AlgebraicVectorBundles readers and the relevant bundle interfaces, and screened declarations in all nine post-snapshot roadmap families. The four Completed roadmap directories are absent from this current tree; their implemented library areas were screened instead. Existing locally free bundles, classical operators, restricted products and arithmetic foundations remain with their owners. None supplies the missing p-adic analytic induction or geometric coefficient equalizers planned here. O6's nonarchimedean compactness over affinoids is distinct from real/complex Hilbert-space compact-operator theory.
 
 ## Notation and conventions
 
@@ -45,17 +45,19 @@ Jγδ(x)=Jγ(x)Jδ(xγ), f(xγ)=ρ(Jγ(x)⁻¹)f(x).
 
 A frame change b gives J′γ(x)=b(x)⁻¹Jγ(x)b(xγ) and f′(x)=ρ(b(x)⁻¹)f(x). For a left cocycle K, set xγ=γ⁻¹x and Jγ(x)=Kγ⁻¹(x)⁻¹. Invert both the group element and the coefficient for noncommuting factors. BHW's scalar Hilbert law is left: jγ(z)=cz+d and jγδ(z)=jγ(δz)jδ(z). Its section multiplier Kγ=κ(jγ)⁻¹ converts to Jγ=κ(jγ⁻¹). The scalar commutation argument cannot replace the vector-valued conversion.
 
-For Hilbert admission choose an actual analytic character extension on B_r(𝒪_p×:1), m≥1 with p⁻ᵐ≤r<1, and 0≤ε≤1/(c_p pᵐ), where c_p=2 for p≥5, 3 for p=3 and 4 for p=2. Retain AL_n:X(pⁿε)_a→X(ε). The equality endpoint has an inherited T4 proof gap. Ordinary ε=0 and the positive-radius colimit remain distinct. A rational line comparison does not determine its integral lattice.
+For Hilbert admission choose an actual analytic character extension on B_r(𝒪_p×:1), m≥1 with p⁻ᵐ≤r<1, and 0≤ε≤1/(c_p pᵐ), where c_p=2 for p≥5, 3 for p=3 and 4 for p=2. Retain AL_n:X(pⁿε)_a→X(ε). The equality endpoint and the unsplit ramified canonical-generator input retain the inherited T4 obligations. Ordinary ε=0 and the positive-radius colimit remain distinct. A rational line comparison does not determine its integral lattice.
 
 Arithmetic descent uses U_N={η∈𝒪_F×:η≡1 mod N}, N≥4, p∤N, and Z∞=closure(U_N)⊂𝒪_p×. The closure includes all congruence units, not only positive units. Their norm is +1 by reduction modulo N, and this extends to Z∞. The completed hybrid deck group is E(pⁿ)=(Γ₀(pⁿ)×Δ(p∞N))/Z∞ with z↦(zI,z²); the arithmetic group is PΓ₀(pⁿ)=Γ₀(pⁿ)/Z∞. The abstract positive-unit quotient in BHW is a dense subgroup of the first group. The raw O_p×-valued Weil pairing lives on the hybrid tower; on the arithmetic tower only its class modulo the positive-unit closure exists. Polarization-class transport uses global x∈F×,+∩𝒪_p×.
 
-The Siegel row graph is [I,Z], with WZᵀW=Z. For γ=[A,B;C,D],
+S3 uses the annihilator graph [I,Z_std] with Z_stdᵀ=Z_std and W_std=col(−Z_std,I). The quotient Hodge frame consists of the classes of e₁,…,e_g in O^{2g}/W_std≅ω_{A∨}≅ω_A. For the reversal matrix W set P=diag(I,W), Z=Z_std W and γ_DRW=P⁻¹γ_stdP. This gives the antidiagonal convention WZᵀW=Z and preserves A+ZC exactly. The naturally linearized W_std∨ is ω_A(−1); its frame carries c(γ)⁻¹ until tensoring with the variable Weil-pairing generator. A fixed choice of roots does not cancel that character.
+
+The Siegel row graph in this antidiagonal basis is [I,Z]. For γ=[A,B;C,D],
 
 Jγ(Z)=A+ZC, Zγ=Jγ(Z)⁻¹(B+ZD).
 
-The denominator has unit determinant. This is a right action. Its antidiagonal dual is WJᵀW=A‡+C‡Z in this order. A determinant character χ gives multiplier χ(det J)⁻¹; χ(a)=a^m recovers (det ω)^m, using duals for m<0. This finite line is a subobject of the full analytic induction. Products of analytic functions have product weight; a fixed nontrivial weight is not an algebra under that multiplication.
+The denominator has unit determinant. This is a right action. Its antidiagonal dual is WJᵀW=A‡+C‡Z in this order. A determinant character χ gives multiplier χ(det J)⁻¹; χ(a)=a^m recovers (det ω)^m, using duals for m<0. This finite line is a subobject of the full analytic induction. Products of analytic functions have product weight; a fixed nontrivial weight is not an algebra under pointwise multiplication on the full Iwahori. Restriction to the opposite unipotent nevertheless transports a Banach algebra product onto that coefficient space (DRW Remark3.1.11, p23); E-O8-16 is rejected. The representation-valued automorphic equalizers are used as modules, with no claim that all translating maps preserve that transported multiplication.
 
-The group-theoretic strict Iwahori has diagonal reduction modulo p in the full GSp group. Its Levi is I+=Iw_GLg+. In DRW the lower-unipotent analytic variable is u_ij/p. Thus normalized r-analytic functions extend to Iw_GLg M_(r+1), where M_s={1+E:‖E‖≤p⁻ˢ}, and the transpose action uses I+ M_(r+1). The geometric factor satisfies exactly this stronger bound: if Z=Z₀+E with ‖E‖≤p⁻ʷ, then J₀=A+Z₀C∈I+ and ‖J−J₀‖≤p^−(w+1), since C∈p Mat_g(ℤ_p). The full intended w-analytic coefficient module is therefore retained. Its integral lattice is the finite-chart Gauss unit ball; integrality only on Z_p-valued arguments is insufficient.
+K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1. Its Levi is I+=Iw_GLg+. In DRW the lower-unipotent analytic variable is u_ij/p. Thus normalized r-analytic functions extend to Iw_GLg M_(r+1), where M_s={1+E:‖E‖≤p⁻ˢ}, and the transpose action uses I+ M_(r+1). The geometric factor satisfies exactly this stronger bound: if Z=Z₀+E with ‖E‖≤p⁻ʷ, then J₀=A+Z₀C∈I+ and ‖J−J₀‖≤p^−(w+1), since C∈p Mat_g(ℤ_p). The full intended w-analytic coefficient module is therefore retained. Its integral lattice is the finite-chart Gauss unit ball; integrality only on Z_p-valued arguments is insufficient.
 
 The BP/Siegel adapter uses λ_BP=w₀,M(κ_D⁻¹), the same entrywise thickening G_n and r=n−1 in normalized coordinates. The identity on functions identifies their Borel rules and Gauss norms. For τ(h)=h^−T, ρ_D(h)=ρ_BP(τ(h)). Algebraic weights also pass through B2's highest-weight convention. The adapter concerns open Iwahori M₁; it does not change BP's general closed M₁ or its positive-torus and distribution-dual conventions. At fixed radius the strong Banach dual differs from BP's projective compact-open dual of bounded functions on the open polydisc.
 
@@ -149,7 +151,7 @@ For a number field F and a prime p, 𝒪_p := ℤ_p ⊗_ℤ 𝒪_F with its ℤ_
 
 Imported stable target from [OverconvergentAutomorphicForms--O0.json](../packets/OverconvergentAutomorphicForms--O0.json); the following is its effective assembly contract.
 
-N : 𝒪_p^× → ℤ_p^× is the norm Algebra.norm ℤ_p (the determinant of multiplication on the free ℤ_p-module 𝒪_p), restricted to units. It is a continuous homomorphism, and N(1 ⊗ a) = N_{F/ℚ}(a) for a ∈ 𝒪_F.
+Define N_alg : 𝒪_p → ℤ_p as the determinant norm Algebra.norm ℤ_p on the finite free ℤ_p-algebra 𝒪_p, and N : 𝒪_p^× → ℤ_p^× as its restriction to units. N_alg is a continuous multiplicative map and N is a continuous homomorphism. For every a ∈ 𝒪_F, N_alg(1 ⊗ a) is the image of N_{F/ℚ}(a) in ℤ_p. For a global unit η this specializes to N(1 ⊗ η) = N_{F/ℚ}(η) in ℤ_p^×.
 
 **Hypotheses.**
 
@@ -157,7 +159,7 @@ N : 𝒪_p^× → ℤ_p^× is the norm Algebra.norm ℤ_p (the determinant of mu
 
 **Construction or proof.**
 
-1. Units.map of the monoid hom Algebra.norm ℤ_[p] : 𝒪_p →* ℤ_p.
+1. Construct N_alg with Algebra.norm ℤ_[p] : 𝒪_p →* ℤ_p, then define N as Units.map N_alg. An arbitrary a ∈ 𝒪_F belongs in the first formula; only a unit belongs in the second.
 2. Continuity: in a ℤ_p-basis the norm is a polynomial in the coordinates (Algebra.norm_apply, LinearMap.det), and coordinates are continuous for the module topology.
 3. Compatibility: multiplication by 1 ⊗ a is the base change of multiplication by a on 𝒪_F, so its determinant is N_{F/ℚ}(a) (LinearMap.det_baseChange).
 
@@ -172,7 +174,7 @@ N : 𝒪_p^× → ℤ_p^× is the norm Algebra.norm ℤ_p (the determinant of mu
 **API.**
 
 - `TauCeti.HilbertWeight.continuous_normUnits` (other): N is continuous.
-- `TauCeti.HilbertWeight.norm_tmul_one` (compatibility): N(1 ⊗ a) = N_{F/ℚ}(a).
+- `TauCeti.HilbertWeight.norm_tmul_one` (compatibility): For every a ∈ 𝒪_F, N_alg(1 ⊗ a) = N_{F/ℚ}(a) in ℤ_p.
 - `TauCeti.HilbertWeight.normUnits_unitsToOp` (compatibility): N(1 ⊗ η) = N_{F/ℚ}(η) in ℤ_p for a global unit η.
 
 **Definition tests.**
@@ -1085,7 +1087,7 @@ The same E(U^℘) is reduced, under the definite-unitary hypotheses and the clas
 
 **Construction** · `OverconvergentAutomorphicForms:O0/siegel-analytic-coefficients`
 
-New assembly target, awaiting independent review.
+Assembly target checked by the independent review.
 
 Fix g≥1 and rational r>0. Write I=Iw_GLg for the upper Iwahori over Z_p, I+=its diagonal-mod-p subgroup, M_s={1+E:‖E‖≤p^(−s)} over C_p, s=r+1, and G_s=I M_s. For a diagonal character κ with a unit-valued analytic extension to T^(s), define Cκ,r as the A-Banach module of analytic functions on G_s satisfying f(ℓb)=κ(b)f(ℓ) for b∈B∩G_s, κ trivial on the upper unipotent. Its norm is the finite-chart Gauss norm on the opposite-unipotent variables u_ij/p, with chart radius p^(−r); Cκ,r+ is that norm unit ball. For h∈H_s=I+ M_s define ρ_D(h)f(ℓ)=f(hᵀℓ). This is an isometric left action preserving the Gauss lattice. Products map Cκ,r×Cλ,r→Cκλ,r; affinoid scalar change and radius restriction use the analytic function modules on these same normalized charts.
 
@@ -1114,7 +1116,7 @@ Fix g≥1 and rational r>0. Write I=Iw_GLg for the upper Iwahori over Z_p, I+=it
 
 - `TauCeti.Overconvergent.siegelCoefficient.chart` (equivalence): Restriction to the opposite cell identifies Cκ,r with the normalized finite-chart analytic function module.
 - `TauCeti.Overconvergent.siegelCoefficient.action` (structure): ρ_D(h)f(ℓ)=f(hᵀℓ) for h∈H_(r+1), preserving the Gauss unit ball.
-- `TauCeti.Overconvergent.siegelCoefficient.product` (functoriality): Multiplication is Cκ,r⊗̂_A Cλ,r→Cκλ,r, not a same-weight multiplication.
+- `TauCeti.Overconvergent.siegelCoefficient.product` (functoriality): Pointwise multiplication is Cκ,r⊗̂_A Cλ,r→Cκλ,r. The transported opposite-unipotent algebra product is a separate operation.
 - `TauCeti.Overconvergent.siegelCoefficient.restrict` (functoriality): For r′≥r, restrict G_(r+1) to G_(r′+1); coefficient change uses the same charts and their completed tensor modules.
 
 **Definition tests.**
@@ -1128,7 +1130,7 @@ Fix g≥1 and rational r>0. Write I=Iw_GLg for the upper Iwahori over Z_p, I+=it
 
 - In genus 1 the space is the rank-one κ-character module, with its actual Gauss lattice.
 - In genus 2, lower coordinate t=u21/p has analytic radius p^(−r), so the unnormalized entry radius is p^(−(r+1)).
-- Fixed nontrivial weight is not an algebra: f g has weight κ².
+- Pointwise multiplication on the full Iwahori sends weight κ to weight κ² and does not close a nontrivial fixed weight. Restriction to the opposite unipotent separately transports a Banach algebra structure to that space.
 
 **Sources.**
 
@@ -1141,7 +1143,7 @@ Fix g≥1 and rational r>0. Write I=Iw_GLg for the upper Iwahori over Z_p, I+=it
 
 **Comparison** · `OverconvergentAutomorphicForms:O0/analytic-induction-conventions`
 
-New assembly target, awaiting independent review.
+Assembly target checked by the independent review.
 
 For M=GL_g and M1=Iw_GLg, let BP use the character λ_BP=w0,M(κ_D⁻¹). On the same domain G_n=M1 M_n, its right-Borel rule (w0,M λ_BP)(b⁻¹) equals κ_D(b). The identity on functions is an isometry between BP V_(λ_BP)^(n-an) and C_(κ_D),r for r=n−1>0. With τ(h)=h^(−T), the actions satisfy ρ_D(h)=ρ_BP(τ(h)), h∈I+ M_n. Algebraic restriction transports through this identity and τ, after the B2 highest-weight conversion; the central character is retained. Integer n is cofinal in the rational radius system.
 
@@ -1411,6 +1413,7 @@ Choose the anticanonical Hilbert domain X_{Γ0*(p^n)}(ε)_a, n≥1 or ∞, and i
 - Tame level N is prime to p and sufficiently small for the Hilbert moduli schemes and finite-level torsors; work over a complete perfectoid extension L of Q_p containing the required embeddings and roots of unity.
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε≤1/(c_p p^m). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
+- At a ramified prime, retain the unsplit canonical-generator and scalar conormal-degree input requested from T4/ramified-period-comparison. The displayed inclusive radius also retains T4's equality-endpoint obligation; neither is discharged by an integral embedding-wise product decomposition.
 
 **Construction or proof.**
 
@@ -1418,7 +1421,7 @@ Choose the anticanonical Hilbert domain X_{Γ0*(p^n)}(ε)_a, n≥1 or ∞, and i
 2. Intersect the geometric admissibility range with the weight-extension range. Restrictions and AL_n retain the scaled Hasse radius.
 3. The corrected radius exists by O0; no ε is computed from the false printed |T| formula.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions](../packets/HodgeTateAndCanonicalSubgroups.json), [OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights](#o0-analytic-continuation-of-bounded-weights), [OverconvergentAutomorphicForms:O0/bounded-weight-families](#o0-bounded-weight-families), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json).
+**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions](../packets/HodgeTateAndCanonicalSubgroups.json), [OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights](#o0-analytic-continuation-of-bounded-weights), [OverconvergentAutomorphicForms:O0/bounded-weight-families](#o0-bounded-weight-families), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json), [HodgeTateAndCanonicalSubgroups:T4](../packets/HodgeTateAndCanonicalSubgroups.json).
 
 **Planned interface.** `TauCeti.Overconvergent.admitted_hilbert_domain`; module `TauCeti/NumberTheory/HilbertModularForms/O2`, namespace `TauCeti.Overconvergent`.
 
@@ -1467,6 +1470,7 @@ For γ=(a b;c d)∈Γ0(p), set jγ(z)=cz+d in O_p⊗O(X∞×U); T4’s coordinat
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε≤1/(c_p p^m). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use T4’s left fractional-linear coordinate convention. For a right action explicitly convert x·γ=γ⁻¹x and invert the coefficient cocycle as in O1.
+- At a ramified prime, retain the unsplit canonical-generator and scalar conormal-degree input requested from T4/ramified-period-comparison. The displayed inclusive radius also retains T4's equality-endpoint obligation; neither is discharged by an integral embedding-wise product decomposition.
 
 **Construction or proof.**
 
@@ -1474,7 +1478,7 @@ For γ=(a b;c d)∈Γ0(p), set jγ(z)=cz+d in O_p⊗O(X∞×U); T4’s coordinat
 2. Evaluate the selected analytic κ-extension; its inverse is defined since the extension is multiplicative into units.
 3. For vectors retain the actual Levi-valued left frame cocycle and its coefficient representation. Convert to O1 with Kγ⁻¹(x)⁻¹; do not reuse the scalar commutation argument for noncommuting coefficients.
 
-**Prerequisites.** [OverconvergentAutomorphicForms:O2/admitted-hilbert-domain](#o2-admitted-hilbert-domain), [OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights](#o0-analytic-continuation-of-bounded-weights), [HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/igusa-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-differential-lattice](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-lattice-properties](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/aip-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/hodge-tate-aip-lift](../packets/HodgeTateAndCanonicalSubgroups.json), [OverconvergentAutomorphicForms:O0/finite-analytic-coefficients](#o0-finite-analytic-coefficients), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json).
+**Prerequisites.** [OverconvergentAutomorphicForms:O2/admitted-hilbert-domain](#o2-admitted-hilbert-domain), [OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights](#o0-analytic-continuation-of-bounded-weights), [HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/igusa-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-differential-lattice](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-lattice-properties](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/aip-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/hodge-tate-aip-lift](../packets/HodgeTateAndCanonicalSubgroups.json), [OverconvergentAutomorphicForms:O0/finite-analytic-coefficients](#o0-finite-analytic-coefficients), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json), [HodgeTateAndCanonicalSubgroups:T4](../packets/HodgeTateAndCanonicalSubgroups.json).
 
 **Planned interface.** `TauCeti.Overconvergent.hilbert_automorphy_factor`; module `TauCeti/NumberTheory/HilbertModularForms/O2`, namespace `TauCeti.Overconvergent`.
 
@@ -1563,7 +1567,7 @@ Define ω_n^κ on X_{Γ0*(p^n)}(ε)_a×U as the actual Γ0*(p^n)-equivariant coe
 
 1. Use the actual left tower action and multiplier f(γx)=κ(jγ(x))⁻¹f(x); convert to O1’s right equalizer with x·γ=γ⁻¹x and Jγ=jγ⁻¹. No unconverted right cz+d identity is used.
 2. On the ordinary locus use the supplied Igusa formal trivialization and analytic-line-effectivity.
-3. Use the dense-open analytic-line criterion from O1 to obtain an analytic invertible sheaf on the smooth domain; finite-level descent through the tower is supplied by P9.
+3. At finite n, use O1's dense-open analytic-line criterion on the smooth rigid domain, with the actual P9 descent hypotheses. For n=∞, pull back a finite-level rational coefficient line along the level projection and use the sheafwise tower equalizer to identify that pullback with the kernel-equivariant functions. Do not apply a theorem for smooth rigid bases directly to the infinite perfectoid base. Transport n=0 through AL_1.
 
 **Prerequisites.** [OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf](#o1-equivariant-coefficient-sheaf), [OverconvergentAutomorphicForms:O1/analytic-line-effectivity](#o1-analytic-line-effectivity), [OverconvergentAutomorphicForms:O2/hilbert-cocycle-law](#o2-hilbert-cocycle-law), [OverconvergentAutomorphicForms:O2/admitted-hilbert-domain](#o2-admitted-hilbert-domain), `PerfectoidSpaces:P9/weight-extension-sheaf-equalizer`, `PerfectoidSpaces:P9/function-descent-along-tower`, [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json).
 
@@ -1671,9 +1675,9 @@ For F=Q, p=3, γ=[[1,0],[3,1]], δ=[[2,0],[0,1]] and z=1, the left law gives jγ
 
 ### Remaining mathematical inputs
 
-- The inherited equality-endpoint gap of T4/period-map-inclusions.
+- The inherited equality endpoint of T4/period-map-inclusions and the unsplit ramified canonical-generator refinement of T4/ramified-period-comparison.
 
-- **Hilbert equality endpoints in quantitative admission:** Resolve the inherited equality-endpoint gap of T4/period-map-inclusions at the Hilbert bound ε≤1/(c_p p^m), c_p=2 for p≥5,3 for p=3,4 for p=2. Strict endpoint proofs alone do not cover equality. The actual coordinate, canonical/anticanonical domains and scaled AL maps already have exact T4 nodes.
+- **Hilbert equality endpoints and ramified canonical generators:** Resolve the inherited equality-endpoint gap of T4/period-map-inclusions at the Hilbert bound ε≤1/(c_p p^m), c_p=2 for p≥5,3 for p=3,4 for p=2. Strict endpoint proofs alone do not cover equality. The actual coordinate, canonical/anticanonical domains and scaled AL maps already have exact T4 nodes. Also discharge T4/ramified-period-comparison's unsplit canonical-generator refinement: an O_F/p^nO_F-linear canonical subgroup generator and its congruence with the saturated Hodge–Tate kernel, using scalar conormal-degree estimates before passage to the generic splitting field. Do not identify O_p⊗O_C integrally with a product of O_C at ramified primes (BHW Proposition5.18 proof, pp1752–1753; E8). Both this refinement and the equality endpoint remain explicit hypotheses of their consumers.
 
 
 <a id="layer-o3"></a>
@@ -2021,7 +2025,7 @@ For N≥4 prime to p put U_N={η∈O_F×:η≡1 mod N} and Z∞=closure(U_N) in 
 
 **Theorem** · `OverconvergentAutomorphicForms:O4/effective-arithmetic-descent`
 
-New assembly target, awaiting independent review.
+Assembly target checked by the independent review.
 
 On the hybrid Hilbert tower, use the completed group E(p^n)=(Γ0(p^n)×Δ(p∞N))/Z∞, with Z∞ the closure of U_N and z↦(zI,z²). On the arithmetic tower use PΓ0(p^n)=Γ0(p^n)/Z∞. For κ=w²(t∘N)⁻¹, the continuous multipliers κ(cz+d)⁻¹w(x̄) and κ(cz+d)⁻¹w(det γ) descend to these groups and agree with the independently defined O4 presentation equalizers. Requiring equivariance on the dense positive-unit subgroup of E(p^n) is equivalent to requiring it on the entire completed deck group.
 
@@ -2719,6 +2723,7 @@ On the common admitted domains, for every n≥0 and n=∞, pullback along the ac
 - The actual frame torsor F_m→X is a B_m-torsor on the stated site; after a complete algebraically closed valued extension every frame over a point is a B_m-translate of the Hodge–Tate frame of a lifted infinite-level point. The tower projection is valuatively surjective. These are the concrete T5/S5 torsor maps, not arbitrary maps of sets.
 - On this admitted torsor the character multiplier and its inverse are O+ units at every valued test point. Use the AIP small-character congruences and the full finite-order factor. O+ is the subsheaf defined by all pointwise valuation bounds, with pullback reflecting bounds along the valuatively surjective tower.
 - Apply T5/hodge-tate-aip-lift only with its actual bound ε_base≤p^(−(m+1)). In the scaled map s∘u_n, ε_base is the radius after u_n, while the anticanonical source radius is p^n ε_base. Require every source domain to satisfy its own O2 admissibility bounds as well; the bound 1/(c_p p^m) alone does not imply the T5 bound for p≥5.
+- At a ramified prime, retain the unsplit canonical-generator and scalar conormal-degree input requested from T4/ramified-period-comparison. The displayed inclusive radius also retains T4's equality-endpoint obligation; neither is discharged by an integral embedding-wise product decomposition.
 
 **Construction or proof.**
 
@@ -2728,7 +2733,7 @@ On the common admitted domains, for every n≥0 and n=∞, pullback along the ac
 4. Apply the argument on every base open and its weight product using P9’s actual sheafwise function/descent contract. Checking only product affinoids would not prove the entire product-sheaf assertion. This makes the integral map and its rational inverse inverse sheaf maps.
 5. The maps glue because they are actual pullbacks, independently of integral local freeness. Handle ∞ with its limit torsor and 0 with AL_1. Once the separate full-character unit-trivialization input is supplied, the isomorphism transports integral local freeness; it does not prove that input by itself.
 
-**Prerequisites.** [OverconvergentAutomorphicForms:O5/aip-line-and-gluing](#o5-aip-line-and-gluing), [OverconvergentAutomorphicForms:O3/integral-hilbert-sheaf](#o3-integral-hilbert-sheaf), [HodgeTateAndCanonicalSubgroups:T5/igusa-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-differential-lattice](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-lattice-properties](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/aip-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/hodge-tate-aip-lift](../packets/HodgeTateAndCanonicalSubgroups.json), `PerfectoidSpaces:P9/weight-extension-sheaf-equalizer`, `PerfectoidSpaces:P9/function-descent-along-tower`, [OverconvergentAutomorphicForms:O2/hilbert-level-radius-maps](#o2-hilbert-level-radius-maps), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json), [OverconvergentAutomorphicForms:O1/analytic-line-effectivity](#o1-analytic-line-effectivity), [HodgeTateAndCanonicalSubgroups:T5/aip-automorphy-factor](../packets/HodgeTateAndCanonicalSubgroups.json), [OverconvergentAutomorphicForms:O5/aip-translation-valuation-units](#o5-aip-translation-valuation-units), [HodgeTateAndCanonicalSubgroups:T5/aip-torsor-hodge-tate-comparison](../packets/HodgeTateAndCanonicalSubgroups.json), `PerfectoidSpaces:P9`.
+**Prerequisites.** [OverconvergentAutomorphicForms:O5/aip-line-and-gluing](#o5-aip-line-and-gluing), [OverconvergentAutomorphicForms:O3/integral-hilbert-sheaf](#o3-integral-hilbert-sheaf), [HodgeTateAndCanonicalSubgroups:T5/igusa-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-differential-lattice](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/integral-lattice-properties](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/aip-torsor](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T5/hodge-tate-aip-lift](../packets/HodgeTateAndCanonicalSubgroups.json), `PerfectoidSpaces:P9/weight-extension-sheaf-equalizer`, `PerfectoidSpaces:P9/function-descent-along-tower`, [OverconvergentAutomorphicForms:O2/hilbert-level-radius-maps](#o2-hilbert-level-radius-maps), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json), [OverconvergentAutomorphicForms:O1/analytic-line-effectivity](#o1-analytic-line-effectivity), [HodgeTateAndCanonicalSubgroups:T5/aip-automorphy-factor](../packets/HodgeTateAndCanonicalSubgroups.json), [OverconvergentAutomorphicForms:O5/aip-translation-valuation-units](#o5-aip-translation-valuation-units), [HodgeTateAndCanonicalSubgroups:T5/aip-torsor-hodge-tate-comparison](../packets/HodgeTateAndCanonicalSubgroups.json), `PerfectoidSpaces:P9`, [HodgeTateAndCanonicalSubgroups:T4](../packets/HodgeTateAndCanonicalSubgroups.json).
 
 **Planned interface.** `TauCeti.Overconvergent.geometric_aip_comparison`; module `TauCeti/NumberTheory/HilbertModularForms/O5`, namespace `TauCeti.Overconvergent`.
 
@@ -2838,10 +2843,10 @@ On a base patch, suppose e and e⁻¹ are integral torsor functions with the req
 
 ### Remaining mathematical inputs
 
-- Full-character positive-radius integral unit generators and geometric AIP invariant-function/valued-lifting inputs. The scaled HT lift requires ε_base≤p^(−(m+1)).
+- Full-character positive-radius integral unit generators and geometric AIP invariant-function/valued-lifting inputs. The scaled HT lift requires ε_base≤p^(−(m+1)). The ramified HT lift also retains T4's unsplit canonical-generator obligation.
 
 - **All-open coefficient descent and the analytic AIP invariant-function theorem:** Finish the all-open/general-base geometric O/O+ descent extension identified by P9/weight-extension-sheaf-equalizer; product-affinoid descent alone does not imply rational-localization compatibility on the full weight product. Supply site-specific completed coefficient functions on the Siegel analytic, pro-Kummer-étale and toroidal diamond/v-sites, retaining the actual Gauss lattice. Apply finite/matrix-coboundary effectivity only with its hypotheses. For the analytic AIP B_m frame torsor, prove invariant geometric O+ functions are base O+ and prove valued-point lifting/reflection of bounds. This is distinct from the completed-lattice-tensor theorems and is not arbitrary Banach torsor descent.
-- **Hilbert equality endpoints in quantitative admission:** Resolve the inherited equality-endpoint gap of T4/period-map-inclusions at the Hilbert bound ε≤1/(c_p p^m), c_p=2 for p≥5,3 for p=3,4 for p=2. Strict endpoint proofs alone do not cover equality. The actual coordinate, canonical/anticanonical domains and scaled AL maps already have exact T4 nodes.
+- **Hilbert equality endpoints and ramified canonical generators:** Resolve the inherited equality-endpoint gap of T4/period-map-inclusions at the Hilbert bound ε≤1/(c_p p^m), c_p=2 for p≥5,3 for p=3,4 for p=2. Strict endpoint proofs alone do not cover equality. The actual coordinate, canonical/anticanonical domains and scaled AL maps already have exact T4 nodes. Also discharge T4/ramified-period-comparison's unsplit canonical-generator refinement: an O_F/p^nO_F-linear canonical subgroup generator and its congruence with the saturated Hodge–Tate kernel, using scalar conormal-degree estimates before passage to the generic splitting field. Do not identify O_p⊗O_C integrally with a product of O_C at ramified primes (BHW Proposition5.18 proof, pp1752–1753; E8). Both this refinement and the equality endpoint remain explicit hypotheses of their consumers.
 - **Full finite-character positive-radius integral freeness:** For the normalized finite-Igusa factor of a full character, including p-primary χ, prove positive-radius base-local O+ unit eigenfunctions and O+ unit transition ratios on the actual modified-lattice torsor. Universal-character formal freeness (AIP4.3/4.7) and full-character rational/ordinary invertibility (§6.4) are existing inputs, but do not by themselves supply this assertion. Integral comparison of equalizers uses boundedness on valued points and is a separate target; it does not require the unproved freeness conclusion.
 
 
@@ -2923,14 +2928,15 @@ For g>1, the supplied Hilbert Koecher theorem identifies interior coefficient se
 - A bounded smooth weight family has a smooth rigid base U over L and image in an affinoid of the appropriate weight space. Affinoid assertions additionally require U=Spa(A,A+) with A reduced and equipped with its compatible uniform spectral norm.
 - Choose a common analytic extension of κ to a neighbourhood B_r(O_p^×:1), and m≥1 with p^(−m)≤r<1. Put c_p=2 for p≥5, 3 for p=3, 4 for p=2. The anticanonical domain has 0≤ε≤1/(c_p p^m). At every level the radius is pulled back along the stated Atkin–Lehner map, not silently held constant.
 - Use C6’s normality, compactification maps and minimal-boundary codimension hypotheses; at g=1 the minimal boundary has codimension one.
+- The bounded analytic-family Koecher and finite p-level boundary-transport extension requested from C6 is an explicit input. C6/arithmetic-koecher alone covers integral algebraic weights on its stated arithmetic model. Retain the actual C6 tame/model hypotheses until extended.
 
 **Construction or proof.**
 
-1. Apply AIP ADIC Proposition 8.4 through the exact Koecher package requested from C6: extend across minimal boundary of codimension at least two.
+1. Use the requested analytic-family version of AIP ADIC Proposition8.4, pp36–37, together with its finite p-level boundary transport. Extend across the minimal boundary of codimension at least two under those hypotheses. C6/arithmetic-koecher is the classical substrate, not a proof for arbitrary analytic weights.
 2. Compare the subcanonical sheaf by the ideal D, not by the extension theorem.
 3. For degree one use B5’s compactified cusp expansion and its boundary constant term. O5 compares the coefficient lines on the compactified torsor.
 
-**Prerequisites.** [OverconvergentAutomorphicForms:O6/hilbert-cusp-forms](#o6-hilbert-cusp-forms), [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](../packets/ShimuraCompactifications.json), `AutomorphicBundles:B5/hilbert-cuspidal-boundary`, [OverconvergentAutomorphicForms:O5/aip-comparison-naturality](#o5-aip-comparison-naturality), [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](../packets/ShimuraCompactifications.json).
+**Prerequisites.** [OverconvergentAutomorphicForms:O6/hilbert-cusp-forms](#o6-hilbert-cusp-forms), [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](../packets/ShimuraCompactifications.json), `AutomorphicBundles:B5/hilbert-cuspidal-boundary`, [OverconvergentAutomorphicForms:O5/aip-comparison-naturality](#o5-aip-comparison-naturality), [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6](../packets/ShimuraCompactifications.json).
 
 **Planned interface.** `TauCeti.Overconvergent.hilbert_koecher`; module `TauCeti/NumberTheory/HilbertModularForms/O6`, namespace `TauCeti.Overconvergent`.
 
@@ -3009,7 +3015,7 @@ For a prime ideal a∤pN and its moduli correspondence X_c←^{π1}C_a→^{π2}X
 
 Imported stable target from [OverconvergentAutomorphicForms--O0.json](../packets/OverconvergentAutomorphicForms--O0.json); the following is its effective assembly contract.
 
-For 𝔭|p, q_𝔭=|O_F/𝔭|, e=v_𝔭(p), finite n≥1 and l=ne+1, use the anticanonical extension correspondence with π1 degree q_𝔭 and π2 quotient by D[𝔭]. Let u_𝔭=diag(ϖ_𝔭,1); its action gives an integral coefficient map π2*ω+→π1*ω+ independently of the chosen generator of 𝔭O_p. Define U_𝔭=q_𝔭⁻¹Trπ1 θ_𝔭 π2*. It improves the 𝔭-partial Hasse bound, not all partial bounds in general.
+For 𝔭|p, q_𝔭=|O_F/𝔭|, e=v_𝔭(p), finite n≥1 and l=ne+1, use the anticanonical extension correspondence with π1 degree q_𝔭 and π2 quotient by D[𝔭]. Let u_𝔭=diag(ϖ_𝔭,1); its geometric action, transported through the O4 arithmetic comparisons when needed, gives an integral coefficient map π2*ω+→π1*ω+ independently of the chosen generator of 𝔭O_p. Define U_𝔭=q_𝔭⁻¹Trπ1 θ_𝔭 π2*. It improves the 𝔭-partial Hasse bound, not all partial bounds in general.
 
 **Hypotheses.**
 
@@ -3023,10 +3029,10 @@ For 𝔭|p, q_𝔭=|O_F/𝔭|, e=v_𝔭(p), finite n≥1 and l=ne+1, use the ant
 
 1. Import the p-level moduli correspondence, its degree and partial-radius image from H3/T4/C6.
 2. Compute u_𝔭* z=ϖ_𝔭 z and conjugation γ↦(a,ϖb;ϖ⁻¹c,d); the cz+d factor is unchanged.
-3. Changing ϖ by a unit changes the level action by a diagonal element with j=1, so the coefficient map agrees.
+3. For the geometric G* coefficient, changing ϖ by a unit changes the level action by a diagonal element with j=1, proving generator independence. Define the arithmetic coefficient map by transporting this map through O4's Weil-pairing and finite-polarisation comparisons. A raw arithmetic pullback also sees w(det); j=1 alone does not cancel it. The transported map uses only weights evaluated on units, never w(ϖ) for a nonunit.
 4. Apply finite locally free trace and the 1/q_𝔭 factor. This may require renormalization to preserve an integral lattice.
 
-**Prerequisites.** [OverconvergentAutomorphicForms:O4/polarisation-class-forms](#o4-polarisation-class-forms), [OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor](#o2-hilbert-automorphy-factor), `HilbertModularVarietiesAndShimuraCurves:H3/arithmetic-quotient`, `HilbertModularVarietiesAndShimuraCurves:H3/ideal-class-comparisons`, [HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions](../packets/HodgeTateAndCanonicalSubgroups.json), [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](../packets/ShimuraCompactifications.json), [AdicSpacesPartII:R3/pull-identify-trace](../packets/AdicSpacesPartII.json), [AdicSpacesPartII:R3/analytic-trace-finite-locally-free](../packets/AdicSpacesPartII.json), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json), `HilbertModularVarietiesAndShimuraCurves:H1/hilbert-pel-instance`, `HilbertModularVarietiesAndShimuraCurves:H1/good-representability`, `HilbertModularVarietiesAndShimuraCurves:H4/effective-level-groups`, `HilbertModularVarietiesAndShimuraCurves:H4/finite-level-torsors`, `HilbertModularVarietiesAndShimuraCurves:H3/hilbert-hecke-isogenies`, `HilbertModularVarietiesAndShimuraCurves:H4/integral-gamma0`, [HodgeTateAndCanonicalSubgroups:T3/hilbert-canonical-subgroup](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T3/quotient-hasse-radius](../packets/HodgeTateAndCanonicalSubgroups.json).
+**Prerequisites.** [OverconvergentAutomorphicForms:O4/polarisation-class-forms](#o4-polarisation-class-forms), [OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor](#o2-hilbert-automorphy-factor), `HilbertModularVarietiesAndShimuraCurves:H3/arithmetic-quotient`, `HilbertModularVarietiesAndShimuraCurves:H3/ideal-class-comparisons`, [HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions](../packets/HodgeTateAndCanonicalSubgroups.json), [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](../packets/ShimuraCompactifications.json), [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](../packets/ShimuraCompactifications.json), [AdicSpacesPartII:R3/pull-identify-trace](../packets/AdicSpacesPartII.json), [AdicSpacesPartII:R3/analytic-trace-finite-locally-free](../packets/AdicSpacesPartII.json), [AdicSpacesPartII:R5/perfectoid-times-smooth-fibre-product](../packets/AdicSpacesPartII.json), `HilbertModularVarietiesAndShimuraCurves:H1/hilbert-pel-instance`, `HilbertModularVarietiesAndShimuraCurves:H1/good-representability`, `HilbertModularVarietiesAndShimuraCurves:H4/effective-level-groups`, `HilbertModularVarietiesAndShimuraCurves:H4/finite-level-torsors`, `HilbertModularVarietiesAndShimuraCurves:H3/hilbert-hecke-isogenies`, `HilbertModularVarietiesAndShimuraCurves:H4/integral-gamma0`, [HodgeTateAndCanonicalSubgroups:T3/hilbert-canonical-subgroup](../packets/HodgeTateAndCanonicalSubgroups.json), [HodgeTateAndCanonicalSubgroups:T3/quotient-hasse-radius](../packets/HodgeTateAndCanonicalSubgroups.json), [OverconvergentAutomorphicForms:O4/weil-pairing-comparison](#o4-weil-pairing-comparison), [OverconvergentAutomorphicForms:O4/finite-polarisation-descent](#o4-finite-polarisation-descent).
 
 **Planned interface.** `TauCeti.Overconvergent.wild_hilbert_hecke`; module `TauCeti/NumberTheory/HilbertModularForms/O6`, namespace `TauCeti.Overconvergent`.
 
@@ -3049,7 +3055,7 @@ For 𝔭|p, q_𝔭=|O_F/𝔭|, e=v_𝔭(p), finite n≥1 and l=ne+1, use the ant
 
 **Check.**
 
-- For 𝔭|p, q_𝔭=|O_F/𝔭|, e=v_𝔭(p), finite n≥1 and l=ne+1, use the anticanonical extension correspondence with π1 degree q_𝔭 and π2 quotient by D[𝔭]. Let u_𝔭=diag(ϖ_𝔭,1); its action gives an integral coefficient map π2*ω+→π1*ω+ independently of the chosen generator of 𝔭O_p. Define U_𝔭=q_𝔭⁻¹Trπ1 θ_𝔭 π2*. It improves the 𝔭-partial Hasse bound, not all partial bounds in general.
+- For 𝔭|p, q_𝔭=|O_F/𝔭|, e=v_𝔭(p), finite n≥1 and l=ne+1, use the anticanonical extension correspondence with π1 degree q_𝔭 and π2 quotient by D[𝔭]. Let u_𝔭=diag(ϖ_𝔭,1); its geometric action, transported through the O4 arithmetic comparisons when needed, gives an integral coefficient map π2*ω+→π1*ω+ independently of the chosen generator of 𝔭O_p. Define U_𝔭=q_𝔭⁻¹Trπ1 θ_𝔭 π2*. It improves the 𝔭-partial Hasse bound, not all partial bounds in general.
 
 **Sources.**
 
@@ -3439,9 +3445,9 @@ For a quadratic F with p split, q𝔭=q𝔮=p and the product U𝔭U𝔮 has tra
 
 ### Remaining mathematical inputs
 
-- Structural cusp formal cohomology, analytic-family p-level expansions, and the exact C6 model hypotheses.
+- Structural cusp formal cohomology, bounded analytic-family Koecher with finite p-level boundary transport, analytic-family p-level expansions, and the exact C6 model hypotheses.
 
-- **Cuspidal formal cohomology and coefficient extension:** Add the Hilbert structural cusp formal-cohomology theorem R^qρ_*O(−D)=0, q>0, on the actual finite-Igusa formal cusp fan/unit quotients, with the formal-functions/base-change adapter: AIP CUSP Theorem3.17 and Appendix Lemma6.3/Proposition6.4 pp32–33. C6 boundary ideal pushforward and R^0 global-functions comparison do not give this vanishing. Also extend the reviewed ordinary formal-model interface beyond its extra tame-level conditions when those are needed; otherwise retain them explicitly. O6 applies the structural vanishing to its small analytic coefficient, respecting admissible arithmetic weight opens and cofinal global-Hasse minimal affinoids. (Pr) is not finite projectivity.
+- **Cuspidal formal cohomology and analytic-family boundary extension:** Add the Hilbert structural cusp formal-cohomology theorem R^qρ_*O(−D)=0, q>0, on the actual finite-Igusa formal cusp fan/unit quotients, with the formal-functions/base-change adapter: AIP CUSP Theorem3.17 and Appendix Lemma6.3/Proposition6.4 pp32–33. C6 boundary ideal pushforward and R^0 global-functions comparison do not give this vanishing. Also extend the reviewed ordinary formal-model interface beyond its extra tame-level conditions when those are needed; otherwise retain them explicitly. O6 applies the structural vanishing to its small analytic coefficient, respecting admissible arithmetic weight opens and cofinal global-Hasse minimal affinoids. (Pr) is not finite projectivity. Separately, extend C6's integral-weight arithmetic Koecher node to the bounded analytic families and finite p-level boundary transport of AIP ADIC Proposition8.4, pp36–37. Classical arithmetic Koecher does not supply this extension.
 - **P-level and analytic-family cusp expansions:** Extend the exact classical Hilbert cusp-expansion/principle/boundary nodes to the compactified p-level bounded analytic families used here, retaining the cusp coefficient line, connectedness/base hypotheses, finite-level character twist and the 1/q isogeny trace normalization. Classical prime-to-p expansion nodes alone do not supply this extension.
 
 
@@ -3746,7 +3752,7 @@ For the constant finite towers Z/p^iZ, let R_i be all Z_p-valued functions on Z/
 - Actual ordinary good-reduction/base-extension and analytic completion contracts. No control theorem or surjectivity onto all ordinary forms is asserted.
 
 - **Ordinary integral models and analytic tower completion:** For the actual ordinary formal-affine Igusa tower provide R_i=A_i° after the specified coefficient extension, isometric transition maps, and an analytic affine tower with A∞ the separated spectral-norm completion of colim A_i and compatible formal-affine restrictions. O7 then proves (lim_m colim_i R_i/p^m)≅A∞°. Keep any weight lattice comparison separate; do not assert reduced R_i/p after nondiscrete C_p base change, and do not assume the tower is perfectoid. Actual ordinary formal models/finite étale covers are the separate T5 request; C6/roadmap/hilbert-ordinary-model-comparison retains its stated tame-level restrictions.
-- **Cuspidal formal cohomology and coefficient extension:** Add the Hilbert structural cusp formal-cohomology theorem R^qρ_*O(−D)=0, q>0, on the actual finite-Igusa formal cusp fan/unit quotients, with the formal-functions/base-change adapter: AIP CUSP Theorem3.17 and Appendix Lemma6.3/Proposition6.4 pp32–33. C6 boundary ideal pushforward and R^0 global-functions comparison do not give this vanishing. Also extend the reviewed ordinary formal-model interface beyond its extra tame-level conditions when those are needed; otherwise retain them explicitly. O6 applies the structural vanishing to its small analytic coefficient, respecting admissible arithmetic weight opens and cofinal global-Hasse minimal affinoids. (Pr) is not finite projectivity.
+- **Cuspidal formal cohomology and analytic-family boundary extension:** Add the Hilbert structural cusp formal-cohomology theorem R^qρ_*O(−D)=0, q>0, on the actual finite-Igusa formal cusp fan/unit quotients, with the formal-functions/base-change adapter: AIP CUSP Theorem3.17 and Appendix Lemma6.3/Proposition6.4 pp32–33. C6 boundary ideal pushforward and R^0 global-functions comparison do not give this vanishing. Also extend the reviewed ordinary formal-model interface beyond its extra tame-level conditions when those are needed; otherwise retain them explicitly. O6 applies the structural vanishing to its small analytic coefficient, respecting admissible arithmetic weight opens and cofinal global-Hasse minimal affinoids. (Pr) is not finite projectivity. Separately, extend C6's integral-weight arithmetic Koecher node to the bounded analytic families and finite p-level boundary transport of AIP ADIC Proposition8.4, pp36–37. Classical arithmetic Koecher does not supply this extension.
 - **P-level and analytic-family cusp expansions:** Extend the exact classical Hilbert cusp-expansion/principle/boundary nodes to the compactified p-level bounded analytic families used here, retaining the cusp coefficient line, connectedness/base hypotheses, finite-level character twist and the 1/q isogeny trace normalization. Classical prime-to-p expansion nodes alone do not supply this extension.
 
 
@@ -3943,20 +3949,22 @@ Let R,S be commutative rings and χ:R×→S× a group homomorphism. For consecut
 
 Imported stable target from [OverconvergentAutomorphicForms--O8.json](../packets/OverconvergentAutomorphicForms--O8.json); the following is its effective assembly contract.
 
-On Y_w let s=(s₁,…,s_g) be the frame of the pulled-back Hodge bundle obtained from the first g coordinate sections of the dual universal Lagrangian by the S3 isomorphism π_HT*W∨≅h*ω. Then, for γ=[A,B;C,D]∈K, γ*s=s(A+ZC). Consequently the right frame torsor is trivialized by s, with transition matrix Jγ(Z)=A+ZC.
+Use the S3 annihilator row-graph convention: W_std=col(−Z_std,I), Z_stdᵀ=Z_std, and π_HT*(O^{2g}/W_std)≅ω_{A∨}. Let s=(s₁,…,s_g) be the classes of e₁,…,e_g in this quotient, transported through the principal polarization to h*ω_A. Then γ*s=s(A+Z_std C) for every γ in the full K. In the DRW antidiagonal symplectic basis set P=diag(I,W), Z=Z_std W and γ_DRW=P⁻¹γ_stdP. The same quotient frame has Jγ(Z)=A_DRW+ZC_DRW=A_std+Z_std C_std. It trivializes the right Hodge-frame torsor. This is the twist-free quotient frame; the naturally linearized π_HT*W_std∨ is instead ω_A(−1).
 
 **Hypotheses.**
 
 - g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.
-- K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.
+- K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1.
 - Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.
 - The open period domain is defined by the supplied S3 map. When calling it a proven canonical/anticanonical neighbourhood, use the T3 comparison with p>2g and its stated radii; the mere period-domain definition requires no canonical-subgroup theorem.
+- W is the g×g reversal matrix, W²=I, and P=diag(I,W) converts S3's standard symplectic form to DRW's antidiagonal form. Thus (A,B,C,D)_DRW=(A,BW,WC,WDW)_std and Z=Z_std W. Use the quotient/annihilator period chart throughout; an identification with a Lie-subspace chart requires the stated duality, not just relabelling coordinates.
 
 **Construction or proof.**
 
-1. S3 provides the tautological dual-Lagrangian identification with h*ω, including its equivariance; this identity is not assumed as an O8 conclusion.
-2. On the row-graph chart [I,Z], compute the first g columns after right multiplication by γ. graph-normalisation identifies the coefficient matrix as A+ZC.
-3. Pull this computation through π_HT. This is the source Corollary 2.4.2 followed by equation (5).
+1. Import the Hodge–Tate quotient O^{2g}/W_std≅ω_{A∨} and the principal-polarization isomorphism ω_{A∨}≅ω_A from S3. Neither uses a fixed trivialization to erase a Tate twist.
+2. Modulo col(−Z_std,I), a vector (u,v) has class (u+Z_std v,0). Therefore HT_A(Ψγe_j)=Σ_i s_i(A+Z_std C)_{ij}. This directly proves the frame law for the full diagonal-reduction K, since A and the principal polarization are unchanged by its level action.
+3. Conjugate by P=diag(I,W). The first g quotient basis vectors are unchanged, while Z becomes Z_std W and C becomes WC; hence ZC=Z_std C_std. This gives the DRW-shaped factor without changing its order.
+4. If one instead uses W_std∨ with its natural linearization, its frame transforms by c(γ)⁻¹Jγ. The variable Weil-pairing generator ζ_Ψ transforms by c(γ); tensoring with ζ_Ψ restores Jγ. A fixed choice of roots of unity does not perform that equivariant cancellation.
 
 **Prerequisites.** [OverconvergentAutomorphicForms:O8/graph-normalisation](#o8-graph-normalisation), [OverconvergentAutomorphicForms:O8/coordinate-composition](#o8-coordinate-composition), [PerfectoidShimuraVarieties:S1/siegel-open-tower-and-level-quotients](../packets/PerfectoidShimuraVarieties.json), [PerfectoidShimuraVarieties:S3/siegel-graph-chart-and-frame](../packets/PerfectoidShimuraVarieties.json), [PerfectoidShimuraVarieties:S3/siegel-tautological-pullback](../packets/PerfectoidShimuraVarieties.json), [HodgeTateAndCanonicalSubgroups:T3](../packets/HodgeTateAndCanonicalSubgroups.json).
 
@@ -3967,10 +3975,12 @@ On Y_w let s=(s₁,…,s_g) be the frame of the pulled-back Hodge bundle obtaine
 - For γ=1 the frame is fixed.
 - The coefficient transformation is inverse to the frame transformation.
 - No GSp(Q_p) action at fixed toroidal cone decomposition or Galois-equivariance after suppressing Tate twists is inferred.
+- At Z_std=0 the classes of e₁,…,e_g form a quotient basis; their restrictions to W_std itself vanish. This detects the discarded first-coordinate dual-Lagrangian construction.
+- For nontrivial c(γ), the natural dual-Lagrangian frame has the extra c(γ)⁻¹, whereas the quotient Hodge frame has Jγ. The constant reversal-basis change preserves Jγ exactly.
 
 **Sources.**
 
-- [drw-v3](#source-drw-v3), Corollary 2.4.2, p. 17; Proposition 2.5.2, pp. 18–19; equation (5), p. 20. The source explicitly identifies the dual tautological bundle with the Hodge bundle and states this frame transformation.
+- [drw-v3](#source-drw-v3), Corollary 2.4.2, p. 17; Proposition 2.5.2, pp. 18–19; equation (5), p. 20. The source motivates the graph and frame factors. The effective statement uses the corrected quotient Hodge frame of S3/siegel-graph-chart-and-frame with the explicit standard-to-antidiagonal basis conversion; it does not import an untwisted dual-Lagrangian linearization.
 
 <a id="o8-determinant-frame-transformation"></a>
 
@@ -3985,7 +3995,7 @@ In the preceding setting put η=s₁∧…∧s_g, a nowhere-vanishing section of
 **Hypotheses.**
 
 - g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.
-- K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.
+- K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1.
 - Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.
 - Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below.
 
@@ -4024,16 +4034,12 @@ Let E be a complete coefficient field containing C_p, or a reduced affinoid coef
 **Hypotheses.**
 
 - g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.
-- K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.
+- K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1.
 - Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.
 - Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below.
 - An actual O0 analytic character and its extension to the determinant neighbourhood are supplied.
 - For a character initially on Z_p× use an O0 r-analytic extension and w>r+1; no assertion for a merely continuous character without that extension.
 - O1 supplies the sheaf-category equalizer on this quotient and the relevant completed coefficient functions.
-
-**Assembly refinement.**
-
-- Use the normalized Cκ,w module on Iw_GLg M_(w+1), the explicit BP/Siegel convention adapter, and the stronger J∈Iw_GLg+ M_(w+1) bound. This repairs the analytic domain mismatch without replacing the full intended coefficient module.
 
 **Construction or proof.**
 
@@ -4071,7 +4077,7 @@ Under the same actual torsor and descent hypotheses, take the algebraic characte
 **Hypotheses.**
 
 - g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.
-- K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.
+- K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1.
 - Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.
 - Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below.
 - The B4 determinant line, its duals and tensor powers, and O1 effective descent for this finite-rank coefficient object are supplied.
@@ -4114,7 +4120,7 @@ Let ρ:GL_g→GL(V) be a finite-dimensional algebraic representation over the co
 **Hypotheses.**
 
 - g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.
-- K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.
+- K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1.
 - Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.
 - Use the genuine open period domain from S3; an identification with canonical/anticanonical Hasse domains additionally requires the quantitative T3 comparison, including p>2g where DRW §3.6 uses it. Boundary statements use the separate toroidal nodes below.
 - V is finite-dimensional and ρ algebraic; O0 supplies its analytic restriction.
@@ -4214,14 +4220,10 @@ Let U=Spa(A,A+) be a bounded smooth weight family on the diagonal torus of GL_g 
 **Hypotheses.**
 
 - g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.
-- K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.
+- K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1.
 - Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.
 - w>1+r; the family has a uniform character extension, analytic action of all occurring Jγ, and completed coefficients supplied by O0.
 - The period-domain application uses p odd. A canonical-domain assertion uses the T3 quantitative comparison with p>2g. Integral assertions require the analytic Gauss lattice, not pointwise integral values.
-
-**Assembly refinement.**
-
-- Use the normalized Cκ,w module on Iw_GLg M_(w+1), the explicit BP/Siegel convention adapter, and the stronger J∈Iw_GLg+ M_(w+1) bound. This repairs the analytic domain mismatch without replacing the full intended coefficient module.
 
 **Construction or proof.**
 
@@ -4257,15 +4259,11 @@ For a dominant polynomial weight k=(k₁≥⋯≥k_g≥0), take the algebraic Bo
 **Hypotheses.**
 
 - g≥1, p odd, N≥3 prime to p; work over C_p with a fixed compatible system of p-power roots of unity when identifying Hodge–Tate twists.
-- K is the group-theoretic strict Iwahori, the inverse image of the diagonal torus of GSp(2g,F_p). Its definition uses the full tower quotient, not the inadequate moduli data in source issue E-O8-1.
+- K is the full inverse image of the diagonal torus of GSp(2g,F_p). Apply S1's general full-tower quotient with c(K)=Z_p^× (m=0), base changed from Q_p to C_p, retaining all Weil-pairing components. S1's named strict subgroup additionally has c≡1 mod p; a fixed pairing fibre has only K∩ker(c) as deck group. The present quotient uses the full K, not that fibre or the inadequate moduli data in E-O8-1.
 - Y_w is the open Siegel infinite-level domain π_HT⁻¹(Fl×_w), X_w=Y_w/K, w>0 rational; S1/S3 supply the actual spaces, action, quotient torsor and period-map equivariance. Fl×_w consists of graph coordinates whose entries are within p^(−w) of Z_p.
 - The O0 restriction map from the algebraic induced realization to analytic induction is an equivariant injection; it includes full right-Borel equivariance, not merely torus eigenvectors.
 - The B2 weight convention identifies ρ_k with the required B4 coefficient; no unproved equality of a representation and its dual is assumed.
 - Use O0/analytic-induction-conventions with λ_BP=w0,M(k⁻¹), and the transpose-inverse automorphism, on exactly the same matrix-entry domain.
-
-**Assembly refinement.**
-
-- Use the normalized Cκ,w module on Iw_GLg M_(w+1), the explicit BP/Siegel convention adapter, and the stronger J∈Iw_GLg+ M_(w+1) bound. This repairs the analytic domain mismatch without replacing the full intended coefficient module.
 
 **Construction or proof.**
 
@@ -4352,7 +4350,7 @@ For the genuine toroidal tower diamond D and period map π_HT^tor:D→FL supplie
 **Check.**
 
 - The trivial finite fibre gives the completed structure sheaf on D.
-- The Siegel open restriction with its chosen graph frame gives the same Jγ as hodge-frame-transformation.
+- The Siegel open restriction, with the quotient Hodge frame and the μ-cyclotomic twist transported as in hodge-frame-transformation, gives the same Jγ. Suppressing that twist with a fixed basis is not an equivariant comparison.
 - A character given only on a compact torus cannot be used on the full Levi without an analytic extension or an actual reduced torsor.
 - At fixed Σ only the supplied cone-compatible deck actions are used; a general Hecke element requires compatible cone changes and a common refinement.
 
@@ -4482,7 +4480,7 @@ In the BP quasi-split abelian-type setting, choose a split finite coefficient fi
 
 **Theorem** · `OverconvergentAutomorphicForms:O8/siegel-factor-neighbourhood`
 
-New assembly target, awaiting independent review.
+Assembly target checked by the independent review.
 
 For γ=[A,B;C,D] in the group-theoretic strict GSp_2g Iwahori, and Z=Z0+E with Z0∈Mat_g(Z_p), ‖E‖≤p^(−w), w>0, put J=A+ZC and J0=A+Z0C. Then J0∈Iw_GLg+ and ‖J−J0‖≤p^(−(w+1)), because C∈p Mat_g(Z_p). Consequently J∈Iw_GLg+ M_(w+1), its determinant is a unit, and the same neighbourhood is stable under transpose inverse. Thus the occurring geometric factors act on the full normalized w-analytic coefficient module Cκ,w of O0 without enlarging its analytic radius.
 
@@ -4559,7 +4557,7 @@ Finish the all-open/general-base geometric O/O+ descent extension identified by 
 
 ### R5. HodgeTateAndCanonicalSubgroups:T4
 
-Resolve the inherited equality-endpoint gap of T4/period-map-inclusions at the Hilbert bound ε≤1/(c_p p^m), c_p=2 for p≥5,3 for p=3,4 for p=2. Strict endpoint proofs alone do not cover equality. The actual coordinate, canonical/anticanonical domains and scaled AL maps already have exact T4 nodes.
+Resolve the inherited equality-endpoint gap of T4/period-map-inclusions at the Hilbert bound ε≤1/(c_p p^m), c_p=2 for p≥5,3 for p=3,4 for p=2. Strict endpoint proofs alone do not cover equality. The actual coordinate, canonical/anticanonical domains and scaled AL maps already have exact T4 nodes. Also discharge T4/ramified-period-comparison's unsplit canonical-generator refinement: an O_F/p^nO_F-linear canonical subgroup generator and its congruence with the saturated Hodge–Tate kernel, using scalar conormal-degree estimates before passage to the generic splitting field. Do not identify O_p⊗O_C integrally with a product of O_C at ramified primes (BHW Proposition5.18 proof, pp1752–1753; E8). Both this refinement and the equality endpoint remain explicit hypotheses of their consumers.
 
 **Consumers.** [OverconvergentAutomorphicForms:O2/admitted-hilbert-domain](#o2-admitted-hilbert-domain), [OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor](#o2-hilbert-automorphy-factor), [OverconvergentAutomorphicForms:O5/geometric-aip-comparison](#o5-geometric-aip-comparison).
 
@@ -4577,9 +4575,9 @@ For the actual ordinary formal-affine Igusa tower provide R_i=A_i° after the sp
 
 ### R8. ShimuraCompactifications:C6
 
-Add the Hilbert structural cusp formal-cohomology theorem R^qρ_*O(−D)=0, q>0, on the actual finite-Igusa formal cusp fan/unit quotients, with the formal-functions/base-change adapter: AIP CUSP Theorem3.17 and Appendix Lemma6.3/Proposition6.4 pp32–33. C6 boundary ideal pushforward and R^0 global-functions comparison do not give this vanishing. Also extend the reviewed ordinary formal-model interface beyond its extra tame-level conditions when those are needed; otherwise retain them explicitly.
+Add the Hilbert structural cusp formal-cohomology theorem R^qρ_*O(−D)=0, q>0, on the actual finite-Igusa formal cusp fan/unit quotients, with the formal-functions/base-change adapter: AIP CUSP Theorem3.17 and Appendix Lemma6.3/Proposition6.4 pp32–33. C6 boundary ideal pushforward and R^0 global-functions comparison do not give this vanishing. Also extend the reviewed ordinary formal-model interface beyond its extra tame-level conditions when those are needed; otherwise retain them explicitly. For O6/hilbert-koecher, supply AIP ADIC Proposition8.4, pp36–37, for bounded analytic weight families and transport the boundary comparison to the admitted finite p-level neighbourhoods. The exact C6/arithmetic-koecher node concerns integral algebraic weights on its discriminant-inverted arithmetic model and is not this family theorem. Retain its tame/model restrictions until that extension is proved.
 
-**Consumers.** [OverconvergentAutomorphicForms:O6/cuspidal-coefficient-vanishing](#o6-cuspidal-coefficient-vanishing), [OverconvergentAutomorphicForms:O6/fixed-cusp-banach-modules](#o6-fixed-cusp-banach-modules), [OverconvergentAutomorphicForms:O7/igusa-completion-comparison](#o7-igusa-completion-comparison).
+**Consumers.** [OverconvergentAutomorphicForms:O6/hilbert-koecher](#o6-hilbert-koecher), [OverconvergentAutomorphicForms:O6/cuspidal-coefficient-vanishing](#o6-cuspidal-coefficient-vanishing), [OverconvergentAutomorphicForms:O6/fixed-cusp-banach-modules](#o6-fixed-cusp-banach-modules), [OverconvergentAutomorphicForms:O7/igusa-completion-comparison](#o7-igusa-completion-comparison).
 
 ### R9. AutomorphicBundles:B5
 
@@ -4699,7 +4697,7 @@ arXiv landing page checked 2026-10-20: v3 (9 April 2026) remains the latest list
 
 ## Source findings used by the targets
 
-The 22 inherited findings retain their independent review records in the packet. That review applies to those unchanged findings, not to this assembly’s refinements. E-O8-17 is new and awaits independent review. All seventeen DRW findings concern the hashed arXiv v3; their presence in the published full text is unverified. The latest listed arXiv revision was checked; publisher access returned a challenge page. No claim that a finding is new in the literature is made.
+The 26 records comprise 25 confirmed findings and one rejected allegation. Every verdict below is from this independent assembly review; historical part reviews remain in the packet. Findings against DRW concern only the hashed arXiv v3, and no claim about their persistence in the journal text is made.
 
 ### OverconvergentAutomorphicForms/E1
 
@@ -4722,8 +4720,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.
 - Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.
 - Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.
+- Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Definition6.1 p1756 and the displayed character formula require opposite signs in the norm coordinate. Character precomposition with N rather than N inverse gives t(N), contradicting the specified t inverse factor unless it is 2-torsion. The preprint retains this discrepancy.", "by": "REV-OverconvergentAutomorphicForms--O0~3", "date": "2026-10-09"}
+**Independent review.** confirmed — At published p1756 and arXiv v4 p27, precomposition with (x²,N(x)) yields w(x)²t(N(x)); the accompanying inverse-norm formula instead requires (x²,N(x)⁻¹). Equation(9.1) p1781 uses the latter convention.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E2
 
@@ -4746,8 +4747,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.
 - Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.
 - Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.
+- Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "The all-unit supremum in p1757 and the related parameters in pp1737/1761 equal one for a nontrivial Teichmuller character, although its image is a weight-space point. Restriction to principal units removes that example but does not identify all AIP coordinates or fix E3.", "by": "REV-OverconvergentAutomorphicForms--O0~3", "date": "2026-10-09"}
+**Independent review.** confirmed — Published pp1737/1757/1761 and arXiv v4 pp27/29 use an all-unit supremum. A nontrivial prime-to-p finite character has supremum one but is an ordinary weight-space point. Principal-unit diagnostics avoid this counterexample and must remain separate from AIP universal coordinates.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E3
 
@@ -4770,8 +4774,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.
 - Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.
 - Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.
+- Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Proposition6.3 p1757 prints the product radius. At p=3, the character on 1+3Z_3 with κ(4)=ζ_9 gives r=3^(-7/6); the ball at one contains 64, where κ is nontrivial, and infinitely many kernel points converging to one. The analytic identity theorem contradicts extension on that ball. The existential radius remains valid.", "by": "REV-OverconvergentAutomorphicForms--O0~3", "date": "2026-10-09"}
+**Independent review.** confirmed — Published Proposition6.3 p1757 and arXiv v4 p27 print the product radius. For p=3 and κ(4)=ζ_9, that radius is 3^(−7/6): its ball at one contains 4³=64 with nontrivial value and kernel points accumulating at one. An analytic extension there would be constant by the identity theorem, a contradiction. Only a sufficiently small existential radius is used.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E4
 
@@ -4794,8 +4801,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.
 - Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.
 - Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.
+- Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Definition7.1 p1759 gives the local O_F/p^mO_F module, whose rank as a finite group is p^(m[F:Q]); the order p^m omits the field degree. This is independent of ramification.", "by": "REV-OverconvergentAutomorphicForms--O0~3", "date": "2026-10-09"}
+**Independent review.** confirmed — Published Definition7.1 p1759 and arXiv v4 p28 identify the canonical group with O_F/p^mO_F, which has p^(m[F:Q]) elements. The printed order p^m omits the degree except in degree one.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E5
 
@@ -4818,8 +4828,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.
 - Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.
 - Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.
+- Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Remark6.9 p1759 sends Theorem3.16 to the ADIC reference, which has no such theorem. The CUSP author PDF has it on p18; the arithmetic fixed-radius form is Theorem4.4 p28 with its stated weight-affinoid conditions.", "by": "REV-OverconvergentAutomorphicForms--O0~3", "date": "2026-10-09"}
+**Independent review.** confirmed — BHW Remark6.9 p1759 points its Theorem3.16 citation to the ADIC reference. The theorem is in AIP CUSP p18; its fixed-radius arithmetic form is Theorem4.4 p28, with the additional weight-affinoid hypotheses. Those distinctions are retained.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E6
 
@@ -4840,8 +4853,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - The published PDF and arXiv v4 retain the same displayed direction; checked independently on 2026-10-08.
 - The dated title/erratum/correction web searches on 2026-10-08 found no correction in the returned results; absence is not established and no author was contacted.
 - Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.
+- Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Theorem7.14 p1764 displays the reverse of the pullback induced by a frame from the perfectoid cover to the AIP torsor. Its proof first constructs the AIP-to-perfectoid map, also in arXiv v4 p31. The opposite isomorphism exists as its inverse; only the pullback label/direction is at issue.", "by": "REV-OverconvergentAutomorphicForms--O0~3", "date": "2026-10-09"}
+**Independent review.** confirmed — Published Theorem7.14 p1764 and arXiv v4 p31 label the perfectoid-to-AIP arrow by the frame pullback, whereas the proof constructs AIP-to-perfectoid pullback. The inverse isomorphism exists; the issue is the labelled arrow direction.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-1
 
@@ -4863,8 +4879,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed at pp.10–11: in genus one a single line has a Borel stabilizer, including the displayed lower unipotent. The diagonal-torus quotient requires more level data. This concerns the v3 moduli/stabilizer assertion, not the existence of the group-theoretic quotient.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — DRW v3 pp10–11 specifies insufficient level data for a diagonal-reduction stabilizer. In genus one a single line has a Borel stabilizer, including a lower unipotent in the displayed convention. The corrected target uses the genuine group quotient, whose existence is a separate S1 input.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-2
 
@@ -4886,8 +4905,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed from the pairing matrix on p.7 and the graph basis on p.14: at Z=0 the specified pairing is −δ_ij. Changing the normalization to −I preserves the subsequent [I,Z] chart.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — The pairing matrix on DRW p7 and the normalized graph vectors on p14 give −δ_ij at Z=0. The sign normalization must be −I for that basis; changing it preserves the subsequent graph calculation.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-3
 
@@ -4909,8 +4931,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed on p.13: the strict-Iwahori equality has target X_Iw+, while the printed pushforward h_Iw,* lands on X_Iw. The missing plus is a type mismatch.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — In Lemma2.2.5 p13 the strict-level equality lies over X_Iw+, while the indicated pushforward lands over X_Iw. Restoring the plus corrects this codomain mismatch.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-4
 
@@ -4932,8 +4957,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed in the rendered p.22 radius sentence. Cosets a+p^ceil(r)Z_p^n have radius p^(−ceil(r)) for |p|=p^−1; the printed positive exponent cannot give the claimed partition.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — Remark3.1.7 p22 uses residue classes modulo p^ceil(r); under |p|=p⁻¹ their discs have radius p^(−ceil(r)). The printed positive exponent has the wrong sign.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-5
 
@@ -4955,8 +4983,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed in Definition 3.1.6(iii) and the rendered Remark 3.1.7. The given r=1 polynomial has integral values at all Z_p points but scaled coefficients of norm p. It lies outside the analytic Gauss unit ball, so the two proposed lattices differ.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — Definition3.1.6(iii) and Remark3.1.7 p22 confuse bounded values at Z_p arguments with the Gauss unit ball on analytic discs. The recorded polynomial has integral values at those arguments but a scaled coefficient of norm p, so the lattices differ.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-6
 
@@ -4978,8 +5009,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed at p.23: the character takes values in units, Definition 3.1.10(ii) makes it 1 on the unipotent subgroup, and the printed restriction 0 violates the identity axiom.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — Definition3.1.10 p23 makes the unit-valued character trivial on the unipotent subgroup, so Remark3.1.12 must give the value 1 there. Value 0 is incompatible with even the identity element.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-7
 
@@ -5001,8 +5035,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed at p.25: the defining strict-Iwahori colimit drops the plus on its right-hand module; adjacent cuspform and Iwahori-level formulas distinguish the levels.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — Definition3.1.14(v) p25 drops the strict-level plus from the first direct-limit term; the neighbouring cusp and ordinary Iwahori definitions keep the two levels distinct.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-8
 
@@ -5024,8 +5061,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed at p.34: Γ(p^n) already acts trivially on the invariant sheaf. The quotient action requires representatives in Iw+_GSp, as the finding states.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — The invariant sheaf in Remark3.3.9 p34 already has trivial Γ(p^n) action. The residual quotient action needs lifts in Iw+_GSp, not elements of that trivial kernel.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-9
 
@@ -5047,8 +5087,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed in the rendered p.36 Φ target: its condition excludes zero, although the claimed isomorphism is linear. Right-unipotent invariance is the quotient condition; normalization to value 1 is not.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — In Proposition3.3.10 p36, the normalized target condition omits zero. A claimed linear isomorphism cannot have that target. Right-unipotent invariance gives the quotient condition without fixing a nonzero value.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-10
 
@@ -5070,8 +5113,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed in both p.36 intertwiner computations. Antidiagonal transpose reverses products; with Z=E12, C=qE21, A=D=I the true dual factor is diag(1,1+q), while the printed expression is diag(1+q,1). This invalidates that displayed step and does not alone disprove the main comparison theorem.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — The Ψ computations on pp35–36 use the wrong order after antidiagonal transpose. For Z=E12, C=qE21 and A=D=I, the true dual factor is diag(1,1+q); the printed order gives diag(1+q,1). This refutes that intertwining step, not the main theorem by itself.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-11
 
@@ -5093,8 +5139,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed from pp.37–38: a torus eigenspace on the full GL_g frame torsor lacks the Borel unipotent condition of P_k. At weight zero x11*x22/det is regular and torus invariant but changes under upper-unipotent translation. The finite bundle route in the packet supplies the corrected convention.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — The classical description on pp37–38 imposes only torus equivariance on a full GL_g frame torsor, omitting Borel-unipotent equivariance. At weight zero x11x22/det is torus invariant and nonconstant along an upper-unipotent orbit, exposing the larger space.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-12
 
@@ -5116,8 +5165,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed on rendered p.44: membership in p^wω implies membership in p^w′ω when w′≤w. The printed w′>w gives the opposite direction.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — Definition3.6.4(ii) and Remark3.6.5(i) p44 give congruences modulo p^w. Such a congruence implies the one modulo p^w′ for w′≤w; the printed increasing-w direction is reversed.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-13
 
@@ -5139,8 +5191,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed on rendered p.47 as a proof gap: the preceding proposition requires c_g+n−1<w, which the corollary omits for n>1. A point-dependent strict Hodge bound does not provide the asserted common v without a uniformity argument. No counterexample to cofinality is claimed.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — On p47, Proposition3.6.12 requires c_g+n−1<w≤n, stronger than the following corollary assumes when n>1. Moreover point-dependent strict Hodge bounds alone do not supply a common affinoid bound. The quantitative comparison stays an explicit T3 obligation; no counterexample to cofinality is asserted.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-14
 
@@ -5162,8 +5217,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Confirmed on rendered p.104 against p.102: V′⊥/V′ has rank 2g−2r, whereas the chart lattice V/V′⊥ has rank r. For r=g the printed lattice is zero and cannot supply the needed Tate-module rank.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — AppendixB pp102/104 distinguishes the rank-r degeneration lattice V/V′⊥ from the symplectic quotient V′⊥/V′ of rank 2g−2r. At r=g the printed latter choice is zero, so it cannot be the required rank-g lattice.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-15
 
@@ -5185,8 +5243,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Independently checked in the hashed v3 at the stated locator. The preceding display defines [Z′,I] coordinates on Fℓ×_can. The unprimed Z chart of §2.3 is [I,Z] and is not defined at the canonical origin [0,I], where Z′=0 is defined. Remark 3.6.2 on p.43 gives Z′=−pZ under Atkin–Lehner, so these coordinate functions cannot be identified on the same point.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** confirmed — The canonical chart on p42 uses [Z′,I], defined at its origin, whereas the earlier [I,Z] chart is not defined there. Remark3.6.2 p43 relates their coordinates after Atkin–Lehner by Z′=−pZ. The unprimed symbol in the canonical-domain definition cannot be used literally.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-16
 
@@ -5194,13 +5255,13 @@ The 22 inherited findings retain their independent review records in the packet.
 
 **Source claim or problem.** The source additionally describes this as a uniform Cp-Banach algebra sheaf.
 
-**Corrected use.** Treat the fixed-weight analytic induced coefficient as a Banach module over the completed coefficient algebra. Pointwise multiplication maps weights κ and λ into weight κλ; it is not an algebra structure on a general fixed nontrivial weight.
+**Corrected use.** The accusation is rejected. Under pointwise multiplication on the full Iwahori, weights multiply, so that operation does not preserve a nontrivial fixed weight. But Remark3.1.11 explicitly transports an algebra structure from functions on the opposite unipotent through restriction. For ℓ=ub, the transported product is (f⋆g)(ub)=κ(b)f(u)g(u), with unit eκ(ub)=κ(b). The coefficient representation and its equivariant sheaf are used as modules; an algebra structure on each coefficient space does not make every translating action an algebra automorphism.
 
-**Reason.** The defining law on p.23 is f(ℓb)=κ(b)f(ℓ). Products transform by κ(b)^2. For g=1, odd p and κ(u)=u, the analytic function f(u)=u has weight κ, but f²(2)=4 differs from κ(2)f²(1)=2. Also the constant unit function is absent for nontrivial κ. Thus the printed fixed-weight algebra assertion fails.
+**Reason.** Remark3.1.11 p23 supplies the missing interpretation: restriction Cκ(Iw,B)≅C(Uopp,B) is used to give the coefficient its uniform Banach algebra. Pointwise multiplication on Iw is a different product. The genus-one square computation in the earlier review only disproves closure under that different product, so it does not refute Definition3.1.14(ii). Compatibility of an algebra structure with the full automorphic equalizer is a separate question, not established by that example.
 
-**Effect.** a stated result
+**Effect.** nothing
 
-**Correction/version search.** new
+**Correction/version search.** Not an established source error; earlier confirmation retained in reviewHistory.
 
 **Search record.**
 
@@ -5208,8 +5269,11 @@ The 22 inherited findings retain their independent review records in the packet.
 - Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.
 - No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.
 - Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
 
-**Inherited independent review.** {"verdict": "confirmed", "reason": "Independently checked in the hashed v3 at the stated locator. The defining law on p.23 is f(ℓb)=κ(b)f(ℓ). Products transform by κ(b)^2. For g=1, odd p and κ(u)=u, the analytic function f(u)=u has weight κ, but f²(2)=4 differs from κ(2)f²(1)=2. Also the constant unit function is absent for nontrivial κ. Thus the printed fixed-weight algebra assertion fails.", "by": "REV-OverconvergentAutomorphicForms--O8"}
+**Independent review.** rejected — Remark3.1.11 p23 supplies the missing interpretation: restriction Cκ(Iw,B)≅C(Uopp,B) is used to give the coefficient its uniform Banach algebra. Pointwise multiplication on Iw is a different product. The genus-one square computation in the earlier review only disproves closure under that different product, so it does not refute Definition3.1.14(ii). Compatibility of an algebra structure with the full automorphic equalizer is a separate question, not established by that example.
+
+Earlier review verdicts are retained in the packet’s `reviewHistory`; the verdict above is this assembly review.
 
 ### OverconvergentAutomorphicForms/E-O8-17
 
@@ -5230,6 +5294,81 @@ The 22 inherited findings retain their independent review records in the packet.
 - https://arxiv.org/abs/2106.00094 (v3 latest, checked 2026-10-20)
 - https://arxiv.org/pdf/2106.00094v3 (Definitions 3.1.10–3.1.13 and §2.1)
 - https://doi.org/10.1007/s40687-026-00610-5 (publisher full text not accessible as a PDF)
+- Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated.
+
+**Independent review.** confirmed — Definition3.1.10 p23 normalizes the lower coordinate by p; §2.1 p9 thickens matrix entries. Thus normalized radius p^(−r) needs entry radius p^(−r−1). For the recorded genus-two function 1/(t−a), v_p(a)=r−1/2, translation by h=I+paE12 in M_r reaches its pole at the identity. The smaller H_(r+1) action is valid; the geometric factor has precisely that extra p.
+
+### OverconvergentAutomorphicForms/E7
+
+**Gap**, [BHW-2023](#source-bhw-2023), Definition8.17(2), p1773, compared with Lemma9.2 and its proof, pp1781–1782 (published version).
+
+**Source claim or problem.** The finite effective level quotient kills all units congruent to one modulo N. The representative-independence proof later checks only totally positive units and their closure.
+
+**Corrected use.** Use U_N={η∈O_F^×:η≡1 mod N} and its full p-adic closure in every central kernel. For N≥4, N_{F/Q}(η) is ±1 and is 1 modulo N, hence equals 1. The arithmetic multiplier therefore cancels for all U_N, and by continuity for its closure, without requiring total positivity.
+
+**Reason.** Definition8.17 explicitly uses the all-unit congruence quotient. Positivity cannot replace it: in Q(√3), −7−4√3 is a unit congruent to 1 modulo 4 with both real embeddings negative. A proof restricted to positive units omits this representative change. The norm-congruence argument repairs the proof; it does not contradict the well-definedness conclusion.
+
+**Effect.** the proof
+
+**Correction/version search.** Previously recorded in the atlas supplier; no published correction located.
+
+**Search record.**
+
+- Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.
+- https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.
+- https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.
+
+**Also recorded by the supplier.** `PerfectoidShimuraVarieties/E29`
+
+**Independent review.** confirmed — Definition8.17 explicitly uses the all-unit congruence quotient. Positivity cannot replace it: in Q(√3), −7−4√3 is a unit congruent to 1 modulo 4 with both real embeddings negative. A proof restricted to positive units omits this representative change. The norm-congruence argument repairs the proof; it does not contradict the well-definedness conclusion.
+
+### OverconvergentAutomorphicForms/E8
+
+**Gap**, [BHW-2023](#source-bhw-2023), Proof of Proposition5.18, pp1752–1753, the integral embedding-product identification (published version).
+
+**Source claim or problem.** The proof treats O_p⊗O_C as the product of its embedding factors and uses that integral description to compare the Hodge–Tate kernel with the canonical subgroup at ramified p.
+
+**Corrected use.** Split only after passing to the generic field. Before splitting, keep the saturated kernel and the O_F/p^n-linear canonical generator unsplit and use scalar O_C conormal-degree estimates. The missing generator/refinement is retained in the existing T4 request; no ramified integral product is assumed.
+
+**Reason.** For O_L=Z_p[π] with π²=p at odd p, evaluation O_C[X]/(X²−p)→O_C×O_C has image pairs whose difference is divisible by 2π. The pair (1,0) is absent. Thus the natural embedding map is not an integral product isomorphism, although it becomes one over C. This invalidates that proof step in ramified cases without giving a counterexample to the inclusion theorem.
+
+**Effect.** the proof
+
+**Correction/version search.** Previously recorded in the atlas supplier; no published correction located.
+
+**Search record.**
+
+- Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.
+- https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.
+- https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.
+
+**Also recorded by the supplier.** `PerfectoidShimuraVarieties/E36`
+
+**Independent review.** confirmed — For O_L=Z_p[π] with π²=p at odd p, evaluation O_C[X]/(X²−p)→O_C×O_C has image pairs whose difference is divisible by 2π. The pair (1,0) is absent. Thus the natural embedding map is not an integral product isomorphism, although it becomes one over C. This invalidates that proof step in ramified cases without giving a counterexample to the inclusion theorem.
+
+### OverconvergentAutomorphicForms/E9
+
+**Error**, [BHW-2023](#source-bhw-2023), Proof of Lemma8.28, p1779, contracted-product descent of the period map (published version).
+
+**Source claim or problem.** Projection to the first factor of X_{Γ*(p∞)}×O_p^× is asserted to give a period map invariant under the antidiagonal Z_p^× action, because that action is treated as simultaneous scalar rescaling.
+
+**Corrected use.** Use the equivariant span map (x,u)↦diag(u,1)π_HT(x), which is invariant under (x,u)↦(diag(t,1)x,t⁻¹u), rather than π_HT(x) alone. This is the corrected S5 period map already used by O4.
+
+**Reason.** The first-factor action in Lemma8.25 is diag(t,1). On the Hilbert affine period coordinate it sends z to tz; it is not the central scalar tI and does not fix a general period point. Multiplying by diag(u,1) cancels the antidiagonal change. The displayed projection argument therefore fails, while the corrected equivariant period map remains available.
+
+**Effect.** the proof
+
+**Correction/version search.** Previously recorded in the atlas supplier; no published correction located.
+
+**Search record.**
+
+- Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.
+- https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.
+- https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.
+
+**Also recorded by the supplier.** `PerfectoidShimuraVarieties/E27`
+
+**Independent review.** confirmed — The first-factor action in Lemma8.25 is diag(t,1). On the Hilbert affine period coordinate it sends z to tz; it is not the central scalar tI and does not fix a general period point. Multiplying by diag(u,1) cancels the antidiagonal change. The displayed projection argument therefore fails, while the corrected equivariant period map remains available.
 
 ## Baseline interfaces
 
@@ -5307,6 +5446,6 @@ Each actual declaration and its hypotheses was read at the stated pinned commit.
 
 The stock packet checker validates the four new nodes and resolves the imported IDs in the retained part packets. A separate expanded validation uses all 96 effective contracts with the unchanged checker: full internal acyclicity, prerequisite resolution, definition API/tests, stage coverage and planet bounds. Import hashes and the complete imported ID sets were checked, so the catalogue cannot silently omit a retained target. The reader reproduces every effective statement, hypothesis, API and test; its internal anchors and file links are checked separately.
 
-The 96 targets comprise 5 definitions, 32 constructions, 13 lemmas, 30 theorems, 13 comparisons and 3 applications. They have 139 named API items in total, of which 138 are the outlines attached to definitions/constructions, and 117 definition/construction tests. There are 38 planets, 65 baseline declarations, 23 source findings, 11 residual gap records and 11 supplier requests. Every implementation status is unchecked. All O0–O8 coverage records are planned, with the explicit remaining inputs above.
+The 96 targets comprise 5 definitions, 32 constructions, 13 lemmas, 30 theorems, 13 comparisons and 3 applications. They have 139 named API items in total, of which 138 are the outlines attached to definitions/constructions, and 117 definition/construction tests. There are 38 planets, 65 baseline declarations, 26 source-finding records (25 confirmed, one rejected), 11 residual gap records and 11 supplier requests. Every implementation status is unchecked. All O0–O8 coverage records are planned, with the explicit remaining inputs above.
 
-The suggested file elaborates at the pins with only admitted-theorem warnings. Its six proved examples check the inverse norm sign, the square weight, the determinant line, noncommuting factor order and the dual-factor order. Its real-bodied definitions use library types; none supplies a geometric construction or an admitted data definition. The reader is authoritative for all targets, including the integral and geometric comparisons whose carriers are supplied by other roadmaps.
+The suggested file elaborates at the pins with 17 admitted-theorem warnings and no other warnings or errors. Its seven proved examples check the inverse norm sign, the square weight, the determinant line, noncommuting factor order, the dual-factor order and the constant symplectic-basis conversion. Its real-bodied definitions use library types; none supplies a geometric construction or an admitted data definition. The reader is authoritative for all targets, including the integral and geometric comparisons whose carriers are supplied by other roadmaps.
