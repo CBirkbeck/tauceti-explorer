@@ -746,16 +746,16 @@ theorem upperNaturalDensity_finite (A : Set ℕ) (hA : A.Finite) : upperNaturalD
 theorem szemeredi_of_upperNaturalDensity_pos (k : ℕ) (A : Set ℕ) (hA : 0 < upperNaturalDensity A)
     (L : ℕ) : ∃ a d : ℕ, L < a ∧ 0 < d ∧ ∀ i < k, a + i * d ∈ A := sorry
 
-/-- The Varnavides form on `ZMod p` (AC.2.9). -/
+/-- The Varnavides form on every nonzero cyclic group, including composite moduli (AC.2.9). -/
 theorem szemeredi_varnavides (k : ℕ) (hk : 3 ≤ k) (δ : ℝ) (hδ : 0 < δ) :
-    ∃ c > (0 : ℝ), ∃ N₀ : ℕ, ∀ p : ℕ, [Fact p.Prime] → N₀ ≤ p → ∀ f : ZMod p → ℝ,
+    ∃ c > (0 : ℝ), ∃ N₀ : ℕ, ∀ p : ℕ, [NeZero p] → N₀ ≤ p → ∀ f : ZMod p → ℝ,
       (∀ x, 0 ≤ f x ∧ f x ≤ 1) → δ ≤ univ.expect f →
       c ≤ (cyclicProgressionAverage p k fun _ x ↦ (f x : ℂ)).re := sorry
 
 /-- Roth's density increment with explicit constants: a set of density `α = |A|/N` without
 nontrivial three-term progressions, with `N ≥ 9700/α²`, has density at least `α + α²/64` on a
 progression of length at least `α √N / 100` (Layer AC.2.10). -/
-theorem roth_density_increment (N : ℕ) (A : Finset ℕ) (hA : A ⊆ range N)
+theorem roth_density_increment (N : ℕ) (hN₀ : 0 < N) (A : Finset ℕ) (hA : A ⊆ range N)
     (hfree : ThreeAPFree (A : Set ℕ)) (hN : (9700 : ℝ) * N ≤ (A.card : ℝ) ^ 2) :
     ∃ a d L : ℕ, 1 ≤ d ∧ (A.card : ℝ) / N * √(N : ℝ) / 100 ≤ L ∧ (∀ m < L, a + m * d < N) ∧
       ((A.card : ℝ) / N + ((A.card : ℝ) / N) ^ 2 / 64) * L ≤
