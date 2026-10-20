@@ -1,6 +1,6 @@
 # Roadmap: cyclotomic completions and classical Habiro rings
 
-The classical Habiro ring packages compatible polynomial congruences into an
+**Summary.** The classical Habiro ring packages compatible polynomial congruences into an
 object that can be evaluated at every root of unity. Over the integers it
 behaves like a ring of functions whose Taylor expansion at one root determines
 the whole function. Its topology allows factorial series that have no meaning
@@ -19,10 +19,11 @@ localized coefficient rings. The reference examples are part of the interface:
 they distinguish an actual completion from an incorrectly chosen power-series
 ring, tensor product, or localization.
 
-`README.md` specifies the mathematics. [Suggested.lean](Suggested.lean) suggests
-declarations, instances, and examples with placeholder proofs; it does not
-assert that this mathematics has been implemented. The main namespace is
-`TauCetiRoadmap.HabiroCyclotomicCompletions`, with its `TaylorComparison` subnamespace for the universal Taylor comparison.
+`README.md` specifies the mathematics. [Suggested.lean](Suggested.lean) records
+representative theorem signatures on existing library carriers, light
+definitions with real bodies, and proved checks; it is not exhaustive and
+does not assert that the targets have been implemented. The main namespace is
+`TauCetiRoadmap.HabiroCyclotomicCompletions`.
 Naming can follow the surrounding library, while the hypotheses, coordinate
 conventions, and compatibility requirements below determine the interface.
 
@@ -53,10 +54,11 @@ belongs to **QWittVectors Layer 1**. The toolkit's infinite products use
 explicit coefficient topologies; they are distinct from Layer 2's convergent
 factorial sums in the cyclotomic completion.
 
-General derived Habiro completion belongs to
-**HabiroRings Layer 2**, which supplies the derived object used in the ordinary
-versus derived comparison of Layer 5. The exact ordinary functor on polynomial
-modules is constructed here.
+General derived Habiro completion and the ordinary/derived comparison belong
+to **HabiroRings §2.4**, after its completion adjunction. That comparison
+consumes this roadmap's factorial topology (§1.4), Laurent comparison (§2.3),
+and exact ordinary functor on polynomial coefficient modules (§5.1).
+The construction here uses no derived Habiro input.
 
 The consumers of the resulting library are:
 
@@ -163,8 +165,9 @@ fold \(p\mapsto pq+a\). The existing synthetic division divides by
 \(q^{\operatorname{length}(t)}+\operatorname{ofCoeffList}(t)\). The new digit
 algorithm consumes that operation with divisor \(q^{n+1}-1\) and negates the
 quotient for the next residual polynomial. It does not redevelop list
-polynomials or synthetic division. The suggested statements import `TauCeti.Algebra.Polynomial.CoeffList`
-at the baseline and use `TauCeti.Polynomial.ofCoeffList` directly. In current
+polynomials or synthetic division. The executable digit algorithm consumes
+`TauCeti.Algebra.Polynomial.CoeffList` at the baseline. It remains a README
+target; the compact suggested file does not redevelop that algorithm. In current
 Tau Ceti the module is `TauCeti.Algebra.Polynomial.Coeff.List`; the
 declarations and descending coefficient convention agree.
 
@@ -241,7 +244,9 @@ ordinary binomial coefficients, and Layer 1's integral recursions.
 Define the Jackson derivative coefficientwise on \(A[t]\):
 \(D_q(t^n)=[n]_q t^{n-1}\), and the adapted derivative
 \(D'_q=(1-q)D_q\), so \(D'_q(t^n)=(1-q^n)t^{n-1}\).
-The polynomial operators are `jackson` and `adaptedJackson`; their series
+The polynomial operators are `jackson` and `adaptedJackson`; use
+`jackson_leibniz` and `jackson_at_one` for the twisted product and
+specialization identities. Their series
 extensions are `jacksonSeries` and `adaptedJacksonSeries`. Both exist over
 any commutative ring and extend by the same coefficient rule to \(A[[t]]\). They are additive and A-linear, commute with coefficient
 maps, and satisfy the twisted Leibniz rule
@@ -280,7 +285,7 @@ For a Q-algebra field the logarithm is
 Thus \((t;q)_\infty\) denotes this coefficient series over Q(q).
 It is not the t-adic limit of its finite products there: the coefficient of
 \(t\) in the finite product is \(-\sum_{i<N}q^i\), which does not
-stabilize. For the integral product use \(\mathbb Z[[q]][[t]]\), with
+stabilize. Define `integralPochhammerInf` in \(\mathbb Z[[q]][[t]]\), with
 coefficientwise q-adic convergence. For each coefficient \(q^mt^k\),
 products with \(N>m\) stabilize; use those stable coefficients as the
 construction. Mapping into \(\mathbb Q((q))[[t]]\) identifies it with
@@ -314,8 +319,8 @@ coefficient one, additivity-to-multiplicativity, Adams compatibility,
 \(\operatorname{PE}(q^it^j)=(1-q^it^j)^{-1}\) for \(j>0\), and
 \(\operatorname{PE}(-q^it^j)=1-q^it^j\). Prove integrality when F lies in
 \(t\mathbb Z((q))[[t]]\), by reducing to finite products at each pair of
-precisions. General lambda-rings are supplied by **QWittVectors Layer 1**;
-this elementary substitution construction does not require that theory.
+precisions. This elementary substitution construction does not require
+general lambda-ring theory.
 (Source: O, Definitions 5.4–5.5 and the following monomial product
 calculation, pp. 26–27). *Needs:* Mathlib Hahn/Laurent series,
 `PowerSeries.expand`, `PowerSeries.exp` and substitution; the positive
@@ -328,22 +333,23 @@ uses `QToolkit` for their shared namespace.
 
 - `adaptedJackson`: at q=2 it sends t² to −3t.
 - `adaptedJackson`: at q=0 it sends t³ to t².
+- `adaptedJackson`: at q=1 it sends t² to zero over ℤ, although the ordinary Jackson derivative is 2t.
 
 - q-integer: \([0]_q=0\).
 - q-integer: \([3]_q=1+q+q^2\).
-- q-integer: \([3]_1=3\), hence its reduction at one in characteristic three is zero.
+- q-integer: \([3]_1=3\), hence its reduction at one in characteristic three is zero. Also \([2]_1=0\) in characteristic two.
 - q-factorial: \([0]_q!=1\).
 - q-factorial: \([3]_q!=(1+q)(1+q+q^2)\).
 - q-factorial: \([3]_1!=6\).
 - Gaussian polynomial: \({0\brack0}_q=1\) and \({2\brack3}_q=0\).
 - Gaussian polynomial: \({3\brack1}_q={3\brack2}_q=1+q+q^2\).
-- Gaussian polynomial: \({4\brack2}_1=6\), becoming zero in characteristic two.
+- Gaussian polynomial: \({4\brack2}_q=1+q+2q^2+q^3+q^4\); at one it is six, becoming zero in characteristic two.
 - q-multinomial: empty and all-zero lists give one.
-- q-multinomial: the list \((1,1)\) gives \(1+q\).
+- q-multinomial: the list \((1,1)\) gives \(1+q\), and \((1,1,1)\) gives \((1+q)(1+q+q^2)\).
 - q-multinomial: \((1,2)\) and \((2,1)\) give the same polynomial.
 - finite Pochhammer: empty product one.
 - finite Pochhammer: \((q;q)_2=(1-q)(1-q^2)\).
-- finite Pochhammer: \((x;1)_3=(1-x)^3\), with no division at q=1.
+- finite Pochhammer: \((x;1)_3=(1-x)^3\), with no division at q=1. At x=2,q=3,n=3 its value is −85, while x=1 makes every positive product zero.
 - Jackson and adapted derivatives: \(D_q(t^2)=(1+q)t\).
 - Jackson and adapted derivatives: \(D_1(t^3)=3t^2\).
 - Jackson and adapted derivatives: \(D_1(t^2)=0\) in characteristic two while \(D'_1(t^2)=0\) over the integers as well.
@@ -428,7 +434,7 @@ degree monic polynomial forces a polynomial to vanish. In the empty case the
 map is injective exactly when \(R\) is the zero ring. Equivalently, for all
 \(S\), injectivity holds precisely when a positive order exists or \(R\) is
 subsingleton. For a nonzero coefficient ring, the image of \(\Phi_n\),
-\(n\in S\), is a nonunit: its projection modulo \(\Phi_n\) is zero in a
+\(n>0\) in \(S\), is a nonunit: its projection modulo \(\Phi_n\) is zero in a
 nonzero quotient. (Source: H, §1, (1.1), pp. 1127–1128; §3.1,
 p. 1130; §4, p. 1134; H₀, §1, p. 3). *Needs:* the index system,
 monic quotient representatives, and inverse limits of rings.
@@ -620,8 +626,15 @@ standard decompositions of \(q^i-1\). (Source: H₀, §1, p. 3; H,
 §7.1, Proposition 7.1, pp. 1141–1142). *Needs:* the polynomial
 cyclotomic product identity, finite products, and Layer 1 Pochhammer notation.
 
+Name the signed polynomial identity `factorialPoly_cyclotomic_factorization`;
+it holds over every commutative ring, including the zero ring. For positive d,
+`cyclotomic_pow_dvd_factorial` states \(\Phi_d^{\lfloor N/d\rfloor}\mid P_N\).
+The degree and nonzero leading-coefficient conclusions retain the nonzero-ring
+hypothesis above.
+
 Prove that the ideals \((P_N)\) are cofinal in the cyclotomic ideals for all
-positive orders. If
+positive orders, with `factorial_cofinal` giving, for every actual index
+polynomial f, an N with \(f\mid P_N\). If
 \(f=\prod_d\Phi_d^{e_d}\), choosing
 \(N\geq\max\{de_d:e_d\ne0\}\) makes \(f\mid P_N\). Over the integers,
 the multiplicities \(\lfloor N/d\rfloor\) also show sharpness of this bound
@@ -636,7 +649,9 @@ There is a second useful cofinal presentation: the ideals
 \(((q^m-1)^k)\), for \(m,k\geq1\). A finite set of orders divides some
 \(m\); taking \(k\) sufficiently large dominates all its exponents. In the
 other direction \((q^m-1)^k\mid P_{mk}\), since each cyclotomic factor with
-order dividing \(m\) occurs at least \(k\) times. Thus
+order dividing \(m\) occurs at least \(k\) times. The native polynomial
+statement `factorial_root_power_dvd` allows every k≥0 and N≥mk, always
+with m>0. Thus
 
 \[
  H_R\simeq\varprojlim_{m\text{ under divisibility}}
@@ -779,7 +794,7 @@ true.
 
 ### Examples
 
-The characteristic-two index equality, empty completion, factorial signs and mutually cofinal presentation checks above also occur as Lean examples. In the factorial divisibility target require m>0: m=0,k=1 would give 0∣1 over ℤ, while k=0 remains valid for every positive m.
+The characteristic-two index equality, empty completion and mutually cofinal presentation checks specify the completed constructions. The light factorial definition has proved Lean sign and precision checks. In the factorial divisibility target require m>0: m=0,k=1 would give 0∣1 over ℤ, while k=0 remains valid for every positive m.
 
 ### Dependencies
 
@@ -919,8 +934,9 @@ restriction. The full completion has the explicit normalized expression
  q\sum_{n<N}q^nP_n=1-P_N.
 \]
 
-The second equality is a polynomial telescoping identity, valid at every
-finite precision, and is the proof of the first. The inverse modulo \(P_3\)
+The second equality is `factorial_telescope`, a polynomial telescoping
+identity over every commutative ring, valid also at N=0, and is the proof
+of the first. The inverse modulo \(P_3\)
 is represented by \(1+q-q^3-q^4+q^5\).
 
 Construct the canonical Laurent-polynomial map and identify the cyclotomic
@@ -1015,7 +1031,13 @@ Provide the constant-term evaluation identity, the polynomial Taylor
 equation, coefficients through finite projections, continuity, ring-map
 laws, and compatibility of coefficient truncations. For a factorial
 series, its kth coefficient at order \(d\) uses only terms
-\(n<d(k+1)\).
+\(n<d(k+1)\). Name the finite polynomial ingredients
+`factorial_taylor_vanishing` and `factorialSum_taylor_stable`: for any
+commutative ring A, d>0, \(\zeta^d=1\), and N≥d(k+1),
+\((q-\zeta)^{k+1}\mid P_N\), and extending a factorial sum from N
+to M≥N leaves its kth additive Taylor coefficient unchanged. Arbitrary
+polynomial coefficients b_n are allowed. These statements supply finite
+projections of the completed map; they do not replace its construction.
 
 The ordinary derivative comparison is
 \(k![X^k]\sigma_\zeta(g)=g^{(k)}(\zeta)\). No division by a factorial
@@ -1103,8 +1125,13 @@ arithmetic, and the Taylor map.
 Let two roots differ by a ratio \(\omega\) of p-power order. If
 \(\omega^{p^e}=1\), then \((\omega-1)^{p^e}\) belongs to \(pB\) in the
 root algebra. Thus their difference becomes topologically nilpotent in a
-p-adically complete target. Conversely, if the ratio has order greater
-than one which is not a prime power, \(1-\omega\) is a cyclotomic unit;
+p-adically complete target. Conversely, suppose \(\Phi_d(\omega)=0\)
+for an order \(d>1\) which is not a prime power. This holds for a
+primitive dth root in a characteristic-zero domain; exact multiplicative
+order alone does not imply it in an arbitrary coefficient algebra, as
+the example in §3.1 shows. Since \(\Phi_d(1)=1\), the polynomial
+identity \(\Phi_d(X)-\Phi_d(1)=(X-1)h(X)\) makes
+\(1-\omega\) a cyclotomic unit;
 it cannot be topologically nilpotent in a nonzero separated ring. This is
 a condition on the **actual ratio of roots**, not just on the ratio of
 their orders.
@@ -1171,6 +1198,7 @@ naturality interfaces.
 - Root closeness: an equal root has zero translation.
 - Root closeness: a primitive p-power ratio gives topological nilpotence.
 - Root closeness: the chosen cubic/sixth-root pair with difference 1 is not close despite order adjacency.
+- The element (ζ₆,1) in ℤ[ζ₆]×ℤ has order six, but 1−(ζ₆,1) is not a unit. It fails the cyclotomic equation in the second factor, detecting the extra hypothesis in the unit claim.
 - `reExpand`: translation by zero is identity, translating a polynomial agrees with its finite binomial expansion, and translation by −c inverts translation by c under the common convergence hypotheses.
 - The re-expansion constant 1 is excluded in a nontrivial p-adic ring; q−ζ becomes X+(ζ′−ζ); two successive admissible translations add their constants.
 
@@ -1382,7 +1410,7 @@ Consequently, for \(c\in R\), separation at \((c)\) transfers from
 coordinates in every \(c^kR\), hence vanishes. Apply this to the actual
 embedded finite domain \(R[\zeta]\), finite because \(\zeta\) satisfies
 a monic cyclotomic polynomial. The transfer is not a claim about arbitrary
-finite algebras with torsion or nilpotents. The argument uses this
+finite algebras with torsion or nilpotents. This argument
 supplies the finite-domain input to H, proof of Theorem 5.2, p. 1138;
 the coordinate proof uses the existing fraction-field and finite-module
 basis APIs. *Needs:* Mathlib finite modules, finite-dimensional
@@ -1593,11 +1621,11 @@ has weight four. This test rules out an unshifted or unweighted filtration.
 (Source: G, §5.1, (304)–(305), p. 60; coordinates (299)–(300), p. 59).
 *Needs:* the universal Taylor product and power-series ideals.
 
-The associated graded pieces, taken as quotients of R-submodules of nested
-ideals, have R-linear equivalences
+For \(N\geq1\), the associated graded pieces, taken as quotients of
+R-submodules of nested ideals, have R-linear equivalences
 
 \[
- H_{R,N}/H_{R,N+1}\simeq_R R[q]/(1-q^N),\qquad
+ R[q]/(1-q^N)\simeq_R H_{R,N}/H_{R,N+1},\qquad
  P_{R,N}/P_{R,N+1}\simeq_R\prod_{m\mid N}A_m(R).
 \]
 
@@ -1719,7 +1747,9 @@ Its polynomial equation, coefficient base-change square, precision
 transition square, and compatibility with \(\iota\) on arbitrary
 completed elements are required API. (Source: G, §5.1, before (304) and
 (306), pp. 60–61). *Needs:* factorial factors, the two filtrations,
-and polynomial Taylor substitution.
+and polynomial Taylor substitution. Define `taylorPolynomial R m g`
+on existing polynomial carriers by mapping g to A_m(R)[q] and substituting
+\(q=z_m(1-u)\); this is the finite polynomial version of the map.
 
 For positive \(m,l\), define
 
@@ -1738,6 +1768,8 @@ the multiples of \(m\), gives
  P_{ml-1}(z_m(1-u))=D_{m,l}u^{l-1}\pmod {u^l}.
 \]
 
+Name this finite polynomial assertion `factorial_taylor_leading`; it states
+that the coefficient at l−1 is D_(m,l) and every lower coefficient is zero.
 All lower coefficients vanish. The calculation must establish the identity
 universally, rather than cancel factors over an arbitrary coefficient ring.
 Tests are \(D_{1,4}=6\), \(D_{m,1}=m\), and \(D_{2,2}=8\); the last
@@ -2044,6 +2076,11 @@ the finite direct-sum version. Products are valid here because quotient
 coordinates have finite monic bases and all limits are coordinatewise;
 infinite direct sums require a separate comparison map and are not
 identified with the completion of the sum.
+
+As a finite input, `factorialPoly_smul_injective` states that multiplication
+by P_N on `PolynomialModule R M` is injective, for every R-module M and N≥0.
+Its unit leading coefficient gives this without a torsion-freeness assumption
+on M. The zero module and characteristic-two coefficient modules are included.
 
 The ordinary functor \(M\mapsto M[q]^S\) is exact for every coefficient
 ring, order set, and R-module. At a finite monic quotient,
@@ -2493,51 +2530,74 @@ rings. These tests constrain the ambient embeddings as well as the fractions.
 - It computes 1/Φ₂ there.
 - It computes q⁻¹/Φ₃ there.
 
-### 5.5 The boundary with derived completion
+### 5.5 Ordinary completion on arbitrary polynomial-ring modules
 
-Name the comparison `ordinaryDerivedComparison`. For the imported derived completion of **HabiroRings Layer 2**, prove that
-the derived Habiro completion of a Laurent-polynomial module
-\(M[q,q^{-1}]\) is static and agrees with the ordinary full completion
-\(M[q]^{\mathbb N_{>0}}\). Multiplication by \(q^m-1\) is injective on
-every such Laurent-polynomial module, even when \(M\) has coefficient
-torsion. The finite quotient transitions are surjective; there is no
-derived-limit correction on these polynomial modules. Use the divisibility
-presentation of Layer 1 to make the comparison natural in \(M\) and
-compatible with finite projections. The derived carrier and the term
-“static” come from HabiroRings Layer 2; do not introduce an uninterpreted proposition or
-private derived object here.
+For a commutative ring R and an arbitrary R[q]-module A, define
+`factorialModuleCompletion R A` by
+\(\widehat A=\varprojlim_N A/P_NA\), using the same factorial ideals
+as in §1.4. Give `factorialModuleCompletion_proj`,
+`factorialModuleCompletion_ext`, and `factorialModuleCompletion_map`, with
+identity and composition laws. Give `factorialModuleCompletion_of_polynomialModule`,
+the natural comparison with §5.1 at the full set of positive orders when A=M[q].
+This comparison is an isomorphism for every R-module M, including modules
+with integer torsion. It does not assert exactness on arbitrary R[q]-modules.
 
-Ordinary completion on arbitrary \(R[q]\)-modules is not exact. At
-\(t=q-1\), consider
-\(0\to\bigoplus_{k\geq1}\mathbb Z[q]\to
-\bigoplus_{k\geq1}\mathbb Z[q]\to
-\bigoplus_{k\geq1}\mathbb Z[q]/(t^k)\to0\), where the first map is
-multiplication by \(t^k\) on the kth summand. The family \((t^k)_k\)
-belongs to the completed middle module and maps to zero on the right.
-Its prospective preimage would have all coordinates one and is not in
-the completed left direct sum, since its reduction modulo \(t\) has
-infinite support. This does not contradict the exactness of
-\(M\mapsto M[q]^S\), which varies the coefficient module instead of an
-arbitrary q-module. The comparison uses H, §7.1, p. 1142, for the
-Laurent completion; HabiroRings Layer 2's derived Habiro completion interface for the
-derived object. *Needs:* Layer 1 divisibility-indexed adic
-presentation, Layer 2 Laurent equivalence, Layer 5 polynomial-module exactness,
-and HabiroRings Layer 2, its completed-module comparison. All other classical results
-here are independent of that derived construction.
+State `completedDirectSum_eq_nullFamilies`: for
+\(B=\bigoplus_{k\geq1}\mathbb Z[q]\), the coordinate maps identify
+\(\widehat B\) with the families \((x_k)_k\) in
+\(\prod_{k\geq1}H_{\mathbb Z}\) such that, for every N, only finitely
+many \(x_k\) have nonzero projection modulo \(P_N\). Indeed
+\(B/P_NB=\bigoplus_{k\geq1}\mathbb Z[q]/(P_N)\); compatible finite-support
+residues reconstruct exactly such a family. The bound on support may depend
+on N. This is a submodule of the product, not a direct sum of completed
+modules or the unrestricted product.
 
+Prove `factorialDiagonal_nonexact` from the short exact sequence
+
+\[
+ 0\longrightarrow B\xrightarrow{d}B\longrightarrow
+ C:=\bigoplus_{k\geq1}\mathbb Z[q]/(P_k)\longrightarrow0,
+ \qquad d((b_k)_k)=(P_kb_k)_k.
+\]
+
+Each \(P_k\) is regular on \(\mathbb Z[q]\), so the first map is
+injective and its cokernel is the displayed C. The family
+\(x=(P_k)_{k\geq1}\) belongs to \(\widehat B\): modulo \(P_N\)
+every coordinate k≥N vanishes. Its image in \(\widehat C\) is zero,
+since every coordinate P_k is zero in its own quotient. A preimage under
+\(\widehat d\) would have all coordinates one, by regularity of P_k
+on the classical completion (§1.2). This family has infinitely many
+nonzero coordinates modulo \(P_1=1-q\), whose quotient is ℤ, and
+therefore does not belong to \(\widehat B\). Thus completion fails
+exactness at the middle term. The maps use P_k, and the family uses the
+same P_k; replacing these by powers of q−1 changes the topology tested.
+
+This argument distinguishes the exact coefficient-module functor of §5.1
+from the ordinary completion functor on all polynomial-ring modules. Its
+source inputs are the cyclotomic inverse-limit definition in H, §3.1,
+pp. 1130–1131, and the polynomial-module construction in H, §7.3,
+Theorem 7.1 and its proof, p. 1144; the diagonal counterexample follows by
+the calculation above. *Needs:* §1.2 completed regularity and projections,
+§1.4 factorial cofinality, and §5.1 polynomial-module completion and its
+product comparison. No derived construction enters this argument.
 
 **Checks.**
 
-- The named target `ordinaryDerivedComparison` applies to the zero module and to polynomial modules; an arbitrary q-torsion module is subject to the explicit negative example, so its ordinary completion functor is not claimed exact.
-- The derived statement requires the named derived supplier. It is recorded in the closing Lean comment rather than encoded as an untyped placeholder.
+- `factorialModuleCompletion`: the zero module has zero completion.
+- `factorialModuleCompletion`: for A=M[q] its finite projections and scalar action agree with §5.1 at all positive orders, also for M=𝔽₂.
+- `factorialModuleCompletion`: for A=ℤ[q]/(P_r), r≥1, the canonical map A→Â is an isomorphism, since the quotient tower is constant after N≥r. Its N=0 projection is zero because P₀=1.
+- `completedDirectSum_eq_nullFamilies`: (P_k) is admitted, since its projection modulo P_N has support contained in {1,…,N−1}; at N=1 this support is empty.
+- `completedDirectSum_eq_nullFamilies`: the family of ones is rejected, since every coordinate remains 1 in ℤ[q]/(P₁)=ℤ. The nonzero constant family cannot be silently treated as a completed direct sum.
+- `factorialDiagonal_nonexact`: the admitted family (P_k) maps to zero in the completed cokernel, but its only coordinatewise preimage is the rejected family of ones.
+- A family ((q−1)^k) is rejected in the full Habiro topology: modulo Φ₂=q+1 its entries are (−2)^k, all nonzero in ℤ. Such a family only supplies the analogous single-order adic example.
 
 ### Examples
 
-The zero module, finitely presented tensor comparison, Δ=1, Δ=3 and Δ=6 components, and the excluded Φ₂ localization are the boundary cases. The q-torsion example applies to arbitrary R[q]-modules, not to the polynomial coefficient modules in the exactness theorem.
+The zero module, finitely presented tensor comparison, Δ=1, Δ=3 and Δ=6 components, and the excluded Φ₂ localization are the boundary cases. The factorial diagonal sequence tests arbitrary R[q]-modules; the coefficient-module functor remains exact.
 
 ### Dependencies
 
-Layers 1–4, Mathlib polynomial modules, exact sequences, localization, fraction rings and algebra automorphisms. The derived comparison is conditional on the named HabiroRings supplier and introduces no derived carrier here.
+Layers 1–4, Mathlib polynomial modules, exact sequences, localization, fraction rings and algebra automorphisms. All completion constructions in this layer are ordinary inverse limits.
 
 ## Layer 6: reference calculations and the exported interface
 
@@ -2794,8 +2854,8 @@ The construction sequence is determined by the dependencies:
    and integral image congruences.
 5. Build the exact polynomial-module functor and comaximal component
    decomposition in Layer 5. Derive rational and localized-integer behavior,
-   Galois domain factors, and localization comparisons. The derived
-   comparison consumes HabiroRings Layer 2's existing supplier interface.
+   Galois domain factors, localization comparisons, and the factorial
+   diagonal counterexample for arbitrary polynomial-ring modules.
 6. Prove the examples in Layer 6 using their completed projection equations.
    In particular the projector digit calculations use both Layer 4 and Layer 5.
 
@@ -2813,7 +2873,7 @@ theorems. The Taylor comparison uses universal root algebras and the
 strict precision bound \(ml<N\), provide both adjugate identities, and
 reconstruct a global preimage from compatible finite preimages. The module
 API proves exactness for polynomial coefficient modules, products and
-finite presentations with the declared generality, while the q-torsion
+finite presentations with the declared generality, while the factorial diagonal
 counterexample remains a separate statement. The examples above exercise
 these contracts through ring maps and quotient maps, rather than treating
 the displayed series as unsupported formal symbols.
@@ -2826,6 +2886,19 @@ The completed-ring values are tested against finite polynomial residues; altered
 ### Dependencies
 
 Layers 1–5, with the exact prerequisites stated beside each calculation. Projector digits require the component theorem as well as rational finite inversion.
+
+## Downstream consumers
+
+The consumer table in Scope and ownership fixes the exported interfaces.
+In particular, HabiroRings §2.4 receives the factorial topology (§1.4),
+Laurent comparison (§2.3), and exact ordinary coefficient-module completion
+(§5.1) before constructing its derived comparison. The ordinary
+arbitrary-module counterexample in §5.5 is available to that receiver.
+HabiroNumberFields receives the classical coefficient-change and localized
+component maps for its arithmetic comparison. Q-series consumers receive
+the integral toolkit separately from the completed-ring evaluation and
+rigidity interfaces. These are outgoing edges; every construction input
+of this roadmap is a library contract above or an earlier layer here.
 
 ## References
 
