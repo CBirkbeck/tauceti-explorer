@@ -153916,6 +153916,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-PolylogarithmFunctions~codex1.md"
+  },
+  {
+   "id": "REV-PKG-HabiroCohomologyFoundations~codex6",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HabiroCohomologyFoundations~codex6.md",
+    "research/blueprint/packages/HabiroCohomologyFoundations/review.json",
+    "research/blueprint/packages/HabiroCohomologyFoundations/README.md",
+    "research/blueprint/packages/HabiroCohomologyFoundations/Suggested.lean",
+    "research/blueprint/packages/HabiroCohomologyFoundations/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~codex6.md"
   }
  ]
 }
