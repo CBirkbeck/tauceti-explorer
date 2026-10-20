@@ -129,20 +129,6 @@ theorem stickelberger_smoothing_annihilates (m b : ℕ) [NeZero m]
         (b * a.val.val / m)) = 1 := by
   sorry
 
-/-! ## Layer 3: finite first Bernoulli sums -/
-
-/-- Finite first Bernoulli sum at the displayed modulus. -/
-noncomputable def firstCharacterBernoulli {F : Type*} [Field F]
-    (m : ℕ) (χ : DirichletCharacter F m) : F :=
-  (m : F)⁻¹ * ∑ a : Fin m, (a.val : F) * χ (a.val : ZMod m)
-example : firstCharacterBernoulli 4
-    (ZMod.χ₄.ringHomComp (Int.castRingHom ℚ)) = -1 / 2 := by
-  norm_num [firstCharacterBernoulli, Fin.sum_univ_succ,
-    MulChar.ringHomComp_apply, ZMod.χ₄_nat_eq_if_mod_four]
-example (χ : DirichletCharacter ℚ 3) (h₁ : χ 1 = 1) (h₂ : χ 2 = -1) :
-    firstCharacterBernoulli 3 χ = -1 / 3 := by
-  norm_num [firstCharacterBernoulli, Fin.sum_univ_succ, h₁, h₂]
-
 /-! ## Layer 4: the characterwise Herbrand–Ribet theorem -/
 
 /-- The centered odd residue matrix, with rows indexed by a and columns by b. -/
