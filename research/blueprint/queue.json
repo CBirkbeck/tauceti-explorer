@@ -152879,6 +152879,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroNumberFields~adv.md"
+  },
+  {
+   "id": "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsCyclotomicMainConjecture"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/review.json",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/README.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4.md"
   }
  ]
 }
