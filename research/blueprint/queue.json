@@ -152465,6 +152465,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-HabiroRings~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroRings"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HabiroRings~adv.md",
+    "research/blueprint/packages/HabiroRings/review.json",
+    "research/blueprint/packages/HabiroRings/README.md",
+    "research/blueprint/packages/HabiroRings/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv.md"
   }
  ]
 }
