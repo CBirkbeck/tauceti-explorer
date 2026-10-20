@@ -4,15 +4,16 @@ import Mathlib
 # Habiro rings: representative target signatures
 
 The mathematical roadmap is `README.md`. This file records definitions and theorem signatures
-statable on the pinned Mathlib carriers and is not exhaustive. In particular, the relative Habiro
-ring, enhanced completion and descent, the ordinary/derived comparison, and solid spectral
-comparisons remain targets in the README. Layer 2 records the native Laurent regularity and
-factorial divisibility milestones used by those comparisons.
+statable on the pinned Mathlib carriers and is not exhaustive. The Habiro completion, its tensor,
+finite cyclotomic descent and the étale coefficient lifts are interfaces of
+HabiroCohomologyFoundations Layer 0, and perfect covers and the completed étale Frobenius are
+QWittVectors interfaces; this file states none of them. The ordinary relative Habiro ring, the
+Laurent and base-change comparisons, the ordinary/derived comparison and the solid spectral
+comparisons remain README targets, since their carriers are not at the pins. Layer 2 records the
+native Laurent regularity and factorial divisibility milestones used by those comparisons.
 
-Prime completion here is Mathlib's ordinary `AdicCompletion`. The Frobenius milestone only needs
-an endomorphism of the base lifting Frobenius; the full relative construction uses perfectly
-covered Λ-rings. The line milestone works over an arbitrary commutative coefficient ring. The
-order-one trivialization remembers the actual evaluator, including its normalization.
+The line milestone works over an arbitrary commutative coefficient ring. The order-one
+trivialization remembers the actual evaluator, including its normalization.
 -/
 
 namespace TauCetiRoadmap.HabiroRings
@@ -21,28 +22,6 @@ open scoped TensorProduct NumberField
 open Polynomial
 
 universe u v
-
-/-! ## Layer 1: perfect covers and completed Frobenius -/
-
-section Frobenius
-
-variable {A : Type u} {R : Type v} [CommRing A] [CommRing R] [Algebra A R]
-  [Algebra.Etale A R]
-
-/-- An étale algebra has a unique Frobenius lift after prime completion, semilinear for the
-chosen Frobenius lift on the base. This is the ordinary-completion milestone of Layer 1;
-Wagner, §2.2, 2.7, p.15. The endomorphism itself need not be invertible. -/
-theorem frobLift_existsUnique (p : ℕ) (hp : p.Prime) (ψ : A →+* A)
-    (hψ : ∀ a : A, ψ a - a ^ p ∈ Ideal.span {(p : A)}) :
-    let Rp := AdicCompletion (Ideal.span {(p : R)}) R
-    ∃! φ : Rp →+* Rp,
-      (∀ a : A,
-        φ (algebraMap R Rp (algebraMap A R a)) =
-          algebraMap R Rp (algebraMap A R (ψ a))) ∧
-      ∀ x : Rp, φ x - x ^ p ∈ Ideal.span {(p : Rp)} := by
-  sorry
-
-end Frobenius
 
 /-! ## Layer 2: ordinary coefficients and factorial tensor weights -/
 
@@ -180,31 +159,23 @@ theorem completedRegulatorTriviality {P : Type v} [AddCommGroup P]
 end CompletedLine
 
 /-!
-The remaining definitions are specified in README.md:
+The remaining targets are specified in README.md:
 
-* Supplier interfaces: big and truncated Witt vectors, Dwork ghost sequences, Witt Frobenius,
-  Verschiebung, restriction and Teichmüller maps, the Witt comonad and its coalgebras, arithmetic
-  Λ-rings and Λ-maps, Adams and exterior operations, the cofree and free Λ-rings, their sections
-  and prime-local presentations; absolute and relative q-Witt vectors, their comparison maps
-  and relative ghosts. These belong to QWittVectors.
-* Layer 1: `LambdaRing.colimPerfection`, `LambdaRing.IsPerfectlyCovered`, relative Frobenius in
-  characteristic p, its completed linearization and the category of pairs.
-* Layer 2: `habiroLocalisation`, `IsHabiroComplete`, `habiroCompletion`, complete module
-  categories and their completed tensor, the localization resolution and ordinary/derived
-  comparison equivalence; `SphericalCyclotomicLocalization`, `SpectralHabiroCompletion`,
-  `SolidHabiroCompletion`, null families and countable tensor profiles.
-* Layer 3: the finite prime-chain index and reduced index, coherent completion diagrams,
-  localization/descent categories, prime-edge gluing data and arithmetic fracture objects.
-* Layer 4: `EtaleDeformation`, `CompletedEtaleLift`, marked principal deformations,
-  `RelHabiroStage` and its coherent ghost and Frobenius transition diagrams.
+* Layer 1: the category `EtalePair` of perfectly covered Λ-bases with étale algebras.
+* Layer 2: `habiroLocalisation`, `IsHabiroComplete` in the Laurent convention,
+  `habiroCompletion_polynomial_eq_laurent`, `isHabiroComplete_iff_restrictScalars`,
+  `habiroCompletion_eq_zero_iff`, the localization resolution and homotopy-module criterion,
+  `ordinaryDerivedComparison`, `habiroTensor_baseChange`; `SphericalCyclotomicLocalization`,
+  `SpectralHabiroCompletion`, `SolidHabiroCompletion`, null families and countable tensor profiles.
+* Layer 3: the finite prime-chain index and reduced index, the descent principle for monoidal
+  localizations and `CyclotomicIndex.mapEqualizer`.
+* Layer 4: `RelHabiroStage` with its maps along morphisms of pairs.
 * Layer 5: `relativeHabiro`, compatible cyclotomic roots, full Taylor coefficient algebras,
   canonical and Frobenius re-expansion arrows, and the Taylor equalizer presentation.
 * Layer 6: `completedScalarExtension`, transported actual K₃ lines and their supported
   field comparison maps, the q−1 completion map and integral order-one evaluation.
 
-These enhanced, Witt, spectral and relative carriers are not constructed in this file.
-The étale Habiro–Hodge comparison is a downstream contract owned by
-HabiroCohomologyFoundations §4.21.
+These enhanced, spectral and relative carriers are not constructed in this file.
 -/
 
 end TauCetiRoadmap.HabiroRings
