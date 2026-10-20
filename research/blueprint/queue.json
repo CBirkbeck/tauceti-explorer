@@ -153896,6 +153896,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicPadicLFunctions~adv.md"
+  },
+  {
+   "id": "REV-PKG-PolylogarithmFunctions~codex1",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PolylogarithmFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PolylogarithmFunctions~codex1.md",
+    "research/blueprint/packages/PolylogarithmFunctions/review.json",
+    "research/blueprint/packages/PolylogarithmFunctions/README.md",
+    "research/blueprint/packages/PolylogarithmFunctions/Suggested.lean",
+    "research/blueprint/packages/PolylogarithmFunctions/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PolylogarithmFunctions~codex1.md"
   }
  ]
 }
