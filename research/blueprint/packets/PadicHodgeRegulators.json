@@ -5795,10 +5795,10 @@
   "leanValidation": {
     "command": "lean-check research/blueprint/suggested/PadicHodgeRegulators.lean",
     "date": "2026-10-20",
-    "result": "exit 0; only the nine intended theorem-admission warnings",
+    "result": "exit 0; only the ten intended theorem-admission warnings",
     "definitions": 4,
-    "provedExamples": 6,
-    "lines": 198,
+    "provedExamples": 8,
+    "lines": 229,
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369",
     "independentReview": {
@@ -5818,6 +5818,12 @@
         "date": "2026-10-19",
         "result": "exit 0; only the nine intended theorem-admission warnings",
         "lines": 192
+      },
+      {
+        "command": "lean-check research/blueprint/suggested/PadicHodgeRegulators.lean",
+        "date": "2026-10-20",
+        "result": "Before the second independent review's additions: exit 0; nine intended theorem-admission warnings; four definitions and six proved examples.",
+        "lines": 198
       }
     ],
     "imports": "Seven individual Mathlib modules (Algebra.BigOperators.Intervals, FieldTheory.Finite.GaloisField, LinearAlgebra.Dimension.Finrank, LinearAlgebra.Matrix.Determinant.Basic, LinearAlgebra.Matrix.Notation, NumberTheory.Padics.PadicIntegers, Tactic.NormNum) in place of the whole-library import, as PROTOCOL section 13 asks; no declaration changed.",
@@ -5834,6 +5840,13 @@
       "result": "Added the residue-function API items and tests (two proved examples, one proved functoriality theorem, one admitted cancellation theorem). lean-check at the pins: exit 0, with only the ten intended theorem-admission warnings.",
       "lines": 229,
       "memoryAvailableGiB": 83
+    },
+    "revision3": {
+      "by": "BP-PadicHodgeRegulators~3",
+      "session": "codex-ZI4oNx",
+      "date": "2026-10-20",
+      "memoryAvailableGiB": 80,
+      "result": "Rechecked the unchanged 229-line file at the recorded pins: exit 0, ten theorem-admission warnings only, four real-bodied definitions and eight proved examples. The second independent review already accepted the plan; this refreshes the stale top-level validation counts without changing a mathematical declaration or an independent verdict."
     }
   },
   "review": {
