@@ -153582,6 +153582,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex3.md"
+  },
+  {
+   "id": "FIX-PKG-MotivesAndAlgebraicCycles~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-MotivesAndAlgebraicCycles~adv2.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/review.json",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/README.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-MotivesAndAlgebraicCycles~adv2.md"
   }
  ]
 }
