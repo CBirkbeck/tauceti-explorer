@@ -58,8 +58,10 @@ The following are prerequisites and boundaries, rather than additional targets.
   interfaces. [EtaleDualityAndPerverseSheaves][EDC], §0.2, includes regular
   bases of dimension at most one with invertible coefficients. Its six
   operations give the input to the Kato-specific homology/niveau assembly
-  in §6.5. Wild geometric comparisons and a global proper alteration of
-  degree prime to a chosen prime require the further contracts below.
+  in §6.5. Wild geometric comparisons require the further contracts below.
+  [AdicCoefficientsAndComparisons, Part II][ACCII], PA.6, owns Gabber's
+  degree-controlled alterations, including the global variety theorem
+  used in the Hasse argument.
 - Mathlib's `RestrictedProduct` and
   [Completed/RestrictedProducts][RP] supply ordinary restricted products, maps,
   reindexing and decompositions. Higher adelic restrictedness is recursive and
@@ -298,7 +300,7 @@ construction and from the field symbol isomorphism.
 | `logWittFieldTransfer` | For any finite extension L/E of characteristic-p fields, every s≥1 and i≥0, the map on H⁰ of logarithmic Witt sheaves is `dlog_E ∘ N^M_{L/E} ∘ dlog_L⁻¹`; its étale-base-change compatibility defines a sheaf trace and hence the H¹ corestriction. Require transitivity, projection formulas and restriction of Witt length. This includes inseparable extensions. [JSS], §0.6, (0.6.3)–(0.6.5), p. 10. Equality with an independently constructed Gros trace has the finitely-generated-over-a-perfect-field scope stated there and in Lemma A.1.1 and Corollary A.2.8, pp. 57–62. | §§2.5–2.7, 4.5, 5.4, 7.4 |
 | `logWittDVRComparison` | For an excellent characteristic-p DVR A with fraction field E and residue k, every s≥1 and i≥0, compare the last-uniformizer Milnor boundary modulo p^s with logarithmic residue on H⁰. The induced Kato H¹ boundary has the form `H^(i+2)(E,ℤ/p^s(i+1)) → H^(i+1)(k,ℤ/p^s(i))` and retains `[k:k^p]≤p^i`. Keep normalization-branch traces. The field construction is [JSS], §0.6, pp. 8–10; the geometric comparison for smooth schemes over a perfect field is Theorem 2.1.1, pp. 19–22 and Theorem 2.11.3, pp. 31–32. A transported field map alone does not establish the geometric comparison. | §§2.6, 4.5, 5.4, 6.5, 7.4 |
 | `logWittRegularPurity` | For every s≥1, a regular closed immersion Z→X between regular characteristic-p schemes, of codimension c and with `[κ(η):κ(η)^p]=p^N` at every generic point η of X, require `H^q(Z,W_sΩ^{i−c}_log) ≃ H_Z^{q+c}(X,W_sΩ^i_log)` in the source's ranges: q=0, or q>0 and i=N with X excellent and finite p-rank. [Shiho], Theorem 3.2, pp. 583–584 and Proposition 2.22, p. 582. The comparison with the Kato differential on an excellent regular scheme is Theorem 5.4 only at s=1; Remark 5.5, pp. 609–610, explicitly distinguishes the further finite-length comparison. Theorem 5.2's all-length Gersten exactness does not identify all those geometric differentials. | wild §§5.4, 6.5, 6.8, 7.4 |
-| `mixedKatoDualizingComparison` | For a henselian mixed-characteristic DVR with perfect residue field, separated finite-type f:X→S and s≥1, construct `T_s = Cone(Rj_*μ_{p^s} → i_*ℤ/p^s[−1])[−1]` using normalized valuation. Require `j*T_s=μ_{p^s}`, `Ri!T_s=ℤ/p^s[−2]`, and identify the localization of `Rf!T_s` with Kato's branch residue, including its sign. [JSS], Theorem 3.2.1, p. 35, Definition 3.9.1 and (3.9.2)–(3.9.5), pp. 43–44, Theorem 3.10.2, pp. 45–46. This theorem permits imperfect fields at points of X; it does not permit an imperfect residue field of the base S. An imperfect-base extension, when used, needs its own theorem. | mixed-wild §§2.5–2.6, 5.4, 6.5, 7.4 |
+| `mixedKatoDualizingComparison` | For a henselian mixed-characteristic DVR with perfect residue field, separated finite-type f:X→S and s≥1, construct `T_s = Cone(Rj_*μ_{p^s} → i_*ℤ/p^s[−1])[−1]` using normalized valuation. Require `j*T_s≃μ_{p^s}`, `Ri^!T_s≃ℤ/p^s[−2]`, and the exceptional-pullback comparison for `E_X=Rf^!T_s` on X specified below. [JSS], Theorem 3.2.1, p. 35, Definition 3.9.1 and (3.9.2)–(3.9.5), pp. 43–44, Theorem 3.10.2, pp. 45–46. This theorem permits imperfect fields at points of X; it does not permit an imperfect residue field of the base S. An imperfect-base extension, when used, needs its own theorem. | mixed-wild §§2.5–2.6, 5.4, 6.5, 7.4 |
 
 Negative form degrees in these contracts denote the zero sheaf.
 
@@ -322,17 +324,69 @@ specified geometric identifications.
   and to a closed-point exceptional pullback in degree 2. Using the
   constant μ_{p^s} sheaf on the entire trait loses this special fibre.
 
-### Degree-controlled alteration and descent requirement
+The mixed export has four required fields. Write η and z for the generic
+and closed points of S, with inclusions j and i, and put Λ=ℤ/p^s.
+The coefficient object T_s belongs to `D^b(S_et,Λ)`. Its
+`mixedKatoDualizingComparison.baseTriangle` is
 
-The required export `properPrimeToEllAlteration` extends [SF], §4.19.
+```text
+i_*Λ[−2] → T_s → Rj_*μ_{p^s} → i_*Λ[−1].
+```
+
+The last map is induced by the normalized valuation on K×/K×^(p^s).
+Use the unique mapping fibre of this particular map: the concentration
+in degrees 0 and 1 and the valuation surjection give the uniqueness
+criterion in [JSS], Lemma 0.5.3(1), p. 7 and Definition 3.9.1, p. 43.
+This does not require functorial choices of cones for arbitrary derived maps.
+
+For f:X→S, let `E_η=Rf_η^!μ_{p^s}` on X_η and
+`E_z=Rf_z^!Λ` on X_z. The field
+`mixedKatoDualizingComparison.exceptionalPullback` identifies the image
+of the base triangle under `Rf^!` with
+
+```text
+i_X*E_z[−2] → E_X → Rj_X*E_η → i_X*E_z[−1],
+E_X = Rf^!T_s ∈ D^+(X_et,Λ).
+```
+
+Thus the coefficient is pulled from S to X before homology is taken.
+The field `mixedKatoDualizingComparison.localizationSign` states that
+the last arrow `δ_val,X=Rf^!(δ_val,S)` is `−δ_loc(E_X)` in the
+convention of §6.5. It satisfies Kato's pointwise residue condition
+in every degree q≥0, including normalization-branch traces. The field
+`mixedKatoDualizingComparison.pointComparison` gives the compatible
+point purity isomorphisms and identifies the unconverted niveau d¹
+with `−∂_first`; §6.5 then converts to the last-slot convention.
+These are [JSS], Theorem 3.2.1, p. 35, (3.9.4)–(3.9.5), p. 44,
+Lemma 3.9.6, pp. 44–45 and Theorem 3.10.2, pp. 45–46.
+
+**Checks for the mixed comparison.**
+
+- For f=j, exceptional pullback is restriction, so `E_X=μ_{p^s}`
+  and §6.5 gives `H_a(η/S)=H^(2−a)(η,μ_{p^s})`.
+- For f=i, `E_X=Λ[−2]`, so `H_a(z/S)=H^(−a)(z,Λ)`.
+  This differs by two degrees from the generic formula. Both identifications
+  are on X; an exceptional direct image has the opposite direction.
+- For S=Spec ℤ_2 and s=2, the Kummer class of 2 has valuation
+  boundary 1 mod 4, whereas a unit has boundary 0. The corresponding
+  `δ_loc` values are 3 and 0 mod 4. Length one at p=2 would not
+  distinguish the two signs, so it cannot replace this witness.
+
+### Degree-controlled alterations and Hasse descent
+
+Import [ACCII], §PA.6.9, `prime-to-ell-variety-alteration`, from
+§PA.6.7's `gabber-ell-prime-field`.
 Let X be integral separated of finite type over any field L, Y⊊X closed,
 and ℓ invertible in L. Require a finite L'/L of degree prime to ℓ, a
 connected smooth quasi-projective L'-scheme X', and a proper surjective
 L-map π:X'→X, with `[L'(X'):L(X)]` prime to ℓ and reduced π⁻¹Y an SNC
-divisor. If X is proper, X' is smooth projective. The constants and
-generic degrees are separate data. This is the exact global form in
-[Jannsen], Theorem 2.11, pp. 24–25; its use in Theorem 2.10 is on a
-proper model with Y the complement of the chosen open.
+divisor. The supplying theorem gives a projective alteration; taking a
+connected component retains domination and the degree condition. If X is
+proper, X' is proper and quasi-projective over L', hence smooth projective.
+The constants and generic degrees are separate data. This is the global
+form in [Jannsen], Theorem 2.11, pp. 24–25, supplied by [ILO], Exposé X,
+Theorem 2.1 and §2.3, pp. 149–152 of arXiv v1. Its use in Theorem 2.10
+is on a proper model with Y the complement of the chosen open.
 
 The higher Hasse argument additionally needs `HigherHasse.alterationDescent`:
 factor F'/F through its maximal separable subextension F_s/F. The remaining
@@ -358,10 +412,10 @@ the generic alteration theorem keeps its geometric owner.
 [EDC, Part II][EDCII], `EQ.2/prime-to-ell-local-uniformization`, supplies a
 regular SNC covering family. Its `EQ.0/standard-form-covers` gives a proper
 generic-degree-prime-to-ℓ intermediate scheme, but does not say that this
-intermediate scheme is regular. Their composition therefore does not yet
-supply `properPrimeToEllAlteration`. Ordinary de Jong alterations and proper
-hypercover descent also do not give its trace splitting. Sections 6.8–6.9
-retain this precise prerequisite.
+intermediate scheme is regular. Use [ACCII]'s field-base global theorem
+for the proper smooth alteration in §§6.8–6.9. The geometric existence
+theorem remains in its supplying direction; this roadmap assembles its
+restriction/corestriction application.
 
 ## How to read the build
 
@@ -2463,7 +2517,7 @@ does not meet the theorem's hypotheses until the real-place terms
 are also handled.
 
 *Needs:* §6.6, §2.2, [PC]'s cohomological dimension and transfer,
-the global proper degree-prime-to-ℓ alteration contract, [MEK]'s norm-residue
+[ACCII], §§PA.6.7 and PA.6.9's global prime-to-ℓ alteration, [MEK]'s norm-residue
 contract and the weight argument. Sources: [Jannsen], Theorem 0.4
 and finite-coefficient reduction, pp. 2–3, Theorems 2.10–2.12 and
 proof, pp. 24–25; [DP], Fact 2.1, p. 4.
@@ -2551,7 +2605,7 @@ Match the explicit restriction maps and signs to the source's complexes.
 
 *Needs:* §6.5's homology/localization and signed residue comparison,
 §6.8, finite-coefficient Bockstein and `HigherHasse.alterationDescent`,
-including its required global degree-controlled geometric input. Sources:
+with [ACCII], §§PA.6.7 and PA.6.9's global degree-controlled input. Sources:
 [KS], Theorems 8.3–8.4 and proofs, pp. 171–174. The field cone,
 arithmetic cone and finite-field row have different indexing data and
 must not be substituted for each other.
@@ -2735,6 +2789,11 @@ front-matter pages before positive printed pagination.
   constructible sheaves on arithmetic schemes*, arXiv:0910.3759v1 (2009).
   Locators use this version's printed pagination, especially §§0.6,
   1.5, 2.11, 3.9–3.10 and Appendix A. [Versioned author PDF][JSS].
+- **[ILO]** L. Illusie, Y. Laszlo and F. Orgogozo, editors,
+  *Travaux de Gabber sur l'uniformisation locale et la cohomologie étale
+  des schémas quasi-excellents*, arXiv:1207.3648v1 (2012).
+  Exposé X by L. Illusie and M. Temkin, Theorem 2.1 and §2.3,
+  pp. 149–152 in this version. [Versioned author PDF][ILO].
 
 The roadmap suppliers linked below are mathematical boundaries: their
 planned interfaces are imported, rather than repeated here.
@@ -2754,6 +2813,7 @@ planned interfaces are imported, rather than repeated here.
 [SF]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/SchemeAndStackFoundations
 [EDC]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a0e8eeeb7bef06a13fdbda9d7c5551b368da248/TauCetiRoadmap/EtaleDualityAndPerverseSheaves/README.md
 [EDCII]: ../../readmes/EtaleDualityAndPerverseSheavesPartII.md
+[ACCII]: ../../readmes/AdicCoefficientsAndComparisonsPartII.md
 [CE]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/4bd72379658126cbe9be935656396f0c9dac4de0/TauCetiRoadmap/CohomologicalPointCounting/ConstructibleEtale/README.md
 [PBL]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/6726bb6f42cdcfb40ddee74d6b1e22dfd04f1182/TauCetiRoadmap/PurityOfBranchLocus/README.md
 [LPV]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/1b8f741b92693436a0dd0984a2c0c6ce7033a629/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md
@@ -2766,3 +2826,4 @@ planned interfaces are imported, rather than repeated here.
 [DP]: https://arxiv.org/pdf/2012.01307v2
 [Shiho]: https://www.ms.u-tokyo.ac.jp/journal/pdf/jms140404.pdf
 [JSS]: https://arxiv.org/pdf/0910.3759v1
+[ILO]: https://arxiv.org/pdf/1207.3648v1

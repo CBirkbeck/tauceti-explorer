@@ -179,6 +179,8 @@ KatoCohomology (finiteToTorsion, primary, wild, torsion); logarithmic coefficien
 comparisons, admissible residue/trace maps and the higher invariant;
 KatoConductor (filtration, monotone, unramified, annihilatesUnits, gradedPairing,
 cyclotomicDescent), KatoConductorDuality and KatoCharacterDuality.
+The required mixedKatoDualizingComparison supplier interface has baseTriangle,
+exceptionalPullback, localizationSign and pointComparison fields, with E_X = Rf^!T_s.
 
 Layer 3: HigherReciprocity (artin, evaluate, norm, residue, completion,
 completionEquiv, kernel, dense); ASTree (tower, strong); ASReciprocity
@@ -206,7 +208,8 @@ KatoComplex (term, differential, niveauSign, niveauRow, squareZero, homology);
 ConstantPlaceField (field, intoCompletedConstants, restriction, archimedean);
 ResolutionF2 (properResolution, sncCompactification, ofClauses); global/arithmetic
 Kato cones with the README's explicit shift and differential conventions;
-HigherHasse.alterationDescent with its separate degree-controlled geometric input.
+HigherHasse.alterationDescent uses AdicCoefficientsAndComparisonsPartII PA.6's
+global prime-to-degree alteration theorem.
 
 Layer 7 comparison targets use these common carriers when supplied; none is replaced
 by a weaker placeholder signature here.
