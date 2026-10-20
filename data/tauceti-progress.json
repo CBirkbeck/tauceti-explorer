@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-20T03:59:35Z",
- "exported_at": "2026-10-20T03:59:35Z",
+ "cutoff": "2026-10-20T09:04:17Z",
+ "exported_at": "2026-10-20T09:04:17Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 334,
-  "recent": 10599,
-  "total": 17392,
+  "open": 333,
+  "recent": 10616,
+  "total": 17444,
   "unattributed": {
-   "no_label": 1590,
+   "no_label": 1592,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    2267,
    2827,
    3120,
-   586
+   638
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "f125270ecd23dd6367fa2bf8f4bbb18cbda7a314",
+ "roadmap_head": "5753fe0bbd0858278c89a26a926d2c82b8aef6ae",
  "rows": [
   {
    "activity": {
-    "last": null,
+    "last": "2026-10-20T06:09:50Z",
     "open": 2,
-    "recent": 0,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -115,7 +115,7 @@
    "activity": {
     "last": "2026-10-20T02:28:19Z",
     "open": 2,
-    "recent": 294,
+    "recent": 293,
     "since_report": 85,
     "total": 599,
     "weekly": [
@@ -222,11 +222,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T19:20:35Z",
-    "open": 4,
-    "recent": 11,
+    "last": "2026-10-20T06:50:21Z",
+    "open": 3,
+    "recent": 12,
     "since_report": null,
-    "total": 11,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -243,7 +243,7 @@
      0,
      0,
      9,
-     2
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -329,6 +329,50 @@
    "topic": "Algebraic Geometry"
   },
   {
+   "activity": null,
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/AdicSpacesPartIV",
+   "layer_ids": [
+    "Layer R4",
+    "Layer R5",
+    "Layer F1"
+   ],
+   "layer_lines": [
+    562,
+    1777,
+    2968
+   ],
+   "layers": [
+    "Layer R4: étale and pro-étale sites",
+    "Layer R5: families and sousperfectoid spaces",
+    "Layer F1: dagger geometry and overconvergent de Rham complexes"
+   ],
+   "links": [],
+   "name": "AdicSpacesPartIV",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/AdicSpacesPartIV/README.md",
+   "readme_sha": "95e89aee739785fe31db730bd9adc59b309654f1209c7076f652d88b8849ca11",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "foundations of adic spaces, part IV — étale sites, families and dagger geometry",
+   "topic": "Algebraic Geometry"
+  },
+  {
    "activity": {
     "last": "2026-10-20T02:52:54Z",
     "open": 1,
@@ -382,11 +426,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:00:00Z",
-    "open": 6,
-    "recent": 8,
+    "last": "2026-10-20T04:23:50Z",
+    "open": 5,
+    "recent": 9,
     "since_report": null,
-    "total": 8,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -403,7 +447,7 @@
      0,
      0,
      7,
-     1
+     2
     ]
    },
    "arxiv": "math.CV",
@@ -434,11 +478,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T03:18:58Z",
-    "open": 7,
+    "last": "2026-10-20T04:12:11Z",
+    "open": 6,
     "recent": 234,
-    "since_report": 78,
-    "total": 319,
+    "since_report": 79,
+    "total": 320,
     "weekly": [
      0,
      0,
@@ -455,7 +499,7 @@
      48,
      70,
      77,
-     12
+     13
     ]
    },
    "arxiv": "math.AG",
@@ -580,7 +624,7 @@
    "activity": {
     "last": "2026-10-19T20:39:12Z",
     "open": 1,
-    "recent": 232,
+    "recent": 231,
     "since_report": 2,
     "total": 249,
     "weekly": [
@@ -604,9 +648,9 @@
    },
    "arxiv": "math.AT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Stage 4": "chain-level cellular-singular comparison through the skeletal filtration exact couple",
@@ -630,14 +674,14 @@
     "Stage 8"
    ],
    "layer_lines": [
-    154,
-    177,
-    204,
-    226,
-    290,
-    352,
-    398,
-    415
+    289,
+    326,
+    471,
+    499,
+    849,
+    946,
+    1573,
+    1602
    ],
    "layers": [
     "Stage 1: van Kampen through the fundamental groupoid",
@@ -647,14 +691,14 @@
     "Stage 5: bundles, covers, products, and finite-cover descent",
     "Stage 6: cohomology, products, and manifold duality",
     "Stage 7: Euler characteristic and finite decompositions",
-    "Stage 8: relative homotopy, Hurewicz, and Whitehead"
+    "Stage 8: relative homotopy, Hurewicz, Whitehead, and ordinary representability"
    ],
    "links": [],
    "name": "AlgebraicTopology",
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/AlgebraicTopology/README.md",
-   "readme_sha": "42430a88b1b2cbc66f8e8420b8d0f8d2c9c8631fb654d6e030b63eaa499ce041",
+   "readme_sha": "2e56903a43ef52841123e6bc7b135dcf23cda09bc7c902b20493e9d561446c4c",
    "retired": null,
    "states": [
     "done",
@@ -912,7 +956,7 @@
    "activity": {
     "last": "2026-10-20T00:55:19Z",
     "open": 2,
-    "recent": 107,
+    "recent": 106,
     "since_report": 48,
     "total": 131,
     "weekly": [
@@ -1033,11 +1077,11 @@
   },
   {
    "activity": {
-    "last": null,
+    "last": "2026-10-20T07:49:51Z",
     "open": 1,
-    "recent": 0,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -1054,7 +1098,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.FA",
@@ -1169,7 +1213,7 @@
    "activity": {
     "last": "2026-10-19T21:24:12Z",
     "open": 2,
-    "recent": 132,
+    "recent": 130,
     "since_report": 1,
     "total": 159,
     "weekly": [
@@ -1318,7 +1362,7 @@
   {
    "activity": {
     "last": "2026-10-19T21:54:14Z",
-    "open": 5,
+    "open": 6,
     "recent": 3,
     "since_report": null,
     "total": 3,
@@ -1371,7 +1415,7 @@
    "activity": {
     "last": "2026-10-19T20:53:25Z",
     "open": 2,
-    "recent": 78,
+    "recent": 75,
     "since_report": 4,
     "total": 192,
     "weekly": [
@@ -1620,7 +1664,7 @@
   {
    "activity": {
     "last": "2026-10-20T00:00:17Z",
-    "open": 2,
+    "open": 3,
     "recent": 428,
     "since_report": 146,
     "total": 462,
@@ -1861,7 +1905,7 @@
   {
    "activity": {
     "last": "2026-10-19T23:59:59Z",
-    "open": 2,
+    "open": 3,
     "recent": 25,
     "since_report": null,
     "total": 25,
@@ -2121,7 +2165,7 @@
   {
    "activity": {
     "last": "2026-10-19T11:20:44Z",
-    "open": 3,
+    "open": 4,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -2172,11 +2216,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 1,
-    "recent": 0,
+    "last": "2026-10-20T04:12:09Z",
+    "open": 0,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -2193,7 +2237,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.CV",
@@ -2225,7 +2269,7 @@
   {
    "activity": {
     "last": "2026-10-19T23:38:55Z",
-    "open": 1,
+    "open": 2,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -2421,11 +2465,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T23:40:08Z",
-    "open": 4,
-    "recent": 127,
-    "since_report": 37,
-    "total": 173,
+    "last": "2026-10-20T05:53:13Z",
+    "open": 3,
+    "recent": 129,
+    "since_report": 39,
+    "total": 175,
     "weekly": [
      0,
      0,
@@ -2442,7 +2486,7 @@
      32,
      20,
      42,
-     6
+     8
     ]
    },
    "arxiv": "math.CT",
@@ -2561,11 +2605,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:40:42Z",
-    "open": 7,
-    "recent": 118,
-    "since_report": 4,
-    "total": 118,
+    "last": "2026-10-20T06:50:54Z",
+    "open": 6,
+    "recent": 120,
+    "since_report": 6,
+    "total": 120,
     "weekly": [
      0,
      0,
@@ -2582,7 +2626,7 @@
      0,
      52,
      59,
-     7
+     9
     ]
    },
    "arxiv": "math.SG",
@@ -2888,11 +2932,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T01:40:05Z",
+    "last": "2026-10-20T05:19:55Z",
     "open": 9,
-    "recent": 131,
-    "since_report": 11,
-    "total": 131,
+    "recent": 132,
+    "since_report": 12,
+    "total": 132,
     "weekly": [
      0,
      0,
@@ -2909,7 +2953,7 @@
      0,
      18,
      90,
-     23
+     24
     ]
    },
    "arxiv": "math.DG",
@@ -3040,11 +3084,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T22:07:48Z",
-    "open": 3,
-    "recent": 72,
-    "since_report": 2,
-    "total": 72,
+    "last": "2026-10-20T06:50:19Z",
+    "open": 2,
+    "recent": 74,
+    "since_report": 4,
+    "total": 74,
     "weekly": [
      0,
      0,
@@ -3061,7 +3105,7 @@
      0,
      0,
      61,
-     11
+     13
     ]
    },
    "arxiv": "math.NT",
@@ -3156,8 +3200,8 @@
   {
    "activity": {
     "last": "2026-10-20T02:53:01Z",
-    "open": 5,
-    "recent": 268,
+    "open": 6,
+    "recent": 267,
     "since_report": 64,
     "total": 627,
     "weekly": [
@@ -3297,7 +3341,7 @@
   {
    "activity": {
     "last": "2026-10-20T02:28:01Z",
-    "open": 0,
+    "open": 1,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -3434,7 +3478,7 @@
    "activity": {
     "last": "2026-10-19T23:40:09Z",
     "open": 1,
-    "recent": 121,
+    "recent": 120,
     "since_report": 43,
     "total": 355,
     "weekly": [
@@ -3594,11 +3638,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T19:52:58Z",
-    "open": 5,
-    "recent": 26,
-    "since_report": null,
-    "total": 26,
+    "last": "2026-10-20T05:53:15Z",
+    "open": 4,
+    "recent": 27,
+    "since_report": 1,
+    "total": 27,
     "weekly": [
      0,
      0,
@@ -3615,7 +3659,7 @@
      0,
      0,
      17,
-     9
+     10
     ]
    },
    "arxiv": "math.AC",
@@ -3640,7 +3684,37 @@
    "readme_sha": "a5fe6e331bd4994841f1007c14ce9d00b92853a433158228d09745572fffbc22",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Formal Newton–Puiseux root theorem (L5)",
+      "text": "— Newton polygons and initial polynomials, the Tschirnhaus shift, ramify-and-rescale normalization, and the degree induction that splits off a coprime factor. The Hensel step it needs is in place, as are the common-level lift and the algebraicity needed to conclude algebraic closure."
+     },
+     {
+      "name": "Order-e residue formula and universal coefficient identity (L3)",
+      "text": "— Res(f(φ)Dφ dt) = e·Res(f dt) for φ of order e in all characteristics, via the identity in ℤ[x₀,…,x_(ek)][x₀⁻¹]. Only the order-one case exists. AlgebraicCurves Layer 9 consumes this."
+     },
+     {
+      "name": "Puiseux valuation and topology (L4)",
+      "text": "— restrict the Hahn additive valuation, prove the level embeddings are homeomorphisms onto their images, and exhibit Σ t^(j+1/(j+1)) as a Cauchy sequence with no Puiseux limit."
+     },
+     {
+      "name": "Vector- and Lie-valued Laurent series (L3)",
+      "text": "— HahnModule ℤ K V with lattice topology, its continuous dual V*((t))dt, and the coefficient-convolution Lie algebra L((t)) compared with LieAlgebra.LoopAlgebra.residuePairing."
+     },
+     {
+      "name": "Kummer structure of the levels (L6)",
+      "text": "— identify level n as the splitting field of X^n − t and consume Mathlib's Kummer theory; this waits on L5 for the finite-extension classification."
+     }
+    ],
+    "glance": "The coordinate-level calculus on K((t)) (L1–L2) is essentially complete, and the Puiseux field has been built on its Hahn-series carrier together with its ramified levels, their degrees and its colimit presentation (L4, without valuation or differentials). L3 is partial. L5 has only its coprime-factor Hensel lemma, and the Galois layers L6–L7 have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/FormalLaurentPuiseux/STATUS.md",
+    "progress_path": "TauCetiRoadmap/FormalLaurentPuiseux/PROGRESS.md",
+    "report_sha": "ff72515219c11bb8df827fb2ac73d166a32e9b6c7ee5bf1f8f8c1208c25de0d4",
+    "to_sha": "9fc5d5a87d00cb696e606ccdae66420cc837c05e",
+    "ts": "2026-10-19T21:24:00Z"
+   },
    "title": "Formal Laurent fields, Puiseux expansions and continuous differential calculus",
    "topic": "Commutative Algebra"
   },
@@ -3817,11 +3891,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T15:18:57Z",
-    "open": 2,
-    "recent": 13,
+    "last": "2026-10-20T05:53:16Z",
+    "open": 1,
+    "recent": 14,
     "since_report": null,
-    "total": 13,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -3838,7 +3912,7 @@
      0,
      0,
      10,
-     3
+     4
     ]
    },
    "arxiv": "math.AT",
@@ -3860,7 +3934,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/GeneralizedCohomology/README.md",
-   "readme_sha": "5f7bcac3c20fd2f14dc904eeaaffff78873431d03cbf1ba7a7c08ff2cf14cc11",
+   "readme_sha": "95217a136695f8c1f85f04f4ac6cb62252b0d640f9e0c36405c0b6dd7d818086",
    "retired": null,
    "states": [],
    "status": null,
@@ -3950,7 +4024,7 @@
   {
    "activity": {
     "last": "2026-10-19T23:39:42Z",
-    "open": 0,
+    "open": 1,
     "recent": 5,
     "since_report": null,
     "total": 5,
@@ -4001,11 +4075,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:30:30Z",
+    "last": "2026-10-20T03:59:59Z",
     "open": 3,
-    "recent": 386,
-    "since_report": 4,
-    "total": 504,
+    "recent": 387,
+    "since_report": 5,
+    "total": 505,
     "weekly": [
      3,
      3,
@@ -4022,7 +4096,7 @@
      80,
      214,
      57,
-     13
+     14
     ]
    },
    "arxiv": "math.GT",
@@ -4146,11 +4220,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:00:18Z",
+    "last": "2026-10-20T07:49:50Z",
     "open": 2,
     "recent": 130,
-    "since_report": 17,
-    "total": 150,
+    "since_report": 18,
+    "total": 151,
     "weekly": [
      0,
      0,
@@ -4167,7 +4241,7 @@
      37,
      30,
      16,
-     3
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -4405,7 +4479,7 @@
   {
    "activity": {
     "last": "2026-10-20T00:30:54Z",
-    "open": 3,
+    "open": 9,
     "recent": 21,
     "since_report": null,
     "total": 21,
@@ -4609,7 +4683,7 @@
    "activity": {
     "last": "2026-10-20T02:40:40Z",
     "open": 1,
-    "recent": 191,
+    "recent": 190,
     "since_report": 31,
     "total": 327,
     "weekly": [
@@ -4729,7 +4803,7 @@
   {
    "activity": {
     "last": "2026-10-19T18:31:31Z",
-    "open": 1,
+    "open": 4,
     "recent": 31,
     "since_report": 0,
     "total": 31,
@@ -4839,8 +4913,8 @@
    "activity": {
     "last": "2026-10-19T06:54:23Z",
     "open": 3,
-    "recent": 67,
-    "since_report": 17,
+    "recent": 66,
+    "since_report": 0,
     "total": 113,
     "weekly": [
      0,
@@ -4863,11 +4937,13 @@
    },
    "arxiv": "math.DG",
    "assessment": {
-    "detail": "the README changed after this report, so these states assess it as it was then",
+    "detail": null,
     "notes": {},
-    "readme_changed": true,
+    "readme_changed": false,
     "reason": "ok",
-    "remaining": {},
+    "remaining": {
+     "Layer 1": "existence of the nondegenerate Levi-Civita connection on a manifold, smooth metric families over P x M, and the variation formula for the connection"
+    },
     "source": "marker"
    },
    "completed": false,
@@ -4902,7 +4978,7 @@
    "retired": null,
    "states": [
     "done",
-    "done",
+    "partial",
     "done",
     "done",
     "done"
@@ -4910,21 +4986,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Nothing remains on this roadmap.",
-      "text": "Every milestone in the README is proved. Further work belongs downstream, starting with the constant-curvature model spaces, which can now consume isometry transport."
+      "name": "Existence of the nondegenerate Levi-Civita connection",
+      "text": "— glue the coordinate Christoffel construction into a covariant derivative on the whole manifold, show local constructions agree on overlaps by nondegeneracy, and prove it is smooth."
+     },
+     {
+      "name": "Restriction, naturality and the along-curve API for nondegenerate metrics",
+      "text": "— restate restriction to open sets, naturality under metric-preserving diffeomorphisms, and covariant differentiation along curves for the general connection. This waits on existence."
+     },
+     {
+      "name": "Smooth metric families",
+      "text": "— realize a smooth family of nondegenerate metrics over a parameter manifold `P` as a section over `P × M`, and prove the connection coefficients are jointly smooth in the parameter and the point, with fixed signature on each component."
+     },
+     {
+      "name": "The variation formula for the connection",
+      "text": "— for `h = ∂_t g_t`, prove `2g((∂_t∇)_X Y, Z) = (∇_X h)(Y, Z) + (∇_Y h)(X, Z) − (∇_Z h)(X, Y)`. The local variational field theory roadmap consumes this for Lorentzian metric variation."
      },
      {
       "name": "Metric isometries",
-      "text": "— the README deliberately leaves out the Myers–Steenrod theorem, that a distance-preserving bijection is a smooth Riemannian isometry. Transport for a bare metric `IsometryEquiv` would need it as a separate milestone."
+      "text": "— the README deliberately leaves out the Myers–Steenrod theorem, that a distance-preserving bijection is a smooth Riemannian isometry. Transport for a bare metric isometry would need it as a separate milestone."
      }
     ],
-    "glance": "Every layer is done. The Hopf–Rinow theorem and do Carmo's compactness corollary rest on a complete theory of geodesics, the exponential map and normal neighbourhoods. The variational characterization of geodesics now holds at every smoothness level `C^n` with `2 ≤ n ≤ ∞`.",
+    "glance": "The Hopf–Rinow theorem, do Carmo's compactness corollary and the whole Riemannian theory beneath them are proved, so Layers 0, 2, 3 and 4 are done. Layer 1 is partial again, because the roadmap now also asks for a Levi-Civita connection for nondegenerate, possibly indefinite, metrics and for smooth families of them. Their uniqueness and coordinate formulas are in; existence, families and the variation formula are not.",
     "inherited": false,
     "path": "TauCetiRoadmap/HopfRinow/STATUS.md",
     "progress_path": "TauCetiRoadmap/HopfRinow/PROGRESS.md",
-    "report_sha": "34f64f6fa910b4ae43e51a3a6782d56df900a9c323fd8c90684e541d83bf4abf",
-    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
-    "ts": "2026-10-05T01:07:53Z"
+    "report_sha": "d26b8483c5d8ecc2aeb12ff465afc6e1e0ce167468292295e9d154a7147ceabb",
+    "to_sha": "9fc5d5a87d00cb696e606ccdae66420cc837c05e",
+    "ts": "2026-10-19T21:24:00Z"
    },
    "title": "geodesics, the exponential map, and the Hopf–Rinow theorem",
    "topic": "Differential Geometry"
@@ -4980,6 +5068,34 @@
    "status": null,
    "title": "Sato hyperfunctions and analytic generalized functions",
    "topic": "Complex Variables"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/ImaginaryQuadraticClassNumber",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "ImaginaryQuadraticClassNumber",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/ImaginaryQuadraticClassNumber/README.md",
+   "readme_sha": "110d3b46e3ef58dcb8e086220e1d5a2d6bc44e248d45e722496bba3825f88990",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Imaginary quadratic fields: class numbers, finiteness and class number one",
+   "topic": "Number Theory"
   },
   {
    "activity": {
@@ -5421,7 +5537,7 @@
   {
    "activity": {
     "last": null,
-    "open": 4,
+    "open": 5,
     "recent": 0,
     "since_report": null,
     "total": 0,
@@ -5474,7 +5590,7 @@
    "activity": {
     "last": "2026-10-20T03:34:05Z",
     "open": 1,
-    "recent": 138,
+    "recent": 137,
     "since_report": 15,
     "total": 160,
     "weekly": [
@@ -5566,11 +5682,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T20:39:09Z",
-    "open": 3,
-    "recent": 139,
-    "since_report": 1,
-    "total": 139,
+    "last": "2026-10-20T06:50:21Z",
+    "open": 2,
+    "recent": 140,
+    "since_report": 2,
+    "total": 140,
     "weekly": [
      0,
      0,
@@ -5587,7 +5703,7 @@
      55,
      42,
      39,
-     2
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -5679,7 +5795,7 @@
   {
    "activity": {
     "last": "2026-10-18T16:49:01Z",
-    "open": 2,
+    "open": 3,
     "recent": 9,
     "since_report": null,
     "total": 9,
@@ -5754,11 +5870,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T18:30:49Z",
-    "open": 5,
-    "recent": 194,
-    "since_report": 76,
-    "total": 194,
+    "last": "2026-10-20T04:23:52Z",
+    "open": 4,
+    "recent": 195,
+    "since_report": 77,
+    "total": 195,
     "weekly": [
      0,
      0,
@@ -5775,7 +5891,7 @@
      5,
      95,
      85,
-     9
+     10
     ]
    },
    "arxiv": "math.NT",
@@ -6228,6 +6344,34 @@
    "topic": "Number Theory"
   },
   {
+   "activity": null,
+   "arxiv": "math.RT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/NilpotentOrbits",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "NilpotentOrbits",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/NilpotentOrbits/README.md",
+   "readme_sha": "b23700fb4c5bba324b68ef40f0826e0c17bcd5a7b266e5ea36efb3913847224b",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Nilpotent orbits, Springer resolution and subregular geometry",
+   "topic": "Representation Theory"
+  },
+  {
    "activity": {
     "last": "2026-10-20T02:28:18Z",
     "open": 3,
@@ -6283,7 +6427,7 @@
    "activity": {
     "last": "2026-10-19T06:26:26Z",
     "open": 0,
-    "recent": 102,
+    "recent": 101,
     "since_report": 29,
     "total": 161,
     "weekly": [
@@ -6531,11 +6675,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:52:52Z",
-    "open": 14,
-    "recent": 155,
-    "since_report": 9,
-    "total": 155,
+    "last": "2026-10-20T05:19:52Z",
+    "open": 7,
+    "recent": 161,
+    "since_report": 15,
+    "total": 161,
     "weekly": [
      0,
      0,
@@ -6552,7 +6696,7 @@
      0,
      39,
      103,
-     13
+     19
     ]
    },
    "arxiv": "math.FA",
@@ -7269,11 +7413,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T18:32:41Z",
-    "open": 3,
+    "last": "2026-10-20T03:59:57Z",
+    "open": 2,
     "recent": 215,
-    "since_report": 58,
-    "total": 269,
+    "since_report": 59,
+    "total": 270,
     "weekly": [
      0,
      0,
@@ -7290,7 +7434,7 @@
      29,
      64,
      94,
-     7
+     8
     ]
    },
    "arxiv": "math.OC",
@@ -7431,11 +7575,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T17:28:25Z",
-    "open": 3,
-    "recent": 4,
+    "last": "2026-10-20T04:11:55Z",
+    "open": 2,
+    "recent": 5,
     "since_report": null,
-    "total": 4,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -7452,7 +7596,7 @@
      0,
      0,
      0,
-     4
+     5
     ]
    },
    "arxiv": "math.DG",
@@ -7484,7 +7628,7 @@
   {
    "activity": {
     "last": "2026-10-20T00:55:20Z",
-    "open": 1,
+    "open": 2,
     "recent": 159,
     "since_report": 62,
     "total": 159,
@@ -7588,11 +7732,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:52:55Z",
-    "open": 6,
+    "last": "2026-10-20T07:33:04Z",
+    "open": 4,
     "recent": 283,
-    "since_report": 1,
-    "total": 402,
+    "since_report": 3,
+    "total": 404,
     "weekly": [
      4,
      5,
@@ -7609,7 +7753,7 @@
      36,
      86,
      120,
-     4
+     6
     ]
    },
    "arxiv": "math.AP",
@@ -7702,11 +7846,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T11:07:40Z",
+    "last": "2026-10-20T04:37:05Z",
     "open": 3,
-    "recent": 15,
+    "recent": 16,
     "since_report": null,
-    "total": 15,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -7723,7 +7867,7 @@
      0,
      0,
      10,
-     5
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -7783,7 +7927,7 @@
   {
    "activity": {
     "last": "2026-10-19T20:07:10Z",
-    "open": 4,
+    "open": 5,
     "recent": 25,
     "since_report": null,
     "total": 25,
@@ -7869,7 +8013,31 @@
    "topic": "Number Theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.AG",
    "assessment": {
     "detail": null,
@@ -8252,11 +8420,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:28:00Z",
-    "open": 1,
-    "recent": 7,
+    "last": "2026-10-20T05:52:57Z",
+    "open": 0,
+    "recent": 8,
     "since_report": null,
-    "total": 7,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -8273,7 +8441,7 @@
      0,
      0,
      0,
-     7
+     8
     ]
    },
    "arxiv": "math.DG",
@@ -8547,11 +8715,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T09:21:27Z",
+    "last": "2026-10-20T05:34:01Z",
     "open": 1,
     "recent": 269,
-    "since_report": 10,
-    "total": 300,
+    "since_report": 11,
+    "total": 301,
     "weekly": [
      0,
      0,
@@ -8568,7 +8736,7 @@
      125,
      31,
      14,
-     1
+     2
     ]
    },
    "arxiv": "math.GR",
@@ -8674,7 +8842,7 @@
   {
    "activity": {
     "last": "2026-10-19T11:10:11Z",
-    "open": 1,
+    "open": 2,
     "recent": 172,
     "since_report": 18,
     "total": 197,
@@ -8699,9 +8867,9 @@
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 3": "the invariant dictionary as a Layer 3 docstring: O'Meara, Serre's epsilon, Lam's s and c, with the Wall caution",
@@ -8726,16 +8894,16 @@
     "Layer 9"
    ],
    "layer_lines": [
-    731,
-    868,
-    951,
-    1048,
-    1140,
-    1263,
-    1400,
-    2048,
-    2431,
-    2532
+    799,
+    938,
+    1025,
+    1122,
+    1218,
+    1340,
+    1480,
+    2175,
+    2566,
+    2679
    ],
    "layers": [
     "Layer 0: square classes, diagonal calculus, and chain equivalence",
@@ -8754,7 +8922,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/QuadraticFormInvariants/README.md",
-   "readme_sha": "1998a1018a9c779037c84025ce946b08225fb84e074bac2e79b62e89184ec925",
+   "readme_sha": "5221c62cb98c724d5bc1ddbed7e55e96be4b6265450add8adacb88cabd4b418c",
    "retired": null,
    "states": [
     "done",
@@ -8801,7 +8969,7 @@
   {
    "activity": {
     "last": "2026-10-19T20:07:12Z",
-    "open": 0,
+    "open": 3,
     "recent": 18,
     "since_report": null,
     "total": 18,
@@ -8960,11 +9128,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:27:58Z",
-    "open": 21,
+    "last": "2026-10-20T05:53:17Z",
+    "open": 26,
     "recent": 770,
-    "since_report": 461,
-    "total": 1639,
+    "since_report": 462,
+    "total": 1640,
     "weekly": [
      9,
      4,
@@ -8981,23 +9149,17 @@
      132,
      273,
      256,
-     35
+     36
     ]
    },
    "arxiv": "math.AG",
    "assessment": {
-    "detail": null,
+    "detail": "marker assessed a different README than the one the layers were read from; layer ids differ from the README; missing ['Layer 3A', 'Layer 5P', 'Layer 6A', 'Layer 6B', 'Layer 7C', 'Layer 7a', 'Layer 7b', 'Layer 7c', 'Layer 7d', 'Layer 7e', 'Layer 7f', 'Layer 7g', 'Layer 10', 'Layer 11']",
     "notes": {},
     "readme_changed": false,
-    "reason": "ok",
-    "remaining": {
-     "Layer 3": "representability of G/H for general closed H via flatness of the projective orbit map; affineness of G/H for reductive H",
-     "Layer 5": "general maximality theorem for the unipotent radical",
-     "Layer 6": "characteristic-zero equivalence with linear reductivity; simply connected covers; SLn to PGLn as a central isogeny",
-     "Layer 7": "conjugacy of Borels and maximal tori beyond GLn and SLn; root datum of an arbitrary reductive group; N(T)/T as Weyl group",
-     "Layer 9": "uniform pinned construction from arbitrary root data, existence half of the pinned isomorphism theorem, and identification of the explicit carriers with pinned groups"
-    },
-    "source": "marker"
+    "reason": "invalid-marker",
+    "remaining": {},
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/ReductiveGroups",
@@ -9006,55 +9168,111 @@
     "Layer 1",
     "Layer 2",
     "Layer 3",
+    "Layer 3A",
     "Layer 4",
     "Layer 5",
+    "Layer 5P",
     "Layer 6",
+    "Layer 6A",
+    "Layer 6B",
     "Layer 7",
+    "Layer 7C",
+    "Layer 7a",
+    "Layer 7b",
+    "Layer 7c",
+    "Layer 7d",
+    "Layer 7e",
+    "Layer 7f",
+    "Layer 7g",
     "Layer 8",
-    "Layer 9"
+    "Layer 9",
+    "Layer 10",
+    "Layer 11"
    ],
    "layer_lines": [
-    95,
-    126,
-    145,
-    152,
-    167,
-    178,
-    195,
-    208,
-    220,
-    227
+    129,
+    176,
+    227,
+    234,
+    249,
+    432,
+    443,
+    460,
+    466,
+    479,
+    613,
+    627,
+    652,
+    690,
+    732,
+    780,
+    827,
+    882,
+    941,
+    968,
+    1023,
+    1092,
+    1731,
+    1959
    ],
    "layers": [
     "Layer 0: the functor of points and the three-way dictionary",
     "Layer 1: representations = comodules",
     "Layer 2: Lie algebra and the adjoint representation",
     "Layer 3: subgroups, quotients, components",
+    "Layer 3A: algebraic actions, orbit boundaries and projective closed orbits",
     "Layer 4: Jordan decomposition, diagonalizable groups, tori",
     "Layer 5: solvable and unipotent groups; the unipotent radical",
+    "Layer 5P: the shared polynomial-unipotent exponential and logarithm",
     "Layer 6: reductive and semisimple groups",
+    "Layer 6A: characteristic-zero Levi complements for general affine groups",
+    "Layer 6B: complex reductive coset affineness",
     "Layer 7: structure theory",
+    "Layer 7C: ordered unipotent factors and the contraction proof of Bruhat coordinates",
+    "Layer 7a: finite fields, Frobenius and rational points",
+    "Layer 7b: algebraic parabolics and Levi intersections",
+    "Layer 7c: Harish–Chandra functors and biadjunctions",
+    "Layer 7d: rational transport and the specialized Mackey theorem",
+    "Layer 7e: common-Levi independence",
+    "Layer 7f: trivial-module specialization and Gassmann interface",
+    "Layer 7g: Steinberg endomorphisms and extension of Layers 7a–7f",
     "Layer 8: classification and existence",
-    "Layer 9: pinned Chevalley–Demazure group schemes over `ℤ`"
+    "Layer 9: pinned Chevalley–Demazure group schemes over `ℤ`",
+    "Layer 10: rational representations, highest weights and regular functions",
+    "Layer 11: regular-semisimple spectral quotients and finite Weyl monodromy"
    ],
    "links": [],
    "name": "ReductiveGroups",
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/ReductiveGroups/README.md",
-   "readme_sha": "b6888bb0f65d0f4a7686c047ee2d3204d019fb3e6c35fc0bd83b531ef10b4c1b",
+   "readme_sha": "b784ec4d356846e742598a13b5561399db8c67bedaffc32cc1437bb764a78b33",
    "retired": null,
    "states": [
-    "done",
-    "done",
-    "done",
-    "partial",
-    "done",
-    "partial",
-    "partial",
-    "partial",
-    "untouched",
-    "partial"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
@@ -9240,11 +9458,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T03:34:03Z",
+    "last": "2026-10-20T07:33:03Z",
     "open": 14,
-    "recent": 882,
-    "since_report": 11,
-    "total": 1729,
+    "recent": 881,
+    "since_report": 13,
+    "total": 1731,
     "weekly": [
      0,
      0,
@@ -9261,7 +9479,7 @@
      247,
      293,
      158,
-     14
+     16
     ]
    },
    "arxiv": "math.RT",
@@ -10306,9 +10524,9 @@
    "activity": null,
    "arxiv": "math.RT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 7": "RSK symmetry under inversion, the Cauchy identity, dual Jacobi-Trudi and the Hall inner product",
@@ -10334,13 +10552,13 @@
     166,
     196,
     218,
-    236,
-    251,
-    276,
-    290,
-    314,
-    343,
-    369
+    245,
+    260,
+    285,
+    299,
+    323,
+    352,
+    378
    ],
    "layers": [
     "Layer 0: partitions, diagrams, tableaux, and orders",
@@ -10359,7 +10577,7 @@
    "parent": "RepresentationTheory",
    "parent_id": "TauCetiRoadmap/RepresentationTheory",
    "readme": "TauCetiRoadmap/RepresentationTheory/SchurWeyl/README.md",
-   "readme_sha": "40e2a54de3e98d62c2fc2550198e12c14f6c05027197b5a3ce207f4191197088",
+   "readme_sha": "0ea64f5d1952271458f609c2f4c0efc9e697f3e123c74d82b4478cd14dd1bfcc",
    "retired": null,
    "states": [
     "done",
@@ -10619,11 +10837,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:15:30Z",
-    "open": 3,
-    "recent": 12,
+    "last": "2026-10-20T08:20:58Z",
+    "open": 2,
+    "recent": 13,
     "since_report": null,
-    "total": 12,
+    "total": 13,
     "weekly": [
      0,
      0,
@@ -10640,7 +10858,7 @@
      0,
      0,
      6,
-     6
+     7
     ]
    },
    "arxiv": "math.AG",
@@ -10819,11 +11037,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T01:07:56Z",
-    "open": 7,
-    "recent": 31,
-    "since_report": 1,
-    "total": 31,
+    "last": "2026-10-20T06:26:13Z",
+    "open": 4,
+    "recent": 34,
+    "since_report": 4,
+    "total": 34,
     "weekly": [
      0,
      0,
@@ -10840,7 +11058,7 @@
      0,
      0,
      22,
-     9
+     12
     ]
    },
    "arxiv": "math.AG",
@@ -10937,7 +11155,7 @@
   {
    "activity": {
     "last": "2026-10-19T09:04:04Z",
-    "open": 0,
+    "open": 1,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -10987,12 +11205,40 @@
    "topic": "Algebraic Geometry"
   },
   {
+   "activity": null,
+   "arxiv": "math.DG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SeibergWittenTheory",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "SeibergWittenTheory",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/SeibergWittenTheory/README.md",
+   "readme_sha": "4873ae3f8842afe461bc2fc36045029dcab04715d5fe5858a85b9cbb26efadec",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Four-dimensional Seiberg–Witten theory",
+   "topic": "Differential Geometry"
+  },
+  {
    "activity": {
-    "last": "2026-10-20T01:39:13Z",
-    "open": 1,
-    "recent": 5,
+    "last": "2026-10-20T06:50:53Z",
+    "open": 0,
+    "recent": 6,
     "since_report": null,
-    "total": 5,
+    "total": 6,
     "weekly": [
      0,
      0,
@@ -11009,7 +11255,7 @@
      0,
      0,
      0,
-     5
+     6
     ]
    },
    "arxiv": "math.DG",
@@ -11172,7 +11418,7 @@
    "activity": {
     "last": "2026-10-20T02:15:27Z",
     "open": 4,
-    "recent": 114,
+    "recent": 112,
     "since_report": 50,
     "total": 137,
     "weekly": [
@@ -11311,11 +11557,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T03:04:26Z",
-    "open": 12,
-    "recent": 201,
-    "since_report": 24,
-    "total": 340,
+    "last": "2026-10-20T07:33:06Z",
+    "open": 11,
+    "recent": 208,
+    "since_report": 32,
+    "total": 348,
     "weekly": [
      0,
      0,
@@ -11332,7 +11578,7 @@
      2,
      3,
      98,
-     59
+     67
     ]
    },
    "arxiv": "math.PR",
@@ -11467,9 +11713,205 @@
    "topic": "Probability"
   },
   {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SymplecticGeometry",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "SymplecticGeometry",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/SymplecticGeometry/README.md",
+   "readme_sha": "74ce66ffa5806d00ba122c80282a8a6508981385978c383bab84e8193bd67581",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Symplectic geometry and Hamiltonian mechanics",
+   "topic": "Symplectic Geometry"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SymplecticGeometry/ContactGeometry",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "ContactGeometry",
+   "parent": "SymplecticGeometry",
+   "parent_id": "TauCetiRoadmap/SymplecticGeometry",
+   "readme": "TauCetiRoadmap/SymplecticGeometry/ContactGeometry/README.md",
+   "readme_sha": "3a8f5f6df96c70d84535825b1def4408d98a23ae01e609d3c6cb486185dee540",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Contact geometry and contact dynamics",
+   "topic": "Symplectic Geometry"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SymplecticGeometry/ConvexityToric",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "ConvexityToric",
+   "parent": "SymplecticGeometry",
+   "parent_id": "TauCetiRoadmap/SymplecticGeometry",
+   "readme": "TauCetiRoadmap/SymplecticGeometry/ConvexityToric/README.md",
+   "readme_sha": "5f3bd20f7b8fb5a904274ab7dd0ac632a05130db75b3126186f9f090045ec36a",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Hamiltonian convexity, Duistermaat–Heckman and symplectic toric geometry",
+   "topic": "Symplectic Geometry"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SymplecticGeometry/CotangentLagrangian",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "CotangentLagrangian",
+   "parent": "SymplecticGeometry",
+   "parent_id": "TauCetiRoadmap/SymplecticGeometry",
+   "readme": "TauCetiRoadmap/SymplecticGeometry/CotangentLagrangian/README.md",
+   "readme_sha": "9449b7170d63ca01b1dc0e3c60161e7b5710ea00adb52980b6ddee63dd2eafe7",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Cotangent bundles and Lagrangian geometry",
+   "topic": "Symplectic Geometry"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SymplecticGeometry/HamiltonianReduction",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "HamiltonianReduction",
+   "parent": "SymplecticGeometry",
+   "parent_id": "TauCetiRoadmap/SymplecticGeometry",
+   "readme": "TauCetiRoadmap/SymplecticGeometry/HamiltonianReduction/README.md",
+   "readme_sha": "934d5a975005b5f7c728df41cb5a0aadf979a068e6759e95ac101f486fe77972",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Hamiltonian actions and symplectic reduction",
+   "topic": "Symplectic Geometry"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SymplecticGeometry/IntegrableSystems",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "IntegrableSystems",
+   "parent": "SymplecticGeometry",
+   "parent_id": "TauCetiRoadmap/SymplecticGeometry",
+   "readme": "TauCetiRoadmap/SymplecticGeometry/IntegrableSystems/README.md",
+   "readme_sha": "778e495f93210c7399b12195c6f4b08c4019c317529dbcf38acdb6e76fc841b2",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Completely integrable systems and classical mechanics",
+   "topic": "Symplectic Geometry"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.CA",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/TauberianBoundaryConvergence",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "TauberianBoundaryConvergence",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/TauberianBoundaryConvergence/README.md",
+   "readme_sha": "c2b97f402c042210eb7002e44724c8a60483ae81370bbb85c82f867093ba8ac8",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Bounded Laplace and ordered Dirichlet boundary convergence",
+   "topic": "Classical Analysis and ODEs"
+  },
+  {
    "activity": {
     "last": "2026-10-19T13:21:32Z",
-    "open": 2,
+    "open": 3,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -11520,11 +11962,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 1,
-    "recent": 0,
+    "last": "2026-10-20T04:11:54Z",
+    "open": 0,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -11541,7 +11983,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -11607,12 +12049,40 @@
    "topic": "Number Theory"
   },
   {
+   "activity": null,
+   "arxiv": "math.QA",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/TypeAHeckeAlgebras",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "TypeAHeckeAlgebras",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/TypeAHeckeAlgebras/README.md",
+   "readme_sha": "8f797bf84428da08a93a308012a1e7237062b3efce6055604ba007b7f6c4a686",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Type-A Hecke algebras, braid traces, and positive quotients",
+   "topic": "Quantum Algebra"
+  },
+  {
    "activity": {
-    "last": "2026-10-19T08:51:03Z",
-    "open": 2,
-    "recent": 14,
+    "last": "2026-10-20T04:11:55Z",
+    "open": 1,
+    "recent": 15,
     "since_report": null,
-    "total": 14,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -11629,7 +12099,7 @@
      0,
      0,
      8,
-     6
+     7
     ]
    },
    "arxiv": "math.DG",
@@ -11662,7 +12132,7 @@
    "activity": {
     "last": "2026-10-19T14:46:46Z",
     "open": 3,
-    "recent": 194,
+    "recent": 192,
     "since_report": 13,
     "total": 249,
     "weekly": [
@@ -12217,7 +12687,7 @@
    "activity": {
     "last": "2026-10-13T09:53:42Z",
     "open": 0,
-    "recent": 30,
+    "recent": 29,
     "since_report": 6,
     "total": 75,
     "weekly": [
