@@ -170,11 +170,41 @@ theorem can_and_frobenius (ξ : A) (φ : A →+* A) :
 
 end TracePresentation
 
-/- The README also specifies the mixed/cyclic enhancements of imported ordinary
-Hochschild theory; coherent THH, cyclotomic spectra, topological Cartier modules, the
-cyclotomic t-structure, TR and TC; the DGM and Beilinson comparisons; complex KU and its
-cyclonic q-Hodge comparison; continuous localizing invariants and rigidification; motivic,
-Nygaard and syntomic trace filtrations, AΩ comparisons and the Habiro interfaces. Their
-carriers require the named spectral and coherent infinity-categorical supplier contracts. -/
+/- Definitions whose carriers require the spectral and coherent infinity-categorical
+supplier contracts remain in the README, in layer order:
+
+Layer 1: Connes' cyclic category and cyclic objects; the cyclic enhancement of supplied
+derived Hochschild chains; mixed complexes and their derived category; cyclic, negative
+cyclic and periodic cyclic homology.
+
+Layer 2: spectra with group action; THH of E₁-rings, relative THH and THH of spectral and
+stable infinity categories; lax equalizers; cyclotomic spectra; TC⁻, TP and TC; orthogonal
+spectra; genuine G-spectra with genuine and geometric fixed points; genuine Prüfer-group
+and finite-family circle spectra; genuine cyclotomic spectra; TR and genuine TC; coalgebras
+and fixed points of endofunctors; the Bökstedt construction and classical THH.
+
+Layer 3: circle-equivariant p-typical cyclotomic spectra; topological Cartier modules;
+derived V-completeness; positively graded cyclotomic spectra. Classical Cartier modules
+have the additive carrier used by CartierStructure above; their category is in the README.
+
+Layer 4: relative dualizable presentable stable categories; relative trace-class morphisms,
+ordered E₁ rigidity and nuclear objects; accessible localizing invariants; localizing and
+truncating invariants; Goodwillie derivatives; connective bimodules and square-zero
+extensions; pseudo-extensible and Postnikov-convergent algebra functors; infinitesimal
+sifted-colimit preservation, together with the DGM comparison.
+
+Layer 6: spherical lifts and the base hypotheses; light condensed and solid spectra;
+trace-class maps and nuclear modules; perfect even modules and the even site; ordinary
+even filtrations; the solid even filtration; even flat and solid even flat modules;
+homological evenness and even homotopy sheaves; faithfully even flat ring maps; solid
+duality Assumption R; compatible local and global spherical lifts; the connective
+image-of-J spectrum; cyclonic spectra and cyclonic Adams lift coherence; TC^{−(m)}.
+
+Layer 7: nuclear E-modules; smooth and proper E-linear categories. Layer 8 additionally
+constructs the motivic, Nygaard and syntomic trace filtrations, Breuil–Kisin twists, AΩ
+comparisons and Habiro interfaces. Layer 9 defines Zₚ and Qₚ coefficients by p-completing
+before inverting p, and constructs the Beilinson comparisons using the earlier
+layers. The Snaith comparison, stable Adams lifts and relative cyclic HKR remain Layer 5
+theorem targets over supplied ku and KU. -/
 
 end TauCetiRoadmap.RefinedTraceMethods
