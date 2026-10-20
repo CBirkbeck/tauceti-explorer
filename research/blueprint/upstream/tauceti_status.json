@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-20T00:10Z",
+  "updated": "2026-10-20T00:20Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -890,7 +890,7 @@
     "HilbertModularVarietiesAndShimuraCurves": {
       "stage": "pr",
       "pr": 1005,
-      "head": "6881d51",
+      "head": "5db7b73",
       "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
       "review": {
         "recommendation": "changes",
@@ -1379,14 +1379,14 @@
     "AnalyticNumberTheoryPartII": {
       "stage": "pr",
       "pr": 1167,
-      "head": "a4c1c24",
+      "head": "abee65e",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at a4c1c24; confirmation pass pending"
+        "note": "final-review repairs applied at abee65e; confirmation pass pending"
       }
     },
     "ArithmeticStatisticsPartI": {
@@ -1578,7 +1578,7 @@
     "GeneralAlgebraicKTheory": {
       "stage": "pr",
       "pr": 1212,
-      "head": "e25a1fe",
+      "head": "e48aeb8",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
       "review": {
         "current": false,
