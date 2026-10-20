@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-MotivicEtaleKTheoryPartII~codex",
+    "date": "2026-10-20",
+    "notes": "Completed independent review of all 23 targets, sources, moved predecessor material, suppliers, current upstream/library duplication, definition Checks and all 13 Lean definition/theorem signatures. Corrected inverse height direction and coefficient balancing, coefficient-projector carriers, archimedean double counting, ordinary versus Tate dyadic cochains, duality citation scope, empty prime-set equivalence, and statement-only Lean shape. Revised lean-check exits 0 with only eight sorry warnings. Remaining blockers: generic-correspondence stability of chosen-model images; noncommutative virtual determinant supplier/general comparison; missing general geometric H1_g factorization; all-odd-prime integral normalization in the K-theory Lichtenbaum specialization. See independent report for exact contracts and sources."
+  }
+}
