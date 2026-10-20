@@ -35,12 +35,13 @@ The following ownership conventions keep the constructions reusable.
 | AInfCohomology AI.3–AI.5, CrystallineCohomology CR.0/CR.2/CR.4 and CohomologyComparisons CP.1/CP.6 | AΩ, canonical perfectoid specializations, ordinary PD envelopes and the PD Poincaré lemma, ordinary de Rham–Witt/crystalline comparison and their normalization. |
 | AnalyticHabiroStack HS.3 | The analytic coefficient ring and stack needed to state the open comparison. These do not enter the algebraic construction. |
 
-The family builds in the order HabiroCohomologyFoundations → HabiroRings →
-HabiroCyclotomicCompletions → RefinedTraceMethods →
-HabiroCohomologyFoundationsPartII. HabiroRings consumes the completion and
-étale comparison exports of §§0.1–0.3, 4.21 and 4.28. Its ordinary ring
-presentations and the rootwise Taylor calculus of HabiroCyclotomicCompletions
-are later applications, rather than inputs to the cohomology construction.
+The cohomological completion and étale comparison interfaces are constructed
+in §§0.1–0.3, 4.21 and 4.28, before their trace applications. They allow
+HabiroRings to compare an independently constructed ordinary relative ring
+with the cohomological coefficient object. Ordinary ring presentations and
+the rootwise Taylor calculus of HabiroCyclotomicCompletions are not direct
+inputs to this construction; the relative q-Witt rings remain inputs from
+QW.2–QW.4, including those suppliers' cyclotomic prerequisites.
 HR.6 and HabiroNumberFields HB.6/HB.7 consume the finite étale exports; their
 arithmetic modules do not become prerequisites for this roadmap. No six-functor
 formalism, diamond or Langlands construction is needed here. Local
@@ -256,7 +257,7 @@ consequently the same reductions detect equivalences between complete objects.
 Also prove the degreewise detection used for staticity: if a fixed cohomology
 degree of every M/Φ_d is zero, the same degree of M is zero.
 
-(See QH Definition B.1 and Lemma B.2, §B, pp.77–78; Corollaries B.3–B.4,
+(See QH Definition B.1 and Lemma B.2, §B, pp.77–78; Lemma B.3 and Corollary B.4,
 §B, p.78; Remark B.5, §B, pp.78–79.)
 
 This uses DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E0 and E5:presentability.
@@ -1652,10 +1653,16 @@ This uses HQ.3, HQ.4, HQ.2.
 
 ### 4.21 For an étale algebra the Habiro–Hodge complex is the relative coefficient ring
 
-Let A be a perfectly covered Λ-ring and R an étale A-algebra. Its empty-frame
-q-Hodge pair has qdR=R⟦h⟧ and the h-adic filtration; clause (b) identifies
-any chosen q-Hodge filtration on R with this one. Identify its Habiro–Hodge
-object with E(R/A) of §0.3, denoted H_{R/A} here, as E∞-A[q]-algebras.
+Let A be a perfectly covered Λ-ring and R an étale A-algebra. The empty-frame
+underived complex is qΩ_{R/A}=R⟦h⟧, with completed filtration
+F̂^j=h^max(j,0)R⟦h⟧. Its q-Hodge pair on the animated complex is the derived
+pullback
+F^j=qdR_{R/A}×_{R⟦h⟧}h^max(j,0)R⟦h⟧
+along the canonical qdR→qΩ map. By the smooth completion comparison and
+clause (b), any chosen q-Hodge filtration on R has this completed filtration
+and this pullback description. Neither qdR=R⟦h⟧ nor staticity of its positive
+filtration steps is asserted before filtration completion. Identify its
+Habiro–Hodge object with E(R/A) of §0.3, denoted H_{R/A} here, as E∞-A[q]-algebras.
 The comparison is natural in étale A-algebras, preserves the coefficient unit
 and all partial-completion projections, and sends the h-completion map to
 E(R/A)→R⟦h⟧. No Frobenius lift on R, spherical lift, resolution or inverted
@@ -1671,16 +1678,19 @@ degreewise detection, not from an assumed vanishing of inverse-limit terms.
 This argument also characterizes comparison with any independently constructed
 ordinary model: if its partial completions are the marked formally étale lifts
 of the same qW_m and it is their coherent limit, the induced comparison is
-unique. HabiroRings uses this characterization to identify its ordinary
+unique. This characterization lets HabiroRings identify its ordinary
 relative Habiro ring; that later identification is a consumer of this result.
 
 (See QH Corollary 3.13, §3.2, p.27; Paragraph 2.7 and Theorem 2.9,
-§2.2, pp.15–17; Remark 2.10, §2.2, p.17.)
+§2.2, pp.15–17; Remark 2.10, §2.2, p.17; Remark 3.6, §3.1, pp.22–23;
+Proposition 3.47(a), §3.7, p.48; Paragraph A.14, §A.2, p.76.)
 
 This uses §§0.1–0.3, HQ.2, HQ.3, HQ.4, QWittVectors QW.3/QW.4 and EnhancedDerivedSheaves E5.
 
 Use the following named maps and laws:
 
+- `HabiroHodge.etalePair`: The empty-frame completed filtration F̂^j=h^max(j,0)R⟦h⟧ and its derived pullback to the canonical animated qdR_{R/A}, with the q-Hodge comparisons of §4.1.
+- `HabiroHodge.etalePair_completion`: Every chosen q-Hodge filtration on an étale R has this completed filtration and is recovered by the displayed pullback; its q-Hodge modification is R⟦h⟧.
 - `HabiroHodge.etalePartial`: The unique marked E∞-equivalence T_m≃E_m(R/A), reducing to the identity of qW_m(R/A) and respecting every relative ghost map.
 - `HabiroHodge.etaleTransition`: For n|m, the square of these equivalences with T_m→T_n and E_m→E_n commutes, with identity, composition and higher compatibility.
 - `HabiroHodge.etale`: The natural E∞-equivalence H(R,F)≃H_{R/A}=E(R/A), characterized by its partial-completion projections.
@@ -1694,6 +1704,7 @@ Use the following named maps and laws:
 - For R=ℤ[∛2,1/6] over ℤ at m=5, the comparison reduces to qW_5(R/ℤ), not R[q]/f_5 (§0.3). Its h-completion is nevertheless R⟦h⟧; identifying only that completion would lose the nontrivial Frobenius gluing.
 - At m=1 the q-Witt filtration is concentrated in filtration degree zero, with reduction R and no shifted copy in degree one. For n|m the reduced transition is F_{m/n}; an ordinary Witt restriction map is not an alternative.
 - The smooth non-étale algebra ℤ[x] has the coordinate differential x↦h dx and nonzero positive q-Witt forms. Its Habiro–Hodge object cannot be replaced by a static étale coefficient ring. This comparison asserts no identification of K₃-indexed arithmetic modules.
+- For A=ℚ and R=ℚ(i), polynomial animation of rational de Rham gives dR_{R/ℚ}≃ℚ and qdR_{R/ℚ}≃ℚ⟦h⟧, while qΩ_{R/ℚ}=R⟦h⟧. For j>0 the displayed pullback has H⁰(F^j)=h^jℚ⟦h⟧ and H¹(F^j)=(R/ℚ)⟦h⟧/h^j. Indeed these are the kernel and cokernel of ℚ⟦h⟧⊕h^jR⟦h⟧→R⟦h⟧. Thus positive steps are not static. Filtration completion gives the stated h-adic filtration on R⟦h⟧, and the q-Hodge modification is still R⟦h⟧.
 
 ### 4.22 For smooth inputs, q-Omega is the q-Hodge completion of the derived complex and the decalage of the q-Hodge complex
 
@@ -1799,7 +1810,7 @@ Construct the twisted filtrations and T_m as homotopy-coherent diagrams on posit
 
 The β-periodic Habiro–Hodge object is H(R,F)⊗_ℤℤ[β^{±1}], graded with |β|=1. Its degreewise derived (q−1)-completion is the β-periodic q-Hodge object above, and its degreewise (q^m−1)-completions are T_m⊗_ℤℤ[β^{±1}].
 
-For an étale R, export the natural marked E∞-comparison H(R,F)≃H_{R/A}=E(R/A) of §4.21, its staticity, every partial-completion comparison and the h-completion map. This contract is constructed here from the q-Witt étale theorem and complete deformation theory. It lets HabiroRings compare its later ordinary relative Habiro model with the cohomological coefficient object by `HabiroHodge.etaleModel`.
+For an étale R, export the natural marked E∞-comparison H(R,F)≃H_{R/A}=E(R/A) of §4.21, its staticity, every partial-completion comparison and the h-completion map. Include the h-adic completed filtration on qΩ_{R/A}=R⟦h⟧ and the derived pullback description of F on qdR_{R/A}; the staticity assertion concerns H, not the uncompleted filtration steps. This contract is constructed here from the q-Witt étale theorem and complete deformation theory. It lets HabiroRings compare its later ordinary relative Habiro model with the cohomological coefficient object by `HabiroHodge.etaleModel`.
 
 For R=O_K[1/Δ] over A=ℤ, with Δ divisible by the discriminant of the number field K, the further identification with the GSWZ ring is a downstream theorem of HabiroRings. The latter ring has a Frobenius-twisted rootwise power-series presentation and is finite projective of rank [K:ℚ] over H_{ℤ[1/Δ]} (GSWZ Definition 1.1, §1.4, pp.6–7; §5.2, p.64). HabiroRings supplies that ordinary-model/number-field identification to RefinedTraceMethods and Part II; this export requires neither it nor the Taylor re-expansion calculus. QH Corollary 2.13 (§2.2, p.19) records the number-field consequence with Δ the discriminant. The relative étale comparison above has no factor-6 restriction; additional inversions in trace applications belong to those consumers.
 
@@ -1818,7 +1829,7 @@ Use the following named maps and laws:
 - `HabiroHodgeDescent.transition`: For n|m, the canonical transition T_m→T_n, exhibiting T_n as the (q^n−1)-completion of T_m; the analogous filtered transitions are those in (i).
 - `HabiroHodgeDescent.transition_comp`: For ℓ|n|m, compatibility of the direct and composite transitions, with identity and higher coherence laws, natural in pairs and compatible with all the comparisons in the record.
 - `HabiroHodgeDescent.periodic`: H(R,F)⊗_ℤℤ[β^{±1}], whose degreewise derived (q−1)-completion is `qHodge.periodic` and whose degreewise (q^m−1)-completion is T_m⊗_ℤℤ[β^{±1}].
-- `HabiroHodgeDescent.etale`: For étale R the datum is static with the marked E∞-comparison H≃H_{R/A}=E(R/A), T_m≃E_m(R/A)≃(H_{R/A})^∧_{q^m−1} and H/(q^m−1)=qW_m(R/A) in filtration degree zero. Export the naturality, transition, projection, ghost and h-completion laws of §4.21, including its characterization for later ordinary models.
+- `HabiroHodgeDescent.etale`: For étale R, H and T_m are static, with the marked E∞-comparison H≃H_{R/A}=E(R/A), T_m≃E_m(R/A)≃(H_{R/A})^∧_{q^m−1} and H/(q^m−1)=qW_m(R/A) in filtration degree zero. Export the naturality, transition, projection, ghost and h-completion laws of §4.21, its completed-filtration/pullback description, and its characterization for later ordinary models.
 
 **Checks.**
 
@@ -1928,7 +1939,7 @@ This uses EnhancedDerivedSheaves E0, Mathlib Algebra.Smooth.
 
 ### 5.7 The constructions for the bounds n and n+1 agree, and assemble into one functor
 
-On the overlap of dimension ≤n with all primes ≤n+1 inverted, prove a natural equivalence of the canonical pairs built with bounds n and n+1. The dimension-zero construction is the h-adic filtration. Assemble the bound-dependent functors along the preceding pushouts into a functor on Sm_{A[dim!^(−1)]}, the full class with primes ≤relative dimension invertible. This is a functor on that class only.
+On the overlap of dimension ≤n with all primes ≤n+1 inverted, prove a natural equivalence of the canonical pairs built with bounds n and n+1. In dimension zero, the completed filtration on qΩ is h-adic and the pair is its derived pullback to qdR (§4.21). Assemble the bound-dependent functors along the preceding pushouts into a functor on Sm_{A[dim!^(−1)]}, the full class with primes ≤relative dimension invertible. This is a functor on that class only.
 
 (See QH Paragraph 4.8, §4, p.56; Lemma 4.10, §4, p.57.)
 
@@ -2459,7 +2470,7 @@ This uses HQ.8, Mathlib Polynomial.cyclotomic_prime, Mathlib Polynomial.eval_one
 
 Fix p, a complete algebraically closed nonarchimedean C/ℚ_p with residue field k, and ε. For smooth ℤ-algebra S let R=(S⊗O_C)^∧_p and F_S=qΩ_{S/ℤ}⊗̂A_inf, with β_S exactly the composite defined above. Write D_R=Ω^{•,cont}_{R/O_C}. The target is equality c_{θ,R}∘β_{S,θ}=a_{θ,S}: (F_S⊗^L_{A_inf,θ}O_C)^∧_p→D_R. Here a_{θ,S} uses transitivity of completed base change, θ(q)=1, qΩ/h≃Ω and smooth de Rham base change; c_{θ,R} is AI.4/CP.1's canonical BMS de Rham map. This affine enhanced multiplicative natural equality remains to be proved. θ has kernel ξ; θ̃ is the different Hodge–Tate map. A possible BS uniqueness argument must extend to all p-completely smooth algebras over the perfect-prism quotient and preserve its Hodge–Tate structure map; agreement on ℤ-defined lifts or arbitrary reduced maps is insufficient. Sheaf compatibility and descent are needed for CP.1's proper smooth diagram. Record (p,ξ)-completion before θ, p-completion afterwards, no inversion, retained φ_A-pullback, and no new filtered or Tate-twisted comparison.
 
-(See BMS1 Theorem 14.1(ii), §14, p.118, proof pp.118–119 · BS Notation 18.1, §18, p.122; Theorem 18.2, §18, p.122; Lemma 18.3, §18, p.122, proof pp.122–124.)
+(See BMS1 Theorem 14.1(ii), §14, p.118, proof pp.118–119 · BS Notation 18.1, §18, p.122; Theorem 18.2, §18, p.122; Lemma 18.3, §18, p.122, proof pp.122–123.)
 
 This uses HQ.8, HQ.1, DerivedDeRhamCohomology DD.1, AInfCohomology AI.4, CohomologyComparisons CP.1, CohomologyComparisons CP.6, PrismaticCohomology PR.6.
 
@@ -2495,11 +2506,10 @@ The preceding constructions in this layer and DerivedDeRhamCohomology, Prismatic
 
 ## Downstream consumers
 
-HabiroRings uses §§0.1–0.3 for its cohomological completion and coefficient
-comparisons, and §§4.21/4.28 to identify its ordinary relative Habiro models
-with the étale Habiro–Hodge object. HabiroCyclotomicCompletions uses the
-ordinary ring input from HabiroRings for its later Taylor applications;
-the framed construction of §3.31 here uses finite complete descent instead.
+HabiroRings can compare its ordinary relative Habiro models with the
+cohomological coefficient object through §§0.3, 4.21 and 4.28.
+The framed construction of §3.31 uses the finite complete descent of §0.2;
+it needs no ordinary Taylor re-expansion theorem.
 HabiroRings HR.6 and HabiroNumberFields HB.6/HB.7 use the finite-étale
 degree-zero and Taylor interfaces of Layer 5; their arithmetic regulator
 modules are separate constructions. RefinedTraceMethods imports the interface
