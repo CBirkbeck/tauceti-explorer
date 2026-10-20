@@ -35,10 +35,10 @@ HermitianKTheoryOfPoincareCategories and the quadratic-arithmetic roadmaps.
 IntegralIwasawaTheory owns cyclotomic foundations, Kummer congruences,
 reflection and Vandiver's conjecture. This roadmap uses those inputs for finite
 cyclotomic K-groups; it does not build another Iwasawa theory. The arithmetic
-K₃ results below supply K3BlochGroups, whose decomposable and indecomposable
-analysis is separate. The independent golden-field certificate supplies
-SpecialValuesBirchTate; the latter's special-value formula supplies neither
-bound of that certificate.
+K₃ results below precede the downstream decomposable and indecomposable
+analysis. Both bounds of the independent golden-field certificate are proved
+without a special-value formula. The applications are listed under
+Downstream consumers.
 
 The general rings, valuations, finite extensions, class groups, local Galois
 objects, quadratic forms and integral lattices already provided by Mathlib,
@@ -244,9 +244,9 @@ IntegralIwasawaTheory §§0.1–0.5 supplies cyclotomic fields and actions,
 §§7.1–7.4 Vandiver and its tower consequences. Its current package does
 not yet name the finite Kummer/Herbrand–Ribet and congruence exports
 required here. Layer 7 states those additional supplier requests, their
-proofs and their character conventions explicitly. SpecialValuesBirchTate
-B.8 supplies the higher special-value order
-formula used in the conditional integral table. The detected Harris–Segal
+proofs and their character conventions explicitly. The conditional integral
+table in §7.5 also requires the special-value order formulas of K-book
+VI.10.1, p. 527. The detected Harris–Segal
 construction and Keune's exact twisted Picard injection are stated with their
 specific source-proof requirements below; an abstract isomorphism of finite
 groups supplies neither map.
@@ -2620,8 +2620,9 @@ Use IntegralIwasawaTheory §7.1's `VandiverCondition`: for odd p, the
 class number of the maximal real subfield of ℚ(ζ_p) is prime to p.
 It is weaker than regularity and is not built into `IsRegularPrime`.
 Require the precise plus-part tower, reflection and cyclicity consequences
-before deducing group structure, and the B.8 special-value order theorem
-before assigning orders. (K-book, Conjecture VI.10.8, p. 532, and Theorems VI.10.9–10.10, p. 533.)
+before deducing group structure, and the special-value order formulas of
+K-book VI.10.1, p. 527, before assigning orders. (K-book, Conjecture VI.10.8,
+p. 532, and Theorems VI.10.9–10.10, p. 533.)
 
 The finite deduction can be checked without assuming a tower
 control isomorphism. Write P=Pic(ℤ[ζ_p,1/p])/p with the direct
@@ -2673,7 +2674,7 @@ global Vandiver under the cited cyclotomic comparison. At irregular
 primes full orders and cyclicity need the stated reflection and order
 inputs; the regular-prime theorem alone does not give this table.
 (K-book, VI.10.1–10.2 and Tables 10.1.1–10.2.1, pp. 527–529; VI.10.9–10.10,
-p. 533; SpecialValuesBirchTate B.8.)
+p. 533.)
 
 **Checks.**
 
@@ -2698,8 +2699,8 @@ IntegralIwasawaTheory §§0.1–0.5, 3.1, 5.4 and 7.1–7.4,
 with the exact additional congruence, finite Herbrand–Ribet and
 character-reflection exports requested in §7.2; M.7's normalized
 finite-coefficient edges for the constructed Bott shift; the detected
-Harris–Segal construction; the one-prime Brauer calculation; B.8's
-special-value order theorem for the conditional full table. Arithmetic
+Harris–Segal construction; the one-prime Brauer calculation; §7.5's
+special-value order formulas for the conditional full table. Arithmetic
 regular-prime conclusions do not import the downstream K₃/Bloch analysis
 or the full Chern/regulator family.
 
@@ -3404,12 +3405,10 @@ and sign calculation are given in §§8.8–8.9.)
 - The surjection from the presentation proves only the upper bound; the two
   signs give the other inequality.
 
-With w₂(F)=120 from Layer 4 and ζ_F(−1)=1/30 from
-SpecialValuesBirchTate B.3, the computed order gives 4/120=1/30.
-This is the downstream Birch–Tate check. It supplies neither §8.7's
-norm inequalities nor §8.8's index arguments nor either sign bound.
-The arithmetic data and tame-kernel order are imported or computed;
-the special-value identity is labeled according to its B.3 supplier.
+The certified order is 4, and Layer 4 gives w₂(F)=120. The comparison
+with a zeta value is a downstream application. Neither §8.7's norm
+inequalities nor §8.8's index arguments nor either sign bound uses
+a special-value identity.
 
 ### 8.10 Degree-three arithmetic examples
 
@@ -3443,16 +3442,22 @@ signs. These examples fix support, symbol direction and independent bounds.
 Layers 1–7; K2SymbolsBrauer's symbols; NumberFieldArithmetic's Gaussian
 and golden arithmetic; IntegralLattices' Minkowski theorem and Mathlib's
 full-rank index–determinant theorem; general localization and finite-field
-K-theory. SpecialValuesBirchTate consumes the golden certificate; its
-special-value formula supplies neither certificate bound.
+K-theory. Both bounds of the golden certificate are independent of
+any special-value formula.
 
 ## Downstream consumers
 
-SpecialValuesBirchTate B.3 uses the rational, Gaussian and golden-field
-computations as independent tests, while B.8 supplies special-value
-orders for §7.5. K3BlochGroups uses the degree-three rank and
-arithmetic torsion of Layers 3–5; its Bloch comparison is not needed
-to prove them. Chern classes, regulators, polylogarithms and higher
+SpecialValuesBirchTate is a downstream consumer. Its B.3 uses the rational,
+Gaussian and golden-field computations as independent tests. For the golden
+field, the certified order 4 and w₂(F)=120 give 4/120=1/30, which B.3
+compares with ζ_F(−1)=1/30. Neither certificate bound depends on that
+comparison. Its B.8 consumes the arithmetic groups and order comparisons
+of Layers 3–6 in its higher special-value formulas; §7.5's conditional
+integer table uses the K-book order formulas cited there.
+K3BlochGroups is a downstream consumer of the degree-three rank and
+arithmetic torsion of Layers 3–5. Its decomposable and indecomposable
+analysis and Bloch comparison are not needed to prove them.
+Chern classes, regulators, polylogarithms and higher
 special values consume these arithmetic groups and ranks. The basic
 odd torsion calculation uses only the early étale edge from M.7 and
 its real correction. Hermitian computations consume §3.5's periodic
