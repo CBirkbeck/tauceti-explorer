@@ -64,15 +64,17 @@ noncomputable def SymbolCandidate.tame (P : Place k K) (α : SymbolCandidate K) 
     P.ResidueFieldˣ :=
   α.prod fun fg n => tameValue P fg.1 fg.2 ^ n
 
-/-- Orientation witness: a unit followed by a uniformiser gives its residue; reversing the
-arguments gives the inverse residue (README §7.1, with residue `2` the values are `2` and `1/2`). -/
-example (P : Place k K) (u t : Kˣ) (hu : P.ord (u : K) = 0)
-    (ht : P.ord (t : K) = 1) :
-    tameValue P u t = P.residueUnit u hu ∧
-      tameValue P t u = (P.residueUnit u hu)⁻¹ := by
+/-- Orientation witness (README §§7.1, 7.7): if `c` is a unit at `P` and `ord_P h = n`, then
+`{c, h}` has tame value `c̄ⁿ` and `{h, c}` has `c̄⁻ⁿ`. For a uniformiser (`n = 1`) and residue `2`
+the values are `2` and `1/2`; for the order-three function of Bloch's correction they are `8` and
+`1/8`, which fixes the function-first order of the correction. -/
+example (P : Place k K) (c h : Kˣ) (n : ℤ) (hc : P.ord (c : K) = 0)
+    (hh : P.ord (h : K) = n) :
+    tameValue P c h = P.residueUnit c hc ^ n ∧
+      tameValue P h c = (P.residueUnit c hc ^ n)⁻¹ := by
   constructor
-  · simp [tameValue, hu, ht]
-  · simp [tameValue, hu, ht, P.residueUnit_inv]
+  · simp [tameValue, hh, hc]
+  · simp [tameValue, hh, hc, P.residueUnit_inv]
 
 /-- Sign witness: two copies of a uniformiser have tame value `−1`, including in characteristic
  two where this is one. -/
@@ -138,7 +140,7 @@ theorem card_twistedFrobeniusKernel {k : Type*} [Field k] [Fintype k] [Decidable
 
 /-- **Reciprocity fixes the last rational point** (README §7.4): if a candidate has trivial tame
 value at every place except one place `P₀` of degree one, it is trivial at `P₀` as well. The input
-is Weil reciprocity for the tame symbol with residue-field norms (K2SymbolsBrauer T.4); at a place
+is Weil reciprocity for the tame symbol with residue-field norms (K2SymbolsBrauer §10.30); at a place
 of degree larger than one only the norm of the value is forced to be one. -/
 theorem tame_last_point {k K : Type*} [Field k] [Field K] [Algebra k K]
     (hK : IsFunctionField k K) (α : SymbolCandidate K) (P₀ : Place k K) (hP₀ : P₀.degree = 1)
@@ -312,12 +314,6 @@ theorem Hom.subsingleton [IsDedekindDomain O] [IsFractionRing O F]
     (M N : RegularProperModel O F C toField) : Subsingleton (Hom M N) := by
   sorry
 
-/-- A marked model has no model endomorphism other than the identity, although its total scheme
-can have other automorphisms (the elliptic involution of `37a1` does not preserve the marking). -/
-example [IsDedekindDomain O] [IsFractionRing O F] (M : RegularProperModel O F C toField)
-    (f : Hom M M) : f = Hom.id M :=
-  (Hom.subsingleton M M).elim f (Hom.id M)
-
 end RegularProperModel
 
 end Layer6
@@ -327,28 +323,6 @@ end Layer6
 section Layer7
 
 variable {k K : Type*} [Field k] [Field K] [Algebra k K]
-
-/-- The correction has its function first (README §7.7): at order three its tame value is
-the inverse cube of the constant's residue; reversing the entries gives the cube. At residue
-`2` in characteristic zero these are `1/8` and `8`. -/
-example (P : Place k K) (h c : Kˣ) (hh : P.ord (h : K) = 3)
-    (hc : P.ord (c : K) = 0) :
-    tameValue P h c = P.residueUnit c hc ^ (-3 : ℤ) ∧
-      tameValue P c h = P.residueUnit c hc ^ (3 : ℤ) := by
-  constructor
-  · simp [tameValue, hh, hc, P.residueUnit_inv]
-    simpa using P.residueUnit_zpow hc (3 : ℤ)
-  · simp [tameValue, hh, hc]
-    simpa using P.residueUnit_zpow hc (3 : ℤ)
-
-/-- Two distinct formal symbols distinguish the integral ICM coefficient from the divided
-convention (README §7.7). This is a coefficient check, before the Steinberg quotient. -/
-example (s t : Kˣ × Kˣ) (hst : s ≠ t) :
-    let A : (Kˣ × Kˣ) →₀ ℚ := Finsupp.single s 3 + Finsupp.single t 1
-    ((1 / 3 : ℚ) • A) s = 1 ∧ ((1 / 3 : ℚ) • A) t = 1 / 3 ∧
-      A s = 3 ∧ A t = 1 := by
-  classical
-  norm_num [Finsupp.single_apply, hst, Ne.symm hst]
 
 /-- **Leading-unit formula** (README §7.1): for a uniformiser `t` with `f = t^a u` and `g = t^b w`,
 the tame value is `(−1)^{ab} ū^b w̄^{−a}`; in particular it does not depend on `t`. -/
@@ -440,10 +414,10 @@ commits, and are stated only in the README.
   `curveK3_extension`, `regularCurveMotivicTower` and its layer, convergence, Adams and
   smooth-comparison API, `weightComponent` and its API, `K3ind_eq_weight_two`, `KPullback`,
   `KPushforward`, `isogeny_pushPull`, `pushforwardStructureSheaf_class`, `isogeny_rankDet_action`,
-  `projectiveLine_K`, `harder`, `geometricK_galoisModule`, `positiveK_descent`,
+  `projectiveLine_finiteField`, `harder`, `geometricK_galoisModule`, `positiveK_descent`,
   `finiteFieldK_odd`, `finiteFieldK_even`).
 * `K_n` of fields, Milnor K-theory and étale cohomology: `BMS_functionField`,
-  `reciprocitySequence_exact`, `tameKernel_finite`, `geisserLevine`, `geisserLevine_filteredColimit`, `cohomologyDescent`, `closedPoints_coprimeDegrees`, `degreeOneZeroCycle`,
+  `curveFiniteGeneration`, `reciprocitySequence_exact`, `tameKernel_finite`, `geisserLevine`, `geisserLevine_filteredColimit`, `cohomologyDescent`, `closedPoints_coprimeDegrees`, `degreeOneZeroCycle`,
   `zeroCycle_splitting`,
   `SymbolCandidate.toK2`, `SymbolCertificate.sound`, `blochClassLift`, `blochClass` and its well-definedness,
   `blochClass_eq_Bloch` (README §7.7: the integral ICM class maps to `C • blochClass a`),
