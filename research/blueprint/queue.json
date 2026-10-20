@@ -152661,6 +152661,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex2.md"
+  },
+  {
+   "id": "FIX-PKG-K2SymbolsBrauer~adv3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-K2SymbolsBrauer~adv3.md",
+    "research/blueprint/packages/K2SymbolsBrauer/review.json",
+    "research/blueprint/packages/K2SymbolsBrauer/README.md",
+    "research/blueprint/packages/K2SymbolsBrauer/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv3.md"
   }
  ]
 }
