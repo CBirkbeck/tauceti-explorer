@@ -806,9 +806,9 @@
       "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "8024ea7",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "HilbertModularVarietiesAndShimuraCurves": {
