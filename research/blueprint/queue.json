@@ -154200,6 +154200,26 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex4.md",
    "note": "claimed on GitHub issue #11484"
+  },
+  {
+   "id": "REV-PKG-FunctionFieldArithmetic~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "FunctionFieldArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-FunctionFieldArithmetic~codex2.md",
+    "research/blueprint/packages/FunctionFieldArithmetic/review.json",
+    "research/blueprint/packages/FunctionFieldArithmetic/README.md",
+    "research/blueprint/packages/FunctionFieldArithmetic/Suggested.lean",
+    "research/blueprint/packages/FunctionFieldArithmetic/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-FunctionFieldArithmetic~codex2.md"
   }
  ]
 }
