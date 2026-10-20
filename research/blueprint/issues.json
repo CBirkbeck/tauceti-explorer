@@ -5398,5 +5398,6 @@
  "FIX-PKG-AdditiveCombinatorics~adv": 11474,
  "FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv": 11475,
  "REV-PKG-HabiroRings~codex4": 11484,
- "REV-PKG-FunctionFieldArithmetic~codex2": 11489
+ "REV-PKG-FunctionFieldArithmetic~codex2": 11489,
+ "FIX-PKG-HabiroRings~adv5": 11490
 }
