@@ -39,9 +39,19 @@ theorem compactSpace_Op : CompactSpace (Op F p) := by
 theorem finrank_Op : Module.finrank ℤ_[p] (Op F p) = Module.finrank ℚ F := by
   sorry
 
-/-- O0/norm-at-p: determinant norm, restricted to units. -/
+/-- O0/norm-at-p: the determinant norm on the full integral algebra. -/
+def normAlgebra : Op F p →* ℤ_[p] :=
+  Algebra.norm ℤ_[p]
+
+/-- Compatibility on every integral element, before restriction to units. -/
+theorem norm_tmul_one (a : 𝓞 F) :
+    normAlgebra F p ((1 : ℤ_[p]) ⊗ₜ[ℤ] a) =
+      ((Algebra.norm ℤ a : ℤ) : ℤ_[p]) := by
+  sorry
+
+/-- O0/norm-at-p: restrict the determinant norm to units. -/
 def normUnits : (Op F p)ˣ →* ℤ_[p]ˣ :=
-  Units.map (Algebra.norm ℤ_[p] : Op F p →* ℤ_[p])
+  Units.map (normAlgebra F p)
 
 theorem continuous_normUnits : Continuous (normUnits F p) := by
   sorry
@@ -155,6 +165,15 @@ theorem graph_normalisation (A B C D Z : Matrix n n R)
       (A + Z * C) * Matrix.fromCols (1 : Matrix n n R)
         ((A + Z * C)⁻¹ * (B + Z * D)) := by
   sorry
+
+/-- The standard-to-antidiagonal symplectic basis conversion preserves the
+quotient-frame factor: `Z` becomes `Z * W` and `C` becomes `W * C`. -/
+example (A C Z W : Matrix n n R) (hW : W * W = 1) :
+    A + (Z * W) * (W * C) = A + Z * C := by
+  calc
+    A + (Z * W) * (W * C) = A + Z * ((W * W) * C) := by
+      simp only [mul_assoc]
+    _ = A + Z * C := by rw [hW, one_mul]
 
 /-- O8/factor-composition: preserve the order of the two factors. -/
 theorem factor_composition (A B C D E F G H Z : Matrix n n R)
