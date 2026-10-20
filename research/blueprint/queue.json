@@ -152800,6 +152800,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-Polylogarithms~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-Polylogarithms~adv2.md",
+    "research/blueprint/packages/Polylogarithms/review.json",
+    "research/blueprint/packages/Polylogarithms/README.md",
+    "research/blueprint/packages/Polylogarithms/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv2.md"
   }
  ]
 }
