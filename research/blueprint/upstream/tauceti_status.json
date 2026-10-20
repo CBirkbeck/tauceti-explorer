@@ -349,10 +349,9 @@
       "note": "N1 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 7223685; confirmation pass pending"
+        "head": "7223685",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "CrystallineCohomology": {
