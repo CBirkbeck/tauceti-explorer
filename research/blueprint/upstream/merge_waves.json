@@ -112,7 +112,7 @@
   "VectorBundlesAndIsocrystals": 24,
   "WeilConjectures": 24,
   "RelativeFarguesFontaine": 25,
-  "GeneralAlgebraicKTheory": 6,
+  "GeneralAlgebraicKTheory": 7,
   "JacobianChallengePartII": 15,
   "StableHomotopyKTheory": 5,
   "SchemeKTheoryOperations": 9,
@@ -132,12 +132,13 @@
   "KTheoryFiniteLocalFields": 18,
   "K2SymbolsBrauer": 11,
   "IntegralIwasawaTheory": 3,
-  "NoncommutativeAndEquivariantIwasawa": 7,
+  "NoncommutativeAndEquivariantIwasawa": 8,
   "ColemanPowerSeries": 4,
   "PhiGammaModulesAndIwasawaCohomology": 8,
   "EulerSystemsCyclotomicMainConjecture": 5,
   "PadicLocalLanglandsForGL2Qp": 9,
   "MotivesAndAlgebraicCycles": 3,
-  "HabiroCyclotomicCompletions": 1
+  "HabiroCyclotomicCompletions": 1,
+  "PolylogarithmFunctions": 1
  }
 }

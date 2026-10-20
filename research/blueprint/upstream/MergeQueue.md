@@ -1,10 +1,11 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-20T16:41Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-20T16:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #914 FreeGroupsAndLimitGroups — draft
 - #1314 HabiroCyclotomicCompletions — draft
+- #1320 PolylogarithmFunctions — draft
 - #248 LFunctions (roed-math, other author)
 - #417 PointProcesses (mccorvie, other author)
 - #446 CFSGBasicProperties (kim-em, other author)
@@ -50,18 +51,18 @@ Generated 2026-10-20T16:41Z from the README supplier graph of every open pull re
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — draft; waits on #940
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #785, #940
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 7
 - #857 CrystallineCohomology — draft; waits on #820, #868, #940, #1103, #1104
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940
-- #1142 AlgebraicKTheory (kim-em, other author)
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1199, #785, #857, #899
 - #854 LocallyAnalyticDistributions — draft; waits on #785, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940
 - #1310 PhiGammaModulesAndIwasawaCohomology — draft; waits on #816, #857, #940
 
 ## Wave 9
@@ -122,7 +123,7 @@ Generated 2026-10-20T16:41Z from the README supplier graph of every open pull re
 - #1281 KTheoryFiniteLocalFields — draft; waits on #1044, #1212, #1227, #1229, #1266, #851, #857, #858, #1142
 
 ## Wave 19
-- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #785, #792, #856, #858, #871, #924, #248, #889
+- #925 AutomorphicSpectralTheory — draft; waits on #1037, #785, #792, #856, #858, #871, #924, #248, #889
 - #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #820, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready; waits on #854, #924
