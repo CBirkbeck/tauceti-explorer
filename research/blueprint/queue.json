@@ -53884,8 +53884,8 @@
    ],
    "revisionOf": "PKG-EulerSystemsCyclotomicMainConjecture",
    "prompt": "research/blueprint/prompts/PKG-EulerSystemsCyclotomicMainConjecture~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11031"
+   "state": "superseded",
+   "note": "Superseded 2026-10-20: the revision PR conflicted with main and was closed; its content is reconciled onto the current package by a FIX-PKG reconciliation job."
   },
   {
    "id": "REV-PKG-EulerSystemsCyclotomicMainConjecture~2",
@@ -53911,7 +53911,8 @@
     "PKG-EulerSystemsCyclotomicMainConjecture~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Superseded 2026-10-20: the revision PR conflicted with main and was closed; its content is reconciled onto the current package by a FIX-PKG reconciliation job."
   },
   {
    "id": "PKG-ExceptionalThetaCorrespondencesForG2",
@@ -58752,8 +58753,8 @@
    ],
    "revisionOf": "PKG-ModularIwasawaMainConjectures",
    "prompt": "research/blueprint/prompts/PKG-ModularIwasawaMainConjectures~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11033"
+   "state": "superseded",
+   "note": "Superseded 2026-10-20: the revision PR conflicted with main and was closed; its content is reconciled onto the current package by a FIX-PKG reconciliation job."
   },
   {
    "id": "REV-PKG-ModularIwasawaMainConjectures~2",
@@ -58779,7 +58780,8 @@
     "PKG-ModularIwasawaMainConjectures~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularIwasawaMainConjectures~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Superseded 2026-10-20: the revision PR conflicted with main and was closed; its content is reconciled onto the current package by a FIX-PKG reconciliation job."
   },
   {
    "id": "PKG-ModularIwasawaMainConjecturesPartII",
