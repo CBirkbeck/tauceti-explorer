@@ -117,10 +117,11 @@ The README definitions absent here include excludedInteger, excludedIntegerPrime
 finiteChernRoot, chernUnitClass, the Kummer value P, finiteRegulator,
 poweredRegulatorLifts, etaleBlochGroup, eta, the positive cyclic chains, bott,
 localFiniteRegulator, localFiniteChern, epsilonClass, T_m and rootLine;
-compatibleRoots, arithmeticCyclotomicAlgebra, coefficientFrobenius,
-cyclotomicFrobenius, arithmeticReexpand, ArithmeticTaylorFamily,
-ArithmeticHabiroRing, ArithmeticHabiroRingAway, LocalHabiroRing,
-localUntwist, the p-chain completion, multiplicativeTaylorCoordinates,
+compatibleRoots, arithmeticCyclotomicAlgebra, unramifiedFrobenius,
+coefficientFrobenius, cyclotomicFrobenius, arithmeticReexpand,
+ArithmeticTaylorFamily, ArithmeticHabiroRing, ArithmeticHabiroRingAway,
+LocalHabiroRing, localUntwist, the prime-to-p local chart, the p-chain
+completion, multiplicativeTaylorCoordinates,
 weighted jets, orderComponent and abelianScalarMap;
 invertibleLocalSection, LocalIndexedModule, pDepletedPolylog,
 normalizedPochhammer, GlobalIndexedFamily and its descended indexed line,
