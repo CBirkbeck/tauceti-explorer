@@ -152318,7 +152318,7 @@
     "research/blueprint/handoff/BP-PadicHodgeRegulators~3.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~3.md",
    "scope": [
     "PadicHodgeRegulators:D.1",
@@ -152336,7 +152336,8 @@
     "REV-PadicHodgeRegulators~2"
    ],
    "revisionOf": "BP-PadicHodgeRegulators",
-   "note": "claimed on GitHub issue #11300"
+   "note": "deliverables arrived from an external worker on issue #11300",
+   "finishedAt": "2026-10-20T11:09:01Z"
   },
   {
    "id": "REV-PadicHodgeRegulators~3",
@@ -152582,8 +152583,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~codex4.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~codex4.md",
+   "note": "claimed on GitHub issue #11318"
   },
   {
    "id": "REV-PKG-NoncommutativeAndEquivariantIwasawa~codex3",
@@ -152748,9 +152750,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-PolylogarithmFunctions.md",
-   "note": "claimed on GitHub issue #11333"
+   "note": "deliverables arrived from an external worker on issue #11333",
+   "finishedAt": "2026-10-20T11:09:03Z"
   },
   {
    "id": "DESIGN-HabiroCohomologyFoundationsPartII",
@@ -152768,9 +152771,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-HabiroCohomologyFoundationsPartII.md",
-   "note": "claimed on GitHub issue #11334"
+   "note": "deliverables arrived from an external worker on issue #11334",
+   "finishedAt": "2026-10-20T11:09:03Z"
   },
   {
    "id": "DESIGN-MotivicEtaleKTheoryPartII",
@@ -152809,9 +152813,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv2.md",
-   "note": "claimed on GitHub issue #11336"
+   "note": "deliverables arrived from an external worker on issue #11336",
+   "finishedAt": "2026-10-20T11:09:03Z"
   },
   {
    "id": "FIX-PKG-Polylogarithms~adv2",
@@ -152932,9 +152937,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-MotivicEtaleKTheoryPartII~codex.md",
-   "note": "claimed on GitHub issue #11345"
+   "note": "deliverables arrived from an external worker on issue #11345",
+   "finishedAt": "2026-10-20T11:09:06Z"
   },
   {
    "id": "REV-PKG-K2SymbolsBrauer~codex2",
@@ -152974,8 +152980,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex4.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex4.md",
+   "note": "claimed on GitHub issue #11352"
   },
   {
    "id": "REV-PKG-ArithmeticKTheory~codex2",
@@ -152994,8 +153001,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticKTheory~codex2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticKTheory~codex2.md",
+   "note": "claimed on GitHub issue #11353"
   }
  ]
 }
