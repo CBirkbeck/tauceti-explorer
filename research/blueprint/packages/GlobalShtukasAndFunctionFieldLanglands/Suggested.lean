@@ -51,8 +51,8 @@ example : eulerForm 0 (1, 0) (1, 1) = 2 := by
 example : eulerForm 0 (1, 1) (1, 0) = 0 := by
   decide
 
-/-- The slope `deg / rank` of a numerical class, with value `⊤` on torsion classes
-(rank zero). -/
+/-- The slope `deg / rank` of a numerical class, with value `⊤` on rank-zero pairs.
+The value at `(0, 0)` only totalizes this numerical function; the zero sheaf has no slope. -/
 def slope (c : ℕ × ℤ) : WithTop ℚ :=
   if c.1 = 0 then ⊤ else (((c.2 : ℚ) / (c.1 : ℚ) : ℚ) : WithTop ℚ)
 
@@ -65,9 +65,11 @@ example : slope (2, 1) = (((1 : ℚ) / 2 : ℚ) : WithTop ℚ) := by
   norm_num [slope]
 
 /-- The shifted slope of the block of ranks `(a, b]` of a filtration, for a dominant shift
-`T = (T₁ ≥ T₂ ≥ ⋯)`: `(deg - (T_{a+1} + ⋯ + T_b)) / (b - a)` (README §GS.0.8). -/
-def shiftedSlope (T : ℕ → ℚ) (a b : ℕ) (deg : ℤ) : ℚ :=
-  ((deg : ℚ) - ∑ i ∈ Finset.Ioc a b, T i) / ((b : ℚ) - a)
+`T = (T₁ ≥ T₂ ≥ ⋯)`: `(deg - (T_{a+1} + ⋯ + T_b)) / (b - a)` (README §GS.0.8).
+For the geometric interpretation `a < b`; values at empty blocks only totalize the formula.
+The shift is real, as in Arthur truncation, and need not be rational. -/
+noncomputable def shiftedSlope (T : ℕ → ℝ) (a b : ℕ) (deg : ℤ) : ℝ :=
+  ((deg : ℝ) - ∑ i ∈ Finset.Ioc a b, T i) / ((b : ℝ) - a)
 
 /-- `O(1) ⊕ O(−1)` on `P¹` is semistable for the shift `T = (1, −1)`: the shifted slope of the
 destabilizing line `O(1)` does not exceed that of the whole bundle. -/
@@ -235,13 +237,13 @@ end Excursions
 /-
 README targets that are not stated here, because their carriers are not in Mathlib or Tau Ceti
 at the pins: the stacks `BunG`, `BunG.level`, `IwahoriBundle`, `HNType`/`HNFiltration` for
-sheaves, `ShiftedHN`, `ParabolicInstability`, `BunG.automorphicFunctions` (Layer GS.0);
+sheaves, `ShiftedHN`, `ParabolicInstability`, `CentralLattice`, `BunG.automorphicFunctions` (Layer GS.0);
 `BDGrassmannian`, `SchubertBound`, `GlobalHecke`, `StackSheaf`, `IwahoriHecke`,
-`ClassicalSatake` and the geometric Satake equivalence (Layer GS.1); `GlobalShtuka`,
+`satakeDeterminantLine`, `ClassicalSatake`, `IntegralSatake` and the geometric Satake equivalence (Layer GS.1); `GlobalShtuka`,
 `TwistedShtuka`, `ShtukaIC`, `ShtukaCohomology`, `HorocycleIndex`, `Shtuka.partialFrobenius`,
 `ShtukaHecke` (Layer GS.2); `CreateLegs`, `AnnihilateLegs`, `PGL2Shtuka`, `ShtukaCohom`
 (Layer GS.3); `FrobeniusWeil`, `ShtukaH` (Layer GS.4); `GlobalExcursion`,
-`CompactShtukaCohom` (Layer GS.5); `RestrictedShtuka`, `LocalExcursion` (Layer GS.7).
+`CompactShtukaCohom` (Layer GS.5); `RestrictedShtuka`, `LocalExcursion`, `LocalGamma` (Layer GS.7).
 -/
 
 end TauCetiRoadmap.GlobalShtukasAndFunctionFieldLanglands
