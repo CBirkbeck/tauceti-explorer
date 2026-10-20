@@ -153475,6 +153475,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundationsPartII~adv1.md"
+  },
+  {
+   "id": "FIX-PKG-RefinedTraceMethods~adv3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-RefinedTraceMethods~adv3.md",
+    "research/blueprint/packages/RefinedTraceMethods/review.json",
+    "research/blueprint/packages/RefinedTraceMethods/README.md",
+    "research/blueprint/packages/RefinedTraceMethods/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv3.md"
   }
  ]
 }
