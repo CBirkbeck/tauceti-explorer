@@ -23220,11 +23220,12 @@
     "REV-RS-11"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicCongruences.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #10911"
   },
   {
    "id": "REV-AutomorphicCongruences",
@@ -30095,7 +30096,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles",
@@ -30109,7 +30110,8 @@
     "BP-PerfectoidSpaces",
     "BP-ShimuraCompactifications"
    ],
-   "note": "claimed on GitHub issue #10836"
+   "note": "deliverables arrived from an external worker on issue #10836",
+   "finishedAt": "2026-10-20T02:20:53Z"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms",
@@ -50220,8 +50222,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicCongruences.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10758"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10758",
+   "finishedAt": "2026-10-20T02:20:54Z"
   },
   {
    "id": "REV-PKG-AutomorphicCongruences",
@@ -54637,7 +54640,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FunctionFieldArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10767"
   },
   {
    "id": "REV-PKG-FunctionFieldArithmetic",
@@ -56355,7 +56359,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10771"
   },
   {
    "id": "REV-PKG-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -59913,7 +59918,8 @@
     "PKG-PadicLocalLanglandsForGL2Qp"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PadicLocalLanglandsForGL2Qp.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10906"
   },
   {
    "id": "PKG-PerfectoidQuotients",
@@ -150427,8 +150433,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-AutomorphicPadicLFunctions~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-AutomorphicPadicLFunctions~codex.md",
+   "note": "claimed on GitHub issue #10881"
   },
   {
    "id": "FIX-PKG-StableHomotopyKTheory~adv",
@@ -151785,9 +151792,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2.md",
-   "note": "claimed on GitHub issue #11233"
+   "note": "deliverables arrived from an external worker on issue #11233",
+   "finishedAt": "2026-10-20T02:21:00Z"
   },
   {
    "id": "REV-PKG-BorelRegulators~codex",
@@ -152125,9 +152133,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv.md",
-   "note": "claimed on GitHub issue #11275"
+   "note": "deliverables arrived from an external worker on issue #11275",
+   "finishedAt": "2026-10-20T02:21:06Z"
   },
   {
    "id": "REV-PKG-MotivesAndAlgebraicCycles~adv",
@@ -152146,9 +152155,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~adv.md",
-   "note": "claimed on GitHub issue #11276"
+   "note": "deliverables arrived from an external worker on issue #11276",
+   "finishedAt": "2026-10-20T02:21:09Z"
   },
   {
    "id": "REV-PKG-EulerSystemsAndKolyvaginSystems~codex3",
@@ -152208,8 +152218,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv3.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv3.md",
+   "note": "deliverables arrived from an external worker on issue #11283",
+   "finishedAt": "2026-10-20T02:21:12Z"
   }
  ]
 }
