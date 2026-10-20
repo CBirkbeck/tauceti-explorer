@@ -486,9 +486,9 @@
       "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "approve",
+        "head": "89aecc9",
         "current": true,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "date": "2026-10-12"
       }
     },
     "LefschetzPencilsAndVanishingCycles": {

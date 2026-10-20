@@ -47,7 +47,6 @@ Generated with the SVG (2026-10-20T07:20Z). A wave can merge once every wave bel
 
 ## Wave 12
 - DeformationAndDerivedPatchingAlgebra: PR #1034 — ready; external prerequisites #899, #872
-- DeligneWeightsAndPurity: PR #929 — draft
 - GeometryOfNumbersAndQuadraticArithmetic: PR #851 — draft; external prerequisites #1142, #248, #280, #284, #286, #417, #894, #1212
 
 ## Wave 13
@@ -68,20 +67,38 @@ Generated with the SVG (2026-10-20T07:20Z). A wave can merge once every wave bel
 - LefschetzPencilsAndVanishingCycles: PR #873 — draft; external prerequisites #1103, #1104, #896
 
 ## Wave 16
+- FarguesFontaineDiamonds: PR #964 — draft
 - ModularCurvesPartII: PR #913 — ready; external prerequisites #1225
 
 ## Wave 17
 - AlgebraicModularFormsAndSerreWeights: PR #928 — draft
+- DeligneWeightsAndPurity: PR #929 — draft
 - PELModuli: PR #966 — draft
-- PadicDifferentialEquationsAndRigidCohomology: PR #1002 — draft; external prerequisites #940
 - ShimuraVarieties: PR #933 — draft
 
 ## Wave 18
-- ArakelovGeometryAndAbelianHeights: PR #1000 — draft
 - CompletedCohomologyPartII: PR #1035 — ready
-- WeightsInEtaleCohomology: PR #1001 — ready; external prerequisites #940
+- PadicDifferentialEquationsAndRigidCohomology: PR #1002 — draft; external prerequisites #940
 
 ## Wave 19
+- ArakelovGeometryAndAbelianHeights: PR #1000 — draft
+- CohomologyComparisons: PR #1064 — draft; external prerequisites #940
+- HilbertModularVarietiesAndShimuraCurves: PR #1005 — draft; external prerequisites #934
+
+## Wave 20
+- AutomorphicBundles: PR #1069 — draft; external prerequisites #816, #940
+- ShimuraCompactifications: PR #1053 — draft; external prerequisites #816, #940
+
+## Wave 21
+- EndoscopicTransferAndUnitaryTraceComparison: PR #999 — draft
+
+## Wave 22
+- GL2AutomorphicRepresentationsAndTransfer: PR #931 — draft; external prerequisites #934
+
+## Wave 23
+- WeightsInEtaleCohomology: PR #1001 — ready; external prerequisites #940
+
+## Wave 24
 - AInfCohomology: PR #1044 — ready; external prerequisites #942, #816, #940
 - PadicHodgeTheory: PR #1062 — draft; external prerequisites #942, #816, #940
 - PerfectoidQuotients: PR #1042 — ready; external prerequisites #942, #816, #940
@@ -90,36 +107,17 @@ Generated with the SVG (2026-10-20T07:20Z). A wave can merge once every wave bel
 - PrismaticCohomologyPartIII: PR #1070 — draft; external prerequisites #942, #816, #940
 - PrismaticCohomologyPartIV: PR #1080 — draft; external prerequisites #942, #816, #940
 
-## Wave 20
-- CohomologyComparisons: PR #1064 — draft; external prerequisites #940
+## Wave 25
 - ColemanIntegration: PR #1043 — draft
 - DirichletPadicLFunctions: PR #1039 — draft
-- FarguesFontaineDiamonds: PR #964 — draft
-- GlobalGaloisDeformations: PR #920 — ready
-- LocalGaloisDeformationRings: PR #923 — draft
-
-## Wave 21
-- HilbertModularVarietiesAndShimuraCurves: PR #1005 — draft; external prerequisites #934
-
-## Wave 22
-- AutomorphicBundles: PR #1069 — draft; external prerequisites #816, #940
-- ShimuraCompactifications: PR #1053 — draft; external prerequisites #816, #940
-
-## Wave 23
-- EndoscopicTransferAndUnitaryTraceComparison: PR #999 — draft
 - FaltingsFinitenessAndIsogenyTheorems: PR #1004 — ready; external prerequisites #940
+- GlobalGaloisDeformations: PR #920 — ready
 - HodgeTateAndCanonicalSubgroups: PR #1084 — draft
-
-## Wave 24
-- GL2AutomorphicRepresentationsAndTransfer: PR #931 — draft; external prerequisites #934
-- PerfectoidShimuraVarieties: PR #1085 — draft; external prerequisites #816
-
-## Wave 25
-- ModularSymbolsPadicLFunctions: PR #968 — draft; external prerequisites #934, #940
-- PadicFamilies: PR #1019 — draft; external prerequisites #934, #940
+- LocalGaloisDeformationRings: PR #923 — draft
 
 ## Wave 26
 - AutomorphicGaloisRepresentationsPartII: PR #1006 — ready; external prerequisites #940
+- PerfectoidShimuraVarieties: PR #1085 — draft; external prerequisites #816
 
 ## Wave 27
 - AutomorphicGaloisRepresentations: PR #1007 — ready; external prerequisites #934, #940
@@ -131,6 +129,8 @@ Generated with the SVG (2026-10-20T07:20Z). A wave can merge once every wave bel
 
 ## Wave 29
 - GL2ModularityLifting: PR #1071 — draft; external prerequisites #451
+- ModularSymbolsPadicLFunctions: PR #968 — draft; external prerequisites #934, #940
+- PadicFamilies: PR #1019 — draft; external prerequisites #934, #940
 
 ## Wave 30
 - PotentialModularityAndCompatibleSystems: PR #1075 — draft
