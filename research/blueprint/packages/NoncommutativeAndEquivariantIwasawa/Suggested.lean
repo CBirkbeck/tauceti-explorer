@@ -11,8 +11,8 @@ nothing here is claimed formalised.
 
 Design choices made explicit here:
 
-* Tau Ceti provides the completed group algebra `Λ(G) = ℤ_p[[G]]`. Its noncommutative
-  localization, relative K-theory, determinant functors and the arithmetic complexes needed here
+* Tau Ceti main, not the pin, provides the completed group algebra `Λ(G) = ℤ_p[[G]]`. Its
+  noncommutative localization, relative K-theory, determinant functors and the arithmetic complexes needed here
   lack the required pinned APIs, so their statements remain README targets. The canonical set is
   defined for an arbitrary ring `A` that is a module over a ring `B` compatibly with left
   multiplication (§1.1); for `A = Λ(G)` and `B = Λ(H)` it is the set of Coates–Fukaya–Kato–
@@ -54,8 +54,8 @@ For `A = Λ(G)` and `B = Λ(H)` this is the canonical Ore set `S` of CFKSV. -/
 def canonicalSet : Set A :=
   {f | Module.Finite B (A ⧸ Submodule.span A ({f} : Set A))}
 
-/-- The `π`-saturation `S* = ⋃ₙ πⁿ S` of the canonical set (§1.10), for a central element
-`π` (in the Iwasawa case `π = p`). -/
+/-- The `π`-saturation `S* = ⋃ₙ πⁿ S` of the canonical set (§1.10). The definition makes sense
+for every `π`; the Ore property of §1.10 uses `π` central (in the Iwasawa case `π = p`). -/
 def saturatedSet (π : A) : Set A :=
   {f | ∃ n : ℕ, ∃ s ∈ canonicalSet A B, f = π ^ n * s}
 
@@ -109,7 +109,8 @@ representative of `a + b` times `γ ^ (q * carryExponent q a b)`. -/
 def carryExponent (q a b : ℕ) : ℕ :=
   (a % q + b % q) / q
 
-/-- The carry is a normalized symmetric 2-cocycle on `ℤ/q` with values in `ℕ` (§6.7). -/
+/-- The carry satisfies the 2-cocycle identity on `ℤ/q` with values in `ℕ` (§6.7); it is symmetric
+and vanishes when an argument is `0`, directly from the definition. -/
 theorem carryExponent_cocycle (q a b c : ℕ) (hq : 0 < q) :
     carryExponent q a b + carryExponent q (a + b) c =
       carryExponent q b c + carryExponent q a (b + c) := by
