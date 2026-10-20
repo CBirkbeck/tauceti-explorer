@@ -13,7 +13,7 @@ Hilbert bilinearity from a conic-solubility test over a general field.
 
 namespace TauCetiRoadmap.K2SymbolsBrauerPartII
 
-/- Layer 3: local norm-residue and conic symbols -/
+/-! ## Layer 3: local norm-residue and conic symbols -/
 
 /-- The total conic-solubility sign: one exactly when `r * x² + s * y² = 1`
 has a solution. This definition also applies when a coefficient is zero. -/
@@ -65,7 +65,8 @@ Layer 2: `cyclicSymbolAlgebra`, its basis, splitting representation,
 proper-degree matrix-corner comparison, and `cyclicSymbolAlgebra_brauerClass`.
 
 Layer 3: `normResidueK2`, `normResidueK2_splitSurjective`, `hilbertK2`,
-`hilbertK2_real`, and `normResidueK2_eq_neg_invariant`.
+the `hilbertK2_real` conic comparison for the supplied real sign map,
+and `normResidueK2_eq_neg_invariant`.
 
 Layer 4: `placeNormResidueK2`, `placeNormResidueK2_finiteSupport`,
 `normResidueK2_product_formula`, and `brauerSymbol_sum_invariant`.
