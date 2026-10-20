@@ -5320,5 +5320,6 @@
  "FIX-PKG-RefinedTraceMethods~adv2": 11304,
  "FIX-PKG-K2SymbolsBrauer~adv2": 11306,
  "FIX-PKG-HabiroRings~adv": 11307,
- "FIX-PKG-HabiroCohomologyFoundations~adv": 11308
+ "FIX-PKG-HabiroCohomologyFoundations~adv": 11308,
+ "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv": 11315
 }
