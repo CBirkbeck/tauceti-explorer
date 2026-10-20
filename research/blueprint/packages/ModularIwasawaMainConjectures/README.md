@@ -1,10 +1,10 @@
 # Roadmap: main conjectures for modular forms and their families
 
-**Summary.** Build the comparisons between ordinary Selmer, Kato cohomological and signed formulations of the cyclotomic main conjecture for modular forms. Combine the separately constructed Euler-system bound and automorphic reverse bounds in their precise ranges, transport the resulting statements to elliptic curves and families, and derive the stated specialization and rank-zero consequences. Integral periods, stable lattices, tame components and local correction factors remain part of every comparison.
+**Summary.** Build the comparisons between ordinary Selmer, Kato cohomological and signed formulations of the cyclotomic main conjecture for modular forms. Combine the separately constructed Euler-system bound and automorphic reverse bounds in their precise ranges, transport the resulting statements to elliptic curves and families, and derive the stated specialization and rank-zero consequences. Integral periods, stable lattices, tame components and local correction factors remain part of every comparison: the only scalar between Kato's and the canonical normalisation is an explicit p-adic period defect, the leading-term consequences rest on the cyclotomic p-adic height and Schneider's theorem built here, and the multiplicative theorem reaches p = 3 through a Hida approximation proved here.
 
 ## Scope and ownership
 
-This roadmap owns the modular formulation dictionaries, the assembly of the two ordinary divisibilities, and the comparisons that turn the pointwise, family and elliptic-curve endpoints into the chosen formulations. It also owns the elementary residual predicates, the rank-one coinvariant argument, Euler-factor and coefficient-change comparisons, the modular instances of general main-conjecture propositions, and the specified leading-term consequences.
+This roadmap owns the modular formulation dictionaries, the assembly of the two ordinary divisibilities, and the comparisons that turn the pointwise, family and elliptic-curve endpoints into the chosen formulations. It also owns the elementary residual predicates, the rank-one coinvariant argument, Euler-factor and coefficient-change comparisons, the modular instances of general main-conjecture propositions, and the specified leading-term consequences. Five further pieces of mathematics that no other roadmap plans are owned here, because the comparisons above cannot be stated without them: the dictionary between Kato's good pairs and canonical periods, with its p-adic period defect (§0.9); the Hida approximation of a p-new weight-two form, including p=3 (§1.6); the cyclotomic p-adic height of an elliptic curve with its normalisations (§§3.7–3.8); Schneider's leading-term theorem, for an abelian variety over a number field that is ordinary above p and, specialised, for the ordinary Galois Selmer group of an elliptic curve over ℚ (§3.9); and the p-adic theorem of Barré-Sirieix, Diaz, Gramain and Philibert that the Tate parameter of an elliptic curve over ℚ is transcendental, which makes the ℒ-invariant nonzero (§5.5).
 
 The following constructions and arithmetic proofs are consumed from their owners.
 
@@ -12,10 +12,13 @@ The following constructions and arithmetic proofs are consumed from their owners
 - **ArithmeticGaloisRepresentations and EllipticCurveModularity.** Use modular Galois representations, integral lattices, residual local types and the modularity/parametrization/Tate-module comparisons. The corresponding current Tau Ceti roadmaps ModularForms, ModularCurves, EllipticCurves, LocalGaloisGroups, ProfiniteArithmetic, ProfiniteCohomology, ClassFieldTheory and LocalFieldsRamification supply the underlying arithmetic. IntegralLattices treats quadratic lattices; the stable representation lattice here carries a Galois action and is a distinct specialization of module theory.
 - **PadicMeasuresIwasawaAlgebras.** Use completed group algebras, characteristic ideals, Weierstrass invariants and perfect-complex determinants. The determinant of a perfect Iwasawa complex is distinct from the determinant bundle construction in AlgebraicVectorBundles.
 - **SelmerIwasawaCohomology.** Use continuous cohomology with local conditions, Greenberg's condition, Poitou–Tate, Pontryagin duals, control and no-finite-submodule results. Here those constructions are specialized to the stated modular datum and compared with the analytic normalization.
-- **KatoEulerSystems.** Use the modular zeta classes and morphisms, their reciprocity laws, divisibilities and the elliptic no-finite-Iwasawa-submodule theorem. Generic Euler/Kolyvagin-system descent belongs to EulerSystemsAndKolyvaginSystems. This roadmap combines those outputs with reverse bounds rather than constructing another Euler-system theory.
+- **KatoEulerSystems.** Use the classical modular zeta classes and morphisms, their reciprocity laws, divisibilities and the elliptic no-finite-Iwasawa-submodule theorem. Generic Euler/Kolyvagin-system descent belongs to EulerSystemsAndKolyvaginSystems. This roadmap combines those outputs with reverse bounds rather than constructing another Euler-system theory.
 - **ModularSymbolsPadicLFunctions and the signed regulator theory.** Use saturated period lattices, modular-symbol interpolation and integral Coleman maps/Wach bases. The signed local definitions below use the regulator supplier's actual domain and image, rather than another construction of those maps.
-- **AutomorphicCongruences.** Layers 1 and 2 own the different ordinary reverse bounds. Layer 4 owns the Fouquet–Wan pointwise and universal-family arithmetic endpoints. Layer 5b owns both Burungale–Castella–Skinner cyclotomic endpoints. Here their hypotheses are exposed and their formulations compared; none of their automorphic proofs is a second target.
-- **Other arithmetic branches.** HeegnerPointEulerSystems HE.8b owns the ordinary anticyclotomic proofs and their Heegner/BDP comparison. RankZeroOneBSD BSD.7a owns the Eisenstein-prime endpoints, and BSD.6a owns the semistable supersingular and multiplicative anticyclotomic endpoints. Layer 6 transports these outputs through the stated formulation maps. It gives no proof of these branches from the irreducible ordinary theorems.
+- **AutomorphicCongruences.** Layers 1 and 2 own the different ordinary reverse bounds. Layer 3 owns Nakamura's zeta morphism over the universal deformation ring, its specialisation to Kato's classical morphisms and the resulting trivialisation of the Σ-partial fundamental line. Layer 4 owns the Fouquet–Wan pointwise and universal-family arithmetic endpoints. Layer 5b owns both Burungale–Castella–Skinner cyclotomic endpoints. Here their hypotheses are exposed and their formulations compared; none of their automorphic proofs is a second target. AutomorphicCongruences states its endpoints with the formulations of Layers 0–1 of this roadmap, so the two roadmaps cite each other layer by layer without a cycle between individual targets; they go upstream together, as one bundle.
+- **SelmerIwasawaCohomology, Part II.** Its layer HP.1 owns Nekovář's canonical local heights and the general global height pairing for representations that are Panchishkin at p. The height of §3.7 is the explicit Mazur–Tate sigma-function height of an elliptic curve, in the normalisation in which the Mazur–Tate–Teitelbaum conjecture and Schneider's theorem are stated; its agreement with HP.1's pairing for V_pE is not used and is not asserted here.
+- **SerreWeightAndLevelOptimisation.** Its Mazur principle, Edixhoven weight theorem and Ribet's four sets of levels prove the ramification needed in the higher-weight example (§5.11).
+- **DiophantineApproximationAndTranscendence (a current Tau Ceti roadmap).** Its Layer 5 (§5.6) states Nesterenko's algebraic-independence theorem for complex q. Neither it nor any atlas roadmap states the p-adic case of the Barré-Sirieix–Diaz–Gramain–Philibert theorem, which is the input for ℒ_p(E) ≠ 0; that statement is a target here (§5.5), stated for the Tate parameter only.
+- **The other arithmetic branches are downstream.** HeegnerPointEulerSystems HE.8b (ordinary anticyclotomic main conjectures and their Heegner/BDP comparison) and RankZeroOneBSD BSD.6a/BSD.7a (supersingular, multiplicative and Eisenstein-prime endpoints) build on Layers 0, 1 and 4 of this roadmap, and RankZeroOneBSD also on the leading-term consequences of Layer 5. Their theorems are not restated here. Layer 6 fixes, in this roadmap's objects, the formulation each of them uses and proves the transfer between that formulation and the ones of Layers 0, 3 and 4.
 
 The named theorem families do not assert the main conjecture for every ordinary representation, every nebentypus, every tame component, every crystalline basis, or every deformation ring. General input data may be used to define a conjectural proposition without asserting its truth. In particular, a rational ideal equality, an integral ideal equality and an exact normalized leading coefficient are separate conclusions.
 
@@ -57,15 +60,17 @@ PadicMeasuresIwasawaAlgebras Layer 1 supplies the O-coefficient, tame-component 
 
 SelmerIwasawaCohomology Layers 1–3 supply the ordinary Selmer complex and its discrete/compact dual descriptions, change-of-local-condition triangles, Poitou–Tate and Iwasawa Shapiro. Sections 3.18–3.21 supply the explicit Greenberg structure hypotheses, localization surjectivity, no-pseudo-null and Fitting/characteristic comparisons; §4.21 supplies the general Greenberg proposition. Retain the stated ordinary range and transport the supplier’s contragredient dual through the scalar-dual convention above. Localization surjectivity in §5.1 is used only with the specified global hypotheses and a set containing the ramification set. Signed conditions use local Tate orthogonality with the same dual and inversion conventions as the Coleman domain.
 
-For the Schneider consequence, require the following extra comparison from the Selmer theory: identify the ordinary Galois Selmer characteristic series with the alternating flat Néron-model cohomology characteristic factors of Schneider §2, pp.340–342, retaining the global degree-zero/degree-two terms, local component groups and #Ẽ(F_p)². Supply its leading-term interpretation for Schneider Theorem 7, p.371, together with the comparison of the analytic κ-height and the MTT height under X=κ(γ)^{±(s−1)}−1, including log_p κ(γ)^r. The arithmetic cyclotomic height is explicit input; NoncommutativeAndEquivariantIwasawa NE.7's Bockstein pairing alone is not this comparison.
+SelmerIwasawaCohomology Layer 3 also supplies the classical restriction-control sequence (§3.11) and the Iwasawa descent of §3.3, which §§3.9 and 5.4 specialise to A=E[p^∞]. The comparison of Schneider's flat Néron-model cohomology with the ordinary Galois Selmer group, the height normalisations and the leading-term theorem are targets of this roadmap (§§3.7–3.9), not supplier outputs.
+
+The cyclotomic height used here is constructed in §3.7 from the Mazur–Tate sigma function. SelmerIwasawaCohomology, Part II, layer HP.1 constructs Nekovář's general height pairing H¹_f(K,V)×H¹_f(K,V′)→Γ_{K,p}⊗L for Panchishkin representations; no target here consumes it, and NoncommutativeAndEquivariantIwasawa NE.7's Bockstein description is not used either.
 
 ### From KatoEulerSystems and the analytic/regulator suppliers
 
-KatoEulerSystems §2.4 supplies the dual/Hecke/twist dictionary; §§3.2 and 3.4 supply Betti periods and geometric explicit reciprocity. Sections 4.4 and 5.1–5.4 supply Iwasawa module structure, the rational zeta morphism, its smoothed integral span and Nakamura’s classical twist-one transport. Sections 6.1–6.2 supply the scalar regulator and its noncritical analytic equality. Sections 7.1–7.2 supply non-torsion and the cohomological bound, with the stated local correction and integral image hypotheses; §§7.4–7.6 supply the distinct elliptic and ordinary Selmer bounds and the good-ordinary no-finite-submodule theorem. The Λ-rank-one assertion and rank-one Betti period factor are transported to the fundamental line here. None of the classical morphisms in §5.4 constructs a morphism over the universal deformation ring. The family target in §4.1 additionally requires the extension specified there; it remains conditional until that construction is supplied by the zeta-morphism owner.
+KatoEulerSystems §2.4 supplies the dual/Hecke/twist dictionary; §§3.2 and 3.4 supply Betti periods and geometric explicit reciprocity. Sections 4.4 and 5.1–5.4 supply Iwasawa module structure, the rational zeta morphism, its smoothed integral span and Nakamura’s classical twist-one transport. Sections 6.1–6.2 supply the scalar regulator and its noncritical analytic equality. Sections 7.1–7.2 supply non-torsion and the cohomological bound, with the stated local correction and integral image hypotheses; §§7.4–7.6 supply the distinct elliptic and ordinary Selmer bounds and the good-ordinary no-finite-submodule theorem. The Λ-rank-one assertion and rank-one Betti period factor are transported to the fundamental line here. None of the classical morphisms in Kato §5.4 is a morphism over the universal deformation ring; that morphism is Nakamura's, supplied by AutomorphicCongruences Layer 3 below.
 
-ModularSymbolsPadicLFunctions Layer 1 supplies saturated canonical period lines; Layers 2–4 supply the ordinary analytic construction, interpolation and primitive/imprimitive level change. For the ordinary integral cohomological comparison require the exact equality `L_Kato=u L_f` with u∈O× under the same lattice, good dual pair, sign, tame component and Euler-factor normalization. A ratio in L× gives only the rational comparison. No general-weight unit claim follows solely from saturation of a modular-symbol period line.
+ModularSymbolsPadicLFunctions Layer 1 supplies saturated canonical period lines; Layers 2–4 supply the ordinary analytic construction, interpolation and primitive/imprimitive level change. Kato's p-adic zeta function for a pair (ω,γ) and the canonical function L_f are compared exactly in §0.9: they differ by the p-adic period defect u_p(f) defined there, and by a unit once (ω,γ) is a good pair for a stable lattice. An integral comparison is used only where u_p(f)∈O^× is proved (§3.2 for optimal elliptic curves, §0.10 when both KMC and IMC hold) or assumed by name (`KatoPeriodDefectUnit`).
 
-The signed regulator supplier, PadicHodgeRegulators Layers 2–4, supplies integral Wach bases, the integral Coleman domain, Coleman maps `Col_i`, the logarithm matrix and their image computations in the LLZ range. SelmerIwasawaCohomology supplies the underlying Bloch–Kato local theory. Transport the maps' actual images under coefficient extension and basis change. To identify LLZ coordinates with separately Néron-normalized Pollack functions, require a proved O-unit period comparison for that lattice and basis; a rational coordinate multiplier is sufficient for the corresponding transported kernel but does not establish that integral analytic normalization.
+The signed regulator supplier, PadicHodgeRegulators Layers 2–4, supplies integral Wach bases, the integral Coleman domain, Coleman maps `Col_i`, the logarithm matrix and their image computations in the LLZ range. SelmerIwasawaCohomology supplies the underlying Bloch–Kato local theory. Transport the maps' actual images under coefficient extension and basis change. LLZ Proposition 5.10 gives the multipliers a^± relating Col_i to Kobayashi's maps only as units of Λ_E(G_∞)=Λ_O(G_∞)[1/p]; §4.5 records exactly when they are units of Λ_O(G_∞), which is what an integral identification with Néron-normalised Pollack functions requires.
 
 ### From AutomorphicCongruences
 
@@ -85,6 +90,8 @@ char(H¹_Iw/Λ z_Kato) divides char(H²_Iw).
 
 Its proof uses the GU(3,1) bound, Beilinson–Flach reciprocity, Poitou–Tate and the weight-k version of the Castella–Wan argument, with the Kato twist/factor separation. No canonical/Gross period comparison is an input to this route.
 
+Layer 3 supplies the universal zeta morphism and its fundamental line, in four named targets. `fundamental-line` gives the Σ-partial and full fundamental lines Δ_Σ(T), Δ(T) over quotients A of the localised Hecke algebra 𝕋^Σ_{m_ρ̄} or of Λ, their derived base change, and the rank-one Euler correction [A→(1−α_ℓ)A] (Fouquet–Wan Lemma 3.17, Definitions 3.18–3.19, Proposition 3.20, pp.31–32). `nakamura-universal-zeta-morphism` gives the R_{ρ̄,Σ}-linear maps z_{Σ,n}(ρ^u):(ρ^u)^*→H¹_Iw(ℤ[1/Σn,ζ_n],(ρ^u)^*(1)), with τ-equivariance and the Euler-system norm relations (Nakamura Theorem 1.1, Remark 1.2, Corollary 4.2). `nakamura-specialization-theorem` identifies the specialisation at every modular point x_f with ∏_{l∈Σ∖{p}}P_{f,l}(σ_l^{-1})·z_n(f), Kato's twisted classical morphism (Nakamura Theorem 4.3). `zeta-trivialization` gives the induced injective trivialisation of Δ_Σ(T_Σ) over 𝕋 and, after restriction of scalars, over the regular subring Λ≅O[[X₁,X₂,X₃]], with the compatibility squares at minimal primes and classical points (Fouquet–Wan (1.2.1)–(1.2.3), Propositions 3.22–3.23). Nakamura's construction assumes p≥5; the supplier states it, as Fouquet–Wan Theorem 3.6 does, under Fouquet–Wan Assumptions 2.1 and 3.5, and the case p=3 rests on the remark following Fouquet–Wan Theorem 3.6 (p.24), which replaces the two p≥5 inputs of Nakamura (his Theorem 4.7 and Theorem B.24) by Paškūnas–Tung's versions for all p. That p=3 extension is part of the supplier's target, not of this roadmap.
+
 Layer 4 supplies Fouquet–Wan Theorems 5.1–5.2 in the exact residual range of §§2.2 and 4.1. The pointwise output is that the zeta morphism trivializes the integral fundamental line on the trivial tame component for classical f of level Np^r. The family output is an isomorphism `Δ_Σ(T_Σ)≃Λ` over the regular subring Λ≃O[[X₁,X₂,X₃]], not over an arbitrary singular deformation or Hecke ring. All derived/local corrections in §4.2 remain attached to specialization.
 
 Layer 5b supplies Burungale–Castella–Skinner Theorem 1.1.2: for E/ℚ, p>3 good ordinary and E[p] irreducible, the cyclotomic equality is rational; with a cyclotomic-kernel element whose Tate-module coinvariants are free of rank one, it is integral. Both use the Néron-normalized function of §3.2 and the Tate lattice, with no auxiliary Steinberg-prime hypothesis and no non-CM hypothesis on this particular theorem.
@@ -93,49 +100,50 @@ Layer 5b supplies Burungale–Castella–Skinner Theorem 1.1.2: for E/ℚ, p>3 g
 
 EllipticCurveModularity R29.4–R29.6 supplies a newform f_E, a modular parametrization and a rational Galois comparison; use the inverse image of T_pE under the rational modular isogeny for the integral lattice. GrossZagierAndArithmeticHeights GZ.3 supplies Manin integrality and its p-unit range. An optimal parametrization gives the saturated homology/period comparison used in §3.1, while a general isogeny requires its explicit degree/index corrections.
 
-The multiplicative argument requires `multiplicativeHidaApproximation` from PadicFamilies Layer 1 and the ordinary-family owner. For a weight-two p-new ordinary f of level pM, after a finite extension of L, this must provide, for every m>0, a good-at-p ordinary newform f_m of level M and weight k_m>2, an O[G_Q]-isomorphism T_f/p^m≃T_(f_m)/p^m identifying the ordinary lines at p, and `(L_f^Σ,p^m)=(L_(f_m)^Σ,p^m)`. Skinner §2.6, pp.16–18, (2.6.1)–(2.6.3), chooses a precision r_m with k_m≡2 mod (p−1)p^(r_m); increase r_m to at least m if desired. Weight congruence alone is not the lattice/ordinary-line comparison. Proposition 2.6.1 supplies a unit u_m∈O× comparing the specialized family function with L_(f_m); chosen generators need not be congruent without that unit. Skinner §3.1(a)–(f), pp.18–19, uses the resulting Selmer p^m-torsion isomorphism and Fitting-ideal congruence. His sets contain p; here write Σ_total=Σ∪{p} to match that convention. The current classical Hida supplier assumes p≥5. The same package of outputs at p=3 is a required extension, not an existing export or a consequence of weight congruence.
+PadicFamilies Layer 0 supplies, for p≥5, Hida's universal ordinary Hecke algebra of tame level M, its freeness over Λ_w and the control theorem identifying its weight-k quotients with ordinary Hecke algebras (§§0.4–0.13). PadicFamilies Layer 1 supplies, for odd p and irreducible p-distinguished ρ̄, the family modular-symbol module, its family periods and the two-variable measure whose specialisations are the canonically normalised one-variable functions (§§1.1–1.6, 1.12); its Hecke-algebra control input is Layer 0's §0.11, hence p≥5. PadicFamilies Layer 4 supplies, for p≥3, the big ordinary Galois representation of a branch and its ordinary filtration at p (§§4.1–4.2). The approximation used by Skinner §3.1, pp.18–19, is a target of this roadmap (§1.6): for every m>0, a good-at-p ordinary newform f_m of level M and weight k_m>2, an O[G_ℚ]-isomorphism T_f/p^m≅T_{f_m}/p^m carrying T_f^+/p^m onto T_{f_m}^+/p^m, and `(L_f^Σ,p^m)=(L_(f_m)^Σ,p^m)`. Skinner §2.6, pp.16–18, (2.6.1)–(2.6.3), chooses a precision r_m with k_m≡2 mod (p−1)p^{r_m} so that the two specialisations of the family agree modulo p^m; r_m may be increased, and a weight congruence alone is not the lattice/ordinary-line comparison. His Proposition 2.6.1 (p.18) supplies a unit u_m∈O^× comparing the specialised family function with L_{f_m}^Σ; chosen generators need not be congruent without that unit. Skinner's sets Σ contain p, whereas the sets of §0.4 do not: his Σ is Σ∪{p} here. For p≥5 the approximation is assembled from PadicFamilies Layers 0, 1 and 4. For p=3, §1.6 uses Hida's control theorem in the form of Emerton–Pollack–Weston Theorem 2.1.2 (p.8 of arXiv v1, stated there for every odd p and every tame level prime to p) at tame level M≥2, which the auxiliary prime q∥M guarantees, together with the Emerton–Pollack–Weston two-variable function. Congruence here is of ideals, not an arbitrary choice of equal analytic generators.
 
-PadicFamilies Layer 3 supplies Greenberg–Stevens' derivative formula for a split multiplicative curve, via the Mazur–Kitagawa two-variable function: `L'_p(E,1)=ℒ_p(E)L(E,1)/Ω_E^+`. ColemanIntegration Layer 0 supplies log_p on ℚ_p× with log_p(p)=0. DiophantineApproximationAndTranscendence DT.5 supplies the Barré-Sirieix–Diaz–Gramain–Philibert transcendence/nonvanishing input, so ℒ_p(E)≠0 for E/ℚ. Nondegeneracy of the arithmetic p-adic height is a hypothesis, not a consequence of defining its regulator.
+PadicFamilies Layer 3 supplies Greenberg–Stevens' derivative formula for a split multiplicative curve, via the Mazur–Kitagawa two-variable function: `L'_p(E,1)=ℒ_p(E)L(E,1)/Ω_E^+`. ColemanIntegration Layer 0 supplies log_p on ℚ_p× with log_p(p)=0. Nonvanishing of ℒ_p(E) for E/ℚ is the target `tateLInvariant_ne_zero` of §5.5, deduced from the p-adic Barré-Sirieix–Diaz–Gramain–Philibert theorem stated there (`tateParameter_transcendental`). Nondegeneracy of the cyclotomic p-adic height is a hypothesis, not a consequence of defining its regulator.
 
 ArithmeticGaloisRepresentations R01.6 supplies the rank-two lifting lemma: for p≥5, a closed subgroup of SL₂(ℤ_p) surjecting modulo p is SL₂(ℤ_p). With the Weil-pairing determinant and the closed commutator subgroup, residual GL₂-surjectivity gives full p-adic GL₂ image and cyclotomic-kernel image SL₂. The introduction of Landesman–Swaminathan–Tao–Xu, p.1, records this rank-two input from Serre; their Theorem 1 concerns higher dimension.
 
-### From the other branch owners
+### From SerreWeightAndLevelOptimisation and Mathlib's level-one forms
 
-HeegnerPointEulerSystems HE.8b supplies rational and integral Heegner and Greenberg–BDP endpoints and the named `anticyclotomic-formulation-comparison`/`bdp-function-convention-comparison`: the BDP square convention, completed unramified coefficients, the involution and finite local cokernels. Retain the rational irreducibility versus integral surjectivity distinction and the supplier's rank-one assertions.
+SerreWeightAndLevelOptimisation §2.9 (Mazur's principle) supplies: for ℓ≥5, q∤Mℓ and q≢1 mod ℓ, an irreducible residual representation occurring at level Mq with the source's character convention and unramified at q occurs at level M in some weight (Ribet, *Report on mod ℓ representations*, (4.7) and Theorem 8.1). Its §3.9 (Ribet's four sets of levels) supplies, for ℓ≥5 and odd irreducible modular ρ̄, that occurrence in some weight at a level N prime to ℓ is equivalent to occurrence in S_{k(ρ̄)}(Γ₁(N)) (Ribet, Theorem 3.3). Its §3.1 supplies the residual local form of an ordinary eigenform of weight 2≤k≤p+1 at p∤N, which fixes the Serre weight k(ρ̄) through the recipe of AlgebraicModularFormsAndSerreWeights R15.4. Mathlib supplies `CuspForm.rank_eq_zero_of_weight_lt_twelve`: level-one cusp forms of weight below 12 vanish, so S₄(SL₂(ℤ))=0; equivalently `ModularForm.levelOne_weight_four_rank_one` says the level-one weight-four space is the line spanned by E₄, whose constant term is 1. These inputs are used only in §5.11.
 
-RankZeroOneBSD BSD.7a supplies the named CGS and Keller–Yin cyclotomic theorems, including their own integral Néron normalization, distinguished lattice, character exclusions, local-invariant and finite-submodule corrections. BSD.6a supplies the BSTW semistable a_p=0 signed theorem and its comparison, and Castella's corrected multiplicative anticyclotomic theorem with its own strict/unrestricted local conditions and coefficient extension. The Eisenstein proof supplier also requires the imaginary-quadratic main conjectures via elliptic units, the Hida–Tilouine theorem and the anticyclotomic Katz μ-invariant theorem. Those constructions are not supplied by this formulation comparison; its proof remains conditional on the branch owner discharging those inputs. Layer 6 asks only for the formulation maps on the stated endpoints. It does not construct elliptic units, imaginary-quadratic Iwasawa theory or a second anticyclotomic proof.
+### Downstream branch roadmaps
 
-The elliptic-unit owner is now CMAllPrimeMainConjectures CZ.0–CZ.3. Its CZ.3 anticyclotomic character theorem currently assumes a character valued in F_p× with θ|G_v̄≠1,ω; its recorded p|h_K and Coleman/measure comparison gaps remain relevant. The broader `ellipticUnitCharacterComparison` requested by RankZeroOneBSD §11.6 must cover the finite residue fields k_O and exceptional characters of Keller–Yin. Precisely, let K be imaginary quadratic with p=v v̄ split, and take the Teichmüller lift of a continuous θ:G_K→k_O× of conductor supported at split primes. Put M_θ=O(θ)⊗Λ∨ with inverse tautological action and X_θ=H¹_Fnr(K,M_θ)∨, relaxed at v and unramified at v̄ and away from p; compute global cohomology outside a finite set containing p, the conductor and the archimedean places. With Λ=O[[Γ_K^-]] and its completed unramified coefficient extension Λ^nr, require X_θ to be finitely generated Λ-torsion, μ(X_θ)=0 and
+HeegnerPointEulerSystems HE.8b and RankZeroOneBSD BSD.6a/BSD.7a are not suppliers: they import Layers 0, 1 and 4 of this roadmap (RankZeroOneBSD also Layer 5). Layer 6 specifies the formulation each of them states its endpoint in and proves the transfer to this roadmap's formulations; it does not cite their theorems. In particular the inputs of the Eisenstein-prime proofs — Rubin's two-variable main conjecture via elliptic units (CMAllPrimeMainConjectures CZ.0–CZ.3, with the extension requested by RankZeroOneBSD for exceptional characters and p | h_K), Hida's anticyclotomic μ-vanishing for Katz p-adic L-functions (AutomorphicPadicLFunctions L3h) and the Hida–Tilouine comparison (AutomorphicCongruences L0, AutomorphicPadicLFunctions L3) — belong to those roadmaps' proofs and are not prerequisites of any target here. Their exact shape, which the downstream proof has to meet, is recorded next so that the formulation of §6.2 and the downstream inputs use the same normalisations.
+
+The elliptic-unit input is owned by CMAllPrimeMainConjectures CZ.0–CZ.3. Its CZ.3 anticyclotomic character theorem currently assumes a character valued in F_p× with θ|G_v̄≠1,ω, and records p|h_K and Coleman/measure comparison gaps. The broader `ellipticUnitCharacterComparison` requested by RankZeroOneBSD §11.6 must cover the finite residue fields k_O and the exceptional characters of Keller–Yin. Precisely, let K be imaginary quadratic with p=v v̄ split, and take the Teichmüller lift of a continuous θ:G_K→k_O× of conductor supported at split primes. Put M_θ=O(θ)⊗Λ∨ with inverse tautological action and X_θ=H¹_Fnr(K,M_θ)∨, relaxed at v and unramified at v̄ and away from p; compute global cohomology outside a finite set containing p, the conductor and the archimedean places. With Λ=O[[Γ_K^-]] and its completed unramified coefficient extension Λ^nr, the downstream proof needs X_θ finitely generated Λ-torsion, μ(X_θ)=0 and
 
 ```text
 char_Λ(X_θ) Λ^nr = (L_θ)       if θ ≠ 1,
 char_Λ(X_1) Λ^nr = ((γ−1)L_1)  if θ = 1.
 ```
 
-These are Keller–Yin Definition 1.2.1(iii), p.13, and Theorem 1.2.2 and its proof, p.14, with their period-normalized Katz function and coefficient rings (§2, pp.31–33). They add no p∤h_K, nonanomalous or p>3 restriction. The trivial-character factor is the augmentation γ−1, not a uniformizer; it raises λ by one without raising μ. The requested CM extension must supply the integral character/module and Coleman/measure comparison in this full range. The all-prime *rational* CM theorem CZ.6 cannot replace it.
+These are Keller–Yin Definition 1.2.1(iii), p.13, and Theorem 1.2.2 and its proof, p.14, with their period-normalized Katz function and coefficient rings (§2, pp.31–33). They add no p∤h_K, nonanomalous or p>3 restriction. The trivial-character factor is the augmentation γ−1, not a uniformizer; it raises λ by one without raising μ. The all-prime *rational* CM theorem CZ.6 cannot replace this integral statement.
 
-AutomorphicPadicLFunctions L3 owns Katz–Hida–Tilouine interpolation; L3h's proposed L3m owns Hida's anticyclotomic Katz μ theorem. Apply [Hida, Theorem I, p.45](https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf) with p>2 unramified in the totally real field, split conductor and the exceptional condition (V) excluded in the actual branch. Its proof must use the replacement for Lemma 3.17 in [Hida's 24 July 2022 addendum, Lemma 0.2, p.1](https://www.math.ucla.edu/~hida/Addendam.pdf). Katz interpolation alone proves neither μ=0 nor an integral characteristic-ideal equality. The distinct Hida–Tilouine main-conjecture/congruence comparison requested from AutomorphicCongruences remains source-qualified there; its proposed L0c label is not a closed general export. These are requirements on the branch proof, not new constructions in this roadmap.
+AutomorphicPadicLFunctions L3 owns Katz–Hida–Tilouine interpolation; L3h's proposed L3m owns Hida's anticyclotomic Katz μ theorem. It applies [Hida, Theorem I, p.45](https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf) with p>2 unramified in the totally real field, split conductor and the exceptional condition (V) excluded, and its proof uses the replacement for Lemma 3.17 in [Hida's 24 July 2022 addendum, Lemma 0.2, p.1](https://www.math.ucla.edu/~hida/Addendam.pdf). Katz interpolation alone proves neither μ=0 nor an integral characteristic-ideal equality. The distinct Hida–Tilouine main-conjecture/congruence comparison requested from AutomorphicCongruences remains source-qualified there. These are requirements on the downstream proof, not constructions in this roadmap.
 
 The general Greenberg and Coates–Perrin-Riou/Panchishkin propositions are consumed in the forms of SelmerIwasawaCohomology Layer 4 and AutomorphicPadicLFunctions Layer 5: a motive/realization, ordinary filtration, critical twists, Deligne periods, refinement and interpolation factors must all be specified. Section 5.9 verifies their modular instances only, with the indicated tame projection. No assertion about arbitrary motives follows from that verification.
 
-### Required extensions of supplier interfaces
+### Named hypotheses carried by the targets
 
-The following names specify requested outputs. Their statements do not certify that the owner has constructed them. The affected endpoints retain these inputs until the owner supplies their constructions and comparisons.
+Each integral comparison that the sources do not prove in full generality is stated with a named hypothesis, never with an unnamed "period-unit comparison". The table lists them; each is a proposition about the stated data, never an assumed construction.
 
-| Requested output | Exact use and missing comparison |
-| --- | --- |
-| KatoEulerSystems `universalDeformationZeta` | §4.1 specifies the deformation-algebra-linear morphism, every classical specialization square and coefficient specialization under FW Assumptions 2.1 and 3.5, including p=3. Kato §5.4's classical twist-one composite does not supply it. |
-| Arithmetic cyclotomic height and `schneiderOrdinaryComparison` | §§5.6 and 5.8 require the arithmetic height with its splitting, and the flat Néron-model/Galois Selmer comparison with all alternating cohomology and finite local factors. SelmerIwasawaCohomology §3.14's determinant alone supplies neither. The arithmetic-height owner and the Selmer adapter must be routed together; nondegeneracy and Sha[p∞] finiteness remain hypotheses. |
-| `katoCanonicalPeriodUnit` | §§0.4, 0.9, 1.5 and 2.3 require L_Kato=u L_f with u∈O× on the same stable lattice and literal dual, good pair, sign and tame component, retaining factorial, congruence and Euler factors. Kato §3.2's rational period quotient and saturated canonical period lines do not prove this valuation-zero comparison. |
-| `wachNeronPeriodUnit` | §§4.5 and 5.10 separately require the elliptic Wach/Néron period comparison on the transported integral domain and actual Coleman images. LLZ Proposition 5.10/Corollary 5.11 only give Λ_E-unit multipliers; they do not make an independently normalized function an O-unit multiple. |
-| `multiplicativeHidaApproximation` at p=3 | §1.6 needs all the lattice, ordinary-line, period-unit, Selmer and ideal congruences specified above. A p≥5 family or weight congruences alone leave the small-prime case open. |
-| CM `ellipticUnitCharacterComparison` and the analytic/congruence inputs | §6.2 requires the integral exceptional-character and finite-O extension above, Hida's μ theorem in its actual range, and the branch's Hida–Tilouine comparison. The current BSD and CM owner documents still record gaps. |
+| Name | Where it is used | What is known |
+| --- | --- | --- |
+| `KatoPeriodDefectUnit` | Integral canonical forms in §§0.10, 1.5, 2.3 in general weight | The defect u_p(f) of §0.9 is a unit for optimal elliptic curves (§3.2, `katoPeriodDefect_elliptic`) and whenever both KMC and IMC hold with L_f≠0 (`katoPeriodDefectUnit_of_IMC_KMC`, §0.10). Otherwise the conclusion is char(X)=(u_p(f)L_f), which is unconditional. |
+| `pollackMultiplierUnit` | Principal Kobayashi–Pollack forms in §§4.5, 5.10, 6.3 | The corrected-image forms need no hypothesis (§4.5). The LLZ multipliers are units of Λ_E(G_∞); they are units of Λ_O(G_∞) whenever Kobayashi's and LLZ's image computations agree (LLZ p.40). |
+| `HeightNondegenerate` and finiteness of Sha(E/ℚ)[p^∞] | §§3.9 and 5.8 | Schneider's conjecture and the finiteness of Sha; §5.8(2) shows they follow from MMC and ord = rank. |
 
-This roadmap and several required external suppliers, including KatoEulerSystems, AutomorphicCongruences, RankZeroOneBSD and HeegnerPointEulerSystems, are not assigned numbered tiers in the Caraiani–Newton order. An upstream submission therefore also requires the maintainer to order their stages acyclically, including the common formulation layer used by CM and BSD. No whole-roadmap dependency cycle is licensed by the stage-level contracts above. This package neither assigns tiers to those owners nor treats a requested output as an available lower-tier theorem.
+The supplier extensions previously requested for these comparisons are closed as follows: the universal zeta morphism is AutomorphicCongruences Layer 3; the cyclotomic height, its normalisations and Schneider's theorem, including the comparison of Schneider's flat cohomology with the Galois Selmer group, are §§3.7–3.9; the Kato/canonical comparison is the exact defect statement of §0.9; the Wach/Néron comparison is the corrected/principal split of §4.5; the small-prime Hida approximation is §1.6; and the elliptic-unit, μ and Hida–Tilouine inputs belong to the downstream Eisenstein-prime proof described above.
+
+This roadmap and AutomorphicCongruences are not in the numbered Caraiani–Newton order. AutomorphicCongruences Layers 1–4 cite targets of Layers 0 and 1 here (the ordinary Selmer dual, the canonical p-adic L-function, the fundamental line, Kato's main conjecture, the zeta-basis equivalence and the Fouquet–Wan ordinary theorem), and Layers 1, 2 and 4 here cite AutomorphicCongruences Layers 1–4; no target of Layer 0 cites AutomorphicCongruences, so the target graph has no cycle, and the two roadmaps go upstream together as one bundle. The other external owners named above (KatoEulerSystems, SelmerIwasawaCohomology and its Part II, PadicFamilies, ModularSymbolsPadicLFunctions, PadicHodgeRegulators, CrystallineCohomology, ColemanIntegration, SerreWeightAndLevelOptimisation, AlgebraicModularFormsAndSerreWeights, EllipticCurveModularity, GrossZagierAndArithmeticHeights and ArithmeticGaloisRepresentations) cite no target of this roadmap. The downstream branches of Layer 6 are not cited. Assigning the bundle its place in the order is a routing decision outside this roadmap.
 
 ## How to read the build
 
-`README.md` specifies the full mathematics; `Suggested.lean` records only representative definitions and statements expressible using the pinned APIs, and is not exhaustive. Layer 0 fixes the three formulations and their comparisons. Layer 1 assembles ordinary theorems with explicit residual hypotheses. Layer 2 translates the broader pointwise theorem, Layer 3 transports elliptic-curve endpoints, and Layer 4 handles the regular family base and signed image corrections. Layer 5 gives invariant changes and leading-term consequences with their precise inputs. Layer 6 compares the separately owned arithmetic branches. In a prerequisite annotation, a section number refers to this roadmap and a named external layer refers to the supplier contract above.
+`README.md` specifies the full mathematics; `Suggested.lean` records only representative definitions and statements expressible using the pinned APIs, and is not exhaustive. Layer 0 fixes the three formulations, their comparisons and the exact dictionary between Kato's periods and canonical periods. Layer 1 assembles ordinary theorems with explicit residual hypotheses, including the Hida approximation behind the multiplicative theorem. Layer 2 translates the broader pointwise theorem. Layer 3 transports elliptic-curve endpoints and builds the cyclotomic p-adic height with Schneider's leading-term theorem. Layer 4 handles the regular family base and signed image corrections. Layer 5 gives invariant changes and leading-term consequences with their precise inputs. Layer 6 fixes the formulations used by the downstream arithmetic branches and proves the transfers to this roadmap's formulations. In a prerequisite annotation, a section number refers to this roadmap and a named external layer refers to the supplier contract above.
 
 ## Layer 0: the three cyclotomic formulations
 
@@ -249,7 +257,7 @@ The source for this target is [Kazuya Kato](https://www.numdam.org/item/AST_2004
 
 ### 0.4 The ordinary p-adic L-function with canonical periods
 
-For an ordinary datum with trivial character and p ∤ N, let α be the unit root of X² − a_p X + p^{k−1} and Ω_f^± the canonical periods of f (generators of the saturated integral period lattices, defined up to O^× ∩ Q(f)). The ordinary p-adic L-function L_f ∈ Λ is the unique element such that for every finite-order character φ of Γ with φ(γ) = ζ a primitive p^{t−1}-th root of unity and every integer 0 ≤ m ≤ k − 2, φκ^m(L_f) = e(φκ^m)·p^{t'(m+1)} m! L(f, χ_φ^{-1}ω^{-m}, m+1) / ((−2πi)^{m+1} G(χ_φ^{-1}ω^{-m}) Ω_f^{sgn((−1)^m)}), with e the interpolation factor built from α, as in Skinner–Urban §1.1 with the correction in Skinner 2016, §2.4, footnote 6 (p.14). For a finite set Σ of primes not containing p, L_f^Σ := L_f · ∏_{ℓ∈Σ} P_{T,ℓ}(ℓ^{-1}γ_ℓ^{-1}), where P_{T,ℓ}(Y)=det(1−Y·Frob_ℓ | V_{I_ℓ}) uses inertia coinvariants of V=T[1/p], Frob_ℓ is arithmetic and γ_ℓ is its image in Γ (Skinner §2.3, pp.8–9); these are the same factors as on the Selmer side. L_f lies in Λ (not only Λ[1/p]) because the canonical periods are integral normalisations. Here χ_φ is the primitive p-power-order Dirichlet character with χ_φ(1+p) = ζ⁻¹, p^{t′} is the conductor of ω^mχ_φ, κ is the cyclotomic character with κ(γ)=1+p, and G is the Gauss sum. For the weight-two multiplicative branch replace α by a_p = ±1 and use the multiplicative interpolation factor of Skinner §2.4; the trivial value has one factor 1−α⁻¹. The integral normalization is Skinner–Urban’s canonical normalization. Its identification with a particular saturated modular-symbol lattice and Kato good dual pair must retain any period scalar; integral transport requires the period-unit comparison stated in §0.9. Write P_f^± := −2πi Ω_f^± for the corresponding differential/modular-symbol periods. If the modular-symbol supplier calls its periods Ω, first translate that notation to P_f; do not substitute P_f for the cohomological Ω_f in this formula.
+For an ordinary datum with trivial character and p ∤ N, let α be the unit root of X² − a_p X + p^{k−1} and Ω_f^± the canonical periods of f (generators of the saturated integral period lattices, defined up to O^× ∩ Q(f)). The ordinary p-adic L-function L_f ∈ Λ is the unique element such that for every finite-order character φ of Γ with φ(γ) = ζ a primitive p^{t−1}-th root of unity and every integer 0 ≤ m ≤ k − 2, φκ^m(L_f) = e(φκ^m)·p^{t'(m+1)} m! L(f, χ_φ^{-1}ω^{-m}, m+1) / ((−2πi)^{m+1} G(χ_φ^{-1}ω^{-m}) Ω_f^{sgn((−1)^m)}), with e the interpolation factor built from α, as in Skinner–Urban §1.1 with the correction in Skinner 2016, §2.4, footnote 6 (p.14). For a finite set Σ of primes not containing p, L_f^Σ := L_f · ∏_{ℓ∈Σ} P_{T,ℓ}(ℓ^{-1}γ_ℓ^{-1}), where P_{T,ℓ}(Y)=det(1−Y·Frob_ℓ | V_{I_ℓ}) uses inertia coinvariants of V=T[1/p], Frob_ℓ is arithmetic and γ_ℓ is its image in Γ (Skinner §2.3, pp.8–9); these are the same factors as on the Selmer side. L_f lies in Λ (not only Λ[1/p]) because the canonical periods are integral normalisations. Here χ_φ is the primitive p-power-order Dirichlet character with χ_φ(1+p) = ζ⁻¹, p^{t′} is the conductor of ω^mχ_φ, κ is the cyclotomic character with κ(γ)=1+p, and G is the Gauss sum. For the weight-two multiplicative branch replace α by a_p = ±1 and use the multiplicative interpolation factor of Skinner §2.4; the trivial value has one factor 1−α⁻¹. The integral normalization is Skinner–Urban’s canonical normalization. Its exact comparison with Kato's good-pair functions is §0.9: the only scalar between them is the p-adic period defect u_p(f). Write P_f^± := −2πi Ω_f^± for the corresponding differential/modular-symbol periods. If the modular-symbol supplier calls its periods Ω, first translate that notation to P_f; do not substitute P_f for the cohomological Ω_f in this formula.
 
 To make the interpolation factor explicit, put ψ=χ_φω^m and let p^n be its **primitive** conductor (n=0 for ψ=1). In the good ordinary case use
 
@@ -364,7 +372,7 @@ Iwasawa cohomology and its finiteness are `SelmerIwasawaCohomology` Layer 3 (`iw
 
 The determinant functor and the height-one divisor of an acyclic-after-Frac perfect complex are `PadicMeasuresIwasawaAlgebras` Layer 5 §5.1 and `SelmerIwasawaCohomology` Layer 3 (`selmer-determinant`).
 
-The classical zeta morphism is Kato's (`KatoEulerSystems` §§5.1 and 5.4, `rational-kato-zeta-morphism` and `nakamura-twisted-zeta-morphism`); Fouquet–Wan Definition 3.3 and Theorem 3.4 record it as the {p}-partial zeta morphism z(f)_Iw. The universal deformation-ring construction is a separate required extension in §4.1, rather than a consequence of classical twist-one transport.
+The classical zeta morphism is Kato's (`KatoEulerSystems` §§5.1 and 5.4, `rational-kato-zeta-morphism` and `nakamura-twisted-zeta-morphism`); Fouquet–Wan Definition 3.3 and Theorem 3.4 record it as the {p}-partial zeta morphism z(f)_Iw. The morphism over the universal deformation ring is Nakamura's, supplied by `AutomorphicCongruences` Layer 3 (`nakamura-universal-zeta-morphism`) together with its specialisation square (`nakamura-specialization-theorem`); it is used only in Layer 4.
 
 The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), §1.1.1, pp.3–5; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Definition 3.3, p.23, and Theorem 3.4, p.24; [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), §12.10, pp.223–224.
 
@@ -444,9 +452,52 @@ The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/ab
 - A domain-valued λ containing a pure point ψ but with z(ψ)_Iw=0 fails the test; generic purity alone cannot supply the nonzero zeta trivialization.
 - The specialization must factor through A→O. A map O→A in the opposite direction, without the required contained point, is not a witness to Definition 3.12.
 
-### 0.9 Kato's main conjecture versus the ordinary main conjecture
+### 0.9 Kato's good pairs against canonical periods: the p-adic period defect
 
-Let D be an ordinary datum with trivial character, p ∤ N, p odd, with α the unit root, and let L_{p-adic,α,ω,γ}(f) be Kato's p-adic zeta function for a good pair (ω, γ) for the dual lattice. For every height-one prime 𝔭 of Λ not containing p there is an exact sequence of Λ_𝔭-modules 0 → (H¹/Z)_𝔭 → (H¹_loc/H¹_loc')_𝔭/(image of Z) → X_𝔭 → H²_𝔭 → 0 (Kato (17.13.1) localised), whose middle term has length ord_𝔭(L_{p-adic,α,ω,γ}(f)) by the Coleman map; hence length(X_𝔭) = ord_𝔭(L_{p-adic}) iff length(H²_𝔭) = length((H¹/Z)_𝔭). If in addition ρ̄ is irreducible and the integral representation has an actual unipotent element in the cyclotomic kernel with free rank-one coinvariants (or satisfies Kato's (12.5.2)), and p≠2, the same holds at 𝔭 = (ϖ). Consequently KMC(T_K), on the η-component matched with D by Kato's twist T ↦ T(k) in (17.13.1), is equivalent to IMC(D), and KMC_Q to IMC_Q, once L_{p-adic,α,ω,γ}(f) is identified with L_f for the canonical periods (with the integral period-unit comparison in Exact supplier contracts).
+Let D be a good ordinary datum with trivial character, p ∤ N, p odd and (irred). The character is trivial, so the form f* with conjugate coefficients equals f. Let M(f)_(p) := H¹(Γ₁(N), Sym^{k−2}(Z(f)_(p)))[λ_f] be Skinner–Urban's Betti eigenlattice, free of rank two, with a basis (γ^+_SU, γ^−_SU) of its ± parts; the canonical periods are defined by Per(f) = Ω_f^+γ^+_SU + Ω_f^−γ^−_SU (Skinner–Urban §3.3.3, p.28). Let T_B be the G_Q-stable O-lattice of Kato's V_{F_λ}(f) that corresponds to M(f)_(p) ⊗ O under the comparison between étale and Betti cohomology of Y₁(N) with Sym^{k−2} coefficients. Then the following hold.
+
+(1) *Betti part.* For a ∈ L^×, b^± ∈ L^×, ω = a·f and γ with γ^± = b^±γ^±_SU, Kato's p-adic zeta function satisfies L_{p-adic,α,ω,γ}(f) = a^{−1}b^± · L_{p-adic,α,f,γ_SU}(f) on the characters of sign ±, and L_{p-adic,α,f,γ_SU}(f) = ±L_f, where L_f is the canonical function of §0.4 and the sign is fixed by the orientations of the two period maps.
+
+(2) *De Rham part.* Let ω_B ∈ S(f) ⊗ L be good for T_B in Kato's sense: its image under Kato's isomorphism S(f) ⊗ F_λ ≅ D_dR(V'') (17.5.1) is an O-basis of H⁰(Q_p, Ẑ_p^ur ⊗ T_B''(k−1)), where T_B'' is the image of T_B in the unramified quotient V''. The **p-adic period defect** u_p(f) ∈ L^×/O^× is defined by f = u_p(f)·ω_B. It does not depend on the choice of ω_B. The lattice T_B is fixed by M(f)_(p) itself, not merely up to homothety, so u_p(f) depends on f alone. For a homothetic lattice cT_B the good pair is (cω_B, cγ_SU), and by (1) its p-adic zeta function equals that of (ω_B, γ_SU). Under (irred) every stable lattice is homothetic to T_B.
+
+(3) *Good pairs.* If (ω, γ) is good for a stable lattice T in the sense of Kato 17.5 (ω good as in (2), and γ^± an O-basis of T^±), then L_{p-adic,α,ω,γ}(f) = v·u_p(f)·L_f for some v ∈ O^×.
+
+The weight-two elliptic case, where u_p(f_E) is a Néron/canonical period ratio, is §3.2 (`katoPeriodDefect_elliptic`).
+
+Assume p odd, p ∤ N, good ordinarity, trivial character and (irred).
+
+Require p>3 or N≥4, so that the integral comparison between étale and Betti cohomology of Y₁(N) with Sym^{k−2}(O) coefficients is a comparison of sheaves on a scheme or on a stack whose stabilisers have order prime to p.
+
+The defect is a single class in L^×/O^×; no unit assertion about it is made in general weight. Integral statements of this roadmap that pass between Kato's and the canonical normalisation use the elliptic case of §3.2, the detection consequence of §0.10, or assume `KatoPeriodDefectUnit`: u_p(f) ∈ O^×. They state that assumption by name.
+
+The usable interface consists of the following named outputs.
+
+- `katoPadicZeta_scale`: L_{p-adic,α,aω,bγ}(f) = a^{−1}b·L_{p-adic,α,ω,γ}(f) for a, b ∈ L^× (Kato Remark 16.3(2)), and the sign-by-sign version with b^± on the characters of sign ±, which follows from the interpolation property of Theorem 16.2(i) and the uniqueness of Remark 16.3(1).
+- `katoPadicZeta_canonical`: L_{p-adic,α,f,γ_SU}(f) = ±L_f.
+- `katoPeriodDefect`: u_p(f) ∈ L^×/O^×, defined by f = u_p(f)·ω_B for ω_B good for T_B.
+- `katoPadicZeta_homothety`: for c ∈ L^×, the good pair (cω_B, cγ_SU) of cT_B has the same p-adic zeta function as (ω_B, γ_SU).
+- `katoPadicZeta_goodPair`: for (ω,γ) good for a stable lattice T, L_{p-adic,α,ω,γ}(f) ∈ O^×·u_p(f)·L_f.
+- `KatoPeriodDefectUnit`: the proposition u_p(f) ∈ O^×.
+
+For (1), Kato Theorem 16.2 (p.269) defines L_{p-adic,α,ω,γ}(f) by interpolation, with the complex periods given by per(ω) = Ω^+γ^+ + Ω^−γ^−. Kato's per(f) and Skinner–Urban's Per(f) are the same Eichler–Shimura period up to the factor ±2πi fixed in Conventions: at k = 2 and r = 1, Kato's 16.2(ii) has denominator Ω^+ with no power of 2πi, which is P_f^+ = −2πiΩ_f^+ up to sign. This is the Betti period dictionary of `KatoEulerSystems` §3.2. Scaling ω by a divides both periods by a, and scaling γ^± by b^± multiplies Ω^± by (b^±)^{−1}, which gives the scaling law (Remark 16.3(2), p.269). Both L_{p-adic,α,f,γ_SU}(f) and L_f are determined by their values at the characters φκ^m (Kato Remark 16.3(1), p.269, and §0.4's uniqueness), and these values agree term by term: interpolation factor, Gauss sum, factorial and canonical period.
+
+For (2), Kato 17.5 (pp.273–274) shows that (17.5.1) is an isomorphism and that H⁰(Q_p, Ẑ_p^ur ⊗ T''(k−1)) is an O-lattice in the one-dimensional space D_dR(V''); a good ω exists and is unique up to O^×. Homothety of T scales this lattice and the Betti lattice by the same c.
+
+For (3), write T = cT_B; then ω = c·u_p(f)^{−1}·f·w and γ^± = c·γ^±_SU·w^± with units w, w^±, and apply (1): the factors c cancel and u_p(f) remains.
+
+The source for this target is [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), Theorem 16.2 and Remark 16.3, p.269; 17.5, pp.273–274; Theorem 17.4(3), p.273; [Christopher Skinner and Eric Urban](https://www.math.columbia.edu/~urban/eurp/MC.pdf), §3.3.3, p.28, and Theorem 3.5.6, p.41; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §3.3, p.25 and note 8; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), §1.2, p.9 (the p-integrality of p-adic periods as the delicate point).
+
+*Needs:* §0.4; `KatoEulerSystems` §3.2 (`archimedean-period-quotient-and-critical-values`); `KatoEulerSystems` Layer 2 (`hecke-dual-twist-dictionary`); `ModularSymbolsPadicLFunctions` Layer 1 (`integral-period-lattices`); `AutomorphicGaloisRepresentations` R19.5 (`ordinary-refinement-and-saturated-lattice`); `SelmerIwasawaCohomology` Layer 3 (`etale-iwasawa-comparison`).
+
+**Checks.**
+
+- Scaling: replacing ω by ϖω divides Kato's function by ϖ, and replacing both ω and γ by ϖω, ϖγ leaves it unchanged. A definition of the defect relative to an arbitrary lattice in the homothety class, instead of T_B itself, would change by c^{−1} under T_B ↦ cT_B; fixing T_B by M(f)_(p) is what makes u_p(f) well defined.
+- Degenerate sign: with b^+ = 1 and b^− = ϖ, only the characters of sign − see the factor ϖ; a uniform scaling law would be wrong on the + characters.
+- Unit case: if f is itself good for T_B, then u_p(f) = 1 and Kato's good-pair function is L_f up to O^×; if f = ϖ·ω_B, the good-pair function is ϖL_f, and the integral equivalence of §0.10 changes char(X) = (L_f) into char(X) = (ϖL_f).
+
+### 0.10 Kato's main conjecture versus the ordinary main conjecture
+
+Let D be an ordinary datum with trivial character, p ∤ N, p odd, with α the unit root, and let L_{p-adic,α,ω,γ}(f) be Kato's p-adic zeta function for a good pair (ω, γ) for the dual lattice. For every height-one prime 𝔭 of Λ not containing p there is an exact sequence of Λ_𝔭-modules 0 → (H¹/Z)_𝔭 → (H¹_loc/H¹_loc')_𝔭/(image of Z) → X_𝔭 → H²_𝔭 → 0 (Kato (17.13.1) localised), whose middle term has length ord_𝔭(L_{p-adic,α,ω,γ}(f)) by the Coleman map; hence length(X_𝔭) = ord_𝔭(L_{p-adic}) iff length(H²_𝔭) = length((H¹/Z)_𝔭). If in addition ρ̄ is irreducible and the integral representation has an actual unipotent element in the cyclotomic kernel with free rank-one coinvariants (or satisfies Kato's (12.5.2)), and p≠2, the same holds at 𝔭 = (ϖ). Consequently, with trivial character, (irred) and the condition at (ϖ) just stated, KMC(T_K) on the η-component matched with D by Kato's twist T ↦ T(k) in (17.13.1) is equivalent to the equality char_Λ(X) = (u_p(f)·L_f), where u_p(f) is the p-adic period defect of §0.9; KMC_Q on that component is equivalent to IMC_Q(D). In particular KMC on that component is equivalent to IMC(D) when `KatoPeriodDefectUnit` holds, and, when L_f ≠ 0, KMC on that component together with IMC(D) implies `KatoPeriodDefectUnit`.
 
 Assume good ordinarity at an odd p with p∤N.
 
@@ -456,7 +507,7 @@ At the height-one prime (ϖ), require Kato’s (12.5.2), or residual irreducibil
 
 Euler and Tamagawa corrections: the sequence uses j_* conditions away from p and the Coleman image at p; no correction is discarded.
 
-For the conclusion involving canonical L_f integrally, separately assume the O-unit period comparison specified in Exact supplier contracts. The exact-sequence length identity itself uses Kato’s specified analytic term.
+The exact-sequence length identity uses Kato's analytic term for the good pair. By §0.9(3) that term is v·u_p(f)·L_f with v ∈ O^×; no further period comparison is used, and the canonical form IMC(D) is reached exactly when u_p(f) is a unit.
 
 Take the limit of the Poitou–Tate sequences for T(r) over Q(ζ_{p^n}) (`SelmerIwasawaCohomology` Layer 2 (`selmer-structure-poitou-tate`), `SelmerIwasawaCohomology` Layer 3 (`iwasawa-selmer-duality`)) to get Kato (17.13.1).
 
@@ -464,18 +515,22 @@ Show lim H¹_c of the strict condition vanishes (17.13.2) because the image of Z
 
 Kato's scalar reciprocity (`KatoEulerSystems` §§6.1–6.2, built from §3.4 `generalised-explicit-reciprocity-law-for-zeta-elements`) identifies the Coleman image of z with L_{p-adic,α,ω,γ}(f).
 
-Compare lengths at each height-one prime; both directions of the equivalence follow from the additivity of length in the four-term sequence.
+Compare lengths at each height-one prime; both directions of the equivalence follow from the additivity of length in the four-term sequence. Substitute §0.9(3) for the analytic term. If both KMC and IMC(D) hold and L_f ≠ 0, the two principal ideals (u_p(f)L_f) and (L_f) of the domain Λ coincide, so u_p(f) is a unit.
 
 The source for this target is [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), §17.13, pp.279–280; [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), 17.6, p.274; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §2.5, pp.15–16; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Lemma 4.50, p.65.
 
-*Needs:* §0.7; §0.5; `SelmerIwasawaCohomology` Layer 2 (`selmer-structure-poitou-tate`); `SelmerIwasawaCohomology` Layer 3 (`iwasawa-selmer-duality`); `PadicHodgeRegulators` Layer 3 (`rubin-coleman-map`); `KatoEulerSystems` §§3.4 and 6.1–6.2 (`generalised-explicit-reciprocity-law-for-zeta-elements`); `KatoEulerSystems` Layer 7 (`ordinary-selmer-divisibility`).
+*Needs:* §0.7; §0.5; §0.9; `SelmerIwasawaCohomology` Layer 2 (`selmer-structure-poitou-tate`); `SelmerIwasawaCohomology` Layer 3 (`iwasawa-selmer-duality`); `PadicHodgeRegulators` Layer 3 (`rubin-coleman-map`); `KatoEulerSystems` §§3.4 and 6.1–6.2 (`generalised-explicit-reciprocity-law-for-zeta-elements`); `KatoEulerSystems` Layer 7 (`ordinary-selmer-divisibility`).
 
 **Checks.**
 
 - Kato 17.13 derives Theorem 17.4(2)–(3) from Theorem 12.5 by this sequence, and remarks (p.274) that Conjecture 12.10 implies the ordinary main conjecture 17.6; the length identity gives the converse as well.
 - Fouquet–Wan Lemma 4.50 is the analogous equivalence with the signed or v^∨-Selmer group in place of X.
+- With u_p(f) = ϖ, KMC on the matched component reads char(X) = (ϖL_f), which is incompatible with IMC(D): an implication KMC ⇒ IMC stated without the defect would be false for such a form.
+- The rational forms do not see the defect: (u_p(f)L_f) and (L_f) agree in Λ[1/p].
 
-### 0.10 Signed Selmer groups from Coleman maps
+The usable interface adds `kmc_iff_char_eq_defect_mul` (KMC on the matched component ⟺ char(X) = (u_p(f)L_f)) and `katoPeriodDefectUnit_of_IMC_KMC` (the detection consequence above).
+
+### 0.11 Signed Selmer groups from Coleman maps
 
 Let D be a datum with p ∤ N whose local representation at p is crystalline, and fix a good basis ν₁, ν₂ of D_cris and its lift n₁, n₂ to the Wach module (LLZ §3.3, Lemma 3.15), giving Coleman maps Col_i : H¹_Iw(Q_p, T_K) → Λ_E(G_∞), i = 1, 2 (`PadicHodgeRegulators` Layer 4 (`signed-local-condition`)). For n ≥ 0 let H¹_f(Q_{p,n}, A^*)_i be the orthogonal complement, under the local Tate pairing between H¹(Q_{p,n}, T_K) and H¹(Q_{p,n}, A^*), of the image of ker(Col_i) in H¹(Q_{p,n}, T_K); here A^* is the discrete module paired with T_K in LLZ's Definition 6.4. The i-th signed Selmer group is Sel^i(Q(μ_{p^∞}), A^*) := lim_n ker(Sel(Q(μ_{p^n}), A^*) → H¹(Q_{p,n}, A^*)/H¹_f(Q_{p,n}, A^*)_i), with Bloch–Kato conditions away from p, and X^i := its Pontryagin dual, a finitely generated Λ(G_∞)-module.
 
@@ -510,9 +565,9 @@ The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbe
 - For a change b′ = b B of the actual good Λ-basis of (φ*N(T))^(ψ=0), the coordinate column changes by B⁻¹. A Wach-module change U first induces a change through φ and the Mellin comparison; its matrix must not be substituted for B without proof.
 - For a_p = 0 and the basis of LLZ Proposition 5.10, X^1 and X^2 are Kobayashi's minus and plus Selmer duals (§4.5).
 
-### 0.11 The signed main conjecture with the Coleman-image term
+### 0.12 The signed main conjecture with the Coleman-image term
 
-For the data of §0.10, put L̃_{p,i} := Col_i(loc_p z_Kato) ∈ Λ_E(G_∞). The i-th signed main conjecture SMC^{i,η} is the proposition: X^{i,η} is Λ-torsion and char_Λ(X^{i,η}) = char_Λ(Im(Col_i)^η / Λ·L̃^η_{p,i}). Only when Im(Col_i)^η is computed to be Λ (or Λ_E rationally) does it simplify to char(X^{i,η}) = (L̃^η_{p,i}).
+For the data of §0.11, put L̃_{p,i} := Col_i(loc_p z_Kato) ∈ Λ_E(G_∞). The i-th signed main conjecture SMC^{i,η} is the proposition: X^{i,η} is Λ-torsion and char_Λ(X^{i,η}) = char_Λ(Im(Col_i)^η / Λ·L̃^η_{p,i}). Only when Im(Col_i)^η is computed to be Λ (or Λ_E rationally) does it simplify to char(X^{i,η}) = (L̃^η_{p,i}).
 
 The Coleman-image correction is part of the statement; replacing it by the principal ideal (L̃_{p,i}) is a separate theorem (§4.4).
 
@@ -534,7 +589,7 @@ Take char_Λ of the actual fractional-lattice quotient, retaining its integral �
 
 The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Corollary 6.6, p.44; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Theorem 1.3 (= Theorem 3.25), p.5, and Remark 6.7, p.44.
 
-*Needs:* §0.10; `PadicHodgeRegulators` Layer 4 (`actual-coleman-image`); `PadicHodgeRegulators` Layer 4 (`logarithmic-matrix`); `PadicMeasuresIwasawaAlgebras` Layer 4; §0.6.
+*Needs:* §0.11; `PadicHodgeRegulators` Layer 4 (`actual-coleman-image`); `PadicHodgeRegulators` Layer 4 (`logarithmic-matrix`); `PadicMeasuresIwasawaAlgebras` Layer 4; §0.6.
 
 **Checks.**
 
@@ -544,7 +599,7 @@ The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbe
 - If Im(Col_i)^η = Λ, the proposition reads char(X^{i,η}) = (L̃^η_{p,i}).
 - At a_p = 0 and weight two, the LLZ maps have the Kobayashi kernels (1 = minus, 2 = plus). Translating analytic ideals uses the explicit Coleman images and period scalars. Proposition 5.10/Corollary 5.11 give rational unit comparisons; an integral equality of Pollack ideals also requires an integral unit normalization.
 
-### 0.12 The signed reformulation of Kato's main conjecture
+### 0.13 The signed reformulation of Kato's main conjecture
 
 Assume LLZ's (A) if f is supersingular at p, or (A') if f is good ordinary, and (E): some basis of T_f has image of Gal(Q̄/Q(μ_{p^∞})) containing SL₂(Z_p). Then for each η ∈ Δ^∨ (with i = 1 for every η and i = 2 for η trivial): X^{i,η} is Λ-torsion, there is an exact sequence 0 → (H¹/Z)^η → (Im(Col_i)/L̃_{p,i})^η → X^{i,η} → H²^η → 0, and KMC^η(T_K) ⟺ SMC^{i,η}. Without (E) the same holds rationally, and the divisibility ϖ^{n_i}L̃^η_{p,i} ∈ char(X^{i,η}) holds for some n_i ≥ 0.
 
@@ -562,7 +617,7 @@ Kato's divisibility Theorem 6.1(d)–(e) (`KatoEulerSystems` Layer 7 (`cohomolog
 
 The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Theorem 6.1, Theorem 6.5 and its proof, Corollary 6.6, pp.43–44; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Corollary 3.29, p.20, and Proposition 3.39, p.22.
 
-*Needs:* §0.7; §0.11; §0.10; `KatoEulerSystems` Layer 7 (`cohomological-divisibility-one-direction`); `SelmerIwasawaCohomology` Layer 2 (`selmer-structure-poitou-tate`); `PadicHodgeRegulators` Layer 3 (`explicit-reciprocity`).
+*Needs:* §0.7; §0.12; §0.11; `KatoEulerSystems` Layer 7 (`cohomological-divisibility-one-direction`); `SelmerIwasawaCohomology` Layer 2 (`selmer-structure-poitou-tate`); `PadicHodgeRegulators` Layer 3 (`explicit-reciprocity`).
 
 **Checks.**
 
@@ -601,6 +656,12 @@ The usable interface consists of the following named outputs.
 - `ScalarExclusion`: (ScalarExc_p): (ρ̄|D_p)^{ss} is not χ̄ ⊕ χ̄; equal to DistinctCharacters in the reducible case and automatic in the irreducible case.
 - `HasRankOneCoinvariants`: For an O-linear endomorphism σ of T, this means that T/(σ−1)T admits an O-linear equivalence with O. This is the free rank-one condition, rather than rational rank one alone.
 - `HasRankOneImage`: (Im): some σ in the given subgroup has HasRankOneCoinvariants (ρ σ), i.e. T/(σ − 1)T ≅ O.
+- `invariants_comp_subtype_eq_top`: if every element of a subgroup I acts trivially, the I-invariants of the restriction are the whole space; this is the step behind `FWAuxiliaryCondition.isRamifiedAt` and `not_fwAuxiliary_bot`.
+- `not_fwAuxiliary_bot`: over any field, a two-dimensional representation with trivial inertia fails `FWAuxiliaryCondition` for every decomposition subgroup.
+- `fwAuxiliary_independentCharacters`: on F₇², with D=F₇××F₇× acting by the two tautological characters and I=ker(fst), the I-invariants are a line and the D-invariants vanish.
+- `not_hasRankOneCoinvariants_id`: the identity of O² has coinvariants O², so it never satisfies HasRankOneCoinvariants (any nontrivial commutative O).
+- `not_hasRankOneCoinvariants_upper_uniformizer`: over a discrete valuation ring, the unipotent matrix with upper-right entry a uniformiser ϖ fails HasRankOneCoinvariants, its coinvariants being O/(ϖ) ⊕ O.
+- `hasRankOneImage_fullAutomorphismGroup`: over any discrete valuation ring, the natural action of the full linear automorphism group of O² satisfies `HasRankOneImage` on the full subgroup, witnessed by the standard unipotent.
 - `FWAuxiliaryCondition.isRamifiedAt`: For dim W = 2, (FW1.6_ℓ) implies IsRamifiedAt, i.e. (FW1.6_ℓ) → (SU_ℓ).
 - `localExclusion_one_iff`: With ω = 1, LocalExclusion χ₁ χ₂ 1 ↔ DistinctCharacters χ₁ χ₂.
 - `ResidualHyp.fwAux_iff_nonsplit_weight_two`: For k = 2 and ℓ ∥ N multiplicative with ρ̄(I_ℓ) ≠ 1: (FW1.6_ℓ) ↔ μ nontrivial ↔ nonsplit multiplicative reduction at ℓ.
@@ -636,16 +697,9 @@ The source for this target is [Christopher Skinner and Eric Urban](https://www.m
 - For `HasRankOneCoinvariants`, the standard unipotent on O² passes; the identity fails because the quotient is O²; the upper-right-ϖ unipotent fails because its quotient has nonzero ϖ-torsion. These tests apply over an arbitrary DVR, including equal characteristic, not just ℤ_p.
 - For `HasRankOneImage`, the natural representation of GL₂(O) on O² with the full subgroup passes by the standard unipotent. A trivial rank-two representation on any subgroup fails; the identity subgroup in any rank-two representation also fails. A rational rank-one quotient with integral torsion is not a witness.
 
-The representative Lean tests use the actual predicates and quotient modules. The scalar ramification witness is multiplication by 2 in F₇; the nonadjacent-character test evaluates at 3∈F₇×, of order six. Evaluation at 2 alone cannot reject the reversed exceptional pair, since 2³=1. The standard unipotent quotient test works over every commutative ring: its range is the kernel of the second-coordinate map. The identity and identity-subgroup failures work over every nontrivial commutative ring with the strong rank condition. Neither test needs a DVR. All the arithmetic and normalization checks elsewhere in this README remain prose checks; isolated numerical identities do not stand in for tests of the arithmetic constructions.
+The representative Lean tests use the actual predicates and quotient modules. The scalar ramification witness is −1∈F₇×, acting on F₇ by −1≠1. The nonadjacent-character test evaluates at 3∈F₇×, of order six; evaluation at 2 alone cannot reject the reversed exceptional pair, since 2³=1. The standard unipotent quotient test works over every commutative ring: its range is the kernel of the second-coordinate map. The identity, identity-subgroup and trivial-representation failures work over every nontrivial commutative ring. Neither test needs a DVR. All the arithmetic and normalization checks elsewhere in this README remain prose checks; isolated numerical identities do not stand in for tests of the arithmetic constructions.
 
-The following boundary checks are named mathematical targets in `Suggested.lean`, rather than admitted examples. Their full statements are these §1.1 checks, with the indicated coefficient hypotheses.
-
-| Target | Statement |
-| --- | --- |
-| `fwAuxiliary_independentCharacters` | Over F₇, the product of the two tautological unit characters, restricted to I=ker(fst) inside D=F₇××F₇×, has invariant dimensions one and zero. |
-| `not_fwAuxiliary_bot` | Over any field, a two-dimensional representation with trivial inertia cannot satisfy `FWAuxiliaryCondition`, for any decomposition subgroup. |
-| `not_rankOneCoinvariants_uniformizer` | Over any DVR O with irreducible ϖ, the matrix [[1,ϖ],[0,1]] fails `HasRankOneCoinvariants`, since its quotient is O/(ϖ)⊕O. |
-| `hasRankOneImage_fullAutomorphismGroup` | Over any DVR, the natural action of the full linear automorphism group on O² satisfies `HasRankOneImage` on the full subgroup. |
+The boundary checks above appear in `Suggested.lean` as named theorems rather than as admitted examples: `not_fwAuxiliary_bot` is proved there, while `fwAuxiliary_independentCharacters`, `not_hasRankOneCoinvariants_upper_uniformizer` and `hasRankOneImage_fullAutomorphismGroup` are open targets with the statements given in the interface list.
 
 ### 1.2 A ramified multiplicative prime gives a rank-one quotient
 
@@ -654,6 +708,8 @@ Let T be a free O-module of rank two with a continuous G_Q-action ρ, and q ≠ 
 Require q∥N with π(f)_q an unramified twist of Steinberg, so that inertia acts unipotently on V_f (local–global compatibility).
 
 Require ρ̄(I_q)≠1.
+
+The algebraic core is `hasRankOneCoinvariants_of_unipotent`: over any discrete valuation ring O, an O-linear u on O² with (u − 1)² = 0 whose image of u − 1 is not contained in ϖO² has free rank-one coinvariants. Completeness and mixed characteristic are not needed for this step.
 
 Local–global compatibility at q (`AutomorphicGaloisRepresentations` R19.4 (`conductor-and-local-factors-classical`)) makes ρ(I_q) unipotent through the tame quotient.
 
@@ -710,7 +766,7 @@ Require the ordinary filtration to have distinct residual characters.
 
 Kato's divisibility in this range: Fouquet–Wan Lemma 3.13 verifies its hypotheses (§0.8; `KatoEulerSystems` Layer 7 (`cohomological-divisibility-one-direction`)).
 
-Reverse divisibility: Fouquet–Wan §4.8 — choose the auxiliary imaginary quadratic K as in §4.6, prove the two-variable Rankin–Selberg Iwasawa–Greenberg main conjecture over K by reducing it, through Beilinson–Flach explicit reciprocity and Poitou–Tate, to the GU(3,1) divisibility Theorem 7.32, in weight k (Castella–Wan Theorem 3.8 in weight two); then descend with Kato's result. The whole reverse-divisibility route is owned by AutomorphicCongruences Layer 2, which also needs `KatoEulerSystems` Layers 2 and 7 for its twist/factor separation.
+Reverse divisibility: Fouquet–Wan §4.8 — choose the auxiliary imaginary quadratic K as in Fouquet–Wan §4.6, prove the two-variable Rankin–Selberg Iwasawa–Greenberg main conjecture over K by reducing it, through Beilinson–Flach explicit reciprocity and Poitou–Tate, to the GU(3,1) divisibility Theorem 7.32, in weight k (Castella–Wan Theorem 3.8 in weight two); then descend with Kato's result. The whole reverse-divisibility route is owned by AutomorphicCongruences Layer 2, which also needs `KatoEulerSystems` Layers 2 and 7 for its twist/factor separation.
 
 Combine the two divisibilities at every height-one prime (§0.7, KMC.iff_reverse_divisibility).
 
@@ -727,32 +783,73 @@ The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/ab
 
 ### 1.5 The ordinary Selmer form of the ordinary theorems
 
-Assume the hypotheses of §1.4 and, in addition, a proved identity L_{p-adic,α,ω,γ}(f) = u L_f with u ∈ O^× for Kato’s good pair for the dual lattice and Skinner–Urban’s canonical periods. Then IMC(D) holds integrally. Conversely, under §1.3 and this same integral period identification, KMC^{η=1}(T_K) follows from IMC. The rational comparison only needs the nonzero period scalar carried into the analytic object. The unit identification in general weight is an explicit input, not a conclusion of the rational Deligne-period quotient.
+Assume the hypotheses of §1.4, trivial character and (irred). Then char_Λ(X) = (u_p(f)·L_f), where u_p(f) is the p-adic period defect of §0.9; in particular IMC(D) holds integrally if and only if `KatoPeriodDefectUnit` holds, and IMC_Q(D) holds unconditionally. Conversely, under the hypotheses of §1.3 the Skinner–Urban equality IMC(D) gives Kato's main conjecture on the matched component exactly when `KatoPeriodDefectUnit` holds. If a form satisfies the hypotheses of both §1.3 and §1.4, both conjectures hold and u_p(f) is a unit (§0.10).
 
 Assume good ordinarity, p∤N, p odd and trivial character.
 
 Require (irred) and a rank-one unipotent element (§1.2) to work at the prime (ϖ).
 
-Use Kato’s good pair (ω,γ) for the dual lattice U ≅ T*(1−k) (`KatoEulerSystems` Layer 7 (`ordinary-selmer-divisibility`), hypothesis (3)).
+Use Kato's good pair (ω,γ) for the dual lattice U ≅ T*(1−k) (`KatoEulerSystems` Layer 7 (`ordinary-selmer-divisibility`), hypothesis (3)).
 
-Integral period compatibility: the Kato good dual pair and the canonical modular-symbol periods produce a scalar in O^×. A saturated rank-one lattice in each realization alone does not prove this comparison.
+The only scalar between Kato's good-pair function and L_f is u_p(f) (§0.9(3)); it is carried into the analytic ideal rather than assumed to be a unit. A saturated rank-one lattice in each realisation alone does not decide it.
 
-Apply §0.9 at every height-one prime, including (ϖ) by the rank-one quotient.
+Apply §0.10 at every height-one prime, including (ϖ) by the rank-one quotient. This gives char(X) = (u_p(f)L_f) from Fouquet–Wan's KMC.
 
-Apply Kato’s explicit reciprocity with its actual period scalar. If the integral period-compatibility input gives a unit, the analytic ideals agree. `KatoEulerSystems` §3.2 (`archimedean-period-quotient-and-critical-values`) supplies an algebraic period quotient, not by itself its O-unit valuation.
+For the converse direction, start from Skinner–Urban's char(X) = (L_f) and read §0.10 backwards.
 
 Translate Fouquet–Wan's T and Λ_Iw into the datum D using the Hecke-dual twist dictionary in §0.1.
 
 The source for this target is [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), 17.4–17.6, pp.273–274, and 17.13, pp.279–280; [Christopher Skinner and Eric Urban](https://www.math.columbia.edu/~urban/eurp/MC.pdf), Theorem 3.5.6 and Theorem 3.6.4, pp.41–43; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Theorem 1.6, pp.6–7.
 
-*Needs:* §0.9; §1.4; §1.3; `KatoEulerSystems` §3.2 (`archimedean-period-quotient-and-critical-values`); `ModularSymbolsPadicLFunctions` Layer 1 (`integral-period-lattices`).
+*Needs:* §0.9; §0.10; §1.4; §1.3; `KatoEulerSystems` §3.2 (`archimedean-period-quotient-and-critical-values`); `ModularSymbolsPadicLFunctions` Layer 1 (`integral-period-lattices`).
 
 **Checks.**
 
-- For the optimal semistable elliptic curve 14a1 at p=13 the Néron/canonical unit comparison is supplied by §3.1; the integral main conjecture is independently supplied by §1.3. General-weight translation retains the period-compatibility input.
-- A period choice not saturated in the integral lattice gives L_{p-adic} = ϖ^m u L_f with m ≠ 0, and the integral equality would fail by ϖ^m.
+- 14a1 at p=13 satisfies the hypotheses of both §1.3 (q=2 or q=7) and §1.4 (ℓ=2), so both conjectures hold and u_13(f_{14a1}) is a unit; independently, §3.2 identifies this defect with a Néron/canonical period ratio that is a 13-adic unit.
+- If u_p(f) = ϖ, Fouquet–Wan's theorem gives char(X) = (ϖL_f) and IMC(D) fails; an unconditional transfer KMC ⇒ IMC would be false for such a form.
+- Rationally the defect disappears: IMC_Q(D) follows from §1.4 alone.
 
-### 1.6 Skinner's theorem for multiplicative reduction
+### 1.6 Hida approximation of a p-new weight-two form
+
+Let p ≥ 3 and let f ∈ S_2(Γ_0(N)) be a newform with N = pM, p ∤ M, ordinary at p (so a_p = ±1), with (irred) for ρ̄_f and a prime q ∥ M at which ρ̄_f is ramified. After replacing L by a finite extension, for every integer m > 0 there are: (a) a newform f_m ∈ S_{k_m}(Γ_0(M)) with Q(f_m) ⊂ L, k_m > 2, k_m ≡ 2 mod p − 1 and a_p(f_m) ∈ O^×; (b) a G_Q-stable lattice T_{f_m} ⊂ V_{f_m} and an O[G_Q]-isomorphism T_f/p^mT_f ≅ T_{f_m}/p^mT_{f_m} carrying T_f^+/p^m onto T_{f_m}^+/p^m; (c) for every finite set Σ of primes not containing p and containing every prime dividing M, the equality of Λ-ideals (L_f^Σ, p^m) = (L_{f_m}^Σ, p^m), with L^Σ the imprimitive function of §0.4 (Skinner's sets are Σ∪{p}). Moreover ρ̄_{f_m} ≅ ρ̄_f, so each f_m satisfies the hypotheses of §1.3 with the same q.
+
+Assume p ≥ 3, weight two, trivial character and p ∥ N.
+
+Assume (irred) and the p-distinguished condition on the ordinary filtration, which is automatic here: the two characters of ρ̄_f|D_p are an unramified character and its product with ω^{−1} in the cohomological normalisation, and ω ≠ 1 for p ≥ 3.
+
+The tame level M is at least 2, because q ∣ M, so Γ_1(Mp^r) is torsion-free for every r ≥ 1 (3M ≥ 6 ≥ 4 when p = 3).
+
+Congruence (c) is an equality of ideals; no congruence of chosen analytic generators modulo p^m is asserted, because the family periods are defined only up to units and Skinner's Proposition 2.6.1 compares the specialised family function with L_{f_m}^Σ only up to a unit u_m ∈ O^×. The precision r_m below controls the weights, and (b) is a congruence of lattices with their ordinary lines; neither is implied by congruent q-expansions alone.
+
+The usable interface consists of the following named outputs.
+
+- `hidaApproximant`: for each m, the newform f_m with (a).
+- `hidaApproximant_lattice`: the isomorphism (b) of lattices and ordinary lines modulo p^m.
+- `hidaApproximant_padicL`: the ideal congruence (c).
+- `hidaApproximant_residual`: ρ̄_{f_m} ≅ ρ̄_f, irreducible and ramified at q.
+
+**Hida's family through f.** Let R be the branch of Hida's ordinary Hecke algebra of tame level M through f, a finite local domain over O[[X]], with its formal q-expansion. Every arithmetic specialisation of weight k′ > 2, k′ ≡ 2 mod p − 1, is the p-stabilisation of a newform of level M, and the weight-two specialisation φ₀ recovers f with φ₀(a_p) = a_p(f) (Skinner §2.6, pp.16–17). For p ≥ 5 this is PadicFamilies §§0.11–0.13. For p = 3 use Hida's control theorem in the form of Emerton–Pollack–Weston Theorem 2.1.2 (p.8 of arXiv v1), which they state for every odd prime p and every tame level prime to p, citing Hida for the proof: the universal ordinary Hecke algebra is free of finite rank over Λ and its quotient by a classical height-one prime of weight k is the Hecke algebra acting faithfully on the ordinary weight-k forms with the corresponding character. It is used here only at tame level M ≥ 2.
+
+**Weights close to 2.** Following Greenberg–Stevens, R embeds into the ring of power series in x − 2 converging on a disc of radius p^{−c}, with φ₀ evaluation at x = 2. Hence for k_m ≡ 2 mod (p−1)p^{r_m}, with r_m large, φ_{k_m} ≡ φ₀ mod p^m, which gives a_ℓ(f_m) ≡ a_ℓ(f) mod p^m for all ℓ ≠ p (Skinner §2.6, p.17).
+
+**Lattices.** Under (irred) the family carries a free rank-two R-module with Galois action whose specialisations are lattices T_f, T_{f_m}, congruent modulo p^m; the ordinary line is a free rank-one R-summand because the residual characters are distinct (Skinner (2.6.1)–(2.6.2), p.18). This is the family representation of PadicFamilies Layer 4 for p ≥ 5, and the same construction from the control theorem above for p = 3.
+
+**p-adic L-functions.** Under (irred) the two-variable function of Emerton–Pollack–Weston (Proposition 4.1.4 of arXiv v1, Proposition 3.4.3 in the published numbering that Skinner cites) specialises at each arithmetic point to a unit multiple of the Σ-imprimitive canonical p-adic L-function (Skinner Proposition 2.6.1, p.18). At φ_{k_m} the image is u_m L_{f_m}^Σ with u_m ∈ O^×, which gives (c). For p ≥ 5 this is PadicFamilies §§1.5–1.6 and §1.12.
+
+The source for this target is [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §2.6, pp.16–18, and §3.1 (a)–(d), pp.18–19; [Matthew Emerton, Robert Pollack and Tom Weston](https://arxiv.org/pdf/math/0404484v1), Theorem 2.1.2, pp.7–8, and Proposition 4.1.4, p.30 (arXiv v1 numbering).
+
+*Needs:* §0.1; §0.4; §1.1; `PadicFamilies` Layer 0 (§§0.11–0.13); `PadicFamilies` Layer 1 (§§1.5–1.6, 1.12); `PadicFamilies` Layer 4 (`ordinary-big-galois-representation`, `ordinary-filtration`); `ModularSymbolsPadicLFunctions` Layer 4 (`primitive-imprimitive-level-change`).
+
+**Checks.**
+
+- 11a1 at p = 11 (split multiplicative, a_11 = 1, M = 1): there is no prime q ∥ M, so the target does not apply; the hypothesis q ∥ M is what makes Γ_1(Mp^r) torsion-free when p = 3 as well.
+- At p = 3 with M = 2, the level 3^r·2 ≥ 6 gives a torsion-free Γ_1, so the control theorem is available; at tame level M = 1 and p = 3 the group Γ_1(3) has torsion and the target makes no claim.
+- The weights satisfy k_m > 2, so f_m is new of level M prime to p; the weight-two point itself is p-new, and its p-stabilisation is f, not an oldform.
+- Congruence of ideals, not of chosen generators: (ϖ^m, X) = (ϖ^m, X + ϖ^m) although X ≢ X + ϖ^m mod ϖ^{m+1}; replacing (c) by an equality of chosen generators modulo p^m would change with the period normalisation.
+- A family theory available only for p ≥ 5 supplies no approximant at p = 3, and a congruent residual representation supplies only the case m = 1 of (b): it gives neither the lattice and ordinary-line comparison modulo every p^m nor the unit u_m. Both are produced here from the R-module of the family and the two-variable function.
+- Σ convention: Skinner's set always contains p, and the corresponding set here is that set with p removed. A factor at p has no meaning in the product of §0.4, since p is ramified in ℚ∞ and has no Frobenius γ_p in Γ; the behaviour at p is already the interpolation factor e of §0.4.
+
+### 1.7 Skinner's theorem for multiplicative reduction
 
 Let p ≥ 3 and f ∈ S_2(Γ_0(N)) a newform with p ∥ N (so f is ordinary at p, k = 2, and a_p = ±1), L/Q_p as in the datum, (irred) for ρ̄_f, and a prime q ≠ p with q ∥ N and ρ̄_f ramified at q. Then for every finite Σ not containing p, X^Σ is Λ-torsion and char_Λ(X^Σ) = (L_f^Σ) in Λ, where X^Σ uses the inertia-kernel condition of §0.2 and the ordinary line of the Steinberg representation at p and L_f is the Mazur–Tate–Teitelbaum p-adic L-function (with its trivial zero when a_p = 1).
 
@@ -762,13 +859,9 @@ Require (irred) and a ramified q∥N with q≠p.
 
 The p ∤ N seed is §1.3 in weights k_m>2, k_m≡2 mod (p−1)p^(r_m) on level N/p, where r_m is chosen to give the precision p^m and may be increased to at least m. It is applied only after the lattice congruence modulo p transports the irreducibility and ramified-prime hypotheses.
 
-The Hida-family theorem `OrdinaryAutomorphicFormsAndModularityLifting` R21.6 (`ordinary-newform-lies-in-a-hida-family`) is stated for p ≥ 5; for p = 3 require the same Hida approximation contract at p = 3, as specified under Exact supplier contracts.
+Reductions: it suffices to prove the statement after a finite extension of L and for Σ containing all primes dividing N, using faithful flat change of characteristic ideals (`PadicMeasuresIwasawaAlgebras` Layer 4) and the Σ-change of Skinner §2.3 (`SelmerIwasawaCohomology` Layer 2 (`condition-change-triangle`)); these are the inputs that §§5.1–5.2 later package as theorems.
 
-Reductions: it suffices to prove the statement after a finite extension of L and for Σ containing all primes dividing N, using faithful flat coefficient change and the Selmer local-condition triangle stated in Exact supplier contracts.
-
-Hida theory: f is the weight-two member of a Hida family (`OrdinaryAutomorphicFormsAndModularityLifting` R21.6 (`ordinary-newform-lies-in-a-hida-family`), with its required p=3 extension); for each m>0 choose f_m∈S_(k_m)(Γ_0(N/p)), ordinary, with k_m as above. The isomorphism T_f/p^m≃T_(f_m)/p^m must identify T_f^+/p^m with T_(f_m)^+/p^m at G_Qp. Congruent q-expansions alone are not the Selmer comparison used here.
-
-The two-variable p-adic L-function of `PadicFamilies` Layer 1 (`branch-l-functions`) yields congruence of the principal ideals (L^Σ_{f_m}, p^m) = (L^Σ_f, p^m), with compatible choices of periods or their unit ambiguity. An exact equality of chosen analytic generators modulo p^m is not asserted without fixing these choices.
+Hida theory, for every p ≥ 3 including p = 3: §1.6 supplies newforms f_m of level N/p and weights k_m > 2, k_m ≡ 2 mod (p − 1)p^{r_m}, an isomorphism T_f/p^m ≅ T_{f_m}/p^m identifying T_f^+/p^m with T_{f_m}^+/p^m at G_{Q_p}, and the ideal congruences (L^Σ_{f_m}, p^m) = (L^Σ_f, p^m). Congruent q-expansions alone are not the Selmer comparison used here, and an exact equality of chosen analytic generators modulo p^m is not asserted.
 
 Greenberg's theorem (§0.3) gives Ch^Σ(f_m) = Fitt(X^Σ(f_m)); the congruence gives Sel^Σ(f)[p^m] ≅ Sel^Σ(f_m)[p^m], hence (Fitt(X^Σ(f)), p^m) = (Ch^Σ(f_m), p^m) = (L^Σ_{f_m}, p^m) = (L^Σ_f, p^m) for every m.
 
@@ -776,13 +869,13 @@ Since L^Σ_f ≠ 0, Fitt(X^Σ(f)) ≠ 0, so X^Σ(f) is torsion, Greenberg's theo
 
 The source for this target is [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), Theorem A, pp.1–2, and §2.3, pp.8–12; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §1, pp.3–4, §2.6, pp.16–18, Proposition 2.6.1 and (2.6.1)–(2.6.3), and §3.1, pp.18–19.
 
-*Needs:* §1.3; `OrdinaryAutomorphicFormsAndModularityLifting` R21.6 (`ordinary-newform-lies-in-a-hida-family`); `PadicFamilies` Layer 1 (`branch-l-functions`); §0.3; `SelmerIwasawaCohomology` Layer 3 (`selmer-fitting-characteristic`).
+*Needs:* §1.3; §1.6; §0.3; `SelmerIwasawaCohomology` Layer 3 (`selmer-fitting-characteristic`).
 
 **Checks.**
 
 - For E with split multiplicative reduction at p, L_f has a trivial zero at the trivial character and the theorem is consistent with Greenberg–Stevens (§5.7): (γ − 1) divides both sides.
 - This supplies `RankZeroOneBSD` BSD.6 (`rank-zero-ordinary-multiplicative-p-part`) for p ∥ N.
-- At p=3 and precision p^m, an ordinary family restricted to p≥5 supplies no approximant. Even a congruent residual representation supplies only the m=1 residual data, not the lattice and ordinary-line comparisons for every m or the period-unit congruence.
+- At p=3 the approximants, their lattice congruences and the units u_m come from §1.6; a family theory restricted to p≥5, or a congruent residual representation alone, would not supply them.
 
 ### Examples
 
@@ -790,7 +883,7 @@ The standard unipotent u = [[1,1],[0,1]] has (u−1)(x,y) = (y,0), so its coinva
 
 ### Dependencies
 
-Use Layer 0; ArithmeticGaloisRepresentations for residual representations and local types; EllipticCurves Layer 4 for the multiplicative inertia criterion; KatoEulerSystems Layer 7 for the forward divisibility; AutomorphicCongruences Layers 1 and 2 for the separate reverse bounds; and the Hida approximation contract for the multiplicative limit.
+Use Layer 0; ArithmeticGaloisRepresentations for residual representations and local types; EllipticCurves Layer 4 for the multiplicative inertia criterion; KatoEulerSystems Layer 7 for the forward divisibility; AutomorphicCongruences Layers 1 and 2 for the separate reverse bounds; and PadicFamilies Layers 0, 1 and 4 with Emerton–Pollack–Weston's control theorem for the Hida approximation of §1.6.
 
 
 ## Layer 2: the pointwise cohomological theorem
@@ -845,28 +938,28 @@ The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/ab
 
 ### 2.3 Ordinary and signed consequences of the pointwise theorem
 
-Let f satisfy the hypotheses of §2.2. (1) If moreover p ∤ N, f is ordinary at p, (dist) holds and ρ̄ satisfies (Im), and the integral period-compatibility input of §1.5 holds, then IMC(D) holds integrally for the ordinary datum of f. (2) If moreover p ∤ N, f is supersingular at p with LLZ's (A) (k ≥ 3 or a_p = 0), and (E) holds, then for the LLZ basis the signed main conjectures SMC^{1,η=1} and SMC^{2,η=1} hold integrally; without (E) they hold rationally. Nothing is asserted about a bounded scalar p-adic L-function at points where none exists (infinite slope, supercuspidal π(f)_p).
+Let f satisfy the hypotheses of §2.2. (1) If moreover p ∤ N, f is ordinary at p, (dist) holds and ρ̄ satisfies (Im), then char_Λ(X) = (u_p(f)·L_f) for the ordinary datum of f; hence IMC_Q(D) holds, and IMC(D) holds integrally exactly when `KatoPeriodDefectUnit` holds (§0.9). (2) If moreover p ∤ N, f is supersingular at p with LLZ's (A) (k ≥ 3 or a_p = 0), and (E) holds, then for the LLZ basis the signed main conjectures SMC^{1,η=1} and SMC^{2,η=1} hold integrally; without (E) they hold rationally. Nothing is asserted about a bounded scalar p-adic L-function at points where none exists (infinite slope, supercuspidal π(f)_p).
 
-(1) needs the comparison hypotheses of §0.9.
+(1) needs the comparison hypotheses of §0.10.
 
-Assertion (2) needs the hypotheses of §0.12; the two hypothesis sets are intersected, not merged.
+Assertion (2) needs the hypotheses of §0.13; the two hypothesis sets are intersected, not merged.
 
-For (1), combine the pointwise theorem with §0.9 and the integral identification of §1.5.
+For (1), combine the pointwise theorem with §0.10, whose analytic term is u_p(f)·L_f by §0.9.
 
-For (2), combine it with §0.12 (LLZ Corollary 6.6).
+For (2), combine it with §0.13 (LLZ Corollary 6.6).
 
 The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), §1.1.2, p.7; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Corollary 6.6, p.44; [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), 17.13, pp.279–280.
 
-*Needs:* §2.2; §0.9; §0.12; §1.5.
+*Needs:* §2.2; §0.9; §0.10; §0.13.
 
 **Checks.**
 
-- (2) applies to E = 14a1 at p = 5: (A) since a_5 = 0, (E) since the mod-5 representation is surjective; so the LLZ actual-image equalities SMC^{1}, SMC^{2} hold for this basis. Their kernel identification is Kobayashi’s, with index 1 minus and index 2 plus; the separately Néron-normalized Pollack analytic equalities also need §4.5’s unit-period comparison.
-- For E = 11a1 at p = 7, Theorem 5.1 supplies KMC independently of §1.3. Applying (1) retains the Kato/canonical-period unit input; it is not proved by the pointwise theorem alone.
+- (2) applies to E = 14a1 at p = 5: (A) since a_5 = 0, (E) since the mod-5 representation is surjective; so the LLZ actual-image equalities SMC^{1}, SMC^{2} hold for this basis. Their kernel identification is Kobayashi’s, with index 1 minus and index 2 plus; the separately Néron-normalised Pollack analytic equalities also need §4.5’s integrality of the multipliers a^±.
+- For E = 11a1 at p = 7, Theorem 5.1 supplies KMC independently of §1.3, and (1) gives char(X) = (u_7(f_E)L_f). Here u_7(f_E) is a unit by the elliptic case of §3.2 (optimal curve, Manin constant 1), so (1) recovers MMC(11a1,7) integrally; in general weight the pointwise theorem alone does not decide the defect.
 
 ### Examples
 
-For 11a1 at p=7, the residual representation is locally ordinary and the auxiliary prime 11 is split multiplicative. The ordinary Fouquet–Wan theorem in §1.4 does not apply, because its decomposition invariants at 11 do not vanish. Theorem 5.1 allows the trivial unramified quadratic μ in the locally reducible case, so the pointwise theorem does apply. Its conclusion is the trivial tame component of KMC. An integral ordinary analytic conclusion also uses the period-unit comparison of §0.9.
+For 11a1 at p=7, the residual representation is locally ordinary and the auxiliary prime 11 is split multiplicative. The ordinary Fouquet–Wan theorem in §1.4 does not apply, because its decomposition invariants at 11 do not vanish. Theorem 5.1 allows the trivial unramified quadratic μ in the locally reducible case, so the pointwise theorem does apply. Its conclusion is the trivial tame component of KMC. Its ordinary analytic form is char(X) = (u_p(f)L_f) (§2.3(1)), with u_p(f) the defect of §0.9.
 
 ### Dependencies
 
@@ -923,14 +1016,17 @@ The usable interface consists of the following named outputs.
 - `mazurSwinnertonDyerL_isogeny`: For a Q-isogeny E → E', L_p(E'/Q) = (Ω_E^+/Ω_{E'}^+)·L_p(E/Q), the period ratio being a rational number.
 - `mazurSwinnertonDyerL_eq_form`: L_p(E/Q) = (P_{f_E}^+/Ω_E^+) L_{f_E}, where P_{f_E}^+=−2πiΩ_{f_E}^+ is the differential period corresponding to Skinner–Urban’s cohomological canonical period. The ratio is algebraic and its p-part is retained.
 - `mazurSwinnertonDyerL_analytic`: L_p(E, s) := ∫ ⟨x⟩^{s−1} μ_{E,α}, s ∈ Z_p, and γ − 1 ↦ ⟨u⟩^{s−1} − 1 identifies the two forms.
+- `katoPeriodDefect_elliptic`: for E good ordinary at an odd p with E[p] irreducible, Kato's good pair for T = T_pE(−1) is (ω_E, γ_E) with ω_E a Néron differential and γ_E^± bases of H¹(E(C), Z_p)^±; its p-adic zeta function is L_p(E/Q) up to Z_p^×, and the p-adic period defect u_p(f_E) of §0.9 is the class of P_{f_E}^+/Ω_E^+. It is a unit whenever this period ratio is, in particular under the optimal X₁(N) comparison above and for the X₀(N)-optimal semistable curve of §3.1(3).
 
 Construct μ_{E,α} from the modular symbols of f_E (`ModularSymbolsPadicLFunctions` Layer 2 (`ordinary-integral-measure`)) and rescale from canonical to Néron periods by §3.1.
 
 Interpolation: `ModularSymbolsPadicLFunctions` Layer 2 (`interpolation-and-uniqueness`), with the trivial-character Euler factor of `ModularSymbolsPadicLFunctions` Layer 4 (`euler-factor-comparison`) (the factor (1 − α^{-1})² for good and (1 − α^{-1}) for multiplicative reduction).
 
-The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), Theorem 0.8, Definition 0.9, Remark 0.10, p.255; [Ashay Burungale, Francesc Castella and Christopher Skinner](https://arxiv.org/abs/2405.00270v2), §1.1, pp.1–2; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §3.3, p.25 and note 8 (optimal X₁(N) periods).
+For `katoPeriodDefect_elliptic`, Kato remarks in 17.5 (p.274) that for weight two and T = T_pE(−1) an ω is good exactly when it is a Z_p-basis of the cotangent space of the Néron model; a good γ is a basis of the ± parts of T, that is of the Betti lattice H¹(E(C), Z_p) under the comparison isomorphism. With this pair the periods of Kato Theorem 16.2 are the Néron periods Ω_E^±, so the good-pair function is the Néron-normalised L_p(E/Q). Comparing with `mazurSwinnertonDyerL_eq_form` and §0.9(3) gives the defect.
 
-*Needs:* `ModularSymbolsPadicLFunctions` Layer 2 (`ordinary-integral-measure`); `ModularSymbolsPadicLFunctions` Layer 2 (`interpolation-and-uniqueness`); `ModularSymbolsPadicLFunctions` Layer 4 (`euler-factor-comparison`); §3.1; §0.4.
+The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), Theorem 0.8, Definition 0.9, Remark 0.10, p.255; [Ashay Burungale, Francesc Castella and Christopher Skinner](https://arxiv.org/abs/2405.00270v2), §1.1, pp.1–2; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §3.3, p.25 and note 8 (optimal X₁(N) periods); [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), Theorem 16.2, p.269, and 17.5, p.274 (the elliptic good pair).
+
+*Needs:* `ModularSymbolsPadicLFunctions` Layer 2 (`ordinary-integral-measure`); `ModularSymbolsPadicLFunctions` Layer 2 (`interpolation-and-uniqueness`); `ModularSymbolsPadicLFunctions` Layer 4 (`euler-factor-comparison`); §3.1; §0.4; §0.9.
 
 **Checks.**
 
@@ -940,12 +1036,13 @@ The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_200
 - For multiplicative reduction b = 0, so the trivial-character factor is (1 − α^{-1}), not its square.
 - For α = 1 (split multiplicative), (1 − α^{-1})^{b+1} = 0: the trivial zero of Colmez Remark 0.10.
 - For E = 11a1 at p = 7, the value at the trivial character is (1 − α^{-1})²/5, a nonzero element of Z_7.
+- For 11a1 at p = 7 (X₀(11)-optimal, Manin constant 1, E[7] irreducible) the defect u_7(f_E) is a unit, so Kato's good-pair function and L_{f_E} generate the same ideal. Choosing instead ω = 7ω_E, which is not good, divides Kato's function by 7: goodness of ω, not merely its integrality, is what the defect measures.
 
 ### 3.3 Mazur's main conjecture for an elliptic curve
 
 For E/Q and a prime p of good ordinary reduction, MMC(E, p) is the proposition: X_ord(E/Q_∞) := Sel_{p^∞}(E/Q_∞)^∨ is Λ-torsion and char_Λ(X_ord(E/Q_∞)) = (L_p(E/Q)) in Λ. MMC_Q(E, p) is the equality in Λ ⊗ Q_p. Under §3.1, MMC(E, p) ⟺ IMC(D_{f_E}) when the period ratio Ω_E^+/P_{f_E}^+ (P_f=−2πiΩ_f) is a p-adic unit, and MMC_Q(E, p) ⟺ IMC_Q(D_{f_E}) always.
 
-Assume p is good ordinary. Section 1.6 covers the multiplicative form with its stated local condition.
+Assume p is good ordinary. Section 1.7 covers the multiplicative form with its stated local condition.
 
 The integral form carries the implicit integrality L_p(E/Q) ∈ Λ.
 
@@ -1038,45 +1135,190 @@ The source for this target is [Ashay Burungale, Francesc Castella and Christophe
 - For E = 14a1 and p = 5 (5 is not a nonmaximal prime for 14a1), ρ̄_{E,5} is surjective, so (Im) holds.
 - Burungale–Castella–Skinner Remark 1.1.3(i): for non-CM E, (Im) holds for all sufficiently large p by Serre's open image theorem.
 
+### 3.7 The cyclotomic p-adic height of an elliptic curve
+
+Let E/Q have good ordinary or multiplicative reduction at an odd prime p, with minimal Weierstrass equation, invariant differential ω_E, formal parameter t = −x/y at the origin, formal group Ê and formal logarithm log_E (so dlog_E = ω_E). Put η_E = xω_E. At good ordinary p let ν_α = aω_E + bη_E be an eigenvector of the crystalline Frobenius on H¹_dR(E/Q_p) with eigenvalue α⁻¹, where α is the unit root of X² − a_pX + p, so that b ≠ 0, and put e₂ := −12a/b ∈ Z_p, the value E₂(E, ω_E) of Katz's p-adic Eisenstein series of weight two. Let σ be Bernardi's sigma function of (E, ω_E), the odd series t + ⋯ with −x = (d/dω_E)((1/σ)(dσ/dω_E)), and define the **canonical p-adic sigma function** σ_p(t) := exp(e₂·log_E(t)²/24)·σ(t). It lies in Z_p[[t]]; for p ≥ 5 it is the unique odd t + ⋯ ∈ tZ_p[[t]] for which x + c = −(d/dω_E)((1/σ_p)(dσ_p/dω_E)) with some c ∈ Z_p.
+
+For P ∈ E(Q) that reduces into the identity component of the Néron special fibre at every prime and to the origin modulo p, write x(P) = a′/e(P)² with e(P) > 0 and gcd(a′, e(P)) = 1, and set
+
+```text
+ĥ_p(P) := 2·log_p( e(P) / σ_p(t(P)) ).
+```
+
+Such P form a subgroup of finite index, and ĥ_p extends uniquely to E(Q) by ĥ_p(mP) = m²ĥ_p(P). The **cyclotomic p-adic height pairing** is ⟨P,Q⟩_p := ½(ĥ_p(P+Q) − ĥ_p(P) − ĥ_p(Q)), a symmetric Q_p-bilinear form on E(Q) ⊗ Q_p vanishing on torsion. The **p-adic regulator** Reg_p(E/Q) is the determinant of ⟨P_i,P_j⟩_p for a Z-basis P_1, …, P_r of E(Q)/E(Q)_tors (Reg_p = 1 when r = 0), and the **γ-normalised regulator** is Reg_γ(E/Q) := Reg_p(E/Q)/log_p(κ(γ))^r. The height is **nondegenerate** when Reg_p(E/Q) ≠ 0.
+
+At multiplicative reduction use the same definitions with these changes. At nonsplit multiplicative p, α = −1 and the formula above is used unchanged, with e₂ = E₂(E, ω_E). At split multiplicative p, let q_E be the Tate parameter and ψ : Q̄_p^×/q_E^ℤ ≅ E(Q̄_p) the Tate parametrisation with ψ*ω_E = C·du/u, put e₂ := C²(1 − 24∑_{n≥1}∑_{d∣n} d q_E^n), form σ_p from this e₂ as above, and for P as above let u ∈ 1 + pZ_p be the preimage of P under ψ. Then
+
+```text
+ĥ_p(P) := 2·log_p( e(P) / σ_p(t(P)) ) − log_p(u)² / log_p(q_E).
+```
+
+The second term is Werner's correction of the multiplicative regulator of Mazur–Tate–Teitelbaum; omitting it gives a different pairing. Its denominator is nonzero by `tateParameter_log_ne_zero` below.
+
+**The Tate parameter is transcendental.** Let E/Q have split multiplicative reduction at p, with Tate parameter q_E ∈ Q_p^×, 0 < |q_E|_p < 1, so that J(q_E) = j(E) ∈ Q, where J is the q-expansion of the modular invariant. The target `tateParameter_transcendental` is that q_E is transcendental over Q. This is the p-adic case of the theorem of Barré-Sirieix, Diaz, Gramain and Philibert: for q algebraic in ℂ or in ℂ_p with 0 < |q| < 1, the value J(q) is transcendental. Its consequence `tateParameter_log_ne_zero` is log_p(q_E) ≠ 0: the kernel of Iwasawa's logarithm on Q_p^× is p^ℤ·μ_{p−1}, whose elements are algebraic. Hence the ℒ-invariant of §5.5 is nonzero. No atlas roadmap and no current Tau Ceti roadmap states the p-adic theorem; DiophantineApproximationAndTranscendence states Nesterenko's complex theorem only. It is stated here for the Tate parameter, the only case used.
+
+Assume p odd and good ordinary or multiplicative reduction at p.
+
+Use Iwasawa's logarithm, log_p(p) = 0.
+
+Nondegeneracy is a property, not part of the definition; it is Schneider's conjecture and is assumed by name wherever used.
+
+The usable interface consists of the following named outputs.
+
+- `canonicalSigma`: σ_p ∈ Z_p[[t]] as above, with its characterisation for p ≥ 5.
+- `cyclotomicHeight`: ĥ_p : E(Q) → Q_p, with `cyclotomicHeight_smul`: ĥ_p(mP) = m²ĥ_p(P).
+- `cyclotomicHeight_model`: ĥ_p does not depend on the Weierstrass equation.
+- `cyclotomicHeightPairing`: ⟨·,·⟩_p, symmetric, Q-bilinear, zero on torsion.
+- `padicRegulator`: Reg_p(E/Q), independent of the chosen basis since a change of basis has determinant ±1 and enters squared; `padicRegulator_rank_zero`: Reg_p = 1 when r = 0.
+- `normalizedRegulator`: Reg_γ(E/Q) = Reg_p(E/Q)·log_p(κ(γ))^{−r}.
+- `HeightNondegenerate`: Reg_p(E/Q) ≠ 0.
+- `tateParameter_transcendental`: q_E is transcendental over Q for E/Q split multiplicative at p.
+- `tateParameter_log_ne_zero`: log_p(q_E) ≠ 0.
+
+Construct the Frobenius eigenvector from the crystalline Frobenius on H¹_dR(E/Q_p) of the good-reduction model (`CrystallineCohomology` CR.2.3 and CR.3.4), with b ≠ 0 as in Stein–Wuthrich §4.1. Bernardi's σ is a formal solution of a second-order equation in Q_p[[t]]; the exponential correction makes it integral (Stein–Wuthrich (4.1) and the following paragraph; Mazur–Stein–Tate Theorem 1.3 for the characterisation when p ≥ 5).
+
+The subgroup of P with everywhere good reduction and trivial reduction at p has finite index by finiteness of the component groups and of Ẽ(F_p), and σ_p converges at t(P) because t(P) ∈ pZ_p and p is odd. Quadraticity and the parallelogram law come from the duplication and addition formulas for σ (Mazur–Stein–Tate (1.2)–(1.3), citing Mazur–Tate), which give bilinearity of ⟨·,·⟩_p.
+
+The multiplicative case follows Stein–Wuthrich §4.2, which takes the regulator of Mazur–Tate–Teitelbaum §II.6 with Werner's correction, and also records the product expansion of σ_p in u.
+
+For `tateParameter_transcendental`, the Tate parameter satisfies J(q_E) = j(E) ∈ Q with 0 < |q_E|_p < 1; if q_E were algebraic, the Barré-Sirieix–Diaz–Gramain–Philibert theorem in ℂ_p would make j(E) transcendental. Their proof treats the complex and the p-adic cases together; its formal proof is requested from a Part II of DiophantineApproximationAndTranscendence, which would then supply this statement.
+
+The source for this target is [William Stein and Christian Wuthrich](https://wstein.org/papers/mcom2649-iwasawa-alg.pdf), §4, (4.1), pp.1770–1771; §4.2, pp.1771–1772; §4.4, p.1774; [Barry Mazur, William Stein and John Tate](https://content.ems.press/assets/public/full-texts/books/254/chapters/online-pdf/978-3-98547-541-4-chapter-5044.pdf), (1.1)–(1.3), p.579, and Theorem 1.3, p.580; [Michel Waldschmidt](https://www.numdam.org/item/SB_1996-1997__39__105_0), Théorème 2, p.108, with ℂ standing for ℂ or ℂ_p (p.106), and its consequence for the Iwasawa logarithm of q, p.110, reporting [Barré-Sirieix, Diaz, Gramain and Philibert, Invent. Math. 124 (1996), 1–9](https://doi.org/10.1007/s002220050044).
+
+*Needs:* `ColemanIntegration` Layer 0 (`iwasawa-logarithm`); `CrystallineCohomology` CR.2.3; `CrystallineCohomology` CR.3.4; TauCetiRoadmap.EllipticCurves Layer 4 (Tate parameter and parametrisation); Mathlib `WeierstrassCurve`; §3.1.
+
+**Checks.**
+
+- Rank zero: Reg_p = 1, the empty determinant. Mazur–Tate–Teitelbaum's regulator in Colmez's normalisation is #E(Q)_tors⁻² in rank zero; the two conventions differ exactly by the torsion index and must not both be applied.
+- Normalisation: scaling the height by a constant λ scales Reg_p by λ^r. With ĥ_p := log_p(e/σ_p), omitting the factor 2, every rank-r leading term would change by 2^{−r}. Mazur–Stein–Tate's height (1.1) is h(P) = (1/p)·log_p(σ_p(P)/e(P)) = −ĥ_p(P)/(2p), and their pairing h(P)+h(Q)−h(P+Q) is ⟨P,Q⟩_p/p, so their regulator is p^{−r}Reg_p up to sign; Stein–Wuthrich (footnote 4, p.1771) record the constant factor between the two normalisations. The leading-term formulas of §§3.9 and 5.6 are stated for ĥ_p only.
+- Split multiplicative correction: for P with u = 1 + p and r = 1, dropping the term −log_p(u)²/log_p(q_E) changes ⟨P,P⟩_p by log_p(1+p)²/log_p(q_E), which has valuation 2 − v_p(log_p q_E); a regulator built without it is a different number.
+- log_p κ(γ) for κ(γ) = 1 + p has valuation 1, so Reg_γ = p^{−r}·(unit)·Reg_p: for r ≥ 1 the two regulators are not interchangeable up to Z_p^×.
+- Replacing γ by γ^u with u ∈ Z_p^× multiplies Reg_γ by u^{−r}, a unit; replacing the coordinate X by its inverse coordinate multiplies a rank-r leading coefficient by (−1)^r.
+- Values: ⟨P,P⟩_p lies in Q_p; substituting the real Néron–Tate height gives a real number and is not a version of this pairing.
+- Transcendence is what is needed: q_E = p, or any ζp^n with ζ a root of unity, would have log_p(q_E) = 0 and would make the corrected height and the ℒ-invariant undefined; algebraicity of j(E) alone excludes this only through `tateParameter_transcendental`.
+
+### 3.8 Comparison of the height normalisations
+
+For E as in §3.7, Schneider's algebraic p-adic height ⟨·,·⟩_κ (defined through universal norms in the cyclotomic Z_p-extension) and his analytic p-adic height (·,·)_κ satisfy ⟨·,·⟩_κ = −(·,·)_κ. Up to this sign they agree with the pairing ⟨·,·⟩_p of §3.7, with Werner's correction at split multiplicative p. The height used in the Mazur–Tate–Teitelbaum conjecture is ⟨·,·⟩_p, and the leading-term formulas in the variable T = κ(γ)^{s−1} − 1 use Reg_γ, while those in the variable s use Reg_p. Explicitly, for a series F with expansion F(T) = c_rT^r + O(T^{r+1}) and G(s) := F(κ(γ)^{s−1} − 1), one has G(s) = c_r(log_p κ(γ))^r(s − 1)^r + O((s − 1)^{r+1}).
+
+Assume p odd and good ordinary or multiplicative reduction.
+
+A sign change of a height changes a rank-r determinant by (−1)^r, a unit; so only the determinant up to sign enters §3.9.
+
+The usable interface consists of the following named outputs.
+
+- `schneiderHeight_sign`: ⟨·,·⟩_κ = −(·,·)_κ (Schneider Theorem 6).
+- `schneiderHeight_eq`: Schneider's κ-heights agree with ⟨·,·⟩_p up to sign (with Werner's correction at split multiplicative p); their determinants agree with Reg_p up to (−1)^r.
+- `leadingTerm_T_to_s`: c_r(T) ↦ c_r(T)·(log_p κ(γ))^r under T = κ(γ)^{s−1} − 1, and Reg_γ ↦ Reg_p.
+
+Schneider proves the sign relation between his algebraic and analytic heights (Theorem 6). Stein–Wuthrich record that, once Werner's correction is applied at split multiplicative primes, his heights agree with the σ_p-height of §3.7.
+
+For the change of variable, κ(γ)^{s−1} − 1 = (s−1)·log_p κ(γ) + O((s−1)²). Schneider's own variable is κ(γ)^{1−s} − 1 (§2, p.341), which changes a rank-r leading coefficient by (−1)^r.
+
+The source for this target is [Peter Schneider](https://ivv5hpp.uni-muenster.de/u/pschnei/publ/pap/heightII.PDF), §2, p.341 (the variable), and §7, Theorem 6, p.371; [William Stein and Christian Wuthrich](https://wstein.org/papers/mcom2649-iwasawa-alg.pdf), §3, p.1763 (the variable T), §4.4, p.1774, and §6.1, p.1776 (agreement of the heights).
+
+*Needs:* §3.7.
+
+**Checks.**
+
+- In rank one, Reg_p = ⟨P,P⟩_p for a generator P, and Reg_γ = ⟨P,P⟩_p/log_p κ(γ); with κ(γ) = 1+p the latter has valuation one less.
+- The first coefficient of κ(γ)^{s−1} − 1 is log_p κ(γ), of the inverse coordinate κ(γ)^{1−s} − 1 it is −log_p κ(γ); a rank-r leading term changes by (−1)^r between them, a unit.
+- In rank zero the change of variable is the identity on leading terms.
+- Sign: in rank one ⟨P,P⟩_κ = −(P,P)_κ; a statement asserting equality of the two Schneider heights would be off by −1, harmless in a unit comparison but wrong as an identity.
+
+### 3.9 Schneider's leading-term theorem
+
+Let E/Q have good ordinary or multiplicative reduction at an odd prime p, let X_ord(E/Q_∞) be the Pontryagin dual of Sel_{p^∞}(E/Q_∞) (§0.2, §3.3), a torsion Λ-module by Kato's theorem (§0.3), and let f_E(T) ∈ Z_p[[T]] be a characteristic series, with T = γ − 1. Then ord_{T=0} f_E(T) ≥ r = rank E(Q). Equality holds if and only if the height of §3.7 is nondegenerate and Sha(E/Q)[p^∞] is finite, and then the leading coefficient f_E^*(0) satisfies
+
+```text
+f_E^*(0) ∼_p ε_p · ∏_ℓ c_ℓ(E) · #Sha(E/Q)[p^∞] / (#E(Q)[p^∞])² · Reg_γ(E/Q),
+```
+
+where ∼_p means equality up to Z_p^×, ε_p = (1 − α⁻¹)² at good ordinary p and ε_p = 1 − α⁻¹ at nonsplit multiplicative p. At split multiplicative p the same holds with ε_p replaced by ℒ_p(E)/log_p κ(γ), where ℒ_p(E) := log_p(q_E)/ord_p(q_E) for the Tate parameter q_E, nonzero by `tateParameter_log_ne_zero` (§3.7); §5.5 develops this invariant further.
+
+**Abelian varieties.** The statement is the case A = E, k = Q of Schneider's theorem for an abelian variety A over a number field k with good ordinary reduction at every place above p (ordinary for the cyclotomic Z_p-extension k_∞ in his terminology), which is the general target `schneider_leading_term_abelianVariety`. Let Σ be the set of places of k above p, 𝒜 the Néron model of A, Â the dual abelian variety, π_𝔭(A) the component group of 𝒜 at 𝔭 and 𝒜(κ_𝔭) the points of the reduction over the residue field κ_𝔭 for 𝔭 ∈ Σ. Schneider's algebraic Iwasawa L-function is L_p(A,κ,s) := ∏_i F_i(κ(γ)^{1−s} − 1)^{(−1)^{i+1}}, where F_i is p^{μ(H_i)} times the characteristic polynomial of γ − 1 on H_i ⊗ Q_p and H_i is the Pontryagin dual of the flat cohomology H^i(o_∞, 𝒜(p)) over the ring of integers of k_∞; let m be its order of vanishing at s = 1 and c its leading coefficient there. If Sha_k(A)(p) is finite and Schneider's algebraic κ-height ⟨·,·⟩_κ on A(k) × Â(k) is nondegenerate, then m = rank A(k) and
+
+```text
+c ∼_p det⟨·,·⟩_κ · #Sha_k(A)(p) · ∏_𝔭 #π_𝔭(A) · (∏_{𝔭∈Σ} #𝒜(κ_𝔭))² / (#Tor A(k) · #Tor Â(k)).
+```
+
+The same holds with the analytic height (·,·)_κ in place of ⟨·,·⟩_κ, by `schneiderHeight_sign`. Only p-parts of the factors matter. For A = E and k = Q one has Â = E and #𝒜(κ_p) = #Ẽ(F_p); the component factors enter as the Tamagawa numbers c_ℓ(E), the form in which Stein–Wuthrich state the elliptic theorem (geometric component counts would differ at nonsplit multiplicative primes, where c_ℓ ∈ {1, 2} while the geometric count is ord_ℓ Δ_min); and the heights are those of §3.8.
+
+Assume p odd and good ordinary or multiplicative reduction for the elliptic statement; for the abelian-variety statement, good ordinary reduction at every place above p.
+
+The elliptic theorem is stated for the Galois p^∞-Selmer group. The flat-cohomology Selmer groups of the Néron model in Schneider's proof are compared with it inside the proof (`schneiderFlatGaloisComparison` below); the statement involves no flat cohomology.
+
+Finiteness of Sha[p^∞] and nondegeneracy are hypotheses of the equality case, not consequences.
+
+The usable interface consists of the following named outputs.
+
+- `schneider_leading_term_abelianVariety`: the abelian-variety statement above.
+- `schneiderFlatGaloisComparison`: for E/Q good ordinary at p with E[p] irreducible, Schneider's L_p(E,κ,s) and f_E(κ(γ)^{1−s} − 1) have the same order at s = 1 and leading coefficients differing by Z_p^×.
+- `schneider_order_ge_rank`: ord_{T=0} f_E ≥ r.
+- `schneider_order_eq_iff`: ord_{T=0} f_E = r ↔ HeightNondegenerate ∧ Sha(E/Q)[p^∞] finite.
+- `schneider_leading_term`: the displayed elliptic formula, at good ordinary and nonsplit multiplicative p.
+- `schneider_leading_term_split`: the split multiplicative variant with ℒ_p(E)/log_p κ(γ).
+- `greenberg_rank_zero`: for r = 0 and Sha[p^∞] finite, f_E(0) ∼_p ε_p·∏_ℓ c_ℓ(E)·#Sha(E/Q)[p^∞]/(#E(Q)[p^∞])² at good ordinary p.
+
+For `schneiderFlatGaloisComparison`: at a good ordinary p the flat local condition at p is the image of the formal group, the ordinary condition of §0.2 up to the finite unramified quotient; at a bad prime ℓ ≠ p the flat and Galois conditions differ by modules that are finite at every layer and bounded along the tower, since ℓ is finitely decomposed and unramified in Q_∞. The group H⁰ is E(Q_∞)[p^∞], which vanishes when E[p] is irreducible: a pro-p group acting on F_p² has a fixed line. Finite modules have trivial characteristic ideal, so F_1 is f_E up to a unit, and the remaining terms contribute units. This is the comparison of Schneider's §2 with the Galois Selmer group; Perrin-Riou's proof of the same theorem works in Galois cohomology from the start.
+
+For the elliptic statement, apply Schneider's Theorem 2′ through this comparison. The local factor is #Ẽ(F_p)² and #Ẽ(F_p) = (1 − α)(1 − p/α) = −α(1 − α⁻¹)(1 − p/α). The ratio #Ẽ(F_p)/(1 − α⁻¹) = −α(1 − p/α) is a p-adic unit even at an anomalous prime, where 1 − α⁻¹ is not; so #Ẽ(F_p)² ∼_p ε_p (Stein–Wuthrich record ord_p ε_p = 2 ord_p #Ẽ(F_p), p.1765). Convert the s-leading coefficient to T by §3.8, which turns det⟨·,·⟩_κ into Reg_γ up to sign. The equivalence of ord = r with nondegeneracy and finiteness of Sha[p^∞], and the Galois-cohomological form, are Stein–Wuthrich's Theorem 6.1, which credits Schneider and Perrin-Riou, and Jones for the multiplicative case.
+
+For r = 0 the statement is Greenberg's rank-zero theorem (*Iwasawa theory for elliptic curves*, Theorem 4.1, as used in Skinner–Urban Theorem 3.6.11(b), p.46), proved directly from the restriction-control sequence of `SelmerIwasawaCohomology` §3.11 and the Euler characteristic of the local conditions.
+
+The source for this target is [William Stein and Christian Wuthrich](https://wstein.org/papers/mcom2649-iwasawa-alg.pdf), Theorem 6.1 (Schneider, Perrin-Riou, Jones), p.1776, and (3.2), p.1765 (the multiplier ε_p); [Peter Schneider](https://ivv5hpp.uni-muenster.de/u/pschnei/publ/pap/heightII.PDF), §2, p.341 (the algebraic Iwasawa L-function and hypotheses), Theorem 2′, p.342, and §7, Theorems 6–7, p.371; [Christopher Skinner and Eric Urban](https://www.math.columbia.edu/~urban/eurp/MC.pdf), Theorem 3.6.11(b) and its proof, p.46 (the rank-zero case through Greenberg's Theorem 4.1).
+
+*Needs:* §3.7; §3.8; §0.2; §0.3; §3.3; `TauCetiRoadmap.EllipticCurves` Layer 4 (Tate parameter and Néron models, for the split case and the component groups); `ColemanIntegration` Layer 0 (`iwasawa-logarithm`); `SelmerIwasawaCohomology` Layer 3 (§3.3 descent and §3.11 restriction control); `SelmerIwasawaCohomology` Layer 2 (`greenberg-condition`).
+
+**Checks.**
+
+- 11a1 at p=7, r=0: c_11 = 5, #E(Q)[7^∞] = 1 and ε_7 = (1−α⁻¹)² with α ≡ −2 mod 7, a 7-adic unit. With MMC(11a1,7) (§1.3) and the trivial-character value (1−α⁻¹)²/5 of §3.2, f_E(0) is a 7-adic unit; so the order is 0 = r, Sha[7^∞] is finite, and the formula forces #Sha(11a1)[7^∞] = 1. A version of the formula without the Tamagawa factor would still pass here (5 is a 7-adic unit), so the next check is needed as well.
+- Torsion and Tamagawa factors: only p-parts enter. For 11a1 at p=5 the torsion Z/5 contributes 5⁻² and c_11 = 5 contributes 5; a formula with the full torsion squared but without c_11 would be off by 5. (5 is an Eisenstein prime for 11a1, so Layer 3's irreducible-prime theorems do not apply there; the test concerns only the shape of the formula.)
+- Anomalous prime: for 11a1 at p=5, a_5 = 1 and #Ẽ(F_5) = 5, so ε_5 has valuation 2 while 1 − α⁻¹ has valuation 1; the unit ratio −α(1 − 5/α) reconciles Schneider's #Ẽ(F_p)² with ε_p, and a formula with (1 − α⁻¹) to the first power would be off by 5.
+- Degenerate height: if Reg_p = 0 and Sha[p^∞] is finite, the order of vanishing exceeds r, so `schneider_order_eq_iff` fails exactly as stated.
+- Split multiplicative, r=0: ε_p = 0, and the replacement ℒ_p(E)/log_p κ(γ) is nonzero for E/Q by `tateParameter_log_ne_zero`; the order of f_E at T=0 is then exactly zero, whereas the analytic function has a trivial zero there (§5.7), so the main conjecture at split multiplicative p carries the exceptional factor.
+- Abelian varieties: for A = E the two torsion factors #Tor A(k) and #Tor Â(k) are equal, giving the square (#E(Q)[p^∞])²; using #Tor A(k) once would be off by #E(Q)[p^∞].
+
 ### Examples
 
-For the optimal curve 11a1, the canonical differential period P_f and the Néron real period differ by a 7-adic unit because the Manin constant is 1. The curve’s Tate lattice is the one transported back through the modular isogeny; using its image lattice instead would lose an index at primes dividing the isogeny degree. At p=7 the curve is ordinary, E[7] is irreducible, and inertia at 11 gives the rank-one image condition, so the integral theorem applies. At p=5 it has rational 5-torsion and belongs to the separate Eisenstein comparison of Layer 6.
+For the optimal curve 11a1, the canonical differential period P_f and the Néron real period differ by a 7-adic unit because the Manin constant is 1, so u_7(f_{11a1}) is a unit. In rank zero the height regulator is the empty determinant 1, and Schneider's theorem together with MMC(11a1,7) gives #Sha(11a1)[7^∞] = 1. The curve’s Tate lattice is the one transported back through the modular isogeny; using its image lattice instead would lose an index at primes dividing the isogeny degree. At p=7 the curve is ordinary, E[7] is irreducible, and inertia at 11 gives the rank-one image condition, so the integral theorem applies. At p=5 it has rational 5-torsion and belongs to the separate Eisenstein comparison of Layer 6.
 
 ### Dependencies
 
-Use Layers 0–2, EllipticCurveModularity R29.4–R29.6, GrossZagierAndArithmeticHeights GZ.3 for the Manin constant, AutomorphicCongruences Layer 5b for the two BCS branches, and ArithmeticGaloisRepresentations R01.6 for the rank-two lifting theorem.
+Use Layers 0–2, EllipticCurveModularity R29.4–R29.6, GrossZagierAndArithmeticHeights GZ.3 for the Manin constant, AutomorphicCongruences Layer 5b for the two BCS branches, and ArithmeticGaloisRepresentations R01.6 for the rank-two lifting theorem. The height and leading-term sections use ColemanIntegration Layer 0 for log_p, CrystallineCohomology CR.2.3 and CR.3.4 for the Frobenius on H¹_dR(E/Q_p), TauCetiRoadmap.EllipticCurves Layer 4 for the Tate parameter and Néron models, the p-adic Barré-Sirieix–Diaz–Gramain–Philibert theorem stated in §3.7 for the split case, and SelmerIwasawaCohomology Layer 3 for descent and control.
 
 
 ## Layer 4: families and signed consequences
 
 ### 4.1 The Fouquet–Wan universal-family main conjecture
 
-Let ρ̄ satisfy the hypotheses of §2.2, Σ a finite set of primes, and T_Σ the universal deformation of ρ̄ unramified outside Σ, viewed as a free module of finite rank over the regular subring Λ ≅ O[[X₁, X₂, X₃]] of the Hecke algebra. Assume the `universalDeformationZeta` construction specified below, and let z_Σ : T_Σ(−1)^+ → H¹_et(Z[1/Σ], T_Σ) be that morphism. Then z_Σ induces an isomorphism triv_{z_Σ} : Δ_Σ(T_Σ) ≅ Λ of the Σ-partial fundamental line with Λ: Kato's generalised main conjecture (Fouquet–Wan Conjecture 3.30) holds for (Spec Z[1/Σ], Λ, T_Σ). The trivialisation is over Λ; nothing is asserted over a possibly singular deformation ring or Hecke algebra.
+Let ρ̄ satisfy the hypotheses of §2.2, Σ a finite set of primes, and T_Σ the universal deformation of ρ̄ unramified outside Σ, viewed as a free module of finite rank over the regular subring Λ ≅ O[[X₁, X₂, X₃]] of the Hecke algebra. Let z_Σ : T_Σ(−1)^+ → H¹_et(Z[1/Σ], T_Σ) be Nakamura's zeta morphism over the universal deformation ring (Fouquet–Wan Theorem 3.6), supplied by `AutomorphicCongruences` Layer 3. Then z_Σ induces an isomorphism triv_{z_Σ} : Δ_Σ(T_Σ) ≅ Λ of the Σ-partial fundamental line with Λ: Kato's generalised main conjecture (Fouquet–Wan Conjecture 3.30) holds for (Spec Z[1/Σ], Λ, T_Σ). The trivialisation is over Λ; nothing is asserted over a possibly singular deformation ring or Hecke algebra.
 
 Require the residual hypotheses of the pointwise theorem: Fouquet–Wan Theorem 5.2 has the same hypotheses as Theorem 5.1.
 
 The ring Λ≅O[[X₁,X₂,X₃]] is the specified regular subring; T_Σ is free of finite rank over it.
 
-Nakamura's zeta morphism exists under Fouquet–Wan Assumptions 2.1 and 3.5 (Theorem 3.6), for all p ≥ 3 by the remark after it.
+Nakamura's zeta morphism exists under Fouquet–Wan Assumptions 2.1 and 3.5 (Theorem 3.6), for all p ≥ 3 by the remark after it; both are part of the supplier's target.
 
 The proof is owned by AutomorphicCongruences Layer 4: reduction to points of X^sm via ordinary and crystalline-short points, the GU(3,1) congruence and Theorem 7.32, and the height-one descent.
 
 Assumption 2.1 includes absolute irreducibility on G_Q(√p*) and the stated ordered local extension exclusions; Assumption 3.5 additionally excludes the cyclotomic ratio for either ordering of a reducible local semisimplification. Neither an ordinary filtration nor residual absolute irreducibility alone replaces these conditions. The deformation/Hecke identification is the one under these hypotheses; this is not a construction for an arbitrary deformation problem.
 
-The required extension of KatoEulerSystems is `universalDeformationZeta`: under Fouquet–Wan Assumptions 2.1 and 3.5, construct the linear morphism z_Σ : T_Σ(−1)^+ → H¹_et(Z[1/Σ],T_Σ) over the localized Hecke/universal deformation algebra, with `universalDeformationZeta_classical` identifying its specialization at every classical point λ_f with the Σ-partial classical zeta morphism of Theorem 3.4, and `universalDeformationZeta_specialize` giving the induced map at a general coefficient specialization. The p=3 clause uses the remark following Theorem 3.6, not an unstated extension of a p≥5 construction. Restrict scalars to the specified regular Λ only after this construction. KatoEulerSystems §5.4 supplies classical twist-one morphisms and does not currently supply this universal contract; the family endpoint here is conditional on that extension. The Σ-partial line is §0.6 over Λ.
+The universal morphism and its specialisations are the supplier's: `AutomorphicCongruences` L3 (`nakamura-universal-zeta-morphism`) constructs the R_{ρ̄,Σ}-linear morphism; L3 (`nakamura-specialization-theorem`) identifies its specialisation at every classical point λ_f with ∏_{l∈Σ∖{p}}P_{f,l}(σ_l^{−1}) times Kato's twisted classical morphism, which is the Σ-partial morphism of Fouquet–Wan Theorem 3.4; and L3 (`zeta-trivialization`) gives the induced map at a general specialisation and the trivialisation of Δ_Σ(T_Σ) over Λ after restriction of scalars. Restrict scalars to the specified regular Λ only after the construction. KatoEulerSystems §5.4 supplies only the classical twist-one morphisms. The Σ-partial line is §0.6 over Λ, in the form `AutomorphicCongruences` L3 (`fundamental-line`).
 
 Transport the endpoint over its stated regular coefficient ring.
 
 The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Theorem 1.8, p.8, and Theorem 5.2, p.69; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Theorem 3.6 and the remark after it, p.24; Conjecture 3.30, p.36.
 
-*Needs:* `AutomorphicCongruences` Layer 4; the required KatoEulerSystems `universalDeformationZeta` extension just specified; §0.6; §2.2.
+*Needs:* `AutomorphicCongruences` Layer 4; `AutomorphicCongruences` L3 (`nakamura-universal-zeta-morphism`); `AutomorphicCongruences` L3 (`nakamura-specialization-theorem`); `AutomorphicCongruences` L3 (`zeta-trivialization`); `AutomorphicCongruences` L3 (`fundamental-line`); §0.6; §2.2.
 
 **Checks.**
 
 - Specialising at a classical point recovers the pointwise statement at the Σ-imprimitive level (§4.2).
 - When the deformation problem is unobstructed, R_Σ(ρ̄) is itself a power-series ring and the theorem is the most general cyclotomic statement (Fouquet–Wan p.8).
-- A collection of classical zeta maps without a deformation-algebra-linear map does not satisfy `universalDeformationZeta`: interpolation at points is a compatibility theorem, not its construction.
-- At p=3 retain the same classical-specialization square and the source’s local residual exclusions; replacing them by a p≥5 assertion leaves this case unproved.
+- A collection of classical zeta maps without a deformation-algebra-linear map is not Nakamura's morphism: interpolation at points is the specialisation theorem, not the construction, and only the linear morphism trivialises Δ_Σ over Λ.
+- At p=3 the supplier's construction rests on Fouquet–Wan's remark after Theorem 3.6 (Paškūnas–Tung's versions of the two p≥5 inputs); the same classical-specialisation square and local residual exclusions are retained.
+- Over the regular subring Λ the trivialisation is the norm along the finite free map Λ → 𝕋; it is not an identification of the total quotient ring of 𝕋 with Frac Λ.
 
 ### 4.2 Specialising the family statement
 
@@ -1096,7 +1338,7 @@ Translate to KMC through §0.8 at Iwasawa-suitable points.
 
 The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Propositions 3.22–3.23, p.33; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Lemma 3.17 and Definitions 3.18–3.19, p.31; Proposition 3.20, p.32; Proposition 3.28, p.35; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), remarks after Theorem 1.8, p.8.
 
-*Needs:* §4.1; §0.6; §0.8; `PadicMeasuresIwasawaAlgebras` Layer 5.
+*Needs:* §4.1; §0.6; §0.8; `AutomorphicCongruences` L3 (`zeta-trivialization`); `AutomorphicCongruences` L3 (`fundamental-line`); `PadicMeasuresIwasawaAlgebras` Layer 5.
 
 **Checks.**
 
@@ -1105,7 +1347,7 @@ The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/ab
 
 ### 4.3 The signed main conjecture for crystalline forms
 
-Let f ∈ S_k(Γ_0(N)) with p ∤ N, crystalline at p, satisfying the hypotheses of §2.2 and LLZ's (A) if supersingular or (A') if good ordinary, together with (E). Then for the Wach basis of LLZ §3.3 (resp. §3.6) and η=1 (both i=1,2), the signed main conjecture SMC^{i,η} of §0.11 holds integrally, with the Coleman-image term char(Im(Col_i)^η/(L̃^η_{p,i})). The statement is proved only on the intersection of the two hypothesis sets.
+Let f ∈ S_k(Γ_0(N)) with p ∤ N, crystalline at p, satisfying the hypotheses of §2.2 and LLZ's (A) if supersingular or (A') if good ordinary, together with (E). Then for the Wach basis of LLZ §3.3 (resp. §3.6) and η=1 (both i=1,2), the signed main conjecture SMC^{i,η} of §0.12 holds integrally, with the Coleman-image term char(Im(Col_i)^η/(L̃^η_{p,i})). The statement is proved only on the intersection of the two hypothesis sets.
 
 Require the hypotheses of the pointwise theorem and of LLZ Corollary 6.6 simultaneously.
 
@@ -1115,11 +1357,11 @@ The unconditional application here is η=1. For nontrivial η, LLZ’s equivalen
 
 For η=1 use KMC from §2.2. A nontrivial η statement is conditional on an independently proved KMC^η, with LLZ Theorem 6.5 allowing i=1 for all η and i=2 only for η=1.
 
-Convert to SMC^{i,η} by §0.12.
+Convert to SMC^{i,η} by §0.13.
 
 The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Theorem 6.5, Corollary 6.6, pp.43–44; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), §1.1.2, p.7.
 
-*Needs:* §2.2; §0.12; §0.11.
+*Needs:* §2.2; §0.13; §0.12.
 
 **Checks.**
 
@@ -1138,11 +1380,11 @@ The basis is LLZ's; another basis changes Col by a matrix and the image by its e
 
 Image computation: `PadicHodgeRegulators` Layer 4 (`actual-coleman-image`) (LLZ Proposition 4.7, Corollary 4.8, Theorem 4.28) and, for a_p = 0, LLZ Propositions 5.17–5.21 and Corollaries 5.18–5.22.
 
-Insert Im(Col_i) into §0.11 (SMC.of_image_eq_top).
+Insert Im(Col_i) into §0.12 (SMC.of_image_eq_top).
 
 The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Theorem 4.28, p.30; assumptions (B)–(D), p.14; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Remark 6.7 and Corollary 6.8, p.44; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Propositions 5.17, 5.19 and 5.21 and Corollaries 5.18, 5.20 and 5.22, pp.38–40.
 
-*Needs:* `PadicHodgeRegulators` Layer 4 (`actual-coleman-image`); §0.11; §0.12.
+*Needs:* `PadicHodgeRegulators` Layer 4 (`actual-coleman-image`); §0.12; §0.13.
 
 **Checks.**
 
@@ -1151,28 +1393,32 @@ The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbe
 
 ### 4.5 Kobayashi's and Pollack's signed objects
 
-Let E/Q have good supersingular reduction at an odd prime p with a_p = 0. For the LLZ basis there are units a^± ∈ Λ_E(G_∞)^× with a^−·Col₁ = Col^− and a^+·Col₂ = Col^+, where Col^± are the plus and minus Coleman maps whose kernels define Kobayashi's local conditions E^±; consequently (1) the signed Selmer groups X¹, X² of §0.10 are Kobayashi's Sel^−(E/Q_∞)^∨ and Sel^+(E/Q_∞)^∨; (2) L̃_{p,1}, L̃_{p,2} are Pollack's L_p^−, L_p^+ up to units of Λ_E(G_∞), and the decomposition of L̃_{p,α}, L̃_{p,β} in LLZ Theorem 1.3 reduces to Pollack's decomposition with the half-logarithms log^±_p; (3) SMC^{1,η}, SMC^{2,η} are Kobayashi's minus and plus main conjectures char(Sel^∓(E/Q_∞)^{∨,η}) = char(Im(Col^∓)^η/(L_p^{∓,η})). The comparison is specific to a_p = 0; for a_p ≠ 0 the LLZ objects are not Pollack's plus/minus objects without a separate argument. The Coleman multipliers stated here lie in Λ_E×. On the same integral source, multiplication by these units in the rational target preserves zero, so their kernels coincide before inverting p. Each actual image lattice is carried to its corresponding image lattice; multiplication gives an O[[Γ]]-linear isomorphism of these transported images and their corrected zeta quotients when the period normalization is the same. This need not preserve the standard ambient O[[Γ]] lattice. Equality with a separately Néron-normalized Pollack function integrally requires the explicit period scalar to be a unit; without that comparison only the rational analytic identification is asserted.
+Let E/Q have good supersingular reduction at an odd prime p with a_p = 0. For the LLZ basis there are units a^± ∈ Λ_E(G_∞)^× with a^−·Col₁ = Col^− and a^+·Col₂ = Col^+, where Col^± are the plus and minus Coleman maps whose kernels define Kobayashi's local conditions E^±; consequently (1) the signed Selmer groups X¹, X² of §0.11 are Kobayashi's Sel^−(E/Q_∞)^∨ and Sel^+(E/Q_∞)^∨; (2) L̃_{p,1}, L̃_{p,2} are Pollack's L_p^−, L_p^+ up to units of Λ_E(G_∞), and the decomposition of L̃_{p,α}, L̃_{p,β} in LLZ Theorem 1.3 reduces to Pollack's decomposition with the half-logarithms log^±_p; (3) SMC^{1,η}, SMC^{2,η} are Kobayashi's minus and plus main conjectures char(Sel^∓(E/Q_∞)^{∨,η}) = char(Im(Col^∓)^η/(L_p^{∓,η})). The comparison is specific to a_p = 0; for a_p ≠ 0 the LLZ objects are not Pollack's plus/minus objects without a separate argument. The Coleman multipliers a^± lie in Λ_E(G_∞)^× = (Λ_O(G_∞)[1/p])^×. On the common integral source, multiplication by a^∓ in the rational target preserves zero, so the kernels of Col_i and Col^∓ coincide. Multiplication by a^∓ is an injective Λ-linear map carrying Im(Col_i) onto Im(Col^∓) and L̃_{p,i} onto Col^∓(loc z_Kato); so the corrected image quotients are isomorphic Λ-modules, and SMC^{i,η} is equivalent to Kobayashi's corrected ∓ main conjecture integrally, with no unit hypothesis. This isomorphism is between the two actual image lattices; it need not preserve the standard ambient lattice Λ_O(G_∞). Take Kato's zeta element attached to a Néron differential ω_E and to the integral Betti basis of H¹(E(ℂ),ℤ_p) of §3.1, the normalisation in which Kobayashi works; his maps carry its localisation to Pollack's Néron-normalised L_p^∓ (as recalled in LLZ §1, p.3). Hence Pollack's L_p^∓ = a^∓·L̃_{p,i} exactly, and the principal-ideal forms char(X^i) = (L̃_{p,i}) and char(Sel^∓(E/Q_∞)^∨) = (L_p^∓) agree integrally exactly when a^∓ ∈ Λ_O(G_∞)^× on the relevant component (`pollackMultiplierUnit`); rationally they always agree.
 
 E/Q, p odd, good supersingular reduction with a_p = 0 (automatic for p ≥ 5 supersingular).
 
 Use the LLZ basis of Proposition 5.10.
 
-For an integral equality with a separately normalized Pollack analytic function, require the integral period comparison and actual integral Coleman image normalization; a Λ_E-unit alone does not prove equality of principal ideals over Λ_O.
+The usable interface adds `pollackMultiplierUnit`: the proposition that a^∓ is a unit of Λ_O(G_∞) on the tame component considered, and `kobayashi_corrected_iff_signed`: Kobayashi's corrected ∓ main conjecture ⟺ SMC^{i,η}, with i = 1 for − and i = 2 for +.
+
+For the principal-ideal comparison with Pollack's functions, require `pollackMultiplierUnit`: a^∓ ∈ Λ_O(G_∞)^×. A Λ_E-unit alone does not prove equality of principal ideals over Λ_O; the corrected-image comparison needs no such hypothesis.
 
 LLZ Proposition 5.10 and Corollary 5.11 give the units a^± relating Col_i and Col^±.
 
 Pollack's plus/minus decomposition and half-logarithms are `ModularSymbolsPadicLFunctions` Layer 4 (`plus-minus-decomposition`) and `ModularSymbolsPadicLFunctions` Layer 4 (`half-logarithms`); Kato's reciprocity identifies Col^±(loc z) with them (`KatoEulerSystems` §§3.4 and 6.1–6.2 (`generalised-explicit-reciprocity-law-for-zeta-elements`)).
 
-Kernels of unit multiples coincide, so the local conditions and hence the Selmer groups agree; insert into §0.11.
+Kernels of unit multiples coincide, so the local conditions and hence the Selmer groups agree; insert into §0.12. For the corrected quotients, multiplication by a^∓ is a Λ-isomorphism Im(Col_i) → Im(Col^∓) sending Λ·L̃_{p,i} onto Λ·Col^∓(loc z_Kato); characteristic ideals of isomorphic modules agree.
 
-The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Proposition 5.10 and Corollary 5.11, pp.35–36; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), §1.2 after Theorem 1.3, p.6, and §5.3, pp.38–40; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Remark 6.3, p.43.
+The source for this target is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Proposition 5.10 and Corollary 5.11, pp.35–36; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), §1.2 after Theorem 1.3, p.6, and §5.3, pp.38–40; [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Remark 6.3, p.43, and §1, p.3 (Kobayashi's maps send Kato's zeta element to Pollack's functions).
 
-*Needs:* §0.10; §0.11; `ModularSymbolsPadicLFunctions` Layer 4 (`plus-minus-decomposition`); `ModularSymbolsPadicLFunctions` Layer 4 (`half-logarithms`); `KatoEulerSystems` §§3.4 and 6.1–6.2 (`generalised-explicit-reciprocity-law-for-zeta-elements`); `PadicHodgeRegulators` Layer 4 (`coleman-coordinates`).
+*Needs:* §0.11; §0.12; §3.1; `KatoEulerSystems` Layer 7 (the elliptic zeta element with Néron normalisation); `ModularSymbolsPadicLFunctions` Layer 4 (`plus-minus-decomposition`); `ModularSymbolsPadicLFunctions` Layer 4 (`half-logarithms`); `KatoEulerSystems` §§3.4 and 6.1–6.2 (`generalised-explicit-reciprocity-law-for-zeta-elements`); `PadicHodgeRegulators` Layer 4 (`coleman-coordinates`).
 
 **Checks.**
 
 - E = 14a1, p = 5 (a_5 = 0): X¹ = Sel^−(E/Q_∞)^∨, X² = Sel^+(E/Q_∞)^∨.
 - This supplies the Kobayashi/Pollack formulation for `RankZeroOneBSD` BSD.0 and BSD.6a (`bstw-signed-main-conjecture`).
+- Corrected against principal forms: if a^− = p·u with u ∈ Λ_O^×, the corrected quotients still agree, but char(X¹) = (L̃_{p,1}) and char(Sel^−) = (L_p^−) differ by the factor (p); this is why `pollackMultiplierUnit` is required only for the principal forms.
+- LLZ remark (p.40) that their Corollaries 5.18 and 5.22 are equivalent to Kobayashi's integral image computation is consistent with `pollackMultiplierUnit` on every tame component: if Kobayashi's images agree with LLZ's, then a^∓ maps a nonzero principal image lattice onto itself and is a unit. The condition is kept by name because that comparison of images is not made here.
 
 ### Examples
 
@@ -1180,7 +1426,7 @@ For the a_p=0 elliptic basis, the second Coleman image is generated over Λ(Δ×
 
 ### Dependencies
 
-Use Layers 0–3 and AutomorphicCongruences Layer 4’s universal endpoint. PadicMeasuresIwasawaAlgebras Layer 5 supplies derived determinants; the signed regulator supplier supplies integral Coleman maps, Wach bases and the local image computations. Each signed consequence also carries its own KMC component and integral normalization hypothesis.
+Use Layers 0–3, AutomorphicCongruences Layer 3's universal zeta morphism, its specialisation theorem and fundamental lines, and AutomorphicCongruences Layer 4's universal endpoint. PadicMeasuresIwasawaAlgebras Layer 5 supplies derived determinants; the signed regulator supplier supplies integral Coleman maps, Wach bases and the local image computations. Each signed consequence also carries its own KMC component and integral normalization hypothesis.
 
 
 ## Layer 5: specialization, leading terms and arithmetic examples
@@ -1244,7 +1490,7 @@ The source for this target is [Christopher Skinner](https://arxiv.org/abs/1407.1
 
 Let O be a complete discrete valuation ring with uniformiser ϖ, Λ = O[[X]], and f, g ∈ Λ nonzero. If (f)Λ[1/ϖ] = (g)Λ[1/ϖ] and ϖ^n | f ⟺ ϖ^n | g for all n (equal μ-invariants), then f and g are associated in Λ. Consequently: (1) IMC(D) implies μ(X) = μ(L_f) and λ(X) = λ(L_f); (2) IMC_Q(D) together with μ(X) = μ(L_f) implies IMC(D); (3) the same holds for KMC and Mazur's conjecture; in particular IMC_Q(D) and μ(L_f) = 0 = μ(X) give the integral conjecture.
 
-Assume O is a complete DVR, so Λ=O[[X]] is a UFD.
+Assume O is a complete DVR, so Λ=O[[X]] is a UFD. The algebraic core, `associated_of_eq_away_of_mu_eq`, holds over any discrete valuation ring O: nonzero f, g ∈ O[[X]] with ϖ^m f = ϖ^n u g for a unit u and with equal divisibility by every power of ϖ are associated. Completeness is used only for the Weierstrass-preparation statements in (1).
 
 Use the μ and λ invariants of `PadicMeasuresIwasawaAlgebras` Layer 4 §4.4.
 
@@ -1267,7 +1513,7 @@ The source for this target is [Christopher Skinner and Eric Urban](https://www.m
 
 (1) (Skinner–Urban) Let E/Q, p≥3 a prime of good ordinary reduction with ρ̄_{E,p} irreducible and a prime q ≠ p, q ∥ N_E, at which ρ̄_{E,p} is ramified. If Sel_{p^∞}(E/Q) is finite then L(E,1) ≠ 0; equivalently, L(E,1) = 0 implies corank_{Z_p} Sel_{p^∞}(E/Q) ≥ 1. The same holds at p of multiplicative reduction under Skinner's Theorem C hypotheses. (2) (Fouquet–Wan) For f ∈ S_k(Γ_0(N)) satisfying the hypotheses of §2.2 with p ∤ N, the discrete Bloch–Kato Selmer group associated with a lattice in V = M(f)_{et,p}(k/2) and A=V/T is finite iff L(f, k/2) ≠ 0. (3) For f = f_E with E/Q and N not squarefull (Skinner–Urban) or arbitrary N (Wan), if rank E(Q) = 0 and Sha(E/Q)[p^∞] is finite for one sufficiently large ordinary p, then ord_{s=1}L(E,s) = 0.
 
-(1): the hypotheses of §1.3 in weight two (or §1.6).
+(1): the hypotheses of §1.3 in weight two (or §1.7).
 
 Assertion (2) uses the hypotheses of the pointwise theorem.
 
@@ -1275,7 +1521,7 @@ Assertion (3) uses the range quoted by Skinner 2020 §1; the all-N case rests on
 
 In (2) finiteness concerns the discrete p-primary Selmer group. For the Q_p-vector-space Bloch–Kato group the corresponding conclusion is zero, not finiteness of a nonzero vector space. The statement for arbitrary N in (3) is source-reported context only; no proof from the narrower ordinary theorem is asserted.
 
-For the good ordinary range in (1), prove `ordinaryAugmentationControl`: restriction Sel_{p^∞}(E/Q)→Sel_{p^∞}(E/Q_∞)^Γ has finite kernel and cokernel, so corank_{Z_p} Sel_{p^∞}(E/Q)=rank_{Z_p} X_Γ. Specialize the classical restriction-control sequence of SelmerIwasawaCohomology §3.11 to A=E[p^∞], using the ordinary local comparison of §0.2 and its global and local invariant error terms. This is the ordinary control input used in Skinner–Urban Theorem 3.6.11(b), p.46, via Greenberg [Gr99] Theorem 4.1. Then (γ−1) divides char(X) iff X_Γ has positive Z_p-rank; IMC and the nonzero trivial interpolation factor (1−α⁻¹)^2 identify this with L(E,1)=0. For the multiplicative case use Skinner Theorem C with the inertia condition and split-multiplicative correction of §§0.2 and 1.6; the good-ordinary nonzero interpolation factor cannot be used in that case.
+For the good ordinary range in (1), prove `ordinaryAugmentationControl`: restriction Sel_{p^∞}(E/Q)→Sel_{p^∞}(E/Q_∞)^Γ has finite kernel and cokernel, so corank_{Z_p} Sel_{p^∞}(E/Q)=rank_{Z_p} X_Γ. Specialize the classical restriction-control sequence of SelmerIwasawaCohomology §3.11 to A=E[p^∞], using the ordinary local comparison of §0.2 and its global and local invariant error terms. This is the ordinary control input used in Skinner–Urban Theorem 3.6.11(b), p.46, via Greenberg [Gr99] Theorem 4.1. Then (γ−1) divides char(X) iff X_Γ has positive Z_p-rank; IMC and the nonzero trivial interpolation factor (1−α⁻¹)^2 identify this with L(E,1)=0. For the multiplicative case use Skinner Theorem C with the inertia condition and split-multiplicative correction of §§0.2 and 1.7; the good-ordinary nonzero interpolation factor cannot be used in that case.
 
 For (2), apply Fouquet–Wan Corollary 5.3: if the specialisation of z(f)_Iw at γ ↦ 1 vanishes, (γ − 1) divides char(H¹/z) = char(H²), giving positive corank; otherwise its image spans a nonzero line in H¹_f.
 
@@ -1283,7 +1529,7 @@ For (3), Skinner 2020 §1 records this converse from the ordinary main conjectur
 
 The source for this target is [Christopher Skinner and Eric Urban](https://www.math.columbia.edu/~urban/eurp/MC.pdf), Theorem 2 (= Theorem 3.6.11), pp.3 and 46; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), Theorem C, p.3; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Corollary 1.9, p.8, and Corollary 5.3 with its proof, p.69; [Christopher Skinner](https://arxiv.org/abs/1405.7294), §1, pp.1–2.
 
-*Needs:* §1.3; §1.6; §2.2; SelmerIwasawaCohomology Layer 3, §3.11 (classical restriction control); §0.2; §0.7.
+*Needs:* §1.3; §1.7; §2.2; SelmerIwasawaCohomology Layer 3, §3.11 (classical restriction control); §0.2; §0.7.
 
 **Checks.**
 
@@ -1304,7 +1550,7 @@ The usable interface consists of the following named outputs.
 
 - `tateLInvariant`: ℒ_p(E) ∈ Q_p for E/Q_p split multiplicative.
 - `tateLInvariant_def`: ℒ_p(E)·ord_p(q_E) = log_p(q_E).
-- `tateLInvariant_ne_zero`: For E/Q, ℒ_p(E) ≠ 0 (`DiophantineApproximationAndTranscendence` DT.5).
+- `tateLInvariant_ne_zero`: For E/Q, ℒ_p(E) ≠ 0, since log_p(q_E) ≠ 0 by `tateParameter_log_ne_zero` (§3.7) and ord_p(q_E) > 0.
 - `tateLInvariant_isogeny`: Q_p-isogenous split multiplicative curves have the same ℒ-invariant. Their Tate lattices are commensurable: there are positive integers a,b with q_E^a=ζq_E′^b for a root of unity ζ. Thus a·log_p(q_E)=b·log_p(q_E′) and a·ord_p(q_E)=b·ord_p(q_E′); the positive valuations permit division. This covers both an isogeny and its dual, including when one parameter is a root of a power of the other.
 - `tateLInvariant_ofForm`: For f = f_E with p ∥ N and a_p = 1, ℒ(V_f) = ℒ_p(E).
 
@@ -1314,7 +1560,7 @@ The p-adic logarithm on Q_p^× with log_p(p) = 0 is not in Mathlib at the pin; i
 
 The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), Remark 0.10, p.255; Remark 0.13(i), p.256; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §2.4, (2.4.3), p.15.
 
-*Needs:* TauCetiRoadmap.EllipticCurves Layer 4 `ColemanIntegration` Layer 0 (`iwasawa-logarithm`); `DiophantineApproximationAndTranscendence` DT.5.
+*Needs:* TauCetiRoadmap.EllipticCurves Layer 4; `ColemanIntegration` Layer 0 (`iwasawa-logarithm`); §3.7 (`tateParameter_log_ne_zero`).
 
 **Checks.**
 
@@ -1324,15 +1570,15 @@ The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_200
 - ord_p(q_E) = ord_p(Δ_E^{min}) = −ord_p(j_E) > 0.
 - For q and q^p, both logarithm and valuation scale by p. For instance 21/14=3/2, whereas scaling only the valuation gives 3/14≠3/2. The reverse isogeny uses the same equality in the other direction.
 - The local Tate curve with parameter q=p has ℒ=0. The nonvanishing assertion for E/Q uses algebraicity of the global j-invariant and the transcendence input; it is not asserted for every E/Q_p.
-- ℒ_p(E) ≠ 0 for E/Q (Barré-Sirieix–Diaz–Gramain–Philibert, transcendence of q_E), supplied by `DiophantineApproximationAndTranscendence` DT.5.
+- ℒ_p(E) ≠ 0 for E/Q follows from the transcendence of q_E (`tateParameter_transcendental`, §3.7); the complex theorem of Nesterenko stated by DiophantineApproximationAndTranscendence does not give it.
 
 ### 5.6 The Mazur–Tate–Teitelbaum p-adic BSD conjecture
 
-Let E/Q have good ordinary or multiplicative reduction at an odd p, r = rank E(Q), α the unit root, L_{p,α}(E, s) the function of §3.2, ⟨ , ⟩_{p,α} the p-adic height on Q_p ⊗ E(Q) attached to the splitting of the Hodge filtration given by the α-eigenline of Frobenius, and R_{p,α}(E) its regulator. MTT(E, p) is the proposition: (i) if α ≠ 1, ord_{s=1} L_{p,α}(E, s) ≥ r and lim_{s→1} (s − 1)^{−r} L_{p,α}(E, s) = (1 − α^{-1})^{b+1}·#Sha(E)·R_{p,α}(E)·∏_v m_v; (ii) if α = 1, the order is ≥ r + 1 and lim_{s→1} (s − 1)^{−r−1} L_{p,α}(E, s) = ℒ_p(E)·#Sha(E)·R_{p,α}(E)·∏_v m_v. Here b=1 in good reduction and b=0 in multiplicative reduction. As in Colmez Conjecture 0.12, R_{p,α}(E) := e^{−2} det(⟨P_i, P_j⟩_{p,α}) for P_1, …, P_r spanning Q ⊗ E(Q) and generating a subgroup of index e in E(Q) (so R_{p,α}(E) = #E(Q)_tors^{−2} when r = 0), m_v is the number of components at v (m_∞ for E(R), the Tamagawa number at finite v), and Ω_E^+ satisfies m_∞Ω_E^+ = |∫_{E(R)} ω_E|. The exact proposition MTT includes finiteness of the full Sha(E/Q), so #Sha has its usual finite meaning. Define separately MTT_p: assume only Sha(E/Q)[p∞] finite and use its order in the displayed leading-term formula up to multiplication by a Z_p-unit (there exists u∈Z_p× multiplying the right side to give the left side, including when both sides are zero), retaining the same order lower bound. If the regulator is nonzero this formula gives the exact order. These exact and unit propositions are not identified.
+Let E/Q have good ordinary or multiplicative reduction at an odd p, r = rank E(Q), α the unit root, L_{p,α}(E, s) the function of §3.2, ⟨ , ⟩_{p,α} := ⟨·,·⟩_p the cyclotomic p-adic height pairing of §3.7 (built from the splitting of the Hodge filtration by the α-eigenline of Frobenius, through the canonical sigma function), and R_{p,α}(E) its regulator. MTT(E, p) is the proposition: (i) if α ≠ 1, ord_{s=1} L_{p,α}(E, s) ≥ r and lim_{s→1} (s − 1)^{−r} L_{p,α}(E, s) = (1 − α^{-1})^{b+1}·#Sha(E)·R_{p,α}(E)·∏_v m_v; (ii) if α = 1, the order is ≥ r + 1 and lim_{s→1} (s − 1)^{−r−1} L_{p,α}(E, s) = ℒ_p(E)·#Sha(E)·R_{p,α}(E)·∏_v m_v. Here b=1 in good reduction and b=0 in multiplicative reduction. As in Colmez Conjecture 0.12, R_{p,α}(E) := e^{−2} det(⟨P_i, P_j⟩_{p,α}) for P_1, …, P_r spanning Q ⊗ E(Q) and generating a subgroup of index e in E(Q) (so R_{p,α}(E) = #E(Q)_tors^{−2} when r = 0), m_v is the number of components at v (m_∞ for E(R), the Tamagawa number at finite v), and Ω_E^+ satisfies m_∞Ω_E^+ = |∫_{E(R)} ω_E|. The exact proposition MTT includes finiteness of the full Sha(E/Q), so #Sha has its usual finite meaning. Define separately MTT_p: assume only Sha(E/Q)[p∞] finite and use its order in the displayed leading-term formula up to multiplication by a Z_p-unit (there exists u∈Z_p× multiplying the right side to give the left side, including when both sides are zero), retaining the same order lower bound. If the regulator is nonzero this formula gives the exact order. These exact and unit propositions are not identified.
 
 Assume good ordinary or multiplicative reduction at an odd p.
 
-The p-adic height pairing is an input (the Mazur–Tate/Schneider height for ordinary E); its nondegeneracy is not known in general.
+The height pairing is that of §3.7. Its nondegeneracy is not known in general and is not part of the proposition.
 
 The torsion enters through the index e in the regulator, as in Colmez's normalisation of R_∞(E); the formula must not divide by #E(Q)_tors² a second time.
 
@@ -1347,11 +1593,11 @@ The usable interface consists of the following named outputs.
 
 State with L_{p,α}(E, s) (§3.2), ℒ_p(E) (§5.5) and the p-adic height.
 
-Take an arithmetic cyclotomic height pairing, with its splitting and normalization, as explicit input to this proposition. A Bockstein pairing alone is insufficient: the application in §5.8 also requires its comparison with Schneider’s analytic κ-height.
+Use the pairing and normalisation of §3.7; in the variable T = κ(γ)^{s−1}−1 the same proposition is stated with Reg_γ/#E(Q)_tors², and §3.8 converts between the two variables. This is the normalisation of Stein–Wuthrich Conjecture 5.1 and of Colmez Conjecture 0.12 with his note 14.
 
-The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), §0.3 (from p.254): Conjecture 0.12 and note 14, p.256; [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), Theorem 0.15, p.257; [Joaquín Rodrigues Jacinto and Chris Williams](https://arxiv.org/abs/2309.15692v2), Remark 2.3, p.7.
+The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), §0.3 (from p.254): Conjecture 0.12 and note 14, p.256; [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), Theorem 0.15, p.257; [Joaquín Rodrigues Jacinto and Chris Williams](https://arxiv.org/abs/2309.15692v2), Remark 2.3, p.7; [William Stein and Christian Wuthrich](https://wstein.org/papers/mcom2649-iwasawa-alg.pdf), Conjecture 5.1 and (5.1)–(5.2), p.1774.
 
-*Needs:* §3.2; §5.5; the specified arithmetic height as an input.
+*Needs:* §3.2; §3.7; §3.8; §5.5.
 
 **Checks.**
 
@@ -1369,17 +1615,17 @@ L(E,1) ≠ 0.
 
 The derivative formula is Greenberg–Stevens' theorem, supplied by `PadicFamilies` Layer 3 (it uses the Mazur–Kitagawa two-variable p-adic L-function).
 
-Nonvanishing of ℒ_p(E) is supplied by `DiophantineApproximationAndTranscendence` DT.5.
+Nonvanishing of ℒ_p(E) is `tateLInvariant_ne_zero` (§5.5), from the transcendence of the Tate parameter (§3.7).
 
 If α ≠ 1 the value at s = 1 is (1 − α^{-1})^{b+1} L(E,1)/Ω_E^+ ≠ 0 (§3.2).
 
-If α = 1 the value vanishes; Greenberg–Stevens gives the derivative (`PadicFamilies` Layer 3), nonzero since ℒ_p(E) ≠ 0 (`DiophantineApproximationAndTranscendence` DT.5) and L(E,1) ≠ 0.
+If α = 1 the value vanishes; Greenberg–Stevens gives the derivative (`PadicFamilies` Layer 3), nonzero since ℒ_p(E) ≠ 0 (§5.5) and L(E,1) ≠ 0.
 
 Compare with §5.6 in rank zero, where R_{p,α} = #E(Q)_tors⁻².
 
 The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), Remark 0.10 and Theorem 0.11, p.255; Remark 0.13(i), p.256; [Joaquín Rodrigues Jacinto and Chris Williams](https://arxiv.org/abs/2309.15692v2), Remark 2.3, p.7; [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), (2.4.3), p.15.
 
-*Needs:* §3.2; §5.5; `PadicFamilies` Layer 3; `DiophantineApproximationAndTranscendence` DT.5; §5.6.
+*Needs:* §3.2; §3.7 (`tateParameter_log_ne_zero`); §5.5; `PadicFamilies` Layer 3; §5.6.
 
 **Checks.**
 
@@ -1388,35 +1634,30 @@ The source for this target is [Pierre Colmez](https://www.numdam.org/item/SB_200
 
 ### 5.8 The main conjecture implies p-adic BSD under nondegenerate heights
 
-Let E/Q have good ordinary reduction at an odd prime p, irreducible E[p], finite Sha(E/Q)[p^∞], and a nondegenerate cyclotomic p-adic height. Use the analytic κ-height of Schneider §7, with its comparison to the height and cyclotomic coordinate in MTT_p(E,p) fixed. Assume also the flat Néron-model/Galois ordinary Selmer comparison specified below. If MMC(E,p) holds, then ord_{s=1} L_p(E,s)=rank E(Q)=r and its leading coefficient satisfies MTT_p(E,p): L_p^{(r)}(E,1)/r! ∼_p (1−α⁻¹)^2 R_p(E) · #Sha(E/Q)[p^∞] · ∏_{ℓ|N}c_ℓ(E) / #E(Q)_tors^2. Here ∼_p denotes equality up to Z_p×. This is the p-primary, up-to-unit consequence; it is not an exact MTT identity. In this display R_p is the unnormalized determinant on a basis of the free Mordell–Weil group; thus R_{p,α} of §5.6 equals R_p/#E(Q)_tors². The torsion denominator is included exactly once.
+Let E/Q have good ordinary reduction at an odd prime p with irreducible E[p], and assume MMC(E,p). (1) If Sha(E/Q)[p^∞] is finite and the height of §3.7 is nondegenerate, then ord_{s=1} L_p(E,s) = rank E(Q) = r and the leading coefficient satisfies MTT_p(E,p): L_p^{(r)}(E,1)/r! ∼_p (1−α⁻¹)^2 · Reg_p(E/Q) · #Sha(E/Q)[p^∞] · ∏_{ℓ|N}c_ℓ(E) / #E(Q)_tors^2. (2) Conversely, if ord_{s=1} L_p(E,s) = r, then Sha(E/Q)[p^∞] is finite and the height is nondegenerate. Here ∼_p denotes equality up to Z_p×. This is the p-primary, up-to-unit consequence; it is not an exact MTT identity. Reg_p is the unnormalised determinant on a basis of the free Mordell–Weil group (§3.7); thus R_{p,α} of §5.6 equals Reg_p/#E(Q)_tors². The torsion denominator is included exactly once.
 
 Assume p is good ordinary and ρ̄ is irreducible.
 
-Assume Sha[p^∞] is finite and ⟨ , ⟩_{p,α} is nondegenerate.
+For (1) assume Sha[p^∞] finite and `HeightNondegenerate` (§3.7).
 
 Assume MMC(E,p), for instance from §3.5.
 
-The ordinary Galois Selmer characteristic series is identified with Schneider’s algebraic Iwasawa L-function under the control/comparison contract with `SelmerIwasawaCohomology` Layer 3.
+By MMC, the characteristic series f_E(T) of X_ord(E/Q_∞) and L_p(E,T), with T = κ(γ)^{s−1} − 1, generate the same ideal of Λ, so they have the same order at T = 0 and leading coefficients differing by Z_p^×.
 
-The height is Schneider’s analytic κ-height, or a height equipped with a proved normalization comparison. Keep log_p κ(γ)^r when passing from X to s; that factor is not a p-adic unit.
+Apply §3.9: f_E has order at least r, with equality exactly when the height is nondegenerate and Sha[p^∞] is finite; in that case its leading coefficient is ∼_p (1−α⁻¹)²·∏c_ℓ·#Sha[p^∞]/#E(Q)[p^∞]²·Reg_γ. This gives (2), and the T-form of (1).
 
-Apply Schneider §2 Theorem 2′ (p.342) and §7 Theorems 6–7 (p.371): the algebraic Iwasawa L-function has order r and leading coefficient, up to a p-adic unit, det(height)·#Sha[p∞]·∏_v#π_v(E)·#Ẽ(F_p)^2/#E(Q)_tors^2. Theorem 6 identifies the algebraic and analytic κ-heights up to sign.
+Convert from T to s by §3.8: the leading coefficient is multiplied by (log_p κ(γ))^r, which turns Reg_γ into Reg_p. The factor log_p κ(γ)^r is not a unit and is absorbed exactly by this change of regulator. Prime-to-p torsion and Tamagawa factors are p-adic units, so #E(Q)[p^∞]² may be replaced by #E(Q)_tors².
 
-Compare Schneider’s flat Néron-model cohomology and its alternating characteristic factors (§§1–2) with the ordinary Galois Selmer dual. Irreducibility removes global p-power torsion terms. This is the explicit supplier obligation below, rather than an assertion that the objects are definitionally equal.
+The source for this target is [William Stein and Christian Wuthrich](https://wstein.org/papers/mcom2649-iwasawa-alg.pdf), Theorem 6.1, p.1776, and §4.4, p.1774; [Peter Schneider](https://ivv5hpp.uni-muenster.de/u/pschnei/publ/pap/heightII.PDF), §2 Theorem 2′, p.342, and §7 Theorems 6–7, p.371; [Joaquín Rodrigues Jacinto and Chris Williams](https://arxiv.org/abs/2309.15692v2), Remark 2.3, p.7; [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), note 14, p.256.
 
-Use #Ẽ(F_p)=(1−α)(1−p/α), so #Ẽ(F_p)^2 ∼_p (1−α⁻¹)^2, including anomalous primes. Transfer the characteristic-series leading term through MMC(E,p). The explicit ratio before squaring is −α(1−p/α), a p-adic unit even if 1−α⁻¹ is a nonunit. This comparison cannot justify discarding #Ẽ(F_p)^2 itself.
-
-Schneider evaluates in the coordinate κ(γ)^{1−s}−1; the convention here uses κ(γ)^{s−1}−1. The sign contributes a unit, while the factor log_p κ(γ)^r must be matched with the regulator normalization. Use the specified height comparison to obtain the displayed MTT_p formula.
-
-The source for this target is [Peter Schneider](https://ivv5hpp.uni-muenster.de/u/pschnei/publ/pap/heightII.PDF), §2 Theorem 2′, p.342; §7 Theorems 6–7, p.371; algebraic Iwasawa L-function in §2, p.341; [Joaquín Rodrigues Jacinto and Chris Williams](https://arxiv.org/abs/2309.15692v2), Remark 2.3, p.7; [Pierre Colmez](https://www.numdam.org/item/SB_2002-2003__45__251_0.pdf), note 14, p.256.
-
-*Needs:* §3.3; §5.6; the arithmetic height and its explicit comparison; `SelmerIwasawaCohomology` Layer 3.
+*Needs:* §3.3; §3.7; §3.8; §3.9; §5.6.
 
 **Checks.**
 
 - In rank zero the regulator is 1 and the coordinate logarithm has exponent zero, yielding the p-part of the rank-zero BSD expression. This does not infer the full exact BSD formula from an integral ideal equality.
-- Without nondegeneracy, the order of vanishing of char(X) at the trivial character can exceed the rank.
-- If F(X)=a_r X^r+O(X^(r+1)) and c=log_p κ(γ), substitution X=κ(γ)^(s−1)−1 gives leading coefficient a_r c^r; the inverse coordinate gives (−1)^r a_r c^r. The sign is a unit, whereas c^r generally is not. The height comparison must account for exactly this power, including r=0.
+- Without nondegeneracy, the order of vanishing of char(X) at the trivial character exceeds the rank (§3.9), so (1) fails without that hypothesis and (2) detects it.
+- If F(T)=a_r T^r+O(T^{r+1}) and c=log_p κ(γ), substitution T=κ(γ)^{s−1}−1 gives s-leading coefficient a_r c^r; the inverse coordinate κ(γ)^{1−s}−1 gives (−1)^r a_r c^r. The sign is a unit, whereas c^r is not for r ≥ 1 (c has valuation one when κ(γ)=1+p). The change from Reg_γ to Reg_p absorbs exactly this power, and at r=0 there is nothing to absorb.
+- Rank one: with a generator P, the s-leading coefficient is ∼_p (1−α⁻¹)²·⟨P,P⟩_p·#Sha[p^∞]·∏c_ℓ/#E(Q)_tors²; using Reg_γ = ⟨P,P⟩_p/log_p κ(γ) in the s-variable would be wrong by the nonunit log_p κ(γ).
 
 ### 5.9 The modular instances of the Greenberg and Coates–Perrin-Riou propositions
 
@@ -1441,7 +1682,7 @@ The source for this target is [Joaquín Rodrigues Jacinto and Chris Williams](ht
 
 ### 5.10 Verified weight-two examples
 
-(a) E = 11a1 = [0,−1,1,−10,−20] (N = 11, Δ = −11⁵, split at 11, torsion Z/5, only 5-isogenies, Manin constant 1) at p = 7: a_7 = −2, ordinary; ρ̄ irreducible; (SU_11) holds since 7 ∤ 5; (FW1.6_11) fails (split); (LocExc_7) holds (ā_7² = 4 ≠ 1); hence §1.3 and §3.5 give MMC(11a1,7) integrally. §2.2 also gives KMC (Theorem 5.1 form, μ trivial allowed as ρ̄|G_{Q_7} is reducible); its independent transport to MMC uses the recorded integral period comparison, while the Fouquet–Wan ordinary theorem does not apply. (b) E = 14a1 = [1,0,1,4,−6] (N = 14, Δ = −2⁶·7³, nonsplit at 2, split at 7, isogeny degrees 1, 2, 3, 6) at p = 13: a_13 = −4, ordinary; ρ̄ irreducible (no 13-isogeny); (FW1.6_2) holds since 13 ∤ 6; so §1.4 applies. (c) E = 14a1 at p = 5: a_5 = 0, supersingular, crystalline nonordinary; ρ̄_{E,5} surjective (5 is not a nonmaximal prime); ℓ = 2 nonsplit with 5 ∤ 6; hence §2.2 gives KMC, and §4.3 with §4.5 gives the LLZ actual-image signed equalities. The identification with separately Néron-normalized Kobayashi–Pollack ± analytic equalities is conditional on the unit-period comparison in §4.5.
+(a) E = 11a1 = [0,−1,1,−10,−20] (N = 11, Δ = −11⁵, split at 11, torsion Z/5, only 5-isogenies, Manin constant 1) at p = 7: a_7 = −2, ordinary; ρ̄ irreducible; (SU_11) holds since 7 ∤ 5; (FW1.6_11) fails (split); (LocExc_7) holds (ā_7² = 4 ≠ 1); hence §1.3 and §3.5 give MMC(11a1,7) integrally. §2.2 also gives KMC (Theorem 5.1 form, μ trivial allowed as ρ̄|G_{Q_7} is reducible); its independent transport to MMC uses the elliptic period defect u_7(f_E) of §3.2, a unit here, while the Fouquet–Wan ordinary theorem does not apply. (b) E = 14a1 = [1,0,1,4,−6] (N = 14, Δ = −2⁶·7³, nonsplit at 2, split at 7, isogeny degrees 1, 2, 3, 6) at p = 13: a_13 = −4, ordinary; ρ̄ irreducible (no 13-isogeny); (FW1.6_2) holds since 13 ∤ 6; so §1.4 applies. (c) E = 14a1 at p = 5: a_5 = 0, supersingular, crystalline nonordinary; ρ̄_{E,5} surjective (5 is not a nonmaximal prime); ℓ = 2 nonsplit with 5 ∤ 6; hence §2.2 gives KMC, and §4.3 with §4.5 gives the LLZ actual-image signed equalities and, equivalently, Kobayashi's corrected ± main conjectures. The principal-ideal Pollack form additionally uses `pollackMultiplierUnit` (§4.5).
 
 The reduction types, discriminants, a_p values and isogeny data are those of the minimal models (checked by point counts and against LMFDB's curve data).
 
@@ -1464,118 +1705,129 @@ The source for this target is [Christopher Skinner and Eric Urban](https://www.m
 
 ### 5.11 A higher-weight example
 
-Let f = η(z)⁴η(5z)⁴ = q − 4q² + 2q³ + 8q⁴ − 5q⁵ − 8q⁶ + 6q⁷ + ⋯, the newform spanning S_4(Γ_0(5)) (a_2 = −4, a_3 = 2, a_5 = −5, a_7 = 6, a_11 = 32, a_13 = −38). At p = 7: a_7 = 6 is a 7-adic unit, so f is ordinary; (dist) holds since the residual characters are unramified and ω^{−3} ≠ 1; ρ̄ is irreducible over F_7 because the Frobenius polynomial at 2 is X²−a_2X+2³, with discriminant a_2²−4·2³=−16≡5 mod 7, a nonsquare. Oddness at p≠2 makes this rank-two irreducibility absolute; π(f)_5 is the Steinberg representation twisted by the unramified character with μ(5) = −1 (from a_5 = −5 = μ(5)·5); and the inertia-invariant line has Frobenius eigenvalue μ(5)·5^{−1} ≡ 4 ≢ 1 mod 7, so dim ρ̄^{D_5} = 0 once ρ̄ is ramified at 5. Granting the ramification at 5, §1.4 gives KMC for f at p = 7; Skinner–Urban's theorem does not apply (k = 4 ≢ 2 mod 6). At p = 13, the tested prime coefficients satisfy a_ℓ≡1+ℓ³ mod 13 and 13 divides 5⁴−1. These are diagnostics of an Eisenstein congruence, not a proof of reducibility: a complete congruence/Sturm argument and residual recognition would be needed to turn this into a non-example.
+Let f = η(z)⁴η(5z)⁴ = q − 4q² + 2q³ + 8q⁴ − 5q⁵ − 8q⁶ + 6q⁷ + ⋯, the newform spanning S_4(Γ_0(5)) (a_2 = −4, a_3 = 2, a_5 = −5, a_7 = 6, a_11 = 32, a_13 = −38). At p = 7: a_7 = 6 is a 7-adic unit, so f is ordinary; (dist) holds since the residual characters are unramified and ω^{−3} ≠ 1; ρ̄ is irreducible over F_7 because the Frobenius polynomial at 2 is X²−a_2X+2³, with discriminant a_2²−4·2³=−16≡5 mod 7, a nonsquare. Oddness at p≠2 makes this rank-two irreducibility absolute; π(f)_5 is the Steinberg representation twisted by the unramified character with μ(5) = −1 (from a_5 = −5 = μ(5)·5); and the inertia-invariant line has Frobenius eigenvalue μ(5)·5^{−1} ≡ 4 ≢ 1 mod 7, so dim ρ̄^{D_5} = 0 once ρ̄ is ramified at 5. The residual representation ρ̄ is ramified at 5, so (FW1.6_5) holds and §1.4 gives KMC for f at p = 7, and §1.5 gives char(X) = (u_7(f)L_f); Skinner–Urban's theorem does not apply (k = 4 ≢ 2 mod 6). At p = 13, the tested prime coefficients satisfy a_ℓ≡1+ℓ³ mod 13 and 13 divides 5⁴−1. These are diagnostics of an Eisenstein congruence, not a proof of reducibility: a complete congruence/Sturm argument and residual recognition would be needed to turn this into a non-example.
 
 The q-expansion is computed from the eta product; multiplicativity a_4 = a_2² − 8, a_6 = a_2a_3, a_25 = a_5² is checked.
 
-The named arithmetic input `etaProduct_residualRamifiedAtFive` is the assertion that this f has ρ̄_7(I_5)≠1. It is not proved here. A proposed level-lowering route would exclude an unramified representation using S_4(SL₂(Z))=0, but the inequalities 4≤7+1 and 5≢1 mod 7 alone are not a verified theorem with all its local and lattice hypotheses. No unconditional ramification claim is made from that route or from the nonsquare Frobenius polynomial. The §1.4 application retains this explicit input; the example is not a supplier of any other endpoint.
+Ramification of ρ̄ at 5 is the target `etaProduct_residualRamifiedAtFive`: ρ̄_7(I_5) ≠ 1 for this f. Suppose ρ̄ were unramified at 5. It is irreducible and arises from f on Γ₀(5) = Γ₀(1·5) with trivial character; ℓ = 7 ≥ 5, q = 5 ∤ 1·7 and 5 ≢ 1 mod 7. Mazur's principle (`SerreWeightAndLevelOptimisation` §2.9) shows that ρ̄ occurs at level 1 in some weight. By Ribet's four sets of levels (`SerreWeightAndLevelOptimisation` §3.9, ℓ = 7 ≥ 5) it then occurs in S_{k(ρ̄)}(SL₂(Z)). Since f is ordinary of weight 4 ≤ 7 + 1 at 7 ∤ 5 with a_7 ≠ 0, its residual local form at 7 (`SerreWeightAndLevelOptimisation` §3.1) has inertia characters ω³ and 1 in the homological normalisation; as the exponent 3 lies strictly between 1 and p − 1 = 6, the peu/très ramifiée distinction of the exponent-one case does not arise, and Serre's recipe gives k(ρ̄) = 4. But S₄(SL₂(Z)) = 0 (Mathlib `CuspForm.rank_eq_zero_of_weight_lt_twelve`; equivalently `ModularForm.levelOne_weight_four_rank_one`, the level-one weight-four space being spanned by E₄, whose constant term is 1). This contradiction proves that ρ̄ is ramified at 5.
 
 Compute coefficients and check the Hecke relations.
 
-Check ordinarity, the nonsquare Frobenius discriminant at 2 for p=7, oddness and the local residual conditions. The claimed p=7 application remains conditional on the recorded ramification-at-5 input.
+Check ordinarity, the nonsquare Frobenius discriminant at 2 for p=7, oddness and the local residual conditions; then prove the ramification at 5 as above.
 
 Check (FW1.6_5) in Fouquet–Wan's normalisation.
 
-The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Theorems 1.4 and 1.6, pp.5–7; [Christopher Skinner and Eric Urban](https://www.math.columbia.edu/~urban/eurp/MC.pdf), Theorem 3.6.4, p.43.
+The source for this target is [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Theorems 1.4 and 1.6, pp.5–7; [Christopher Skinner and Eric Urban](https://www.math.columbia.edu/~urban/eurp/MC.pdf), Theorem 3.6.4, p.43; [Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), *Report on mod ℓ representations of Gal(Q̄/Q)*, (4.7) and Theorem 8.1 (Mazur's principle), Theorem 3.3 (the four sets of levels), author pp.8, 12 and 27–30.
 
-*Needs:* §1.4; §1.1; §1.3.
+*Needs:* §1.4; §1.5; §1.1; §1.3; `SerreWeightAndLevelOptimisation` §2.9; `SerreWeightAndLevelOptimisation` §3.1; `SerreWeightAndLevelOptimisation` §3.9; `AlgebraicModularFormsAndSerreWeights` R15.4 (Serre's weight recipe); Mathlib `CuspForm.rank_eq_zero_of_weight_lt_twelve`.
 
 **Checks.**
 
 - The p=13 calculation is a diagnostic only. Finite trace agreement must not be used to conclude reducibility. These coefficient checks remain here in prose, rather than as isolated arithmetic examples in the representative Lean file.
+- The nonsquare Frobenius discriminant at 2 proves irreducibility only; it says nothing about the inertia group at 5, which is why ramification needs the level-lowering argument above.
 - Kato's divisibility (k > 2) holds here without potential good reduction (Fouquet–Wan Theorem 1.4(2)).
+- The level-lowering step needs q ≢ 1 mod ℓ, here 5 ≢ 1 mod 7. Only coefficient primes dividing 5 − 1 = 4, that is ℓ = 2, violate it, and ℓ = 2 is outside the odd range anyway. The principle also needs ℓ ≥ 5 in general weight, so the same argument would not cover ℓ = 3.
+- The weight must be k(ρ̄) and not an arbitrary weight: S_{12}(SL₂(Z)) ≠ 0 (it contains Δ), so the contradiction uses Serre's weight 4, not merely level 1.
 
 ### Examples
 
-For 11a1, Δ_min=−11⁵ and a₇=−2, so 7∤5 and ā₇²=4≠1. For 14a1, Δ_min=−2⁶7³, a₁₃=−4 and a₅=0. Thus p=13 is ordinary and p=5 is supersingular with a_p=0; both see ramification at 2. The full theorem checks and the conditional higher-weight application appear in §§5.10–5.11. In rank zero the MTT regulator is #E(Q)_tors⁻², whereas Schneider’s unnormalized empty determinant is 1; putting both torsion conventions into the same formula would count the torsion factor twice.
+For 11a1, Δ_min=−11⁵ and a₇=−2, so 7∤5 and ā₇²=4≠1. For 14a1, Δ_min=−2⁶7³, a₁₃=−4 and a₅=0. Thus p=13 is ordinary and p=5 is supersingular with a_p=0; both see ramification at 2. The full theorem checks and the higher-weight application, including the proof that ρ̄ is ramified at 5, appear in §§5.10–5.11. In rank zero the MTT regulator is #E(Q)_tors⁻², whereas Schneider’s unnormalized empty determinant is 1; putting both torsion conventions into the same formula would count the torsion factor twice.
 
 ### Dependencies
 
-Use Layers 0–4; PadicMeasuresIwasawaAlgebras Layer 4 for characteristic ideals and Weierstrass invariants; SelmerIwasawaCohomology for localization, control and the Schneider comparison contract; ColemanIntegration Layer 0 for the Iwasawa logarithm; EllipticCurves Layer 4 for point uniformization; PadicFamilies Layer 3 for Greenberg–Stevens; and DiophantineApproximationAndTranscendence DT.5 for nonvanishing of the ℒ-invariant. The arithmetic height, its nondegeneracy and the higher-weight ramification input are explicit inputs where used.
+Use Layers 0–4, including the height and Schneider's theorem of §§3.7–3.9; PadicMeasuresIwasawaAlgebras Layer 4 for characteristic ideals and Weierstrass invariants; SelmerIwasawaCohomology for localization and control; ColemanIntegration Layer 0 for the Iwasawa logarithm; EllipticCurves Layer 4 for point uniformization; PadicFamilies Layer 3 for Greenberg–Stevens; §3.7's transcendence of the Tate parameter for nonvanishing of the ℒ-invariant; and SerreWeightAndLevelOptimisation §§2.9, 3.1 and 3.9 with Mathlib's vanishing of level-one cusp forms of weight four for the ramification in §5.11. Finiteness of Sha[p^∞] and nondegeneracy of the height are hypotheses where used.
 
 
-## Layer 6: comparison with other arithmetic branches
+## Layer 6: formulations for the downstream arithmetic branches
+
+The anticyclotomic, Eisenstein-prime, supersingular and multiplicative branches are proved in roadmaps that build on this one: HeegnerPointEulerSystems HE.8b and RankZeroOneBSD BSD.6a and BSD.7a import Layers 0, 1 and 4 (RankZeroOneBSD also Layer 5). This layer fixes, with this roadmap's objects, the formulation in which each branch states its endpoint, and proves the transfers between those formulations and the ones of Layers 0, 3 and 4. No branch theorem is a prerequisite of any target here, and none is restated as a theorem of this roadmap.
 
 ### 6.1 The anticyclotomic interface
 
-Let E/Q, p > 3 good ordinary, K imaginary quadratic with (disc), (Heeg), (spl), Λ_K^− = Z_p[[Γ_K^−]] and Λ_K^{−,ur} = Λ_K^− ⊗̂ Ẑ_p^{ur}. The Heegner point main conjecture (char(X_ord(E/K_∞^−)_tors) = char(H¹_{F_Λ}(K, T)/(κ_1^{Heeg}))²) and the Greenberg–BDP main conjecture (char(X_Gr(E/K_∞^−)) = (L_p^{BDP}(E/K)) in Λ_K^{−,ur}) are compared through `HeegnerPointEulerSystems` HE.8b (`anticyclotomic-formulation-comparison`) (the BDP square convention, the coefficient extension to Λ_K^{−,ur}, finite local cokernels and ι), and the proved branch endpoints of `HeegnerPointEulerSystems` HE.8b — rational under (irr_Q), integral under (sur) — are re-exported in these formulations. The anticyclotomic equality is over Λ_K^{−,ur}, never over Λ_K^− unless the source proves the descent; rational and integral statements stay distinct.
+Let E/Q, p > 3 good ordinary, K imaginary quadratic with (disc), (Heeg), (spl), Λ_K^− = Z_p[[Γ_K^−]] and Λ_K^{−,ur} = Λ_K^− ⊗̂ Ẑ_p^{ur}. The anticyclotomic branch uses, from this roadmap, exactly the following objects and conventions: the Tate lattice T = T_pE of §3.1 and its ordinary line T^+ (§0.1); the scalar-dual convention and the inverse group-ring argument ℓ^{−1}γ_ℓ^{−1} in Euler factors (Conventions, §5.1), now applied with Γ_K^− in place of Γ; and the distinction between rational statements (over Λ_K^{−,ur}[1/p]) and integral ones (over Λ_K^{−,ur}). Its Heegner-point and Greenberg–BDP main conjectures, their comparison (the BDP square convention, the coefficient extension to Λ_K^{−,ur}, finite local cokernels and the involution ι) and their proofs are HeegnerPointEulerSystems HE.8b's. This section is the interface specification: it states which of this roadmap's objects and conventions the anticyclotomic formulations are built from, so that the downstream statements and the cyclotomic ones of Layers 0 and 3 use the same lattice, ordinary line, duality and Euler-factor normalisation. Neither the anticyclotomic equality nor its descent from Λ_K^{−,ur} to Λ_K^− is asserted here.
 
 (disc): D_K odd, ≠ −3; (Heeg): every ℓ | N splits in K; (spl): p splits in K.
 
-The proofs belong to `HeegnerPointEulerSystems` HE.8b; this comparison is the formulation interface only.
+The anticyclotomic equality is over Λ_K^{−,ur}; ideal descent and integral descent to Λ_K^− each need the downstream branch's own comparison.
 
-Import `HeegnerPointEulerSystems` HE.8b (`rational-heegner-main-conjecture`), HE.8b (`integral-heegner-main-conjecture`), HE.8b (`rational-greenberg-bdp-main-conjecture`), HE.8b (`integral-greenberg-bdp-main-conjecture`).
+The usable interface consists of the following named outputs.
 
-Use `HeegnerPointEulerSystems` HE.8b (`anticyclotomic-formulation-comparison`) and HE.8b (`bdp-function-convention-comparison`) for the dictionary.
+- `anticyclotomicFormulationInputs`: the lattice, ordinary line, dual and Euler-factor conventions just listed, exported unchanged.
 
-Do not identify ideals up to units with normalised elements.
+The interface consists of definitions already made in §§0.1–0.2 and 3.1; nothing further is proved here.
 
-The source for this target is [Ashay Burungale, Francesc Castella and Christopher Skinner](https://arxiv.org/abs/2405.00270v2), §1.2, Conjecture 1.2.1, Theorems 1.2.2 and 1.2.4, pp.2–3.
+The source for this target is [Ashay Burungale, Francesc Castella and Christopher Skinner](https://arxiv.org/abs/2405.00270v2), §1.2, Conjecture 1.2.1, Theorems 1.2.2 and 1.2.4, pp.2–3 (the two anticyclotomic formulations and their hypotheses); [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §2.3, pp.8–9 (the Euler-factor convention).
 
-*Needs:* `HeegnerPointEulerSystems` HE.8b (`anticyclotomic-formulation-comparison`); `HeegnerPointEulerSystems` HE.8b (`bdp-function-convention-comparison`); `HeegnerPointEulerSystems` HE.8b (`rational-heegner-main-conjecture`); `HeegnerPointEulerSystems` HE.8b (`integral-heegner-main-conjecture`); `HeegnerPointEulerSystems` HE.8b (`rational-greenberg-bdp-main-conjecture`); `HeegnerPointEulerSystems` HE.8b (`integral-greenberg-bdp-main-conjecture`); §0.5.
-
-**Checks.**
-
-- Burungale–Castella–Skinner Theorems 1.2.2/1.2.4 are the two formulations of the same theorem.
-- The rank-one statements of the Heegner form require H¹_{F_Λ} and X of Λ_K^−-rank one; those are part of the imported theorems.
-
-### 6.2 The Eisenstein-prime branch interface
-
-For E/Q and a good ordinary Eisenstein prime p (E[p] reducible), the integral cyclotomic main conjectures proved in `RankZeroOneBSD` BSD.7a (Castella–Grossi–Skinner Theorems A/C and the weight-two specialisation of Keller–Yin Theorem 3.0.10) are re-exported in the formulation of §3.3 for the lattice and imprimitive set used there, keeping the residual-character exclusions, the local-invariant corrections at the bad primes, the distinguished lattice and the finite-submodule corrections. The irreducible-prime theorems of Layers 1–3 are not used for this branch.
-
-Assume p>2, p∤N and E[p] reducible. CGS additionally requires its isogeny-kernel character at G_p to differ from 1 and ω; KY Theorem 3.0.10 has no such exclusion and includes rational p-torsion.
-
-The lattice is the one of the imported theorem; change of lattice multiplies characteristic ideals by explicit powers of p.
-
-Import `RankZeroOneBSD` BSD.7a (`cgs-cyclotomic-main-conjecture`) and `RankZeroOneBSD` BSD.7a (`ky-cyclotomic-main-conjecture`).
-
-Use the imported theorem’s integral Néron-normalized analytic function directly. The irreducible-prime integrality lemma of §3.2 is not available here. Compare local conditions, lattices and Euler factors only under the supplier’s actual Eisenstein hypotheses; do not invoke Layer 5’s irreducibility-based surjectivity criterion.
-
-The source for this target is [Francesc Castella, Giada Grossi and Christopher Skinner](https://arxiv.org/abs/2303.04373v2), Theorem A, p.2 (cyclotomic endpoint), and Theorem C, p.3 (the anticyclotomic input); [Timo Keller and Mulun Yin](https://arxiv.org/abs/2402.12781v2), Theorem 3.0.10 and its proof, p.41 (weight two, with the local-character exclusion removed).
-
-*Needs:* `RankZeroOneBSD` BSD.7a (`cgs-cyclotomic-main-conjecture`); `RankZeroOneBSD` BSD.7a (`ky-cyclotomic-main-conjecture`); its branch-specific primitive/imprimitive comparison (§11.8 of that package, with its actual invariant and surjectivity hypotheses); §3.3. Section 5.1 is not an unconditional Eisenstein-prime cancellation theorem.
+*Needs:* §0.1; §0.2; §3.1.
 
 **Checks.**
 
-- 11a1 at p=5 is a good ordinary Eisenstein prime with rational 5-torsion. It is excluded from the irreducible theorems of Layers 1–3 and from CGS’s local exclusion, but it is included in the KY supplier endpoint, subject to its integral Néron normalization.
-- Kato's divisibility is only rational at Eisenstein primes in `KatoEulerSystems` Layer 7; integral inputs come from the imported theorems.
+- Burungale–Castella–Skinner Theorems 1.2.2/1.2.4 are the two formulations of the same theorem; the Heegner form requires H¹_{F_Λ} and X of Λ_K^−-rank one, which are part of the downstream theorem and not of this interface.
+- An equality over Λ_K^{−,ur}[1/p] remains rational even if its two sides descend as modules.
+- In the anticyclotomic Z_p-extension a prime inert in K splits completely, unlike in the cyclotomic one, so the cyclotomic Euler-factor change of §5.1 is not transported to Γ_K^− by substituting group elements; the downstream branch states its own local factors.
 
-### 6.3 The supersingular and multiplicative anticyclotomic branch interfaces
+### 6.2 The Eisenstein-prime interface
 
-(1) Let E/Q be semistable and let p>2 be a good supersingular prime, with a_3(E)=0 if p=3 (for p≥5, a_p=0 is automatic). The signed main conjecture of Burungale–Skinner–Tian–Wan (`RankZeroOneBSD` BSD.6a (`bstw-signed-main-conjecture`)) gives char_Λ X^±=(L_p^±) in the integral Néron-normalized Kobayashi formulation. Its base statement imposes no additional residual-image hypothesis. The same endpoint holds for a quadratic twist E^K when the quadratic discriminant is coprime to Np and supported on primes of ordinary reduction for E; coprimality alone does not suffice.
+For E/Q and a good ordinary Eisenstein prime p > 2 (p ∤ N, E[p] reducible), the cyclotomic main conjecture is the proposition MMC(E,p) of §3.3 for the Tate lattice T_pE and the Néron-normalised function L_p(E/Q) ∈ Λ ⊗ Q_p of §3.2, with the imprimitive variants of §5.1. The Eisenstein-prime branch (RankZeroOneBSD BSD.7a, after Castella–Grossi–Skinner and Keller–Yin) proves this proposition under its own residual-character, local-invariant and finite-submodule hypotheses. This roadmap proves the transfers that formulation needs when E[p] is reducible: (1) X_ord(E/Q_∞) and L_p(E/Q) are defined for T_pE itself, with no appeal to residual irreducibility (§0.2, §3.2); (2) the imprimitive comparison IMC^Σ ⟺ IMC^{Σ′} of §5.1 holds when X^Σ is torsion and T* has no nonzero G_Q-invariants, which for E[p] reducible must be checked rather than deduced from irreducibility; (3) an isogeny E → E′ of degree prime to p identifies MMC(E,p) with MMC(E′,p) (§3.3), whereas along a p-isogeny the p-parts of the period ratio and of the Selmer comparison change the integral statement and belong to the downstream theorem's normalisation.
 
-(2) Let E/Q have conductor N and multiplicative reduction at p>3. Let K be imaginary quadratic, with an ideal 𝔑⊂O_K satisfying O_K/𝔑≃Z/NZ, and with p split. Require E[p] irreducible over G_Q; if 2 is nonsplit in K, require 2∥N; at every q∥N nonsplit in K require nonsplit multiplicative reduction, with at least one such q where E[p] is ramified; and require E(Q_p)[p]=0. Castella's corrected theorem (`RankZeroOneBSD` BSD.6a (`castella-anticyclotomic-main-conjecture`)) then gives Λ-torsion X_ac and char(X_ac)Λ_{R₀}=(L_p(f)) for its strict/unrestricted local conditions and multiplicative BDP normalization. Neither branch follows from Layers 1–4.
+Assume p>2, p∤N and E[p] reducible. CGS additionally requires its isogeny-kernel character at G_p to differ from 1 and ω; KY has no such exclusion and includes rational p-torsion. These are hypotheses of the downstream theorem, not of the transfers.
 
-Retain every hypothesis of the imported branch theorem.
+The usable interface consists of the following named outputs.
 
-Layers 0 and 4 supply the signed formulation only in its own range (a_p = 0 for the Kobayashi identification).
+- `eisensteinFormulation`: MMC(E,p) for T_pE and the Néron-normalised L_p(E/Q), without residual irreducibility.
+- `eisenstein_imprimitive_change`: §5.1's equivalence under the stated torsion and H⁰(T*) = 0 hypotheses.
+- `eisenstein_isogeny_transfer`: MMC(E,p) ↔ MMC(E′,p) along an isogeny of degree prime to p.
 
-Import the two `RankZeroOneBSD` BSD.6a endpoints and `RankZeroOneBSD` BSD.6a (`bstw-signed-main-conjecture-comparison`).
+The irreducible-prime integrality lemma of §3.2 is not available here; integrality of L_p(E/Q) at an Eisenstein prime is part of the downstream theorem's normalisation.
 
-For (1) use the a_p=0 kernel dictionary of §4.5 and the supplier’s integral normalization. For (2) use BSD.6a (`castella-anticyclotomic-main-conjecture`) itself with its multiplicative local conditions; §6.1 assumes good ordinary reduction and is not a theorem at a multiplicative prime. No Heegner-square equivalence is imported across that boundary.
+The source for this target is [Francesc Castella, Giada Grossi and Christopher Skinner](https://arxiv.org/abs/2303.04373v2), Theorem A, p.2, and Theorem C, p.3 (the formulation and hypotheses of the cyclotomic endpoint); [Timo Keller and Mulun Yin](https://arxiv.org/abs/2402.12781v2), Theorem 3.0.10, p.41.
 
-The arithmetic endpoints are [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem 1.3, p.3, with the a_p=0 convention (1.7), p.6; and [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), corrected Theorem 1.1, p.1. The signed-kernel comparison, rather than the arithmetic main conjecture, is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Proposition 5.10 and Corollary 5.11, pp.35–36.
-
-*Needs:* `RankZeroOneBSD` BSD.6a (`bstw-signed-main-conjecture`); `RankZeroOneBSD` BSD.6a (`bstw-signed-main-conjecture-comparison`); `RankZeroOneBSD` BSD.6a (`castella-anticyclotomic-main-conjecture`); §4.5; §6.1.
+*Needs:* §0.2; §3.1; §3.2; §3.3; §5.1.
 
 **Checks.**
 
-- 14a1 at p=5 is semistable and supersingular, hence lies in the BSTW supplier theorem’s stated range. Additional vanishing/non-torsion hypotheses belong to the supplier’s comparison identity, rather than its base semistable main-conjecture statement.
-- At p=3 a supersingular curve with a_3=±3 fails the stated BSTW hypothesis; at p≥5 the Hasse bound forces a_p=0. No extra surjectivity assumption is added to Theorem 1.3.
-- A twist discriminant coprime to Np but containing a supersingular reduction prime fails the twist hypothesis. In Castella’s branch, residual irreducibility does not discharge E(Q_p)[p]=0 or the nonsplit-multiplicative condition at the auxiliary q.
-- The withdrawn preprints of Wan (1411.6352, 1412.1767, 1607.07729) are replaced by the published or current sources owned by the suppliers; this interface cites only those.
+- 11a1 at p=5 is a good ordinary Eisenstein prime (a_5 = 1) with rational 5-torsion, so E[5] has a G_Q-stable line and (irred) fails; the irreducibility-based integrality lemma of §3.2 and the homothety argument for lattices are unavailable, and the formulation must name T_pE.
+- Section 5.1 is not an unconditional Eisenstein-prime cancellation theorem. For 11a1 at p=5 the discrete dual T*=Hom(T_pE,μ_{5^∞})≅E[5^∞] has the rational 5-torsion among its G_ℚ-invariants, so the hypothesis of §5.1 fails and the transfer (2) is not available for that curve; the downstream branch must use its own Euler-factor comparison there.
+- For the 5-isogenous curves in class 11a at p=5 the Néron period ratios are not 5-adic units, so a 5-isogeny changes the integral statement by an explicit power of 5; only isogenies of degree prime to 5 are covered by (3).
+- Kato's divisibility is only rational at Eisenstein primes in `KatoEulerSystems` Layer 7; integral inputs come from the downstream theorem.
+
+### 6.3 The supersingular and multiplicative anticyclotomic interfaces
+
+(1) Supersingular branch. For E/Q semistable with good supersingular reduction at p>2 (and a_3(E)=0 if p=3; a_p=0 is automatic for p≥5), the signed main conjecture is stated in the Kobayashi formulation of §4.5: char_Λ X^± = (L_p^±) with Néron-normalised Pollack functions. This roadmap proves the transfer to its own formulation: §4.5 identifies X^∓ with the LLZ signed Selmer groups X¹, X² for the LLZ basis and the corrected image quotients for the Kobayashi maps, so Kobayashi's corrected formulation is equivalent to SMC^{1,1} ∧ SMC^{2,1} of §0.12 integrally. On the trivial tame component both LLZ images are Λ (LLZ Corollaries 5.18 and 5.22), so SMC^{i,1} is the principal statement char(X^{i,1}) = (L̃^1_{p,i}); the principal Kobayashi–Pollack form char(Sel^∓(E/Q_∞)^{∨,1}) = (L_p^{∓,1}) is equivalent to it under `pollackMultiplierUnit` (§4.5), and rationally in any case. The downstream branch (RankZeroOneBSD BSD.6a, after Burungale–Skinner–Tian–Wan) proves the Kobayashi formulation, including for quadratic twists E^K with discriminant coprime to Np and supported on primes of ordinary reduction for E.
+
+(2) Multiplicative branch. For E/Q with multiplicative reduction at p>3, the anticyclotomic formulation of the downstream branch (RankZeroOneBSD BSD.6a, after Castella's corrected theorem) uses the ordinary line of the Steinberg representation at p (§0.1, multiplicative branch), Skinner's inertia-kernel condition and its strict variant with the split correction A^−/(φ−1)A^− (§0.2). This roadmap supplies those local conditions and their comparison; the anticyclotomic theorem with its strict/unrestricted conditions, Heegner hypothesis, condition at 2, nonsplit auxiliary prime and E(Q_p)[p]=0 is the downstream branch's. §6.1 assumes good ordinary reduction and is not used at a multiplicative prime.
+
+Retain every hypothesis of the downstream theorem when it is applied; none is added or removed by the transfers above.
+
+The usable interface consists of the following named outputs.
+
+- `kobayashiFormulation_iff_signed`: Kobayashi's corrected formulation for η = 1 is equivalent to SMC^{1,1} ∧ SMC^{2,1}; the principal Kobayashi–Pollack form is equivalent to them under `pollackMultiplierUnit`, and rationally unconditionally.
+- `multiplicativeLocalConditions`: the inertia-kernel and strict local conditions at a multiplicative p with the correction A^−/(φ−1)A^−.
+
+For (1) use the a_p=0 kernel dictionary of §4.5 and §0.12. For (2) use §0.2's comparison of local conditions at α = ±1.
+
+The formulations are those of [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem 1.3, p.3, with the a_p=0 convention (1.7), p.6; and [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), corrected Theorem 1.1, p.1. The signed-kernel comparison is [Antonio Lei, David Loeffler and Sarah Livia Zerbes](https://arxiv.org/abs/0912.1263v3), Proposition 5.10 and Corollary 5.11, pp.35–36.
+
+*Needs:* §0.1; §0.2; §0.12; §4.5.
+
+**Checks.**
+
+- 14a1 at p=5 is semistable and supersingular with a_5=0, so the Kobayashi formulation applies and transfers to the LLZ signed conjectures for η=1.
+- At p=3 a supersingular curve with a_3=±3 is outside the a_p=0 dictionary of §4.5, so the transfer in (1) is not available there.
+- A twist discriminant coprime to Np but containing a supersingular reduction prime of E is outside the downstream twist statement; coprimality alone does not suffice.
+- At split multiplicative p the strict and inertia-kernel conditions differ by A^−/(φ−1)A^− ≅ L/O, so a transfer that identified them would be off by this module (§0.2).
 
 ### Examples
 
-An equality over Λ_K^{−,ur}[1/p] remains rational, even if its two sides descend as modules: ideal descent and integral descent each require their stated supplier comparison. For 11a1 at p=5, rational 5-torsion rules out the irreducible branch and the CGS local exclusion, while the Keller–Yin endpoint has a different stated range. For 14a1 at p=5, the a_p=0 signed kernel comparison is available. A good-ordinary anticyclotomic comparison cannot be substituted at a multiplicative prime.
+For 11a1 at p=5, rational 5-torsion rules out the irreducible-prime theorems of Layers 1–3, and the Eisenstein formulation of §6.2 is the one the downstream branch proves. For 14a1 at p=5, the a_p=0 signed kernel comparison is available and transfers the Kobayashi formulation to the LLZ signed conjectures. A good-ordinary anticyclotomic comparison cannot be substituted at a multiplicative prime.
 
 ### Dependencies
 
-Use Layers 0, 3 and 4 for formulation comparisons. HeegnerPointEulerSystems HE.8b and RankZeroOneBSD BSD.7a/BSD.6a supply the branch proofs with their own hypotheses and normalization comparisons. The Eisenstein local and lattice comparisons use those supplier contracts rather than the irreducibility-dependent localization theorem of §5.1.
+Use Layers 0, 3, 4 and 5 for the formulations and transfers. The downstream branch roadmaps HeegnerPointEulerSystems HE.8b and RankZeroOneBSD BSD.6a/BSD.7a are not prerequisites.
 
 ## Downstream consumers
 
-HeegnerPointEulerSystems HE.0 consumes the source-precise ordinary theorem. RankZeroOneBSD BSD.0/BSD.6 consumes ordinary and multiplicative main conjectures, the signed kernel dictionary and the rank-zero leading-term consequences. The general Greenberg and Coates–Perrin-Riou interfaces consume only the modular instances specified in §5.9. The branch comparisons in Layer 6 keep their proof ownership separate, so these downstream uses do not assert a general main conjecture outside the listed hypotheses.
+AutomorphicCongruences states its reverse bounds and Fouquet–Wan endpoints with the formulations of Layers 0–1 (it goes upstream in one bundle with this roadmap). HeegnerPointEulerSystems HE.0, HE.6 and HE.8 consume the ordinary theorems of Layers 0–1, and HE.8b proves the anticyclotomic main conjectures in the formulation of §6.1. RankZeroOneBSD BSD.0/BSD.6 consumes ordinary and multiplicative main conjectures (§§1.3, 1.7), the signed kernel dictionary (§4.5) and the rank-zero leading-term consequences (§§5.4, 5.6–5.8); BSD.6a proves the supersingular and multiplicative branches in the formulations of §6.3, and BSD.7a the Eisenstein-prime branch in the formulation of §6.2, with the elliptic-unit, Hida–Tilouine and anticyclotomic μ inputs routed to CMAllPrimeMainConjectures CZ.2–CZ.3, AutomorphicCongruences L0 and AutomorphicPadicLFunctions L3h. CMAllPrimeMainConjectures CZ.6 uses Kato's formulation (§0.7). The general Greenberg and Coates–Perrin-Riou interfaces consume only the modular instances specified in §5.9. These downstream uses do not assert a general main conjecture outside the listed hypotheses.
 
 ## References
 
@@ -1596,5 +1848,11 @@ HeegnerPointEulerSystems HE.0 consumes the source-precise ordinary theorem. Rank
 - Francesc Castella, [Erratum to “On the p-part of the Birch–Swinnerton-Dyer formula for multiplicative primes”](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), corrected Theorem 1.1, p.1.
 - Peter Schneider, [p-adic height pairings. II](https://ivv5hpp.uni-muenster.de/u/pschnei/publ/pap/heightII.PDF), Invent. Math. 79 (1985), 329–374; author-hosted journal scan; printed page numbers.
 - Aaron Landesman, Ashvin A. Swaminathan, James Tao and Yujie Xu, [Lifting subgroups of symplectic groups over Z/ℓZ](https://arxiv.org/abs/1607.04698v2), arXiv:1607.04698v2.
+- William Stein and Christian Wuthrich, [Algorithms for the arithmetic of elliptic curves using Iwasawa theory](https://wstein.org/papers/mcom2649-iwasawa-alg.pdf), Math. Comp. 82 (2013), 1757–1792; author-hosted offprint; printed page numbers.
+- Barry Mazur, William Stein and John Tate, [Computation of p-adic heights and log convergence](https://content.ems.press/assets/public/full-texts/books/254/chapters/online-pdf/978-3-98547-541-4-chapter-5044.pdf), Documenta Math. Extra Volume Coates (2006), 577–614; printed page numbers.
+- Matthew Emerton, Robert Pollack and Tom Weston, [Variation of Iwasawa invariants in Hida families](https://arxiv.org/pdf/math/0404484v1), Invent. Math. 163 (2006), 523–580; arXiv:math/0404484v1; theorem numbers and pages of arXiv v1.
+- Kenneth A. Ribet, [Report on mod ℓ representations of Gal(Q̄/Q)](https://math.berkeley.edu/~ribet/Articles/motives.pdf), in *Motives*, Proc. Sympos. Pure Math. 55, Part 2 (1994), 639–676; author's copy, author page numbers.
+- Michel Waldschmidt, [Sur la nature arithmétique des valeurs de fonctions modulaires](https://www.numdam.org/item/SB_1996-1997__39__105_0), Séminaire Bourbaki exposé 824 (1996–1997), Astérisque 245 (1997), 105–140; Numdam SB_1996-1997__39__105_0; Théorème 2, p.108, and its p-adic consequences, p.110.
+- Katia Barré-Sirieix, Guy Diaz, François Gramain and Georges Philibert, [Une preuve de la conjecture de Mahler–Manin](https://doi.org/10.1007/s002220050044), Invent. Math. 124 (1996), 1–9; cited through Waldschmidt's exposé, which states the theorem in the complex and p-adic cases.
 - The LMFDB Collaboration, [Elliptic curve 11.a2 (Cremona 11a1)](https://www.lmfdb.org/EllipticCurve/Q/11/a/2), Curve record accessed 2026-10-19; database evidence, not a formal certificate.
 - The LMFDB Collaboration, [Elliptic curve 14.a6 (Cremona 14a1)](https://www.lmfdb.org/EllipticCurve/Q/14a1/), Curve record accessed 2026-10-19; database evidence, not a formal certificate.
