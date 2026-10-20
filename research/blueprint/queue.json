@@ -152006,6 +152006,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5.md",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/review.json",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/README.md",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5.md"
   }
  ]
 }
