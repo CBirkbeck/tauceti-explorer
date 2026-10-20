@@ -43,18 +43,6 @@ example : cuspidalIndex 11 = 5 := by
 example : cuspidalIndex 17 = 4 := by
   norm_num [cuspidalIndex, Nat.gcd]
 
-/-! ## Layer 1: Cusps, components and the Shimura subgroup -/
-
-/-! ## Layer 2: Eisenstein kernels and abelian quotients -/
-
-/-! ## Layer 3: Odd Eisenstein torsion and multiplicity one -/
-
-/-! ## Layer 4: Dyadic torsion and winding homomorphisms -/
-
-/-! ## Layer 5: Ogg’s rational torsion theorem -/
-
-/-! ## Layer 6: Global descent and the Eisenstein quotient -/
-
 /-! ## Layer 7: Cusp moduli and prime-torsion descent -/
 
 /-- The positive-genus descent excludes a rational point of prime order outside the five
