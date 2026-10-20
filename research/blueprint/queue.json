@@ -152857,6 +152857,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-IntegralIwasawaTheory~adv.md"
+  },
+  {
+   "id": "FIX-PKG-HabiroNumberFields~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HabiroNumberFields~adv.md",
+    "research/blueprint/packages/HabiroNumberFields/review.json",
+    "research/blueprint/packages/HabiroNumberFields/README.md",
+    "research/blueprint/packages/HabiroNumberFields/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroNumberFields~adv.md"
   }
  ]
 }
