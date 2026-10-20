@@ -1,24 +1,23 @@
 # Roadmap: explicit K₂: symbols, residues and reciprocity
 
-**Summary.** Develop explicit symbol calculus on the Steinberg K₂ supplied by AlgebraicKTheory: finite-rank monomial and integer word refinements, a bar-calibrated classical-to-Quillen comparison, native Milnor K-theory and its products, residues, norms and reciprocity. Construct tame symbols and higher Milnor residues, integral Milnor norms with Kato's independence theorem and Suslin's reciprocity law for curves over any field, and compare them with localization boundaries and Quillen transfers. Compute tame kernels, K₂(ℤ)≅ℤ/2 and K₂(ℚ), develop Dennis–Stein and relative K₂ presentations, and compare symbols with cyclic algebras, Hilbert symbols, local invariants and the Galois symbol.
+**Summary.** Develop explicit symbol calculus on the Steinberg K₂ supplied by AlgebraicKTheory: finite-rank monomial and integer word refinements, a bar-calibrated classical-to-Quillen comparison, native Milnor K-theory and its products, residues, norms and reciprocity. Construct tame symbols and higher Milnor residues, integral Milnor norms with Kato's independence theorem and Suslin's reciprocity law for curves over any field, and compare them with localization boundaries and Quillen transfers. Compute tame kernels, K₂(ℤ)≅ℤ/2 and K₂(ℚ), and develop the absolute and relative Dennis–Stein presentations of K₂ with their double-ring and homotopy-fibre descriptions.
 
-The end targets are the explicitly normalized comparison K₂(R)≃H₂(E(R);ℤ)≃π₂(BGL(R)⁺) and its product sign (Layers 1–4, 8), the identification of native K₂ᴹ(F) with the supplied Matsumoto presentation (Layer 7), the Bass–Tate sequence, Kato norms and integral Weil–Suslin reciprocity (Layer 10), localization and the integer and rational computations (Layers 11–12), the absolute and guarded relative Dennis–Stein presentations (Layer 13), and the local and Galois comparison formulas (Layer 14).
+The end targets are the explicitly normalized comparison K₂(R)≃H₂(E(R);ℤ)≃π₂(BGL(R)⁺) and its product sign (Layers 1–4, 8), the identification of native K₂ᴹ(F) with the supplied Matsumoto presentation (Layer 7), the Bass–Tate sequence, Kato norms and integral Weil–Suslin reciprocity (Layer 10), localization and the integer and rational computations (Layers 11–12), and the absolute and guarded relative Dennis–Stein presentations (Layer 13).
 
 ## Scope and ownership
 
-This roadmap owns the explicit bar and symbol normalization adapters, the finite-rank row, column and monomial refinements over the stated rings, the integer word calculation, native Milnor K-groups in all degrees, their residues, specializations and norms, and the comparisons and arithmetic applications in Layers 8–14. It consumes the generic universal central extension and Hopf machinery from StableHomotopyKTheory §3.29. It consumes finite and stable Steinberg groups, stable centrality and universality, classical K₂, field Steinberg pairings, Matsumoto's presentation and finite-field classical K₂ from AlgebraicKTheory A5. Neither general construction is repeated here.
+This roadmap owns the explicit bar and symbol normalization adapters, the finite-rank row, column and monomial refinements over the stated rings, the integer word calculation, native Milnor K-groups in all degrees, their residues, specializations and norms, and the comparisons and arithmetic applications in Layers 8–13. It consumes the generic universal central extension and Hopf machinery from StableHomotopyKTheory §3.29. It consumes finite and stable Steinberg groups, stable centrality and universality, classical K₂, field Steinberg pairings, Matsumoto's presentation and finite-field classical K₂ from AlgebraicKTheory A5. Neither general construction is repeated here. The comparison of these symbols with Galois cohomology and class field theory (the Galois symbol read through Kummer classes and cup products, trivialisation of twists by a primitive root, Brauer-valued and cyclic-algebra symbols, norm-residue and Hilbert symbols as Steinberg symbols and their local invariants, global reciprocity for symbols of a number field, the transported Tate comparisons and the degree-two étale Chern comparison) belongs to the downstream roadmap K2SymbolsBrauerPartII, a consumer of this roadmap; nothing here depends on it.
 
 ### Prerequisites and boundaries
 
-The supplying roadmaps [AlgebraicKTheory](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1142), [GeneralAlgebraicKTheory](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1212), [StableHomotopyKTheory](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1227) and [KTheoryLowDegrees](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1248) have the contracts below. MotivicEtaleKTheory supplies the finite-twist, étale and Tate interfaces used in Layer 14. These are supplying roadmap targets, not assertions that their carriers are already in the pinned Lean libraries.
+The supplying roadmaps [AlgebraicKTheory](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1142), [GeneralAlgebraicKTheory](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1212), [StableHomotopyKTheory](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1227) and [KTheoryLowDegrees](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1248) have the contracts below. These are supplying roadmap targets, not assertions that their carriers are already in the pinned Lean libraries.
 
 - **Stable matrices and classical K-theory.** AlgebraicKTheory A1–A2 own GL, E, elementary identities over arbitrary associative rings, Whitehead's lemma and K₁; A5 owns St and classical K₂. KTheoryLowDegrees §6.2 supplies the stable elementary centralizer calculation, and §§8.1, 13.1 supply the determinant and normalized K₁ comparisons. Its §13.2 supplies the quotient-root calculation and the signed comparison prism used by relative constructions. The associative-ring elementary identities are consumed from A1, including distant commutation and the reverse coefficient −ba.
 - **Higher K-theory.** GeneralAlgebraicKTheory supplies the ring K-space, plus/Q comparison, biexact products, transfers, localization, dévissage, resolution and homotopy-fibre relative K-theory. StableHomotopyKTheory supplies classifying spaces, plus constructions, the universal-extension foundation, homotopy fibres and their long exact sequences. Hurewicz, Whitehead and covering spaces come from AlgebraicTopology Stages 5 and 8. The extra multiplicative comparison and its explicit torus normalization are §8.1 here.
-- **Galois theory.** MotivicEtaleKTheory M.1, M.3 and M.8 supply twists, étale localization, the Galois symbol with its cohomological Steinberg relation, Tate's local/global/S-integer comparisons and the finite étale Chern maps. Its use of field Matsumoto theory can cite AlgebraicKTheory A5 directly; that theorem is not owned here. Its use of the native Milnor norm and residue calculus cites Layers 5, 9 and 10 here. The coefficient-change and symbol comparison maps in Layer 14 are additional targets.
-- **Arithmetic suppliers.** ClassicalArithmeticCompletion §§1.14, 1.15, 1.24, 1.25, 1.52 supplies local and global norm-residue symbols, their relations and product formula. ClassFieldTheory Layers 4–6, 10, 14 supplies Artin maps, Brauer groups and local invariants. QuadraticFormInvariants 6C, 6E, 7B supplies quadratic Hilbert symbols and Hasse invariants. ProfiniteCohomology Layers 6, 8, 9 supplies Kummer theory and cup products.
+- **Arithmetic suppliers.** ClassFieldTheory Layers 5–6 and 10–14 supply the local and global degree-two norm-residue pairings and their reciprocity, used in the Bass–Tate argument of §10.32. ClassicalArithmeticCompletion §1.1 supplies the explicit unit generators modulo 2^k used in §13.15.
 - **Curves and valuations.** AlgebraicCurves Layers 2 and 12 and the Tau Ceti `Place` API supply the function-field/place dictionary. EllipticCurves Layer 2 supplies elliptic-curve Weil reciprocity; LocalFieldsRamification Layer 1 supplies local-field units and filtrations. Normalized finite extensions of complete discrete valuations with arbitrary imperfect residues require the additional lattice statements §§10.15–10.18 here.
 - **Existing algebra.** Mathlib's `groupHomology` supplies integral group homology. Tau Ceti's `GroupExtension` and `FactorSet` APIs supply extensions with a fixed action, their cohomology classes and classification; central extensions use the trivial action. ReductiveGroups Layer 7 and RootSystems Layer 3 supply ordinary Bruhat and Coxeter facts. This package's finite-rank lifted monomial statements refine those facts inside St, rather than rebuilding a general BN-pair theory.
-- **Other directions.** ArithmeticKTheory owns certificates of explicit computations. K3BlochGroups owns further degree-three comparisons. MotivicEtaleKTheory owns norm-residue isomorphism theorems and higher motivic comparisons; Layer 14 transports its stated comparisons through the explicit maps here.
+- **Downstream directions.** Certificates of explicit computations, further degree-three comparisons, norm-residue isomorphism theorems and higher motivic comparisons are developed by downstream consumers of this roadmap, listed under Downstream consumers; none of that material is used here.
 
 ## Conventions
 
@@ -30,7 +29,7 @@ Steinberg symbols are {r, s} = [h_ij(r), h_ik(s)] with w_ij(r) = x_ij(r)x_ji(−
 
 For a discrete valuation v with uniformiser π and residue field k, the tame symbol is ∂_v{f, g} = (−1)^{v(f)v(g)} · (f^{v(g)}/g^{v(f)})‾, the bar applied to a unit, so ∂_v{u, π} = ū and ∂_v{π, u} = ū⁻¹; this is the inverse of the K-book's Lemma III.6.3 symbol. Higher residues are read with Π on the right, ∂_v{u₁, …, u_{n−1}, π} = {ū₁, …, ū_{n−1}}, and equal (−1)^{n−1} times the residue of Weibel's Theorem III.7.3. The localization boundary of K-theory is normalised by B₁[π] = 1 and the right module rule; in degree two det ∘ B ∘ (Matsumoto, product-normalized comparison θ₂♮) is the inverse of the tame symbol (§11.8), and every comparison square states which sign it uses.
 
-Norm-residue symbols use the arithmetic Frobenius normalisation of ClassFieldTheory; a primitive m-th root of unity is fixed only when a twist μ_m^{⊗j} is identified with ℤ/m, and the change-of-root rule is a target (§14.2). Sources are cited by theorem number and printed page; "Weibel" is the K-book (2013), whose printed page is the PDF page minus eight.
+The local and global norm-residue pairings used in §10.32 carry the arithmetic Frobenius normalisation of ClassFieldTheory; only properties insensitive to that normalisation enter (bimultiplicativity, the Steinberg relation, nondegeneracy and the product formula), so no sign of theirs is fixed here. Sources are cited by theorem number and printed page; "Weibel" is the K-book (2013), whose printed page is the PDF page minus eight.
 
 ## Exact supplier contracts
 
@@ -38,13 +37,13 @@ Norm-residue symbols use the arithmetic Frobenius normalisation of ClassFieldThe
 
 `PresentedGroup`, `FreeGroup`, `IsFreeGroup`, `commutatorElement`, `Subgroup.center`, `Group.IsPerfect`, `Abelianization`, `MonoidHom.eqLocus` and `DirectLimit` with its group structure (`DirectLimit.lift`, `DirectLimit.map`, `DirectLimit.exists_eq_mk₂`, `DirectLimit.setoid`) supply the presentations, centres and colimits of Layers 1–3; the group colimit is used as a carrier and its finite-representative equality is part of AlgebraicKTheory A5. `GroupExtension` with `inl_conjAct_comm` supplies extensions. `groupHomology`, `groupHomology.H1`, `groupHomology.H2`, `groupHomology.map`, `groupHomology.chainsMap`, `groupHomology.inhomogeneousChains`, `groupHomology.H1AddEquivOfIsTrivial`, `groupHomologyIso`, `CategoryTheory.ProjectiveResolution`, `ShortComplex.ShortExact.δ` with `homology_exact₁`–`homology_exact₃` and `HomologicalComplex.HomologySequence.δ_naturality` supply the homological algebra of Layer 1; `CharacterModule` supplies the Pontryagin-dual argument of StableHomotopyKTheory §3.29. `groupCohomology.H2` is the cohomology of the classification statement.
 
-`Matrix.GeneralLinearGroup.transvection`, `Matrix.det_permutation` and `Matrix.diag2_decompose` supply matrix identities over commutative rings. `TensorAlgebra` with `TensorAlgebra.gradedAlgebra`, `TensorAlgebra.equivDirectSum` and `TensorAlgebra.lift`, `TensorProduct.lift`, `Submodule.liftQ`, `TwoSidedIdeal`, `RingCon.mk'`, `RingQuot`, `PiTensorProduct.isEmptyEquiv`, `PiTensorProduct.subsingletonEquiv` and `TensorPower.mulEquiv` supply the presentations of Layer 5. `Valuation`, `ValuationSubring.unitGroup`, `ValuationSubring.unitGroupToResidueFieldUnits` (surjective, with kernel the principal units), `IsLocalRing.residue`, `IsLocalRing.ResidueField.map`, `IsDiscreteValuationRing`, `HenselianRing`, `IsDedekindDomain.HeightOneSpectrum` with `Support.finite`, `NumberField.RingOfIntegers`, `NumberField.InfinitePlace`, `Algebra.norm` with `Algebra.norm_norm`, `Ideal.sum_ramification_inertia_eq_finrank`, `Polynomial.modByMonic`, `Polynomial.resultant_eq_prod_eval`, `spectralNorm` with `spectralNorm_unique`, `KaehlerDifferential`, `DualNumber`, `TrivSqZeroExt`, `rootsOfUnity`, `IsPrimitiveRoot` and `modularCyclotomicCharacter` supply the valuation, number-field and coefficient carriers of Layers 9–14. `HomotopyGroup` represents π_n.
+`Matrix.GeneralLinearGroup.transvection`, `Matrix.det_permutation` and `Matrix.diag2_decompose` supply matrix identities over commutative rings. `TensorAlgebra` with `TensorAlgebra.gradedAlgebra`, `TensorAlgebra.equivDirectSum` and `TensorAlgebra.lift`, `TensorProduct.lift`, `Submodule.liftQ`, `TwoSidedIdeal`, `RingCon.mk'`, `RingQuot`, `PiTensorProduct.isEmptyEquiv`, `PiTensorProduct.subsingletonEquiv` and `TensorPower.mulEquiv` supply the presentations of Layer 5. `Valuation`, `ValuationSubring.unitGroup`, `ValuationSubring.unitGroupToResidueFieldUnits` (surjective, with kernel the principal units), `IsLocalRing.residue`, `IsLocalRing.ResidueField.map`, `IsDiscreteValuationRing`, `HenselianRing`, `IsDedekindDomain.HeightOneSpectrum` with `Support.finite`, `NumberField.RingOfIntegers`, `NumberField.InfinitePlace`, `Algebra.norm` with `Algebra.norm_norm`, `Ideal.sum_ramification_inertia_eq_finrank`, `Polynomial.modByMonic`, `Polynomial.resultant_eq_prod_eval`, `spectralNorm` with `spectralNorm_unique`, `KaehlerDifferential`, `DualNumber` and `TrivSqZeroExt` supply the valuation, number-field and coefficient carriers of Layers 9–13. `HomotopyGroup` represents π_n.
 
 ### From Tau Ceti
 
 `TauCeti.transvectionUnit` with `transvectionUnit_add`, `commute_transvectionUnit`, `commutatorElement_transvectionUnit` and `commutatorElement_transvectionUnit_reverse`, `TauCeti.diagGL`, `TauCeti.permutationGL` with `permutationGL_mul_diagGL_mul_inv`, `TauCeti.det_diagGL`, `Matrix.SpecialLinearGroup.diag2nUnit_decompose`, `TauCeti.upperUnitriangularGroup` with `UpperUnitriangularGroup.ext` and `UpperTriangularGroup.mem_diagonalTorus_of_mem` supply the matrix calculus over commutative rings. `TauCeti.GroupExtension.InducesAction`, `TauCeti.GroupExtension.conjAct_eq_one_of_le_center`, `TauCeti.FactorSet` with `inl_range_le_center`, `groupExtension`, `exists_cohomologyClass_eq`, `nonempty_splitting_iff_cohomologyClass_eq_zero` and `TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq` supply factor sets and the classification of extensions with a fixed action.
 
-`Valuation.ord` with `ord_mul`, `ord_zpow`, `ord_add_eq_min_of_ord_ne`, `isUnit_iff_ord_eq_zero`, `mem_maximalIdeal_iff_ord_pos`, `mem_valuationSubring_iff_ord_nonneg`, `valuation_eq_exp_neg_ord`, `exists_eq_zpow_mul_unit_of_surjective`, `exists_isUniformizer_of_surjective`, `isUniformizer_iff_ord_eq_one_of_surjective` and `nontrivial_valueGroup_of_surjective` supply orders and unit parts; `TauCeti.HenselianRing.exists_pow_eq_and_sub_one_mem_of_sub_one_mem` supplies roots of principal units. `TauCeti.Place` with `degree`, `restrict`, `normResidue`, `residueUnit`, `ratFuncEquiv`, `heightOneSpectrumEquiv`, `adicOfIrreducibleResidueFieldEquiv`, `inftyResidueFieldEquiv`, `ord_infty`, `isUniformizer_infty`, `finite_setOf_ord_ne_zero` and `sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable`, together with `TauCeti.Divisor.principal`, `Divisor.eval` and `Divisor.eval_eq_prod_normResidue`, supply places of function fields and divisor evaluation; `IsDedekindDomain.integerHeightOneSpectrumEquiv` and `WeierstrassCurve.Affine.isFunctionField` supply the integer and elliptic cases. `TauCeti.KummerCoeff`, `TauCeti.kummerMap` with `ker_kummerMap`, `kummerMap_eq_one_iff` and `kummerMap_eq_kummerCocycleClass`, and `TauCeti.ContCohomology.explicitCup11` with `explicitCup11_eq_neg_flip` supply Kummer classes and their cup product. `HomotopyGroup.mapHom`, `HomotopyGroup.mulEquivOfHomotopyEquiv` and `TauCeti.homotopyGroupTransport_map` supply based maps on homotopy groups. In the current library, newer than the pin, `NumberTheory/LocalField/UnitsDecomposition` gives the splitting of the units of a local field and `RingTheory/Norm/Quotient` gives the reduction of determinant norms.
+`Valuation.ord` with `ord_mul`, `ord_zpow`, `ord_add_eq_min_of_ord_ne`, `isUnit_iff_ord_eq_zero`, `mem_maximalIdeal_iff_ord_pos`, `mem_valuationSubring_iff_ord_nonneg`, `valuation_eq_exp_neg_ord`, `exists_eq_zpow_mul_unit_of_surjective`, `exists_isUniformizer_of_surjective`, `isUniformizer_iff_ord_eq_one_of_surjective` and `nontrivial_valueGroup_of_surjective` supply orders and unit parts; `TauCeti.HenselianRing.exists_pow_eq_and_sub_one_mem_of_sub_one_mem` supplies roots of principal units. `TauCeti.Place` with `degree`, `restrict`, `normResidue`, `residueUnit`, `ratFuncEquiv`, `heightOneSpectrumEquiv`, `adicOfIrreducibleResidueFieldEquiv`, `inftyResidueFieldEquiv`, `ord_infty`, `isUniformizer_infty`, `finite_setOf_ord_ne_zero` and `sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable`, together with `TauCeti.Divisor.principal`, `Divisor.eval` and `Divisor.eval_eq_prod_normResidue`, supply places of function fields and divisor evaluation; `IsDedekindDomain.integerHeightOneSpectrumEquiv` and `WeierstrassCurve.Affine.isFunctionField` supply the integer and elliptic cases. `HomotopyGroup.mapHom`, `HomotopyGroup.mulEquivOfHomotopyEquiv` and `TauCeti.homotopyGroupTransport_map` supply based maps on homotopy groups. In the current library, newer than the pin, `NumberTheory/LocalField/UnitsDecomposition` gives the splitting of the units of a local field and `RingTheory/Norm/Quotient` gives the reduction of determinant norms.
 
 ### From AlgebraicKTheory
 
@@ -62,17 +61,13 @@ A1: stable GL, E and all elementary relations for associative unital rings, stab
 
 §6.1: finite block refinements of AlgebraicKTheory A1's stable GL; §6.2: finite elementary perfectness and the stable centralizer calculation; §8.1: determinant and unit-class normalization; §13.1: K₁(R)≃π₁(BGL(R)⁺); §13.2: the quotient-root normal-closure theorem and the based signed comparison prism; §§13.3–13.5: congruence loops and relative degree-zero/one comparisons. Its Steinberg and K₂ carriers are the same AlgebraicKTheory A5 carriers.
 
-### From MotivicEtaleKTheory
-
-M.1: finite Tate twists μ_m^{⊗j}, étale cohomology of a field and of S-integers as Galois cohomology, étale Kummer sequences, the étale localization sequence of a Dedekind scheme; M.2: the degree-two comparison of localization sequences; M.3: the Galois symbol h_F with its cohomological Steinberg relation and residue compatibility, and Tate's theorems for local fields, global fields and rings of S-integers; M.8: the finite étale Chern maps.
-
 ### From other TauCetiRoadmap roadmaps
 
-ClassicalArithmeticCompletion Layer 1 (§1.1 units modulo 2^k, §1.14 and §1.15 local norm-residue symbols, §1.24 the symbol at a place, §1.25 its relations, §1.52 Hilbert's product formula of degree n); ClassFieldTheory Layers 4–6, 10 and 14 (`localSymbol`, `kummerCupPairing`, the local invariant, `h2MuToBr`, the Brauer sequence, `hilbertProductFormula`); QuadraticFormInvariants 6C, 6E, 7B; ProfiniteCohomology Layers 6, 8, 9; AlgebraicCurves Layers 2 and 12; EllipticCurves Layer 2; LocalFieldsRamification Layers 0 and 1; ReductiveGroups Layer 7; RepresentationTheory/RootSystems Layer 3; AlgebraicTopology Stages 5 and 8.
+ClassicalArithmeticCompletion Layer 1 (§1.1 units modulo 2^k); ClassFieldTheory Layers 5–6 and 10–14 (`localSymbol`, the local and global degree-two pairings, `hilbertProductFormula`); AlgebraicCurves Layers 2 and 12; EllipticCurves Layer 2; LocalFieldsRamification Layers 0 and 1; ReductiveGroups Layer 7; RepresentationTheory/RootSystems Layer 3; AlgebraicTopology Stages 5 and 8.
 
 ## How to read the build
 
-Layers 1–4 calibrate and refine supplied universal-extension and Steinberg constructions, retaining the finite-rank splitting theorem and the actual Hopf, Hurewicz and fibre routes. Layer 5 constructs native Milnor K-theory. Layer 6 gives the additional commuting-unit and finite-rank monomial calculus; Layer 7 identifies native degree two with the supplied Matsumoto presentation. Layer 8 fixes the Quillen product comparison and its numerical sign. Layers 9–11 develop Milnor residues and norms, integral reciprocity and their higher-K comparison. Layer 12 computes tame kernels and the integer and rational groups. Layer 13 develops Dennis–Stein symbols and relative presentations, and Layer 14 gives the arithmetic and Galois comparison maps.
+Layers 1–4 calibrate and refine supplied universal-extension and Steinberg constructions, retaining the finite-rank splitting theorem and the actual Hopf, Hurewicz and fibre routes. Layer 5 constructs native Milnor K-theory. Layer 6 gives the additional commuting-unit and finite-rank monomial calculus; Layer 7 identifies native degree two with the supplied Matsumoto presentation. Layer 8 fixes the Quillen product comparison and its numerical sign. Layers 9–11 develop Milnor residues and norms, integral reciprocity and their higher-K comparison. Layer 12 computes tame kernels and the integer and rational groups. Layer 13 develops Dennis–Stein symbols, the relative Steinberg group of the double, its comparison with the homotopy fibre, and the absolute and relative presentations.
 
 ## Layer 1: bar normalization of the supplied kernel equivalence
 
@@ -1226,7 +1221,7 @@ Layer 5; AlgebraicKTheory A5; GeneralAlgebraicKTheory §§3.2, 7.7.
 
 ## Layer 8: products and the graded map to Quillen K-theory
 
-The product θ₁[a]·θ₁[b] of two unit classes is θ₂({a,b}⁻¹) for the fixed bar/Hurewicz comparison θ₂ (so ε=−1); the graded ring map K_*ᴹ(F) → K_*(F) is built from products of unit classes, its degree-two component is Matsumoto's isomorphism followed by the sign-normalised comparison, and its degree-three component is handed to K3BlochGroups.
+The product θ₁[a]·θ₁[b] of two unit classes is θ₂({a,b}⁻¹) for the fixed bar/Hurewicz comparison θ₂ (so ε=−1); the graded ring map K_*ᴹ(F) → K_*(F) is built from products of unit classes, its degree-two component is Matsumoto's isomorphism followed by the sign-normalised comparison, and its degree-three component is passed to the downstream consumer K3BlochGroups.
 
 ### 8.1 The product of two unit classes and its numerical sign
 
@@ -1301,7 +1296,7 @@ F is a commutative field; every symbol entry is a unit. The degree-(1,1) compari
 
 ### 8.4 The degree-three component
 
-The degree-three component K3^M(F)->Quillen K3(F) sends {a,b,c} to the ordered product of their unit classes. K3BlochGroups owns its injectivity theorem and the indecomposable cokernel; it uses this component, which is constructed without it. (Weibel, IV.1.10.1, p. 266, and VI.4.3.2, p. 482.)
+The degree-three component K3^M(F)->Quillen K3(F) sends {a,b,c} to the ordered product of their unit classes. Its injectivity theorem and the indecomposable cokernel are developed downstream by the consumer K3BlochGroups; the component is constructed here without them. (Weibel, IV.1.10.1, p. 266, and VI.4.3.2, p. 482.)
 
 **Checks.**
 
@@ -2144,7 +2139,7 @@ E/F is a finite field extension.
 - In degree one N_{E/F} is Algebra.norm F and transitivity is the Algebra.norm_norm.
 - For a simple extension N_{E/F} = N_{a/F} for every generator a, which is not part of the definition of §10.6.
 - Independence is a theorem: the reduction to towers of prime degree and the comparison of two towers are its substance.
-- Kato's independence of the chain of generators is stated here, not assumed; MotivicEtaleKTheory M.4 uses the norm with this independence.
+- Kato's independence of the chain of generators is stated here, not assumed; the downstream consumer MotivicEtaleKTheory (its M.4) uses the norm with this independence.
 
 *Needs:* §10.6; §10.7; §10.11; §10.12; §10.14; §10.22; Mathlib `Algebra.norm_norm`.
 
@@ -2260,7 +2255,7 @@ X is integral, proper (hence projective, Layer 12B), regular and of dimension on
 
 ### 10.29 Suslin's reciprocity law: Weil reciprocity in every degree for a proper curve over any field
 
-Let F be any field and K a function field of one variable over F (IsFunctionField F K), for instance the function field of a proper integral curve C over F. The places P of K/F are the closed points of the normalisation of C, which is the regular proper model of K/F (§10.28, importing AlgebraicCurves Layer 12); it is regular but need not be smooth over F when F is imperfect, and each residue field k(P) is a finite extension of F, possibly inseparable. For x ∈ K^M_{n+1}(K) the residue ∂_P(x) vanishes at all but finitely many places P, and Σ_P N_{k(P)/F} ∂_P(x) = 0 in K^M_n(F), where ∂_P is the higher residue of §9.11 and N_{k(P)/F} is Kato's Milnor norm (§10.24), defined for every finite extension, separable or not. This is Suslin's reciprocity law in all degrees; its degree-two form with the roadmap's tame symbol and field norms is §10.30. It is stated over places (equivalently over the closed points of the regular model), never over the points of a possibly singular C and never under a smoothness hypothesis. MotivicEtaleKTheory M.4 uses it, with the norms of this layer, for the Nesterenko–Suslin/Totaro comparison of Milnor K-theory with the diagonal higher Chow groups. (Weibel, V.6.12.1, Weil Reciprocity Formula 6.12.1, p. 416; Weibel, V.6.12, the paragraph before 6.12.1, p. 416; Weibel, III.7.5.1, Weil Reciprocity Formula 7.5.1, p. 248; Weibel, III.7.6.1, Theorem 7.6.1, p. 249; Gille–Szamuely, Corollary 7.4.3 and Proposition 7.4.4, pp. 205–206; Stacks, Tags 032N, 032L and 032O.)
+Let F be any field and K a function field of one variable over F (IsFunctionField F K), for instance the function field of a proper integral curve C over F. The places P of K/F are the closed points of the normalisation of C, which is the regular proper model of K/F (§10.28, importing AlgebraicCurves Layer 12); it is regular but need not be smooth over F when F is imperfect, and each residue field k(P) is a finite extension of F, possibly inseparable. For x ∈ K^M_{n+1}(K) the residue ∂_P(x) vanishes at all but finitely many places P, and Σ_P N_{k(P)/F} ∂_P(x) = 0 in K^M_n(F), where ∂_P is the higher residue of §9.11 and N_{k(P)/F} is Kato's Milnor norm (§10.24), defined for every finite extension, separable or not. This is Suslin's reciprocity law in all degrees; its degree-two form with the roadmap's tame symbol and field norms is §10.30. It is stated over places (equivalently over the closed points of the regular model), never over the points of a possibly singular C and never under a smoothness hypothesis. The downstream consumer MotivicEtaleKTheory (its M.4) uses it, with the norms of this layer, for the Nesterenko–Suslin/Totaro comparison of Milnor K-theory with the diagonal higher Chow groups. (Weibel, V.6.12.1, Weil Reciprocity Formula 6.12.1, p. 416; Weibel, V.6.12, the paragraph before 6.12.1, p. 416; Weibel, III.7.5.1, Weil Reciprocity Formula 7.5.1, p. 248; Weibel, III.7.6.1, Theorem 7.6.1, p. 249; Gille–Szamuely, Corollary 7.4.3 and Proposition 7.4.4, pp. 205–206; Stacks, Tags 032N, 032L and 032O.)
 
 F is a field, of any characteristic and not necessarily perfect, and K/F is a function field of one variable; residues are normalised as in §9.11. The sum is over the places of K/F, the closed points of the regular proper model (the normalisation of any proper model); no smoothness over F is assumed, and the residue extensions k(P)/F may be inseparable.
 
@@ -2270,7 +2265,7 @@ F is a field, of any characteristic and not necessarily perfect, and K/F is a fu
 - In degree one (n = 0) it says that a principal divisor has degree zero, Σ_P deg(P)·ord_P(f) = 0, the Tau Ceti product formula TauCeti.Divisor.degree_principal.
 - Inseparable residue fields occur and need Kato's norm: for F = 𝔽_p(s) and K = F(s^{1/p})(t), every place of K/F has residue field containing F(s^{1/p}), purely inseparable of degree p over F, and in degree one N_{F(s^{1/p})/F}(α) = α^p.
 - Only finitely many terms are nonzero.
-- Consumers: EllipticKTheory E.2 and EllipticRegulators use the degree-two form to construct and descend regulator classes; HigherLocalFields HL.6 uses the relation along a curve; MotivicEtaleKTheory M.4 uses it in every degree to kill the boundaries in the inverse of the diagonal cycle map (edge Layer 10 → M.4).
+- Downstream consumers: EllipticKTheory E.2 and EllipticRegulators use the degree-two form to construct and descend regulator classes; HigherLocalFields HL.6 uses the relation along a curve; MotivicEtaleKTheory M.4 uses it in every degree to kill the boundaries in the inverse of the diagonal cycle map (edge Layer 10 → M.4).
 - Mixed test: k=F₃(s), K=k(s^(1/3))(u), t=u². K/k(t) has inseparable degree 3 and separable degree 2, hence total degree 6; normalization is k(s^(1/3))[u], finite over k[t]. This test is neither a separable extension nor a purely inseparable extension.
 
 *Needs:* §9.11; §9.13; §10.10; §10.24; §10.27; §10.28; Tau Ceti `TauCeti.Place.restrict`; Tau Ceti `TauCeti.Place.finite_setOf_restrict_eq`; Tau Ceti `TauCeti.Place.finite_setOf_ord_ne_zero`; Tau Ceti `TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable`; Tau Ceti `TauCeti.IsIntegralClosure.finite_mvPolynomial_of_isPurelyInseparable`; AlgebraicCurves Layer 2.
@@ -2375,7 +2370,7 @@ The tame symbol is the boundary of the localization sequence of a discrete valua
 
 ### 11.1 Identification with the boundary of the localisation sequence
 
-Let R be a discrete valuation ring with fraction field F, residue field k and uniformiser π, and let ∂ : K_2(F) → K_1(k) = k^× be the boundary of the localisation sequence ⋯ → K_2(R) → K_2(F) → K_1(k) → K_1(R) → K_1(F) → K_0(k) → ⋯ (GeneralAlgebraicKTheory Layers 4 and 8: localisation for the torsion modules, dévissage, resolution). With the K-book's normalisation — ∂ right K_*(R)-linear, ∂(x·y) = ∂(x)·ȳ for y ∈ K_*(R) (GeneralAlgebraicKTheory Layers 4 and 8/localization-product-boundary, on GeneralAlgebraicKTheory Layer 7's products), and ∂[π] = [R/πR] = 1 ∈ K_0(k) — one has, on symbols (through K^M_2(F) → K_2(F)), ∂{f,g} = tameSymbol v g f = (tameSymbol v f g)^{−1}: the boundary is the K-book's tame symbol of Lemma III.6.3, the inverse of this roadmap's. With the left-linear normalisation ∂(y·x) = ȳ·∂(x) instead, ∂{f,g} = tameSymbol v f g. Both are stated and the sign is fixed here, not in the symbol formula. It builds no localisation sequence; SchemeKTheoryOperations and EllipticKTheory use this comparison, and §11.2 extends it to a Dedekind domain, prime by prime. (Weibel, V.6.6.1, p. 409; Weibel, V.6.6.1, proof, p. 409; Weibel, Example V.6.1.2, p. 406.)
+Let R be a discrete valuation ring with fraction field F, residue field k and uniformiser π, and let ∂ : K_2(F) → K_1(k) = k^× be the boundary of the localisation sequence ⋯ → K_2(R) → K_2(F) → K_1(k) → K_1(R) → K_1(F) → K_0(k) → ⋯ (GeneralAlgebraicKTheory Layers 4 and 8: localisation for the torsion modules, dévissage, resolution). With the K-book's normalisation — ∂ right K_*(R)-linear, ∂(x·y) = ∂(x)·ȳ for y ∈ K_*(R) (GeneralAlgebraicKTheory Layers 4 and 8/localization-product-boundary, on GeneralAlgebraicKTheory Layer 7's products), and ∂[π] = [R/πR] = 1 ∈ K_0(k) — one has, on symbols (through K^M_2(F) → K_2(F)), ∂{f,g} = tameSymbol v g f = (tameSymbol v f g)^{−1}: the boundary is the K-book's tame symbol of Lemma III.6.3, the inverse of this roadmap's. With the left-linear normalisation ∂(y·x) = ȳ·∂(x) instead, ∂{f,g} = tameSymbol v f g. Both are stated and the sign is fixed here, not in the symbol formula. It builds no localisation sequence; the downstream consumers SchemeKTheoryOperations and EllipticKTheory use this comparison, and §11.2 extends it to a Dedekind domain, prime by prime. (Weibel, V.6.6.1, p. 409; Weibel, V.6.6.1, proof, p. 409; Weibel, Example V.6.1.2, p. 406.)
 
 R is a discrete valuation ring with fraction field F, residue field k, uniformiser π and valuation v. The localisation sequence and the K_*(R)-module structure of its terms are those of GeneralAlgebraicKTheory Layers 4 and 8 and GeneralAlgebraicKTheory Layer 7, with the side of the action fixed.
 
@@ -2385,7 +2380,7 @@ R is a discrete valuation ring with fraction field F, residue field k, uniformis
 - ∂{π, π} = −1 in both normalisations.
 - Degree one: ∂[f] = ord_v(f)·[k], the valuation; this normalisation is the upstream GeneralAlgebraicKTheory Layers 4 and 8 ring boundary contract.
 - No second localisation sequence is built.
-- The degree-one input is the GeneralAlgebraicKTheory Layers 4 and 8 ring cone/cokernel boundary (GeneralAlgebraicKTheory Layers 4 and 8/localization-degree-one-index and GeneralAlgebraicKTheory Layers 4 and 8/dvr-degree-one-boundary); the RIGHT module action is GeneralAlgebraicKTheory Layers 4 and 8/localization-product-boundary on GeneralAlgebraicKTheory Layer 7's products. Neither input comes from SchemeKTheoryOperations.
+- The degree-one input is the GeneralAlgebraicKTheory Layers 4 and 8 ring cone/cokernel boundary (GeneralAlgebraicKTheory Layers 4 and 8/localization-degree-one-index and GeneralAlgebraicKTheory Layers 4 and 8/dvr-degree-one-boundary); the RIGHT module action is GeneralAlgebraicKTheory Layers 4 and 8/localization-product-boundary on GeneralAlgebraicKTheory Layer 7's products. Neither input comes from SchemeKTheoryOperations, which is a downstream consumer.
 
 *Needs:* §7.2; §8.2; §9.5; GeneralAlgebraicKTheory §8.12; GeneralAlgebraicKTheory §§8.11–8.12; GeneralAlgebraicKTheory §8.13; GeneralAlgebraicKTheory Layer 7.
 
@@ -2400,7 +2395,7 @@ R is a Dedekind domain with fraction field F; 𝔭 runs over the nonzero primes 
 - For R = ℤ the segment is ⊕_p K_2(𝔽_p) → K_2(ℤ) → K_2(ℚ) → ⊕_p 𝔽_p^× → K_1(ℤ) → K_1(ℚ); in the K-book's normalisation ∂{5, 2} has 5-component 2, where Layers 9–11's tameSymbol gives 3.
 - For a discrete valuation ring (one prime) it is the degree-two part of the sequence in §11.1.
 - coker ∂ is not zero in general: for the Dedekind domain ℝ[x, y]/(x² + y² − 1) it is the nonzero SK_1 of K-book Example III.1.5.4, although every tame symbol is onto.
-- No second localisation sequence is built: ArithmeticKTheory N.2's all-degree Dedekind sequence restricts in degrees at most two to this one.
+- No second localisation sequence is built: the all-degree Dedekind sequence of the downstream consumer ArithmeticKTheory (its N.2) restricts in degrees at most two to this one.
 
 *Needs:* §4.1; §9.13; §11.1; GeneralAlgebraicKTheory §4.14; GeneralAlgebraicKTheory §4.8; GeneralAlgebraicKTheory §4.6; GeneralAlgebraicKTheory §7.7; Mathlib `IsDedekindDomain.HeightOneSpectrum`; GeneralAlgebraicKTheory Layers 4, 7 and 8.
 
@@ -2567,7 +2562,7 @@ F is a number field and S a finite set of nonzero primes of O_F. K_2 is the clas
 
 ### 12.3 The tame-kernel exact sequence for the ring of integers
 
-For a number field F with ring of integers O_F the sequence 0 → K_2(O_F) → K_2(F) −⊕∂_𝔭→ ⊕_𝔭 k(𝔭)^× → 0 is exact, the sum over all nonzero primes of O_F and the third map the residue sum of the tame symbols (sign fixed in §11.1): K_2(O_F) → K_2(F) is injective with image the unramified subgroup of §12.1, and the residue sum is onto. It is the case S = ∅ of §12.2: injectivity from K_2(k(𝔭)) = 0, surjectivity from SK_1(O_F) = 0 through the Dedekind localisation sequence (§11.2 and KTheoryLowDegrees Layers 10–11). ArithmeticKTheory specialises its all-degree localisation sequence to this one; this layer does not use ArithmeticKTheory. Surjectivity does not follow from the surjectivity of the individual tame symbols. (Weibel, III.6.5, Localization Theorem 6.5, p. 236; Weibel, V.6.8, Theorem 6.8, p. 412; Weibel, V.6.8, proof of Theorem 6.8, p. 412; Weibel, III.1.5.4, Example 1.5.4, p. 185.)
+For a number field F with ring of integers O_F the sequence 0 → K_2(O_F) → K_2(F) −⊕∂_𝔭→ ⊕_𝔭 k(𝔭)^× → 0 is exact, the sum over all nonzero primes of O_F and the third map the residue sum of the tame symbols (sign fixed in §11.1): K_2(O_F) → K_2(F) is injective with image the unramified subgroup of §12.1, and the residue sum is onto. It is the case S = ∅ of §12.2: injectivity from K_2(k(𝔭)) = 0, surjectivity from SK_1(O_F) = 0 through the Dedekind localisation sequence (§11.2 and KTheoryLowDegrees Layers 10–11). The downstream consumer ArithmeticKTheory specialises its all-degree localisation sequence to this one; this layer does not use it. Surjectivity does not follow from the surjectivity of the individual tame symbols. (Weibel, III.6.5, Localization Theorem 6.5, p. 236; Weibel, V.6.8, Theorem 6.8, p. 412; Weibel, V.6.8, proof of Theorem 6.8, p. 412; Weibel, III.1.5.4, Example 1.5.4, p. 185.)
 
 F is a number field; 𝔭 runs over the nonzero primes of O_F and k(𝔭) = O_F/𝔭. K_2 is the classical group of Layers 1–4, identified with Quillen's K_2 by §4.1.
 
@@ -2587,9 +2582,9 @@ F is a number field and S a finite set of nonzero primes of O_F.
 
 **Checks.**
 
-- For F = ℚ and S = {p}: 0 → K_2(ℤ) → K_2(ℤ[1/p]) → 𝔽_p^× → 0, so K_2(ℤ[1/p]) has order 2(p − 1); ArithmeticKTheory uses this sequence.
+- For F = ℚ and S = {p}: 0 → K_2(ℤ) → K_2(ℤ[1/p]) → 𝔽_p^× → 0, so K_2(ℤ[1/p]) has order 2(p − 1); the downstream consumer ArithmeticKTheory uses this sequence.
 - Indexing: the residues are at the primes in S; for S = ∅ the sequence is the identity of K_2(O_F).
-- The order formula #K_2(O_{F,S}) = #K_2(O_F)·∏_{v∈S}(Nv − 1) that SpecialValuesBirchTate B.7 consumes follows because #k(𝔭)^× = N𝔭 − 1.
+- The order formula #K_2(O_{F,S}) = #K_2(O_F)·∏_{v∈S}(Nv − 1) that the downstream consumer SpecialValuesBirchTate (its B.7) uses follows because #k(𝔭)^× = N𝔭 − 1.
 
 *Needs:* §12.1; §12.2; §12.3; Mathlib `Set.integer`.
 
@@ -2722,13 +2717,13 @@ K_2 is the classical K_2 of Layers 1–4; {−1, −1} is the Steinberg symbol o
 
 - {−1, −1} ≠ 1 in K_2(ℤ), while {−1, −1}² = 1.
 - A real place is one way, not the only way, to detect {−1, −1}: in K_2(ℤ[i]) it vanishes ({−1, −1} = {i, −1}² = 1), yet K_2(ℤ[√−7]) is cyclic of order two generated by {−1, −1} although ℚ(√−7) has no real place (Tate, cited in III.5.2.2).
-- In the certificate format of ArithmeticKTheory N.6, which owns certificates: one generator {−1, −1}, the relation 2g = 0, span by §12.9 and lower bound the real sign symbol; ArithmeticKTheory records that certificate and uses this target.
+- In the certificate format of the downstream consumer ArithmeticKTheory (its N.6, which owns certificates): one generator {−1, −1}, the relation 2g = 0, span by §12.9 and lower bound the real sign symbol; that consumer records the certificate and uses this target.
 
 *Needs:* AlgebraicKTheory A5; §6.4; §12.5; §12.9.
 
 ### 12.11 K_2 of the rationals (Application III.6.5.1)
 
-The residue sum of the tame symbols gives a split exact sequence 1 → K_2(ℤ) → K_2(ℚ) → ⊕_p 𝔽_p^× → 1, split by the real sign symbol through the isomorphism K_2(ℤ) ≅ {±1} of §12.10; hence K_2(ℚ) ≅ K_2(ℤ) ⊕ ⊕_p 𝔽_p^× ≅ ℤ/2 ⊕ ⊕_{p odd} 𝔽_p^× (𝔽_2^× being trivial), and K_2(ℚ) is infinite. ArithmeticKTheory uses this computation rather than repeating it. (Weibel, III.6.5.1, Application 6.5.1, p. 236.)
+The residue sum of the tame symbols gives a split exact sequence 1 → K_2(ℤ) → K_2(ℚ) → ⊕_p 𝔽_p^× → 1, split by the real sign symbol through the isomorphism K_2(ℤ) ≅ {±1} of §12.10; hence K_2(ℚ) ≅ K_2(ℤ) ⊕ ⊕_p 𝔽_p^× ≅ ℤ/2 ⊕ ⊕_{p odd} 𝔽_p^× (𝔽_2^× being trivial), and K_2(ℚ) is infinite. The downstream consumer ArithmeticKTheory uses this computation rather than repeating it. (Weibel, III.6.5.1, Application 6.5.1, p. 236.)
 
 p runs over all primes (𝔽_2^× is trivial); exactness is the tame-kernel sequence for ℚ, which uses K_2(ℤ/p) = 1 and SK_1(ℤ) = 1.
 
@@ -2736,7 +2731,7 @@ p runs over all primes (𝔽_2^× is trivial); exactness is the tame-kernel sequ
 
 - {2, 3} is not in the image of K_2(ℤ): its tame symbol at 3 is −1 ≠ 1 in 𝔽_3^×.
 - For an odd prime p, {−1, p} maps to the element −1 of 𝔽_p^× in the p-component and to 1 elsewhere.
-- K_2(ℚ) is infinite while K_2(ℤ) has order two, the check ArithmeticKTheory N.8 asks for; the splitting uses the real place, and (p, q)_∞ = 1 for positive p, q.
+- K_2(ℚ) is infinite while K_2(ℤ) has order two, the check the downstream consumer ArithmeticKTheory (its N.8) asks for; the splitting uses the real place, and (p, q)_∞ = 1 for positive p, q.
 
 *Needs:* AlgebraicKTheory A5; §12.3; §12.5; §12.10; KTheoryLowDegrees Layers 10–11.
 
@@ -2910,7 +2905,7 @@ R and S are commutative; the isomorphism modulo Jacobson radicals is induced by 
 - ℤ_(2)→ℤ/4 and ℤ_(3)→ℤ/9 satisfy the hypothesis, because the residue rings are 𝔽₂ and 𝔽₃.
 - ℤ_(2)→𝔽₄ fails it (the residue map 𝔽₂→𝔽₄ is not onto), and ℤ→ℤ/4 fails it (ℤ/Jac(ℤ)=ℤ). The rings 𝔽₄ and ℤ/4 are treated by §13.5 and by the transfer from ℤ_(2) respectively.
 
-**Base case ℤ_(p).** For p=2 and p=3 the generator map D(ℤ_(p))→K₂(ℤ_(p)) is an isomorphism. This is the discrete-valuation-ring case of the Dennis–Stein presentation. **Proof input not obtained:** Dennis–Stein, *K₂ of discrete valuation rings*, Adv. Math. 18 (1975), 182–238, the presentation for discrete valuation rings cited as [2] on p.934 of van der Kallen–Maazen–Stienstra; its full text was not accessible. The characteristic-p cases above do not use this input.
+**Base case ℤ_(p).** For p=2 and p=3 the generator map D(ℤ_(p))→K₂(ℤ_(p)) is an isomorphism. This is the discrete-valuation-ring case of the Dennis–Stein presentation. The input consumed is Dennis–Stein 1975, Theorems 2.3 and 2.5: for a discrete valuation ring A, or any homomorphic image of one, and 3≤n≤∞, K₂(n,A) is presented by the Steinberg symbols {u,v} of units subject to the identities (S1)–(S7) of the Dennis–Stein survey, §9(a), read in the symbol convention of §6.4. Transport to D(A) is an own reduction. Put ψ{u,v}=D(u,u⁻¹(1−v)). A symbol D(r,s) with r a unit is ψ{r,1−rs}, and one with s a unit reduces to that case by D1. If r and s both lie in the maximal ideal, D2 with t=1 and D(r,1)=0 (§13.2) give D(r,s)=D(r,1+s−rs), whose second entry is a unit. So D(A) is generated by the ψ-images, and ψ is inverse to the generator map once (S1)–(S7) hold for the ψ-images in D(A). Two of them are immediate: (S1) in the second variable is D2, because u⁻¹(1−v)+u⁻¹(1−w)−u·u⁻¹(1−v)·u⁻¹(1−w)=u⁻¹(1−vw), and (S4) is D(u,1)=0. Van der Kallen–Maazen–Stienstra state that D1–D3 and the survey's §9 relations imply each other. **Gap (proof not decomposed):** the proofs of Dennis–Stein 1975, Theorems 2.3 and 2.5, and the derivation of the remaining identities for the ψ-images from D1–D3, which the announcement states without proof; the survey refers the identities (S5)–(S7) to §1 of Dennis–Stein 1975. The characteristic-p cases above do not use this input. (Dennis–Stein, *K₂ of discrete valuation rings*, Adv. Math. 18 (1975), 182–238, as recorded in Dennis–Stein survey, §12, pp.253–254, with the identities on p.249; van der Kallen–Maazen–Stienstra, §2.2, p.934.)
 
 ℤ_(p) is the localization of ℤ at (p); its residue field 𝔽_p has fewer than four elements, so §13.5 does not apply.
 
@@ -2949,7 +2944,7 @@ Provide the following API.
 
 *Needs:* AlgebraicKTheory A5; §13.1; KTheoryLowDegrees Layers 9 and 13; GeneralAlgebraicKTheory Layer 8.
 
-**The double-ring description of relative K₂.** For every unital ring R and two-sided ideal I, write B = R ⊕ I for the double and J = 0 ⊕ I = ker(pr). The ring map (a, x) ↦ (a, a + x) embeds B in R × R, so a matrix over B is the identity exactly when its pr- and add-images are. Hence an element y of St′(R, I) lies in K₂(B) exactly when add(y) maps to 1 in E(R). Put K₂′(R, I) = ker(K₂(pr) : K₂(B) → K₂(R)), and let C be the subgroup generated by the cross-commutators. The cross-commutators lie in K₂(B), which is central in St(B), so the normal subgroup they generate is C. Therefore K₂(R, I) = K₂′(R, I)/C, the forgetful map K₂(R, I) → K₂(R) is induced by K₂(add), and K₂(B) = K₂(R) ⊕ K₂′(R, I) because pr is split by a ↦ (a, 0). (Own argument from Weibel, Definition III.5.7, p. 222, and AlgebraicKTheory A5's stable centrality.)
+**The double-ring description of relative K₂.** For every unital ring R and two-sided ideal I, write B = R ⊕ I for the double and J = 0 ⊕ I = ker(pr). The ring map (a, x) ↦ (a, a + x) embeds B in R × R, so a matrix over B is the identity exactly when its pr- and add-images are. Hence an element y of St′(R, I) lies in K₂(B) exactly when add(y) maps to 1 in E(R). Put K₂′(R, I) = ker(K₂(pr) : K₂(B) → K₂(R)), and let C be the subgroup generated by the cross-commutators. The cross-commutators lie in K₂(B), which is central in St(B), so the normal subgroup they generate is C. Therefore K₂(R, I) = K₂′(R, I)/C, the forgetful map K₂(R, I) → K₂(R) is induced by K₂(add), and K₂(B) = K₂(R) ⊕ K₂′(R, I) because pr is split by a ↦ (a, 0). (Own argument from Weibel, Definition III.5.7, p. 222, and AlgebraicKTheory A5's stable centrality. For commutative R whose double has many units, van der Kallen 1989, §6, p.512, records the symbol form of this description and attributes it to Keune: K₂(R, I) is K₂ of the double modulo the diagonal symbols and the symbols between the two kernels' unit groups.)
 
 R is associative and unital and I is two-sided; no commutativity and no radical hypothesis is used.
 
@@ -2965,6 +2960,7 @@ Provide the following API.
 - For I = 0, B ≅ R, K₂′(R, 0) = 0 and C = 1.
 - For I = R, the embedding identifies B with R × R, J with 0 × R and the cross elements (v, −v) with (v, 0). St(R × R) = St(R) × St(R) makes every cross-commutator trivial, and K₂(R, R) = K₂′(R, R) = 0 × K₂(R) ≅ K₂(R).
 - The embedding test fails for the first coordinate alone: x₁₂(0, u) has trivial pr-image but is not in K₂(B) for u ≠ 0, since its add-image e₁₂(u) is not the identity.
+- Dictionary with the symbol form (van der Kallen 1989, §6, p.512), for commutative R: under (a, x) ↦ (a, a + x) the section a ↦ (a, 0) becomes the diagonal r ↦ (r, r), the units 1 + K become the pairs (r, 1) and the units 1 + J the pairs (1, s), with r, s ∈ 1 + I. For k ∈ K and j ∈ J one has kj = 0 and 1 + k + j = (1 + k)(1 + j), so with s = −j(1 + k)⁻¹ ∈ J the unit formula of §13.1, D2 in the first variable (through D1) and D(1, s) = {1, 1 − s} = 0 give {1 + k, 1 + j} = D(1 + k, s) = D(k, s), a cross symbol. So killing the symbols {(r, 1), (1, s)} is the quotient by C, and, when K₂(R) is generated by Steinberg symbols (as in the many-units setting of the source), killing the diagonal symbols removes the summand K₂(R); killing only one of the two families leaves K₂′(R, I) or K₂(B)/C instead.
 
 *Needs:* AlgebraicKTheory A5; KTheoryLowDegrees §9.1.
 
@@ -3031,7 +3027,7 @@ A is associative and unital, I is two-sided; the ring ℤ[a,b]/(ab) maps to A⋉
 
 *Needs:* §13.7; §4.5; GeneralAlgebraicKTheory §8.1.
 
-**Double excision in degree two.** For every unital A and two-sided I, the map q_*:π₂K(A⋉I,J)→π₂K(A,I) is onto, and its kernel is generated by the cross classes. Equivalently, Φ is bijective. This is the degree-two case of excision for the double square: the birelative fibre of A⋉I over its two ideals J and K has vanishing π₁, and its π₂ maps onto the subgroup generated by the classes D(j,k), j∈J, k∈K. GeneralAlgebraicKTheory §10.12 supplies the analogous statement only in degrees at most one. **Proof input not obtained:** Keune, *The relativization of K₂*, J. Algebra 54 (1978), 159–177, and Loday, *Cohomologie et groupe de Steinberg relatifs*, ibid., 178–202; the K-book records the result without proof (Weibel, IV.1.11, p. 268), and van der Kallen 1978, §1, p.307, states the compatibility. The split radical case above does not use this input; the boundary comparisons of RefinedTraceMethods for k[ε] and k[t]/(tⁿ) are split radical.
+**Double excision in degree two.** For every unital A and two-sided I, the map q_*:π₂K(A⋉I,J)→π₂K(A,I) is onto, and its kernel is generated by the cross classes. Equivalently, Φ is bijective. This is the degree-two case of excision for the double square: the birelative fibre of A⋉I over its two ideals J and K has vanishing π₁, and its π₂ maps onto the subgroup generated by the classes D(j,k), j∈J, k∈K. GeneralAlgebraicKTheory §10.12 supplies the analogous statement only in degrees at most one. **Gap (proof not decomposed):** Keune, *The relativization of K₂*, J. Algebra 54 (1978), 159–177, and Loday, *Cohomologie et groupe de Steinberg relatifs*, ibid., 178–202; the K-book records the result without proof (Weibel, IV.1.11, p. 268), and van der Kallen 1978, §1, p.307, states the compatibility. The split radical case above does not use this input. The rings k[ε] and k[t]/(tⁿ), at which the downstream consumer RefinedTraceMethods compares boundary maps, are split radical, so that consumer needs only the split case.
 
 A is associative and unital; I is two-sided. J=ker(p) and K=ker(q) satisfy J∩K=0 and JK=KJ=0.
 
@@ -3040,6 +3036,7 @@ A is associative and unital; I is two-sided. J=ker(p) and K=ker(q) satisfy J∩K
 - For I=0 and for I=A both maps are isomorphisms with trivial kernel, matching C=1 in both cases (§13.7).
 - In degree one the corresponding map is an isomorphism (KTheoryLowDegrees §13.5). In degree two q_* kills every cross class, so the statement is a description of the kernel, not injectivity; a proof that ends with injectivity of q_* proves too much whenever a cross class is nonzero.
 - Surjectivity is the part that sees K₃(A/I): for split pairs q∘ψ=id makes it automatic, while for ℤ/4→𝔽₂ it must account for the image of K₃(𝔽₂)≅ℤ/3.
+- Degree-two excision is not an injectivity statement, even for an ideal N with N = N², the condition for absolute excision in degree one (Weibel, IV.1.11.1, p.268): van der Kallen 1984, §2, p.176, gives a commutative ring R, a direct limit of the rings ℤ[T,ε]/(T^(2^r),ε²), with such an ideal N, for which K₂(ℤ⊕N, N) → K₂(R, N) is not injective; the kernel element is a product of two relative symbols, detected by a Chern class into Ω². A double-excision proof must therefore produce the cross-class description of the kernel, not a vanishing statement.
 
 *Needs:* §13.7; GeneralAlgebraicKTheory §§8.1, 10.12; KTheoryLowDegrees §13.5.
 
@@ -3096,7 +3093,7 @@ R is commutative and I⊆Jac(R). The radical hypothesis is used for J⊆Jac(B), 
 
 *Needs:* §13.1; §13.2; §13.7; Mathlib `Ideal.jacobson`.
 
-**Reduction of the presentation to the double.** Let R be commutative, I⊆Jac(R), B=R⊕I, J=0⊕I and K=ker(q), so that J⊆Jac(B), J∩K=0 and JK=0. Let C_D be the subgroup of D(B,J) generated by the pairs ((0,u),(v,−v)), u,v∈I. The map α:D(B,J)→D(R,I) induced by q kills C_D, since its image of a cross pair is D(u,0)=0. Define β:D(R,I)→D(B,J)/C_D by β⟨r,s⟩=D((r,0),(0,s)) for s∈I and β⟨r,s⟩=D((0,r),(s,0)) for r∈I. Then β is well defined and inverse to the map ᾱ induced by α. The key identity is D(j,x+k)=D(j,x)+D(j,k) for j∈J, k∈K and any x, which is D2 because jxk=0. It shows that the two values of β agree modulo C_D when r,s∈I. For D2 with r∈I, the lifted relation produces (s+t,−rst), which differs from (s+t−rst,0) by an element of K. D2 with s,t∈I, D1 and D3 lift exactly, with (0,r),(s,0),(t,0) for r∈I, (r,0),(0,s),(t,0) for s∈I, and (r,0),(s,0),(0,t) for t∈I. Finally β∘ᾱ is the identity, because b and (q(b),0) differ by an element of K. (Own argument; van der Kallen 1978, §3, p.309, for the generator correspondence.)
+**Reduction of the presentation to the double.** Let R be commutative, I⊆Jac(R), B=R⊕I, J=0⊕I and K=ker(q), so that J⊆Jac(B), J∩K=0 and JK=0. Let C_D be the subgroup of D(B,J) generated by the pairs ((0,u),(v,−v)), u,v∈I. The map α:D(B,J)→D(R,I) induced by q kills C_D, since its image of a cross pair is D(u,0)=0. Define β:D(R,I)→D(B,J)/C_D by β⟨r,s⟩=D((r,0),(0,s)) for s∈I and β⟨r,s⟩=D((0,r),(s,0)) for r∈I. Then β is well defined and inverse to the map ᾱ induced by α. The key identity is D(j,x+k)=D(j,x)+D(j,k) for j∈J, k∈K and any x, which is D2 because jxk=0. It shows that the two values of β agree modulo C_D when r,s∈I. For D2 with r∈I, the lifted relation produces (s+t,−rst), which differs from (s+t−rst,0) by an element of K. D2 with s,t∈I, D1 and D3 lift exactly, with (0,r),(s,0),(t,0) for r∈I, (r,0),(0,s),(t,0) for s∈I, and (r,0),(s,0),(0,t) for t∈I. Finally β∘ᾱ is the identity, because b and (q(b),0) differ by an element of K. (Own argument; van der Kallen 1978, §3, p.309, for the generator correspondence; van der Kallen 1989, §6, p.512, makes the same passage from the double for Steinberg-symbol presentations when the double has many units.)
 
 R is commutative and I⊆Jac(R); the guards of D(B,J) are those of D(R,I) with J in place of I.
 
@@ -3108,7 +3105,7 @@ R is commutative and I⊆Jac(R); the guards of D(B,J) are those of D(R,I) with J
 
 *Needs:* §13.2; §13.7; Mathlib `Ideal.jacobson`.
 
-**Split radical pairs.** Let B be commutative, L⊆Jac(B) an ideal, and suppose B→B/L has a ring section. Then the generator map D(B,L)→K₂(B), ⟨b,l⟩↦D(b,l), is injective with image ker(K₂(B)→K₂(B/L)), and K₂(B)≅K₂(B/L)⊕D(B,L); the same holds in every finite rank n≥3. The image statement is the generation theorem above. **Proof input not obtained (injectivity):** Maazen–Stienstra, *A presentation for K₂ of split radical pairs*, J. Pure Appl. Algebra 10 (1977), 271–294; the statement is Theorem 2 of van der Kallen–Maazen–Stienstra, §2.6, p.935. The publisher holds the paper in its open archive, but its full text could not be retrieved, so the injectivity argument is not decomposed here. (Statement: van der Kallen–Maazen–Stienstra, §2.6, p.935; van der Kallen 1978, §3, p.309.)
+**Split radical pairs.** Let B be commutative, L⊆Jac(B) an ideal, and suppose B→B/L has a ring section. Then the generator map D(B,L)→K₂(B), ⟨b,l⟩↦D(b,l), is injective with image ker(K₂(B)→K₂(B/L)), and K₂(B)≅K₂(B/L)⊕D(B,L); the same holds in every finite rank n≥3. The image statement is the generation theorem above. **Gap (injectivity, proof not decomposed):** Maazen–Stienstra, *A presentation for K₂ of split radical pairs*, J. Pure Appl. Algebra 10 (1977), 271–294; the statement is Theorem 2 of van der Kallen–Maazen–Stienstra, §2.6, p.935. (Statement: van der Kallen–Maazen–Stienstra, §2.6, p.935; van der Kallen 1978, §3, p.309.)
 
 B is commutative, L⊆Jac(B), and the section is a unital ring homomorphism.
 
@@ -3230,7 +3227,7 @@ Provide the following API.
 
 ### 13.15 The uniform dyadic nilpotent example
 
-For every n≥2, reduction ℤ/2ⁿ→ℤ/4 induces an isomorphism K₂(ℤ/2ⁿ)≅K₂(ℤ/4)≅ℤ/2, sending {−1,−1} to the nonzero class. In contrast K₂(𝔽₂)=0. The argument is uniform and uses only the local presentation, the unit-symbol calculus and ClassicalArithmeticCompletion Layer 1’s explicit unit generators. (Weibel, Exercise III.5.13; III.5.10–5.11, pp. 229, 225.)
+For every n≥2, reduction ℤ/2ⁿ→ℤ/4 induces an isomorphism K₂(ℤ/2ⁿ)≅K₂(ℤ/4)≅ℤ/2, sending {−1,−1} to the nonzero class. In contrast K₂(𝔽₂)=0. The argument is uniform and uses only the local presentation, the unit-symbol calculus and ClassicalArithmeticCompletion Layer 1’s explicit unit generators. (Weibel, Exercise III.5.13; III.5.10–5.11, pp. 229, 225; the value ℤ/2 for the Witt vectors W_n(𝔽₂)=ℤ/2ⁿ, n≥2, is recorded in Dennis–Stein survey, §12, p.255, from Dennis–Stein 1975, Theorem 4.3.)
 
 n is an integer with n≥2. Use the local presentation of §13.6; no separate dyadic computation is assumed.
 
@@ -3252,293 +3249,15 @@ n is an integer with n≥2. Use the local presentation of §13.6; no separate dy
 
 Layers 2, 4, 6, 7 and 12; GeneralAlgebraicKTheory §§8.1 and 10.12; KTheoryLowDegrees §9.1 and §§13.3–13.5; Dennis–Stein 1973, Proposition 1.1, Theorem 2.1 and Corollary 2.2; ClassicalArithmeticCompletion §1.1; Mathlib `DualNumber`, `TrivSqZeroExt`, `KaehlerDifferential`.
 
-## Layer 14: Galois symbols, Hilbert symbols and Tate’s comparison
-
-Symbols against cohomology and class field theory: the Galois symbol of MotivicEtaleKTheory M.3 is read in Tau Ceti's Kummer map and cup product; twists are trivialised by a primitive root with the change-of-root rule; the Brauer-valued symbol is represented by the cyclic algebra A_ζ(a, b); the m-th power norm residue symbol of a local field and the quadratic Hilbert symbol are Steinberg symbols; the norm residue symbol equals ζ^{−inv(β_ζ{a, b})}; global reciprocity for symbols of a number field; Tate's comparisons through the actual localization maps; and the degree-two étale Chern class after the product-normalized comparison equals −h_F.
-
-### 14.1 The symbol formula, read in the Kummer map and cup product
-
-For a field F and an integer m invertible in F, the Galois symbol h_F : K₂(F)/m → H²(F, μ_m^{⊗2}) of MotivicEtaleKTheory M.3 sends {a, b} to κ(a) ∪ κ(b), the cup product of the two Kummer classes for the canonical equivariant pairing μ_m × μ_m → μ_m^{⊗2} (K-book (6.10.2) and Proposition III.6.10.3). This target identifies that cup product with the one Tau Ceti computes: κ is Tau Ceti's kummerMap F m, with values in H¹(G_F, KummerCoeff F m), and the cup is explicitCup11 at the tensor pairing KummerCoeff F m × KummerCoeff F m → μ_m^{⊗2}, which is equivariant for the diagonal action and, the modules being discrete, jointly continuous. MotivicEtaleKTheory M.3 owns the Galois symbol, its symbol formula, the cohomological Steinberg relation κ(a) ∪ κ(1 − a) = 0 that makes h_F well defined on K₂(F) through Matsumoto's presentation (the source proves it by factoring t^m − a and the projection formula), and Tate's local, global and S-integer theorems. This layer constructs none of these and proves no Tate theorem: it uses the map for a general field and identifies its formula with the Kummer map and cup product. No primitive root is chosen. (Weibel, III.6.10.2, p. 242; Weibel, III.6.10.3, p. 242.)
-
-F is a field, m ≥ 1 is invertible in F, and a, b ∈ F^×. μ_m^{⊗2} is the twice-twisted module of MotivicEtaleKTheory M.1, a discrete G_F-module with the diagonal action; no primitive root is chosen.
-
-**Checks.**
-
-- h_F{a, b} is the explicit (1, 1) cup of the two Tau Ceti Kummer classes in H²(F, μ_m^{⊗2}), with no primitive root chosen.
-- h_F{a, 1 − a} = 0, from MotivicEtaleKTheory M.3.
-- h_F{a, b} = 0 when b ∈ (F^×)^m, because κ(b) = 0 (ker_kummerMap).
-
-*Needs:* §7.2; MotivicEtaleKTheory M.3; MotivicEtaleKTheory M.1; Tau Ceti `TauCeti.kummerMap`; Tau Ceti `TauCeti.ker_kummerMap`; Tau Ceti `TauCeti.KummerCoeff`; Tau Ceti `TauCeti.ContCohomology.explicitCup11`; Tau Ceti `TauCeti.ContCohomology.explicitCup11_eq_neg_flip`.
-
-**The Kummer cup formula in Mathlib and Tau Ceti.** For a field F, m≥2 invertible in F and a,b∈Fˣ, the Galois symbol h_{F,m}:K₂(F)/m→H²(F,μ_m^{⊗2}) takes {a,b} to κ_m(a)∪κ_m(b). Here κ_m(a) is the additive class corresponding to TauCeti.kummerMap, whose cocycle is g↦g(α)/α for αᵐ=a. Under MotivicEtaleKTheory M.1’s cup-compatible field comparison, h agrees with explicitCup11 for the canonical tensor pairing into MotivicEtaleKTheory M.1’s weight-two twist. (Weibel, Formula (III.6.10.2), and Proposition III.6.10.3, pp. 241, 242.)
-
-F is a field and m≥2 is a unit in F. No primitive root is assumed in F for this tensor-valued statement.
-
-**Checks.**
-
-- An m-th power in either slot gives zero.
-- The tensor-valued map exists without μ_m⊆F; scalar trivialization requires the extra root choice.
-- For m=2 and F=ℝ, {−1,−1} maps to the nonzero quaternion class after contraction.
-
-*Needs:* §6.18; MotivicEtaleKTheory M.3 (Galois symbol); MotivicEtaleKTheory M.1 (finite Tate twists); MotivicEtaleKTheory M.1 (étale cohomology of a field); Tau Ceti `TauCeti.kummerMap_eq_kummerCocycleClass`; Tau Ceti `TauCeti.ContCohomology.explicitCup11`; Tau Ceti `TauCeti.kummerMap_eq_one_iff`.
-
-### 14.2 Trivialising a twist by a primitive root, and the change-of-root rule
-
-Let F be a field, m ≥ 1 invertible in F, and μ_m^{⊗j} (j ∈ ℤ) the finite Tate twists of MotivicEtaleKTheory M.1, built on Tau Ceti's KummerCoeff F m (j = 1) with the diagonal action on tensor powers, so that G_F acts on μ_m^{⊗j} through χ^j, χ the mod-m cyclotomic character. A primitive m-th root of unity ζ ∈ F determines the trivialisation τ_ζ^{(j)} : ℤ/m → μ_m^{⊗j}, 1 ↦ ζ^{⊗j} (through the dual for j < 0). It is an isomorphism of abelian groups, and it is G_F-equivariant — an isomorphism of discrete G_F-modules — because ζ ∈ F; without a primitive root in F, μ_m and ℤ/m need not be isomorphic G_F-modules. Change of root: if ζ' = ζ^u with u ∈ (ℤ/m)^×, then τ_{ζ'}^{(j)} = τ_ζ^{(j)} ∘ (u^j ·). So a statement that passes through τ_ζ names ζ, and a composite in which τ_ζ and τ_ζ⁻¹ each enter once is independent of ζ. The twists themselves are MotivicEtaleKTheory M.1's; the trivialisation and the rule are owned here. (Weibel, III.6.10, p. 242; Weibel, III.6.10.4, p. 243.)
-
-F is a field, m ≥ 1 is invertible in F, and ζ ∈ F is a primitive m-th root of unity wherever τ_ζ is used. μ_m^{⊗j} carries the diagonal action, i.e. the action through χ^j; it is never identified with ℤ/m without naming ζ.
-
-Provide the following API.
-
-- `Twist.trivialisation`: For ζ ∈ F primitive of order m and j ∈ ℤ, τ_ζ^{(j)} : ZMod m ≃+ μ_m^{⊗j}, 1 ↦ ζ^{⊗j}.
-- `Twist.trivialisation_one`: τ_ζ^{(j)} 1 = ζ^{⊗j}.
-- `Twist.trivialisation_zero`: τ_ζ^{(0)} is the identity of ZMod m.
-- `Twist.trivialisation_equivariant`: τ_ζ^{(j)} is G_F-equivariant, ζ being in F.
-- `Twist.trivialisation_pow`: τ_{ζ^u}^{(j)} = τ_ζ^{(j)} ∘ (u^j ·) for u ∈ (ZMod m)ˣ.
-- `Twist.trivialisation_tensor`: τ_ζ^{(i)} ⊗ τ_ζ^{(j)} = τ_ζ^{(i+j)} under ZMod m ⊗ ZMod m ≅ ZMod m and μ_m^{⊗i} ⊗ μ_m^{⊗j} ≅ μ_m^{⊗(i+j)}.
-- `Twist.trivialisation_one_eq`: τ_ζ^{(1)} is IsPrimitiveRoot.zmodEquivZPowers followed by IsPrimitiveRoot.zpowers_eq, read in KummerCoeff F m.
-
-**Checks.**
-
-- τ_ζ^{(0)} = id for every ζ; in particular it does not depend on ζ.
-- For m = 2 the only primitive root is −1, so τ^{(j)} is canonical for every j, the case ClassFieldTheory Layer 5 uses at kummerCupPairing (−1).
-- For m = 5 and ζ' = ζ²: τ_{ζ'}^{(1)} = τ_ζ^{(1)} ∘ (2 ·) and τ_{ζ'}^{(2)} = τ_ζ^{(2)} ∘ (4 ·) = τ_ζ^{(2)} ∘ (−1 ·).
-- Over ℚ with m = 3, μ_3 is not isomorphic to ℤ/3 as a G_ℚ-module (H⁰(ℚ, μ_3) = 1 but H⁰(ℚ, ℤ/3) = ℤ/3), whereas μ_3^{⊗2} ≅ ℤ/3 because the mod-3 cyclotomic character takes values ±1 and its square is trivial: a twist defined with the action χ instead of χ^j fails this.
-
-*Needs:* MotivicEtaleKTheory M.1; Tau Ceti `TauCeti.KummerCoeff`; Mathlib `ZMod`; Mathlib `modularCyclotomicCharacter`; Mathlib `IsPrimitiveRoot.zmodEquivZPowers`; Mathlib `IsPrimitiveRoot.zpowers_eq`.
-
-### 14.3 The Brauer-valued symbol attached to a primitive root
-
-For a field F with m invertible and a primitive m-th root of unity ζ ∈ F, the Brauer-valued symbol β_ζ : K₂(F)/m → mBr(F) is the Galois symbol h_F of §14.1 followed by H²(F, μ_m^{⊗2}) = H²(F, μ_m ⊗ μ_m) → H²(F, μ_m), induced by id ⊗ (τ_ζ^{(1)})⁻¹, and by the injection H²(G_F, μ_m) → H²(G_F, (F^s)^×) = Br(F) with image the m-torsion (K-book Example III.6.10.1). Replacing ζ by ζ^u multiplies β_ζ by u⁻¹. The source identifies β_ζ, citing Tate [198], with the m-th power norm residue symbol {α, β} ↦ [A_ζ(α, β)] of cyclic algebras (Proposition III.6.9.2, Remark III.6.10.4); the algebraic cyclic-algebra identification is that of QuadraticFormInvariants 7B; the local cohomological Artin/invariant comparison is proved in §14.8 without using that presentation. This is the 'Brauer-valued symbol' the roadmap document's Layer 14 contract exports after the change-of-root scalar. It is built in the cohomological Brauer group H²(G_F, (F^s)^×); exporting it as a class of central simple algebras (the algebraic Brauer group) uses QuadraticFormInvariants Layer 7B's crossed-product comparison of the two, and for m = 2 and ζ = −1 that layer's ι[(a, b)] = (a) ∪ (b) identifies β_{−1}{a, b} with the class of the quaternion algebra (a, b). (Weibel, III.6.10.1, p. 242; Weibel, III.6.10.4, p. 243; Weibel, III.6.9.2, p. 241.)
-
-F is a field, m ≥ 1 invertible in F, and ζ ∈ F a primitive m-th root of unity.
-
-Provide the following API.
-
-- `NormResidueSymbol.brauerSymbol`: For ζ ∈ F primitive of order m, β_ζ : K₂(F) →* Multiplicative (Br F), Br F written additively, with values of order dividing m.
-- `NormResidueSymbol.brauerSymbol_symbol`: β_ζ {a, b} = the image of (id ⊗ τ_ζ⁻¹)_*(κ a ∪ κ b) in Br(F).
-- `NormResidueSymbol.brauerSymbol_pow_root`: β_{ζ^u} = u⁻¹ • β_ζ for u ∈ (ZMod m)ˣ.
-- `NormResidueSymbol.nsmul_brauerSymbol`: m • β_ζ x = 0.
-- `NormResidueSymbol.brauerSymbol_algebraic`: Under QuadraticFormInvariants 7B's isomorphism between BrauerGroup F and H²(G_F, (F^s)^×), β_ζ lands in the m-torsion of BrauerGroup F; for m = 2 and ζ = −1, β_{−1}{a, b} is the quaternion class (a, b).
-
-**Checks.**
-
-- β_ζ{a, 1 − a} = 0 and β_ζ{a, c^m} = 0.
-- For m = 5, β_{ζ²} = 3 • β_ζ, since 2⁻¹ = 3 in ZMod 5.
-- For F = ℝ, m = 2, ζ = −1: β{−1, −1} is the non-trivial element of Br(ℝ) ≅ ℤ/2, because κ(−1) generates H¹(ℤ/2, 𝔽₂) and its square generates H²(ℤ/2, 𝔽₂) (the cohomology ring is 𝔽₂[t]); and β{a, b} = 0 unless a < 0 and b < 0, positive reals being squares. Under the cited identification this is the class of the Hamilton quaternions, the cyclic algebra A_{−1}(−1, −1) of K-book Example III.6.9.
-- For m = 3 and F = ℚ(μ_3), β_{ζ²} = −β_ζ, so a definition that does not name ζ cannot be well defined unless it is 0.
-
-*Needs:* §14.1; §14.2; ProfiniteCohomology Layer 9; MotivicEtaleKTheory M.1; QuadraticFormInvariants 7B.
-
-**Primitive-root contraction and the Brauer symbol.** Suppose μ_m⊆F and ζ∈F is primitive of order m. The trivialization τ_{ζ,j}:ℤ/m≃μ_m^{⊗j} sends 1 to ζ^{⊗j} for j≥0 and uses the dual basis for j<0. Define the bilinear Galois-equivariant contraction c_ζ:μ_m⊗_{ℤ/m}μ_m→μ_m by c_ζ(ζⁱ⊗ζʲ)=ζ^{ij}. The Brauer symbol β_ζ is h_{F,m}, followed by c_ζ on H² and the Kummer injection H²(F,μ_m)→Br(F)[m]. For u∈(ℤ/m)ˣ, τ_{ζᵘ,j}=τ_{ζ,j}∘(uʲ·), c_{ζᵘ}=u⁻¹c_ζ and β_{ζᵘ}=u⁻¹β_ζ. The scalar trivialization of the weight-two twist alone changes by u⁻²; it is different from the Brauer contraction. (Weibel, Proposition III.6.9.2; Example III.6.10.1; Remark III.6.10.4, pp. 241, 242, 243; Milne CFT, III §4, Steps 1–2, pp.111–112.)
-
-F is a field, m≥2 invertible in F, and ζ∈F is primitive of order m. The Brauer identification with central simple algebras is QuadraticFormInvariants 7B's, not defined here.
-
-Provide the following API.
-
-- `rootTwistTrivialization`: The ℤ/m-linear equivalence τ_{ζ,j}, with the tensor basis in nonnegative degree and dual basis in negative degree.
-- `rootCupContraction`: The tensor-factorization of ClassFieldTheory's kummerCupPairing, with c_ζ(ζⁱ⊗ζʲ)=ζ^{ij}; this is a comparison of coefficient models.
-- `brauerSymbol`: The unique additive map β_ζ with value [c_ζ(κ(a)∪κ(b))] on symbols.
-- `rootTwistTrivialization_change`: τ_{ζᵘ,j}=τ_{ζ,j}∘(uʲ·) for u a unit modulo m.
-- `brauerSymbol_change`: β_{ζᵘ}(x)=u⁻¹β_ζ(x), with the same target Br(F)[m].
-- `brauerSymbol_map`: Root-preserving field embeddings carry β_ζ to β_{fζ}; identity and composition follow on symbols.
-- `brauerSymbol_quaternion`: For m=2, β_{−1}{a,b} is the quaternion Brauer class supplied by QFI 7B.
-
-**Checks.**
-
-- For m=5 and ζ′=ζ², β_{ζ′}=3β_ζ, whereas the scalar weight-two coordinate changes by 4.
-- For m=5, c_ζ(ζ²⊗ζ³)=ζ; multiplying the roots instead gives 1 and fails bilinearity.
-- Over ℚ and m=3 the tensor-valued h exists but no primitive-root scalar trivialization over ℚ is available.
-- At m=2, ζ=−1, β{−1,−1} over ℝ is Hamilton’s class and has invariant 1/2.
-
-*Needs:* §14.1; MotivicEtaleKTheory M.1 (finite Tate twists); MotivicEtaleKTheory M.1 (étale Kummer sequences); Mathlib `IsPrimitiveRoot.zmodEquivZPowers`; QuadraticFormInvariants 7B; ClassFieldTheory Layer 5.
-
-### 14.4 The cyclic symbol algebra
-
-For a field F with m≥2 invertible and ζ primitive of order m in F, and a,b∈Fˣ, let A_ζ(a,b) be the F-algebra generated by X,Y with Xᵐ=a, Yᵐ=b and YX=ζXY. It has basis XⁱYʲ, 0≤i,j<m, dimension m², and is central simple, hence defines a Brauer class. The algebra remains defined when F(a^{1/m}) has degree less than m; the full cyclic extension degree is not a hypothesis. (Weibel, Cyclic Algebras III.6.9, and Remark III.6.10.4, pp. 240, 243; Milne CFT, III §4, Step 1, p.111 and Step 2, p.112.)
-
-F is a field; m≥2 is invertible; ζ∈F is primitive; a,b are units.
-
-Provide the following API.
-
-- `cyclicSymbolAlgebra`: The algebra with the stated basis, relations and multiplication.
-- `cyclicSymbolAlgebra.lift`: A pair of elements in an F-algebra satisfying Xᵐ=a, Yᵐ=b, YX=ζXY induces a unique F-algebra map.
-- `cyclicSymbolAlgebra.basis`: The m² monomials XⁱYʲ form an F-basis.
-- `cyclicSymbolAlgebra.baseChange`: Root-preserving field embeddings give the canonical scalar-extension algebra isomorphism, with identity and composition laws.
-- `cyclicSymbolAlgebra.split`: After adjoining an m-th root of a, the algebra is isomorphic to Mat_m of that field; an m-th root of b is unnecessary.
-- `cyclicSymbolAlgebra.quaternion`: For m=2 and ζ=−1 the algebra is the quaternion algebra (a,b).
-
-**Checks.**
-
-- If a∈F^{×m}, A_ζ(a,b)≅Mat_m(F); treating F(a^{1/m}) as a degree-m field would fail.
-- For m=2, a=b=−1 over ℝ this is Hamilton’s algebra, not a split matrix algebra.
-- For m=4, a=c² with c nonsquare, A_ζ(c²,b)≅Mat₂(A_{ζ²}(c,b)); its dimension is 16, not 4.
-- Over ℚ₇ with m=3 and ζ reducing to 2, A_ζ(3,7) has invariant 1/3 in the arithmetic-Frobenius normalization.
-
-*Needs:* §14.3; QuadraticFormInvariants 7B.
-
-### 14.5 Cyclic algebras represent the Brauer symbol
-
-Under the hypotheses of §14.4, [A_ζ(a,b)]=β_ζ{a,b} in Br(F)[m]. Use ClassFieldTheory's h2MuToBr_cup_kummerClass and the crossed-product comparison of QuadraticFormInvariants 7B. The comparison identifies the displayed symbol algebra, including its proper-degree matrix corner, with those cyclic-class and cup maps. (Milne CFT, III §4, Step 1 and Step 2, pp.111–112; Weibel, Remark III.6.10.4, p. 243.)
-
-F is a field with μ_m⊆F, m invertible, ζ primitive, and a,b∈Fˣ.
-
-**Checks.**
-
-- Check the map-level equality on each {a,b}, not an abstract isomorphism of groups.
-- For m=4 and a=c², the proof reduces to the quadratic corner and does not assume degree four.
-- At m=2 this agrees with brauerCohomologyEquiv_quaternionClass already implemented in current Tau Ceti.
-
-*Needs:* §14.1; §14.3; §14.4; Tau Ceti `TauCeti.ContCohomology.explicitCup11_eq_neg_flip`; QuadraticFormInvariants 7B; ClassFieldTheory Layer 5.
-
-### 14.6 The norm residue symbol as a symbol on K₂ of a local field
-
-Let F be a nonarchimedean local field with μ_m ⊆ F and m invertible in F. The m-th power norm residue symbol (x, y)_F ∈ μ_m, with its bimultiplicativity, its Steinberg relation (a, 1 − a)_F = 1, its skew symmetry and its nondegeneracy on F^×/F^×m, is ClassicalArithmeticCompletion's `normResidueSymbol` (§§1.14 and 1.25), normalised by the arithmetic-Frobenius local Artin map of ClassFieldTheory Layer 6; it agrees with the K-book's construction of Example III.6.2.3 through Kummer theory, with the variable order x ↦ (x, −)_F. This target adds its factorisation through K₂: by Matsumoto's theorem (§7.2) there is a unique homomorphism `normResidueK2` : K₂(F) → μ_m with {x, y} ↦ (x, y)_F. When μ(F) = μ_m it is split surjective (Moore's theorem belongs to KTheoryFiniteLocalFields). §14.9 uses it for every F with μ_m ⊆ F. (Weibel, III.6.2.3, p. 233.)
-
-F is a nonarchimedean local field (complete for a discrete valuation with finite residue field), μ_m ⊆ F and m is invertible in F.
-
-Provide the following API.
-
-- `NormResidueSymbol.normResidueK2`: The homomorphism K₂(F) → μ_m, {x, y} ↦ (x, y)_F.
-
-**Checks.**
-
-- (x, y^m)_F = 1 and (x, 1)_F = 1 for all x, y.
-- For F = ℚ₂ (μ(ℚ₂) = {±1}, m = 2), (−1, −1)_F = −1, the source's Example III.6.2.5.
-- For F = ℚ₃ (m = 2), (3, −1)_F = −1: ℚ₃(√−1) is the unramified quadratic extension, whose norms have even valuation, so 3 is not a norm from it and its reciprocity image moves √−1. The non-square 3 pairs non-trivially, as nondegeneracy requires.
-- For F = ℚ₂ and m = 2 the tame symbol of (−1, −1) is 1, both entries being units, but (−1, −1)_F = −1: when the residue characteristic divides m the norm residue symbol is not a character of the tame symbol.
-- For F = ℚ_p, p odd, m = 2: (r, s)_F = ε(∂(r, s)) with ε : 𝔽_p^× → {±1} the surjection and ∂ the tame symbol of §9.2 (K-book Ex. III.6.7; the inversion between the roadmap's and the source's tame symbol is invisible because ε takes values ±1).
-
-*Needs:* §7.2; Tau Ceti `TauCeti.kummerMap`; Tau Ceti `TauCeti.KummerCoeff`; Mathlib `rootsOfUnity`; ClassFieldTheory Layer 6; ClassFieldTheory Layer 4; ProfiniteCohomology Layer 9; LocalFieldsRamification Layer 1; ClassicalArithmeticCompletion §1.14; ClassicalArithmeticCompletion §1.25.
-
-### 14.7 The Hilbert symbol as a Steinberg symbol
-
-For unit arguments r, s ∈ F^× and a nonarchimedean local field F in which 2 is invertible, the source's Hilbert symbol c_F(r, s) ∈ {±1}, which is +1 exactly when rx² + sy² = 1 has a solution in F, equals the Hilbert symbol hilbertSymbol r s of QuadraticFormInvariants Layer 6C (+1 exactly when s = x² − ry² is solvable), which that layer defines and proves bimultiplicative and symmetric. It satisfies c_F(r, 1 − r) = 1 (x = y = 1), so by Matsumoto's theorem it defines a Steinberg symbol K₂(F) → {±1}. For F = ℝ and r, s ∈ ℝ^×, c_ℝ is the sign symbol. The total auxiliary conicSymbol allows all field elements, but its value at (0,0) is −1 and is not governed by the strict-negative Hilbert criterion. The definition makes sense over any field of characteristic different from 2 but is not bilinear there, and no Steinberg symbol is claimed. (Weibel, III.6.2.2, p. 233; Weibel, III.6.2.5, p. 234.)
-
-F is a nonarchimedean local field with 2 invertible; for the real comparison, F = ℝ. The Hilbert/Steinberg comparisons require unit inputs (equivalently nonzero field elements); the total conic helper is not a symbol on all field elements.
-
-Provide the following API.
-
-- `NormResidueSymbol.hilbertSymbol_eq_one_iff_conic`: For r, s ∈ F^×, hilbertSymbol r s = 1 ↔ ∃ x y : F, r x² + s y² = 1.
-- `NormResidueSymbol.hilbertK2`: The Steinberg symbol K₂(F) → ℤˣ, {r, s} ↦ hilbertSymbol r s.
-- `NormResidueSymbol.hilbertK2_symbol`: hilbertK2 {r, s} = hilbertSymbol r s.
-- `NormResidueSymbol.hilbertK2_real`: For r, s ∈ ℝ^×, outside the nonarchimedean local-field hypotheses of hilbertK2, the conic symbol agrees with the real Steinberg sign: value −1 exactly when both unit entries are negative.
-- `NormResidueSymbol.hilbertK2_eq_normResidueK2`: For m = 2 it equals normResidueK2.
-
-**Checks.**
-
-- c_{ℚ₂}(−1, −1) = −1, since x² + y² = −1 has no solution in ℚ₂ (K-book Example III.6.2.5).
-- For r, s ∈ ℝ^×, c_ℝ(r, s) = −1 exactly when (r : ℝ) < 0 and (s : ℝ) < 0: it is the sign symbol of K-book Example III.6.2.1, agreeing with §12.5. Zero inputs are excluded.
-- c_F(r, s) = hilbertSymbol r s (QuadraticFormInvariants 6C) for every nonarchimedean local F with 2 invertible.
-- c_F(1, s) = 1 (x = 1, y = 0) and c_F(r, 1 − r) = 1 (x = y = 1).
-- Over ℚ, c_ℚ(3, −1) = c_ℚ(7, −1) = c_ℚ(21, −1) = −1: clearing denominators, 3a² = b² + c², 7a² = b² + c² and 21a² = b² + c² force b and c to be divisible by 3, 7 and 3 respectively (−1 is not a square modulo 3 or 7), and then a as well. So c_ℚ(21, −1) ≠ c_ℚ(3, −1) c_ℚ(7, −1), and the local-field hypothesis cannot be dropped.
-- The total helper has conicSymbol ℝ 0 0 = −1, while ¬(0 < 0 ∧ 0 < 0). Thus its strict-negative comparison cannot be extended to arbitrary real inputs; the all-real no-solution criterion would use nonpositivity.
-
-*Needs:* §7.2; QuadraticFormInvariants 6C.
-
-### 14.8 The norm residue symbol against the local invariant of the Kummer cup product
-
-For a nonarchimedean local field F with m invertible, μ_m⊆F and a primitive root ζ, let β_ζ{a,b} be the Brauer image of κ(a)∪κ(b) under ζ^i⊗ζ^j↦ζ^(ij). Let e_m:(Q/Z)[m]≃Z/m send [r/m] to r. With arithmetic Frobenius and the classical symbol (a,b)_F=Artin_F(a)(b^(1/m))/b^(1/m), one has (a,b)_F=ζ^(−e_m(inv_F β_ζ{a,b})). The sign is −1 for every m; it is invisible at m=2. At m=1 both sides are 1. This is a normalization comparison, with Artin and invariant maps from ClassFieldTheory Layers 5–6 and the Galois symbol from MotivicEtaleKTheory M.3. (Milne CFT, III Proposition 3.6, p.109; III.4 Steps 2–4 and Remark 4.5, pp. 112–114; Milne CFT, III Proposition 3.6 and its proof, p. 109.)
-
-F is a nonarchimedean local field; m≥1 is invertible in F; μ_m⊆F; ζ has order m. Artin sends a uniformizer to arithmetic Frobenius. β_ζ pairs the ordered cup κ(a)∪κ(b), and e_m is the torsion coordinate, not multiplication by m in Q/Z.
-
-**Checks.**
-
-- The universal exponent is −e_m(inv β_ζ), with e_m([r/m])=r.
-- The Q₇ cubic test gives inv_F(β_ζ{3,7})=1/3 and (3,7)=ζ⁻¹; m=2 alone is insufficient.
-- Root change cancels in the formula; m=1 and m=2 retain their earlier regressions.
-
-*Needs:* §14.2; §14.3; §14.6; ClassFieldTheory Layer 5; ClassFieldTheory Layer 6; QuadraticFormInvariants 6E.
-
-**The Hilbert symbol and the normalized local invariant.** Let F be a nonarchimedean local field, m≥2 invertible in F and μ_m⊆F. Write H_m(a,b)=Art_F(a)(b^{1/m})/b^{1/m} for the symbol owned by ClassicalArithmeticCompletion Layer 1, with arithmetic Frobenius. If e_m:(ℚ/ℤ)[m]≃ℤ/m takes [k/m] to k, then H_m(a,b)=ζ^{−e_m(inv_F(β_ζ{a,b}))}. Equivalently the positive invariant coordinate computes H_m(b,a). The local cohomological symbol of ClassFieldTheory Layer 5 is the positive coordinate when its trace is the normalized Brauer-invariant map. (Milne CFT, III Proposition 3.6, p.109; III §4 Step 2, p.112, Steps 3–4 and Remark 4.5, pp.112–114.)
-
-F is a nonarchimedean local field; m is invertible in F, possibly divisible by the residue characteristic when char F=0. ζ is primitive of order m in F; local reciprocity uses arithmetic Frobenius.
-
-**Checks.**
-
-- e_m is a coordinate isomorphism on m-torsion; multiplication by m inside ℚ/ℤ is zero and cannot be used for it.
-- The cubic test fixes the exact sign; norm-kernel equality by itself permits many unit scalars.
-- At m=2 the statement agrees with current QFI hilbertSymbol_eq_cohomological.
-
-*Needs:* §14.5; ClassicalArithmeticCompletion §1.14; ClassicalArithmeticCompletion §1.15; ClassicalArithmeticCompletion §1.25; ClassFieldTheory Layer 5; ClassFieldTheory Layer 6; QuadraticFormInvariants 6E.
-
-### 14.9 Global reciprocity for symbols in K₂ of a number field
-
-Let F be a number field containing μ_m, ζ ∈ F a primitive m-th root of unity and x ∈ K₂(F). For each place v let (x)_v ∈ μ_m(F) be the image of x under the local symbol of F_v: at a finite place the norm residue symbol of §14.6 (which needs only μ_m ⊆ F_v), at a real place the constant 1 symbol if m = 1 and the sign symbol if m = 2 (there are no real places if m > 2), at a complex place 1; each μ_m(F) → μ_m(F_v) is an isomorphism. Then (a) (x)_v = 1 for all but finitely many v and ∏_v (x)_v = 1: on a symbol x = {a, b} this is the m-th power Hilbert reciprocity law ∏_v (a, b)_v = 1, from ClassicalArithmeticCompletion §1.52, and for m = 2 from ClassFieldTheory Layer 14's hilbertProductFormula through QuadraticFormInvariants 6E's sign dictionary; (b) Σ_v inv_v(res_v β_ζ(x)) = 0, ClassFieldTheory Layer 10's sumLocalInv_eq_zero applied to the Brauer class β_ζ(x) of §14.3, with the real-place invariants of Layer 10; (c) under §14.8, (a) and (b) are the same statement, with ζ explicit and exponent sign −1. Layer 14 proves (c) and the passage from symbols to K₂(F) (Matsumoto); it does not prove the reciprocity laws themselves. For F = ℚ and m = 2, (a) is quadratic reciprocity in the form of K-book Ex. III.6.8. (Weibel, Exercise III.6.8, p. 244.)
-
-F is a number field with μ_m ⊆ F, ζ ∈ F a primitive m-th root of unity, and x ∈ K₂(F). The local symbols carry the normalisation of §14.6 (arithmetic Frobenius, variable order x ↦ (x, −)_v); ClassicalArithmeticCompletion Layer 1's law is used in that normalisation or converted to it. m ≥ 1; the real local factor is 1 for m = 1 and the quadratic sign for m = 2. A real embedding cannot contain a primitive m-th root when m > 2.
-
-**Checks.**
-
-- (x)_v = 1 for almost all v, and ∏_v (x)_v = 1.
-- For m = 2 and F = ℚ: (r, s)_∞ (r, s)_2 ∏_{p odd} (r, s)_p = +1 (K-book Ex. III.6.8), which is ClassFieldTheory Layer 14's quadratic reciprocity.
-- No reciprocity law is proved here: the m-th power law is ClassicalArithmeticCompletion Layer 1's, the quadratic law is ClassFieldTheory Layer 14's, and the vanishing of the sum of invariants is Layer 10's; Layer 14 contributes the statement on K₂(F) and the compatibility (c).
-- m = 1, F = ℚ, x = {−1, −1}: every factor is 1, including the real place. An unconditional quadratic real factor would incorrectly make the product −1.
-- m = 2, F = ℚ, x = {−1,−1}: the real factor and the dyadic factor are each −1 and cancel; each odd-prime factor is 1. This is not the m = 1 law.
-- For m = 1, every finite-place family c valued in rootsOfUnity 1 F is identically 1 and has empty multiplicative support; the conditional real product is also 1. Instantiate the whole corrected law at F = ℚ, a = b = −1.
-- For F = ℚ, m = 2 and {−1,−1}, conicSymbol ℝ (−1) (−1) = −1, conicSymbol ℚ_2 (−1) (−1) = −1, and their product is 1; at odd p both entries are units and the quadratic factor is 1.
-
-*Needs:* §7.2; §14.3; §14.6; §14.8; ClassicalArithmeticCompletion Layer 1; Mathlib `IsDedekindDomain.HeightOneSpectrum.Support.finite`; Mathlib `rootsOfUnity_one`; ClassFieldTheory Layer 14; ClassFieldTheory Layer 6; ClassFieldTheory Layer 10; ProfiniteCohomology Layer 6; ProfiniteCohomology Layer 8; QuadraticFormInvariants 6E.
-
-**Global reciprocity in Brauer-symbol coordinates.** Let F be a number field with μ_m⊆F and m≥2. For a,b∈Fˣ, all but finitely many local β_ζ{a,b} have invariant zero, and Σ_v inv_v β_ζ{a,b}=0. Under §14.8 this is the higher Hilbert product law ∏_v H_{m,v}(a,b)=1. Every place is included: those over m, dyadic places and archimedean places. (Milne CFT, V Example 5.4, p.179; VII Theorem 8.1(b), p.221.)
-
-F is a number field containing the primitive root ζ of order m. For m>2 such an F has no real places; for m=2 they remain in the formula.
-
-**Checks.**
-
-- For m=2 and a=b=−1 over ℚ the nontrivial local factors occur at 2 and ∞ and multiply to one; omitting either place fails.
-- No product over only unramified finite places is substituted.
-- The theorem rests on ClassicalArithmeticCompletion §1.52; it is not a second proof of reciprocity.
-
-*Needs:* §14.8; ClassicalArithmeticCompletion §1.24; ClassicalArithmeticCompletion §1.52; ClassFieldTheory Layer 10.
-
-### 14.10 Tate comparisons through the actual localization maps
-
-The comparison is MotivicEtaleKTheory M.3's Galois symbol: for a local field F, a prime ℓ≠char F and r≥1, h_{F,ℓʳ} is an isomorphism; for a number field F it is an isomorphism for every prime ℓ and r≥1, including ℓ=2 with real places. For O=O_{F,S}, S finite containing all archimedean places and primes above ℓ, the Galois symbol h_O gives K₂(O)⊗ℤ_ℓ≅H²_cont(O,ℤ_ℓ(2)) and K₂(O)/ℓʳ≅H²_et(O,μ_{ℓʳ}^{⊗2}). These commute with the maps to the fraction field, enlargement of S and the actual localization residue maps. This is a transport and compatibility target; MotivicEtaleKTheory M.3 owns the arithmetic proofs. (Weibel, III.6.10, p. 241.)
-
-Local and number-field hypotheses are kept separate. No global-function-field statement is drawn from a number-field-only source. S contains all places above ℓ; no assertion is made with noninvertible coefficients on O.
-
-**Checks.**
-
-- For ℚ, S={2,∞}, K₂(ℤ[1/2])/2≅ℤ/2, represented by {−1,−1}, matching the finite étale group.
-- An ideal-class contribution Pic(O)/ℓʳ is not discarded when passing to the fraction field.
-- An arbitrary scheme’s étale cohomology is not identified with its function-field Galois cohomology.
-
-*Needs:* §14.1; MotivicEtaleKTheory M.3 (Tate’s theorem for local fields); MotivicEtaleKTheory M.3 (Tate’s theorem for global fields); MotivicEtaleKTheory M.3 (Tate’s theorem for S-integers); MotivicEtaleKTheory M.3 (symbol–residue compatibility); MotivicEtaleKTheory M.1 (S-integer comparison); MotivicEtaleKTheory M.1 (étale localization sequence); MotivicEtaleKTheory M.2 (degree-two localization diagram).
-
-### 14.11 Compatibility of the Galois symbol with the degree-two Chern class
-
-**The product-normalized étale Chern comparison.** For a field F, m≥1 invertible in F and x∈K₂^cl(F), let θ₂ be Layers 1–4’s Hurewicz comparison and θ₂♮=θ₂∘(ε·) its product normalization from §8.3, with the computed ε=−1. Then c_{2,2}(red_m(θ₂♮x))=−h_{F,m}(x mod m) in H²_et(F,μ_m^{⊗2}), read through MotivicEtaleKTheory M.1’s field comparison. For the raw Hurewicz map, the scalar is −ε=+1. Here c_{2,2}:K₂(F;ℤ/m)→H²_et(F,μ_m^{⊗2}) is the already constructed M.8 finite étale Chern map. (Soulé, Proposition 2.2.2.3 and proof, pp.42–44.)
-
-F is a field and m is invertible in F; m≥1. At m=1 both coefficient groups are zero. Use the exact product comparison and retained torus sign from Layers 5–8, not an assumed sign-free identification. Only the integral-reduction image in finite-coefficient K₂ is asserted; K₁(F)[m] can contribute an additional Bockstein quotient. For prime-power coefficients, apply Soulé’s multiplication formula to the two degree-one Chern classes: the coefficient at total index two is −1, and κ(a)∪κ(b) is h{a,b}. This proves the equality on symbols and hence on integral K₂ by Matsumoto. For arbitrary m use compatibility with coefficient reduction and the Chinese remainder decomposition into prime powers. No equality on the additional Bockstein quotient follows from this argument.
-
-**Checks.**
-
-- For ℚ₇,m=3, the {3,7} example has positive cup invariant 1/3 and product-normalized Chern invariant −1/3; m=2 would not distinguish them.
-- The comparison includes composite m: in the coefficient coordinate ℤ/6, a cup value 1 gives product-normalized Chern value 5. Its reductions are 1 modulo 2 and 2 modulo 3, and the Chinese remainder map recovers 5, rather than the sign-free value 1.
-- For prime-power m, Soulé’s multiplication formula gives coefficient −1 on the external product of two degree-one classes; pullback along the field multiplication gives the same −κ(a)∪κ(b). The external product and its internal pullback must both retain this coefficient.
-- Changing θ₂ to its opposite changes ε, not the intrinsic product-normalized statement.
-- The equality is of maps after integral reduction, not an identification of the whole finite-coefficient K₂ with K₂/m.
-
-*Needs:* §4.1; §8.1; §8.3; §14.1; MotivicEtaleKTheory M.8 (finite étale Chern maps); MotivicEtaleKTheory M.1 (étale cohomology of a field).
-
-### Examples
-
-- The comparison (a, b)_F = ζ^{−e_m(inv_F β_ζ{a, b})} carries a sign −1 for every m, invisible at m = 2.
-- At a real place the local symbol is the sign symbol for m = 2 and trivial otherwise; a number field containing μ_m with m > 2 has no real place.
-
-### Dependencies
-
-Layers 4, 7, 9, 11 and 12; MotivicEtaleKTheory M.1, M.2, MotivicEtaleKTheory M.3, M.8; ClassicalArithmeticCompletion Layer 1; ClassFieldTheory Layers 4–6, 10 and 14; QuadraticFormInvariants 6C, 6E, 7B; ProfiniteCohomology Layers 6, 8, 9; Tau Ceti `KummerCoeff`, `kummerMap`, `ContCohomology.explicitCup11`.
-
 ## Downstream consumers
 
 - **K3BlochGroups** consumes the product-normalized degree-three map (§8.4) and the finite-rank symbol refinements. It obtains generic universal extensions and stable St directly from StableHomotopyKTheory §3.29 and AlgebraicKTheory A5.
 - **RefinedTraceMethods** consumes §§13.8–13.11 and 13.13: the relative symbols and their generation (§13.9), the split radical fibre comparison (§13.8) and van der Kallen's computation for k[ε] (§13.13), none of which uses the Maazen–Stienstra or double-excision inputs; the differential and square-zero kernel for a general square-zero ideal (§§13.10–13.11) use Keune's theorem.
-- **MotivicEtaleKTheory** consumes native Milnor K-groups, residues and norms (Layers 5, 9, 10); its field Matsumoto supplier is AlgebraicKTheory A5. Layer 14 here in turn consumes its finite-twist and étale comparisons.
-- **ArithmeticKTheory** consumes tame-kernel sequences, K₂(ℤ), K₂(ℚ) and the transported Tate comparisons (Layers 12, 14).
+- **MotivicEtaleKTheory** consumes native Milnor K-groups, residues and norms (Layers 5, 9, 10); its field Matsumoto supplier is AlgebraicKTheory A5. This roadmap uses nothing from it.
+- **K2SymbolsBrauerPartII** consumes the native comparison of §7.2, the tame symbols and residues of Layer 9, the localization comparison of Layer 11, the tame kernels of Layer 12, the unit-symbol generation of §6.18 and the product normalization of §§4.1, 8.1 and 8.3. It owns the Galois symbol in Kummer and cup-product form, twist trivialisations and the change-of-root rule, Brauer-valued and cyclic-algebra symbols, the norm-residue and Hilbert symbols as Steinberg symbols with their local-invariant comparison, global reciprocity for symbols of a number field, the transported Tate comparisons and the degree-two étale Chern comparison.
+- **ArithmeticKTheory** consumes tame-kernel sequences, K₂(ℤ) and K₂(ℚ) (Layer 12); the transported Tate comparisons it uses are in K2SymbolsBrauerPartII.
 - **EllipticKTheory** and **SchemeKTheoryOperations** consume tame symbols, integral Weil–Suslin reciprocity and the localization comparison (Layers 9–11).
-- **KTheoryFiniteLocalFields** consumes the local symbol comparisons in Layer 14; its classical field presentation and finite-field K₂ come from AlgebraicKTheory A5.
+- **KTheoryFiniteLocalFields** consumes the local symbol comparisons of K2SymbolsBrauerPartII and the tame symbols of Layer 9; its classical field presentation and finite-field K₂ come from AlgebraicKTheory A5.
 - **HigherLocalFieldsAndHigherClassFieldTheory** consumes native Milnor K-theory, residues and norms; **SpecialValuesBirchTate** consumes tame kernels; **KatoEulerSystems** consumes symbols and residue compatibility.
 
 ## References
@@ -3555,16 +3274,18 @@ Layers 4, 7, 9, 11 and 12; MotivicEtaleKTheory M.1, M.2, MotivicEtaleKTheory M.3
 - [Loday] J.-L. Loday, K-théorie algébrique et représentations de groupes, Ann. Sci. ÉNS (4) 9 (1976), 309–377, https://www.numdam.org/item/ASENS_1976_4_9_3_309_0.pdf.
 - [Suslin] A. A. Suslin, Reciprocity laws and the stable rank of polynomial rings, Math. USSR Izv. 15 (1980), 589–623.
 - [Gille–Szamuely] P. Gille and T. Szamuely, *Central Simple Algebras and Galois Cohomology*, Cambridge Studies in Advanced Mathematics 101, 2006.
-- [Milne CFT] J. S. Milne, *Class Field Theory*, course notes, version 4.03, https://www.jmilne.org/math/CourseNotes/CFT.pdf.
 - [Soulé] C. Soulé, *Groupes arithmétiques et K-théorie des anneaux d'entiers de corps de nombres*, thèse, Paris VII, 1978, https://www.ihes.fr/~soule/documents/These_Christophe_Soule.pdf.
+- [Dennis–Stein survey] R. K. Dennis and M. R. Stein, The functor K₂: a survey of computations and problems, in *Algebraic K-Theory II*, Lecture Notes in Mathematics 342, Springer, 1973, 243–280; public proceedings copy https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/SLN342.pdf (§9(a), p.249: the identities (S1)–(S7); §12, pp.253–255: the presentation for discrete valuation rings and their quotients, and K₂ of Witt vectors of length m).
 - [Dennis–Stein] R. K. Dennis and M. R. Stein, K₂ of radical ideals and semi-local rings revisited, in *Algebraic K-Theory II*, Lecture Notes in Mathematics 342, Springer, 1973, 281–303; public proceedings copy https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/SLN342.pdf.
 - [van der Kallen 1977] W. van der Kallen, The K₂ of rings with many units, Ann. Sci. ÉNS (4) 10 (1977), 473–515, https://www.numdam.org/item/ASENS_1977_4_10_4_473_0.pdf.
 - [van der Kallen–Maazen–Stienstra] W. van der Kallen, H. Maazen and J. Stienstra, A presentation for some K₂(n, R), Bull. AMS 81 (1975), 934–936, https://webspace.science.uu.nl/~kalle101/maazenStK.pdf.
+- [van der Kallen 1984] W. van der Kallen, A note on excision for K₂, in *Algebraic K-Theory, Number Theory, Geometry and Analysis* (Bielefeld 1982), Lecture Notes in Mathematics 1046, Springer, 1984, 173–177, https://webspace.science.uu.nl/~kalle101/ExcisionK_2.pdf (§2, p.176: an idempotent ideal for which degree-two excision fails).
+- [van der Kallen 1989] W. van der Kallen, Presenting K₂ with generic symbols, in *Algebraic K-Theory: Connections with Geometry and Topology* (J. F. Jardine and V. P. Snaith, eds.), Kluwer, 1989, 509–516, https://webspace.science.uu.nl/~kalle101/PresentingK_2.pdf (§6, p.512: Keune's passage from a presentation of K₂ of the double to one of relative K₂).
 - [van der Kallen 1978] W. van der Kallen, Generators and relations in algebraic K-theory, Proceedings of the International Congress of Mathematicians, Helsinki 1978, 305–310, https://webspace.science.uu.nl/~kalle101/GeneratorsRelations.pdf (§1, p.307: double and relative Steinberg group; §3, pp.308–309: local and relative presentations).
-- [Dennis–Stein 1975] R. K. Dennis and M. R. Stein, K₂ of discrete valuation rings, Adv. Math. 18 (1975), 182–238, https://doi.org/10.1016/0001-8708(75)90157-7 (full text not obtained; source of the base case ℤ_(p) in §13.6).
-- [Keune] F. Keune, The relativization of K₂, J. Algebra 54 (1978), 159–177, https://doi.org/10.1016/0021-8693(78)90024-8 (full proof not obtained).
-- [Loday relative] J.-L. Loday, Cohomologie et groupe de Steinberg relatifs, J. Algebra 54 (1978), 178–202, https://doi.org/10.1016/0021-8693(78)90025-X (full proof not obtained).
-- [Maazen–Stienstra] H. Maazen and J. Stienstra, A presentation for K₂ of split radical pairs, J. Pure Appl. Algebra 10 (1977), 271–294, https://doi.org/10.1016/0022-4049(77)90007-X (full proof not obtained).
+- [Dennis–Stein 1975] R. K. Dennis and M. R. Stein, K₂ of discrete valuation rings, Adv. Math. 18 (1975), 182–238, https://doi.org/10.1016/0001-8708(75)90157-7 (Theorems 2.3, 2.5 and §1; source of the base case ℤ_(p) in §13.6).
+- [Keune] F. Keune, The relativization of K₂, J. Algebra 54 (1978), 159–177, https://doi.org/10.1016/0021-8693(78)90024-8 (Theorem 15; §§13.8–13.9).
+- [Loday relative] J.-L. Loday, Cohomologie et groupe de Steinberg relatifs, J. Algebra 54 (1978), 178–202, https://doi.org/10.1016/0021-8693(78)90025-X (relative comparison; §13.8).
+- [Maazen–Stienstra] H. Maazen and J. Stienstra, A presentation for K₂ of split radical pairs, J. Pure Appl. Algebra 10 (1977), 271–294, https://doi.org/10.1016/0022-4049(77)90007-X (split radical presentation; §13.9).
 - [van der Kallen 1971] W. van der Kallen, Le K₂ des nombres duaux, C. R. Acad. Sci. Paris 273 (1971), 1204–1207, https://webspace.science.uu.nl/~kalle101/K2nd1971Gallica.pdf.
 - [Morrow] M. Morrow, K₂ of localisations of local rings, J. Algebra 399 (2014), 190–204; author preprint https://arxiv.org/abs/1205.0860 (preprint page numbers).
 - [Levine] M. Levine, The indecomposable K₃ of fields, Ann. Sci. ÉNS (4) 22 (1989), 255–344.

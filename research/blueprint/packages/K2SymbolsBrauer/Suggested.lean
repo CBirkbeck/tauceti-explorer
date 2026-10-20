@@ -363,7 +363,5 @@ the generator maps out of the presentation groups, double-ring relative Steinber
 double-quotient description, cross classes, the split radical fibre comparison and double excision,
 Dennis–Stein generation, the reduction to the double, the split radical presentation, Keune's
 theorem, the lift-change sequence and residue-isomorphism transfer for local rings, differential
-symbols, van der Kallen's dual-number module, square-zero quotients and the dyadic computations;
-twist trivializations, Brauer and cyclic symbols, local invariant and Tate comparison maps, and
-the product-normalized finite étale Chern comparison.
+symbols, van der Kallen's dual-number module, square-zero quotients and the dyadic computations.
 -/
