@@ -112,7 +112,7 @@ incorrectly admit zero. -/
 example : ¬ HighPowered 0 := by
   simp [HighPowered]
 
-/-! ## Layer 8: arithmetic filtrations and prismatic comparisons -/
+/-! ## Layer 8: arithmetic trace filtrations -/
 
 /-- `TracePresentation`: the underlying quotient A[u,v]/(uv−ξ). Its homotopical grading and
 spectral realization are specified in the README; BMS2, Proposition 6.2. -/
@@ -177,11 +177,14 @@ Layer 1: Connes' cyclic category and cyclic objects; the cyclic enhancement of s
 derived Hochschild chains; mixed complexes and their derived category; cyclic, negative
 cyclic and periodic cyclic homology.
 
-Layer 2: spectra with group action; THH of E₁-rings, relative THH and THH of spectral and
-stable infinity categories; lax equalizers; cyclotomic spectra; TC⁻, TP and TC; orthogonal
-spectra; genuine G-spectra with genuine and geometric fixed points; genuine Prüfer-group
-and finite-family circle spectra; genuine cyclotomic spectra; TR and genuine TC; coalgebras
-and fixed points of endofunctors; the Bökstedt construction and classical THH.
+Layer 2: spectra with an action of a topological group, extending the finite-group Borel
+category of BordismFormalGroups F6.5; the parametrized Tate construction of a Kan complex; THH
+of E₁-rings, extending AInfCohomology AI.7.2's THH of connective E∞-rings, relative THH and THH
+of spectral and stable infinity categories; lax equalizers; cyclotomic spectra; TC⁻, TP and TC;
+orthogonal spectra; genuine G-spectra with genuine and geometric fixed points; genuine
+Prüfer-group and finite-family circle spectra; genuine cyclotomic spectra; TR and genuine TC;
+representation spheres and representation-graded TR; coalgebras and fixed points of
+endofunctors; the Bökstedt construction and classical THH.
 
 Layer 3: circle-equivariant p-typical cyclotomic spectra; topological Cartier modules;
 derived V-completeness; positively graded cyclotomic spectra. Classical Cartier modules
@@ -199,18 +202,17 @@ Layer 6: spherical lifts and the base hypotheses; light condensed and solid spec
 trace-class maps and nuclear modules; perfect even modules and the even site; ordinary
 even filtrations; the solid even filtration; even flat and solid even flat modules;
 homological evenness and even homotopy sheaves; faithfully even flat ring maps; solid
-duality Assumption R; compatible local and global spherical lifts; Bousfield localization
-at a spectrum and K(1)-localization; homotopy fixed points of the Adams operations ψ^r,
+duality Assumption R; compatible local and global spherical lifts; K(1)-localization as
+BordismFormalGroups F6.1's localization at KU/p; homotopy fixed points of the Adams operations ψ^r,
 ψ^{−1} and ψ³ and the connective cover of the local sphere at each prime;
 cyclonic spectra and cyclonic Adams lift coherence; TC^{−(m)}.
 
-Layer 7: nuclear E-modules; smooth and proper E-linear categories. Layer 8 additionally
-constructs the motivic, Nygaard and syntomic trace filtrations, Breuil–Kisin twists, AΩ
-comparisons and Habiro interfaces. The quasisyntomic sheaves of even K-groups in Layer 8
-also require the README's higher carriers.
-Layer 9 defines Zₚ and Qₚ coefficients by p-completing
-before inverting p, and constructs the Beilinson comparisons using the earlier
-layers. The Snaith comparison, stable Adams lifts and relative cyclic HKR remain Layer 5
+Layer 7: nuclear E-modules; smooth and proper E-linear categories. Layer 8 uses the
+perfectoid, quasisyntomic, AΩ and prismatic trace comparisons of AInfCohomology AI.7.2 and
+PrismaticCohomologyPartIII §7.0, and constructs the trace Adams operations, the quasisyntomic
+sheaves of even K-groups and the Habiro interface, all on the README's higher carriers.
+Layer 9 defines Zₚ and Qₚ coefficients by p-completing before inverting p, and constructs the
+TC Beilinson square for associative rings and its K-theoretic form for henselian rings. The Snaith comparison, stable Adams lifts and relative cyclic HKR remain Layer 5
 theorem targets over supplied ku and KU. -/
 
 end TauCetiRoadmap.RefinedTraceMethods
