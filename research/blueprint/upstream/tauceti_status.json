@@ -413,7 +413,7 @@
     "ArithmeticLocallySymmetricSpaces": {
       "stage": "pr",
       "pr": 871,
-      "head": "fa3b7a1",
+      "head": "92c6072",
       "depends_on": [
         792,
         793,
@@ -424,7 +424,8 @@
         "recommendation": "approve",
         "current": false,
         "draft": null,
-        "maintainer": null
+        "maintainer": null,
+        "note": "final-review repairs applied at 92c6072; confirmation pass pending"
       }
     },
     "DeformationAndDerivedPatchingAlgebraPartII": {
