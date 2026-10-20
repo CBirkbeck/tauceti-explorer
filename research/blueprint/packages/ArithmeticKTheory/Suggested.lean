@@ -65,13 +65,6 @@ example : borelRank 0 1 3 = 1 ∧ borelRank 0 1 5 = 1 := by decide
 theorem borelRank_even (r₁ r₂ k : ℕ) : borelRank r₁ r₂ (2 * k) = 0 := by
   sorry
 
-/-! ## Layer 5: the cyclic norm used in dyadic detected descent -/
-
-example : (∀ x : ZMod 8, 3 * x = x ↔ x = 0 ∨ x = 4) ∧
-    (∀ x : ZMod 8, 3 * x = x ↔ ∃ y : ZMod 8, (1 + 3) * y = x) ∧
-    (∀ x : ZMod 8, (1 + 7) * x = 0) ∧ (4 : ZMod 8) ≠ 0 := by
-  decide
-
 /-! ## Layer 6: even groups, divisibility and Bott degrees -/
 
 section DivisibleElements
@@ -132,11 +125,6 @@ theorem divisibleSubgroup_int : divisibleSubgroup ℤ = ⊥ := by
   sorry
 
 end DivisibleElements
-
-example : (2 : ZMod 5) * 3 = 1 ∧ (3 : ZMod 5) * 3 = 4 ∧
-    (∀ x : ZMod 5, 3 * x = x ↔ x = 0) ∧
-    (∀ x : ZMod 5, 4 * x = x ↔ x = 0) := by
-  decide
 
 /-- Slot (cohomological degree, twist) for the positive/negative piece of degree 2j.
 `positive = true` means the +1 eigenspace of dualization, not complex conjugation. -/
@@ -225,6 +213,9 @@ cyclotomicPicardDescentSequence, cyclotomicPositiveH2Descent and
 cyclotomicPositivePicardDescentSequence.
 It also specifies cyclotomicWreathMap, harrisSegalMap,
 compatibleClassCyclotomicPrime, cyclotomicPicardInjection and regularBottShift.
+The additional arithmetic certificate and conditional completion targets are
+caputoSexticArithmeticCertificate and
+rawWildKernel_eq_symbol_of_localRestriction_eq_zero.
 The README also specifies L- and
 Grothendieck–Witt finiteness, the cyclotomic Picard injection and the integral
 regular-prime consequences. Their higher K, cohomology, spectral and
