@@ -7,6 +7,8 @@ The roadmap is README.md. This file records definitions and theorem signatures
 statable against the pinned APIs and is not exhaustive. It fixes the finite
 polylogarithm normalization, the excluded points of the residue function,
 evaluation constraints as native submodules, and row matrix conventions.
+The nonzero cyclotomic-unit jet fixes the rational arithmetic of the Tate
+normalization check.
 -/
 
 noncomputable section
@@ -22,7 +24,19 @@ local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
 
 /-! ## Layer 1: Bloch–Kato exponential and logarithms -/
 
+-- Fontaine's two opposite arrows at p=5,r=2 give opposite, nonzero inputs.
+example :
+    (1 - (5 : ℚ) ^ (-2 : ℤ))⁻¹ = 25 / 24 ∧
+      ((5 : ℚ) ^ (-2 : ℤ) - 1)⁻¹ = -25 / 24 := by
+  norm_num
+
 /-! ## Layer 2: Iwasawa comparison and choices -/
+
+-- The normalized two-dimensional alternating pairing changes sign on swapping entries.
+example :
+    (!![1, 0; 0, 1] : Matrix (Fin 2) (Fin 2) ℚ).det = 1 ∧
+      (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ).det = -1 := by
+  norm_num [Matrix.det_fin_two]
 
 /-! ## Layer 3: local logarithms and dilogarithms -/
 
@@ -113,6 +127,29 @@ theorem residueDilogValue_spans (p s : ℕ) [Fact p.Prime]
 /-! ## Layer 7: curve regulators in good and semistable reduction -/
 
 /-! ## Layer 8: Perrin–Riou regulators and interpolation -/
+
+/-- The second (1+π)d/dπ logarithmic jet at zero, on its nonzero-constant domain. -/
+def colemanLogSecondJet (f : ℚ[X]) (_h0 : f.eval 0 ≠ 0) : ℚ :=
+  (f.derivative.derivative.eval 0 + f.derivative.eval 0) / f.eval 0 -
+    (f.derivative.eval 0 / f.eval 0) ^ 2
+
+-- The f₆ unit: derivative, second jet, depleted moment and regulator moment.
+example :
+    let f : ℚ[X] := 6 + 15 * X + 20 * X ^ 2 + 15 * X ^ 3 + 6 * X ^ 4 + X ^ 5
+    ∃ h0 : f.eval 0 ≠ 0,
+      f.derivative.eval 0 / f.eval 0 = 5 / 2 ∧
+      colemanLogSecondJet f h0 = 35 / 12 ∧
+      (1 - 5) * colemanLogSecondJet f h0 = -35 / 3 ∧
+      2 * ((1 - 5) * colemanLogSecondJet f h0) = -70 / 3 := by
+  dsimp only
+  refine ⟨by norm_num, ?_⟩
+  norm_num [colemanLogSecondJet]
+
+example : colemanLogSecondJet (1 : ℚ[X]) (by norm_num) = 0 := by
+  norm_num [colemanLogSecondJet]
+
+example : colemanLogSecondJet (1 + X : ℚ[X]) (by norm_num) = 0 := by
+  norm_num [colemanLogSecondJet]
 
 /-- An inverse candidate; the quadratic identity is a separate hypothesis. -/
 def quadraticFrobeniusInverse {E ι : Type*} [Field E] [Fintype ι] [DecidableEq ι]
@@ -274,6 +311,11 @@ example : (shearMatrix (1 : ℤ) (-4)).det = 5 ∧ ¬ IsUnit (5 : ℤ) := by
 theorem shearMatrix_unit {R : Type*} [CommRing R] (e₁ e₂ : R)
     (h : IsUnit (1 - e₁ * e₂)) : IsUnit (shearMatrix e₁ e₂) := by
   sorry
+
+-- A high-weight nonordinary Frobenius reduction is nilpotent without a weight bound.
+example :
+    (!![0, -(5 : ZMod 5) ^ 9; 1, 5] : Matrix (Fin 2) (Fin 2) (ZMod 5)) ^ 2 = 0 := by
+  decide +revert
 
 /-
 The period rings, Bloch–Kato conditions, exponential, logarithm, quotient

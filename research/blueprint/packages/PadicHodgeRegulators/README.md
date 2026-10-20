@@ -4,7 +4,7 @@
 
 ## Scope and ownership
 
-This roadmap owns the normalization and comparison of regulators, the finite-residue dilogarithm argument for the local K₃ theorem, the explicit curve regulator interfaces, and the linear algebra of Coleman images. Algebraic K-groups, Bloch groups, motivic complexes and their comparison with continuous étale cohomology come from KTheoryFiniteLocalFields, K3BlochGroups and MotivicEtaleKTheory §12.1. Generic cohomological descent and generic syntomic comparison carriers belong to CohomologyComparisons, Part II; their regulator-specific identifications are stated here. ColemanIntegration owns Coleman integration; its Part II must extend it to Vologodsky integration and double/triple indices. This roadmap identifies their values on regulator classes.
+This roadmap owns the normalization and comparison of regulators, the finite-residue dilogarithm argument for the local K₃ theorem, the explicit curve regulator interfaces, and the linear algebra of Coleman images. Algebraic K-groups, Bloch groups, motivic complexes and their comparison with continuous étale cohomology come from KTheoryFiniteLocalFields, K3BlochGroups and MotivicEtaleKTheory §12.1. Generic classical syntomic, relative open-curve and semistable comparison carriers are required inputs from **CohomologyComparisonsPartII**; their regulator-specific identifications are stated here. ColemanIntegration owns Coleman integration; **ColemanIntegrationPartII** supplies the required Vologodsky integration and double/triple indices. This roadmap identifies their values on regulator classes.
 
 SelmerIwasawaCohomology §4.2–4.9 owns the period rings, fundamental exact sequences, de Rham and crystalline predicates, the finite Bloch–Kato condition on representations, lattices and discrete quotients, and its local duality. Those are consumed here; the normalized exact sequences, condition g, the logarithms and their explicit normalization are the new outputs. Its elliptic Kummer comparison is also consumed. The extension to abelian varieties is stated for the functorial logarithm, without identifying a chosen differential with a minimal differential through an unproved scalar.
 
@@ -44,9 +44,40 @@ From PhiGammaModulesAndIwasawaCohomology §§5–6, consume the integral D(T)^ψ
 
 From KTheoryFiniteLocalFields §§1.8,6.6–6.7 and K3BlochGroups, consume finite Chern operations, completed étale edge maps, the weight-two Chern comparison, the completed Bloch description with Tate-module obstruction, and transfer. MotivicEtaleKTheory §12.1 supplies universal finite étale Chern operations. The compatible inverse limit, not an uncompleted rational map, defines the integral regulator. From PadicHodgeTheory and FiniteFlatGroupsAndIntegralPadicHodgeTheory consume the integral period comparison; the precise finite small-weight range is always displayed below.
 
-**Missing classical input.** CohomologyComparisons §§4.1–4.3 supplies proper semistable period adapters, not the classical complexes below. Its Part II must supply log-crystalline divided-power ideals, divided/undivided syntomic fibres, multiplicative period maps and bounded integral errors. The required periods map from syntomic complexes to nearby cycles; the reverse direction is never assumed. Its §6.3 treats proper smooth prismatic coefficients; the relative open-curve filtered Frobenius modules, residues and Ext interpretation under Layer 7’s hypotheses are an additional missing input. For semistable curves it must give Hyodo–Kato comparison, monodromy and the semistable extension complex.
+**Required classical and relative inputs.** Consume **CohomologyComparisonsPartII** in the dependency order
 
-ColemanIntegration supplies branch-aware primitives, constant terms, residues and traces. **Missing integration input.** Its Part II must supply harmonic gluing, Vologodsky integration and double/triple indices with Layer 7’s orientations; these are additional to its present Layers 0–3. AlgebraicCurves supplies smooth proper geometrically connected curves, their étale boundaries, divisors, tame symbols and pull/push.
+```text
+CohomologyComparisons, CrystallineCohomology, PadicPeriodRings,
+  and the existing SyntomicCohomology material
+    → CohomologyComparisonsPartII
+    → ColemanIntegrationPartII
+    → PadicHodgeRegulators.
+ColemanIntegration → ColemanIntegrationPartII.
+```
+
+The following are required contracts from CohomologyComparisonsPartII, rather than claims that those inputs have been constructed. CS.0–CS.3 label the four classical syntomic contracts. The full statements, ranges and Checks in the supplier subsections below remain part of each contract.
+
+| Owner and required target names | Required content and consumers |
+|---|---|
+| CohomologyComparisonsPartII: `rigidSyntomicCohomology`, `rigidSyntomic_long_exact`, `rigidSyntomic_spec_eta` | The rational rigid/de Rham cone, functoriality, independence, filtered-complex long exact sequence and point calculation of the rigid-syntomic supplier contract. Used by §§4.1–4.5,5.7–5.8 and7.1–7.6. |
+| CohomologyComparisonsPartII, CS.0/classical-divided-and-undivided-syntomic: `logSyntomicComplex`, `logSyntomicDividedComplex`, `logSyntomicToDivided` | Log-crystalline divided-power and Frobenius-divisible ideals, U and D fibres, products and directed ω/τ with both composites pʳ. Used by the log-syntomic supplier contract and §§4.1–4.2,4.6,7.7,7.10. |
+| CohomologyComparisonsPartII, CS.1/integral-fontaine-messing-period: `fmkDividedPeriodMap`, `fmkPeriodMap`, `fmkPeriodMap_degree_one` | Multiplicative syntomic-to-nearby-cycle period maps through the syntomic–étale site, modified Tate lattice and reduction squares. Used by the period-map supplier contract and §§4.2,4.6,7.7,7.10; no reverse integral period arrow. |
+| CohomologyComparisonsPartII, CS.2/divided-small-weight-comparison: `dividedSyntomic_smallWeightComparison`, `undividedSyntomic_boundedComparison` | Divided exactness for i≤r≤p−2, undivided bounded p-power error and its rational comparison, under the displayed Cartier-type/semistable hypotheses. Used by the divided-comparison supplier contract and §§4.2,4.6,7.7,7.10. |
+| CohomologyComparisonsPartII, CS.3/semistable-syntomic-exponential: `semistableSyntomic_normalizedBoundary`, `semistableSyntomic_boundary_exp` | The rational normalized boundary ω_Q⁻¹δ_D and its Bloch–Kato exponential comparison, including the pʳ factor for the unscaled U-boundary. Used by §4.6 and the period identifications in Layer7. |
+| CohomologyComparisonsPartII: `filFMIC`, `filFMIC_Ext`, `relativeRigidDeRhamComparison`, `relativeSyntomicEvaluation`, `relativeResidue_tameKernel` | The AM2022 open-family category, Ext, connection, relative rigid/de Rham comparison, residues and Frobenius-compatible evaluation, with exactly the compactification, coherence, truncated-complex and point hypotheses of §§7.8–7.9. These names denote the generic inputs; `relativeCurveSyntomicRegulator` is the regulator comparison owned here. |
+| CohomologyComparisonsPartII: `semistableExtensionComplex`, `hyodoKato_uniformizerChange`, `semistablePeriod_finiteExtensionDescent` | The (φ,N,I_π) complex and period-change laws used in §§7.7,7.10–7.11, and finite semistable-extension descent for the arbitrary-reduction target `curveVologodskyPairing`. Existing proper Hyodo–Kato theory is imported from CohomologyComparisons CP.4; its open, extension-complex and descent adapters are required here from PartII. |
+
+CohomologyComparisons §§4.1–4.3 and §6.3 do not supply these classical or relative open-curve inputs: the former are proper semistable period adapters, the latter proper smooth prismatic coefficients. None of these entries is discharged by citing those sections.
+
+**Required integration inputs.** ColemanIntegration supplies branch-aware Coleman primitives, constant terms, residues and traces. Require the following contracts from **ColemanIntegrationPartII**, after ColemanIntegration and CohomologyComparisonsPartII and before this roadmap.
+
+| Required target names in ColemanIntegrationPartII | Required content and consumers |
+|---|---|
+| `harmonicColemanGluing`, `vologodskyIntegral`, `vologodskyIntegral_colemanComparison` | Harmonic correction of wide-open primitives, their Vologodsky integral and the full arbitrary-reduction integration theorem. Used by §§7.7,7.10–7.11; the split graph realization is a Check of the general integration input. |
+| `globalTripleIndex`, `annularDoubleIndex`, `index_orientation`, `index_cupProduct` | Global rather than merely local triple indices, oriented annular double indices, one-orientation/half-sum identity and their cup-product comparison, as specified in §7.11. |
+| `vologodskyIntegral_branchChange`, `vologodskyIntegral_trace`, `vologodskyIntegral_finiteExtensionDescent` | Branch and trace laws and finite semistable-extension descent, including residue-field traces and Galois equivariance. Used by §§7.7,7.10–7.11 and the general arbitrary-reduction formula. |
+
+All results using these inputs are **conditional on the named contracts with their stated hypotheses**. In particular the syntomic/Chern/regulator comparisons of Layers4–7 and the local K₃ comparison through §4.2 do not assert construction of these producers in this package. Every subsection entitled “Supplier” specifies an import, even when it lists a mathematical signature and Checks. AlgebraicCurves supplies smooth proper geometrically connected curves, their étale boundaries, divisors, tame symbols and pull/push.
 
 ### Supplier: The fundamental exact sequences used by the Bloch–Kato maps
 
@@ -193,6 +224,8 @@ See HK2011 §1.3, p. 8; NN2016 §5.2, p. 59; KTheoryFiniteLocalFields §§1.8,6.
 
 ### Supplier: Rigid syntomic cohomology of smooth schemes over a p-adic integer ring
 
+Required from CohomologyComparisonsPartII: `rigidSyntomicCohomology` and its named API in the input table. All uses below are conditional on this contract.
+
 Let R be a complete discrete valuation ring of characteristic 0 with perfect residue field k of characteristic p and fraction field K, R_0 = W(k), K_0 = R_0[1/p], and n ∈ Z. For a smooth R-scheme X with syntomic data (a smooth P_0 over R_0 with a σ-semilinear Frobenius lift Φ, a smooth P over R, X ↪ P and P_0 → P), Besser's rigid syntomic complex is RΓ_syn(X, n) := Cone(Fil^n RΓ_dR(X_K) ⊕ RΓ_rig(X_k/K_0) → RΓ_rig(X_k/K) ⊕ RΓ_rig(X_k/K_0))[−1], (a, b) ↦ (a − b, (1 − Φ*/p^n)b), with RΓ_rig from overconvergent de Rham complexes on the tubes; its cohomology H^i_syn(X, n) is independent of the syntomic data and functorial in X. For X = Spec R and n ≥ 1, H^i_syn(Spec R, n) = 0 for i ≠ 1 and the de Rham component η : H^1_syn(Spec R, n) ≅ K is an isomorphism (1 − σ/p^n being bijective on K_0).
 
 - `rigidSyntomicCohomology`: rigidSyntomicCohomology X n i : the Q_p-vector space H^i_syn(X,n); 1−Φ/p^n is Q_p-linear. At Spec R, η transports the K-module structure if desired.
@@ -214,6 +247,8 @@ See HK2011 Definition 2.2.1, p. 14; HK2011 Example 2.2.4, pp. 14–15; Besser200
 - For X_K=A¹_K, H¹(F¹RΓ_dR(X_K))=K[x]dx, whereas F¹H¹_dR(X_K)=0. The long exact sequence must retain the cohomology of the filtered complex.
 
 ### Supplier: Log-syntomic complexes S_n(r)
+
+Required from CohomologyComparisonsPartII CS.0: `logSyntomicComplex`, `logSyntomicDividedComplex` and `logSyntomicToDivided`.
 
 For an fs log-smooth X/O_K^× (mixed characteristic, perfect residue field), r≥0 and m≥1, distinguish U_m(r)=Fib(p^r−φ:J_m^[r]→O_cr,m) from D_m(r)=Fib(1−φ_r:J_m^<r>→O_cr,m). Here J_m^<r> is obtained by lifting to level m+s, s≥r, imposing φ(x)∈p^r O_cr,m+s, then reducing modulo p^m; φ_r is the resulting divided Frobenius. For 0≤r≤p−1 the two domain ideals agree, but the two differentials and complexes still differ. There are directed maps ω_r:U_m(r)→D_m(r), with legs (p^r,id), and τ_r:D_m(r)→U_m(r), with legs (id,p^r). Both composites are p^r; their cohomological kernels/cokernels are p^r-torsion. ω preserves products; τ generally does not. Étale sheafification, derived global sections and derived m-limits are imported. CN S_m(r) denotes U_m(r), whereas EN S_m(r) denotes D_m(r) and EN S′_m(r) denotes U_m(r). After rationalization ω and τ/p^r are inverse comparisons; integral equality is not asserted.
 
@@ -238,6 +273,8 @@ See CN2017 §5.1.1, pp. 52–53; NN2016 Introduction, (1), p. 2; EN2016 §2.1 an
 
 ### Supplier: The Fontaine–Messing–Kato period morphism
 
+Required from CohomologyComparisonsPartII CS.1: `fmkDividedPeriodMap`, `fmkPeriodMap` and their product, reduction and unit comparison API.
+
 Use the imported divided complex D_m(r). Its integral Fontaine–Messing period map α_div:D_m(r)→i*Rj*(Z/p^m(r)′) is a directed morphism. For 0≤r≤p−2 it lands in the ordinary twist. In all weights EN uses Z_p(r)′=(p^a a!)^−1 Z_p(r), r=(p−1)a+b, 0≤b<p−1. On the syntomic–étale site the map goes from D_m(r) to i_se* j_se* j′*G(Z/p^m(r)′), with G the Godement resolution. Exactness of the special-fibre pushforward and the topos comparison induce the stated étale map after derived pushforward. Define α_und=α_div∘ω_r on U_m(r); this is multiplicative and reduction-compatible. This construction inverts no p^r-exact arrow. CN uses p^−a Z_p(r); the lattices coincide when a! is a p-unit, in particular for all weights used by Layer 4/Layer 5 here. Any all-weight identification with CN requires its explicit factorial normalization.
 
 - `fmkPeriodMap`: fmkPeriodMap X r m := α_div∘ω_r : U_m(r)→i*Rj*(Z/p^m(r)′); the divided map is a separate imported interface.
@@ -257,6 +294,8 @@ See CN2017 §1, p. 2; EN2016 §2.2–§2.2.1, pp. 7–8; EN2016 §2.1.3, the fir
 - At r=p−1, Z_p(r)′=p^{-1}Z_p(r) and its prescribed period generator has p-adic valuation one less than the ordinary generator; an ordinary generator cannot be silently substituted in the same normalized map.
 
 ### Supplier: The divided small-weight comparison and the undivided bounded comparison
+
+Required from CohomologyComparisonsPartII CS.2: `dividedSyntomic_smallWeightComparison` and `undividedSyntomic_boundedComparison`.
 
 For fs log-smooth X/𝒪_K^× of Cartier type, and 0≤i≤r≤p−2, the divided period morphism induces Hⁱ(D_m(r))≃i*Rⁱj*(ℤ/pᵐ(r)). Equivalently, τ≤rD_m(r)≃τ≤r i*Rj*(ℤ/pᵐ(r)). This is the small-weight theorem in EN2016 Theorem 2.2, p. 7, attributed there to Tsuji. For a semistable scheme or semistable base change and 0≤i≤r, the undivided morphism has kernel and cokernel killed by p^(Nr+cₚ) with enough roots of unity, and by p^N(K,p,r) in general, uniformly in m and X. Rationalization gives the comparison in degrees ≤r. The exact assertion is restricted to the divided complex and has no r=p−1 endpoint.
 
@@ -434,7 +473,7 @@ See HK2011 Remark 1.3.3, p. 9; HK2011 §1.3, p. 8.
 
 ### 1.4 Kato's dual exponential
 
-For K/Q_p finite and V de Rham, the dual exponential exp*_{K,V^*(1)} : H^1(K, V) → Fil^0 D_dR(V) is the composite H^1(K, V) → H^1(K, B_dR ⊗ V) ≅ D_dR(V), the isomorphism being x ↦ (g ↦ log χ(g)·x) (Kato); its image lies in Fil^0 D_dR(V) and its kernel is H^1_g(K, V). For W=V*(1), write P_W:H^1(K,W)×H^1(K,W*(1))→Q_p for the ordered cup-product pairing, and Q_W:D_dR(W)×D_dR(W*(1))→Q_p for its de Rham pairing followed by trace. The adjunction is Q_W(x,exp*_{K,W}(y))=P_W(exp_{K,W}(x),y), with x∈D_dR(W)/Fil^0 and y∈H^1(K,V), identifying W*(1)=V. Reversing both pairings requires the corresponding graded-commutativity sign; their order is part of the convention. This is the positive adjunction of LZ2014 §2.4, not a choice of Iwasawa normalization. The proof of LZ2014 Theorem B.6 writes both pairings with the W*(1) argument first; translating between the two orders multiplies by the sign −1 of the degree-one cup product, unless the transposed Tate pairing is defined without that sign.
+For K/Q_p finite and V de Rham, the dual exponential exp*_{K,V^*(1)} : H^1(K, V) → Fil^0 D_dR(V) is the composite H^1(K, V) → H^1(K, B_dR ⊗ V) ≅ D_dR(V), the isomorphism being x ↦ (g ↦ log χ(g)·x) (Kato); its image lies in Fil^0 D_dR(V) and its kernel is H^1_g(K, V). For W=V*(1), write P_W:H^1(K,W)×H^1(K,W*(1))→Q_p for the ordered cup-product pairing, and Q_W:D_dR(W)×D_dR(W*(1))→Q_p for its de Rham pairing followed by trace. The adjunction is Q_W(x,exp*_{K,W}(y))=P_W(exp_{K,W}(x),y), with x∈D_dR(W)/Fil^0 and y∈H^1(K,V), identifying W*(1)=V. Reversing both pairings requires the corresponding graded-commutativity sign; their order is part of the convention. This is the positive adjunction of LZ2014 §2.4. With the V-argument first it reads Q_V(exp* x,a)=−P_V(x,exp_W a): a degree-zero swap and a degree-one swap have different signs. The complete cocycle and ordered-pairing transport is `regulatorNormalizationComparison` in §2.4; §8.18 uses the resulting plus reciprocity sign.
 
 - `dualExp`: dualExp K V : H^1(K, V) →ₗ[ℚ_p] Fil^0 D_dR(V).
 - `dualExp_ker`: ker (dualExp K V) = blochKatoG K V.
@@ -511,7 +550,7 @@ See Berger2003 Introduction, p. 2; Rubin2000 §I.6.4, (9), p. 16.
 
 ### 1.10 The integral Bloch–Kato logarithm for unramified fields
 
-Let p be odd, L/Q_p finite unramified and 2 ≤ r ≤ p − 2. Then H^1(L, Z_p(r)) is torsion-free of rank [L : Q_p], H^1_f(L, Z_p(r)) = H^1(L, Z_p(r)), and log_BK(H^1(L, Z_p(r))) = (r − 1)!·p^r·O_L·e_r = p^r·O_L·e_r. For r = 1, log_BK(H^1_f(L, Z_p(1))/tors) = p·O_L·e_1. For 2≤r≤p−2, equivalently, Fontaine's map ∂^r : L → H^1(L, Q_p(r)), the connecting map of the supplier contract “The fundamental exact sequences used by the Bloch–Kato maps” (c), equals ±exp_BK ∘ (1 − p^{−r}σ)^{−1} and maps O_L isomorphically onto H^1(L, Z_p(r)), because (1 − p^{−r}σ)^{−1}O_L = p^r O_L. The statement is not asserted for ramified L, for r ≥ p − 1, or for p = 2.
+Let p be odd, L/Q_p finite unramified and 2 ≤ r ≤ p − 2. Then H^1(L, Z_p(r)) is torsion-free of rank [L : Q_p], H^1_f(L, Z_p(r)) = H^1(L, Z_p(r)), and log_BK(H^1(L, Z_p(r))) = (r − 1)!·p^r·O_L·e_r = p^r·O_L·e_r. For r = 1, log_BK(H^1_f(L, Z_p(1))/tors) = p·O_L·e_1. For 2≤r≤p−2, equivalently, Fontaine's map ∂^r : L → H^1(L, Q_p(r)), the connecting map for that supplier contract's twisted arrow p⁻ʳφ−1, equals **+exp_BK ∘ (1 − p^{−r}σ)^{−1}** and maps O_L isomorphically onto H^1(L, Z_p(r)), because (1 − p^{−r}σ)^{−1}O_L = p^r O_L. The statement is not asserted for ramified L, for r ≥ p − 1, or for p = 2.
 
 To prove an equality of lattices, use the trace construction in BNQD2002 §2.2.2–§2.3.2, pp. 649–652, as well as its index formula. At the first cyclotomic level the trace of Ξᵣ,₁(a(1+X)) is
 
@@ -519,7 +558,7 @@ To prove an equality of lattices, use the trace construction in BNQD2002 §2.2.2
 −pʳ(1−pʳ⁻¹σ⁻¹)(1−pʳσ⁻¹)⁻¹σ⁻¹(a).
 ```
 
-For r≥2 the three operators after pʳ are automorphisms of 𝒪_L. The torsion obstruction H⁰(L,ℚₚ/ℤₚ(r−1)) vanishes in the displayed range. The source's comparison diagram therefore gives exactly (r−1)!·pʳ𝒪_L after taking the Bloch–Kato logarithm. An index computation alone would not identify this sublattice. Fontaine's connecting map has the indicated sign ambiguity until its period arrow is compared with the chosen boundary; its lattice image is independent of that sign.
+For r≥2 the three operators after pʳ are automorphisms of 𝒪_L. The torsion obstruction H⁰(L,ℚₚ/ℤₚ(r−1)) vanishes in the displayed range. The source's comparison diagram therefore gives exactly (r−1)!·pʳ𝒪_L after taking the Bloch–Kato logarithm. An index computation alone would not identify this sublattice. The sign follows from a comparison of lifts. For a∈L choose b∈FilʳB_cris with (p⁻ʳφ−1)b=a, and put c=b·t⁻ʳ⊗vᵣ. Then (φ−1)c=a·dᵣ and c has zero image in (B_dR/B_dR⁺)⊗ℚₚ(r). Put q=(1−p⁻ʳσ)⁻¹(a)·dᵣ. Since (1−φ)q=a·dᵣ, c+q is φ-fixed, lifts q in the de Rham quotient and has coboundary (g−1)c. Thus ∂ʳ(a)=exp_BK(q), with a plus sign for the prescribed positive boundary. Equivalently, in the crystalline cokernel the pair (−a·dᵣ,0) is congruent to (0,q). This compares the actual arrows; it does not infer a sign from equality of their lattice images.
 
 See BNQD2002 Lemme 1.3.2, p. 647; BNQD2002 Théorème 2.1, p. 648; FontaineBPR1994 §2.1, p. 153.
 
@@ -528,6 +567,7 @@ See BNQD2002 Lemme 1.3.2, p. 647; BNQD2002 Théorème 2.1, p. 648; FontaineBPR19
 - L = Q_5, r = 2: log_BK(H^1(Q_5, Z_5(2))) = 25Z_5·e_2; consistent with Li_2(ω(2)) ≡ 25 mod 125.
 - Index check: q^r·|(r−1)!|^{−N} equals [O_L : p^r O_L] = q^r for r ≤ p − 2.
 - For p = 3 and r = 2 the range 2 ≤ p − 2 fails and H^1(Q_3, Z_3(2)) has torsion Z/3.
+- For L=ℚ₅,r=2,a=1, ∂²(1)=exp_BK((25/24)d₂). Replacing the arrow p⁻²φ−1 by 1−p⁻²φ while keeping the same input would give its negative.
 
 ### 1.11 Semilocal Bloch–Kato maps
 
@@ -604,21 +644,63 @@ See LZ2014 Definition 4.14, p. 20; Berger2003DM §II, p. 118.
 
 ### 2.4 Kummer classes and Coleman power series
 
-Take T = Z_p(1). For a norm-compatible system u ∈ U_∞ of principal units of the tower Q_p(μ_{p^n}) with Coleman power series f_u (f_u(ε^{(n)} − 1) = u_n), Δ(f_u) := (1 + π)f_u'/f_u lies in A^{ψ=1}, and h_{Iw,Z_p(1)}(Δ(f_u) ⊗ e_1) = s·κ(u), where κ : U_∞ → H^1_Iw(Q_p, Z_p(1)) is the Kummer map of SelmerIwasawaCohomology (cocycle τ ↦ τ(α)/α) and s ∈ {±1} is a sign whose value remains to be checked against Cherbonnier–Colmez's Proposition V.3.2 iii) and the cocycle of the Fontaine-isomorphism supplier contract (b). Independently of that sign, Δ(f_u) ⊗ e_1 ∈ N(Z_p(1))^{ψ=1}, and by §2.2 (v) the element is independent of ε.
+Take T=ℤₚ(1). For a norm-compatible principal unit system u∈U_∞ with Coleman series f_u, let Δf_u=(1+π)f′_u/f_u. The fixed cocycle normalization gives
 
-Keep `kummerColemanSign` and the equality `fontaineIwasawaEquiv_kummer` as a comparison target with s∈{−1,1}. CC99 Proposition V.3.2(iii), p. 27 computes its inverse comparison; a sign for the present Kummer boundary is not inferred merely from its use of the word Kummer. The signed equality in §8.21 depends on this comparison. The target `regulatorNormalizationComparison` also transports the exponential, dual exponential and ordered Tate pairing of LZ2014 to Layers 1–2. The interpolation and reciprocity formulas in Layer 8 use that transported normalization; their application requires this comparison, including its sign.
+```text
+fontaineIwasawaEquiv_kummer:
+  h_Iw(Δf_u ⊗ v₁) = κ_Iw(u).
+kummerColemanSign = +1.
+```
 
-See CC99 Proposition V.3.2 iii), p. 27; CC99 §V.3, p. 27.
+Here κ uses τ(α)/α. The vector lies in N(ℤₚ(1))^{ψ=1}, and §2.2(v) makes it independent of ε.
+
+**Comparison of cocycles.** Put y=(log f_u)d₁ in B⁺_rig⊗D_cris(ℚₚ(1)). Coleman norm compatibility gives ψy=y and ∇₀y=t∂y=Δf_u⊗v₁. Berger2003DM TheoremII.3 with h=1, applied to the explicit Fontaine cocycle, gives pr_n h(Δf_u⊗v₁)=exp_BK(log(u_n)d₁)=κ(u_n) with §1.2's positive boundary. This determines the sign on the nontorsion quotient, but does **not** yet prove the full Iwasawa equality: a Tate-root system survives in H¹_Iw even though all its finite-level rational Kummer classes vanish.
+
+Retain the actual compatible cocycles to finish the comparison. If α_{n,m}^{pᵐ}=u_n and τ(α_{n,m})/α_{n,m}=ε_m^{c_n(τ)}, the period lift b_n=log[α_n]·t⁻¹⊗v₁ has (τ−1)b_n=c_n(τ)v₁. Use these positive lifts in the period limit of CC99 §IV.3, and denote that limit by L⁺; its logarithm uses (τ−1)b_n, so L⁺ is the negative of the transform defined there using (1−τ)b_n. The multiplicative-limit calculation of CC99 LemmaV.3.1 and PropositionV.3.2(i)–(ii), pp.26–27, now gives
+
+```text
+L⁺(κ(u)) = t⁻¹ log[ι(u)] ⊗ v₁,
+T_n L⁺(κ(u)) = (log φ⁻ⁿ(f_u)) d₁.
+```
+
+Here T_n is CC's normalized period trace, not the ordinary field trace. For a class c whose finite-level projections lie in H¹_e, and n sufficiently large as in CC99 TheoremIV.3.3, recompute that theorem with these positive lifts: expand the normalized Herr cocycle of §II.1 in K_n((t)), apply the logχ description of the dual exponential to each χ⁻ᵏ twist (CC99 TheoremIV.2.1, pp.20–22), and collect its Laurent coefficients. Explicitly, if T_nL⁺(c)=Σ_k a_{k,n}tᵏ, its derivative has coefficient k a_{k,n}; the positive logχ formula identifies k a_{k,n}tᵏ with the dual-exponential coordinate of pr_n(Tw_{χ⁻ᵏ}c). The all-twist expansion of h_Iw⁻¹(c) in CCIV.2.1 has these same coefficients. Differentiation fixes D_dR(V), so d₁ is constant and v₁=t d₁ is not. The result is
+
+```text
+p⁻ⁿ φ⁻ⁿ(h_Iw⁻¹(c)) = t(d/dt) T_n L⁺(c).
+```
+
+The positive sign also follows by substituting the positive exponential lift from BergerII.3 into that cocycle; the logχ terms are computed explicitly in BergerII.6. With CC's (1−τ) definition of L instead, this comparison has a minus sign. Thus CC's printed IV.3.3 and the isolated (1−τ) lift in V.3.2 cannot both be carried unchanged to the positive convention. Substituting the preceding unit formula and φ⁻ⁿ∂=pⁿ(d/dt)φ⁻ⁿ gives h_Iw⁻¹κ(u)=Δf_u⊗v₁ in the full rational Iwasawa module. The computation takes place on cocycles before the period limit, so it retains the Tate-root component. Finally H¹_Iw(T) has no ℤₚ-torsion, and its injection into H¹_Iw(T)[1/p] gives the integral equality. No integral inverse to γ_n−1 is used.
+
+For the Tate-root system itself f=1+π, b_n=p⁻ⁿv₁, pⁿb_n=v₁ and T_nL⁺=p⁻ⁿt d₁. Its t-derivative is nonzero, giving h_Iw⁻¹κ(ε)=v₁. There is also a direct integral check: put a=χ(γ_n)∈1+pⁿℤₚ. The fixed Herr cocycle for v₁ is (log(a)/(a−1))p⁻ⁿ(χ(τ)−1)v₁, whereas the compatible-root Kummer cocycle is p⁻ⁿ(χ(τ)−1)v₁. Since log(a)/(a−1)−1∈pⁿℤₚ for odd p, their difference is an integral coboundary. Thus they agree at every integral level, not only after rationalization. These sign conversions agree with the derivative conclusion of CC99 PropositionV.3.2(iii); they do not change the fixed h_Iw cocycle. Berger2003DM RemarkII.17 explicitly warns about the different logarithm signs in CC99 IV.3.1 and the earlier literature.
+
+**`regulatorNormalizationComparison`.** Transport LZ2014's formulas using the following dictionary, with representation vectors vⱼ and invariant vectors dⱼ kept distinct.
+
+| Object/formula | Dictionary to this roadmap |
+|---|---|
+| Fontaine h_Iw, normalized Herr cocycle | The cocycle in the supplier contract, unchanged; the unit comparison has sign +1. |
+| Bloch–Kato exp and its inverse on H¹_e | Positive boundary (g−1)b, as explicitly computed in Berger2003DM TheoremII.3, pp.114–115; exp/log in the interpolation formulas have no extra scalar. |
+| Dual exponential | Kato's logχ cocycle, as in Berger2003DM TheoremII.6, pp.116–117; unchanged in LZ PropositionsB.1–B.2 and TheoremB.5. Its ordered adjunction is Q_W(a,exp*_W b)=P_W(exp_W a,b). |
+| Degree-zero de Rham/crystalline evaluation | Q_W(a,b)=Q_{W*(1)}(b,a); no sign from this swap. |
+| Degree-one Tate cup | P_W(a,b)=−P_{W*(1)}(b,a). In particular Q_V(exp* x,log y)=−P_V(x,y), not +P_V(x,y). |
+| Iwasawa pairing | lim_n Σ_g P_V(x_n,g y_n)[g], linear in the first input, inverse-linear in the second. This is the ordered construction in LZ §2.6, equation(1). Reversing inputs also applies the group-ring involution and a minus sign. |
+| LZ TheoremB.5 interpolation | The displayed exp*/log, Gamma, Euler, conductor and Gauss factors are unchanged (§§8.13–8.15). |
+| LZ TheoremB.6 calculation | Its step from Q(exp* x,log y) to the Tate pairing uses an ungraded transpose. For the ordered cup above that step has a minus sign. Consequently its displayed regulator reciprocity sign becomes **+σ₋₁ℓ₀** in §8.18. One cannot keep both that step and the positive adjunction of LZ §2.4 unchanged. Berger TheoremII.16 independently gives the plus sign after converting from Ω to L. |
+
+The local sign discrepancies just identified are recorded at their precise source locations; they do not alter the interpolation maps or permit an unspecified normalization parameter.
+
+See CC99 §II.1, ThéorèmeII.1.3, p.12; TheoremIV.2.1, pp.20–22, §IV.3, p.23, LemmaV.3.1/PropositionV.3.2, pp.26–27; Berger2003DM TheoremsII.3,II.6, pp.114–117, and TheoremII.16/RemarkII.17, pp.122–123; LZ2014 §2.4, p.5, §2.6, pp.6–7, AppendixB, pp.36–40.
 
 **Checks.**
 
-- For a=1+p, f_u(π)=((1+π)ᵃ−1)/π and Δf_u=a(1+π)ᵃ/((1+π)ᵃ−1)−(1+π)/π; test this explicit nonconstant series in the comparison.
-- The source uses (1−τ)(log[u_n]·t⁻¹⊗v₁) in its proof, whereas the chosen Kummer cocycle is τ(α)/α. Comparing these two cocycles, together with the normalization of h_Iw, is required to determine s; the displayed derivative identity alone does not determine it.
+- For a=1+p, f_u(π)=((1+π)ᵃ−1)/π and Δf_u=a(1+π)ᵃ/((1+π)ᵃ−1)−(1+π)/π. The cocycle calculation sends this nonconstant derivative to +κ(u).
+- The source's (1−τ) lift by itself represents −κ(u) under the fixed positive Kummer convention; using it without the conversion fails the preceding comparison. The derivative identity alone is insufficient to select a sign.
 - Under ε↦εᵃ, the derivative acquires a⁻¹ and v₁ acquires a; Δf_u⊗v₁ is unchanged.
+- For f=1+π, Δf=1 and h_Iw(v₁)=κ_Iw(ε)≠0, although each finite-level rational Kummer class is zero. A proof using only those rational classes fails this Check.
+- At p=5, P_{ℚ₅(1)}(κ(6),logχ)=log₅(6)≠0, whereas P_{ℚ₅}(logχ,κ(6))=−log₅(6). After division by log₅(6), this is the alternating two-coordinate model det[[1,0],[0,1]]=1 and det[[0,1],[1,0]]=−1, computed in Suggested.lean. The model checks the arithmetic sign; the cohomological identification is the positive adjunction above.
 
 ### Examples
 
-Replacing γ by γᵃ rescales the explicit cocycle and its logarithmic normalizer in opposite directions. Replacing ε by εᵃ changes both v₁ and the differential: their product remains intrinsic. The explicit unit series for a=1+p below tests the remaining Kummer comparison sign.
+Replacing γ by γᵃ rescales the explicit cocycle and its logarithmic normalizer in opposite directions. Replacing ε by εᵃ changes both v₁ and the differential: their product remains intrinsic. The explicit unit series for a=1+p below tests the positive Kummer comparison and the ordered pairing sign.
 
 ### Dependencies
 
@@ -803,6 +885,8 @@ See BdJ2003 Remark 1.13, p. 6.
 
 ### 4.6 The syntomic exponential and the Bloch–Kato exponential
 
+Consume CohomologyComparisonsPartII CS.3 `semistableSyntomic_normalizedBoundary` and `semistableSyntomic_boundary_exp`, together with CS.0–CS.2. The following comparison is conditional on these exact imports.
+
 Let X be a quasi-compact formal semistable scheme over O_K and r≥1. Write U for the undivided complex and D for the divided complex of the supplier contract “Log-syntomic complexes S_n(r)”. Fix the rational comparison ω_Q:U_Q≃D_Q with α_U^FM=α_D^FM∘ω_Q, as in EN §2.2. Let δ_D be the de Rham boundary in the divided rational model, with the Bloch–Kato sign convention of NN Proposition 4.13 and Remark 2.14, and define α^norm_{r,i}:=ω_Q⁻¹∘δ_D:H^{i−1}_dR(X_{K,tr})→H^i(U_Q). It is an isomorphism for i≤r−1 and injective for i=r, by the rational de Rham comparison of CN Corollary 3.16. For X proper semistable and 1≤i≤r−1, the composite α_U^FM∘α^norm_{r,i} is exp_BK of V_{i−1}:=H^{i−1}_et(X_K̄,Q_p(r)), with D_dR(V_{i−1})=H^{i−1}_dR(X_K) and Fil^0=0 in this range. In the explicit rational triple-cone presentation [A→A⊕A/J^{[r]}], ω acts by (p^r,id,p^r); hence the unscaled quotient-coordinate boundary δ_U satisfies ω_Qδ_U=p^rδ_D. In these EN period conventions α^norm=p^(−r)δ_U and α_U^FMδ_U=p^r exp_BK. No inverse to ω is asserted integrally. For X=Spec O_K, r≥2 and i=1 the normalized composite K→H^1(U_Q)→H^1(K,Q_p(r)) is exp_BK.
 
 See CN2017 Corollary 3.16, p. 37; CN2017 §1, p. 3; EN2016 §§2.1–2.2, pp. 4–8; NN2016 Proposition 4.13 and its displayed square, pp. 53–54; Remark 2.14, p. 14.
@@ -819,7 +903,7 @@ For Spec 𝒪_K in positive weight n, the syntomic coordinate is a single K. In 
 
 ### Dependencies
 
-Layers 0–3; MotivicEtaleKTheory §12.1 finite Chern maps; KTheoryFiniteLocalFields; K3BlochGroups; CohomologyComparisons, Part II; filtered de Rham and rigid cohomology.
+Layers0–3; MotivicEtaleKTheory §12.1 finite Chern maps; KTheoryFiniteLocalFields; K3BlochGroups; the named CohomologyComparisonsPartII rigid-syntomic and CS.0–CS.3 contracts. Layer4's comparisons are conditional on those inputs with the individual subsection hypotheses.
 
 ## Layer 5: the unramified local K₃ isomorphism
 
@@ -1199,9 +1283,9 @@ See Ara2003 Lemmas 3.6–3.7, p. 8; Besser2000 Proposition 8.6(2),(3) and Remark
 
 ### 7.7 What bad or semistable reduction requires beyond good reduction
 
-For a smooth proper semistable curve X/K, NN Theorems A,B provide rational syntomic cohomology and compatible Chern classes; the arithmetic regulator factors through H¹_st(G_K,H¹_et(X_K̄,Q_p(2))). The semistable comparison imports the Hyodo–Kato (φ,N) structure from CohomologyComparisons CP.4. Besser–Zerbes Theorem 1.1 identifies Vologodsky integration with appropriately corrected/glued Coleman primitives on semistable curves. These two results alone do not give the weight-two symbol formula. The regulator-specific continuous/discrete coordinates and full second-kind pairing are specified by §7.10 and §7.11, using Besser2025 and BR2019. Those targets pair the continuous component with ker N and determine its class modulo im N; ker N is a restriction on test forms, not the regulator domain. The integration and syntomic operations are supplied by the contracts above.
+For a smooth proper semistable curve X/K, NN Theorems A,B provide rational syntomic cohomology and compatible Chern classes; the arithmetic regulator factors through H¹_st(G_K,H¹_et(X_K̄,Q_p(2))). The semistable comparison imports the Hyodo–Kato (φ,N) structure from CohomologyComparisons CP.4. Besser–Zerbes Theorem 1.1 identifies Vologodsky integration with appropriately corrected/glued Coleman primitives on semistable curves. These two results alone do not give the weight-two symbol formula. The regulator-specific continuous/discrete coordinates and full second-kind pairing are specified by §7.10 and §7.11, using Besser2025 and BR2019. Those targets pair the continuous component with ker N and determine its class modulo im N; ker N is a restriction on test forms, not the regulator domain. The conclusions in §§7.7,7.10–7.11 are conditional on CohomologyComparisonsPartII's `semistableExtensionComplex`, `hyodoKato_uniformizerChange` and the named CS contracts, and on ColemanIntegrationPartII's `harmonicColemanGluing`, `vologodskyIntegral`, `globalTripleIndex`, `annularDoubleIndex` and index comparison laws.
 
-Retain also the general theorem `curveVologodskyPairing`: for a smooth proper curve over any finite K/ℚₚ, with arbitrary reduction, fixed uniformizer π, a rational K₂ class represented by Σnᵢ{fᵢ,gᵢ}, and holomorphic ω with [ω]∈ker N, the continuous regulator pairing is Σnᵢ∫^Vol_{(fᵢ)}log(gᵢ)ω, using π’s branch. Besser2025 Theorem 3.10, p.9 supplies this statement. Its period and integration suppliers must include descent from a finite semistable extension. That descent comparison remains missing; the split-model formulas below do not replace the general theorem.
+Retain also the general theorem `curveVologodskyPairing`: for a smooth proper curve over any finite K/ℚₚ, with arbitrary reduction, fixed uniformizer π, a rational K₂ class represented by Σnᵢ{fᵢ,gᵢ}, and holomorphic ω with [ω]∈ker N, the continuous regulator pairing is Σnᵢ∫^Vol_{(fᵢ)}log(gᵢ)ω, using π’s branch. Besser2025 Theorem 3.10, p.9 supplies this statement. This general theorem is conditional on CohomologyComparisonsPartII `semistablePeriod_finiteExtensionDescent` and ColemanIntegrationPartII `vologodskyIntegral_finiteExtensionDescent`, as well as their period/integration contracts. Those inputs identify restriction and trace over a finite semistable extension with the base-field coordinates and integral; this package does not prove descent. The split-model formulas below remain explicit realizations and do not replace the arbitrary-reduction theorem.
 
 See NN2016 Theorem B, p. 7; BZ2017 Theorem 1.1, p. 2.
 
@@ -1211,6 +1295,8 @@ See NN2016 Theorem B, p. 7; BZ2017 Theorem 1.1, p. 2.
 - The good-reduction formula of §7.4 is not asserted for any semistable curve.
 
 ### 7.8 The relative symbol regulator of a smooth curve family
+
+Conditional inputs from CohomologyComparisonsPartII are `filFMIC`, `filFMIC_Ext`, `relativeRigidDeRhamComparison`, `relativeSyntomicEvaluation` and `relativeResidue_tameKernel`, under exactly the following open-family hypotheses. CohomologyComparisons §6.3 is not a supplier for them.
 
 Under the stated compactification, coherence and filtration assumptions, construct [−]_{U/S}:K²_M(A)→Ext¹_{Fil-F-MIC(S,σ)}(O_S,H¹(U/S)(2)). It factors the cup-symbol extension through Milnor bilinearity and Steinberg relations. Its Frobenius coordinate R_σ takes values in B†_K⊗_{B_K}H¹_dR(U/S); its Gauss–Manin coordinate is σ-independent, while R_σ depends on σ. For a smooth proper curve family X/S, classes in K²_M(A)_{∂=0} uniquely lift to extensions by H¹(X/S)(2). With the extra truncated-complex hypotheses, R_σ[ξ] is the NEGATIVE of the relative syntomic-symbol de Rham coordinate (AM Theorems 3.7 at n=1 and 4.5). The generic category of filtered F-isocrystals, connection, Ext, relative de Rham/rigid and relative syntomic carriers are imports, not definitions owned here.
 
@@ -1234,6 +1320,8 @@ See AM2022 Theorem 2.23 and §2.7, pp. 18–20; Theorem 3.7, pp. 27–31; Propos
 - At n=1, replacing (−1)^n with +1 in the syntomic-coordinate square reverses a nonzero Frobenius coordinate.
 
 ### 7.9 Specialization of the regulator to a smooth fibre
+
+This result is conditional on the five CohomologyComparisonsPartII inputs of §7.8, especially the Frobenius-compatible `relativeSyntomicEvaluation`; its absolute normalized coordinate also uses CS.3 and the rigid point comparison.
 
 For the preceding relative symbol extension and a W-valued smooth point α:S(W), require ev_α∘σ=F_W∘ev_α at every finite level. Pullback to α sends the Milnor symbol extension to the absolute extension of its specialized symbol ξ_α, and evaluates its R_σ coordinate to the absolute Frobenius coordinate. When k is finite, after the signed syntomic comparison and normalized boundary identification, this yields regP_{X_α}(ξ_α)=the normalized evaluated relative syntomic class in H¹_dR(X_α/K). For the proper refinement require ∂ξ=0 and the boundary remains étale at α. A fixed σ has only its Frobenius-compatible lifts; arbitrary α is handled by a σ adapted to that point where one exists, not by treating every evaluation as a Frobenius morphism.
 
@@ -1279,7 +1367,7 @@ If f=1 then A=1−φₚ/p²=B. If f>1, the change from the p-Frobenius cone to t
 
 ### Dependencies
 
-Layers 1, 4; CohomologyComparisons, Part II, including Hyodo–Kato theory; AlgebraicCurves; ColemanIntegration and Part II; relative filtered Frobenius modules with connection.
+Layers1,4; AlgebraicCurves; ColemanIntegration; CohomologyComparisons CP.4's proper Hyodo–Kato comparison, extended by the exact CohomologyComparisonsPartII rigid/CS/relative/semistable/descent contracts; ColemanIntegrationPartII's harmonic, Vologodsky, index, branch/trace and descent contracts. Every corresponding assertion in this layer is conditional on those named inputs. The supplier roadmaps precede this one and never import its regulator comparisons.
 
 ## Layer 8: Perrin–Riou regulators and interpolation
 
@@ -1514,13 +1602,23 @@ See LLZ2011 Section3A, pp.1116-1117; LZ2014 Remark4.16, p.20.
 
 ### 8.18 Perrin–Riou explicit reciprocity formula
 
-With the crystalline pairing extended linearly in the first and via iota(g)=g^-1 in the second variable, [L_V(x),L_(V*(1))(y)]_cris=-sigma_-1 ell_0 <x,y>_Iw in the total fraction algebra of H_E(G). sigma_-1 is the inertia element with chi=-1; the dual regulator uses the admitted meromorphic twist extension. Equivalently Berger II.16 states (-1)^h <Omega_(V,h)(f),[-1]Omega_(V*(1),1-h)(g)>=-[f,iota(g)].
+With the crystalline pairing extended linearly in the first and via ι(g)=g⁻¹ in the second variable, and the **ordered** cup-product Iwasawa pairing of §2.4,
+
+```text
+[L_V(x), L_(V*(1))(y)]_cris = +σ₋₁ ℓ₀ ⟨x,y⟩_Iw.
+```
+
+This is an equality in the total fraction algebra of ℋ_E(G), with σ₋₁ the inertia element χ(σ₋₁)=−1; the dual regulator uses the admitted meromorphic twist extension. The plus sign is part of the target.
+
+To verify it without an implicit pairing transpose, use BergerII.16 in its Ω-form: (−1)ʰ⟨Ω_(V,h)(f),[−1]Ω_(V*(1),1−h)(g)⟩=−[f,ι(g)]. In the fraction algebra take h=1, f=L_V(x), g=L_(V*(1))(y). The defining Ω-identities give Ω_(V,1)(f)=ℓ₀x and Ω_(V*(1),0)(g)=y, modulo the invariant torsion killed in that algebra. Both sides of the Ω-form then have a minus sign, giving the displayed plus sign. For representations outside that intrinsic range apply the admitted twists before this calculation. Equivalently the interpolation proof uses Q_V(exp* x,log y)=−P_V(x,y); this is exactly the graded sign missing from the transposition step of LZ2014 TheoremB.6. Keeping LZ's printed negative regulator sign with the present ordered cup would contradict its positive exponential adjunction and the Ω-form. The dictionary in §2.4 specifies the conversion.
 
 See LZ2014 AppendixB equation(10) and TheoremB.6, pp.39-40; Berger2003DM TheoremII.16 and RemarkII.17, pp.122-123.
 
 **Checks.**
 
 - Changing the second variable by g multiplies the pairing by g^-1.
+- Reversing the two degree-one inputs gives ⟨y,x⟩_(V*(1))=−ι⟨x,y⟩_V, while reversing crystalline inputs gives ι without a minus. Since ι(ℓ₀)=−ℓ₀ and ι(σ₋₁)=σ₋₁, the displayed formula respects both laws.
+- The nonzero p=5 test P(κ(6),logχ)=log₅(6) in §2.4 distinguishes an ordered cup from an ungraded transpose; a zero class cannot detect this normalization.
 
 ### 8.19 Determinant of the crystalline regulator
 
@@ -1551,7 +1649,7 @@ See LLZ2011 Section3 equation(2), p.1117; Section1C6 modular bases.
 
 ### 8.21 Rank-one Tate and Coleman comparison
 
-Let V=E(1), d=t⁻¹v₁ and let u be an actual principal norm-compatible unit system. Define the raw map Col₀ by Mellin(Col₀(u))=(1−φ/p)log f_u, and put Col=−Col₀. The differential identity ∂((1−φ/p)log f_u)=(1−φ)Δf_u determines its comparison with the crystalline regulator. With s defined by h_Iw(Δf_u⊗v₁)=sκ_Iw(u) in §2.4, the equality is L_{E(1)}(κ_Iw(u))=s·ℓ₀Col₀(u)⊗d. The sign s must be established before replacing this by the particular LZ2014 convention ℓ₀Col₀=−ℓ₀Col. On ψ=0, ∂⁻¹ corresponds under Amice to multiplication by x⁻¹, so there is no integration-constant choice. The Tate-root tower is killed, and the coefficient-extended Coleman sequence retains its moment cokernel.
+Let V=E(1), d=t⁻¹v₁ and let u be an actual principal norm-compatible unit system. Define the raw map Col₀ by Mellin(Col₀(u))=(1−φ/p)log f_u, and put Col=−Col₀. The differential identity ∂((1−φ/p)log f_u)=(1−φ)Δf_u determines its comparison with the crystalline regulator. By the proved positive comparison in §2.4, the equality is L_{E(1)}(κ_Iw(u))=+ℓ₀Col₀(u)⊗d=−ℓ₀Col(u)⊗d. There is no remaining sign parameter. On ψ=0, ∂⁻¹ corresponds under Amice to multiplication by x⁻¹, so there is no integration-constant choice. The Tate-root tower is killed, and the coefficient-extended Coleman sequence retains its moment cokernel.
 
 See LZ2014 Section6.4.2 diagram and text, pp.28-29.
 
@@ -1559,7 +1657,9 @@ See LZ2014 Section6.4.2 diagram and text, pp.28-29.
 
 - For f_u=1+π (the Tate-root tower), (1−φ/p)log f_u=(1−φ/p)t=0, so Col₀ and the regulator vanish.
 - For the cyclotomic unit series f₆=((1+π)⁶−1)/π at p=5, Δf₆(0)=5/2 and the mass of Col₀ is (4/5)log₅(6)≠0; hence Col=−Col₀ changes a nonzero value.
-- For that f₆, Col₀(χ²)=(1−5)(6²−1)/12=−35/3; ℓ₀(χ²)Col₀(χ²)=−70/3. Thus ℓ₀ is essential.
+- For that f₆, Col₀(χ²)=(1−5)(6²−1)/12=−35/3 and **L_{ℚ₅(1)}(κ(u))(χ²)=−70/3·d₁**. Thus ℓ₀ is essential, and the negative Kummer comparison would fail this nonzero value.
+
+For the explicit check, f₆=6+15π+20π²+15π³+6π⁴+π⁵. If a=f₆(0), b=f′₆(0), c=f″₆(0), then Δf₆(0)=b/a=5/2 and ∂²log f₆(0)=(c+b)/a−(b/a)²=35/12, with ∂=(1+π)d/dπ. Frobenius sends t to 5t, so ∂²(1−φ/5)log f₆=(1−5)∂²log f₆ at zero. This gives the stated χ² moment. Its mass is (1−1/5)log₅(f₆(0)); log₅ is injective on 1+5ℤ₅ and 6≠1, proving nonvanishing rather than assuming it. The lightweight `colemanLogSecondJet` in Suggested.lean records this exact polynomial calculation, not a substitute for the p-adic Coleman map: for f∈ℚ[π] with f(0)≠0 it is (f″(0)+f′(0))/f(0)−(f′(0)/f(0))². Its API is `colemanLogSecondJet_eq` (the displayed expression), `colemanLogSecondJet_const` (zero for a nonzero constant), `colemanLogSecondJet_smul` (invariance under a nonzero rational scalar) and `colemanLogSecondJet_mul` (additivity on products with nonzero constant terms); Checks are f=1 (zero), f₆ (35/12) and f=(1+π) (zero). The f₆ witness also proves the depleted and regulator moments in Lean.
 
 ### 8.22 Ordinary and multiplicative Coleman map
 
@@ -1937,13 +2037,39 @@ See LLZ2011 Lemma5.6, Corollary5.7, text before Proposition5.9 and Proposition5.
 
 ### 9.29 Integral Coleman image has finite cokernel
 
-Use the actual modular lattice and prescribed integral good basis of LLZ2011 §5. Assume additionally the lower inclusion φ(π)^(k−1)(φ*N(T))^{ψ=0} ⊂ (1−φ)N(T)^{ψ=1}, denoted `integralWachLowerInclusion`. The proof in LLZWach2010 Proposition 4.11 uses its restrictions v_p(a_p)>⌊(k−2)/(p−1)⌋ and p≥k−1; outside that setting this inclusion is an additional target, not a consequence of rational image equality. Put X_k=∏_{i=0}^{k−2}(X−χ(γ)ⁱ+1) and let X_j^η generate the rational coordinate image. Then X_kΛ_O⊂Im Col_j^η⊂X_j^ηΛ_O and X_j^ηΛ_O/Im Col_j^η has finite 𝒪_E-length, hence is pseudo-null over 𝒪_E[[X]]. After the integral shear of Proposition 5.11 all X_j^η=1, so every coordinate cokernel is finite. Integral surjectivity does not follow.
+Use the actual modular lattice T=T₀(h), T₀=T_f̄ and h=k−1≥1, and the prescribed integral good Wach basis of LLZ2011 §5. Assume p odd, p∤N and f nonordinary at p, with the Frobenius/refinement exclusions of §§9.25–9.28 wherever their rational image theorem is used. There is **no** hypothesis p≥k−1 or v_p(a_p)>⌊(k−2)/(p−1)⌋. The lower inclusion is the target theorem
 
-See LLZ2011 Theorems 5.10 and 5.13, Proposition 5.11 and the published basis-change Remark 5.12, pp.1128-1129; the maximal-ideal selection is in arXiv1006.5163v2 Remark 5.12, p.25; LLZWach2010 Proposition4.11 and proof, pp.26-27; LLZ2010v2 Section 5.3, Remark 5.12, p.25.
+```text
+integralWachLowerInclusion:
+  (φ(π)^h φ*N(T))^{ψ=0} ⊂ (1−φ)N(T)^{ψ=1}.
+```
+
+**Integral convergence on the actual lattice.** Write R=𝒪_E[[π]], 𝔪=(ϖ_E,π), M=N(T₀). Its Wach structure gives φM⊂M and N(T)=π⁻ʰM⊗v_h. For any R-basis of M let P be the integral Frobenius matrix and P₀=P mod π. The reduction M/πM is an actual 𝒪_E-lattice in D_cris(V_f̄). Its Frobenius characteristic polynomial is Z²−a_p(f̄)Z+ε_f̄(p)pʰ. Since h≥1 and a_p(f̄)∈ϖ_E𝒪_E, Cayley–Hamilton gives P₀²≡0 mod ϖ_E. Frobenius fixes 𝒪_E, so its second iterate has matrix P·φ(P) (or the reversed product in row coordinates), reducing to P₀² mod 𝔪. Hence φ²M⊂𝔪M. Also φ(𝔪)⊂𝔪. Inductively φ^{2n}M⊂𝔪ⁿM, and the odd iterates satisfy the same convergence bound. This proves φⁿm→0 in the complete 𝔪-adic module M for every m∈M, with no eigenbasis or rational coefficient division.
+
+For y∈(φ(π)ʰφ*N(T))^{ψ=0}, the twist identity identifies φ(π)ʰφ*N(T) with φ*M⊗v_h⊂M⊗v_h; φ acts trivially on the representation vector v_h in the étale module. Thus x=Σ_{n≥0}φⁿy converges in M⊗v_h⊂N(T), **over the original 𝒪_E**. Telescoping gives (1−φ)x=y. Continuity of ψ in the weak topology of D(T), ψφ=id and ψy=0 give ψx=x. The finite free 𝔪-adic topology on M embeds in that weak topology. Consequently x belongs to the actual D(T), not merely D(V), proving the lower inclusion. It also proves uniqueness within M⊗v_h, since a φ-fixed vector in this contracting module is zero. This is the integral geometric-series argument suggested by LLZWach2010 Proposition4.6 and the first paragraph of Proposition4.11's proof, with contraction proved here for every nonordinary modular lattice. Their special-basis restrictions (C),(D) are not imported into this proof. Neither are their later cyclic-quotient or surjectivity assertions extended by it.
+
+**From the lower inclusion to the coordinate ideal.** Let F=φ*N(T) and u=χ(γ). If G is γ's Wach matrix, G≡1 mod π, so its matrix on F is φ(G)≡1 mod φ(π). Also γ(φ(π))/φ(π)≡u mod φ(π). Thus γ acts on φ(π)ⁱF/φ(π)^{i+1}F by uⁱ, and ∏_{i=0}^{h−1}(γ−uⁱ)F⊂φ(π)ʰF. This argument is integral; the factors commute, and all modules and ψ-zero submodules are Γ-stable. In the integral good-basis isomorphism F^{ψ=0}≃Λ_𝒪(G∞)² it sends X_k times each coordinate basis vector into the proved lower submodule, where X_k=∏_{i=0}^{k−2}(X−χ(γ)ⁱ+1). Applying the lower inclusion and then a coordinate projection gives X_kΛ_𝒪⊂Im Col_j^η for every Δ-character η.
+
+Let X_j^η=∏_{i∈I_j^η}(X−χ(γ)ⁱ+1) be the rational image generator of §9.28/LLZ Corollary5.3. Integral Weierstrass division by this monic distinguished polynomial gives (X_j^ηΛ_E)∩Λ_𝒪=X_j^ηΛ_𝒪: the integral remainder is zero if it vanishes after inverting ϖ_E. Hence
+
+```text
+X_kΛ_𝒪 ⊂ Im Col_j^η ⊂ X_j^ηΛ_𝒪,
+length_𝒪(X_j^ηΛ_𝒪 / Im Col_j^η) < ∞.
+```
+
+Indeed X_j^η divides X_k, so X_j^ηΛ_𝒪/X_kΛ_𝒪 is finite free over 𝒪_E. The quotient by the actual image is finitely generated over 𝒪_E, and rational image equality makes it ϖ_E-power torsion; it therefore has finite length. This uses rational equality only **after** proving the integral lower inclusion. A finite coefficient extension commutes with the Wach and good-basis constructions; faithful flatness reflects these inclusions, but no such extension or descent is needed for the proof above.
+
+After the integral shear of Proposition5.11 all X_j^η=1, so each coordinate cokernel is finite, hence pseudo-null over 𝒪_E[[X]]. The shear has unit determinant and preserves the actual lattice. Integral surjectivity does not follow.
+
+See LLZWach2010 §2.2, p.8 (integral Wach lattice, φ-stability, reduction and coefficients), Proposition4.6, pp.24–25 and Proposition4.11 and proof, pp.26–27 (the series argument is in the first paragraph on p.26); LLZ2011 §1C4, pp.1103–1104, §1C6, pp.1105–1106, Theorem5.10, p.1128 and Theorem5.13/Proposition5.11/Remark5.12, pp.1128–1129; the maximal-ideal selection is in LLZ2010v2 §5.3, Remark5.12, p.25 (arXiv1006.5163v2). The complete-lattice contraction, quotient-filtration and Weierstrass arguments above discharge the wider range; they are not assertions that Proposition4.11 itself states that range.
 
 **Checks.**
 
-- The proper ideal (varpi,X) becomes the full ring after inverting varpi but is not integrally surjective.
+- The proper ideal (ϖ_E,X) becomes the full ring after inverting ϖ_E but is not integrally surjective.
+- At p=5,h=9, a local Frobenius matrix with trace 5 and determinant 5⁹ still has P₀²≡0 mod 5. Both restrictions (C),(D) from Proposition4.11 fail, but integral contraction holds. This checks the argument's range without asserting the existence of a global eigenform with these prescribed coefficients.
+- A rank-one unit-Frobenius block φ=1 does not contract: Σφⁿ(1) does not converge 𝔪-adically. Nonordinary positive slopes are used at the precise Cayley–Hamilton step.
+- For a ramified coefficient field use ϖ_E rather than p in 𝔪. The proof already gives x over 𝒪_E and permits no hidden p⁻¹ coefficient in x.
+- If X_j^η=1 after shearing, the conclusion is finite length of Λ_𝒪/Im Col_j^η. The ideal (ϖ_E,X) is still a counterexample to replacing this conclusion by zero cokernel.
 
 ### 9.30 Signed local conditions from Coleman maps
 
