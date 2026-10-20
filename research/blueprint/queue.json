@@ -154533,6 +154533,84 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-DrinfeldModulesAndTModules~adv.md",
    "note": "deliverables arrived from an external worker on issue #11519",
    "finishedAt": "2026-10-20T22:15:14Z"
+  },
+  {
+   "id": "REV-PKG-OverconvergentAutomorphicForms~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "OverconvergentAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-OverconvergentAutomorphicForms~adv.md",
+    "research/blueprint/packages/OverconvergentAutomorphicForms/review.json",
+    "research/blueprint/packages/OverconvergentAutomorphicForms/README.md",
+    "research/blueprint/packages/OverconvergentAutomorphicForms/Suggested.lean",
+    "research/blueprint/packages/OverconvergentAutomorphicForms/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-OverconvergentAutomorphicForms~adv.md"
+  },
+  {
+   "id": "BP-QSeriesPartitionsAndMockModularForms~5",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean",
+    "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~5.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~5.md",
+   "scope": [
+    "QSeriesPartitionsAndMockModularForms:QM.0",
+    "QSeriesPartitionsAndMockModularForms:QM.1",
+    "QSeriesPartitionsAndMockModularForms:QM.2",
+    "QSeriesPartitionsAndMockModularForms:QM.3",
+    "QSeriesPartitionsAndMockModularForms:QM.4",
+    "QSeriesPartitionsAndMockModularForms:QM.5",
+    "QSeriesPartitionsAndMockModularForms:QM.6"
+   ],
+   "after": [
+    "REV-QSeriesPartitionsAndMockModularForms~4"
+   ],
+   "revisionOf": "BP-QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "id": "REV-QSeriesPartitionsAndMockModularForms~5",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-QSeriesPartitionsAndMockModularForms~5.md",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "BP-QSeriesPartitionsAndMockModularForms~5"
+   ],
+   "avoidAccountOf": "BP-QSeriesPartitionsAndMockModularForms~5",
+   "independentOf": [
+    "BP-QSeriesPartitionsAndMockModularForms",
+    "BP-QSeriesPartitionsAndMockModularForms~2",
+    "BP-QSeriesPartitionsAndMockModularForms~3",
+    "BP-QSeriesPartitionsAndMockModularForms~4",
+    "BP-QSeriesPartitionsAndMockModularForms~5"
+   ],
+   "state": "pending"
   }
  ]
 }
