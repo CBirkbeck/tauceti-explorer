@@ -12,6 +12,7 @@ Generated 2026-10-20T13:10Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
@@ -34,26 +35,25 @@ Generated 2026-10-20T13:10Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
 - #820 DiamondsAndVStacks — draft; waits on #1199
 - #1306 IntegralIwasawaTheory — draft; waits on #785, #248, #451
-- #896 CharacteristicClasses (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 - #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — draft; waits on #820
-- #942 TangentialBordism (kim-em, other author)
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — draft; waits on #940
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #785, #940
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #785, #940, #1142, #248
 
 ## Wave 7
 - #857 CrystallineCohomology — draft; waits on #820, #868, #940, #1102, #1103, #1104
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #785, #940, #1142, #248
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1199, #785, #857, #899
