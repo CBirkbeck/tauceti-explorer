@@ -5296,5 +5296,6 @@
  "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex2": 11243,
  "PKG-CyclotomicClassGroupsAndStickelberger~codex": 11246,
  "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4": 11250,
- "PKG-HermitianKTheoryOfPoincareCategories": 11253
+ "PKG-HermitianKTheoryOfPoincareCategories": 11253,
+ "REV-PKG-HermitianKTheoryOfPoincareCategories": 11258
 }
