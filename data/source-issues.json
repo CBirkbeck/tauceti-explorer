@@ -264132,14 +264132,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~3",
-   "reviewReason": "Definition6.1 p1756 and the displayed character formula require opposite signs in the norm coordinate. Character precomposition with N rather than N inverse gives t(N), contradicting the specified t inverse factor unless it is 2-torsion. The preprint retains this discrepancy."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "OverconvergentAutomorphicForms/E2",
@@ -264155,14 +264156,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~3",
-   "reviewReason": "The all-unit supremum in p1757 and the related parameters in pp1737/1761 equal one for a nontrivial Teichmuller character, although its image is a weight-space point. Restriction to principal units removes that example but does not identify all AIP coordinates or fix E3."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "OverconvergentAutomorphicForms/E3",
@@ -264178,14 +264180,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~3",
-   "reviewReason": "Proposition6.3 p1757 prints the product radius. At p=3, the character on 1+3Z_3 with κ(4)=ζ_9 gives r=3^(-7/6); the ball at one contains 64, where κ is nontrivial, and infinitely many kernel points converging to one. The analytic identity theorem contradicts extension on that ball. The existential radius remains valid."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "OverconvergentAutomorphicForms/E4",
@@ -264201,14 +264204,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~3",
-   "reviewReason": "Definition7.1 p1759 gives the local O_F/p^mO_F module, whose rank as a finite group is p^(m[F:Q]); the order p^m omits the field degree. This is independent of ramification."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "OverconvergentAutomorphicForms/E5",
@@ -264224,14 +264228,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~3",
-   "reviewReason": "Remark6.9 p1759 sends Theorem3.16 to the ADIC reference, which has no such theorem. The CUSP author PDF has it on p18; the arithmetic fixed-radius form is Theorem4.4 p28 with its stated weight-affinoid conditions."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "OverconvergentAutomorphicForms/E6",
@@ -264245,14 +264250,78 @@
    "searched": [
     "The published PDF and arXiv v4 retain the same displayed direction; checked independently on 2026-10-08.",
     "The dated title/erratum/correction web searches on 2026-10-08 found no correction in the returned results; absence is not established and no author was contacted.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "confirmed",
-   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~3",
-   "reviewReason": "Theorem7.14 p1764 displays the reverse of the pullback induced by a frame from the perfectoid cover to the AIP torsor. Its proof first constructs the AIP-to-perfectoid map, also in arXiv v4 p31. The opposite isomorphism exists as its inverse; only the pullback label/direction is at issue."
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OverconvergentAutomorphicForms/E7",
+   "kind": "gap",
+   "locator": "Definition8.17(2), p1773, compared with Lemma9.2 and its proof, pp1781–1782 (published version)",
+   "printed": "The finite effective level quotient kills all units congruent to one modulo N. The representative-independence proof later checks only totally positive units and their closure.",
+   "correction": "Use U_N={η∈O_F^×:η≡1 mod N} and its full p-adic closure in every central kernel. For N≥4, N_{F/Q}(η) is ±1 and is 1 modulo N, hence equals 1. The arithmetic multiplier therefore cancels for all U_N, and by continuity for its closure, without requiring total positivity.",
+   "reason": "Definition8.17 explicitly uses the all-unit congruence quotient. Positivity cannot replace it: in Q(√3), −7−4√3 is a unit congruent to 1 modulo 4 with both real embeddings negative. A proof restricted to positive units omits this representative change. The norm-congruence argument repairs the proof; it does not contradict the well-definedness conclusion.",
+   "affects": "the proof",
+   "known": "Previously recorded in the atlas supplier; no published correction located.",
+   "searched": [
+    "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
+    "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OverconvergentAutomorphicForms/E8",
+   "kind": "gap",
+   "locator": "Proof of Proposition5.18, pp1752–1753, the integral embedding-product identification (published version)",
+   "printed": "The proof treats O_p⊗O_C as the product of its embedding factors and uses that integral description to compare the Hodge–Tate kernel with the canonical subgroup at ramified p.",
+   "correction": "Split only after passing to the generic field. Before splitting, keep the saturated kernel and the O_F/p^n-linear canonical generator unsplit and use scalar O_C conormal-degree estimates. The unsplit generator is HodgeTateAndCanonicalSubgroups §3.12 (n≥2, p unramified or H=H′[p^n]) with its Hodge–Tate comparison in §4.7; no ramified integral product is assumed.",
+   "reason": "For O_L=Z_p[π] with π²=p at odd p, evaluation O_C[X]/(X²−p)→O_C×O_C has image pairs whose difference is divisible by 2π. The pair (1,0) is absent. Thus the natural embedding map is not an integral product isomorphism, although it becomes one over C. This invalidates that proof step in ramified cases without giving a counterexample to the inclusion theorem.",
+   "affects": "the proof",
+   "known": "Previously recorded in the atlas supplier; no published correction located.",
+   "searched": [
+    "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
+    "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OverconvergentAutomorphicForms/E9",
+   "kind": "error",
+   "locator": "Proof of Lemma8.28, p1779, contracted-product descent of the period map (published version)",
+   "printed": "Projection to the first factor of X_{Γ*(p∞)}×O_p^× is asserted to give a period map invariant under the antidiagonal Z_p^× action, because that action is treated as simultaneous scalar rescaling.",
+   "correction": "Use the equivariant span map (x,u)↦diag(u,1)π_HT(x), which is invariant under (x,u)↦(diag(t,1)x,t⁻¹u), rather than π_HT(x) alone. This is the corrected S5 period map already used by O4.",
+   "reason": "The first-factor action in Lemma8.25 is diag(t,1). On the Hilbert affine period coordinate it sends z to tz; it is not the central scalar tI and does not fix a general period point. Multiplying by diag(u,1) cancels the antidiagonal change. The displayed projection argument therefore fails, while the corrected equivariant period map remains available.",
+   "affects": "the proof",
+   "known": "Previously recorded in the atlas supplier; no published correction located.",
+   "searched": [
+    "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
+    "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-1",
