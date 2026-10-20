@@ -5394,5 +5394,7 @@
  "FIX-PKG-HabiroRings~adv4": 11465,
  "REV-PKG-HabiroCohomologyFoundations~codex7": 11466,
  "DESIGN-QWittVectors": 11467,
- "FIX-PKG-AutomorphicPadicLFunctions~adv1": 11469
+ "FIX-PKG-AutomorphicPadicLFunctions~adv1": 11469,
+ "FIX-PKG-AdditiveCombinatorics~adv": 11474,
+ "FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv": 11475
 }
