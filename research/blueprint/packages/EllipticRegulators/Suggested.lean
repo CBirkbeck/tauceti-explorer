@@ -479,8 +479,9 @@ the Bloch–Wigner orbit sum, Bloch's companion, the Green function, Goncharov's
 truncation proof of the Steinberg relations (§§3.1–3.3, 3.5, 3.8–3.15); Bloch's classes `S_a` and their regulators, the lift
 formula, the weighted terms `L`, `M`, `B` and the trace formula (§§4.3, 4.5–4.15, 4.17–4.18);
 the Hecke character, the transforms on `O/CO`, the class `U`, the Gauss coefficient and the general
-CM L-value theorem (§§5.1–5.18); the integral part, the regulator on it, Beilinson's conjecture and
-potentially good integrality (§§6.1–6.9, 6.11, 6.13); real-analytic Eisenstein series, Kronecker's
+CM L-value theorem, CMRealStructure and cmRealStructureTransport (§§5.1–5.18); the integral part, the regulator on it, Beilinson's conjecture and
+potentially good integrality, curveK2_adamsWeightTwo and localCurveIntegralImage
+(§§6.1–6.9, 6.11, 6.13); real-analytic Eisenstein series, Kronecker's
 limit formulas, Manin–Drinfeld, modular units, the Rankin–Selberg integral, Brunault's explicit
 theorems, Schappacher–Scholl's theorems and Beilinson's theorem for modular elliptic curves
 (§§7.1–7.26, 7.29–7.34, 7.36–7.41); the six-torsion and quadratic certificates, the syntomic
