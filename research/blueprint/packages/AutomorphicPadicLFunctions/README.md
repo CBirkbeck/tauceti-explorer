@@ -38,6 +38,8 @@ The following contracts say what must exist before a layer can be implemented. T
 
 GlobalNumberFields supplies the ray exact sequence, ideal and idelic descriptions, local norm, algebraic infinity types, conductor and finite-order avatars. ClassFieldTheory supplies compatible arithmetic Artin maps at all finite moduli. The ray exact sequence uses the closure of the **positive** units congruent to 1 modulo n. NumberField's unit rank is used after the finite sign and tame-index changes; it is not an assumption of Leopoldt's conjecture.
 
+The CM unit index used in 3h.8b consumes Mathlib's `NumberField.IsCMField.unitsMulComplexConjInv`, the homomorphism u↦u/c(u) into `NumberField.Units.torsion M`, and `NumberField.IsCMField.unitsMulComplexConjInv_ker`, whose kernel is `realUnits M`. Together with `Subgroup.index_ker` and `Subgroup.card_subgroup_dvd_card`, these identify [OM×:OF×] with the cardinality of a subgroup of the roots of unity. For a prime P of OM unramified over Z and of odd residue characteristic, `NumberField.torsionOrder_dvd_absNorm_sub_one'` gives that the torsion order divides N(P)−1. These declarations already exist at the pins. The distinct `NumberField.IsCMField.indexRealUnits` divides out both real units and roots of unity; it is not the index in the special-value formula. No new CM-unit or reduction theory is planned here.
+
 LocallyAnalyticDistributions supplies C^la(G,L), its strong dual D(G,L), finite clopen decompositions, pullback of tests, pushforward of distributions, locally algebraic characters, order bounds and uniqueness from locally polynomial tests under the stated strict growth condition. For a compact analytic group modulo a closed unit subgroup, analytic functions on the quotient are invariant tests upstairs. Its dual is the dual of that invariant subspace. It is not identified with invariant distributions on the full group, and no unique lifting of a quotient distribution is promised. PadicMeasuresIwasawaAlgebras supplies the injection of bounded measures into this dual and the identification with O[[G]] when coefficients and topology satisfy its hypotheses.
 
 ArithmeticLocallySymmetricSpaces ALS.1.4 supplies the sheaf/singular comparison, including compact supports, for neat level and finite projective coefficients; ALS.3.5 supplies the Hecke correspondences. ALS.5b.1–ALS.5b.2 supply the characteristic-zero de Rham/relative-Lie comparison and its pairing compatibility in every degree. ALS.5b.5 supplies the cuspidal realization under its stated inputs. These general constructions are imported, rather than requested again.
@@ -750,7 +752,53 @@ The additional source-specific targets `cmShimuraSet_nonEisenstein` and `cmShimu
 - A split 𝔩 dividing the split conductor part is not excluded by the minus-conductor condition. No squarefree condition on the ramified conductor is added. A prime with [F_𝔩:Q_ℓ]>1 fails the rank-one hypothesis.
 - The associated theta representation is automorphically induced from M; its Galois representation restricted to G_M splits into two characters. It therefore cannot replace the theorem for π with absolutely irreducible residual restriction to G_M in 3h.7.
 
-To apply this theorem to `HeckeValues_cofinite_rankOne` in the earlier L(0,χ) normalization, prove the named bridge `selfDualHeckeValue_functionalEquationComparison`. It takes λ=χ⁻¹ and ν↦ν⁻¹, matches the completed functional equation, both CM-period powers and the local Gauss/conductor multipliers, and computes the valuation of every remaining factor. In particular it cannot infer p-unit equality from complex nonvanishing. This bridge is still required. Even after it, the non-residually-self-dual branch remains separate: Wei He's Theorem 1.5, pp. 2–3, in version 2 of *Stability of p-adic valuations of Hecke L-values* gives algebraic density; Burungale–He–Tian–Ye Theorem 6.1, p. 38, uses infinite nonvanishing. Neither supplies cofinite nonvanishing in that branch. Thus both full targets in 3h.7–3h.8 remain unresolved, with the independent self-dual case now specified precisely.
+### 3h.8b Integral conjugation comparison with the L(0) convention
+
+Prove `selfDualHeckeValue_conjugationComparison` for a self-dual χ in Hsieh's convention, χ|A_F×=τ_{M/F}|·|_F, with p>2 unramified in F, ordinary Σ, conductor C prime to p, and nonnegative κ. Restriction at the positive real places forces k=1 in Hsieh's infinity type kΣ+κ(1−c). Put λ=χ⁻¹. Take a finite-order anticyclotomic ν trivial on A_F×, unramified outside 𝔩 with 𝔩∤pC. Use the same CM abelian scheme, algebraic differential ω nonvanishing integrally at p, and complex uniformization C^Σ/Σ(a) for the two period tuples: Ω∞,σ=ωσ/dzσ for the coordinate differential dzσ. Hida–Tilouine (4.4a,b), p. 211, and Katz (5.1.45)–(5.1.48), p. 269, use this convention; no extra 2πi occurs in dzσ. Hsieh §5.1, equation (5.2), p. 18, identifies his tuple with these periods; Burungale–He–Tian–Ye §1.2.1, p. 3, uses the CM period of such a differential. The equality below is with that common choice, not with independently rescaled periods.
+
+The character restriction and τ_{M/F}∘N_{M/F}=1 give the identities
+
+```text
+χχ^c=|·|_M,       (χν)^c=(χν)⁻¹|·|_M,
+L(s,χ⁻¹ν⁻¹)=L(s−1,(χν)^c)=L(s−1,χν).
+```
+
+The first L-function equality is the norm-twist identity at every finite Euler factor; the second permutes conjugate primes. Meromorphic continuation preserves the equality. Thus L(1,λν⁻¹)=L(0,χν) without an epsilon or conductor multiplier. Here ν denotes the complex Hecke character: apply the same arithmetic-avatar conversion to both sides, in addition to the displayed inversion of the twist. The unitary characters λ|·|_M^(1/2) and (χ|·|_M^(−1/2))^c also coincide. Conjugation preserves their global root number for the trace additive character, so Hsieh's root-sign +1 condition gives ε(λ)=+1. Local L-factor, norm-twist and root-number functoriality are consumed from the suppliers specified above; a new global functional equation is not needed for this comparison.
+
+Write Aχ(ν) for Hsieh's depleted algebraic value
+
+```text
+Aχ(ν)=π^(Σκσ) (∏σ∈Σ Γ(1+κσ)) L^(𝔩)(0,χν)
+       / ∏σ∈Σ Ω∞,σ^(1+2κσ),
+E𝔩(χν,0)=∏w|𝔩, (χν)_w unramified (1−(χν)_w(ϖ_w)),
+I_M=[OM×:OF×].
+```
+
+Use the empty product 1 for ramified local factors. Both λ and ν are unramified at every w|p, so all selected p-Gauss factors in `selfDualHeckeAlgebraicValue λ (ν⁻¹)` are 1. Both gamma products and all CM-period exponents agree. Consequently the exact identity, without dividing the depletion factor, is
+
+```text
+E𝔩(χν,0) · selfDualHeckeAlgebraicValue λ (ν⁻¹) = I_M · Aχ(ν).
+```
+
+The index I_M is a p-unit. Indeed u↦u/c(u) identifies the quotient of CM units by real units with a subgroup of the roots of unity. Every prime of M over p is unramified over Z, because p is unramified in F and splits in M/F. The supplied reduction theorem makes the root-of-unity order divide p^f−1 for such a prime. Thus p divides neither that order nor I_M. In particular the Hasse unit index 1 or 2 cannot be substituted for I_M. At a nonsplit conductor prime v away from p, self-duality makes χ_v take p-unit values, including on a uniformizer: a suitable power of that uniformizer comes from F_v× and the remaining unit has finite-order character value. Hence
+
+```text
+v_p(χ_v(x)⁻¹−1)=v_p(χ_v(x)−1),
+μ_p(χ_v⁻¹)=μ_p(χ_v).
+```
+
+If 𝔩 is split and ν is ramified there, both local components are ramified, E𝔩=1, and the two displayed algebraic values have equal p-adic valuation. For the cofinite consequence assume additionally W(χ|·|_M^(−1/2))=+1, that 𝔩 splits in M, and [F_𝔩:Q_ℓ]=1. On the torsion-free tower of 3h.8a, only finitely many characters are unramified at 𝔩. Apply Theorem 5.7 to λ and invert ν. Since ε(λ)=+1, Lemma 4.12, pp. 26–27, makes its root-sign set cofinite. This proves the additional target `selfDualHeckeValues_LZero_cofinite_rankOne` on that tower: if all inert local defects vanish, Aχ(ν) is a p-unit for all but finitely many ν; more generally its eventual valuation is the inert-defect sum in 3h.8a. The ramified conductor part need not be squarefree for this application of Theorem 5.7. Hsieh's depleted normalization is on p. 1 and his self-dual setting is Theorem A, p. 2; the comparison follows from these definitions and the Euler-factor identities just computed.
+
+Keep the finite-branch requirement in `selfDualHeckeValues_finiteBranchTransfer`. Hsieh §3.5.1, p. 9, uses the ring-class limit with finite-level quotient M×A_F×\A_M×/U_n; its finite characters are trivial on the included A_F×. For its maximal pro-ℓ quotient G, retain the finite torsion subgroup Δ and choose a splitting G≃Δ×Γ before writing a character as ρν. For each finite branch ρ, apply the comparison to χρ and apply 3h.8a to (χρ)⁻¹ only after checking its self-duality, root-sign set, conductor and local defects. Prove the resulting finite union assertion when all branches meet the required unit-valuation conditions. The equality of normalizations holds branchwise; a theorem for Γ alone does not establish cofiniteness on G. In particular the quotient defined only by conjugate inversion in 5.1 must not silently replace this quotient by A_F× at ℓ=2.
+
+**Checks.**
+- At a split prime of norm 5, take λ-values α=−1+2i and ᾱ=−1−2i, as for the CM elliptic curve y²=x³−x over Q(i). For χ=λ⁻¹, the two local reciprocal factors at s=0 multiply to 8/5, while for λ at s=1 they are the same two factors in reverse order; both local L-factors are 5/8. Omitting the shift and evaluating λ at s=0 instead gives 1/8. Twisting the local pair by (−1,−1) gives 5/4 on both correctly shifted sides; this tests the local identity, not membership of that twist in a chosen global tower.
+- For Q(i), the full unit index is 4/2=2 although the Hasse unit index is 1. At the ordinary prime p=5 it is a unit. For Q(ζ₃) at p=3, the full index is 6/2=3 and is not a unit; that prime is ramified and fails ordinarity. The unramified ordinary hypothesis is essential to the valuation comparison.
+- For the same CM elliptic curve at the split prime 29, the trace is −10 and E₂₉(χ,0)=(29+1−(−10))/29=40/29. At the ordinary valuation prime p=5 this nonzero factor has valuation 1, so primitive and depleted values need not have equal valuation at ν=1. At sufficiently ramified specializations E𝔩=1. In this self-dual critical setting the unramified χν-values have complex absolute value N(w)^(−1/2), so an input equal to 1 would violate purity; exceptional Euler zeros in other comparisons are not asserted to occur here.
+- Scaling the common differential by a∈M× changes both algebraic values by the same ∏σ σ(a)^(−1−2κσ). Scaling just one period tuple requires that explicit additional factor. A zero differential is excluded, and an algebraic nonunit scale does not preserve p-unit conclusions.
+- A character of G nontrivial on Δ is absent from the torsion-free quotient. For G=Z_ℓ×Z/ℓZ there are ℓ branches, so a cofinite theorem on the trivial branch alone leaves infinitely many untested characters. A split-prime character with [F_𝔩:Q_ℓ]>1 does not satisfy the rank-one conclusion; p=2 is excluded, while p=3 is allowed when the root sign is +1.
+
+The non-residually-self-dual branch remains separate: Wei He's Theorem 1.5, pp. 2–3, in version 2 of *Stability of p-adic valuations of Hecke L-values* gives algebraic density; Burungale–He–Tian–Ye Theorem 6.1, p. 38, uses infinite nonvanishing. Neither supplies cofinite nonvanishing in that branch. The full targets in 3h.7–3h.8 therefore still require independent general cofinite arguments; the conjugation comparison supplies the integral normalization and the self-dual torsion-free case.
 
 ### 3h.9 Finis' divisibility theorem
 
