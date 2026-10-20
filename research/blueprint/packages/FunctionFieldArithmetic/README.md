@@ -32,7 +32,8 @@ their genus formulas, and the curve/function-field dictionary. Its scope section
 functions and the arithmetic of finite constant fields as the subject of a separate roadmap that
 consumes it; this is that roadmap.
 It starts from AlgebraicCurves Layers 0–12 and the finiteness of `Cl⁰(F)` over a finite constant
-field (AlgebraicCurves Layer 5), and plans nothing those layers state. In particular, finite
+field (AlgebraicCurves Layer 5; Stichtenoth, §5.1, Definition 5.1.2 and Proposition 5.1.3,
+p. 186), and plans nothing those layers state. In particular, finite
 exact constants are supplied by `TauCeti.IsFunctionField.finiteDimensional_algebraicClosure`,
 `TauCeti.isIntegrallyClosedIn_algebraicClosure` and `TauCeti.IsFunctionField.algebraicClosure`
 in `TauCeti/FieldTheory/FunctionField/ConstantField.lean`. For example, the exact constants of
@@ -142,7 +143,8 @@ and the constant-field projection; §4.9 applies them to an explicitly construct
 
 For the global arithmetic, `k = 𝔽_q` is a finite field of characteristic `p`, `F` is a field with
 `[Algebra k F]`, `hF : TauCeti.IsFunctionField k F` is passed explicitly, and
-`IsIntegrallyClosedIn k F` holds (the constants are exact). The broader settings of Layers 1,
+`IsIntegrallyClosedIn k F` holds (the constants are exact, as in Rosen, Chapter 5, p. 46).
+The broader settings of Layers 1,
 3 and 4 are stated there. Equivalently (AlgebraicCurves
 Layer 12) `F = k(X)` for a smooth projective geometrically connected curve `X/k`; `g` is
 `TauCeti.genus k F`, and `h = TauCeti.Divisor.classNumber hF = #Cl⁰(F)`.
@@ -664,7 +666,9 @@ Artin–Schreier genus formula is AlgebraicCurves Layer 10. This layer supplies 
 Define `artinSchreierWitt p F : WittVector p F →+ WittVector p F` as `℘ = Frob − id`, where
 `Frob = WittVector.frobenius` (on a field of characteristic `p` it raises every Witt coordinate to
 the `p`-th power), and its truncation `℘_n` on `TruncatedWittVector p n F` (Frobenius preserves the
-kernel of `WittVector.truncate n`). Define `aswQuotient p F n`, the Artin–Schreier–Witt group of
+kernel of `WittVector.truncate n`). At length one this is the additive polynomial `x^p − x`
+over every extension field, including characteristic two (Goss, §1.1, Example 1.1.1 and
+Proposition 1.1.2, p. 1). Define `aswQuotient p F n`, the Artin–Schreier–Witt group of
 length `n`,
 
 ```text
@@ -2519,6 +2523,17 @@ wrong; each is a test of the layers cited.
 
 ## References
 
+- **Rosen**: M. Rosen, *Number Theory in Function Fields*, Graduate Texts in Mathematics 210,
+  Springer, 2002, Chapter 5, pp. 45–46 (function fields and exact constants),
+  [publisher preview](https://page-one.springer.com/pdf/preview/10.1007/978-1-4757-6046-0_5).
+- **Goss**: D. Goss, *Basic Structures of Function Field Arithmetic*, Ergebnisse der Mathematik
+  und ihrer Grenzgebiete 35, Springer, 1998 printing, §1.1, Example 1.1.1 and Proposition 1.1.2,
+  p. 1 (additive polynomials),
+  [publisher preview](https://page-one.springer.com/pdf/preview/10.1007/978-3-642-61480-4_1).
+- **Stichtenoth**: H. Stichtenoth, *Algebraic Function Fields and Codes*, 2nd ed., Graduate Texts
+  in Mathematics 254, Springer, 2009, §5.1, Lemma 5.1.1, p. 185, Definition 5.1.2 and
+  Proposition 5.1.3, p. 186 (finite divisor counts and the class number),
+  [publisher preview](https://page-one.springer.com/pdf/preview/10.1007/978-3-540-76878-4_5).
 - **Yu**: H. Yu, *Comptage des systèmes locaux ℓ-adiques sur une courbe*, Ann. of Math. 197 (2023);
   [arXiv:1807.04659v5](https://arxiv.org/abs/1807.04659v5). §§2.1–2.3, pp. 6–12; §5.3.1, Lemma 5.3.3,
   pp. 36–38.
