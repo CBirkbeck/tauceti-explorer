@@ -185,7 +185,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 25
 
-- **EllipticCurveModularity** — Modularity and modular parametrisations of elliptic curves over Q. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1018 open** · reviewer recommends approval (at earlier head None; current head 43adee5)
+- **EllipticCurveModularity** — Modularity and modular parametrisations of elliptic curves over Q. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1018 open**
 
 ## Tier 26
 
