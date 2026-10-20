@@ -43176,7 +43176,8 @@
     "BP-PadicHodgeRegulators~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11097"
   },
   {
    "kind": "blueprint",
@@ -152552,9 +152553,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3.md",
-   "note": "claimed on GitHub issue #11317"
+   "note": "deliverables arrived from an external worker on issue #11317",
+   "finishedAt": "2026-10-20T07:18:19Z"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations~codex4",
