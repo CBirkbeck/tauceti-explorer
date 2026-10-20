@@ -1,12 +1,21 @@
 import Mathlib
 
 /-!
-# q-Hodge filtrations and Habiro cohomology: representative target signatures
+# HabiroCohomologyFoundations: representative target signatures
 
-The README gives the full build, including its enhanced supplier contracts.
-This file is not exhaustive; it states native polynomial and torus milestones. Definitions have
-real bodies over pinned Mathlib carriers; proofs of milestones are left open.
-No ordinary category or arbitrary ring record represents the cohomology theories.
+The roadmap is `README.md`. This file records the definitions and theorem signatures of the
+roadmap that can be stated against the pinned Mathlib; it is not exhaustive. The cohomology
+theories themselves (global and derived q-de Rham complexes, q-Hodge pairs, twisted q-Hodge
+filtrations, Habiro–Hodge descent and the comparison squares) live on enhanced carriers that
+are not at the pins. They are README targets, so Layers 3 and 5–8 have no declarations here.
+
+Design choices made explicit here:
+* the Jackson operator is defined coefficientwise through `Polynomial.sum`, so it makes sense
+  over any commutative ring and the exponent-zero term vanishes without any division;
+* the torus parameter `q` is a unit, so negative exponents of the Laurent torus are allowed,
+  and coordinate scaling is the algebra map that `AddMonoidAlgebra.lift` attaches to a
+  character;
+* the filtered coefficient relation uses the variable order `(q, β, t)`.
 -/
 
 noncomputable section
@@ -24,7 +33,7 @@ section Jackson
 
 variable {A : Type u} [CommRing A]
 
-/-- The polynomial Jackson operator, using the existing geometric sum for `[n]ₛ`.
+/-- The polynomial Jackson operator, using the existing geometric sum for `[n]_q`.
 It specializes the framed calculus of QH §A.1 (pp.70–74) to one polynomial coordinate. -/
 def qDiff (q : A) (f : A[X]) : A[X] :=
   f.sum fun n a => C (a * ∑ j ∈ Finset.range n, q ^ j) * X ^ (n - 1)
@@ -67,29 +76,30 @@ example : uniformDenominator 2 = 64 := by
 
 end Jackson
 
--- In the integral divided-power quotient x=2, the correction x^[2]−2 is killed by 2.
--- This pins the relation in §1.3; it does not prove its nonvanishing or completion.
-example :
-    let D := DividedPowerAlgebra ℤ ℤ
-    let I : Ideal D := Ideal.span {DividedPowerAlgebra.dp ℤ 1 (1 : ℤ) - 2}
-    let y := Ideal.Quotient.mk I (DividedPowerAlgebra.dp ℤ 2 (1 : ℤ))
-    (2 : D ⧸ I) * (y - 2) = 0 := by
-  dsimp
-  let I : Ideal (DividedPowerAlgebra ℤ ℤ) := Ideal.span {DividedPowerAlgebra.dp ℤ 1 (1 : ℤ) - 2}
-  have hx : Ideal.Quotient.mk I (DividedPowerAlgebra.dp ℤ 1 (1 : ℤ)) = 2 := by
-    apply sub_eq_zero.mp
-    rw [← map_ofNat (Ideal.Quotient.mk I) 2, ← map_sub]
-    exact Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.subset_span (by simp))
-  have hmul := congrArg (Ideal.Quotient.mk I)
-    (DividedPowerAlgebra.dp_mul (R := ℤ) (n := 1) (p := 1) (m := (1 : ℤ)))
-  norm_num [map_mul, nsmul_eq_mul, map_ofNat, hx] at hmul
-  change (2 : (DividedPowerAlgebra ℤ ℤ) ⧸ I) *
-    (Ideal.Quotient.mk I (DividedPowerAlgebra.dp ℤ 2 (1 : ℤ)) - 2) = 0
-  linear_combination -hmul
-
 section Torus
 
 variable {B : Type u} [CommRing B] {d : ℕ}
+
+/-- Integer coordinate scaling on the Laurent torus `B[ℤ^d]` (README §1.23): the monomial with
+exponent `m` is multiplied by `q ^ ⟨a, m⟩`. It is the `B`-algebra map that
+`AddMonoidAlgebra.lift` attaches to this character of the exponent lattice. -/
+def torusScaleHom (q : Bˣ) (a : Fin d → ℤ) :
+    AddMonoidAlgebra B (Fin d → ℤ) →ₐ[B] AddMonoidAlgebra B (Fin d → ℤ) :=
+  AddMonoidAlgebra.lift B (AddMonoidAlgebra B (Fin d → ℤ)) (Fin d → ℤ)
+    { toFun := fun m =>
+        AddMonoidAlgebra.single m.toAdd ((q ^ (∑ i, a i * m.toAdd i) : Bˣ) : B)
+      map_one' := by simp [AddMonoidAlgebra.one_def]
+      map_mul' := fun m n => by
+        simp [AddMonoidAlgebra.single_mul_single, mul_add, Finset.sum_add_distrib,
+          zpow_add] }
+
+/-- The lattice acts: scaling by `0` is the identity and scaling by `a + b` is the composite
+of the two scalings. This is the coordinate-scaling action of README §1.23. -/
+theorem torusScaleHom_action (q : Bˣ) :
+    torusScaleHom q (0 : Fin d → ℤ) = AlgHom.id B _ ∧
+      ∀ a b : Fin d → ℤ,
+        torusScaleHom q (a + b) = (torusScaleHom q a).comp (torusScaleHom q b) := by
+  sorry
 
 /-- On the existing Laurent torus carrier there is a unique coefficient-linear
 algebra automorphism with this monomial formula. This states its universal
@@ -103,13 +113,17 @@ theorem torusScale_exists_unique (q : Bˣ) (a : Fin d → ℤ) :
         AddMonoidAlgebra.single m ((q ^ (∑ i, a i * m i) : Bˣ) : B) := by
   sorry
 
--- Negative exponents require a unit-valued parameter.
-example (q : Bˣ) : q ^ (∑ _i : Fin 1, (1 : ℤ) * (-1)) = q⁻¹ := by
-  simp
+-- One coordinate: the monomial x⁻¹ acquires q⁻¹, which pins the sign of the exponent.
+example (q : Bˣ) :
+    torusScaleHom (d := 1) q (fun _ => 1) (AddMonoidAlgebra.single (fun _ => -1) 1) =
+      AddMonoidAlgebra.single (fun _ => -1) ((q⁻¹ : Bˣ) : B) := by
+  simp [torusScaleHom]
 
--- Rank zero has only the identity character.
-example (q : Bˣ) (a m : Fin 0 → ℤ) : q ^ (∑ i, a i * m i) = 1 := by
-  simp
+-- Two coordinates: a = (2, -1) and m = (-1, 3) give the exponent -5.
+example (q : Bˣ) :
+    torusScaleHom q ![2, -1] (AddMonoidAlgebra.single ![-1, 3] 1) =
+      AddMonoidAlgebra.single ![-1, 3] ((q ^ (-5 : ℤ) : Bˣ) : B) := by
+  simp [torusScaleHom, Fin.sum_univ_two]
 
 end Torus
 
@@ -143,26 +157,6 @@ example : MvPolynomial.eval (![2, 2, 1] : Fin 3 → ℤ)
 
 end FilteredCoefficients
 
--- Native negative control for ordinary cokernels: the zero map has a kernel.
--- The derived quotient of this degree-zero module also has H^(-1)=Z/2.
-example : LinearMap.ker (0 : ZMod 2 →ₗ[ℤ] ZMod 2) = ⊤ := by
-  simp
-
-/-- A genuine pinned mapping cone retains the negative-degree homology of a
-zero scalar map. Its H^(-1) and H^0 are both Z/2, unlike the ordinary cokernel.
-This is the two-term witness for the quotient convention in README §2.1. -/
-theorem derived_quotient_torsion_witness :
-    let K := (HomologicalComplex.single (ModuleCat ℤ) (ComplexShape.up ℤ) 0).obj
-      (ModuleCat.of ℤ (ZMod 2))
-    let Q := CochainComplex.mappingCone (0 : K ⟶ K)
-    Nonempty (Q.homology (-1) ≅ ModuleCat.of ℤ (ZMod 2)) ∧
-      Nonempty (Q.homology 0 ≅ ModuleCat.of ℤ (ZMod 2)) := by
-  sorry
-
-/-! ## Layer 3: q-de Rham–Witt and Nygaard
-Their degree-zero rings are imported from HabiroRings HR.4. The enhanced
-positive-degree carriers and filtration functors are README targets only. -/
-
 /-! ## Layer 4: chosen q-Hodge pairs and Habiro descent -/
 
 section QHodgePolynomial
@@ -189,16 +183,15 @@ example : qHodgeDiff (2 : ℤ) ((X : ℤ[X]) ^ 2) = C 3 * X := by
 
 end QHodgePolynomial
 
-/-! ## Layers 5–8: canonical algebraic, trace and analytic constructions
-The enhanced carriers of these end theorems are not available at the pins. -/
-
 /-! ## Layer 9: comparison squares and specialization compatibility -/
 
--- The native cyclotomic identity pins the sign in the p=3 ramification relation.
-example : ((X : ℤ[X]) - 1) ^ 2 + C 3 * X = cyclotomic 3 ℤ := by
-  rw [cyclotomic_three]
-  norm_num
-  ring
+/-- The integral decomposition `[p]_q = p·u + (q - 1)^(p-1)` with `u ≡ 1` modulo `q - 1`
+(README §9.2). It makes `(q - 1)^(p-1)` and `p` differ by a unit modulo `[p]_q` after
+completion, and it is the identity behind the denominators of QH Lemma A.6 (pp.71–72)
+and the corrections of QH Example 4.24 (p.64). -/
+theorem cyclotomic_prime_decomposition (p : ℕ) [Fact p.Prime] :
+    ∃ u : ℤ[X], cyclotomic p ℤ = C (p : ℤ) * u + (X - 1) ^ (p - 1) ∧ u.eval 1 = 1 := by
+  sorry
 
 end TauCetiRoadmap.HabiroCohomologyFoundations
 
@@ -211,10 +204,13 @@ cofibres and fibres, completion and animation; QVSystem, TorsionFreeQVSystem,
 QFVSystem, qWittOmega, qWittDR, twistedQOmega, twistedQdR and Nygaard;
 FramedHabiroKoszul; QHodgeFiltration, PairsCat, qHodge, its conjugate filtration,
 filRescale, twistedQHodgeFil_pAdic, twistedQHodgeFil, partialDescent,
-qHabiroHodge, QHodgeBaseChange and HabiroHodgeBaseChange;
-truncateFil, truncateFilShriek, truncateFilRel, canonicalSmoothFiltration and
-its fixed framed comparison; SmoothDimInv; PerfectlyCoveredDelta, IsPQuasiLci,
-IsRelSemiperfect, PerfectRegularPresentation, ConditionR and naiveFiltration;
-algebraicHabiroCohomology, trace pairs and analyticComparisonProblem;
-AtlasSquare, the eight enhanced comparison squares and their θ/Witt equalities.
+qHabiroHodge, QHodgeBaseChange and HabiroHodgeBaseChange; the exported interface
+qHodge.periodic, QHodgeFiltration.completion, QHodgeFiltration.completedQdR and
+HabiroHodgeDescent; truncateFil, truncateFilShriek, truncateFilRel,
+canonicalSmoothFiltration and its fixed framed comparison; SmoothDimInv;
+PerfectlyCoveredDelta, IsPQuasiLci, IsRelSemiperfect, PerfectRegularPresentation,
+ConditionR and naiveFiltration; higherPowerLift, Powerful and
+finiteCoefficientPair; algebraicHabiroCohomology, trace pairs and
+analyticComparisonProblem; AtlasSquare, the eight enhanced comparison squares and
+their θ/Witt equalities.
 -/
