@@ -152819,6 +152819,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-ArithmeticKTheory~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ArithmeticKTheory~adv2.md",
+    "research/blueprint/packages/ArithmeticKTheory/review.json",
+    "research/blueprint/packages/ArithmeticKTheory/README.md",
+    "research/blueprint/packages/ArithmeticKTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv2.md"
   }
  ]
 }
