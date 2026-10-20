@@ -152475,9 +152475,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv2.md",
-   "note": "claimed on GitHub issue #11306"
+   "note": "deliverables arrived from an external worker on issue #11306",
+   "finishedAt": "2026-10-20T07:59:56Z"
   },
   {
    "id": "FIX-PKG-HabiroRings~adv",
@@ -152617,8 +152618,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ModularIwasawaMainConjectures~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ModularIwasawaMainConjectures~adv2.md",
+   "note": "claimed on GitHub issue #11322"
   },
   {
    "id": "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv3",
