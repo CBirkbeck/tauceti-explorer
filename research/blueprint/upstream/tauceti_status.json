@@ -342,7 +342,7 @@
     "ArithmeticGaloisRepresentations": {
       "stage": "pr",
       "pr": 856,
-      "head": "7223685",
+      "head": "a3f1d56",
       "depends_on": [
         789,
         785
@@ -351,8 +351,9 @@
       "review": {
         "recommendation": "changes",
         "head": "7223685",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at a3f1d56; confirmation pass pending"
       }
     },
     "CrystallineCohomology": {
