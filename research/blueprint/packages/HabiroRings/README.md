@@ -10,7 +10,7 @@ This roadmap owns perfect covers and completed étale Frobenius, relative cyclot
 
 The generic big Witt, Λ-ring and degree-zero q-Witt library belongs to **QWittVectors:QW.0–QW.4**. The specifications below record the interfaces used by the relative construction; their ownership stays there. In particular, the big Witt operations needed in HR.1 are imported from QW.0 before the q-Witt application in HR.4. The order of the layers does not create a dependency of foundational Witt theory on relative Habiro rings. The p-derivation/Frobenius correspondence comes from **PrismaticCohomology:PR.0/torsionfree-frobenius-equivalence**.
 
-The polynomial Habiro topology, q-factorials, Taylor substitution and classical injectivity come from **HabiroCyclotomicCompletions:HC.1, HC.3 and HC.4**; adjoining roots and identifying their cyclotomic coefficients uses **HC.5**. The present roadmap applies those results to twisted coefficient algebras. It does not reconstruct the classical completion or the root-adjoining library.
+The polynomial Habiro topology, q-factorials, Taylor substitution and classical injectivity come from **HabiroCyclotomicCompletions:HC.1, HC.3 and HC.4**; adjoining roots and identifying their cyclotomic coefficients uses **HC.5**. In particular HC Layer 1 supplies `qBinomial_factorial` and `qFactorial_pochhammer`, and HC Layer 5 supplies the ordinary completion and exactness on polynomial coefficient modules. The present roadmap owns `ordinaryDerivedComparison`, identifying that ordinary module completion with derived Habiro completion. It applies the classical results to twisted coefficient algebras without reconstructing the classical completion or the root-adjoining library.
 
 The enhanced derived categories, coherent diagrams, symmetric monoidal localizations and algebra objects are supplied by **EnhancedDerivedSheaves:E0, E1, E3 and E5:abstract**, and the spectral module comparison by **StableHomotopyKTheory:H.5:spectra, H.5:S-delooping and H.6**. **DerivedDeRhamCohomology:DD.1** supplies derived principal completion and its comparison with ordinary completion under bounded torsion. Mathlib's ordinary `DerivedCategory` and `LightCondMod` are useful underlying categories; their existing definitions do not supply these enhanced or solid spectral structures.
 
@@ -51,6 +51,9 @@ For invertible modules use `Module.Invertible`, `Module.Invertible.bijective_of_
 ### Enhanced, completion and solid inputs
 
 The named E0/E1/E3/E5, H.5/H.6, DD.1 and HC suppliers in Scope and ownership provide actual enhanced module and algebra categories, coherent limits, symmetric monoidal localization, principal derived completion and the polynomial/cyclotomic cofinality arguments. A triangulated category by itself does not supply the required mapping spaces. General scalar completion and its finite descent use these inputs without solidification.
+
+The classical HC input is independent of derived completion: for any commutative ring B and B-module M, HC Layers 1, 2 and 5 provide the ordinary full completion of M[q], its polynomial/Laurent comparison, finite quotient projections and functoriality in M. HC Layer 1's two integral factorial identities give
+\(P_{a+b}=P_aP_b{a+b\brack a}_q\) for all natural a,b, including zero. Only these polynomial identities are used in the solid tensor weights; QSeries is a consumer of this toolkit. The derived comparison below uses this ordinary input and the completion adjunction of the present layer.
 
 For the solid comparison, **SolidAnalyticRings:SA.1** must additionally provide the following full light solid spectral contract. Work with hypersheaves of spectra on light profinite sets. The discrete functor is fully faithful symmetric monoidal and left adjoint to evaluation at the point. For Null=cofib(𝕊[{∞}]→𝕊[ℕ∪{∞}]) and its shift σ, solidity means that 1−σ* is invertible on the internal Hom from Null. Discrete spectra are solid; solid objects are closed under limits and colimits and admit accessible symmetric monoidal solidification. Null^■≃∏_ℕ𝕊 is a compact generator, with the functorial product tensor comparison (∏_ℕ𝕊)⊗^■(∏_ℕ𝕊)≃∏_{ℕ²}𝕊.
 
@@ -812,9 +815,40 @@ The required interface consists of:
 - `isHabiroComplete_habiroCompletion`: M^∧_H is Habiro-complete.
 - `habiroCompletion_eq_zero_iff`: M^∧_H ≃ 0 iff M is an Rr-module.
 
+<a id="hr-2-ordinary-derived-comparison"></a>
+
+### 2.4 Ordinary and derived completion of polynomial coefficient modules
+
+For any commutative ring B and B-module M, put N=M[q,q⁻¹]=B[q,q⁻¹]⊗_B M, regarded as a complex concentrated in degree zero. Prove `ordinaryDerivedComparison`: the canonical comparison identifies L_HN with the static object associated to HC's ordinary full cyclotomic module completion M[q]^{ℕ_{>0}}. The equivalence is B[q,q⁻¹]-linear, natural for every B-linear map of coefficient modules, and commutes with all finite quotient projections. Neither flatness of M nor integer torsion-freeness of B or M is required.
+
+For each positive m, multiplication by qᵐ−1 on N is injective. A nonzero finite Laurent sum has a largest occupied exponent j; the coefficient of q^{j+m} in its product by qᵐ−1 is the unchanged coefficient at j. This proves `OrdinaryDerivedComparison.laurent_regular` without dividing by an integer. Each P_n is a product of such regular factors. Consequently the derived cofiber N/P_n is the ordinary quotient in degree zero. For n≥1, monic division and the unit constant coefficient identify this quotient with the direct sum of n(n+1)/2 copies of M, represented by exponents 0 through n(n+1)/2−1. The sign (−1)^n in the leading coefficient of P_n changes no ideal or quotient.
+
+The maps N/P_{n+1}→N/P_n are the natural surjective quotient maps. Their countable tower has vanishing first derived inverse limit; hence its derived limit is static and its zeroth homotopy is the ordinary inverse limit. Apply the completion adjunction and HC's cofinal factorial presentation to obtain the comparison. Construct it from the finite quotient maps, so naturality and projection compatibility follow from those maps rather than from a choice of quotient bases. This argument concerns polynomial coefficient modules; it does not identify derived completion with ordinary completion on arbitrary B[q,q⁻¹]-modules.
+
+*Needs:* [The completion adjunction](#hr-2-completeness-via-the-factorial-tower); `HabiroCyclotomicCompletions:HC.1` (cofinal factorial and divisibility presentations); HC Layer 2 §2.3 (polynomial/Laurent comparison); HC Layer 5 §5.1 (ordinary completion of polynomial coefficient modules); `EnhancedDerivedSheaves:E1` (the countable derived-limit exact sequence). The ordinary exactness and arbitrary-module boundary remain with HC; no cohomological or trace comparison is an input.
+
+The source is [Q](https://arxiv.org/pdf/2510.04782v2), Appendix B, Lemma B.2(c), p.77, for the derived factorial tower, together with Kazuo Habiro [Hab](https://ems.press/content/serial-article-files/40881), §7.1, Proposition 7.1 and the following Laurent comparison, pp.1141–1142, and §7.3, p.1144, for ordinary coefficient modules. The regularity and surjective-tower argument above derive the comparison from these inputs; it is not a claim that those passages separately state the whole comparison theorem.
+
+The required interface consists of:
+
+- `OrdinaryDerivedComparison.laurent_regular`: Multiplication by qᵐ−1 is injective on B[q,q⁻¹]⊗_B M for m>0, for every B-module M.
+- `ordinaryDerivedComparison`: The natural B[q,q⁻¹]-linear equivalence from L_H(M[q,q⁻¹]) to the static ordinary completion M[q]^{ℕ_{>0}}.
+- `ordinaryDerivedComparison.pi_zero`: The induced zeroth-homotopy isomorphism is the ordinary inverse-limit comparison, and all other homotopy modules vanish.
+- `ordinaryDerivedComparison.finiteProjection`: For every n≥1, the composite of the comparison with the ordinary projection to M[q]/P_n equals the derived tower projection followed by its canonical static quotient identification.
+- `ordinaryDerivedComparison.naturality`: For every B-linear f:M→M′, completing f[q,q⁻¹] and then comparing equals comparing first and then applying HC's ordinary completed coefficient map. Identity and composite maps obey the same equality.
+
+**Checks.**
+
+- `ordinaryDerivedComparison.zero`: M=0 gives zero at every stage and in both limits. At the auxiliary empty factorial index P₀=1 the quotient is also zero; this does not replace the cofinal positive-index tower by a constant zero tower.
+- `ordinaryDerivedComparison.integral_unit`: For B=M=ℤ the comparison is the classical integral Habiro ring, with the actual finite projections. It agrees with the nonspherical unit, not with the entire spherical completion retaining stable homotopy.
+- `ordinaryDerivedComparison.coefficient_torsion`: Take B=ℤ and M=ℤ/2ℤ, or equivalently B=M=𝔽₂. Although q²−1=(q−1)² in characteristic two, it is injective on the Laurent coefficient module. The P₁ and P₂ quotients have respectively one and three copies of 𝔽₂, and the completion is static. The coefficient of q in (q−1)·1 is one; this nonzero witness is proved in Suggested.lean.
+- `ordinaryDerivedComparison.positive_order`: m=0 is excluded: q⁰−1=0 and its multiplication map is not injective on 𝔽₂[q,q⁻¹]. The proved Lean negative control detects a dropped positivity hypothesis.
+- `ordinaryDerivedComparison.q_one_torsion`: An arbitrary module cannot be substituted for M[q,q⁻¹]. On the nonzero module 𝔽₂ with q acting as 1, the derived cofiber of q−1 is 𝔽₂⊕Σ𝔽₂, whereas its ordinary quotient is just 𝔽₂. Specializing q before taking a derived quotient loses the regularity used above.
+- `ordinaryDerivedComparison.coefficient_map`: The coefficient reduction ℤ→ℤ/2ℤ commutes with the comparison and each projection. No claim that an arbitrary tensor product commutes with the inverse limit is needed for this naturality square.
+
 <a id="hr-2-completeness-on-homotopy-groups"></a>
 
-### 2.4 Completeness of homotopy modules
+### 2.5 Completeness of homotopy modules
 
 M is Habiro-complete if and only if every π_n(M) is complete as an ordinary B-module, in the sense Hom_B(R_r,π_n M)=Ext¹_B(R_r,π_n M)=0. The two-term resolution gives
 \[
@@ -830,7 +864,7 @@ The reference is [Q](https://arxiv.org/pdf/2510.04782v2), Appendix B, Lemma B.2(
 
 <a id="hr-2-the-derived-nakayama-lemma"></a>
 
-### 2.5 Cyclotomic Nakayama
+### 2.6 Cyclotomic Nakayama
 
 On Habiro-complete objects the reductions M/Φ_m(q), m≥1, are jointly conservative. If all vanish, successive cyclotomic filtrations show M/P_n=0 for every n, and the completion formula gives M=0. The same argument applied to the fiber of a map proves joint conservativity for maps.
 
@@ -842,7 +876,7 @@ The reference is [Q](https://arxiv.org/pdf/2510.04782v2), Appendix B, Lemma B.3,
 
 <a id="hr-2-the-detection-results"></a>
 
-### 2.6 Detecting homotopy bounds and staticity
+### 2.7 Detecting homotopy bounds and staticity
 
 For complete M, cyclotomic reductions detect vanishing of individual homotopy modules and the corresponding upper or lower degree bounds. In particular, if every derived M/Φ_m is static, then M is static. Use completeness on homotopy groups and the Nakayama result to kill homotopy groups outside the prescribed range.
 
@@ -854,7 +888,7 @@ The reference is [Q](https://arxiv.org/pdf/2510.04782v2), Appendix B, Corollary 
 
 <a id="hr-2-the-monoidal-structure"></a>
 
-### 2.7 The completed tensor product
+### 2.8 The completed tensor product
 
 The R_r-local objects form a tensor ideal. Thus the localization carries a symmetric monoidal structure with M⊗_HN=L_H(M⊗_B^L N) and unit L_HB. Its associator, unitors and symmetry come from symmetric monoidal localization, and the tensor product is characterized by the completion universal property.
 
@@ -882,7 +916,7 @@ The required interface consists of:
 
 <a id="hr-2-spherical-rational-localization"></a>
 
-### 2.8 Spherical cyclotomic localization
+### 2.9 Spherical cyclotomic localization
 
 Let ℛ=𝕊[ℤ]. Form ℛ_r by the telescope that inverts each 1−qⁱ, equivalently the E∞ localization at all cyclotomic factors. It is an idempotent ℛ-algebra and has π₀=R_r. Its fiber over ℛ is Σ⁻¹colim_n ℛ/P_n, with the quotient maps induced by factorial divisibility. This is a statement in ℛ-modules, retaining all spherical homotopy.
 
@@ -910,7 +944,7 @@ The required interface consists of:
 
 <a id="hr-2-spectral-habiro-completion"></a>
 
-### 2.9 Spectral completion and its unit
+### 2.10 Spectral completion and its unit
 
 For an ℛ-module M, define L_HM=RHom_ℛ(fib(ℛ→ℛ_r),M). The fiber triangle gives the localization–completion adjunction, the equivalent formula lim_n M/P_n, and idempotence. Set S_H=L_Hℛ. Complete modules carry the localized symmetric monoidal product, and their unit is S_H.
 
@@ -946,7 +980,7 @@ The required interface consists of:
 
 <a id="hr-2-habiro-complete-solid-spectra"></a>
 
-### 2.10 Complete solid modules and the discrete embedding
+### 2.11 Complete solid modules and the discrete embedding
 
 In light solid condensed spectra, define completeness by the same localization orthogonality and form completion with the quotient tower. The functor from complete ordinary spectra is M↦L_H(discrete M); evaluation at the point is its right adjoint and recovers M. Hence this completed discrete functor is fully faithful. Ordinary discreteness alone need not preserve an inverse-limit completion.
 
@@ -974,7 +1008,7 @@ The required interface consists of:
 
 <a id="hr-2-solid-habiro-unit-idempotence"></a>
 
-### 2.11 Solid idempotence of the unit
+### 2.12 Solid idempotence of the unit
 
 Under the solid product/tower and balanced-tensor comparison inputs, the multiplication S_H⊗^■_ℛ S_H→S_H is an equivalence. Reduce to finite quotients: S_H/P_n is a finite direct sum of d_n=n(n+1)/2 spheres. Indeed (−1)^nP_n is monic of degree d_n and its constant coefficient is a unit, so polynomial and Laurent quotients have the same finite basis. The argument concerns the whole spectral module, not only its π₀.
 
@@ -996,7 +1030,7 @@ The required interface consists of:
 
 <a id="hr-2-completed-countable-free-solid-modules"></a>
 
-### 2.12 Completed sums of countable products
+### 2.13 Completed sums of countable products
 
 For countable sets I_n, allowing empty and finite sets, set F_I=⊕_n∏_{i∈I_n}S_H and C_I=L_HF_I. Put J_r=fib(S_H→S_H/P_r), with its specified map to S_H, and J₀=S_H. For proper functions f:ℕ→ℕ, meaning f(n)→∞, there is a natural equivalence
 \[
@@ -1033,31 +1067,36 @@ The required interface consists of:
 
 <a id="hr-2-countable-solid-habiro-tensor"></a>
 
-### 2.13 Tensor products of completed countable sums
+### 2.14 Tensor products of completed countable sums
 
 Under the same solid contracts, the solid tensor of C_I and C_J agrees with the Habiro completion of the double-index family tensor. Factorial weights in the two indices can be compared with a proper radial weight: P_aP_b divides P_{a+b}, and proper f(n)+g(m) is dominated by a suitable proper h(n,m). Conversely, a proper h admits separable proper lower profiles after taking successive finite minima. Both directions are needed to identify the profile colimits.
 
-The passage through countable products and these colimits uses the supplier's exactness and the commutation of ω₁-filtered colimits with countable limits. An abelian p-adic completed tensor comparison has analogous weights, but cannot replace the spectral proof. The polynomial divisibility comes from the existing q-binomial/factorial library.
+The passage through countable products and these colimits uses the supplier's exactness and the commutation of ω₁-filtered colimits with countable limits. An abelian p-adic completed tensor comparison has analogous weights, but cannot replace the spectral proof. Use HC Layer 1's `qBinomial_factorial` with n=a+b and k=a, and `qFactorial_pochhammer`, to obtain the integral identity
+\[
+ P_{a+b}=P_aP_b{a+b\brack a}_q.
+\]
+Multiply the Gaussian-factorial relation by (1−q)^{a+b} and apply the Pochhammer identity on each side; this derivation requires no cancellation. Thus `CountableSolidHabiroTensor.factorial_mul_dvd` is an application of that earlier toolkit. Prove the identity in ℤ[q], then transport it to B[q] for any commutative B. This preserves characteristic-p and root-of-unity specializations without dividing by P_aP_b. In particular evaluating the uncancelled factorial products at q=1 gives zero for positive indices; it does not define a quotient there.
 
-*Needs:* [Completed sums of countable products](#hr-2-completed-countable-free-solid-modules); `QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient`; `EnhancedDerivedSheaves:E5:abstract`; [Solid idempotence of the unit](#hr-2-solid-habiro-unit-idempotence); [Spectral completion and its unit](#hr-2-spectral-habiro-completion); [Complete solid modules and the discrete embedding](#hr-2-habiro-complete-solid-spectra).
+*Needs:* [Completed sums of countable products](#hr-2-completed-countable-free-solid-modules); `HabiroCyclotomicCompletions:HC.1` §1.1, `qBinomial_factorial` and `qFactorial_pochhammer`; `EnhancedDerivedSheaves:E5:abstract`; [Solid idempotence of the unit](#hr-2-solid-habiro-unit-idempotence); [Spectral completion and its unit](#hr-2-spectral-habiro-completion); [Complete solid modules and the discrete embedding](#hr-2-habiro-complete-solid-spectra).
 
 The reference is [Q](https://arxiv.org/pdf/2510.04782v2), Proof of B.8, printed/PDF p.80, final three paragraphs; [Bosco](https://arxiv.org/pdf/2306.06100v1), Proposition A.3, printed/PDF pp.92–93.
 
 The required interface consists of:
 
 - `CountableSolidHabiroTensor.comparison`: C_I⊗■_SHC_J ≃ L_H(F_I⊗■_SHF_J), naturally in countable block families.
-- `CountableSolidHabiroTensor.factorial_mul_dvd`: For a,b∈N, P_aP_b divides P_{a+b} in Z[q], obtained from QM.0’s Gaussian polynomial.
+- `CountableSolidHabiroTensor.factorial_mul_dvd`: For a,b∈ℕ, including zero, P_aP_b divides P_{a+b} in B[q] for any commutative ring B, by coefficient change from the integral HC Layer 1 identity. Its quotient is the Gaussian polynomial supplied there.
 - `CountableSolidHabiroTensor.separable_weights`: If for each k there exists B such that m+n≥B implies h(m,n)≥k, there are f,g:N→N tending to infinity with f(m)+g(n)≤h(m,n) for every m,n.
 - `CountableSolidHabiroTensor.radial_max`: If f,g tend to infinity, max(f(m),g(n)) tends to infinity as m+n→∞.
 
 **Checks.**
 
-- For a=b=1, P₂/P₁²=1+q; this fixes the factorial divisibility direction P_aP_b∣P_{a+b}.
+- For a=b=1, P₂=P₁²(1+q); this fixes the factorial divisibility direction P_aP_b∣P_{a+b}. The polynomial equality is proved in Suggested.lean. The reverse divisibility fails over ℤ: at q=−1, P₂=0 but P₁²=4.
+- With a=0 or b=0 the Gaussian quotient is one and the divisibility is equality. At q=1 the polynomial 1+q is 2 over ℤ and zero over 𝔽₂, although the unevaluated factorization remains valid in both coefficient rings. These checks exclude cancellation after specializing a vanishing denominator.
 - For singleton blocks weighted by P_n and P_m, the double family has proper radial decay. A constant weight fails the modulo-P₁ finite-support test.
 
 <a id="hr-2-the-solid-comparison-is-bounded-below"></a>
 
-### 2.14 Bounded-below solid tensor closure
+### 2.15 Bounded-below solid tensor closure
 
 Assume the preceding unit, profile tensor and resolution contracts. If M and N are bounded-below Habiro-complete solid S_H-modules, their solid tensor is again Habiro-complete and agrees with the completed tensor comparison. Resolve them by the countable-product free modules with a uniform lower homotopy bound; realization and the tensor comparisons then preserve completeness.
 
@@ -1080,11 +1119,11 @@ The required interface consists of:
 
 ### Examples
 
-The two-term telescope check fixes the sign and indexing. The q²−1/q³−1 tensor keeps its degree-one Tor, and the null-family checks distinguish a completed coproduct from a discrete sum.
+The two-term telescope check fixes the sign and indexing. The ordinary/derived comparison is static for polynomial coefficient modules even over 𝔽₂; q=1 acting on a nonzero constant module instead produces a degree-one Tor term. The q²−1/q³−1 tensor retains its degree-one Tor, P₂=P₁²(1+q) fixes the factorial-weight direction, and the null-family checks distinguish a completed coproduct from a discrete sum.
 
 ### Dependencies
 
-HabiroCyclotomicCompletions:HC.1, DD.1, E0/E1/E3/E5 and H.5/H.6. The solid results additionally require the complete SA.1 spectral contract; VS2 supplies only its abelian comparison.
+HabiroCyclotomicCompletions:HC.1 (including the elementary factorial identities), HC Layer 2 §2.3 and Layer 5 §5.1 (ordinary polynomial coefficient modules), DD.1, E0/E1/E3/E5 and H.5/H.6. The solid results additionally require the complete SA.1 spectral contract; VS2 supplies only its abelian comparison. The ordinary/derived comparison follows the nonsolid completion adjunction and introduces no cohomological supplier.
 
 ## Layer 3: Finite cyclotomic descent
 
@@ -2036,6 +2075,7 @@ The reference is [Q](https://arxiv.org/pdf/2510.04782v2), §3, Corollary 3.13, p
 
 The main locators refer to the fixed versions linked here. Q, W, H, B, G and Bosco use PDF page numbers, which agree with their printed page numbers at the cited passages. The thesis T has four preliminary PDF pages: printed p.86 is PDF p.90. Higher Topos Theory has eighteen preliminary PDF pages; the displayed HTT locators give both numbers. Stacks locators use the numbered web sections and stable tags.
 
+- **Hab — Kazuo Habiro, _Cyclotomic completions of polynomial rings_, Publications of the Research Institute for Mathematical Sciences 40 (2004), 1127–1146.** [Full text](https://ems.press/content/serial-article-files/40881). §7.1, Proposition 7.1 and the following Laurent comparison, pp.1141–1142, and §7.3, p.1144, supply the ordinary polynomial and module completions used by Layer 2.
 - **Q — Ferdinand Wagner, _q-Hodge complexes over the Habiro ring_, arXiv:2510.04782v2.** [Full text](https://arxiv.org/pdf/2510.04782v2). The relative arithmetic construction uses §§2.1–2.2, pp.13–19; the degree-zero comparison uses Corollary 3.13, p.27; completion uses Appendix B, pp.77–80. The two-term resolution, finite-field splitting and étale hypotheses are stated in the corrected mathematical forms specified above.
 - **W — Ferdinand Wagner, _q-Witt vectors and q-Hodge complexes_, arXiv:2410.23078v5.** [Full text](https://arxiv.org/pdf/2410.23078v5). Degree-zero q-Witt operations and the Λ/relative comparisons occur in §§2.1–2.6, pp.8–35. The Frobenius target in Proposition 2.48 is W_d, as dictated by its index and pushout proof.
 - **H — Lars Hesselholt, _The big de Rham–Witt complex_, arXiv:1006.3125v3.** [Full text](https://arxiv.org/pdf/1006.3125v3). Dwork's criterion, integral Frobenius polynomials, generating series and the Witt comonad are in §1, pp.6–19; the cofree adjunction is in §2, p.24. Only the foundational Witt and Λ interfaces needed here are used.
