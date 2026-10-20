@@ -154042,6 +154042,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv4.md"
+  },
+  {
+   "id": "REV-PKG-HabiroCohomologyFoundations~codex7",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HabiroCohomologyFoundations~codex7.md",
+    "research/blueprint/packages/HabiroCohomologyFoundations/review.json",
+    "research/blueprint/packages/HabiroCohomologyFoundations/README.md",
+    "research/blueprint/packages/HabiroCohomologyFoundations/Suggested.lean",
+    "research/blueprint/packages/HabiroCohomologyFoundations/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~codex7.md"
   }
  ]
 }
