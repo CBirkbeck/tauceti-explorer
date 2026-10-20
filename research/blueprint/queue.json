@@ -153399,6 +153399,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-ModularIwasawaMainConjectures~codex3.md"
+  },
+  {
+   "id": "FIX-PKG-SpecialValuesBirchTate~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-SpecialValuesBirchTate~adv2.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/review.json",
+    "research/blueprint/packages/SpecialValuesBirchTate/README.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-SpecialValuesBirchTate~adv2.md"
   }
  ]
 }
