@@ -153876,6 +153876,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv1.md"
+  },
+  {
+   "id": "REV-PKG-AutomorphicPadicLFunctions~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AutomorphicPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-AutomorphicPadicLFunctions~adv.md",
+    "research/blueprint/packages/AutomorphicPadicLFunctions/review.json",
+    "research/blueprint/packages/AutomorphicPadicLFunctions/README.md",
+    "research/blueprint/packages/AutomorphicPadicLFunctions/Suggested.lean",
+    "research/blueprint/packages/AutomorphicPadicLFunctions/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicPadicLFunctions~adv.md"
   }
  ]
 }
