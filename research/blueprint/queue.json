@@ -152680,6 +152680,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv3.md"
+  },
+  {
+   "id": "DESIGN-K2SymbolsBrauerPartII",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K2SymbolsBrauerPartII"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/K2SymbolsBrauerPartII.json",
+    "research/blueprint/packets/K2SymbolsBrauerPartII.json",
+    "research/blueprint/readmes/K2SymbolsBrauerPartII.md",
+    "research/blueprint/suggested/K2SymbolsBrauerPartII.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-K2SymbolsBrauerPartII.md"
   }
  ]
 }
