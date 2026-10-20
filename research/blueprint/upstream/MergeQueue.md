@@ -22,6 +22,7 @@ Generated 2026-10-20T18:00Z from the README supplier graph of every open pull re
 - #1033 SubspaceTheorem (rwst, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
 - #785 ReductiveGroupsPartII — draft; waits on #446, #447
@@ -51,18 +52,17 @@ Generated 2026-10-20T18:00Z from the README supplier graph of every open pull re
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — draft; waits on #940
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #785, #940
-- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 7
 - #857 CrystallineCohomology — draft; waits on #820, #868, #940, #1103, #1104
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1199, #785, #857, #899
 - #854 LocallyAnalyticDistributions — draft; waits on #785, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940
 - #1310 PhiGammaModulesAndIwasawaCohomology — draft; waits on #816, #857, #940
 
 ## Wave 9
