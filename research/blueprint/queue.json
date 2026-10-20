@@ -153208,6 +153208,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-SpecialValuesBirchTate~codex2.md"
+  },
+  {
+   "id": "REV-PKG-K3BlochGroups~codex3",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-K3BlochGroups~codex3.md",
+    "research/blueprint/packages/K3BlochGroups/review.json",
+    "research/blueprint/packages/K3BlochGroups/README.md",
+    "research/blueprint/packages/K3BlochGroups/Suggested.lean",
+    "research/blueprint/packages/K3BlochGroups/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-K3BlochGroups~codex3.md"
   }
  ]
 }
