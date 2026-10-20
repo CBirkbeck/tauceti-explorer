@@ -154062,6 +154062,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~codex7.md"
+  },
+  {
+   "id": "DESIGN-QWittVectors",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "QWittVectors"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/QWittVectors.json",
+    "research/blueprint/packets/QWittVectors.json",
+    "research/blueprint/readmes/QWittVectors.md",
+    "research/blueprint/suggested/QWittVectors.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-QWittVectors.md"
   }
  ]
 }
