@@ -176,7 +176,9 @@ outer_one_le_rankPrincipal); Parshin convergent expansions and topological norms
 
 Layer 2: KatoCoefficients (complex, primeToChar, wildShift, coprimeSplit);
 KatoCohomology (finiteToTorsion, primary, wild, torsion); logarithmic coefficient
-comparisons, admissible residue/trace maps and the higher invariant.
+comparisons, admissible residue/trace maps and the higher invariant;
+KatoConductor (filtration, monotone, unramified, annihilatesUnits, gradedPairing,
+cyclotomicDescent), KatoConductorDuality and KatoCharacterDuality.
 
 Layer 3: HigherReciprocity (artin, evaluate, norm, residue, completion,
 completionEquiv, kernel, dense); ASTree (tower, strong); ASReciprocity
@@ -185,7 +187,7 @@ completionEquiv, kernel, dense); ASTree (tower, strong); ASReciprocity
 Layer 4: HigherTame (symbol, arithmeticPairing, parameters, normAdjunction);
 HigherHilbert (pairing, rootIndependent, norm, tameFormula); Vostokov explicit pairing;
 HigherRamification (lower, herbrand, upperQuotient, milnorImage);
-KuriharaExponential (map, logGenerator, residue, continuous);
+KuriharaExponential (map, logGenerator, integralGenerator, residue, continuous);
 HigherWittPairing (pair, frobeniusQuotient, coefficientChange, normTrace).
 
 Layer 5: ParshinChain (points, henselianFactors, completedFactors, reverse);
@@ -198,10 +200,13 @@ relative Nisnevich Milnor sheaf class groups and the surface adelic pieces.
 Layer 6: SchemeReciprocity (prereciprocity, map, normQuotient, modulusCompletion,
 pushforward, unramifiedQuotient, tameQuotient, modulusTransition, properCase);
 WiesendClassGroup (ofChains, compactificationIndependent, kernel, strictQuotient);
-KatoComplex (term, differential, niveauRow, squareZero, homology);
+KatoEtaleHomology (group, properPushforward, openRestriction, localization,
+pointColimit, fieldStalk, niveau, residueDifferential);
+KatoComplex (term, differential, niveauSign, niveauRow, squareZero, homology);
 ConstantPlaceField (field, intoCompletedConstants, restriction, archimedean);
 ResolutionF2 (properResolution, sncCompactification, ofClauses); global/arithmetic
-Kato cones with the README's explicit shift and differential conventions.
+Kato cones with the README's explicit shift and differential conventions;
+HigherHasse.alterationDescent with its separate degree-controlled geometric input.
 
 Layer 7 comparison targets use these common carriers when supplied; none is replaced
 by a weaker placeholder signature here.
