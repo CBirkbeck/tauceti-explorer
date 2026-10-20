@@ -3,13 +3,9 @@ import Mathlib
 /-!
 # NoncommutativeAndEquivariantIwasawa: representative target signatures
 
-This file is not the roadmap and it is not exhaustive. The roadmap is `README.md`, which is
-definitive; references of the form §NE.k.n are to its subsections. The file records the light
-definitions and the theorem signatures that can be stated against the pinned Mathlib and Tau Ceti,
-with `example` checks of the kept definitions. Proofs of the milestone theorems are `sorry`;
-nothing here is claimed formalised.
-
-Design choices made explicit here:
+The roadmap is `README.md`. This file records light definitions, theorem signatures and computed
+checks statable against the pinned Mathlib and Tau Ceti APIs; it is not exhaustive. References of
+the form §NE.k.n name README subsections. The design choices are:
 
 * Tau Ceti provides the completed group algebra `Λ(G) = ℤ_p[[G]]`. Its noncommutative
   localization, relative K-theory, determinant functors and the arithmetic complexes needed here
@@ -24,7 +20,7 @@ Design choices made explicit here:
 
 namespace TauCetiRoadmap.NoncommutativeAndEquivariantIwasawa
 
-/-! ## Layer NE.0: Uniform groups and Iwasawa homological foundations -/
+/- Layer NE.0: Uniform groups and Iwasawa homological foundations -/
 
 section Augmentation
 
@@ -41,7 +37,7 @@ theorem of_sub_one_pow_char (z : Δ) (hz : z ^ p = 1) :
 
 end Augmentation
 
-/-! ## Layer NE.1: Canonical Ore localization and torsion categories -/
+/- Layer NE.1: Canonical Ore localization and torsion categories -/
 
 section Canonical
 
@@ -99,7 +95,30 @@ theorem mem_canonicalSet_powerSeries_iff (p : ℕ) [Fact p.Prime] (f : PowerSeri
 
 end Canonical
 
-/-! ## Layer NE.6: The main theorems for totally real fields -/
+/- Layer NE.6: The main theorems for totally real fields -/
+
+section UniformSmoothing
+
+/-- Every finite intersection of the nested ideals `p ^ n * ℤ_p` contains a nonzero element
+(§NE.6.25). This does not give a nonzero element of their infinite intersection. -/
+example (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    (p : ℤ_[p]) ^ n ≠ 0 ∧
+      ∀ m ≤ n, (p : ℤ_[p]) ^ n ∈ (Ideal.span {(p : ℤ_[p]) ^ m} : Ideal ℤ_[p]) := by
+  constructor
+  · exact pow_ne_zero n (by exact_mod_cast (Fact.out : p.Prime).ne_zero)
+  · intro m hmn
+    rw [Ideal.mem_span_singleton]
+    exact pow_dvd_pow _ hmn
+
+/-- The infinite intersection in the preceding example is zero (§NE.6.25). Thus compactness
+cannot preserve the required nontrivial cyclotomic image when solving each conductor separately. -/
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p])
+    (h : ∀ n : ℕ, x ∈ (Ideal.span {(p : ℤ_[p]) ^ n} : Ideal ℤ_[p])) : x = 0 := by
+  by_contra hx
+  have hh := (PadicInt.mem_span_pow_iff_le_valuation x hx (x.valuation + 1)).mp (h _)
+  omega
+
+end UniformSmoothing
 
 section Carry
 
@@ -124,7 +143,7 @@ example : carryExponent 9 0 8 = 0 := by decide
 
 end Carry
 
-/-! ## Layer NE.7: Descent, leading terms and Fitting invariants -/
+/- Layer NE.7: Descent, leading terms and Fitting invariants -/
 
 section GammaStar
 
@@ -139,8 +158,7 @@ theorem gammaStar_eq_Gamma (j : ℕ) (hj : 0 < j) :
     ((gammaStar j : ℚ) : ℂ) = Complex.Gamma j := by
   sorry
 
-/-- For `j ≤ 0`, `Γ*(j)` is the residue of the Gamma function at `j`; this indexing corrects the
-display in Burns–Venjakob §6.1 (correction E13). -/
+/-- For `j ≤ 0`, `Γ*(j)` is the residue of the Gamma function at `j` (§NE.7.15). -/
 theorem gammaStar_eq_residue (n : ℕ) :
     Filter.Tendsto (fun s : ℂ => (s + n) * Complex.Gamma s) (nhdsWithin (-(n : ℂ)) {-(n : ℂ)}ᶜ)
       (nhds ((gammaStar (-(n : ℤ)) : ℚ) : ℂ)) := by
@@ -166,8 +184,9 @@ Layer NE.2: localized K₁ (2.7), relative perfect-complex classes (2.8), the bo
 and characteristic elements (2.12).
 Layer NE.3: the twist homomorphism (3.1), Artin evaluation (3.3), Akashi series (3.4), the
 integrality-conjecture proposition (3.10), SK₁ and K′₁ (3.11), and the total quotient (3.12).
-Layer NE.4: the dual Selmer module (4.1), the torsion-conjecture propositions (4.2), admissibility
-and μ=0 (4.4), the dual Galois complex (4.5), and compact-support complexes (4.6).
+Layer NE.4: the dual Selmer module (4.1), the torsion-conjecture propositions (4.2), admissibility,
+μ=0 and weak-Leopoldt overfield vanishing (4.4), the dual Galois complex (4.5), and compact-support
+complexes (4.6).
 Layer NE.5: the GL₂ L-function and main-conjecture propositions (5.1, 5.2), the totally real
 main-conjecture proposition (5.5), and normalized interpolation contracts (5.6).
 Layer NE.6: twisted group rings (6.7; their carry exponent is defined above), congruence groups
