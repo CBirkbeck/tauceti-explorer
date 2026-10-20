@@ -239,11 +239,13 @@ sequences, including the exact **nonnegative classical** comparison. A
 quadratic comparison starting in degree four cannot supply classical degrees
 zero through three.
 
-IntegralIwasawaTheory L0 supplies finite cyclotomic class-group foundations,
-Kummer congruences and the finite Kummer/Herbrand–Ribet results; L3 supplies
-Vandiver, reflection and the plus-part tower. The required regular-prime tower
-equivalence and cyclicity consequences are additional exact inputs described
-in Layer 7. SpecialValuesBirchTate B.8 supplies the higher special-value order
+IntegralIwasawaTheory §§0.1–0.5 supplies cyclotomic fields and actions,
+§3.1 the one-prime class-control theorem, §5.4 reflection, and
+§§7.1–7.4 Vandiver and its tower consequences. Its current package does
+not yet name the finite Kummer/Herbrand–Ribet and congruence exports
+required here. Layer 7 states those additional supplier requests, their
+proofs and their character conventions explicitly. SpecialValuesBirchTate
+B.8 supplies the higher special-value order
 formula used in the conditional integral table. The detected Harris–Segal
 construction and Keune's exact twisted Picard injection are stated with their
 specific source-proof requirements below; an abstract isomorphism of finite
@@ -1120,12 +1122,110 @@ Theorem 2.6, p. 474; Weibel, Handbook, §5.4, pp. 153–154 and
 Theorem 73, pp. 167–169; Harris–Segal, §3, in the article pp. 20–33, for the original
 detected construction.)
 
+Define `cyclotomicWreathMap` using the symmetric monoidal category of
+finite free μ_m-sets and the functor taking a μ_m-orbit to a free
+rank-one module with its specified μ_m action. At rank r this is the
+monomial inclusion W_r=μ_m≀Σ_r→GL_r(ℤ[μ_m]); stabilize and apply
+group completion/plus construction. Base change and finite-projective
+transfer give its maps into K(O_E), K(O_(E,S)) and K(E).
+Its API includes `monomial_entry`, `blockSum`, `stabilization`,
+`baseChange`, `residue` and `transfer`. The map is induced by this
+functor; it is not an arbitrary map out of a cyclic group.
+(K-book VI.1.5, pp. 466–467; Mitchell, §3, proof sketch of
+Theorem 3.4, pp. 185–186.)
+
+The finite-field detection follows from stable transfer. First take
+k=𝔽_q with μ_m(k)
+of exact order m=ℓ^a, where ℓ is odd, or ℓ=2 and a≥2.
+The valuation identity
+
+```text
+v_ℓ(|GL_r(k)|)=∑_(j=1)^r v_ℓ(q^j−1)
+              =ra+v_ℓ(r!)=v_ℓ(|W_r|)
+```
+
+shows that W_r contains an ℓ-Sylow subgroup of GL_r(k).
+Thus its finite index d_r is a unit at ℓ. For the stable transfer
+of BW_r→BGL_r(k), inclusion after transfer induces multiplication
+by d_r on ordinary homology. It is therefore an equivalence of
+connective spectra localized at ℓ; invert this composite to obtain
+a stable section of the inclusion. Its composite with the monomial
+functor into K(ℤ[μ_m]) lifts the canonical map into K(k).
+The transfer composite is not asserted to be scalar multiplication
+on stable homotopy or generalized cohomology. Every homotopy
+class of the connective K-space lifts to its suspension spectrum by
+the infinite-loop adjunction; the plus map is a stable equivalence,
+and compactness puts that lift in a finite rank r. The stabilized
+map from the suspension spectrum of BW_r factors through the
+group-completion spectrum of finite free μ_m-sets, by its infinite-loop
+counit. Thus the lift is in the homotopy of that actual source spectrum,
+not just an unrelated suspension spectrum. This stable
+section therefore proves surjectivity on positive
+integral and finite-coefficient homotopy. No compatible choice of
+sections at every finite rank is required. These are the transfer and
+infinite-loop steps in Mitchell's proof, pp. 185–186, with the
+wreath subgroup and its index made explicit.
+
+For N=ℓ^(v_ℓ(q^i−1)), K_(2i)(k;ℤ/N)→K_(2i−1)(k)[N]
+is an isomorphism. Lift its generator through the coefficient
+wreath map, then take the Bockstein. The coefficient source has
+exponent N (ℓ odd, or 4∣N in the dyadic case), so its boundary
+has order exactly N and gives an actual cyclic section. Merely
+lifting the integral generator would not control its order.
+This proves the detected cyclic-summand assertion of K-book
+VI.1.5 and Corollary VI.1.5.2, pp. 466–467. The construction
+uses the binary coefficient/Bockstein operation, with no associativity
+claim for a mod-3 coefficient ring.
+
+When F contains μ_ℓ (μ₄ at 2), set m=|μ(F){ℓ}|=ℓ^a.
+Its procyclic root action gives v_ℓ(w_i(F))=a+v_ℓ(i), the
+same as for ℚ(μ_m). Choose a residue prime so that its cyclotomic
+Frobenius has the required valuation, avoiding S. For ℚ(μ_m),
+q≡1 modulo m but q≢1 modulo ℓm makes its ℓ-primary w_i equal
+to the global one. Factor reduction through the completion; the
+local e-invariant and rigidity identify the detected finite class.
+Base change then gives the map for a field containing μ_m.
+For general F at odd ℓ, pass to F(μ_ℓ), whose degree is prime
+to ℓ; the norm on W_i and the restriction–transfer formula give
+the required invariant part, with division only by that unit degree.
+(K-book VI.2.5, p. 473.)
+
+If ℓ=2 and F is nonexceptional without i, use E=F(i) and the
+**norm**, not division by 2. The nonexceptional cyclotomic image
+is procyclic, so the faithful quadratic action on W_i(E) has
+surjective norm onto W_i(F). For odd i its generator has the
+negative form −1+2^b, b≥2; for even i it has the positive form
+1+2^b at the relevant root level. The cyclic norm calculation
+gives surjectivity in both cases. Transfer of the detected summand
+over E therefore surjects under e onto W_i(F). Such F is totally
+imaginary, and §5.3 identifies its torsion by the actual e-map;
+hence this explicit transfer image is the required cyclic summand.
+This avoids assuming that adjoining i always doubles w_i: for
+F=ℚ(√−2), i=1 it changes w₁^(2) from 2 to 8.
+The roots-of-unity case i=1 is also immediate from the unit norm.
+
+Name the resulting map and detection theorem
+`harrisSegalMap`, `harrisSegalMap_e`, `harrisSegalMap_injective`
+and `harrisSegal_directSummand`. Naturality is asserted for the
+specified base-change, residue and transfer diagrams; a chosen
+finite-rank section is not claimed to be canonical.
+
 **Checks.**
 
 - The odd-prime summand applies to ℚ.
 - A real field at ℓ=2 is excluded: K₃(ℚ)→W₂(ℚ) is nonsplit.
 - A nonexceptional imaginary field may use the dyadic summand, while ℚ(√−7)
   may not use that hypothesis merely because it has no real places.
+- At q=7, ℓ=3, r=2, |GL₂(𝔽₇)|=2016 and |μ₃≀Σ₂|=18;
+  their index 112 is prime to 3. At q=3, ℓ=2 the displayed
+  valuation formula fails already at r=2; q≡1 mod4 was essential.
+- For the action 3 on ℤ/8, norm 1+3=4 maps onto the invariants
+  {0,4}. It models the odd-weight transfer from ℚ(ζ₈) to
+  ℚ(√−2). Inversion 7 instead gives norm zero and is excluded
+  by the nonexceptional hypothesis.
+- With W_i(F)=0 the detected summand is the zero group. At i=1
+  it lies in roots of unity, and at S=∅ the finite-prime construction
+  still applies.
 
 ### Examples
 
@@ -1403,16 +1503,51 @@ support and the finite residue groups. Because T is finite, finitely many
 moduli exclude all its elements outside div; their least common multiple
 gives m₀. This proves eventual stabilization without a numerical bound.
 
-Retain the stronger target `coefficientKernel_eq_div_of_annihilates`:
-for **every** m≥2 annihilating T,
-ker(K_n(O;ℤ/m)→K_n(F;ℤ/m))=div K_n(F), embedded by the injection
-above. **Proof gap:** this stronger arithmetic assertion is stated in
-K-book V.6.8.2, p. 413, but its uniform bound is not established by the
-finite-kernel stabilization argument in the wild-kernel preprint,
-Corollary 4.6, p. 13. That argument proves the eventual version. Closing
-this target requires an arithmetic proof that each annihilating m is already
-past stabilization; neither finiteness nor the annihilator condition alone
-proves it. The eventual theorem does not silently replace the stronger target.
+An annihilator of T need not be a stabilization modulus, even for
+arithmetic K₂. Name the underlying eventual group statement
+`inter_mul_eventually_eq_divisibleSubgroup`: for a finite subgroup T of A
+containing div A, some positive m₀ has T∩mA=div A whenever m₀ divides m.
+An annihilator can be included in m₀, but is not itself a stabilization
+bound. At a fixed modulus keep the exact intersection formula; equivalently,
+the stronger conclusion at that modulus requires T∩mA⊆div A.
+
+Here is an arithmetic negative control. Use Caputo's sextic field
+F=ℚ(θ), θ⁶−793θ³+226981=0. His Proposition 4 and Example 2,
+pp. 16–17, give μ₃⊂F, Pic(O_F[1/3]){3}≃ℤ/3, one prime v above 3,
+and a nontrivial extension F(μ₉)/F that splits at v; they prove
+div K₂(F){3}=0. The explicit field is the compositum with ℚ(μ₃) of
+a diagonal cubic subfield of the compositum of the cubic fields of
+conductors 61 and 9. Since 3 has order 10 modulo 61, that conductor-61
+cubic is split at 3. Thus [F_v:ℚ₃]=6 and F_v=ℚ₃(μ₉), while
+F does not contain μ₉. In particular the global and local 3-primary
+root groups have orders 3 and 9, respectively; μ₂₇ cannot occur locally,
+since its local degree is 18. The tame version of Moore's sequence gives
+K₂(O_F){3}≃ker(ℤ/9→ℤ/3)≃ℤ/3. On the other hand Caputo's
+Theorem 1, pp. 12–14, at i=1,n=1 gives
+
+```text
+(K₂(O_F){3} ∩ 3K₂(F){3}) / 3K₂(O_F){3}
+  ≃ Pic(O_F[1/3]){3} ⊗ μ₃ ≃ ℤ/3.
+```
+
+Consequently 3 annihilates the tame 3-part but its coefficient kernel
+is nonzero, whereas div is zero. To obtain an annihilator of the whole
+tame kernel, multiply 3 by the exponent of its prime-to-3 part; that
+factor acts invertibly on the 3-primary field group and leaves this
+counterexample intact. The field/class-group data are an arithmetic
+certification target in the format of §8.1: Caputo reports the class-group
+calculation using PARI; the polynomial alone is not a certified class-group
+computation. The conditional argument from his four arithmetic hypotheses
+already specifies exactly what such a certificate must establish.
+(Caputo, arXiv:1002.2936v2, Proposition 2, p. 5, Theorem 1,
+pp. 12–14, Proposition 4 and Example 2, pp. 16–17.)
+
+This distinguishes the assertion in K-book V.6.8.2, p. 413, from the
+eventual statement justified by the dated wild-kernel preprint,
+Corollary 4.6, p. 13. Banaszak likewise uses a separately defined
+stabilization index k_ℓ, rather than the exponent of the tame kernel
+(arXiv:1208.2137v1, §4, equations (56), (59)–(60), p. 17;
+§6, Remark 6.1 and Theorem 6.4, p. 31).
 
 **Checks.**
 
@@ -1422,11 +1557,14 @@ proves it. The eventual theorem does not silently replace the stronger target.
   whole group.
 - Take A=ℤ/4 and T=2A. Then 2T=0, but T∩2A=T≃ℤ/2 whereas
   div A=0. Thus a general finite-subgroup argument cannot prove the
-  stronger arithmetic assertion. This does not refute that assertion for
-  arithmetic K-groups.
+  stronger assertion.
 - In A=ℤ/2^r with T=2^(r−1)A, the subgroups T∩2^νA equal T
   for ν<r and become zero at ν=r, although |T|=2 for all r≥1.
   Repeated equal kernels and |T| alone give no stabilization bound.
+- In Caputo's field the 3-primary tame group has exponent 3, its
+  coefficient kernel at 3 has order 3, and its div subgroup has order one.
+  Increasing the modulus eventually removes that kernel. An annihilator
+  and a stabilization modulus therefore differ in the arithmetic setting.
 
 ### 6.7 Three wild-kernel constructions
 
@@ -1604,17 +1742,20 @@ equation (8.2) and the final diagram, pp. 20–21.)
 
 ### 6.10 Special fields and a finite twisted norm test
 
-Define `IsSpecial F` by exceptionality together with the following local
-condition at **every** dyadic prime v: there is a dyadic root of unity ζ,
-in compatible closures, for which ζ+ζ⁻¹∈F_v but ζ+ζ⁻¹∉F. The witness
-may vary with v. Equivalently the dyadic roots in F_v(i) properly exceed
-those in F(i). The API projects exceptionality and local witnesses,
-transports the predicate under field isomorphisms and proves the decomposition
-criterion below. (Wild-kernel preprint, Definition 5.2 and Remark 5.2.1,
-p. 14.)
-Use `IsSpecial.exceptional`, `local_witness`, `iff_decomposition`,
+For a number field F, define `IsSpecial F` by exceptionality and the
+condition that every dyadic decomposition subgroup Γ_∞(F_v) is proper in
+Γ_∞(F)=Gal(F(μ_(2^∞))/F). This is equivalent to properness at every
+place: odd finite decomposition groups are procyclic, and the infinite
+ones are finite, whereas Γ_∞(F) is noncyclic and infinite. The equivalent
+local test at a dyadic v is **either** F_v is nonexceptional **or** there
+is a dyadic root ζ with ζ+ζ⁻¹∈F_v but ζ+ζ⁻¹∉F. The second alternative
+is required only for exceptional dyadic completions. It cannot replace
+the disjunction. (Hutchinson, dated preprint, Definition 2.3 and
+Remark 2.4, p. 4; finite subgroup calculations in Lemmas 2.6–2.7,
+pp. 4–7.)
+Use `IsSpecial.exceptional`, `local_alternative`, `iff_decomposition`,
 `transport` and `iff` for these projections and characterizations; the
-last retains both exceptionality and every dyadic witness. These are the
+last retains both exceptionality and every dyadic alternative. These are the
 `specialAtTwo` interface on this one predicate, not a second notion.
 
 **Checks.**
@@ -1623,9 +1764,29 @@ last retains both exceptionality and every dyadic witness. These are the
 - ℚ(i) is nonexceptional and not special.
 - ℚ(√−14) is special, and supplies an imaginary example with the
   nontrivial obstruction below.
+- For F=ℚ(√−17), 17 is a square in ℚ₂, so F_v=ℚ₂(i).
+  This completion is nonexceptional and its cyclotomic image is proper;
+  F is special. Both F(i) and F_v(i) have only μ₄ among dyadic roots,
+  so the old strict-root-enlargement test incorrectly rejected F.
 - For squarefree d≠0,1, ℚ(√d) is special precisely when d≡−1 mod 8
   with d≠−1, or d≡±2 mod 16 with d≠±2. The excluded fields test the
   exceptional small root levels.
+
+For the proof below also name `IsVerySpecial F`: F is exceptional,
+totally imaginary, and every dyadic completion is nonexceptional.
+Its API is `exceptional`, `totallyImaginary`, `dyadic_nonexceptional`,
+`special` and `transport`. This auxiliary predicate records a defect of
+the **full** cyclotomic tower; it does not change the final special-field
+obstruction. (Hutchinson, Definition 2.3 and Remark 2.4, p. 4.)
+
+**Checks.**
+
+- ℚ(√−17) is very special by the preceding local computation.
+- ℚ(√−14) is special but not very special: its dyadic completion is
+  ℚ₂(√2), whose cyclotomic image still contains inversion.
+- A real field is never very special. A field containing i is
+  nonexceptional and never very special, even if all its completions
+  are nonexceptional.
 
 For F exceptional, i≥1 odd and m=2^ν sufficiently large, put
 E=F(μ_m^(⊗i)), G=Gal(E/F), M=μ_m^(⊗i), and let Z_v be its dyadic
@@ -1716,18 +1877,87 @@ Proposition 4.1 and Application 4.2, p. 11; Proposition 6.8 and equation
   descent. A set S omitting a prime above ℓ also fails the stated
   étale-cover hypothesis.
 
-For sufficiently large m=ℓ^ν, identify the image of the twisted Picard
-coinvariants in K_(2i)(O_F){ℓ} with div K_(2i)(F){ℓ} in the
-cohomological-dimension-two cases. For real dyadic fields first identify
-the analogous image in H²_M(F,ℤ_(2)(i+1)), retaining its real-corrected
-comparison. The exceptional odd dyadic application requires a **compatible**
-class/norm prescription or an independent proof of the ring-to-field image
-theorem. The unrestricted simultaneous prescription in the author preprint's
-Lemma 4.4 is insufficient: in the quadratic extension ℚ(i)/ℚ, the residue
-class 3 modulo 4 is incompatible with the required norm condition. The
-target is the precise image theorem, without using that unrestricted lemma
-as a premise. (Wild-kernel preprint, Theorem 4.5 and Corollary 4.6,
-pp. 12–13; Theorem 6.11 and Corollary 7.5, pp. 17–18.)
+Prove `cyclotomicPicard_image_div` for i≥1 and sufficiently large
+m=ℓ^ν, with **twist field** E=F(μ_m^(⊗i)) and S exactly the primes
+over ℓ (and the archimedean conditions in the specified cohomology).
+The image of its Kummer–corestriction map is div K_(2i)(F){ℓ} in
+the cohomological-dimension-two comparison range. There is a separate
+stabilization threshold as in §6.6; annihilating the integral ring group
+does not by itself suffice. At ℓ=2 first prove the following ordinary
+continuous-H² version for every number field, including real fields:
+write T=H²(O_F[1/2],ℤ₂(i+1)), A=H²(F,ℤ₂(i+1)){2} and
+D=⋂_ν 2^νA. Then the twist-field Picard image in T equals D.
+(Caputo, Theorem 1, pp. 12–14, for odd ℓ; Hutchinson,
+Lemma 5.1 and proof, pp. 16–17, Remark 5.4, p. 18, and
+Theorem 5.6, pp. 18–19, for ℓ=2.)
+
+Here is an independent proof route, replacing the unrestricted prime
+prescription in the wild-kernel preprint's Lemma 4.4. For the full field
+F_ν=F(μ_(2^ν)), its Kummer map followed by corestriction gives a complex
+
+```text
+(Cl_S(F_ν)/2^ν ⊗ μ_(2^ν)^(⊗i))_(Gal(F_ν/F))
+  → T/2^ν → A/2^ν.
+```
+
+Its middle homology is ℤ/2 precisely for i even and F very special,
+and zero otherwise, once ν is large. To prove this, use the Bockstein
+sequence for T and A, keeping H³ at real places. For a real place,
+H³(ℝ,ℤ₂(i+1)) is ℤ/2 when i is even and zero when i is odd;
+in the former case the finite-H² boundary is an isomorphism. Apply
+Poitou–Tate to the remaining strict finite H² kernels. Their duals are
+Sha¹_S(Γ_ν,μ_(2^ν)^(⊗(−i))) and Sha¹_all(Γ_ν,μ_(2^ν)^(⊗(−i))).
+The all-place Sha¹ is a subgroup of the S-local Sha¹; duality gives
+a surjection in the reverse direction. Its kernel is exactly the
+stated middle homology: the first Sha¹
+has order two for odd i and special F, or even i and very special F;
+the all-place Sha¹ has order two only for odd i and special F.
+These are the explicit finite-group calculations of Hutchinson,
+Theorem 2.8 and Corollary 2.9, pp. 6–8, used in Lemma 5.1.
+No independent choice of ideal class and norm residue occurs.
+
+For odd i the full field is the twist field and the complex is exact.
+For even i pass instead to E=F(μ_(2^ν)^(⊗i)): its faithful cyclic
+twist action removes the extra S-local Sha¹ defect, giving exactness
+also in the very-special case (Hutchinson, Remark 5.4, p. 18;
+Theorem 4.9(ii), p. 15). Finally T is finite and
+ker(T/2^ν→A/2^ν)=(T∩2^νA)/2^νT. The separate eventual bound
+identifies this with D. The norm-limit/finite-class comparison is
+Hutchinson's Corollaries 4.7–4.8, pp. 14–15; it is not an
+assumption that class-group norm maps are injective.
+
+For comparison, the valid prime prescription is
+`compatibleClassCyclotomicPrime`: let H be the Hilbert S-class field
+(the narrow version if positivity is imposed), L=F(μ_m), and C=H∩L.
+A class x and σ∈Gal(L/F) are simultaneously realized by infinitely
+many primes outside a fixed finite set exactly when
+Artin(x)|_C=σ|_C. The norm residue must first define σ in the actual
+cyclotomic image. The proof applies Chebotarev to
+Gal(HL/F)=Gal(H/F)×_(Gal(C/F))Gal(L/F), using arithmetic Frobenius.
+This is a specialization of ClassFieldTheory's reciprocity and
+GlobalNumberFields' Chebotarev, not a new unrestricted approximation
+principle. It explains the failed lemma but is not needed for the
+independent proof above.
+
+**Checks.**
+
+- Over ℚ(i), odd prime-ideal norms are 1 modulo 4; residue 3 does not
+  even define an element of the cyclotomic image.
+- Over ℚ(√−17), F(i)/F is nontrivial, unramified and split at 2,
+  hence contained in H. A class with nontrivial Artin restriction to
+  F(i) cannot be represented by a prime whose norm is 1 modulo 4.
+  Inverting the dyadic primes does not remove this compatibility.
+- For odd i and special F, both finite Sha¹ defects have order two,
+  so their dual comparison has zero kernel: the Picard-image theorem
+  still holds. It does not force the wild-kernel obstruction to vanish.
+- For even i and very-special F the full-field complex has homology
+  ℤ/2; replacing it by the twist-field complex is essential.
+- If H∩L=F, the fiber-product condition is empty and the two
+  prescriptions are independent, provided σ is in the cyclotomic
+  image. If L⊆H, its Artin restriction is completely forced by x.
+- At a real place and even i the Bockstein H³ term is nonzero.
+  Ordinary finite H² cannot be substituted for integral H² modulo
+  2^ν without the displayed boundary calculation.
 
 ### 6.12 Divisibility, special-field obstruction and completion boundary
 
@@ -1744,10 +1974,33 @@ exact sequence
 whose final map is the homology obstruction of ρ₁=0. No splitting is
 asserted. (Wild-kernel preprint, Theorem 5.5, p. 14, and §6.)
 
-For real F, first prove the analogous statement in motivic H²: its div
-subgroup lies in Sha²_(i,2), with quotient ℤ/2 exactly when i is odd
-and F special, and zero otherwise. In even weight retain Proposition 7.6's
-real-corrected exact sequence; in odd weight identify the defect in (7.7).
+For every number field F, Hutchinson's independent cohomological
+calculation gives, for sufficiently large ν,
+
+```text
+0 → div H²(F,ℤ₂(i+1)){2} → Sha²_(i,2)(F)
+  → Sha²_all(F,μ_(2^ν)^(⊗(i+1))) → 0.
+```
+
+The final term has order two exactly when i is odd and F special,
+and is zero otherwise. This is Corollary 5.7 and proof, p. 19,
+using the finite-group computation and the image theorem of §6.11.
+It treats real places by their actual Bockstein terms, so it does
+not depend on the failed prime prescription in Weibel's preprint.
+
+For real F the ordinary integral comparison
+H²_M(O_F[1/2],ℤ_(2)(i+1))→H²(O_F[1/2],ℤ₂(i+1)) is an
+isomorphism for i≥1. Compare the two localization rows: their residue
+terms are the same finite groups K_(2i−1)(k_v){2}, and restriction on
+H³ is an isomorphism on the real-place terms. The ring comparison and
+the residue comparison therefore identify the torsion field H² groups,
+and carry their multiplication intersections to one another. This
+transfers Hutchinson's div calculation to motivic H², without inventing
+a real kernel in that H² comparison. (Wild-kernel preprint, Lemmas 7.2
+and 7.4, p. 18; Hutchinson, Lemma 5.2 and Corollary 5.3, p. 18.)
+The real correction belongs instead to the subsequent K-to-H² map.
+In even weight retain Proposition 7.6's real-corrected exact sequence;
+in odd weight identify the defect in (7.7).
 Then prove C_(F,i)⊆div K_(2i)(F) for real F and i≡2 mod 4, using the
 ambient field K-group for roots. In particular the image of K⁽M⁾₄(F) in
 K₄(F) is divisible in that ambient sense. A finite C_(F,i) is not thereby
@@ -1755,12 +2008,13 @@ a divisible group in itself. (Wild-kernel preprint, Theorem B, p. 3,
 Propositions 7.6 and 7.8, p. 19; Proposition 8.4, Lemmas 8.5–8.6 and
 Theorem 8.7, pp. 20–21.)
 
-Assemble the desired symbol-kernel theorem for every number field and i≥1:
+Assemble `weibel_symbol_divisibility` for every number field and i≥1:
 div K_(2i)(F)⊆WK^sym_(2i)(F), with quotient ℤ/2 for special F and odd
-i, and zero otherwise. The exceptional odd dyadic proof still requires
-the compatible image theorem of §6.11; the asserted main conclusion is not
-refuted by the failure of an unrestricted intermediate prescription.
-(Wild-kernel preprint, Theorem A, p. 1, proofs in §§4–8, pp. 11–21.)
+i, and zero otherwise. Use Hutchinson's independent cohomological result
+for the formerly missing exceptional odd image step; retain Weibel's
+real motivic/K comparison and the inclusion C_(F,i)⊆div, rather than
+identifying those groups without their correction. (Wild-kernel preprint,
+Theorem A, p. 1, §§7–8, pp. 18–21; Hutchinson, Corollary 5.7, p. 19.)
 
 Keep raw completion and symbol kernels separate: there is always the
 inclusion WK^raw⊆WK^sym. At i=1, prove equality by Moore's theorem and
@@ -1784,31 +2038,66 @@ Definition 0.2, pp. 2–3, and §1.)
 
 ### 6.13 Keune's twisted Picard injection
 
-For p odd and unramified in F, m≥1, L=F(ζ_(p^m)) and G=Gal(L/F),
-specify and prove the injection
+For any number field F, odd prime p, n≥1, L=F(μ_(p^n)) and
+G=Gal(L/F), construct `cyclotomicPicardInjection`
 
 ```text
-(Pic(O_L[1/p])/p^m)_(χ⁻¹) → K₂(O_F)/p^m
+(Pic(O_L[1/p])/p^n ⊗ μ_(p^n))_G ↪ K₂(O_F)/p^n.
 ```
 
-with the **twisted coinvariant** convention used in Calegari–Garoufalidis–Zagier,
-Lemma 3.5. Its source theorem must identify the precise hypotheses and
-the normalization of the character twist. The additional hypothesis
-p∤|K₂(O_F)| gives the vanishing corollary, not the injection's definition.
-Do not replace twisted coinvariants by invariants without proving the
-specific finite-module vanishing implication needed downstream.
-(Calegari–Garoufalidis–Zagier, arXiv v3, Lemma 3.5 and proof, p. 20;
-Keune's cyclotomic Picard theorem is the required original map input.)
+No unramifiedness hypothesis on p in F is needed in this form.
+Over L, take the Kummer connecting map
+Pic(O_L[1/p])/p^n→H²(O_L[1/p],μ_(p^n)), tensor with μ_(p^n),
+and apply corestriction to F. The final comparison is the degree-two
+étale K comparison and invariance of K₂/p^n under inverting p.
+The map on a class represented by an ideal is constructed by
+principalizing that ideal in the maximal extension unramified outside
+the primes over p, taking
+the unit cocycle σ↦σ(α)/α, and then its Kummer boundary. Changing
+the generator changes the cocycle by a coboundary. This fixes the
+map, rather than choosing an abstract subgroup of the target.
+(Caputo, Proposition 3 and Remark 5, p. 8.)
+
+For injectivity, the twisted Kummer–Brauer sequence has last term
+M⁰=ker(⊕_(w|p)μ_(p^n)→μ_(p^n)), with its permutation/twist action.
+The faithful odd-primary cyclotomic action is cohomologically trivial;
+Shapiro and the invariant norm sequence give H₁(G,M⁰)=0.
+Consequently its Picard injection stays injective after coinvariants,
+and the H² corestriction isomorphism of §6.11 finishes the proof.
+(Caputo, Lemmas 4, 6 and 7, pp. 7–8, and Proposition 3, p. 8.)
+
+A primitive-root basis makes the diagonal action g·x=χ(g)g(x), so
+the source is the quotient of Pic/p^n by χ(g)g(x)−x, equivalently
+g(x)−χ(g)⁻¹x. This is the χ⁻¹-coinvariant notation of
+Calegari–Garoufalidis–Zagier v3, Lemma 3.5, p. 20; their
+unramified-p setting is a specialization of the construction above.
+Its API includes `apply_idealClass`, `independent_generator`,
+`twist_relation`, `corestriction` and `injective`.
+
+The hypothesis p∤|K₂(O_F)| gives zero source. To obtain the
+invariant-vanishing corollary, split G=Δ×P with |Δ| prime to p
+and P a p-group. Apply Δ's character idempotent first. For the
+resulting finite p-module N, N_P=0 implies N=0 by Nakayama over
+the local ring (ℤ/p^n)[P]. Thus its χ⁻¹ invariant part vanishes.
+This is a vanishing implication, not an identification between
+invariants and coinvariants. Keep the p∤|K₂| premise independent
+of the vanishing being deduced.
 
 **Checks.**
 
 - A Kummer p-unit class need not be an ordinary unit before the valuation
   obstruction is killed.
-- The prime p=2 is excluded, as are primes ramified in F.
+- The prime p=2 is excluded. Ramified odd p is allowed: for
+  F=ℚ(μ₃), p=3, n=1, G is trivial and the map is the twisted
+  Kummer injection itself.
 - A vanishing proof that assumes p∤|K₂(O_F)| may not use the desired
   vanishing to establish that hypothesis.
 - Invariants and coinvariants of a finite p-module have no general canonical
   identification.
+- For p=5 and a C₄ generator with χ=2, the χ⁻¹ component has
+  action 3. The diagonal twist acts by 2·3=1 and survives;
+  an untwisted quotient or the reverse twist acts by 3 or 4
+  and has zero coinvariants. This detects both errors separately.
 
 ### 6.14 Finite presentations with independent lower bounds
 
@@ -2069,6 +2358,63 @@ B_(2k)/k for k≥1. This conclusion about all k needs the congruence
 argument, not just inspection of the finite initial range.
 (K-book, Example VI.2.4.1, p. 472.)
 
+The finite proof uses the direct Artin action on the p-class group A of
+E=ℚ(μ_p). Its trivial and χ components vanish. For every even a,
+character reflection gives
+
+```text
+dim(A/p)^(χ^a) ≤ dim(A/p)^(χ^(1−a)) ≤ dim(A/p)^(χ^a)+1.
+```
+
+Together with §7.3's Herbrand–Ribet equivalence for the other odd
+characters, this proves that all class components vanish exactly when
+the finite Bernoulli range is p-indivisible. Thus the criterion includes
+the plus part; it does not assume Vandiver. The reflection proof uses
+the Kummer pairing between the unramified radical and the class group,
+whose dual character is χ times the inverse character. The intervening
+unit radical has dimension at most one in each nontrivial even
+character; the trivial component and the χ component vanish by descent
+to ℚ and the ramification of E(μ_(p²))/E. (Sharifi, Theorem 4.4.2
+and proof, pp. 111–113, Corollaries 4.4.4–4.4.5, p. 113.)
+
+Here is the all-index step, including indices divisible by p. For even
+n,n′≥2 congruent modulo p−1 and not divisible by p−1, the smoothed
+Bernoulli measure has moments
+(1−c^n)(1−p^(n−1))B_n/n. Choose c primitive modulo p. This moment
+is integral, both displayed factors are units, and x^(n−1) and
+x^(n′−1) agree modulo p on ℤ_p^×. Consequently B_n/n is p-integral
+and B_n/n≡B_n′/n′ modulo p. Reduce n=2k to an even index
+2≤n′≤p−3 and apply the finite criterion. If p−1 divides n instead,
+von Staudt–Clausen gives v_p(B_n/n)=−1−v_p(n), whose reduced
+numerator is again prime to p. Multiplying by 2 gives the asserted
+statement for B_(2k)/k. This proof uses moments of a bounded measure,
+not division of a congruence by the potentially nonunit k.
+(Sharifi, Definition 5.2.4 and Proposition 5.2.5 with proof,
+pp. 134–135; moment interpretation, Remarks 5.2.8–5.2.9,
+pp. 135–136.)
+
+For the tower equivalence take E_r=ℚ(μ_(p^r)), r≥1. Each
+E_r/E_1 is a p-extension with exactly one ramified finite prime,
+totally ramified. If its upper p-class group were nonzero, let H be
+its maximal unramified abelian p-extension. H/E_1 is a finite
+p-Galois extension. Its inertia subgroup at p maps isomorphically
+onto Gal(E_r/E_1) and is proper in Gal(H/E_1). A maximal subgroup
+containing that inertia is normal of index p; its fixed field is an
+unramified degree-p extension of E_1, contradicting the zero base
+p-class group. The converse includes r=1. This is the finite
+one-prime argument behind IntegralIwasawaTheory §3.1, with no main
+conjecture or control-isomorphism assumption. (Yokoyama, Theorem 4
+and proof, pp. 354–355, attributing the argument to Iwasawa.)
+
+The exact additional IntegralIwasawaTheory exports requested here are
+`cyclotomic_kummer_congruence` in the preceding integral divided form,
+`cyclotomic_finite_herbrand_ribet` with the action of §7.3, and
+`cyclotomic_character_reflection` with the displayed component ranks.
+The current §5.4 supplies general reflection but does not yet name
+this component specialization. Its §3.1 already supplies the
+one-prime theorem; this paragraph specializes it rather than
+replanning class control.
+
 Prove `isRegularPrime_of_lt_37` for every prime p<37. For p=2 use
 ℚ(ζ₂)=ℚ and class number one; for the odd primes use the finite
 Bernoulli criterion. This is a finite calculation, separate from the
@@ -2114,8 +2460,38 @@ P^(χ^(1−2k)) ≠ 0  ↔  ℓ divides num(B_(2k)).
 
 The exponent is ℓ−2k modulo ℓ−1. It is not 2k−1 unless the specified
 action has first been inverted. The two implications are Herbrand and
-Ribet respectively; the original finite-class-group proofs and exact twist
-translation are the IntegralIwasawaTheory inputs. (K-book, VI.10.4 and Examples VI.10.4.1–10.4.2, p. 530;
+Ribet respectively; their finite-class-group proofs and exact twist
+translation are the IntegralIwasawaTheory requests just specified.
+For Herbrand, project the Stickelberger annihilator to χ^a, a=1−2k.
+Its scalar is (ω^a(b)−b)B_(1,ω^(−a)), where ω is the
+Teichmüller lift of χ. A primitive b makes the first factor a unit,
+since a≠1. The finite Teichmüller power-sum calculation gives
+B_(1,ω^(2k−1))≡B_(2k)/(2k) modulo p. One can check this
+normalization using ω(b)≡b^p modulo p² and the ordinary Kummer
+congruence at N=1+p(2k−1); N≡2k modulo p−1 and N≡1 modulo p.
+A nonzero class component therefore forces p∣num(B_(2k)).
+(Sharifi, Theorem 4.5.7 and proof, p. 117; Ribet, Lemma 3.1
+and proof, pp. 156–157.)
+
+For the reverse direction, Ribet's Eisenstein congruence produces a
+weight-two level-p eigenform with the prescribed residual characters.
+Its p-adic representation is irreducible; the stable-lattice argument
+chooses a nonsplit residual extension with diagonal characters
+1 and χ^(2k−1), in that order. Restricting to G_E gives a nonzero
+additive p-extension. It is unramified away from p by the level.
+At p, the representation is realized in the p-torsion of the relevant
+Jacobian over the real cyclotomic local field. Its ramification index
+(p−1)/2 is less than p−1; the finite-flat group-scheme argument
+splits off the connected part and makes the remaining local p-image
+trivial. Thus the extension of E is everywhere unramified. Conjugation
+on its upper-right entry is multiplication by χ^(1−2k), which is
+exactly the direct Artin character on the class quotient, not its
+inverse. (Ribet, Theorems 1.1–1.3 and the matrix calculation,
+pp. 151–153; Proposition 2.1, pp. 154–155; Propositions 3.4–3.6
+and Theorem 3.7, pp. 158–159; Propositions 4.1–4.3 and
+Theorem 4.4, pp. 160–162.) These are supplier proofs for this
+finite criterion, not appeals to the integral Iwasawa main conjecture.
+(K-book, VI.10.4 and Examples VI.10.4.1–10.4.2, p. 530;
 Remark VI.10.8.1, p. 532.)
 
 **Checks.**
@@ -2126,6 +2502,9 @@ Remark VI.10.8.1, p. 532.)
   an integral projector.
 - At ℓ=3 the Bernoulli range is empty, consistently with regularity.
 - These are character eigenspaces, not Adams-dualization pieces from §6.15.
+- For G=C₄ over 𝔽₅ with χ(g)=2, an eigenvector of character χ³
+  has g-action 3. Tensoring by χ gives the invariant scalar 2·3=1;
+  tensoring by χ⁻¹ instead gives 3·3=4. This detects an inverted action.
 
 ### 7.4 The cyclotomic tame kernel and regular-prime torsion
 
@@ -2149,13 +2528,72 @@ group of order w_i^(ℓ)(ℚ), nontrivial precisely when ℓ−1∣i. The
 detected summand and the arithmetic e-map are those of Layer 5.
 (K-book, Proposition VI.10.5, pp. 530–531.)
 
-Also state the finite-coefficient module theorem: K_*(ℤ[1/ℓ];𝔽_ℓ)
+Prove the finite-coefficient module theorem: K_*(ℤ[1/ℓ];𝔽_ℓ)
 is a free graded module over the indicated Bott operation of degree
 2ℓ−2, with (ℓ+3)/2 generators, in degrees 0, 2ℓ−3, and 4k+1 for
-0≤k≤(ℓ−3)/2. The action is the coherent coefficient operation supplied
-by K.7 and the original proof, including ℓ=3. A module statement does
-not require asserting an arbitrary mod-3 coefficient ring structure.
+0≤k≤(ℓ−3)/2. Define that operation by the following construction,
+which includes ℓ=3 without an associative Moore product.
 (K-book, Theorem VI.10.6 and Example VI.10.6.1, pp. 531–532.)
+
+Put U=Spec ℤ[1/ℓ], V=Spec ℤ[ζ_ℓ,1/ℓ] and Δ=Gal(V/U).
+Regularity and the single inverted prime give H²(V,𝔽_ℓ(i))=0
+for every twist i. Prime-to-ℓ descent then gives H²(U,𝔽_ℓ(i))=0.
+The normalized finite-coefficient edges consequently are isomorphisms
+
+```text
+K_(2i)(U;𝔽_ℓ) ≃ H⁰(U,𝔽_ℓ(i))                 (i≥1),
+K_(2i−1)(U;𝔽_ℓ) ≃ H¹(U,𝔽_ℓ(i))              (i≥2).
+```
+
+At degree zero use K₀(U)/ℓ=𝔽_ℓ=H⁰(U,𝔽_ℓ(0)); at degree
+one use units modulo ℓ and the Kummer isomorphism, since Pic(U)=0.
+The class b=ζ_ℓ^(⊗(ℓ−1)) in H⁰(U,𝔽_ℓ(ℓ−1)) is invariant
+and independent of the chosen primitive root. Cup product by b is
+an isomorphism on these H⁰ and H¹ groups. Define
+`regularBottShift` on K_n(U;𝔽_ℓ), n≥0, by transporting that
+specific cup map through the two edges, including the stated
+degree-zero and degree-one identifications. The map is 𝔽_ℓ-linear,
+has degree 2ℓ−2, and its iterates define the action of t in
+𝔽_ℓ[t]. This defines every power coherently; no choice of
+parentheses in a mod-3 product enters the definition. The API includes
+`edge_regularBottShift`, `regularBottShift_iterate`, root-choice
+independence and compatibility with restriction to V. At safe primes
+ℓ≥5 the multiplicative comparison identifies it with multiplication
+by the descended β^(ℓ−1). At ℓ=3 this transported operation is the
+specified meaning of that notation. (K-book, IV.2.8–2.8.2,
+pp. 281–282, for the product exception; VI.8.3–8.5,
+pp. 514–515, and VI.10.4–10.6, pp. 530–531, for the edges and
+the invariant Tate class.)
+
+For completeness the basis is computed, rather than inferred from a
+dimension count in a few degrees. The Δ-representation of S-units
+modulo ℓ is
+
+```text
+O_V^×/(O_V^×)^ℓ ≃ 𝔽_ℓ(1) ⊕ ⨁_(j=0)^((ℓ−3)/2) 𝔽_ℓ(−2j).
+```
+
+The first term is μ_ℓ. For the free quotient the equivariant
+Dirichlet logarithm gives the characteristic-zero permutation
+representation on complex places; the single inverted prime restores
+the trivial character. Its ℤ_ℓ character projectors are integral
+because |Δ| is a unit, so reduction gives each even character once.
+This argument uses the rational representation, not an assertion that
+every integral unit lattice is a permutation lattice. Choose a nonzero
+x_j in each indicated even component, with x₀ the class of ℓ.
+The Kummer sequence has no class term under regularity, hence
+H¹(V,𝔽_ℓ(i)) is this unit module tensored by 𝔽_ℓ(i−1).
+Taking invariants gives the basis 1 in degree zero,
+v=ζ_ℓ⊗ζ_ℓ^(⊗(ℓ−2)) in degree 2ℓ−3, and
+y_j=x_j⊗ζ_ℓ^(⊗2j) in degree 4j+1. Each occurrence is interpreted
+through the edge map. The nonzero residue degrees modulo 2ℓ−2
+are exactly these distinct degrees, and cup product by b identifies
+all repetitions. Thus their iterates form a free 𝔽_ℓ[t] basis.
+The choices of x_j make the basis noncanonical, whereas the operation
+is fixed. (K-book, Examples VI.10.4.1–10.4.2, p. 530, and proof
+of VI.10.6, p. 531.) The character calculation fixes the H¹ parity:
+one invariant in every odd weight, and in an even weight exactly
+when that weight is divisible by ℓ−1.
 
 **Checks.**
 
@@ -2164,6 +2602,13 @@ not require asserting an arbitrary mod-3 coefficient ring structure.
   statements.
 - At ℓ=3, the generator degrees are 0,3,1; the count is three.
 - At ℓ=5 they are 0,7,1,5, giving four.
+- At ℓ=3 the shift has degree four and gives dimensions 1,1,0,1
+  in residue degrees 0,1,2,3; its square is the composite of two
+  shifts. At ℓ=5 the corresponding eight dimensions are
+  1,1,0,0,0,1,0,1. A shift by degree two would fail both tests.
+- Replacing ζ by ζ^a multiplies b by a^(ℓ−1)=1. A nonregular
+  prime leaves a nonzero H² term, so the inverse even edge used to
+  define this operation is unavailable in that case.
 - At ℓ=3, the odd torsion in degree 3 has order 3, while degree 5 has no
   3-torsion since 2∤3.
 - The full degree-three group over ℤ has order 48 because its dyadic real
@@ -2171,12 +2616,40 @@ not require asserting an arbitrary mod-3 coefficient ring structure.
 
 ### 7.5 Vandiver and the conditional integer table
 
-Use IntegralIwasawaTheory L3's definition of Vandiver: for odd p, the
+Use IntegralIwasawaTheory §7.1's `VandiverCondition`: for odd p, the
 class number of the maximal real subfield of ℚ(ζ_p) is prime to p.
 It is weaker than regularity and is not built into `IsRegularPrime`.
 Require the precise plus-part tower, reflection and cyclicity consequences
 before deducing group structure, and the B.8 special-value order theorem
 before assigning orders. (K-book, Conjecture VI.10.8, p. 532, and Theorems VI.10.9–10.10, p. 533.)
+
+The finite deduction can be checked without assuming a tower
+control isomorphism. Write P=Pic(ℤ[ζ_p,1/p])/p with the direct
+action of §7.3. Extension and norm for the real subfield, whose
+degree is two, identify its p-class group with the plus part. Under
+Vandiver all even components P^(χ^(2a)) vanish. Character reflection
+from §7.2 bounds each complementary odd component by dimension one.
+Kummer–Brauer and prime-to-p descent identify
+
+```text
+K_(2i)(ℤ)/p ≃ H²(U,𝔽_p(i+1)) ≃ (P⊗𝔽_p(i))^Δ ≃ P^(χ^(−i)).
+```
+
+The first identification is for i≥1; localization at p changes no
+p-primary term. Thus K_(4a)(ℤ){p}=0, and K_(4a−2)(ℤ){p} has
+dimension at most one modulo p. These finite groups are consequently
+cyclic. Conversely all the even character components are detected by
+the degrees 4a; periodicity modulo p−1 makes finitely many such
+degrees sufficient for each p. The vanishing of the trivial and χ
+components is unconditional. This proves the Vandiver/vanishing
+equivalence and the cyclicity used in the table. It uses exactly
+`cyclotomic_character_reflection`, not an unproved assertion that
+irregular components have known order. The plus-part tower requested
+from IntegralIwasawaTheory §§7.1–7.4 retains its one-prime and
+cyclotomic hypotheses; no stronger norm-isomorphism statement is
+needed for this finite argument. (Sharifi, Theorem 4.4.2 and
+Corollaries 4.4.4–4.4.5, pp. 111–113; K-book,
+Theorems VI.10.9–10.10 and proofs, p. 533.)
 
 Assuming Vandiver for **every odd prime**, put
 c_j=|num(B_(2j)/(4j))| for j≥1. Prove the following abstract table for
@@ -2221,8 +2694,10 @@ table without being proved from its hypothesis.
 ### Dependencies
 
 Layers 3–6; Mathlib's Bernoulli, class-number and cyclotomic-prime API;
-IntegralIwasawaTheory L0/L3 for Kummer congruences, finite
-Herbrand–Ribet, tower/reflection and Vandiver inputs; the detected
+IntegralIwasawaTheory §§0.1–0.5, 3.1, 5.4 and 7.1–7.4,
+with the exact additional congruence, finite Herbrand–Ribet and
+character-reflection exports requested in §7.2; M.7's normalized
+finite-coefficient edges for the constructed Bott shift; the detected
 Harris–Segal construction; the one-prime Brauer calculation; B.8's
 special-value order theorem for the conditional full table. Arithmetic
 regular-prime conclusions do not import the downstream K₃/Bloch analysis
@@ -3041,8 +3516,31 @@ All formulas and finite data use the conventions fixed here.
   Theorem 73 and the odd-torsion discussion, pp. 167–169.
 - Charles A. Weibel, [*Higher wild kernels and divisibility in the K-theory
   of number fields*](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/wildkernel.pdf),
-  author preprint dated 23 July 2004, §§1–8. The odd dyadic Picard-image argument uses
-  the compatibility requirement in §6.11, not unrestricted prescriptions.
+  author preprint dated 23 July 2004, §§1–8. Its unrestricted
+  ideal-class/norm prescription in Lemma 4.4 is replaced by the
+  compatible fiber product and Hutchinson's independent Picard-image
+  argument in §6.11.
+- Kevin Hutchinson, [*Étale wild kernels of exceptional number
+  fields*](https://web.archive.org/web/20151219232629id_/http://www.math.uiuc.edu/K-theory/0700/etalekernels.pdf),
+  author preprint dated 16 July 2004, Definition 2.3 and Remark 2.4,
+  p. 4; Theorem 2.8 and Corollary 2.9, pp. 6–8;
+  Theorem 4.3 and Corollaries 4.7–4.8, pp. 13–15;
+  Lemma 5.1 and Corollary 5.7 with proofs, pp. 16–19.
+  Published in *Journal of Number Theory* 120 (2006), pp. 47–71;
+  the locators here refer to the dated preprint, not the uncollated
+  journal pagination.
+- Luca Caputo, [*Splitting in the K-theory localization sequence of
+  number fields*](https://arxiv.org/abs/1002.2936), version 2,
+  arXiv header 25 February 2010, internal date 11 September 2018.
+  Lemmas 4, 6 and 7 and Proposition 3 with Remark 5, pp. 7–8,
+  give the independent Kummer–corestriction injection; Theorem 1,
+  pp. 12–14, computes the fixed-modulus obstruction; Proposition 4
+  and Example 2, pp. 16–17, provide its arithmetic negative control.
+- Grzegorz Banaszak, [*Wild kernels and divisibility in K-groups of
+  global fields*](https://arxiv.org/abs/1208.2137), version 1,
+  10 August 2012, §4, equations (56), (59)–(60), p. 17,
+  and §6, Remark 6.1 and Theorem 6.4, p. 31. The stabilization
+  index is separate from a tame-kernel exponent.
 - Tony Feng, Søren Galatius and Akshay Venkatesh,
   [*The Galois action on symplectic K-theory*](https://doi.org/10.1007/s00222-022-01127-8),
   *Inventiones Mathematicae* 230 (2022), pp. 225–319, §§2.6–2.7,
@@ -3051,10 +3549,36 @@ All formulas and finite data use the conventions fixed here.
 - Frank Calegari, Stavros Garoufalidis and Don Zagier,
   [*Bloch groups, algebraic K-theory, units, and Nahm's
   conjecture*](https://arxiv.org/abs/1712.04887), version 3,
-  Lemma 3.5 and its proof, p. 20. The original injection and exact translation
-  of its hypotheses remain the distinct requirement of §6.13.
+  Lemma 3.5 and its proof, p. 20. Section 6.13 constructs the map
+  independently through Caputo and translates its χ⁻¹ quotient;
+  this source's unramified-p hypotheses give a specialization.
 - Bruno Harris and Graeme Segal, *K_i groups of rings of algebraic
   integers*, *Annals of Mathematics* 101 (1975), pp. 20–33, §3;
   [publication record](https://doi.org/10.2307/1970984).
   The detected-summand proof is distinguished from an abstract
   decomposition in §5.5.
+- Stephen A. Mitchell, [*On the Lichtenbaum–Quillen conjectures from
+  a stable homotopy-theoretic
+  viewpoint*](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Mitchell-LQ.pdf),
+  in *Algebraic Topology and Its Applications*, MSRI Publications 27
+  (1994), pp. 163–240, §3, Theorem 3.4 and its proof sketch,
+  pp. 184–186. Section 5.5 makes the monomial subgroup and the
+  stable-transfer/coefficient steps of the detected map explicit.
+- Romyar Sharifi, [*Iwasawa
+  Theory*](https://www.math.ucla.edu/~sharifi/iwasawa.pdf),
+  author notes, Theorem 4.4.2 and Corollaries 4.4.4–4.4.5,
+  pp. 111–113; Theorem 4.5.7, p. 117; Definition 5.2.4,
+  Proposition 5.2.5 and Remarks 5.2.8–5.2.9, pp. 134–136.
+  These give the character-reflection and integral-measure proofs
+  used by the precise IntegralIwasawaTheory requests in §7.2.
+- Kenneth A. Ribet, [*A modular construction of unramified
+  p-extensions of ℚ(μ_p)*](https://math.berkeley.edu/~ribet/Articles/invent_34.pdf),
+  *Inventiones Mathematicae* 34 (1976), pp. 151–162.
+  Theorems 1.1–1.3, Proposition 2.1, Theorem 3.7 and
+  Propositions 4.1–4.3 with Theorem 4.4 fix the finite
+  Herbrand–Ribet implication and its direct Artin character.
+- Akio Yokoyama, [*On class numbers of finite algebraic number
+  fields*](https://www.jstage.jst.go.jp/article/tmj1949/17/4/17_4_349/_pdf/-char/ja),
+  *Tohoku Mathematical Journal* 17 (1965), pp. 349–357,
+  Theorem 4 and proof, pp. 354–355, for the one-prime
+  p-class argument attributed there to Iwasawa.
