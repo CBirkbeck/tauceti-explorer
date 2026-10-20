@@ -34,18 +34,26 @@ the kernel of the coefficient map followed by the Hecke quotient. -/
 def base (ι : Λ →+* H) (ops : I → H) (eig : I → Λ) : Ideal Λ :=
   Ideal.comap ι (hecke ι ops eig)
 
-/-- The Eisenstein quotient presentation when the coefficient-to-quotient map is onto
-(SU §6.5.3 and Wan §9.1). The equivalence retains the given coefficient map. -/
-theorem quotientEquiv (ι : Λ →+* H) (ops : I → H) (eig : I → Λ)
-    (honto : Function.Surjective ((Ideal.Quotient.mk (hecke ι ops eig)).comp ι)) :
-    ∃ e : (Λ ⧸ base ι ops eig) ≃+* (H ⧸ hecke ι ops eig),
-      ∀ r, e (Ideal.Quotient.mk _ r) = Ideal.Quotient.mk _ (ι r) := by
-  sorry
-
-/-- Equal operator and eigenvalue give the zero Hecke ideal. -/
-example : hecke (RingHom.id ℤ) (fun _ : Unit => (7 : ℤ))
-    (fun _ : Unit => (7 : ℤ)) = ⊥ := by
-  simp [hecke]
+/-- Equal operator and eigenvalue give the zero Hecke ideal, but do not force the
+coefficient map onto the Hecke quotient: the polynomial X is not a constant. -/
+example : hecke (Polynomial.C : ℤ →+* Polynomial ℤ)
+      (fun _ : Unit => Polynomial.C 7) (fun _ : Unit => 7) = ⊥ ∧
+    ¬ Function.Surjective
+      ((Ideal.Quotient.mk (hecke (Polynomial.C : ℤ →+* Polynomial ℤ)
+        (fun _ : Unit => Polynomial.C 7) (fun _ : Unit => 7))).comp Polynomial.C) := by
+  constructor
+  · simp [hecke]
+  · intro h
+    obtain ⟨n, hn⟩ := h (Ideal.Quotient.mk _ Polynomial.X)
+    have hconst : Polynomial.C n = (Polynomial.X : Polynomial ℤ) := by
+      change Ideal.Quotient.mk _ (Polynomial.C n) = Ideal.Quotient.mk _ Polynomial.X at hn
+      apply sub_eq_zero.mp
+      simpa only [hecke, sub_self, Set.range_const, Ideal.span_singleton_zero,
+        Submodule.mem_bot] using Ideal.Quotient.eq.mp hn
+    have hcoeff := congrArg (fun f : Polynomial ℤ => f.coeff 1) hconst
+    rw [Polynomial.coeff_C_of_ne_zero (by decide : (1 : ℕ) ≠ 0),
+      Polynomial.coeff_X_one] at hcoeff
+    exact zero_ne_one hcoeff
 
 /-- A difference of five generates (5), retaining its first power. -/
 example : hecke (RingHom.id ℤ) (fun _ : Unit => (8 : ℤ))
@@ -95,7 +103,9 @@ The following README definitions require further arithmetic carriers:
 `CompZeta`, `NakamuraZeta`, `ZetaTriv`, `GenMC`, and `ResZeta`.
 The Wan coefficient ideal is an instance of `EisensteinIdeal.hecke` and
 `EisensteinIdeal.base`. The arithmetic divisibilities, family trivializations and
-cyclotomic main conjectures are targets of the README.
+cyclotomic main conjectures are targets of the README, as are
+`FourierJacobi.weightFunctional`, `FourierJacobi.twoFamilyChoice`, and
+`FourierJacobi.jointHeightOneAvoidance`.
 -/
 
 end TauCetiRoadmap.AutomorphicCongruences
