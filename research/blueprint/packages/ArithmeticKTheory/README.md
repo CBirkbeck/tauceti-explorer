@@ -319,11 +319,15 @@ finite integral-closure module. Its construction commutes with enlarging S.
 Do not allow additional upper primes in the finite-projective statement.
 (K-book, I.3, p. 21; V.6.6.3, p. 410.)
 
-**Checks.** For ℚ⊂ℚ(i) and S={(2)}, the upper ring is ℤ[i,1/2], with basis
-1,i over ℤ[1/2]. At S=∅ the extension is ℤ⊂ℤ[i]. Inverting an extra prime
-above 5 upstairs alone destroys integrality over ℤ and hence the claimed
-finite-module structure. For an identity field extension, both the prime set
-and inclusion are identities.
+**Checks.**
+
+- For ℚ⊂ℚ(i) and S={(2)}, the upper ring is ℤ[i,1/2], with basis 1,i over
+  ℤ[1/2].
+- At S=∅ the extension is ℤ⊂ℤ[i].
+- Inverting an extra prime above 5 upstairs alone destroys integrality over ℤ
+  and hence the claimed finite-module structure.
+- For an identity field extension, both the prime set and inclusion are
+  identities.
 
 *Needs:* §1.1, existing integral closure/localization and finite projective
 module criteria over a Dedekind domain.
@@ -353,11 +357,15 @@ Picard groups and the determinant-of-restriction formula are the named
 comparison targets; their low-degree group carriers come from the suppliers.
 (K-book, Exercise II.2.2 and II.2.2(b), p. 78; V.6.6.3–6.6.4, p. 410.)
 
-**Checks.** For a free quadratic algebra the transfer of (1,1) is (2,1), and
-tr₁res₁(−1)=1. For a nontrivial Steinitz class, transferring (1,1) instead
-has second coordinate c_B, which detects omission of the determinant factor.
-At d=1 all four maps are identities. For ℤ[1/p], the units are ±p^n and have
-rank one; the degree-one rank is not the higher Borel-rank function.
+**Checks.**
+
+- For a free quadratic algebra the transfer of (1,1) is (2,1), and
+  tr₁res₁(−1)=1.
+- For a nontrivial Steinitz class, transferring (1,1) instead has second
+  coordinate c_B, which detects omission of the determinant factor.
+- At d=1 all four maps are identities.
+- For ℤ[1/p], the units are ±p^n and have rank one; the degree-one rank is
+  not the higher Borel-rank function.
 
 ### Examples
 
@@ -394,10 +402,13 @@ claim must be proved for the maps being used, rather than replacing a direct
 sum by a product. (K-book, V.4.3–4.4, p. 401; V.6.1–6.1.2, p. 406; V.6.6,
 p. 409.)
 
-**Checks.** If R is a field, Spec¹(R)=∅ and localization is the identity.
-For a DVR, the residue family has one term. For ℤ[1/p], p is absent from the
-ring-to-field family but is the only term of the relative ℤ→ℤ[1/p] sequence.
-A tuple nonzero at infinitely many primes is not an allowed boundary value.
+**Checks.**
+
+- If R is a field, Spec¹(R)=∅ and localization is the identity.
+- For a DVR, the residue family has one term.
+- For ℤ[1/p], p is absent from the ring-to-field family but is the only term
+  of the relative ℤ→ℤ[1/p] sequence.
+- A tuple nonzero at infinitely many primes is not an allowed boundary value.
 
 *Needs:* §1.1–1.2, S.3 and finite-support/filtered-colimit compatibility.
 
@@ -423,11 +434,14 @@ valuation lattice, and identify its K-theoretic origin. Tau Ceti already
 supplies the unit kernel and localized class quotient. (K-book, I.3,
 Exercise I.3.8, p. 29; V.6.6.1, p. 409.)
 
-**Checks.** At ℤ_(5), β{5,2}=2 in 𝔽₅× whereas β{2,5}=3; t has the opposite
-values. The two different residues distinguish the inverse convention.
-For S={p} in ℚ the valuation sends p to 1 and ±1 to 0. For a nonprincipal
-prime v, the K₀ image is its inverse class, not its rank-one projective class
-with positive sign. At S=∅ the relative unit and divisor terms vanish.
+**Checks.**
+
+- At ℤ_(5), β{5,2}=2 in 𝔽₅× whereas β{2,5}=3; t has the opposite values.
+- The two different residues distinguish the inverse convention.
+- For S={p} in ℚ the valuation sends p to 1 and ±1 to 0.
+- For a nonprincipal prime v, the K₀ image is its inverse class, not its
+  rank-one projective class with positive sign.
+- At S=∅ the relative unit and divisor terms vanish.
 
 ### 2.3 Residue transfer and ramification-weighted restriction
 
@@ -609,19 +623,25 @@ argument. (Quillen, end of proof of Theorem 1, p. 185; K-book, IV.6.9,
 p. 325; Serre, III §1 Proposition 1, pp. 465–466, IV §3 Proposition 3,
 p. 479, IV §6 Proposition 9, p. 483, and V §§1–2, pp. 489–491.)
 
-**Checks.** At i<m the relative term is zero; replacing i−m by natural
-truncated subtraction would insert H₀ incorrectly. At m=1 the layer
-comparison uses reduced H₀ of two points, not zero. H₀ stabilizes from the
-zero stage, consistently with connectedness. Infinite Picard groups are
-excluded from the finiteness criterion, though not from the spectral sequence
-or stability theorem. BQ has π₁=K₀, so requiring simple connectedness would
-exclude precisely the intended application. At m=1,i=1 the relative group is
-⊕_Pic(R)ℤ, because St₁=ℤ and Aut_R(P)=R× acts trivially. At m=2,i=2
-it is ⊕_[P] H₀(Aut(P);St₂), which is Steinberg coinvariants, not ordinary
-H₀(Aut(P);ℤ). Over ℤ[√−5] both Steinitz classes occur. The boundary
-m=i guarantees a surjection only; the isomorphism bound is m≥i+1. Finite
-rational dimension alone does not imply integral finite generation, as ℚ
-shows; finite generation alone does not imply finiteness, as ℤ shows.
+**Checks.**
+
+- At i<m the relative term is zero; replacing i−m by natural truncated
+  subtraction would insert H₀ incorrectly.
+- At m=1 the layer comparison uses reduced H₀ of two points, not zero.
+- H₀ stabilizes from the zero stage, consistently with connectedness.
+- Infinite Picard groups are excluded from the finiteness criterion, though
+  not from the spectral sequence or stability theorem.
+- BQ has π₁=K₀, so requiring simple connectedness would exclude precisely the
+  intended application.
+- At m=1,i=1 the relative group is ⊕_Pic(R)ℤ, because St₁=ℤ and Aut_R(P)=R×
+  acts trivially.
+- At m=2,i=2 it is ⊕_[P] H₀(Aut(P);St₂), which is Steinberg coinvariants, not
+  ordinary H₀(Aut(P);ℤ).
+- Over ℤ[√−5] both Steinitz classes occur.
+- The boundary m=i guarantees a surjection only; the isomorphism bound is
+  m≥i+1.
+- Finite rational dimension alone does not imply integral finite generation,
+  as ℚ shows; finite generation alone does not imply finiteness, as ℤ shows.
 
 *Needs:* §3.1, H.1's categorical/relative homology comparisons, R.1 and H.3's
 connected H-space theorem. These comparisons and the finite-type theorem are
@@ -728,16 +748,20 @@ their exact comparison theorem. No inversion of 2 and no absence of real
 places is assumed. (The same source, Corollaries 1.2.12 and 1.3.9, pp. 18
 and 31; Corollaries 2.3.18–2.3.19, p. 48; Corollary 8, p. 5.)
 
-**Checks.** At m=0 the ranges n≤−2 and n≥−1 cover all L-degrees; at m=1
-the division is n≤0 and n≥1. Classical n=0,1,2,3 requires the classical
-comparison rather than a theorem starting at n=4. ℤ and a real quadratic
-number ring are allowed without inverting 2. Characteristic-two Dedekind
-rings fall outside this arithmetic theorem: there the map W^q→W^s can be
-zero rather than injective.
-For ε=+1 over ℤ, the periodic symmetric residues modulo four are
-ℤ,ℤ/2,0,0 and the quadratic residues are ℤ,0,ℤ/2,0. Finite generation
-does not identify these flavours. The theorem also covers ℤ[1/2], both
-signs and every genuine parameter m; it gives no conclusion for infinite S.
+**Checks.**
+
+- At m=0 the ranges n≤−2 and n≥−1 cover all L-degrees; at m=1 the division is
+  n≤0 and n≥1.
+- Classical n=0,1,2,3 requires the classical comparison rather than a theorem
+  starting at n=4.
+- ℤ and a real quadratic number ring are allowed without inverting 2.
+- Characteristic-two Dedekind rings fall outside this arithmetic theorem:
+  there the map W^q→W^s can be zero rather than injective.
+- For ε=+1 over ℤ, the periodic symmetric residues modulo four are ℤ,ℤ/2,0,0
+  and the quadratic residues are ℤ,0,ℤ/2,0.
+- Finite generation does not identify these flavours.
+- The theorem also covers ℤ[1/2], both signs and every genuine parameter m;
+  it gives no conclusion for infinite S.
 
 ### Examples
 
@@ -822,10 +846,14 @@ The proof uses the finite cyclic odd-primary character image and its
 kept separate rather than assigned a fictitious largest a.
 (K-book, Proposition VI.2.2 and proof, pp. 470–471.)
 
-**Checks.** At ℓ=3, F=ℚ, r=2 and a=1: weights 1 and 2 give orders 1 and
-3. At weight 6 the order is 9. At ℓ=2 the character image need not be
-cyclic, so the odd-primary formula cannot be reused. Weight zero makes the
-exponent criterion true at every ν and thus lies outside the finite formula.
+**Checks.**
+
+- At ℓ=3, F=ℚ, r=2 and a=1: weights 1 and 2 give orders 1 and 3.
+- At weight 6 the order is 9.
+- At ℓ=2 the character image need not be cyclic, so the odd-primary formula
+  cannot be reused.
+- Weight zero makes the exponent criterion true at every ν and thus lies
+  outside the finite formula.
 
 ### 4.3 Exceptional fields and the dyadic formula
 
@@ -920,11 +948,14 @@ an unavailable associative coefficient ring. Finite support and finite
 generation then prove the integral assertion. (K-book, Theorem V.6.8,
 Corollaries 6.8.1–6.8.2 and proof, pp. 412–413.)
 
-**Checks.** Degree one is excluded: O×→F× is generally not surjective.
-For finite residue fields K_(2i)=0 and K_(2i−1) is cyclic of order q^i−1;
-at q=2,i=1 this residue group is trivial, not an obstruction. The proof at
-m=2 or 3 still needs reduction and cannot assert a general mod-m product.
-The exact sequence has a direct sum over primes outside S.
+**Checks.**
+
+- Degree one is excluded: O×→F× is generally not surjective.
+- For finite residue fields K_(2i)=0 and K_(2i−1) is cyclic of order q^i−1;
+  at q=2,i=1 this residue group is trivial, not an obstruction.
+- The proof at m=2 or 3 still needs reduction and cannot assert a general
+  mod-m product.
+- The exact sequence has a direct sum over primes outside S.
 
 *Needs:* Layers 2–3, K.7's coefficient localization/projection formula,
 finite-field Bott operations and compatible modulus reduction.
@@ -985,16 +1016,23 @@ record the field, degree-one and finite-field compatibilities.
 (K-book, VI.8.2–8.3, pp. 513–514; the coefficient-compatible edge just
 specified.)
 
-**Checks.** The Bockstein goes from degree 2i with torsion coefficients to
-degree 2i−1 integrally, not in the reverse direction. For ℚ at i=2 and
-ℓ=2, the map to W₂ has a kernel of order two; an all-primes isomorphism
-would be false. At odd ℓ this kernel vanishes. Replacing c_edge by a
-factorial multiple can kill torsion and is not a harmless renaming. At the
-exceptional totally imaginary field ℚ(√−7), i=2 and ℓ=2 the early edge
-is still an isomorphism. For F=ℚ,n=5, dyadic torsion in K₅ is zero but W₃(ℚ){2}=ℤ/2
-and H¹(R,ℤ₂(3)) has torsion ℤ/2. Thus c_edge has zero image on dyadic
-torsion and cokernel ℤ/2; the rank-one free part changes none of these facts. The real extension normal form must also work
-for w=8 with r=1 and r=2, giving ℤ/16 and ℤ/16⊕ℤ/2 respectively.
+**Checks.**
+
+- The Bockstein goes from degree 2i with torsion coefficients to degree 2i−1
+  integrally, not in the reverse direction.
+- For ℚ at i=2 and ℓ=2, the map to W₂ has a kernel of order two; an
+  all-primes isomorphism would be false.
+- At odd ℓ this kernel vanishes.
+- Replacing c_edge by a factorial multiple can kill torsion and is not a
+  harmless renaming.
+- At the exceptional totally imaginary field ℚ(√−7), i=2 and ℓ=2 the early
+  edge is still an isomorphism.
+- For F=ℚ,n=5, dyadic torsion in K₅ is zero but W₃(ℚ){2}=ℤ/2 and H¹(R,ℤ₂(3))
+  has torsion ℤ/2.
+- Thus c_edge has zero image on dyadic torsion and cokernel ℤ/2; the rank-one
+  free part changes none of these facts.
+- The real extension normal form must also work for w=8 with r=1 and r=2,
+  giving ℤ/16 and ℤ/16⊕ℤ/2 respectively.
 
 ### 5.3 Integral groups away from real dyadic corrections
 
@@ -1057,12 +1095,15 @@ subgroup. This explains the quotient w_i/2 rather than an arbitrary choice
 of half its order. (K-book, Theorems VI.9.4–9.5, pp. 519–521;
 Theorem VI.2.6, p. 474.)
 
-**Checks.** For w=24,r=1 the diagonal extension is ℤ/48 and not
-ℤ/24⊕ℤ/2; for w=2,r=2 it is ℤ/4⊕ℤ/2, with wx the diagonal class.
-The r=0 case has no such extension and is handled by §5.3. At n=3 over
-ℚ the torsion order is 48; at n=5 over ℚ it is w₃/2=1 and the free rank
-is one. Indexing these rows by i modulo 8 instead of n would give wrong
-answers already in these two degrees.
+**Checks.**
+
+- For w=24,r=1 the diagonal extension is ℤ/48 and not ℤ/24⊕ℤ/2; for w=2,r=2
+  it is ℤ/4⊕ℤ/2, with wx the diagonal class.
+- The r=0 case has no such extension and is handled by §5.3.
+- At n=3 over ℚ the torsion order is 48; at n=5 over ℚ it is w₃/2=1 and the
+  free rank is one.
+- Indexing these rows by i modulo 8 instead of n would give wrong answers
+  already in these two degrees.
 
 ### 5.5 The detected Harris–Segal summand
 
@@ -1079,10 +1120,12 @@ Theorem 2.6, p. 474; Weibel, Handbook, §5.4, pp. 153–154 and
 Theorem 73, pp. 167–169; Harris–Segal, §3, in the article pp. 20–33, for the original
 detected construction.)
 
-**Checks.** The odd-prime summand applies to ℚ. A real field at ℓ=2 is
-excluded: K₃(ℚ)→W₂(ℚ) is nonsplit. A nonexceptional imaginary field may
-use the dyadic summand, while ℚ(√−7) may not use that hypothesis merely
-because it has no real places.
+**Checks.**
+
+- The odd-prime summand applies to ℚ.
+- A real field at ℓ=2 is excluded: K₃(ℚ)→W₂(ℚ) is nonsplit.
+- A nonexceptional imaginary field may use the dyadic summand, while ℚ(√−7)
+  may not use that hypothesis merely because it has no real places.
 
 ### Examples
 
@@ -1127,18 +1170,22 @@ t+s−1 for each positive even K-group, with the same cohomological-dimension
 hypothesis at 2. The sum-of-invariants relation accounts for the minus one.
 (K-book, Example VI.8.3.1, p. 514.)
 
-**Checks.** With s=1,t=0 the group has ℓ-rank zero; a formula t+s would
-be wrong. A nontrivial ℓ²-cyclic factor and an ℓ-cyclic factor both have
-ℓ-rank one, so a rank cannot be used as an order. At ℓ=2 with real places,
-this theorem is replaced by §6.3. The twist is i+1 for degree 2i, whereas
-the local finite quotient below has order w_i. For F=ℚ,ℓ odd,i=1,
-H²(ℤ[1/ℓ],ℤ_ℓ(2))=0, in agreement with K₂(ℤ){ℓ}=0. At the
-excluded real dyadic pair F=ℚ,i=3, K₆(ℤ){2}=0 while
-H²(ℤ[1/2],ℤ₂(4)) has order two, and the mod-two comparison also fails.
-For ℚ(i), every positive even K-group of ℤ[i] has odd order: its dyadic
-class group is trivial, there is one dyadic place and
-H²(ℤ[i,1/2],μ₂)=0; all μ₂ twists coincide. This vanishing concerns
-the 2-primary part, not the entire higher even group.
+**Checks.**
+
+- With s=1,t=0 the group has ℓ-rank zero; a formula t+s would be wrong.
+- A nontrivial ℓ²-cyclic factor and an ℓ-cyclic factor both have ℓ-rank one,
+  so a rank cannot be used as an order.
+- At ℓ=2 with real places, this theorem is replaced by §6.3.
+- The twist is i+1 for degree 2i, whereas the local finite quotient below has
+  order w_i.
+- For F=ℚ,ℓ odd,i=1, H²(ℤ[1/ℓ],ℤ_ℓ(2))=0, in agreement with K₂(ℤ){ℓ}=0.
+- At the excluded real dyadic pair F=ℚ,i=3, K₆(ℤ){2}=0 while H²(ℤ[1/2],ℤ₂(4))
+  has order two, and the mod-two comparison also fails.
+- For ℚ(i), every positive even K-group of ℤ[i] has odd order: its dyadic
+  class group is trivial, there is one dyadic place and H²(ℤ[i,1/2],μ₂)=0;
+  all μ₂ twists coincide.
+- This vanishing concerns the 2-primary part, not the entire higher even
+  group.
 
 *Needs:* Layers 2–5, M.7, arithmetic Kummer/Brauer and inverse-limit control.
 
@@ -1209,12 +1256,14 @@ but does not assert a splitting. The 8k+1 row starts at 9, not 1; the
 8k row starts at 8. (K-book, Corollary VI.9.10, p. 523, Example 9.10.1,
 pp. 523–524, and Theorem 9.11 with proof, pp. 524–525.)
 
-**Checks.** At r₁=1, j=ρ=0, so no hidden elementary kernel occurs.
-For ℚ(√2), ρ=0, whereas for ℚ(√7), ρ=1, although both have two real
-places. In the latter field, K₄(O_F){2}=ℤ/2 and
-H²(O_F[1/2],ℤ₂(3))=0; discarding the kernel would lose the entire group.
-The real field ℚ in degree 5 has no dyadic torsion, consistently with
-§5.4. Neither n=0 nor n=1 is in this table.
+**Checks.**
+
+- At r₁=1, j=ρ=0, so no hidden elementary kernel occurs.
+- For ℚ(√2), ρ=0, whereas for ℚ(√7), ρ=1, although both have two real places.
+- In the latter field, K₄(O_F){2}=ℤ/2 and H²(O_F[1/2],ℤ₂(3))=0; discarding
+  the kernel would lose the entire group.
+- The real field ℚ in degree 5 has no dyadic torsion, consistently with §5.4.
+- Neither n=0 nor n=1 is in this table.
 
 ### 6.4 Mod-two orders and the even two-rank function
 
@@ -1266,6 +1315,9 @@ function; arithmetic use keeps n>0 and s≥1.
   signature defect that the rational case alone would miss.
 - Adding one allowed finite prime increases every even branch by one;
   s≥1 prevents truncated-subtraction artifacts.
+- At (r,t,j,n)=(0,0,0,0), both s=0 and s=1 give zero. Thus
+  `evenTwoRank_add_prime` would be false without s≥1, even though the
+  numerical function is defined there.
 - At odd n the function is zero by definition, with no K₁ claim. At n=0
   the arithmetic K₀ statement is excluded.
 - An order-four coefficient group and a two-dimensional elementary group
@@ -1285,14 +1337,19 @@ All groups in the ratio are finite in this parity and degree range. Prove
 that only finitely many primary factors differ from one. The real factor
 2^r₁ is essential. (K-book, Theorem VI.9.12 and proof, p. 525.)
 
-**Checks.** i=2 is allowed; i=0 would introduce a negative ordinary degree
-and is excluded. Odd i would introduce a positive free rank in the odd
-group and is excluded. An imaginary field is not a specialization of the
-totally real hypothesis, even if a formal expression with r₁=0 can be written.
-For ℚ,i=2 the left ratio is 2·2/48=1/12 and the cohomological product
-is 1/24 times the dyadic H² factor 2. For ℚ,i=4, K₆(ℤ)=0 and
-|K₇(ℤ)|=240, so the ratio is 1/120; the dyadic H²(ℤ[1/2],ℤ₂(4))
-factor is again 2. A zero group contributes order one to either product.
+**Checks.**
+
+- i=2 is allowed; i=0 would introduce a negative ordinary degree and is
+  excluded.
+- Odd i would introduce a positive free rank in the odd group and is
+  excluded.
+- An imaginary field is not a specialization of the totally real hypothesis,
+  even if a formal expression with r₁=0 can be written.
+- For ℚ,i=2 the left ratio is 2·2/48=1/12 and the cohomological product is
+  1/24 times the dyadic H² factor 2.
+- For ℚ,i=4, K₆(ℤ)=0 and |K₇(ℤ)|=240, so the ratio is 1/120; the dyadic
+  H²(ℤ[1/2],ℤ₂(4)) factor is again 2.
+- A zero group contributes order one to either product.
 
 ### 6.6 Elements divisible by every integer
 
@@ -1336,22 +1393,40 @@ preprint, introduction, pp. 1–3.)
 
 For positive even n, let T=K_n(O_(F,S)), embedded in K_n(F), and take m≥2
 annihilating T. The universal coefficient injection T/m→K_n(O;ℤ/m)
-identifies T with its image. Prove the full coefficient-kernel equality
-ker(K_n(O;ℤ/m)→K_n(F;ℤ/m))=div K_n(F), with the right side
-embedded by that injection. Localization and odd integral injectivity force
-the coefficient kernel into the universal-coefficient copy of T/m. Inside
-that copy it is T∩mK_n(F), and the arithmetic divisibility theorem identifies
-this intersection with div K_n(F). This assertion is not a statement about an
-arbitrary inclusion of finite groups. For a fixed prime, the descending
-finite-primary kernel sequence stabilizes. Its finiteness proof supplies no
-effective stabilization exponent from |T| alone. (K-book, V.6.8.2 and proof,
-p. 413; wild-kernel preprint, §4, pp. 11–13.)
+identifies T with its image. First prove `coefficientKernel_eq_inter_mul`:
+localization and odd integral injectivity force the coefficient kernel into
+this copy of T/m, where it is exactly T∩mK_n(F). Next prove
+`coefficientKernel_eventually_eq_div`: some multiple m₀ of the exponent of
+T has T∩mK_n(F)=div K_n(F) for every positive multiple m of m₀. The
+intersection over all positive m is div K_n(F), which lies in T by finite
+support and the finite residue groups. Because T is finite, finitely many
+moduli exclude all its elements outside div; their least common multiple
+gives m₀. This proves eventual stabilization without a numerical bound.
 
-**Checks.** m=1 gives the zero coefficient theory and cannot be used as an
-annihilator test. A modulus not annihilating T only sees T/m and cannot
-identify the whole group. Stabilization permits repeated equal terms followed
-by later drops, so observing one repeated kernel is not a certificate of the
-final value.
+Retain the stronger target `coefficientKernel_eq_div_of_annihilates`:
+for **every** m≥2 annihilating T,
+ker(K_n(O;ℤ/m)→K_n(F;ℤ/m))=div K_n(F), embedded by the injection
+above. **Proof gap:** this stronger arithmetic assertion is stated in
+K-book V.6.8.2, p. 413, but its uniform bound is not established by the
+finite-kernel stabilization argument in the wild-kernel preprint,
+Corollary 4.6, p. 13. That argument proves the eventual version. Closing
+this target requires an arithmetic proof that each annihilating m is already
+past stabilization; neither finiteness nor the annihilator condition alone
+proves it. The eventual theorem does not silently replace the stronger target.
+
+**Checks.**
+
+- m=1 gives zero coefficient theory. It cannot annihilate nonzero T;
+  when T=0 the assertion is vacuous.
+- A modulus not annihilating T only sees T/m and cannot identify the
+  whole group.
+- Take A=ℤ/4 and T=2A. Then 2T=0, but T∩2A=T≃ℤ/2 whereas
+  div A=0. Thus a general finite-subgroup argument cannot prove the
+  stronger arithmetic assertion. This does not refute that assertion for
+  arithmetic K-groups.
+- In A=ℤ/2^r with T=2^(r−1)A, the subgroups T∩2^νA equal T
+  for ν<r and become zero at ν=r, although |T|=2 for all r≥1.
+  Repeated equal kernels and |T| alone give no stabilization bound.
 
 ### 6.7 Three wild-kernel constructions
 
@@ -1472,11 +1547,15 @@ i≡1 mod 4 this is the factor 2^r₁ from the real-symbol quotient.
 (Wild-kernel preprint, Lemma 0.3 and Corollary 0.4, pp. 2–3, with the
 positive-group convention; K-book, VI.7, pp. 509–510.)
 
-**Checks.** For i=1,F=ℚ the wild kernel is zero and the sign generator is
-absent from K^+. At odd ℓ the archimedean correction is trivial. At ℓ=2
-and i=2 the positive subgroup is ordinary K but the separate ρ-kernel of
-the cohomological comparison remains. Adding a prime v∤ℓ with
-ℓ∣q_v^i−1 can enlarge the even ℓ-primary group and cannot be ignored.
+**Checks.**
+
+- For i=1,F=ℚ the wild kernel is zero and the sign generator is absent from
+  K^+.
+- At odd ℓ the archimedean correction is trivial.
+- At ℓ=2 and i=2 the positive subgroup is ordinary K but the separate
+  ρ-kernel of the cohomological comparison remains.
+- Adding a prime v∤ℓ with ℓ∣q_v^i−1 can enlarge the even ℓ-primary group and
+  cannot be ignored.
 
 ### 6.9 Cohomological kernels and the real hidden subgroup
 
@@ -1570,11 +1649,14 @@ to q the corresponding faithful cyclic norm is onto. This is **not** the
 finite-field multiplicative norm E×→k×. (Wild-kernel preprint, Lemmas 3.2
 and 3.4 and Remark 3.4.1, p. 9.)
 
-**Checks.** For m=4 and q^i=3, the norm is 1+3=0 modulo 4 while the
-invariant subgroup is {0,2}. For m=8 and q^i=3, the faithful action has
-order two, norm 4, coinvariants of order two and invariants {0,4}; the
-induced map is an isomorphism. These two witnesses distinguish the actual
-twisted norm from a blanket surjectivity claim.
+**Checks.**
+
+- For m=4 and q^i=3, the norm is 1+3=0 modulo 4 while the invariant subgroup
+  is {0,2}.
+- For m=8 and q^i=3, the faithful action has order two, norm 4, coinvariants
+  of order two and invariants {0,4}; the induced map is an isomorphism.
+- At m=4 and q=2, multiplication by q is not an automorphism of ℤ/4.
+  The coprimality hypothesis on q is essential to the group action.
 
 ### 6.11 Local norms and cyclotomic Picard descent
 
@@ -1587,24 +1669,52 @@ symbol, whereas a positive second entry is a norm from ℂ×. This two-term
 test fixes the norm and symbol directions. (Wild-kernel preprint, §2,
 pp. 6–8; the local symbol contract of T.7.)
 
-For m a prime power, E=F(μ_m^(⊗i)) and G=Gal(E/F), take S containing
+For m=ℓ^ν>1 a prime power, E=F(μ_m^(⊗i)) and G=Gal(E/F), take S containing
 the primes dividing m and the ramified primes of E/F, and T exactly above
-S. For totally imaginary E with trivialized twist and m≠2, construct the
+S. In the ordinary cohomological-dimension-two range (ℓ odd, or F totally
+imaginary), prove `cyclotomicH2Descent`: corestriction induces
+
+```text
+H²(O_(E,T),μ_m^(⊗(i+1)))_G ≃ H²(O_(F,S),μ_m^(⊗(i+1))).
+```
+
+This is top-degree coinvariant descent for the finite étale cover obtained
+after inverting S, not a claim that invariants and coinvariants agree.
+Use ArithmeticGaloisDuality's top-degree duality and corestriction; the
+totally imaginary case is the wild-kernel preprint's Corollary 2.3, p. 7,
+and the same argument at odd ℓ has no real-place term. With the twist
+trivialized over E, construct the
 Kummer–Brauer sequence with Picard term Pic(O_(E,T))(i)/m, H² term and
-local invariant-sum kernel M⁰. Under the **specified H² descent
-hypothesis**, its coinvariant sequence contains
+local invariant-sum kernel M⁰. Define `cyclotomicPicardDescentSequence`
+by applying coinvariants and this particular corestriction isomorphism:
 
 ```text
 H₁(G,M⁰) → (Pic(O_(E,T))(i)/m)_G
   → H²(O_(F,S),μ_m^(⊗(i+1))) → M⁰_G → 0.
 ```
 
-The H₁ defect cannot be dropped. For the dyadic real variant m>2 use
-Pic⁺ and positive H²₊, and include their comparison to ordinary Pic and
-ordinary H². Descent and exactness are hypotheses/theorems with named maps,
-not consequences of merely writing a G-action. (Wild-kernel preprint,
+The H₁ defect cannot be dropped. For the dyadic real variant m>2 prove
+`cyclotomicPositiveH2Descent`, the corresponding corestriction isomorphism
+with H²₊ on both sides, and define `cyclotomicPositivePicardDescentSequence`
+using Pic⁺ and positive H²₊. Keep the natural comparison maps
+Pic⁺→Pic and H²₊→H², including their real-place defects; the ordinary
+isomorphism above is not asserted in this case. Positive descent is
+Corollary 6.5, p. 16. Descent and exactness use these named maps,
+not merely a G-action. (Wild-kernel preprint,
 Proposition 4.1 and Application 4.2, p. 11; Proposition 6.8 and equation
 (6.9), p. 16.)
+
+**Checks.**
+
+- For E=F, corestriction and coinvariant descent are the identity, so
+  the sequence is the original Kummer–Brauer sequence.
+- For G=C₂ acting by −1 on ℤ/4, the coinvariants are ℤ/2 and
+  H₁(G,ℤ/4)=ℤ/2. This nonzero homology group prevents a formal
+  left-exactness claim for coinvariants.
+- For real F at ℓ=2, the ordinary H² comparison has real-place
+  terms (preprint equation (6.6.1), p. 16). It cannot replace positive
+  descent. A set S omitting a prime above ℓ also fails the stated
+  étale-cover hypothesis.
 
 For sufficiently large m=ℓ^ν, identify the image of the twisted Picard
 coinvariants in K_(2i)(O_F){ℓ} with div K_(2i)(F){ℓ} in the
@@ -1662,12 +1772,15 @@ Without that additional theorem, no raw-kernel version of the preceding
 symbol theorem is asserted. (K-book, V.6.8.2, p. 413; wild-kernel preprint,
 Definition 0.2, pp. 2–3, and §1.)
 
-**Checks.** ℚ is nonspecial, giving zero obstruction at i=1. The special
-imaginary field ℚ(√−14) at odd i has a quotient of order two, so
-exceptionality and specialness cannot be conflated. The hidden degree-four
-class for ℚ(√7) survives in K but lies in ambient div; it is not erased by
-identifying K with H². A higher local divisible quotient alone proves
-neither equality of raw/symbol kernels nor vanishing of a torsion image.
+**Checks.**
+
+- ℚ is nonspecial, giving zero obstruction at i=1.
+- The special imaginary field ℚ(√−14) at odd i has a quotient of order two,
+  so exceptionality and specialness cannot be conflated.
+- The hidden degree-four class for ℚ(√7) survives in K but lies in ambient
+  div; it is not erased by identifying K with H².
+- A higher local divisible quotient alone proves neither equality of
+  raw/symbol kernels nor vanishing of a torsion image.
 
 ### 6.13 Keune's twisted Picard injection
 
@@ -1687,11 +1800,15 @@ specific finite-module vanishing implication needed downstream.
 (Calegari–Garoufalidis–Zagier, arXiv v3, Lemma 3.5 and proof, p. 20;
 Keune's cyclotomic Picard theorem is the required original map input.)
 
-**Checks.** A Kummer p-unit class need not be an ordinary unit before the
-valuation obstruction is killed. The prime p=2 is excluded, as are primes
-ramified in F. A vanishing proof that assumes p∤|K₂(O_F)| may not use
-the desired vanishing to establish that hypothesis. Invariants and
-coinvariants of a finite p-module have no general canonical identification.
+**Checks.**
+
+- A Kummer p-unit class need not be an ordinary unit before the valuation
+  obstruction is killed.
+- The prime p=2 is excluded, as are primes ramified in F.
+- A vanishing proof that assumes p∤|K₂(O_F)| may not use the desired
+  vanishing to establish that hypothesis.
+- Invariants and coinvariants of a finite p-module have no general canonical
+  identification.
 
 ### 6.14 Finite presentations with independent lower bounds
 
@@ -1823,10 +1940,14 @@ proved isomorphism. State the trivialization dependence rather than calling
 that generator canonical. (The same source, Corollary 2.12 and Remark 2.13,
 pp. 245–246.)
 
-**Checks.** q=3 is allowed via the spectrum-level operation; no mod-3
-ring structure is inferred. q=2 is excluded because division by 2 fails.
-k=0 and k=−1 are genuine periodic cases of the table. In degree 4k−2,
-interchanging the H⁰ and H² signs contradicts the j=−1 test.
+**Checks.**
+
+- q=3 is allowed via the spectrum-level operation; no mod-3 ring structure is
+  inferred.
+- q=2 is excluded because division by 2 fails.
+- k=0 and k=−1 are genuine periodic cases of the table.
+- In degree 4k−2, interchanging the H⁰ and H² signs contradicts the j=−1
+  test.
 
 ### 6.16 Comparison with ordinary K-theory and degree one
 
@@ -1841,13 +1962,16 @@ assigned the Bott H¹ formula. (Feng–Galatius–Venkatesh, Proposition 2.9
 and Lemma 2.10, pp. 242–243; final assertions of Lemmas 2.11 and 2.14,
 pp. 244–247.)
 
-**Checks.** On ℤ the ordinary odd-prime coefficient K₁ is zero, whereas
-on ℤ[1/p] the valuation of p gives a ℤ/q summand. In the cyclotomic
-ring the prime is generated by 1−ζ_q, allowing the same splitting after
-that choice. The degree-zero isomorphism needs the Picard/order argument
-and is not supplied by a comparison initially proved only injective at
-zero. Negative Bott groups are permitted; no negative ordinary comparison
-is asserted.
+**Checks.**
+
+- On ℤ the ordinary odd-prime coefficient K₁ is zero, whereas on ℤ[1/p] the
+  valuation of p gives a ℤ/q summand.
+- In the cyclotomic ring the prime is generated by 1−ζ_q, allowing the same
+  splitting after that choice.
+- The degree-zero isomorphism needs the Picard/order argument and is not
+  supplied by a comparison initially proved only injective at zero.
+- Negative Bott groups are permitted; no negative ordinary comparison is
+  asserted.
 
 ### Examples
 
@@ -1899,8 +2023,9 @@ the existing Bernoulli denominator and squarefreeness theorems.
   B₁₂=−691/2730. Arithmetic B₆=1/42 is a different index.
 - At p=5,k=5, B₁₀/5=1/66 has no denominator factor 5, even though
   p∣k. The divided-denominator refinement must account for cancellation.
-- k=0 is outside the positivity and denominator statements; the displayed
-  light definition alone gives its totalized value and no topological claim.
+- At k=0 the light definition gives `bernoulliTop 0 = −1`. This
+  input is outside positivity and the denominator statements, with no
+  topological claim.
 
 For k≥1 prove w_(2k)(ℚ)=den(B_(2k)/(4k)). Together with w_i(ℚ)=2
 at odd i, this recovers the explicit prime formula of §4.4. For every
@@ -1914,14 +2039,19 @@ and `wInvariant_two_rat` for weight two. `wInvariant_even` records the
 even order of a finite W_i over a number field, since its order-two twist
 is fixed.
 
-**Checks.** B₂/4=1/24, B₄/8=−1/240 and B₆/12=1/504 give the first
-three even w-values. B₁₀/20=1/264 fixes the weight-ten value. At odd
-i=3, p=2 divides w_i but the even Bernoulli formula is not applicable.
+**Checks.**
+
+- B₂/4=1/24, B₄/8=−1/240 and B₆/12=1/504 give the first three even w-values.
+- B₁₀/20=1/264 fixes the weight-ten value.
+- At odd i=3, p=2 divides w_i but the even Bernoulli formula is not
+  applicable.
 
 ### 7.2 Regularity and Kummer's finite criterion
 
 For a prime p define `IsRegularPrime p` by
-p∤NumberField.classNumber(CyclotomicField p ℚ). Its API includes
+p∤NumberField.classNumber(CyclotomicField p ℚ). The light predicate is
+defined on all natural inputs; every arithmetic regularity theorem separately
+assumes primality. Its API includes
 equivalence with vanishing p-primary class group, the regular/irregular
 dichotomy under primality, invariance under choices of primitive roots,
 and the odd-prime Bernoulli criterion. This predicate does not include
@@ -1956,10 +2086,11 @@ not an oracle inferred from an unproved table.
 - Prove `not_isRegularPrime_37`: 37 divides the numerator of B₃₂,
   which lies in the permitted range. This is the first irregular prime.
 - p=2 is not an instance of the odd-prime criterion, although its
-  cyclotomic class-number predicate is defined with a prime hypothesis.
+  cyclotomic class-number predicate is defined there.
 - Composite inputs and p=0 or 1 carry no regular-prime interpretation.
-  In particular an arbitrary totalized divisibility predicate cannot be
-  used without the explicit `Nat.Prime` assumption.
+  The totalized predicate is true at 0, since class numbers are positive,
+  and false at 1, since 1 divides every class number. These computed
+  cases force the explicit `Nat.Prime` assumption in arithmetic use.
 - The numerator and denominator are those of the reduced rational
   number. An unreduced fraction can falsely report divisibility.
 
@@ -1987,11 +2118,14 @@ Ribet respectively; the original finite-class-group proofs and exact twist
 translation are the IntegralIwasawaTheory inputs. (K-book, VI.10.4 and Examples VI.10.4.1–10.4.2, p. 530;
 Remark VI.10.8.1, p. 532.)
 
-**Checks.** For ℓ=37,k=16 the exponent is 5 modulo 36 and B₃₂ detects
-that component; exponent 31 would invert the character. The factor ℓ−1
-is invertible over 𝔽_ℓ, but the same sum divided in ℤ is not an integral
-projector. At ℓ=3 the Bernoulli range is empty, consistently with regularity.
-These are character eigenspaces, not Adams-dualization pieces from §6.15.
+**Checks.**
+
+- For ℓ=37,k=16 the exponent is 5 modulo 36 and B₃₂ detects that component;
+  exponent 31 would invert the character.
+- The factor ℓ−1 is invertible over 𝔽_ℓ, but the same sum divided in ℤ is not
+  an integral projector.
+- At ℓ=3 the Bernoulli range is empty, consistently with regularity.
+- These are character eigenspaces, not Adams-dualization pieces from §6.15.
 
 ### 7.4 The cyclotomic tame kernel and regular-prime torsion
 
@@ -2023,13 +2157,17 @@ by K.7 and the original proof, including ℓ=3. A module statement does
 not require asserting an arbitrary mod-3 coefficient ring structure.
 (K-book, Theorem VI.10.6 and Example VI.10.6.1, pp. 531–532.)
 
-**Checks.** At ℓ=2 the residue unit order is one and the arithmetic
-residue statement still holds, but the regular-prime consequences above
-are odd-prime statements. At ℓ=3, the generator degrees are 0,3,1;
-the count is three. At ℓ=5 they are 0,7,1,5, giving four. At ℓ=3,
-the odd torsion in degree 3 has order 3, while degree 5 has no
-3-torsion since 2∤3. The full degree-three group over ℤ has order
-48 because its dyadic real contribution is separate.
+**Checks.**
+
+- At ℓ=2 the residue unit order is one and the arithmetic residue statement
+  still holds, but the regular-prime consequences above are odd-prime
+  statements.
+- At ℓ=3, the generator degrees are 0,3,1; the count is three.
+- At ℓ=5 they are 0,7,1,5, giving four.
+- At ℓ=3, the odd torsion in degree 3 has order 3, while degree 5 has no
+  3-torsion since 2∤3.
+- The full degree-three group over ℤ has order 48 because its dyadic real
+  contribution is separate.
 
 ### 7.5 Vandiver and the conditional integer table
 
@@ -2064,11 +2202,13 @@ inputs; the regular-prime theorem alone does not give this table.
 (K-book, VI.10.1–10.2 and Tables 10.1.1–10.2.1, pp. 527–529; VI.10.9–10.10,
 p. 533; SpecialValuesBirchTate B.8.)
 
-**Checks.** At a=0, c₁=1, giving K₂(ℤ)=ℤ/2; the next row gives
-K₃(ℤ)=ℤ/48. The 8a+1 row cannot be used at a=0, since K₁(ℤ)
-is finite. A verified finite range of Vandiver primes is not the global
-hypothesis. Every number obtained under that hypothesis is labeled as
-conditional, including any cyclic structure that uses it.
+**Checks.**
+
+- At a=0, c₁=1, giving K₂(ℤ)=ℤ/2; the next row gives K₃(ℤ)=ℤ/48.
+- The 8a+1 row cannot be used at a=0, since K₁(ℤ) is finite.
+- A verified finite range of Vandiver primes is not the global hypothesis.
+- Every number obtained under that hypothesis is labeled as conditional,
+  including any cyclic structure that uses it.
 
 ### Examples
 
@@ -2157,11 +2297,14 @@ case K₄(ℤ)=0 this nevertheless determines K₄(ℤ[1/p])≃ℤ/(p²−1),
 so K₄(ℤ[1/2])≃ℤ/3.
 (K-book, V.6.1, p. 406, III.6.5.1, p. 236; VI.8.1, p. 513.)
 
-**Checks.** At p=2 the degree-two quotient is trivial, so K₂ is unchanged.
-At p=3 it gives ℤ/2⊕ℤ/2 rather than a cyclic group of order four.
-The degree-one quotient is K₀(𝔽_p)=ℤ, not a finite-field positive
-K-group. The map in odd degree three preserves ℤ/48. These are exact
-localization maps, so their rationalized identities agree with §3.3.
+**Checks.**
+
+- At p=2 the degree-two quotient is trivial, so K₂ is unchanged.
+- At p=3 it gives ℤ/2⊕ℤ/2 rather than a cyclic group of order four.
+- The degree-one quotient is K₀(𝔽_p)=ℤ, not a finite-field positive K-group.
+- The map in odd degree three preserves ℤ/48.
+- These are exact localization maps, so their rationalized identities agree
+  with §3.3.
 
 The same localization, with the low-degree sign splitting imported from
 T.5, gives
@@ -2170,11 +2313,14 @@ K₂(ℤ) has order two. This is a group computation; it does not replace
 the finite-support localization map by a product.
 (K-book, III.6.5.1, p. 236; VI.8.3, p. 514.)
 
-**Checks.** The residue term at 2 is trivial, at 3 has order two, and at
-5 has order four. Finite sums of these residue classes are allowed;
-a family nonzero at infinitely many primes is outside the direct sum.
-The field/ring distinction agrees with the positive-even rank-zero
-theorem and does not imply finite generation for K₂(ℚ).
+**Checks.**
+
+- The residue term at 2 is trivial, at 3 has order two, and at 5 has order
+  four.
+- Finite sums of these residue classes are allowed; a family nonzero at
+  infinitely many primes is outside the direct sum.
+- The field/ring distinction agrees with the positive-even rank-zero theorem
+  and does not imply finite generation for K₂(ℚ).
 
 ### 8.3 Tate's filtration and the unit quotient
 
@@ -2247,12 +2393,16 @@ limit. *Needs:* §8.3 and the elementary exact quotient argument.
 (Bass–Tate, II Theorem 3.1, p. 403; Groenewegen, Theorem 15,
 pp. 1454–1455.)
 
-**Checks.** A trivial residue group, including q=2, does not prove a step
-zero without injectivity. At a=b no division by a−b is used. Equality
-|N(a−b)|=q² permits two v-factors and is excluded. Tied norms do not
-cause an error: after removing the one v-factor the remaining ideal has
-norm strictly below q. The case m₀=0 gives ordinary-unit generators,
-whereas m₀>0 retains the indicated additional generators.
+**Checks.**
+
+- A trivial residue group, including q=2, does not prove a step zero without
+  injectivity.
+- At a=b no division by a−b is used.
+- Equality |N(a−b)|=q² permits two v-factors and is excluded.
+- Tied norms do not cause an error: after removing the one v-factor the
+  remaining ideal has norm strictly below q.
+- The case m₀=0 gives ordinary-unit generators, whereas m₀>0 retains the
+  indicated additional generators.
 
 ### 8.5 The Gaussian tame kernel
 
@@ -2272,15 +2422,20 @@ K₂(ℤ[i])=0. This supplies both bounds of a certificate of order one.
 (Bass–Tate, Appendix Proposition 2 and Lemma 2, pp. 431–433,
 and d=−4 calculation, p. 436; K-book, III.5.2.2, p. 218.)
 
-**Checks.** The prime of norm two is handled separately; applying a
-large-prime inequality there would fail. At q=5, 1+1/√2<√5 and
-√2<√5 are the strict Euclidean bounds. All later norms satisfy them.
-At q=5 the eight-element set C consists of ±1,±i and ±1±i, and its
-reduction covers the four nonzero residue classes; the four units already
-supply those classes. Restriction of {−1,−1} from K₂(ℤ) vanishes, since
-{−1,−1}={i²,i²}=4{i,i}=0. The zero tame kernel does not assert K₂(ℚ(i))=0: the field still has
-residue classes. The empty presentation gives order one, rather than
-an unproved assertion that a displayed set of relations is complete.
+**Checks.**
+
+- The prime of norm two is handled separately; applying a large-prime
+  inequality there would fail.
+- At q=5, 1+1/√2<√5 and √2<√5 are the strict Euclidean bounds.
+- All later norms satisfy them.
+- At q=5 the eight-element set C consists of ±1,±i and ±1±i, and its
+  reduction covers the four nonzero residue classes; the four units already
+  supply those classes.
+- Restriction of {−1,−1} from K₂(ℤ) vanishes, since {−1,−1}={i²,i²}=4{i,i}=0.
+- The zero tame kernel does not assert K₂(ℚ(i))=0: the field still has
+  residue classes.
+- The empty presentation gives order one, rather than an unproved assertion
+  that a displayed set of relations is complete.
 
 ### 8.6 Congruence lattices in the golden field
 
@@ -2400,13 +2555,18 @@ as well. They and the inverse prime generators generate U, so γ and
 lattices, §8.4 and the imported explicit units.
 (Groenewegen, §6, pp. 1452–1453, and Theorem 14, p. 1454.)
 
-**Checks.** The proof uses q>33, retaining all primes at or below 33
-for the finite calculation. Tied earlier primes have q′=q, for which
-the integral-ideal estimate still works. A zero difference in either
-comparison needs no norm division. An integral generator is not
-substituted for π′ in the inverse-ideal estimate. The multiplicativity
-argument uses three simultaneous coordinates, so it cannot be replaced
-by independent choices of two-coordinate representatives alone.
+**Checks.**
+
+- The proof uses q>33, retaining all primes at or below 33 for the finite
+  calculation.
+- Tied earlier primes have q′=q, for which the integral-ideal estimate still
+  works.
+- A zero difference in either comparison needs no norm division.
+- An integral generator is not substituted for π′ in the inverse-ideal
+  estimate.
+- The multiplicativity argument uses three simultaneous coordinates, so it
+  cannot be replaced by independent choices of two-coordinate representatives
+  alone.
 
 ### 8.8 Exact finite residue certificates
 
@@ -2758,12 +2918,16 @@ pp. 430–431, for the filtration criterion; Groenewegen, §§3–7,
 pp. 1450–1454, for the geometric method; the complete finite data
 and sign calculation are given in §§8.8–8.9.)
 
-**Checks.** The g and h sign vectors are independent; retaining only
-their product gives a lower bound two. Reversing the embedding order
-interchanges coordinates and preserves the abstract group. Changing ε
-to its conjugate changes h's sign vector, so the normalized map must
-record the choice. The surjection from the presentation proves only
-the upper bound; the two signs give the other inequality.
+**Checks.**
+
+- The g and h sign vectors are independent; retaining only their product
+  gives a lower bound two.
+- Reversing the embedding order interchanges coordinates and preserves the
+  abstract group.
+- Changing ε to its conjugate changes h's sign vector, so the normalized map
+  must record the choice.
+- The surjection from the presentation proves only the upper bound; the two
+  signs give the other inequality.
 
 With w₂(F)=120 from Layer 4 and ζ_F(−1)=1/30 from
 SpecialValuesBirchTate B.3, the computed order gives 4/120=1/30.
@@ -2782,10 +2946,13 @@ not a later Bloch-group or dilogarithm theorem.
 (K-book, VI.2.4, p. 472; VI.8.1–8.3, pp. 513–514;
 VI.9.5, p. 519; Exercise VI.8.5, p. 516.)
 
-**Checks.** The Gaussian free summand has rank one, whereas ℚ has
-rank zero in degree three. Both have w₂=24, but the real group has
-torsion order 48. Neither statement asserts finite generation of all
-positive field K-groups: even groups retain infinite residue terms.
+**Checks.**
+
+- The Gaussian free summand has rank one, whereas ℚ has rank zero in degree
+  three.
+- Both have w₂=24, but the real group has torsion order 48.
+- Neither statement asserts finite generation of all positive field K-groups:
+  even groups retain infinite residue terms.
 
 ### Examples
 
@@ -2876,9 +3043,9 @@ All formulas and finite data use the conventions fixed here.
   of number fields*](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/wildkernel.pdf),
   author preprint dated 23 July 2004, §§1–8. The odd dyadic Picard-image argument uses
   the compatibility requirement in §6.11, not unrestricted prescriptions.
-- Thomas Feng, Søren Galatius and Akshay Venkatesh,
+- Tony Feng, Søren Galatius and Akshay Venkatesh,
   [*The Galois action on symplectic K-theory*](https://doi.org/10.1007/s00222-022-01127-8),
-  *Inventiones Mathematicae* 230 (2022), pp. 225–315, §§2.6–2.7,
+  *Inventiones Mathematicae* 230 (2022), pp. 225–319, §§2.6–2.7,
   pp. 242–247. The eigenspaces use dualization in all Bott degrees;
   ordinary comparison ranges are specified in §§6.15–6.16.
 - Frank Calegari, Stavros Garoufalidis and Don Zagier,
