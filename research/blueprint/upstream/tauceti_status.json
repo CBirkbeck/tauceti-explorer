@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-20T02:40Z",
+  "updated": "2026-10-20T03:10Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -376,9 +376,9 @@
       "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running; draft",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "f1f560c",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "ArithmeticGaloisDuality": {
@@ -1704,7 +1704,7 @@
     "CompletedCohomologyAndLocalGlobalCompatibility": {
       "stage": "pr",
       "pr": 1270,
-      "head": "7d906df",
+      "head": "f2ca2ba",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running"
     },
     "EulerSystemsAndKolyvaginSystems": {
