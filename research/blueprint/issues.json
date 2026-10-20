@@ -5327,5 +5327,6 @@
  "REV-PKG-NoncommutativeAndEquivariantIwasawa~codex3": 11321,
  "FIX-PKG-ModularIwasawaMainConjectures~adv2": 11322,
  "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv3": 11323,
- "REV-PKG-RefinedTraceMethods~codex2": 11325
+ "REV-PKG-RefinedTraceMethods~codex2": 11325,
+ "FIX-PKG-K2SymbolsBrauer~adv3": 11328
 }
