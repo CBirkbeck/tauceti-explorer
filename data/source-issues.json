@@ -231493,6 +231493,48 @@
    "reviewReason": null
   },
   {
+   "id": "HabiroCohomologyFoundationsPartII/E1",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 6.15, §6.3, p.86, arXiv:2510.06057v1",
+   "printed": "The proof points to QH Corollary 3.12 for the étale identification with the arithmetic Habiro ring.",
+   "correction": "Use QH Corollary 3.13, printed p.27 of arXiv:2510.04782v2; 3.12 is the preceding framed example.",
+   "reason": "Reading both fixed versions shows that 3.13 is the étale identification used by the proof. The correction changes the locator and not the ring comparison.",
+   "affects": "nothing",
+   "known": "Already recorded as HabiroCohomologyFoundations/E304 and RefinedTraceMethods/E12, with independent confirmations in their existing packets. No corrected public KU version was found on the access date.",
+   "searched": [
+    "arXiv version history for 2510.06057, accessed 2026-10-20 (v1 remains the displayed version)",
+    "Author publication page and public KU/QH copies, accessed 2026-10-20",
+    "Existing HabiroCohomologyFoundations and RefinedTraceMethods sourceIssues"
+   ],
+   "owner": "HabiroCohomologyFoundationsPartII",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundationsPartII.json",
+   "citation": "Ferdinand Wagner, q-de Rham cohomology and topological Hochschild homology over ku, arXiv:2510.06057v1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundationsPartII/E2",
+   "kind": "error",
+   "locator": "Paragraph 3.5, p.31, and Lemma 3.7 with proof, p.32, arXiv:2410.23115v4",
+   "printed": "The finite-coefficient uncompleted global filtration is replaced by the product of its p-local factors, and its rational comparisons are treated as zero because the rationalized input ring is zero.",
+   "correction": "Retain the rational combined-filtration corner in the arithmetic pullback defining the uncompleted pair, as in Part I §5.26. That rational filtration is constant ℚ[[h]]. Its filtration completion and its q-Hodge complex vanish, so the completed trace comparison of Corollary 3.8 is unchanged.",
+   "reason": "Non-Hodge-completed derived de Rham does not vanish on the zero ℚ-algebra: write 0=ℚ⊗^L_{ℚ[y]}ℚ using y=0 and y=1; the uncompleted de Rham Poincaré lemma identifies its derived de Rham object with ℚ. Thus qdR_{0/ℤ}=ℚ[[h]] via the rational comparison. Already m=1 has an empty local product but this nonzero rational corner. For a general finite coefficient ring the same rational corner survives before filtration completion.",
+   "affects": "a stated result",
+   "known": "The Part I package §5.26 already uses the corrected arithmetic pullback and explicitly checks m=1. No public correction to TC v4 was found; this finding is scoped only to that read preprint, not to an unread published version.",
+   "searched": [
+    "arXiv version history for 2410.23115, accessed 2026-10-20 (v4 remains the displayed version)",
+    "Author publication page and public source listings, accessed 2026-10-20",
+    "Part I package §5.26 and sourceIssues; completed versus uncompleted comparison checked directly in TC 3.5–3.8"
+   ],
+   "owner": "HabiroCohomologyFoundationsPartII",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundationsPartII.json",
+   "citation": "Samuel Meyer and Ferdinand Wagner, q-Hodge complexes and refined TC⁻, arXiv:2410.23115v4",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCyclotomicCompletions/E19",
    "kind": "error",
    "locator": "arXiv v2, Proposition 5.1, p. 62, (313), and its table",
@@ -245011,6 +245053,83 @@
    "status": "confirmed",
    "reviewedBy": "REV-K2SymbolsBrauer--T.6",
    "reviewReason": "Added during independent review after visually checking printed p.57. The degree-four matrix algebra over the generic quaternion division algebra gives a counterexample, with division verified by the t-adic norm argument. Requiring degree n for the minimal polynomial repairs the exact failing step. The corrected target uses its explicit matrices, not this false unrestricted criterion."
+  },
+  {
+   "id": "K2SymbolsBrauerPartII/E1",
+   "kind": "error",
+   "locator": "Author copy dated 29 August 2013, III Lemma 6.9.1, p.241; no version-of-record assertion",
+   "printed": "The lemma claims that a degree-n central simple algebra over a field containing μ_n splits as soon as it has a noncentral element u with u^n=1. The proof identifies F[u] with F[t]/(t^n−1) without proving its minimal polynomial has degree n.",
+   "correction": "Require that u have minimal polynomial t^n−1, or equivalently that the n spectral idempotents all be nonzero. For the split symbol algebra this follows from its monomial basis; alternatively use the explicit splitting representation in KBII.2.",
+   "reason": "Take F=Q₅, which contains a primitive fourth root by Hensel lifting a root modulo 5. The quaternion D=(2,5) is division: its odd-residue Hilbert sign is −1 since 2 is nonsquare modulo 5. Then A=Mat₂(D) has degree 4 and is nonsplit. Its noncentral u=diag(1,−1) satisfies u⁴=1 but has minimal polynomial t²−1. This contradicts the author-copy statement. The corrected condition supplies n orthogonal nonzero idempotents, forcing the matrix size to be n.",
+   "affects": "a stated result",
+   "known": "new (author-copy finding; no correction located, not an exhaustive novelty claim)",
+   "searched": [
+    "2026-10-20: author K-book page and Books page inspected; the listed Kbook.errata.pdf and HTTP/HTTPS host variants return 404. Search indexing exposes an older errata beginning but not a complete current copy; no correction of III.6.9.1 was found.",
+    "2026-10-20: AMS DOI landing page was inaccessible to the browser; the full-book PDF endpoint did not serve. Only the freely hosted author copy was read. The finding is scoped to that copy and does not claim the version of record has the same wording."
+   ],
+   "owner": "K2SymbolsBrauerPartII",
+   "file": "research/blueprint/packets/K2SymbolsBrauerPartII.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author copy dated 29 August 2013, corresponding to Graduate Studies in Mathematics 145; findings below concern this copy only",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauerPartII/E2",
+   "kind": "misprint",
+   "locator": "Published article, Lemma (4.1), p.265, bottom row of its diagram; page image checked",
+   "printed": "The diagram labels the two cohomology targets of h₁ by H¹(G_F,μ_ℓ⊗μ_ℓ) and H¹(G_E,μ_ℓ⊗μ_ℓ).",
+   "correction": "Both superscripts are 2. The subscript 1 on h₁ refers to coefficient exponent ℓ rather than cohomological degree.",
+   "reason": "Diagram (3.3), pp.263–264, defines h₁:K₂(F)/ℓ→H²(F,μ_ℓ^{⊗2}); the text immediately below Lemma (4.1) again identifies that H² group with μ_ℓ⊗Br(F)[ℓ]. The lemma’s restriction/transfer argument therefore uses H².",
+   "affects": "nothing",
+   "known": "new (no accessible correction located; not an exhaustive novelty claim)",
+   "searched": [
+    "2026-10-20: the full published GDZ scan read; targeted searches for Tate 1976 corrections and Lemma 4.1 found no primary erratum. A search result mentions a Collected Works correction list; that book was not read and no claim about its contents is made."
+   ],
+   "owner": "K2SymbolsBrauerPartII",
+   "file": "research/blueprint/packets/K2SymbolsBrauerPartII.json",
+   "citation": "John Tate, Relations between K₂ and Galois cohomology, Inventiones mathematicae 36 (1976), 257–274, version of record, GDZ scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauerPartII/E3",
+   "kind": "gap",
+   "locator": "Author copy dated 29 August 2013, III Example 6.2.3, p.233, final split-surjectivity argument",
+   "printed": "The argument obtains x with (ζ,x)≠1 and then presents ζ^i↦{ζ^i,x} as an inverse to the norm-residue map.",
+   "correction": "Choose x with (ζ,x) of exact order m, then replace x by a suitable exponent so that (ζ,x)=ζ. Perfectness of the norm-residue pairing and the exact order m of the ζ power class provide such an x under μ(F)=μ_m.",
+   "reason": "A nonidentity element of μ_m need not have order m when m is composite. Even a primitive value ζ^e gives multiplication by e rather than the identity unless x is adjusted. The exact-order argument and adjustment in KBII.3 repair the proof without assuming Moore’s theorem.",
+   "affects": "the proof",
+   "known": "new (author-copy proof-gap finding; no correction located)",
+   "searched": [
+    "2026-10-20: same author-page/errata and AMS access checks as E1; the author-copy paragraph was read directly. No claim about the inaccessible version of record is made."
+   ],
+   "owner": "K2SymbolsBrauerPartII",
+   "file": "research/blueprint/packets/K2SymbolsBrauerPartII.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author copy dated 29 August 2013, corresponding to Graduate Studies in Mathematics 145; findings below concern this copy only",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauerPartII/E4",
+   "kind": "misprint",
+   "locator": "Author-hosted thesis transcription, Proposition 2.2.3.3, p.49; page image checked",
+   "printed": "The first factorial in the denominator is (1−i)! in the mixed integral/finite-coefficient product formula.",
+   "correction": "Read (i−1)!, as in Proposition 2.2.2.3 and the same universal-polynomial calculation on p.44.",
+   "reason": "For i≥2 the printed factorial has negative argument. The proof explicitly imports the coefficient of the integral formula, which is −(i+j−1)!/((i−1)!(j−1)!). At i=j=1 both versions give −1, so this typo does not change the comparison planned here.",
+   "affects": "nothing",
+   "known": "new (author-hosted-transcription finding; no correction located)",
+   "searched": [
+    "2026-10-20: author-hosted thesis, pp.42–49, read and p.49 image checked. Targeted searches on the author domain and for Proposition 2.2.3.3 corrections found no correction. The original 1978 typescript was not compared; the finding is restricted to the hosted transcription."
+   ],
+   "owner": "K2SymbolsBrauerPartII",
+   "file": "research/blueprint/packets/K2SymbolsBrauerPartII.json",
+   "citation": "Christophe Soulé, Groupes arithmétiques et K-théorie des anneaux d’entiers de corps de nombres, Doctorat d’État thesis, Université Paris VII, June 1978; author-hosted transcription",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "K3BlochGroups/E31",
