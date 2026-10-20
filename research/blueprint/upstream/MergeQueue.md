@@ -22,7 +22,6 @@ Generated 2026-10-20T18:00Z from the README supplier graph of every open pull re
 - #1033 SubspaceTheorem (rwst, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
 - #785 ReductiveGroupsPartII — draft; waits on #446, #447
@@ -58,6 +57,7 @@ Generated 2026-10-20T18:00Z from the README supplier graph of every open pull re
 ## Wave 7
 - #857 CrystallineCohomology — draft; waits on #820, #868, #940, #1103, #1104
 - #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1199, #785, #857, #899
