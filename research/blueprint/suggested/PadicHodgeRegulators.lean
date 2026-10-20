@@ -87,7 +87,38 @@ def residueDilogValue (p : ℕ) [Fact p.Prime] {F : Type*} [Field F]
     [Algebra (ZMod p) F] (x : F) : F :=
   (finitePolylog p 2).aeval x / (x - 1) ^ p
 
--- The two further finite values and the excluded point are specified in README.
+-- README test residueDilogValue_excluded_one: the total extension vanishes at the excluded point.
+example (p : ℕ) [Fact p.Prime] {F : Type*} [Field F] [Algebra (ZMod p) F] :
+    residueDilogValue p (1 : F) = 0 := by
+  simp [residueDilogValue, (Fact.out : p.Prime).ne_zero]
+
+-- README test residueDilogValue_zero_not_root: zero is excluded as a non-root; the value there is 0.
+example (p : ℕ) [Fact p.Prime] {F : Type*} [Field F] [Algebra (ZMod p) F] :
+    residueDilogValue p (0 : F) = 0 := by
+  have h : (finitePolylog p 2).aeval (0 : F) = 0 := by
+    simp only [finitePolylog, map_sum, map_mul, aeval_C, aeval_X_pow]
+    refine Finset.sum_eq_zero fun k hk => ?_
+    have hk1 : k ≠ 0 := by
+      have := (Finset.mem_Ico.mp hk).1
+      omega
+    simp [zero_pow hk1]
+  simp [residueDilogValue, h]
+
+/-- For p > 3 the double zero of li_{2,p} at 1 cancels away from x = 1. -/
+theorem residueDilogValue_cancel_double_zero (p : ℕ) [Fact p.Prime] (hp : 3 < p)
+    {F : Type*} [Field F] [Algebra (ZMod p) F] {x : F} (hx : x ≠ 1) :
+    residueDilogValue p x =
+      ((finitePolylog p 2) /ₘ (X - 1) ^ 2).aeval x / (x - 1) ^ (p - 2) := by
+  sorry
+
+/-- Embeddings of F_p-algebra fields commute with the residue function. -/
+theorem residueDilogValue_map (p : ℕ) [Fact p.Prime] {F F' : Type*} [Field F] [Field F']
+    [Algebra (ZMod p) F] [Algebra (ZMod p) F'] (f : F →ₐ[ZMod p] F') (x : F) :
+    f (residueDilogValue p x) = residueDilogValue p (f x) := by
+  simp [residueDilogValue, map_div₀, Polynomial.aeval_algHom_apply]
+
+-- The README test residueDilogValue_coleman_reduction needs the Coleman dilogarithm,
+-- which has no carrier at the pins.
 theorem residueDilogValue_five_values :
     residueDilogValue 5 (2 : ZMod 5) = 1 ∧
     residueDilogValue 5 (3 : ZMod 5) = 4 ∧
