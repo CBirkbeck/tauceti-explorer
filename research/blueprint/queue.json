@@ -152683,9 +152683,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv3.md",
-   "note": "claimed on GitHub issue #11328"
+   "note": "deliverables arrived from an external worker on issue #11328",
+   "finishedAt": "2026-10-20T10:43:25Z"
   },
   {
    "id": "DESIGN-K2SymbolsBrauerPartII",
