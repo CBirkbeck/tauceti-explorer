@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-20T07:20Z",
+  "updated": "2026-10-20T08:40Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -494,7 +494,7 @@
     "LefschetzPencilsAndVanishingCycles": {
       "stage": "pr",
       "pr": 873,
-      "head": "649dc36",
+      "head": "3347e5d",
       "depends_on": [
         779,
         792,
@@ -510,8 +510,9 @@
       "review": {
         "recommendation": "changes",
         "head": "649dc36",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 3347e5d; confirmation pass pending"
       },
       "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 469a2c2 (§5.11 profinite degree, continuous powers); ready for re-review"
     },
@@ -1706,13 +1707,13 @@
     "CompletedCohomologyAndLocalGlobalCompatibility": {
       "stage": "pr",
       "pr": 1270,
-      "head": "f2ca2ba",
+      "head": "05e3830",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running"
     },
     "EulerSystemsAndKolyvaginSystems": {
       "stage": "pr",
       "pr": 1272,
-      "head": "97a9861",
+      "head": "4fb7ae9",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running"
     },
     "KTheoryFiniteLocalFields": {
