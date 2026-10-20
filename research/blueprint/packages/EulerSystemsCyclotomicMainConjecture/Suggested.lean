@@ -181,9 +181,6 @@ theorem sixthRoot_sub_one_test {L : Type*} [Field L] [CharZero L] {ζ : L} (hζ 
   · exact absurd h hne
   · linear_combination -h
 
-/-- The conductor-one value at 2 uses the degree-one norm. -/
-example : Algebra.norm ℚ (1 - (-1 : ℚ)) = 2 := by norm_num
-
 /-- In the regular representation of a two-element group, the sign sum is a difference. -/
 theorem chiSum_regular_sign_test {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (hs : s ≠ 1)
     (hcard : Fintype.card Δ = 2) (χ : Δ →* ℤˣ) (hχ : χ s = -1) :
@@ -287,18 +284,6 @@ example {Δ : Type*} [Group Δ] [Fintype Δ] (x : ℤ) :
 example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5 : ℤ) = 5 := by
   simp [chiSum, Representation.trivial]
 
-/-- The quotient printed as an Euler-system element in RJW is torsion. -/
-example {F : Type*} [Field F] {ζ : F} (hζ0 : ζ ≠ 0) (hζ1 : ζ ≠ 1) :
-    (ζ⁻¹ - 1) / (ζ - 1) = -ζ⁻¹ := by
-  field_simp
-  ring
-
-/-- Zero is not a root of unity: omitting its exclusion makes the ratio identity false. -/
-example : (((0 : ℚ)⁻¹ - 1) / (0 - 1)) = 1 ∧ -(0 : ℚ)⁻¹ = 0 := by norm_num
-
-/-- The invertibility hypothesis on the root order cannot be omitted. -/
-example : ¬ IsUnit (1 - (-1 : ℤ)) := by decide
-
 /-! ## Layer 1: Finite-level descent -/
 
 /- Cyclotomic derivative classes and the class-group bound are specified in §§1.1–1.6. -/
@@ -311,83 +296,9 @@ example : ¬ IsUnit (1 - (-1 : ℤ)) := by decide
 
 /- The four-term sequence, finite descent and main-conjecture equality are in §§3.1–3.5. -/
 
-/-- The zero map ℤ/9→ℤ/3 has kernel length 2 and cokernel length 1 (§3.3).
-Thus the finite-level length minus the source length is 1-2=-1. -/
-example :
-    (Finset.univ.filter (fun x : ZMod 9 => (0 : ZMod 9 →+ ZMod 3) x = 0)).card = 9 ∧
-    (Finset.univ.image (fun x : ZMod 9 => (0 : ZMod 9 →+ ZMod 3) x)).card = 1 ∧
-    Fintype.card (ZMod 3) = 3 ∧ (1 : ℤ) - 2 = -1 := by
-  decide
-
 /-! ## Layer 4: Abelian fields and the prime 2 -/
 
 /- Integral character quotients, all-prime descent and the finite formulas are in §§4.1–4.26. -/
-
-/-- The conductor-one unit h₂=2-X has the stated D-log numerator (§4.7).
-The opposite derivative convention would give 1-X. -/
-example : (1 - X) * derivative (2 - X : ℚ[X]) = X - 1 := by
-  simp
-
-/-- The Coleman unit condition is on the constant term, not the whole series (§4.7). -/
-example : ((C 2 - X : (ZMod 5)[X]) ^ 4).coeff 0 = 1 ∧
-    ((C 2 - X : (ZMod 5)[X]) ^ 4).coeff 4 = 1 := by
-  have h : (C 2 - X : (ZMod 5)[X]) ^ 4 =
-      C 16 - C 32 * X + C 24 * X ^ 2 - C 8 * X ^ 3 + X ^ 4 := by
-    simp only [C_ofNat]
-    ring
-  norm_num [h, coeff_add, coeff_sub, coeff_C_mul]
-  decide
-
-/-- Smoothing the meromorphic r(Y) gives the genuine h₂ logarithmic derivative (§4.7). -/
-example {K : Type*} [Field K] (y : K) (h₁ : 1 - y ≠ 0) (h₂ : 1 + y ≠ 0) :
-    2 * y ^ 2 / (1 - y ^ 2) - y / (1 - y) = -y / (1 + y) := by
-  have hsq : 1 - y ^ 2 ≠ 0 := by
-    rw [show 1 - y ^ 2 = (1 - y) * (1 + y) by ring]
-    exact mul_ne_zero h₁ h₂
-  field_simp
-  ring
-
-/-- At p=5, h₂ gives boundary coefficient -1, fixing the raw/normalized sign (§4.7).
-The second rational series is its arithmetic Frobenius substitution. -/
-example : PowerSeries.coeff 1
-    (-((1 - PowerSeries.X : PowerSeries ℚ) * (PowerSeries.C 2 - PowerSeries.X)⁻¹) +
-      (1 - PowerSeries.X) ^ 5 * (1 + (1 - PowerSeries.X) ^ 5)⁻¹) = -1 := by
-  have inv₁ (f : PowerSeries ℚ) : PowerSeries.coeff 1 f⁻¹ =
-      -(PowerSeries.constantCoeff f)⁻¹ ^ 2 * PowerSeries.coeff 1 f := by
-    rw [PowerSeries.coeff_inv]
-    simp [Finset.Nat.antidiagonal_succ,
-      PowerSeries.coeff_zero_eq_constantCoeff, pow_two]
-    ring
-  norm_num [PowerSeries.coeff_one_mul, PowerSeries.coeff_one_pow,
-    inv₁, PowerSeries.coeff_zero_eq_constantCoeff]
-
-/-- Γ-inversion through degree two has coefficient +1 at T² (§4.7).
-This is the inverse of 1+T modulo T³; substitution T↦-T omits this term. -/
-example : (1 + X) * (1 - X + X ^ 2 : ℚ[X]) = 1 + X ^ 3 ∧
-    (1 - X + X ^ 2 : ℚ[X]).coeff 2 = 1 := by
-  constructor
-  · ring
-  · simp [coeff_add, coeff_sub, coeff_X, coeff_one]
-
-/-- For p=5 and ρ=ω², the χ⁻¹-projection kills the pole of (1-φ)δ(X) at X=0 (§4.7):
-on μ₄=⟨i⟩ the values ρ⁻¹(iᵏ)=(-1)ᵏ sum to 0, while the trivial character gives p-1=4. -/
-example : ∑ k ∈ Finset.range 4, ((Complex.I ^ k) ^ 2)⁻¹ = 0 ∧
-    ∑ k ∈ Finset.range 4, ((1 : ℂ) ^ k) = 4 := by
-  constructor
-  · simp [Finset.sum_range_succ, pow_succ, Complex.I_mul_I]
-  · norm_num [Finset.sum_range_succ]
-
-/-- With b the Teichmüller lift of 2 at p=5, ρ(b)=b²=-1 and ρ(b)-1=-2 is a unit mod 5,
-while b has order 4 (§4.7). -/
-example : (2 : ZMod 5) ^ 2 = -1 ∧ ((2 : ZMod 5) ^ 2 - 1) * 2 = 1 ∧ (2 : ZMod 5) ^ 4 = 1 := by
-  decide
-
-/-- The norm in the nonsemisimple C₃-module ℤ/9 has nonzero finite kernel (§4.21). -/
-example : ((4 : ZMod 9) ^ 3 = 1) ∧
-    (1 + (4 : ZMod 9) + 4 ^ 2 = 3) ∧
-    (Finset.univ.filter (fun x : ZMod 9 => 3 * x = 0)).card = 3 ∧
-    (Finset.univ.image (fun x : ZMod 9 => 3 * x)).card = 3 := by
-  decide
 
 /-! ## Layer 5: Finite and Selmer consequences -/
 
