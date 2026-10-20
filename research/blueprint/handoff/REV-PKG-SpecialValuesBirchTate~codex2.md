@@ -19,6 +19,6 @@ Validation on the submitted files:
 - `python3 scripts/check_sorry_data.py research/blueprint/packages/SpecialValuesBirchTate/Suggested.lean` exited 0.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/SpecialValuesBirchTate.json` reported 0 errors and 0 warnings; the packet was not changed.
 - `python3 research/blueprint/intake.py check-files` reported 0 problems for all package, report and handoff files.
-- `git diff --check` passed. The README is 194609 bytes, within this issue's 200 KB limit; metadata remains the single line `topic = "math.NT"`.
+- `git diff --check` passed. The README is 194663 bytes, within this issue's 200 KB limit; metadata remains the single line `topic = "math.NT"`.
 
 Read-only current-roadmap/library audit revisions, exact checked passages and finite computation output are in the report. Original Milnor/Cohen books were not accessed outside their clearance; the original Milnor locators are not certified by this review. No suspicious instruction in untrusted source material was encountered or executed. Scratch source copies and logs are disposable after submission; the report contains the information required to resume.
