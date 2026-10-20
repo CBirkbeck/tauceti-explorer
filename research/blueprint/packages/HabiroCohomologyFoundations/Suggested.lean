@@ -7,7 +7,7 @@ The roadmap is `README.md`. This file records the definitions and theorem signat
 roadmap that can be stated against the pinned Mathlib; it is not exhaustive. The cohomology
 theories themselves (global and derived q-de Rham complexes, q-Hodge pairs, twisted q-Hodge
 filtrations, Habiro–Hodge descent and the comparison squares) live on enhanced carriers that
-are not at the pins. They are README targets, so Layers 3 and 5–8 have no declarations here.
+are not at the pins. They are README targets, so Layers 3 and 5–7 have no declarations here.
 
 Design choices made explicit here:
 * the Jackson operator is defined coefficientwise through `Polynomial.sum`, so it makes sense
@@ -52,9 +52,14 @@ example (q a : A) : qDiff q (C a) = 0 := by
   rw [qDiff, sum_C_index] <;> simp
 
 -- At q=2 the cubic coefficient is 1+2+4=7, not the ordinary coefficient 3.
-example : qDiff (2 : ℤ) ((X : ℤ[X]) ^ 3) = C 7 * X ^ 2 := by
-  rw [qDiff, X_pow_eq_monomial, sum_monomial_index] <;>
-    norm_num [Finset.sum_range_succ]
+example : qDiff (2 : ℤ) ((X : ℤ[X]) ^ 3) = C 7 * X ^ 2 ∧
+    qDiff (2 : ℤ) ((X : ℤ[X]) ^ 2) = C 3 * X ∧
+    qDiff (1 : ZMod 2) ((X : (ZMod 2)[X]) ^ 2) = 0 := by
+  refine ⟨?_, ?_, ?_⟩
+  all_goals
+    rw [qDiff, X_pow_eq_monomial, sum_monomial_index] <;>
+      norm_num [Finset.sum_range_succ]
+  decide
 
 /-- The source's uniform denominator at h^n: QH A.11, pp.74–75.
 The empty product at n=0 is one. This does not construct an envelope map. -/
@@ -67,10 +72,10 @@ The assertion about factorization of actual envelope maps is in README §1.8. -/
 theorem uniformDenominator_pos (n : ℕ) : 0 < uniformDenominator n := by
   sorry
 
-example : uniformDenominator 0 = 1 := by
-  norm_num [uniformDenominator]
+example : uniformDenominator 0 = 1 ∧ uniformDenominator 1 = 1 := by
+  norm_num [uniformDenominator, Finset.prod_range_succ, Finset.prod_filter]
 
-example : uniformDenominator 2 = 64 := by
+example : uniformDenominator 2 = 64 ∧ uniformDenominator 3 = 2 ^ 14 * 3 ^ 26 := by
   norm_num [uniformDenominator, Finset.sum_range_succ, Finset.prod_range_succ,
     Finset.prod_filter]
 
@@ -116,14 +121,17 @@ theorem torusScale_exists_unique (q : Bˣ) (a : Fin d → ℤ) :
 -- One coordinate: the monomial x⁻¹ acquires q⁻¹, which pins the sign of the exponent.
 example (q : Bˣ) :
     torusScaleHom (d := 1) q (fun _ => 1) (AddMonoidAlgebra.single (fun _ => -1) 1) =
-      AddMonoidAlgebra.single (fun _ => -1) ((q⁻¹ : Bˣ) : B) := by
-  simp [torusScaleHom]
-
--- Two coordinates: a = (2, -1) and m = (-1, 3) give the exponent -5.
-example (q : Bˣ) :
+      AddMonoidAlgebra.single (fun _ => -1) ((q⁻¹ : Bˣ) : B) ∧
     torusScaleHom q ![2, -1] (AddMonoidAlgebra.single ![-1, 3] 1) =
       AddMonoidAlgebra.single ![-1, 3] ((q ^ (-5 : ℤ) : Bˣ) : B) := by
   simp [torusScaleHom, Fin.sum_univ_two]
+
+example (q : Bˣ) (b : B) :
+    torusScaleHom (d := 0) q 0 (AddMonoidAlgebra.single 0 b) =
+      AddMonoidAlgebra.single 0 b ∧
+    ∀ a m : Fin d → ℤ, torusScaleHom (1 : Bˣ) a (AddMonoidAlgebra.single m b) =
+      AddMonoidAlgebra.single m b := by
+  simp [torusScaleHom]
 
 end Torus
 
@@ -148,11 +156,15 @@ theorem coefficientRelation_eval (m : ℕ) (q β t : A) :
   sorry
 
 example : MvPolynomial.eval (![2, 3, 1] : Fin 3 → ℤ)
-    (coefficientRelation 2) = 0 := by
+    (coefficientRelation 2) = 0 ∧
+    MvPolynomial.eval (![2, 2, 1] : Fin 3 → ℤ)
+    (coefficientRelation 2) ≠ 0 := by
   norm_num [coefficientRelation, Matrix.cons_val_two]
 
-example : MvPolynomial.eval (![2, 2, 1] : Fin 3 → ℤ)
-    (coefficientRelation 2) ≠ 0 := by
+example : MvPolynomial.eval (![2, 1, 1] : Fin 3 → ℤ)
+    (coefficientRelation 1) = 0 ∧
+    MvPolynomial.eval (![2, 0, 0] : Fin 3 → ℤ)
+    (coefficientRelation 0) = 0 := by
   norm_num [coefficientRelation, Matrix.cons_val_two]
 
 end FilteredCoefficients
@@ -174,8 +186,9 @@ theorem qHodge_polynomial (q : A) (n : ℕ) (f : A[X]) :
       qHodgeDiff (1 : A) f = 0 := by
   sorry
 
-example (f : A[X]) : qHodgeDiff (1 : A) f = 0 := by
-  simp [qHodgeDiff]
+example (f : A[X]) (q a : A) :
+    qHodgeDiff (1 : A) f = 0 ∧ qHodgeDiff q (C a) = 0 := by
+  simp [qHodgeDiff, qDiff]
 
 example : qHodgeDiff (2 : ℤ) ((X : ℤ[X]) ^ 2) = C 3 * X := by
   rw [qHodgeDiff, qDiff, X_pow_eq_monomial, sum_monomial_index] <;>
@@ -183,34 +196,24 @@ example : qHodgeDiff (2 : ℤ) ((X : ℤ[X]) ^ 2) = C 3 * X := by
 
 end QHodgePolynomial
 
-/-! ## Layer 9: comparison squares and specialization compatibility -/
+/-! ## Layer 8: comparison squares and specialization compatibility -/
 
 /-- The integral decomposition `[p]_q = p·u + (q - 1)^(p-1)` with `u ≡ 1` modulo `q - 1`
-(README §9.2). It makes `(q - 1)^(p-1)` and `p` differ by a unit modulo `[p]_q` after
+(README §8.2). It makes `(q - 1)^(p-1)` and `p` differ by a unit modulo `[p]_q` after
 completion, and it is the identity behind the denominators of QH Lemma A.6 (pp.71–72)
 and the corrections of QH Example 4.24 (p.64). -/
 theorem cyclotomic_prime_decomposition (p : ℕ) [Fact p.Prime] :
     ∃ u : ℤ[X], cyclotomic p ℤ = C (p : ℤ) * u + (X - 1) ^ (p - 1) ∧ u.eval 1 = 1 := by
   sorry
 
-end TauCetiRoadmap.HabiroCohomologyFoundations
+example : cyclotomic 2 ℤ = C 2 + (X - 1) ∧
+    cyclotomic 3 ℤ = C 3 * X + (X - 1) ^ 2 := by
+  constructor <;> simp only [cyclotomic_two, cyclotomic_three, map_ofNat] <;> ring
 
-/-
-README-only definitions: universal PD/q-PD envelopes; qOmegaFramed, qdRLocal,
-qOmega, qOmegaDAlg, qOmegaEtale, FramedQConnection; torusScale,
-ModifiedQConnection, derivedModifiedQConnections and the quotient prestack;
-coefficientRing, filQuotient, combinedFiltration and qdR; enhanced filtered
-cofibres and fibres, completion and animation; QVSystem, TorsionFreeQVSystem,
-QFVSystem, qWittOmega, qWittDR, twistedQOmega, twistedQdR and Nygaard;
-FramedHabiroKoszul; QHodgeFiltration, PairsCat, qHodge, its conjugate filtration,
-filRescale, twistedQHodgeFil_pAdic, twistedQHodgeFil, partialDescent,
-qHabiroHodge, QHodgeBaseChange and HabiroHodgeBaseChange; the exported interface
-qHodge.periodic, QHodgeFiltration.completion, QHodgeFiltration.completedQdR and
-HabiroHodgeDescent; truncateFil, truncateFilShriek, truncateFilRel,
-canonicalSmoothFiltration and its fixed framed comparison; SmoothDimInv;
-PerfectlyCoveredDelta, IsPQuasiLci, IsRelSemiperfect, PerfectRegularPresentation,
-ConditionR and naiveFiltration; higherPowerLift, Powerful and
-finiteCoefficientPair; algebraicHabiroCohomology, trace pairs and
-analyticComparisonProblem; AtlasSquare, the eight enhanced comparison squares and
-their θ/Witt equalities.
--/
+example : (2 : ℤ[X]) = -(X - 1) + (X + 1) ∧
+    ((X - 1) + (X + 1) : ℤ[X]).eval 2 ≠ 2 := by
+  constructor
+  · ring
+  · norm_num
+
+end TauCetiRoadmap.HabiroCohomologyFoundations
