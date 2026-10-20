@@ -153721,6 +153721,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundationsPartII~adv.md"
+  },
+  {
+   "id": "DESIGN-CohomologyComparisonsPartII",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "CohomologyComparisonsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/CohomologyComparisonsPartII.json",
+    "research/blueprint/packets/CohomologyComparisonsPartII.json",
+    "research/blueprint/readmes/CohomologyComparisonsPartII.md",
+    "research/blueprint/suggested/CohomologyComparisonsPartII.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-CohomologyComparisonsPartII.md"
   }
  ]
 }
