@@ -186,6 +186,38 @@ example : ¬ ∃ A : Module.End (ZMod 3) (ZMod 3),
   rw [show (3 : ZMod 3) = 0 by decide, zero_mul] at h1
   exact (by decide : (0 : ZMod 3) ≠ 2) h1
 
+/-- The broad condition `P(1)=0` misses the other root in the quadratic χ-case.
+The refined condition requires both roots, hence divisibility by `X²−1` (README 3.16). -/
+example : (1 - X : (ZMod 3)[X]).eval 1 = 0 ∧
+    (1 - X : (ZMod 3)[X]).eval (-1) = 2 ∧
+    ¬ (X ^ 2 - 1 : (ZMod 3)[X]) ∣ (1 - X) := by
+  refine ⟨by norm_num, by norm_num, ?_⟩
+  rintro ⟨Q, hQ⟩
+  have h := congrArg (Polynomial.eval (-1)) hQ
+  norm_num at h
+  exact (by decide : (2 : ZMod 3) ≠ 0) h
+
+/-- At quadratic refined primes, all roots are needed even over nonreduced coefficients.
+This polynomial has the required monic factor integrally (README 3.16). -/
+example : (X ^ 2 - 1 : (ZMod 9)[X]) ∣ (1 - X ^ 2) := by
+  refine ⟨-1, ?_⟩
+  ring
+
+/-- At the inert χ-ray prime `Q=17`, the inertia degree is nine but refinement may
+be only modulo three. The ordinary candidate has nonintegral linear coefficient
+`16/51`; the finite local group is killed by three (README 2.8). -/
+example :
+    let F : Matrix (Fin 2) (Fin 2) ℤ := !![0, -17; 1, 3]
+    let B : Matrix (Fin 2) (Fin 2) ℤ := !![-6, -17; 1, -3]
+    let P : ℚ[X] := 1 - C (3 / 17) * X + C (1 / 17) * X ^ 2
+    F ^ 2 - 1 = (3 : ℤ) • B ∧ Matrix.det B = 35 ∧
+      ((P - P.comp (C 17 * X)) * C (1 / 9)).coeff 1 = 16 / 51 := by
+  refine ⟨by decide, by decide, ?_⟩
+  norm_num [Polynomial.sub_comp, Polynomial.add_comp, Polynomial.mul_comp,
+    Polynomial.pow_comp, mul_pow, ← C_pow, Polynomial.coeff_add,
+    Polynomial.coeff_sub, Polynomial.coeff_C_mul, Polynomial.coeff_mul_C,
+    Polynomial.coeff_C_mul_X_pow, Polynomial.coeff_X_pow, Polynomial.coeff_one]
+
 /-- The polynomial identity behind Rubin's Example IV.8.2 (`T = ℤ_p(1)`, `P(x) = 1 − x`):
 `P(x) − P(N x) = (N − 1) x`. -/
 theorem eulerPoly_gm_congruence {R : Type*} [CommRing R] (n : R) :
@@ -254,6 +286,18 @@ example :
       (σ - 1).mulVec ((σ + (2 : ZMod 3) • σ ^ 2).mulVec x) =
         -(1 + σ + σ ^ 2).mulVec x ∧
       (σ - 1).mulVec ((σ + (2 : ZMod 3) • σ ^ 2).mulVec x) ≠ 0 := by
+  decide
+
+/-- Right translation and the embedding `t ↦ (g ↦ g t)` give the positive
+coboundary `γt−t`. With `γ=-1` on `𝔽₃`, adding `t=1` changes the cocycle by one
+(README 3.16); the opposite sign would give two. -/
+example :
+    let γ : ZMod 3 := 2
+    let f : ZMod 3 := 1
+    let t : ZMod 3 := 1
+    γ * f - f = 1 ∧ γ * (f + t) - (f + t) = 2 ∧
+      (γ * (f + t) - (f + t)) - (γ * f - f) = γ * t - t ∧
+      γ * t - t = 1 := by
   decide
 
 /-! ## Layer 3: the finite–singular polynomial
@@ -354,6 +398,16 @@ end EulerSystems
 
 namespace ErrorTolerant
 
+/-! ## Layer 4: the obstruction to descending a functional through a quotient -/
+
+/-- Annihilating the kernel by a conductor does not make a functional vanish on it.
+Here `K=3(ℤ/9)`, `3K=0`, and the identity functional is nonzero on `K`
+(README 4.9, `SharpConductorEvaluation`). -/
+example : ∃ z : ZMod 9, z ∈ Ideal.span ({3} : Set (ZMod 9)) ∧
+    (3 : ZMod 9) • z = 0 ∧
+      (LinearMap.id : Module.End (ZMod 9) (ZMod 9)) z ≠ 0 := by
+  refine ⟨3, Ideal.subset_span (by simp), by decide, by decide⟩
+
 /-! ## Layer 4: bounded-image matrices over a truncated discrete valuation ring
 
 The linear algebra behind the corrected Proposition 2.6.7 of Liu–Tian–Xiao–Zhang–Zhu: if a square matrix over `R/ϖⁿ` has image containing `ϖᶜ (R/ϖⁿ)ʳ`
@@ -429,6 +483,11 @@ KolyvaginSystem.perturb, KolyvaginSystem.indKS and KolyvaginSystem.IsLambdaPrimi
 FiniteSelmerDuality.traceComparison, FiniteSelmerDuality.pairing,
 FiniteSelmerDuality.orthogonal_propagate, FiniteSelmerDuality.selmer_change,
 FiniteSelmerDuality.coefficient_naturality, EulerSystems.ChiRayLocalData,
+EulerSystems.ChiRayLowerData, EulerSystems.chiRayCongruenceLift,
+EulerSystems.chiRayTorsionCongruence, EulerSystems.chiRayIntegralClassComparison,
+EulerSystems.chiUniversalPresentation, EulerSystems.chiRefinedPrimes,
+EulerSystems.chiUniversalDerivativeDescent, EulerSystems.chiGlobalDerivativeCongruence,
+EulerSystems.chiCompatibleCochainLifts,
 KolyvaginSystems.MR16Hypotheses.frobeniusRefinement,
 KolyvaginSystems.MR16Hypotheses.detect, SharpConductorEvaluation,
 OrdinaryCoefficientPrime.local, OrdinaryCoefficientPrime.corrections and
