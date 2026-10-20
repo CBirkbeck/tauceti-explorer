@@ -336,7 +336,9 @@ section TModules
 variable (F : Type*) [Field F] [Fintype F] {L : Type*} [Field L] [Algebra F L]
 
 /-- The `n`-dimensional Carlitz tensor power `Φ_t = θ I + N_n + E_{n,1} τ`, with `N_n` the
-superdiagonal nilpotent matrix and `E_{n,1}` the bottom-left matrix unit (README §4.7). -/
+superdiagonal nilpotent matrix and `E_{n,1}` the bottom-left matrix unit (README §4.7).
+This describes a tensor power for `n > 0`; at `n = 0` it is only the empty matrix,
+not the unit pre-t-motive `C(0)`. -/
 def carlitzTensor (θ : L) (n : ℕ) : Matrix (Fin n) (Fin n) (OrePolynomial F L) :=
   fun i j => (if i = j then OrePolynomial.C θ else 0) + (if (j : ℕ) = i + 1 then 1 else 0) +
     (if (i : ℕ) + 1 = n ∧ (j : ℕ) = 0 then OrePolynomial.tau else 0)
@@ -358,29 +360,36 @@ section FiniteShtukaDescent
 variable (F : Type*) [Field F] [Fintype F]
   (L : Type*) [Field L] [Algebra F L]
 
+/-- A Frobenius-fixed basis matrix: its columns are a basis, with equation `Φ B^[q] = B`
+(README §1.3). The determinant condition excludes singular solution matrices. -/
+def IsLangBasis {r : ℕ} (Φ B : Matrix (Fin r) (Fin r) L) : Prop :=
+  IsUnit B.det ∧ Φ * B.map (FiniteField.frobeniusAlgHom F L) = B
+
 /-- Frobenius-linear descent over a separably closed field. Only the linearization matrix
 is invertible; the field Frobenius need not be surjective (README §1.3). -/
 theorem semilinear_lang [IsSepClosed L] (r : ℕ) (Φ : Matrix (Fin r) (Fin r) L)
     (hΦ : IsUnit Φ.det) :
-    ∃ B : Matrix (Fin r) (Fin r) L, IsUnit B.det ∧
-      Φ * B.map (FiniteField.frobeniusAlgHom F L) = B := by
+    ∃ B : Matrix (Fin r) (Fin r) L, IsLangBasis F L Φ B := by
   sorry
 
 example (r : ℕ) :
-    (1 : Matrix (Fin r) (Fin r) L) *
-      (1 : Matrix (Fin r) (Fin r) L).map (FiniteField.frobeniusAlgHom F L) = 1 := by
-  simp
+    IsLangBasis F L (1 : Matrix (Fin r) (Fin r) L) 1 := by
+  simp [IsLangBasis]
 
 example (x : L) :
-    (!![(1 : L), x - x ^ Fintype.card F; 0, 1] : Matrix (Fin 2) (Fin 2) L) *
-      (!![(1 : L), x; 0, 1] : Matrix (Fin 2) (Fin 2) L).map
-        (FiniteField.frobeniusAlgHom F L) = !![(1 : L), x; 0, 1] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+    IsLangBasis F L
+      (!![(1 : L), x - x ^ Fintype.card F; 0, 1] : Matrix (Fin 2) (Fin 2) L)
+      (!![(1 : L), x; 0, 1] : Matrix (Fin 2) (Fin 2) L) := by
+  constructor
+  · simp [Matrix.det_fin_two]
+  · ext i j
+    fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
 
+/-- Without separable closure the rank-one Lang equation can have no invertible solution. -/
 example : ∀ b : ZMod 3, b ≠ 0 → (2 : ZMod 3) * b ^ 3 ≠ b := by
   decide
 
+/-- Over `F₂` an invertible rank-two matrix can have zero fixed space. -/
 example : ∀ v : Fin 2 → ZMod 2,
     (!![(0 : ZMod 2), 1; 1, 1]).mulVec v = v → v = 0 := by
   decide
@@ -394,25 +403,28 @@ example (B : Matrix (Fin 1) (Fin 1) L) (hB : IsUnit B.det) :
 
 variable (D : Type*) [CommRing D] [Algebra F D] [Module.Finite F D]
 
+/-- Coefficient Frobenius fixes the finite algebra `D` and raises only `L` coefficients
+to the `q`-th power (README §1.3). It is not absolute Frobenius on `D ⊗[F] L`. -/
+def coefficientFrobenius : D ⊗[F] L →ₐ[F] D ⊗[F] L :=
+  Algebra.TensorProduct.map (AlgHom.id F D) (FiniteField.frobeniusAlgHom F L)
+
 /-- Descent with finite, possibly nonreduced coefficients. Frobenius fixes `D` and acts only
 on `L`; absolute Frobenius on the tensor product is a different map (README §1.3). -/
 theorem semilinear_lang_finiteAlgebra [IsSepClosed L] (r : ℕ)
     (Φ : Matrix (Fin r) (Fin r) (D ⊗[F] L)) (hΦ : IsUnit Φ.det) :
     ∃ B : Matrix (Fin r) (Fin r) (D ⊗[F] L), IsUnit B.det ∧
-      Φ * B.map (Algebra.TensorProduct.map (AlgHom.id F D)
-        (FiniteField.frobeniusAlgHom F L)) = B := by
+      Φ * B.map (coefficientFrobenius F L D) = B := by
   sorry
 
 example (d : D) :
-    Algebra.TensorProduct.map (AlgHom.id F D) (FiniteField.frobeniusAlgHom F L)
-      (d ⊗ₜ[F] (1 : L)) = d ⊗ₜ[F] (1 : L) := by
-  simp
+    coefficientFrobenius F L D (d ⊗ₜ[F] (1 : L)) = d ⊗ₜ[F] (1 : L) := by
+  simp [coefficientFrobenius]
 
 example (c : L) :
-    Algebra.TensorProduct.map (AlgHom.id F D) (FiniteField.frobeniusAlgHom F L)
-      ((1 : D) ⊗ₜ[F] c) = (1 : D) ⊗ₜ[F] c ^ Fintype.card F := by
-  simp
+    coefficientFrobenius F L D ((1 : D) ⊗ₜ[F] c) = (1 : D) ⊗ₜ[F] c ^ Fintype.card F := by
+  simp [coefficientFrobenius]
 
+/-- Absolute Frobenius kills a square-zero coefficient and so is the wrong operator. -/
 example : (DualNumber.eps : DualNumber (ZMod 2)) ^ 2 ≠ DualNumber.eps := by
   rw [DualNumber.eps_pow_two]
   intro h
@@ -661,11 +673,12 @@ states them with their API and checks.
 * DM.2: `CInfty` (§2.2), `ALattice` (§2.3), `ALattice.exp` (§2.4), `ALattice.drinfeldModule` (§2.5),
   `carlitzOmega` (§2.10).
 * DM.4: `TModule` (§4.1), `EffectiveAMotive` (§4.2), `TModule.motive` (§4.3),
-  `EffectiveTMotive.IsPure` (§4.5), `TModule.IsUniformizable` (§4.6), `EffectiveDualTMotive` (§4.8),
-  `oreStar` (§4.9), `PreTMotive` (§4.12).
+  `EffectiveTMotive.IsPure`, `EffectiveTMotive.PureLattice` and its nonzero-rank weight (§4.5),
+  `TModule.IsUniformizable` (§4.6), `EffectiveDualTMotive` (§4.8),
+  `oreStar` (§4.9), `PreTMotive` and broad `EffectiveDualTMotive.rationalize` (§4.12).
 * DM.1: `FiniteShtuka` (§1.1), `FiniteShtuka.drinfeldGroup` (§1.1), `DrinfeldModule.idealTorsion`
   (§1.4), `DrinfeldModule.tateModule` (§1.8), `DrinfeldModule.tateGaloisAction` (§1.9),
-  `LocalShtuka` (§1.10).
+  `LocalShtuka`, `DivisibleLocalAndersonModule` (§1.10), `StrictFModuleScheme` (§1.1).
 * DM.3: `DrinfeldLevel` (§3.1), `DrinfeldModuli` (§3.3), `GeneralizedDrinfeldModule` (§3.4),
   `DrinfeldReciprocalScheme` (§3.5), `DrinfeldModularForm` (§3.8), `DrinfeldHecke` (§3.9).
 * DM.5: `AMotive.rationalTate` (§5.1), `DrinfeldModule.tateHomMap` (§5.2), `TatePeriodRing` (§5.5).

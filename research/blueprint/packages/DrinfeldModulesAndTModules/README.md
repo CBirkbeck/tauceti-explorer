@@ -38,7 +38,7 @@ Boundaries with neighbouring roadmaps:
 - **Twisted polynomials.** `R{τ}` is the ring of twisted polynomials with `τc = c^q τ`; it is Mathlib's `SkewPolynomial R` for the action of `ℕ` by iterates of `c ↦ c^q` (`frobeniusAction`), written `OrePolynomial F R` in the suggested file, with `OrePolynomial.tau`, `OrePolynomial.C` and the rule `OrePolynomial.tau_mul_C`. It acts on `R` by q-linearized polynomials and multiplication is composition. The differential `∂f` of `f ∈ R{τ}` is its `τ⁰`-coefficient. Evaluation on the points of a finite field need not be faithful, so identities of twisted polynomials or of group-scheme maps are never replaced by equalities of functions on one finite set of points.
 - **Inverse twists and dual motives.** On a perfect coefficient field `σ(c) = c^(1/q)`. On power series and matrices `σ` acts coefficientwise and fixes the variable `t`, and `f^(n) = σ^(−n)(f)` is the `n`-fold coefficient q-Frobenius; twisting never substitutes `t^q` for `t`. The ring `L[t, σ]` has `σc = c^(1/q)σ` and `σt = tσ`. The star map sends `Σ a_i τ^i` to `Σ a_i^(1/q^i) σ^i` and reverses products; on matrices it also transposes.
 - **Variance.** The τ-motive of a t-module `E` is contravariant: `M(E) = Hom(E, G_a)` as `F`-module schemes, with `A` acting through `E` and `τ` by q-Frobenius on values. The dual motive of a coordinate t-module is the row module `L[σ]^(1×d)`, and an intertwiner `U` induces `h ↦ hU^∗`, so the dual construction is covariant.
-- **Analytic normalizations.** `C_∞` is the completion of an algebraic closure of the completion `K_∞` of `K_0` at `∞`, with `|a| = q^(deg_A a)`; for `F[θ]` this gives `|θ| = q`. The Carlitz module is `C_t = θ + τ`. Its exponential is `exp_C(z) = Σ z^(q^i)/D_i`, entire, and its logarithm `log_C(z) = Σ z^(q^i)/ℓ_i` converges exactly on `|z| < q^(q/(q−1))`, where it inverts `exp_C`. Fix `ρ` with `ρ^(q−1) = −θ`. The period `π_BP = θρ ∏_(i≥1) (1 − θ^(1−q^i))^(−1)` generates `ker exp_C` as an `F[θ]`-module and has `|π_BP| = q^(q/(q−1))`; Ngo Dac's normalization is `π_ND = −π_BP`. The Anderson–Thakur function `Ω(t) = ρ^(−q) ∏_(i≥1) (1 − t/θ^(q^i))` satisfies the twisted equation `Ω^(−1) = (t − θ)Ω` and `1/Ω(θ) = −π_BP`; the exponent `(−1)` on a function always denotes the twist, never the reciprocal. Papanikolas's period `π̃ = −1/Ω(θ)`, used throughout DM.8, is therefore `π_BP`. Two-term witness: for `q = 2` one has `ρ = θ`, `|π_BP| = 4`, and `π_BP = (θ² + θ)·log_C(1)` ([§6.13](#dm-6-carlitz-class-examples)).
+- **Analytic normalizations.** In all analytic t-module and Drinfeld uniformization statements, the characteristic map is the fixed inclusion `A → K_∞ → C_∞`, not an arbitrary injective map into `C_∞`. `C_∞` is the completion of an algebraic closure of the completion `K_∞` of `K_0` at `∞`, with `|a| = q^(deg_A a)`; for `F[θ]` this gives `|θ| = q`. The Carlitz module is `C_t = θ + τ`. Its exponential is `exp_C(z) = Σ z^(q^i)/D_i`, entire, and its logarithm `log_C(z) = Σ z^(q^i)/ℓ_i` converges exactly on `|z| < q^(q/(q−1))`, where it inverts `exp_C`. Fix `ρ` with `ρ^(q−1) = −θ`. The period `π_BP = θρ ∏_(i≥1) (1 − θ^(1−q^i))^(−1)` generates `ker exp_C` as an `F[θ]`-module and has `|π_BP| = q^(q/(q−1))`; Ngo Dac's normalization is `π_ND = −π_BP`. The Anderson–Thakur function `Ω(t) = ρ^(−q) ∏_(i≥1) (1 − t/θ^(q^i))` satisfies the twisted equation `Ω^(−1) = (t − θ)Ω` and `1/Ω(θ) = −π_BP`; the exponent `(−1)` on a function always denotes the twist, never the reciprocal. Papanikolas's period `π̃ = −1/Ω(θ)`, used throughout DM.8, is therefore `π_BP`. Two-term witness: for `q = 2` one has `ρ = θ`, `|π_BP| = 4`, and `π_BP = (θ² + θ)·log_C(1)` ([§6.13](#dm-6-carlitz-class-examples)).
 - **Analytic carrier extensions.** The Carlitz convergence and functional-equation statements also hold over any complete nonarchimedean `F`-field `K` with `|θ| = q`, as in the analytic signatures. For the transcendence statements in §§8.47 and 8.51, additionally assume `K` algebraically closed. The closure in `K` of the elements algebraic over `F(θ)` is a copy of `C_∞` with this norm. The Carlitz period lies there; if `exp_C(λ)` is algebraic over `F(θ)`, uniformization gives a logarithm in this copy, and the period-lattice description makes every other logarithm differ from it by a period. Hence such `λ` also belongs to that copy. This transfers the stated transcendence results to the larger carrier without weakening their algebraicity or independence hypotheses.
 - **Difference equations.** In DM.8, `𝕋` is the radius-one restricted power series ring in `C_∞[[t]]`, `𝕃` its fraction field, `𝔼` the ring of entire series whose coefficients are algebraic over `k = F_q(θ)` and generate a finite extension of `k_∞ = F_q((1/θ))`, and `K = k̄(t)`. For a pre-t-motive with basis column `m`, `σ(m) = Φm`; a fundamental matrix satisfies `σ(Ψ) = ΦΨ`, its columns span the solutions of the vector equation, and `Ψ^(−1)m` is a basis of the Betti realization. The difference torsor is built from `Ψ₁^(−1)Ψ₂` with right multiplication.
 - **Two notations for the polynomial case.** Layers DM.0–DM.7 write `F` for the finite field and `θ = γ(t)`. Layer DM.8 follows Papanikolas: `A = F_q[θ]` and `k = F_q(θ)` are coefficient rings inside `C_∞`, `t` is an independent variable, and the constant field of the difference equations is `F_q(t)`. The two readings agree through `γ`.
@@ -260,7 +260,7 @@ A Drinfeld module over a field is an `F`-algebra map `φ : A → L{τ}` whose di
 
 ### 0.11 Carlitz denominator products (`carlitzD`, `carlitzEll`)
 
-**Definition.** For `A = F[θ]` put `[i] = θ^(q^i) − θ`, `D_0 = ℓ_0 = 1`, `D_i = ∏_(j=0)^(i−1) (θ^(q^i) − θ^(q^j))` and `ℓ_i = ∏_(j=1)^(i) (θ − θ^(q^j))`. Then `D_i = [i]·D_(i−1)^q` and `ℓ_i = −[i]·ℓ_(i−1)` for `i ≥ 1`. These are identities in any commutative `F`-algebra with an element `θ`; the inverses of `D_i` and `ℓ_i` exist when `θ` is transcendental over `F`.
+**Definition.** For `A = F[θ]` put `[i] = θ^(q^i) − θ`, `D_0 = ℓ_0 = 1`, `D_i = ∏_(j=0)^(i−1) (θ^(q^i) − θ^(q^j))` and `ℓ_i = ∏_(j=1)^(i) (θ − θ^(q^j))`. Then `D_i = [i]·D_(i−1)^q` and `ℓ_i = −[i]·ℓ_(i−1)` for `i ≥ 1`. These are identities in any commutative `F`-algebra with an element `θ`; if `θ` is transcendental over `F`, all their factors are nonzero. Their inverses then exist in a coefficient field containing `F(θ)`, or in the localization obtained by inverting these products; transcendence alone does not make them units in an arbitrary coefficient ring.
 
 - `carlitzBracket`: `[i] = θ^(q^i) − θ`.
 - `carlitzD`: `D_i`, with `D_0 = 1`.
@@ -268,13 +268,14 @@ A Drinfeld module over a field is an `F`-algebra map `φ : A → L{τ}` whose di
 - `carlitzD_succ`: `D_(i+1) = [i+1]·D_i^q`.
 - `carlitzEll_succ`: `ℓ_(i+1) = −[i+1]·ℓ_i`.
 
-*Construction.* Expand the products and use that `x ↦ x^q` is a ring map in characteristic `p`. The sign of `ℓ_i` is kept distinct from the unsigned product of the brackets. (ND, §2.2, p. 7, and §4.2, p. 17.) *Needs:* [§0.5](#dm-0-carlitz-module); Mathlib `FiniteField.frobeniusAlgHom`.
+*Construction.* Expand the products and use that `x ↦ x^q` is a ring map in characteristic `p`. The sign of `ℓ_i` is kept distinct from the unsigned product of the brackets. (BP, §2.2, pp. 3–4; Pap, §1.2.2, p. 4.) *Needs:* [§0.5](#dm-0-carlitz-module); Mathlib `FiniteField.frobeniusAlgHom`.
 
 **Checks.**
 
 - `D_0 = ℓ_0 = 1` and `[0] = 0`.
 - `D_1 = θ^q − θ`, `D_2 = (θ^(q²) − θ)(θ^(q²) − θ^q)`.
 - `ℓ_1 = θ − θ^q = −D_1`, which differs from `D_1` in odd characteristic.
+- In `F[θ]` with `θ` indeterminate, `D_1` is nonzero and is not a unit. The reciprocal used in the exponential belongs to `F(θ)`.
 
 ### Examples
 
@@ -287,13 +288,13 @@ Mathlib (`SkewPolynomial`, polynomial evaluation, `FiniteField.frobeniusAlgHom`)
 
 ## Layer DM.2: Analytic uniformization and period conventions
 
-This layer works over the completed algebraic closure `C_∞` of `K_∞`. Lattices in `C_∞` give entire `F`-linear exponentials, and every Drinfeld module over `C_∞` of generic characteristic comes from a unique lattice; morphisms correspond to scalars. The Carlitz exponential, logarithm, period and the Anderson–Thakur function `Ω` are then fixed once, with their signs, because DM.6 and DM.8 use them in exact identities. The coefficient Frobenius twist on power series opens the layer, since `Ω` is characterized by a twisted functional equation.
+This layer works over the completed algebraic closure `C_∞` of `K_∞`. Lattices in `C_∞` give entire `F`-linear exponentials, and every Drinfeld module over `C_∞` with this fixed characteristic inclusion comes from a unique lattice; morphisms correspond to scalars. The Carlitz exponential, logarithm, period and the Anderson–Thakur function `Ω` are then fixed once, with their signs, because DM.6 and DM.8 use them in exact identities. The coefficient Frobenius twist on power series opens the layer, since `Ω` is characterized by a twisted functional equation.
 
 <a id="dm-8-coefficient-twist"></a>
 
 ### 2.1 Coefficient Frobenius twist (`coefficientTwist`)
 
-**Definition.** Let `𝒞` be a perfect field of characteristic `p` and `q = p^m`. Let `σ_𝒞` be the inverse of the `m`-fold `p`-Frobenius of `𝒞`. Its coefficientwise extension `σ` to `𝒞[[t]]` is a ring automorphism fixing `t`; write `f^(n) = σ^(−n)(f)` for `n ∈ ℤ`. It extends entrywise to matrices and restricts to the polynomial, entire and restricted-series subrings and their fraction fields. The twist never raises the variable `t` to a `q`-th power.
+**Definition.** For any commutative ring `𝒞` and ring automorphism `σ_𝒞`, define `coefficientTwist σ_𝒞` on `𝒞[[t]]` coefficientwise; it is a ring automorphism fixing `t`. The Frobenius specialization takes `𝒞` perfect of characteristic `p`, `q = p^m`, and `σ_𝒞` the inverse of the `m`-fold `p`-Frobenius; write `f^(n) = σ^(−n)(f)` for `n ∈ ℤ`. The map extends entrywise to matrices and restricts to polynomials. For the Frobenius specialization over a complete nonarchimedean normed field it also preserves entire and restricted series, since `|σ_𝒞(c)| = |c|^(1/q)`, and extends to their fraction fields. These analytic claims require the named normed setting. The twist never raises the variable `t` to a `q`-th power.
 
 - `coefficientTwist_coeff`: the `n`-th coefficient of `σ(f)` is `σ_𝒞` of the `n`-th coefficient of `f`.
 - `coefficientTwist_X`: `σ(t) = t`.
@@ -301,11 +302,11 @@ This layer works over the completed algebraic closure `C_∞` of `K_∞`. Lattic
 - `coefficientTwist_mul`: `σ(fg) = σ(f)σ(g)`, and the entrywise twist commutes with matrix multiplication.
 - `coefficientTwist_symm`: the coefficient map of `σ_𝒞^(−1)` is the inverse of `σ` on series.
 
-*Construction.* Use Mathlib's `iterateFrobeniusEquiv` on coefficients and `PowerSeries.map`; the inverse is the map of the inverse equivalence, checked coefficientwise. Restrictedness is preserved because coefficient norms are raised to the power `1/q`; the extension to fraction fields is by the universal property. (Pap, §2.2.5, pp. 7–8; ABP, §2.2, p. 6.) *Needs:* Mathlib `iterateFrobeniusEquiv`, `PowerSeries.map`.
+*Construction.* Use `PowerSeries.map` for an arbitrary coefficient automorphism, specialized to Mathlib's `iterateFrobeniusEquiv`; the inverse is the map of the inverse equivalence, checked coefficientwise. Restrictedness is preserved because coefficient norms are raised to the power `1/q`; the extension to fraction fields is by the universal property. (Pap, §2.2.5, pp. 7–8; ABP, §2.2, p. 6.) *Needs:* Mathlib `iterateFrobeniusEquiv`, `PowerSeries.map`.
 
 **Checks.**
 
-- The series `t` is fixed, in every characteristic.
+- The series `t` is fixed, in every characteristic, also for an arbitrary coefficient ring automorphism.
 - For `c ∈ 𝒞` with `c^q ≠ c`, the constant series `c` is not fixed.
 - The twist of `(t − a)(t − b)` is `(t − σ_𝒞(a))(t − σ_𝒞(b))`; substituting `t^q` for `t` would give a different polynomial.
 
@@ -391,7 +392,7 @@ This layer works over the completed algebraic closure `C_∞` of `K_∞`. Lattic
 
 ### 2.6 Drinfeld's uniformization theorem (`DrinfeldModule.uniformization`)
 
-**Theorem.** Let `φ` be a Drinfeld `A`-module of rank `r ≥ 1` over `C_∞` with generic characteristic. There is a unique entire `F`-linear function `exp_φ` with derivative one and `exp_φ(az) = φ_a(exp_φ(z))` for all `a`. It is surjective, and its kernel is an `A`-lattice of rank `r`. The constructions `φ ↦ ker exp_φ` and `Λ ↦ φ^Λ` are mutually inverse equivalences between rank-`r` Drinfeld modules over `C_∞` and rank-`r` `A`-lattices with scalar morphisms. Nothing is asserted for general t-modules or for families.
+**Theorem.** Let `φ` be a Drinfeld `A`-module of rank `r ≥ 1` over `C_∞` with characteristic map the fixed inclusion `A → K_∞ → C_∞`. There is a unique entire `F`-linear function `exp_φ` with derivative one and `exp_φ(az) = φ_a(exp_φ(z))` for all `a`. It is surjective, and its kernel is an `A`-lattice of rank `r`. The constructions `φ ↦ ker exp_φ` and `Λ ↦ φ^Λ` are mutually inverse equivalences between rank-`r` Drinfeld modules over `C_∞` and rank-`r` `A`-lattices with scalar morphisms. Nothing is asserted for general t-modules or for families.
 
 *Proof sketch.* For `A = F[t]` and `φ_t = θ + Σ_(j=1)^r g_jτ^j`, the coefficients `α_i` of `exp_φ = Σ α_i z^(q^i)` are forced by `α_0 = 1` and `(θ^(q^i) − θ)α_i = Σ_(j=1)^(min(r,i)) g_j α_(i−j)^(q^j)`; the estimate on these coefficients gives infinite radius. The kernel is an `A`-submodule by the functional equation; its zeros are simple, and finitely many lie in each bounded disc (NewtonPolygons §§4.3, 5.3), so it has finite bounded balls. Comparing `#ker(φ_a) = #(A/(a))^r` with the `a`-division points of the kernel gives `#(a^(−1)Λ/Λ) = #(A/(a))^r`, hence rank `r` over the Dedekind ring `A`. For general `A`, restrict to `F[t] ⊂ A` for a nonconstant `t`, over which `A` is finite: the exponential of the restricted module is the exponential of `φ`, its kernel is an `A`-submodule that is a lattice of rank `r·[A : F[t]]` over `F[t]`, hence finitely generated and projective of rank `r` over `A`. Surjectivity is [§2.4](#dm-2-lattice-exponential) applied to the kernel, using `exp_φ = e_(ker exp_φ)` (same zeros, derivative one). (BP, Theorem 2.1, p. 7, and §2.5, pp. 7–8.) *Needs:* [§2.5](#dm-2-lattice-drinfeld-module); [§0.3](#dm-0-rank-general); AlgebraicCurves Layer 5; NewtonPolygons §§4.3, 5.3.
 
@@ -400,6 +401,7 @@ This layer works over the completed algebraic closure `C_∞` of `K_∞`. Lattic
 - A nonprincipal ideal lattice gives a rank-one Drinfeld module whose kernel lattice stays projective and is not free.
 - The exponential of a general t-module need not be surjective ([§4.6](#dm-4-uniformizability)); the theorem is for Drinfeld modules.
 - For the Carlitz module the kernel is `π_BP·F[θ]` ([§2.9](#dm-2-carlitz-period)).
+- In the polynomial case the alternative map `t ↦ θ^(−1)` is injective but has image of norm `q^(−1)`. It does not satisfy the fixed infinite-place normalization used here.
 
 <a id="dm-2-exponential-morphisms"></a>
 
@@ -582,27 +584,28 @@ Anderson t-modules are higher-dimensional analogues of Drinfeld modules, with a 
 
 ### 4.5 Purity and weights (`EffectiveTMotive.IsPure`)
 
-**Definition.** Let `M` be an abelian t-motive of rank `r` over `L[t]`, and extend it to `L((1/t))`. It is *pure* if there are positive integers `u`, `v` and an `L[[1/t]]`-lattice `H ⊂ M ⊗ L((1/t))` of rank `r` with `t^u H = τ^v H`, where `τ^v` is the `v`-fold linearized Frobenius. Its weight `d/r` (with `d` the dimension) equals `u/v` for every such lattice. Purity is a property, not part of the definition of a t-module or an effective motive.
+**Definition.** Let `M` be an abelian t-motive of rank `r` over `L[t]`, and extend it to `L((1/t))`. It is *pure* if there are positive integers `u`, `v` and an `L[[1/t]]`-lattice `H ⊂ M ⊗ L((1/t))` of rank `r` with `t^u H = τ^v H`, where `τ^v` is the `v`-fold linearized Frobenius. For nonzero `M`, its weight `d/r` (with `d` the dimension and `r > 0`) equals `u/v` for every such lattice. The zero motive is pure by convention and has no numerical weight; the determinant argument does not assign a slope to rank zero. Purity is a property, not part of the definition of a t-module or an effective motive.
 
 - `EffectiveTMotive.IsPure`: existence of an infinity lattice with `t^u H = τ^v H`.
-- `EffectiveTMotive.PureLattice`: a pair `u, v > 0` and a lattice `H` satisfying the spanning, rank and equality conditions.
-- `EffectiveTMotive.weight`: `d/r`.
-- `EffectiveTMotive.weight_eq`: for every purity lattice, `weight = u/v`.
-- `EffectiveTMotive.isPure_tensor`: tensor products of pure motives are pure, with weights added.
+- `EffectiveTMotive.PureLattice`: for a nonzero motive, a pair `u, v > 0` and a lattice `H` satisfying the spanning, rank and equality conditions.
+- `EffectiveTMotive.weight`: `d/r`, defined for `r > 0`.
+- `EffectiveTMotive.weight_eq`: for a nonzero motive and every purity lattice, `weight = u/v`.
+- `EffectiveTMotive.isPure_tensor`: tensor products of pure motives are pure; weights add when both factors are nonzero.
 
 *Construction.* Compare determinants in `t^uH = τ^vH`: `det τ_M = c(t − θ)^d` has `1/t`-adic valuation `−d`, so `τ^v` changes the valuation of a lattice determinant by `−vd` and `t^u` by `−ur`, which gives `u/v = d/r`; a common iterate compares two choices. Over imperfect coefficients use the linearized pullback rather than the image of the raw Frobenius. (BP, §4.1, p. 15; Mau, Definition 7.1, p. 35.) *Needs:* [§4.2](#dm-4-effective-a-motive); [§4.4](#dm-4-abelian-antiequivalence); AlgebraicCurves Layer 5.
 
 **Checks.**
 
 - The Carlitz motive has `r = d = 1` and weight one.
-- The `n`-th Carlitz tensor power has `r = 1`, `d = n` and weight `n`, not `1/n`.
+- The `n`-th Carlitz tensor power for `n ≥ 1` has `r = 1`, `d = n` and weight `n`, not `1/n`.
 - The direct sum of the Carlitz motive and its second tensor power has slopes one and two and is not pure.
+- The zero motive is pure but has no assigned weight: its zero lattice satisfies every displayed equality, so it cannot determine `u/v` by dividing `0/0`.
 
 <a id="dm-4-uniformizability"></a>
 
 ### 4.6 Uniformizable t-modules (`TModule.IsUniformizable`)
 
-**Definition.** For an abelian t-module `E` over `C_∞` with generic characteristic (so `|θ| > 1`) and `dΦ_t = θI + N`, there is a unique entire `F`-linear map `exp_E : C_∞^d → E(C_∞)` with differential the identity and `exp_E(dΦ_t z) = Φ_t(exp_E z)`. `E` is *uniformizable* when `exp_E` is surjective. Its kernel `Λ_E` is discrete and stable under `dΦ_a`. The comparison of uniformizability with rigid analytic triviality is [§8.18](#dm-8-anderson-uniformizability).
+**Definition.** For an abelian t-module `E` over `C_∞` with the fixed characteristic inclusion (in the polynomial case `|θ| = q > 1`) and `dΦ_t = θI + N`, there is a unique entire `F`-linear map `exp_E : C_∞^d → E(C_∞)` with differential the identity and `exp_E(dΦ_t z) = Φ_t(exp_E z)`. `E` is *uniformizable* when `exp_E` is surjective. Its kernel `Λ_E` is discrete and stable under `dΦ_a`. The comparison of uniformizability with rigid analytic triviality is [§8.18](#dm-8-anderson-uniformizability).
 
 - `TModule.exp`: the normalized entire exponential.
 - `TModule.exp_functionalEquation`: `exp_E(dΦ_t z) = Φ_t(exp_E z)`.
@@ -635,6 +638,7 @@ Anderson t-modules are higher-dimensional analogues of Drinfeld modules, with a 
 - For `n = 1`, `Φ_t = θ + τ` is the Carlitz module.
 - For `n = 2`, `t·(x, y) = (θx + y, θy + x^q)`.
 - For `n = 2` the motive has rank one over `L[t]`, not two, while its `τ`-cokernel has `L`-dimension two.
+- `n = 0` denotes the unit pre-t-motive `C(0)`, of rank one. The empty matrix returned by the raw matrix formula at zero is not this object; the t-module tensor-power construction assumes `n ≥ 1`.
 
 <a id="dm-4-inverse-twist-dual-motive"></a>
 
@@ -716,22 +720,24 @@ Anderson t-modules are higher-dimensional analogues of Drinfeld modules, with a 
 
 ### 4.12 Pre-t-motives (`PreTMotive`)
 
-**Definition.** Let `k̄` be an algebraic closure of `k = F_q(θ)` in `C_∞` and `K = k̄(t)`, with `σ` acting on `K` by the inverse coefficient twist. Let `K[σ, σ^(−1)]` be the twisted Laurent polynomial ring with `σf = f^(−1)σ`. A pre-t-motive is a left `K[σ, σ^(−1)]`-module that is finite-dimensional over `K`; morphisms are module maps. A basis column `m` gives a matrix `Φ_m ∈ GL_r(K)` with `σm = Φ_m m`; writing `σ(B)` for the entrywise twist, a morphism given in bases `m`, `n` by `φ(f·m) = f·B·n` satisfies `σ(B)Φ_n = Φ_mB`, and for another basis `n` with `m = Bn` one has `Φ_m = σ(B)Φ_nB^(−1)`. Tensor products are taken over `K` with diagonal `σ` (Kronecker products of matrices); the internal Hom `Hom(P, Q)` is `Hom_K(P, Q)` with `σ·ρ = σ ∘ ρ ∘ σ^(−1)`; the unit `𝟙` is `K` with `σf = f^(−1)`; the dual `P^∨ = Hom(P, 𝟙)` has matrix `(Φ_m^(−1))^tr` (here `^(−1)` is the matrix inverse). The Carlitz motive `C` is `K` with `σf = (t − θ)f^(−1)`, and `C(n)` is `C^⊗n`, `𝟙` or `(C^∨)^⊗(−n)`. An `A`-finite effective dual t-motive `H` over `k̄` gives the pre-t-motive `K ⊗_(k̄[t]) H`.
+**Definition.** Let `L` be a perfect coefficient field containing `k = F_q(θ)` and put `K_L = L(t)`, with the inverse coefficient twist. No norm or analytic embedding is required for this algebraic construction. The construction below works over `K_L`; for the arithmetic category take `L = k̄`, an algebraic closure of `k` in `C_∞`, and write `K = k̄(t)`. In this paragraph `K` may also denote `K_L` for the analytic application `L = C_∞`. Let `K[σ, σ^(−1)]` be the twisted Laurent polynomial ring with `σf = f^(−1)σ`. A pre-t-motive is a left `K[σ, σ^(−1)]`-module that is finite-dimensional over `K`; morphisms are module maps. A basis column `m` gives a matrix `Φ_m ∈ GL_r(K)` with `σm = Φ_m m`; writing `σ(B)` for the entrywise twist, a morphism given in bases `m`, `n` by `φ(f·m) = f·B·n` satisfies `σ(B)Φ_n = Φ_mB`, and for another basis `n` with `m = Bn` one has `Φ_m = σ(B)Φ_nB^(−1)`. Tensor products are taken over `K` with diagonal `σ` (Kronecker products of matrices); the internal Hom `Hom(P, Q)` is `Hom_K(P, Q)` with `σ·ρ = σ ∘ ρ ∘ σ^(−1)`; the unit `𝟙` is `K` with `σf = f^(−1)`; the dual `P^∨ = Hom(P, 𝟙)` has matrix `(Φ_m^(−1))^tr` (here `^(−1)` is the matrix inverse). The Carlitz motive `C` is `K` with `σf = (t − θ)f^(−1)`, and `C(n)` is `C^⊗n`, `𝟙` or `(C^∨)^⊗(−n)`. Every effective dual t-motive `H` of the broad definition [§4.8](#dm-4-inverse-twist-dual-motive) gives the pre-t-motive `K_L ⊗_(L[t]) H`: the characteristic-supported cokernel vanishes after localization. No finiteness over `L[σ]` is needed. For `A`-finite objects this is the Anderson rationalization functor.
 
 - `PreTMotive`: left `K[σ, σ^(−1)]`-modules of finite `K`-dimension.
 - `PreTMotive.matrix`: the matrix `Φ_m` of a basis, with the change-of-basis and morphism rules above.
 - `PreTMotive.tensor`, `PreTMotive.internalHom`, `PreTMotive.dual`: the tensor structure, with `Φ_(m⊗n) = Φ_m ⊗ Φ_n` (Kronecker product) and `Φ_(m^∨) = (Φ_m^(−1))^tr`.
 - `PreTMotive.unit`, `PreTMotive.end_unit`: `End(𝟙) = F_q(t)`, because the elements of `K` fixed by `σ` are exactly `F_q(t)`.
 - `PreTMotive.carlitz`: `C(n)` with matrix `(t − θ)^n`.
-- `PreTMotive.ofDualMotive`: the rationalization `H ↦ K ⊗_(k̄[t]) H` of `A`-finite effective dual t-motives.
-- `PreTMotive.isRigidAbelian`: the category is a rigid abelian `F_q(t)`-linear tensor category; the internal Hom is compatible with tensor products and `P ≅ P^∨∨`.
+- `PreTMotive.ofDualMotive`: the rationalization `H ↦ K_L ⊗_(L[t]) H` of all broad effective dual t-motives, with matrix, identity and composition compatibility; it agrees with Anderson rationalization on `A`-finite objects and sends the positive Carlitz tensor power to `C(n)`. For Anderson objects, the rational Hom comparison follows from [§8.52](#dm-8-constant-denominator).
+- `PreTMotive.isRigidAbelian`: the category is a rigid abelian `F_q(t)`-linear tensor category; kernels and cokernels are computed on vector spaces, Hom spaces are finite-dimensional over `F_q(t)`, the internal Hom is compatible with tensor products and `P ≅ P^∨∨`.
+- `PreTMotive.extendScalars`: diagonal semilinear scalar extension along any compatible difference-field embedding, with identity, composition and tensor compatibility; the analytic realization is its specialization to `𝕃`.
 
-*Construction.* The ring `K[σ, σ^(−1)]` is a domain with centre `F_q(t)`. A rational function fixed by the coefficientwise inverse Frobenius has, after normalizing its denominator to be monic, coefficients fixed by Frobenius, hence in `F_q`; this gives `End(𝟙) = F_q(t)`. Bijectivity of `σ` on tensor products, internal Homs and duals is checked on matrices. (Pap, §3.1, p. 9, §3.2, pp. 9–11, Lemma 3.2.9 and Theorem 3.2.13, p. 11, §3.4.1–3.4.2, p. 17.) *Needs:* [§4.8](#dm-4-inverse-twist-dual-motive); [§4.7](#dm-4-carlitz-tensor-power); [§2.1](#dm-8-coefficient-twist); Mathlib `RatFunc`, `SkewPolynomial`.
+*Construction.* The ring `K[σ, σ^(−1)]` is a domain with centre `F_q(t)`. A rational function fixed by the coefficientwise inverse Frobenius has, after normalizing its denominator to be monic, coefficients fixed by Frobenius, hence in `F_q`; this gives `End(𝟙) = F_q(t)`. Bijectivity of `σ` on tensor products, internal Homs and duals is checked on matrices; kernels and cokernels inherit it. The minimal-relation argument for fixed vectors bounds the dimension of each morphism space by the dimension of the underlying internal Hom. (Pap, §3.1, p. 9, §3.2, pp. 9–11, Lemma 3.2.9 and Theorem 3.2.13, p. 11, §3.4.1–3.4.2, p. 17; BP, §4.5, p. 18, for analytic coefficient motives.) *Needs:* [§4.8](#dm-4-inverse-twist-dual-motive); [§4.7](#dm-4-carlitz-tensor-power); [§2.1](#dm-8-coefficient-twist); Mathlib `RatFunc`, `SkewPolynomial`.
 
 **Checks.**
 
 - `Hom(𝟙, C) = 0`: a nonzero `f ∈ K` with `(t − θ)f^(−1) = f` would have `deg f + 1 = deg f`.
 - `C ⊗ C^∨ ≅ 𝟙`, and the matrix of `C^∨` is `1/(t − θ)`.
+- The broad effective object `H = L[t]` with `σ` fixing its basis rationalizes to `𝟙`, although it is not finite over `L[σ]`; rationalization must not require `A`-finiteness.
 - Multiplication by `θ` on `𝟙` is not a morphism: `σθ = θ^(1/q)σ`, so `End(𝟙)` is `F_q(t)`, not `K`.
 
 ### Examples
@@ -763,9 +769,10 @@ Torsion of a Drinfeld module is controlled by its motive: for a nonzero ideal `I
 
 **Checks.**
 
-- `V = R` with `F_V = 0` gives `Dr_q(V) = Spec R[X]/(X^q)`, connected of order `q`; with `F_V = 1` it gives the constant group `Spec R[X]/(X^q − X) = F_R`, which is étale.
-- `G_(a,R)^d` is strict, and `M_q(G_(a,R)) = R{τ}`.
-- A finite shtuka with `F_V` nilpotent is not étale and its `τ`-invariants over a field are zero, although `Dr_q(V)` has order `q^(rank V)`.
+- `V = R` with `F_V = 0` gives `Dr_q(V) = Spec R[X]/(X^q)`, of order `q` with connected geometric fibres; with `F_V = 1` it gives the constant group `Spec R[X]/(X^q − X) = F_R`, which is étale.
+- `G_(a,R)^d` is strict, and `M_q(G_(a,R)^d) = R{τ}^(1×d)`; in particular for `d = 1` it is `R{τ}`, and for `d = 0` it is zero.
+- A finite shtuka of positive rank over a field with `F_V` nilpotent is not étale and its `τ`-invariants are zero, although `Dr_q(V)` has order `q^(rank V)`.
+- The zero shtuka is both nilpotent and étale: its Frobenius is the unique isomorphism `0 → 0`, and `Dr_q(0)` is the trivial group scheme of degree one.
 
 <a id="dm-1-finite-shtuka-equivalence"></a>
 
@@ -790,6 +797,8 @@ Torsion of a Drinfeld module is controlled by its motive: for a nonzero ideal `I
 For any finite commutative `F`-algebra `D`, in particular `D = A/I` for a nonzero proper ideal, put `σ_D = id_D ⊗ Frob_q` on `D ⊗_F L`. For `Φ ∈ GL_r(D ⊗_F L)` there is `B ∈ GL_r(D ⊗_F L)` with `Φ σ_D(B) = B`, unique up to right multiplication by `GL_r(D)`. Thus the fixed module of `v ↦ Φ σ_D(v)` is `B D^r ≅ D^r` (free of rank `r` when `D ≠ 0`), with scalar extension recovering `(D ⊗_F L)^r`. The inverse-twist assertion uses `id_D ⊗ Frob_q⁻¹` and requires perfection of `L`. Neither assertion requires `D` reduced; `σ_D` fixes `D` and is generally not the absolute q-power map on `D ⊗_F L`. When `I = A`, the quotient and fixed module are zero and the assertion is interpreted in the zero category.
 
 *Proof sketch.* Use the Weil restriction `H = Res_(D/F) GL_r` from ReductiveGroupsPartII RG2.0a.2; take `D = F` for the vector-space assertion. If `d = dim_F D`, its matrix space is affine `d r²`-space and its invertible locus is the principal open where `N_(D/F)(det)` is invertible. The norm is one at the identity. Consequently this open is smooth and geometrically irreducible, including when `D` has nilpotents. Its scheme Frobenius on `L`-points is `σ_D`, as is seen in an `F`-basis of `D`. For `λ(B) = B σ_D(B)⁻¹`, RG2.3.7 gives surjectivity on algebraically closed points over `F`; its constructible image therefore contains every point. Surjectivity of this morphism is preserved by field extension, so each fibre over an `L`-point is geometrically nonempty (Mil, Corollary 27.55, p. 488). The differential of Frobenius is zero, so `dλ` is an isomorphism; the fibres are étale of finite type and dimension zero over `L`, hence finite étale. They therefore have `L`-points even if `L` is imperfect. The equation `λ(B) = Φ` is exactly `Φ σ_D(B) = B`. If `B'` is another solution, `B⁻¹B'` is fixed by `σ_D`, so lies in `GL_r(D)`; expanding in an `F`-basis proves `(D ⊗_F L)^σ_D = D`. The same calculation identifies the fixed module with `B D^r` and proves the comparison. For the inverse twist, apply Frobenius to `B^(−1) = ΦB` and use the forward statement with coefficient matrix `Φ^[q]` (respectively `σ_D(Φ)`). (Har, Proposition 6.5 and proof, p. 26, crediting Anderson for fields; the imported Lang surjectivity is Mil, Proposition 27.54, p. 487, Corollary 27.55, p. 488.) *Needs:* ReductiveGroupsPartII RG2.3.7, RG2.0a.2; SchemeAndStackFoundations §§0.7, 4.1.
+
+The representative matrix definitions are `IsLangBasis F L Φ B`, meaning `det B` is a unit and `Φ·B^[q] = B`, and `coefficientFrobenius F L D = id_D ⊗ Frob_(q,L)` on `D ⊗_F L`. Their API is the determinant/equation projection, `IsLangBasis` change-of-basis compatibility, and the tensor formulas `d ⊗ c ↦ d ⊗ c^q`, preserving sums and products. The following identity, unipotent, singular and finite-field checks test the basis predicate; the nonreduced and pure-tensor checks test the coefficient map.
 
 **Checks.**
 
@@ -839,15 +848,16 @@ For any finite commutative `F`-algebra `D`, in particular `D = A/I` for a nonzer
 
 ### 1.6 Torsion is étale away from the characteristic (`DrinfeldModule.idealTorsion_etale_iff`)
 
-**Theorem.** `E[I]` is étale over `R` if and only if `γ(I)` generates the unit ideal of `R`, that is `I·A_R + J = A_R` with `J = ker(A_R → R)` as in [§4.2](#dm-4-effective-a-motive). Over a field this means `I` is coprime to the characteristic. For principal `I = (a)` the relevant derivative is `γ(a)`; an isogeny has invertible differential `∂u` exactly when its kernel is étale.
+**Theorem.** For a Drinfeld module `E`, `E[I]` is étale over `R` if and only if `γ(I)` generates the unit ideal of `R`, that is `I·A_R + J = A_R` with `J = ker(A_R → R)` as in [§4.2](#dm-4-effective-a-motive). Over a field this means `I` is coprime to the characteristic. For principal `I = (a)` the relevant derivative is `γ(a)`; an isogeny has invertible differential `∂u` exactly when its kernel is étale. More generally, for an abelian Anderson module the fibre over `s ∈ Spec R` is étale exactly when its dimension `d(s)` is zero or `γ(I)` is not contained in the prime of `s`. Thus the unit-ideal criterion holds for locally positive dimension; zero-dimensional fibres must be allowed separately.
 
-*Proof sketch.* If `R·γ(I) = R`, cover `Spec R` by the opens where some `γ(a_i)` is a unit; there `E[I]` is a closed subscheme of `E[(a_i)] = ker φ_(a_i)`, which is étale because its q-linearized polynomial has unit linear coefficient (FiniteFieldsAndCharacterSums *linearized-polynomial-separable-iff*); flatness from [§1.5](#dm-1-finite-flat-torsion) then gives étaleness. Conversely, if `R·γ(I)` lies in a maximal ideal, the differentials `dφ_(a_i)` are nilpotent and commute, so their kernels meet nontrivially and the Jacobian criterion fails. Equivalently, the co-Lie module of `E[I]` is `coker(τ_M mod I)`, which vanishes exactly when `I·A_R + J = A_R` ([§1.2](#dm-1-finite-shtuka-equivalence)). (Har, Theorem 6.4(b) and proof, pp. 25–26.) *Needs:* [§1.5](#dm-1-finite-flat-torsion); FiniteFieldsAndCharacterSums *linearized-polynomial-separable-iff*.
+*Proof sketch.* If `R·γ(I) = R`, cover `Spec R` by the opens where some `γ(a_i)` is a unit; there `E[I]` is a closed subscheme of `E[(a_i)] = ker φ_(a_i)`, which is étale because its q-linearized polynomial has unit linear coefficient (FiniteFieldsAndCharacterSums *linearized-polynomial-separable-iff*); flatness from [§1.5](#dm-1-finite-flat-torsion) then gives étaleness. Conversely, if `R·γ(I)` lies in a maximal ideal, in a positive-dimensional geometric fibre the differentials `dφ_(a_i)` are nilpotent and commute, so their kernels meet nontrivially and the Jacobian criterion fails. Equivalently, the co-Lie module of `E[I]` is `coker(τ_M mod I)`, which in locally positive dimension vanishes exactly when `I·A_R + J = A_R` ([§1.2](#dm-1-finite-shtuka-equivalence)). (Har, Theorem 6.4(b) and proof, pp. 25–26.) *Needs:* [§1.5](#dm-1-finite-flat-torsion); FiniteFieldsAndCharacterSums *linearized-polynomial-separable-iff*.
 
 **Checks.**
 
 - For `C_t = τ` at `θ = 0`, `C[(t)]` is connected while `C[(t − 1)]` is étale.
 - For the Carlitz module over `F(θ)`, every `C[(a)]` with `a ≠ 0` is étale.
 - For `φ_t = τ²` over `F`, `φ[(t)] = Spec F[X]/(X^(q²))` is not étale, and `γ(t) = 0` is not a unit.
+- The zero Anderson module has trivial étale torsion even when `γ(I) = 0`; it is covered by the dimension-zero alternative, not the Drinfeld criterion.
 
 <a id="dm-1-geometric-torsion-basis"></a>
 
@@ -1165,6 +1175,7 @@ For Drinfeld modules over a field `L` finitely generated over `F`, homomorphisms
 **Definition.** Let `L` be a coefficient field with characteristic map `γ`. The category of rational `A`-motives (isomotives) has the effective `A`-motives as objects and `Hom^0(M, N) = K_0 ⊗_A Hom(M, N)`. For a prime `λ ≠ ker γ` with residue field `F_λ` and local parameter `z`, let `L_(λ)` be the total quotient ring of `(F_λ ⊗_F L)[[z]]`, keeping every residue-field factor (it is a finite product of fields). Put `K_(0,λ) = Frac(A_λ)`. The rational Tate realization `V_λ(M)` is the `K_(0,λ)`-module of `τ`-invariants of `M ⊗ L^sep_(λ)`. Write `T_λ(M)` for the integral invariants. The finite-level evaluation pairing of [§1.7](#dm-1-geometric-torsion-basis) gives the canonical perfect pairing `T_λE × T_λ(M(E)) → ω_λ`, where `ω_λ = Hom_F(K_(0,λ)/A_λ, F)` is a free rank-one `A_λ`-module with trivial Galois action and its inverse-limit topology. Thus the canonical rational duality takes values in `K_(0,λ) ⊗_(A_λ) ω_λ`. A parameter `z` trivializes this line by `a ↦ (x ↦ Tr_(F_λ/F) Res_λ(ax dz))`, and then identifies the point realization with the ordinary linear dual of the motive realization.
 
 - `AMotive.HomIsogeny`: `K_0 ⊗_A Hom(M, N)`.
+- `AMotive.isogeny_factor_scalar`: for an isogeny `f : M → N` of motives with the same characteristic map, there are `0 ≠ a ∈ A` and `g : N → M` with `gf = a·id_M` and `fg = a·id_N`; thus `f` is invertible after rationalization (Sta, Proposition 2.20, p. 10, using Theorem 2.17(d), pp. 9–10).
 - `AMotive.rationalTate`: the completed `τ`-fixed realization `V_λ(M)`.
 - `AMotive.rationalTateMap`: morphisms of motives act on `τ`-invariants.
 - `DrinfeldModule.motiveTateDual`: canonically `T_λE ≅ Hom_(A_λ)(T_λ(M(E)), ω_λ)`; after choosing the residue trivialization, `V_λ(E) ≅ V_λ(M(E))^∨`, equivariantly.
@@ -1281,13 +1292,14 @@ For Drinfeld modules over a field `L` finitely generated over `F`, homomorphisms
 
 **Theorem.** The rational motive `K_0 ⊗_A M(E)` of a Drinfeld module `E` of rank `r` over a field `L` is a simple object of the category of rational `A`-motives over `L`. In particular it is semisimple.
 
-*Proof sketch.* A nonzero subobject of the isomotive meets `M(E) = L{τ}` in a nonzero `A_L`-submodule `N` stable under `τ`, that is, a left ideal of `L{τ}` that is also stable under right multiplication by every `φ_a`. Left ideals of `L{τ}` are principal by the right division algorithm, so `N = L{τ}f`; stability gives `fφ_a = ψ_a f` for elements `ψ_a ∈ L{τ}`, and `a ↦ ψ_a` is a Drinfeld module isogenous to `E` through `f`, hence of rank `r` ([§0.7](#dm-0-isogeny-rank)). So `N` has rank `r` over `A_L` and `M(E)/N` is torsion: the subobject is everything. (BP, §4.2, p. 16, for the basis `1, τ, …, τ^(r−1)` and the right division algorithm; Sta, p. 3, for the statement.) *Needs:* [§5.1](#dm-5-rational-motive-realization); [§0.7](#dm-0-isogeny-rank); [§4.3](#dm-4-contravariant-motive).
+*Proof sketch.* Intersect a nonzero subobject of the isomotive with `M(E) = L{τ}` to obtain a nonzero integral submotive `N`, stable under left `τ` and right `A`. The right division algorithm makes the left ideal principal, `N = L{τ}f`. Right `A`-stability gives unique `ψ_a` with `fφ_a = ψ_a f`. Comparing degrees in this identity gives `deg_τ ψ_a = deg_τ φ_a`, so the action on `N` has the same `A_L`-rank `r` as `M(E)`; use the basis/degree argument for the rank theorem, not an unsupported assertion about its differential. In fact if `j` is the smallest exponent of `f`, that differential is initially `γ(a)^(q^j)`, which need not equal `γ(a)`. What ensures the needed common characteristic is that `N` came from a subobject in the category of motives with characteristic `γ`. Thus `N → M(E)` is a same-characteristic isogeny. Its `A_L`-torsion cokernel is annihilated by a nonzero element of `A` by Sta, Theorem 2.17(d), and Proposition 2.20 makes the inclusion invertible after rationalization. The subobject is everything. (BP, §4.2, p. 16, for the polynomial-case basis and division; [§0.3](#dm-0-rank-general) for the general-`A` degree comparison; Sta, Definition 2.2, pp. 5–6, Theorem 2.17(d), pp. 9–10, and Proposition 2.20, p. 10. Sta, p. 3, states semisimplicity; simplicity here is the stronger conclusion of this argument.) *Needs:* [§5.1](#dm-5-rational-motive-realization); [§0.3](#dm-0-rank-general); [§4.3](#dm-4-contravariant-motive).
 
 **Checks.**
 
 - For the Carlitz module, `M(C) = L{τ}` has rank one and is trivially simple.
 - A general effective t-motive need not be simple: `M(C) ⊕ M(C^⊗2)` has the proper subobject `M(C)`.
-- The left ideal `L{τ}φ_a` of `M(E)` is a subobject of finite index, not a proper subobject of the isomotive.
+- For `a ≠ 0`, the left ideal `L{τ}φ_a` gives a same-characteristic submotive of finite index and becomes the whole isomotive.
+- In generic characteristic, `L{τ}τ` twists the differential from `γ` to `γ^q`; it is not automatically a submotive of characteristic `γ`. Equal `A_L`-rank alone does not imply that its cokernel is killed by a nonzero element of `A`.
 
 <a id="dm-5-tate-semisimplicity"></a>
 
@@ -1557,12 +1569,12 @@ Drinfeld's elliptic sheaves are periodic chains of vector bundles on `C × S` wi
 
 ### 7.1 Elliptic sheaves (`EllipticSheaf`)
 
-**Definition.** Let `S` be an `F`-scheme with a characteristic map `c : S → C − ∞`, and `σ = id_C × Frob_(q,S)` on `C × S`. An elliptic sheaf of rank `r` over `S` is a family of vector bundles `ℰ_i` (`i ∈ ℤ`) of rank `r` on `C × S` with injections `j_i : ℰ_i → ℰ_(i+1)` and `τ_i : σ^∗ℰ_i → ℰ_(i+1)` such that `j_(i+1)τ_i = τ_(i+1)σ^∗j_i`, with a periodicity isomorphism `ℰ_(i+rδ) ≅ ℰ_i(∞)` compatible with `j` and `τ`, such that each `coker j_i` is supported on `∞ × S` with pushforward to `S` a line bundle, and each `coker τ_i` is supported on the graph of `c` with pushforward a line bundle. Morphisms are compatible chain maps `ℰ_i → ℰ'_(i+n)` with a shift `n ≥ 0` independent of `i`, identified when they agree after further `j`-shifts. The bundles live on the global curve `C`.
+**Definition.** Let `S` be an `F`-scheme with a characteristic map `c : S → C − ∞`, and `σ = id_C × Frob_(q,S)` on `C × S`. An elliptic sheaf of rank `r` over `S` is a family of vector bundles `ℰ_i` (`i ∈ ℤ`) of rank `r` on `C × S` with injections `j_i : ℰ_i → ℰ_(i+1)` and `τ_i : σ^∗ℰ_i → ℰ_(i+1)` such that `j_(i+1)τ_i = τ_(i+1)σ^∗j_i`, with a periodicity isomorphism `ℰ_(i+rδ) ≅ ℰ_i(∞)` compatible with `j` and `τ`, such that each `coker j_i` is supported on `∞ × S` with pushforward to `S` a line bundle, and each `coker τ_i` is supported on the graph of `c` with pushforward a line bundle. Morphisms are locally bounded-shift chain maps: on an open cover of `S`, compatible maps `ℰ_i → ℰ'_(i+n)` with `n ≥ 0` independent of `i`, identified after further `j`-shifts and glued on overlaps. Over a quasicompact base one common bound may be chosen; over arbitrary `S` no global bound is required. The bundles live on the global curve `C`.
 
 - `EllipticSheaf`: the periodic chain with `j`, `τ` and the cokernel conditions.
 - `EllipticSheaf.periodic`: `ℰ_(i+rδ) ≅ ℰ_i(∞)`, compatible with `j` and `τ`.
 - `EllipticSheaf.characteristic`: the characteristic leg `c` read off from the `τ`-cokernel.
-- `EllipticSheaf.Hom`, `EllipticSheaf.Hom.ext`: bounded-shift chain morphisms modulo further inclusions, equal when the component maps agree after a common shift.
+- `EllipticSheaf.Hom`, `EllipticSheaf.Hom.ext`: locally bounded-shift chain morphisms modulo further inclusions, with the equality test applied locally after a common shift.
 - `EllipticSheaf.baseChange`: pullback preserves the chain, the characteristic and the cokernel conditions.
 
 *Construction.* Use locally free sheaves and their pullbacks (AlgebraicVectorBundles L0B, Mathlib `AlgebraicGeometry.Scheme.Modules`) and divisor twists (JacobianChallenge Layer A); build the integer-indexed diagram with its commuting squares; compose morphisms by adding shifts. Fixed-index maps alone would miss isogenies of positive degree. (Wie, Definition 5.1, p. 72, Proposition 5.5 and Lemma 5.7, pp. 73–74, §5.4, pp. 80–84.) *Needs:* [§0.9](#dm-0-relative-drinfeld-module); JacobianChallenge Layer A; AlgebraicVectorBundles L0B; Mathlib `AlgebraicGeometry.Scheme.Modules`, `AlgebraicGeometry.Scheme.Modules.pullback`, `SheafOfModules.IsLocallyFree`, `SheafOfModules.IsFinitePresentation`.
@@ -1616,15 +1628,16 @@ Drinfeld's elliptic sheaves are periodic chains of vector bundles on `C × S` wi
 
 ### 7.4 The elliptic sheaf dictionary (`DrinfeldModule.ellipticSheafEquiv`)
 
-**Theorem.** The construction of [§7.3](#dm-7-drinfeld-to-sheaf) is an anti-equivalence between Drinfeld `A`-modules of rank `r` over `S` in standard form and normalized elliptic sheaves of rank `r` over `S` with bounded-shift morphisms. The inverse takes the line `(pr_(S∗)ℰ_0)^∨` and the `𝒪_S{τ}`-module `Γ((C − ∞) × S, ℰ_0)`, locally free of rank one, on which the right action of `A` gives the Drinfeld module. Characteristic and rank are preserved, and level structures on the good open correspond. Equivalently it is a covariant equivalence with the opposite category of elliptic sheaves.
+**Theorem.** The construction of [§7.3](#dm-7-drinfeld-to-sheaf) is an anti-equivalence between Drinfeld `A`-modules of rank `r` over `S` in standard form and normalized elliptic sheaves of rank `r` over `S` with locally bounded-shift morphisms. The inverse takes the line `(pr_(S∗)ℰ_0)^∨` and the `𝒪_S{τ}`-module `Γ((C − ∞) × S, ℰ_0)`, locally free of rank one, on which the right action of `A` gives the Drinfeld module. Characteristic and rank are preserved, and level structures on the good open correspond. Equivalently it is a covariant equivalence with the opposite category of elliptic sheaves.
 
-*Proof sketch.* Normalized cohomology identifies the generator line and its Frobenius iterates; the affine sections form the `τ`-module, and multiplication by `a ∈ A` respects the filtration with unit leading term. Construct the inverse action locally and descend (SchemeAndStackFoundations §1.1). Both constructions recover the same filtered module; morphisms reverse composition. Wiedmann states an equivalence with a convention on affine-module morphisms; with the contravariant motive and bounded-shift morphisms it is an anti-equivalence, and at a non-rational `∞` each length-one quotient of the degree filtration carries the residue field of `∞`, permuted by Frobenius, which is why the period is `rδ`. (Wie, Theorem 5.10 and proof, pp. 75–84, Proposition 5.21, pp. 78–79, §5.4.2, pp. 82–84.) *Needs:* [§7.3](#dm-7-drinfeld-to-sheaf); [§7.2](#dm-7-normalized-elliptic-sheaf); [§4.4](#dm-4-abelian-antiequivalence); SchemeAndStackFoundations §1.1.
+*Proof sketch.* Normalized cohomology identifies the generator line and its Frobenius iterates; the affine sections form the `τ`-module, and multiplication by `a ∈ A` respects the filtration with unit leading term. Construct the inverse action locally and descend (SchemeAndStackFoundations §1.1). Both constructions recover the same filtered module; morphisms reverse composition. Wiedmann states an equivalence with a convention on affine-module morphisms; with the contravariant motive and locally bounded-shift morphisms it is an anti-equivalence, and at a non-rational `∞` each length-one quotient of the degree filtration carries the residue field of `∞`, permuted by Frobenius, which is why the period is `rδ`. (Wie, Theorem 5.10 and proof, pp. 75–84, Proposition 5.21, pp. 78–79, §5.4.2, pp. 82–84.) *Needs:* [§7.3](#dm-7-drinfeld-to-sheaf); [§7.2](#dm-7-normalized-elliptic-sheaf); [§4.4](#dm-4-abelian-antiequivalence); SchemeAndStackFoundations §1.1.
 
 **Checks.**
 
 - The generator of the sections is dual to the point-line generator, as for the motive functor.
 - Applying the inverse to the Carlitz chain `ℰ_i = 𝒪(i)` returns `C_t = θ + τ`.
 - A degree-one isogeny `u` corresponds to a chain map of shift one, and composites add shifts.
+- On the disjoint union of countably many copies of a Carlitz base, use `C_(t^n)` on component `n`. These maps glue and their degrees are unbounded; the sheaf dictionary must allow local bounds.
 
 <a id="dm-7-shtuka-export"></a>
 
@@ -1831,6 +1844,7 @@ This layer proves Papanikolas's theorem: for a pre-t-motive with a rigid analyti
 - `0 ∈ 𝔼` and evaluates to zero.
 - A constant algebraic over `k` lies in `𝔼` and evaluates to itself.
 - `Σ t^n` is excluded: its coefficients do not tend to zero at radius one.
+- A constant transcendental over `k` is entire but is excluded by the algebraic-coefficient condition.
 
 <a id="dm-8-twisting-limit"></a>
 
@@ -1892,7 +1906,7 @@ This layer proves Papanikolas's theorem: for a pre-t-motive with a rigid analyti
 
 ### 8.15 Rigid analytic triviality (`IsRigidAnalyticallyTrivial`)
 
-**Definition.** For a pre-t-motive `P` ([§4.12](#dm-4-pre-t-motive)) let `V = 𝕃 ⊗_K P` with the induced semilinear `σ`, regarded as an `F_q(t)`-linear map, and let the Betti realization be `P^B = V^σ`, its fixed `F_q(t)`-subspace. `P` is rigid analytically trivial when the comparison `𝕃 ⊗_(F_q(t)) P^B → V`, `a ⊗ v ↦ av`, is bijective. Bijectivity includes surjectivity; injectivity is automatic and does not suffice.
+**Definition.** For a pre-t-motive `P` over `K_L = L(t)` with `L` a perfect subfield of `C_∞` containing `k` ([§4.12](#dm-4-pre-t-motive)), let `V = 𝕃 ⊗_(K_L) P` with the induced semilinear `σ`, regarded as an `F_q(t)`-linear map, and let the Betti realization be `P^B = V^σ`, its fixed `F_q(t)`-subspace. `P` is rigid analytically trivial when the comparison `𝕃 ⊗_(F_q(t)) P^B → V`, `a ⊗ v ↦ av`, is bijective. Bijectivity includes surjectivity; injectivity is automatic and does not suffice. The arithmetic category below uses `L = k̄`; Anderson uniformization uses `L = C_∞`. For a forward-`τ` motive, invert its semilinear operator after rationalization to obtain the inverse-twist operator; their fixed vectors and comparison map are the same.
 
 - `IsRigidAnalyticallyTrivial`: bijectivity of the comparison.
 - `isRigidAnalyticallyTrivial_iff_finrank`: for finite-dimensional `V`, with exact constants, it holds iff `dim_(F_q(t)) P^B = dim_𝕃 V`.
@@ -1943,9 +1957,9 @@ This layer proves Papanikolas's theorem: for a pre-t-motive with a rigid analyti
 
 ### 8.18 Anderson's uniformizability criterion (`TModule.isUniformizable_iff`)
 
-**Theorem.** Let `E` be an abelian t-module over `C_∞` with motive `M(E)`. Then `E` is uniformizable if and only if `M(E)` is rigid analytically trivial, if and only if the period lattice `ker exp_E` is a free `F_q[t]`-module of rank `rank M(E)`. Dually, for an `A`-finite t-module, `E` is uniformizable if and only if its dual motive is rigid analytically trivial, that is, its `σ`-matrix `Φ ∈ Mat_r(C_∞[t])` has `Ψ ∈ GL_r(𝕋)` with `Ψ^(−1) = ΦΨ`.
+**Theorem.** Let `E` be an abelian t-module over `C_∞` with the fixed characteristic inclusion and motive `M(E)`. Then `E` is uniformizable if and only if `M(E)` is rigid analytically trivial, if and only if the period lattice `ker exp_E` is a free `F_q[t]`-module of rank `rank M(E)`. Dually, for an `A`-finite t-module, `E` is uniformizable if and only if its dual motive is rigid analytically trivial, that is, its `σ`-matrix `Φ ∈ Mat_r(C_∞[t])` has `Ψ ∈ GL_r(𝕋)` with `Ψ^(−1) = ΦΨ`.
 
-*Proof sketch.* The `t`-division points of `E(C_∞)` are described through the motive by Anderson's "switcheroo" (Hartl–Juschka, Proposition 5.12): the torsion `E[a](C_∞)` is the `τ`-invariants of `M/aM`. A rigid analytic trivialization identifies the inverse limit of these with a lattice of full rank in `Lie E`, whose exponential image is everything; conversely a full-rank period lattice gives enough `τ`-invariants over `𝕋`. On the dual side, the maps `δ_1` to points ([§4.11](#dm-4-dual-realization)) and `δ_0` to `Lie E` of Hartl–Juschka's Proposition 5.8 connect solutions of the difference equation over the ring of functions on `C_∞` minus the orbit of `θ` with logarithms of points. (BP, Theorem 4.2, p. 16, §4.5, p. 18; HJ, Remark 5.31(b) and Theorem 5.32, pp. 72–73.) *Needs:* [§4.6](#dm-4-uniformizability); [§4.11](#dm-4-dual-realization); [§8.17](#dm-8-fundamental-betti-basis); [the restricted-series supplier contract](#dm-8-tate-analytic-interface).
+*Proof sketch.* The `t`-division points of `E(C_∞)` are described through the motive by Anderson's "switcheroo" (Hartl–Juschka, Proposition 5.12): the torsion `E[a](C_∞)` is canonically the `F_q`-linear dual of the `τ`-invariants of `M/aM`, with its `A/(a)`-module structure. Equivalently use the perfect pairing into `Hom_(F_q)(A/(a), F_q)` from [§1.7](#dm-1-geometric-torsion-basis) (Har, Proposition 6.5 and Theorem 6.6, p. 26). This duality must be kept when constructing the period comparison. A rigid analytic trivialization identifies the inverse limit of these with a lattice of full rank in `Lie E`, whose exponential image is everything; conversely a full-rank period lattice gives enough `τ`-invariants over `𝕋`. On the dual side, the maps `δ_1` to points ([§4.11](#dm-4-dual-realization)) and `δ_0` to `Lie E` of Hartl–Juschka's Proposition 5.8 connect solutions of the difference equation over the ring of functions on `C_∞` minus the orbit of `θ` with logarithms of points. (BP, Theorem 4.2, p. 16, §4.5, p. 18; HJ, Remark 5.31(b) and Theorem 5.32, pp. 72–73.) *Needs:* [§4.6](#dm-4-uniformizability); [§4.11](#dm-4-dual-realization); [§8.17](#dm-8-fundamental-betti-basis); [the restricted-series supplier contract](#dm-8-tate-analytic-interface).
 
 **Checks.**
 
@@ -1957,14 +1971,14 @@ This layer proves Papanikolas's theorem: for a pre-t-motive with a rigid analyti
 
 ### 8.19 Integral trivializations (`exists_fundamental_tate`)
 
-**Theorem.** Let `P` be rigid analytically trivial with a polynomial `σ`-matrix `Φ ∈ Mat_r(k̄[t])` with `det Φ = c(t − θ)^s`, `c ∈ k̄^×`, `s ≥ 0`. Then `Φ` has a fundamental matrix `Ψ ∈ GL_r(𝕋)`. For the corresponding `A`-finite dual t-motive `H`, its `𝕋`-fixed module is free of rank `r` over `F_q[t]`, with basis `Ψ^(−1)m`, and the integral and rational notions of rigid analytic triviality agree.
+**Theorem.** Let `P` be rigid analytically trivial with a polynomial `σ`-matrix `Φ ∈ Mat_r(k̄[t])` with `det Φ = c(t − θ)^s`, `c ∈ k̄^×`, `s ≥ 0`. Then `Φ` has a fundamental matrix `Ψ ∈ GL_r(𝕋)`. If `Φ` comes from an `A`-finite dual t-motive `H`, its `𝕋`-fixed module is free of rank `r` over `F_q[t]`, with basis `Ψ^(−1)m`, and the integral and rational notions of rigid analytic triviality agree.
 
 *Proof sketch.* Clear the denominators of fixed vectors by `σ`-fixed polynomials to get an integral fixed lattice with rationalization `P^B`. The determinant of a lattice basis is a constant times `Ω^s` times a polynomial over `F_q`; if that polynomial had positive degree, a relation modulo it, its Frobenius limits ([§8.11](#dm-8-twisting-limit)) and a finite-field trace would give a smaller fixed relation, contradicting the basis. So the determinant is a unit of `𝕋`. (Pap, Proposition 3.3.9(c), pp. 13–15, Proposition 3.4.7, p. 19.) *Needs:* [§8.17](#dm-8-fundamental-betti-basis); [§8.11](#dm-8-twisting-limit); [§8.12](#dm-8-analytic-fixed-fields); [the restricted-series supplier contract](#dm-8-tate-analytic-interface); [§4.8](#dm-4-inverse-twist-dual-motive); [§4.12](#dm-4-pre-t-motive); [§2.10](#dm-2-omega).
 
 **Checks.**
 
 - For the Carlitz motive, `Ψ = Ω ∈ 𝕋^×`.
-- For `Φ = 1`, `Ψ = 1`.
+- For `Φ = 1`, `Ψ = 1`, but the polynomial lattice with `σ` fixing its basis is not finite over `k̄[σ]`. The polynomial determinant condition does not by itself supply an `A`-finite dual t-motive.
 - A polynomial `Φ` alone does not give a trivialization: `Φ = t` has no fundamental matrix over `𝕃` ([§8.15](#dm-8-rigid-triviality)).
 
 <a id="dm-8-betti-exact-tensor"></a>
