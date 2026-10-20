@@ -23220,12 +23220,13 @@
     "REV-RS-11"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicCongruences.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #10911"
+   "note": "deliverables arrived from an external worker on issue #10911",
+   "finishedAt": "2026-10-20T02:34:37Z"
   },
   {
    "id": "REV-AutomorphicCongruences",
@@ -30132,7 +30133,8 @@
    ],
    "avoidAccountOf": "BP-OverconvergentAutomorphicForms",
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10806"
   },
   {
    "id": "BP-PotentialAutomorphyInfrastructure",
@@ -43146,8 +43148,9 @@
    ],
    "revisionOf": "BP-PadicHodgeRegulators",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11092"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11092",
+   "finishedAt": "2026-10-20T02:34:37Z"
   },
   {
    "priority": 2,
@@ -55452,7 +55455,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GlobalShtukasAndFunctionFieldLanglands.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10768"
   },
   {
    "id": "REV-PKG-GlobalShtukasAndFunctionFieldLanglands",
@@ -151814,9 +151818,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-BorelRegulators~codex.md",
-   "note": "claimed on GitHub issue #11234"
+   "note": "deliverables arrived from an external worker on issue #11234",
+   "finishedAt": "2026-10-20T02:34:39Z"
   },
   {
    "id": "REV-PKG-KTheoryFiniteLocalFields~codex",
@@ -152198,9 +152203,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv.md",
-   "note": "claimed on GitHub issue #11282"
+   "note": "deliverables arrived from an external worker on issue #11282",
+   "finishedAt": "2026-10-20T02:34:42Z"
   },
   {
    "id": "FIX-PKG-KTheoryFiniteLocalFields~adv3",
@@ -152240,8 +152246,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-NoncommutativeAndEquivariantIwasawa~codex2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-NoncommutativeAndEquivariantIwasawa~codex2.md",
+   "note": "claimed on GitHub issue #11293"
   },
   {
    "id": "REV-PKG-KTheoryFiniteLocalFields~codex2",
@@ -152260,8 +152267,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex2.md",
+   "note": "claimed on GitHub issue #11294"
   }
  ]
 }
