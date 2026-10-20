@@ -152976,6 +152976,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex4.md"
+  },
+  {
+   "id": "REV-PKG-ArithmeticKTheory~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ArithmeticKTheory~codex2.md",
+    "research/blueprint/packages/ArithmeticKTheory/review.json",
+    "research/blueprint/packages/ArithmeticKTheory/README.md",
+    "research/blueprint/packages/ArithmeticKTheory/Suggested.lean",
+    "research/blueprint/packages/ArithmeticKTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticKTheory~codex2.md"
   }
  ]
 }
