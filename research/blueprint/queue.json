@@ -152781,9 +152781,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-MotivicEtaleKTheoryPartII.md",
-   "note": "claimed on GitHub issue #11335"
+   "note": "deliverables arrived from an external worker on issue #11335",
+   "finishedAt": "2026-10-20T10:11:23Z"
   },
   {
    "id": "FIX-PKG-K3BlochGroups~adv2",
