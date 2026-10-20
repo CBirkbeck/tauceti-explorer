@@ -5378,5 +5378,6 @@
  "REV-PKG-MotivesAndAlgebraicCycles~codex3": 11428,
  "FIX-PKG-HabiroCohomologyFoundationsPartII~adv": 11429,
  "DESIGN-CohomologyComparisonsPartII": 11431,
- "DESIGN-ColemanIntegrationPartII": 11433
+ "DESIGN-ColemanIntegrationPartII": 11433,
+ "FIX-PKG-PadicHodgeRegulators~adv1": 11434
 }
