@@ -270147,14 +270147,15 @@
     "arXiv math/0110334 v2 (the version read)",
     "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "GSWZ (19), p.9, states an unrestricted formula; BdJ Theorems 1.6(2), 1.10 and 1.12 prove special-unit or root cases, while 1.14 states the general assertion as a conjecture. This is a scope gap, not a counterexample to that conjecture."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "GSWZ §1.5, p.9, cites Besser–de Jeu Theorem 1.6(2) for the coincidence of D_p with the regulator on all of K_3(K_p). Read at BdJ pp.4–6: 1.6(2) treats classes presented by [x] with x a special unit of the valuation ring (and wedge factors in O^×), 1.10 and 1.12 add the number-field and root-of-unity cases, and Conjecture 1.14 states the general formula. A scope gap; the plan defines D_p on completed K_3 as the regulator and uses the dilogarithm only on special units."
   },
   {
    "id": "PadicHodgeRegulators/E102",
@@ -270170,14 +270171,15 @@
     "the errata search of PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 (29 September 2026: no erratum, corrigendum or journal version)",
     "the recorded findings of PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 (E10, E38, E39, E56, E80): this point is not among them",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Theorem 9, p.39, passes from a field to a product without isolating coordinates in the admissible root tuples. The corrected residue-spanning contract supplies differences, counts q−2 admissible inputs and treats residue degree one separately; ordinary scalar spanning alone does not supply this argument."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Theorem 9, p.39, applies Proposition 3.3, which is proved for one field Q_{p^s}, to a product. Admissible tuples (all components ≠ 1) cannot isolate a factor; differences of two tuples that differ in one component can. For s>1 the fibre bound gives more than q/p distinct values on q−2 points, so neither the values nor their differences lie in a proper subspace or coset; for s=1 differences span because f_p(−1)=0 for every odd p (k ↦ p−k changes the sign of each term of li_{2,p}(−1)) while f_p is not identically zero on F_p∖{0,1} (deg g_p = p−3). Also checked numerically for 5 ≤ p ≤ 97."
   },
   {
    "id": "PadicHodgeRegulators/E103",
@@ -270192,14 +270194,15 @@
     "arXiv math/0110334 v2 (the version read)",
     "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
    "status": "rejected",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "The alleged higher-weight factorial discrepancy does not identify Gros and de Jeu input symbols or Chern normalizations. On the same de Jeu symbols, applying 1−sigma/p^n retains epsilon(n−1)!. No source error follows; retain the normalization obligation and the rejected verdict."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Remark 1.13 compares Gros's value Li_n^(p)(ζ) with ±(n−1)!·L_mod,n(ζ) through reg_Gros=(1−Frob/p^n)reg. The gap (n−1)! is the usual Chern class versus Chern character factor, so it depends on how each side normalizes its regulator and its symbol, which the remark does not fix. No error is shown; D.2/gros-normalisation keeps the factor ε_n(n−1)! on de Jeu's symbols as a normalization obligation."
   },
   {
    "id": "PadicHodgeRegulators/E104",
@@ -270214,14 +270217,15 @@
     "arXiv math/0110334 v2 (the version read)",
     "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "The proof on preprint p.41 omits the p-primary exponent-one case from the root-order reduction and does not carry the sign/factorial of Theorem 1.6(2) through the special-unit evaluation. Distribution must include that case and retain epsilon(n−1)!; weight two alone does not detect the factorial."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proof of Theorem 1.12, p.41: the case split for m=p^s·l treats s>1 and m=p^s but omits s=1 (order divisible by p exactly once, not a special unit); and the special-unit step writes reg([x]_n)=L_mod,n(x) without the ±(n−1)! of Theorems 1.6(2) and 1.10(2)."
   },
   {
    "id": "PadicHodgeRegulators/E105",
@@ -270236,14 +270240,15 @@
     "arXiv math/0110334 v2 (the version read)",
     "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "At (4.4), p.24, the scope of d relative to the signed expression differs from the formula used in the calculation; the proof of Lemma 4.10, p.25, also interchanges eta and epsilon. The corrected differential and symbol variable restore the stated computation."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "(4.4), p.24, prints the boundaries as (dω,(1−φ*/q^n)ω)−dε, with −dε outside the pair; the cone differential used in the proof of Lemma 4.10, d(θ,0)=(dθ,(1−φ*/q^n)θ), needs (dω,(1−φ*/q^n)ω−dε). That proof, p.25, also writes (ω,η) for the pair called (ω,ε)."
   },
   {
    "id": "PadicHodgeRegulators/E106",
@@ -270258,14 +270263,15 @@
     "arXiv 1505.06471 v4 (the version read); the Inventiones version was not read",
     "web search on 2026-10-06 for an erratum: none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, Syntomic complexes and p-adic nearby cycles, arXiv:1505.06471v4 (29 May 2016); published Invent. Math. 208 (2017)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "The decomposition of a nonnegative twist into a multiple of p−1 and a residue is unique only for 0≤b<p−1. The printed weak upper bound on pp.2,23 permits two decompositions at a multiple of p−1."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "CN p.2 and §2.4.3, p.23, write r=(p−1)a(r)+b(r) with 0≤b(r)≤p−1; at r=p−1 both (a,b)=(0,p−1) and (1,0) qualify, so a(r) and Z_p(r)′ are not determined. Ertl–Nizioł p.7 uses 0≤b<p−1."
   },
   {
    "id": "PadicHodgeRegulators/E107",
@@ -270280,14 +270286,15 @@
     "arXiv 1505.06471 v4 (the version read); the Inventiones version was not read",
     "web search on 2026-10-06 for an erratum: none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, Syntomic complexes and p-adic nearby cycles, arXiv:1505.06471v4 (29 May 2016); published Invent. Math. 208 (2017)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Introduction Theorem 1.1(ii), p.2, gives a bound depending only on e, while the proved Theorem 5.4(ii), p.54, retains N_K. The available proof supports the latter bound. This confirms a proof/scope discrepancy and does not disprove the stronger claim."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "CN Theorem 1.1(ii), p.2, gives N=N(e,p,r); the proved Theorem 5.4(ii), p.54, gives N(K,p,r), and Remark 1.7, p.5, only expects that the constants could depend on the different. A gap between the announced and the proved statement, not a disproof."
   },
   {
    "id": "PadicHodgeRegulators/E108",
@@ -270302,14 +270309,15 @@
     "arXiv 1309.7620 v5 (the version read)",
     "web search on 2026-10-06 for an erratum: none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Remark 4.14, p.54, cannot give the asserted vanishing just from r>q: for Spec K, q=0 and r=1 the local weight-one group survives. The stronger range r≥q+2 avoids this example and is the range used in the corrected application."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Remark 4.14, p.54: for X=Spec K, q=0 and r=1, exp_BK: K→H^1(G_K,Q_p(1)) has image H^1_e of dimension [K:Q_p] in a space of dimension [K:Q_p]+1, so not all maps of the diagram are isomorphisms when r=q+1; r≥q+2 avoids it."
   },
   {
    "id": "PadicHodgeRegulators/E109",
@@ -270324,14 +270332,15 @@
     "arXiv 1309.7620 v5 (the version read)",
     "web search on 2026-10-06 for an erratum: none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Theorem 5.9, p.59, labels the regulator component with degree i+1, whereas the preceding degree-i construction and comparison in §§5.6–5.8, pp.57–58, have degree i. The corrected degree is required by the commutative diagram."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Theorem 5.9, p.59, places r^et_{r,i} in H^1_st(G_K,H^{i+1}); the regulator is defined just above with values in H^1(G_K,H^i), and Theorem B, p.7, has H^i."
   },
   {
    "id": "PadicHodgeRegulators/E110",
@@ -270346,14 +270355,15 @@
     "arXiv 1309.7620 v5 (the version read)",
     "web search on 2026-10-06 for an erratum: none found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Proposition 2.16, p.15, is too broad for the asserted injection/vanishing: the weight-zero filtered object with F^1=0 gives the Q_p semistable cohomology exception. The weight-one degree-two exception must likewise be retained. No such vanishing is used unconditionally here."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proposition 2.16, p.15: V=Q_p has F^1D_K=0 but H^1_st(G_K,Q_p) is one-dimensional while H^1(G_K,Q_p) has dimension [K:Q_p]+1; and for i=2, V=Q_p(1) also has F^1D_K=0 while H^2(G_K,Q_p(1))=Q_p, so the H^2-vanishing step quoted from Appendix A fails as stated."
   },
   {
    "id": "PadicHodgeRegulators/E111",
@@ -270368,14 +270378,15 @@
     "arXiv math/0612611 v1 (the version read)",
     "web search on 2026-10-06: no erratum found",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Annette Huber, Guido Kings, A p-adic analogue of the Borel regulator and the Bloch–Kato exponential map, arXiv:math/0612611v1 (20 December 2006); published J. Inst. Math. Jussieu 10 (2011), 149–190",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "The signed sum in Definition 0.4.5, p.6, repeats the same trace expression without permuting its factors, so antisymmetrization cancels. Permuting the arguments/factors gives the intended primitive cocycle."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Definition 0.4.5, p.6, sums sgn(σ)·Tr(x_1∘⋯∘x_{2n−1}) over S_{2n−1} with σ not acting on the factors, so the sum vanishes for n≥2; the intended cocycle is Tr(x_{σ(1)}∘⋯∘x_{σ(2n−1)})."
   },
   {
    "id": "PadicHodgeRegulators/E112",
@@ -270390,14 +270401,15 @@
     "arXiv math/0209283 v1 and the Documenta version (read by this job's L2 reading)",
     "Berger's errata page (cited by PadicHodgeTheory P7, https://perso.ens-lyon.fr/laurent.berger/articles/errata.pdf) was not re-read here",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Laurent Berger, Bloch and Kato's exponential map: three explicit formulas, arXiv:math/0209283v1 (21 September 2002)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Preprint Lemma II.1, p.10, omits the psi=1 restriction needed for its constant-term assertion and misstates the level branch. Published Documenta Lemma II.1, p.111, supplies the corrected version; the two numberings are kept distinct."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Preprint Lemma II.1, p.10: the second case is labelled n≥0, overlapping the first (n≥1), where n=0 is meant; the statement allows any y, while the proof begins from ψ(y)=y."
   },
   {
    "id": "PadicHodgeRegulators/E113",
@@ -270411,14 +270423,15 @@
    "searched": [
     "the book draft at staff.ustc.edu.cn (the version read)",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jean-Marc Fontaine, Yi Ouyang, Theory of p-adic Galois representations, book draft (author PDF)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "In the proof of Proposition 6.36(1), p.150 of the exact USTC edition, the written H^1/H^0 duality has the wrong degree. Local Tate duality pairs H^1 with H^1 of the dual twist; Q_p(2) detects the error."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proof of Proposition 6.36(1), p.150: H^1(Q_p,Q_p(−1)) is said to be isomorphic to H^0(Q_p,Q_p) by Tate duality; local duality pairs it with H^1(Q_p,Q_p(2)). Dimension one follows from the Euler characteristic formula, since H^0(Q_p(−1))=0 and H^2(Q_p(−1))≅H^0(Q_p(2))^∨=0. The proposition stands."
   },
   {
    "id": "PadicHodgeRegulators/E114",
@@ -270432,14 +270445,15 @@
    "searched": [
     "arXiv math/0101071 v2 (the version read)",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Annette Huber, Guido Kings, Bloch–Kato conjecture and main conjecture of Iwasawa theory for Dirichlet characters, arXiv:math/0101071v2; published Duke Math. J. 119 (2003)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Appendix A Proposition A.3, p.47, uses O_K in a statement whose global field is F. Its proof uses the units of O_F. This is a field-label misprint, not an additional local/global theorem."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proposition A.3, p.47, begins the sequence with (O_K^*)^∧ although the field is F throughout; the proof identifies the kernel with (O_F^*)^∧."
   },
   {
    "id": "PadicHodgeRegulators/E115",
@@ -270454,56 +270468,59 @@
     "Documenta version (the version read)",
     "Berger's errata page was not re-read here",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Laurent Berger, Bloch and Kato's exponential map: three explicit formulas, Documenta Mathematica, Extra Volume Kato (2003), 99–129",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "The proof of Theorem A.3, p.126, says positive although the immediately used weight condition has the opposite sign under the convention on p.105. The correction concerns that word and does not reverse the roadmap convention HT(Q_p(1))=+1."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proof of Theorem A.3, p.126: \"a positive V\" is followed by the use of Hodge–Tate weights ≥0, while p.105 defines positive as having negative Hodge–Tate weights."
   },
   {
    "id": "PadicHodgeRegulators/E116",
    "kind": "misprint",
    "locator": "§2, p. 7 (arXiv 1108.5954v3)",
    "printed": "The Wach/ψ discussion cites Theorem A.2 for the ψ-fixed-vector result.",
-   "correction": "[Ber03, Theorem A.3] (Theorem A.2 is the characterisation of Wach modules).",
+   "correction": "[Ber03, Theorem A.3] (A.2 is Proposition A.2, the characterisation of Wach modules, in both versions).",
    "reason": "In both versions of Berger's paper the ψ-invariants statement is Theorem A.3.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "arXiv 1108.5954 v3 (the version read)",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "David Loeffler, Sarah Livia Zerbes, Iwasawa theory and p-adic L-functions over Z_p^2-extensions, arXiv:1108.5954v3 (22 April 2014); accepted version of Int. J. Number Theory 10(8) (2014)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "The citation in LZ §2, p.7, attributes the psi-fixed Wach containment to Berger Theorem A.2; the Documenta appendix establishes that containment in Theorem A.3, p.126."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "LZ §2, p.7, attributes Theorem 2.6 (D_K(T)^{ψ=1}⊂π^{a−1}N_K(T)) to [Ber03, Theorem A.2]; in both the arXiv and Documenta versions this is Theorem A.3, and A.2 is Proposition A.2, the characterisation of Wach modules. The correction's parenthesis is amended accordingly."
   },
   {
    "id": "PadicHodgeRegulators/E117",
    "kind": "misprint",
    "locator": "Remark 3.2(1), p. 15 (arXiv 2003.08888v2)",
    "printed": "The regulator comparison is attributed to a remark instead of the indicated proposition item.",
-   "correction": "Cite Besser2000 Proposition 8.6(3), author pp.26–27, instead of Remark 8.6.3.",
+   "correction": "Cite Besser2000 Proposition 8.6(3), author pp.26–27 (Besser's own label 8.6.3, used in Proposition 9.11, p.32), with Remark 8.7(3), p.28, where the factor (1−φ/p^n) is stated; there is no Remark 8.6.",
    "reason": "The read AC20 text calls a proposition item a remark. Besser2000 contains Proposition 8.6(3), and BdJ2003 p.21 cites that proposition item.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "arXiv 2003.08888 v2 (the version read)",
     "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
-    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Masanori Asakura, Masataka Chida (Appendix B by François Brunault), A numerical approach toward the p-adic Beilinson conjecture for elliptic curves over Q, arXiv:2003.08888v2 (8 September 2020)",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "AC20 Remark 3.2(1), p.15, actually labels the Besser reference Remark 8.6.3. In Besser2000 author pp.26–27 it is Proposition 8.6(3), the norm comparison; BdJ2003 p.21 also identifies the proposition. The inherited review misread the printed citation as Proposition 8.6.6; that is not the source error."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "AC20 Remark 3.2(1), p.15, cites \"[Be1, Remark 8.6.3]\" for the factor (1−Φ/p^n). Besser2000 has no Remark 8.6: 8.6 is a proposition whose part 3 Besser himself cites as 8.6.3 (Proposition 9.11, p.32); the factor (1−φ/p^n) is made explicit in Remark 8.7(3), p.28. The correction now names both."
   },
   {
    "id": "PadicHodgeRegulators/E301",
@@ -270517,14 +270534,15 @@
    "searched": [
     "Downloaded MSP version of record on 2026-10-06; published pp.1127/1129 visually inspected and p.1118 extracted text collated.",
     "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located.",
-    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Published Proposition 5.11, p.1129, requires an integral invertible shear, but nonzero e1,e2 alone do not make 1−e1*e2 a unit. Over Z_5, e1=1 and e2=−4 give determinant 5. The maximal-ideal choice in preprint Remark 5.12, p.25, supplies a valid integral repair."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Published proof of Proposition 5.11, p.1129: nonzero e1,e2∈O_E with e1e2≠1 need not give an element of GL(2,O_E) (Z_5, e1=1, e2=−4: determinant 5). The preprint's Remark 5.12, p.25, already takes e1,e2 in the maximal ideal, which makes 1−e1e2 a unit."
   },
   {
    "id": "PadicHodgeRegulators/E302",
@@ -270538,14 +270556,15 @@
    "searched": [
     "Downloaded MSP version of record on 2026-10-06; published pp.1127/1129 visually inspected and p.1118 extracted text collated.",
     "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located.",
-    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Proposition 4.2, p.1118, reverses the inclusion after imposing an additional evaluation constraint. The newly constrained module S is contained in the prior module S-prime; the displayed S-prime contained in S cannot hold in general."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proof of Proposition 4.2, p.1118: \"∈S′⊂S\" reverses the inclusion, since S imposes the conditions of S′ and one more; the following sentence (membership in S iff the coefficients lie in S″) is right."
   },
   {
    "id": "PadicHodgeRegulators/E303",
@@ -270560,14 +270579,15 @@
     "Downloaded MSP version of record; visually inspected p.1127; compared preceding M(0) and k=2 relation.",
     "Compared arXiv1006.5163v2 Proposition5.9; same ordered-functional text.",
     "Search on 2026-10-06 for exact title with erratum/correction/Proposition5.9 and journal metadata; no separate correction located.",
-    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Published Proposition 5.9, p.1127, has the ordered-pair functional inconsistent with the preceding relation. In the roadmap row order it is (p−1)g(0)−(2−a_p)h(0); at p=5,a_p=0 the pair (1,2) distinguishes the two coefficients. The rational quotient is over E."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proposition 5.9, p.1127: for j=0, k=2, Remark 5.8 gives (2−a_p)Col_2(0)=(p−1)Col_1(0), so the functional vanishing on the image of (Col_1,Col_2) is (p−1)g(0)−(2−a_p)h(0) up to sign; the printed (2−a_p)g(0)−(p−1)h(0) is −6 at (1,2) for p=5, a_p=0."
   },
   {
    "id": "PadicHodgeRegulators/E304",
@@ -270582,14 +270602,15 @@
     "Downloaded MSP version of record on 2026-10-06 and read the cited statement and surrounding proof.",
     "Compared the LLZ preprint and the source’s separate bounded/analytic basis and matrix constructions.",
     "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located.",
-    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Corollary 4.13, p.1124, presents an analytic scalar ring on the source of a sequence for bounded Coleman coordinates. The bounded source is Lambda_E; an H_E-linear sequence requires scalar extension of the entire sequence."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Corollary 4.13, p.1124, calls its sequence one of H(Γ_1)-modules, but its first two terms N(V)^{ψ=1,η} and (φ*N(V))^{ψ=0,η} are bounded Λ_E(Γ_1)-modules (Theorem 2.12); an H-linear sequence needs the analytic extension of every term (Proposition 2.11)."
   },
   {
    "id": "PadicHodgeRegulators/E305",
@@ -270604,14 +270625,15 @@
     "Downloaded MSP version of record on 2026-10-06 and read the cited statement and surrounding proof.",
     "Compared the LLZ preprint and the source’s separate bounded/analytic basis and matrix constructions.",
     "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located.",
-    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Proposition 4.11, p.1123, identifies a period subspace with the coefficient subspace before applying its logarithmic matrix. With row coordinates and image V_j in period space, the Coleman constraint is V_j*M(x_j)^{-1}, not V_j itself."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proposition 4.11, p.1123: with L_V=(Col∘h)Mν (equation (2)), the condition at x_i is Col(x_i)M(x_i)∈V_{i,η}, i.e. Col(x_i)∈V_{i,η}M(x_i)^{−1}; the printed V_i=V_{i,η} conflates the period and coefficient subspaces. Invertibility of M(x_i), used in the proof, gives the codimension, not equality."
   },
   {
    "id": "PadicHodgeRegulators/E118",
@@ -270624,14 +270646,15 @@
    "known": "Already recorded as PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E56; added here by REV-PadicHodgeRegulators.",
    "searched": [
     "Read arXiv:2412.04241v2 at this locator on 2026-10-19.",
-    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E56 and its independent verification. No new author-contact or publisher-errata search claimed."
+    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E56 and its independent verification. No new author-contact or publisher-errata search claimed.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "The independent finite-ring computation reproduces that printed digit expansion for D_5(zeta^2)/25; exponent five is not its label."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Example 4.3, p.54: (273) labels its second value D_5(ζ_24^5), but (274) and (275) express D_5(ξ) and ξ through the same three values with ζ_24^2. Independent check: in the recorded digits of that value the Q_5-component (evaluation at the root α≡2 mod 5 of x^3−x^2+1) vanishes modulo 5^12, as it must for ζ_24^2, whose Q_5-component is −1 and Li_2(−1)=0; for ζ_24^5 the Q_5-component would equal that of D_5(ζ_24), which is 1+5+4·5^2+⋯."
   },
   {
    "id": "PadicHodgeRegulators/E119",
@@ -270644,14 +270667,15 @@
    "known": "Already recorded as PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E38; added here by REV-PadicHodgeRegulators.",
    "searched": [
     "Read arXiv:2412.04241v2 at this locator on 2026-10-19.",
-    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E38 and its independent verification. No new author-contact or publisher-errata search claimed."
+    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E38 and its independent verification. No new author-contact or publisher-errata search claimed.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Dilogarithm reduction divides by (x−1)^p. In a product, excluding only the identity tuple still allows an individual component equal to 1. The stated symbol/reduction argument needs componentwise admissibility."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proposition 3.3, (179), ranges over all ζ∈µ(Q_{p^s}), including ζ=1, where D_p is not defined ((174) has domain C_p∖{0,1}) and (178) divides by (ζ−1)^p; Theorem 9 likewise allows components equal to 1."
   },
   {
    "id": "PadicHodgeRegulators/E120",
@@ -270664,14 +270688,15 @@
    "known": "Already recorded as PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E39; added here by REV-PadicHodgeRegulators.",
    "searched": [
     "Read arXiv:2412.04241v2 at this locator on 2026-10-19.",
-    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E39 and its independent verification. No new author-contact or publisher-errata search claimed."
+    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E39 and its independent verification. No new author-contact or publisher-errata search claimed.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
    "status": "confirmed",
-   "reviewedBy": "REV-PadicHodgeRegulators",
-   "reviewReason": "Lemma 3.1 concerns special-unit symbols. Using generation by roots to prove integral containment while using containment to prove that generation is circular. The planned integral Bloch–Kato route avoids this issue."
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Proof of Theorem 9, p.39: the containment of the regulator image in p^2O comes from Lemma 3.1, which concerns special units only; that every completed class has a special-unit presentation is what root-of-unity generation would supply, and generation is deduced afterwards from surjectivity and equal ranks. The plan proves the integral image independently."
   },
   {
    "id": "PadicHodgeRegulators/E121",
@@ -270684,14 +270709,35 @@
    "known": "No novelty or version-of-record claim; no correction located in the checked arXiv record and scoped text.",
    "searched": [
     "arXiv:1108.5954v3, p.5, and current submission history on 2026-10-19 (v3 is latest)",
-    "Author institutional publication searches; the Warwick PDF retrieval did not succeed. Publisher full text and a complete author errata list were not inspected."
+    "Author institutional publication searches; the Warwick PDF retrieval did not succeed. Publisher full text and a complete author errata list were not inspected.",
+    "Independent review REV-PadicHodgeRegulators~2 on 2026-10-20: the issue checked at its locator in the version recorded in sourceVersions; no further publisher or author search."
    ],
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "David Loeffler, Sarah Livia Zerbes, Iwasawa theory and p-adic L-functions over Z_p^2-extensions, arXiv:1108.5954v3 (22 April 2014); accepted version of Int. J. Number Theory 10(8) (2014)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "LZ §2.4, p.5: exp*_{K,V} has domain H^1(K,V*(1)), yet the adjunction quantifies b∈H^1(K,V); the Tate pairing ⟨exp_{K,V}(a),b⟩ also needs b∈H^1(K,V*(1)). Version-scoped to arXiv v3, as recorded."
+  },
+  {
+   "id": "PadicHodgeRegulators/E122",
+   "kind": "gap",
+   "locator": "Proof of Theorem B.6, second displayed equality, p.40, compared with §2.4, p.5 (arXiv:1108.5954v3)",
+   "printed": "With U=V*(1+j), the proof equates ⟨exp*_U(x_{j,0}), log_U(y_{−j,0})⟩ (crystalline pairing of V(−j)) with the Tate pairing ⟨x_{j,0}, y_{−j,0}⟩ of V(−j): the dual-exponential argument comes first in both pairings, with a plus sign and no comment, whereas §2.4 states the adjunction for U with exp in the first slot of the Tate pairing and the de Rham argument first.",
+   "correction": "State the swap convention. Deriving the step from §2.4 transposes both pairings: the de Rham evaluation pairing is symmetric under the swap, but the cup product of two degree-one classes is graded-commutative, so the derivation gives ⟨exp*_U(x),log_U(y)⟩ = −⟨x,y⟩, unless the Tate pairing on H^1(U*(1))×H^1(U) is defined as the transpose of the pairing on H^1(U)×H^1(U*(1)) without that sign. The sign of Theorem B.6 depends on this choice.",
+   "reason": "In §2.4 for U, take a=log_U(y_{−j,0})∈D(U) and b=x_{j,0}∈H^1(U*(1)) (second variable as corrected in E121): ⟨y,x⟩_U = ⟨log_U y, exp*_U x⟩_{dR,U} = ⟨exp*_U x, log_U y⟩_{dR,U*(1)}. With x∪y = −τ*(y∪x) for degree-one classes, ⟨y,x⟩_U = −⟨x,y⟩_{U*(1)}, the opposite sign to the B.6 step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1108.5954v3 (the latest version), §2.4, p.5, and Appendix B, pp.36–40, read 2026-10-20 (SHA-256 0da53934…); the published version in Int. J. Number Theory 10(8) (2014) was not read, so the finding is scoped to the preprint.",
+    "The earlier LZ2014 entries of this register (E116, E121) and the Theorem B.6 checks recorded in sourceInspection: the swap sign is not among them."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "David Loeffler, Sarah Livia Zerbes, Iwasawa theory and p-adic L-functions over Z_p^2-extensions, arXiv:1108.5954v3 (22 April 2014); accepted version of Int. J. Number Theory 10(8) (2014)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators~2",
+   "reviewReason": "Found by this review; the computation in reason uses only the two printed identities and the graded commutativity of the degree-one cup product. It is a gap in the stated convention, not a proof that the sign of Theorem B.6 is wrong. L3/explicit-reciprocity keeps the source factor −σ_{−1}ℓ_0, and the gap on the normalized Iwasawa pairing now names this point."
   },
   {
    "id": "PadicHodgeTheory/E1",
