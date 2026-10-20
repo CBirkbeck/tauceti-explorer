@@ -153128,6 +153128,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~codex2.md"
+  },
+  {
+   "id": "REV-PKG-IntegralIwasawaTheory~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "IntegralIwasawaTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-IntegralIwasawaTheory~codex2.md",
+    "research/blueprint/packages/IntegralIwasawaTheory/review.json",
+    "research/blueprint/packages/IntegralIwasawaTheory/README.md",
+    "research/blueprint/packages/IntegralIwasawaTheory/Suggested.lean",
+    "research/blueprint/packages/IntegralIwasawaTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-IntegralIwasawaTheory~codex2.md"
   }
  ]
 }
