@@ -5407,5 +5407,6 @@
  "REV-QSeriesPartitionsAndMockModularForms~4": 11495,
  "REV-PKG-HabiroRings~codex5": 11499,
  "FIX-PKG-FiniteFieldsAndCharacterSums~adv": 11506,
- "REV-PKG-DrinfeldModulesAndTModules~codex1": 11513
+ "REV-PKG-DrinfeldModulesAndTModules~codex1": 11513,
+ "FIX-PKG-LogicAndDefinabilityInNumberTheory~adv": 11514
 }
