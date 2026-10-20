@@ -153857,6 +153857,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundationsPartII~codex2.md"
+  },
+  {
+   "id": "FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv1",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HigherLocalFieldsAndHigherClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv1.md",
+    "research/blueprint/packages/HigherLocalFieldsAndHigherClassFieldTheory/review.json",
+    "research/blueprint/packages/HigherLocalFieldsAndHigherClassFieldTheory/README.md",
+    "research/blueprint/packages/HigherLocalFieldsAndHigherClassFieldTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv1.md"
   }
  ]
 }
