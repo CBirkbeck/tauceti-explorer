@@ -5303,5 +5303,7 @@
  "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5": 11261,
  "REV-PKG-CyclotomicClassGroupsAndStickelberger~codex": 11266,
  "REV-PKG-EisensteinIdealAndRationalTorsion~codex2": 11268,
- "REV-PKG-RefinedTraceMethods~codex": 11269
+ "REV-PKG-RefinedTraceMethods~codex": 11269,
+ "FIX-PKG-ArithmeticKTheory~adv": 11275,
+ "REV-PKG-MotivesAndAlgebraicCycles~adv": 11276
 }
