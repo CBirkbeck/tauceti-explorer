@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-AutomorphicPadicLFunctions~adv",
+    "date": "2026-10-20",
+    "notes": "Complete independent review by Codex, session codex-ycTzpH, of the package authored by codex-UmyIz6 in PR #11443. Applied corrections to the full-idele avatar sign, Hilbert cusp sign/normalization, classical versus overconvergent levels, weight and critical-index tests, period coefficient field, dyadic fibre count, Hida linear-disjointness and density hypotheses, Katz second interpolation chamber and Fourier locator, EHLS classical-pair compatibility, EW convergence/locators, and the typed anticyclotomic quotient. Audited all 105 main-packet nodes in a 66-row adversarial table, fifteen deterministic sampled locators, all six inherited source gaps and seven source issues; checked current upstream/library duplication and twelve Lean signatures. Suggested.lean has 240 lines, nine real-bodied definitions, eighteen proved examples and three theorems; lean-check exits 0 with only the two intended sorry warnings. Remaining defects: the two full-generality rank-one cofinite targets lack a verified replacement for the withdrawn Hida inference; the integral rank-one EHLS/Katz local/period dictionary is incomplete; PadicFamilies and ArithmeticLocallySymmetricSpaces must incorporate the specified lower-owner construction extensions before an upstream port. Strong targets remain explicitly marked, without weakened substitutes. See reviews/REV-PKG-AutomorphicPadicLFunctions~adv.md for exact targets, source locators, provenance, corrections and validation."
+  }
+}
