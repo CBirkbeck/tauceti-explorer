@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-20T12:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-20T12:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #914 FreeGroupsAndLimitGroups — ready (approved at an earlier head)
@@ -19,7 +19,7 @@ Generated 2026-10-20T12:40Z from the README supplier graph of every open pull re
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
@@ -28,7 +28,7 @@ Generated 2026-10-20T12:40Z from the README supplier graph of every open pull re
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
