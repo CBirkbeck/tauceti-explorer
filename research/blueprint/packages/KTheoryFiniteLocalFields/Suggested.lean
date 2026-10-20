@@ -201,6 +201,9 @@ the weightwise twisted-TR inverse limits, and arithmetic and
 semilocal completion maps. The Tate-module carrier is supplied by the current Tau Ceti library.
 The local height-one module comparison, its cyclotomic Iwasawa calculation, actual spectrum
 splitting and valuation compatibility, and the logarithmic, cyclotomic, hermitian and finite-rank symplectic milestones remain in README.md.
+In particular, `finiteEven_multiplicativeLTate` uses the multiplicative L-to-Tate comparison
+and its module/base-change refinement from HermitianKTheoryOfPoincareCategories §§7.10–7.11;
+their Poincaré and spectrum carriers are not supplied by the pinned libraries.
 -/
 
 end TauCetiRoadmap.KTheoryFiniteLocalFields
