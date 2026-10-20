@@ -153601,6 +153601,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-MotivesAndAlgebraicCycles~adv2.md"
+  },
+  {
+   "id": "REV-PKG-PadicHodgeRegulators~codex1",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PadicHodgeRegulators~codex1.md",
+    "research/blueprint/packages/PadicHodgeRegulators/review.json",
+    "research/blueprint/packages/PadicHodgeRegulators/README.md",
+    "research/blueprint/packages/PadicHodgeRegulators/Suggested.lean",
+    "research/blueprint/packages/PadicHodgeRegulators/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeRegulators~codex1.md"
   }
  ]
 }
