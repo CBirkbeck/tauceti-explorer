@@ -43,7 +43,7 @@ K means connective K-theory throughout. GW and L are the stable, possibly noncon
 
 ### From Mathlib and Tau Ceti
 
-At Mathlib `082e2d3`, use `CategoryTheory.ProjectiveResolution` for an augmented projective chain complex quasi-isomorphic to a module in degree zero. Use `ChainComplex`, `HomotopyEquiv` and `HomologicalComplex.homology` for ordinary homological complexes and chain homotopies. `Module.Projective`, `Module.FinitePresentation` and `Module.Invertible` supply finite-projective and line-module vocabulary. `CategoryTheory.HasProjectiveDimensionLE` is the Ext-vanishing projective-dimension bound on an abelian-category object. `IsNoetherianRing`, `IsSemisimpleRing` and `IsDedekindDomain` provide the ring hypotheses; the Dedekind convention includes fields. `DerivedCategory`, `DerivedCategory.TStructure.t`, `CategoryTheory.Triangulated.TStructure` and its `heart` supply the ordinary derived category and its cohomological t-structure. None of these identifies an ordinary category with the stable enhancement.
+At Mathlib `082e2d3`, use `CategoryTheory.ProjectiveResolution` for an augmented projective chain complex quasi-isomorphic to a module in degree zero. Use `ChainComplex`, `HomotopyEquiv` and `HomologicalComplex.homology` for ordinary homological complexes and chain homotopies. `Module.Projective`, `Module.FinitePresentation` and `Module.Invertible` supply finite-projective and line-module vocabulary. `CategoryTheory.HasProjectiveDimensionLE` is the Ext-vanishing projective-dimension bound on an abelian-category object. `IsNoetherianRing`, `IsSemisimpleRing` and `IsDedekindDomain` provide the ring hypotheses; the Dedekind convention includes fields. `Module.projective_of_isSemisimpleRing` supplies projectivity of modules over a semisimple ring; §6.1 adds the converse and the bridge to projective dimension zero. `DerivedCategory`, `DerivedCategory.TStructure.t`, `CategoryTheory.Triangulated.TStructure` and its `heart` supply the ordinary derived category and its cohomological t-structure. None of these identifies an ordinary category with the stable enhancement.
 
 At Tau Ceti `f790474`, `Rep.FiniteCyclicGroup.tateCohomologyIsoEven` and `Rep.FiniteCyclicGroup.tateCohomologyIsoOdd` identify algebraic Tate cohomology with the two norm-minus-generator homology groups for a chosen cyclic generator. Apply them to C₂ to obtain the two parity formulas above. The spectrum realization and Tate-diagonal action come from the following supplier, not from these algebraic isomorphisms. For the field Witt comparison, the current `TauCeti.WittRing` in `TauCeti.LinearAlgebra.QuadraticForm.Witt.Ring` is the quotient of the quadratic Grothendieck ring by the hyperbolic ideal, under `[Field K] [Invertible (2 : K)]`; use `wittClass` for the comparison. This API does not cover characteristic two.
 
@@ -173,6 +173,8 @@ Make transport and its coherence available through these declarations.
 - (Q^s_M)^∨ = Q^s_{M^∨} and (Q^q_M)^∨ = Q^q_{M^∨}.
 - For a noncommutative ring without involution, D^p(R) and D^p(R^op) need not be equivalent as stable categories by any equivalence fixing R; the transport uses the duality, not an identification of R with R^op.
 - For a ring with involution and M = R, Q^∨ is again the corresponding structure for R ≅ R^op, so GW(R) ≃ GW(R^op).
+- For R = M = ℤ, the covariant equivalence underlying transport sends ℤ[1] to ℤ[1]: the two contravariant duals each reverse the shift. Using Hom_ℤ(−,ℤ) alone would instead send it to ℤ[−1].
+- Double transport of the integral form ⟨1⟩ recovers signature +1, not −1; the evaluation coherence must recover the original form as well as its underlying module.
 
 Transport preserves the symmetry and quadraticity bounds (Paper III, Example 1.1.5, p. 12), allowing the comparison theorems to be applied to right-coherent rings (Remark 1.3.12, p. 31).
 
@@ -680,7 +682,7 @@ The short groups agree with genuine symmetric groups (Paper III, Theorem 1.2.22,
 
 ### 4.8 Ranicki's groups are bounded L-groups of the symmetric structure
 
-Let I_n ⊆ Ch^b(Proj(R)) be the n-dimensional complexes with quasi-isomorphisms and J_{[0,n]} ⊆ D^p(R)^≃ the perfect modules representable in degrees [0,n]. Localisation restricts to π : I_n → J_{[0,n]}, an equivalence on homotopy categories, and there are natural isomorphisms H_n(Hom_R(DC,C)^{hC₂}) ≅ π_n(Hom_R(DπC,πC)^{hC₂}) ≅ π₀Ω^nQ^s_M(πDC). Sending (C,q) to the component of (πDC, ρ(q)) is a monoid isomorphism Pn^short_n(R) ≅ π₀Pn^n_n(R;Q^s_M), compatible with pairs, and induces L^short_n(R;M) ≅ L^{n,n+1}_n(R;Q^s_M) for n ≥ 0. (Paper III, Construction before Proposition 1.2.23, p. 21, and Proposition 1.2.23, p. 21.)
+Let I_n ⊆ Ch^b(Proj(R)) be the n-dimensional complexes with quasi-isomorphisms and J_{[0,n]} ⊆ D^p(R)^≃ the perfect modules representable in degrees [0,n]. Localisation restricts to π : I_n → J_{[0,n]}. Every object of J_{[0,n]} has such a model, and every equivalence between two chosen models' images is represented by a chain homotopy equivalence: the homotopy category of bounded projective complexes is fully faithful in D^p(R). There are natural isomorphisms H_n(Hom_R(DC,C)^{hC₂}) ≅ π_n(Hom_R(DπC,πC)^{hC₂}) ≅ π₀Ω^nQ^s_M(πDC). Sending (C,q) to the component of (πDC, ρ(q)) is a monoid isomorphism Pn^short_n(R) ≅ π₀Pn^n_n(R;Q^s_M), compatible with pairs, and induces L^short_n(R;M) ≅ L^{n,n+1}_n(R;Q^s_M) for n ≥ 0. (Paper III, Construction before Proposition 1.2.23, p. 21, and Proposition 1.2.23, p. 21.)
 
 The localisation Ch^b(Proj(R)) → D^p(R) identifies homotopy classes of maps and preserves sums; complexes in [0,n] go to objects representable in [0,n] (§2.4), and DπC is then concentrated in [−n,0], matching the bounds of Pn^n_n. The Hom complex computes the mapping spectrum (GeometryOfNumbersAndQuadraticArithmetic §6.8a `perfectDerivedHom`) and the explicit resolution computes homotopy fixed points, giving ρ. Applying the same construction to arrow categories gives M^short_n(R) → π₀M^{n,n+1}_n(R;Q^s_M) compatibly; every arrow of D^p(R) lifts to a chain map, which gives surjectivity, hence an isomorphism of quotients.
 
@@ -689,6 +691,7 @@ This gives `short_to_bounded`.
 **Checks.**
 
 - n = 0: both sides are Witt groups of symmetric forms on projectives (§3.4).
+- For n = 1 and R ≠ 0, the contractible complex R →^{id} R in degrees [0,1] and the zero complex have equivalent derived images. The quasi-isomorphism to zero is not an isomorphism of chain complexes. Thus the comparison uses homotopy classes of chain maps and quasi-isomorphism classes of forms; it does not identify the ordinary category I_n with a groupoid.
 
 *Needs:* §4.7; §3.3; §2.4; GeometryOfNumbersAndQuadraticArithmetic §6.8a; Mathlib DerivedCategory.
 
@@ -831,6 +834,7 @@ This gives `lifting_projectives`.
 **Checks.**
 
 - For A = 𝕊, B = Hℤ: π₀ is ℤ in both; free 𝕊-modules 𝕊^n lift ℤ^n and maps ℤ^n → ℤ^m (integer matrices) lift to 𝕊^n → 𝕊^m.
+- The same example does not give an equivalence of projective ∞-categories: Map_𝕊(𝕊,𝕊) has π₁ = ℤ/2, whereas Map_{Hℤ}(Hℤ,Hℤ) has π₁ = 0. Uniqueness here concerns homotopy classes, not a contractible space of lifts.
 
 *Needs:* EnhancedDerivedSheaves §E5:abstract, leftModuleObjects; EnhancedDerivedSheaves §E5:abstract, algebra objects.
 
@@ -949,7 +953,7 @@ Expose the restricted t-structure, its heart and both duality bounds.
 **Checks.**
 
 - For a field K the heart is finite-dimensional K-vector spaces = Proj(K).
-- Over ℤ, D(ℤ/n[0]) ≃ ℤ/n[−1] for n ≠ 0, so the bound −d = −1 is attained.
+- Over ℤ, D(ℤ/n[0]) ≃ ℤ/n[−1] for n ≥ 2, so the bound −d = −1 is attained. For n = 1 the module is zero and does not witness sharpness; for n = 0 it is ℤ and its dual is ℤ[0].
 - Over the non-coherent ring R = k[x₁,x₂,…]/(x₁x_i : i ≥ 1) the complex R →^{x₁} R is perfect but its H₁ = Ann(x₁) = (x₁,x₂,…) is not finitely generated, so τ_{≥1} of a perfect complex need not be perfect and D^p(R) does not inherit the t-structure.
 - For R = ℤ (d = 1): D(ℤ/2[0]) = ℤ/2[−1] lies in D^p(ℤ)_{≥−1} and not in D^p(ℤ)_{≥0}.
 - For a field (d = 0) the duality exchanges the two halves and the heart is Proj(K).
@@ -1057,7 +1061,7 @@ This gives `symmetric_comparison_range`.
 
 ### 7.2 Comparison of the genuine flavours
 
-Let R be coherent of global dimension at most d and M invertible. Then L^gs_n(R;M) → L^s_n(R;M) and GW^gs_n(R;M) → GW^s_n(R;M) are injective for n ≥ d − 2 and bijective for n ≥ d − 1; L^gq_n(R;M) → L^s_n(R;M) and GW^gq_n(R;M) → GW^s_n(R;M) are injective for n ≥ d + 2 and bijective for n ≥ d + 3; and L^gq_n(R;M) → L^gs_n(R;M) is injective for n ≥ d + 2 and bijective for n ≥ d + 3. For non-negative n this improves Ranicki's comparison for Noetherian rings of global dimension at most d (injective for n ≥ 2d − 3, bijective for n ≥ 2d − 2), through Theorem 5. (Paper III, Corollary 1.3.10, pp. 30–31; Theorem 6, p. 4; Remark 1.3.13, p. 31; Ranicki, Proposition 4.5, §4, printed p. 153 (PDF p. 67).)
+Let R be coherent of global dimension at most d and M invertible. Then L^gs_n(R;M) → L^s_n(R;M) and GW^gs_n(R;M) → GW^s_n(R;M) are injective for n ≥ d − 2 and bijective for n ≥ d − 1; L^gq_n(R;M) → L^s_n(R;M) and GW^gq_n(R;M) → GW^s_n(R;M) are injective for n ≥ d + 2 and bijective for n ≥ d + 3; and L^gq_n(R;M) → L^gs_n(R;M) is injective for n ≥ d + 2 and bijective for n ≥ d + 3. For non-negative n this recovers Ranicki's comparison for Noetherian rings of global dimension at most d (injective for n ≥ 2d − 3, bijective for n ≥ 2d − 2), through Theorem 5, and improves those bounds when d ≥ 2. For d = 0 or 1 both comparisons already cover all non-negative degrees. (Paper III, Corollary 1.3.10, pp. 30–31; Theorem 6, p. 4; Remark 1.3.13, p. 31; Ranicki, Proposition 4.5, §4, printed p. 153 (PDF p. 67).)
 
 L-theory: §7.1 with r = 2 for Q^gs_M and r = 0 for Q^gq_M (§2.2). GW: the identity functors (D^p(R),Q^gq_M) → (D^p(R),Q^gs_M) → (D^p(R),Q^s_M) are Poincaré functors with the same duality, so they induce equivalences on K(R;M)_{hC₂}; by the fundamental fibre sequence K_{hC₂} → GW → L (GeometryOfNumbersAndQuadraticArithmetic §6.8a `stableGWFundamentalSquare`) the squares from GW to L are cartesian and the cofibres of the GW maps are those of the L maps. Use Paper II, Corollary 4.4.13, p. 107 for this fibre sequence. L^gq_n → L^gs_n: compose with L^gs_n → L^s_n, which is bijective for n ≥ d − 1 ≤ d + 2. Comparison with Ranicki: identify L^gs_n with L^short_n for n ≥ 0 (§4.11); d − 1 ≤ 2d − 2 for d ≥ 1.
 
@@ -1074,7 +1078,9 @@ This gives `genuine_comparison_theorem`.
 
 Assume the Ranicki–Shaneson splitting L(R[ℤ];Q)≃L(R;Q)⊕ΣL(R;Q), natural in Q=Q^gs,Q^s, when K₀(R)≅K₀(R[ℤ])≅ℤ. The following sharpness consequences use this additional input.
 
-The bijectivity bound n ≥ d − 1 for L^gs → L^s is sharp: for the d-dimensional ring 𝔽₂[ℤ^d] with the involution induced by inversion, L^gs → L^s is not surjective on π_{d−2}. Similarly, for ε = −1, L^gs_0(ℤ[ℤ];ε) → L^s_0(ℤ[ℤ];ε) is not surjective. For d=0 this already uses a field with trivial involution. For ℤ/4, the stronger comparison quoted there assumes Read, Corollary F. For the regular domains addressed by Schlichting’s theorem, it assumes that theorem and its precise ring hypotheses. These additional results are separate from the Laurent sharpness example. (Paper III, Example 1.3.11, p. 31.)
+The bijectivity bound n ≥ d − 1 for L^gs → L^s is sharp: for the d-dimensional ring 𝔽₂[ℤ^d] with the involution induced by inversion, L^gs → L^s is not surjective on π_{d−2}. Similarly, for ε = −1, L^gs_0(ℤ[ℤ];ε) → L^s_0(ℤ[ℤ];ε) is not surjective. For d=0 this already uses a field with trivial involution. (Paper III, Example 1.3.11, p. 31.)
+
+Two further consequences assume separate external comparison theorems. Read's Corollary F gives failure of L^gs_n(ℤ/4) → L^s_n(ℤ/4) to be an isomorphism for some 0 ≤ n ≤ 5 and for every sufficiently large n, with trivial involution; its proof gives failure of injectivity in every sufficiently large degree (Read, pp. 6–7). Conversely, assume Schlichting's Theorem 1.1 and let R be a commutative regular Noetherian domain of finite Krull dimension, with trivial involution. If two is invertible, R contains a field, or R is smooth over a Dedekind domain, that theorem gives L^gs_n(R) ≅ L^s_n(R) for n ≥ −1 and injectivity at n = −2, independently of the dimension. If moreover two is a non-zero divisor, the ranges improve to bijectivity for n ≥ −2 and injectivity at n = −3 (Schlichting, pp. 2–3). Thus the general dimension-dependent bounds can be far from optimal on this specified class of rings. These two quoted theorems are additional inputs, rather than consequences of Laurent-ring surgery.
 
 By the Ranicki–Shaneson splitting and induction, Σ^dL^gs(𝔽₂) → Σ^dL^s(𝔽₂) is a retract of L^gs(𝔽₂[ℤ^d]) → L^s(𝔽₂[ℤ^d]). The ε = −1 statement over ℤ[ℤ] follows by the same retract argument from degree −1 over ℤ; Read’s and Schlichting’s comparisons remain separate assumptions, rather than consequences of this retract argument.
 
@@ -1083,6 +1089,7 @@ This gives `sharpness_examples`.
 **Checks.**
 
 - The example shows that the bijectivity bound d − 1 for L^gs → L^s cannot be improved; since the comparison maps are compatible with L^gq ≃ Σ⁴L^gs and L^s ≃ Σ⁴L^s (§1.6), the bound d + 3 for L^gq → L^s cannot be improved either. The source presents this as sharpness of the bounds of Corollary 1.3.10; the injectivity bounds are not addressed by the example.
+- For R = 𝔽₂, L^gs_{−2}(R) = 0 and L^s_{−2}(R) = ℤ/2, so Schlichting's characteristic-two bijectivity range cannot be extended to degree −2. For d > 0 the Laurent examples have a nontrivial inversion involution, outside that theorem's trivial-involution hypothesis. The ring ℤ/4 is not regular, so Read's failure in high degrees does not contradict the regular-domain result.
 
 *Needs:* §7.2; §7.9.
 
@@ -1287,3 +1294,5 @@ Statement numbers and page numbers below refer to the following editions.
 - **Paper II.** The same authors, *Hermitian K-theory for stable ∞-categories II: Cobordism categories and additivity*, [arXiv:2009.07224v5](https://arxiv.org/abs/2009.07224v5), 11 April 2025. Printed and PDF pages agree.
 - **Ranicki.** A. Ranicki, *The algebraic theory of surgery I. Foundations*, Proceedings of the London Mathematical Society (3) 40 (1980), 87–192, [author archive](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/ats1.pdf). Printed page p is PDF page p−86. Complexes and Wu classes are in §1; pairs, cobordism and even groups are in §3.
 - **Higher Algebra.** J. Lurie, *Higher Algebra*, [author PDF](https://www.math.ias.edu/~lurie/papers/HA.pdf), 18 September 2017, §7.2.2, Proposition 7.2.2.18 and Corollary 7.2.2.19, pp. 1244–1246.
+- **Read.** T. Read, *On the geometric fixed points of the real topological cyclic homology of ℤ/4*, [arXiv:2411.11993v2](https://arxiv.org/abs/2411.11993v2), 14 February 2026, Corollary F, pp. 6–7. Used only as the additional comparison input in §7.3.
+- **Schlichting.** M. Schlichting, *Symmetric versus genuine symmetric forms in Hermitian K-theory*, [arXiv:2503.14288v3](https://arxiv.org/abs/2503.14288v3), 19 June 2025, Theorem 1.1, pp. 2–3. Used only as the additional comparison input in §7.3.
