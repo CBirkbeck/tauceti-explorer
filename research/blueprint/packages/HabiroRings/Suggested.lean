@@ -179,4 +179,32 @@ theorem completedRegulatorTriviality {P : Type v} [AddCommGroup P]
 
 end CompletedLine
 
+/-!
+The remaining definitions are specified in README.md:
+
+* Supplier interfaces: big and truncated Witt vectors, Dwork ghost sequences, Witt Frobenius,
+  Verschiebung, restriction and Teichmüller maps, the Witt comonad and its coalgebras, arithmetic
+  Λ-rings and Λ-maps, Adams and exterior operations, the cofree and free Λ-rings, their sections
+  and prime-local presentations; absolute and relative q-Witt vectors, their comparison maps
+  and relative ghosts. These belong to QWittVectors.
+* Layer 1: `LambdaRing.colimPerfection`, `LambdaRing.IsPerfectlyCovered`, relative Frobenius in
+  characteristic p, its completed linearization and the category of pairs.
+* Layer 2: `habiroLocalisation`, `IsHabiroComplete`, `habiroCompletion`, complete module
+  categories and their completed tensor, the localization resolution and ordinary/derived
+  comparison equivalence; `SphericalCyclotomicLocalization`, `SpectralHabiroCompletion`,
+  `SolidHabiroCompletion`, null families and countable tensor profiles.
+* Layer 3: the finite prime-chain index and reduced index, coherent completion diagrams,
+  localization/descent categories, prime-edge gluing data and arithmetic fracture objects.
+* Layer 4: `EtaleDeformation`, `CompletedEtaleLift`, marked principal deformations,
+  `RelHabiroStage` and its coherent ghost and Frobenius transition diagrams.
+* Layer 5: `relativeHabiro`, compatible cyclotomic roots, full Taylor coefficient algebras,
+  canonical and Frobenius re-expansion arrows, and the Taylor equalizer presentation.
+* Layer 6: `completedScalarExtension`, transported actual K₃ lines and their supported
+  field comparison maps, the q−1 completion map and integral order-one evaluation.
+
+These enhanced, Witt, spectral and relative carriers are not constructed in this file.
+The étale Habiro–Hodge comparison is a downstream contract owned by
+HabiroCohomologyFoundations §4.21.
+-/
+
 end TauCetiRoadmap.HabiroRings
