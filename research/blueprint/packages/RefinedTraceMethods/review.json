@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-RefinedTraceMethods~codex",
+    "date": "2026-10-20",
+    "notes": "Independent package review: needs_changes. Corrected the residual-norm FV relation for genuine TR, supplier section numbers, the generated cyclotomic t-structure argument, citation collisions and graded HKR attribution; removed 13 targets already supplied by TopologicalKTheory, CharacteristicClasses and GeneralizedCohomology; replaced weak Checks with computed counterexamples. Four unresolved groups remain: unlocated HabiroRings/HabiroCohomologyFoundations/K2SymbolsBrauer/KTheoryFiniteLocalFields contracts; concrete K and IK on general small stable infinity categories; the K(1)-local structured image-of-J input; finite-coefficient henselian rigidity and change of site for the syntomic K-sheaf target. All 15 sampled locators and all 11 author-flagged inputs were checked with the limitations in the report. lean-check exits 0 with four sorry warnings only; seven proved examples, ten signatures checked. Intake and packet validation are recorded in the report."
+  }
+}
