@@ -152577,6 +152577,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~codex4.md"
+  },
+  {
+   "id": "REV-PKG-NoncommutativeAndEquivariantIwasawa~codex3",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "NoncommutativeAndEquivariantIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-NoncommutativeAndEquivariantIwasawa~codex3.md",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/review.json",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/README.md",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/Suggested.lean",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-NoncommutativeAndEquivariantIwasawa~codex3.md"
   }
  ]
 }
