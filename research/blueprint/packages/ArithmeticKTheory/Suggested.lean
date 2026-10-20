@@ -65,6 +65,13 @@ example : borelRank 0 1 3 = 1 ∧ borelRank 0 1 5 = 1 := by decide
 theorem borelRank_even (r₁ r₂ k : ℕ) : borelRank r₁ r₂ (2 * k) = 0 := by
   sorry
 
+/-! ## Layer 5: the cyclic norm used in dyadic detected descent -/
+
+example : (∀ x : ZMod 8, 3 * x = x ↔ x = 0 ∨ x = 4) ∧
+    (∀ x : ZMod 8, 3 * x = x ↔ ∃ y : ZMod 8, (1 + 3) * y = x) ∧
+    (∀ x : ZMod 8, (1 + 7) * x = 0) ∧ (4 : ZMod 8) ≠ 0 := by
+  decide
+
 /-! ## Layer 6: even groups, divisibility and Bott degrees -/
 
 section DivisibleElements
@@ -81,6 +88,14 @@ theorem mem_divisibleSubgroup_iff {x : A} :
 
 theorem divisibleSubgroup_eq_bot_of_finite [Finite A] :
     divisibleSubgroup A = ⊥ := by
+  sorry
+
+/-- A finite subgroup containing all infinite-height elements has an eventual
+intersection bound; its exponent need not be such a bound. -/
+theorem inter_mul_eventually_eq_divisibleSubgroup (T : AddSubgroup A)
+    [Finite T] (hT : divisibleSubgroup A ≤ T) :
+    ∃ m₀ : ℕ, 1 ≤ m₀ ∧ ∀ m : ℕ, 1 ≤ m → m₀ ∣ m →
+      T ⊓ m • (⊤ : AddSubgroup A) = divisibleSubgroup A := by
   sorry
 
 example : divisibleSubgroup ℚ = ⊤ := by
@@ -117,6 +132,11 @@ theorem divisibleSubgroup_int : divisibleSubgroup ℤ = ⊥ := by
   sorry
 
 end DivisibleElements
+
+example : (2 : ZMod 5) * 3 = 1 ∧ (3 : ZMod 5) * 3 = 4 ∧
+    (∀ x : ZMod 5, 3 * x = x ↔ x = 0) ∧
+    (∀ x : ZMod 5, 4 * x = x ↔ x = 0) := by
+  decide
 
 /-- Slot (cohomological degree, twist) for the positive/negative piece of degree 2j.
 `positive = true` means the +1 eigenspace of dualization, not complex conjugation. -/
@@ -195,7 +215,7 @@ The README additionally specifies QCat.rankFiltration, LayerPoset, their relativ
 homology and spectral sequence; WInvariant, its finite orders and IsExceptional;
 eInvariant and the integral odd tables; signatureDefect, positiveEvenK,
 localSymbolFamily, rawWildKernel, symbolWildKernel, cohomologicalWildKernel and
-IsSpecial; OrderCertificate, ArithmeticData and CertifiedExample;
+IsSpecial and IsVerySpecial; OrderCertificate, ArithmeticData and CertifiedExample;
 ramifiedResiduePullback and rationalSIntegerEquiv; bottAdamsPiece,
 bottEvenExact, bottEvenEdgeEquiv and bottOddEdgeEquiv; tateNormFiltration,
 tateFiltration, tateAlpha and tateUnitSubgroup;
@@ -203,6 +223,8 @@ GoldenCongruenceLattice, GoldenResidueSection and GoldenFinitePrimeCertificate.
 Its cohomological descent maps are cyclotomicH2Descent,
 cyclotomicPicardDescentSequence, cyclotomicPositiveH2Descent and
 cyclotomicPositivePicardDescentSequence.
+It also specifies cyclotomicWreathMap, harrisSegalMap,
+compatibleClassCyclotomicPrime, cyclotomicPicardInjection and regularBottShift.
 The README also specifies L- and
 Grothendieck–Witt finiteness, the cyclotomic Picard injection and the integral
 regular-prime consequences. Their higher K, cohomology, spectral and
