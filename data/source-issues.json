@@ -264111,14 +264111,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "At published p1756 and arXiv v4 p27, precomposition with (x²,N(x)) yields w(x)²t(N(x)); the accompanying inverse-norm formula instead requires (x²,N(x)⁻¹). Equation(9.1) p1781 uses the latter convention."
   },
   {
    "id": "OverconvergentAutomorphicForms/E2",
@@ -264134,14 +264135,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Published pp1737/1757/1761 and arXiv v4 pp27/29 use an all-unit supremum. A nontrivial prime-to-p finite character has supremum one but is an ordinary weight-space point. Principal-unit diagnostics avoid this counterexample and must remain separate from AIP universal coordinates."
   },
   {
    "id": "OverconvergentAutomorphicForms/E3",
@@ -264157,14 +264159,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Published Proposition6.3 p1757 and arXiv v4 p27 print the product radius. For p=3 and κ(4)=ζ_9, that radius is 3^(−7/6): its ball at one contains 4³=64 with nontrivial value and kernel points accumulating at one. An analytic extension there would be constant by the identity theorem, a contradiction. Only a sufficiently small existential radius is used."
   },
   {
    "id": "OverconvergentAutomorphicForms/E4",
@@ -264180,14 +264183,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Published Definition7.1 p1759 and arXiv v4 p28 identify the canonical group with O_F/p^mO_F, which has p^(m[F:Q]) elements. The printed order p^m omits the degree except in degree one."
   },
   {
    "id": "OverconvergentAutomorphicForms/E5",
@@ -264203,14 +264207,15 @@
     "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "BHW Remark6.9 p1759 points its Theorem3.16 citation to the ADIC reference. The theorem is in AIP CUSP p18; its fixed-radius arithmetic form is Theorem4.4 p28, with the additional weight-affinoid hypotheses. Those distinctions are retained."
   },
   {
    "id": "OverconvergentAutomorphicForms/E6",
@@ -264224,14 +264229,15 @@
    "searched": [
     "The published PDF and arXiv v4 retain the same displayed direction; checked independently on 2026-10-08.",
     "The dated title/erratum/correction web searches on 2026-10-08 found no correction in the returned results; absence is not established and no author was contacted.",
-    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
+    "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Published Theorem7.14 p1764 and arXiv v4 p31 label the perfectoid-to-AIP arrow by the frame pullback, whereas the proof constructs AIP-to-perfectoid pullback. The inverse isomorphism exists; the issue is the labelled arrow direction."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-1",
@@ -264246,14 +264252,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "DRW v3 pp10–11 specifies insufficient level data for a diagonal-reduction stabilizer. In genus one a single line has a Borel stabilizer, including a lower unipotent in the displayed convention. The corrected target uses the genuine group quotient, whose existence is a separate S1 input."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-2",
@@ -264268,14 +264275,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "The pairing matrix on DRW p7 and the normalized graph vectors on p14 give −δ_ij at Z=0. The sign normalization must be −I for that basis; changing it preserves the subsequent graph calculation."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-3",
@@ -264290,14 +264298,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "In Lemma2.2.5 p13 the strict-level equality lies over X_Iw+, while the indicated pushforward lands over X_Iw. Restoring the plus corrects this codomain mismatch."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-4",
@@ -264312,14 +264321,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Remark3.1.7 p22 uses residue classes modulo p^ceil(r); under |p|=p⁻¹ their discs have radius p^(−ceil(r)). The printed positive exponent has the wrong sign."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-5",
@@ -264334,14 +264344,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Definition3.1.6(iii) and Remark3.1.7 p22 confuse bounded values at Z_p arguments with the Gauss unit ball on analytic discs. The recorded polynomial has integral values at those arguments but a scaled coefficient of norm p, so the lattices differ."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-6",
@@ -264356,14 +264367,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Definition3.1.10 p23 makes the unit-valued character trivial on the unipotent subgroup, so Remark3.1.12 must give the value 1 there. Value 0 is incompatible with even the identity element."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-7",
@@ -264378,14 +264390,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Definition3.1.14(v) p25 drops the strict-level plus from the first direct-limit term; the neighbouring cusp and ordinary Iwahori definitions keep the two levels distinct."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-8",
@@ -264400,14 +264413,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "The invariant sheaf in Remark3.3.9 p34 already has trivial Γ(p^n) action. The residual quotient action needs lifts in Iw+_GSp, not elements of that trivial kernel."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-9",
@@ -264422,14 +264436,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "In Proposition3.3.10 p36, the normalized target condition omits zero. A claimed linear isomorphism cannot have that target. Right-unipotent invariance gives the quotient condition without fixing a nonzero value."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-10",
@@ -264444,14 +264459,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "The Ψ computations on pp35–36 use the wrong order after antidiagonal transpose. For Z=E12, C=qE21 and A=D=I, the true dual factor is diag(1,1+q); the printed order gives diag(1+q,1). This refutes that intertwining step, not the main theorem by itself."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-11",
@@ -264466,14 +264482,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "The classical description on pp37–38 imposes only torus equivariance on a full GL_g frame torsor, omitting Borel-unipotent equivariance. At weight zero x11x22/det is torus invariant and nonconstant along an upper-unipotent orbit, exposing the larger space."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-12",
@@ -264488,14 +264505,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Definition3.6.4(ii) and Remark3.6.5(i) p44 give congruences modulo p^w. Such a congruence implies the one modulo p^w′ for w′≤w; the printed increasing-w direction is reversed."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-13",
@@ -264510,14 +264528,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "On p47, Proposition3.6.12 requires c_g+n−1<w≤n, stronger than the following corollary assumes when n>1. Moreover point-dependent strict Hodge bounds alone do not supply a common affinoid bound. The quantitative comparison stays an explicit T3 obligation; no counterexample to cofinality is asserted."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-14",
@@ -264532,14 +264551,15 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "AppendixB pp102/104 distinguishes the rank-r degeneration lattice V/V′⊥ from the symplectic quotient V′⊥/V′ of rank 2g−2r. At r=g the printed latter choice is zero, so it cannot be the required rank-g lattice."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-15",
@@ -264554,36 +264574,38 @@
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "The canonical chart on p42 uses [Z′,I], defined at its origin, whereas the earlier [I,Z] chart is not defined there. Remark3.6.2 p43 relates their coordinates after Atkin–Lehner by Z′=−pZ. The unprimed symbol in the canonical-domain definition cannot be used literally."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-16",
    "kind": "error",
    "locator": "Definition 3.1.14(ii), p.24, sentence after the analytic coefficient presheaf display; arXiv v3 only",
    "printed": "The source additionally describes this as a uniform Cp-Banach algebra sheaf.",
-   "correction": "Treat the fixed-weight analytic induced coefficient as a Banach module over the completed coefficient algebra. Pointwise multiplication maps weights κ and λ into weight κλ; it is not an algebra structure on a general fixed nontrivial weight.",
-   "reason": "The defining law on p.23 is f(ℓb)=κ(b)f(ℓ). Products transform by κ(b)^2. For g=1, odd p and κ(u)=u, the analytic function f(u)=u has weight κ, but f²(2)=4 differs from κ(2)f²(1)=2. Also the constant unit function is absent for nontrivial κ. Thus the printed fixed-weight algebra assertion fails.",
-   "affects": "a stated result",
-   "known": "new",
+   "correction": "The accusation is rejected. Under pointwise multiplication on the full Iwahori, weights multiply, so that operation does not preserve a nontrivial fixed weight. But Remark3.1.11 explicitly transports an algebra structure from functions on the opposite unipotent through restriction. For ℓ=ub, the transported product is (f⋆g)(ub)=κ(b)f(u)g(u), with unit eκ(ub)=κ(b). The coefficient representation and its equivariant sheaf are used as modules; an algebra structure on each coefficient space does not make every translating action an algebra automorphism.",
+   "reason": "Remark3.1.11 p23 supplies the missing interpretation: restriction Cκ(Iw,B)≅C(Uopp,B) is used to give the coefficient its uniform Banach algebra. Pointwise multiplication on Iw is a different product. The genus-one square computation in the earlier review only disproves closure under that different product, so it does not refute Definition3.1.14(ii). Compatibility of an algebra structure with the full automorphic equalizer is a separate question, not established by that example.",
+   "affects": "nothing",
+   "known": "Not an established source error; earlier confirmation retained in reviewHistory.",
    "searched": [
     "arXiv version history for 2106.00094 checked 2026-10-06: v3 remains the latest listed version; earlier versions not compared.",
     "Author research page https://sites.google.com/view/jufengwu/research and public title/author erratum/correction searches checked 2026-10-06: no correction for this article located. The linked erratum is for another article.",
     "No page-by-page version-of-record comparison; findings confined to the hashed public preprint. No claim of priority or exhaustive search.",
-    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority."
+    "Independent review checked the Springer version-of-record metadata and attempted its PDF on 2026-10-06; only an access preview was served. No published-text verification or claim of priority.",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Remark3.1.11 p23 supplies the missing interpretation: restriction Cκ(Iw,B)≅C(Uopp,B) is used to give the coefficient its uniform Banach algebra. Pointwise multiplication on Iw is a different product. The genus-one square computation in the earlier review only disproves closure under that different product, so it does not refute Definition3.1.14(ii). Compatibility of an algebra structure with the full automorphic equalizer is a separate question, not established by that example."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-17",
@@ -264597,14 +264619,78 @@
    "searched": [
     "https://arxiv.org/abs/2106.00094 (v3 latest, checked 2026-10-20)",
     "https://arxiv.org/pdf/2106.00094v3 (Definitions 3.1.10–3.1.13 and §2.1)",
-    "https://doi.org/10.1007/s40687-026-00610-5 (publisher full text not accessible as a PDF)"
+    "https://doi.org/10.1007/s40687-026-00610-5 (publisher full text not accessible as a PDF)",
+    "Independent assembly review on 2026-10-20 checked the hashed source at this locator. Version-of-record scope is retained; the DRW journal full text remains uncollated."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
    "citation": "Hansheng Diao, Giovanni Rosso, Ju-Feng Wu, Perfectoid overconvergent Siegel modular forms and the overconvergent Eichler–Shimura morphism, arXiv:2106.00094v3, 9 April 2026; 108-page manuscript",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Definition3.1.10 p23 normalizes the lower coordinate by p; §2.1 p9 thickens matrix entries. Thus normalized radius p^(−r) needs entry radius p^(−r−1). For the recorded genus-two function 1/(t−a), v_p(a)=r−1/2, translation by h=I+paE12 in M_r reaches its pole at the identity. The smaller H_(r+1) action is valid; the geometric factor has precisely that extra p."
+  },
+  {
+   "id": "OverconvergentAutomorphicForms/E7",
+   "kind": "gap",
+   "locator": "Definition8.17(2), p1773, compared with Lemma9.2 and its proof, pp1781–1782 (published version)",
+   "printed": "The finite effective level quotient kills all units congruent to one modulo N. The representative-independence proof later checks only totally positive units and their closure.",
+   "correction": "Use U_N={η∈O_F^×:η≡1 mod N} and its full p-adic closure in every central kernel. For N≥4, N_{F/Q}(η) is ±1 and is 1 modulo N, hence equals 1. The arithmetic multiplier therefore cancels for all U_N, and by continuity for its closure, without requiring total positivity.",
+   "reason": "Definition8.17 explicitly uses the all-unit congruence quotient. Positivity cannot replace it: in Q(√3), −7−4√3 is a unit congruent to 1 modulo 4 with both real embeddings negative. A proof restricted to positive units omits this representative change. The norm-congruence argument repairs the proof; it does not contradict the well-definedness conclusion.",
+   "affects": "the proof",
+   "known": "Previously recorded in the atlas supplier; no published correction located.",
+   "searched": [
+    "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
+    "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "Definition8.17 explicitly uses the all-unit congruence quotient. Positivity cannot replace it: in Q(√3), −7−4√3 is a unit congruent to 1 modulo 4 with both real embeddings negative. A proof restricted to positive units omits this representative change. The norm-congruence argument repairs the proof; it does not contradict the well-definedness conclusion."
+  },
+  {
+   "id": "OverconvergentAutomorphicForms/E8",
+   "kind": "gap",
+   "locator": "Proof of Proposition5.18, pp1752–1753, the integral embedding-product identification (published version)",
+   "printed": "The proof treats O_p⊗O_C as the product of its embedding factors and uses that integral description to compare the Hodge–Tate kernel with the canonical subgroup at ramified p.",
+   "correction": "Split only after passing to the generic field. Before splitting, keep the saturated kernel and the O_F/p^n-linear canonical generator unsplit and use scalar O_C conormal-degree estimates. The missing generator/refinement is retained in the existing T4 request; no ramified integral product is assumed.",
+   "reason": "For O_L=Z_p[π] with π²=p at odd p, evaluation O_C[X]/(X²−p)→O_C×O_C has image pairs whose difference is divisible by 2π. The pair (1,0) is absent. Thus the natural embedding map is not an integral product isomorphism, although it becomes one over C. This invalidates that proof step in ramified cases without giving a counterexample to the inclusion theorem.",
+   "affects": "the proof",
+   "known": "Previously recorded in the atlas supplier; no published correction located.",
+   "searched": [
+    "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
+    "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "For O_L=Z_p[π] with π²=p at odd p, evaluation O_C[X]/(X²−p)→O_C×O_C has image pairs whose difference is divisible by 2π. The pair (1,0) is absent. Thus the natural embedding map is not an integral product isomorphism, although it becomes one over C. This invalidates that proof step in ramified cases without giving a counterexample to the inclusion theorem."
+  },
+  {
+   "id": "OverconvergentAutomorphicForms/E9",
+   "kind": "error",
+   "locator": "Proof of Lemma8.28, p1779, contracted-product descent of the period map (published version)",
+   "printed": "Projection to the first factor of X_{Γ*(p∞)}×O_p^× is asserted to give a period map invariant under the antidiagonal Z_p^× action, because that action is treated as simultaneous scalar rescaling.",
+   "correction": "Use the equivariant span map (x,u)↦diag(u,1)π_HT(x), which is invariant under (x,u)↦(diag(t,1)x,t⁻¹u), rather than π_HT(x) alone. This is the corrected S5 period map already used by O4.",
+   "reason": "The first-factor action in Lemma8.25 is diag(t,1). On the Hilbert affine period coordinate it sends z to tz; it is not the central scalar tI and does not fix a general period point. Multiplying by diag(u,1) cancels the antidiagonal change. The displayed projection argument therefore fails, while the corrected equivariant period map remains available.",
+   "affects": "the proof",
+   "known": "Previously recorded in the atlas supplier; no published correction located.",
+   "searched": [
+    "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
+    "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms",
+   "reviewReason": "The first-factor action in Lemma8.25 is diag(t,1). On the Hilbert affine period coordinate it sends z to tz; it is not the central scalar tI and does not fix a general period point. Multiplying by diag(u,1) cancels the antidiagonal change. The displayed projection argument therefore fails, while the corrected equivariant period map remains available."
   },
   {
    "id": "PELModuli/E1",
