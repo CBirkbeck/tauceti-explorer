@@ -153640,6 +153640,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCyclotomicCompletions~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-AutomorphicCongruences~adv1",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AutomorphicCongruences"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AutomorphicCongruences~adv1.md",
+    "research/blueprint/packages/AutomorphicCongruences/review.json",
+    "research/blueprint/packages/AutomorphicCongruences/README.md",
+    "research/blueprint/packages/AutomorphicCongruences/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicCongruences~adv1.md"
   }
  ]
 }
