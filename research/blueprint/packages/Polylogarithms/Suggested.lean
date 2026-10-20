@@ -380,8 +380,9 @@ metric adapter, ideal regions, compact truncations, cusp estimates and ideal tet
 rational unit-circle arithmetic certificates; explicit Bloch groups and geometric trilogarithm
 presentations, with the quotient forms isCycle3_iff_delta_eq_zero and
 isCycle4_iff_mem_explicitRawCycleFour of the cycle predicates; the Bigrassmannian, Gale
-duality and its signed configuration maps; primitive K-theory comparisons, transfers and
-regulator-image containment; inductive higher Bloch groups, specialization and their complexes;
+duality and its signed configuration maps; stableK_hurewiczPrimitive and rankFiltrationK,
+primitive K-theory comparisons, transfers and regulator-image containment; weight-two rational-function rigidity and the explicit-to-inductive
+comparison; inductive higher Bloch groups, specialization and their complexes;
 the three distinct Zagier assertions, the explicit raw weight-four cycles and their inductive
 classes, the cycle obstruction and the weight-three lift; weight-four polynomial residues and
 the stated homotopy conjecture; compact test-form LF topology, currents, LF and normalization
@@ -389,8 +390,8 @@ adapters for cycle integrals; relative Chow families with arbitrary Noetherian
 characteristic-zero base change, tautological multiplicity-bearing incidence cycles and their
 faces, logarithmic Green forms; logarithmic r and Wang forms, normal-variety residues and
 current identities; Deligne and support complexes, cubical/simplicial/mixed regulators and the
-universal Beilinson comparison; Chow parameter forms via resolved smooth test families and
-Arakelov cones; curve complexes, Chow dilogarithms and reciprocity homotopies; weight-three
+universalRegulator_supportCone and the universal Beilinson comparison; Chow parameter forms
+via resolved smooth test families and Arakelov cones; curve complexes, Chow dilogarithms and reciprocity homotopies; weight-three
 curve Chern comparison, generalized elliptic trilogarithms and their Fourier pairing; the
 completed-unit Leopoldt adapter and the full p-adic embedding regulator matrix; the
 trilogarithm derivative values singleValued_three_derivative_two and
