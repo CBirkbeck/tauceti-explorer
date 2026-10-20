@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-LogicAndDefinabilityInNumberTheory",
+    "date": "2026-10-20",
+    "notes": "Independent review of all 127 targets, 165 API names and 154 Checks; all 41 definition/construction nodes retain at least three Checks. Read the 15-source reproducible sample and revisited all 21 flagged gap categories; checked pinned declarations and current upstream duplication. Corrected Pas, CTV, Koenigsmann, Pila 2004 and erratum locators; read original Pas, simple-generator and determinant proofs; added full integrability zero-locus/replacement contract, field patch dictionary, exact real-QE boundary and Galois counting argument. lean-check exited 0 with only ten expected sorry warnings. Needs changes for unresolved all-width rough-curve/Hodge compatibility and marked-endpoint arguments, missing matching Part II/arithmetic supplier stages, incomplete global motivic descent and remaining exact proof-source contracts. See the independent review report and handoff; this is a completed review, not an accepted upstream package."
+  }
+}
