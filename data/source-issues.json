@@ -198080,6 +198080,86 @@
    "reviewReason": "Take the weak formal projective line with boundary the infinity section. The map is restriction from the analytic affine line to the dagger closed unit disc. For gr⁰ of the naive Hodge filtration its H⁰ is the restriction on functions; (1−πT)⁻¹ is overconvergent on the disc but has a pole at π⁻¹ in the affine line, so restriction is not onto. GK04 Corollary 3.8 asserts only the underlying de Rham isomorphism."
   },
   {
+   "id": "CyclotomicClassGroupsAndStickelberger/E1",
+   "kind": "misprint",
+   "locator": "Author PDF served 19 October 2026, proof of Lemma 4.3.4, pp.109–110",
+   "printed": "The proof assigns p^k to Φ_(p^k)(1), and the adjacent factorization omits the levels between p and p^k.",
+   "correction": "Use Φ_(p^k)(1)=p for k≥1 and X^(p^k)−1=(X−1)∏_(j=1)^k Φ_(p^j)(X).",
+   "reason": "At p=3,k=2, Φ₉(1)=1+1+1=3, not 9. Multiplying every prime-power cyclotomic factor restores the polynomial degree.",
+   "affects": "the proof",
+   "known": "No published correction located in the versions checked; independent confirmation requested.",
+   "searched": [
+    "https://www.math.ucla.edu/~sharifi/iwasawa.pdf",
+    "https://www.math.ucla.edu/~sharifi/notes/iwasawa-ch04.html"
+   ],
+   "owner": "CyclotomicClassGroupsAndStickelberger",
+   "file": "research/blueprint/packets/CyclotomicClassGroupsAndStickelberger.json",
+   "citation": "Romyar Sharifi, Iwasawa Theory, Author notes, 189-page PDF served on 19 October 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CyclotomicClassGroupsAndStickelberger/E2",
+   "kind": "error",
+   "locator": "Author PDF served 19 October 2026, Lemma 4.5.5, p.115",
+   "printed": "For a residue field of size q=ℓ^f the stated Gauss-product scalar uses ℓ and includes the trivial character.",
+   "correction": "For nontrivial χ use g(χ)g(χ⁻¹)=χ(−1)q. With this note’s negative Gauss-sum convention the trivial-character sum is 1, so its product is 1.",
+   "reason": "Orthogonality of a nontrivial additive character on F_q gives the factor q. A quadratic character on F₉ gives magnitude 9 in the product, and the trivial character already fails over F₃. The Stickelberger proof uses q=ℓ and nontrivial χ, where its intended application is correct.",
+   "affects": "a stated result",
+   "known": "No published correction located in the versions checked; independent confirmation requested.",
+   "searched": [
+    "https://www.math.ucla.edu/~sharifi/iwasawa.pdf",
+    "https://www.math.ucla.edu/~sharifi/notes/iwasawa-ch04.html"
+   ],
+   "owner": "CyclotomicClassGroupsAndStickelberger",
+   "file": "research/blueprint/packets/CyclotomicClassGroupsAndStickelberger.json",
+   "citation": "Romyar Sharifi, Iwasawa Theory, Author notes, 189-page PDF served on 19 October 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CyclotomicClassGroupsAndStickelberger/E3",
+   "kind": "misprint",
+   "locator": "Author PDF served 19 October 2026, proof of Theorem 4.5.7, p.117",
+   "printed": "The generator-selection sentence names a primitive root of 1.",
+   "correction": "Choose a primitive root modulo p, equivalently a generator of F_p^×.",
+   "reason": "The next step requires its power to be nontrivial in F_p^×; the only first root of unity cannot meet that requirement.",
+   "affects": "the proof",
+   "known": "No published correction located in the versions checked; independent confirmation requested.",
+   "searched": [
+    "https://www.math.ucla.edu/~sharifi/iwasawa.pdf",
+    "https://www.math.ucla.edu/~sharifi/notes/iwasawa-ch04.html"
+   ],
+   "owner": "CyclotomicClassGroupsAndStickelberger",
+   "file": "research/blueprint/packets/CyclotomicClassGroupsAndStickelberger.json",
+   "citation": "Romyar Sharifi, Iwasawa Theory, Author notes, 189-page PDF served on 19 October 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CyclotomicClassGroupsAndStickelberger/E4",
+   "kind": "misprint",
+   "locator": "Author PDF served 19 October 2026, proof of Theorem 1, p.7, displayed logarithm after equation (4)",
+   "printed": "The logarithmic sum stops at m−1 although the preceding product (4) and the independent units run through m.",
+   "correction": "Sum over 2≤k≤m, retaining c_m log(δ_m^(p−1)).",
+   "reason": "Applying the logarithm to product (4) preserves every factor. For m=2 the printed sum is empty while the product has the δ₂ factor. The independence argument requires all m−1 coefficients.",
+   "affects": "the proof",
+   "known": "No published correction located in the versions checked; independent confirmation requested.",
+   "searched": [
+    "https://kconrad.math.uconn.edu/blurbs/gradnumthy/kummer.pdf",
+    "https://kconrad.math.uconn.edu/blurbs/"
+   ],
+   "owner": "CyclotomicClassGroupsAndStickelberger",
+   "file": "research/blueprint/packets/CyclotomicClassGroupsAndStickelberger.json",
+   "citation": "Keith Conrad, Kummer’s lemma, Author note, eight-page PDF served on 19 October 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-01",
    "kind": "misprint",
    "locator": "Author copy §2.2, Proposition 2.2.1 proof, PDF p. 9",
@@ -283769,14 +283849,15 @@
    "kind": "gap",
    "locator": "arXiv v4 §5.2 and Theorem 5.2.5, p. 79; published Theorem 5.12 and preceding paragraph, p. 74",
    "printed": "Theorem 5.2.5 is stated for every complete regular local ring R = W(k)⟦u₁, …, u_d⟧/(E) with perfect residue field, but the text fixes d = 1 for simplicity before the proof and expresses the hope that the general case works similarly.",
-   "correction": "The written prismatic descent proof is in one variable. This packet restricts its direct proof to dimension at most one, with a separate characteristic-p connection gap; higher-dimensional compatibility with evaluation remains a gap. This does not assert that the general Breuil-window classification is false.",
-   "reason": "The proof of Lemma 5.2.8 and the computation of the self-coproduct B = A ⊗̂ A are written in one variable u; for several variables the ideal J and the topological nilpotence of φ/E on it are not treated.",
+   "correction": "The written AL23 contraction proof is one-variable. Use Ito25 Proposition 7.1.1 and §§6.2–6.5 for the general prismatic evaluation equivalence, including equal characteristic. Its two-ideal estimates and parameter-adic completeness replace the unavailable general contraction on the diagonal kernel. The target retains every dimension.",
+   "reason": "The proof of Lemma 5.2.8 and the computation of the self-coproduct B = A ⊗̂ A are written in one variable u; for several variables the ideal J and the topological nilpotence of φ/E on it are not treated. Ito25 Remark 6.2.10 explicitly explains why (p,d)-adic topological nilpotence may fail in several variables or equal characteristic and supplies a different argument.",
    "affects": "the proof",
-   "known": "new",
+   "known": "known",
    "searched": [
     "arXiv v4",
     "open-access published version, p. 74",
-    "AL23 2025 erratum, p. 1"
+    "AL23 2025 erratum, p. 1",
+    "Ito25 Remark 6.2.10, p. 54, and Proposition 7.1.1, p. 62"
    ],
    "owner": "PrismaticCohomologyPartII",
    "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
@@ -283865,6 +283946,65 @@
    "status": "confirmed",
    "reviewedBy": "REV-DESIGN-PrismaticCohomologyPartII",
    "reviewReason": "A rational line gives H a projective point and must give formal height one; the printed subtraction gives a negative height. This also agrees with the full Drinfeld half-space example of height h."
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E6",
+   "kind": "error",
+   "locator": "Lau13 §8.2, p. 37, correcting Lau08 Lemma 3.3 and its use in Proposition 3.4",
+   "printed": "Lau13 reports that the earlier proof treated composition of admissible reduced faithfully flat coverings over a noetherian base as preserving reduced self-tensor products, by incorrectly inferring separability of a field extension from a reduced self-tensor product.",
+   "correction": "Use the actual separability hypothesis of Lau13 Lemma 8.6; those hypotheses hold for the two specific maps in the older application and are preserved on composition. The independent truncated-display proof in Lau13 §5 does not use the false lemma.",
+   "reason": "Lau13 Example 8.7 constructs two such coverings whose composite has a nonreduced self-tensor product. The issue is known from the directly read correction; no direct inspection of Lau08 is claimed.",
+   "affects": "the proof",
+   "known": "Lau13 §8.2, Lemma 8.6 and Example 8.7, p. 37",
+   "searched": [
+    "Lau13 §§8.1–8.2, pp. 36–37"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Eike Lau, Displays and formal p-divisible groups, Inventiones Mathematicae 171 (2008), 617–628",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E7",
+   "kind": "misprint",
+   "locator": "arXiv:1006.2723v1, definition preceding Lemma 3.5, p. 14; preprint only",
+   "printed": "The coefficient ring of the finite free module in a level-n Dieudonné module is given as W(k).",
+   "correction": "Use W_n(k). Retain the additional kernel/image condition for n=1.",
+   "reason": "The proof of Lemma 3.5 starts with finite free W_n(k)-modules and preserves their module structure. A nonzero free W(k)-module is not killed by p^n, whereas every underlying module of a level-n truncated display is.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv submission history: v1 is the only version (checked 2026-10-19)",
+    "Author publication page: no separate correction listed; publisher DOI refused access with HTTP 403, so no claim about the journal text"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Eike Lau, Smoothness of the truncated display functor, arXiv:1006.2723v1 (14 June 2010), printed pages; published J. Amer. Math. Soc. 26 (2013), 129–165. All locators here refer to the preprint, not the journal pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E8",
+   "kind": "misprint",
+   "locator": "arXiv:1006.2723v1, proof following Remark 4.8, p. 23; preprint only",
+   "printed": "The last two components of the two rank-one six-tuples are displayed in the reverse order from (F,F₁) used in Definition 3.4.",
+   "correction": "For the constant étale group put (F,F₁)=(pf,f); for the multiplicative group put (F,F₁)=(f,f₁). Keep P,Q,ι,ε as given. The resulting Hom equation used in the argument is unchanged.",
+   "reason": "At level one over a perfect field the printed étale F₁=pf is zero and cannot generate its nonzero module P. For the multiplicative tuple f₁ is defined on Q=I_(n+1), not on all P. Swapping the last components agrees with the covariant crystalline normalization of §2.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1006.2723v1 Definitions 3.1–3.4 and Lemma 3.5, pp. 12–14",
+    "arXiv submission history and author publication page checked 2026-10-19; publisher DOI refused access with HTTP 403"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Eike Lau, Smoothness of the truncated display functor, arXiv:1006.2723v1 (14 June 2010), printed pages; published J. Amer. Math. Soc. 26 (2013), 129–165. All locators here refer to the preprint, not the journal pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "ProbabilisticAndMetricNumberTheory/EPM4-1",
