@@ -152270,6 +152270,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex2.md",
    "note": "claimed on GitHub issue #11294"
+  },
+  {
+   "id": "FIX-PKG-BorelRegulators~adv3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "BorelRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-BorelRegulators~adv3.md",
+    "research/blueprint/packages/BorelRegulators/review.json",
+    "research/blueprint/packages/BorelRegulators/README.md",
+    "research/blueprint/packages/BorelRegulators/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv3.md"
   }
  ]
 }
