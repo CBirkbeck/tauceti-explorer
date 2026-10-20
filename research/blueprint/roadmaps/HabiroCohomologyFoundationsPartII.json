@@ -1,0 +1,123 @@
+{
+  "id": "HabiroCohomologyFoundationsPartII",
+  "title": "Habiro cohomology foundations, Part II",
+  "area": "automorphic",
+  "parent": "HabiroCohomologyFoundations",
+  "summary": "Use independently constructed refined trace filtrations as inputs to algebraic Habiro cohomology. This sequel proves the spherical-lift criterion after perfection, compares canonical and framed trace filtrations on their full common domain, and exports cyclotomic and Taylor maps from the genuine-fixed-point realization of number-field Habiro rings. All coefficient, prismatic and trace foundations are imported from their existing owners.",
+  "readme": "HabiroCohomologyFoundations supplies derived q-de Rham complexes, coherent chosen pairs, Habiro descent and the trace-free canonical constructions. RefinedTraceMethods supplies the spherical-lift and E₁-resolution comparisons, the genuine cyclonic reconstruction and the comparison with independently defined prismatic Nygaard. HT.1 composes these interfaces and proves the relative perfected-lift application. HT.2 identifies the canonical framed output and transports the arithmetic specialization maps. Read research/blueprint/readmes/HabiroCohomologyFoundationsPartII.md for hypotheses, API and worked Checks. The dependency order is Part I → RefinedTraceMethods → Part II; the exact relocation manifest is in the design handoff.",
+  "prerequisites": [
+    "HabiroCohomologyFoundations",
+    "RefinedTraceMethods",
+    "HabiroRings",
+    "PrismaticCohomology"
+  ],
+  "stages": [
+    {
+      "key": "HT.1",
+      "title": "Trace pairs and perfected spherical lifts",
+      "description": "For a perfectly covered Λ-base with full spherical (tC_p) data, quasi-lci R with bounded p-power torsion, compatible per-prime E₂ or coherent E₁-resolution lifts, and the separate 2-adic E₁ addendum, form H(R,F_tr) by the existing chosen-pair descent. Preserve all four pair axioms, the completed shifted even TC⁻ comparison, q-Witt associated gradeds and only the supplied E_(n−1) multiplicativity. For a p-torsion-free, p-quasi-lci R over a p-completely perfectly covered δ-base with relatively semiperfect R/p, prove that an E₁ spherical lift of (R⊗_A A_∞)^∧_p makes the existing naive filtration a q-deformation. Retain the E₁ ku-lift counterexample and the independent prismatic/trace construction boundary as imported targets.",
+      "requires": [
+        "HabiroCohomologyFoundations:HQ.2",
+        "HabiroCohomologyFoundations:HQ.3",
+        "HabiroCohomologyFoundations:HQ.5",
+        "RefinedTraceMethods:RT.4:q-Hodge",
+        "RefinedTraceMethods:RT.6",
+        "PrismaticCohomology:PR.3"
+      ]
+    },
+    {
+      "key": "HT.2",
+      "title": "Canonical and arithmetic trace exports",
+      "description": "For framed smooth S over a spherical cyclotomic perfectly covered Λ-base satisfying KU 6.7/6.10 and with all primes ≤the number of framing coordinates invertible, compare the completed trace filtration with the canonical coordinate filtration h^max(i−j,0)Ω^j[[h]], and pull back the particular equivalence to qdR and Habiro descent. For every number field F and positive Δ divisible by 6 and disc(F), transport the existing Habiro cyclotomic reductions and Frobenius-twisted Taylor maps through RT’s ring equivalence with π₀ of the divisibility limit of residual-circle homotopy fixed points of genuine C_m-fixed THH over periodic KU. Retain the operation order, degree-zero scope and stronger inversion hypotheses.",
+      "requires": [
+        "HabiroCohomologyFoundationsPartII:HT.1",
+        "HabiroCohomologyFoundations:HQ.3",
+        "HabiroCohomologyFoundations:HQ.5",
+        "RefinedTraceMethods:RT.4:q-Hodge",
+        "RefinedTraceMethods:RT.4:Habiro-comparison",
+        "HabiroRings:HR.5",
+        "HabiroRings:HR.6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "QH",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Definition 3.2 and Remark 3.6, pp.20–22; Theorem 3.11 and Corollary 3.13, pp.25–27 (pair and descent interfaces)",
+        "Construction 4.21, Theorem 4.22, Remark 4.23, Examples 4.24–4.25, Lemmas 4.26–4.27 and proof of 4.22, pp.62–66",
+        "Construction 4.28 and Theorem 4.29, p.66 (rational arithmetic gluing); Remark 4.4 and Lemmas 4.6–4.7, pp.55–56"
+      ]
+    },
+    {
+      "id": "KU",
+      "title": "q-de Rham cohomology and topological Hochschild homology over ku",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.06057v1",
+      "url": "https://arxiv.org/pdf/2510.06057v1",
+      "sha256": "fe9d7d71478eb546f89784f2eabdb15ec4f1e5ff8870c6c84909896c1543ea7d",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Theorems 1.2 and 1.4, p.3; Paragraphs 1.8–1.11, pp.4–5",
+        "Assumptions 3.1–3.2, p.24; Theorems 4.14 and 4.17 with Nikolaus argument, pp.43–46",
+        "Assumptions 4.18 and 4.18a, pp.46,49; Theorem 4.27, Remark 4.28, Lemma 4.29, pp.49–51",
+        "Examples 6.1–6.9, pp.81–83; Theorem 6.10 and Lemmas 6.11–6.13, pp.83–86; Corollary 6.15 and proof, p.86"
+      ]
+    },
+    {
+      "id": "TC",
+      "title": "q-Hodge complexes and refined TC⁻",
+      "authors": "Samuel Meyer and Ferdinand Wagner",
+      "edition": "arXiv:2410.23115v4",
+      "url": "https://arxiv.org/pdf/2410.23115v4",
+      "sha256": "4479788e04da71cfb76596b4375b6b1e4c9bcd940ad92e1ab7c8ededba446dd4",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Paragraphs 3.4–3.6, Lemma 3.7 and Corollary 3.8, pp.30–32; rational-corner check against the corrected Part I finite-coefficient pair"
+      ]
+    },
+    {
+      "id": "GSWZ",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler and Don Zagier",
+      "edition": "arXiv:2412.04241v2",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Section 1.4, Definition 1.1 and its surrounding Frobenius/Taylor conventions, pp.6–7"
+      ]
+    },
+    {
+      "id": "BS",
+      "title": "Prisms and prismatic cohomology",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1905.08229v4",
+      "url": "https://arxiv.org/pdf/1905.08229v4",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Theorem 15.3 and proof, pp.103–104; Theorem 15.7, p.105 (scope of the relative Breuil–Kisin completion comparison)"
+      ]
+    },
+    {
+      "id": "BMS2",
+      "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow and Peter Scholze",
+      "edition": "arXiv:1802.03261v2",
+      "url": "https://arxiv.org/pdf/1802.03261v2",
+      "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Theorems 1.8, 1.10 and 1.12, pp.5–7 (independent trace filtration, its twists and comparisons)"
+      ]
+    }
+  ],
+  "status": "draft"
+}

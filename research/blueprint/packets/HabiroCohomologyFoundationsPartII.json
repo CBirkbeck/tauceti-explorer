@@ -1,0 +1,732 @@
+{
+  "roadmapId": "HabiroCohomologyFoundationsPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "HabiroCohomologyFoundationsPartII:HT.1",
+    "HabiroCohomologyFoundationsPartII:HT.2"
+  ],
+  "status": "complete",
+  "summary": "Trace-dependent applications of the Part I q-Hodge formalism: descend chosen trace pairs, prove the perfected spherical-lift criterion for the existing naive filtration, compare the framed trace filtration with the canonical algebraic one, and transport number-field Habiro specializations across the genuine-fixed-point comparison. Trace, prismatic and coefficient constructions remain with their existing owners.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Commute.isUnit_mul_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Commute/Units.lean",
+        "provides": "For commuting elements a,b of a monoid, IsUnit(a*b) iff IsUnit a and IsUnit b. This discharges only the native coefficient-unit Check for inversion of 6, not a spectral target.",
+        "checked": "Actual theorem statement read at 082e2d37e8b0463410cdb532e111cd43d5a66174; source lines 74–77."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "QH",
+      "title": "q-Hodge complexes over the Habiro ring",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.04782v2",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Definition 3.2 and Remark 3.6, pp.20–22; Theorem 3.11 and Corollary 3.13, pp.25–27 (pair and descent interfaces)",
+        "Construction 4.21, Theorem 4.22, Remark 4.23, Examples 4.24–4.25, Lemmas 4.26–4.27 and proof of 4.22, pp.62–66",
+        "Construction 4.28 and Theorem 4.29, p.66 (rational arithmetic gluing); Remark 4.4 and Lemmas 4.6–4.7, pp.55–56"
+      ]
+    },
+    {
+      "id": "KU",
+      "title": "q-de Rham cohomology and topological Hochschild homology over ku",
+      "authors": "Ferdinand Wagner",
+      "edition": "arXiv:2510.06057v1",
+      "url": "https://arxiv.org/pdf/2510.06057v1",
+      "sha256": "fe9d7d71478eb546f89784f2eabdb15ec4f1e5ff8870c6c84909896c1543ea7d",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Theorems 1.2 and 1.4, p.3; Paragraphs 1.8–1.11, pp.4–5",
+        "Assumptions 3.1–3.2, p.24; Theorems 4.14 and 4.17 with Nikolaus argument, pp.43–46",
+        "Assumptions 4.18 and 4.18a, pp.46,49; Theorem 4.27, Remark 4.28, Lemma 4.29, pp.49–51",
+        "Examples 6.1–6.9, pp.81–83; Theorem 6.10 and Lemmas 6.11–6.13, pp.83–86; Corollary 6.15 and proof, p.86"
+      ]
+    },
+    {
+      "id": "TC",
+      "title": "q-Hodge complexes and refined TC⁻",
+      "authors": "Samuel Meyer and Ferdinand Wagner",
+      "edition": "arXiv:2410.23115v4",
+      "url": "https://arxiv.org/pdf/2410.23115v4",
+      "sha256": "4479788e04da71cfb76596b4375b6b1e4c9bcd940ad92e1ab7c8ededba446dd4",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Paragraphs 3.4–3.6, Lemma 3.7 and Corollary 3.8, pp.30–32; rational-corner check against the corrected Part I finite-coefficient pair"
+      ]
+    },
+    {
+      "id": "GSWZ",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler and Don Zagier",
+      "edition": "arXiv:2412.04241v2",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Section 1.4, Definition 1.1 and its surrounding Frobenius/Taylor conventions, pp.6–7"
+      ]
+    },
+    {
+      "id": "BS",
+      "title": "Prisms and prismatic cohomology",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1905.08229v4",
+      "url": "https://arxiv.org/pdf/1905.08229v4",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Theorem 15.3 and proof, pp.103–104; Theorem 15.7, p.105 (scope of the relative Breuil–Kisin completion comparison)"
+      ]
+    },
+    {
+      "id": "BMS2",
+      "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow and Peter Scholze",
+      "edition": "arXiv:1802.03261v2",
+      "url": "https://arxiv.org/pdf/1802.03261v2",
+      "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Theorems 1.8, 1.10 and 1.12, pp.5–7 (independent trace filtration, its twists and comparisons)"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroCohomologyFoundationsPartII:HT.1/trace-habiro",
+      "parentStageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "realises": [
+        "HabiroCohomologyFoundationsPartII:HT.1"
+      ],
+      "title": "Habiro descent of a chosen trace q-Hodge pair",
+      "kind": "construction",
+      "statement": "On the compatible structured-lift inputs of RT.4:q-Hodge satisfying the global conditions below, define traceHabiro(R,L) = H(R,F_tr(L)) by applying the Part I Habiro descent functor to the imported trace pair. Its h-completion is qHdg(R,F_tr), and its q^m−1 reduction has the exhaustive ascending q-Witt filtration with gr_i ≃ Σ^(−i) qW_m dR^i_{R/A}. On morphisms of the chosen lifted diagrams it is the composite functor; a bare map of underlying rings does not specify such a morphism. If the supplied local structures satisfy KU Remark 4.28 for n≥2, the output inherits E_(n−1); the comparison of the completed filtration with trace graded pieces has that same specified level.",
+      "hypotheses": [
+        "A is a perfectly covered Λ-ring. Each Â_p has the p-complete connective E∞ spherical lift of KU 3.1(tC_p), including the π₀ Frobenius identification and the S¹-equivariant E∞ Tate-valued Frobenius, not merely a map of underlying spectra.",
+        "R is quasi-lci over A and has bounded p^∞-torsion for every p. At each p choose either the connective spherical E₂ lift of KU 3.2(E₂), or its E₁ resolution: p-torsion-free R̂_p, p-quasisyntomic semiperfect-mod-p cover, and the full augmented cosimplicial connective E₁ lift of the p-completed Čech nerve. Choices may differ at different primes.",
+        "Retain KU 4.18a(R2): R̂₂ has the E₁ resolution data, automatic when 2 is a unit. Compatible gluing and the lifted morphisms are imported from RT, with no assertion of a canonical lift of arbitrary R.",
+        "The imported F_tr is the entire q-Hodge pair with (a),(b),(c),(c_p) and their coherences. The trace formula identifies its filtration completion, not the uncompleted pair. In Rees notation h=q−1=βt, with β in filtration degree +1 and t in degree −1."
+      ],
+      "proofSteps": [
+        "Use RT spherical-lift, compatible-spherical-lifts and q-hodge-global to obtain the pair with every coherence. The completed comparison is Σ^(−2i) gr^i_(even,hS¹) TC⁻(ku_R/ku_A).",
+        "Apply the already constructed Part I habiro-descent to that pair. Its factorial-indexed partial descents and h-completion are supplied by the-habiro-hodge-complex and the-q-hodge-complex; do not reconstruct TC⁻ or the Habiro completion.",
+        "Apply the imported q-Witt filtration theorem to each derived q^m−1 reduction. This gives the graded theorem and the m=1 conjugate filtration, without replacing the reduction by an unfiltered q-Witt complex.",
+        "Compose the supplied maps of pairs and the descent functor, obtaining identity and composition laws. Use q-hodge-multiplicativity and multiplicative-upgrades only with the stated E_n data."
+      ],
+      "prerequisites": [
+        "RefinedTraceMethods:RT.4:q-Hodge/spherical-lift",
+        "RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-multiplicativity",
+        "HabiroCohomologyFoundations:HQ.3/plan/q-hodge-filtrations",
+        "HabiroCohomologyFoundations:HQ.2/plan/the-quotient-convention-for-filtered-modules",
+        "HabiroCohomologyFoundations:HQ.3/plan/the-q-hodge-complex",
+        "HabiroCohomologyFoundations:HQ.3/plan/the-habiro-hodge-complex",
+        "HabiroCohomologyFoundations:HQ.3/plan/habiro-descent",
+        "HabiroCohomologyFoundations:HQ.3/plan/habiro-descent-the-q-de-rham-witt-filtration",
+        "HabiroCohomologyFoundations:HQ.3/plan/multiplicative-upgrades",
+        "RefinedTraceMethods:RT.6/habiro-trace-interface",
+        "RefinedTraceMethods:RT.4:q-Hodge",
+        "PrismaticCohomology:PR.3",
+        "RefinedTraceMethods:RT.6/trace-prismatic-comparison",
+        "RefinedTraceMethods:RT.6/motivic-filtrations"
+      ],
+      "sources": [
+        {
+          "sourceId": "KU",
+          "locator": "Theorem 1.2, p.3; Assumptions 3.1–3.2, p.24; Assumptions 4.18/4.18a, pp.46,49; Theorem 4.27 and Remark 4.28, p.50",
+          "match": "These supply precisely the structured input, full trace pair, completed graded comparison and conditional multiplicative level."
+        },
+        {
+          "sourceId": "QH",
+          "locator": "Definition 3.2, pp.20–21; Construction 3.5 and Remark 3.6, p.22; Theorem 3.11(a),(b), p.25",
+          "match": "Compose the chosen-pair trace output with the existing symmetric monoidal Habiro descent and its filtered cyclotomic reductions."
+        }
+      ],
+      "acceptance": [
+        "Over A=ℤ, a quasisyntomic R with 2 invertible and a connective spherical E₂ lift satisfies the introductory theorem. Its h-complete filtration is the shifted trace graded object.",
+        "All four pair axioms, including the separate p-completed rational comparison and its higher compatibility, survive the composition.",
+        "The E₁-resolution construction also works at p=2 with its actual Čech and torsion hypotheses. No universal replacement of a spherical lift by a ku-lift is made."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Trace Habiro descent"
+      },
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/TraceApplications",
+        "namespace": "TauCeti.QHodge.Trace"
+      },
+      "api": [
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro",
+          "role": "constructor",
+          "statement": "For a chosen compatible lift datum L satisfying the hypotheses, H(R,F_tr(L)) in the Habiro-complete category over A[q]."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_map",
+          "role": "functoriality",
+          "statement": "A compatible morphism of RT lifted diagrams induces the Part I map of descended objects. Identity and composition follow from those of the pair functor and H."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_hCompletion",
+          "role": "compatibility",
+          "statement": "The derived h-completion of traceHabiro(R,L) identifies with the β-periodic-colimit q-Hodge complex of F_tr(L), completed at h. It is not asserted to equal qdR."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_partialCompletion",
+          "role": "compatibility",
+          "statement": "For every m≥1 the derived (q^m−1)-completion is the partial Habiro descent T_m of the imported pair; the factorial transition maps are those of H."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_qWittGraded",
+          "role": "projection",
+          "statement": "The exhaustive ascending filtration on traceHabiro(R,L)/(q^m−1) has gr_i ≃ Σ^(−i)qW_m dR^i; at m=1 this is the conjugate filtration."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_multiplicative",
+          "role": "structure",
+          "statement": "KU 4.28 compatible local E_n data (n≥2, with the E₁ branch where permitted) give an E_(n−1) output through the Part I monoidal descent; no extra commutativity is inferred from a bare E₂ lift."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_pairEquiv",
+          "role": "equivalence",
+          "statement": "A specified equivalence of trace pairs induces an equivalence of the descended objects, compatible with h- and cyclotomic completions, rather than an equality for any two unspecified lift choices."
+        }
+      ],
+      "uses": [
+        {
+          "where": "KU Theorem 4.27 and QH Theorem 3.11, composed",
+          "how": "Turns a trace existence theorem for a chosen pair into its Habiro-valued export without duplicating either supplier."
+        },
+        {
+          "where": "HabiroNahmSeries and HabiroNumberFields applications",
+          "how": "Provides the derived object and its permitted cyclotomic graded specializations, with multiplicativity bounded by the chosen structured lift."
+        },
+        {
+          "where": "HabiroCohomologyFoundationsPartII:HT.2/canonical-framed-trace",
+          "how": "Identifies the Habiro object after the specific canonical/framed comparison of pairs is supplied."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_etale",
+          "kind": "compatibility",
+          "statement": "For a finite étale R over A with its compatible étale spherical lift, the trace pair has the étale h-adic filtration and its descended object is the existing H_{R/A}; its h-completion is R[[h]]."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_unitFiltration",
+          "kind": "degenerate",
+          "statement": "For the unit pair over A, F^i=h^max(i,0) A[[h]], the filtered quotient cofib(h:F^{i−1}→F^i) is A for i≤0 and zero for i>0. The degreewise quotient would incorrectly leave A in positive degrees."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_polynomial",
+          "kind": "computation",
+          "statement": "For R=ℤ[1/2][x] with its polynomial spherical lift, the q-Hodge model has differential x^r↦(q^r−1)x^(r−1)dx, while the q-de Rham model has [r]_q x^(r−1)dx; h-completion must not identify these two complexes."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_kuLiftInsufficient",
+          "kind": "non-example",
+          "statement": "The perfected free-δ-ring exponent-one quotient in KU 1.11 has an E₁ ku-lift and fails the naive mod-β deformation test. The input checker cannot admit that ku-lift as spherical E₁ resolution data."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.traceHabiro_mOne",
+          "kind": "characterisation",
+          "statement": "At m=1 the ascending reduction filtration is conjugate with gr_i=Σ^(−i)dR^i. It is not the descending Hodge filtration F_tr/β, even though both reduce along h at the underlying coefficient level."
+        }
+      ]
+    },
+    {
+      "id": "HabiroCohomologyFoundationsPartII:HT.1/perfected-lift-naive",
+      "parentStageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "realises": [
+        "HabiroCohomologyFoundationsPartII:HT.1"
+      ],
+      "title": "Spherical lift after perfection and the naive filtration",
+      "kind": "theorem",
+      "statement": "Let p be any prime, A a p-complete p-completely perfectly covered δ-ring and R a p-complete p-torsion-free p-quasi-lci A-algebra with R/p relatively semiperfect over A. Put R_∞=(R⊗_A A_∞)^∧_p for the perfected base. If R_∞ has a connective p-complete spherical E₁ lift, the ordinary-preimage naive filtration of Part I satisfies F_naive/β ≃ fil_Hdg dR_{R/A}. Together with its already constructed zeroth, rational and p-rational data this is the local q-Hodge pair used in the canonical quasi-regular section. The filtration itself is defined without choosing a spherical lift.",
+      "hypotheses": [
+        "The spherical lift is of R_∞, not necessarily of R; it is used to prove the existing filtration is a deformation.",
+        "The derived (p,h)-completed flat base change is used; an uncompleted ordinary tensor product is not a replacement.",
+        "The mod-β quotient is the filtered quotient. The assertion holds also at p=2 using the identity-cover E₁ theorem, with no blanket 2-invertibility assumption."
+      ],
+      "proofSteps": [
+        "The Part I injectivity theorem supplies F_naive/β ↪ fil_Hdg dR, so only surjectivity remains.",
+        "By Part I flat-base-change, pull back along the p-completely faithfully flat A→A_∞. This reduces to a perfect δ-base. Its vanishing relative cotangent complex identifies the relevant q-de Rham and de Rham objects with those over ℤ_p, as in the proof of QH 4.22.",
+        "Apply RT quasi-regular-quotients (KU 4.17) to the identity cover of R_∞ over ℤ_p. Its E₁ spherical lift and semiperfect reduction supply the local comparison at every p, with KU 4.14 covering p=2. The resulting trace filtration is exactly the ordinary naive preimage.",
+        "Descend surjectivity by the same completed faithfully flat base change. Keep the Part I comparison maps; no arbitrary filtered equivalence or global uniqueness of chosen filtrations is used."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundations:HQ.5/plan/the-naive-filtration-for-quasi-regular-inputs",
+        "HabiroCohomologyFoundations:HQ.5/plan/the-naive-filtration-is-injective-modulo-q-minus-one",
+        "HabiroCohomologyFoundations:HQ.5/plan/flat-base-change-for-the-naive-filtration",
+        "HabiroCohomologyFoundations:HQ.5/plan/the-quasi-lci-inputs-and-condition-R",
+        "HabiroCohomologyFoundations:HQ.2/plan/derived-base-change-and-its-completion-hypotheses",
+        "RefinedTraceMethods:RT.4:q-Hodge/quasi-regular-quotients",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two",
+        "RefinedTraceMethods:RT.4:q-Hodge",
+        "HabiroCohomologyFoundations:HQ.5/plan/when-the-naive-filtration-deforms-the-hodge-filtration",
+        "HabiroCohomologyFoundations:HQ.5/plan/the-exponent-one-quotient-is-not-a-q-deformation"
+      ],
+      "sources": [
+        {
+          "sourceId": "QH",
+          "locator": "Construction 4.21 and Theorem 4.22(b), p.62; Lemmas 4.26–4.27 and proof of Theorem 4.22, pp.64–66",
+          "match": "The proof reduces by completed flat perfection to the identity-cover trace theorem; the hypothesis concerns the perfected base change."
+        },
+        {
+          "sourceId": "KU",
+          "locator": "Theorem 4.14 and Remark 4.15, p.43, proof pp.43–45; Theorem 4.17, pp.45–46",
+          "match": "The E₁ identity-cover filtration is the lift-independent static preimage and is a deformation, including at 2."
+        },
+        {
+          "sourceId": "QH",
+          "locator": "Remark 4.23, p.63; Example 4.25, p.64",
+          "match": "Higher powers give sufficient spherical lifts only in the stated prime ranges, while a toric exponent-one example also has a lift."
+        }
+      ],
+      "acceptance": [
+        "The perfected free-δ exponent-one quotient has no conclusion from this theorem merely because an E₁ ku-lift exists: its naive deformation already fails.",
+        "A higher-power perfect-regular presentation with exponents ≥2 supplies the cited spherical E₁ lift for odd p; at p=2 this route requires even exponents ≥4. The independent Part I algebraic higher-power theorem still covers all exponents ≥2 at 2.",
+        "For A=ℤ_p[x]^∧_p with δ(x)=0 and R=A/(x−1), the spherical polynomial evaluation at x=1 gives the required lift after perfection. The elements ∏_{0≤i<n}(x−q^i)/[n]_q! reduce to (x−1)^n/n!, exhibiting the Hodge lifts.",
+        "The local statement feeds Part I’s arithmetic pullback criterion prime by prime. Its rational combined-filtration corner must still be retained."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Spherical lift criterion"
+      },
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/TraceApplications",
+        "namespace": "TauCeti.QHodge.Trace"
+      }
+    },
+    {
+      "id": "HabiroCohomologyFoundationsPartII:HT.2/canonical-framed-trace",
+      "parentStageId": "HabiroCohomologyFoundationsPartII:HT.2",
+      "realises": [
+        "HabiroCohomologyFoundationsPartII:HT.2"
+      ],
+      "title": "Canonical and framed trace filtrations agree",
+      "kind": "theorem",
+      "statement": "Let A be a perfectly covered Λ-ring with a chosen spherical cyclotomic base as in KU 3.1 and 4.18, and let □:A[x₁,…,x_d]→S be an étale framing as in KU 6.7. Assume every prime ≤d is a unit in S, so the Part I canonical smooth pair is defined on this framing. Use its canonical étale spherical lift S_{S,□} and the KU 6.10 framed trace comparison, with that theorem’s chosen coherent resolutions. Then the completed trace filtration identifies with the completed canonical filtration through the coordinate complex: in cohomological degree j its i-th step is h^max(i−j,0)Ω^j_{S/A}[[h]]. Pulling back the specified coordinate equivalence along qdR→qΩ identifies the two chosen pairs, including all comparison data, and hence their Habiro descents. This is a comparison on the full common domain, with no extra universal inversion of 2.",
+      "hypotheses": [
+        "The entire spherical base structure of KU is required. Merely being perfectly covered is insufficient to assert existence of a spherical base.",
+        "The RT input requested here is KU 6.10 for all framed smooth A-algebras, not only the already planned ℤ[x] example. Its proof must retain the coherent prime-two resolution or verify the applicable KU addendum, not discard it based on an E∞ lift alone.",
+        "The bound uses d framing coordinates. These hypotheses are a common domain of the particular canonical and trace constructions, not a selection of filtrations on all smooth rings.",
+        "The comparison on qΩ is complete; the chosen pair on uncompleted qdR is obtained by the specified pullback."
+      ],
+      "proofSteps": [
+        "Import the full framed KU 6.10 comparison from RT.4:q-Hodge (request HT-RT-framed). It identifies the shifted trace graded filtration with the coordinate subcomplex and is constructed using the framed Čech resolution of KU 6.12–6.13.",
+        "Use the exact Part I framed-and-fixed-point-descriptions-of-the-canonical-filtration map: the truncation counit with its fixed pullback identification gives F_can→F_frame, reducing to the identity on the Hodge filtration. Completeness then proves this particular map is an equivalence.",
+        "Compose these specified maps on the completed coordinate model, then apply the Part I pullback-to-qdR construction. Carry the zeroth-step, mod-β, rational and p-rational identifications and their coherences through the defining pullbacks.",
+        "Apply traceHabiro_pairEquiv, equivalently the imported H functor on this equivalence of pairs. This gives the Habiro comparison without using an unproved uncompleted framed Koszul presentation."
+      ],
+      "prerequisites": [
+        "HabiroCohomologyFoundationsPartII:HT.1/trace-habiro",
+        "HabiroCohomologyFoundations:HQ.5/plan/the-canonical-filtration-is-a-q-hodge-filtration",
+        "HabiroCohomologyFoundations:HQ.5/plan/framed-and-fixed-point-descriptions-of-the-canonical-filtration",
+        "HabiroCohomologyFoundations:HQ.3/plan/the-coordinate-model-and-the-etale-case",
+        "HabiroCohomologyFoundations:HQ.3/plan/q-hodge-filtrations",
+        "HabiroCohomologyFoundations:HQ.3/plan/habiro-descent",
+        "RefinedTraceMethods:RT.4:q-Hodge"
+      ],
+      "sources": [
+        {
+          "sourceId": "KU",
+          "locator": "Example 6.7, p.82; Theorem 6.10, p.83, proof via 6.11–6.13, pp.84–86; Remark 6.14, p.86",
+          "match": "The framed smooth spherical lift yields the explicit coordinate filtration and its coherent multiplicative comparison."
+        },
+        {
+          "sourceId": "QH",
+          "locator": "Example 3.12, pp.25–26; Remark 3.6, p.22; Remark 4.4, p.55, Lemma 4.7, p.56",
+          "match": "The coordinate filtration pulls back to a chosen pair; the canonical construction has the same truncated defining pullback on this input class."
+        }
+      ],
+      "acceptance": [
+        "For S=ℤ[1/2][x], the explicit lift is the flat spherical polynomial algebra S[1/2][x]; all three filtrations compare through the displayed coordinate subcomplex.",
+        "For d=0 the framing is étale: F^i=h^max(i,0)S[[h]], and the Habiro output is the relative Habiro ring.",
+        "For the polynomial q-Hodge complex M over ℤ, H⁰(M/^Lh)=ℤ[x] whereas H⁰(M)/h=ℤ. The difference is carried by H¹(M)[h], so passing cohomology through reduction is not a comparison proof.",
+        "The independent one-variable canonical domain includes ℤ[x], but its square ℤ[x,y] requires 2 to be inverted. The theorem does not silently enlarge this domain using tensor products.",
+        "The Laurent example over ℚ still distinguishes uncompleted qdR from qΩ; the completed comparison cannot erase that distinction."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Canonical framed trace comparison"
+      },
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/TraceApplications",
+        "namespace": "TauCeti.QHodge.Trace"
+      }
+    },
+    {
+      "id": "HabiroCohomologyFoundationsPartII:HT.2/number-field-trace-exports",
+      "parentStageId": "HabiroCohomologyFoundationsPartII:HT.2",
+      "realises": [
+        "HabiroCohomologyFoundationsPartII:HT.2"
+      ],
+      "title": "Cyclotomic and Taylor maps on the number-field trace realization",
+      "kind": "construction",
+      "statement": "For any number field F and positive integer Δ divisible by 6 and disc(F), put R=O_F[1/Δ], let S_R be its unique étale spherical lift, and put P_R = π₀(lim_{m, divisibility} ((THH(KU⊗S_R/KU)^{genuine C_m})^{h(S¹/C_m)})). Import the RT ring isomorphism ε_R:H_R≃P_R. Define the cyclotomic reduction ρ_m:P_R→qW_m(R/ℤ[1/Δ]) and the completed Taylor map τ_m:P_R→R[ζ_m][[q−ζ_m]] by composing ε_R^(−1) with the existing Habiro maps. Here H_R is the existing arithmetic ring with its Frobenius-twisted coefficient conventions. These maps satisfy the imported transition, completion and Frobenius-gluing laws, transported through ε_R. They identify P_R with the same Taylor equalizer as H_R and give P_R^∧_h≃R[[h]].",
+      "hypotheses": [
+        "The realization uses periodic KU. First take genuine C_m fixed points, then residual S¹/C_m homotopy fixed points, then the divisibility-indexed limit in spectra, and finally π₀. Neither homotopy C_m fixed points nor a limit of the separate π₀ groups can replace these steps without a separate theorem.",
+        "R is finite étale over ℤ[1/Δ]. The coefficient-ring construction requires only discriminant inversion, whereas this RT realization also requires 2 and 3 inverted.",
+        "Use the existing absolute number-field/relative Habiro identification and chosen roots for the Taylor factors. Its Frobenius twists and p-adic re-expansions remain part of the gluing data.",
+        "No K₃-indexed module, regulator line or higher cohomology comparison is asserted by this degree-zero ring export."
+      ],
+      "proofSteps": [
+        "Import RT.4:Habiro-comparison/etale-einfty-lift and /number-field-habiro (KU 6.15); this supplies ε_R with precisely the fixed-point order above. The theorem is not reproved here.",
+        "Use HabiroRings HR.5 and HR.6’s equivalence with the existing arithmetic Habiro ring, its q-Witt reductions, completed cyclotomic factors and Frobenius-twisted Taylor equalizer. For the étale Hodge identification use QH Corollary 3.13, not the incorrect 3.12 cross-reference in KU.",
+        "Compose each existing specialization with ε_R^(−1). Each diagram commutes by cancellation of ε_R with its inverse; naturality is asserted for the compatible arithmetic/étale maps for which the supplied ε is natural.",
+        "Transport the completion equivalences and the joint Taylor equalizer description through the ring isomorphism, keeping p-adic gluing and Frobenius action on coefficients. Do not invent a componentwise constant R-algebra structure."
+      ],
+      "prerequisites": [
+        "RefinedTraceMethods:RT.4:Habiro-comparison/etale-einfty-lift",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/number-field-habiro",
+        "RefinedTraceMethods:RT.6/habiro-trace-interface",
+        "HabiroRings:HR.5/the-relative-habiro-ring",
+        "HabiroRings:HR.5/the-equaliser-presentation",
+        "HabiroRings:HR.5/roots-choices-and-substitutions",
+        "HabiroRings:HR.5-number-field-comparison/the-number-field-ring",
+        "HabiroRings:HR.6/the-degree-zero-identification",
+        "mathlib:Commute.isUnit_mul_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "KU",
+          "locator": "Corollary 6.15 and proof, §6.3, p.86",
+          "match": "The existing arithmetic Habiro ring is π₀ of this precise genuine-fixed-point/residual-circle divisibility limit under 6·disc(F) inversion."
+        },
+        {
+          "sourceId": "QH",
+          "locator": "Corollary 3.13, p.27",
+          "match": "Étale Habiro-Hodge cohomology is the existing relative Habiro ring; this is the correct cross-reference for KU 6.15."
+        },
+        {
+          "sourceId": "GSWZ",
+          "locator": "Definition 1.1, §1.4, pp.6–7",
+          "match": "The target coefficient ring is the Frobenius-twisted Taylor equalizer, with p-adic re-expansion at adjacent roots of unity."
+        }
+      ],
+      "acceptance": [
+        "For F=ℚ and Δ=6, R=ℤ[1/6], this exports the ordinary Habiro coefficient maps after localization. The m=1 Taylor completion is ℤ[1/6][[h]].",
+        "The native unit Check proves that 6 invertible forces 2 and 3 invertible; the source still requires the discriminant condition for arbitrary F.",
+        "At every m, ρ_m is the transported q-Witt reduction and the completed map has the same source completion as H_R. The product of Taylor series is the twisted equalizer, rather than arbitrary independent series.",
+        "A number field need not admit an embedding as constant Taylor families: Frobenius moves coefficients. All number fields are allowed, including nonabelian F, through the twisted gluing.",
+        "Discriminant-only localization is not enough to invoke this theorem; no statement for higher homotopy or arithmetic regulator modules follows from ε_R."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Number-field trace specializations"
+      },
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Habiro/TraceApplications",
+        "namespace": "TauCeti.QHodge.Trace"
+      },
+      "api": [
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports",
+          "role": "constructor",
+          "statement": "Transport the existing arithmetic Habiro cyclotomic and Taylor maps along the specified ring isomorphism ε_R:H_R≃P_R."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_cyclotomic",
+          "role": "projection",
+          "statement": "ρ_m = reduction_m ∘ ε_R^(−1), with target qW_m(R/ℤ[1/Δ]); the compatible completed target is H_{R,m}."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_taylor",
+          "role": "projection",
+          "statement": "τ_m = Taylor_m ∘ ε_R^(−1) into the m-th root expansion factor, using the specified choice ζ_m and its already supplied change-of-root maps."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_transition",
+          "role": "compatibility",
+          "statement": "Cyclotomic transitions and Taylor re-expansions commute with ε_R; the same Frobenius-twisted p-adic gluing equations characterize the family (τ_m(z))_m."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_equalizer",
+          "role": "characterisation",
+          "statement": "The product of τ_m identifies P_R with the existing twisted Taylor equalizer H_R. The equality is inherited from HR.5; no componentwise constant coefficient embedding is added."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_hCompletion",
+          "role": "equivalence",
+          "statement": "The h-completion of P_R is R[[h]], and its projection is τ_1. All (q^m−1)- and Φ_m-completion descriptions are the transported HR.5 descriptions."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_naturality",
+          "role": "functoriality",
+          "statement": "For compatible maps of localized étale arithmetic inputs for which ε is natural, the squares for ρ_m and τ_m commute, with identity and composition laws inherited from the existing Habiro maps."
+        }
+      ],
+      "uses": [
+        {
+          "where": "KU Corollary 6.15 and GSWZ Definition 1.1",
+          "how": "Makes the ring comparison usable for the existing cyclotomic and Taylor tests, preserving the source coefficient gluing."
+        },
+        {
+          "where": "HabiroNumberFields:HB.6/HB.7 applications",
+          "how": "Supplies a degree-zero trace realization of the coefficient-specialization maps consumed by arithmetic modules; the modules themselves remain with their owner."
+        },
+        {
+          "where": "HabiroNahmSeries applications",
+          "how": "Tests candidate arithmetic series through the same completed root expansions without inferring any higher cohomology realization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_rational",
+          "kind": "computation",
+          "statement": "For F=ℚ, Δ=6, the m=1 Taylor map after h-completion identifies the output with ℤ[1/6][[h]]; h maps to the formal parameter."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_mOne",
+          "kind": "degenerate",
+          "statement": "At m=1, ζ₁=1 and qW₁(R/ℤ[1/Δ])=R. The reduction of τ₁ at h=0 equals ρ₁, not the whole uncompleted ring P_R."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_twisted",
+          "kind": "non-example",
+          "statement": "A family that is constant a∈R in every Taylor component need not satisfy gluing when a is moved by an unramified Frobenius. Treating H_R as an R-algebra of all constant families would admit such a family incorrectly."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_gluing",
+          "kind": "compatibility",
+          "statement": "The τ_m family lies in the HR.5 Frobenius-twisted re-expansion equalizer, and every such family comes from one P_R element. An unrestricted product of expansion rings fails this test."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_inversion",
+          "kind": "non-example",
+          "statement": "The base ring for F=ℚ with Δ=1 satisfies the coefficient discriminant condition but not the KU 6.15 inversion condition. This construction cannot invoke ε_R there."
+        },
+        {
+          "name": "TauCeti.QHodge.Trace.numberFieldTraceExports_degreeZero",
+          "kind": "characterisation",
+          "statement": "ε_R is a ring equivalence with π₀ of the spectral limit. Moving π₀ inside the limit, replacing genuine fixed points by homotopy fixed points, or extending to K₃-indexed modules is not part of this interface."
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "HT-RT-framed",
+      "supplier": "RefinedTraceMethods:RT.4:q-Hodge",
+      "need": "Add the full framed smooth comparison of KU 6.10 (p.83, proof pp.84–86) for a perfectly covered spherical cyclotomic Λ-base and every étale framing A[x₁,…,x_d]→S of KU 6.7. The existing raksit-polynomial-example node states only ℤ[x]. Supply the particular coordinate comparison and its pair coherences, including the applicable 2-adic coherent resolution/addendum verification; keep the h-complete object separate from the pulled-back uncompleted pair. Own it in RT, not Part II.",
+      "neededBy": [
+        "HabiroCohomologyFoundationsPartII:HT.2/canonical-framed-trace"
+      ]
+    },
+    {
+      "id": "HT-RT-boundary",
+      "supplier": "RefinedTraceMethods:RT.4:q-Hodge",
+      "need": "Make KU 1.11 (p.5) an explicit imported boundary contract: the perfection of the free p-complete δ-ring modulo its generator has an E₁ ku-lift while its ordinary-preimage naive filtration fails the q-deformation condition (the algebraic failure is already Part I HQ.5). No E₂ ku-counterexample or image-of-J comparison theorem is asserted; the latter lacks the required S¹-equivariant diagram. Include the structured quotient range in QH 4.23 (p.63): exponents ≥2 for odd p, even ≥4 at 2. Do not copy the algebraic counterexample into RT.",
+      "neededBy": [
+        "HabiroCohomologyFoundationsPartII:HT.1/trace-habiro",
+        "HabiroCohomologyFoundationsPartII:HT.1/perfected-lift-naive"
+      ]
+    },
+    {
+      "id": "HT-PR-independent",
+      "supplier": "PrismaticCohomology:PR.3",
+      "need": "Expose the existing PR.3 scope as precise nodes for Frobenius-divisibility Nygaard on QRSP covers and its quasisyntomic descent, independently of trace. In the relative bounded-prism smooth setting use Δ^(1)=φ_A^*Δ, the divided Frobenius, graded Hodge–Tate truncations and the Lη_I factorization of BS 15.3 (pp.103–104). Distinguish this object from its Nygaard completion. This supports the imported RT.6 trace-prismatic-comparison and the Part II independent-construction acceptance test; no new prismatic construction is proposed here.",
+      "neededBy": [
+        "HabiroCohomologyFoundationsPartII:HT.1/trace-habiro"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "status": "planned",
+      "remaining": [
+        "Supplier contracts HT-RT-boundary and HT-PR-independent must be represented by their owner nodes before marking this stage closed. All moved targets and Checks are routed."
+      ]
+    },
+    {
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.2",
+      "status": "planned",
+      "remaining": [
+        "Supplier contract HT-RT-framed must be represented by its full framed comparison node before marking this stage closed. All arithmetic export targets and Checks are routed."
+      ]
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [
+    {
+      "id": "HabiroCohomologyFoundationsPartII/E1",
+      "source": "KU",
+      "kind": "misprint",
+      "locator": "Proof of Corollary 6.15, §6.3, p.86, arXiv:2510.06057v1",
+      "printed": "The proof points to QH Corollary 3.12 for the étale identification with the arithmetic Habiro ring.",
+      "correction": "Use QH Corollary 3.13, printed p.27 of arXiv:2510.04782v2; 3.12 is the preceding framed example.",
+      "reason": "Reading both fixed versions shows that 3.13 is the étale identification used by the proof. The correction changes the locator and not the ring comparison.",
+      "affects": "nothing",
+      "known": "Already recorded as HabiroCohomologyFoundations/E304 and RefinedTraceMethods/E12, with independent confirmations in their existing packets. No corrected public KU version was found on the access date.",
+      "searched": [
+        "arXiv version history for 2510.06057, accessed 2026-10-20 (v1 remains the displayed version)",
+        "Author publication page and public KU/QH copies, accessed 2026-10-20",
+        "Existing HabiroCohomologyFoundations and RefinedTraceMethods sourceIssues"
+      ],
+      "relatedFindings": [
+        "HabiroCohomologyFoundations/E304",
+        "RefinedTraceMethods/E12"
+      ]
+    },
+    {
+      "id": "HabiroCohomologyFoundationsPartII/E2",
+      "source": "TC",
+      "kind": "error",
+      "locator": "Paragraph 3.5, p.31, and Lemma 3.7 with proof, p.32, arXiv:2410.23115v4",
+      "printed": "The finite-coefficient uncompleted global filtration is replaced by the product of its p-local factors, and its rational comparisons are treated as zero because the rationalized input ring is zero.",
+      "correction": "Retain the rational combined-filtration corner in the arithmetic pullback defining the uncompleted pair, as in Part I §5.26. That rational filtration is constant ℚ[[h]]. Its filtration completion and its q-Hodge complex vanish, so the completed trace comparison of Corollary 3.8 is unchanged.",
+      "reason": "Non-Hodge-completed derived de Rham does not vanish on the zero ℚ-algebra: write 0=ℚ⊗^L_{ℚ[y]}ℚ using y=0 and y=1; the uncompleted de Rham Poincaré lemma identifies its derived de Rham object with ℚ. Thus qdR_{0/ℤ}=ℚ[[h]] via the rational comparison. Already m=1 has an empty local product but this nonzero rational corner. For a general finite coefficient ring the same rational corner survives before filtration completion.",
+      "affects": "a stated result",
+      "known": "The Part I package §5.26 already uses the corrected arithmetic pullback and explicitly checks m=1. No public correction to TC v4 was found; this finding is scoped only to that read preprint, not to an unread published version.",
+      "searched": [
+        "arXiv version history for 2410.23115, accessed 2026-10-20 (v4 remains the displayed version)",
+        "Author publication page and public source listings, accessed 2026-10-20",
+        "Part I package §5.26 and sourceIssues; completed versus uncompleted comparison checked directly in TC 3.5–3.8"
+      ]
+    }
+  ],
+  "importedTargets": [
+    {
+      "oldSection": "6.1",
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "targets": [
+        "RefinedTraceMethods:RT.4:q-Hodge/spherical-lift",
+        "RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-multiplicativity"
+      ],
+      "application": "HabiroCohomologyFoundationsPartII:HT.1/trace-habiro",
+      "detail": "All of the absolute and relative trace-existence statements, full base Frobenius structure, per-prime E₂/E₁ choices and R2 stay RT-owned; consume the complete output pair here."
+    },
+    {
+      "oldSection": "6.2",
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "targets": [
+        "HabiroCohomologyFoundations:HQ.5/plan/the-exponent-one-quotient-is-not-a-q-deformation",
+        "RefinedTraceMethods:RT.4:q-Hodge"
+      ],
+      "request": "HT-RT-boundary",
+      "detail": "Import the algebraic failure from Part I and request only the ku-lift/warning boundary from RT. Retain the lack of a known E₂-ku counterexample and the missing S¹ diagram for image-of-J."
+    },
+    {
+      "oldSection": "6.3",
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "targets": [
+        "RefinedTraceMethods:RT.4:q-Hodge/spherical-lift",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two",
+        "RefinedTraceMethods:RT.4:q-Hodge/quasi-regular-quotients"
+      ],
+      "detail": "The full augmented lifted Čech nerve defines the ad hoc even filtration by lim_Δ τ≥2i THH, followed by residual-circle homotopy fixed points. Identity cover recovers the naive lift-independent E∞ filtration, including at 2, while general cover retains its own multiplicative data."
+    },
+    {
+      "oldSection": "6.4",
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "targets": [
+        "HabiroCohomologyFoundationsPartII:HT.1/perfected-lift-naive"
+      ],
+      "detail": "Move QH 4.22(b), its completed-flat-perfection proof, high-power/p=2 distinction, and toric x−1 example here. QH 4.22(a) and all definitions of the naive filtration stay Part I."
+    },
+    {
+      "oldSection": "6.5",
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.2",
+      "targets": [
+        "RefinedTraceMethods:RT.4:Habiro-comparison/number-field-habiro"
+      ],
+      "application": "HabiroCohomologyFoundationsPartII:HT.2/number-field-trace-exports",
+      "detail": "Retain the full all-number-fields genuine-fixed-point ring statement as an RT import and provide its usable specialization export here."
+    },
+    {
+      "oldSection": "8.1, trace clause only",
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.2",
+      "targets": [
+        "HabiroCohomologyFoundationsPartII:HT.2/canonical-framed-trace"
+      ],
+      "detail": "Move the spherical ℤ[1/2][x] comparison and preserve its surrounding polynomial, étale, tensor-domain and Laurent Checks by imports of Part I. All trace-free calculations and §8.2 stay Part I."
+    },
+    {
+      "oldSection": "9.15",
+      "stageId": "HabiroCohomologyFoundationsPartII:HT.1",
+      "targets": [
+        "RefinedTraceMethods:RT.6/trace-prismatic-comparison",
+        "RefinedTraceMethods:RT.6/motivic-filtrations",
+        "PrismaticCohomology:PR.3"
+      ],
+      "request": "HT-PR-independent",
+      "detail": "The prismatic Frobenius-divisibility/descent and trace double-Postnikov/descent are separate constructions. Compare only afterwards, with Nygaard completion on the prismatic side. Part I HQ.4’s q-Witt Nygaard and AI.1 décalage have no RT prerequisite; syntomic remains RT.6."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2510.04782v2",
+      "read": "2026-10-20",
+      "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2510.06057v1",
+      "read": "2026-10-20",
+      "sha256": "fe9d7d71478eb546f89784f2eabdb15ec4f1e5ff8870c6c84909896c1543ea7d"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2410.23115v4",
+      "read": "2026-10-20",
+      "sha256": "4479788e04da71cfb76596b4375b6b1e4c9bcd940ad92e1ab7c8ededba446dd4"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "read": "2026-10-20",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1905.08229v4",
+      "read": "2026-10-20",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1802.03261v2",
+      "read": "2026-10-20",
+      "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038"
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HabiroCohomologyFoundations",
+        "RefinedTraceMethods",
+        "HabiroCohomologyFoundationsPartII"
+      ],
+      "detail": "The Part I trace-existence layer, the trace clause in its worked examples and its independent trace/prismatic staging paragraph depend on RT, while RT already consumes Part I’s trace-free pair/descent foundations. Keeping both directions in one roadmap produces the prohibited cycle.",
+      "proposal": "Keep Part I Layers 0–5, its analytic Layer 7, every trace-free target of Layers 8–9, and the algebraic higher-power and finite-coefficient constructions. Retire Part I HQ.5-trace and HQ.8/the-staging-rule as owners: route §§6.1–6.3 and 6.5 to the exact RT imports here, §6.4 to HT.1/perfected-lift-naive, trace §8.1 to HT.2/canonical-framed-trace, and §9.15 to the explicit independent-construction imports in HT.1. Remove stale RT prerequisites from the retained aggregate HQ.7/HQ.8 dependency lines. Insert this Part II after RT, and point trace consumers to HT.1/HT.2 while keeping algebraic consumers on Part I. Exact node aliases and order-file edits are recorded in the design handoff; this job edits no supplier file."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "detail": "At current TauCetiRoadmap main 0d144d044dacebca17b654695b6f1ad58f159b27, the nine roadmaps newer than the atlas snapshot and the four named Completed roadmaps do not provide a q-Hodge, Habiro, spherical-lift or Nygaard target here. DGAInfinity and StablePeriodicCurved supply relevant style/convention exemplars but do not own these q-specific trace applications. No upstream edits proposed."
+    }
+  ],
+  "libraryAudit": {
+    "reviewed": "data/library-coverage.json entries for Part I HQ.1–HQ.5/HQ.5-trace/HQ.8 and RT.6 read before planning",
+    "result": "HQ.5-trace is not built and duplicates RT.4:q-Hodge. HQ.8’s trace/Nygaard comparison duplicates RT.6. Generic enhanced categories, derived completion, δ/prismatic and spectral carriers belong to the imported suppliers, not to new local definitions.",
+    "pinnedSearch": "Searched both actual source trees at the recorded pins for habiro, nygaard, quasisyntomic, q-Hodge, q-de Rham and cyclotomic spectra; no native carriers or new targets here were found. Only the elementary unit Check cites a native theorem."
+  }
+}
