@@ -1082,9 +1082,21 @@ This uses HQ.4, CrystallineCohomology CR.4.
 
 Construct differential ghost maps gh_{m/d}:qW_mΩ→Ω_{R/A}⊗_{A,ψ^d}A[ζ_d]. On a degree-i form, the V_n component is n^(i+1) on surviving divisor factors and zero otherwise. Initiality supplies the maps. After inverting m they give an isomorphism onto the product over d|m. Integrally, import the absolute degree-zero injectivity under p-torsion-freeness for all p|m; positive-degree injectivity requires the smooth theorem. For m=p^a over perfectly covered A, quotient by im V_p+im dV_p identifies via gh_1 with Ω⊗_{A,ψ^{p^a}}A[ζ_{p^a}], for arbitrary R. Rational ghost splitting is not an integral definition.
 
-(See QW Paragraph 3.15, §3, p.41; Corollary 3.34, §3, p.52; Lemma 4.5, §4, p.55; Lemma 2.23, §2, p.20; Corollary 2.22, §2, p.20.)
+(See QW Paragraph 3.15, §3, pp.41–42; Corollary 3.34, §3, p.52; Lemma 4.5, §4, p.55; Lemma 2.23, §2, p.20; Corollary 2.22, §2, p.20.)
 
 This uses HQ.4, QWittVectors QW.3/QW.4.
+
+Use the following named maps and laws:
+
+- `QDeRhamWitt.ghost`: For d | m, the differential graded A[q]-algebra map gh_{m/d} to Ω*_{R/A}⊗_{A,ψ^d}A[ζ_d], extending the degree-zero relative q-Witt ghost.
+- `QDeRhamWitt.ghost_verschiebung`: For n | m and a degree-i form ω, write ω_d for its d-th ghost. The d-th ghost of V_{m/n}(ω) is (m/n)^(i+1)ω_d if d | n, and zero otherwise.
+- `QDeRhamWitt.ghost_invert`: The product of ghosts becomes an isomorphism after inverting m; integral injectivity uses the separate torsion or smoothness hypotheses stated above.
+
+**Checks.**
+
+- At m=1 the only ghost is the identity on Ω*_{R/A}; no Adams twist or extra factor occurs.
+- For A=R=ℤ and m=2, the product ghost on ℤ[q]/(q²−1) is evaluation at (1,−1). Its image consists of pairs congruent modulo 2, so (1,0) is excluded integrally and becomes available after inverting 2. The element V₂(1)=1+q maps to (2,0).
+- For A=ℤ, R=ℤ[x], n=1 and m=2, the d=1 ghost of V₂(dx) is 4dx and the d=2 ghost is zero. The exponent i rather than i+1 would give 2dx and fail this degree-one test.
 
 ### 3.8 An etale extension of the degree-zero part of a differential graded algebra extends uniquely
 
@@ -1852,7 +1864,7 @@ The preceding constructions in this layer and DerivedDeRhamCohomology, EnhancedD
 
 ## Layer 5: Canonical filtrations and algebraic Habiro cohomology (HQ.5)
 
-The smooth and quasi-regular sections have different domains, different universal properties and different multiplicative scope. Scheme cohomology uses the smooth section over ℤ.
+The smooth and quasi-regular sections have different domains, different universal properties and different multiplicative scope. Scheme cohomology uses the smooth section over a perfectly covered Λ-base, with ℤ as the principal case.
 
 ### 5.1 Filtrations supported in degrees at most n: the truncation functor, its oplax left adjoint on modules, and the relative truncation
 
@@ -2020,7 +2032,7 @@ Use the following named maps and laws:
 
 **Checks.**
 
-- For X = Spec O_F[1/Δ] with F a number field of discriminant Δ, RΓ(X, q-Hdg_{X/Z}) is the ring H_{O_F[1/Δ]/Z}, which is the GSWZ Habiro ring of F (Corollaries 3.13 and 2.13).
+- For X = Spec O_F[1/Δ] with F a number field of discriminant Δ, RΓ(X, q-Hdg_{X/Z}) is the static coefficient ring H_{O_F[1/Δ]/Z} (Corollary 3.13). The subsequent identification with the ordinary GSWZ Habiro ring is the HabiroRings application of the export in §§4.28 and 5.25 (Corollary 2.13).
 - Every prime p ≤ dim(X/Z) is invertible on RΓ(X, q-Hdg_{X/Z}), because it is invertible on X; so the theory contains no information at those primes (Paragraph 1.17(a)).
 - For X = A^1_Z = Spec Z[x] (no prime inverted), RΓ is the Habiro–Hodge complex whose (q−1)-completion is Z[x]⟦q−1⟧ → Z[x]⟦q−1⟧ dx, x^m ↦ (q^m − 1) x^{m−1} dx.
 - Its (q−1)-completion is the q-Hodge complex, not the q-de Rham complex: for Z[x] the differential sends x^m to (q^m − 1)x^{m−1}dx, not to [m]_q x^{m−1}dx (Paragraph 1.13).
