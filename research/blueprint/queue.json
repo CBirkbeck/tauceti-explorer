@@ -153702,6 +153702,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~codex3.md"
+  },
+  {
+   "id": "FIX-PKG-HabiroCohomologyFoundationsPartII~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroCohomologyFoundationsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HabiroCohomologyFoundationsPartII~adv.md",
+    "research/blueprint/packages/HabiroCohomologyFoundationsPartII/review.json",
+    "research/blueprint/packages/HabiroCohomologyFoundationsPartII/README.md",
+    "research/blueprint/packages/HabiroCohomologyFoundationsPartII/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundationsPartII~adv.md"
   }
  ]
 }
