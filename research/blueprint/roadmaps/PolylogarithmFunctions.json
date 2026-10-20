@@ -1,0 +1,155 @@
+{
+  "id": "PolylogarithmFunctions",
+  "title": "Polylogarithm functions",
+  "area": "automorphic",
+  "parent": null,
+  "summary": "The analytic theory of classical polylogarithms starts with complex logarithms and reaches branch-sensitive functional equations, real single-valued functions and quantitative estimates. It treats every integer classical weight and every continuation branch, and every positive higher single-valued weight. Its Bloch–Wigner and Rogers identities supply analytic input to arithmetic roadmaps without constructing Bloch groups, K-theory or regulators.",
+  "readme": "The definitive reader document is research/blueprint/readmes/PolylogarithmFunctions.md. Classical principal values use Mathlib’s logarithm, whose argument belongs to (−π,π]; values on the positive classical cut are lower boundary values. The single-valued normalization is Zagier’s Bernoulli normalization, with real part in odd weights and imaginary part in even weights. The seven layers depend only on the pinned analytic libraries and earlier layers here. This roadmap owns the former Polylogarithms P.1 analytic targets. Polylogarithms P.2 onward and K3BlochGroups retain algebraic symbols, quotient groups, descent and regulator comparisons; ColemanIntegration retains formal and p-adic polylogarithmic objects. The arithmetic consumers may evaluate these analytic functions under any complex embedding of any number field.",
+  "prerequisites": [],
+  "stages": [
+    {
+      "key": "PF.1",
+      "title": "Principal polylogarithms",
+      "description": "Construct Liₙ for every integer n, using rational Euler derivatives at n≤0, the principal logarithm at n=1 and the logarithmic interval integral at n≥2. Establish integrability, the disc series, the derivative recursion including the removable derivative at zero, holomorphy off [1,∞), conjugation there, closed-disc continuity and positive-weight endpoint values.",
+      "requires": []
+    },
+    {
+      "key": "PF.2",
+      "title": "Branches and monodromy",
+      "description": "Construct coherent analytic continuations of the positive-weight tower and Log z along every path in ℂ∖{0,1}, based at 1/2. Prove fixed-endpoint homotopy invariance, generation of loop classes by the two counterclockwise puncture loops, their noncommuting action on the tower, and the signed upper-minus-lower jump. Nonpositive weights have rational, single-valued continuation.",
+      "requires": [
+        "PolylogarithmFunctions:PF.1"
+      ]
+    },
+    {
+      "key": "PF.3",
+      "title": "Classical functional equations",
+      "description": "Prove all-integer distribution on the disc, its principal star-domain continuation in positive weights and rational continuation in nonpositive weights. Prove positive-weight Bernoulli inversion off the nonnegative real axis, principal dilogarithm reflection and Abel five-term on specified domains. Continue these equalities along common argument paths with coherent logarithms and provide monodromy corrections for independently chosen branches. Evaluate the standard dilogarithm constants.",
+      "requires": [
+        "PolylogarithmFunctions:PF.1",
+        "PolylogarithmFunctions:PF.2"
+      ]
+    },
+    {
+      "key": "PF.4",
+      "title": "Single-valued polylogarithms",
+      "description": "Construct Zagier’s real Lₙ for every n≥2 using B₁=−1/2 and parity projection. Establish cancellation of all monodromy, real analyticity on ℂ∖{0,1}, the branch-independent real differential in every weight, inversion, conjugation, distribution and the continuous extension to the Riemann sphere. Fix the weight-three differential and its zero derivative at one, and distinguish the weight-one expression from the unit logarithm.",
+      "requires": [
+        "PolylogarithmFunctions:PF.1",
+        "PolylogarithmFunctions:PF.2",
+        "PolylogarithmFunctions:PF.3"
+      ]
+    },
+    {
+      "key": "PF.5",
+      "title": "Bloch–Wigner and the five-term identity",
+      "description": "Construct D from the principal dilogarithm and argument correction, identify it with L₂, and prove sixfold symmetry, its actual real derivative across the classical cut and its Laplacian. Apply the pinned minimum principles on bounded half-discs to prove strict upper-half-plane positivity. Prove the analytic five-term relation and its projective and cyclic forms before any descent to an algebraic group.",
+      "requires": [
+        "PolylogarithmFunctions:PF.1",
+        "PolylogarithmFunctions:PF.3",
+        "PolylogarithmFunctions:PF.4"
+      ]
+    },
+    {
+      "key": "PF.6",
+      "title": "Rogers dilogarithm",
+      "description": "Construct the real Rogers function on [0,1] with endpoints 0 and π²/6. Prove continuity, real analyticity and its derivative on (0,1), reflection and the exact interval pentagon. Compute the midpoint and golden-ratio values with their correct constants.",
+      "requires": [
+        "PolylogarithmFunctions:PF.1",
+        "PolylogarithmFunctions:PF.3"
+      ]
+    },
+    {
+      "key": "PF.7",
+      "title": "Analytic estimates",
+      "description": "Prove uniform disc truncation and closed-disc positive-weight tail bounds, sectorial growth for every classical continuation branch, endpoint moduli for all Lₙ, compact bounds for every real derivative away from the punctures, and boundedness on the sphere. Prove the logarithmic imaginary-axis asymptotic that detects the failure of differentiability of D at zero. Export analytic error inequalities without constructing arithmetic certificate machinery.",
+      "requires": [
+        "PolylogarithmFunctions:PF.1",
+        "PolylogarithmFunctions:PF.2",
+        "PolylogarithmFunctions:PF.4",
+        "PolylogarithmFunctions:PF.5",
+        "PolylogarithmFunctions:PF.6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Z07",
+      "title": "The dilogarithm function",
+      "authors": "Don Zagier",
+      "edition": "Frontiers in Number Theory, Physics, and Geometry II (2007), pp. 3–65",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Part I §§1–3, pp. 3–12",
+        "Part II §1.A, pp. 23–24",
+        "Part II §4, p. 59"
+      ]
+    },
+    {
+      "id": "Z90",
+      "title": "Polylogarithms, Dedekind zeta functions and the algebraic K-theory of fields",
+      "authors": "Don Zagier",
+      "edition": "Arithmetic Algebraic Geometry, Progress in Mathematics 89 (1991), pp. 391–430",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/scanned/PolylogsDedekindZetaAndKTheory/fulltext.pdf",
+      "sha256": "96bbb5f616dfac26e28c1da4657b2c5ae9cefa462213279797ccd44b71e1bb19",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§7, equations (33)–(36), Proposition 3, pp. 413–414"
+      ]
+    },
+    {
+      "id": "O93",
+      "title": "Polylogarithmes",
+      "authors": "Joseph Oesterlé",
+      "edition": "Astérisque 216 (1993), Séminaire Bourbaki, exposé 762, pp. 49–67",
+      "url": "https://www.numdam.org/item/SB_1992-1993__35__49_0.pdf",
+      "sha256": "5a4afb63044e56a50b1cd76c3de388d64fca2017f495afcbeadb8ff6725fba54",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§§1.1–1.4, pp. 50–51",
+        "§§2.1–2.2, pp. 52–53",
+        "§3, equations (18)–(28), pp. 57–58",
+        "§4.1, equations (29)–(32), p. 59"
+      ]
+    },
+    {
+      "id": "G95",
+      "title": "Geometry of configurations, polylogarithms, and motivic cohomology",
+      "authors": "Alexander B. Goncharov",
+      "edition": "Advances in Mathematics 114 (1995), pp. 197–318",
+      "url": "https://sasha-goncharov.github.io/Advances1995.pdf",
+      "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§1.0, p. 201; only the classical differential recursion and Bloch–Wigner definition are used"
+      ]
+    },
+    {
+      "id": "G00",
+      "title": "Explicit regulator maps on polylogarithmic motivic complexes",
+      "authors": "Alexander B. Goncharov",
+      "edition": "arXiv:math/0003086v1 (2000)",
+      "url": "https://arxiv.org/pdf/math/0003086v1",
+      "sha256": "47a616bada4abeaee1672679593e5b69e6d293b2cf98e08de6b726072f9a69ea",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§4.1, Proposition 4.1 and Lemma 4.2, printed pp. 17–20; analytic differential formulas only"
+      ]
+    },
+    {
+      "id": "GR",
+      "title": "Motivic correlators, cluster varieties and Zagier’s conjecture on ζ_F(4)",
+      "authors": "Alexander Goncharov and Daniil Rudenko",
+      "edition": "arXiv:1803.08585v5 (15 July 2026)",
+      "url": "https://arxiv.org/pdf/1803.08585v5",
+      "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§1.1, equations (1)–(4), pp. 2–4; analytic normalization and cyclic five-term identity only"
+      ]
+    }
+  ],
+  "status": "draft"
+}

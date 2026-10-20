@@ -1,0 +1,2584 @@
+{
+  "roadmapId": "PolylogarithmFunctions",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "PolylogarithmFunctions:PF.1",
+    "PolylogarithmFunctions:PF.2",
+    "PolylogarithmFunctions:PF.3",
+    "PolylogarithmFunctions:PF.4",
+    "PolylogarithmFunctions:PF.5",
+    "PolylogarithmFunctions:PF.6",
+    "PolylogarithmFunctions:PF.7"
+  ],
+  "status": "closed",
+  "summary": "The analytic theory of classical polylogarithms starts with complex logarithms and reaches branch-sensitive functional equations, real single-valued functions and quantitative estimates. It treats every integer classical weight and every continuation branch, and every positive higher single-valued weight. Its Bloch–Wigner and Rogers identities supply analytic input to arithmetic roadmaps without constructing Bloch groups, K-theory or regulators.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Complex.log",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "Principal complex logarithm, with argument in (−π,π] and total value at zero.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:Complex.hasSum_taylorSeries_neg_log'",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/LogBounds.lean",
+        "provides": "For ‖z‖<1, the sum over j≥0 of z^(j+1)/(j+1) is −Log(1−z).",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:Complex.hasDerivAt_log",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/LogDeriv.lean",
+        "provides": "The derivative of principal Log is 1/z when z belongs to Complex.slitPlane.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:intervalIntegral",
+        "kind": "def",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+        "provides": "The oriented Bochner integral over a real interval, for complex-valued integrands.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean",
+        "provides": "FTC with continuous primitive on [a,b], derivative on (a,b), and an interval-integrable derivative.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:MeromorphicOn.intervalIntegrable_log_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Integrability/LogMeromorphic.lean",
+        "provides": "The real logarithm of the norm of a real-meromorphic function is interval integrable, including isolated zeros and poles.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:bernoulli",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "Rational Bernoulli numbers with B₁=−1/2.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:bernoulli_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "The exact sign B₁=−1/2.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:bernoulliPowerSeries_mul_exp_sub_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "The Bernoulli exponential generating series multiplied by exp−1 equals X; variable scaling gives the required even-series identity.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:Polynomial.derivative_bernoulli",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "The derivative of Bₙ is nBₙ₋₁, including weight zero.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:hasSum_one_div_nat_pow_mul_fourier",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ZetaValues.lean",
+        "provides": "For integer k≥2 and x∈[0,1], the paired Fourier series equals −(2πi)^k B_k(x)/k!.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:riemannZeta_two",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+        "provides": "The existing complex Riemann zeta value ζ(2)=π²/6.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.hasSum_expZeta_of_one_lt_re",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZeta.lean",
+        "provides": "For real a and Re(s)>1, the series exp(2πian)/n^s sums to expZeta a s; used for compatibility of circle values, not as analytic continuation in z.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:HurwitzZeta.expZeta_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "The exponential zeta function at circle parameter zero is the existing Riemann zeta function.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+        "provides": "Two analytic functions on a preconnected set that agree near one point agree on the set.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:Set.Countable.isPathConnected_compl_of_one_lt_rank",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Module/Connected.lean",
+        "provides": "A countable complement in a real normed space of dimension greater than one is path connected; specialize to a finite subset of ℂ.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:IsOpen.exists_is_const_of_fderiv_eq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/MeanValue.lean",
+        "provides": "A differentiable function with zero real Fréchet derivative on a preconnected open set is constant there.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "mathlib:Path.Homotopic",
+        "kind": "def",
+        "module": "Mathlib/Topology/Homotopy/Path.lean",
+        "provides": "Fixed-endpoint path homotopy; its quotient carries path concatenation.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.hasContinuousLogOn_of_mapsTo_slitPlane",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/Complex/ContinuousLog/Basic.lean",
+        "provides": "A continuous map taking values in the slit plane has a continuous logarithm. This supplies local logarithms only.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.ge_of_laplacian_nonpos_ge_frontier",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/InnerProductSpace/Laplacian/WeakMaximumPrinciple.lean",
+        "provides": "A continuous function on a compact set, C² and superharmonic on its interior, is bounded below there by a lower bound on its frontier.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.eqOn_const_of_laplacian_nonpos_of_isMinOn",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/InnerProductSpace/Laplacian/StrongMaximumPrinciple.lean",
+        "provides": "On a preconnected open set, a C² superharmonic function attaining its minimum is constant. The upper half-plane application checks each hypothesis.",
+        "checked": "Statement read in the source tree at the recorded pinned commit; no polylogarithm theorem is inferred from its name."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Z07",
+      "title": "The dilogarithm function",
+      "authors": "Don Zagier",
+      "edition": "Frontiers in Number Theory, Physics, and Geometry II (2007), pp. 3–65",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "Part I §§1–3, pp. 3–12",
+        "Part II §1.A, pp. 23–24",
+        "Part II §4, p. 59"
+      ]
+    },
+    {
+      "id": "Z90",
+      "title": "Polylogarithms, Dedekind zeta functions and the algebraic K-theory of fields",
+      "authors": "Don Zagier",
+      "edition": "Arithmetic Algebraic Geometry, Progress in Mathematics 89 (1991), pp. 391–430",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/scanned/PolylogsDedekindZetaAndKTheory/fulltext.pdf",
+      "sha256": "96bbb5f616dfac26e28c1da4657b2c5ae9cefa462213279797ccd44b71e1bb19",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§7, equations (33)–(36), Proposition 3, pp. 413–414"
+      ]
+    },
+    {
+      "id": "O93",
+      "title": "Polylogarithmes",
+      "authors": "Joseph Oesterlé",
+      "edition": "Astérisque 216 (1993), Séminaire Bourbaki, exposé 762, pp. 49–67",
+      "url": "https://www.numdam.org/item/SB_1992-1993__35__49_0.pdf",
+      "sha256": "5a4afb63044e56a50b1cd76c3de388d64fca2017f495afcbeadb8ff6725fba54",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§§1.1–1.4, pp. 50–51",
+        "§§2.1–2.2, pp. 52–53",
+        "§3, equations (18)–(28), pp. 57–58",
+        "§4.1, equations (29)–(32), p. 59"
+      ]
+    },
+    {
+      "id": "G95",
+      "title": "Geometry of configurations, polylogarithms, and motivic cohomology",
+      "authors": "Alexander B. Goncharov",
+      "edition": "Advances in Mathematics 114 (1995), pp. 197–318",
+      "url": "https://sasha-goncharov.github.io/Advances1995.pdf",
+      "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§1.0, p. 201; only the classical differential recursion and Bloch–Wigner definition are used"
+      ]
+    },
+    {
+      "id": "G00",
+      "title": "Explicit regulator maps on polylogarithmic motivic complexes",
+      "authors": "Alexander B. Goncharov",
+      "edition": "arXiv:math/0003086v1 (2000)",
+      "url": "https://arxiv.org/pdf/math/0003086v1",
+      "sha256": "47a616bada4abeaee1672679593e5b69e6d293b2cf98e08de6b726072f9a69ea",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§4.1, Proposition 4.1 and Lemma 4.2, printed pp. 17–20; analytic differential formulas only"
+      ]
+    },
+    {
+      "id": "GR",
+      "title": "Motivic correlators, cluster varieties and Zagier’s conjecture on ζ_F(4)",
+      "authors": "Alexander Goncharov and Daniil Rudenko",
+      "edition": "arXiv:1803.08585v5 (15 July 2026)",
+      "url": "https://arxiv.org/pdf/1803.08585v5",
+      "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df",
+      "accessed": "2026-10-20",
+      "readSections": [
+        "§1.1, equations (1)–(4), pp. 2–4; analytic normalization and cyclic five-term identity only"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PolylogarithmFunctions:PF.1/principal",
+      "parentStageId": "PolylogarithmFunctions:PF.1",
+      "realises": [
+        "PolylogarithmFunctions:PF.1"
+      ],
+      "title": "Classical polylogarithms in every integer weight",
+      "kind": "definition",
+      "statement": "Define a total complex-valued family Liₙ, n∈ℤ. For n≤0 use (z d/dz)^(−n) applied to z/(1−z). Set Li₁(z)=−Log(1−z). For n≥2 use ((n−2)!)⁻¹∫₀¹(−log t)^(n−2)[−Log(1−tz)]dt/t, with real t and Mathlib’s Bochner integral. Values at isolated integrand singularities are its totalized values and are irrelevant almost everywhere. This chooses the lower boundary value for real z>1. No analytic assertion is made at 1 for n≤1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the rational Euler-derivative formula for nonpositive weights and the actual logarithmic interval integral for n≥2; no choice of a function satisfying desired laws replaces these definitions.",
+        "Separate the natural-index integral realization from the integer-index extension, with a compatibility API. Integrability is the next target."
+      ],
+      "acceptance": [
+        "Every index evaluates to zero at zero.",
+        "The principal convention agrees with the lower limit on the cut, rather than an artificial holomorphic continuation across it."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.log",
+        "mathlib:intervalIntegral"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.1–1.4, equations (1)–(7), pp. 50–51",
+          "match": "Supplies the disc germ, differential recursion, principal continuation and endpoint conventions; the displayed logarithmic integral is the repeated radial integral evaluated by Fubini."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "§1.0, equation (1.1), p. 201",
+          "match": "Fixes Li₁ and the positive-weight differential recursion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Principal",
+        "namespace": "Complex"
+      },
+      "api": [
+        {
+          "name": "polylog_natCast",
+          "role": "compatibility",
+          "statement": "The integer-index family agrees with the displayed natural-index realization for every n∈ℕ."
+        },
+        {
+          "name": "polylog_zero",
+          "role": "simp",
+          "statement": "Liₙ(0)=0 for every n∈ℤ."
+        },
+        {
+          "name": "polylog_one_weight",
+          "role": "characterisation",
+          "statement": "Li₁(z)=−Log(1−z) for every z, including the explicitly totalized value at z=1."
+        },
+        {
+          "name": "polylog_nonpos",
+          "role": "characterisation",
+          "statement": "For r≥0 and z≠1, Li₋ᵣ(z) is the r-fold Euler derivative of z/(1−z)."
+        },
+        {
+          "name": "polylog_radial_integral",
+          "role": "characterisation",
+          "statement": "For n≥1 and z off [1,∞), Liₙ₊₁(z)=∫₀¹Liₙ(tz)dt/t."
+        },
+        {
+          "name": "polylog_congr_index",
+          "role": "extensionality",
+          "statement": "Equal integer indices give the same function."
+        }
+      ],
+      "tests": [
+        {
+          "name": "polylog_zero_all",
+          "kind": "degenerate",
+          "statement": "Liₙ(0)=0 for every integer n."
+        },
+        {
+          "name": "polylog_log_compat",
+          "kind": "compatibility",
+          "statement": "For |z|<1, the Li₁ series is exactly Complex.hasSum_taylorSeries_neg_log'."
+        },
+        {
+          "name": "polylog_zero_half",
+          "kind": "computation",
+          "statement": "Li₀(1/2)=1."
+        },
+        {
+          "name": "polylog_neg_one",
+          "kind": "computation",
+          "statement": "For z≠1, Li₋₁(z)=z/(1−z)²."
+        },
+        {
+          "name": "polylog_not_analytic_one",
+          "kind": "non-example",
+          "statement": "Li₀ has a pole at 1; its assigned total value cannot make it holomorphic there."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Polylogarithms P.2 and HabiroNahmSeries HB.3",
+          "how": "Evaluations of the dilogarithm under arbitrary complex embeddings require this precise analytic function."
+        },
+        {
+          "where": "Oesterlé §3, pp. 57–58",
+          "how": "All positive weights enter the Bernoulli single-valued combination."
+        }
+      ],
+      "planet": {
+        "name": "Classical polylogarithms"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.1/integrability",
+      "parentStageId": "PolylogarithmFunctions:PF.1",
+      "realises": [
+        "PolylogarithmFunctions:PF.1"
+      ],
+      "title": "The logarithmic radial integral",
+      "kind": "lemma",
+      "statement": "For each natural n≥2 and each z∈ℂ, the defining integrand is interval integrable on [0,1]. For z off [1,∞), its value equals the iterated radial integral of Li₁. For z=1 and real z>1 the same integral is respectively the finite endpoint value and the lower boundary limit; a change at t=0 or t=1/z does not change it.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Near zero, −Log(1−tz)=O(t); dominate by a constant times |log t|^(n−2), whose integral is (n−2)!.",
+        "Near an interior t=1/z or the endpoint t=1, split off a bounded factor and dominate by 1+|log|t−1/z||; use the pinned meromorphic-log integrability theorem and boundedness of the argument.",
+        "On compact slit subsets use the same majorants for parameter limits and Fubini. At a real cut point split a small interval around the moving logarithmic singularity and bound its integral uniformly by Cε(1+|log ε|); take the lower limit on its complement."
+      ],
+      "acceptance": [
+        "The n=2 integral at z=1 converges even though Log(1−t) is unbounded.",
+        "The interior singularity for z=3 contributes an integrable logarithm, never a divergent ordinary integral."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/principal",
+        "mathlib:MeromorphicOn.intervalIntegrable_log_norm",
+        "mathlib:intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le",
+        "mathlib:Complex.hasSum_taylorSeries_neg_log'"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.1 and §1.4, pp. 50–51",
+          "match": "The recursive integral and finite positive-weight endpoint give the analytic representation; this node supplies its required integrability details."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Principal",
+        "namespace": "Complex"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.1/disc-series",
+      "parentStageId": "PolylogarithmFunctions:PF.1",
+      "realises": [
+        "PolylogarithmFunctions:PF.1"
+      ],
+      "title": "The disc series and its analytic germ",
+      "kind": "theorem",
+      "statement": "For every n∈ℤ and |z|<1, Liₙ(z)=∑_{k≥1}z^k/k^n, with complex integer powers of the nonzero natural k. The series converges absolutely and locally uniformly on the disc, and defines the analytic germ used in continuation. Its value and derivative at zero are respectively 0 and 1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For n≥2 expand Li₁ by the existing Taylor theorem and integrate termwise using the radial majorant and ∫₀¹t^(k−1)(−log t)^(n−2)dt=(n−2)!/k^(n−1), proved by integration by parts.",
+        "For n≤0 differentiate the geometric series locally uniformly; polynomial growth of k^(−n) is dominated by any slightly larger geometric ratio.",
+        "Read the constant and linear coefficients to obtain zero and the removable derivative 1."
+      ],
+      "acceptance": [
+        "The weight-one specialization is a compatibility with an existing theorem, not a replacement Taylor-series development.",
+        "Li₀(1/2)=1 and Li₋₁(1/2)=2."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/principal",
+        "PolylogarithmFunctions:PF.1/integrability",
+        "mathlib:Complex.hasSum_taylorSeries_neg_log'"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.1, equations (1)–(3), p. 50",
+          "match": "Gives the convergent power series and differential recursion."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §1, pp. 3–6",
+          "match": "The dilogarithm series fixes the normalization and special values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Principal",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Polylogarithm power series"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.1/rational-weights",
+      "parentStageId": "PolylogarithmFunctions:PF.1",
+      "realises": [
+        "PolylogarithmFunctions:PF.1"
+      ],
+      "title": "Nonpositive weights are rational",
+      "kind": "theorem",
+      "statement": "For r≥0, Li₋ᵣ is rational on ℂ∖{1}, with Li₀=z/(1−z) and Li₋₁=z/(1−z)². Euler differentiation gives the whole family and the differential recursion. All continuation monodromy is trivial in these weights, and 1 is a genuine pole.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Induct on r, differentiating the rational expression away from its denominator zero.",
+        "For r≥1 the leading singularity is r!/(1−z)^(r+1); this proves a genuine pole and rules out using field totalization to assert analyticity at 1.",
+        "The rational expressions agree with the disc germ and continue uniquely away from 1."
+      ],
+      "acceptance": [
+        "The first Euler derivative has a positive numerator z.",
+        "No independent nonpositive-weight branch choices are introduced."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/principal",
+        "PolylogarithmFunctions:PF.1/disc-series"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.1, differential recursion (2), p. 50",
+          "match": "Euler differentiation of the disc series extends the positive-index recursion to all nonpositive integer indices; the rationality assertion is its elementary consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Principal",
+        "namespace": "Complex"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.1/analytic-recursion",
+      "parentStageId": "PolylogarithmFunctions:PF.1",
+      "realises": [
+        "PolylogarithmFunctions:PF.1"
+      ],
+      "title": "Holomorphy and the derivative recursion",
+      "kind": "theorem",
+      "statement": "For every integer n, Liₙ is complex analytic on Ω=ℂ∖[1,∞). For z∈Ω, z·Liₙ′(z)=Liₙ₋₁(z); for z≠0 this is Liₙ′=Liₙ₋₁/z. At z=0 the derivative is 1, so the quotient formula is not asserted there. For n≥1 the radial integral recursion holds on Ω.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Differentiate the parameter integral on compact slit neighborhoods using the local majorants from integrability; establish the recursion by integration by parts.",
+        "The initial logarithm derivative comes from the pinned Log theorem; rational weights use Euler differentiation.",
+        "The disc coefficient calculation handles zero, and analytic uniqueness glues the slit continuation with that germ."
+      ],
+      "acceptance": [
+        "At weight three z·Li₃′=Li₂ on Ω.",
+        "For every n the derivative at zero is 1, including nonpositive n."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/integrability",
+        "PolylogarithmFunctions:PF.1/disc-series",
+        "PolylogarithmFunctions:PF.1/rational-weights",
+        "mathlib:Complex.hasDerivAt_log",
+        "mathlib:intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le",
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.1, equations (2)–(3), p. 50",
+          "match": "The recursive derivative and radial integration characterize the slit-domain continuation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Principal",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Polylogarithm differential recursion"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.1/conjugation",
+      "parentStageId": "PolylogarithmFunctions:PF.1",
+      "realises": [
+        "PolylogarithmFunctions:PF.1"
+      ],
+      "title": "Conjugation on the slit domain",
+      "kind": "theorem",
+      "statement": "For all n∈ℤ and z∈Ω, Liₙ(conj z)=conj(Liₙ(z)). For n≥2 this extends to the closed unit disc. At real x>1 the upper and lower boundary values are conjugate, but the lower-valued total principal function need not equal its own conjugate.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Conjugate the locally uniformly convergent disc series.",
+        "Use uniqueness on the conjugation-invariant slit domain; extend to finite boundary points by one-sided limits."
+      ],
+      "acceptance": [
+        "Li₂(−1) is real.",
+        "Do not state this identity for the total principal function at x=3."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/disc-series",
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.1–1.3, pp. 50–51",
+          "match": "Real series coefficients and slit continuation give conjugation; the cut convention is essential."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Principal",
+        "namespace": "Complex"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.1/closed-disc",
+      "parentStageId": "PolylogarithmFunctions:PF.1",
+      "realises": [
+        "PolylogarithmFunctions:PF.1"
+      ],
+      "title": "Closed-disc continuity and zeta endpoints",
+      "kind": "theorem",
+      "statement": "For every natural n≥2, the series extends uniformly to |z|≤1, equals the principal integral there, and is continuous on that closed disc. Liₙ(1)=ζ(n), where ζ is the existing Riemann zeta function. For every real a, Liₙ(exp(2πia))=HurwitzZeta.expZeta a n. The n=1 endpoint at 1 is logarithmically divergent, regardless of its totalized value.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the uniform bound ∑k^(−n)<∞ to the disc series. Abel limiting and the radial integral identify the same boundary value.",
+        "Compare the unit-circle series with the pinned expZeta summation theorem, observing that its n=0 summand vanishes for positive weights.",
+        "Use the existing ζ(2) evaluation rather than re-proving Euler’s value."
+      ],
+      "acceptance": [
+        "Li₂(1)=π²/6.",
+        "At a=0 the exponential-zeta comparison recovers Liₙ(1)=ζ(n)."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/integrability",
+        "PolylogarithmFunctions:PF.1/disc-series",
+        "mathlib:HurwitzZeta.hasSum_expZeta_of_one_lt_re",
+        "mathlib:HurwitzZeta.expZeta_zero",
+        "mathlib:riemannZeta_two"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.4, p. 51",
+          "match": "Finite limits at 1 are zeta values for weights at least two."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §1, pp. 5–6",
+          "match": "The boundary values include ζ(2) and alternating-series values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Principal",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Zeta endpoint values"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.2/continuation",
+      "parentStageId": "PolylogarithmFunctions:PF.2",
+      "realises": [
+        "PolylogarithmFunctions:PF.2"
+      ],
+      "title": "The tower of continuation branches",
+      "kind": "construction",
+      "statement": "Let X=ℂ∖{0,1}, b=1/2. Construct the analytic continuation tower (L,Li₁,Li₂,…) over homotopy classes of paths from b to a varying endpoint in X, initially the real principal germs at b, with exp L=z, dL=dz/z, dLi₁=dz/(1−z), and dLiₙ=Liₙ₋₁ dz/z for n≥2. Give endpoint charts, restriction to simply connected neighborhoods and fixed-endpoint homotopy invariance. A branch means the coherent whole tower pulled back by a local section; weights cannot be independently reset inside a formula. Nonpositive weights pull back their rational functions.",
+      "hypotheses": [],
+      "proofSteps": [
+        "On a disc avoiding 0 and 1 use local logarithms and analytic primitives to solve the triangular recursion successively; constants are fixed by the starting germs.",
+        "A finite chain of such discs continues along each compact path. On a grid subordinate to a fixed-endpoint homotopy, local uniqueness makes continuation invariant under replacing successive edges.",
+        "Give the path-homotopy quotient its standard endpoint charts; the tower is holomorphic in these charts. This is a specific analytic construction, not a duplicate development of a general covering-space library."
+      ],
+      "acceptance": [
+        "The constant path returns the principal values at b.",
+        "Every branch under consideration is an actual analytic continuation of the fixed germ."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "mathlib:Path.Homotopic",
+        "tauceti:TauCeti.hasContinuousLogOn_of_mapsTo_slitPlane"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§2.1, p. 52",
+          "match": "The universal path-cover interpretation defines every determination from the principal germ at 1/2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Branches",
+        "namespace": "Complex"
+      },
+      "api": [
+        {
+          "name": "polylogBranch_at_base",
+          "role": "simp",
+          "statement": "The constant path evaluates to Log b and the principal Liₙ(b)."
+        },
+        {
+          "name": "polylogBranch_homotopy",
+          "role": "extensionality",
+          "statement": "Homotopic paths with fixed endpoints give the same tower germ."
+        },
+        {
+          "name": "polylogBranch_concat",
+          "role": "functoriality",
+          "statement": "Continuation along γ followed by δ equals continuation of the terminal germ along δ; constant paths act as identity."
+        },
+        {
+          "name": "polylogBranch_restrict",
+          "role": "functoriality",
+          "statement": "Restricting a branch to a smaller chart preserves its tower and derivatives."
+        },
+        {
+          "name": "polylogBranch_principal",
+          "role": "compatibility",
+          "statement": "On Ω∩X the continuation of the principal germ agrees with the principal Liₙ; a Log z branch also needs a simply connected neighborhood."
+        },
+        {
+          "name": "polylogBranch_derivative",
+          "role": "structure",
+          "statement": "Each local branch satisfies dLiₙ=Liₙ₋₁dz/z, and dLi₁=dz/(1−z)."
+        },
+        {
+          "name": "polylogBranch_nonpos",
+          "role": "compatibility",
+          "statement": "Every nonpositive-weight determination is the same rational function."
+        }
+      ],
+      "tests": [
+        {
+          "name": "polylogBranch_constant",
+          "kind": "degenerate",
+          "statement": "At b, the constant path gives Li₁(b)=log 2 and L(b)=−log 2."
+        },
+        {
+          "name": "polylogBranch_slit",
+          "kind": "compatibility",
+          "statement": "A path from b to −1 within Ω∩X returns Li₂(−1)=−π²/12."
+        },
+        {
+          "name": "polylogBranch_one_loop",
+          "kind": "non-example",
+          "statement": "A counterclockwise loop about 1 changes Li₁(b) by −2πi."
+        },
+        {
+          "name": "polylogBranch_zero_loop",
+          "kind": "computation",
+          "statement": "A counterclockwise loop about 0 changes L(b) by +2πi while fixing the initial Liₙ germs."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Oesterlé Proposition 1, p. 53",
+          "how": "Monodromy is an action on this path-based coherent tower."
+        },
+        {
+          "where": "Zagier §7, pp. 413–414",
+          "how": "Branch-independent Bernoulli combinations must use classical functions continued along the same path."
+        }
+      ],
+      "planet": {
+        "name": "Polylogarithm branches"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.2/loop-generators",
+      "parentStageId": "PolylogarithmFunctions:PF.2",
+      "realises": [
+        "PolylogarithmFunctions:PF.2"
+      ],
+      "title": "The two puncture loops",
+      "kind": "lemma",
+      "statement": "For X=ℂ∖{0,1} based at b=1/2, every based loop class is a word in the standard counterclockwise simple loops c₀,c₁ and their inverses. In particular their action determines every continuation branch. This target is the generation statement; no classification of arbitrary coefficient systems is part of it.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose the rays (−∞,0] and [1,∞) and polygonally perturb a compact loop to finitely many transverse crossings; their complement is star shaped about 1/2, hence contracts explicitly.",
+        "Record crossings as c₀,c₁ or their inverses and contract each remaining segment in the cut plane. The construction is invariant under path homotopy; only surjectivity of words is needed."
+      ],
+      "acceptance": [
+        "Both generators are counterclockwise; the sign is fixed by ∫dz/z=2πi about 0."
+      ],
+      "prerequisites": [
+        "mathlib:Path.Homotopic",
+        "mathlib:Set.Countable.isPathConnected_compl_of_one_lt_rank"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§2.2, p. 52, puncture-loop diagram",
+          "match": "Identifies the two pictured loops as free generators of the twice-punctured plane."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Branches",
+        "namespace": "Complex"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.2/monodromy",
+      "parentStageId": "PolylogarithmFunctions:PF.2",
+      "realises": [
+        "PolylogarithmFunctions:PF.2"
+      ],
+      "title": "Monodromy of the full tower",
+      "kind": "theorem",
+      "statement": "Use left prefixing: Tⱼ[γ]=[cⱼ followed by γ]. For n≥1, Liₙ(T₀γ)=Liₙ(γ), L(T₀γ)=L(γ)+2πi; Liₙ(T₁γ)=Liₙ(γ)−2πi L(γ)^(n−1)/(n−1)!, L(T₁γ)=L(γ). Inverses and arbitrary words act by repeated substitution in this entire tower. These statements describe prefixing the initial germ; appending a loop at the endpoint of an already changed branch is the conjugate action and need not fix Liₙ around 0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compute Li₁ monodromy by the logarithm around 1; around 0 the initial polylogarithm germs are holomorphic.",
+        "Differentiate the proposed correction at each higher weight, using the same continued L, and fix its constant at the base germ.",
+        "Use loop generation and substitution, rather than multiplying independent winding-number corrections; the two transformations do not commute."
+      ],
+      "acceptance": [
+        "For n=1, T₁ changes Li₁ by −2πi.",
+        "With function composition read right to left, Li₂(T₁(T₀γ))−Li₂(T₀(T₁γ))=−(2πi)².",
+        "All nonpositive weights remain unchanged."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.2/continuation",
+        "PolylogarithmFunctions:PF.2/loop-generators",
+        "PolylogarithmFunctions:PF.1/analytic-recursion"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§2.2, Proposition 1, equations (8)–(9), p. 53",
+          "match": "Gives the exact action on the Li tower and the continued logarithm, with this prefix convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Branches",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Polylogarithm monodromy"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.2/jump",
+      "parentStageId": "PolylogarithmFunctions:PF.2",
+      "realises": [
+        "PolylogarithmFunctions:PF.2"
+      ],
+      "title": "The principal branch jump",
+      "kind": "theorem",
+      "statement": "For n≥1 and x>1, both one-sided limits exist and Liₙ(x+i0)−Liₙ(x−i0)=2πi(log x)^(n−1)/(n−1)!. The total principal integral at x is the lower value. Counterclockwise monodromy about 1 of the initial germ is the negative of this jump continued with Log z.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For n=1 use Arg(1−x∓i0)=∓π.",
+        "Integrate the derivative recursion from 1 to x; for n≥2 the difference tends to zero at 1 and fixes the integration constant.",
+        "The integral’s negative imaginary logarithm on t>1/x selects the lower value."
+      ],
+      "acceptance": [
+        "At x=3 the Li₁ jump is +2πi, so no globally continuous principal Li₁ on X exists.",
+        "At weight two the imaginary jump is +2π log x; the argument correction has jump −2π log x."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/integrability",
+        "PolylogarithmFunctions:PF.2/monodromy",
+        "PolylogarithmFunctions:PF.1/analytic-recursion"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.3, equation (6), p. 51; §2.2, equation (8), p. 53",
+          "match": "Distinguishes the upper-minus-lower jump from the negative counterclockwise monodromy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Branches",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Principal branch jump"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.3/distribution",
+      "parentStageId": "PolylogarithmFunctions:PF.3",
+      "realises": [
+        "PolylogarithmFunctions:PF.3"
+      ],
+      "title": "Distribution in every integer weight",
+      "kind": "theorem",
+      "statement": "Let m≥1 be an integer, n∈ℤ, and μ_m the set of complex mth roots of unity. On |z|<1, Liₙ(z^m)=m^(n−1)∑_{ζ∈μ_m}Liₙ(ζz). For n>0 the same principal identity holds on the star domain Ω_m={z: every ζz∈Ω}, equivalently the plane minus the m rays {rζ⁻¹:r≥1}; z^m then belongs to Ω too. For n≤0 it holds wherever z^m≠1. Negative exponents of m mean its nonzero rational/complex inverse powers.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Interchange the finite root sum with the absolutely convergent series and use ∑ζ^k=m when m divides k and zero otherwise.",
+        "The displayed Ω_m is star shaped about zero, so analytic uniqueness extends the positive-weight identity there.",
+        "For nonpositive weights compare rational functions using the disc identity and their possible poles."
+      ],
+      "acceptance": [
+        "Li₂(1/4)=2(Li₂(1/2)+Li₂(−1/2)).",
+        "For n=0 the factor is 1/m, not m; m=1 is the identity."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/disc-series",
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "PolylogarithmFunctions:PF.1/rational-weights",
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.2, equation (4), p. 50",
+          "match": "The roots-of-unity filter gives the distribution constant."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §1, p. 8, duplication formula",
+          "match": "Its m=2 dilogarithm instance fixes the factor and argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/FunctionalEquations",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Distribution relation"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.3/inversion",
+      "parentStageId": "PolylogarithmFunctions:PF.3",
+      "realises": [
+        "PolylogarithmFunctions:PF.3"
+      ],
+      "title": "Bernoulli inversion",
+      "kind": "theorem",
+      "statement": "For n≥1 and z∉[0,∞), Liₙ(z)+(−1)^n Liₙ(1/z)=−(2πi)^n Bₙ(1/2+Log(−z)/(2πi))/n!, with the existing Bernoulli polynomials and B₁=−1/2. The logarithm is principal; this common domain is part of the theorem.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Verify n=1 directly using the two logarithms on the slit complement of the nonnegative axis.",
+        "Differentiate the n-th identity and reduce to n−1 using the pinned Bernoulli derivative theorem.",
+        "For n≥2 fix the constant at z=−1 with the paired Bernoulli Fourier theorem at 1/2 and the circle series. Thus the required off-circle continuation is proved as well."
+      ],
+      "acceptance": [
+        "At n=2,z=−1 the equality is 2Li₂(−1)=−π²/6.",
+        "Do not specialize this principal formula at positive z by ignoring its domain."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "mathlib:Polynomial.derivative_bernoulli",
+        "mathlib:hasSum_one_div_nat_pow_mul_fourier",
+        "mathlib:Complex.hasDerivAt_log",
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.2, equation (5), p. 51",
+          "match": "The inversion formula uses the logarithm with imaginary part in (0,2π); substituting Log(−z)+πi gives this version."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §1, pp. 8–9, inversion equations",
+          "match": "Supplies the weight-two inversion normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/FunctionalEquations",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Polylogarithm inversion"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.3/reflection",
+      "parentStageId": "PolylogarithmFunctions:PF.3",
+      "realises": [
+        "PolylogarithmFunctions:PF.3"
+      ],
+      "title": "Euler’s reflection identity",
+      "kind": "theorem",
+      "statement": "For z in U=ℂ∖((−∞,0]∪[1,∞)), Li₂(z)+Li₂(1−z)=π²/6−Log z·Log(1−z), all logarithms and polylogarithms principal. On (0,1) the formula is real.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Differentiate the corrected sum on U and show its derivative vanishes.",
+        "U is connected; take z→0 through (0,1) and use the finite ζ(2) endpoint and z log z→0."
+      ],
+      "acceptance": [
+        "At z=1/2, 2Li₂(1/2)=π²/6−(log 2)²."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "mathlib:Complex.hasDerivAt_log",
+        "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§4.1, equation (29), p. 59",
+          "match": "States reflection with the logarithmic correction on the common principal domain."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §1, pp. 8–9",
+          "match": "Uses reflection to compute the midpoint value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/FunctionalEquations",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Euler reflection identity"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.3/abel",
+      "parentStageId": "PolylogarithmFunctions:PF.3",
+      "realises": [
+        "PolylogarithmFunctions:PF.3"
+      ],
+      "title": "Abel’s classical five-term identity",
+      "kind": "theorem",
+      "statement": "If x,y∈ℂ and |x|+|y|<1, put a=x/(1−y), b=y/(1−x), c=xy/((1−x)(1−y)). Then Li₂(c)=Li₂(a)+Li₂(b)−Li₂(x)−Li₂(y)−Log(1−x)Log(1−y), using principal values. The strict norm inequality ensures every polylogarithm argument lies in the open unit disc.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For fixed y differentiate the two sides in x using the recursion; the principal logarithm product identities hold on the stated disc domain.",
+        "Set x=0 to fix the constant, then extend over the connected norm domain. All boundary cases with x=0 or y=0 are included by continuity."
+      ],
+      "acceptance": [
+        "At x=0 or y=0 both sides reduce to zero after cancellation.",
+        "At x=y=1/4 the c-argument is 1/9, while a=b=1/3."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "PolylogarithmFunctions:PF.3/reflection",
+        "mathlib:Complex.hasDerivAt_log"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§4.1, equation (30), p. 59",
+          "match": "Gives Abel’s five-term identity on this explicit common branch domain."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §1, pp. 8–9",
+          "match": "The elementary dilogarithm functional equations include this five-term form."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/FunctionalEquations",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Abel five-term identity"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.3/continued-identities",
+      "parentStageId": "PolylogarithmFunctions:PF.3",
+      "realises": [
+        "PolylogarithmFunctions:PF.3"
+      ],
+      "title": "Functional equations on coherent branches",
+      "kind": "theorem",
+      "statement": "Each distribution, inversion, reflection and Abel equality continues along every path in its nonsingular common argument space from a point of its stated principal domain. Every Li and Log in the equality is pulled back along its own argument path from those initial germs. For Abel one may take M={(x,y):xy(1−x)(1−y)(1−x−y)≠0}, based at (1/4,1/4). For inversion use z∈X and the paired paths z and 1/z, starting at −1; for reflection use z and 1−z starting at 1/2; for distribution use z^m and ζz on z≠0,z^m≠1 from a small nonzero basepoint. Independently changing any branch adds exactly the correction obtained from the full tower’s monodromy words, including the continued logarithms in the polynomial or product term.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Pull each germ in the known equality back to the same parameter neighborhood. Continue the zero germ through a finite chain of charts along the common path.",
+        "Path homotopy invariance gives an equality on the common covering space. Apply the monodromy substitutions to compute any separate change of branch.",
+        "Retain the norm domain for an uncorrected principal Abel assertion; no arbitrary independent-branch identity is inferred from it."
+      ],
+      "acceptance": [
+        "Moving Li₁ once counterclockwise around 1 alone changes an uncorrected principal equality by −2πi.",
+        "A loop with the same winding totals can have a different effect on Li₂ because the tower action is noncommutative."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.2/continuation",
+        "PolylogarithmFunctions:PF.2/monodromy",
+        "PolylogarithmFunctions:PF.3/distribution",
+        "PolylogarithmFunctions:PF.3/inversion",
+        "PolylogarithmFunctions:PF.3/reflection",
+        "PolylogarithmFunctions:PF.3/abel"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§2.1–2.2, pp. 52–53; §4.1, p. 59",
+          "match": "Continuation on the path cover and the explicit monodromy turn local functional equations into coherent multivalued identities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/FunctionalEquations",
+        "namespace": "Complex"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.3/dilog-values",
+      "parentStageId": "PolylogarithmFunctions:PF.3",
+      "realises": [
+        "PolylogarithmFunctions:PF.3"
+      ],
+      "title": "Exact dilogarithm values",
+      "kind": "theorem",
+      "statement": "For the principal normalization, Li₂(1)=π²/6, Li₂(−1)=−π²/12 and Li₂(1/2)=π²/12−(log 2)²/2. These are complex equalities with zero imaginary part.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the existing ζ(2) value at 1. Duplication at z=1 follows by closed-disc continuity and solves the value at −1.",
+        "Reflection at 1/2 yields the midpoint."
+      ],
+      "acceptance": [
+        "The negative-real value is finite and real; a wrong branch fails this test."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "PolylogarithmFunctions:PF.3/distribution",
+        "PolylogarithmFunctions:PF.3/reflection"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §1, pp. 5–9",
+          "match": "These exact values follow from the series, duplication and reflection."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/FunctionalEquations",
+        "namespace": "Complex"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/bernoulli-parity",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "The even Bernoulli generating identity",
+      "kind": "lemma",
+      "statement": "With cₖ=2^kBₖ/k!, the formal generating series β(s)=∑cₖs^k satisfies β(s)(exp(2s)−1)=2s. The series exp(s)β(s) is even and equals s/sinh s as a formal quotient with invertible constant term after cancelling s. In particular c₀=1,c₁=−1,c₂=1/3 and cₖ=0 for odd k>1. Only this coefficient system is asserted.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Scale the variable by 2 in the existing Bernoulli-series identity and multiply by exp(s).",
+        "Use exp(s)(exp(2s)−1)⁻¹=1/(2sinh s) after factoring the linear term, so no division by a nonunit formal variable is used. Compare s and −s coefficientwise."
+      ],
+      "acceptance": [
+        "Using B₁=+1/2 changes c₁ to +1 and destroys the required cancellation."
+      ],
+      "prerequisites": [
+        "mathlib:bernoulli",
+        "mathlib:bernoulli_one",
+        "mathlib:bernoulliPowerSeries_mul_exp_sub_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§7, equations (33)–(35), pp. 413–414",
+          "match": "Identifies the Bernoulli generating function and its even transform, which removes projected monodromy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/single-valued",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "Zagier’s real single-valued family",
+      "kind": "definition",
+      "statement": "For n≥2 and z≠0,1 define Lₙ(z)=πₙ(∑_{k=0}^{n−1}cₖ Liₙ₋ₖ(z) log^k|z|), where cₖ=2^kBₖ/k! and πₙ is real part for odd n and imaginary part for even n. Set Lₙ(0)=0; set Lₙ(1)=ζ(n) for odd n and 0 for even n. For the sphere set Lₙ(∞)=0. The formula at n=1 would give −log|1−z| on X; it is distinct from log|z|. This is Zagier’s Pₙ normalization with scalar real values, not his earlier Dₙ or D̃ₙ.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the finite Bernoulli sum of the actual principal functions, with explicit endpoint assignments.",
+        "Use OnePoint ℂ as the analytic sphere carrier and its finite-value equivalence with ℙ¹(ℂ); no arithmetic Tate-period factor enters this definition."
+      ],
+      "acceptance": [
+        "c₁=−1 is part of the definition, not an adjustable normalization.",
+        "No restriction to a number field or to a special embedding is present."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/principal",
+        "mathlib:bernoulli",
+        "PolylogarithmFunctions:PF.1/closed-disc"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§7, equation (33), pp. 413–414",
+          "match": "Defines the Bernoulli normalization; its parity projection makes the weight-n endpoint and inversion signs explicit."
+        },
+        {
+          "sourceId": "O93",
+          "locator": "§3, equation (18), p. 57",
+          "match": "Uses the same Bernoulli sum, valued in i^(n−1)ℝ; remove that target-line phase to get the scalar convention here."
+        },
+        {
+          "sourceId": "GR",
+          "locator": "§1.1, pp. 2–3",
+          "match": "Specifies real part in odd weights and imaginary part in even weights."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "api": [
+        {
+          "name": "singleValued_formula",
+          "role": "characterisation",
+          "statement": "On X the family is the displayed Bernoulli sum with the specified parity projection."
+        },
+        {
+          "name": "singleValued_zero",
+          "role": "simp",
+          "statement": "Lₙ(0)=0 for every n≥2."
+        },
+        {
+          "name": "singleValued_one",
+          "role": "simp",
+          "statement": "At 1, Lₙ is ζ(n) for odd n and zero for even n."
+        },
+        {
+          "name": "singleValued_infinity",
+          "role": "simp",
+          "statement": "The sphere extension has value zero at ∞."
+        },
+        {
+          "name": "singleValued_unitCircle",
+          "role": "compatibility",
+          "statement": "When |z|=1, Lₙ(z)=πₙLiₙ(z); equivalently use the pinned expZeta circle values."
+        },
+        {
+          "name": "singleValued_parity_projection",
+          "role": "projection",
+          "statement": "The scalar normalization is Re in odd weight and Im in even weight; the corresponding Tate line is obtained by a separate period convention."
+        }
+      ],
+      "tests": [
+        {
+          "name": "singleValued_two_formula",
+          "kind": "compatibility",
+          "statement": "L₂(z)=Im Li₂(z)+Arg(1−z)log|z| on X."
+        },
+        {
+          "name": "singleValued_three_one",
+          "kind": "computation",
+          "statement": "L₃(1)=ζ(3)>0."
+        },
+        {
+          "name": "singleValued_three_neg_one",
+          "kind": "computation",
+          "statement": "L₃(−1)=−3ζ(3)/4."
+        },
+        {
+          "name": "singleValued_weight_one_distinction",
+          "kind": "non-example",
+          "statement": "At z=1/2 the weight-one Bernoulli expression is +log 2, whereas log|z|=−log 2."
+        },
+        {
+          "name": "singleValued_unit_circle_parity",
+          "kind": "compatibility",
+          "statement": "L₃(e^(it))=Re Li₃(e^(it)), while L₂(e^(it))=Im Li₂(e^(it))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Polylogarithms P.2, P.3 and P.4",
+          "how": "Supplies analytic embedding values, differential identities and endpoint conventions before algebraic regulator constructions."
+        },
+        {
+          "where": "BorelRegulators and HabiroNahmSeries HB.3",
+          "how": "Provides parity-compatible scalar values at every complex embedding; arithmetic interpretation remains in those consumers."
+        }
+      ],
+      "planet": {
+        "name": "Zagier single-valued polylogarithms"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/branch-independence",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "Cancellation of every monodromy word",
+      "kind": "theorem",
+      "statement": "For n≥2, the projected finite sum defining Lₙ is unchanged when the coherent Li tower is continued along any loop in X. Thus any local branch of the whole tower yields the same real function. The unprojected complex sum need not be branch independent.",
+      "hypotheses": [],
+      "proofSteps": [
+        "T₀ fixes every Li term and does not change log|z|. For T₁ insert the monodromy polynomial in L=log|z|+iθ.",
+        "Its weight-n coefficient is the parity component of exp(iθs)exp(ℓs)β(ℓs); exp(ℓs)β(ℓs) is even with real coefficients. The selected projection of −2πi times its degree n−1 coefficient is zero.",
+        "The same calculation holds for every continued L, including θ shifted by 2π; generation by the two loops proves cancellation of arbitrary words and inverses."
+      ],
+      "acceptance": [
+        "The n=2 jump +2π log x is cancelled by the −2π argument jump times log x.",
+        "Testing only the cut jump is insufficient to replace the all-word proof."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/single-valued",
+        "PolylogarithmFunctions:PF.4/bernoulli-parity",
+        "PolylogarithmFunctions:PF.2/monodromy",
+        "PolylogarithmFunctions:PF.2/loop-generators"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§7, equations (33)–(35), pp. 413–414",
+          "match": "The even transformed generating series supplies single-valuedness of the Bernoulli projection."
+        },
+        {
+          "sourceId": "O93",
+          "locator": "§3, pp. 57–58",
+          "match": "Establishes the projected function independently of the determination chosen along a path."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Bernoulli monodromy cancellation"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/real-analytic",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "Real analyticity across the classical cut",
+      "kind": "theorem",
+      "statement": "For every n≥2, Lₙ is real analytic at every z∈X, including real z>1. Locally it equals the projected expression in any coherent holomorphic branch of the classical tower and the real-analytic function log|z|. In particular it is C^r for every r on X.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose a small disc avoiding 0 and 1 and a local coherent tower there. A nonvanishing holomorphic coordinate gives the real-analytic log norm.",
+        "Branch independence identifies the actual global function with this local analytic expression even when the disc crosses the principal cut."
+      ],
+      "acceptance": [
+        "At z=2 every Lₙ has a genuine real derivative, even though principal Liₙ has a jump there."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/single-valued",
+        "PolylogarithmFunctions:PF.4/branch-independence",
+        "PolylogarithmFunctions:PF.2/continuation",
+        "mathlib:Complex.hasDerivAt_log"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§3, pp. 57–58",
+          "match": "The globally single-valued function is real analytic off 0 and 1."
+        },
+        {
+          "sourceId": "GR",
+          "locator": "§1.1, pp. 2–3",
+          "match": "The all-weight single-valued family has the stated analytic regularity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Real-analytic single-valued continuation"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/differential",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "The real differential in every weight",
+      "kind": "theorem",
+      "statement": "Let n≥2,z∈X,v∈ℂ, ℓ=log|z| and cₖ=2^kBₖ/k!. On any coherent local branch, dLₙ(z)[v]=πₙ(∑_{k=0}^{n−1}cₖLiₙ₋ₖ₋₁(z)ℓ^k v/z + ∑_{k=1}^{n−1}k cₖLiₙ₋ₖ(z)ℓ^(k−1)Re(v/z)). Here Li₀=z/(1−z). This expression is branch independent and is the actual real Fréchet derivative at every point of X, including the classical cut.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Differentiate the finite expression on a local branch using dLi_j=Li_(j−1)v/z and dlog|z|=Re(v/z).",
+        "Differentiate the established local branch-independence equality to prove independence of the resulting linear map, instead of inferring derivatives from continuity across a cut."
+      ],
+      "acceptance": [
+        "Both sums have nonnegative logarithm exponents; the second begins at k=1.",
+        "Weight two gives the Bloch–Wigner one-form; weight three gives the explicit formula in the next diagnostic target."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/real-analytic",
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "PolylogarithmFunctions:PF.4/branch-independence",
+        "mathlib:Complex.hasDerivAt_log"
+      ],
+      "sources": [
+        {
+          "sourceId": "G00",
+          "locator": "§4.1, Proposition 4.1 and Lemma 4.2, equations (28)–(32), pp. 17–20",
+          "match": "Provides all-weight real differential identities for the Bernoulli normalization; the displayed local-branch form is obtained by differentiating the finite sum."
+        },
+        {
+          "sourceId": "O93",
+          "locator": "§3, equations (27)–(28), p. 58",
+          "match": "Supplies the equivalent Wirtinger differential formulas."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Single-valued differential"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/symmetries",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "Inversion, conjugation and distribution",
+      "kind": "theorem",
+      "statement": "For n≥2 and z≠0, Lₙ(z)+(−1)^nLₙ(1/z)=0, with the assigned endpoint values at 1. For every z, Lₙ(conj z)=(−1)^(n−1)Lₙ(z). For m≥1 and every z∈ℂ, Lₙ(z^m)=m^(n−1)∑_{ζ^m=1}Lₙ(ζz); at punctures use continuous extensions.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Insert the classical inversion into the finite Bernoulli sum; its polynomial correction has zero selected projection by the even-series identity.",
+        "Conjugate termwise on Ω and extend by branch independence.",
+        "For distribution note log|z^m|=m log|z|, so the k-th term gets exactly m^k m^(n−k−1)=m^(n−1); extend by continuity at the punctures once the endpoint target is proved."
+      ],
+      "acceptance": [
+        "L₂(1/z)=−L₂(z), L₃(1/z)=L₃(z).",
+        "Conjugation negates L₂ and fixes L₃; it is a different operation from inversion."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/single-valued",
+        "PolylogarithmFunctions:PF.4/branch-independence",
+        "PolylogarithmFunctions:PF.3/inversion",
+        "PolylogarithmFunctions:PF.3/distribution",
+        "PolylogarithmFunctions:PF.1/conjugation",
+        "PolylogarithmFunctions:PF.4/bernoulli-parity",
+        "PolylogarithmFunctions:PF.4/sphere-endpoints"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§3, equations (20)–(22), pp. 57–58",
+          "match": "Lists conjugation, distribution and inversion for the same Bernoulli family."
+        },
+        {
+          "sourceId": "Z90",
+          "locator": "§7, pp. 413–414",
+          "match": "Fixes the parity normalization used to interpret these formulas as real scalar equalities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Single-valued functional equations"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/sphere-endpoints",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "Continuous extension to the sphere",
+      "kind": "theorem",
+      "statement": "For n≥2 the assigned values make Lₙ continuous on ℂ and its extension continuous on OnePoint ℂ, hence on the Riemann sphere. Its limits at 0 and ∞ are zero. Its limit at 1 is ζ(n) in odd weights and zero in even weights. These limits do not depend on the approach direction or classical branch.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Near zero use Li_j(z)=O(z) for every j≥1, multiplied by at most |log|z||^(n−1).",
+        "Insert classical inversion into the finite Bernoulli sum and use the even-series identity to derive inversion for z∈X without invoking endpoint continuity; obtain the limit at infinity.",
+        "Near 1, Li_j→ζ(j) for j≥2, while the Li₁ logarithmic singularity is multiplied by log^(n−1)|z|=O(|z−1|^(n−1)); cut boundary corrections cancel. Prove the resulting estimates on both half-neighborhoods and use branch independence."
+      ],
+      "acceptance": [
+        "L₃(1) is nonzero; dropping it changes every odd-weight regulator convention.",
+        "L₂(0)=L₂(1)=L₂(∞)=0."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/single-valued",
+        "PolylogarithmFunctions:PF.4/branch-independence",
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "PolylogarithmFunctions:PF.3/inversion",
+        "PolylogarithmFunctions:PF.4/bernoulli-parity",
+        "PolylogarithmFunctions:PF.1/disc-series",
+        "PolylogarithmFunctions:PF.4/real-analytic"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§7, discussion after (35), p. 414",
+          "match": "Gives the continuous endpoints 0,∞ and the parity-dependent value at 1."
+        },
+        {
+          "sourceId": "O93",
+          "locator": "§3, equations (23)–(24), p. 58",
+          "match": "Records endpoint limits for every weight."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.4/trilogarithm-diagnostics",
+      "parentStageId": "PolylogarithmFunctions:PF.4",
+      "realises": [
+        "PolylogarithmFunctions:PF.4"
+      ],
+      "title": "The trilogarithm differential and endpoint",
+      "kind": "theorem",
+      "statement": "On X, with ℓ=log|z|, dL₃(z)[v]=−L₂(z)Im(v/z)+(ℓ log|1−z|/3)Re(v/z)+(ℓ²/3)Re(v/(1−z)). At z=1, the continuous extension L₃ has real Fréchet derivative zero. Also L₃(1)=ζ(3)>0 and L₃(−1)=−3ζ(3)/4.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Expand the n=3 Bernoulli sum and combine the imaginary Li₂ and Li₁ terms into L₂.",
+        "Near 1, L₂=O(ρ(1+|log ρ|)), ℓ=O(ρ), so the displayed differential is O(ρ(1+|log ρ|)). Integrate along short segments split at 1 to get L₃(1+h)−L₃(1)=o(|h|).",
+        "At −1 use the boundary series or distribution at z=1; ζ(3)>0 follows from its positive convergent series."
+      ],
+      "acceptance": [
+        "Do not extrapolate weight-two nondifferentiability to every higher weight.",
+        "On the circle L₃ is the real, not the imaginary, part of Li₃."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/differential",
+        "PolylogarithmFunctions:PF.4/sphere-endpoints",
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "PolylogarithmFunctions:PF.3/distribution"
+      ],
+      "sources": [
+        {
+          "sourceId": "G00",
+          "locator": "§4.1, equations (28)–(29), pp. 17–18",
+          "match": "Specializing the all-weight differential gives the weight-three identity."
+        },
+        {
+          "sourceId": "Z90",
+          "locator": "§7, equations (33)–(35), pp. 413–414",
+          "match": "The finite Bernoulli formula and endpoint determine the derivative limit and real special values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/SingleValued",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/bloch-wigner",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "The Bloch–Wigner dilogarithm",
+      "kind": "definition",
+      "statement": "Define D(z)=Im Li₂(z)+Arg(1−z)log|z| for z≠0,1, and D(0)=D(1)=0. The logarithm and argument are the same principal ones used above. Set D(∞)=0 for its sphere extension. This real analytic object is defined before, and independently of, any Bloch group or hyperbolic volume interpretation.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the actual principal dilogarithm and elementary argument correction with explicit endpoint assignments.",
+        "The comparison with L₂ proves global continuity and removes all branch ambiguity."
+      ],
+      "acceptance": [
+        "D is not merely the imaginary part of the total principal Li₂ off the unit circle."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/principal",
+        "mathlib:Complex.log"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, p. 10",
+          "match": "Defines the argument correction to Im Li₂ and its continuous zero endpoints."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "§1.0, equation (1.2), p. 201",
+          "match": "Fixes the Bloch–Wigner normalization on the sphere."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "api": [
+        {
+          "name": "blochWigner_formula",
+          "role": "characterisation",
+          "statement": "On X, D is Im Li₂+Arg(1−z)log|z|."
+        },
+        {
+          "name": "blochWigner_zero",
+          "role": "simp",
+          "statement": "D(0)=0."
+        },
+        {
+          "name": "blochWigner_one",
+          "role": "simp",
+          "statement": "D(1)=0."
+        },
+        {
+          "name": "blochWigner_infinity",
+          "role": "simp",
+          "statement": "D(∞)=0 in the sphere extension."
+        },
+        {
+          "name": "blochWigner_real",
+          "role": "simp",
+          "statement": "D(x)=0 for every real x."
+        },
+        {
+          "name": "blochWigner_circle",
+          "role": "compatibility",
+          "statement": "D(e^(it))=∑_{k≥1}sin(kt)/k², using the existing circle series realization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "blochWigner_real_axis",
+          "kind": "degenerate",
+          "statement": "D(0)=D(1)=D(2)=0."
+        },
+        {
+          "name": "blochWigner_i_positive",
+          "kind": "non-example",
+          "statement": "D(i)>0; the identically zero function fails this test."
+        },
+        {
+          "name": "blochWigner_minus_i",
+          "kind": "computation",
+          "statement": "D(−i)=−D(i)<0."
+        },
+        {
+          "name": "blochWigner_unit_circle",
+          "kind": "compatibility",
+          "statement": "D(e^(it)) is the imaginary part of the pinned expZeta circle value at weight 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Polylogarithms P.2",
+          "how": "Requires the signed analytic five-term relation and estimates before defining any regulator descent."
+        },
+        {
+          "where": "HabiroNahmSeries HB.3 and ArithmeticQuantumTopology QT.5",
+          "how": "Uses values at all complex embeddings and orientation-sensitive sign; volume equality is proved by the consumer."
+        }
+      ],
+      "planet": {
+        "name": "Bloch–Wigner dilogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/single-valued-two",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "Weight two is Bloch–Wigner",
+      "kind": "comparison",
+      "statement": "For every z∈ℂ and on the sphere, L₂(z)=D(z). Hence D is continuous everywhere and real analytic on X, including across (1,∞). On the unit circle D is the imaginary part of the absolutely convergent Li₂ Fourier series.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use c₀=1,c₁=−1 and Im Li₁=−Arg(1−z); this fixes the plus sign in the argument correction.",
+        "Check endpoint assignments and then invoke the already proved single-valued regularity."
+      ],
+      "acceptance": [
+        "At x>1 the two imaginary jumps cancel exactly."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/bloch-wigner",
+        "PolylogarithmFunctions:PF.4/single-valued",
+        "PolylogarithmFunctions:PF.4/real-analytic",
+        "PolylogarithmFunctions:PF.4/sphere-endpoints",
+        "mathlib:bernoulli_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§3, equation (19), p. 57",
+          "match": "Its phase-valued P₂=iD is exactly the scalar equality here."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, pp. 10–11",
+          "match": "The Bloch–Wigner definition and unit-circle series agree with this specialization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/sixfold",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "Sixfold symmetry and the real axis",
+      "kind": "theorem",
+      "statement": "For z∈X, D(z)=D(1−1/z)=D(1/(1−z))=−D(1/z)=−D(1−z)=−D(z/(z−1)). For every complex z, D(conj z)=−D(z). Consequently D is zero on the entire real axis, including its continuous endpoints.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use single-valued inversion and conjugation; take imaginary parts of Euler reflection with the logarithmic corrections to prove D(1−z)=−D(z).",
+        "The two generators z↦1−z and z↦1/z give the six identities by composition; conjugation fixes real inputs."
+      ],
+      "acceptance": [
+        "D(1/2)=D(−1)=D(2)=0.",
+        "D(−i)=−D(i), while D(1−1/i)=D(i)."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/single-valued-two",
+        "PolylogarithmFunctions:PF.4/symmetries",
+        "PolylogarithmFunctions:PF.3/reflection",
+        "PolylogarithmFunctions:PF.4/branch-independence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, p. 11, equation (1)",
+          "match": "Gives the six cross-ratio symmetries and conjugation sign."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Sixfold dilogarithm symmetry"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/differential",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "The Bloch–Wigner one-form",
+      "kind": "theorem",
+      "statement": "For every z∈X, D has real Fréchet derivative dD(z)[v]=−log|z|Im(v/(1−z))−log|1−z|Im(v/z), for all v∈ℂ. Equivalently dD=log|z|dArg(1−z)−log|1−z|dArg z on any local branches. The assertion includes classical cut points x>1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Specialize the all-weight real differential to n=2 and use Li₀=z/(1−z), Li₁=−Log(1−z).",
+        "A local coherent branch gives the actual smooth formula on a neighborhood of every cut point; no derivative is extended from equality of continuous boundary values alone."
+      ],
+      "acceptance": [
+        "At z=i,v=1 the value is log 2/2; at z=i,v=i it is zero.",
+        "At z=2 the derivative is log 2·Im(v)."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/single-valued-two",
+        "PolylogarithmFunctions:PF.4/differential",
+        "PolylogarithmFunctions:PF.4/real-analytic"
+      ],
+      "sources": [
+        {
+          "sourceId": "G00",
+          "locator": "§4.1, equation (29), p. 18",
+          "match": "The weight-two differential is the logarithmic argument one-form."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, pp. 10–11",
+          "match": "The single-valued definition supplies the normalization whose derivative is used."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Bloch–Wigner differential"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/laplacian",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "The Bloch–Wigner Laplacian",
+      "kind": "theorem",
+      "statement": "For z∈X, ΔD(z)=−2 Im(z)/(|z|²|1−z|²), with the Euclidean real Laplacian ∂²/∂x²+∂²/∂y² on ℂ. In particular D is strictly superharmonic in the upper half-plane and strictly subharmonic in the lower half-plane.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Write the real coefficients of dD in x,y; differentiate using grad log|z|=(x,y)/|z|² and grad log|1−z|=(x−1,y)/|1−z|².",
+        "The mixed numerator simplifies to −2y. The real analyticity target legitimizes the second derivatives even across the principal cut."
+      ],
+      "acceptance": [
+        "ΔD(i)=−1.",
+        "At real x≠0,1 the Laplacian is zero, while the transverse first derivative can be nonzero."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/differential",
+        "PolylogarithmFunctions:PF.4/real-analytic"
+      ],
+      "sources": [
+        {
+          "sourceId": "G00",
+          "locator": "§4.1, equation (29), p. 18",
+          "match": "Differentiating the stated logarithmic one-form gives the displayed Euclidean Laplacian; this is a derived analytic consequence, not a separately numbered source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/positivity",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "Strict positivity in the upper half-plane",
+      "kind": "theorem",
+      "statement": "For Im z>0, D(z)>0; for Im z<0, D(z)<0. Prove the analytic minimum-principle argument on compact closed upper half-discs and its passage to the unbounded half-plane, independently of any hyperbolic-volume theorem. The generic weak and strong minimum principles are cited from the pinned library, not planned again.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For ε>0 the sphere limit gives |D|≤ε on a sufficiently large semicircle; D=0 on its real diameter. Continuity holds even at 0 and 1, while C² regularity and ΔD≤0 hold on the half-disc interior.",
+        "Apply TauCeti.ge_of_laplacian_nonpos_ge_frontier on the compact half-disc to obtain D≥−ε at the chosen interior point; send ε to zero.",
+        "If an interior value were zero, the pinned strong principle on the connected open upper half-plane would make D constant there; its strictly negative Laplacian excludes this. Conjugation gives the lower sign."
+      ],
+      "acceptance": [
+        "D(i)>0 and D(−i)<0.",
+        "The argument checks frontier continuity and bounded-domain hypotheses before passing to the unbounded domain."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/laplacian",
+        "PolylogarithmFunctions:PF.4/real-analytic",
+        "PolylogarithmFunctions:PF.4/sphere-endpoints",
+        "PolylogarithmFunctions:PF.5/single-valued-two",
+        "PolylogarithmFunctions:PF.5/sixfold",
+        "tauceti:TauCeti.ge_of_laplacian_nonpos_ge_frontier",
+        "tauceti:TauCeti.eqOn_const_of_laplacian_nonpos_of_isMinOn"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, pp. 10–11",
+          "match": "Its analytic Bloch–Wigner function and zero boundary values fix the object; positivity here is derived using the displayed Laplacian and pinned minimum principles."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Bloch–Wigner positivity"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/five-term",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "The analytic five-term relation",
+      "kind": "theorem",
+      "statement": "For x,y∈ℂ∖{0,1} with x≠y, D(x)−D(y)+D(y/x)−D((1−x⁻¹)/(1−y⁻¹))+D((1−x)/(1−y))=0. All five arguments then avoid 0 and 1. The proof is analytic and precedes any construction of a pre-Bloch quotient.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For cyclic brackets xᵢ, clear denominators to prove 1−xᵢ=−xᵢ/(xᵢ₊₂xᵢ₊₃), with indices modulo five.",
+        "Put η(f,g)=log|f|dArg g−log|g|dArg f. Its bilinearity for products and inverses turns the sum of dD(xᵢ) into cancelling terms.",
+        "Fix one variable; the finite-complement theorem and zero-derivative constancy give a constant on its admissible plane domain. Let a configuration degenerate toward a collision and use continuity to fix the constant at zero; apply the sixfold dictionary to obtain the stated alternating form."
+      ],
+      "acceptance": [
+        "For x=i,y=−1, the result is 2D(i)−2D((1+i)/2)=0.",
+        "For x=i/2,y=(1+i)/2 the arguments are i/2,(1+i)/2,1−i,2−i,(3+i)/2, with the displayed alternating signs.",
+        "A collision x=y is a continuous limiting statement; it is excluded from the admissible algebraic formula."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/differential",
+        "PolylogarithmFunctions:PF.5/sixfold",
+        "PolylogarithmFunctions:PF.4/sphere-endpoints",
+        "PolylogarithmFunctions:PF.5/single-valued-two",
+        "mathlib:Set.Countable.isPathConnected_compl_of_one_lt_rank",
+        "mathlib:IsOpen.exists_is_const_of_fderiv_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, equation (4), p. 11",
+          "match": "The alternating five-term identity has this ordered cross-ratio form."
+        },
+        {
+          "sourceId": "GR",
+          "locator": "§1.1, equations (3)–(4), pp. 3–4",
+          "match": "The cyclic cross-ratio equation and its elementary differential proof fix the convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Bloch–Wigner five-term relation"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.5/projective-five-term",
+      "parentStageId": "PolylogarithmFunctions:PF.5",
+      "realises": [
+        "PolylogarithmFunctions:PF.5"
+      ],
+      "title": "Projective and cyclic cross-ratio forms",
+      "kind": "theorem",
+      "statement": "For five pairwise distinct points s₀,…,s₄ of ℙ¹(ℂ), use r(a,b,c,d)=(a−c)(b−d)/((a−d)(b−c)) on finite coordinates and its cancellation limits when one point is ∞. Then ∑_{j=0}⁴(−1)^jD(r(s₀,…,ŝⱼ,…,s₄))=0; r(∞,0,1,z)=z. For cyclic Goncharov–Rudenko brackets [a,b,c,d]=(a−b)(c−d)/((a−d)(c−b)) the corresponding cyclic sum of five D-values is zero. These are coordinate formulas for analytic values, not a construction of an algebraic configuration complex.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Prove the rational coordinate formulas and Möbius invariance by clearing denominators, with explicit one-infinity cancellation cases. Normalize three points to ∞,0,1 and apply the affine five-term theorem.",
+        "Translate between r and the GR bracket using [a,b,c,d]=1−r(a,b,c,d)=1−1/cr(a,b,c,d); use the appropriate sixfold symmetry before rearranging the cyclic order.",
+        "The Suslin ordering cr(0,∞,1,z)=z is reciprocal to r on the same ordered tuple; record that sign rather than identifying their raw functions."
+      ],
+      "acceptance": [
+        "r(∞,0,1,z)=z whereas the GR bracket on that tuple is 1−z.",
+        "No regulator or group-descent statement is inferred from a coordinate identity."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/five-term",
+        "PolylogarithmFunctions:PF.5/sixfold"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, equations (3)–(4), p. 11",
+          "match": "Gives the invariant five-point relation."
+        },
+        {
+          "sourceId": "GR",
+          "locator": "§1.1, equations (3)–(4), pp. 3–4",
+          "match": "Uses the cyclic bracket normalized by [∞,1,0,z]=z."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/BlochWigner",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.6/rogers",
+      "parentStageId": "PolylogarithmFunctions:PF.6",
+      "realises": [
+        "PolylogarithmFunctions:PF.6"
+      ],
+      "title": "The interval Rogers dilogarithm",
+      "kind": "definition",
+      "statement": "For 0<x<1 define R(x)=Re Li₂(x)+(1/2)log x log(1−x). Assign R(0)=0 and R(1)=π²/6. Use the restriction to [0,1] as the object; a total real expression away from that interval carries no extended-Rogers theorem in this roadmap.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Take the displayed elementary correction of the principal analytic Li₂ on the real interval and assign its two finite limits.",
+        "The interval is essential for exact real logarithmic identities without modulo-period corrections."
+      ],
+      "acceptance": [
+        "This normalization has R(1)=π²/6, rather than a shifted or unit-normalized endpoint."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/principal",
+        "PolylogarithmFunctions:PF.3/dilog-values"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part II §1.A, pp. 23–24",
+          "match": "Defines the Rogers correction and explains the clean interval functional equation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Rogers",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "api": [
+        {
+          "name": "rogers_formula",
+          "role": "characterisation",
+          "statement": "For 0<x<1, R(x)=Re Li₂(x)+(log x log(1−x))/2."
+        },
+        {
+          "name": "rogers_zero",
+          "role": "simp",
+          "statement": "R(0)=0."
+        },
+        {
+          "name": "rogers_one",
+          "role": "simp",
+          "statement": "R(1)=π²/6."
+        },
+        {
+          "name": "rogers_continuous",
+          "role": "structure",
+          "statement": "R is continuous on [0,1] and real analytic on (0,1)."
+        },
+        {
+          "name": "rogers_polylog_compat",
+          "role": "compatibility",
+          "statement": "The underlying real dilogarithm agrees with the complex principal one on (0,1), whose imaginary part is zero."
+        },
+        {
+          "name": "rogers_monotone",
+          "role": "other",
+          "statement": "R is strictly increasing on [0,1], since its open-interval derivative is positive."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rogers_endpoints",
+          "kind": "degenerate",
+          "statement": "R(0)=0 and R(1)=π²/6."
+        },
+        {
+          "name": "rogers_half",
+          "kind": "computation",
+          "statement": "R(1/2)=π²/12, so it differs from Li₂(1/2)."
+        },
+        {
+          "name": "rogers_golden",
+          "kind": "computation",
+          "statement": "For ρ=(√5−1)/2, R(ρ)=π²/10 and R(ρ²)=π²/15."
+        },
+        {
+          "name": "rogers_derivative_half",
+          "kind": "characterisation",
+          "statement": "R′(1/2)=2log 2>0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Zagier Part II §1.A, pp. 23–24",
+          "how": "The interval normalization removes logarithmic errors in the Rogers pentagon."
+        },
+        {
+          "where": "HabiroNahmSeries positive real Nahm solutions and quantum-modularity consumers",
+          "how": "Supplies exact real identities and positive derivatives for inputs in (0,1); any arithmetic or asymptotic interpretation stays with the consumer."
+        }
+      ],
+      "planet": {
+        "name": "Rogers dilogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.6/rogers-calculus",
+      "parentStageId": "PolylogarithmFunctions:PF.6",
+      "realises": [
+        "PolylogarithmFunctions:PF.6"
+      ],
+      "title": "Rogers regularity and derivative",
+      "kind": "theorem",
+      "statement": "R is continuous on [0,1] and real analytic on (0,1). For 0<x<1, R′(x)=−(1/2)(log(1−x)/x+log x/(1−x))>0. Consequently R is strictly increasing on [0,1].",
+      "hypotheses": [],
+      "proofSteps": [
+        "Differentiate the expression using Li₂′(x)=−log(1−x)/x and the ordinary real logarithm derivative.",
+        "The two logarithms are negative on (0,1), giving positivity; their endpoint products tend to zero, so the assigned endpoints are continuous. Apply the real mean-value theorem and pass to endpoint limits."
+      ],
+      "acceptance": [
+        "R′(1/2)=2log 2.",
+        "The nontrivial logarithmic correction prevents confusing R with Re Li₂."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.6/rogers",
+        "PolylogarithmFunctions:PF.1/analytic-recursion",
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "PolylogarithmFunctions:PF.3/dilog-values",
+        "mathlib:Complex.hasDerivAt_log"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part II §1.A, pp. 23–24",
+          "match": "The corrected real dilogarithm has the symmetric differential used for its identities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Rogers",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.6/rogers-reflection",
+      "parentStageId": "PolylogarithmFunctions:PF.6",
+      "realises": [
+        "PolylogarithmFunctions:PF.6"
+      ],
+      "title": "Rogers reflection",
+      "kind": "theorem",
+      "statement": "For every x∈[0,1], R(x)+R(1−x)=π²/6.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Add the two Rogers corrections to Euler reflection on (0,1); the logarithmic products cancel exactly.",
+        "Use continuity to include x=0 and x=1."
+      ],
+      "acceptance": [
+        "R(1/2)=π²/12."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.6/rogers",
+        "PolylogarithmFunctions:PF.3/reflection",
+        "PolylogarithmFunctions:PF.6/rogers-calculus"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part II §1.A, p. 23",
+          "match": "The normalization converts Euler reflection into a constant-sum identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Rogers",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Rogers reflection identity"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.6/rogers-pentagon",
+      "parentStageId": "PolylogarithmFunctions:PF.6",
+      "realises": [
+        "PolylogarithmFunctions:PF.6"
+      ],
+      "title": "The exact interval pentagon",
+      "kind": "theorem",
+      "statement": "For 0<x,y<1, R(x)+R(y)=R(xy)+R(x(1−y)/(1−xy))+R(y(1−x)/(1−xy)). Every argument on the right lies in (0,1). The equality is exact in ℝ, with no quotient by π² or omitted additive constant.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Derive the equality first on a nonempty open subregion using Abel, reflection and the explicit logarithmic corrections.",
+        "Alternatively differentiate the claimed difference in x and y on the connected square (0,1)² using the already proved Rogers derivative; each derivative cancels by real log product identities. Let y→0 to fix its constant at zero.",
+        "Check denominator positivity and the right-hand argument bounds before using any derivative or logarithm identity."
+      ],
+      "acceptance": [
+        "At x=y=ρ with ρ²=1−ρ, all three right-hand arguments are ρ², so 2R(ρ)=3R(ρ²)."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.6/rogers",
+        "PolylogarithmFunctions:PF.3/abel",
+        "PolylogarithmFunctions:PF.3/reflection",
+        "PolylogarithmFunctions:PF.6/rogers-calculus"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part II §1.A, pp. 23–24",
+          "match": "The Rogers version of the five-term equation has no logarithmic remainder on the interval."
+        },
+        {
+          "sourceId": "O93",
+          "locator": "§4.1, equation (30), p. 59",
+          "match": "The classical Abel identity supplies the local dilogarithm equality from which the interval form follows."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Rogers",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Rogers pentagon identity"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.6/rogers-values",
+      "parentStageId": "PolylogarithmFunctions:PF.6",
+      "realises": [
+        "PolylogarithmFunctions:PF.6"
+      ],
+      "title": "Midpoint and golden-ratio values",
+      "kind": "theorem",
+      "statement": "Let ρ=(√5−1)/2, so 0<ρ<1 and ρ²=1−ρ. Then R(1/2)=π²/12, R(ρ)=π²/10 and R(ρ²)=π²/15.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Reflection fixes the midpoint.",
+        "At x=y=ρ the pentagon gives 2R(ρ)=3R(ρ²); reflection gives their sum π²/6. Solve the two real linear equations."
+      ],
+      "acceptance": [
+        "The value at ρ is larger than the midpoint, as strict monotonicity requires."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.6/rogers-reflection",
+        "PolylogarithmFunctions:PF.6/rogers-pentagon"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part II §1.A, pp. 23–24; Part I §1, p. 6",
+          "match": "The Rogers reflection and pentagon determine these values; the classical golden-ratio values give the same normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Rogers",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.7/disc-tail",
+      "parentStageId": "PolylogarithmFunctions:PF.7",
+      "realises": [
+        "PolylogarithmFunctions:PF.7"
+      ],
+      "title": "Uniform disc truncation bounds",
+      "kind": "theorem",
+      "statement": "Let n≥1,N≥0 be integers, 0≤r<1, |z|≤r, and S_N=∑_{k=1}^N z^k/k^n. Then |Liₙ(z)−S_N|≤r^(N+1)/((N+1)^n(1−r)). For each n≤0 and each fixed r<1, the rational tail has the explicit bound ∑_{k>N}k^(−n)r^k; bound this polynomially weighted geometric tail by applying (r d/dr)^(−n) to r^(N+1)/(1−r). The latter equality and bound are asserted for 0≤r<1 with its continuous interpretation at r=0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For n≥1 bound k^(−n) by (N+1)^(−n) and sum the remaining geometric progression.",
+        "For n≤0 use the Euler-derivative rational tail formula for the nonnegative summands k^(−n)r^k. This makes the nonpositive-weight estimate computable without a false decreasing-denominator argument."
+      ],
+      "acceptance": [
+        "For n=2,z=1/2,N=1 the error is at most 1/8.",
+        "The positive-weight bound cannot be reused unchanged for n=−1."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/disc-series",
+        "PolylogarithmFunctions:PF.1/rational-weights"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§1.1, equation (1), p. 50",
+          "match": "The absolutely convergent defining series gives these estimates by termwise absolute values; the quantitative inequalities are derived here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Estimates",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Polylogarithm truncation bounds"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.7/circle-tail",
+      "parentStageId": "PolylogarithmFunctions:PF.7",
+      "realises": [
+        "PolylogarithmFunctions:PF.7"
+      ],
+      "title": "Closed-disc and Fourier tail bounds",
+      "kind": "theorem",
+      "statement": "For n≥2,N≥1 and |z|≤1, |Liₙ(z)−∑_{k=1}^N z^k/k^n|≤N^(1−n)/(n−1). On the unit circle the same bound holds for Lₙ after parity projection. In particular |D(e^(it))−∑_{k=1}^Nsin(kt)/k²|≤1/N, uniformly in real t.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Bound the tail norm by ∑_{k>N}k^(−n)≤∫_N^∞t^(−n)dt.",
+        "The parity projections have operator norm one and log|z|=0 on the circle."
+      ],
+      "acceptance": [
+        "At n=2 the exponent is N⁻¹, with no claim of a uniform absolute n=1 boundary series."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "PolylogarithmFunctions:PF.5/single-valued-two",
+        "PolylogarithmFunctions:PF.4/single-valued"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, p. 11, Fourier formula for D",
+          "match": "The circle series yields the stated uniform error by the integral comparison for ∑k^(−n)."
+        },
+        {
+          "sourceId": "O93",
+          "locator": "§1.4, p. 51",
+          "match": "Positive weights at least two have finite closed-disc boundary values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Estimates",
+        "namespace": "Complex"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.7/branch-growth",
+      "parentStageId": "PolylogarithmFunctions:PF.7",
+      "realises": [
+        "PolylogarithmFunctions:PF.7"
+      ],
+      "title": "Sectorial growth of every classical branch",
+      "kind": "theorem",
+      "statement": "Fix n≥1 and a continued branch on a sector of bounded argument near 0, 1 or ∞ in X. Near 0, every such Liₙ is O(1+|log|z||^(n−1)); the principal branch improves to O(|z|). Near ∞ every branch is O(1+log^n|z|). For n≥2 each branch near 1 has a finite limit, differing from ζ(n) by an integer multiple of (2πi)^n/(n−1)!; weight one has its logarithmic singularity. Constants depend on the branch, sector and n. Nonpositive weights have the exact rational pole/growth behavior from PF.1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Expand any fixed loop word using the tower monodromy; its corrections are polynomials of degree at most n−1 in a continued Log z, with coefficients in the period lattice.",
+        "Combine the principal small-disc series estimate with the inversion polynomial for large z. Near 1 use Log z=2πij+O(z−1) on the chosen sector; the monodromy constants lie in the displayed lattice because the binomial/factorial coefficients are integral multiples after the common (n−1)! denominator.",
+        "For n=1 keep the logarithmic divergence at 1 separate; no finite ζ(1) limit is asserted."
+      ],
+      "acceptance": [
+        "After a loop about 1, Li₂ near zero has a logarithmic term, so “all branches are O(z)” is false.",
+        "The principal Liₙ still has zero limit at zero."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.2/monodromy",
+        "PolylogarithmFunctions:PF.2/loop-generators",
+        "PolylogarithmFunctions:PF.3/inversion",
+        "PolylogarithmFunctions:PF.1/closed-disc",
+        "PolylogarithmFunctions:PF.1/rational-weights",
+        "PolylogarithmFunctions:PF.7/disc-tail"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§2.2, Corollaries 1–2, p. 53; §1.3, equation (7), p. 51",
+          "match": "States branchwise sector growth and the possible positive-weight limits at 1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Estimates",
+        "namespace": "Complex"
+      },
+      "planet": {
+        "name": "Branchwise sector estimates"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.7/endpoint-estimates",
+      "parentStageId": "PolylogarithmFunctions:PF.7",
+      "realises": [
+        "PolylogarithmFunctions:PF.7"
+      ],
+      "title": "Quantitative single-valued endpoints",
+      "kind": "theorem",
+      "statement": "For each n≥2 there is Cₙ>0 such that, for 0<|z|≤1/2, |Lₙ(z)|≤Cₙ|z|(1+|log|z||^(n−1)); for |z|≥2, |Lₙ(z)|≤Cₙ|z|⁻¹(1+log^(n−1)|z|). There is Aₙ>0 such that for 0<|z−1|≤1/2, |Lₙ(z)−Lₙ(1)|≤Aₙ|z−1|(1+|log|z−1|||). These are uniform in direction, including crossing the classical cut.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use |Li_j(z)|≤2|z| on the half-disc for j≥1 and sum the finite |cₖ| factors. Invert for large z using the endpoint-free functional equation.",
+        "Near 1 the local branch expressions have Li₁=O(1+|log ρ|), bounded Li_j for j≥2 and ℓ=O(ρ). The n=2 differential is O(1+|log ρ|); higher weights satisfy the same coarse upper bound.",
+        "Integrate along radial segments from 1 in the upper/lower half-neighborhood, using cancellation for the real cut. The integral of 1+|log t| is O(ρ(1+|log ρ|)); continuity supplies the endpoint."
+      ],
+      "acceptance": [
+        "The estimates force zero at both 0 and ∞, but retain ζ(3) at 1.",
+        "The weight-three derivative-zero statement is stronger than the common coarse modulus."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/sphere-endpoints",
+        "PolylogarithmFunctions:PF.4/symmetries",
+        "PolylogarithmFunctions:PF.7/disc-tail",
+        "PolylogarithmFunctions:PF.4/differential",
+        "PolylogarithmFunctions:PF.4/branch-independence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§7, endpoint discussion after (35), p. 414",
+          "match": "The Bernoulli formula and inversion imply continuous endpoint behavior; these uniform rates are quantitative consequences."
+        },
+        {
+          "sourceId": "O93",
+          "locator": "§1.3–1.4, pp. 51; §3, pp. 57–58",
+          "match": "Classical logarithmic behavior and the all-weight single-valued differential give the required estimates."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Estimates",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.7/compact-derivatives",
+      "parentStageId": "PolylogarithmFunctions:PF.7",
+      "realises": [
+        "PolylogarithmFunctions:PF.7"
+      ],
+      "title": "Compact bounds for every real derivative",
+      "kind": "theorem",
+      "statement": "For n≥2, every compact K⊂X and every r≥0, the r-th real derivative of Lₙ is bounded on K; the same holds for D. On each compact convex K⊂X the first-derivative bound gives a Lipschitz bound |Lₙ(z)−Lₙ(w)|≤C|z−w|. For a fixed local classical branch the same statements hold on compact subsets of its chart. No single global Lipschitz constant across the punctures is asserted.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Real analyticity implies continuity of each iterated derivative; take its norm maximum on K.",
+        "For the Lipschitz statement integrate the derivative along the contained segment; a nonconvex compact set needs local charts or a path-length bound instead."
+      ],
+      "acceptance": [
+        "A compact set may cross the principal cut and still be a valid set for Lₙ or D.",
+        "An arbitrarily small neighborhood of 0 has no uniform derivative bound for D."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/real-analytic",
+        "PolylogarithmFunctions:PF.5/single-valued-two",
+        "PolylogarithmFunctions:PF.4/differential",
+        "PolylogarithmFunctions:PF.2/continuation"
+      ],
+      "sources": [
+        {
+          "sourceId": "O93",
+          "locator": "§2.1, p. 52; §3, pp. 57–58",
+          "match": "Holomorphic branch charts and real analyticity of the single-valued family imply continuous derivatives, hence compact bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Estimates",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.7/bloch-wigner-logarithmic",
+      "parentStageId": "PolylogarithmFunctions:PF.7",
+      "realises": [
+        "PolylogarithmFunctions:PF.7"
+      ],
+      "title": "The logarithmic endpoint test",
+      "kind": "theorem",
+      "statement": "As real t→0, t≠0, D(it)=t(1−log|t|)+O(|t|³(1+|log|t||)). In particular D is continuous but has no real Fréchet derivative at 0. Sixfold symmetry transfers the corresponding failure to 1 and to infinity in the reciprocal coordinate; no such failure is asserted for every higher Lₙ.",
+      "hypotheses": [],
+      "proofSteps": [
+        "From the Li₂ series, Im Li₂(it)=t+O(t³); from the argument Taylor expansion, Arg(1−it)=−t+O(t³). Multiply by log|t| with the correct sign.",
+        "The quotient D(it)/t=1−log|t|+o(1) diverges to +∞, excluding a finite real derivative.",
+        "Use D(1−z)=−D(z) and D(1/z)=−D(z) to transfer the endpoint behavior."
+      ],
+      "acceptance": [
+        "The expansion is odd in t to its leading order.",
+        "L₃ has derivative zero at 1, so this check is specific to D."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.5/differential",
+        "PolylogarithmFunctions:PF.5/sixfold",
+        "PolylogarithmFunctions:PF.1/disc-series",
+        "PolylogarithmFunctions:PF.7/disc-tail"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, p. 10",
+          "match": "The Bloch–Wigner function is continuous and logarithmically nonsmooth at its three sphere endpoints; the displayed imaginary-axis expansion is derived from its defining formula."
+        },
+        {
+          "sourceId": "G95",
+          "locator": "§1.0, equation (1.2), p. 201",
+          "match": "Describes the logarithmic type of the Bloch–Wigner endpoint singularities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Estimates",
+        "namespace": "TauCeti.Polylogarithm"
+      },
+      "planet": {
+        "name": "Logarithmic dilogarithm singularities"
+      }
+    },
+    {
+      "id": "PolylogarithmFunctions:PF.7/global-bounds",
+      "parentStageId": "PolylogarithmFunctions:PF.7",
+      "realises": [
+        "PolylogarithmFunctions:PF.7"
+      ],
+      "title": "Global analytic bounds for consumers",
+      "kind": "theorem",
+      "statement": "For each n≥2 there exists Mₙ<∞ with |Lₙ(z)|≤Mₙ on the sphere, hence D is bounded. R takes values in [0,π²/6] on [0,1]. Export the explicit disc/circle tail inequalities and endpoint bounds for finite weighted sums of evaluations at arbitrary complex numbers; triangle inequalities multiply each analytic error by the absolute value of its coefficient. Such bounds apply under every embedding F→ℂ for every number field F; they impose no arithmetic condition on F and construct no rational-certificate data type.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Take the maximum norm of the continuous sphere function on its compact domain, or combine the three endpoint estimates with a compact remainder.",
+        "Use monotonicity and endpoints to bound R. Apply the triangle inequality to weighted finite sums; retain each embedding as an argument of the analytic function."
+      ],
+      "acceptance": [
+        "A finite arithmetic certificate belongs to Polylogarithms P.2; the exported analytic inequalities are sufficient input without reversing that dependency."
+      ],
+      "prerequisites": [
+        "PolylogarithmFunctions:PF.4/sphere-endpoints",
+        "PolylogarithmFunctions:PF.7/endpoint-estimates",
+        "PolylogarithmFunctions:PF.7/circle-tail",
+        "PolylogarithmFunctions:PF.7/disc-tail",
+        "PolylogarithmFunctions:PF.6/rogers-calculus"
+      ],
+      "sources": [
+        {
+          "sourceId": "Z90",
+          "locator": "§7, p. 414",
+          "match": "Continuity on the compact sphere yields boundedness."
+        },
+        {
+          "sourceId": "Z07",
+          "locator": "Part I §3, pp. 10–11; Part II §1.A, pp. 23–24",
+          "match": "The Bloch–Wigner and interval Rogers normalizations determine the corresponding bounds; finite-sum error transport is the triangle inequality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/SpecialFunctions/Polylogarithm/Estimates",
+        "namespace": "TauCeti.Polylogarithm"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "PolylogarithmFunctions:PF.1",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "PolylogarithmFunctions:PF.2",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "PolylogarithmFunctions:PF.3",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "PolylogarithmFunctions:PF.4",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "PolylogarithmFunctions:PF.5",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "PolylogarithmFunctions:PF.6",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "PolylogarithmFunctions:PF.7",
+      "status": "closed",
+      "remaining": []
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "sourceId": "Z07",
+      "kind": "author copy",
+      "citation": "Frontiers in Number Theory, Physics, and Geometry II (2007), pp. 3–65",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+      "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+      "read": "2026-10-20"
+    },
+    {
+      "sourceId": "Z90",
+      "kind": "author copy",
+      "citation": "Arithmetic Algebraic Geometry, Progress in Mathematics 89 (1991), pp. 391–430",
+      "url": "https://people.mpim-bonn.mpg.de/zagier/files/scanned/PolylogsDedekindZetaAndKTheory/fulltext.pdf",
+      "sha256": "96bbb5f616dfac26e28c1da4657b2c5ae9cefa462213279797ccd44b71e1bb19",
+      "read": "2026-10-20"
+    },
+    {
+      "sourceId": "O93",
+      "kind": "published",
+      "citation": "Astérisque 216 (1993), Séminaire Bourbaki, exposé 762, pp. 49–67",
+      "url": "https://www.numdam.org/item/SB_1992-1993__35__49_0.pdf",
+      "sha256": "5a4afb63044e56a50b1cd76c3de388d64fca2017f495afcbeadb8ff6725fba54",
+      "read": "2026-10-20"
+    },
+    {
+      "sourceId": "G95",
+      "kind": "author copy",
+      "citation": "Advances in Mathematics 114 (1995), pp. 197–318",
+      "url": "https://sasha-goncharov.github.io/Advances1995.pdf",
+      "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344",
+      "read": "2026-10-20"
+    },
+    {
+      "sourceId": "G00",
+      "kind": "preprint",
+      "citation": "arXiv:math/0003086v1 (2000)",
+      "url": "https://arxiv.org/pdf/math/0003086v1",
+      "sha256": "47a616bada4abeaee1672679593e5b69e6d293b2cf98e08de6b726072f9a69ea",
+      "read": "2026-10-20"
+    },
+    {
+      "sourceId": "GR",
+      "kind": "preprint",
+      "citation": "arXiv:1803.08585v5 (15 July 2026)",
+      "url": "https://arxiv.org/pdf/1803.08585v5",
+      "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df",
+      "read": "2026-10-20"
+    }
+  ],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "Polylogarithms",
+        "PolylogarithmFunctions"
+      ],
+      "detail": "Maintainer-authorized extraction of every analytic target and Check in Polylogarithms P.1; P.2 onward remains arithmetic.",
+      "proposal": "Replace the P.1 analytic owner by PF.1–PF.7 and insert PolylogarithmFunctions before K3BlochGroups in the dependency order. Redirect P.2 to PF.4–PF.5 and PF.7; redirect the analytic content of KU-polyloganalysis, HabiroNahmSeries HB.3 and PeriodsAndSpecialValues PS.9 to PF.1–PF.4/PF.7 as appropriate. HB.8’s formal product theorem uses ColemanIntegration’s formal series rather than depending on complex analysis solely because of the old aggregate edge. Preserve arithmetic configuration complexes and regulator descent in K3BlochGroups/Polylogarithms. Detailed target and consumer map is in the handoff."
+    }
+  ],
+  "librarySearch": {
+    "read": "2026-10-20",
+    "audit": "The accepted Polylogarithms:P.1 audit in data/library-coverage.json was read, then the pinned and current source trees and current TauCetiRoadmap files were independently searched.",
+    "mathlibPullRequest": {
+      "url": "https://github.com/leanprover-community/mathlib4/pull/44531",
+      "head": "b4a0d9535bbc449a7605af66613985770ac26bf8",
+      "stateAtRead": "open",
+      "declarationsRead": [
+        "Complex.polylog",
+        "Complex.mul_deriv_polylog_add_one",
+        "Complex.analyticOnNhd_polylog_right",
+        "Complex.polylog_eq_polylogSeries",
+        "Complex.hasSum_polylog_of_norm_lt"
+      ],
+      "design": "The proposed API has complex order s and a lower boundary value on [1,∞). Use its Complex.polylog naming and integer restriction in production. The pinned suggested realization is isolated in TauCetiRoadmap; its radial integral is an equivalent mathematical model, not a proposed competing production API. This PR is not a baseline dependency and no code was copied or executed."
+    },
+    "zulipSearch": "Public Lean Zulip/archive searches for polylogarithm and dilogarithm found no additional settled design; no messages were sent.",
+    "externalLead": {
+      "url": "https://reservoir.lean-lang.org/@rainrzk/LeanPolyLog",
+      "assessment": "External integral-identity formalization discovered in the public catalogue; not pinned, not assumed as a supplier, and no code reused. Its mathematical overlap is acknowledged; any code integration requires author coordination and license review."
+    }
+  }
+}
