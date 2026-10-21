@@ -49861,8 +49861,9 @@
    ],
    "revisionOf": "PKG-ArithmeticQuantumTopology",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #10757"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10757",
+   "finishedAt": "2026-10-21T01:55:04Z"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology~2",
@@ -55121,8 +55122,8 @@
    ],
    "revisionOf": "PKG-GeneralizedHeegnerCycles",
    "prompt": "research/blueprint/prompts/PKG-GeneralizedHeegnerCycles~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9171"
+   "state": "external",
+   "note": "claimed on GitHub issue #9171"
   },
   {
    "id": "REV-PKG-GeneralizedHeegnerCycles~2",
@@ -57579,8 +57580,8 @@
    ],
    "revisionOf": "PKG-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/PKG-KatoEulerSystems~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9178"
+   "state": "external",
+   "note": "claimed on GitHub issue #9178"
   },
   {
    "id": "REV-PKG-KatoEulerSystems~2",
@@ -150109,9 +150110,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-InductionRestrictionPartII~adv.md",
-   "note": "released on GitHub issue #10389"
+   "note": "deliverables arrived from an external worker on issue #10389",
+   "finishedAt": "2026-10-21T01:55:08Z"
   },
   {
    "id": "REV-PKG-EffectiveClassNumbers~adv",
@@ -154405,8 +154407,9 @@
     "BP-QSeriesPartitionsAndMockModularForms~3",
     "BP-QSeriesPartitionsAndMockModularForms~4"
    ],
-   "state": "external",
-   "note": "claimed on GitHub issue #11495"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11495",
+   "finishedAt": "2026-10-21T01:55:12Z"
   },
   {
    "id": "REV-PKG-HabiroRings~codex5",
