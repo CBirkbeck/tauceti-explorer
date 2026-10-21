@@ -1,6 +1,6 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-Codex session `codex-QDkbLi`, 21 October 2026. This is a **blocked checkpoint**;
+Codex session `codex-lWhJtL`, 21 October 2026. This is a **blocked checkpoint**;
 the blueprint revision is unfinished. This note consolidates the previous
 handoffs and preserves their actionable resume information.
 
@@ -8,7 +8,8 @@ handoffs and preserves their actionable resume information.
 
 Selected #9312, the first available issue on the assigned priority list;
 #9215 and #10898 were blocked. The claim bot
-[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6309309867).
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6309579683)
+in response to claim comment 6309577616.
 The current dispatch explicitly authorized selecting this issue, despite the
 older instruction against reclaiming it. It did not supply a distinct extension
 scope or change the rule against duplicating existing Tau Ceti roadmaps.
@@ -23,9 +24,10 @@ and subsequent
 identify this revision as superseded by TauCetiRoadmap PR #785. The latter
 requires an upstream-owner request before an atlas extension is assigned.
 The issue history through this session's claim confirmation contains no such
-request or replacement scope. Asked the dispatcher for a distinct extension,
-its permitted deliverables, or an explicit instruction to work on the upstream
-PR; none was supplied before submission.
+request or replacement scope. Asked the dispatcher in this session for a
+distinct extension, its permitted deliverables, or an explicit instruction to work on the upstream
+PR. No answer had arrived when this checkpoint was prepared. The missing
+assignment, rather than elapsed run time, prevents the mathematical revision.
 
 [PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785) remains open
 and ready for review at head `0d37c3f452ad9769ad7bfc257b5f283091814d85`.
@@ -53,10 +55,11 @@ Weil-restriction and dual-group ownership relevant here.
 
 The supplied read-only roadmap checkout is at
 `0d144d044dacebca17b654695b6f1ad58f159b27`. Read the introductions of
-ReductiveGroups and OrthogonalSpinGroups, the Part II ownership section and
-suggested-file opening, and the current Tau Ceti functor-of-points source
-opening. Neither supplied tree was edited or built. No new pinned-library audit
-or mathematical-source verification is claimed. No cleared book was needed for
+ReductiveGroups and OrthogonalSpinGroups, ReductiveGroups' suggested-file
+opening, and the current Tau Ceti affine-group-scheme category source opening.
+Part II is not present in that main checkout; its ownership section was read
+directly at PR #785's head above. Neither supplied tree was edited or built.
+No new pinned-library audit or mathematical-source verification is claimed. No cleared book was needed for
 this ownership check.
 
 Only this handoff changes. The packet, reader and suggested file retain their
@@ -99,7 +102,9 @@ Before dispatching this revision again, reconcile its availability with the
 existing upstream owner. Existing-target changes belong on PR #785. For atlas
 work beyond that owner, supply the upstream-owner request, extension identity,
 stage boundaries, supplier links and permitted deliverables. A priority list
-alone does not identify that additional mathematics.
+alone does not identify that additional mathematics. The `state:available`
+label allowed selection but supplies no mathematical extension scope; repeated
+handoff-only checkpoints have left this same condition unresolved.
 
 Once that scope is assigned, resume at the independent review's fourteen-target
 routing table and seven stage-specific coverage lists. Compare every retained
