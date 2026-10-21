@@ -151943,9 +151943,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-MotivicEtaleKTheory~adv.md",
-   "note": "claimed on GitHub issue #11239"
+   "note": "released on GitHub issue #11239"
   },
   {
    "id": "PKG-MotivesAndAlgebraicCycles~codex",
