@@ -237,12 +237,6 @@ theorem casimirSigma_eval_color {i n : ℕ} (h : n < i) :
 
 end RepresentationRing
 
-/-- The fundamental-colour right-handed trefoil uses `t = q⁻¹` (README 2.3); at `q = 2`
-the two possible substitutions give different values. -/
-example : (2 : ℚ) ^ (-1 : ℤ) + 2 ^ (-3 : ℤ) - 2 ^ (-4 : ℤ) = 9 / 16 ∧
-    (2 : ℚ) + 2 ^ (3 : ℕ) - 2 ^ (4 : ℕ) = -6 := by
-  norm_num
-
 section Kashaev
 
 /-- The figure-eight Kashaev sum `Σ_{j<N} ∏_{k=1}^{j} |1 − ζ^k|²`; at `ζ = e^{2πi/N}` it is the
@@ -532,12 +526,13 @@ example (γ : Matrix.SpecialLinearGroup (Fin 2) ℤ) (x : ℚ) :
     knotMatrixCocycle (n := Fin 2) (fun _ => 1) (fun _ _ => 1) γ x = 1 := by
   simp [knotMatrixCocycle]
 
-/-- Reversing the two factors changes a matrix cocycle with noncommuting values (README 7.13). -/
-example : (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 0; 1, 1] ≠
-    (!![1, 0; 1, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 1; 0, 1] := by
-  intro h
-  have h00 := congrArg (fun A : Matrix (Fin 2) (Fin 2) ℤ => A 0 0) h
-  norm_num [Matrix.mul_apply, Fin.sum_univ_two] at h00
+/-- The order of conjugation (README 7.13): with `J 0 = A`, `J 1 = 1` and `j̃ = 1`, the factor at
+`T = (1 1; 0 1)` and `x = 0`, where `T · 0 = 1`, is `J(1)⁻¹ J(0) = A`; the reversed conjugation
+`J(0)⁻¹ J(1)` would give `A⁻¹ ≠ A`. -/
+example :
+    knotMatrixCocycle (n := Fin 2) (fun x => if x = 0 then !![(1 : ℂ), 1; 0, 1] else 1)
+      (fun _ _ => 1) ⟨!![1, 1; 0, 1], by simp [Matrix.det_fin_two]⟩ 0 = !![1, 1; 0, 1] := by
+  simp [knotMatrixCocycle, mobius]
 
 end MatrixCocycle
 
@@ -605,7 +600,8 @@ Statements not typed at the pins (their carriers are absent; the README states t
   `generalCompletedKn`, `highestWeightColor`, `colorRing`, `StrongKirbyColor`,
   `admissibleRootLifts`, `admissibleQRoots`, the general WRT comparison and the general Lie type
   unified invariant.
-* Layer 5: `IdealTetrahedron`, `IdealTriangulation`, `cuspEnds_parabolic`, `gluing_theorem`,
+* Layer 5: `IdealTetrahedron`, `shape_eq_polylogCrossRatio`, `volume_eq_blochWigner`,
+  `IdealTriangulation`, `cuspEnds_parabolic`, `gluing_theorem`,
   `mostow_prasad`, `mostow_prasad_oriented`, `epstein_penner`, `RegularEPRefinement`,
   `regularEPRefinement_connected`, `geometricSolution_nondegenerate`, `ShapeSolution`, `isGeometricSolution`,
   `Flattening`, `flatteningEquiv`, `edgeEquation`, `cuspEquation`, `LiftedFiveTerm`, `transferRelation`,
@@ -621,7 +617,7 @@ Statements not typed at the pins (their carriers are absent; the README states t
   equations, `positionOp`, `momentumOp`, `sumOp`, `faddeevMomentumUnitary`,
   `faddeevPositionUnitary`, `faddeevSumUnitary`, the
   operator pentagon, `analyticStateIntegral`, `schwartz_kernel_theorem`, `kernelOf`,
-  `operatorOfKernel`, `LocalDistribution`, `restrictTempered`, `wavefrontSet`,
+  `operatorOfKernel`, `testToSchwartz`, `restrictTempered`, `wavefrontSet`,
   `mulOfWavefront`, `mulOfWavefront_tempered`, `contract`, `AKShape`, `LeveledShape`,
   `AKShape.weight`, `AKShape.charge`, `AKShape.gauge`, `AKShape.admissible`,
   `chargedPsi`, `chargedTetrahedronKernel`, the charged pentagon, `akStateIntegral`
