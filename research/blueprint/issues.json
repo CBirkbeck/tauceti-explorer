@@ -5414,5 +5414,7 @@
  "BP-QSeriesPartitionsAndMockModularForms~5": 11524,
  "REV-PKG-OverconvergentAutomorphicForms~adv": 11525,
  "REV-QSeriesPartitionsAndMockModularForms~5": 11526,
- "FIX-PKG-ArithmeticQuantumTopology~adv": 11535
+ "FIX-PKG-ArithmeticQuantumTopology~adv": 11535,
+ "FIX-PKG-KatoEulerSystems~adv": 11543,
+ "PKG-QSeriesPartitionsAndMockModularForms~codex": 11544
 }
