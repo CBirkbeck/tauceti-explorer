@@ -5413,5 +5413,6 @@
  "FIX-PKG-DrinfeldModulesAndTModules~adv": 11519,
  "BP-QSeriesPartitionsAndMockModularForms~5": 11524,
  "REV-PKG-OverconvergentAutomorphicForms~adv": 11525,
- "REV-QSeriesPartitionsAndMockModularForms~5": 11526
+ "REV-QSeriesPartitionsAndMockModularForms~5": 11526,
+ "FIX-PKG-ArithmeticQuantumTopology~adv": 11535
 }
