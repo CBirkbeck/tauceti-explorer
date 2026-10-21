@@ -1,0 +1,343 @@
+{
+  "id": "ProetaleCohomologyOfPAdicCurvesAndTowers",
+  "title": "Pro-étale cohomology of p-adic curves and of the Drinfeld tower",
+  "area": "padic",
+  "parent": null,
+  "summary": "This roadmap develops the analytic geometry and cohomology of non-proper p-adic curves, from Stein exhaustions and coherent duality to the period diagram for a curve and its computation on the Drinfeld tower. It also provides finite-coefficient finiteness, non-admissibility over larger local fields, and the comparison between arithmetic and geometric completions. Its all-dimensional Stein layers are reusable independently of tower geometry.",
+  "readme": "This plan owns reusable finite-dimensional Stein geometry, strict duality with proper supports, the period diagram of a curve, and its half-plane and tower computations. Its thirteen layers also cover finite coefficients and arithmetic field completion. The reader document specifies every target, proof outline, source locator, dependency, definition API and worked acceptance example. Generic towers, period rings, formal nearby cycles and representation theory are imported from their existing owners. Supplier extensions and historical question boundaries are explicit; no implementation or gap-free closure is claimed.",
+  "prerequisites": [
+    "AdicSpacesPartII",
+    "AutomorphicGaloisRepresentations",
+    "ClassicalAdicEtaleCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "LocallyAnalyticDistributions",
+    "LocallyAnalyticDistributionsPartII",
+    "LocallyAnalyticRepresentationsOfLocalGroups",
+    "ModpRepresentationsOfGL2OverLocalFields",
+    "PadicHodgeTheory",
+    "PerfectoidSpaces",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "S0",
+      "title": "Stein exhaustions and coherent modules",
+      "description": "Define quasi-Stein and relatively compact Stein exhaustions in arbitrary finite dimension. Establish the Fréchet topology, derived-limit vanishing, Kiehl A/B, the bounded-rank analytic Serre–Swan equivalence and finite-flat projectivity, using affinoid geometry from AdicSpacesPartII. These results have no tower or higher-Coleman input.",
+      "requires": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R3",
+        "LocallyAnalyticDistributions:L0"
+      ]
+    },
+    {
+      "key": "S1",
+      "title": "Proper supports and Stein duality",
+      "description": "Construct coherent cohomology with proper closed supports and its extension-by-zero comparison. Prove pure-dimensional smooth Stein concentration and continuous coherent Serre duality, with compact-type LB topology and coefficient naturality. Construct the de Rham support complex and prove strictness and de Rham duality under the stated field hypotheses; distinguish the extension to C from the discretely valued proof.",
+      "requires": [
+        "AdicSpacesPartII:F1",
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R3",
+        "LocallyAnalyticDistributions:L0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0"
+      ]
+    },
+    {
+      "key": "C0",
+      "title": "The period diagram of a Stein curve",
+      "description": "Use the geometric Hodge–Tate direct images and first-order Fontaine rows to define universal Hyodo–Kato cohomology, construct the fundamental diagram, compute the disc and annulus, and prove strict restriction, closed images and the kernel comparison. Identify the universal term for a proper curve through proper semistable comparison.",
+      "requires": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R3",
+        "ClassicalAdicEtaleCohomology:H0",
+        "CohomologyComparisons:CP.4",
+        "CrystallineCohomology:CR.6",
+        "LocallyAnalyticDistributions:L0",
+        "PadicHodgeTheory:P8",
+        "PadicHodgeTheory:P8:local-rational",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S1"
+      ]
+    },
+    {
+      "key": "H0",
+      "title": "The half-plane and its boundary",
+      "description": "Fix mass-zero boundary distributions and the three Steinberg coefficient topologies. Compute affinoid units, inverse limits, global units, differentials, étale and pro-étale cohomology of the half-plane, including the Cauchy-kernel duality and the fundamental diagram.",
+      "requires": [
+        "AdicSpacesPartII:R3",
+        "ClassicalAdicEtaleCohomology:H0",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5",
+        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:C0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S1",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "T0",
+      "title": "Effective tower levels and semistable models",
+      "description": "Specialize the existing Drinfeld/Lubin–Tate tower construction to central quotients and the effective Q_p model. Prove Stein exhaustions, component-action formulas and equivariant semistable models with finite component orbits. State bounded-function constancy with the proper-special-component hypotheses its proof requires.",
+      "requires": [
+        "AdicSpacesPartII:F0",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S1"
+      ]
+    },
+    {
+      "key": "T1",
+      "title": "Analytic actions and de Rham smoothness",
+      "description": "Construct the twisted tower bundles, prove local analyticity of their strong duals, compute the Lie algebra actions with transpose signs, and deduce smoothness of compactly supported de Rham cohomology. Record the higher-dimensional finite-étale-cover extension through an explicit supplier request.",
+      "requires": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R3",
+        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticDistributionsPartII:ND.3",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S1",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0"
+      ]
+    },
+    {
+      "key": "G0",
+      "title": "Uniformization and multiplicity two",
+      "description": "Apply arithmetic uniformization to the effective discrete quotient, prove the isotypic Hochschild–Serre degeneration, establish locally analytic Frobenius reciprocity and Hodge compatibility, and deduce the two-dimensional supercuspidal de Rham multiplicity. Import the global Shimura period multiplicity rather than reprove it.",
+      "requires": [
+        "AdicSpacesPartII:R3",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "ClassicalAdicEtaleCohomology:H0",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5",
+        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S1",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T1"
+      ]
+    },
+    {
+      "key": "B0",
+      "title": "Equivariant bundles and dense images",
+      "description": "Define the Drinfeld and Lubin–Tate bundle categories used for tower functions, apply Kohlhaase’s equivalence, and prove equivariant irreducibility and scalar endomorphisms. Establish the finite-dimensional Stein dense-image surjectivity theorem and its application to nonzero maps from the externally supplied p-adic-Langlands representation.",
+      "requires": [
+        "AdicSpacesPartII:R3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticDistributionsPartII:ND.2",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0"
+      ]
+    },
+    {
+      "key": "T2",
+      "title": "Perfectoid boundary descent and the two towers",
+      "description": "Construct the boundary support complex, prove the structure-sheaf continuous-cohomology calculation for perfectoid Galois covers, descend compact supports using cofinal rational exhaustions, prove the invariant-dual vanishing, and identify compactly supported de Rham cohomology of the two towers with smooth admissible actions.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "PerfectoidSpaces:P2",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:C0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S1",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T1"
+      ]
+    },
+    {
+      "key": "T3",
+      "title": "Tower periods and the fundamental diagram",
+      "description": "Normalize the special/supercuspidal parameter dictionary and central twists; construct tower Hyodo–Kato cohomology from the non-proper semistable input. Prove isotypic Fréchet stability and reciprocity, the compact-support decomposition, the Hyodo–Kato/de Rham multiplicity formulas, proper-quotient detection of universal periods and the finite-level fundamental diagram.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.5",
+        "CohomologyComparisons:CP.4",
+        "CrystallineCohomology:CR.5",
+        "CrystallineCohomology:CR.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5",
+        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.3",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:C0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:G0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:H0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:S1",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T2",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "F0",
+      "title": "Finite coefficients and finite presentation",
+      "description": "Define the cohomologically profinite, group-continuous and cpcf conditions for sheaves on the semistable special fibre. Prove their exact-sequence stability, establish the coherent and nearby-cycle cpcf inputs using the imported formal Bloch–Kato–Hyodo filtration, and deduce profiniteness and smooth finite presentation of finite-coefficient arithmetic cohomology and Galois multiplicities.",
+      "requires": [
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomology:H1",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "A0",
+      "title": "Non-admissibility outside Q_p",
+      "description": "Define geometric Galois/Jacquet–Langlands multiplicity spaces and their lattices. Prove the lattice-reduction comparison and use the existing ordinary-parts structure theory to obtain non-admissibility of every nonzero torsion multiplicity over F different from Q_p, including the sufficiently-large-field cohomology consequence and the geometric non-vacuity input.",
+      "requires": [
+        "AdicSpacesPartII:R3",
+        "ClassicalAdicEtaleCohomology:H0",
+        "CohomologyComparisons:CP.4",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.2",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.0",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.2",
+        "PadicHodgeTheory:R06.2",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:C0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:F0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:G0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T3",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "A1",
+      "title": "Arithmetic and geometric completions",
+      "description": "Define completion in the coefficient-field direction and integral almost-smooth vectors, keeping field colimit before coefficient inverse limit. Identify the arithmetic completion with the almost-smooth geometric part, prove completeness and saturation, and prove finite length of finite-Galois invariants over Q_p using the separately owned integral local-Langlands finiteness input. Record the source-era density, geometric mod-p profiniteness and Banach-admissibility questions; distinguish the missing integral duality shortcut from the derived rational duality proved in 2025.",
+      "requires": [
+        "ClassicalAdicEtaleCohomology:H0",
+        "LocallyAnalyticDistributionsPartII:ND.6",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.1",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:F0",
+        "ProetaleCohomologyOfPAdicCurvesAndTowers:T0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "DLB17",
+      "title": "Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique",
+      "authors": "Gabriel Dospinescu; Arthur-César Le Bras",
+      "edition": "Annals of Mathematics 186 (2017), 321–411; published PDF; page numbers below are printed pages",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n2-p01-p.pdf",
+      "sha256": "00fb89502da84ea38738734652733ea6487e13686a8e54d32eecf4575d6b0094",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§3–5, pp.337–355",
+        "§9.2, pp.378–379",
+        "§10, pp.381–388"
+      ]
+    },
+    {
+      "id": "CDN20",
+      "title": "Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1",
+      "authors": "Pierre Colmez; Gabriel Dospinescu; Wiesława Nizioł",
+      "edition": "56-page author version GPW4; all page locators refer to this PDF, not JAMS pagination",
+      "url": "https://tapage-560252.pages.math.cnrs.fr/GPW4.pdf",
+      "sha256": "e357b400a2f14c39ccf2e874e71c2f7c8f4104edb590be84ff24a9b14d28ec7f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1, pp.11–16",
+        "§3, pp.27–33",
+        "§§4–5, pp.33–48",
+        "Appendix A, pp.49–52",
+        "Introduction, pp.8–9"
+      ]
+    },
+    {
+      "id": "CDN20v2",
+      "title": "Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1",
+      "authors": "Pierre Colmez; Gabriel Dospinescu; Wiesława Nizioł",
+      "edition": "arXiv:1704.08928v2, 7 June 2018; used separately for Remark A.2, absent from GPW4",
+      "url": "https://arxiv.org/pdf/1704.08928v2",
+      "sha256": "15e4868f5b11ad113e2806b5e9884d7b100f529e67c6cd6030f24cf8e3ae9073",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Remark A.2, PDF pp.53–54"
+      ]
+    },
+    {
+      "id": "CDN23",
+      "title": "Factorisation de la cohomologie étale p-adique de la tour de Drinfeld",
+      "authors": "Pierre Colmez; Gabriel Dospinescu; Wiesława Nizioł",
+      "edition": "Forum of Mathematics, Pi 11 (2023), e16; published 62-page PDF",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation_de_la_cohomologie_etale_padique_de_la_tour_de_drinfeld.pdf",
+      "sha256": "b007a4e37b824ca5986ac6152ed9fabcf38dde97e16d8f5f7f60756fe77d3418",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Remark 0.6, p.5",
+        "§2, pp.21–32",
+        "§5.3, pp.55–57"
+      ]
+    },
+    {
+      "id": "BCGP25",
+      "title": "Modularity theorems for abelian surfaces",
+      "authors": "George Boxer; Frank Calegari; Toby Gee; Vincent Pilloni",
+      "edition": "arXiv:2502.20645v1; PDF pagination",
+      "url": "https://arxiv.org/pdf/2502.20645v1",
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4.6.16–4.6.26, pp.84–86"
+      ]
+    },
+    {
+      "id": "GK04",
+      "title": "De Rham cohomology of rigid spaces",
+      "authors": "Elmar Grosse-Klönne",
+      "edition": "arXiv:1408.3330v1, author version of Math. Z. 247 (2004); PDF pagination",
+      "url": "https://arxiv.org/pdf/1408.3330v1",
+      "sha256": "8adbb83b2cd20e134f5175d810a10d0d82f222da6063edb791b0270a33619dc1",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 3.1 and Corollary 3.2 with proof, pp.11–12"
+      ]
+    },
+    {
+      "id": "KOHL11",
+      "title": "Lubin–Tate and Drinfeld bundles",
+      "authors": "Jan Kohlhaase",
+      "edition": "Author PDF of Tohoku Math. J. 63 (2011); PDF pagination",
+      "url": "https://www.esaga.uni-due.de/f/jan.kohlhaase/Kohlhaase_Bundles.pdf",
+      "sha256": "7316cb3b8c9f2919795142dc3ddddd002e7cbb7abc1150c5ae8fa2ce69326cdd",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3, Lemmas 3.10–3.12, pp.18–21",
+        "Theorem 4.4, pp.24–26",
+        "Appendix, Theorem A.2 and Proposition A.5, pp.36–37"
+      ]
+    },
+    {
+      "id": "GK00",
+      "title": "Rigid analytic spaces with overconvergent structure sheaf",
+      "authors": "Elmar Grosse-Klönne",
+      "edition": "J. reine angew. Math. 519 (2000), 73–95; cleared arXiv:1408.3329v1 copy; PDF pagination",
+      "url": "https://arxiv.org/abs/1408.3329",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4.2–4.11, PDF pp.19–22; read directly from the maintainer-cleared copy"
+      ],
+      "access": "Maintainer-cleared library; no file or passage reproduced."
+    },
+    {
+      "id": "CGN25",
+      "title": "Duality for p-adic geometric pro-étale cohomology",
+      "authors": "Pierre Colmez; Sally Gilles; Wiesława Nizioł",
+      "edition": "Author preprint dated 6 October 2025; consulted only to update the historical duality boundary",
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/geometric.pdf",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, Conjecture 1.5, Theorem 1.7 and Corollary 1.8, pp.1–3"
+      ],
+      "scope": "A rational derived TVS duality is available; neither a naive integral Pontryagin duality nor a proof of all historical questions is inferred."
+    }
+  ],
+  "status": "planned"
+}
