@@ -1,6 +1,65 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-ecsJ1h, 2026-10-21
+## Latest dispatch: codex-xhe3ma, 2026-10-21
+
+Codex session `codex-xhe3ma` selected #9312, the first available eligible
+issue on the manager's priority list. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6306623842).
+This submission is a **blocked checkpoint**. The revision remains unfinished.
+
+The maintainer's
+[upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and subsequent
+[manager block](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+still require an upstream-owner request for an extension. Read the complete issue
+comment history through this session's claim confirmation; no later comment
+supplies that request or rescinds those instructions. The checkpoint-intake
+messages restore availability without assigning the missing extension. PROTOCOL
+section 15 also treats tracked open upstream roadmap PRs as existing work.
+
+Fresh evidence and validation:
+
+- Re-read the full issue after claim confirmation, WORKERS, both protocols,
+  upstream guidance, the independent review and inherited checkpoint notes.
+- Queried [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785):
+  it remains open and ready for review at head
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. Read its
+  [README introduction and ownership boundaries, lines 1–125](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L1).
+  All seven assigned layers remain owned there, with R-smoothness and other
+  additions expressly outside its scope. This establishes ownership, not a
+  mathematical review of that upstream work.
+- Read the supplied ReductiveGroups and ReductiveGroupsPartII introductions,
+  Part II scope and suggested-file opening, and the current Tau Ceti
+  functor-of-points source. The supplied integration checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. Neither supplied tree was
+  edited or built. Consulted the reviewed library audit's overlap records;
+  no new pinned-library audit or mathematical source verification is claimed.
+- Checked packet summary, coverage, gaps and inventory. The packet checker
+  reports **zero errors and zero warnings**. Only this handoff changes.
+  Lean was not run because no Lean file changed. No background process was
+  started, and no suspicious external instruction was encountered.
+
+Preserved inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and all
+seven stages RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 remain
+`partial`; the review remains `needs_changes`. None is closed. The independent
+review's ModularCurves 0F import and disposition of
+RT-AREA-algebraicgeometry/11 are preserved without a new correctness verdict.
+
+**Resume requires reconciliation of the queue with upstream ownership.**
+Changes to the existing roadmap belong on PR #785. If its owner requests an
+atlas extension, the manager must assign its identity, stage boundaries,
+supplier links and permitted deliverables. Then resume from the independent
+review's fourteen-target routing table and seven coverage lists, preserving
+its eight corrections. The four mathematical gaps besides ownership remain:
+the étale local-homeomorphism input, general splitting-field tensor
+decomposition, locally free determinant-norm gluing, and non-affine lft Weil
+restriction for full torus Néron models. Synchronize the reader within the
+assigned extension scope and renew source verification and Lean checks then.
+This session takes no second issue.
+
+## Previous dispatch: codex-ecsJ1h, 2026-10-21
 
 Codex session `codex-ecsJ1h` claimed #9312 as the first available eligible
 issue on the supplied priority list. The bot
