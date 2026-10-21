@@ -154644,6 +154644,44 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticQuantumTopology~adv.md",
    "note": "deliverables arrived from an external worker on issue #11535",
    "finishedAt": "2026-10-21T03:12:06Z"
+  },
+  {
+   "id": "FIX-PKG-KatoEulerSystems~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "KatoEulerSystems"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-KatoEulerSystems~adv.md",
+    "research/blueprint/packages/KatoEulerSystems/review.json",
+    "research/blueprint/packages/KatoEulerSystems/README.md",
+    "research/blueprint/packages/KatoEulerSystems/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-KatoEulerSystems~adv.md"
+  },
+  {
+   "id": "PKG-QSeriesPartitionsAndMockModularForms~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/packages/QSeriesPartitionsAndMockModularForms/README.md",
+    "research/blueprint/packages/QSeriesPartitionsAndMockModularForms/Suggested.lean",
+    "research/blueprint/packages/QSeriesPartitionsAndMockModularForms/metadata.toml",
+    "research/blueprint/handoff/PKG-QSeriesPartitionsAndMockModularForms~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-QSeriesPartitionsAndMockModularForms~codex.md"
   }
  ]
 }
