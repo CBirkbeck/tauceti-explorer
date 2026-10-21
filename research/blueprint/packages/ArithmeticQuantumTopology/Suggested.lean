@@ -310,6 +310,10 @@ theorem shape_mul_shapePrime_mul_shapeDoublePrime {z : ℂ} (h0 : z ≠ 0) (h1 :
   field_simp
   ring
 
+/-- A flat shape is retained: its companions are `−1` and `1/2` (README 5.1). -/
+example : shapePrime 2 = -1 ∧ shapeDoublePrime 2 = (1 / 2 : ℂ) := by
+  norm_num [shapePrime, shapeDoublePrime]
+
 /-- The log parameters `(w₀, w₁, w₂)` of the point `(z; p, q)` of Neumann's cover (README 5.4). -/
 def flattening (z : ℂ) (p q : ℤ) : ℂ × ℂ × ℂ :=
   (Complex.log z + p * Real.pi * Complex.I,
