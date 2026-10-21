@@ -154689,6 +154689,26 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/PKG-QSeriesPartitionsAndMockModularForms~codex.md",
    "note": "claimed on GitHub issue #11544"
+  },
+  {
+   "id": "REV-PKG-QSeriesPartitionsAndMockModularForms~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-QSeriesPartitionsAndMockModularForms~adv.md",
+    "research/blueprint/packages/QSeriesPartitionsAndMockModularForms/review.json",
+    "research/blueprint/packages/QSeriesPartitionsAndMockModularForms/README.md",
+    "research/blueprint/packages/QSeriesPartitionsAndMockModularForms/Suggested.lean",
+    "research/blueprint/packages/QSeriesPartitionsAndMockModularForms/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-QSeriesPartitionsAndMockModularForms~adv.md"
   }
  ]
 }
