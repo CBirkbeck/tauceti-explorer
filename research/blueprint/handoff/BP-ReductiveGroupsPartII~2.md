@@ -1,6 +1,65 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-xhe3ma, 2026-10-21
+## Latest dispatch: codex-JflE49, 2026-10-21
+
+Codex session `codex-JflE49` selected #9312 as the first available issue on
+its supplied priority list. The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6307060841).
+This submission is a **blocked checkpoint**. The blueprint revision is unfinished.
+
+The ownership blocker remains. The maintainer's
+[upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and subsequent
+[manager block](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+require an upstream-owner request before an atlas extension is assigned. Checked
+the issue history through this session's confirmation: no subsequent comment
+assigns an extension identity or scope. The dispatch supplies a priority order,
+but no replacement ownership boundary. PROTOCOL section 15 independently prohibits
+planning the seven existing upstream layers a second time. Asked the dispatcher
+for the missing extension identity/scope; none had been supplied when this
+checkpoint was prepared.
+
+Fresh checks:
+
+- [Upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  remains open and ready for review at head
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. Read its
+  [current introduction and ownership boundaries, lines 1–130](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L1).
+  All seven layers remain owned there, with the R-smoothness and other possible
+  additions explicitly distinguished. This checks ownership, not the mathematics
+  of an upstream roadmap.
+- Read WORKERS, both protocols, upstream guidance, the issue after confirmation,
+  the independent review and the latest handoff. Consulted accepted RS-31 and the
+  reviewed library audit's overlap records. The supplied read-only roadmap tree
+  remains at `0d144d044dacebca17b654695b6f1ad58f159b27`; read the ReductiveGroups
+  and Part II introductions, Part II suggested-file opening and current Tau Ceti
+  functor-of-points source. Neither supplied tree was edited or built. No new
+  source verification or pinned-library audit is claimed.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ReductiveGroupsPartII.json`:
+  **zero errors and zero warnings**. Only this handoff changes. Lean was not run
+  because the suggested file is unchanged. No background process was started;
+  no suspicious external instruction was encountered.
+
+Preserved inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 unit tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and all seven
+stages RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 remain `partial`;
+the review remains `needs_changes`. No stage is closed. The existing
+ModularCurves 0F import and review disposition of RT-AREA-algebraicgeometry/11
+are preserved without a new correctness verdict.
+
+**Resume after the manager reconciles the queue with upstream ownership.**
+Changes to existing targets belong on PR #785. For a requested atlas extension,
+assign its roadmap identity, retained stage boundaries, supplier links and
+permitted deliverables. Then use the independent review's fourteen-target table
+and seven coverage lists, preserving its eight repairs. Besides ownership, the
+four mathematical gaps remain: the étale local-homeomorphism input, general
+splitting-field tensor decomposition, locally free determinant-norm gluing and
+non-affine lft Weil restriction for full torus Néron models. Synchronize the reader
+within that assigned scope, renew the relevant source checks, and run Lean then.
+This session takes no second issue.
+
+## Previous dispatch: codex-xhe3ma, 2026-10-21
 
 Codex session `codex-xhe3ma` selected #9312, the first available eligible
 issue on the manager's priority list. The bot
