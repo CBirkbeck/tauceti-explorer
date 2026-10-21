@@ -43517,8 +43517,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9312"
+   "state": "external",
+   "note": "claimed on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -49889,7 +49889,9 @@
     "PKG-ArithmeticQuantumTopology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticQuantumTopology~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10891",
+   "finishedAt": "2026-10-21T03:11:55Z"
   },
   {
    "id": "PKG-ArithmeticStatistics",
@@ -57580,8 +57582,9 @@
    ],
    "revisionOf": "PKG-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/PKG-KatoEulerSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9178"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9178",
+   "finishedAt": "2026-10-21T03:11:58Z"
   },
   {
    "id": "REV-PKG-KatoEulerSystems~2",
@@ -154576,7 +154579,7 @@
     "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~5.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~5.md",
    "scope": [
     "QSeriesPartitionsAndMockModularForms:QM.0",
@@ -154590,7 +154593,9 @@
    "after": [
     "REV-QSeriesPartitionsAndMockModularForms~4"
    ],
-   "revisionOf": "BP-QSeriesPartitionsAndMockModularForms"
+   "revisionOf": "BP-QSeriesPartitionsAndMockModularForms",
+   "note": "deliverables arrived from an external worker on issue #11524",
+   "finishedAt": "2026-10-21T03:12:03Z"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms~5",
@@ -154635,8 +154640,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticQuantumTopology~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticQuantumTopology~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11535",
+   "finishedAt": "2026-10-21T03:12:06Z"
   }
  ]
 }
