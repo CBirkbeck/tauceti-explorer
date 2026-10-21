@@ -1,46 +1,10 @@
 {
-  "roadmaps": 457,
-  "stages": 14446,
-  "originalStages": 3949,
-  "sourceRefinements": 10497,
-  "reviewedDecompositions": [
-    {
-      "roadmap": "ClassicalAdicEtaleCohomology",
-      "status": "partial",
-      "nodes": 18,
-      "review": "accepted",
-      "deferredLinks": 4
-    },
-    {
-      "roadmap": "FaltingsFinitenessAndIsogenyTheorems",
-      "status": "partial",
-      "nodes": 32,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "GeneralAlgebraicKTheory",
-      "status": "partial",
-      "nodes": 0,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "PerfectoidSpaces",
-      "status": "partial",
-      "nodes": 33,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "StableHomotopyKTheory",
-      "status": "partial",
-      "nodes": 0,
-      "review": "accepted",
-      "deferredLinks": 0
-    }
-  ],
-  "terminalTargets": 3877,
+  "roadmaps": 390,
+  "stages": 3145,
+  "originalStages": 3145,
+  "sourceRefinements": 0,
+  "reviewedDecompositions": [],
+  "terminalTargets": 3113,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -55,20 +19,20 @@
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
-  "areasWithRoadmaps": 27,
+  "areasWithRoadmaps": 20,
   "additionalRegions": 0,
-  "mathematicalSummaries": 457,
-  "editedRoadmapSummaries": 181,
-  "curatedStagePresentations": 339,
-  "administrativeStages": 101,
-  "mathematicalStars": 14345,
-  "plainTextPlanetLabels": 398,
-  "hiddenPlanets": 600,
+  "mathematicalSummaries": 390,
+  "editedRoadmapSummaries": 30,
+  "curatedStagePresentations": 44,
+  "administrativeStages": 0,
+  "mathematicalStars": 3145,
+  "plainTextPlanetLabels": 81,
+  "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 13,
   "bibliographicSources": 46,
-  "roadmapEdges": 4189,
-  "stageEdges": 33746,
+  "roadmapEdges": 93,
+  "stageEdges": 2486,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3577,13 +3541,13 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 76511287,
-  "htmlSha256": "5bd9854db6bd0ce44960526b65df2e4a05f9e85bed23184cc3edeacffdf326d3",
+  "htmlBytes": 38334378,
+  "htmlSha256": "c29f5735d770ec9123637e82615cf4abf1572604e60a774e2bf1b889d00683a1",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
-    "src/shell.html": "f8f732527fa1db170ee65da801fb2622001669c701e125c9da4985ffef25d53f",
-    "src/style.css": "e99a9edc41710004d066d000284c0eb9b45dba69fdda60188192d3076e059f1e",
+    "src/shell.html": "78259855290f56884cf12d307790e807fc014f8af5c044c1d2170159a9bac45c",
+    "src/style.css": "1914308e7b8e0fce682b612e1527573fae663130cf9faad8ced7574827e4c54b",
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
@@ -3595,7 +3559,7 @@
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
     "src/live.js": "56a9e4f288ea8bc49668095bf5463fdcb8dc5f827a09e80c000f193b8c94949c",
-    "src/app.js": "a520673853e37e878c545f2740f28074c6d63b05179ef13967f896518e634de1",
+    "src/app.js": "f16e488a3df6f07db96f0a6c9ad239141426b5ddcfe649d05e5e549fbfc35c30",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/tauceti-progress.json": "f925e6b85015e168a79e305b4b08505e7472fb6fbb9ba83bad5023a40f9e43e7",
@@ -5091,7 +5055,8 @@
       "partial": 266,
       "untouched": 99,
       "unassessed": 476,
-      "total": 1217
+      "total": 3037,
+      "proposed": 1820
     },
     "added": [
       "tauceti:TauCetiRoadmap/AdicEtaleGeometry",
@@ -5233,6 +5198,25 @@
       "tauceti:TauCetiRoadmap/TypeAHeckeAlgebras",
       "tauceti:TauCetiRoadmap/Yamabe"
     ]
+  },
+  "proposals": {
+    "openPulls": 310,
+    "pulls": 232,
+    "layers": 1820,
+    "unplaced": [
+      "tauceti:TauCetiRoadmap/CohomologicalPointCounting",
+      "tauceti:TauCetiRoadmap/CohomologicalPointCounting/ConstructibleEtale",
+      "tauceti:TauCetiRoadmap/CohomologicalPointCounting/EllAdicRealization",
+      "tauceti:TauCetiRoadmap/CohomologicalPointCounting/EtaleBaseChange",
+      "tauceti:TauCetiRoadmap/CommRingFactorizationSystems",
+      "tauceti:TauCetiRoadmap/DiscreteQuantumWalks",
+      "tauceti:TauCetiRoadmap/EquitableOperatorReduction",
+      "tauceti:TauCetiRoadmap/RestrictedThreeBody",
+      "tauceti:TauCetiRoadmap/SpectralQuantumWalks",
+      "tauceti:TauCetiRoadmap/StructuredBlockOperators"
+    ],
+    "updatedAt": "2026-10-21T21:22:43Z",
+    "roadmaps": 238
   },
   "variant": "atlas"
 }
