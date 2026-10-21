@@ -43517,8 +43517,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9312"
+   "state": "external",
+   "note": "claimed on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -154686,9 +154686,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-QSeriesPartitionsAndMockModularForms~codex.md",
-   "note": "claimed on GitHub issue #11544"
+   "note": "deliverables arrived from an external worker on issue #11544",
+   "finishedAt": "2026-10-21T07:00:40Z"
   },
   {
    "id": "REV-PKG-QSeriesPartitionsAndMockModularForms~adv",
@@ -154707,8 +154708,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-QSeriesPartitionsAndMockModularForms~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-QSeriesPartitionsAndMockModularForms~adv.md",
+   "note": "claimed on GitHub issue #11554"
   }
  ]
 }
