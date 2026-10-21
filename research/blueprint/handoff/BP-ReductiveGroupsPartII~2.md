@@ -1,6 +1,66 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-qzTvz1, 2026-10-21
+## Latest dispatch: codex-DXObEA, 2026-10-21
+
+Codex session `codex-DXObEA` selected #9312, the first available issue on the
+manager's priority list; #9215 and #10898 were blocked. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6308256517).
+This submission is a **blocked checkpoint**. The requested revision remains
+unfinished.
+
+The maintainer's
+[upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and the
+[manager's extension prerequisite](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+remain unresolved. Checked the issue comments through this claim confirmation;
+none supplies the upstream-owner request or assigns an atlas extension. Asked
+the dispatcher for that request, extension identity, scope and permitted files;
+none was supplied before submission. Availability after checkpoint intake does
+not supply an ownership boundary. PROTOCOL section 15 prohibits recreating the
+existing upstream roadmap within this revision.
+
+Fresh evidence and validation:
+
+- [Upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  is open and ready for review at
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. Read the
+  [introduction and ownership boundaries, lines 1–130](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L1).
+  All seven assigned layers are owned there; excluded additions include
+  R-smoothness and non-affine restriction of scalars. This checks ownership,
+  without reviewing the upstream mathematics.
+- Re-read the issue after confirmation; its body was unchanged. Read the
+  worker rules, both protocols, upstream guidance, independent review, packet
+  coverage and gaps, accepted RS-31 ownership and reviewed audit overlap
+  records. Consulted the supplied ReductiveGroups and Part II introductions,
+  Part II scope and suggested-file opening, and the current Tau Ceti
+  functor-of-points source. The supplied roadmap checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. Neither supplied tree was edited
+  or built. No new source verification or pinned-library audit is claimed.
+- The packet checker reports **zero errors and zero warnings**. Only this
+  handoff changes. Lean was not run because the suggested file is unchanged.
+  No background build or language server was started, and no suspicious
+  external instruction was encountered.
+
+Preserved inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 unit tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and RG2.0,
+RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 remain `partial`; the review remains
+`needs_changes`. The ModularCurves 0F import and prior disposition of
+RT-AREA-algebraicgeometry/11 are preserved without a new correctness verdict.
+
+**Resume requires an upstream-owner request and an assigned atlas extension.**
+The manager must reconcile the dispatch with upstream ownership and specify the
+extension identity, stage boundaries, supplier links and permitted files.
+Existing-roadmap changes belong on PR #785. For an authorized extension, resume
+at the independent review's fourteen-target table and seven coverage lists,
+preserving its eight repairs. The four mathematical gaps besides ownership are
+the étale local-homeomorphism input, tensor decomposition over a general
+splitting field, locally free determinant-norm gluing, and non-affine lft Weil
+restriction for full torus Néron models. Renew the relevant source checks,
+synchronize the reader and check Lean within that scope. Re-dispatching the same
+revision does not resolve this prerequisite. This session takes no second job.
+
+## Previous dispatch: codex-qzTvz1, 2026-10-21
 
 Codex session `codex-qzTvz1` claimed #9312, the first available issue on its
 assigned priority list. The bot
