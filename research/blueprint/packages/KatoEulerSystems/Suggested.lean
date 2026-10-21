@@ -88,17 +88,19 @@ theorem siegelLeadingExponent_eq_bernoulli (x : ℚ) :
 /-! ## Layer 2: the Euler system of a newform and full-level classes -/
 
 /-- The evaluated Euler factor of target 2.1 in the variable `X = σ_ℓ⁻¹`:
-`1 − a ℓ^(−r) X + ε ℓ^(k−1−2r) X²`, for coefficients `a = conj(a_ℓ)` and `ε = conj(ε(ℓ))`. -/
-noncomputable def katoEulerPolynomial (ell a eps : ℚ) (k r : ℤ) : ℚ[X] :=
-  1 - C (a * ell ^ (-r)) * X + C (eps * ell ^ (k - 1 - 2 * r)) * X ^ 2
+`1 − a ℓ^(−r) X + ε ℓ^(k−1−2r) X²`, for coefficients `a = conj(a_ℓ)` and `ε = conj(ε(ℓ))` in a
+coefficient field `K` (the Hecke field or its completion). -/
+noncomputable def katoEulerPolynomial {K : Type*} [Field K] (ell : ℕ) (a eps : K) (k r : ℤ) :
+    K[X] :=
+  1 - C (a * (ell : K) ^ (-r)) * X + C (eps * (ell : K) ^ (k - 1 - 2 * r)) * X ^ 2
 
 /-- At `k = 2, r = 1, ℓ = 3, a = 2` the linear coefficient is `−2/3`. -/
-example : (katoEulerPolynomial 3 2 1 2 1).coeff 1 = -2 / 3 := by
+example : (katoEulerPolynomial (K := ℚ) 3 2 1 2 1).coeff 1 = -2 / 3 := by
   simp [katoEulerPolynomial, coeff_one, coeff_C]
   norm_num
 
 /-- Target 2.1: every Euler factor has constant term one. -/
-theorem katoEulerPolynomial_eval_zero (ell a eps : ℚ) (k r : ℤ) :
+theorem katoEulerPolynomial_eval_zero {K : Type*} [Field K] (ell : ℕ) (a eps : K) (k r : ℤ) :
     (katoEulerPolynomial ell a eps k r).eval 0 = 1 := by
   sorry
 
@@ -252,16 +254,17 @@ end FiniteSupport
 
 /-! ## Layer 6: scalar regulators and elliptic periods -/
 
-/-- The two unramified Euler factors `(1 − p^(r−1)α⁻¹)(1 − ε p^(k−r−1)α⁻¹)` of target 6.4. -/
-def ordinaryEulerFactor (p : ℚ) (k r : ℤ) (α eps : ℚ) : ℚ :=
-  (1 - p ^ (r - 1) / α) * (1 - eps * p ^ (k - r - 1) / α)
+/-- The two unramified Euler factors `(1 − p^(r−1)α⁻¹)(1 − ε p^(k−r−1)α⁻¹)` of target 6.4, for a
+root `α` and the value `ε = ε(p)` in a coefficient field `K`. -/
+def ordinaryEulerFactor {K : Type*} [Field K] (p : ℕ) (k r : ℤ) (α eps : K) : K :=
+  (1 - (p : K) ^ (r - 1) / α) * (1 - eps * (p : K) ^ (k - r - 1) / α)
 
 /-- A split multiplicative refinement `α = 1` at weight two has a trivial zero. -/
-example (p : ℚ) : ordinaryEulerFactor p 2 1 1 0 = 0 := by
+example (p : ℕ) : ordinaryEulerFactor (K := ℚ) p 2 1 1 0 = 0 := by
   norm_num [ordinaryEulerFactor]
 
 /-- A nonsplit refinement `α = −1` at weight two gives `2`, a nonunit at `p = 2`. -/
-example (p : ℚ) : ordinaryEulerFactor p 2 1 (-1) 0 = 2 := by
+example (p : ℕ) : ordinaryEulerFactor (K := ℚ) p 2 1 (-1) 0 = 2 := by
   norm_num [ordinaryEulerFactor]
 
 /-!
@@ -270,7 +273,8 @@ example (p : ℚ) : ordinaryEulerFactor p 2 1 (-1) 0 = 2 := by
 The following targets of the README are not stated here, because their carriers (open modular
 curves and their étale cohomology, scheme `K₂`, Iwasawa cohomology, `D_dR`, Kato's Eisenstein
 series and the analytic p-adic L-function) are not available at the pins:
-`rationalSiegelUnit`, `siegelGaloisDistribution`, `siegelAnalyticProduct`,
+`rationalSiegelUnit` (with `rationalSiegelUnit_auxiliary` and `rationalSiegelUnit_smoothing`),
+`siegelGaloisDistribution`, `siegelAnalyticProduct`,
 `siegelDegeneracyProduct`, `k2NormProjection`, `k2ProjectionFormulaNorm`,
 `k2AuxiliaryEulerFactor`, `katoEulerAdapter`, `heckeDualTwistDictionary`, `fullLevelZeta`,
 `modularFiltration_identify`, `modularDualExp`, `katoEisensteinE`, `katoEisensteinF`,
