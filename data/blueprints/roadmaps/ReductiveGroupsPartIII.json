@@ -1,0 +1,243 @@
+{
+  "id": "ReductiveGroupsPartIII",
+  "title": "Reductive algebraic groups, Part III: arithmetic conjugacy and tori",
+  "area": "representations",
+  "parent": "tauceti:TauCetiRoadmap/ReductiveGroups",
+  "summary": "Arithmetic conjugacy quotients and torus transfer connect algebraic representation theory with Frobenius classes of abelian varieties. This continuation constructs the group conjugacy quotient, proves arithmetic descent and dense Weil-point rigidity, adjusts global tori at real and finite places, and obtains rational Frobenius quotient classes and rational representatives with one auxiliary place. It imports existing reductive, cohomological and Hodge foundations and states precise geometric realization inputs.",
+  "readme": "# Reductive algebraic groups, Part III: arithmetic conjugacy and tori\n\nThis continuation builds on Reductive algebraic groups and its Part II. It develops the arithmetic conjugacy and torus-transfer arguments used for Frobenius classes of abelian varieties and Hodge-type Shimura varieties. The group quotient is an affine scheme whose geometric points classify semisimple conjugacy classes; rational points of that quotient and rational elements of the group remain distinct objects throughout. Dense Weil points make comparisons of realization maps rigid, while torus cohomology controls real and finite-place compatibility.\n\nAll algebraic groups are affine of finite type. Reductive groups are smooth and geometrically connected; quotient and character results here use characteristic zero. The coordinate conjugation is left conjugation, with the conjugator in the first tensor factor. H¹ means cohomology: its Hodge types are (1,0),(0,1), its l-adic realization is the dual Tate module, and geometric Frobenius has eigenvalues of modulus √q and multiplier q. The scalar cocharacter is the inverse of the Hodge weight.\n\nThe existing reductive-group roadmaps supply group/Hopf carriers, representations, tori, root data, Weil restriction and local parahorics. ET.0 owns Galois cohomology, stable/rational conjugacy and the Kottwitz obstruction. ShimuraData owns Mumford–Tate groups, and MotivesAndAlgebraicCycles and AutomorphicBundles supply the tensor/absolute-Hodge inputs. Integral and modular representation theory, coadjoint invariant theory, sigma-dual homomorphisms, general Levi theory, arithmetic gerbs and punctured-disc purity have separate continuation owners. The reader document states all targets, APIs, checks, exact supplier contracts and source locators.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "ReductiveGroupsPartII",
+    "AbelianSchemesAndArithmeticModuli",
+    "AbelianSchemesAndArithmeticModuliPartII",
+    "AdelicAlgebraicGroups",
+    "AutomorphicBundles",
+    "BunGAndNewtonStrata",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "MotivesAndAlgebraicCycles",
+    "ShimuraData",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+  ],
+  "stages": [
+    {
+      "key": "RG3.0",
+      "title": "Regular class functions and group conjugacy quotients",
+      "description": "For commutative Hopf algebras define the equalizer algebra of regular class functions and its conjugation/pullback API. For connected reductive groups in characteristic zero construct the affine conjugacy quotient and prove group Chevalley restriction C(O(G))≅O(T)^W, geometric semisimple-class classification, character separation and finiteness of the quotient map induced by a faithful representation. Import the existing scheme-theoretic line-stabilizer theorem from Tau Ceti, and prove the full character-lattice highest-weight character basis required for restriction. Construct the finite étale orthogonal Out′ action on actual SO factors and Conj′, excluding triality and Spin substitutions.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification"
+      ]
+    },
+    {
+      "key": "RG3.1",
+      "title": "Arithmetic descent and quotient injections",
+      "description": "Prove Jordan’s finite-subgroup conjugacy criterion and use Chebotarev to descend an algebraic point with a rational realization at almost every local prime. Prove algebraicity over a rational point under a finite affine morphism. Establish inner-twist descent of Conj and geometric quotient injections for the diagonal into a Weil-restriction subgroup and for an antidiagonal central product. Distinguish algebraicity, rational quotient points and rational conjugacy classes.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "ReductiveGroupsPartII:RG2.0a",
+        "ReductiveGroupsPartIII:RG3.0",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components"
+      ]
+    },
+    {
+      "key": "RG3.2",
+      "title": "Global tori and real cocharacter adjustment",
+      "description": "For a rational torus prescribe a real H¹-class while retaining trivial p-component by one auxiliary prime, using the exact torus localization map. Approximate finitely many local maximal-torus conjugacy types by a global torus, including real ellipticity. Construct the real Weyl cocycle n⁻¹c(n) for anisotropic T_sc, and globalize it to adjust a Shimura cocharacter while retaining p-adic torus conjugacy. Pin both the cocycle and the actual transported cocharacter.",
+      "requires": [
+        "BunGAndNewtonStrata:BG1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "ReductiveGroupsPartII:RG2.0",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "RG3.3",
+      "title": "Serre tori, Weil points and rigidity",
+      "description": "Define the Serre condition on a rational torus, finite-place l-units, l-Weil numbers of arbitrary integral weight and representation-independent Weil points. Compare existing neatness with connected semisimple cyclic closure. Prove the Serre l-unit/Weil criterion, dense neat l-Weil subgroups for tori split at l, and reduced separated finite-orbit rigidity. Include counterexamples detecting archimedean restrictions, noncommuting unit products, missing semisimplicity and missing scheme hypotheses.",
+      "requires": [
+        "AdelicAlgebraicGroups:AA.3",
+        "AdelicAlgebraicGroups:AA.4",
+        "ReductiveGroupsPartII:RG2.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "RG3.4",
+      "title": "Common realization tori and inner-form transfer",
+      "description": "From common connected-centralizer embeddings and dense common Conj′ values, prove conjugacy of the embedding maps. Descend their finite geometric torus-embedding orbit, obtain a rational embedding into a quasi-split inner form and transfer it globally under local transfer everywhere and anisotropy at one place. Apply this with explicit compactness modulo the ambient centre at infinity. Target odd unitary Hasse vanishing for arbitrary CM F/F⁺ of odd totally real degree. The F=F⁺E case has the explicit Shin parity proof; the general signed-permutation dual-centre calculation is a precise proof gap.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "ReductiveGroupsPartIII:RG3.0",
+        "ReductiveGroupsPartIII:RG3.1",
+        "ReductiveGroupsPartIII:RG3.3",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "RG3.5",
+      "title": "Mumford–Tate Frobenius classes and rational representatives",
+      "description": "Use the existing Mumford–Tate group of H¹, Betti–étale comparison and absolute Hodge tensors to compare complex embeddings and obtain simultaneous l-adic factorization after one finite extension. State the residue-field-preserving auxiliary Hodge-type realization and geometric common-class inputs precisely. Deduce the unique rational Conj(G) Frobenius class for p>2 good reduction. Prove the real semisimple lifting theorem by positive scalar normalization in an elliptic torus, then obtain a real elliptic representative. With simply connected derived group and quasi-splitness at p, cancel the relative Kottwitz obstruction at one auxiliary prime to obtain rational representatives matching local Frobenius classes elsewhere.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuliPartII:F0",
+        "AutomorphicBundles:B1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "ReductiveGroupsPartII:RG2.0a",
+        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartIII:RG3.0",
+        "ReductiveGroupsPartIII:RG3.1",
+        "ReductiveGroupsPartIII:RG3.2",
+        "ShimuraData:D1",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "KZ25",
+      "title": "Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+      "authors": "Mark Kisin; Rong Zhou",
+      "edition": "arXiv:2103.09945v2; locators use its printed pages, not Annals pagination",
+      "url": "https://arxiv.org/pdf/2103.09945v2",
+      "sha256": "62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8",
+      "readSections": [
+        "§5.1.3 p.47; §5.3.2 and Proposition 5.3.5 pp.53–54; §5.3.6 p.55",
+        "§6.1 pp.55–57; Proposition 6.2.4 and Lemma 6.2.6 pp.57–59",
+        "Theorem 6.2.7 p.59; Lemma 6.3.3, Corollary 6.3.4 and Remark 6.3.5 pp.60–61"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "KMPS22",
+      "title": "Honda–Tate theory for Shimura varieties",
+      "authors": "Mark Kisin; Keerthi Madapusi Pera; Sug Woo Shin",
+      "edition": "Author PDF dated 27 January 2021; 41 pages; published Duke Math. J. 171 (2022)",
+      "url": "https://math.berkeley.edu/~swshin/HT.pdf",
+      "sha256": "fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db",
+      "readSections": [
+        "Lemmas 1.2.1–1.2.2 and Proposition 1.2.5 pp.13–15",
+        "§2.1.8 p.24; §2.2.1–2.2.14 pp.24–30",
+        "§2.3.10–2.3.16 pp.33–36"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Steinberg65",
+      "title": "Regular elements of semisimple algebraic groups",
+      "authors": "Robert Steinberg",
+      "edition": "Publications Mathématiques IHÉS 25 (1965), 49–80",
+      "url": "https://www.numdam.org/item/PMIHES_1965__25__49_0.pdf",
+      "sha256": "bda20c4a4b3cf4a7e9e5b17a4eacd0147d0c9370063ab3a3778114a53c8349b9",
+      "readSections": [
+        "§§6.1–6.6, printed pp.62–63"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Kottwitz86",
+      "title": "Stable trace formula: elliptic singular terms",
+      "authors": "Robert E. Kottwitz",
+      "edition": "Mathematische Annalen 275 (1986), 365–399; scanned journal pages",
+      "url": "https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf",
+      "sha256": "d3b84105bdb93dbe678666a8c2326d4f99fdffd598a0fbae94d45311cdad58d2",
+      "readSections": [
+        "§§1–2, printed pp.369–377, especially Theorem 2.2 and Proposition 2.6",
+        "§6, printed pp.381–384, especially Theorem 6.6 and §§6.7–6.8"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Kottwitz90",
+      "title": "Shimura varieties and λ-adic representations",
+      "authors": "Robert E. Kottwitz",
+      "edition": "In Automorphic Forms, Shimura Varieties, and L-functions I; printed pp.161–209",
+      "url": "https://www.jmilne.org/math/Books/AA1988a.pdf",
+      "sha256": "ed6ec30fc1f53f7c8ac4276ef449e1cad3ab42457bf5b7ee90a33413345ff96c",
+      "readSections": [
+        "§7, printed pp.186–189, especially the auxiliary-prime argument on p.188"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "LR87",
+      "title": "Shimuravarietäten und Gerben",
+      "authors": "Robert P. Langlands; Michael Rapoport",
+      "edition": "Retyped author-hosted text of J. reine angew. Math. 378 (1987), 153–211; internal pagination",
+      "url": "https://publications.ias.edu/sites/default/files/shimuravarietaeten-und-gerben_rpl_0.pdf",
+      "sha256": "ebc39ec814c00aaead16e987750b83c1abb950a8abb36328f65aec178ba30cb8",
+      "readSections": [
+        "Lemma 5.6, internal p.55, including its reference to Langlands Lemma 7.15"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Borovoi98",
+      "title": "Abelian Galois cohomology of reductive groups",
+      "authors": "Mikhail Borovoi",
+      "edition": "Author text of Memoirs AMS 132 (1998), no.626; internal pagination",
+      "url": "https://www.tau.ac.il/~borovoi/papers/galofile.pdf",
+      "sha256": "1126d04cc4bf666d49079b841703a6a8cdc010298e547b1d16b7e7c325ae3d96",
+      "readSections": [
+        "Lemma 5.6.3 p.37; Theorem 5.12 and its proof pp.40–41"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Deligne82",
+      "title": "Hodge cycles on abelian varieties",
+      "authors": "Pierre Deligne",
+      "edition": "Author-hosted retypeset text with original section numbering and corrections; internal pagination",
+      "url": "https://www.jmilne.org/math/Documents/Deligne82.pdf",
+      "sha256": "827e3571c8049fc5d3aed8dfad912fee39a2f5dbf7341726c38235f035d32139",
+      "readSections": [
+        "Theorem 2.11 p.19; §§3.4–3.6 pp.24–25; Theorem 3.8 and proof pp.26–27"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Shin11",
+      "title": "Galois representations arising from some compact Shimura varieties",
+      "authors": "Sug Woo Shin",
+      "edition": "60-page author version; Lemma 3.1 here corresponds to the published citation Lemma 3.1.1",
+      "url": "https://math.berkeley.edu/~swshin/StableGal.pdf",
+      "sha256": "93f4fe322200a646f337ae8d4aa9a036a866df1bb59ad5fe7bf09373324da75b",
+      "readSections": [
+        "§3.1, Lemma 3.1 and Remark 3.2, internal pp.12–14"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "MilneAG",
+      "title": "Algebraic Groups: the theory of group schemes of finite type over a field",
+      "authors": "J. S. Milne",
+      "edition": "Corrected 2022 author manuscript; printed book pagination",
+      "url": "https://www.jmilne.org/math/Books/iAG2022.pdf",
+      "sha256": "f2ddd8fa4d263085f173934664b246007a2c0bd539739b7c82de39bfb5d21f40",
+      "readSections": [
+        "Theorem 4.27 and Lemma 4.28, pp.94–95",
+        "Theorem 22.2 and §§22.8–22.12, pp.464–466; complete proof §§22.13–22.27, pp.466–471"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}

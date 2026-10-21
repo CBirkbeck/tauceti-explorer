@@ -1,0 +1,816 @@
+{
+ "roadmapId": "LefschetzPencilsAndVanishingCyclesPartII",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "LefschetzPencilsAndVanishingCyclesPartII:FC.0",
+  "LefschetzPencilsAndVanishingCyclesPartII:FC.1"
+ ],
+ "status": "complete",
+ "summary": "Plan the prescribed finite-field-point direction of issue #3359: bounded polynomial-graph avoidance and its marked étale pullback give an affine smooth geometrically integral curve through a rational point over the original field. Both stages are closed at target level relative to the exact shared foundation nodes. The independent monodromy and semistable potential-map routes are preserved in the split proposal, not counted as targets of these two stages.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:MvPolynomial.eval₂Hom",
+    "kind": "def",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Universal evaluation ring homomorphism from the multivariate polynomial carrier.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.eval₂Hom_C",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Evaluation on coefficient constants.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.eval₂Hom_X'",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Evaluation on a coordinate variable.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.eval₂Hom_monomial",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Evaluation of a monomial as coefficient times a finite product.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.comp_eval₂Hom",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Composition of evaluation with a ring map; used for specialization at zero and coefficient change.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Nat.ofDigits_inj_of_len_eq",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Digits/Defs.lean",
+    "provides": "For base greater than one, bounded digit lists of equal length with the same value are equal.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Nat.ofDigits_eq_sum_mapIdx",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Digits/Lemmas.lean",
+    "provides": "Identifies a digit list value with the sum of digit times the corresponding base power.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsClosedImmersion.spec_of_surjective",
+    "kind": "theorem",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
+    "provides": "A surjective commutative-ring morphism induces a closed immersion of spectra.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Etale.etale_isStableUnderBaseChange",
+    "kind": "instance",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+    "provides": "Étale morphisms are stable under arbitrary base change.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Etale.iff_smoothOfRelativeDimension_zero",
+    "kind": "theorem",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
+    "provides": "Étale is equivalent to smooth of relative dimension zero.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+    "provides": "Native predicate for a scheme morphism smooth of the specified relative dimension.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.smoothOfRelativeDimension_comp",
+    "kind": "instance",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+    "provides": "Smooth relative dimensions add under composition.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Flat.generalizingMap",
+    "kind": "theorem",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/UniversallyOpen.lean",
+    "provides": "Every flat scheme morphism has a generalizing underlying map.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.isOpenMap_of_generalizingMap",
+    "kind": "theorem",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/UniversallyOpen.lean",
+    "provides": "A generalizing scheme morphism locally of finite presentation has an open underlying map.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.isOpenMap",
+    "kind": "theorem",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/UniversallyOpen.lean",
+    "provides": "A universally open scheme morphism has an open underlying map.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.GeometricallyIntegral",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Geometrically/Integral.lean",
+    "provides": "Native geometric integrality predicate, tested after field-valued base changes.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Smooth/StandardSmooth.lean",
+    "provides": "A finite submersive presentation of dimension n supplies standard smoothness of relative dimension n; the one-variable presentation with no equations supplies the affine-line case.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:IsOpen.dense",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Irreducible.lean",
+    "provides": "A nonempty open in a preirreducible space is dense.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:IsOpenMap.denseRange_of_isPreirreducibleSpace",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Irreducible.lean",
+    "provides": "An open map from a nonempty space into a preirreducible space has dense range.",
+    "checked": "Statement and surrounding hypotheses read at the exact Mathlib pin on 2026-10-19."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "KZ-v2",
+   "title": "Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+   "authors": "Mark Kisin and Rong Zhou",
+   "edition": "arXiv:2103.09945v2, 7 October 2024; published Annals of Mathematics 202 (2025), no. 3, 1077–1156; final publication not compared",
+   "url": "https://arxiv.org/abs/2103.09945v2",
+   "pdf": "https://arxiv.org/pdf/2103.09945v2",
+   "doi": "10.4007/annals.2025.202.3.3",
+   "sha256": "62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "§5.2, Proposition 5.2.3 and Remark 5.2.4, pp. 49–52 (boundary of the local-model argument)",
+    "Corollary 5.2.7 and proof, pp. 52–53 (smooth-chart curve use)",
+    "§5.3, Proposition 5.3.5 and proof, p. 54 (second curve use)"
+   ]
+  },
+  {
+   "id": "POO04",
+   "title": "Bertini theorems over finite fields",
+   "authors": "Bjorn Poonen",
+   "edition": "Author PDF dated 31 August 2004, 23 pages; Annals of Mathematics 160 (2004), 1099–1127",
+   "url": "https://math.mit.edu/~poonen/papers/bertini.pdf",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "§3.3, Theorem 3.3, remarks and Corollary 3.4, author-PDF p. 10; comparison of hypotheses only"
+   ],
+   "sha256": "52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d"
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project: smooth coordinates and geometric integrality",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online version accessed 19 October 2026; stable tags used as locators",
+   "url": "https://stacks.math.columbia.edu",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "Morphisms of Schemes §29.37, Lemma 29.37.21, tag 054L, statement and proof (unpaginated)",
+    "Varieties §33.25, Lemma 33.25.10, tag 0CDW, statement and proof (unpaginated)",
+    "Varieties §33.7, Lemma 33.7.14, tag 04KV, statement and proof (unpaginated; rational point and geometric connectedness)"
+   ]
+  },
+  {
+   "id": "MATHLIB-EVAL",
+   "title": "Multivariate polynomial evaluation",
+   "authors": "The Mathlib contributors",
+   "edition": "Pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "eval₂Hom and its constant, variable, monomial and composition lemmas, lines 77–213"
+   ]
+  },
+  {
+   "id": "MATHLIB-DIGITS",
+   "title": "Natural-number base expansion",
+   "authors": "The Mathlib contributors",
+   "edition": "Pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Digits/Defs.lean",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "Nat.ofDigits_inj_of_len_eq, lines 312–331",
+    "Companion Digits/Lemmas.lean: Nat.ofDigits_eq_sum_mapIdx, lines 37–45"
+   ]
+  },
+  {
+   "id": "MATHLIB-SCHEMES",
+   "title": "Étale, smooth and open scheme morphisms",
+   "authors": "The Mathlib contributors",
+   "edition": "Pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "Morphisms/Etale.lean, lines 35–145",
+    "Morphisms/Smooth.lean, lines 54–219",
+    "Morphisms/ClosedImmersion.lean, lines 91–116",
+    "Morphisms/UniversallyOpen.lean, lines 35–89 and 104–146",
+    "Geometrically/Integral.lean, lines 33–109",
+    "RingTheory/Smooth/StandardSmooth.lean, lines 51–130 (standard presentations and relative dimension)",
+    "Topology/Irreducible.lean, lines 194–208 (nonempty opens and open maps)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/polynomial-graph",
+   "parentStageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0",
+   "realises": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0"
+   ],
+   "title": "Polynomial graph in affine space",
+   "kind": "definition",
+   "leanName": "TauCeti.SameFieldCurves.polynomialGraph",
+   "statement": "For a commutative ring k and natural numbers m,B define φ(m,B):k[X₀,…,Xₘ₋₁]→k[T] by the existing universal evaluation homomorphism, preserving coefficients and sending X_i to T^(B^i). For geometric use k is a field, m>0 and B≥2; its contravariant spectrum map is a_B:A¹_k→A^m_k.",
+   "hypotheses": [
+    "k is a commutative ring; m,B are natural numbers."
+   ],
+   "proofSteps": [
+    "Specialize MvPolynomial.eval₂Hom to Polynomial.C and the displayed powers of T. No new polynomial carrier is introduced.",
+    "Use evaluation on constants, variables and monomials for the normalization API; composition of evaluation gives the origin and coefficient-change formulas."
+   ],
+   "acceptance": [
+    "Coordinate zero has exponent B⁰=1; the origin is preserved for B≥2.",
+    "Run all four graph tests in the reader."
+   ],
+   "prerequisites": [
+    "mathlib:MvPolynomial.eval₂Hom",
+    "mathlib:MvPolynomial.eval₂Hom_C",
+    "mathlib:MvPolynomial.eval₂Hom_X'",
+    "mathlib:MvPolynomial.eval₂Hom_monomial",
+    "mathlib:MvPolynomial.comp_eval₂Hom"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Curve/SameField.lean",
+    "namespace": "TauCeti.SameFieldCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "MATHLIB-EVAL",
+     "locator": "eval₂Hom and generator/monomial/composition lemmas, lines 158–205",
+     "match": "The definition is a concrete specialization of the existing universal evaluation map."
+    },
+    {
+     "sourceId": "KZ-v2",
+     "locator": "Proof of Corollary 5.2.7, p. 53",
+     "match": "Motivates a same-field one-point curve supplier; this graph is an explicit derived replacement, not a theorem printed there."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_C",
+     "role": "simp",
+     "statement": "φ(m,B)(C(a)) = C(a)."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_X",
+     "role": "simp",
+     "statement": "φ(m,B)(X_i) = T^(B^i), with i numbered from zero."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_monomial",
+     "role": "simp",
+     "statement": "φ(m,B)(a X^d) = C(a) T^(Σ_i d_i B^i)."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_eval_zero",
+     "role": "compatibility",
+     "statement": "For B≥2, evaluation at T=0 after φ equals evaluation of every input coordinate at zero."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_one_variable",
+     "role": "compatibility",
+     "statement": "For m=1, φ is precisely the existing evaluation homomorphism sending the unique variable to T, for every B."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_map",
+     "role": "functoriality",
+     "statement": "For every commutative-ring map k→K, mapping coefficients commutes with φ(m,B), with the same m and B."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_F2_lines",
+     "kind": "computation",
+     "statement": "Over F₂, h=X₀²X₁−X₀X₁² maps at B=3 to T⁵+T⁷≠0. All three F₂-rational lines through zero lie in V(h); testing rational lines would miss this graph."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_bad_base",
+     "kind": "non-example",
+     "statement": "Over F₂, X₁−X₀² maps to zero at B=2, and to T³−T²≠0 at B=3. The strict individual-exponent bound is essential."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_one_coordinate",
+     "kind": "compatibility",
+     "statement": "For m=1 the variable maps to T for every B, including B=0, and the homomorphism is the usual one-variable identification."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.polynomialGraph_zero_variables",
+     "kind": "degenerate",
+     "statement": "For m=0 constants map to constants; over a field the resulting k→k[T] is not surjective. The geometric graph-immersion statement requires m>0."
+    }
+   ],
+   "uses": [
+    {
+     "where": "FC.0/bounded-support-coefficients and FC.0/avoiding-graph",
+     "how": "Separates the finitely many support monomials and constructs a graph meeting the complement of a hypersurface."
+    },
+    {
+     "where": "FC.1/marked-etale-pullback; Kisin–Zhou Corollary 5.2.7 proof, p. 53",
+     "how": "Supplies a morphism from A¹ over the original field, marked at the origin, for the étale pullback."
+    }
+   ],
+   "planet": {
+    "name": "Polynomial graph"
+   }
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/bounded-support-coefficients",
+   "parentStageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0",
+   "realises": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0"
+   ],
+   "title": "Coefficients survive bounded graph substitution",
+   "kind": "theorem",
+   "leanName": "TauCeti.SameFieldCurves.polynomialGraph_coeff",
+   "statement": "Let k be a commutative ring, m≥0, B≥2 and h∈k[X₀,…,Xₘ₋₁]. Assume every exponent d_i of every d∈supp(h) is <B. For every exponent vector e with all e_i<B, the coefficient of T^(Σ_i e_i B^i) in φ(m,B)(h) is exactly the coefficient of X^e in h. In particular a nonzero h has nonzero image.",
+   "hypotheses": [
+    "Every support exponent and the tested exponent vector have all individual entries strictly below B.",
+    "B≥2; coefficient equality does not require a domain or characteristic zero."
+   ],
+   "proofSteps": [
+    "Represent an exponent vector by its ordered list of m entries. Nat.ofDigits_eq_sum_mapIdx identifies its base-B value with Σ_i d_i B^i.",
+    "Nat.ofDigits_inj_of_len_eq gives injectivity on these bounded vectors; all lists have length m, including m=0.",
+    "Expand h as its finite sum of monomials and apply the evaluation-monomial formula. Distinct support terms have distinct powers of T, so extraction at the encoded e has exactly its original coefficient. This is a polynomial equality, not an equality of functions on k-points."
+   ],
+   "acceptance": [
+    "The two terms of X₁−X₀² collide at B=2; the excluded exponent equals B.",
+    "The theorem also handles m=0 and constant h, without assuming a variable exists."
+   ],
+   "prerequisites": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0/polynomial-graph",
+    "mathlib:Nat.ofDigits_inj_of_len_eq",
+    "mathlib:Nat.ofDigits_eq_sum_mapIdx",
+    "mathlib:MvPolynomial.eval₂Hom_monomial"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Curve/SameField.lean",
+    "namespace": "TauCeti.SameFieldCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "MATHLIB-DIGITS",
+     "locator": "Defs.lean, Nat.ofDigits_inj_of_len_eq, lines 312–331; Lemmas.lean, Nat.ofDigits_eq_sum_mapIdx, lines 37–45",
+     "match": "These provide the existing uniqueness and positional-sum formulas. The finite-vector adapter and coefficient extraction are the new specialization."
+    },
+    {
+     "sourceId": "MATHLIB-EVAL",
+     "locator": "eval₂Hom_monomial, lines 203–205",
+     "match": "Computes the substituted monomial; the bounded-support conclusion is derived here."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Bounded graph substitution"
+   }
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/graph-surjective",
+   "parentStageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0",
+   "realises": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0"
+   ],
+   "title": "The graph coordinate map is surjective",
+   "kind": "lemma",
+   "leanName": "TauCeti.SameFieldCurves.polynomialGraph_surjective",
+   "statement": "For a commutative ring k, m>0 and any natural number B, φ(m,B):k[X₀,…,Xₘ₋₁]→k[T] is surjective.",
+   "hypotheses": [
+    "m>0; no exponent bound and no field assumption are needed."
+   ],
+   "proofSteps": [
+    "The coefficient ring is in the image and X₀ maps to T because B⁰=1.",
+    "For any polynomial in T, replace T by X₀ and each coefficient by its constant multivariate polynomial. Evaluation gives the required preimage."
+   ],
+   "acceptance": [
+    "For m=1 this is the usual polynomial identification.",
+    "At m=0 over a field, T is not in the image."
+   ],
+   "prerequisites": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0/polynomial-graph",
+    "mathlib:MvPolynomial.eval₂Hom_C",
+    "mathlib:MvPolynomial.eval₂Hom_X'"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Curve/SameField.lean",
+    "namespace": "TauCeti.SameFieldCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "MATHLIB-EVAL",
+     "locator": "eval₂Hom_C and eval₂Hom_X', lines 181–186",
+     "match": "The two generator formulas construct a preimage of every univariate polynomial."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/avoiding-graph",
+   "parentStageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0",
+   "realises": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0"
+   ],
+   "title": "Graph avoiding a hypersurface through the origin",
+   "kind": "theorem",
+   "leanName": "TauCeti.SameFieldCurves.exists_avoiding_graph",
+   "statement": "Let k be a commutative ring, m>0 and 0≠h∈k[X₀,…,Xₘ₋₁]. There is B≥2 strictly greater than every individual support exponent such that φ(m,B)(h)≠0 and a_B=Spec(φ(m,B)) is a closed immersion. For k a field, a_B(0)=0 and a_B⁻¹(D(h))=D(φ(m,B)(h)) is a nonempty dense open of A¹_k.",
+   "hypotheses": [
+    "m>0 and h≠0.",
+    "The nonempty/dense-open assertion uses that k is a field."
+   ],
+   "proofSteps": [
+    "Choose B as at least two and one more than the maximum of the finite set of individual exponents occurring in supp(h).",
+    "Apply bounded-support-coefficients to a support exponent with nonzero coefficient.",
+    "Use graph-surjective and IsClosedImmersion.spec_of_surjective. The origin equation follows from positive powers in every coordinate.",
+    "Over a field, k[T] is a domain and a nonzero polynomial is nonzero at the generic point. Hence its principal open is nonempty, and IsOpen.dense makes it dense. No rational point in that open is asserted."
+   ],
+   "acceptance": [
+    "Over F₂ use T⁵+T⁷ to meet a hypersurface complement even when every rational line fails.",
+    "For h=T^q−T over F_q, D(h) is nonempty although it has no F_q-points."
+   ],
+   "prerequisites": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0/polynomial-graph",
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0/bounded-support-coefficients",
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0/graph-surjective",
+    "mathlib:AlgebraicGeometry.IsClosedImmersion.spec_of_surjective",
+    "mathlib:IsOpen.dense"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Curve/SameField.lean",
+    "namespace": "TauCeti.SameFieldCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "MATHLIB-SCHEMES",
+     "locator": "ClosedImmersion.lean, IsClosedImmersion.spec_of_surjective, lines 98–105",
+     "match": "Turns the already surjective coordinate map into the native closed-immersion statement."
+    },
+    {
+     "sourceId": "KZ-v2",
+     "locator": "Proof of Corollary 5.2.7, p. 53; compare Remark 5.2.4, p. 49",
+     "match": "The same-field requirement motivates the derived graph-avoidance argument; this is not attributed as the paper’s displayed construction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Avoiding graph"
+   }
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCyclesPartII:FC.1/marked-etale-pullback",
+   "parentStageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.1",
+   "realises": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.1"
+   ],
+   "title": "Marked component of an étale graph pullback",
+   "kind": "construction",
+   "leanName": "TauCeti.SameFieldCurves.exists_marked_etale_curve",
+   "statement": "Let k be a field, V a nonempty integral affine finite-type k-scheme, m>0, π:V→A^m_k an étale k-morphism and y∈V(k) with π(y)=0. Let U⊂V be dense open. Choose nonzero h vanishing on π(V∖U), then choose B and a_B by FC.0/avoiding-graph. In W=V×_{A^m}A¹ let C be the connected component through (y,0), with induced open scheme structure. There are maps g:C→V and q:C→A¹ and c∈C(k) with g(c)=y, q(c)=0 and πg=a_Bq. The curve C is affine, smooth of relative dimension one and geometrically integral over k, q is étale, and g⁻¹(U) is nonempty open dense.",
+   "hypotheses": [
+    "V is integral, affine, finite type over k, with an étale k-chart to A^m and m>0.",
+    "y is k-rational, π(y)=0, and U is dense open.",
+    "h vanishes on the image of the complement; h need not generate its vanishing ideal."
+   ],
+   "proofSteps": [
+    "The existing etale-coordinates supplier, part (c), gives nonzero h: the closure of π(V∖U) has dimension <m. Apply avoiding-graph.",
+    "Form the categorical scheme pullback W. It is affine; the projection W→A¹ is étale by base change. Since W is quasi-compact and locally of finite presentation over A¹, it is finite type over k and noetherian.",
+    "The point (y,0) is k-rational. Apply rational-point-component, part (c), to obtain the open-and-closed component C, the factorization c and geometric integrality. Its closed inclusion in affine W proves affineness.",
+    "Restrict the étale projection to C. Étale is smooth of relative dimension zero; compose with A¹→Spec k, using its one-generator/no-equation submersive presentation, to obtain relative dimension one.",
+    "The nonempty étale map q is open: flatness gives Flat.generalizingMap, and local finite presentation gives isOpenMap_of_generalizingMap; this agrees with Scheme.Hom.isOpenMap for the universally open instance. Its range is a nonempty open of irreducible A¹ and meets D(φ(h)); equivalently apply the baseline open-map dense-range theorem.",
+    "A point above D(φ(h)) cannot map into V∖U by the pullback equation and h’s boundary property. Thus g⁻¹(U) is nonempty open, and is dense because C is integral."
+   ],
+   "acceptance": [
+    "Run all four marked-pullback tests; in particular a point on the boundary remains marked and the component is chosen through that point.",
+    "Do not substitute the whole possibly disconnected pullback for C."
+   ],
+   "prerequisites": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0/avoiding-graph",
+    "SchemeAndStackFoundations:SF.0/etale-coordinates",
+    "SchemeAndStackFoundations:SF.0/rational-point-component",
+    "mathlib:AlgebraicGeometry.Etale.etale_isStableUnderBaseChange",
+    "mathlib:AlgebraicGeometry.Etale.iff_smoothOfRelativeDimension_zero",
+    "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
+    "mathlib:AlgebraicGeometry.smoothOfRelativeDimension_comp",
+    "mathlib:AlgebraicGeometry.Flat.generalizingMap",
+    "mathlib:AlgebraicGeometry.isOpenMap_of_generalizingMap",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.isOpenMap",
+    "mathlib:AlgebraicGeometry.GeometricallyIntegral",
+    "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension",
+    "mathlib:IsOpenMap.denseRange_of_isPreirreducibleSpace",
+    "mathlib:IsOpen.dense"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Curve/SameField.lean",
+    "namespace": "TauCeti.SameFieldCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "KZ-v2",
+     "locator": "Corollary 5.2.7 proof, pp. 52–53; Proposition 5.3.5 proof, p. 54",
+     "match": "These are the smooth-chart curve uses served by this derived construction, not a claim to reproduce the separate singular local-model argument."
+    },
+    {
+     "sourceId": "STACKS",
+     "locator": "Lemma 29.37.21 (054L), Lemma 33.25.10 (0CDW), and Lemma 33.7.14 (04KV), unpaginated",
+     "match": "The imported coordinate and rational-point component contracts support the chart and integrality steps; the graph pullback and density argument are derived here."
+    },
+    {
+     "sourceId": "MATHLIB-SCHEMES",
+     "locator": "Etale.lean, lines 71–112; UniversallyOpen.lean, lines 45–46 and 104–145; Smooth.lean, lines 192–214",
+     "match": "The baseline already supplies étale base change, étale relative dimension zero, openness and addition of smooth relative dimensions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.component",
+     "role": "data",
+     "statement": "For fixed V,π,y,U,h,B as in the construction, W=V×_{A^m}A¹ and w=(y,0); C is the connected component of W containing w, with its induced open subscheme structure."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.inclusion",
+     "role": "structure",
+     "statement": "j:C→W is both an open and a closed immersion. Thus C is affine and of finite type over k."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.projections",
+     "role": "projection",
+     "statement": "g=pr_V∘j and q=pr_A¹∘j satisfy π∘g=a_B∘q; s_C is either composite to Spec k."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.point",
+     "role": "constructor",
+     "statement": "w factors through j to a unique k-point c of C. It satisfies g(c)=y, q(c)=0 and s_C∘c=id_Spec(k)."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.smooth",
+     "role": "instance",
+     "statement": "q is étale and s_C is smooth of relative dimension one."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.geometricallyIntegral",
+     "role": "structure",
+     "statement": "C is geometrically integral over k, by its connectedness, smoothness and rational marked point."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.goodOpen",
+     "role": "characterisation",
+     "statement": "q⁻¹(D(φ(m,B)(h)))⊆g⁻¹(U). The left side and hence the right side are nonempty; g⁻¹(U) is open dense."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.chartCompatibility",
+     "role": "compatibility",
+     "statement": "When π is the identity chart of A^m, W≅A¹, C=W, q=id and g=a_B under the categorical pullback identification."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback.changeField",
+     "role": "functoriality",
+     "statement": "After any field extension K/k, C_K is integral and connected and is the component of W_K containing c_K. Its projections are base changes of g,q, and the good open remains dense. A new coordinate chart or a new admissible B need not produce an isomorphic curve."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback_identity",
+     "kind": "compatibility",
+     "statement": "For V=A²_k, π=id, y=0, U=A², h=1 and B=2, W=C=A¹ with q=id, g(T)=(T,T²), c=0. Both projection equations agree with the native categorical pullback."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback_boundary",
+     "kind": "degenerate",
+     "statement": "For the same chart and U=D(X₀), h=X₀ and B=2, c=0 lies outside g⁻¹(U), while g⁻¹(U)=D(T) is nonempty dense. The construction must not require y∈U."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback_disconnected",
+     "kind": "non-example",
+     "statement": "Over F₃ let V=Spec k[x,z,z⁻¹] and π(x,z)=(x,z²−1−2x), an étale map to A², with y=(0,1). For h=1, B=2 and U=V the pullback has equation z²=(T+1)² with z invertible. It is the disjoint union of the two branches z=±(T+1), each isomorphic to D(T+1). The marked component is the plus branch. This tests selection by the mark, rather than use of all W."
+    },
+    {
+     "name": "TauCeti.SameFieldCurves.markedPullback_origin",
+     "kind": "computation",
+     "statement": "In characteristic 2, with V=A², h=X₀²X₁−X₀X₁² and B=3, C=A¹, g(T)=(T,T³), and the good open is D(T⁵+T⁷), while g(0)=0."
+    }
+   ],
+   "uses": [
+    {
+     "where": "FC.1/same-field-curve; PAPER-KISIN-ZHOU-25/C24→C11",
+     "how": "Turns a positive-dimensional smooth affine neighbourhood into a marked curve meeting its chosen dense open."
+    },
+    {
+     "where": "Kisin–Zhou Corollary 5.2.7 proof, p. 53; Proposition 5.3.5 proof, p. 54",
+     "how": "Provides the scheme-level curve step after a rational lift to a smooth atlas has been supplied by its owner."
+    }
+   ],
+   "planet": {
+    "name": "Marked étale curve"
+   }
+  },
+  {
+   "id": "LefschetzPencilsAndVanishingCyclesPartII:FC.1/same-field-curve",
+   "parentStageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.1",
+   "realises": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.1"
+   ],
+   "title": "Same-field curve through a smooth rational point",
+   "kind": "theorem",
+   "leanName": "TauCeti.SameFieldCurves.exists_same_field_curve",
+   "statement": "Let k be any field, f:Y→Spec k a scheme over k and y:Spec k→Y a section. Suppose there is an open neighbourhood V of y on which f is smooth and U⊂Y is open with U∩V dense in V. Then there exist an affine finite-type k-scheme C, a structure map s:C→Spec k smooth of relative dimension one and geometrically integral, a k-morphism g:C→Y and c∈C(k), with g(c)=y and g⁻¹(U) nonempty open dense in C. Equivalently, it suffices that U be dense on the unique component through the smooth point y, after shrinking to that component. In particular this holds over F_q with the marked residue field exactly F_q.",
+   "hypotheses": [
+    "k is a field; y is a section of Y→Spec k, not merely a closed point of arbitrary residue degree.",
+    "Y is smooth near y; U is dense on the relevant smooth component. No condition is imposed on other components or away from the chosen neighbourhood."
+   ],
+   "proofSteps": [
+    "Use etale-coordinates, part (b), after shrinking inside V, to obtain integral affine V₀ through y and an étale chart π:V₀→A^m sending y to zero. Density restricts to the nonempty open V₀.",
+    "If m>0 apply marked-etale-pullback and compose g with V₀→Y. The maps are over k and the mark is unchanged.",
+    "If m=0, the connected smooth zero-dimensional affine neighbourhood through the rational point is Spec k: it is connected étale over k, and the rational component has degree one. Density forces y∈U. Take C=A¹_k, c=0 and g the constant morphism through y. This branch is a curve morphism, not an immersion.",
+    "For a finite field, the rational mark gives the identity residue-field map k→κ(c)=k→κ(y)=k. Pulling back a lisse sheaf identifies its stalk and geometric Frobenius at c with that at y, without a field-extension power. The sheaf/Frobenius theory belongs to the consumer."
+   ],
+   "acceptance": [
+    "Y=Spec k and U=Y must produce A¹ with its constant map and rational zero.",
+    "For Y=A²_F₂, y=0 and U=D(X₀²X₁−X₀X₁²), use the B=3 graph and D(T⁵+T⁷).",
+    "For Y=A¹_F_q, y=0 and U=D(T^q−T), a dense good open exists even though every rational point of C=A¹ lies outside it.",
+    "If Y has a second component disjoint from U, only density on the component through y is required.",
+    "Verify c is k-rational; replacing k by F_(q^r) is not a valid output for the given y over F_q."
+   ],
+   "prerequisites": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.1/marked-etale-pullback",
+    "SchemeAndStackFoundations:SF.0/etale-coordinates",
+    "SchemeAndStackFoundations:SF.0/rational-point-component",
+    "mathlib:Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Curve/SameField.lean",
+    "namespace": "TauCeti.SameFieldCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "KZ-v2",
+     "locator": "Corollary 5.2.7 and proof, pp. 52–53; Proposition 5.3.5 and proof, p. 54; Remark 5.2.4, p. 49",
+     "match": "The exported one-point/dense-open contract is the local smooth-chart ingredient used there. The proof here repairs the scope of the projective Bertini citation and does not assert the Shimura-stack or singular local-model conclusions."
+    },
+    {
+     "sourceId": "POO04",
+     "locator": "§3.3, Corollary 3.4, author-PDF p. 10",
+     "match": "Its ambient variety is smooth projective geometrically integral; it is a comparison source, not a prerequisite for the nonprojective smooth-neighbourhood theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Same-field local curve"
+   }
+  }
+ ],
+ "requests": [],
+ "coverage": [
+  {
+   "stageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0",
+   "status": "closed",
+   "remaining": []
+  },
+  {
+   "stageId": "LefschetzPencilsAndVanishingCyclesPartII:FC.1",
+   "status": "closed",
+   "remaining": []
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "LefschetzPencilsAndVanishingCyclesPartII/E1",
+   "kind": "gap",
+   "locator": "Kisin–Zhou arXiv:2103.09945v2, proof of Corollary 5.2.7, p. 53, and Proposition 5.3.5, p. 54; Poonen author-PDF §3.3, Corollary 3.4, p. 10",
+   "printed": "The smooth atlas curve step is justified by a citation of Poonen Corollary 3.4, without a projective smooth ambient model for the chart.",
+   "correction": "Use the one-point local étale polynomial-graph argument of FC.0–FC.1 for the needed morphism from a curve. This establishes the dense-open conclusion over the same field and makes no multipoint or projectivity assertion.",
+   "reason": "Poonen Corollary 3.4 explicitly assumes a smooth projective geometrically integral ambient variety; a smooth atlas has only local smooth finite-type geometry. The local proof above works on its affine neighbourhood and avoids that missing hypothesis.",
+   "affects": "the proof",
+   "known": "Previously recorded as PAPER-KISIN-ZHOU-25/E11. No correction was identified in the bounded searches recorded there or in this review. This finding is confined to arXiv v2; the final Annals article text was unavailable and was not compared.",
+   "searched": [
+    "Read PAPER-KISIN-ZHOU-25/E11 and its independent-review result, including its recorded arXiv/Annals/author-page correction search.",
+    "Re-read the cited arXiv v2 passages and Poonen author-PDF Corollary 3.4 on 2026-10-19; no inference about an uninspected final publication is made.",
+    "Checked arXiv submission history on 2026-10-19: v2 dated 7 October 2024 is the latest listed version.",
+    "Read the Annals article metadata at https://annals.math.princeton.edu/2025/202-3/p03 on 2026-10-19; its full-article DOI redirected to a Project Euclid access challenge, so the version of record was not inspected."
+   ],
+   "resolvedBy": [
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.0/avoiding-graph",
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.1/marked-etale-pullback",
+    "LefschetzPencilsAndVanishingCyclesPartII:FC.1/same-field-curve"
+   ],
+   "source": "KZ-v2",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Directly compared the smooth-atlas curve uses in arXiv v2, Corollary 5.2.7 proof p. 53 and Proposition 5.3.5 proof p. 54, with Poonen author-PDF Corollary 3.4, §3.3 p. 10. The corollary requires a smooth projective geometrically integral ambient variety, while these uses supply only a smooth finite-type chart. This confirms a missing justification at that citation in the inspected preprint, not a false endpoint or a defect in Poonen. The local one-point graph proof supplies the needed morphism. No verdict is made on the unavailable published article.",
+    "by": "REV-DESIGN-LefschetzPencilsAndVanishingCyclesPartII"
+   }
+  }
+ ],
+ "restructure": [
+  {
+   "action": "split",
+   "roadmaps": [
+    "LefschetzPencilsAndVanishingCyclesPartII",
+    "UniversalHypersurfaceMonodromy",
+    "SemistablePotentialMaps"
+   ],
+   "detail": "The issue bundles three independent proof directions in four paper routes. The two monodromy routes overlap and must have one owner. Only the first, elementary same-field curve direction is planned in this packet, as the issue explicitly permits.",
+   "proposal": "Keep LefschetzPencilsAndVanishingCyclesPartII with FC.0 polynomial graphs and FC.1 marked étale curves, owning Kisin–Zhou C20,C24,C11 (the extraction’s old proposed id LefschetzFiniteFieldBertiniPartII is an alias, not a second roadmap). Give UniversalHypersurfaceMonodromy both PAPER-BROWNING-SAWIN-20 and PAPER-SCHIFFMANN-16 routes: (UH.0) universal smooth hypersurface family, primitive hyperplane splitting and pairing; (UH.1) Katz–Sarnak 11.4.9 full geometric Zariski Sp/O monodromy with characteristic/low-degree exceptions and finite-monodromy exclusion; (UH.2) algebraic Goursat for the required O×Sp products, disconnected factors and exceptional dimensions; (UH.3) characteristic-zero Betti/étale comparison for MordellLawrenceVenkateshPartII; (UH.4) Chapter 10 hyperelliptic pencil monodromy and Schiffmann Frobenius density in T_g/W_g, importing DWP twists/equidistribution and upstream maximal tori/Weyl theory. Give SemistablePotentialMaps the PAPER-LIU-ETAL-22 route: (SP.0) strictly semistable strata and weight-spectral-sequence interface from LPV.7; (SP.1) Liu B^r,B_r,A modules and nice/very nice hypotheses; (SP.2) alternating Gysin/restriction potential map Δ and η; (SP.3) Liu Theorem 2.16 unramified-to-singular exact sequence; (SP.4) Theorem 2.18/Proposition 2.19 Abel–Jacobi compatibility; (SP.5) a proved interface to the nonproper Q and O_λ coefficients in LTXZZ §§5.11,7.2, or an explicit unresolved supplier request. These stage names are a design allocation, not completed plans or dependency ids used by this packet. Preserve all original routes/items; detailed contracts and source gates are in the handoff."
+  }
+ ],
+ "auditNotes": [
+  "Read LPV.3 and its reviewed library-coverage entry (AUDIT19): the parent supplies ample projective pencils and finite-extension points, not a prescribed same-field rational mark. It remains the parent, without a false mathematical dependency edge from its pencil theorem to the elementary graph proof.",
+  "Read SchemeAndStackFoundations--SF.0/etale-coordinates (parts b,c) and /rational-point-component (parts b,c). They already own the general coordinate, boundary-dimension and marked-component facts. Their enclosing packet has a needs_changes review on other ownership/proof/interface items; import the exact source-checked node statements, not a claim that the entire supplier is accepted or implemented.",
+  "Read current TauCetiRoadmap main at 0d144d044dacebca17b654695b6f1ad58f159b27, including the AlgebraicCurves and StableReduction documents and the new-roadmap duplication screen. Searched its README/Suggested files and current TauCeti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, as well as pinned polynomial/digit/scheme APIs. No existing same-field graph/marked-curve supplier was located. Current smooth relative-dimension modules supply general theory, not this existence theorem; no such general theory is planned again here. Independent review read TauCeti.AlgebraicGeometry.Smooth.geometricallyIntegral at the recorded current TauCeti commit: smooth and geometrically connected imply geometrically integral. This existing result belongs to the shared component input, not a new node here.",
+  "Read the parent atlas stage edges and all blueprint link entries mentioning LefschetzPencilsAndVanishingCycles. The LocalFields/LPV.1 inertia overlap does not enter FC.0–FC.1. No independent monodromy or potential-map dependency is added."
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2103.09945v2",
+   "citation": "Kisin–Zhou, arXiv:2103.09945v2, 7 October 2024, 63 pages",
+   "read": "2026-10-19",
+   "sha256": "62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8",
+   "readScope": "Proposition 5.2.3 and Remark 5.2.4 pp. 49–52; Corollary 5.2.7 pp. 52–53; Proposition 5.3.5 p. 54.",
+   "publicationAccess": {
+    "url": "https://annals.math.princeton.edu/2025/202-3/p03",
+    "citation": "Kisin–Zhou, Annals of Mathematics 202 (2025), no. 3, 1077–1156, DOI 10.4007/annals.2025.202.3.3",
+    "read": "2026-10-19",
+    "readScope": "Bibliographic metadata only; article text not read.",
+    "textCompared": false,
+    "accessNote": "The full-article DOI redirected to Project Euclid, which returned an access challenge rather than the article. The source finding therefore remains confined to arXiv v2."
+   }
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.mit.edu/~poonen/papers/bertini.pdf",
+   "citation": "Poonen, Bertini theorems over finite fields, author PDF dated 31 August 2004, 23 pages",
+   "read": "2026-10-19",
+   "sha256": "52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d",
+   "readScope": "§3.3, Theorem 3.3, surrounding remarks and Corollary 3.4, p. 10."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-LefschetzPencilsAndVanishingCyclesPartII",
+  "date": "2026-10-19",
+  "notes": "Independently checked all six nodes and every source locator, all nineteen baseline declarations at the Mathlib pin, both exact SF.0 supplier contracts, target closure, fifteen API items, eight tests, five planets, the reviewed LPV.3 audit, current-library/roadmap ownership and the issue-authorized split. Corrected source ranges, added the geometric-connectedness anchor and explicit source-version evidence, independently confirmed the preprint-scoped source issue, restored reader math delimiters and strengthened the compact Lean examples. Both local stages remain closed relative to the stated supplier contracts; the wider SF.0 review and split approval are not implied. No nodes or gaps were added. lean-check succeeded with twenty-one unimplemented-proof warnings and no other warnings or errors.",
+  "checked": [
+   {
+    "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/polynomial-graph",
+    "verdict": "corrected",
+    "note": "Confirmed the real evaluation definition and six API items. Fixed its source range; strengthened the suggested finite-field line-failure and zero-variable examples to match the reader tests."
+   },
+   {
+    "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/bounded-support-coefficients",
+    "verdict": "corrected",
+    "note": "Confirmed bounded digit injectivity and finite coefficient extraction, including zero variables and arbitrary commutative rings. Corrected the monomial source range."
+   },
+   {
+    "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/graph-surjective",
+    "verdict": "corrected",
+    "note": "Confirmed the coordinate-zero preimage argument for every base when m>0. Corrected the locator to include the variable-evaluation declaration."
+   },
+   {
+    "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/avoiding-graph",
+    "verdict": "corrected",
+    "note": "Confirmed the strict finite-support bound, nonzero substitution, scheme closed immersion and field-only dense-open conclusion. Extended the immersion locator through its complete declaration."
+   },
+   {
+    "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.1/marked-etale-pullback",
+    "verdict": "corrected",
+    "note": "Confirmed both exact supplier contracts, the marked component, openness/density and fixed-choice field-extension API. Added Stacks 04KV and corrected the openness locator. Suggested examples now state boundary/origin checks and the actual F3 factorization and mark; full component tests and nine API items remain reader targets under the current roadmap shape."
+   },
+   {
+    "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.1/same-field-curve",
+    "verdict": "verified",
+    "note": "Confirmed the local density hypothesis, positive-dimensional construction, dimension-zero constant curve and original rational residue field. No projectivity, immersion or rational good-open point is assumed."
+   }
+  ]
+ }
+}

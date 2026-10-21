@@ -1,0 +1,370 @@
+{
+  "id": "AutomorphicBundlesPartII",
+  "title": "Automorphic bundles and classical automorphic forms, Part II",
+  "area": "langlands",
+  "parent": "AutomorphicBundles",
+  "summary": "This roadmap extends automorphic bundles from sections to integral coherent cohomology, finite equivariant perfect models and derived Hecke actions. It connects those constructions to canonical, interior and cuspidal automorphic comparisons, with explicit Siegel weight ranges and normalizations. Boundary localization is separated into the all-degree rational Siegel case and the degree-zero totally real case. Multiplicity and classification assumptions remain visible in the final cuspidal descriptions and dimension formula.",
+  "readme": "This roadmap extends automorphic bundles from sections to integral coherent cohomology, finite equivariant perfect models and derived Hecke actions. It connects those constructions to canonical, interior and cuspidal automorphic comparisons, with explicit Siegel weight ranges and normalizations. Boundary localization is separated into the all-degree rational Siegel case and the degree-zero totally real case. Multiplicity and classification assumptions remain visible in the final cuspidal descriptions and dimension formula.\n\nThe eight layers follow coefficient geometry, equivariant perfect complexes, correspondences, normalization and comparison, integral vanishing and localization, analytic comparisons, archimedean weights and boundary-localized cuspidal descriptions. See research/blueprint/readmes/AutomorphicBundlesPartII.md for statements, construction steps, checks and gaps. Generic duality, integral representation theory, perfect-complex algebra and global classification retain their existing owners.",
+  "prerequisites": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicBundles",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicSpectralTheory",
+    "ComplexComparisonPartII",
+    "CrystallineCohomology",
+    "DeformationAndDerivedPatchingAlgebra",
+    "DerivedDeRhamCohomology",
+    "IntegralHeckeAndGaloisDeterminants",
+    "LanglandsParameterStacks",
+    "ModularityAndLanglandsExtensions",
+    "SchemeAndStackFoundations",
+    "ShimuraCompactifications",
+    "ShimuraCompactificationsPartII",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "IC.1",
+      "title": "Integral coefficients and coherent duality",
+      "description": "Start with the parent’s coefficient and compactification constructions. Extend the graded de Rham Levi torsor and its integral dual-Weyl coefficients. Fix all Siegel weight and multiplier conventions. Form canonical/subcanonical derived cohomology and Matlis-dual coherent homology; establish the finite-coefficient Serre pairing without identifying the whole dualizing cohomology complex with its trace target.\n\nTargets: The integral de Rham Levi torsor; Integral dual-Weyl automorphic coefficients; The Siegel weight dictionary; Integral coherent cohomology complexes; Coherent homology over a DVR; Finite-coefficient Serre duality.\n\nThe integral de Rham Levi torsor: On a supplied toroidal Siegel model over O with finite locally free logarithmic Hodge factors and its polarized degenerating abelian family and logarithmic Hodge sequence, let M_dR be the torsor of triples (ψ₁,ψ₂,c), with ψ₁:O^g≃Lie(A), ψ₂:O^g≃ω_(Aᵗ), c a unit, and ψ₂=c(ψ₁ᵗ)⁻¹ after the polarization identifies the Hodge factors. It is a right torsor under the Siegel Levi M≃GL_g×G_m. The family, its dual and polarization are the extensions supplied by the compactification model; arbitrary semi-abelian schemes are not asserted to admit this datum. Integral dual-Weyl automorphic coefficients: For a dominant Levi weight κ and an integral dual-Weyl module V_κ imported from LP3, define ω^κ=M_dR×^M V_κ using B0’s associated-bundle functor. With right B-equivariance f(mb)=(w₀,Mκ)(b⁻¹)f(m), left translation is (m′f)(m)=f(m′⁻¹m). Thus ω^κ is π_*O_(M_dR)[−w₀,Mκ], with this action. Use its canonical and boundary-ideal subcanonical extensions on the supplied integral model; do not replace an integral dual-Weyl module by its characteristic-zero semisimplification. The Siegel weight dictionary: For g=2 and integers a≥b, set ω(a,b)=Sym^(a−b)(E)⊗det(E)^b, E the rank-two Hodge bundle. Pilloni’s Ω^(k,r) is ω(k+r,r). In CG20’s Levi coordinates the natural coefficient is W_(a,b;−a−b); changing the central coordinate preserves the underlying bundle and changes its Hecke linearization. In BP26’s coordinates Lie(A) has weight ((0,…,−1);1) and ω_A weight ((1,0,…);−1). The dictionary must identify the actual multiplier characters rather than identify differently named central coordinates by notation. Integral coherent cohomology complexes: For a proper toroidal O-model X and finite locally free F, let C_can(F)=RΓ(X,F_can) and C_sub(F)=RΓ(X,F_sub) in D(O); their reductions are derived coefficient tensors. Retain the canonical arrow C_sub→C_can. Under proper flat finite-presentation and perfect-coefficient hypotheses these objects are perfect over O. They are not automatically perfect over a deck-group ring. Coherent homology over a DVR: Let O be a complete DVR with uniformizer ϖ, fraction field E, residue characteristic p, A_n=O/ϖ^n with n≥1, and Y/O smooth proper of pure relative dimension d. For finite locally free F define H_i(Y,F⊗A_n)=Hom_O(H^i(Y,F^∨⊗ω_(Y/O)⊗A_n),E/O). Deck transformations act contragrediently. The coefficient dual is Matlis dual over O; identifying it with Z_p-Pontryagin dual requires a chosen character and the inverse different. Finite-coefficient Serre duality: Under the preceding smooth proper relative-dimension-d assumptions, duality over A_n identifies H_i(Y,F⊗A_n) with H^(d−i)(Y_(A_n),F⊗A_n), using the self-duality A_n→Hom_O(A_n,E/O). The perfect derived pairing is RΓ(F)⊗^L RΓ(F^∨⊗ω)[d]→A_n. Its trace is a morphism; it is not an isomorphism RΓ(ω)[d]≃A_n. Deck and coefficient maps are adjoint with the inverse-action convention.",
+      "requires": [
+        "AutomorphicBundles:B1",
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C5",
+        "ShimuraCompactificationsPartII:C13",
+        "AutomorphicBundles:B0",
+        "AutomorphicBundles:B3",
+        "LanglandsParameterStacks:LP3",
+        "AutomorphicBundles:B4",
+        "AutomorphicBundles:B2",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "IC.2",
+      "title": "Equivariant coherent perfect complexes",
+      "description": "For finite étale abelian p-group covers, use an equivariant affine Čech complex, étale projectivity and nilpotent lifting to construct finite perfect group-ring models. Distinguish infinite free Čech terms from finite perfect replacements. Prove derived coefficient compatibility, deck descent and the correctly indexed homological Hochschild–Serre edge sequence.\n\nTargets: The equivariant Čech model; Étale Galois projectivity; Integral Čech freeness; Perfect models for coherent cohomology and homology; Derived coefficient change and deck descent.\n\nThe equivariant Čech model: Let f:Y→X be a finite étale Galois cover of smooth proper O-schemes with finite abelian p-group Δ, and let F be finite locally free on X. Choose a finite affine cover of separated X; its inverse-image cover gives a bounded alternating Čech complex for f*F⊗A_n with its actual Δ action, computing RΓ(Y,f*F⊗A_n). Its terms may have infinite rank over A_n[Δ]. Refinements give the same derived object. Étale Galois projectivity: For a finite étale Galois cover f:Y→X with finite group Δ, f_*O_Y is locally projective as an O_X[Δ]-module. If X is flat over A, it is A[Δ]-flat. For a Δ-pulled-back finite locally free coefficient the same flatness holds. For an affine torsor in characteristic p with Δ a p-group, its coefficient module is free over k[Δ], possibly of infinite rank; local projectivity does not in general give a global integral normal basis over O_X[Δ]. Integral Čech freeness: In the CG18 setting, on affine X=Spec A with inverse image Spec B and finite projective A-module N, the module (N⊗_A B)/ϖ^n is free over A_n[Δ] for each n≥1. This allows infinite rank. O-flatness of N⊗_A B, characteristic-p Galois projectivity and the nilpotent coefficient-lifting criterion are essential. Perfect models for coherent cohomology and homology: For the cover and coefficient of equivariant-cech, there is a bounded finite projective A_n[Δ]-complex representing RΓ(Y,f*F⊗A_n). Apply this to f*F^∨⊗ω_(Y/O) to obtain C_n^∨. Its A_n-linear derived dual, with inverse Δ action, gives C_n with H_i(C_n)=H_i(Y,f*F⊗A_n), after the Serre-dual coefficient is used on the cochain side. Choose the convention C_n^∨ represents RΓ(F^∨⊗ω), so C_n is its coefficient-dual chain model. Group-ring coefficient reduction means A_m[Δ]⊗^L_(A_n[Δ])C_n^∨, equivalently derived reduction of its termwise A_n-free model. Models and Hecke lifts are canonical only in the derived category or up to homotopy. Derived coefficient change and deck descent: The equivariant models have derived coefficient compatibility A_m⊗^L_(A_n)C_n^∨≃C_m^∨ for 1≤m≤n, and homological deck descent C_n⊗^L_(A_n[Δ])A_n≃C_n(X,F). Thus Tor_i^(A_n[Δ])(H_j(C_n),A_n)⇒H_(i+j)(X,F⊗A_n). In degree zero H_0(Y,F)_Δ≃H_0(X,F); the five-term edge sequence includes Tor₂(H_0(Y,F),A_n)→H_1(Y,F)_Δ→H_1(X,F)→Tor₁(H_0(Y,F),A_n)→0. No injectivity of the second arrow is asserted without extra Tor vanishing.",
+      "requires": [
+        "AutomorphicBundlesPartII:IC.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.1",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ]
+    },
+    {
+      "key": "IC.3",
+      "title": "Cohomological correspondences and filtrations",
+      "description": "Construct coefficient correspondences p₂*F→p₁!G and their proper derived global actions, composition, coefficient tensor/coinvariants, Tor-independent base change, coefficient twists and transpose. Establish rational isogeny transport. Treat BP26’s completed-locale/compact-support spectral sequence separately from the ordinary local-cohomology Kempf resolution used in IC.5. Retain the missing solid/discrete enhancement explicitly.\n\nTargets: Cohomological correspondences; The map on derived global sections; Composition of cohomological correspondences; Correspondences from a fundamental class; Tensor coefficients and deck coinvariants; Base change for cohomological correspondences; Twisting by an automorphic coefficient; Rational isogeny transport of weight sheaves; The transpose correspondence; Contracted support filtrations; Derived formal completion of coherent coefficients; Equivariance of the completion and compact-support filtration; Coherent Hecke operators in every degree.\n\nCohomological correspondences: For separated finite-type S-schemes C,X with (p₁,p₂):C→X×_S X proper, and coefficient complexes F,G on X, a cohomological correspondence is a morphism T:Lp₂*F→p₁!G in the coherent/discrete derived category when the indicated operations and boundedness exist. When p₁ is proper its adjoint is Rp₁*Lp₂*F→G; in the solid six-operation setting the general adjoint uses lower shriek (p₁)!, not unrestricted Rp₁*. The solid version uses the stable solid O-module category and its upper shriek; this enhancement is an explicit missing supplier, not an alternative definition of ordinary coherent cohomology. The map on derived global sections: If p₁ is proper and T:Lp₂*F→p₁!G, define RΓ(T) as RΓ(X,F)→RΓ(C,Lp₂*F)→RΓ(C,p₁!G)→RΓ(X,G), using the pullback unit, T and the proper trace counit. It induces all degree-i maps. Proper support alone is insufficient for this unqualified global formula unless an appropriate supported pushforward is used. Composition of cohomological correspondences: For two correspondences with proper first legs and coefficient morphisms T,S, form their fibre-product composition using proper upper-shriek base change and the projection formula. In a derived enhancement the composite acts on RΓ by RΓ(S)∘RΓ(T). In the discrete coherent category impose the required Tor-independence/perfectness hypotheses. This is a statement about the actual six-operation composition, not arbitrary chosen maps between cones. Correspondences from a fundamental class: Let C and X be S-schemes of the same pure relative dimension, p₁,p₂:C⇒X, with p₁ projectively embeddable and satisfying the SF.2 fundamental-class hypotheses. Fix the resulting degree-zero class O_C→p₁!O_X. For perfect G (in particular finite locally free G) and a coefficient arrow Lp₂*F→Lp₁*G, tensoring this class with G and using the projection formula defines Lp₂*F→p₁!G. Equal dimensions alone do not supply the class. For finite locally free p₁ its adjoint is the algebra trace. Boundary twists use the reduced-relative-Cartier and inverse-image boundary hypotheses of A0/fundamental-class-boundary; its determinant route additionally retains the normal/smooth dense-open and relative normal-crossings hypotheses of P20 Lemma 4.2.4.1(1). Tensor coefficients and deck coinvariants: For a correspondence over Spec A with F A-flat, a finitely generated A-module M gives the base-changed operator T⊗^L1 on F⊗^L_A M, by projection formula and upper-shriek comparison. Ordinary tensors agree only under the stated flatness. If a finite abelian group Δ acts equivariantly and F is A[Δ]-flat, derived coinvariants produce a correspondence on F⊗^L_(A[Δ])A, agreeing with ordinary coinvariants in this flat case. No averaging projector is used when |Δ| is not invertible. Base change for cohomological correspondences: Under a base change S′→S, coherent upper-shriek base change transports T if the relevant Cartesian squares are Tor-independent and the imported duality hypotheses hold. A flat base change satisfies these conditions. Finiteness of S′→S alone is not sufficient. The derived solid version has its own base-change theorem and must be compared with this coherent statement before applying it to ordinary coefficient reduction. Twisting by an automorphic coefficient: For finite locally free E on X and a coefficient transport α:p₂*E→p₁*E, tensor a correspondence T:F→G with α to obtain T_E:p₂*(F⊗E)→p₁!(G⊗E). The isomorphism p₁!G⊗p₁*E≃p₁!(G⊗E) is the finite-perfect projection formula. α need not be invertible; invertibility is proved separately for a rational isogeny transport. Rational isogeny transport of weight sheaves: A polarized quasi-isogeny along a toroidal Siegel correspondence, with its specified multiplier, induces p₂*ω^κ[1/p]≃p₁*ω^κ[1/p], compatible with composition and the generic parent Hecke pullback. Invertibility comes from the rational logarithmic Hodge isogeny. The integral map and any divisibility bound must be proved independently. The transpose correspondence: For smooth X,C over S and finite locally free legs p₁,p₂, coherent duality transposes T:p₂*F→p₁!G into Tᵗ:p₁*D_XG→p₂!D_XF, where D_X=RHom(−,f!O_S), for dualizable coefficients in the stated bounded categories. With X proper, its RΓ action is adjoint to RΓ(T). Swapping the legs also swaps and dualizes the coefficient; a Hecke double coset need not be self-adjoint. Contracted support filtrations: For a correspondence (C,X,p₁,p₂), a closed subset Z is contracted when p₁⁻¹Z⊆p₂⁻¹Z, and expanded when the reverse inclusion holds. These are set-theoretic conditions. A finite increasing closed filtration (Z_l) is contracted when every Z_l is contracted, with strata U_l=Z_l∖Z_(l−1). The resulting maps of support objects are constructed as a coherent filtered diagram in a stable enhancement; no functorial cone in a bare triangulated category is assumed. Derived formal completion of coherent coefficients: For a qcqs Noetherian model X, a coherent ideal I defining Z, and a pseudo-coherent solid coefficient F in the BP26 setting, the completion locale î:Ẑ→X satisfies î_*î*F≃Rlim_n(F⊗^L_(O_X)O_X/Iⁿ), and RΓ(X,î_*î*F)≃Rlim_n RΓ(X,F⊗^L O_X/Iⁿ). The I=(p) case is the p-adic specialization. The comparison with ordinary discrete coherent formal functions is a separate SF.4/P7 input under properness and coherent boundedness assumptions. Integral correspondence maps and traces extending to the completion must commute with these comparison maps; the solid/discrete identification remains G-solid. Equivariance of the completion and compact-support filtration: Let X be qcqs over the fixed base, F∈D⁻(O_(X,solid)), and ∅=Z_(−1)⊆Z₀⊆⋯⊆Z_d=X a finite closed filtration contracted by a cohomological correspondence T with proper p₁. Write U_l=X∖Z_l and Ẑ_l for the closed locale with I_l-adically completed algebra. The triangles RΓ_c(U_l,F)→RΓ(X,F)→RΓ(Ẑ_l,F) form a T-equivariant filtered object, with graded terms RΓ_c(Ẑ_l∖Ẑ_(l−1),F). Thus E₁^(s,t)=H_c^(s+t)(Ẑ_s∖Ẑ_(s−1),F)⇒H^(s+t)(X,F) is T-equivariant on every page. Its j! term belongs to the completion triangle j!j*F→F→î_*î*F. Ordinary local cohomology instead uses î_*î!F→F→Rj_*j*F; identifying these two filtrations is not asserted. Coherent Hecke operators in every degree: For the toroidal Hecke correspondence at neat tame level with a common fan refinement, compatible coefficient transport and fundamental class, define [KgK] on RΓ(F_can) and RΓ(F_sub) using correspondence-action. Prime-to-p integral operators require the geometric smoothness/boundary hypotheses. At this stage construct the individual double-coset endomorphisms and their fan comparisons. They form an algebra action only after the integral convolution relations of IC.5 (or a separately supplied characteristic-zero convolution proof) are verified. Degree zero agrees with B5. The operators are derived morphisms, without a chosen strict chain action.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.2",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "AutomorphicBundlesPartII:IC.2",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "AutomorphicBundlesPartII:IC.1",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B1",
+        "ShimuraCompactificationsPartII:C13",
+        "SchemeAndStackFoundations:SF.4",
+        "AutomorphicBundles:B5",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "IC.4",
+      "title": "Hecke lifts, normalization and comparison",
+      "description": "Lift individual geometric derived endomorphisms to homotopy classes on finite projective models. Fix the ν⁻³ arithmetic action, integral divisibility criterion, rational p-level operators and the geometric-generator/spin-polynomial dictionary. Import the current IHG.3 spin-polynomial API. Prove proper GAGA and characteristic-zero tower compatibility.\n\nTargets: Homotopy classes of coherent Hecke chain lifts; The arithmetic normalization of the Siegel Hecke action; Integral divisibility and rational p-operators; Geometric Hecke generators and the spin polynomial; GAGA and the coherent tower.\n\nHomotopy classes of coherent Hecke chain lifts: For a finite projective coherent model C_n^∨, each derived Hecke endomorphism has a chain-map representative unique up to chain homotopy. Equality, commutation and the Hecke relations lift to homotopies. A strict action of the Hecke algebra on one chosen chain complex is additional data and is not claimed. The arithmetic normalization of the Siegel Hecke action: For a Siegel threefold, replace the natural Hecke action on ω(a,b) by its ν⁻³ twist. The coefficient is then W_(a,b;3−a−b), whose analytic counterpart is V_(−b,−a;6−a−b). A central element xI₄ acts by x^(a+b−6). With geometric Frobenius, ε(Frob_ℓ)=ℓ⁻¹. If T′_(ℓ,i) are the geometric operators, set T_(ℓ,2)=ℓ⁻³T′_(ℓ,2) and T_(ℓ,i)=ℓ⁻⁶T′_(ℓ,i) for i=0,1, according to their similitudes. Integral divisibility and rational p-operators: Given an integral coefficient correspondence T and a proved factorization T=ϖ^k U into a ϖ-torsion-free target, define the normalized integral correspondence ϖ⁻kT=U; its uniqueness uses torsion-freeness. A rational operator alone supplies no integral division. At Klingen and paramodular level the geometric T_(p,2) and U_(Kli(p),2) are defined with p⁻³ after inverting p, using the C14 correspondences; no integral p-operator or ordinary projector is asserted here. Geometric Hecke generators and the spin polynomial: Set β_(x,0)=diag(x,x,x,x), β_(x,1)=diag(1,1,x,x), β_(x,2)=diag(1,x,x,x²), and S_x=T_(x,0) in CG20’s convention. P20’s T_(ℓ,2),T_(ℓ,1),T_(ℓ,0) correspond to CG20’s T_(x,1),T_(x,2),S_x after the declared normalization. Identify these with the normalized spherical generators in IHG.3, preserving coefficient central character and opposite-algebra convention. For BCGP21, T_(v,1),T_(v,2),T_(v,0) correspond to T_(ℓ,2),T_(ℓ,1),T_(ℓ,0). The resulting characteristic polynomial is X⁴−T_(v,1)X³+(q_vT_(v,2)+(q_v³+q_v)T_(v,0))X²−q_v³T_(v,0)T_(v,1)X+q_v⁶T_(v,0)². Import its generic spin-polynomial API from current IHG.3/SR.4, rather than re-own it. GAGA and the coherent tower: For proper toroidal complex models, algebraic coherent cohomology agrees with analytic coherent cohomology in all degrees, naturally for Hecke pullback, trace, coefficient maps and boundary arrows. At characteristic-zero neat finite levels, passage to the direct-limit tower gives a smooth representation whose K-invariants recover finite-level cohomology under finite-level étale descent; finite-dimensional finite-level cohomology implies admissibility. The invariant functor used for descent is exact over characteristic zero. No analogous integral invariant equality is claimed when deck-group order is divisible by p.",
+      "requires": [
+        "AutomorphicBundlesPartII:IC.2",
+        "AutomorphicBundlesPartII:IC.3",
+        "AutomorphicBundlesPartII:IC.1",
+        "ModularityAndLanglandsExtensions:ML.0",
+        "ShimuraCompactificationsPartII:C14",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "ComplexComparisonPartII:C2",
+        "ComplexComparisonPartII:C3",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "IC.5",
+      "title": "Integral vanishing, Hecke relations and localization",
+      "description": "Verify Lan’s formal-canonical criterion and toroidal-to-minimal relative vanishing on the actual models. Specialize Lan–Suh’s corrected integral BGG/small-weight theorem to the three explicit GSp₄ ranges, then derive dual singular-weight vanishing and large-twist section reduction. Compute subcanonical cohomology by ordinary EO Cousin resolutions and detect integral prime-to-p Hecke relations on the interior at hyperspecial p-level. After these relations supply the commuting action, split finite Hecke local factors and transport residual non-Eisenstein systems; define complex congruence localization through the integral Hecke image. Retain quotient, model and boundary-regularity obligations.\n\nTargets: Formally canonical and subcanonical coefficients; Toroidal-to-minimal relative vanishing; Lan–Suh’s small-weight specialization for GSp₄; Vanishing above degree two; Vanishing above degree one; Positive-degree vanishing; Serre duality and the dual Siegel weight; Mod-p singular-weight vanishing; Large parallel twists and reduction of sections; The EO Cousin computation; Injecting the Cousin complex into the interior; Hecke maps on the EO Cousin complex; Integral prime-to-p Hecke relations at hyperspecial level; Localized coherent perfect complexes; Non-Eisenstein coherent localization; Congruence localization of complex coherent cohomology.\n\nFormally canonical and subcanonical coefficients: On Lan’s normalized toroidal PEL models, an extension is formally canonical (respectively subcanonical) when on every formal boundary chart it is the completed monomial expansion with indices in σ∨ (respectively σ∨_+=⋂_(τ a face of σ in Σ, including σ)τ∨_0, using the boundary-chart monoids τ∨_0 fixed by the compactification supplier), with coefficient sheaf E₀ on the completed boundary base admitting a finite exhaustive filtration whose graded factors are pulled back from quasi-coherent sheaves on Spec O_(F₀,(p)) associated with finite R-modules as in Lan17 Definition 8.5 and §7. The monoid and coefficient-filtration condition are part of the definition, not merely local freeness on the abelian boundary base. Toroidal-to-minimal relative vanishing: For a Lan17 normalized PEL toroidal-to-minimal map π over an allowed O_(F₀,(p))-algebra R, and a quasi-coherent extension E satisfying the preceding formal criterion, R^iπ_*(E(−nD′))=0 for i>0 and n>0 in the formally canonical case, and for i>0 and n≥0 in the formally subcanonical case. Here D′ is the boundary-supported relatively ample Cartier divisor of Lan17 Corollary 6.7. In particular subcanonical automorphic coefficients have no positive higher direct images once the chart criterion is verified; canonical coefficients at n=0 are not included. The same assertion holds over an open U of the minimal model for a coefficient defined on π⁻¹U with the chart criterion there; it also applies over finite coefficient algebras after verifying that criterion under base change. Analytic adic generic-fibre comparisons are imported by the higher-Hida consumer from its adic-space owner, rather than asserted as algebraic base change here. Lan–Suh’s small-weight specialization for GSp₄: For the smooth hyperspecial Siegel threefold over k of characteristic p, specialize Lan–Suh Corollary 7.24(2) to μ=(α,β;c) with α≥β≥0, α+β<p−3 and ν=(t,t;0), t>0. For a Kostant representative w with length ℓ(w), it gives vanishing of H^(i−ℓ(w))(W^∨_(w·μ−ν),sub) when i>3, under the source’s smallness hypotheses; in this specialization these include a−b+1≤p and 2<p. The three resulting weights are (β+2+t,−α+t), (α+3+t,1−β+t) and (α+3+t,β+3+t). The generic integral BGG and logarithmic Deligne–Illusie inputs remain with their suppliers. Vanishing above degree two: On the smooth hyperspecial integral Siegel threefold with residue field k of characteristic p, if a≥3 and 2≤a−b≤p−2, then H^i(X_k,ω(a,b)(−D))=0 for i>2. The lower boundary of each displayed weight range is included. The level is neat and prime to p, and the finite field may be extended without changing the conclusion. Vanishing above degree one: On the smooth hyperspecial integral Siegel threefold with residue field k of characteristic p, if a+b≥6 and 2≤a−b≤p−2, then H^i(X_k,ω(a,b)(−D))=0 for i>1. The lower boundary of each displayed weight range is included. The level is neat and prime to p, and the finite field may be extended without changing the conclusion. Positive-degree vanishing: On the smooth hyperspecial integral Siegel threefold with residue field k of characteristic p, if b≥4 and 0≤a−b≤p−4, then H^i(X_k,ω(a,b)(−D))=0 for i>0. The lower boundary of each displayed weight range is included. The level is neat and prime to p, and the finite field may be extended without changing the conclusion. Serre duality and the dual Siegel weight: For a smooth proper toroidal Siegel threefold in characteristic zero, or in characteristic p with 0≤a−b≤p−1 so the symmetric-power dual identification is valid, the Serre dual of ω(a,b) is ω(3−b,3−a)(−D), and H^i_can(ω(a,b))^∨≃H^(3−i)_sub(ω(3−b,3−a)). The normalized Hecke equivariance includes inverse double cosets and the determinant/cyclotomic twist from CG20 Appendix A.3.2. For larger weights use the actual divided-power dual rather than this symmetric-power formula. Mod-p singular-weight vanishing: On the hyperspecial Siegel threefold over k, H²_sub(ω(a,2))=H³_sub(ω(a,2))=0 for 4≤a≤p. For 3≤a≤(p+1)/2, H⁰_can(ω(a,3−a))=H³_sub(ω(a,3−a))=0. The canonical/subcanonical tags in the second assertion are different and essential. Large parallel twists and reduction of sections: Fix a dominant weight μ and a finite set of neat toroidal levels among X,X₀(Q),X₁(Q) for which relative subcanonical vanishing and an ample Hodge line on the minimal model hold. There is N(μ,levels) such that every parallel twist μ+t with t≥N has H^i_sub(X_k,ω_(μ+t))=0 for i>0. Consequently reduction H⁰_sub(O)→H⁰_sub(k) and the quotient map H⁰_sub(E)→H⁰_sub(E/O) are surjective, with their coefficient exact-sequence interpretation. No bound uniform over all levels is asserted. The EO Cousin computation: At hyperspecial p-level on the smooth Hilbert–Siegel toroidal model, filter by closures of Ekedahl–Oort strata of codimension at least i. For subcanonical locally free automorphic coefficients modulo pⁿ, n≥1, the Kempf Cousin resolution computes the sheaf, and its global-section complex computes RΓ once the following acyclicity is proved. The canonical-coefficient algebra action is obtained separately by coherent duality, not by assuming the same untwisted canonical Cousin acyclicity. Prove acyclicity using the affine stratum image on the minimal compactification, cofinal regular-sequence thickenings, Koszul resolutions and Lan relative vanishing. Affineness of the stratum itself is not assumed in place of this argument. Injecting the Cousin complex into the interior: For the preceding EO filtration, restriction of every Cousin term of a subcanonical coefficient to the open Shimura variety is injective, provided the boundary equation is a non-zero-divisor on every relevant regular-sequence quotient. Verify this using that no component of the relevant EO stratum is contained in the boundary and the Cohen–Macaulay thickening argument. The omitted geometric verification is recorded as a gap. This is a termwise detection statement, not an assertion that global coherent cohomology injects into open cohomology in every degree. Hecke maps on the EO Cousin complex: For a prime-to-p Hecke correspondence preserving each EO stratum, coherent pullback and finite-duality upper shriek induce compatible maps on the Ext systems defining the Cousin terms, hence a map of Cousin complexes. Use pulled-back regular sequences, the explicit finite duality formula and cofinal systems of powers to obtain compatibility with the Cousin differential. These maps agree with the derived global Hecke action on the interior. Integral prime-to-p Hecke relations at hyperspecial level: For the BCGP21 Hilbert–Siegel models with p split completely in F and K_p=∏_(v|p)GSp₄(O_(F_v)), prime-to-p Hecke operators act through the abstract integral Hecke algebra on RΓ of canonical and subcanonical automorphic coefficients. For the G₁ quotient model, retain the prime-to-p component-group order or prove the direct-factor descent of Proposition 3.8.3. The integral algebra relations are detected termwise on the EO Cousin complex by restriction to the interior. Arbitrary p-level integral relations are outside this statement. Localized coherent perfect complexes: Assume a commuting Hecke-algebra action on C_n^∨ has been supplied (for the integral geometric application use integral-hecke-relations, not merely the individual IC.3 operators). Let T_n be its finite A_n-algebra image in End_D(C_n^∨). For a maximal ideal m, its Artinian local-factor idempotent splits C_n^∨ into a perfect summand C_(n,m)^∨ and its complement, with H^i(C_(n,m)^∨)=H^i(C_n^∨)_m. The dual chain summand localizes at the transposed Hecke ideal, with character twists transported explicitly. This is not localization at an arbitrary prime by an idempotent over an arbitrary base. Non-Eisenstein coherent localization: Use current IHG.3’s Galois-type/non-Eisenstein predicates for the normalized geometric Hecke algebra: after finite residue-field extension the spherical degree-four polynomials agree with a continuous absolutely irreducible residual representation. When the application requires a representation into GSp₄ with specified multiplier, retain its alternating form and multiplier as additional hypotheses. Transport residual systems through the actual coefficient-normalization algebra map and transpose involution; generic residual polynomial transport is imported from IHG.3. Congruence localization of complex coherent cohomology: Fix a finite O-Hecke image T and an embedding of its characteristic-zero coefficient field into C. For a residual maximal ideal m, define M_(m,C) as the sum of the generalized characteristic-zero Hecke eigenspaces whose integral characters reduce to m after passing to a common finite coefficient extension. This is (M_O)_m⊗_O C for a finite integral lattice with that action, through the product decomposition of T⊗E. A maximal ideal of T⊗C alone does not encode residual congruence.",
+      "requires": [
+        "AutomorphicBundlesPartII:IC.1",
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactificationsPartII:C13",
+        "ShimuraCompactificationsPartII:C14",
+        "ShimuraCompactifications:C5",
+        "DerivedDeRhamCohomology:DD.6",
+        "CrystallineCohomology:CR.5",
+        "LanglandsParameterStacks:LP3",
+        "AutomorphicBundlesPartII:IC.3",
+        "AutomorphicBundlesPartII:IC.4",
+        "AutomorphicBundles:B4",
+        "SchemeAndStackFoundations:SF.2",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SchemeAndStackFoundations:SF.4",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ]
+    },
+    {
+      "key": "IC.6",
+      "title": "Coherent cohomology and automorphic forms",
+      "description": "Define the interior image and its tower. Compare canonical cohomology with automorphic forms using the logarithmic growth resolution, regularization and Su’s theorem. Keep Harris’s separate cusp/subcanonical map, cusp/L²/tempered image subspaces and actual spectral multiplicity spaces. Compare W and V coefficient conventions, holomorphic cusp forms in degree zero and product relative cohomology.\n\nTargets: Interior coherent cohomology and towers; The canonical-extension growth resolution; Su’s automorphic comparison; Harris’s cusp and interior comparison; Cuspidal, L² and tempered image subspaces; Isotypic contribution to coherent cohomology; Algebraic and analytic coefficient conventions; Holomorphic cusp eigensystems; Products and relative-cohomology degree counts.\n\nInterior coherent cohomology and towers: For a canonical coefficient F_can with subcanonical F_sub=F_can⊗I_D, define H̄^i(X,F)=im(H^i(X,F_sub)→H^i(X,F_can)). Define H̃^i_* as the filtered colimit over neat levels and compatible fans, with pullback transition maps. This is the image of the boundary-ideal map; it is not defined as compactly supported topological cohomology. The underlying additive image uses the pinned Scheme.Modules.cohomologyFunctor. The canonical-extension growth resolution: Let (G,X) be a connected Shimura datum satisfying Su’s condition that the maximal Q-split central torus A_G is also maximal R-split in Z_G, K neat, Σ a smooth toroidal fan and V a finite-dimensional holomorphic P_h-representation. The logarithmic differentiably-moderate-growth Dolbeault complex is a fine resolution of V_can on the toroidal compactification; its global sections identify with the relative (p_o,K_o) Chevalley–Eilenberg complex of C∞_dmg(G)^K⊗V. The central A_G factor and the finite-adelic action on V_o are retained. Su’s automorphic comparison: Under the preceding Su hypotheses, H^i(X_(K,Σ),V_can)≃H^i(p_o,K_o;A(G)^(A_G(R)^0K)⊗V), naturally in V and finite-level Hecke operators. At the tower level the isomorphism is G(A_f)-equivariant with the modified coefficient V_o on which the central A_G component acts inversely. The map is induced by inclusion of automorphic forms into uniformly moderate growth functions. This theorem does not identify all canonical cohomology with cusp cohomology. Harris’s cusp and interior comparison: In the characteristic-zero toroidal Siegel setting, relative (p^−,K_h)-cohomology of cuspidal automorphic forms maps injectively into interior coherent cohomology, and interior cohomology lies in the image of the L² automorphic comparison in canonical cohomology. The cusp map is an isomorphism in degrees 0 and 3 for the Siegel threefold. The totally real product version gives cusp→interior→L²-image inclusions, with central character and multiplicities retained. The full comparison diagram uses a separate cusp/subcanonical map; Su’s theorem alone does not supply it. Cuspidal, L² and tempered image subspaces: Define H^i_cusp and H^i_(2) inside canonical coherent cohomology as images of the corresponding relative-cohomology maps. Define the tempered part by first summing the relevant cuspidal or discrete L² irreducible automorphic summands whose archimedean factors are essentially tempered, then applying the comparison map. Keep these images distinct from the source relative cohomology and from H̄^i; a quotient map can have a kernel. Isotypic contribution to coherent cohomology: For an irreducible finite-adelic representation π_f in the discrete automorphic source, define its degree-i coherent contribution as the image of its multiplicity space tensored with H^i(p^−,K_h;π_∞⊗V)⊗π_f in the specified coherent image. Say π contributes when this image is nonzero. At a finite level replace π_f by π_f^K. A spectral isotypic multiplicity is counted explicitly; it is not silently set to one. Algebraic and analytic coefficient conventions: For GSp₄, W_(a,b;c)≃V_(−b,−a;a+b+2c) as Hecke-linearized coefficient bundles over C, with the declared finite-adelic central transport. Changing the central parameter preserves the underlying holomorphic bundle but not its full Hecke linearization. The comparison is made on G(R)×G(A_f) with the correcting central factor; the naive compact-dual G(Q)-equivariant multiplication by ν(g)⁻¹ is not valid without this correction. Holomorphic cusp eigensystems: For Ω^(k,r)=ω(k+r,r), k≥0 and r≥2 over C, subcanonical H⁰ is the multiplicity-counted sum of cuspidal finite-adelic representations with holomorphic discrete-series or holomorphic-limit archimedean factor. In P20’s coordinates the factor has parameter (1−k−r,2−r;k+2r). A simultaneous unramified Hecke eigencharacter determines a cuspidal automorphic summand after choosing a nonzero spectral projection; it need not determine a unique global representation before multiplicity-one input. In Scholze’s symplectic/unitary scalar-weight setting, with k>n in the totally real symplectic case and k≥n in the CM unitary case of Corollary V.1.7, the Petersson adjoint relation makes the commuting spherical Hecke image a product of copies of C. Products and relative-cohomology degree counts: For the finite product of archimedean pairs of Res_(F/Q)GSp₄ and tensor-product coefficient V, relative cohomology of a discrete automorphic tensor factor decomposes by the Künneth sum over tuples of nonnegative degrees with total i. When each local factor has a single one-dimensional coherent group in degree 0 or 1, the global degree-i multiplicity counts exactly those i-element subsets of the degree-one choices. Retain full compact-group component actions before taking invariants.",
+      "requires": [
+        "AutomorphicBundlesPartII:IC.1",
+        "AutomorphicBundlesPartII:IC.4",
+        "AutomorphicFormsOnReductiveGroups:AF.1a",
+        "AutomorphicSpectralTheory:AS.5",
+        "AutomorphicBundles:B3",
+        "AutomorphicSpectralTheory:AS.4",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "AutomorphicBundles:B2",
+        "AutomorphicFormsOnReductiveGroups:AF.4"
+      ]
+    },
+    {
+      "key": "IC.7",
+      "title": "Siegel chambers and singular weights",
+      "description": "Use closed coherent chambers with their wall overlaps, the ρ shift and spin-transfer infinitesimal characters. Import the archimedean coherent realization from AF.4, and derive tempered-image degree restrictions and large singular-weight interior descriptions. State the holomorphic–generic packet pairing conditionally on the exact global classification, purity, local packet and multiplicity inputs.\n\nTargets: The four Siegel coherent chambers; Infinitesimal characters and Kostant representatives; The GL₄ archimedean parameter; Tempered coherent chamber vanishing; Characteristic-zero singular-weight ranges; Large singular-weight interior decomposition; Conditional holomorphic–generic packet pairing.\n\nThe four Siegel coherent chambers: For an infinitesimal-character pair (x,y), define C₀ by x≥y≥0, C₁ by x≥−y≥0, C₂ by −y≥x≥0 and C₃ by −y≥−x≥0. Walls belong to every chamber whose weak inequalities they satisfy. For ω(a,b) the relevant pair is (a−1,b−2). Keep the central coordinate separate. These are closed chambers used for coherent-degree tests, not a disjoint partition on singular weights. Infinitesimal characters and Kostant representatives: For a contributing GSp₄ representation in coefficient W_(a,b;c), write w=−(a+b+2c). Its archimedean infinitesimal character is (a−1,b−2;−w). In the general Siegel notation, for dominant Levi κ and w in C(κ), ν+ρ=−w⁻¹w₀,M(κ+ρ); regularity makes w unique. The generic Harris theorem identifying the corresponding nondegenerate limit of discrete series and degree ℓ(w) is imported from AF.4, including its compact-group hypotheses. The GL₄ archimedean parameter: With the preceding w convention, the GL₄ transfer has infinitesimal-character entries ((a+b−3−w)/2,(a−b+1−w)/2,(−a+b−1−w)/2,(−a−b+3−w)/2). For the arithmetic normalization w=a+b−6 this is (0,−(b−2),−(a−1),−(a+b−3))+(3/2,3/2,3/2,3/2), as a Weyl orbit. This identifies the spin-transfer normalization; it does not prove existence of the global transfer. Tempered coherent chamber vanishing: The tempered L²-image part of H^i_can(X_C,ω(a,b)) is zero unless (a−1,b−2;c) lies in C_i with the central coordinate ignored by the chamber inequalities. A tempered archimedean contributor is the discrete-series or limit representation π((a−1,b−2;−w),C_i). This constrains the tempered image, and does not assert the vanishing of arbitrary canonical coherent cohomology. This degree restriction uses the fixed Siegel Hodge pair and its specified extension across components, as in AF.4/bhr-large-weight; it is conditional on that full-group transport and is not deduced from the general other-degree vanishing assertion in H90 Theorem 3.4. Characteristic-zero singular-weight ranges: For the essentially tempered L²-image in characteristic zero, the limit families (a,2), a≥2; (a,3−a), a≥2; and (1,b), b≤1 have possible degrees given by their closed chamber memberships. Thus (a,2) allows degrees 0 and 1, while (a,3−a) allows degrees 1 and 2. The family (1,b), b≤1, allows degrees 2 and 3. Serre duality exchanges the first and third families. Any claim for full subcanonical or interior groups needs the corresponding cusp/interior or non-Eisenstein argument. Large singular-weight interior decomposition: For the Siegel threefold, choose R from the AF.4/bhr-large-weight singular classification and let k≥R−1 with parameter λ₁=−k−1<0, c=k+4. The interior H⁰ and H¹ for Ω^(k,2) decompose into holomorphic and generic archimedean-limit contributions, respectively, with their actual cuspidal multiplicities. The local one-dimensionality in these two degrees is imported from AF.4; the large-weight bound is −λ₁≥R. The full compact-group convention must be verified before asserting vanishing in every other degree. Conditional holomorphic–generic packet pairing: Assume the precise classical-group global classification, local packet description, multiplicity formula, Galois compatibility and purity statements requested from ML.4. A non-Eisenstein degree-four system excludes the reducible endoscopic/CAP character systems in CG20’s classification list. For the Siegel weights (a,2), a≥2, the remaining general-type packet pairs the holomorphic and generic archimedean limits with the same finite part and equal cuspidal multiplicities (one in the multiplicity-one case), subject to its component-group conditions. This is conditional, and no assertion that every local factor of every global packet is tempered is made.",
+      "requires": [
+        "AutomorphicBundlesPartII:IC.6",
+        "AutomorphicFormsOnReductiveGroups:AF.4",
+        "AutomorphicBundlesPartII:IC.4",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "AutomorphicBundlesPartII:IC.5",
+        "AutomorphicGaloisRepresentations:R19.3"
+      ]
+    },
+    {
+      "key": "IC.8",
+      "title": "Boundary localization and cuspidal decomposition",
+      "description": "Specialize the Q boundary nerve calculation and prove all-degree non-Eisenstein boundary vanishing there. Separately compute totally real degree-zero boundary vanishing through coefficient pushforward and normalized Satake factorization. Deduce localized subcanonical/interior comparisons only in justified degrees. Obtain multiplicity-counted cuspidal injections and large-gap equalities; under conditional packet pairing, prove dim H¹=l₀ dim H⁰.\n\nTargets: The Siegel boundary nerve calculation; Non-Eisenstein boundary vanishing over Q; The genus-two boundary Φ calculation; The boundary Satake polynomial factorization; Degree-zero Hilbert–Siegel boundary vanishing; Localized degrees zero and one; Cuspidal exhaustion for all rational singular weights; Localized coherent cohomology and cuspidal representations; Conditional coherent dimension equality.\n\nThe Siegel boundary nerve calculation: For the GSp₄/Q toroidal boundary in characteristic zero, specialize the Harris–Zucker nerve spectral sequence E₁^(r,s)=⊕_(rank(R)=r+1)H^s(Z(R),F|Z(R))⇒H^(r+s)(D,F|D). Its adelic E₁ terms are parabolically induced from products of lower-rank coherent cohomology and cohomology of the associated Levi locally symmetric spaces, with the finite component corrections and Kostant shifts of HZ01 (3.2.8)–Corollary 3.2.9. Use this geometry only for the Q case; the HZ hypotheses used here do not automatically extend to Res_(F/Q)GSp₄ for F≠Q. Non-Eisenstein boundary vanishing over Q: For the Siegel threefold over Q and a non-Eisenstein residual maximal ideal in the normalized degree-four Hecke convention, H^i(D_C,ω(a,b)|D)_m=0 for every i, for any dominant (a,b) with its canonical coefficient at a neat prime-to-p level, as stated immediately before CG20 Lemma 7.10. The boundary nerve terms give only reducible four-dimensional residual polynomial systems built from GL₂/GL₁ data, contradicting the absolutely irreducible witness. Consequently H^i_sub→H^i_can is an isomorphism at m in every degree. The genus-two boundary Φ calculation: For Ω^(k,2) on a characteristic-zero Siegel toroidal compactification, push its boundary restriction to the compactified modular-curve boundary. For k>0 this is the elliptic coefficient ω^(k+2)(−cusps); for k=0 it is ω² without the cusp twist. In P20’s normalized Hecke convention the claimed boundary identity is T_(ℓ,2)=2T_ℓ. The geometric coefficient pushforward and this exact vector-weight Hecke normalization must be verified separately; the latter remains a primary-source gap in this packet. The boundary Satake polynomial factorization: On a Hilbert modular boundary component, the normalized degree-four spherical Hecke polynomial factors as the characteristic polynomial of ρ₂⊕(ρ₂⊗χ), for the appropriate boundary two-dimensional Galois representation and normalized character χ; include the Eisenstein decomposition into characters when the Hilbert form is Eisenstein. The four spin monomials must be distinct: diag(1,1,ϖ,ϖ), diag(1,ϖ,1,ϖ), diag(ϖ,1,ϖ,1), diag(ϖ,ϖ,1,1). Exact q-powers and χ are determined by the SR.4 normalization comparison, recorded as a request, before invoking the factorization. Absolute irreducibility of the residual degree-four witness contradicts this full-polynomial equality by Chebotarev and Brauer–Nesbitt; a trace identity alone is not substituted in small characteristic. Degree-zero Hilbert–Siegel boundary vanishing: Let F be totally real, p totally split, K=K^p∏_(v|p)K_v with K^p neat and K_v hyperspecial, paramodular, Siegel parahoric, Klingen parahoric or Iwahori (BCGP21 Definition 3.3.3, pp. 204–205), κ=(k_v,l_v)_v with k_v≥l_v≥2 and k_v≡l_v mod 2, and normalized central diamond |·|². For a non-Eisenstein residual ideal, H⁰(D_C,ω_κ|D)_m=0. Decompose the minimal boundary into zero-dimensional and Hilbert modular pieces. The point contribution vanishes for nonparallel weights; the curve-type contribution vanishes unless the l_v are parallel, then has Hilbert weight (k_v). In the parallel scalar case use π_*O_D=O_∂ via π_*I_D=I_∂ and R¹π_*I_D=0. No positive-degree boundary vanishing is asserted. Localized degrees zero and one: In the totally real setting of hilbert-boundary-degree-zero, H⁰_sub→H⁰_can is an isomorphism after localization, and H¹_sub→H¹_can is injective with image H̄¹. Thus H^i_sub,m≃H̄^i_m for i=0,1. This does not identify H¹_sub,m with all H¹_can,m. For the Q case, all-degree boundary vanishing gives H^i_sub,m≃H^i_can,m in every degree. Apply these statements also to P20’s large Ω^(k,2) range with the corrected localized H¹ notation. Cuspidal exhaustion for all rational singular weights: For GSp₄/Q, weight (a,2) with a≥2, neat prime-to-p level and a non-Eisenstein residual ideal, assume the exact classification, purity, full-group local coherent calculation and packet multiplicity hypotheses of conditional-packet-pairing. In degrees j=0,1, localized interior cohomology is exactly the multiplicity-counted cuspidal sum with the holomorphic (j=0) or generic (j=1) archimedean limit and the same finite level and residual congruence. Boundary vanishing identifies this with localized subcanonical cohomology. No large-weight lower bound on a is required for this conditional rational result. Localized coherent cohomology and cuspidal representations: Under BCGP21’s totally real hypotheses and non-Eisenstein localization, for i=0,1 there is a Hecke-equivariant injection from the multiplicity-counted sum of π_f^K into H^i_sub(X_C,ω_κ)_m, where π is cuspidal, congruent to m, holomorphic at real v with l_v>2 and nonholomorphic at exactly i places among those with l_v=2. For degree zero the holomorphic cusp dictionary gives equality. For degrees zero and one, the large-gap assumptions k_v−l_v>R and either l_v=2 or l_v>R give equality with the stated cuspidal sum. Multiplicity-free indexing additionally uses the conditional classification package; no unconditional multiplicity-one statement is claimed. Conditional coherent dimension equality: Assume the large-gap hypotheses of localized-cuspidal-decomposition and the conditional general-type packet pairing/multiplicity formula. Let l₀ be the number of real places with l_v=2. Then dim_C H¹_sub(X_C,ω_κ)_m=l₀·dim_C H⁰_sub(X_C,ω_κ)_m. Independently, over Q the conditional all-weight exhaustion and packet pairing give h¹=h⁰ for every a≥2 in weight (a,2), with no large-gap hypothesis, at neat prime-to-p level and non-Eisenstein localization. The factor l₀ counts permitted single archimedean changes within each packet with the same finite part.",
+      "requires": [
+        "AutomorphicBundlesPartII:IC.4",
+        "ShimuraCompactifications:C5",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "AutomorphicBundlesPartII:IC.5",
+        "ArithmeticGaloisRepresentations:R01.5",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "AutomorphicBundlesPartII:IC.1",
+        "AutomorphicBundles:B5",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "AutomorphicGaloisRepresentations:R19.2",
+        "AutomorphicBundlesPartII:IC.6",
+        "AutomorphicBundlesPartII:IC.7",
+        "AutomorphicFormsOnReductiveGroups:AF.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CG18",
+      "title": "Modularity lifting beyond the Taylor–Wiles method",
+      "authors": "F. Calegari and D. Geraghty",
+      "edition": "Invent. Math. 211 (2018), 297–433; author PDF, 137 pages",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/CG.pdf",
+      "readSections": [
+        "§7.2, pp. 395–401 (PDF pp. 99–105)"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5"
+    },
+    {
+      "id": "CG20",
+      "title": "Minimal modularity lifting for non-regular symplectic representations",
+      "authors": "F. Calegari and D. Geraghty",
+      "edition": "Duke Math. J. 169 (2020), 801–896; author PDF, 96 pages",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
+      "readSections": [
+        "§5.3, pp. 822–831",
+        "§5.5, pp. 833–834",
+        "§6.1–6.2, pp. 836, 839",
+        "§7.2, pp. 851–855",
+        "Appendix A.3.2, pp. 886–888"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5"
+    },
+    {
+      "id": "P20",
+      "title": "Higher coherent cohomology and p-adic modular forms of singular weights",
+      "authors": "V. Pilloni",
+      "edition": "Duke Math. J. 169 (2020), 1647–1807; cleared author manuscript, 17 June 2019, 113 pages. Locators below use manuscript pagination.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf",
+      "readSections": [
+        "§4.3, p. 19",
+        "§5.3, pp. 24–25",
+        "§6.2.2, p. 30",
+        "§14.8–14.9, pp. 101–105",
+        "§15.2, pp. 108–110"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BP26",
+      "title": "Higher Hida theory for Siegel modular forms",
+      "authors": "G. Boxer and V. Pilloni",
+      "edition": "Invent. Math. 244 (2026), 45–141; author manuscript dated 5 November 2025, 65 pages; locators use manuscript pages",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf",
+      "readSections": [
+        "§1.1, p. 2; §1.3.3–1.3.8, pp. 3–4",
+        "§2.1.7–2.1.22, pp. 7–9",
+        "§2.2.9 and §2.3.12, pp. 14, 17",
+        "§2.6–2.7, pp. 21–24",
+        "§2.9.1–2.9.9, pp. 27–29",
+        "§4.3.1, pp. 46–47",
+        "§5.6, p. 58"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6"
+    },
+    {
+      "id": "BCGP21",
+      "title": "Abelian surfaces over totally real fields are potentially modular",
+      "authors": "G. Boxer, F. Calegari, T. Gee and V. Pilloni",
+      "edition": "Publ. Math. IHÉS 134 (2021), 153–501; publisher PDF; locators use printed pagination",
+      "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf",
+      "readSections": [
+        "§3.9, pp. 226–232",
+        "§3.10, pp. 236–240"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af"
+    },
+    {
+      "id": "Sch15",
+      "title": "On torsion in the cohomology of locally symmetric varieties",
+      "authors": "P. Scholze",
+      "edition": "Ann. of Math. 182 (2015), 945–1066; cleared arXiv manuscript uses chapter V and Corollary V.1.7, p. 83; published §5.1, pp. 1035–1036",
+      "url": "https://www.math.uni-bonn.de/people/scholze/Torsion.pdf",
+      "readSections": [
+        "Corollary V.1.7 and its proof, manuscript p. 83; published Corollary 5.1.7 and preceding paragraph, pp. 1035–1036"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Su24",
+      "title": "Coherent cohomology of Shimura varieties and automorphic forms",
+      "authors": "J. Su",
+      "edition": "Ann. Sci. ENS 57 (2024), 1039–1099; arXiv:1810.12056v2, 29 July 2024; locators use preprint pages",
+      "url": "https://arxiv.org/abs/1810.12056",
+      "readSections": [
+        "§1.1–1.1.2, pp. 6–10",
+        "Propositions 3.14 and 3.16, pp. 36–38",
+        "Proposition 4.1, p. 38",
+        "§5, Lemmas 5.1–5.5 and Theorem 5.7, pp. 54–55"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "5f115a3a9e7e6a7aa3eb2c11db584367ff37d57c3189ed764fe84bd542f162a9"
+    },
+    {
+      "id": "Lan17",
+      "title": "Integral models of toroidal compactifications with projective cone decompositions",
+      "authors": "K.-W. Lan",
+      "edition": "Int. Math. Res. Not. 2017, no. 11, 3237–3280; corrected author manuscript, 35 pages; published errata inspected",
+      "url": "https://www.kwlan.org/articles/cpt-ram-nbl.pdf",
+      "readSections": [
+        "§7, Propositions 7.5 and 7.15, manuscript pp. 28–32",
+        "Definition 8.5, Theorem 8.6 and Remarks 8.9–8.10, manuscript pp. 34–35"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "ff2229d32fc6dd99174d8ff392ebdf6c93c3a455118bd7d54f54a74a967d31ac"
+    },
+    {
+      "id": "LanSuh",
+      "title": "Vanishing theorems for torsion automorphic sheaves on general PEL-type Shimura varieties",
+      "authors": "K.-W. Lan and J. Suh",
+      "edition": "Adv. Math. 242 (2013), 228–286; author manuscript, 57 pages",
+      "url": "https://www.kwlan.org/articles/van-tor-aut-gen.pdf",
+      "readSections": [
+        "§7.2–7.4, Propositions 7.16–7.21, Theorem 7.22 and Corollaries 7.23–7.25, manuscript pp. 40–44"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "e2c8d2ef4d6eb22bc2860c02c3ca78014c29cb537c57d2dac132945d9e90614e"
+    },
+    {
+      "id": "HZ01",
+      "title": "Boundary cohomology of Shimura varieties, III: coherent cohomology on higher-rank boundary strata and applications to Hodge theory",
+      "authors": "M. Harris and S. Zucker",
+      "edition": "Mém. Soc. Math. France (N.S.) 85 (2001); doi:10.24033/msmf.398",
+      "url": "https://numdam.org/item/MSMF_2001_2_85__1_0/",
+      "readSections": [
+        "§3.2, equations (3.2.1)–(3.2.8) and Corollary 3.2.9, pp. 61–63"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "0f2a71eaee329f9560a69d53d817974003b94633f580decbdb5cf084c2bd1478"
+    },
+    {
+      "id": "BR16",
+      "title": "Eigenvarieties for non-cuspidal modular forms over certain PEL Shimura varieties",
+      "authors": "R. Brasca and G. Rosso",
+      "edition": "arXiv:1605.05065v1, 17 May 2016; Proposition 1.14 is numbered 1.5.8 in the version cited by BCGP21",
+      "url": "https://arxiv.org/abs/1605.05065v1",
+      "readSections": [
+        "Definition 1.9, Theorem 1.12 and Proposition 1.14, manuscript pp. 9–12"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "0ce608bb46acab36a1de3f4985a6e8f243bb9a3e56996c1d02d0ae20cc866d73"
+    },
+    {
+      "id": "Lan17err",
+      "title": "Errata to Integral models of toroidal compactifications with projective cone decompositions",
+      "authors": "K.-W. Lan",
+      "edition": "Author’s one-page published errata, linked from the author publication list",
+      "url": "https://www.kwlan.org/articles/cpt-ram-nbl-err.pdf",
+      "readSections": [
+        "Items (1)–(3), p. 1"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "LanSuhErr",
+      "title": "Errata to Vanishing theorems for torsion automorphic sheaves on general PEL-type Shimura varieties",
+      "authors": "K.-W. Lan and J. Suh",
+      "edition": "Authors’ two-page published errata, linked from the author publication list",
+      "url": "https://www.kwlan.org/articles/van-tor-aut-gen-err.pdf",
+      "readSections": [
+        "Items (1)–(9), pp. 1–2"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "H90",
+      "title": "Automorphic forms and the cohomology of vector bundles on Shimura varieties",
+      "authors": "M. Harris",
+      "edition": "Automorphic Forms, Shimura Varieties, and L-functions II, Perspectives in Mathematics 11 (1990), pp. 41–91; public scan hosted by J. S. Milne; printed pagination",
+      "url": "https://www.jmilne.org/math/Books/AA1988b.pdf",
+      "readSections": [
+        "Proposition 2.2 and §§2.3–2.7, pp. 53–59; §§3.0–3.6, pp. 59–64"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "ead5b841dbafb65c1796f8dc7d4f331271947b63b3ef2923efa1cdadf5bff62d"
+    },
+    {
+      "id": "GK19",
+      "title": "Strata Hasse invariants, Hecke algebras and Galois representations",
+      "authors": "W. Goldring and J.-S. Koskivirta",
+      "edition": "Invent. Math. 217 (2019), 887–984; published open-access PDF; printed pagination",
+      "url": "https://link.springer.com/article/10.1007/s00222-019-00882-5",
+      "readSections": [
+        "Theorem 10.1.2, Remark 10.1.3 and Corollary 10.1.4, pp. 962–963"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}

@@ -1,0 +1,297 @@
+{
+ "id": "HilbertModularVarietiesAndShimuraCurvesPartII",
+ "title": "Hilbert Modular Varieties And Shimura Curves, Part II: mod p cohomology of Shimura curves at infinite level and Gelfand–Kirillov dimension",
+ "area": "arithmeticgeometry",
+ "parent": "HilbertModularVarietiesAndShimuraCurves",
+ "summary": "The second part of HilbertModularVarietiesAndShimuraCurves plans the global half of Breuil–Herzig–Hu–Morra–Schraen, Gelfand–Kirillov dimension and mod p cohomology for GL₂ (Invent. Math. 234 (2023)): for a totally real F unramified at p, a quaternion algebra split above p and at at most one infinite place, and a modular r̄ that is generic above p and semisimple of a generic shape at a place v above p of degree f, the r̄-part of the mod p cohomology of Shimura curves at infinite level at v has Gelfand–Kirillov dimension f. It plans the generic global datum, Buzzard–Diamond–Jarvis weights and the Gee–Kisin weight theorem, the Emerton–Gee–Savitt patching functors and the big patched module of Shimura curves, the Gee–Newton noncommutative grade and miracle-flatness results, freeness of patched modules of Serre weights, tame types, projective lifts and the glued lattices of the first-order projective envelope, and the consequences: the GK dimension, the structure of π[𝔪²_{K₁}], faithful flatness of the patched module, nonzero Banach lifts and, for p inert, big R = big T with flatness of completed cohomology. The local mod p representation theory is imported from ModpRepresentationsOfGL2OverLocalFields, the tame potentially Barsotti–Tate deformation rings from the pending LocalGaloisDeformationRingsPartII design (recorded gaps), and curves, cohomology, patching algebra, deformation rings and completed cohomology from their owners. The quaternionic Shimura varieties with arbitrary split set (Ichino–Prasanna) and the Hilbert–Siegel varieties (Boxer–Calegari–Gee–Pilloni) proposed for this Part II are independent directions and are split off.",
+ "readme": "Reader document: research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurvesPartII.md. Layers GK.0–GK.5 plan BHHMS §8 from the generic global datum and the Gee–Kisin weight theorem (GK.0) through patching functors and the big patched module (GK.1), commutative and Gee–Newton noncommutative algebra (GK.2), freeness for weights, types and projective lifts (GK.3) and for the glued lattices (GK.4), to the Gelfand–Kirillov dimension theorem, Banach lifts and big R = big T (GK.5). Local mod p representation theory is imported from ModpRepresentationsOfGL2OverLocalFields; tame potentially Barsotti–Tate deformation rings are recorded gaps owned by the pending LocalGaloisDeformationRingsPartII design; the Breuil–Mézard input of the Gee–Kisin theorem is a recorded gap without an owner. The quaternionic (arbitrary split set) and Hilbert–Siegel directions of the brief are split into their own roadmaps.",
+ "prerequisites": [
+  "HilbertModularVarietiesAndShimuraCurves",
+  "ModpRepresentationsOfGL2OverLocalFields",
+  "LocalGaloisDeformationRings",
+  "GlobalGaloisDeformations",
+  "DeformationAndDerivedPatchingAlgebra",
+  "CompletedCohomologyPartII",
+  "CompletedCohomologyAndLocalGlobalCompatibility",
+  "GL2ModularityLifting",
+  "PotentialAutomorphyInfrastructurePartII",
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "LocallyAnalyticDistributionsPartII",
+  "PadicMeasuresIwasawaAlgebras",
+  "SmoothRepresentationsOfLocalGroups"
+ ],
+ "stages": [
+  {
+   "key": "GK.0",
+   "title": "The global setting: Serre weights and mod p cohomology of Shimura curves at infinite level",
+   "description": "Fix the generic global datum of Breuil–Herzig–Hu–Morra–Schraen §8.1: F totally real unramified at p, a quaternion algebra D split above p and at no more than one infinite place, r̄ : G_F → GL₂(𝔽) absolutely irreducible on G_{F(ζ_p)}, generic above p, semisimple at the distinguished place v with the exponent bounds 12 ≤ r_i ≤ p − 15 (resp. 13 ≤ r_0 ≤ p − 14), formally smooth local rings at the bad places away from p, the auxiliary place w₁ and the level U. Define the Buzzard–Diamond–Jarvis weight sets W(ρ) for K/ℚ_p unramified (agreeing with ModpRepresentationsOfGL2OverLocalFields MP.3 in the tame case), the twisted quaternionic spaces of forms S(σ) with the residual ideal 𝔪 and the modules M(σ) (EGS15 §6.2 with BHHMS Remark 8.1.3), and the admissible smooth representation π of GL₂(F_v): the colimit over levels at v of the r̄-part of H¹ of Shimura curves (or of the 𝔪-torsion of definite forms), weighted by Serre weights at the other places above p. Prove the weight part of Serre's conjecture in this setting (Gee–Kisin Corollary 5.5.4, with W(r̄_w^∨)) and the doubling at w₁ (the easy Ihara lemma). Import the curves, local systems, finite-level cohomology and Hecke theory from HilbertModularVarietiesAndShimuraCurves R18.1–R18.4.",
+   "requires": [
+    "AutomorphicGaloisRepresentations:R19.4",
+    "CompletedCohomologyPartII:CC.1",
+    "CompletedCohomologyPartII:CC.8",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+    "GlobalGaloisDeformations:R04.3",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "HilbertModularVarietiesAndShimuraCurves:R18.4",
+    "LocalGaloisDeformationRings:R08.1",
+    "LocalGaloisDeformationRings:R08.3",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+    "PotentialAutomorphyInfrastructurePartII:PL.1",
+    "SmoothRepresentationsOfLocalGroups:SR.0"
+   ]
+  },
+  {
+   "key": "GK.1",
+   "title": "Patching functors and the big patched module",
+   "description": "Construct the patched ring R∞ ≅ W(𝔽)⟦X₁, …, X_{4|S|+q−1+2f}⟧ over S∞ = W(𝔽)⟦x₁, …, x_{4|S|+q−1}⟧ (BHHMS (63)), with the power-series cancellation lemma (Hamann; BHHMS Lemma 8.1.2) and its type quotients R∞^{λ,τ} (BHHMS (69)); define fixed-determinant patching functors (EGS15 Definitions 6.1.1 and 6.1.3, Lemma 6.1.4); construct the Shimura-curve patching functor M∞^{σ_p^v} on representations of GL₂(O_{F_v}) by functorial Taylor–Wiles–Kisin patching (EGS15 §§6.2, 6.4; BHHMS (62)), prove that its fibre at 𝔪∞ is Hom_K(σ_v, π)^∨ (BHHMS (64)–(68)), and construct the big patched module M∞ with its GL₂(F_v)-action, finite free over S∞⟦K₁/Z₁⟧, with M∞/𝔪∞ ≅ π^∨ and, for p inert, M∞ ⊗_{S∞} W(𝔽) the dual of completed cohomology (Dotto–Le §6.2; BHHMS (84)). Taylor–Wiles data and patching algebra come from GlobalGaloisDeformations and DeformationAndDerivedPatchingAlgebra.",
+   "requires": [
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0",
+    "CompletedCohomologyPartII:CC.3",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "GlobalGaloisDeformations:R04.3",
+    "GlobalGaloisDeformations:R04.5",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "HilbertModularVarietiesAndShimuraCurves:R18.4",
+    "LocalGaloisDeformationRings:R08.1",
+    "LocalGaloisDeformationRings:R08.3"
+   ]
+  },
+  {
+   "key": "GK.2",
+   "title": "Freeness over supports and noncommutative miracle flatness",
+   "description": "Commutative algebra: freeness over the support from a submodule and quotient (BHHMS Lemma 8.2.1) and freeness of fibre products (BHHMS Lemma 8.3.8). Noncommutative algebra after Gee–Newton Appendix A: grade, depth, dimension and Cohen–Macaulay modules over Iwasawa algebras O⟦K⟧ and O⟦K⟧ ⊗̂ O⟦x₁, …, x_r⟧ (Definitions A.2, A.5, Proposition A.4, importing Auslander regularity from CompletedCohomologyPartII CC.5), the behaviour of grade and dimension under power-series variables and along A → B (Lemmas A.15–A.19), Cohen–Macaulay transfer (Lemma A.28, Corollary A.29) and noncommutative miracle flatness (Proposition A.30).",
+   "requires": [
+    "CompletedCohomologyPartII:CC.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.4",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ]
+  },
+  {
+   "key": "GK.3",
+   "title": "Freeness for Serre weights, tame types and projective lifts",
+   "description": "For the Shimura-curve patching functor: maximal Cohen–Macaulayness of M∞(σ) for finite length σ over its support (BHHMS Lemma 8.2.2); a single rank r ≥ 1 with M∞(σ_v) free of rank r over a formally smooth support for σ_v ∈ W(r̄_v^∨), and M∞(σ°(τ)) free of rank r over the domain R∞^{(1,0),τ} for lattices with irreducible cosocle in tame types (BHHMS Proposition 8.2.3, after EGS15 Theorem 10.1.1); lattices in sums of locally algebraic types are maximal Cohen–Macaulay over reduced supports and locally free after inverting p (BHHMS Corollary 8.2.4, Remark 8.2.5); and freeness of rank r of M∞(P̃_{σ_v}) over R∞/∩_τ p_τ together with π^{K₁} ≅ D₀(r̄_v^∨)^{⊕r} (BHHMS Proposition 8.2.6). The tame-type and potentially Barsotti–Tate deformation-ring inputs are recorded gaps owned by the pending design LocalGaloisDeformationRingsPartII (issue #3432).",
+   "requires": [
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "LocalGaloisDeformationRings:R08.3",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.8"
+   ]
+  },
+  {
+   "key": "GK.4",
+   "title": "Freeness for the glued lattices of the first-order projective envelope",
+   "description": "Construct the lattices R′_{2,j} ⊆ V(α_j) ⊗ P̃_{σ_v}, the glued lattices L_j = L_{j−1} ×_{P_{σ_v}} R′_{2,j} with L_{f−1} = R of ModpRepresentationsOfGL2OverLocalFields MP.8, and the comparison lattices T′_{2,j}, Y_j, N_j for the type τ₀ of the modular weights. Prove: K₁-invariance and Loewy length at most 3 for small quotients of the first-order projective envelope (BHHMS Lemma 8.3.1); minimal generation of M∞(R′_{2,j}) by r elements (Lemma 8.3.2); freeness for lattices in V(α_j) ⊗ τ° with cosocle σ_v and M∞(T′_{2,j}/p) ≅ M∞(Y_j) (Proposition 8.3.3, Lemma 8.3.5); freeness of M∞(R′_{2,j}) (Theorem 8.3.4); L_j ≡ N_j modulo the third radical (Lemma 8.3.6); equivalence of generation for L_j and N_j (Proposition 8.3.7); freeness of M∞(L_j) of rank r over R∞/∩_{λ,τ}p_{λ,τ} (Theorem 8.3.9, the paper's Theorem 1.8); and M∞(R) free of rank r with M∞((Proj_{K/Z₁}σ_v)/𝔪²_{K₁})/𝔪∞ ≅ M∞(σ_v)/𝔪∞ (Corollary 8.3.10, Theorem 8.3.11). The multi-type deformation ring computation (BHHMS §4.3) is a recorded gap owned by LocalGaloisDeformationRingsPartII.",
+   "requires": [
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.3",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.6",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.8",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.9"
+   ]
+  },
+  {
+   "key": "GK.5",
+   "title": "Gelfand–Kirillov dimension, Banach lifts and big R = big T",
+   "description": "The main global results of BHHMS §§8.4–8.5. The weighted π has Gelfand–Kirillov dimension f = [F_v : ℚ_p] (Theorem 8.4.1 = Theorem 1.10): the upper bound from the local criterion ModpRepresentationsOfGL2OverLocalFields MP.7/local-gk-bound, the lower bound from grades of the big patched module. π[𝔪²_{K₁}] ≅ (⊕_σ D̃_σ)^{⊕r} (Theorem 8.4.2 = 1.9); M∞ is faithfully flat over R∞ (Theorem 8.4.3); every specialisation V(x) of M∞ is a nonzero admissible unitary Banach lift of π (Corollary 8.4.4 = Theorem 1.3); the r̄-part of mod p cohomology of Shimura curves (or definite forms) at infinite level at v has dimension f (Corollary 8.4.6 = Theorem 1.1, with Remark 8.4.7); and for p inert, completed cohomology and the big Hecke algebra with big R = big T, faithful flatness of the dual of completed cohomology and the complete intersection property (Corollary 8.5.1 = Theorem 1.2).",
+   "requires": [
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.3",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4",
+    "CompletedCohomologyPartII:CC.3",
+    "CompletedCohomologyPartII:CC.8",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "GlobalGaloisDeformations:R04.1",
+    "GlobalGaloisDeformations:R04.3",
+    "HilbertModularVarietiesAndShimuraCurves:R18.4",
+    "LocallyAnalyticDistributionsPartII:ND.6",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.4",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.6",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.7"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BHHMS23",
+   "title": "Gelfand–Kirillov dimension and mod p cohomology for GL2",
+   "authors": "Christophe Breuil, Florian Herzig, Yongquan Hu, Stefano Morra and Benjamin Schraen",
+   "edition": "arXiv:2009.03127v7 (9 June 2023, marked final version); Inventiones Mathematicae 234 (2023), 1–128, doi:10.1007/s00222-023-01202-8",
+   "url": "https://arxiv.org/abs/2009.03127v7",
+   "sha256": "8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1.1–1.4, pp. 2–11",
+    "§2.2, p. 13",
+    "§8.1–8.5 with all statements and proofs, pp. 86–109",
+    "§2.3 fundamental-character conventions, p. 14",
+    "Proposition 4.2.1, p. 28; Corollary 4.2.6, pp. 33–34; §4.3 and Proposition 4.3.1, pp. 34–35 (gap contract statements)",
+    "§4.3, Proposition 4.3.1 and proof, Lemma 4.3.2 and Proposition 4.3.3 with proofs, pp. 34–40"
+   ]
+  },
+  {
+   "id": "EGS15",
+   "title": "Lattices in the cohomology of Shimura curves",
+   "authors": "Matthew Emerton, Toby Gee and David Savitt",
+   "edition": "arXiv:1305.1594v3 (19 November 2014); Inventiones Mathematicae 200 (2015), 1–96",
+   "url": "https://arxiv.org/abs/1305.1594v3",
+   "sha256": "5bc8520f1317af40af528efc8e7c1ab810351c5397872b7e4ee9256b2e97a1e1",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§2.1 (Definition 2.1.1, Lemmas 2.1.2–2.1.6, the description of D(ρ)), pp. 9–11",
+    "Propositions 3.5.1–3.5.2, pp. 14–15",
+    "§6.1–6.4 (Definitions 6.1.1, 6.1.3, Lemma 6.1.4, the quaternionic spaces, (6.1) and functorial patching), pp. 32–37",
+    "Theorems 7.1.1 and 7.2.1, pp. 42–43",
+    "§10.1, definitions and proof of Proposition 10.1.11, pp. 59–65"
+   ]
+  },
+  {
+   "id": "GN22",
+   "title": "Patching and the completed homology of locally symmetric spaces",
+   "authors": "Toby Gee and James Newton",
+   "edition": "arXiv:1609.06965v5 (18 November 2019); Journal of the Institute of Mathematics of Jussieu 21 (2022), 395–458",
+   "url": "https://arxiv.org/abs/1609.06965v5",
+   "sha256": "068818a4b0e12f97184d72cd7704663f5269f9297f017ff99172325ed5f67601",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Appendix A.1 (Definitions A.2, A.5, Proposition A.4, Lemmas A.7–A.9), pp. 42–44",
+    "§§A.12–A.30 (Proposition A.13, Lemmas A.15–A.19, A.21–A.28, Corollary A.29, Proposition A.30), pp. 45–50",
+    "§4.3, Proposition 4.3.1 and proof, pp. 31–32"
+   ]
+  },
+  {
+   "id": "GK14",
+   "title": "The Breuil–Mézard conjecture for potentially Barsotti–Tate representations",
+   "authors": "Toby Gee and Mark Kisin",
+   "edition": "arXiv:1208.3179v5; Forum of Mathematics, Pi 2 (2014), e1",
+   "url": "https://arxiv.org/abs/1208.3179v5",
+   "sha256": "65cb5797bbe10e328843b5fdc73f2623c80e19fa89ceb72ce6cd296881eb68f9",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Introduction, Theorems A and B, pp. 2–4",
+    "§5.2 (Remark 5.2.2), p. 26",
+    "§5.5 (Definitions 5.5.2–5.5.3, Corollary 5.5.4 and proof), pp. 33–35",
+    "§5.4.1, the augmentation surjection and module comparison, pp. 30–31",
+    "Corollary 5.5.7 and proof, pp. 35–36"
+   ]
+  },
+  {
+   "id": "DL21",
+   "title": "Diagrams in the mod p cohomology of Shimura curves",
+   "authors": "Andrea Dotto and Daniel Le",
+   "edition": "arXiv:1909.12219v2; Compositio Mathematica 157 (2021), 1653–1723",
+   "url": "https://arxiv.org/abs/1909.12219v2",
+   "sha256": "8c4f82ec57c4b961bca5d9adc8a3862e5614e97fb28cfd09c2cc5e3516cfaab3",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§6.1 (spaces of mod p automorphic forms, Remark 6.1, Theorem 6.2), pp. 53–54",
+    "§6.2.1–6.2.2, pp. 54–55"
+   ]
+  },
+  {
+   "id": "LE19",
+   "title": "Multiplicity one for wildly ramified representations",
+   "authors": "Daniel Le",
+   "edition": "arXiv:1708.04582v2; Algebra & Number Theory 13 (2019), 1807–1827",
+   "url": "https://arxiv.org/abs/1708.04582v2",
+   "sha256": "8ccde4d9e336a9d637abd5a0da6a80f21de7884b9a389c93f38e3143e570a814",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Lemma 4.5 and its proof, §4, p. 16"
+   ]
+  },
+  {
+   "id": "LMS22",
+   "title": "Multiplicity one at full congruence level",
+   "authors": "Daniel Le, Stefano Morra and Benjamin Schraen",
+   "edition": "arXiv:1608.07987v3; Journal of the Institute of Mathematics of Jussieu 21 (2022), 637–658",
+   "url": "https://arxiv.org/abs/1608.07987v3",
+   "sha256": "28d6965b625c1706b6d81503bed27d22b9cacf675a49609547ba2819a67e771e",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§4, Lemma 4.5 and Proposition 4.6 with their proofs, pp. 14–15"
+   ]
+  },
+  {
+   "id": "BDJ10",
+   "title": "On Serre's conjecture for mod ℓ Galois representations over totally real fields",
+   "authors": "Kevin Buzzard, Fred Diamond and Frazer Jarvis",
+   "edition": "arXiv:0810.2106v5; Duke Mathematical Journal 155 (2010), 105–161",
+   "url": "https://arxiv.org/abs/0810.2106v5",
+   "sha256": "29515a96071cc632970d41394a6a867f938ba8b09ae39a22862073fbf3ceb237",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§3.1–3.2, the definition of W_p(ρ) in the irreducible case (subsets J of the 2f embeddings mapping bijectively to the f embeddings) and in the reducible case (a subset of the semisimple set cut out by the extension class)",
+    "§4, statements of Lemmas 4.6, 4.10 and 4.11"
+   ]
+  },
+  {
+   "id": "CEGGPS16",
+   "title": "Patching and the p-adic local Langlands correspondence",
+   "authors": "Ana Caraiani, Matthew Emerton, Toby Gee, David Geraghty, Vytautas Paškūnas and Sug Woo Shin",
+   "edition": "arXiv:1310.0831v5 (1 July 2016); Cambridge Journal of Mathematics 4 (2016), 197–287",
+   "url": "https://arxiv.org/abs/1310.0831v5",
+   "sha256": "32acd023be82598de73c1757aba877fbeb89e5b82c23a64bcb378cc0f83b1077",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§2.12, Proposition 2.13, Remark 2.14 and the proof, p. 34",
+    "Lemmas 4.17–4.18 and proofs, pp. 62–66"
+   ]
+  },
+  {
+   "id": "HAM75",
+   "title": "On power-invariance",
+   "authors": "Eloise Hamann",
+   "edition": "Pacific Journal of Mathematics 61 (1975), no. 1, 153–159",
+   "url": "https://msp.org/pjm/1975/61-1/pjm-v61-n1-p17-p.pdf",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Theorem 4 and proof, printed p. 155 (PDF p. 4), read directly"
+   ],
+   "sha256": "29b601cf166b3c8c9771a1e57e659b77f8b731f61fca6d484db8900cedd52931"
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks project",
+   "authors": "The Stacks project authors",
+   "edition": "online, accessed 2026-10-19",
+   "url": "https://stacks.math.columbia.edu",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Tag 05G8 (surjective endomorphisms of finite modules are injective)",
+    "Tag 00MK (local criterion of flatness)",
+    "Tag 090V (Auslander–Buchsbaum)"
+   ]
+  },
+  {
+   "id": "BRE14",
+   "title": "Sur un problème de compatibilité local-global modulo p pour GL₂",
+   "authors": "Christophe Breuil, with an appendix by Lassina Dembélé",
+   "edition": "Public author copy; Journal für die reine und angewandte Mathematik 692 (2014), 1–76; locators use the author-copy pagination",
+   "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/compamodp.pdf",
+   "sha256": "583a4a4d069b4b069c663db9571047b7f4d02ea27e836c8df02f081809504d2a",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Lemma 9.2 and its proof, pp. 54–55"
+   ]
+  }
+ ]
+}

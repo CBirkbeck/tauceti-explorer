@@ -1,0 +1,215 @@
+{
+  "id": "RankOneConverse",
+  "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: the p-converse",
+  "area": "iwasawa",
+  "parent": "RankZeroOneBSD",
+  "summary": "The squarefree-level converse for modular abelian varieties is obtained from a rational Selmer localization criterion over an imaginary quadratic field. Anticyclotomic reverse divisibility and finite-error control force a nonzero p-adic logarithm of a normalized Heegner point. Existing height and descent theorems then recover analytic rank one, arithmetic rank and finite Tate–Shafarevich groups. The rational rank-one, mod-p and rank-zero consequences retain Skinner’s local hypotheses.",
+  "readme": "See research/blueprint/readmes/RankOneConverse.md for exact conventions, targets, APIs, discriminating tests, source locators and supplier boundaries. This Part II assembles the converse; its parent owns the forward BSD direction. Theorem D stays with ArithmeticStatistics ST.4. The seven layers are planned at target granularity and remain open at the precise supplier requests recorded in the packet.",
+  "prerequisites": [
+    "RankZeroOneBSD",
+    "AutomorphicCongruences",
+    "AutomorphicGaloisRepresentations",
+    "EllipticCurveModularity",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "GrossZagierAndArithmeticHeights",
+    "HeegnerPointEulerSystems",
+    "PadicMeasuresIwasawaAlgebras",
+    "SelmerIwasawaCohomology",
+    "SerreWeightAndLevelOptimisation",
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+  ],
+  "stages": [
+    {
+      "key": "PC.0",
+      "title": "Squarefree local data and Heegner normalization",
+      "description": "Translate the squarefree local epsilon factors into Skinner’s modular and indefinite quaternionic cases. Prove residual irreducibility after quadratic restriction. Normalize the Hecke-projected CM divisor, its rational Hodge representative and the transferred differential; import the curves, Jacobians, projectors and CM descent.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.6",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "HeegnerPointEulerSystems:HE.1",
+        "GrossZagierAndArithmeticHeights:GZ.3",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "GrossZagierAndArithmeticHeights:GZ.9"
+      ]
+    },
+    {
+      "key": "PC.1",
+      "title": "Rational Selmer localization and strict kernels",
+      "description": "Define the rank-one localization criterion on an actual linear restriction map. Assemble the GL₂-type Kummer/Sha and quadratic comparisons, repair componentwise eigenlogarithm localization, compute the two-dimensional semilocal image and prove strict/one-sided kernel vanishing. Import ordinary modular parity at good p, as in the source specialization.",
+      "requires": [
+        "SelmerIwasawaCohomology:L4",
+        "RankZeroOneBSD:BSD.1",
+        "GrossZagierAndArithmeticHeights:GZ.9",
+        "SelmerIwasawaCohomology:L2",
+        "SelmerIwasawaCohomology:L1",
+        "AutomorphicGaloisRepresentations:R19.1"
+      ]
+    },
+    {
+      "key": "PC.2",
+      "title": "Anticyclotomic divisibility and augmentation control",
+      "description": "Instantiate the inverse-tautological anticyclotomic Selmer deformation with the inertia-strict condition at one p-adic prime and bounded p-primary lattice-change errors. Match integral imprimitive analytic functions and character conventions. Specialize the ordinary Wan Fitting bound with exact control and divisorial closure. Prove that augmentation vanishing produces a nonzero rational one-sided class.",
+      "requires": [
+        "SelmerIwasawaCohomology:L3",
+        "SelmerIwasawaCohomology:L2",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "RankOneConverse:PC.0",
+        "GrossZagierAndArithmeticHeights:GZ.9",
+        "AutomorphicCongruences:L2",
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ]
+    },
+    {
+      "key": "PC.3",
+      "title": "The quadratic-field p-converse",
+      "description": "Identify the same normalized point in the complex height and squared-log formulas, including the actual-point eigenlogarithm repair. Assemble Skinner Theorem B with precisely conditions (a)–(e), analytic orders 1 and d, rank d and entire Sha finiteness through the full forward supplier.",
+      "requires": [
+        "RankOneConverse:PC.0",
+        "GrossZagierAndArithmeticHeights:GZ.8",
+        "GrossZagierAndArithmeticHeights:GZ.3",
+        "RankZeroOneBSD:BSD.0",
+        "RankOneConverse:PC.2",
+        "GrossZagierAndArithmeticHeights:GZ.9",
+        "RankOneConverse:PC.1",
+        "HeegnerPointEulerSystems:HE.7"
+      ]
+    },
+    {
+      "key": "PC.4",
+      "title": "The rational rank-one converse",
+      "description": "Choose auxiliary imaginary quadratic fields retaining a residual-ramified nonsplit prime and a nonzero twist value. Apply the corrected arithmetic-localization criterion to prove Skinner Theorem A for modular abelian varieties and Theorem A′ for semistable elliptic curves, with the stated odd-prime reduction alternatives.",
+      "requires": [
+        "RankOneConverse:PC.1",
+        "RankZeroOneBSD:BSD.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "AutomorphicGaloisRepresentations:R19.3",
+        "RankOneConverse:PC.3",
+        "HeegnerPointEulerSystems:HE.7",
+        "EllipticCurveModularity:R29.5",
+        "EllipticCurveModularity:R29.6",
+        "RankZeroOneBSD:BSD.1",
+        "RankZeroOneBSD:BSD.0"
+      ]
+    },
+    {
+      "key": "PC.5",
+      "title": "The mod-p Selmer criterion",
+      "description": "Turn the mod-p Selmer line and torsion-avoidance hypothesis into rational localization using the perfect alternating pairing, not square cardinality alone. Produce an odd residual-ramified prime at the given p by level lowering. Prove Skinner Theorem C and export it to the statistical owner of Theorem D.",
+      "requires": [
+        "SelmerIwasawaCohomology:L4",
+        "SelmerIwasawaCohomology:L1",
+        "SelmerIwasawaCohomology:L2",
+        "SerreWeightAndLevelOptimisation:R20.2",
+        "RankOneConverse:PC.4",
+        "RankOneConverse:PC.1",
+        "RankOneConverse:PC.3",
+        "RankZeroOneBSD:BSD.4",
+        "RankZeroOneBSD:BSD.3",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ]
+    },
+    {
+      "key": "PC.6",
+      "title": "The rank-zero converse",
+      "description": "Use a locally prescribed derivative-nonvanishing twist, rather than a sign-only argument, to produce rank-d base change from rational rank zero. Apply Theorem B and subtract the twist analytic order to prove Skinner Theorem E with its original squarefree/local-type hypotheses.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "RankZeroOneBSD:BSD.2",
+        "RankOneConverse:PC.1",
+        "HeegnerPointEulerSystems:HE.7",
+        "RankOneConverse:PC.3",
+        "RankZeroOneBSD:BSD.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "skinner-2020",
+      "title": "A converse to a theorem of Gross, Zagier, and Kolyvagin",
+      "authors": "Christopher Skinner",
+      "edition": "Annals of Mathematics 191 (2020), 329–354; published version of record",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf",
+      "sha256": "cfdfab6e62ac507be40d1f0bc8d9cb8371d95b42c5ae259fde054c70fb20c214",
+      "read": "2026-10-18",
+      "readSections": [
+        "Entire article, pp. 329–354; Theorems A, A′, B, C, D and E; §§2–4"
+      ]
+    },
+    {
+      "id": "bsw-2026",
+      "title": "A refined non-vanishing of the p-adic logarithm of a rational point on an abelian variety",
+      "authors": "Ashay Burungale, Christopher Skinner and Xin Wan",
+      "edition": "arXiv:2603.20886v2, 10 May 2026",
+      "url": "https://arxiv.org/pdf/2603.20886v2",
+      "sha256": "f2b4a020bf5dbcd33df3a4b30cbf27230dc0d0775312f5e543b03b2486f6a994",
+      "read": "2026-10-18",
+      "readSections": [
+        "§§1.1–1.5, pp. 1–4; §2.1–2.2, pp. 4–5; Theorems 1.1, 2.3; §3–4.3, pp. 9–11; §5.1 only for the boundary of structural-rank conjectures"
+      ]
+    },
+    {
+      "id": "wan-2020",
+      "title": "Iwasawa main conjecture for Rankin–Selberg p-adic L-functions",
+      "authors": "Xin Wan",
+      "edition": "Algebra & Number Theory 14 (2020), 383–483; published",
+      "url": "https://msp.org/ant/2020/14-2/ant-v14-n2-p04-p.pdf",
+      "sha256": "3936b305ce070959713b1331a895a9ff8877ac12666bb1ad8f4b20c09e6c870d",
+      "read": "2026-10-18",
+      "readSections": [
+        "Introduction, Theorems 1.1–1.2, pp. 384–386; §2B–C, pp. 392–394; §7E, Proposition 7.7 and equations (7-2)–(7-6), pp. 445–449; proof of Theorem 1.2, pp. 479–480"
+      ]
+    },
+    {
+      "id": "brooks-2015",
+      "title": "Shimura curves and special values of p-adic L-functions",
+      "authors": "E. Hunter Brooks",
+      "edition": "International Mathematics Research Notices 2015 (12), 4177–4241; published PDF",
+      "url": "https://infoscience.epfl.ch/server/api/core/bitstreams/c151dcd9-ff05-4c82-90d5-de19eec6f189/content",
+      "sha256": "90898527cf2e7e69bb6eba200dc7646e7f61837fa310299852ea2b958f925219",
+      "read": "2026-10-18",
+      "readSections": [
+        "§2.7–2.8, pp. 4190–4191; Theorem 8.11 and §8.6, pp. 4237–4239"
+      ]
+    },
+    {
+      "id": "skinner-urban-author",
+      "title": "The Iwasawa main conjectures for GL₂",
+      "authors": "Christopher Skinner and Eric Urban",
+      "edition": "Author-hosted copy; section numbering is that of this PDF, not a journal collation",
+      "url": "https://www.math.columbia.edu/~urban/eurp/MC.pdf",
+      "sha256": "f9faa40aa5e30eba705da88e3d68c8aa43069b5be01c1cc6ece212dd57879748",
+      "read": "2026-10-18",
+      "readSections": [
+        "§3.1.6–3.1.8, pp. 19–21; §3.2, Proposition 3.2.8, Corollary 3.2.9, Propositions 3.2.11 and 3.2.13, pp. 23–26"
+      ]
+    },
+    {
+      "id": "poonen-stoll",
+      "title": "The Cassels–Tate pairing on polarized abelian varieties",
+      "authors": "Bjorn Poonen and Michael Stoll",
+      "edition": "Author-hosted copy, page numbers of the PDF",
+      "url": "https://math.mit.edu/~poonen/papers/sha.pdf",
+      "sha256": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+      "read": "2026-10-18",
+      "readSections": [
+        "§§1–2, pp. 1–5; §6, Theorem 8 and Corollary 9, pp. 11–12"
+      ]
+    },
+    {
+      "id": "bfh-1990",
+      "title": "Nonvanishing theorems for L-functions of modular forms and their derivatives",
+      "authors": "Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein",
+      "edition": "Inventiones Mathematicae 102 (1990), 543–618; scanned published text",
+      "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
+      "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c",
+      "read": "2026-10-18",
+      "readSections": [
+        "Introduction, unnumbered Theorem (i)–(ii), pp. 543–544, read from rendered scan"
+      ]
+    }
+  ],
+  "status": "draft"
+}

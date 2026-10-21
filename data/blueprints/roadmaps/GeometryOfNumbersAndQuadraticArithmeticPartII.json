@@ -1,0 +1,136 @@
+{
+  "id": "GeometryOfNumbersAndQuadraticArithmeticPartII",
+  "title": "Quadratic and symmetric arithmetic at dyadic primes",
+  "area": "algebraicnt",
+  "parent": "GeometryOfNumbersAndQuadraticArithmetic",
+  "summary": "Complete target-level planning pass for the dyadic continuation authorized by issue 3347: 31 targets in six layers, including symmetric and quadratic Dedekind/global tables, completion and henselian rigidity, the total-cokernel obstruction, Q2 coordinates and integral examples. The independently routed polynomial-lattice and toral-joining directions have exact split inventories. The Eisenstein Arf map is zero under F2→F4; correcting it changes the quadratic table to [0,0,Z/2,Z/4]. Five explicit foundation/source gaps and ten supplier contracts remain; no stage is closed and no implementation is certified.",
+  "readme": "# Quadratic and symmetric arithmetic at dyadic primes\n\nThis is the dyadic continuation of Geometry of numbers, quadratic forms and homogeneous arithmetic. Its endpoints are the periodic symmetric and quadratic L-groups of Dedekind rings, their global-field specializations, integral rigidity under completion and henselian reduction, and computed examples over the integers and Eisenstein integers. Its six layers run from integral residue coordinates to arithmetic fracture, then to group tables and the examples that distinguish quadratic from symmetric forms at 2.\n\nThe other two briefs attached to the design issue concern polynomial lattices over Laurent-series fields and toral joinings on adelic quotients. They are independent of this proof. The packet preserves every one of their 7 and 83 routed items in explicit split proposals, with suggested stages and supplier boundaries; neither is claimed planned here. All sixteen dyadic routed results are mapped below. The roadmap id stays GeometryOfNumbersAndQuadraticArithmeticPartII; QuadraticArithmeticAtDyadicPrimes is its extraction alias.\n\n## Conventions and status\n\nR is a commutative Dedekind domain unless a theorem explicitly allows a noncommutative ring. K is its fraction field. A quadratic form is Mathlib's quadratic map on a finite projective module, with **perfect full polar** b_q(x,y)=q(x+y)−q(x)−q(y). A symmetric form is a perfect symmetric bilinear pairing. Perfection is an isomorphism to the dual; over a ring it does not mean only a nonzero Gram determinant. Ws and Wq are the respective metabolic Witt groups. A Lagrangian is an admissible direct summand equal to its perpendicular, with q zero on it for Wq. For a projective module of rank zero the zero pairing is perfect and represents zero. Isometries, scalar extension and sums use the suppliers' genuine carriers, not a private proposition-valued replacement.\n\nLs and Lq mean the **periodic** Poincaré symmetric and quadratic L spectra, with integer-indexed homotopy groups L_n=π_n. They are distinct from genuine symmetric Lgs, which is not identified with its periodicization at 2. The basic sign is positive. The negative-sign theories are obtained by Σ², so their degree n is positive-sign degree n−2. Symmetric localization keeps the residue line p⁻¹M/M and its shift −1. A uniformizer is chosen only for a displayed field coordinate; ramified base change cannot discard this line. A direct sum over primes means finite support.\n\nFor char K≠2 let I={p: p divides 2}, d=#I, and C=R̂_2. Completion is ordinary ideal-adic completion when it represents derived completion. In the general fracture theorem this is a hypothesis; for a Dedekind domain in characteristic not 2 it holds. Pic(R)/2 means the cokernel of multiplication by 2. A(R) is the quotient of Ws(C) by the **sum** of the global symmetric image and the completed quadratic image. A short exact sequence involving A is retained as an extension, without choosing a splitting. For a finite characteristic-two field, the Arf coordinate is the absolute F2 trace, not merely its raw symplectic-basis sum.\n\nThe planning pass is complete and each layer is planned. It is not closed: G1–G5 and supplier contracts R1–R10 below are explicit remaining work. Every implementation status is unchecked. No theorem is certified by the accompanying Lean signatures. A new error in the Eisenstein calculation changes its quadratic degree-zero and degree-three entries; the corrected statement and argument have been independently checked against arXiv v4, with separate confirmed verdicts for all three findings.\n\n## Ownership and library audit\n\nThe reviewed GN.2/GN.6 library audit was read at the required pins, then checked against current upstream. The four completion/CRT baseline entries added in independent review are native general-Dedekind inputs, rather than outputs of the S-integer stage. The pinned Mathlib commit is 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti is f790474821cf4256814db967cb154e7af3d0c369. The current read-only roadmap checkout was inspected at 0d144d044dacebca17b654695b6f1ad58f159b27 and its Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Completed IntegralLattices and GlobalQuadraticForms were read in full as adjacent roadmap models; the newer IntegralLattices and relevant QFI layers were checked for ownership.\n\nQFI layer 4 and current Tau Ceti own the field Witt ring and its tensor/base-change API; layer 6 owns classification over nonarchimedean local fields, including Q2. This roadmap derives only the specific arithmetic coordinate and ideal calculation it needs. QFI layer 9 owns Scharlau transfer, but the needed quadratic-extension exact sequence is an additional contract, not something its existing statement promises. GlobalQuadraticForms layer 8 owns number-field classification and Witt localization injectivity; it explicitly does not claim the residue exact sequence and excludes function fields. GN.6 owns exact symmetric Witt groups, classical degree-zero integral GW, and the residue duality line; its displayed localization node is for GW, so its L version is requested explicitly. The newer integral-lattice theory is already owned upstream, including E8 and the half-norm convention. Finite/perfect characteristic-two **symmetric** L-theory belongs to KTheoryFiniteLocalFields L.1. Its prime-to-p K-rigidity is not the quadratic rigidity used here.\n\n## Source policy\n\nAll statements, proof sketches and findings are in this roadmap's own words. Locators for the principal source refer to arXiv:2009.07225v4, the 63-page preprint, not Annals journal pagination. The paper is credited to Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle. Its published citation is Annals of Mathematics 204 (2026), no. 1, 119–220, DOI 10.4007/annals.2026.204.1.2. The public preprint is the version actually read (SHA256 recorded below and in sourceVersions); the published text remained unavailable during independent review. Wall's 1970 lifting proof and CMM's completion-to-henselian argument were read at the precise locations below. The referenced books by Milnor–Husemoller, Lam and Scharlau are not cleared in the library index; no other copy was used. Local arithmetic calculations are instead derived from imported classification. Where that does not replace a full cited proof, a gap remains.\n\n\n",
+  "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "KTheoryFiniteLocalFields",
+    "ArithmeticKTheory",
+    "GeneralAlgebraicKTheory",
+    "StableHomotopyKTheory",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "tauceti:Completed/IntegralLattices"
+  ],
+  "stages": [
+    {
+      "key": "DA.0",
+      "title": "Integral forms and residues",
+      "description": "Import exact symmetric Witt groups and the existing field Witt theory; state the quadratic-to-symmetric comparison and integral injections. Construct the canonical line-valued second residue with finite support and the finite-field Arf coordinate including its extension-degree law. Separate missing Poincaré carriers from arithmetic targets.",
+      "requires": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "KTheoryFiniteLocalFields:L.1",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal"
+      ]
+    },
+    {
+      "key": "DA.1",
+      "title": "Symmetric L-groups",
+      "description": "Compute the four-periodic symmetric Dedekind table in characteristic not 2, identify the global boundary cokernel with Pic(R)/2, prove the characteristic-two two-periodic analogue, give DVR tables without a finiteness assumption, and record the two sign shifts.",
+      "requires": [
+        "ArithmeticKTheory:N.2",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0",
+        "KTheoryFiniteLocalFields:L.1",
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences"
+      ]
+    },
+    {
+      "key": "DA.2",
+      "title": "Completion and rigidity",
+      "description": "Identify the dyadic completion as a product of complete DVRs. State the general localization-completion Poincaré–Verdier square with its K0 image controls and ordinary-versus-derived hypothesis. Prove quadratic isometry lifting, complete quadratic rigidity in all degrees and its henselian extension, retaining the relation and approximation proof gaps. The product completion comparison builds on pinned CRT, adic completion, complete-DVR and residue-field declarations.",
+      "requires": [
+        "GeneralAlgebraicKTheory:K.6",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1",
+        "StableHomotopyKTheory:H.5:spectra"
+      ]
+    },
+    {
+      "key": "DA.3",
+      "title": "Quadratic L-groups",
+      "description": "Deduce the quadratic/symmetric pullback for Dedekind rings, define the actual total-cokernel correction A, give the four-periodic quadratic table and number-field Arf coordinates, prove the parity quotient for multiple dyadic primes, and establish quadratic dévissage precisely away from those primes.",
+      "requires": [
+        "ArithmeticKTheory:N.1",
+        "ArithmeticKTheory:N.2",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field"
+      ]
+    },
+    {
+      "key": "DA.4",
+      "title": "The integers",
+      "description": "Derive the explicit W(Q2) coordinate and ideal calculations from imported local classification; import integral GW/lattice foundations for the E8 comparison, compute the dyadic integral Witt subgroup and its quadratic image, and obtain the symmetric and quadratic integer L-tables.",
+      "requires": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3",
+        "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field"
+      ]
+    },
+    {
+      "key": "DA.5",
+      "title": "The Eisenstein integers",
+      "description": "Prove the single dyadic place is inert with residue F4. Compute the global symmetric Witt group and the unramified quadratic restriction ideal/cokernel. Use the zero quadratic Arf map F2→F4 and the new local quadratic generator to correct the Eisenstein quadratic table to [0,0,Z/2,Z/4]. The additional transfer exactness contract is G5/R4; all three preprint findings are independently confirmed.",
+      "requires": [
+        "ArithmeticKTheory:N.1",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4",
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CDHHLMNNS-III-v4",
+      "title": "Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings",
+      "authors": "Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle",
+      "edition": "arXiv:2009.07225v4, 27 April 2026; locators use the 63-page preprint, not Annals pagination",
+      "url": "https://arxiv.org/pdf/2009.07225v4",
+      "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
+      "readSections": [
+        "§2.2, Lemma 2.2.2, Theorem 2.2.4, Corollary 2.2.5 and Lemma 2.2.9, pp. 36–41",
+        "§2.3, pp. 41–48, including proofs and Examples 2.3.13–14"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "Wall-1970",
+      "title": "On the classification of hermitian forms. I. Rings of algebraic integers",
+      "authors": "C. T. C. Wall",
+      "edition": "Compositio Mathematica 22 (1970), 425–451",
+      "url": "https://www.numdam.org/article/CM_1970__22_4_425_0.pdf",
+      "readSections": [
+        "Lemma 1, p. 427; Theorem 2 and its proof, pp. 428–429"
+      ],
+      "readDate": "2026-10-19",
+      "sha256": "fbca6504af22e92262722d21d68729616353df4da3a5cecf83044f271ab3f5c5"
+    },
+    {
+      "id": "CMM",
+      "title": "K-theory and topological cyclic homology of henselian pairs",
+      "authors": "Dustin Clausen, Akhil Mathew and Matthew Morrow",
+      "edition": "arXiv:1803.10897v2, 20 July 2020, Remark 5.6, p. 39",
+      "url": "https://arxiv.org/pdf/1803.10897v2",
+      "readSections": [
+        "Remark 5.6 and the preceding completion discussion, p. 39"
+      ],
+      "readDate": "2026-10-19",
+      "sha256": "ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c"
+    }
+  ],
+  "status": "draft"
+}

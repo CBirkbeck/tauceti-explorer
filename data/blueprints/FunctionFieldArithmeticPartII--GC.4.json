@@ -1,0 +1,942 @@
+{
+ "roadmapId": "FunctionFieldArithmeticPartII",
+ "protocol": "blueprint-v1",
+ "part": "GC.4",
+ "scope": [
+  "FunctionFieldArithmeticPartII:GC.4"
+ ],
+ "status": "complete",
+ "summary": "A complete target-level follow-up for high-degree root Abel–Jacobi descent. Imports the eight accepted parent GC.4 targets and supplies their family interfaces: quadratic section coordinates, nilpotent-safe affine fibre charts, intrinsic proper weighted projective quotients, canonical chart descent lines and effective atlas gluing with full faithfulness. The proper-quotient route replaces the unqualified nonproper-fibration step. GC.4 is planned, not closed: the typed generic stack-lisse adapter, actual geometric carriers and one explicit IG.0 theorem request remain.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:mul_pow",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Group/Basic.lean",
+    "provides": "Powers of a product in a commutative monoid; proves the weighted polynomial identity.",
+    "checked": "Actual statement and surrounding hypotheses read at the pinned commit on 2026-10-18; Mathlib source tree is at 082e2d3, and Tau Ceti statements were read using git show f790474. Full names checked against the baseline declaration index."
+   },
+   {
+    "ref": "mathlib:map_pow",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+    "provides": "A monoid homomorphism preserves powers, giving arbitrary coefficient-ring compatibility.",
+    "checked": "Actual statement and surrounding hypotheses read at the pinned commit on 2026-10-18; Mathlib source tree is at 082e2d3, and Tau Ceti statements were read using git show f790474. Full names checked against the baseline declaration index."
+   },
+   {
+    "ref": "mathlib:sq_eq_zero_iff",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+    "provides": "The square-zero equivalence under IsReduced; its hypothesis is not dropped for nonreduced bases.",
+    "checked": "Actual statement and surrounding hypotheses read at the pinned commit on 2026-10-18; Mathlib source tree is at 082e2d3, and Tau Ceti statements were read using git show f790474. Full names checked against the baseline declaration index."
+   },
+   {
+    "ref": "mathlib:DualNumber",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/DualNumber.lean",
+    "provides": "Native square-zero extension carrier R[epsilon]=TrivSqZeroExt R R.",
+    "checked": "Actual statement and surrounding hypotheses read at the pinned commit on 2026-10-18; Mathlib source tree is at 082e2d3, and Tau Ceti statements were read using git show f790474. Full names checked against the baseline declaration index."
+   },
+   {
+    "ref": "mathlib:DualNumber.eps_pow_two",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/DualNumber.lean",
+    "provides": "The native dual-number epsilon has square zero.",
+    "checked": "Actual statement and surrounding hypotheses read at the pinned commit on 2026-10-18; Mathlib source tree is at 082e2d3, and Tau Ceti statements were read using git show f790474. Full names checked against the baseline declaration index."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+    "kind": "abbrev",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+    "provides": "Actual invertible O_X-module objects as a full subcategory of Scheme.Modules; no replacement line-bundle carrier is planned.",
+    "checked": "Actual statement and surrounding hypotheses read at the pinned commit on 2026-10-18; Mathlib source tree is at 082e2d3, and Tau Ceti statements were read using git show f790474. Full names checked against the baseline declaration index."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.sections_surjective",
+    "kind": "theorem",
+    "module": "TauCeti/AlgebraicGeometry/Cohomology/LongExactSequence.lean",
+    "provides": "For a short exact sequence of scheme module sheaves with vanishing H1 of the first term, the map on global sections is surjective. Relative coherent base change and curve vanishing remain supplier inputs.",
+    "checked": "Actual statement and surrounding hypotheses read at the pinned commit on 2026-10-18; Mathlib source tree is at 082e2d3, and Tau Ceti statements were read using git show f790474. Full names checked against the baseline declaration index."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "YZ19",
+   "title": "Shtukas and the Taylor expansion of L-functions (II)",
+   "authors": "Zhiwei Yun and Wei Zhang",
+   "edition": "Annals of Mathematics 189 (2019), 393–526; author-hosted published copy",
+   "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+   "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+   "readDate": "2026-10-18",
+   "readSections": [
+    "Appendix A.1 definitions and Abel–Jacobi maps, pp. 514–517",
+    "Appendix A.2.1, Lemmas A.7–A.9 and their proofs, pp. 519–521",
+    "A.2.2 opening and the high-degree input to Lemma A.10, pp. 521–522"
+   ]
+  },
+  {
+   "id": "ACV01",
+   "title": "Twisted bundles and admissible covers",
+   "authors": "Dan Abramovich, Alessio Corti and Angelo Vistoli",
+   "edition": "arXiv:math/0106211v1, 25 June 2001; locators use the 36-page preprint, not the 2003 journal pagination",
+   "url": "https://arxiv.org/pdf/math/0106211v1",
+   "sha256": "8c890d5355ddeb77ab1ccb18fe15f1a89c0d666904920ea6ff4ba95ed02b6ca1",
+   "readDate": "2026-10-18",
+   "readSections": [
+    "Appendix A, introductory site convention, p. 33",
+    "Proposition A.0.7 and Theorem A.0.8 with proof, pp. 34–35"
+   ]
+  },
+  {
+   "id": "SGA1",
+   "title": "Revetements etales et groupe fondamental (SGA 1)",
+   "authors": "Alexander Grothendieck and collaborators; updated edition with Michel Raynaud",
+   "edition": "Recomposed annotated edition, arXiv:math/0206203v2, 4 January 2004",
+   "url": "https://arxiv.org/pdf/math/0206203v2",
+   "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c",
+   "readDate": "2026-10-18",
+   "readSections": [
+    "Expose XI §1, Proposition 1.1 and its two proofs, recomposed p. 219, original margin p. 285"
+   ]
+  },
+  {
+   "id": "StacksVanishing",
+   "title": "Algebraic Curves: More vanishing results",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online tags read 18 October 2026",
+   "url": "https://stacks.math.columbia.edu/tag/0E3A",
+   "sha256": "babef1f7f3842828ca7559097dcef5d9e0b3e97c9300d8283f8a3f1a0a1bbf8b",
+   "readDate": "2026-10-18",
+   "readSections": [
+    "Lemma 53.22.1 and proof; online section/theorem numbering replaces page numbering"
+   ]
+  },
+  {
+   "id": "StacksBaseChange",
+   "title": "Cohomology of Schemes: Cohomology and base change, III",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online tags read 18 October 2026",
+   "url": "https://stacks.math.columbia.edu/tag/07VJ",
+   "sha256": "7c4b71eb78f816e2e4467faf628819b4276c65a46ad7168076f5368e072d5f8d",
+   "readDate": "2026-10-18",
+   "readSections": [
+    "Lemma 30.22.1, its proof and Remark 30.22.2; online section/theorem numbering replaces page numbering"
+   ]
+  },
+  {
+   "id": "StacksLisse",
+   "title": "Etale Cohomology: Locally constant sheaves and the fundamental group",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online tags read 18 October 2026",
+   "url": "https://stacks.math.columbia.edu/tag/0DV4",
+   "sha256": "b5798205e731db7758c74e3b69cd04545d180a729be288bd2f143f2b2ffcf3ef",
+   "readDate": "2026-10-18",
+   "readSections": [
+    "Lemma 59.65.1 with proof and Remark 59.65.3; online section/theorem numbering replaces page numbering"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.4/quadratic-section-coordinates",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.4",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.4"
+   ],
+   "title": "Split quadratic section coordinates",
+   "kind": "definition",
+   "statement": "For a commutative ring A and index types I,J, quadraticSection sends (u,alpha) in A^I x A^J to (u,(alpha_j^2)_j). In a split family chart I indexes the evaluation kernel and J the root coordinates. This is the section coordinate in E only: the full fibre-product chart sends (u,alpha) to ((u,alpha^2),alpha), retaining alpha. This polynomial function is neither asserted linear nor invertible.",
+   "hypotheses": [
+    "A is any commutative ring, including a nonreduced ring; I and J are arbitrary index types. Finite I,J are used for affine schemes."
+   ],
+   "proofSteps": [
+    "Use the existing native product and function carriers and ordinary ring powers; the definition has its displayed real body.",
+    "The YZ19 split fibre description identifies the section coordinate with this function. Scalar equivariance follows from mul_pow; change of coefficient ring follows from map_pow.",
+    "For reduced A, sq_eq_zero_iff gives quadraticSection(v)=0 iff v=0. Over dual numbers this implication fails, which is why the geometric construction uses an open subscheme rather than raw nonzero ring-valued tuples."
+   ],
+   "acceptance": [
+    "At I=J=Fin 1 over Z, (2,3) maps to (2,9).",
+    "Over F_3[epsilon]/(epsilon^2), (0,epsilon) is nonzero but its section coordinate is zero."
+   ],
+   "prerequisites": [
+    "mathlib:mul_pow",
+    "mathlib:map_pow",
+    "mathlib:sq_eq_zero_iff",
+    "mathlib:DualNumber",
+    "mathlib:DualNumber.eps_pow_two"
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Lemma A.9, proof, p. 521",
+     "match": "The split evaluation description supplies the quadratic coordinate formula; the native ring formulation and nilpotent checks are its algebraic interface, not a claim that the source develops ring-valued charts."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/AbelJacobiDescent",
+    "namespace": "TauCeti.RamifiedClassField"
+   },
+   "uses": [
+    {
+     "where": "GC.4/family-fibre-presentation",
+     "how": "Identify the polynomial section coordinate after splitting evaluation and compute its effective open."
+    },
+    {
+     "where": "YZ19, Lemma A.9, p. 521",
+     "how": "Verify that kernel and root blocks carry weights two and one."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection",
+     "role": "constructor",
+     "statement": "For v=(u,alpha), return (u,alpha^2) on the existing product of function spaces."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.kernelCoordinates",
+     "role": "projection",
+     "statement": "The first projection of quadraticSection(v) equals u."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.rootCoordinates",
+     "role": "simp",
+     "statement": "The jth second coordinate is alpha_j squared."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.baseChange",
+     "role": "functoriality",
+     "statement": "For a ring homomorphism h:A->B, applying h to both coordinate blocks commutes with quadraticSection."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.weighted",
+     "role": "compatibility",
+     "statement": "For any c in A, quadraticSection(c^2 u,c alpha)=c^2 quadraticSection(u,alpha), where the scalar on the right multiplies both output blocks."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.zero_iff",
+     "role": "characterisation",
+     "statement": "If A is reduced, quadraticSection(v)=0 if and only if v=0; the reduced hypothesis is retained."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.test_small",
+     "kind": "computation",
+     "statement": "Over Z with one coordinate in each block, quadraticSection(2,3)=(2,9)."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.test_empty_root",
+     "kind": "degenerate",
+     "statement": "For an empty root index Fin 0, quadraticSection(u,alpha)=(u,alpha)."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.test_not_injective",
+     "kind": "non-example",
+     "statement": "Over Z with one coordinate in each block, (0,1) and (0,-1) are distinct and have the same section coordinate."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.test_nilpotent",
+     "kind": "non-example",
+     "statement": "Over DualNumber(F_3), the tuple (0,epsilon) is nonzero but quadraticSection(0,epsilon)=0."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.quadraticSection.test_effective_nilpotent",
+     "kind": "computation",
+     "statement": "Over DualNumber(F_3), quadraticSection(1,epsilon)=(1,0); the full chart still retains epsilon in its root coordinate."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.4",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.4"
+   ],
+   "title": "The family Abel–Jacobi fibre chart",
+   "kind": "construction",
+   "statement": "For a root Picard object b=(L,K_R,iota) on X_T, with T locally Noetherian over k, put E=pi_*L, U=pi_*L(-R), G=pi_R*(L|R), H=pi_R*K_R, and q:H->G induced by alpha->iota(alpha^2). The imported high-degree vanishing yields a universally base-change-compatible exact sequence 0->U->E->G->0 of locally free sheaves of ranks a,n,rho, and H has rank rho. Define C_hat_b=V(E) x_{V(G)} V(H), with V(F) parametrizing sections of F, and C_b as the inverse image of V(E) minus its zero section. Then C_b is the actual two-pullback T x_{P_d} S_d. Etale locally on T, split R_T, choose frames and an evaluation splitting sigma; the isomorphism (u,alpha)->(u+sigma(q(alpha)),alpha) identifies C_hat_b with A_T^n and C_b with A_T^n minus the zero section as OPEN SCHEMES. These presentations and their effective opens commute with every base change T_prime->T, without a flatness or reducedness assumption on T_prime.",
+   "hypotheses": [
+    "k is a finite field of characteristic p different from 2; X/k is a smooth projective geometrically connected curve of genus g.",
+    "R is a reduced finite effective divisor, including the empty divisor; rho=deg(R) is its length over k, not its number of closed points.",
+    "d is an integer with d>=rho+max(2g-1,1); n=d-g+1 and a=n-rho, so a>=1.",
+    "P_d denotes the degree-d root Picard stack of GC.0, S_d the effective root section stack of GC.1, and f=AJ_d:S_d->P_d forgets both sections. Coefficients are finite rank-one O_E/varpi^m local systems, then lisse Qbar_ell sheaves via the local adic formalism, with ell different from p.",
+    "T is locally Noetherian over k for the coherent pushforward theorem; base changes from T may be arbitrary. No rational point on X and no global Poincare line bundle on a Picard scheme are chosen."
+   ],
+   "proofSteps": [
+    "Import parent evaluation-surjective, SF.3/line-bundle-degree-bounds and the existing coherent sections_surjective theorem: H1(L_t(-R))=0 since d-rho>2g-2, and H1(L_t)=0. Relative coherent base change gives E,U and the exact evaluation sequence; finite etale R_T gives G,H and their arbitrary base change. The genus and ranks come from coherent Riemann–Roch.",
+    "Use GC.1/root-abel-jacobi and SF.1/two-fibre-product to identify the fixed-object two-pullback with the displayed section equation. An automorphism inducing the identity of b is the identity; the fibre is a scheme, not the weighted quotient.",
+    "Etale split R and trivialize K_R and U; frame L|R using iota. Locally split E->G. The displayed inverse is (s,alpha)->(s-sigma(q(alpha)),alpha). These are polynomial maps, with the section coordinate given by quadraticSection.",
+    "In these coordinates the inverse image of the zero section of E is defined by (u_i,alpha_j^2). Its radical equals that of (u_i,alpha_j), so its complement is exactly the usual punctured affine open. Do not identify the two CLOSED subschemes or discard nilpotents in the complement.",
+    "If sigma_prime=sigma+t for t:G->U, the transition is (u,alpha)->(u-t(q(alpha)),alpha). This quadratic transition is equivariant for weights (2,1), and the identity/composition laws follow by adding differences of splittings. The unsplit fibre product gives their canonical gluing and all base-change comparisons."
+   ],
+   "acceptance": [
+    "For g=1,rho=1,d=2, the ranks are (a,n,rho)=(1,2,1), and the split equation is s=(u,alpha^2).",
+    "At d=2g-2+rho, L=omega_X(R) has L(-R)=omega_X and nonzero H1. The requested threshold cannot silently lose rho or replace strict vanishing by equality.",
+    "T may have square-zero nilpotents: the effective open is tested on all geometric fibres, not by whether its raw section tuple is unequal to zero."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.4/quadratic-section-coordinates",
+    "FunctionFieldArithmeticPartII:GC.4/evaluation-surjective",
+    "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+    "FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
+    "SchemeAndStackFoundations:SF.1/two-fibre-product",
+    "SchemeAndStackFoundations:SF.3/line-bundle-degree-bounds",
+    "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+    "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.sections_surjective"
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Definition A.2, p. 515; §A.1.5, p. 517; Lemma A.9, pp. 520–521",
+     "match": "Defines effectiveness by geometric fibres and the two Abel–Jacobi maps, then describes a geometric fibre by the square-evaluation equation. The node promotes that equation to families and records the scheme-theoretic open and transition maps."
+    },
+    {
+     "sourceId": "StacksVanishing",
+     "locator": "Lemma 53.22.1, tag 0E3A, Algebraic Curves §53.22 (online numbering)",
+     "match": "Nonvanishing of H1(L(-R)) forces d<=2g-2+rho, giving the strict high-degree vanishing used by the imported coherent supplier."
+    },
+    {
+     "sourceId": "StacksBaseChange",
+     "locator": "Lemma 30.22.1 and Remark 30.22.2, tag 07VJ, Cohomology of Schemes §30.22 (online numbering)",
+     "match": "A proper scheme with coherent base-flat coefficients has a perfect cohomology complex compatible with arbitrary ring maps. With fibrewise higher-cohomology vanishing it yields the locally free degree-zero pushforward used here."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/AbelJacobiDescent",
+    "namespace": "TauCeti.RamifiedClassField"
+   },
+   "planet": {
+    "name": "Abel–Jacobi fibre charts"
+   },
+   "uses": [
+    {
+     "where": "GC.4/relative-projective-quotient",
+     "how": "Supply the canonical family carrying the scalar action and its local positive weights."
+    },
+    {
+     "where": "GC.4/high-degree-effective-descent",
+     "how": "Prove that the actual checking map C_b->T is smooth surjective with geometrically connected fibres."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre",
+     "role": "constructor",
+     "statement": "C_b is the two-fibre T x_{P_d} S_d, represented by the effective open in the square-evaluation fibre product."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.evaluationSequence",
+     "role": "data",
+     "statement": "Supply 0->U->E->G->0, ranks (a,n,rho), rank(H)=rho, and arbitrary base change for all four sheaves and evaluation."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.splitIso",
+     "role": "equivalence",
+     "statement": "An evaluation splitting and compatible etale frames identify C_hat_b with A_T^n by (u,alpha)->(u+sigma(q(alpha)),alpha), and restrict to C_b."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.effectiveOpen",
+     "role": "characterisation",
+     "statement": "The removed closed locus has ideal (u_i,alpha_j^2); the complement equals A_T^n minus the zero section, without identifying the closed loci."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.changeSplitting",
+     "role": "compatibility",
+     "statement": "For sigma_prime=sigma+t the coordinate transition is u_prime=u-t(q(alpha)), with alpha fixed; it respects weighted scaling."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.baseChange",
+     "role": "functoriality",
+     "statement": "The fibre product, effective open and chart comparison commute with every T_prime->T and with isomorphisms of b; the identity and composition comparisons satisfy the cocycle law."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.smoothConnected",
+     "role": "structure",
+     "statement": "C_b->T is smooth and surjective with geometrically connected fibres A^n minus the origin."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.test_minimal_elliptic",
+     "kind": "computation",
+     "statement": "For g=1,rho=1,d=2 the chart has one kernel coordinate and one root coordinate and section coordinate (u,alpha^2)."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.test_nilpotent_excluded",
+     "kind": "non-example",
+     "statement": "For T=Spec F_3[epsilon]/(epsilon^2), u=0 and alpha=epsilon do not define a T-point of C_b: the global section is zero, even though (u,alpha) is a nonzero tuple."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.test_nilpotent_retained",
+     "kind": "computation",
+     "statement": "On the same base, u=1 and alpha=epsilon lie in C_b, and their root coordinate remains epsilon under the chart; no reduction of the scheme is allowed."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.test_empty",
+     "kind": "degenerate",
+     "statement": "If R is empty, G=H=0 and C_b=V(E) minus its zero section, the ordinary section-stack fibre over the Picard STACK."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.test_splitting",
+     "kind": "compatibility",
+     "statement": "For one-dimensional G,U and t the identity, replacing sigma by sigma+t sends u to u-alpha^2. Retaining u unchanged would fail the section equation."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiFibre.test_residue_degree",
+     "kind": "non-example",
+     "statement": "A single closed point of residue degree two contributes rho=2 and two geometric root coordinates; it is not counted as rho=1."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.4",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.4"
+   ],
+   "title": "The proper scalar quotient of a family chart",
+   "kind": "construction",
+   "statement": "For b and C_b as above, define Q_b=[C_b/G_m,T]. If rho>0 the scalar c acts by (s,alpha)->(c^2 s,c alpha); its automorphism of b is (c^2 id_L,c id_K_R). If rho=0 use the ordinary scalar c id_L and weight one on s. The map C_b->S_d is 2-equivariant for this scalar action and the trivial action on S_d, hence induces h_b:Q_b->S_d. The projection q_b:Q_b->T is proper smooth surjective with geometrically connected, geometrically simply connected tame DM fibres of dimension n-1. For rho>0 it is etale locally W(2^a,1^rho); for rho=0 it is the ordinary projective bundle parametrizing lines in E. All data are functorial in b and commute with base change. Although f h_b and b q_b agree after pullback to C_b, they are generally NOT 2-isomorphic on Q_b: the scalar descent twists the Picard object. No factorization over P_d is claimed.",
+   "hypotheses": [
+    "k is a finite field of characteristic p different from 2; X/k is a smooth projective geometrically connected curve of genus g.",
+    "R is a reduced finite effective divisor, including the empty divisor; rho=deg(R) is its length over k, not its number of closed points.",
+    "d is an integer with d>=rho+max(2g-1,1); n=d-g+1 and a=n-rho, so a>=1.",
+    "P_d denotes the degree-d root Picard stack of GC.0, S_d the effective root section stack of GC.1, and f=AJ_d:S_d->P_d forgets both sections. Coefficients are finite rank-one O_E/varpi^m local systems, then lisse Qbar_ell sheaves via the local adic formalism, with ell different from p."
+   ],
+   "proofSteps": [
+    "The scalar automorphisms of b identify each scaled section object with its original image in S_d. Their multiplication law supplies the coherent 2-equivariance needed to descend the map through the quotient; the action is intrinsic before choosing a splitting.",
+    "Use SF.1/quotient-stack and quotient-stack-algebraic for the quotient and its G_m torsor. By the family presentation, the local weights are (2^a,1^rho) for rho>0. For rho=0 the ordinary action yields P(E) and does not insert an artificial mu_2 stabilizer.",
+    "On a split nonempty-R chart the square-coordinate map from ordinary punctured A^n to weighted punctured A^n is equivariant. Before quotients it is finite free of rank 2^a, with basis the squarefree monomials in the a source kernel coordinates. Equivariance for the SAME G_m makes the descended P_T^{n-1}->Q_b representable finite locally free of that rank. It is a branched map, not a torsor under its generic sign group.",
+    "This finite faithfully flat cover by projective space proves properness: its relation is finite over projective space, hence proper over T and over the separated product; descend the proper diagonal and universal closedness. Smoothness follows from the punctured affine smooth atlas. Stabilizers are trivial when a root coordinate is nonzero and mu_2 on the remaining locus, so the stack is DM and tame in odd characteristic. These properties descend along the etale chart cover.",
+    "Import the parent weighted-cover, weighted-ramification and weighted-simply-connected nodes, with projective-space simple connectivity supplied by IG.0. A connected representable finite etale cover of a geometric Q_b pulls back trivially to projective space. A component gives an intermediate generic sign extension. Any proper subgroup admits a nonempty quadratic monomial character, ramified on a weight-one chart, a contradiction. Normality then identifies the degree-one cover with Q_b. For rho=0 use projective-space simple connectivity directly.",
+    "Under a quotient torsor the descended line bundle L is twisted by the square of its scalar line and K_R by that scalar line (by its inverse with the opposite torsor convention). This explains why the quotient square over P_d cannot be used as a Cartesian square. Only C_b=T x_{P_d} S_d has that property."
+   ],
+   "acceptance": [
+    "For (a,rho)=(1,1), the fibre is W(2,1), with a degree-two projective cover; on y!=0 its coordinate is z=x^2 and the quadratic intermediate extension ramifies at z=0.",
+    "Geometric simple connectivity concerns the quotient, not the positive-characteristic punctured affine fibre.",
+    "A nonempty weight-one block is used in the monomial-chart argument; the empty-R case is separately ordinary projective space."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation",
+    "FunctionFieldArithmeticPartII:GC.4/weighted-cover",
+    "FunctionFieldArithmeticPartII:GC.4/weighted-ramification",
+    "FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected",
+    "SchemeAndStackFoundations:SF.1/quotient-stack",
+    "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
+    "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Lemma A.9, proof and simple-connectivity claim, p. 521",
+     "match": "The source factors the fixed geometric-fibre map through a weighted scalar quotient and uses its projective square-coordinate cover and ramification. The family quotient, finite-flat rank and properness are explicit deductions here."
+    },
+    {
+     "sourceId": "SGA1",
+     "locator": "Expose XI, Proposition 1.1, recomposed p. 219 (original margin p. 285), arXiv v2",
+     "match": "Projective space over an algebraically closed field has trivial etale fundamental group, including dimension zero; this is the exact scheme theorem requested from IG.0."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/AbelJacobiDescent",
+    "namespace": "TauCeti.RamifiedClassField"
+   },
+   "planet": {
+    "name": "Weighted projective quotient"
+   },
+   "uses": [
+    {
+     "where": "GC.4/chart-descent-line",
+     "how": "Replace the nonproper chart map by a proper tame DM map for degree-zero proper base change."
+    },
+    {
+     "where": "Parent GC.4/fibre-triviality",
+     "how": "Pull any lisse input to the simply connected weighted quotient, then to the actual geometric fibre."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient",
+     "role": "constructor",
+     "statement": "Form Q_b with the intrinsic central scalar action, using weight one when R is empty."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.toSections",
+     "role": "projection",
+     "statement": "The scalar isomorphisms give h_b:Q_b->S_d with h_b composed with C_b->Q_b equal to the original C_b->S_d up to the specified 2-isomorphism."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.localModel",
+     "role": "equivalence",
+     "statement": "Etale locally Q_b=W(2^a,1^rho) for rho>0; for rho=0 it is the projective bundle of lines in E."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.projectiveCover",
+     "role": "data",
+     "statement": "For rho>0 in a split chart, P_T^{n-1}->Q_b is representable finite locally free of rank 2^a, generically Galois with independent sign changes."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.properSmooth",
+     "role": "structure",
+     "statement": "q_b is proper smooth surjective tame DM with geometrically connected fibres of dimension n-1."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.geometricCovers",
+     "role": "characterisation",
+     "statement": "Every connected representable finite etale cover of a geometric fibre of q_b has degree one."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.baseChange",
+     "role": "functoriality",
+     "statement": "The intrinsic quotient and h_b commute with base change and isomorphisms of b, with identity and composition coherence."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.test_weighted_line",
+     "kind": "computation",
+     "statement": "At g=1,rho=1,d=2 the fibre is W(2,1); the weight-one chart is A^1 with projective cover x->x^2, ramified at x=0."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.test_inertia",
+     "kind": "non-example",
+     "statement": "On a geometric nonempty-R fibre, a point with every alpha_j=0 and some u_i!=0 has stabilizer mu_2, while a point with some alpha_j!=0 has trivial stabilizer; replacing the stack by its coarse space fails this test."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.test_empty_elliptic",
+     "kind": "degenerate",
+     "statement": "For g=1,R empty,d=1, E has rank one and Q_b=T=P^0_T. An all-weight-two quotient would instead have mu_2 stabilizer and is not this Q_b."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.test_picard_twist",
+     "kind": "non-example",
+     "statement": "In a split nonempty-R chart, pulling the descended L along P^{n-1}->Q_b twists L by the square of the tautological scalar line. Thus Q_b->S_d->P_d cannot be identified with the constant object b over T."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiQuotient.test_finite_rank",
+     "kind": "compatibility",
+     "statement": "For (a,rho)=(2,1), the square-coordinate cover has rank four even at the branch divisor; it is not an etale double cover."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.4",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.4"
+   ],
+   "title": "The canonical local descent line",
+   "kind": "construction",
+   "statement": "Let F be a rank-one lisse sheaf on S_d. For every b:T->P_d as in the family construction, set F_Q=h_b^*F on Q_b and M_b=(q_b)_*F_Q at finite coefficient level. Proper degree-zero base change and the geometric simple connectivity of Q_b give a canonical evaluation isomorphism e_b:q_b^*M_b->F_Q. M_b is lisse of rank one, and its pullback to the actual C_b is canonically F|C_b. Define the adic and Qbar_ell version by compatible local coefficient lattices and reduction, invert ell, and extend coefficients; it is independent of these presentations. Base change, isomorphisms of b, and morphisms of F give coherent comparison maps for M_b, including composition and identity laws.",
+   "hypotheses": [
+    "k is a finite field of characteristic p different from 2; X/k is a smooth projective geometrically connected curve of genus g.",
+    "R is a reduced finite effective divisor, including the empty divisor; rho=deg(R) is its length over k, not its number of closed points.",
+    "d is an integer with d>=rho+max(2g-1,1); n=d-g+1 and a=n-rho, so a>=1.",
+    "P_d denotes the degree-d root Picard stack of GC.0, S_d the effective root section stack of GC.1, and f=AJ_d:S_d->P_d forgets both sections. Coefficients are finite rank-one O_E/varpi^m local systems, then lisse Qbar_ell sheaves via the local adic formalism, with ell different from p.",
+    "F is an arbitrary rank-one lisse input on S_d; it need not be the particular symmetric local system L_d. The generic stack-lisse interfaces listed in gap GC4-LISSE-ADAPTER are required and are not claimed present in a scheme-only supplier."
+   ],
+   "proofSteps": [
+    "Use the previous construction to obtain q_b proper smooth surjective tame DM and F_Q. At finite coefficient level apply ACV01 Theorem A.0.8 in degree zero: the stalk of (q_b)_*F_Q is H0 of its geometric fibre.",
+    "By the parent weighted simple-connectivity theorem (or ordinary projective simple connectivity for R empty), F_Q on a geometric fibre is constant, and evaluation of its global sections at any point is an isomorphism. Therefore the adjunction counit q_b^*(q_b)_*F_Q->F_Q is an isomorphism on all geometric stalks.",
+    "The smooth surjection q_b has sections etale locally after choosing a smooth scheme atlas of Q_b. Pull the counit back along such sections: M_b becomes a rank-one lisse sheaf there. This proves local constancy, instead of inferring it merely from the rank of its stalks.",
+    "Proper base change gives M_{b|T_prime} canonically isomorphic to the inverse image of M_b. The comparisons are the natural base-change maps and satisfy identity and composition. Pull the counit through C_b->Q_b to compare on the actual Abel–Jacobi fibre product.",
+    "Do the construction for finite reductions of local O_E lattices. Full faithfulness of inverse image along q_b (unit checked by the same fibre H0 calculation) forces the coefficient reductions and comparisons to be compatible; pass to the local adic category, invert ell and extend scalars. Glue different local lattices using the same full faithfulness. This coefficient/stack adapter is the explicit generic supplier gap, not an extra assumption of effective Abel–Jacobi descent."
+   ],
+   "acceptance": [
+    "A geometrically constant arithmetic line with geometric Frobenius eigenvalue zeta_3 descends with eigenvalue zeta_3; geometric constancy does not force arithmetic triviality or sign-valued global monodromy.",
+    "For a constant coefficient line on S_d, e_b is its canonical constant-line comparison.",
+    "The construction retains rank one at every geometric point and commutes with nonflat base changes."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
+    "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0/adic-local-systems"
+   ],
+   "sources": [
+    {
+     "sourceId": "ACV01",
+     "locator": "Appendix A, Proposition A.0.7 and Theorem A.0.8, preprint pp. 34–35",
+     "match": "Theorem A.0.8 gives proper base change for torsion sheaves on a tame DM stack over a scheme. Only degree zero is used. The lisse evaluation and local adic construction are the corollary proved in this node, not assertions quoted from the source."
+    },
+    {
+     "sourceId": "YZ19",
+     "locator": "Lemma A.9, p. 521",
+     "match": "The geometric weighted quotient supplies the simply connected fibres; the present construction makes the effective family descent step explicit."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/AbelJacobiDescent",
+    "namespace": "TauCeti.RamifiedClassField"
+   },
+   "planet": {
+    "name": "Abel–Jacobi descent line"
+   },
+   "uses": [
+    {
+     "where": "GC.4/high-degree-effective-descent",
+     "how": "Supply compatible rank-one local systems on a smooth Picard atlas, including their comparison with F."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
+     "how": "Provide the actual high-degree descent and its canonical normalization used before translating to all degrees."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine",
+     "role": "constructor",
+     "statement": "At finite coefficients M_b=(q_b)_*h_b^*F, extended by compatible local adic presentations."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.evaluation",
+     "role": "equivalence",
+     "statement": "The canonical counit e_b:q_b^*M_b->h_b^*F is an isomorphism."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.onFibreProduct",
+     "role": "compatibility",
+     "statement": "Pulling e_b along C_b->Q_b gives f_b^*M_b isomorphic to F|C_b for f_b:C_b->T."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.baseChange",
+     "role": "functoriality",
+     "statement": "For T_prime->T the proper base-change comparison identifies M_{b|T_prime} with the pullback of M_b and respects e_b; identity and composition commute."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.map",
+     "role": "functoriality",
+     "statement": "A morphism F->F_prime induces M_b(F)->M_b(F_prime); identity and composition are preserved."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.coefficients",
+     "role": "compatibility",
+     "statement": "Reduction of compatible integral lattices, inversion of ell and finite coefficient extension commute with the construction and its evaluation; different local lattice presentations give the same lisse Qbar_ell line."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.tensor",
+     "role": "compatibility",
+     "statement": "The natural tensor comparison M_b(F) tensor M_b(G)->M_b(F tensor G) is the unique isomorphism whose pullback is the tensor of the evaluation maps; it respects units, associators and symmetry."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.test_unit",
+     "kind": "degenerate",
+     "statement": "The constant coefficient line on S_d gives the constant coefficient line on T, with the identity evaluation comparison."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.test_arithmetic",
+     "kind": "non-example",
+     "statement": "For F pulled back from Spec k with geometric Frobenius zeta_3, M_b is the same arithmetic line on T; it is not forced to have Frobenius 1 or -1."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.test_square_zero_base",
+     "kind": "compatibility",
+     "statement": "The base change from Spec F_3[epsilon]/(epsilon^2) to Spec F_3 commutes with M_b and e_b, despite not being flat."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.test_scalar",
+     "kind": "computation",
+     "statement": "Multiplication by c in the coefficient field on F induces multiplication by c on M_b, including c=0; the construction acts on sheaf morphisms, not just isomorphism classes."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.abelJacobiDescentLine.test_empty",
+     "kind": "compatibility",
+     "statement": "If R is empty, the construction is q_*h^*F for the ordinary projective bundle q:P(E)->T, with its ordinary evaluation comparison."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.4",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.4"
+   ],
+   "title": "Effective high-degree Abel–Jacobi descent",
+   "kind": "theorem",
+   "statement": "At d>=rho+max(2g-1,1), inverse image along f=AJ_d:S_d->P_d is fully faithful on rank-one lisse Qbar_ell sheaves and every rank-one lisse sheaf F on S_d is in its essential image. In particular there is a rank-one L_d^Pic with a comparison theta:f^*L_d^Pic isomorphic to the unshifted symmetric rank-one L_d from GC.3. Given two pairs (M,theta),(M_prime,theta_prime) for the same F, there is exactly one isomorphism M->M_prime whose pullback intertwines the two comparisons. This uniqueness is for the normalized pair, not for the underlying sheaf with its scalar automorphisms. Descent, comparisons, tensor operations and any supplied geometric-Frobenius structure are compatible with base change over k. The empty-R branch uses ordinary projective quotients.",
+   "hypotheses": [
+    "k is a finite field of characteristic p different from 2; X/k is a smooth projective geometrically connected curve of genus g.",
+    "R is a reduced finite effective divisor, including the empty divisor; rho=deg(R) is its length over k, not its number of closed points.",
+    "d is an integer with d>=rho+max(2g-1,1); n=d-g+1 and a=n-rho, so a>=1.",
+    "P_d denotes the degree-d root Picard stack of GC.0, S_d the effective root section stack of GC.1, and f=AJ_d:S_d->P_d forgets both sections. Coefficients are finite rank-one O_E/varpi^m local systems, then lisse Qbar_ell sheaves via the local adic formalism, with ell different from p."
+   ],
+   "proofSteps": [
+    "For each smooth locally finite type scheme atlas T->P_d, construct M_b and its comparison using chart-descent-line. This uses a proper DM map Q_b->T, not properness or a homotopy exact sequence for the nonproper AJ_d.",
+    "By family-fibre-presentation, the actual f_b:C_b->T is smooth surjective with geometrically connected fibres. Pulling back any connected finite etale cover of connected T leaves a connected space: the projection to that cover is an open surjection with connected geometric fibres. The finite-cover/fibre-functor comparison therefore gives a surjection on pi1, so f_b^* is fully faithful on finite locally constant sheaves. The local adic formalism gives the same full faithfulness for rank-one lisse sheaves.",
+    "The double and triple overlaps of the scheme atlas over the Artin stack P_d may be algebraic spaces. Choose etale scheme covers of these overlaps and apply the preceding scheme-chart full-faithfulness argument after each refinement. On the double overlap the two M_b pull back to the same F on its actual Abel–Jacobi fibre product, so this supplies the unique overlap isomorphism compatible with those comparisons. Uniqueness makes these isomorphisms descend from the refinements. On the triple overlap the cocycle holds because its pullback holds. Effective smooth descent for lisse sheaves glues M and theta on P_d; no scheme fundamental-group statement is applied directly to an algebraic stack or algebraic space.",
+    "Check arbitrary morphisms on the atlas and its overlaps by the same full faithfulness; this proves full faithfulness globally and normalized uniqueness. It also identifies this construction with parent high-degree-descent for the specific symmetric L_d, without assuming that parent end theorem to prove itself.",
+    "Apply the comparisons to tensor products, units and any Frobenius pullback; uniqueness makes their coherence diagrams descend. Carry out the same argument using P(E) when R is empty."
+   ],
+   "acceptance": [
+    "For g=1,R empty,d=1 the local quotient is P^0, while the actual fibre is G_m; the theorem descends to the Picard stack, not an assumed chosen Picard-scheme point.",
+    "For g=0 and rho=2, the stated source threshold is d>=3; it is a sufficient bound and no assertion of sharpness or descent below it is made.",
+    "A scalar automorphism c of M changes theta unless c=1. The normalized pair has only its identity automorphism, but a bare rank-one sheaf retains its coefficient-field scalars.",
+    "The source L_d is unshifted and lisse. The perverse normalization would be L_d[d] on S_d, not the object in this rank-one descent statement."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation",
+    "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
+    "FunctionFieldArithmeticPartII:GC.0/root-picard",
+    "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+    "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Lemma A.7, pp. 519–520; Lemma A.9, pp. 520–521",
+     "match": "A.7 supplies the unshifted rank-one symmetric local system and A.9 gives its high-degree Picard descent. The all-rank-one essential-image and normalized full-faithfulness formulation follows from the explicit family quotient argument here."
+    },
+    {
+     "sourceId": "ACV01",
+     "locator": "Appendix A, Theorem A.0.8, preprint pp. 34–35",
+     "match": "Degree-zero proper base change is the extra generic input making the quotient construction an effective descent proof."
+    },
+    {
+     "sourceId": "StacksLisse",
+     "locator": "Lemma 59.65.1 and Remark 59.65.3, tag 0DV4, Etale Cohomology §59.65 (online numbering)",
+     "match": "For connected schemes finite locally constant coefficient sheaves are representations of the etale fundamental group, compatibly with inverse image. This is used only on the actual scheme charts C_b->T; extending the sheaf formalism to the Picard stack is separately exposed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/AbelJacobiDescent",
+    "namespace": "TauCeti.RamifiedClassField"
+   },
+   "planet": {
+    "name": "High-degree Abel–Jacobi descent"
+   }
+  }
+ ],
+ "imports": [
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/evaluation-surjective",
+   "target": "H1(L(-R)) vanishes at the stated bound; E and U have ranks n and a and evaluation to the rank-rho restriction bundle is surjective, universally compatible with base change.",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  },
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/affine-fibre-chart",
+   "target": "The fixed geometric-object two-fibre is a square-evaluation fibre product, identified after splitting with punctured affine n-space with kernel/root weights (2,1).",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  },
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/weighted-cover",
+   "target": "The projective square-coordinate cover of the nonempty-R weighted quotient has generic sign group mu_2^a.",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  },
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/weighted-ramification",
+   "target": "A proper subgroup of the generic sign group leaves a nonempty squarefree monomial character; its quadratic subextension ramifies on a weight-one affine chart.",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  },
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected",
+   "target": "Every connected representable finite etale cover of the geometric weighted quotient is trivial. This is a quotient-stack assertion and leaves the affine fibre untouched.",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  },
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/fibre-triviality",
+   "target": "The unshifted symmetric lisse sheaf restricts constantly to the actual geometric two-fibre by pulling it through that weighted quotient.",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/chart-descent-line"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  },
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/empty-ramification-descent",
+   "target": "For empty R use ordinary scalar weight one and projective quotients to descend the ordinary symmetric local system to the Picard stack.",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  },
+  {
+   "nodeId": "FunctionFieldArithmeticPartII:GC.4/high-degree-descent",
+   "target": "The symmetric L_d has a normalized rank-one Picard descent and fully faithful inverse image at d>=rho+max(2g-1,1). The present proof supplies the effective descent route rather than assuming this end target.",
+   "refinedBy": [
+    "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent"
+   ],
+   "disposition": "Imported from the accepted parent packet without changing its id or replanning its theorem. The new node specifies the missing family or effective-descent interface. Parent high-degree-descent is a target comparison, never a proof prerequisite for itself."
+  }
+ ],
+ "requests": [
+  {
+   "id": "GC4-PROJECTIVE-PI1",
+   "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+   "need": "Export pi1_et(P^m_K)=1 for every m>=0 over an algebraically closed field K, in arbitrary characteristic, together with the existing finite-etale-cover/fibre-functor interface. Source: SGA 1, Expose XI Proposition 1.1, recomposed p. 219 (original p. 285). Existing IG.0 finite cover and adic nodes were read but no projective-space simple-connectivity target was located. This request is only the scheme theorem; finite covers and lisse sheaves on root and quotient stacks are gap GC4-LISSE-ADAPTER.",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
+    "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "GC4-LISSE-ADAPTER",
+   "title": "Typed generic stack-lisse and degree-zero proper-base-change interface",
+   "detail": "The mathematical input is now precise: finite locally constant sheaves on tame DM stacks and their representable finite-etale-cover comparison; ACV01 A.0.8 in degree zero for proper tame DM Q->T; detection of lissity by smooth covers; effective smooth descent for lisse sheaves on the Artin root Picard stack; inverse image, Hom, tensor and coefficient reductions; compatible local adic lattices with isogeny and finite coefficient extension. State these on actual stack sites, retaining the stack-versus-scheme distinction. No scheme-only EDC or IG stage is asserted to provide the extension, and no unregistered ST stage is cited. The original parent ST-LISSE leaf is narrowed: a general nonproper AJ homotopy/effective descent theorem is unnecessary for the supplied proof. The root-specific quotient and gluing argument is planned here; generic stack sheaf infrastructure belongs in the proposed EtaleDualityAndPerverseSheaves Part II extension.",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
+    "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
+    "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent"
+   ],
+   "assemblyInterface": "ASM-STACK-LISSE: one intended owner, with these two exact facets and all their hypotheses retained."
+  },
+  {
+   "id": "GC4-GEOMETRIC-SIGNATURES",
+   "title": "Actual family, quotient and lisse carriers at the pins",
+   "detail": "Only quadraticSection and its five API lemmas and five ring-valued examples are typed in the compact suggested file. The root Picard/section stack two-fibre, evaluation sequence in families, scheme open, quotient stack, proper DM map, stack lisse sheaves and functors have no compatible carriers at the pins. The README specifies all geometric constructors, seven API items per construction, tests and the end theorem. Instantiate these signatures after the genuine SF.1/SF.3 and stack-lisse interfaces exist; do not replace them by arbitrary types, property bundles or admitted data definitions. Elaborating the native coordinate subset does not discharge this gap.",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation",
+    "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
+    "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
+    "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "FunctionFieldArithmeticPartII:GC.4",
+   "status": "planned",
+   "remaining": [
+    "Supply the one explicit IG.0 projective-space simple-connectivity export; parent weighted-cover and ramification arguments are imported with their full proof route.",
+    "Discharge GC4-LISSE-ADAPTER on actual stack sites. The proper tame DM quotient, degree-zero proper base change and atlas full faithfulness replace the parent request for an unspecified nonproper-fibration descent theorem.",
+    "Integrate actual SF.1/SF.3 geometric carriers with the current coherent library and instantiate the exact geometric API/test and theorem signatures recorded in GC4-GEOMETRIC-SIGNATURES. No family curve theory, ordinary Picard theory or vector-bundle theory is duplicated."
+   ]
+  }
+ ],
+ "sourceIssues": [],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "FunctionFieldArithmeticPartII",
+    "EtaleDualityAndPerverseSheaves"
+   ],
+   "detail": "The parent ST-LISSE gap spans generic stack sheaves and a root-specific nonproper descent claim. The latter has an explicit proper-quotient proof here; generic stack sheaves are outside the existing scheme EDC stages.",
+   "proposal": "Keep all root-specific evaluation charts, positive-weight quotients and Abel–Jacobi descent in GC.4. In the parent proposed EtaleDualityAndPerverseSheaves, Part II: Stacks extension, own the generic stack-lisse/finite-cover comparison, smooth descent and degree-zero proper-base-change adapter of GC4-LISSE-ADAPTER. This is a proposed extension, not a registered stage dependency. GC.5 should import the reviewed effective GC.4 result and replace its inherited nonproper-fibration requirement by this exact adapter."
+  }
+ ],
+ "upstreamNotes": [],
+ "ownershipChecks": {
+  "audit": "Read the reviewed FunctionFieldArithmetic FA.0 and FA.1 entries of data/library-coverage.json (AUDIT-20). Divisor/Riemann–Roch dimension arithmetic is built; it is not the relative coherent evaluation theorem. There is no FunctionFieldArithmeticPartII audit entry that certifies root-Picard or stack-lisse carriers.",
+  "parent": "Read all eight parent GC.4 nodes, its GC.4 coverage and relevant CURVE-GEOM, STACK-GEOM, PI1, ST-LISSE and LEAN-GEOMETRY leaves. Read GC.0 root Picard, GC.1 root section/Abel–Jacobi and GC.3 collision descent, and the accepted GC.5 consumer. No parent or supplier packet was edited.",
+  "suppliers": "Read the actual SF.1 two-fibre-product, quotient-stack, quotient-stack-algebraic and stack-morphism-properties statements, and SF.3 line-bundle-degree-bounds and picard-stack-curve statements. These partial supplier plans are cited as planned targets, not as implemented or independently accepted mathematics. Only the high-degree locally Noetherian family vanishing/base-change interface is used; unrelated section-stack assertions are not imported. IG.0 adic-local-systems is scheme-valued, so its stack extension remains explicit.",
+  "currentLibrary": "Read current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 and pinned f790474 algebraic-geometry source inventories and search results. Current coherent cohomology, line-bundle duality, degree and Picard-functor work are existing material; no root Picard/weighted quotient/stack-lisse carrier was found. Basic invertible sheaves and the H1-to-sections-surjectivity theorem at the pin are baseline imports.",
+  "upstream": "Read current TauCetiRoadmap 0d144d044dacebca17b654695b6f1ad58f159b27 read-only, including complete AlgebraicVectorBundles and JacobianChallenge READMEs and relevant Suggested interfaces; searched all nine post-snapshot roadmap directories. AlgebraicVectorBundles owns finite locally free sheaves, relative Spec and linear schemes/vector bundles; JacobianChallenge B/C/D owns coherent RR, relative base change and ordinary Picard geometry; SF.3 owns the unpointed Picard-stack extension. None is replanned.",
+  "links": "Read the new roadmap GC.4 stage requirements and incoming/outgoing GC.0/GC.1/GC.3/GC.5 links; no research/blueprint/links entry mentioning FunctionFieldArithmeticPartII was located.",
+  "search": "Open Mathlib PR searches for root stack and lisse on 2026-10-18 returned no matches. A public Zulip web search did not locate a usable stack-lisse design; no absence conclusion about all discussions is claimed."
+ },
+ "validation": {
+  "packet": "python3 scripts/check_blueprint.py on this packet reports zero errors and zero warnings; the full-name baseline index and packet/README/native-interface inventories also agree.",
+  "lean": "lean-check exited 0 at the shared pinned build; only ten declaration-uses-admission warnings. The single native definition has a real body; geometric omissions are explicit.",
+  "implementationStatus": "unchecked"
+ },
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+   "read": "2026-10-18",
+   "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+   "citation": "Annals of Mathematics 189 (2019), 393–526; author-hosted published copy"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0106211v1",
+   "read": "2026-10-18",
+   "sha256": "8c890d5355ddeb77ab1ccb18fe15f1a89c0d666904920ea6ff4ba95ed02b6ca1",
+   "citation": "arXiv:math/0106211v1, 25 June 2001; locators use the 36-page preprint, not the 2003 journal pagination"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0206203v2",
+   "read": "2026-10-18",
+   "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c",
+   "citation": "Recomposed annotated edition, arXiv:math/0206203v2, 4 January 2004"
+  },
+  {
+   "kind": "online",
+   "url": "https://stacks.math.columbia.edu/tag/0E3A",
+   "read": "2026-10-18",
+   "sha256": "babef1f7f3842828ca7559097dcef5d9e0b3e97c9300d8283f8a3f1a0a1bbf8b",
+   "citation": "Online tags read 18 October 2026"
+  },
+  {
+   "kind": "online",
+   "url": "https://stacks.math.columbia.edu/tag/07VJ",
+   "read": "2026-10-18",
+   "sha256": "7c4b71eb78f816e2e4467faf628819b4276c65a46ad7168076f5368e072d5f8d",
+   "citation": "Online tags read 18 October 2026"
+  },
+  {
+   "kind": "online",
+   "url": "https://stacks.math.columbia.edu/tag/0DV4",
+   "read": "2026-10-18",
+   "sha256": "b5798205e731db7758c74e3b69cd04545d180a729be288bd2f143f2b2ffcf3ef",
+   "citation": "Online tags read 18 October 2026"
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.4",
+  "date": "2026-10-18",
+  "notes": "Independent target-level review of all five nodes, eight parent imports, sources at every locator, seven exact-pin baseline declarations, supplier statements, current library/upstream ownership, 27 API entries, 21 tests and four planets. Clarified scheme refinements on algebraic-space atlas overlaps in the end proof and synchronized the reader. No nodes, APIs or tests added; no baseline citation removed or replaced. Accepted as a complete planning pass, not geometric closure or implementation: coverage remains planned with two gaps and one precise supplier request. See the independent review report for evidence and integration questions.",
+  "checked": [
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.4/quadratic-section-coordinates",
+    "verdict": "verified",
+    "note": "The native polynomial map, reducedness hypothesis and five discriminating coordinate tests agree with YZ19 A.9 and the pinned declarations."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation",
+    "verdict": "verified",
+    "note": "Relative ranks, arbitrary base change, the full two-fibre and the nilpotent-safe effective open agree with the cited coherent inputs; the root coordinate is retained."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
+    "verdict": "verified",
+    "note": "The scalar 2-equivariance, distinct Picard twisting, ordinary empty-R branch, proper tame DM quotient and ramified square-cover proof are sound; projective simple connectivity remains an explicit request."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
+    "verdict": "verified",
+    "note": "ACV01 A.0.8 supplies degree-zero proper base change. The counit and smooth-local sections prove lissity; stack finite-cover and local adic adapters remain explicit gaps."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent",
+    "verdict": "corrected",
+    "note": "Made scheme refinements of algebraic-space overlaps explicit before invoking the scheme finite-cover comparison. Full faithfulness, effective gluing and normalized uniqueness are otherwise verified; no parent end theorem is assumed in its own proof."
+   }
+  ]
+ },
+ "assembly": {
+  "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+  "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+  "job": "ASM-FunctionFieldArithmeticPartII"
+ }
+}

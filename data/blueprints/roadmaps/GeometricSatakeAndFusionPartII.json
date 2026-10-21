@@ -1,0 +1,337 @@
+{
+  "id": "GeometricSatakeAndFusionPartII",
+  "title": "Geometric Satake over the Fargues–Fontaine curve, Part II: integral local models",
+  "area": "arithmeticgeometry",
+  "parent": "GeometricSatakeAndFusion",
+  "summary": "This continuation plans integral local models from polynomial Schubert closures and minuscule Hodge embeddings to normal scheme representatives, tangent spaces spanned by formal curves, same-residue-field Schubert curves, EL/PEL Drinfeld comparisons and connected geometric tubes. It keeps general-bound v-sheaves separate from minuscule scheme models and records the precise modular-representation, algebraic-loop and cohomological supplier gaps. The independent rational Gelfand commutativity proof receives an exhaustive split brief.",
+  "readme": "The definitive reader is research/blueprint/readmes/GeometricSatakeAndFusionPartII.md. Its nine layers distinguish polynomial closures, canonical normal schemes, general-bound v-sheaves, scheme tangent spaces and tube cohomology. The 158-item assignment ledger includes 129 local-model items and 29 items in the independent rational Gelfand-proof split. Every layer is planned; supplier and source gaps are explicit, so the packet is complete but not closed.",
+  "prerequisites": [
+    "GeometricSatakeAndFusion",
+    "ReductiveGroupsPartII",
+    "DiamondsAndVStacksPartII",
+    "SchemeAndStackFoundations",
+    "RootSystemsPartII",
+    "PELModuli",
+    "EtaleDualityAndPerverseSheaves",
+    "LefschetzPencilsAndVanishingCycles",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "LM.0",
+      "title": "Data and conventions",
+      "description": "Define the minuscule datum, Hodge and abelian types, quasi-tame/essentially tame ranges, v-closure and scheme specifications, and goodness. Pin reflex bases, full versus connected fixers and the subspace/quotient/opposite-cocharacter dictionary.",
+      "requires": [
+        "DiamondsAndVStacksPartII:D10",
+        "GeometricSatakeAndFusion:GS0",
+        "ReductiveGroupsPartII:RG2.1",
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "LM.1",
+      "title": "Polynomial closures and comparisons",
+      "description": "Build polynomial BD modification spaces and their schematic closures. Establish normality and component geometry in the prime-to-p range; prove polynomial adjoint comparisons, the auxiliary Hodge cover and the one-lattice GL comparison.",
+      "requires": [
+        "GeometricSatakeAndFusion:GS0",
+        "GeometricSatakeAndFusionPartII:LM.0",
+        "ReductiveGroupsPartII:RG2.0a",
+        "ReductiveGroupsPartII:RG2.1",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "LM.2",
+      "title": "Polynomial and lattice embeddings",
+      "description": "Prove the Weil-split, Weyl-lattice and restriction-of-structure embeddings in their precise facet ranges, their power and symplectic-chain consequences, the GL incidence model, period-total embedding and trace symplectic construction.",
+      "requires": [
+        "GeometricSatakeAndFusion:GS0",
+        "GeometricSatakeAndFusionPartII:LM.0",
+        "GeometricSatakeAndFusionPartII:LM.1",
+        "ReductiveGroupsPartII:RG2.0a",
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "key": "LM.3",
+      "title": "Canonical schemes and kimberlites",
+      "description": "Identify the classical auxiliary construction with the v-closure using the existing normal-recovery theorem. Plan normalization of images and endomorphism cutouts. Compare companion, Witt and v-special fibres; prove general-bound kimberlite properties and general minuscule weak normal representability.",
+      "requires": [
+        "DiamondsAndVStacksPartII:D10",
+        "DiamondsAndVStacksPartII:D11",
+        "GeometricSatakeAndFusion:GS0",
+        "GeometricSatakeAndFusion:GS2",
+        "GeometricSatakeAndFusionPartII:LM.0",
+        "GeometricSatakeAndFusionPartII:LM.1",
+        "GeometricSatakeAndFusionPartII:LM.2",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "key": "LM.4",
+      "title": "Tangent geometry",
+      "description": "Define the span of formal-curve derivatives using the existing tangent carrier. Develop root and Cartan bounds using minuscule test modules, retaining the quaternionic-D restriction. Identify reductive Weil-restriction fibres with summed Schubert bounds and prove their curve-spanning endpoints.",
+      "requires": [
+        "GeometricSatakeAndFusion:GS0",
+        "GeometricSatakeAndFusionPartII:LM.0",
+        "GeometricSatakeAndFusionPartII:LM.1",
+        "GeometricSatakeAndFusionPartII:LM.3",
+        "ReductiveGroupsPartII:RG2.1",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "LM.5",
+      "title": "Curves over the same residue field",
+      "description": "Import the finite invariant-coroot step; supply the valued-root and rank-one flag adapters, split and unitary curves, rational positive-loop lifting and the same-residue-field curve theorem at very special level.",
+      "requires": [
+        "GeometricSatakeAndFusion:GS0",
+        "GeometricSatakeAndFusionPartII:LM.3",
+        "ReductiveGroupsPartII:RG2.0a",
+        "ReductiveGroupsPartII:RG2.1",
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3",
+        "RootSystemsPartII:RS2.4",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "LM.6",
+      "title": "EL and PEL examples",
+      "description": "Define module chains with periodicity and polarization line, their torsors and the naive determinant quotient functor. Construct the B_dR⁺ kernel comparison. Prove the EL and unitary Drinfeld local-model comparisons with correct signature weights and lattice levels.",
+      "requires": [
+        "DiamondsAndVStacksPartII:D10",
+        "GeometricSatakeAndFusion:GS0",
+        "GeometricSatakeAndFusionPartII:LM.0",
+        "GeometricSatakeAndFusionPartII:LM.3",
+        "PELModuli:M0",
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "LM.7",
+      "title": "Tubes and unrestricted normality",
+      "description": "Compute tube components by lowest nearby-cycle stalks. Combine the admissible S₂ and two-translation inputs with an early Wakimoto filtration to prove connected tubes for all bounds. Deduce unrestricted minuscule normal representability, good acceptable embeddings and the admissible lattice criterion.",
+      "requires": [
+        "DiamondsAndVStacksPartII:D10",
+        "DiamondsAndVStacksPartII:D11",
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "GeometricSatakeAndFusion:GS0",
+        "GeometricSatakeAndFusion:GS2",
+        "GeometricSatakeAndFusionPartII:LM.0",
+        "GeometricSatakeAndFusionPartII:LM.2",
+        "GeometricSatakeAndFusionPartII:LM.3",
+        "ReductiveGroupsPartII:RG2.1",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "key": "LM.8",
+      "title": "Nearby cycles and test functions",
+      "description": "Prove splitting-field monodromy and its very-special strengthening in the tame polynomial range. Define the unshifted semisimple trace with geometric Frobenius; prove parahoric centrality and the unramified minuscule Bernstein characterization with all shifts, half twists and measures fixed.",
+      "requires": [
+        "GeometricSatakeAndFusion:GS2",
+        "GeometricSatakeAndFusionPartII:LM.1",
+        "GeometricSatakeAndFusionPartII:LM.3",
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "LefschetzPencilsAndVanishingCycles:LPV.6",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "KPZ",
+      "title": "Integral models of Shimura varieties with parahoric level structure, II",
+      "authors": "Mark Kisin, George Pappas and Rong Zhou",
+      "edition": "Forum of Mathematics, Pi (2026), published 89-page PDF",
+      "readSections": [
+        "§§3.1–3.4, pp. 15–30; §§4.1–4.4, pp. 31–47; condition(NE), §6.1 p. 62. Integral displays and very-good embeddings are outside scope."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/div-class-title-integral-models-of-shimura-varieties-with-parahoric-level-structure-ii-div.pdf",
+      "sha256": "d0438498fbe4501e6d9c0cc7cf3ea9fc02ba5e11d326f2d77dd42715658a198b"
+    },
+    {
+      "id": "KP",
+      "title": "Integral models of Shimura varieties with parahoric level structure",
+      "authors": "Mark Kisin and George Pappas",
+      "edition": "Publications Mathématiques de l’IHÉS 128 (2018), pp. 121–218; published PDF",
+      "readSections": [
+        "§§2.1–2.3, pp. 150–162; §4.7, pp. 211–215. Global Shimura model construction is an external application."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf",
+      "sha256": "e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b"
+    },
+    {
+      "id": "KZ",
+      "title": "Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+      "authors": "Mark Kisin and Rong Zhou",
+      "edition": "63-page revised author preprint; final Annals 202 (2025), pp. 1077–1156 not obtained. Locators refer only to this author version.",
+      "readSections": [
+        "§3.1 pp. 18–22; §5.2 pp. 48–53. The orbit inference uses the accepted RootSystemsPartII repair."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf",
+      "sha256": "cc6383505c39b40bd450c76de28218382b7b1216fe7999c098fc78c5a1d24d3b"
+    },
+    {
+      "id": "SW",
+      "title": "Berkeley Lectures on p-adic Geometry",
+      "authors": "Peter Scholze and Jared Weinstein",
+      "edition": "Cleared author book PDF dated 27 March 2020; printed page numbers, read in place on 19 October 2026",
+      "readSections": [
+        "Lecture21, §§21.4–21.8, printed pp. 195–206. No passage or file is reproduced; final book not collated."
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "GLX",
+      "title": "On the connected components of moduli spaces of p-adic shtukas and universal homeomorphisms",
+      "authors": "Ian Gleason, Dong Gyu Lim and Yujie Xu",
+      "edition": "arXiv:2208.07195v3, 56 pages; final Inventiones 243 (2026), pp. 805–861 not collated",
+      "readSections": [
+        "§3.2, pp. 18–19; Theorem 3.8 p. 22. Theorem 3.9 on shtuka tubes is outside scope."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/2208.07195v3",
+      "sha256": "d2249ddbe1ae2f4728000d27846d396adffc97b2f8b7b1c82c5d2701153fcb12"
+    },
+    {
+      "id": "AGLR",
+      "title": "On the p-adic theory of local models",
+      "authors": "Johannes Anschütz, Ian Gleason, João Lourenço and Timo Richarz",
+      "edition": "arXiv:2201.01234v2, PDF dated 3 February 2026; printed pp. 1–54 after six contents pages",
+      "readSections": [
+        "Definition 4.11, Proposition 4.14, Remark 4.15 and Proposition 4.16 pp. 30–31; Theorem 6.16 and Proposition 6.17 pp. 39–40; §7.4, Theorems 7.22,7.24 and Lemma 7.27 pp. 49–51."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/2201.01234v2",
+      "sha256": "4fa96d9e2c774f1d943b3dcdcc548db5562ec9f56a6a2b746efadaa16ee5461e"
+    },
+    {
+      "id": "GL",
+      "title": "Tubular neighborhoods of local models",
+      "authors": "Ian Gleason and João Lourenço",
+      "edition": "13-page author preprint; final Duke Mathematical Journal 173 (2024), pp. 723–743. Locators use author pages.",
+      "readSections": [
+        "§1 pp. 1–3; §2 pp. 3–5; §§3–5 pp. 5–11, including all arguments of the tube theorem."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://rastrel.github.io/Lourenco/tubengbhd.pdf",
+      "sha256": "583d9548047e8fe738b74c038192639bd4698586d1ab78a547f36f619a10df24"
+    },
+    {
+      "id": "ALWY",
+      "title": "Gaitsgory’s central functor and the Arkhipov–Bezrukavnikov equivalence in mixed characteristic",
+      "authors": "Johannes Anschütz, João Lourenço, Zhiyou Wu and Jize Yu",
+      "edition": "arXiv:2311.04043, public version retrieved 19 October 2026; theorem numbering of this PDF",
+      "readSections": [
+        "Introduction pp. 2–3; §§4.3–4.4 pp. 30–34, Theorem 4.12, Lemmas 4.13–4.14, Theorem 4.17 and Corollary 4.19. Used as an upstream theorem, not replanned."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/2311.04043",
+      "sha256": "3f7f1de570d7cc7366874c676747259d8b57b9c7b1f410ad34d93042da5e2f35"
+    },
+    {
+      "id": "PZ",
+      "title": "Local models of Shimura varieties and a conjecture of Kottwitz",
+      "authors": "George Pappas and Xinwen Zhu",
+      "edition": "arXiv:1110.5588v4; nearby-cycle section is §9 here and §10 in the final article",
+      "readSections": [
+        "§9.c–9.d pp. 73–76, full proofs of Theorem 9.9, Proposition 9.12, Theorems 9.14,9.16; polynomial criterion identified through KP§2.3.7 and requested from its owner."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/1110.5588v4",
+      "sha256": "cbb879126ff50a5431e06046edd55d1da3ee4d260ddd4d80202a043e21b18b27"
+    },
+    {
+      "id": "LEV",
+      "title": "Local models for Weil-restricted groups",
+      "authors": "Brandon Levin",
+      "edition": "arXiv:1412.7135, retrieved PDF; all locators are its printed pages",
+      "readSections": [
+        "§4.1 pp. 20–21, §4.2 pp. 22–28; Definition 4.1.1, Proposition 4.1.4, Theorems 4.2.7 and 4.2.10 (4.2.11 in the published numbering) and convolution inputs. Full coherence proof remains an upstream source contract."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/1412.7135",
+      "sha256": "63bcfdd9656b0a70c36bf35982a6616451162b762678cea1ad0e162ddf995763"
+    },
+    {
+      "id": "PR",
+      "title": "Twisted loop groups and their affine flag varieties",
+      "authors": "George Pappas and Michael Rapoport",
+      "edition": "arXiv:math/0607130 author text",
+      "readSections": [
+        "Theorem 1.4; §6.a.1 pp. 24–25 including the nonreduced-test-ring warning when the central kernel has p-torsion."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/math/0607130",
+      "sha256": "6fbdb2748ef12fc788cc2241dd94046390c2f6a60ed1bee4a82b80330a9ca62d"
+    },
+    {
+      "id": "PRLSV",
+      "title": "On integral local Shimura varieties",
+      "authors": "George Pappas and Michael Rapoport",
+      "edition": "Public author preprint, retrieved 19 October 2026",
+      "readSections": [
+        "Proposition 7.2.1 proof, pp. 53–56: generic central-cover and minuscule construction only. Its integral very-good-embedding step cites downstream KPZ and is excluded."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/pappas-rapoport-intLSV.pdf",
+      "sha256": "8995be5260cef4caab4f3542fce3208d5d5e930bb18f3b94f36a8060dc2039e0"
+    },
+    {
+      "id": "FHLR",
+      "title": "Singularities of local models",
+      "authors": "Najmuddin Fakhruddin, Thomas Haines, João Lourenço and Timo Richarz",
+      "edition": "Public author preprint, retrieved 19 October 2026",
+      "readSections": [
+        "Hypotheses 2.1,5.24 and §5.3.2 pp. 33–34, especially Lemmas 5.25,5.27 and Corollary 5.26. The finite universal-homeomorphism conclusion of5.27 is not a closed-immersion assertion."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.math.univ-paris13.fr/~lourenco/singlocmodels.pdf",
+      "sha256": "9c714d5fbbd11ea37618e41085d22a91422eff139a6dda635dcf813ef0e27149"
+    },
+    {
+      "id": "RZ17",
+      "title": "On the Drinfeld moduli problem of p-divisible groups",
+      "authors": "Michael Rapoport and Thomas Zink",
+      "edition": "arXiv:1408.4071 public author version, retrieved 19 October 2026",
+      "readSections": [
+        "§5 pp. 18–20, generic/special model geometry, flatness Corollary 5.4 and normality Corollary 5.6; regularity is explicitly unproved in Remark 5.7."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/1408.4071",
+      "sha256": "cd8bf04054b1afd88f70018a002e152e8c421ecb3a9c4fe9003380f378a97290"
+    },
+    {
+      "id": "KRZ",
+      "title": "On the p-adic uniformization of unitary Shimura curves",
+      "authors": "Stephen Kudla, Michael Rapoport and Thomas Zink",
+      "edition": "arXiv:2007.05211 public author version, retrieved 19 October 2026; it replaces the unpublished local-model version cited by SW",
+      "readSections": [
+        "§1.3 pp. 6–8 and §2.1 pp. 10–11, signature function and distinguished conjugate pair. This version uses a different uniformization proof; no local-model proof is attributed to it."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://arxiv.org/pdf/2007.05211",
+      "sha256": "c94c6cbd0a25c8e476e5535414cb54c1a5eab0cba7f5e8e6cc8305b519268cfd"
+    }
+  ],
+  "status": "draft"
+}

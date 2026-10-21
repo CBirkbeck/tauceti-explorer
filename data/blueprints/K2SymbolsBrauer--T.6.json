@@ -1,0 +1,1729 @@
+{
+ "roadmapId": "K2SymbolsBrauer",
+ "protocol": "blueprint-v1",
+ "part": "T.6",
+ "status": "complete",
+ "scope": [
+  "K2SymbolsBrauer:T.6",
+  "K2SymbolsBrauer:T.7"
+ ],
+ "summary": "A target-level continuation of T.6–T.7: calibrate the Dennis–Stein word, prove its general relations, add the threefold-stable presentation proof and guarded square-zero differential calculations, and finish the all-m cyclic/Brauer, normalized Hilbert, Tate-localization and product-normalized Chern adapters. The pass accounts for every target while recording three exact remaining proof inputs; it does not claim gap-free closure.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:IsUnit",
+    "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+    "provides": "The predicate that a ring element is the value of a unit.",
+    "checked": "Statement read at the pinned commit; definition near line 364."
+   },
+   {
+    "ref": "mathlib:Ideal.jacobson",
+    "module": "Mathlib/RingTheory/Jacobson/Ideal.lean",
+    "provides": "The Jacobson radical of an ideal, in particular Ideal.jacobson ⊥.",
+    "checked": "Statement read at the pinned commit; definition near line 65."
+   },
+   {
+    "ref": "mathlib:TrivSqZeroExt",
+    "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+    "provides": "The native trivial square-zero extension R⊕M; its multiplication is (a,x)(b,y)=(ab,ay+bx).",
+    "checked": "Statement read at the pinned commit; definition and commRing instance."
+   },
+   {
+    "ref": "mathlib:DualNumber",
+    "module": "Mathlib/Algebra/DualNumber.lean",
+    "provides": "The abbreviation TrivSqZeroExt R R, providing the native dual-number ring.",
+    "checked": "Statement read at the pinned commit; definition."
+   },
+   {
+    "ref": "mathlib:DualNumber.eps_mul_eps",
+    "module": "Mathlib/Algebra/DualNumber.lean",
+    "provides": "The distinguished nilpotent epsilon has square zero.",
+    "checked": "Statement read at the pinned commit; theorem eps_mul_eps."
+   },
+   {
+    "ref": "mathlib:KaehlerDifferential",
+    "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+    "provides": "The native module of relative Kähler differentials for a commutative algebra.",
+    "checked": "Statement read at the pinned commit; definition near line 153."
+   },
+   {
+    "ref": "mathlib:KaehlerDifferential.D",
+    "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+    "provides": "The universal derivation into KaehlerDifferential.",
+    "checked": "Statement read at the pinned commit; definition near line 198."
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.zmodEquivZPowers",
+    "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+    "provides": "A primitive root gives an additive equivalence from ZMod m to the additive version of its cyclic subgroup.",
+    "checked": "Statement read at the pinned commit; definition near line 462."
+   },
+   {
+    "ref": "tauceti:TauCeti.KummerCoeff",
+    "module": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+    "provides": "Additive rootsOfUnity m in the separable closure, with the native Galois action.",
+    "checked": "Statement read at the pinned commit; definition near line 107."
+   },
+   {
+    "ref": "tauceti:TauCeti.kummerMap",
+    "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+    "provides": "The Kummer map from field units to multiplicative H¹ of KummerCoeff under the invertibility hypothesis.",
+    "checked": "Statement read at the pinned commit; definition near line 187."
+   },
+   {
+    "ref": "tauceti:TauCeti.kummerMap_eq_kummerCocycleClass",
+    "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+    "provides": "The additive Kummer class equals the class of the actual root-ratio cocycle g(alpha)/alpha.",
+    "checked": "Statement read at the pinned commit; theorem near line 215."
+   },
+   {
+    "ref": "tauceti:TauCeti.ContCohomology.explicitCup11",
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+    "provides": "The continuous degree-(1,1) cup pairing for a continuous equivariant bilinear coefficient pairing, represented by mu(a(g),g b(h)).",
+    "checked": "Statement read at the pinned commit; definition near line 577."
+   },
+   {
+    "ref": "tauceti:TauCeti.ContCohomology.explicitCup11_eq_neg_flip",
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
+    "provides": "The native continuous cup is the negative of its flipped pairing with reversed inputs.",
+    "checked": "Statement read at the pinned commit; theorem near line 760."
+   },
+   {
+    "ref": "tauceti:TauCeti.kummerMap_eq_one_iff",
+    "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+    "provides": "At an invertible coefficient, a unit has trivial Kummer class exactly when it is an m-th power. This existing result supplies the power-input boundary; no second Kummer kernel theorem is planned.",
+    "checked": "Independently read the statement and proof at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, lines 267–270, during REV-K2SymbolsBrauer--T.6."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "WeibelIII",
+   "title": "The K-book, separate Chapter III: K₁ and K₂ of a ring",
+   "authors": "Charles A. Weibel",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+   "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+   "accessed": "2026-10-19",
+   "edition": "Author’s separately paginated chapter PDF; printed page numbers here are its own pp.1–72, not those of the bound book.",
+   "readSections": [
+    "III.5.7; III.5.10–5.11.1; Exercises III.5.13–5.14; III.6.9–6.10"
+   ]
+  },
+  {
+   "id": "SteinDennis1973",
+   "title": "K₂ of radical ideals and semi-local rings revisited",
+   "authors": "Michael R. Stein and R. Keith Dennis",
+   "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/SLN342.pdf",
+   "sha256": "cb73e6fc75fe941510b8999176b1c952d0d088b4f599d16d0b9b77ba8de15b55",
+   "accessed": "2026-10-19",
+   "edition": "Lecture Notes in Mathematics 342 (1973), article pp.281–303; SHA covers the complete proceedings PDF.",
+   "readSections": [
+    "Proposition 1.1 and proof, printed pp.283–285; relative generation discussion, pp.287–288"
+   ]
+  },
+  {
+   "id": "Kallen1977",
+   "title": "The K₂ of rings with many units",
+   "authors": "Wilberd van der Kallen",
+   "url": "https://www.numdam.org/item/ASENS_1977_4_10_4_473_0.pdf",
+   "sha256": "f35dddad269e86f55ea5102fe4be09b6b06d65e8d00d5e2012752f291bf84a6d",
+   "accessed": "2026-10-19",
+   "edition": "Annales scientifiques de l’École Normale Supérieure, series 4, 10 (1977), 473–515.",
+   "readSections": [
+    "§§5.2–5.19, pp.488–495; §§6.1–6.23, pp.496–506; §§7.1–7.4, pp.507–508"
+   ]
+  },
+  {
+   "id": "KallenMaazenStienstra1975",
+   "title": "A presentation for some K₂(n,R)",
+   "authors": "Wilberd van der Kallen, Hendrik Maazen and Jan Stienstra",
+   "url": "https://webspace.science.uu.nl/~kalle101/maazenStK.pdf",
+   "sha256": "e49902aa8f4fe4edb2abb84a00e93d571207b9439f6782a59f5dd3e55e4d506b",
+   "accessed": "2026-10-19",
+   "edition": "Bulletin of the American Mathematical Society 81 (1975), 934–936; announcement.",
+   "readSections": [
+    "§§2.3–2.6, pp.935–936"
+   ]
+  },
+  {
+   "id": "KallenDual1971",
+   "title": "Le K₂ des nombres duaux",
+   "authors": "Wilberd van der Kallen",
+   "url": "https://webspace.science.uu.nl/~kalle101/K2nd1971.pdf",
+   "sha256": "75508c6ae2fe8cccc19aab19caa4e9981aaf3adc1cede609950807a0ef1b72f2",
+   "accessed": "2026-10-19",
+   "edition": "Comptes rendus de l’Académie des sciences de Paris, série A, 273 (1971), 1204–1207.",
+   "readSections": [
+    "Theorems and proofs, pp.1204–1207"
+   ]
+  },
+  {
+   "id": "MorrowLocalisations",
+   "title": "K₂ of localisations of local rings",
+   "authors": "Matthew Morrow",
+   "url": "https://www.imo.universite-paris-saclay.fr/~matthew.morrow/Morrow%2C%20M.%2C%20K_2%20of%20localisations%20of%20local%20rings.pdf",
+   "sha256": "f71342cc79193c08eb13c26da8b7fad6c9b2d383a852489dc5a2bd1414dedb9d",
+   "accessed": "2026-10-19",
+   "edition": "Author PDF, 16 pages; used for explicit convention translation, not as the proof of the all-local presentation.",
+   "readSections": [
+    "§§3.2–3.3, pp.7–8; Remarks 3.8 and 3.10, Theorem 3.9"
+   ]
+  },
+  {
+   "id": "Levine1989",
+   "title": "The indecomposable K₃ of fields",
+   "authors": "Marc Levine",
+   "url": "https://www.numdam.org/item/10.24033/asens.1585.pdf",
+   "sha256": "820e5603a23645cefa4a13c3310d62bd9edee248a96b033b7ff55b6398b7a4b5",
+   "accessed": "2026-10-19",
+   "edition": "Annales scientifiques de l’École Normale Supérieure, series 4, 22 (1989), 255–344.",
+   "readSections": [
+    "§2.1, pp.289–290"
+   ]
+  },
+  {
+   "id": "MilneCFT2020",
+   "title": "Class Field Theory",
+   "authors": "James S. Milne",
+   "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf?download=1",
+   "sha256": "50d79af78250a9f1117ad9d337e0b231704a533fc707966ed1bfa52e13d498f5",
+   "accessed": "2026-10-19",
+   "edition": "Version 4.03, 6 August 2020.",
+   "readSections": [
+    "III Proposition 3.6, p.109; III §4 Steps 1–4 and Remark 4.5, pp.111–114",
+    "V Example 5.4, p.179; VII Theorem 8.1(b), p.221"
+   ]
+  },
+  {
+   "id": "SouleThesis1978",
+   "title": "K-théorie des anneaux d’entiers de corps de nombres et cohomologie étale",
+   "authors": "Christophe Soulé",
+   "url": "https://www.ihes.fr/~soule/documents/These_Christophe_Soule.pdf",
+   "sha256": "19bb0877616c262fcb83c9fe6ad88f98747f117f23805b6154e19174dbb659a7",
+   "accessed": "2026-10-19",
+   "edition": "June 1978 doctoral thesis, author scan; printed page numbers.",
+   "readSections": [
+    "Proposition 2.2.2.3 and proof, pp.42–44"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+   "citation": "Author’s separately paginated chapter PDF; printed page numbers here are its own pp.1–72, not those of the bound book.",
+   "read": "2026-10-19",
+   "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "K2SymbolsBrauer:T.6/modern-convention-calibration",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Dennis–Stein convention and stable word",
+   "kind": "theorem",
+   "statement": "For a commutative ring A, r,s∈A and u=1−rs∈Aˣ, the modern symbol D(r,s) is the stable Steinberg-kernel element x_ji(−s/u)x_ij(−r)x_ji(s)x_ij(r/u)h_ij(u)⁻¹. It is independent of the distinct indices i,j. For the older plus-convention word P(a,b)=x_ji(−b/(1+ab))x_ij(a)x_ji(b)x_ij(−a/(1+ab))h_ij(1+ab)⁻¹, the exact translation is D(r,s)=P(−r,s). If r is a unit, D(r,s)={r,1−rs}; if s is a unit, D(r,s)={1−rs,s}. The translation has no additional inversion.",
+   "hypotheses": [
+    "A is commutative and unital; u=1−rs is a unit.",
+    "All assertions about centrality and index independence take place after stabilization."
+   ],
+   "proofSteps": [
+    "Use T.2:symbols/diagonal-lift-words and /diagonal-lift for h_ij. The elementary image of the first four factors is diag(u,u⁻¹), so the last factor puts the word in the kernel.",
+    "Stein–Dennis Proposition 1.1 constructs P and proves independence after adjoining a third index; T.1/k2-is-centre supplies stable centrality. Substitute a=−r literally in the word. No interchange of factors is required.",
+    "Proposition 1.1(H2) gives P(a,b)={−a,1+ab} when a is a unit and {1+ab,b} when b is a unit. Substitution gives both formulas. Every unit symbol {a,b} is D(a,a⁻¹(1−b)).",
+    "Van der Kallen §5.2, p.489, uses the same plus word; his unit expression {−a⁻¹,1+ab}⁻¹ equals {−a,1+ab}, since {−1,v} has order dividing two. Morrow Remark 3.10 also changes only the first argument."
+   ],
+   "acceptance": [
+    "In ℚ(t), D(2,(1−t)/2)={2,t}, with tame residue 2 at t=0; inserting an inverse gives 1/2.",
+    "The construction does not imply centrality for St(2,A).",
+    "D(r,0)=D(0,s)=0, and D(r,s) need not be alternating."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/dennis-stein-symbol",
+    "K2SymbolsBrauer:T.1/k2-is-centre",
+    "K2SymbolsBrauer:T.2:symbols/diagonal-lift-words",
+    "K2SymbolsBrauer:T.2:symbols/diagonal-lift"
+   ],
+   "sources": [
+    {
+     "sourceId": "SteinDennis1973",
+     "locator": "Proposition 1.1, printed pp.283–285",
+     "match": "The plus word, its stable independence, and the two unit formulas are proved here."
+    },
+    {
+     "sourceId": "Kallen1977",
+     "locator": "§5.2, printed pp.488–489",
+     "match": "The presentation uses the same plus-convention word and a unit formula equivalent by bilinearity."
+    },
+    {
+     "sourceId": "MorrowLocalisations",
+     "locator": "Remark 3.10, p.8",
+     "match": "The modern convention is obtained by negating the first argument without inversion."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/dennis-stein-symbol"
+   ],
+   "planet": {
+    "name": "Dennis–Stein symbols"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/general-relations-calculus",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Dennis–Stein relations over a commutative ring",
+   "kind": "theorem",
+   "statement": "The stable symbols satisfy (D1) D(r,s)=−D(s,r); (D2) D(r,s)+D(r,t)=D(r,s+t−rst) when 1−rs and 1−rt are units; (D3) D(r,st)=D(rs,t)+D(rt,s) when 1−rst is a unit. These hold over every commutative ring, independently of the extra hypotheses needed for a presentation theorem.",
+   "hypotheses": [
+    "A is commutative. Each displayed symbol must be admissible; the stated unit conditions imply this."
+   ],
+   "proofSteps": [
+    "Stein–Dennis Proposition 1.1(H1) gives P(a,b)=−P(−b,−a), hence D1. Its proof rearranges the defining Steinberg word and uses the third-index conjugation identities, not a field reduction.",
+    "For D3 use Proposition 1.1(H5): P(a,bc)=P(ab,c)+P(ac,b). Its Hall–Witt calculation uses x_12(−a), x_23(−b), x_31(−c); the Steinberg commutator relations and centrality of P eliminate the conjugation terms. Put a=−r.",
+    "For D2 put u=1+ab and v=1+ac. Proposition 1.1(H3), with second increment cu, gives P(a,b+cu)=P(a,b)+P(a/u,cu)+{u,v}, because 1+a(b+cu)=uv.",
+    "H5 rewrites P(a/u,cu)=P(a,c)+P(ac/u,u). Since u is a unit, H2 gives P(ac/u,u)={v,u}. Antisymmetry of unit symbols cancels {v,u}+{u,v}. Thus P(a,b+c+abc)=P(a,b)+P(a,c); put a=−r. All denominators are u or v, which are units by hypothesis."
+   ],
+   "acceptance": [
+    "The proofs apply to rings with zero divisors, including ℤ/4.",
+    "For D2, 1−r(s+t−rst)=(1−rs)(1−rt).",
+    "No Matsumoto theorem or local-presentation theorem is used in proving these relations."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/modern-convention-calibration",
+    "K2SymbolsBrauer:T.2/symbol-consequences"
+   ],
+   "sources": [
+    {
+     "sourceId": "SteinDennis1973",
+     "locator": "Proposition 1.1(H1)–(H5) and proof, printed pp.283–285",
+     "match": "The third-index word identities and Hall–Witt calculation prove the relations before any generation theorem."
+    },
+    {
+     "sourceId": "WeibelIII",
+     "locator": "III.5.11, printed pp.43–44 of the separate chapter",
+     "match": "The modern D1–D3 presentation fixes the convention being proved."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/dennis-stein-relations"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/threefold-stability",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Threefold stability",
+   "kind": "definition",
+   "statement": "A commutative ring A is threefold stable if for every three unimodular pairs (a_i,b_i), i=1,2,3, there is t∈A such that every a_i+b_i t is a unit. A pair is unimodular precisely when a_i A+b_i A=A. This predicate is a sufficient hypothesis for the stable Dennis–Stein presentation; it is not imposed on the separate all-local-ring theorem.",
+   "hypotheses": [
+    "A is a commutative unital ring."
+   ],
+   "proofSteps": [
+    "Use the displayed simultaneous-unit condition as the definition. Ring equivalences transport witnesses and unimodular pairs.",
+    "For a semilocal ring reduce the three pairs to its finitely many residue fields. Each pair with b_i nonzero excludes one value of t; a residue field with at least four elements supplies an allowed value. Lift the finitely many choices by the Chinese remainder theorem; the resulting three values avoid all maximal ideals and are units.",
+    "Conversely, in a residue field with at most three elements, the pairs (−c,1) indexed by all field elements, repeated if needed, exclude every t. In a semilocal ring choose these obstructions in that maximal ideal and harmless unit pairs in the others, again by Chinese remaindering."
+   ],
+   "acceptance": [
+    "For semilocal A the predicate is equivalent to every residue field having at least four elements.",
+    "It is invariant under ring equivalence and is preserved by finite products of semilocal rings satisfying the residue criterion."
+   ],
+   "prerequisites": [
+    "mathlib:IsUnit"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kallen1977",
+     "locator": "§5.2 and §5.4(3), printed pp.488–489",
+     "match": "Definition of k-fold stability and the exact semilocal residue-cardinality criterion."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "IsThreefoldStable",
+     "role": "constructor",
+     "statement": "The quantified simultaneous-unit predicate on three unimodular pairs."
+    },
+    {
+     "name": "IsThreefoldStable.exists_unit_perturbation",
+     "role": "projection",
+     "statement": "The definition returns t and the three unit proofs for supplied pairs."
+    },
+    {
+     "name": "IsThreefoldStable.ringEquiv",
+     "role": "functoriality",
+     "statement": "A ring equivalence preserves and reflects the predicate, compatibly with identity and composition."
+    },
+    {
+     "name": "isThreefoldStable_iff_residue_card_ge_four",
+     "role": "characterisation",
+     "statement": "For semilocal A, threefold stability is equivalent to cardinality at least four of every residue field."
+    }
+   ],
+   "tests": [
+    {
+     "name": "threefold_five",
+     "kind": "computation",
+     "statement": "𝔽₅ and ℤ/25 are threefold stable, since their residue fields have five elements."
+    },
+    {
+     "name": "threefold_two_three",
+     "kind": "non-example",
+     "statement": "𝔽₂ and 𝔽₃ are local but not threefold stable: the pairs (−c,1) exclude all t."
+    },
+    {
+     "name": "threefold_product",
+     "kind": "compatibility",
+     "statement": "𝔽₅×𝔽₅ is threefold stable although it is not local."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.6/threefold-dennis-stein-presentation",
+     "how": "The chunk construction needs simultaneous general-position choices."
+    },
+    {
+     "where": "T.6/local-presentation-completeness",
+     "how": "The residue criterion isolates exactly the local rings not covered by this proof."
+    }
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/threefold-dennis-stein-presentation",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Dennis–Stein presentation for threefold stable rings",
+   "kind": "theorem",
+   "statement": "Let D(A) be the abelian group on all admissible pairs (r,s), with relations D1–D3. If A is threefold stable, the map D(A)→K₂(A) sending a generator to the modern stable word is an isomorphism. More precisely D(A)≅K₂(n,A) for n≥3, and these isomorphisms commute with stabilization and ring maps between such rings. No corresponding claim is made for n=2.",
+   "hypotheses": [
+    "A is commutative and threefold stable; n≥3 in the finite-rank assertion."
+   ],
+   "proofSteps": [
+    "The general relations give the homomorphism. Translate van der Kallen’s plus generators by (a,b)↦(−a,b); this transports all presentation relations and the word map exactly.",
+    "For the inverse use the rank-one chunk of §§5.8–5.19: its central coordinate is D(A), and the elementary two-by-two moves give the rank-one Steinberg action and the map of Theorem 5.3. This intermediate rank-two Steinberg kernel is not identified with stable K₂.",
+    "In §§6.3–6.9 glue two overlapping rank-one pieces as triples [x,M,y], with the D-coordinate identified by the equivalence in §6.3. The left and right partially defined elementary translations respect this equivalence and satisfy the local Steinberg relations.",
+    "Section 6.14 uses threefold stability to put any required finite configuration in common general position. Sections 6.16–6.22 extend the local translations uniquely and make composition independent of the chosen general-position move. Section 6.23 obtains a St(3,A) action and reads a kernel word in its central D-coordinate.",
+    "Reading the central coordinate sends each symbol word back to its defining generator; the action reconstructs every kernel word. These are the two inverse identities of Theorem 6.2, not just generation. The injective-stability argument in §§7.2–7.4, together with elementary generation, transports the isomorphism to every n≥3 and the colimit (Theorem 7.1)."
+   ],
+   "acceptance": [
+    "Both composites are identity, on D-generators and on arbitrary Steinberg-kernel words.",
+    "The finite-rank range starts at three; §5.4(6) warns that the rank-two inverse can have kernel.",
+    "The result covers local rings with residue cardinality ≥4 and nonlocal examples such as 𝔽₅×𝔽₅."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/threefold-stability",
+    "K2SymbolsBrauer:T.6/general-relations-calculus",
+    "K2SymbolsBrauer:T.1/k2-definition",
+    "K2SymbolsBrauer:T.6/dennis-stein-presentation"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kallen1977",
+     "locator": "Theorem 5.3, p.489; §§5.8–5.19, pp.491–495; Theorem 6.2 and §§6.3–6.23, pp.496–506; Theorem 7.1 and §§7.2–7.4, pp.507–508",
+     "match": "The central-coordinate construction supplies injectivity and the stable comparison, under threefold stability."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/dennis-stein-presentation"
+   ],
+   "planet": {
+    "name": "Dennis–Stein presentation"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/local-presentation-completeness",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Local Dennis–Stein presentation and its uncovered cases",
+   "kind": "theorem",
+   "statement": "For every commutative local ring A, the modern generator map D(A)→K₂(A) is an isomorphism, including residue fields 𝔽₂ and 𝔽₃. The field cases are imported from T.2 and the inherited T.6 field inverse; local rings with residue cardinality ≥4 use the preceding theorem. The proof for nonfields with residue field 𝔽₂ or 𝔽₃ remains the precisely identified missing input G1.",
+   "hypotheses": [
+    "A is a commutative local ring; there is no hypothesis on its residue-field cardinality."
+   ],
+   "proofSteps": [
+    "Partition into fields, nonfields with residue size ≥4, and nonfields with residue size two or three.",
+    "For fields use the inherited inverse based on Matsumoto; the map is the modern word by modern-convention-calibration. For residue size ≥4 use the semilocal criterion and threefold-dennis-stein-presentation.",
+    "Van der Kallen–Maazen–Stienstra §2.4 states the remaining all-local theorem, but is an announcement. Weibel III.5.11.1(a) also states it. Neither contains the needed small-residue-field injectivity proof. G1 records the exact source and normal-form proof still needed; there is no reduction from locality to threefold stability."
+   ],
+   "acceptance": [
+    "ℤ/4 and ℤ/9 are admissible local examples even though neither is threefold stable.",
+    "Any use of the local presentation in later calculations retains G1 as a prerequisite gap."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/threefold-dennis-stein-presentation",
+    "K2SymbolsBrauer:T.6/dennis-stein-presentation",
+    "K2SymbolsBrauer:T.2/matsumoto"
+   ],
+   "sources": [
+    {
+     "sourceId": "KallenMaazenStienstra1975",
+     "locator": "§2.4, Theorem 1, p.935",
+     "match": "States the all-local presentation but announces rather than proves it."
+    },
+    {
+     "sourceId": "WeibelIII",
+     "locator": "III.5.11.1(a), p.44 of the separate chapter",
+     "match": "States the same local result; its proof is attributed elsewhere."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/dennis-stein-presentation"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/relative-homotopy-fibre-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Relative Steinberg K₂ and the homotopy fibre",
+   "kind": "theorem",
+   "statement": "For an ideal I of a unital ring A, use the augmented double A⋉I with multiplication (a,x)(b,y)=(ab,ay+xb+xy), projections p(a,x)=a and q(a,x)=a+x. St(A,I) is ker St(p) modulo the normal closure of the cross-commutators [x_ij(0,u),x_kl(v,−v)] with u,v∈I, i≠j and k≠l. The q-map gives St(A,I)→E(A,I); its kernel is classical relative K₂(A,I). The target comparison identifies this group naturally with π₂ fib(K(A)→K(A/I)), identifies its forgetful and connecting maps, and extends to the segment K₃(A)→K₃(A/I)→K₂(A,I)→K₂(A)→K₂(A/I)→K₁(A,I).",
+   "hypotheses": [
+    "A is unital and I is two-sided. Commutativity is imposed only for the symbol calculations below.",
+    "The cross-commutator subgroup is normally generated; the four indices need not be pairwise distinct."
+   ],
+   "proofSteps": [
+    "Import the augmented double, its two congruence models and relative K₁ from U.5. The inherited T.6/relative-steinberg-group supplies the relative Steinberg quotient and its elementary map.",
+    "The cross-commutators die under q because x_kl(v,−v) maps to the identity; they die under p because x_ij(0,u) does. The quotient therefore retains the relative root generators and q-map.",
+    "Import the K-theory homotopy fibre from GeneralAlgebraicKTheory:K.5/relative-K-theory. U.5/relative-comparison-of-sequences identifies the absolute K₂ terms and relative K₁ portion, not π₂ of the relative fibre.",
+    "The missing Keune–Loday comparison must construct the relative degree-two map, prove bijectivity and compare the K₃(A/I) boundary as well as the subsequent maps. Levine §2.1 recalls the natural comparison and exact sequence but does not prove it; this is G2.",
+    "For a split quotient A→A/I, the K₃ map is surjective, so the relative-to-absolute K₂ map is injective and identifies the relative group with the kernel. For a nonsplit quotient this conclusion is not automatic."
+   ],
+   "acceptance": [
+    "For I=0 the relative Steinberg group and relative K₂ are zero.",
+    "For a split square-zero extension, the fibre calculation maps injectively to absolute K₂.",
+    "A degree-one fibre comparison or excision claim does not replace G2."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/relative-steinberg-group",
+    "KTheoryLowDegrees:U.5/double-congruence-isom",
+    "KTheoryLowDegrees:U.5/double-relative-K1-isom",
+    "KTheoryLowDegrees:U.5/relative-comparison-of-sequences",
+    "GeneralAlgebraicKTheory:K.5/relative-K-theory"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Definition III.5.7, p.40 of the separate chapter",
+     "match": "Defines the relative Steinberg quotient and the relative exact sequence."
+    },
+    {
+     "sourceId": "Levine1989",
+     "locator": "§2.1, printed pp.289–290",
+     "match": "Recalls the natural relative group, comparison and K₃-to-K₁ exact segment, citing Loday and Keune; it does not supply their proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/relative-steinberg-group"
+   ],
+   "planet": {
+    "name": "Relative Steinberg groups"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/guarded-relative-presentation",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Relative Dennis–Stein presentation with the input guard",
+   "kind": "theorem",
+   "statement": "For commutative A and I⊆Jac(A), classical K₂(A,I) is generated by D(r,s) with r∈I or s∈I. D1 and D2 are imposed only when all displayed symbols are relative. D3 is imposed only when at least one of its INPUTS r,s,t lies in I. For D2 this eligibility says r∈I or both s,t∈I. These are presentations of the relative group, not just of its image in K₂(A). The generation and full kernel proof of Keune’s Theorem 15 is input G3.",
+   "hypotheses": [
+    "I is contained in the Jacobson radical, not merely a radical ideal in the scheme-theoretic sense.",
+    "For the eligible symbols 1−rs is a unit; an element of I is not required to be nilpotent."
+   ],
+   "proofSteps": [
+    "Use the relative Steinberg quotient and lift D(r,x), x∈I, by the double symbol with entries (r,0),(0,x); obtain the other order through D1.",
+    "The guarded D-relations map into the relative kernel. Full injectivity and generation must be proved inside that quotient, not inferred from the absolute ring presentation. Levine §2.1 states Keune Theorem 15 with exactly the input guard.",
+    "The split-radical theorem announced in van der Kallen–Maazen–Stienstra §2.6 does not establish nonsplit pairs. Keune 1978 was not accessible; G3 retains the full relative presentation proof.",
+    "The input guard is essential. In A=𝔽₃[x,y]/(x²,y²), I=(xy), take (r,s,t)=(x,y,x+y), all outside I. All three output pairs of D3 are relative, but the differential map below sends the left side to (−1,0) and the two right terms to (1,1) and (0,1) in the basis xy⊗dx,xy⊗dy. Their difference is (1,1)≠0. Imposing all output-eligible triples gives a false relation."
+   ],
+   "acceptance": [
+    "The guard is checked on r,s,t, before their products are formed.",
+    "The square-zero calculations use this guarded presentation and explicitly retain G3.",
+    "For I=0 there are only zero-entry relative symbols, all zero."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/relative-homotopy-fibre-comparison",
+    "K2SymbolsBrauer:T.6/general-relations-calculus",
+    "mathlib:Ideal.jacobson",
+    "K2SymbolsBrauer:T.6/relative-presentation"
+   ],
+   "sources": [
+    {
+     "sourceId": "Levine1989",
+     "locator": "The unnumbered theorem in §2.1, p.290, attributed to Keune Theorem 15",
+     "match": "States the Jacobson-radical hypothesis and the input-guarded relative relations."
+    },
+    {
+     "sourceId": "KallenMaazenStienstra1975",
+     "locator": "§2.6, Theorem 2, p.935",
+     "match": "The announced split-pair presentation has an extra splitting hypothesis and cannot close the general relative proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/relative-presentation"
+   ],
+   "planet": {
+    "name": "Relative Dennis–Stein presentation"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/relative-differential",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "The relative differential symbol",
+   "kind": "construction",
+   "statement": "For commutative A and I⊆Jac(A), set B=A/I and Ω=Ω¹_{B/ℤ}. The relative symbol differential δ:K₂(A,I)→I⊗_A Ω is the additive homomorphism specified by δD(x,r)=x⊗d(r̄) and δD(r,x)=−x⊗d(r̄), for x∈I. It is surjective and natural for maps of pairs. If both entries lie in I the two formulas both give zero. Its construction from classical K₂ uses the guarded relative presentation, hence G3.",
+   "hypotheses": [
+    "A is commutative; I⊆Jac(A).",
+    "The tensor product is over A via A→B on Ω, so I²⊗Ω vanishes. The base of differentials is ℤ."
+   ],
+   "proofSteps": [
+    "Use the real Mathlib Kähler differential and its universal derivation for Ω, rather than a vector space presented as a substitute.",
+    "Check D1 by swapping signs. For D2, if r∈I, the reduced second argument is s̄+t̄; if r∉I, eligibility forces s,t∈I and the correction rst lies in I² and tensors to zero.",
+    "For D3 with r∈I use d(s̄t̄)=s̄ d(t̄)+t̄ d(s̄). With s∈I the right side becomes rs⊗d(t̄)−s⊗d(r̄t̄)=−st⊗d(r̄), as required. The t∈I case follows by interchanging s,t. Overlapping cases agree because d(I)=0 in B.",
+    "The presentation descends these values to a homomorphism. Pure tensors x⊗d(b) generate the target and lift to D(x,r), so δ is onto. Functoriality follows on these generators; uniqueness is the relative presentation’s generation statement."
+   ],
+   "acceptance": [
+    "For I²=0, δD(I,I)=0.",
+    "For any map of radical pairs, the δ-square commutes with its induced tensor-differential map."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/guarded-relative-presentation",
+    "mathlib:KaehlerDifferential",
+    "mathlib:KaehlerDifferential.D"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Exercise III.5.14(a)–(b), printed p.46 of the separate chapter",
+     "match": "The exercise gives the relative differential and its square-zero kernel; the proof here checks each guarded relation."
+    },
+    {
+     "sourceId": "KallenDual1971",
+     "locator": "The unnumbered theorem and corollary, p.1204, with proof pp.1205–1207",
+     "match": "The dual-number differential comparison motivates the generator formula and the torsion test."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/relative-square-zero"
+   ],
+   "api": [
+    {
+     "name": "relativeSymbolDifferential",
+     "role": "constructor",
+     "statement": "The unique additive map with the two displayed generator formulas."
+    },
+    {
+     "name": "relativeSymbolDifferential_left",
+     "role": "simp",
+     "statement": "δD(x,r)=x⊗d(r̄) for x∈I."
+    },
+    {
+     "name": "relativeSymbolDifferential_right",
+     "role": "simp",
+     "statement": "δD(r,x)=−x⊗d(r̄) for x∈I."
+    },
+    {
+     "name": "relativeSymbolDifferential_surjective",
+     "role": "universal-property",
+     "statement": "Every x⊗d(b) has a preimage D(x,lift b)."
+    },
+    {
+     "name": "relativeSymbolDifferential_natural",
+     "role": "functoriality",
+     "statement": "For a ring map f:A→A′ with f(I)⊆I′, δ′K₂(f)= (f_I⊗Ω(f̄))δ, compatibly with identities and composites."
+    }
+   ],
+   "tests": [
+    {
+     "name": "differential_dual_variable",
+     "kind": "computation",
+     "statement": "For A=ℚ[t][ε]/ε², I=(ε), δD(ε,t)=dt≠0 under I⊗Ω_{ℚ[t]/ℤ}≅Ω_{ℚ[t]/ℤ}."
+    },
+    {
+     "name": "differential_swapped_variable",
+     "kind": "compatibility",
+     "statement": "In the same pair, δD(t,ε)=−dt; omitting the relative-order sign fails this."
+    },
+    {
+     "name": "differential_two_ideal_entries",
+     "kind": "degenerate",
+     "statement": "δD(aε,bε)=0 for all a,b; this does not assert D(aε,bε)=0."
+    },
+    {
+     "name": "differential_input_guard",
+     "kind": "non-example",
+     "statement": "For A=𝔽₃[x,y]/(x²,y²), I=(xy), the output-only D3 guard produces the nonzero defect (1,1) described above."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.6/square-zero-differential-kernel",
+     "how": "Identifies the quotient by symbols with two ideal entries."
+    },
+    {
+     "where": "T.6/dual-number-differential-isom",
+     "how": "Computes the square-zero examples through actual Kähler differentials."
+    }
+   ],
+   "planet": {
+    "name": "Relative differential symbols"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/square-zero-differential-kernel",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "The square-zero kernel of the differential",
+   "kind": "theorem",
+   "statement": "If I²=0 in a commutative ring A, then I⊆Jac(A), and ker δ is exactly the subgroup S generated by the symbols D(x,y), x,y∈I. Consequently K₂(A,I)/S≅I⊗_A Ω¹_{(A/I)/ℤ}. Even when 2 is invertible, S need not vanish for a general square-zero ideal.",
+   "hypotheses": [
+    "A is commutative and I²=0.",
+    "The relative presentation is used subject to G3."
+   ],
+   "proofSteps": [
+    "For x∈I and a∈A, (1−ax)(1+ax)=1; this proves I⊆Jac(A) and automatic admissibility. The differential annihilates S.",
+    "Modulo S define B(x,b)=D(x,lift b). A change of lift by I changes the symbol by elements of S, using D2 and I²=0. D1 and D2 give additivity in x and b after the correction xrs∈I is discarded.",
+    "D3 gives B(x,bc)=B(xb,c)+B(xc,b). The abelian presentation of I⊗Ω_B by pairs (x,b), additivity and this balanced Leibniz relation therefore gives the inverse map. This argument uses a tensor presentation; it does not assume an A-module structure on K₂(A,I)/S.",
+    "For a sharp non-example take A=ℚ⊕ℚ² with square-zero ideal I=ℚ². For r=a+x, s=b+y with 1−ab≠0, λD(r,s)=det(x,y)/(1−ab) respects D1–D3. In D2 the numerator becomes (1−ac)det(x,y)+(1−ab)det(x,z) and the denominator becomes (1−ab)(1−ac); in D3 the two determinant cross-terms cancel. Restrict to relative symbols. Then D(e₁,e₂) maps to 1, while Ω_{ℚ/ℤ}=0, so S≠0 although 2 is a unit."
+   ],
+   "acceptance": [
+    "The inverse is independent of lifts and has both inverse identities.",
+    "Square-zero does not mean the double-entry symbols vanish.",
+    "The non-example distinguishes an arbitrary square-zero ideal from the principal dual-number ideal."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/relative-differential",
+    "K2SymbolsBrauer:T.6/general-relations-calculus",
+    "mathlib:TrivSqZeroExt"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Exercise III.5.14(a)–(b), printed p.46 of the separate chapter",
+     "match": "Gives the square-zero differential kernel and the relevant examples; the tensor-presentation proof supplies the missing argument."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/relative-square-zero"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/dual-number-differential-isom",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "Relative K₂ of dual numbers with two invertible",
+   "kind": "theorem",
+   "statement": "For a commutative ring R with 2∈Rˣ, let A=R[ε]/ε² and I=εR. The homomorphism δ induces K₂(A,I)≅Ω¹_{R/ℤ}, taking D(aε,b) to a db. The splitting A→R identifies this relative group with the kernel of K₂(A)→K₂(R); its further identification with the homotopy-fibre group uses G2.",
+   "hypotheses": [
+    "R is commutative and 2 is a unit.",
+    "A and I are the native DualNumber or equivalent TrivSqZeroExt carrier and its augmentation ideal; the presentation uses G3."
+   ],
+   "proofSteps": [
+    "Use the square-zero kernel theorem. D3 and ε²=0 give D(aε,bε)=D(abε,ε). The right side is symmetric in a,b, whereas D1 negates it, so every such symbol is killed by two.",
+    "Additivity in the first nilpotent entry gives D(cε,ε)=2D((c/2)ε,ε)=0. Thus S=0, and I⊗_A Ω_R≅Ω_R by aε⊗ω↦aω.",
+    "The inverse sends a db to D(aε,b); additivity, balanced Leibniz and independence of presentations follow from square-zero-differential-kernel. The split relative exact sequence gives the classical absolute-kernel interpretation."
+   ],
+   "acceptance": [
+    "For R=ℚ[t], the class D(ε,t) corresponds to dt and is nonzero.",
+    "For an odd finite field R, Ω_{R/ℤ}=0, hence the relative group is zero.",
+    "For R=ℤ, the relative group is ℤ/2 rather than Ω_{ℤ/ℤ}=0 (van der Kallen 1971); the hypothesis on two cannot be omitted."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/square-zero-differential-kernel",
+    "K2SymbolsBrauer:T.6/relative-homotopy-fibre-comparison",
+    "mathlib:DualNumber",
+    "mathlib:DualNumber.eps_mul_eps"
+   ],
+   "sources": [
+    {
+     "sourceId": "KallenDual1971",
+     "locator": "The unnumbered theorem, corollary and Example 1, p.1204; proof pp.1205–1207",
+     "match": "Computes dual-number relative K₂ and exhibits the integral two-torsion obstruction."
+    },
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Exercise III.5.14(c), p.47 of the separate chapter",
+     "match": "Dual numbers and their odd-characteristic specializations are among the required tests."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/relative-square-zero"
+   ],
+   "planet": {
+    "name": "K₂ of dual numbers"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/zmod-four-symbol-detector",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "A detector for K₂ of ℤ/4",
+   "kind": "construction",
+   "statement": "For A=ℤ/4, define λ on admissible pairs by λ(2,2)=λ(2,3)=λ(3,2)=1 in ℤ/2, and λ=0 on the other admissible pairs. It satisfies D1–D3 and therefore induces K₂(ℤ/4)→ℤ/2 through the local presentation. Its inverse sends 1 to g=D(3,2)={−1,−1}, giving K₂(ℤ/4)≅ℤ/2. The use of the all-local presentation retains G1.",
+   "hypotheses": [
+    "The ring is ℤ/4; admissibility means rs is even.",
+    "The source group is the actual local Steinberg kernel via local-presentation-completeness."
+   ],
+   "proofSteps": [
+    "There are twelve admissible pairs. Check the three relations by arithmetic modulo four and two; no enumeration of unrestricted nonadmissible generators is used.",
+    "Symbols with a zero entry vanish. D(1,2)={1,−1}=0 and D(2,1)=0. D1 gives D(2,3)=−g; D2 with r=2,s=2,t=1 gives D(2,2)=D(2,3)=−g. D1 at (2,2) then gives 2g=0.",
+    "The remaining admissible pairs have already been covered. Thus g generates and has order dividing two. The table gives λ(g)=1, providing the lower bound. Consequently the proposed maps have both inverse identities.",
+    "The unit formula identifies g=D(3,2)={3,3}={−1,−1}. The detector also gives a relative test for the ideal (2); no identification of an arbitrary relative group with an absolute kernel is inferred."
+   ],
+   "acceptance": [
+    "Both the upper bound and a nonzero lower-bound detector are present.",
+    "The same table is not asserted for ℤ/8 without rechecking its different admissible pairs."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/local-presentation-completeness",
+    "K2SymbolsBrauer:T.6/general-relations-calculus"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Exercise III.5.13, printed p.46 of the separate chapter",
+     "match": "The dyadic family includes the ℤ/4 example; the finite presentation proof and detector are given here."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/relative-square-zero"
+   ],
+   "api": [
+    {
+     "name": "zmodFourSymbolParity",
+     "role": "constructor",
+     "statement": "The displayed function on (ℤ/4)² with values in ℤ/2; only admissible pairs define K₂ generators."
+    },
+    {
+     "name": "zmodFourSymbolParity_relations",
+     "role": "relation",
+     "statement": "The table satisfies D1–D3 on their exact admissible domains."
+    },
+    {
+     "name": "zmodFourK2Equiv",
+     "role": "equivalence",
+     "statement": "The induced map K₂(ℤ/4)≃ℤ/2 has inverse 1↦D(3,2)."
+    },
+    {
+     "name": "zmodFourK2Equiv_generator",
+     "role": "simp",
+     "statement": "The equivalence sends {−1,−1} to 1 and the zero class to 0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "zmodFour_double_even",
+     "kind": "computation",
+     "statement": "λ(2,2)=1, so nilpotent double-entry symbols need not vanish."
+    },
+    {
+     "name": "zmodFour_unit_one",
+     "kind": "degenerate",
+     "statement": "λ(1,2)=λ(2,1)=0, agreeing with the unit symbol involving 1."
+    },
+    {
+     "name": "zmodFour_unit_generator",
+     "kind": "compatibility",
+     "statement": "λ(3,2)=1 and D(3,2)={3,3}; the zero detector would miss this class."
+    },
+    {
+     "name": "zmodFour_admissibility",
+     "kind": "non-example",
+     "statement": "(1,1) is not admissible since 1−1·1=0 is not a unit; its table value is not a K₂ generator."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.6/dyadic-nilpotent-computation",
+     "how": "Supplies the base case and an independent nonzero detector."
+    },
+    {
+     "where": "T.6/relative-square-zero",
+     "how": "Tests the nonvanishing double-ideal-entry kernel at two."
+    }
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.6/dyadic-nilpotent-computation",
+   "parentStageId": "K2SymbolsBrauer:T.6",
+   "realises": [
+    "K2SymbolsBrauer:T.6"
+   ],
+   "title": "The uniform dyadic nilpotent example",
+   "kind": "theorem",
+   "statement": "For every n≥2, reduction ℤ/2ⁿ→ℤ/4 induces an isomorphism K₂(ℤ/2ⁿ)≅K₂(ℤ/4)≅ℤ/2, sending {−1,−1} to the nonzero class. In contrast K₂(𝔽₂)=0. The argument is uniform and uses only the local presentation (retaining G1), the unit-symbol calculus and CA.1’s explicit unit generators.",
+   "hypotheses": [
+    "n is an integer with n≥2.",
+    "Use the all-local presentation subject to G1; no separate dyadic computation is assumed."
+   ],
+   "proofSteps": [
+    "The case n=2 is the detector calculation above. Let n≥3 and A=ℤ/2ⁿ. Every admissible D(r,s) is a unit symbol if either entry is a unit. If neither is a unit, both are even: D2 with increment 1 gives D(r,s)=D(r,s+1−rs), because D(r,1)=0. Its new second entry is odd, hence a unit. Thus unit symbols generate K₂(A), directly from the local presentation.",
+    "Import CA.1/unit-group-of-a-power-of-two: Aˣ is generated by −1 and 5. Bilinearity and skew-symmetry imply K₂(A) is generated by a={−1,−1}, b={−1,5}, c={5,5}. All three have order dividing two: for a and b use the order of −1; for c use skew-symmetry. Therefore all of K₂(A) has exponent dividing two.",
+    "The unit formula and D3 give b=D(−1,4)=D(−2,2)+D(−2,2)=0. Every term is admissible because the common unit condition is 1+4=5. The general unit identity {u,u}={u,−1} from T.2/symbol-consequences gives c=−b=0. Thus a alone generates, with order at most two.",
+    "Naturality sends a to the nonzero generator of K₂(ℤ/4), detected by zmodFourSymbolParity. This supplies the matching lower bound and proves reduction is an isomorphism, uniformly for every n≥3. The argument does not extrapolate from the finite checks at n=3,4."
+   ],
+   "acceptance": [
+    "Both the uniform upper bound and the reduction detector are proved.",
+    "The order-two argument is used before concluding 2D(−2,2)=0; nilpotence alone would not justify that step.",
+    "The exclusion n=1 is required."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.6/zmod-four-symbol-detector",
+    "K2SymbolsBrauer:T.6/local-presentation-completeness",
+    "K2SymbolsBrauer:T.6/general-relations-calculus",
+    "K2SymbolsBrauer:T.2/steinberg-symbol",
+    "K2SymbolsBrauer:T.2/symbol-consequences",
+    "K2SymbolsBrauer:T.2/k2-finite-field",
+    "ClassicalArithmeticCompletion:CA.1/unit-group-of-a-power-of-two"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Exercise III.5.13, printed p.46 of the separate chapter; III.5.10–5.11, pp.42–44",
+     "match": "The exercise states the dyadic target. The proof above combines its local presentation with explicit unit generators already owned by CA.1; the unit-symbol identities are the existing T.2 input."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.6/relative-square-zero"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/native-kummer-cup-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "The native Kummer cup formula",
+   "kind": "comparison",
+   "statement": "For a field F, m≥2 invertible in F and a,b∈Fˣ, the imported map h_{F,m}:K₂(F)/m→H²(F,μ_m^{⊗2}) takes {a,b} to κ_m(a)∪κ_m(b). Here κ_m(a) is the additive class corresponding to TauCeti.kummerMap, whose cocycle is g↦g(α)/α for αᵐ=a. Under M.1’s cup-compatible field comparison, h agrees with explicitCup11 for the canonical tensor pairing into M.1’s weight-two twist.",
+   "hypotheses": [
+    "F is a field and m≥2 is a unit in F.",
+    "No primitive root is assumed in F for this tensor-valued statement."
+   ],
+   "proofSteps": [
+    "Import M.3/galois-symbol, M.1/finite-tate-twist and the field étale/Galois comparison. The formula and Steinberg descent are owned there, not constructed again.",
+    "At the pinned Tau Ceti declarations, kummerMap_eq_kummerCocycleClass identifies the actual Kummer class. explicitCup11 uses the cocycle (g,h)↦κ(a)(g)⊗gκ(b)(h), rather than an abstract bilinear operation with unspecified comparison. The pinned kummerMap_eq_one_iff supplies vanishing on m-th powers; this existing Kummer-kernel fact is imported, not a new target.",
+    "Transport that cocycle through the coefficient identification supplied by M.1 and the cup-compatible field comparison. Equality on symbols gives equality of the homomorphisms by T.2’s generator theorem. Coefficient power maps and field restriction are those of M.3/galois-symbol."
+   ],
+   "acceptance": [
+    "An m-th power in either slot gives zero.",
+    "The tensor-valued map exists without μ_m⊆F; scalar trivialization requires the extra root choice.",
+    "For m=2 and F=ℝ, {−1,−1} maps to the nonzero quaternion class after contraction."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheory:M.3/galois-symbol",
+    "MotivicEtaleKTheory:M.1/finite-tate-twist",
+    "MotivicEtaleKTheory:M.1/field-etale-galois-comparison",
+    "K2SymbolsBrauer:T.2/symbols-generate",
+    "tauceti:TauCeti.kummerMap_eq_kummerCocycleClass",
+    "tauceti:TauCeti.ContCohomology.explicitCup11",
+    "tauceti:TauCeti.kummerMap_eq_one_iff"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Formula (III.6.10.2), p.58, and Proposition III.6.10.3, p.59 of the separate chapter",
+     "match": "The Galois symbol is the cup product; M.3 is the existing owner of its construction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.7/symbol-formula"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "Primitive-root contraction and the Brauer symbol",
+   "kind": "construction",
+   "statement": "Suppose μ_m⊆F and ζ∈F is primitive of order m. The trivialization τ_{ζ,j}:ℤ/m≃μ_m^{⊗j} sends 1 to ζ^{⊗j} for j≥0 and uses the dual basis for j<0. Define the bilinear Galois-equivariant contraction c_ζ:μ_m⊗_{ℤ/m}μ_m→μ_m by c_ζ(ζⁱ⊗ζʲ)=ζ^{ij}. The Brauer symbol β_ζ is h_{F,m}, followed by c_ζ on H² and the Kummer injection H²(F,μ_m)→Br(F)[m]. For u∈(ℤ/m)ˣ, τ_{ζᵘ,j}=τ_{ζ,j}∘(uʲ·), c_{ζᵘ}=u⁻¹c_ζ and β_{ζᵘ}=u⁻¹β_ζ. The scalar trivialization of the weight-two twist alone changes by u⁻²; it is different from the Brauer contraction.",
+   "hypotheses": [
+    "F is a field, m≥2 invertible in F, and ζ∈F is primitive of order m.",
+    "The Brauer identification with central simple algebras is imported from QuadraticFormInvariants 7B, not defined here."
+   ],
+   "proofSteps": [
+    "Use M.1’s tensor and dual twist modules. Import ClassFieldTheory.kummerCupPairing and its bil_apply formula from current Tau Ceti: its value on ζⁱ,ζʲ is ζ^{ij}. The new rootCupContraction API transports that existing bilinear pairing across M.1’s tensor universal property; it does not reconstruct the coefficient pairing.",
+    "The exponent formula is bilinear and equivariant because ζ lies in F. Import ClassFieldTheory.h2MuToBr and h2MuToBr_injective, with their m-torsion image, rather than constructing another Kummer-to-Brauer map. Transport M.1’s coefficient model to this map; QFI 7B supplies its central-simple-algebra interpretation.",
+    "Replacing ζ by ζᵘ changes each input exponent by u⁻¹ and the output root by u; the combined factor is u⁻¹. For τ in degree j the factor is uʲ, including inverse powers for dual twists. Naturality is with respect to root-preserving field embeddings.",
+    "For m=2 the primitive root is −1 and c_ζ is canonical. The existing quaternion cup comparison fixes this specialization. For m=1 all coefficients and symbols are trivial, separately from the primitive-root formulas."
+   ],
+   "acceptance": [
+    "No scalar trivialization is used before choosing ζ in F.",
+    "Root multiplication is not bilinear on the additive root module; the exponent-product formula is essential."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/native-kummer-cup-comparison",
+    "MotivicEtaleKTheory:M.1/finite-tate-twist",
+    "MotivicEtaleKTheory:M.1/etale-kummer-sequences",
+    "mathlib:IsPrimitiveRoot.zmodEquivZPowers",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Proposition III.6.9.2, p.57; Example III.6.10.1, p.58; Remark III.6.10.4, p.59 of the separate chapter",
+     "match": "The root choice reads the weight-two symbol in Brauer cohomology; the exponent calculation pins its change of root."
+    },
+    {
+     "sourceId": "MilneCFT2020",
+     "locator": "III §4, Steps 1–2, pp.111–112",
+     "match": "Kummer roots, cup products and cyclic classes are compared with explicit coefficient conventions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.7/twisted-roots-of-unity",
+    "K2SymbolsBrauer:T.7/brauer-valued-symbol"
+   ],
+   "api": [
+    {
+     "name": "rootTwistTrivialization",
+     "role": "constructor",
+     "statement": "The ℤ/m-linear equivalence τ_{ζ,j}, with the tensor basis in nonnegative degree and dual basis in negative degree."
+    },
+    {
+     "name": "rootCupContraction",
+     "role": "constructor",
+     "statement": "The tensor-factorization of the imported kummerCupPairing, with c_ζ(ζⁱ⊗ζʲ)=ζ^{ij}; this is a coefficient-model adapter."
+    },
+    {
+     "name": "brauerSymbol",
+     "role": "constructor",
+     "statement": "The unique additive map β_ζ with value [c_ζ(κ(a)∪κ(b))] on symbols."
+    },
+    {
+     "name": "rootTwistTrivialization_change",
+     "role": "compatibility",
+     "statement": "τ_{ζᵘ,j}=τ_{ζ,j}∘(uʲ·) for u a unit modulo m."
+    },
+    {
+     "name": "brauerSymbol_change",
+     "role": "relation",
+     "statement": "β_{ζᵘ}(x)=u⁻¹β_ζ(x), with the same target Br(F)[m]."
+    },
+    {
+     "name": "brauerSymbol_map",
+     "role": "functoriality",
+     "statement": "Root-preserving field embeddings carry β_ζ to β_{fζ}; identity and composition follow on symbols."
+    },
+    {
+     "name": "brauerSymbol_quaternion",
+     "role": "compatibility",
+     "statement": "For m=2, β_{−1}{a,b} is the quaternion Brauer class supplied by QFI 7B."
+    }
+   ],
+   "tests": [
+    {
+     "name": "root_change_five",
+     "kind": "computation",
+     "statement": "For m=5 and ζ′=ζ², β_{ζ′}=3β_ζ, whereas the scalar weight-two coordinate changes by 4."
+    },
+    {
+     "name": "root_contraction_two_five",
+     "kind": "computation",
+     "statement": "For m=5, c_ζ(ζ²⊗ζ³)=ζ; multiplying the roots instead gives 1 and fails bilinearity."
+    },
+    {
+     "name": "root_choice_required",
+     "kind": "non-example",
+     "statement": "Over ℚ and m=3 the tensor-valued h exists but no primitive-root scalar trivialization over ℚ is available."
+    },
+    {
+     "name": "root_quaternion",
+     "kind": "compatibility",
+     "statement": "At m=2, ζ=−1, β{−1,−1} over ℝ is Hamilton’s class and has invariant 1/2."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.7/cyclic-algebra-cup-comparison",
+     "how": "Identifies the explicit cyclic symbol algebra with the root-dependent Brauer value."
+    },
+    {
+     "where": "T.7/normalized-local-invariant-comparison",
+     "how": "Translates the Brauer invariant into a root-independent Hilbert symbol."
+    }
+   ],
+   "planet": {
+    "name": "Brauer-valued symbols"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/cyclic-symbol-algebra",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "The cyclic symbol algebra",
+   "kind": "construction",
+   "statement": "For a field F with m≥2 invertible and ζ primitive of order m in F, and a,b∈Fˣ, let A_ζ(a,b) be the F-algebra generated by X,Y with Xᵐ=a, Yᵐ=b and YX=ζXY. It has basis XⁱYʲ, 0≤i,j<m, dimension m², and is central simple, hence defines a Brauer class. The algebra remains defined when F(a^{1/m}) has degree less than m; the full cyclic extension degree is not a hypothesis.",
+   "hypotheses": [
+    "F is a field; m≥2 is invertible; ζ∈F is primitive; a,b are units."
+   ],
+   "proofSteps": [
+    "Give the vector space with the displayed basis its multiplication by commuting Y-powers past X-powers and reducing exponents with a and b. The factor ζ^{j i′} and the two carry factors make multiplication associative; verify this on basis triples.",
+    "Over a separable closure choose αᵐ=a. On a basis e₀,…,e_{m−1}, put Xe_i=αζⁱe_i, Ye_i=e_{i−1} for i>0 and Ye₀=b e_{m−1}. Then Xᵐ=a, Yᵐ=b and YX=ζXY. The distinct diagonal entries give every diagonal idempotent, and the invertible weighted shift supplies all matrix units, so the algebra is Mat_m.",
+    "Faithful field extension descends centrality and simplicity. The basis construction gives the universal property and root-preserving scalar-extension isomorphisms.",
+    "If a=αᵐ with α∈F, the same weighted-shift construction is defined over F using b itself; no m-th root of b is required. Hence the algebra is already split. The case m=2 has anticommuting generators and recovers the quaternion algebra."
+   ],
+   "acceptance": [
+    "The relation is YX=ζXY; changing it to XY=ζYX reverses the Brauer class for m>2.",
+    "The algebra has dimension m² even if the Kummer field has smaller degree.",
+    "Splitting is proved from the displayed matrices; a nonscalar u with uᵐ=1 alone is insufficient without dim_F F[u]=m (the correction to Weibel III.6.9.1)."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Cyclic Algebras III.6.9, p.57, and Remark III.6.10.4, p.59 of the separate chapter",
+     "match": "Defines the cyclic symbol algebra and its basis; the weighted-shift argument here checks splitting when only a is an m-th power."
+    },
+    {
+     "sourceId": "MilneCFT2020",
+     "locator": "III §4, Step 1, p.111 and Step 2, p.112",
+     "match": "Cyclic extensions and the corresponding cup/carry cocycle support the Brauer comparison."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "cyclicSymbolAlgebra",
+     "role": "constructor",
+     "statement": "The algebra with the stated basis, relations and multiplication."
+    },
+    {
+     "name": "cyclicSymbolAlgebra.lift",
+     "role": "universal-property",
+     "statement": "A pair of elements in an F-algebra satisfying Xᵐ=a, Yᵐ=b, YX=ζXY induces a unique F-algebra map."
+    },
+    {
+     "name": "cyclicSymbolAlgebra.basis",
+     "role": "data",
+     "statement": "The m² monomials XⁱYʲ form an F-basis."
+    },
+    {
+     "name": "cyclicSymbolAlgebra.baseChange",
+     "role": "functoriality",
+     "statement": "Root-preserving field embeddings give the canonical scalar-extension algebra isomorphism, with identity and composition laws."
+    },
+    {
+     "name": "cyclicSymbolAlgebra.split",
+     "role": "equivalence",
+     "statement": "After adjoining an m-th root of a, the algebra is isomorphic to Mat_m of that field; an m-th root of b is unnecessary."
+    },
+    {
+     "name": "cyclicSymbolAlgebra.quaternion",
+     "role": "compatibility",
+     "statement": "For m=2 and ζ=−1 the algebra is the quaternion algebra (a,b)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "cyclic_split_power",
+     "kind": "degenerate",
+     "statement": "If a∈F^{×m}, A_ζ(a,b)≅Mat_m(F); treating F(a^{1/m}) as a degree-m field would fail."
+    },
+    {
+     "name": "cyclic_quaternion",
+     "kind": "compatibility",
+     "statement": "For m=2, a=b=−1 over ℝ this is Hamilton’s algebra, not a split matrix algebra."
+    },
+    {
+     "name": "cyclic_degree_drop",
+     "kind": "non-example",
+     "statement": "For m=4, a=c² with c nonsquare, A_ζ(c²,b)≅Mat₂(A_{ζ²}(c,b)); its dimension is 16, not 4."
+    },
+    {
+     "name": "cyclic_cubic_direction",
+     "kind": "computation",
+     "statement": "Over ℚ₇ with m=3 and ζ reducing to 2, A_ζ(3,7) has invariant 1/3 in the arithmetic-Frobenius normalization."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.7/cyclic-algebra-cup-comparison",
+     "how": "The concrete algebra is compared with β on every symbol, including degree-drop cases."
+    },
+    {
+     "where": "T.7/normalized-local-invariant-comparison",
+     "how": "The cubic example tests the sign of the invariant adapter."
+    }
+   ],
+   "planet": {
+    "name": "Cyclic symbol algebras"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/cyclic-algebra-cup-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "Cyclic algebras represent the Brauer symbol",
+   "kind": "theorem",
+   "statement": "Under the hypotheses of cyclic-symbol-algebra, [A_ζ(a,b)]=β_ζ{a,b} in Br(F)[m]. Import current ClassFieldTheory.h2MuToBr_cup_kummerClass and QFI 7B’s generic crossed-product comparison. The new adapter identifies the displayed symbol algebra, including its proper-degree matrix corner, with those existing cyclic-class and cup maps.",
+   "hypotheses": [
+    "F is a field with μ_m⊆F, m invertible, ζ primitive, and a,b∈Fˣ."
+   ],
+   "proofSteps": [
+    "Choose αᵐ=a, let L=F(α), d=[L:F] dividing m, and e=m/d. Write ζ_d=ζᵉ. The Kummer character has image generated by ζ_d; hence c=αᵈ∈F, a=cᵉ and L=F(c^{1/d}), with generator σ(α)=ζ_dα.",
+    "The étale algebra F[X]/(Xᵐ−a) has e factors F[X]/(Xᵈ−ηʲc), η=ζᵈ, each isomorphic to L. Conjugation by Y cycles their primitive idempotents. The corner at the factor Xᵈ=c is generated by X,Yᵉ, satisfies (Yᵉ)ᵈ=b and YᵉX=ζ_dXYᵉ, and is the cyclic crossed product (L/F,σ,b). The orbit gives A_ζ(a,b)≅Mat_e((L/F,σ,b)). For d=1 this is split.",
+    "Import current ClassFieldTheory.h2MuToBr_cup_kummerClass with its inputs reversed, namely (b,a), the root α and generator σ. Its hypotheses allow any d dividing m and σ(α)=ζ^{m/d}α. It identifies β_ζ{b,a} with minus the inflation of cyclicClass(σ,b). This theorem is already proved for arbitrary fields, not only local fields.",
+    "Use the imported symmetry of kummerCupPairing and graded skew-symmetry of the degree-(1,1) cup to obtain β_ζ{a,b}=infl(cyclicClass(σ,b)). No new Kummer/carry-cocycle comparison is planned. In carry coordinates the class is B(g,h)=b^{floor((p(g)+p(h))/d)}, where g(α)/α=ζ_d^{p(g)}; this pins the orientation for the algebra comparison.",
+    "QFI’s existing brauerCohomologyEquiv_crossedProductClass identifies that cyclic carry class with the corner (L/F,σ,b). Transport through its existing cohomology and Brauer equivalences, then use the matrix decomposition. For d=1 the imported cyclic class and cup are zero and the algebra is split. The same argument therefore covers every degree-drop case."
+   ],
+   "acceptance": [
+    "Check the map-level equality on each {a,b}, not an abstract isomorphism of groups.",
+    "For m=4 and a=c², the proof reduces to the quadratic corner and does not assume degree four.",
+    "At m=2 this agrees with brauerCohomologyEquiv_quaternionClass already implemented in current Tau Ceti."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/cyclic-symbol-algebra",
+    "K2SymbolsBrauer:T.7/native-kummer-cup-comparison",
+    "K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter",
+    "tauceti:TauCeti.ContCohomology.explicitCup11_eq_neg_flip",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+   ],
+   "sources": [
+    {
+     "sourceId": "MilneCFT2020",
+     "locator": "III §4, Step 1 and Step 2, pp.111–112",
+     "match": "The Kummer cup, character and cyclic carry cocycle motivate this explicit comparison."
+    },
+    {
+     "sourceId": "WeibelIII",
+     "locator": "Remark III.6.10.4, p.59 of the separate chapter",
+     "match": "States the cyclic-algebra interpretation; the matrix corner and the imported ordered Kummer/cyclic comparison specify the algebra and its sign."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.7/brauer-valued-symbol"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/normalized-local-invariant-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "The Hilbert symbol and the normalized local invariant",
+   "kind": "theorem",
+   "statement": "Let F be a nonarchimedean local field, m≥2 invertible in F and μ_m⊆F. Write H_m(a,b)=Art_F(a)(b^{1/m})/b^{1/m} for the symbol owned by ClassicalArithmeticCompletion CA.1, with arithmetic Frobenius. If e_m:(ℚ/ℤ)[m]≃ℤ/m takes [k/m] to k, then H_m(a,b)=ζ^{−e_m(inv_F(β_ζ{a,b}))}. Equivalently the positive invariant coordinate computes H_m(b,a). The local cohomological symbol of ClassFieldTheory Layer 5 is the positive coordinate when its trace is the normalized Brauer-invariant map.",
+   "hypotheses": [
+    "F is a nonarchimedean local field; m is invertible in F, possibly divisible by the residue characteristic when char F=0.",
+    "ζ is primitive of order m in F; local reciprocity uses arithmetic Frobenius."
+   ],
+   "proofSteps": [
+    "Import CA.1’s local norm-residue symbol, its skew-symmetry and its norm criterion. These are not reconstructed in T.7.",
+    "Milne III Proposition 3.6 identifies χ(Art_F(b)) with inv_F(b∪δχ), for the normalized invariant. Step 2 of §4 compares the Kummer cup of a,b to this class for χ determined by a, so inv_F(β_ζ{a,b})=χ_a(Art_F(b)).",
+    "The right side exponentiates to H_m(b,a). Apply the imported skew-symmetry to obtain the minus in the displayed formula for H_m(a,b). Native Kummer classes use gα/α and native explicitCup11 uses the order (a,b); neither introduces a further reversal.",
+    "ClassFieldTheory’s kummerCupPairing ζ is exactly the exponent contraction c_ζ. Its normalized h2MuEquivZMod is characterized by toRatAddCircle(value)=inv(h2MuToBr(class)); thus it is e_m of the invariant. An arbitrary additive equivalence H²→ℤ/m does not fix the normalization.",
+    "For ℚ₇,m=3,ζ reducing to 2, take α³=3. Its reduction generates the unramified cubic and arithmetic Frobenius acts by α↦α⁷, so α⁷/α=α⁶=9≡2. Hence inv β{3,7}=1/3, H_3(7,3)=ζ and H_3(3,7)=ζ⁻¹. This detects the sign hidden at m=2.",
+    "At a real place m=2, use inv of Hamilton’s algebra equal to 1/2; both negative entries give −1. At a complex place both groups are trivial. Root replacement ζ↦ζᵘ changes the exponent by u⁻¹ and cancels in the value of H_m."
+   ],
+   "acceptance": [
+    "e_m is a coordinate isomorphism on m-torsion; multiplication by m inside ℚ/ℤ is zero and cannot be used for it.",
+    "The cubic test fixes the exact sign; norm-kernel equality by itself permits many unit scalars.",
+    "At m=2 the statement agrees with current QFI hilbertSymbol_eq_cohomological."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/cyclic-algebra-cup-comparison",
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/archimedean-norm-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-steinberg-and-skew-symmetry",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map"
+   ],
+   "sources": [
+    {
+     "sourceId": "MilneCFT2020",
+     "locator": "III Proposition 3.6, p.109; III §4 Step 2, p.112, Steps 3–4 and Remark 4.5, pp.112–114",
+     "match": "Connects the Artin character, ordered Kummer cup and invariant; swapping the slots yields the required negative exponent."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.7/classical-local-symbols",
+    "K2SymbolsBrauer:T.7/hilbert-symbol-steinberg",
+    "K2SymbolsBrauer:T.7/local-comparison"
+   ],
+   "planet": {
+    "name": "Hilbert symbols and local invariants"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/global-brauer-reciprocity-adapter",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "Global reciprocity in Brauer-symbol coordinates",
+   "kind": "theorem",
+   "statement": "Let F be a number field with μ_m⊆F and m≥2. For a,b∈Fˣ, all but finitely many local β_ζ{a,b} have invariant zero, and Σ_v inv_v β_ζ{a,b}=0. Under normalized-local-invariant-comparison this is the already owned higher Hilbert product law ∏_v H_{m,v}(a,b)=1. Every place is included: those over m, dyadic places and archimedean places.",
+   "hypotheses": [
+    "F is a number field containing the primitive root ζ of order m.",
+    "For m>2 such an F has no real places; for m=2 they remain in the formula."
+   ],
+   "proofSteps": [
+    "Import the global Brauer sequence and finite support from ClassFieldTheory Layer 10, and the degree-m Hilbert product law from CA.1. T.7 transports these existing maps rather than reproving higher reciprocity.",
+    "Restriction of β to each completion follows from the native cup and root contraction. At nonarchimedean places substitute the negative invariant exponent; at real and complex places use the already specified values.",
+    "The sum of the torsion invariants is zero in ℚ/ℤ. The common coordinate e_m sends this finite sum to zero in ℤ/m, and exponentiation by ζ turns it into the product formula. Naturality shows the product is independent of the chosen root.",
+    "ClassFieldTheory Layer 14 supplies only the quadratic reciprocity specialization and is not used as an all-m supplier."
+   ],
+   "acceptance": [
+    "For m=2 and a=b=−1 over ℚ the nontrivial local factors occur at 2 and ∞ and multiply to one; omitting either place fails.",
+    "No product over only unramified finite places is substituted.",
+    "The theorem is an adapter to CA.1/hilbert-product-formula-of-degree-n, not a second reciprocity engine."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/normalized-local-invariant-comparison",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-at-a-place",
+    "ClassicalArithmeticCompletion:CA.1/hilbert-product-formula-of-degree-n",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
+   ],
+   "sources": [
+    {
+     "sourceId": "MilneCFT2020",
+     "locator": "V Example 5.4, p.179; VII Theorem 8.1(b), p.221",
+     "match": "The first gives the all-place Hilbert product formula from global Artin reciprocity; the second states the sum of Brauer invariants. Their constructions remain imports from CA.1 and ClassFieldTheory Layer 10."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.7/global-reciprocity"
+   ],
+   "planet": {
+    "name": "Brauer-symbol reciprocity"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/arithmetic-tate-localization-adapters",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "Tate comparisons through the actual localization maps",
+   "kind": "theorem",
+   "statement": "The T.7 comparison is the map imported from M.3: for a local field F, a prime ℓ≠char F and r≥1, h_{F,ℓʳ} is an isomorphism; for a number field F it is an isomorphism for every prime ℓ and r≥1, including ℓ=2 with real places. For O=O_{F,S}, S finite containing all archimedean places and primes above ℓ, the imported h_O gives K₂(O)⊗ℤ_ℓ≅H²_cont(O,ℤ_ℓ(2)) and K₂(O)/ℓʳ≅H²_et(O,μ_{ℓʳ}^{⊗2}). These commute with the maps to the fraction field, enlargement of S and the actual localization residue maps. This is a transport and compatibility target; M.3 owns the arithmetic proofs.",
+   "hypotheses": [
+    "Local and number-field hypotheses are kept separate. No global-function-field theorem is imported from a number-field-only supplier.",
+    "S contains all places above ℓ; no assertion is made with noninvertible coefficients on O."
+   ],
+   "proofSteps": [
+    "Cite M.3/tate-local, /tate-global and /tate-s-integer directly. Combine their generator normalization with native-kummer-cup-comparison; no new norm-residue map is defined.",
+    "Use M.1/s-integer-galois-comparison with G_{F,S}, not G_F. The generic-point map is induced by G_F→G_{F,S}; its compatibility with residues is part of the imported theorem.",
+    "For the finite localization diagram use M.1/localization-gysin-sequence and M.3/symbol-residue-compatibility. With T.3’s convention ∂{u,π}=ū, the cohomological cup residue has the opposite sign: ∂h=−κ∂^{tame}. This sign is transported into the commuting diagram.",
+    "Do not infer the ring isomorphism by injecting finite H²(O) into H²(F). The Kummer row has kernel Pic(O)/ℓʳ, after a permissible coefficient trivialization, and M.2/degree-two-localization-diagram records it. M.3’s separate coefficient-sequence argument, including the real-place two-adic transition maps, supplies the finite S-integer theorem."
+   ],
+   "acceptance": [
+    "For ℚ, S={2,∞}, K₂(ℤ[1/2])/2≅ℤ/2, represented by {−1,−1}, matching the finite étale group.",
+    "An ideal-class contribution Pic(O)/ℓʳ is not discarded when passing to the fraction field.",
+    "An arbitrary scheme’s étale cohomology is not identified with its function-field Galois cohomology."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/native-kummer-cup-comparison",
+    "MotivicEtaleKTheory:M.3/tate-local",
+    "MotivicEtaleKTheory:M.3/tate-global",
+    "MotivicEtaleKTheory:M.3/tate-s-integer",
+    "MotivicEtaleKTheory:M.3/symbol-residue-compatibility",
+    "MotivicEtaleKTheory:M.1/s-integer-galois-comparison",
+    "MotivicEtaleKTheory:M.1/localization-gysin-sequence",
+    "MotivicEtaleKTheory:M.2/degree-two-localization-diagram"
+   ],
+   "sources": [
+    {
+     "sourceId": "WeibelIII",
+     "locator": "III.6.10, pp.58–59 of the separate chapter",
+     "match": "Motivates the arithmetic specialization; the detailed local, global and ring theorem sources are the imported M.3 nodes, not new claims from this chapter."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.7/symbol-formula",
+    "K2SymbolsBrauer:T.7/global-reciprocity"
+   ],
+   "planet": {
+    "name": "Tate comparison adapters"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.7/normalized-etale-chern-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.7",
+   "realises": [
+    "K2SymbolsBrauer:T.7"
+   ],
+   "title": "The product-normalized étale Chern comparison",
+   "kind": "theorem",
+   "statement": "For a field F, m≥2 invertible in F and x∈K₂^cl(F), let θ₂ be T.1’s Hurewicz comparison and θ₂♮=θ₂∘(ε·) its product normalization from T.2/graded-map-degree-two-identification, with ε∈{±1}. Then c_{2,2}(red_m(θ₂♮x))=−h_{F,m}(x mod m) in H²_et(F,μ_m^{⊗2}), read through M.1’s field comparison. For the raw Hurewicz map, the scalar is −ε. Here c_{2,2}:K₂(F;ℤ/m)→H²_et(F,μ_m^{⊗2}) is the already constructed M.8 finite étale Chern map.",
+   "hypotheses": [
+    "F is a field and m is invertible in F; m≥2.",
+    "Use the exact product comparison and retained torus sign from T.2, not an assumed sign-free identification.",
+    "Only the integral-reduction image in finite-coefficient K₂ is asserted; K₁(F)[m] can contribute an additional Bockstein quotient."
+   ],
+   "proofSteps": [
+    "Import c_{2,2} from M.8/finite-etale-chern and c_{1,1}=κ from its normalization. T.2’s product theorem identifies θ₂♮{a,b} with θ₁(a)·θ₁(b).",
+    "Soulé Proposition 2.2.2.3, pp.42–44, applies to integral K₁ inputs. Its hypothesis (M) is automatic for the degree-(2,2) term: 2i−k=2j−k′=1 and k+k′=2 force i=j=k=k′=1 among nonnegative cohomological degrees. Its factorial coefficient is −1, giving −c_{1,1}(a)∪c_{1,1}(b). The proof’s suspension and diagonal calculation fixes the sign.",
+    "Reduce this integral product modulo m and apply the imported natural coefficient map. This uses integral inputs before reduction; it does not require a finite-coefficient product for m=2 or 4, where the separate coefficient-product construction has extra hypotheses.",
+    "For prime powers this gives the equality on every {a,b}; additivity and the classical symbol generation extend it to x. For composite m use the coefficient Chinese remainder decomposition and the same natural maps. The case m=1 is zero.",
+    "Finally θ₂♮=θ₂∘(ε·) implies the raw-Hurewicz formula −εh. The exact coefficient sequence K₂(F)/m→K₂(F;ℤ/m)→K₁(F)[m] prevents extending the statement to all finite-coefficient K₂ by choosing an unspecified lift."
+   ],
+   "acceptance": [
+    "For ℚ₇,m=3, the {3,7} example has positive cup invariant 1/3 and product-normalized Chern invariant −1/3; m=2 would not distinguish them.",
+    "Changing θ₂ to its opposite changes ε, not the intrinsic product-normalized statement.",
+    "The equality is of maps after integral reduction, not an identification of the whole finite-coefficient K₂ with K₂/m."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.7/native-kummer-cup-comparison",
+    "MotivicEtaleKTheory:M.8/finite-etale-chern",
+    "MotivicEtaleKTheory:M.1/field-etale-galois-comparison",
+    "K2SymbolsBrauer:T.2/graded-map-degree-two-identification",
+    "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
+    "K2SymbolsBrauer:T.1/chosen-k2-comparisons"
+   ],
+   "sources": [
+    {
+     "sourceId": "SouleThesis1978",
+     "locator": "Proposition 2.2.2.3 and proof, printed pp.42–44",
+     "match": "The product formula and its suspension computation give coefficient −1 for two integral K₁ inputs."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "refines": [
+    "K2SymbolsBrauer:T.7/chern-class-agreement"
+   ],
+   "planet": {
+    "name": "Étale Chern comparison"
+   }
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "K2SymbolsBrauer:T.6",
+   "status": "planned",
+   "remaining": [
+    "G1: All-local presentation for nonfields with residue 𝔽₂ or 𝔽₃",
+    "G2: Keune–Loday degree-two relative comparison, including the K₃ boundary",
+    "G3: Keune’s guarded radical-relative presentation"
+   ]
+  },
+  {
+   "stageId": "K2SymbolsBrauer:T.7",
+   "status": "planned",
+   "remaining": [
+    "Import the supplier nodes with their retained proof gaps; in particular the T.2 product-orientation contract and M.3 arithmetic hypotheses are not strengthened here.",
+    "At assembly, redirect the inherited local-symbol construction to CA.1 and replace its convention conversion by modern-convention-calibration."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "G1",
+   "title": "All-local presentation for nonfields with residue 𝔽₂ or 𝔽₃",
+   "neededBy": [
+    "K2SymbolsBrauer:T.6/local-presentation-completeness",
+    "K2SymbolsBrauer:T.6/zmod-four-symbol-detector",
+    "K2SymbolsBrauer:T.6/dyadic-nilpotent-computation"
+   ],
+   "detail": "Supply the proof that the D1–D3 generator map is injective and onto for nonfield local rings with residue size two or three. The 1975 announcement §2.4 and Weibel III.5.11.1(a) state it, while van der Kallen 1977 proves the threefold-stable case. Maazen–Stienstra, A presentation for K₂ of split radical pairs, J. Pure Appl. Algebra 10 (1977), 271–294, DOI 10.1016/0022-4049(77)90007-X, is a source to obtain; its publisher denied access, and no author proof copy was located. Field cases remain imported, not newly closed here."
+  },
+  {
+   "id": "G2",
+   "title": "Keune–Loday degree-two relative comparison, including the K₃ boundary",
+   "neededBy": [
+    "K2SymbolsBrauer:T.6/relative-homotopy-fibre-comparison",
+    "K2SymbolsBrauer:T.6/dual-number-differential-isom"
+   ],
+   "detail": "Construct and prove the natural isomorphism from the stated classical relative Steinberg kernel to π₂ fib(K(A)→K(A/I)), and identify all maps beginning at K₃(A)→K₃(A/I). U.5 supplies degree one and the later exact-sequence comparison only. Loday, Cohomologie et groupe de Steinberg relatifs, J. Algebra 54 (1978), 178–202, DOI 10.1016/0021-8693(78)90025-X, and Keune, The relativization of K₂, J. Algebra 54 (1978), 159–177, DOI 10.1016/0021-8693(78)90024-8, could not be read: publisher access failed. Levine §2.1 is a statement, not a proof."
+  },
+  {
+   "id": "G3",
+   "title": "Keune’s guarded radical-relative presentation",
+   "neededBy": [
+    "K2SymbolsBrauer:T.6/guarded-relative-presentation",
+    "K2SymbolsBrauer:T.6/relative-differential",
+    "K2SymbolsBrauer:T.6/square-zero-differential-kernel",
+    "K2SymbolsBrauer:T.6/dual-number-differential-isom"
+   ],
+   "detail": "Read and decompose Keune 1978 Theorem 15, proving full relative generation and kernel with I⊆Jac(A) and the input guard in D3. Levine §2.1 p.290 states the exact result. The 1975 split-pair announcement is insufficient for nonsplit pairs; the 1973 older relative-kernel convention is not substituted for this group. Keune’s publisher PDF was inaccessible and no author copy was found. The differential and square-zero proofs are fully given conditional on this presentation."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+   "need": "Existing global Brauer exact sequence, finite support of local invariants, vanishing sum of invariants, and real/complex local factors. Import only; higher Hilbert reciprocity is CA.1’s existing node.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.7/global-brauer-reciprocity-adapter"
+   ],
+   "status": "existing-roadmap-import"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+   "need": "Existing primitive-root kummerCupPairing with its exponent formula, h2MuToBr with injectivity and m-torsion image, h2MuToBr_cup_kummerClass for arbitrary fields and proper Kummer degree, and the normalized local H²(mu_m)≃ZMod m coordinate k↦k/m. These have been read in current Tau Ceti at the revision recorded in upstreamNotes. Import only; the ClassFormation character_artinMap contract is the Layer 6 request.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter",
+    "K2SymbolsBrauer:T.7/cyclic-algebra-cup-comparison",
+    "K2SymbolsBrauer:T.7/normalized-local-invariant-comparison"
+   ],
+   "status": "existing-roadmap-import"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+   "need": "Existing local Artin reciprocity with arithmetic Frobenius and character_artinMap evaluation against the normalized invariant. Import only; T.7 identifies the scalar relating the existing cup and CA.1’s Artin-first/root-second symbol.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.7/normalized-local-invariant-comparison"
+   ],
+   "status": "existing-roadmap-import"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map",
+   "need": "Existing quadratic Hilbert/cohomological-symbol comparison at the arithmetic-Frobenius local normalization; implemented in current Tau Ceti as hilbertSymbol_eq_cohomological. Import only.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.7/normalized-local-invariant-comparison"
+   ],
+   "status": "existing-roadmap-import"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+   "need": "Existing Layer 7B generic algebraic Brauer–H² equivalence normalized on finite Galois crossed-product cocycles, and its quaternion-cup specialization. Current Tau Ceti already supplies brauerCohomologyEquiv_crossedProductClass and the quaternion comparison; this is an import contract, not a request to replan the cyclic adapter.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter",
+    "K2SymbolsBrauer:T.7/cyclic-symbol-algebra",
+    "K2SymbolsBrauer:T.7/cyclic-algebra-cup-comparison"
+   ],
+   "status": "existing-roadmap-import"
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "K2SymbolsBrauer/E-T6-old-symbol-inverse",
+   "source": "WeibelIII",
+   "kind": "error",
+   "locator": "Warning after III.5.11, printed p.44 in the separately paginated author chapter PDF with the recorded SHA-256",
+   "printed": "The conversion from the pre-1980 plus-convention symbol to the modern minus-convention symbol includes an extra inverse after changing the first argument.",
+   "correction": "For the explicit old word P and modern word D, D(r,s)=P(−r,s), with no inverse. The unit formula is D(r,s)={r,1−rs} when r is invertible.",
+   "reason": "Literal substitution in Stein–Dennis Proposition 1.1 and van der Kallen §5.2 gives the same five-factor word. At ℚ(t), D(2,(1−t)/2)={2,t}, with tame residue 2, whereas the extra inverse has residue 1/2.",
+   "affects": "a stated result",
+   "known": "Morrow Remark 3.10, p.8, uses the corrected parameter change without inversion; no explicit erratum for this chapter version was located.",
+   "searched": [
+    "Weibel author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its errata link (the linked PDF returned 404 on 2026-10-19)",
+    "Morrow author PDF Remark 3.10",
+    "Stein–Dennis 1973 Proposition 1.1 and van der Kallen 1977 §5.2, read against the scanned formulas"
+   ],
+   "scope": "Only the separately paginated author chapter at the recorded URL and SHA is asserted to contain this formula; the bound published book was not collated.",
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-K2SymbolsBrauer--T.6",
+    "reason": "Independently read the scanned Stein–Dennis Proposition 1.1 and van der Kallen §5.2 words, Morrow Remark 3.10, and the recorded Weibel warning. Literal substitution gives D(r,s)=P(−r,s); the tame residue at ℚ(t), r=2, s=(1−t)/2 is 2 rather than 1/2. Confirmation is restricted to the hashed author chapter; no bound edition was collated."
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer/E-T6-cyclic-splitting-minimal-polynomial",
+   "source": "WeibelIII",
+   "kind": "error",
+   "locator": "Lemma III.6.9.1 and its proof, printed p.57 in the separately paginated author chapter PDF with the recorded SHA-256",
+   "printed": "A central simple F-algebra of dimension n² is asserted to split whenever F contains a primitive n-th root of unity and the algebra has a nonscalar element u with uⁿ=1.",
+   "correction": "Require dim_F F[u]=n, equivalently that the minimal polynomial of u is Tⁿ−1. The weaker nonscalar condition does not imply this. With the added hypothesis the n nonzero orthogonal idempotents force splitting. The symbol-algebra targets instead use the explicit weighted-shift representation and the existing Kummer/cyclic comparison.",
+   "reason": "Take F=ℂ(s,t), D=(s,t)_F and A=Mat₂(D). The quaternion algebra D is division, so A has degree four and is not Mat₄(F), whereas u=diag(1,−1) is nonscalar and u⁴=1. To verify division, extend to ℂ(s)((t)): a primitive integral zero of the norm a²−sb²−tc²+std² reduces modulo t to a²−sb²=0. Since s is nonsquare in ℂ(s), a and b are divisible by t. Divide the equation by t and reduce again to force c and d divisible by t, contradicting primitivity. Thus the norm is anisotropic. The proof in the source incorrectly identifies F[u] with F[T]/(Tⁿ−1); in this example its dimension is two, not four.",
+   "affects": "a stated result",
+   "known": "No correction was located in the places checked; no novelty claim is made.",
+   "searched": [
+    "Weibel author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its errata link (the linked PDF returned 404 on 2026-10-19)",
+    "Targeted searches of the author site for Lemma 6.9.1 and an erratum; the independently checked counterexample does not rely on a search result"
+   ],
+   "scope": "Only the separately paginated author chapter at the recorded URL and SHA is asserted to contain this statement; the bound published book was not collated.",
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-K2SymbolsBrauer--T.6",
+    "reason": "Added during independent review after visually checking printed p.57. The degree-four matrix algebra over the generic quaternion division algebra gives a counterexample, with division verified by the t-adic norm argument. Requiring degree n for the minimal polynomial repairs the exact failing step. The corrected target uses its explicit matrices, not this false unrestricted criterion."
+   }
+  }
+ ],
+ "restructure": {
+  "note": "No new layers. Refinement nodes replace the corresponding inherited T.6/T.7 clauses at assembly; they are not parallel definitions. The six proposed planets in each layer replace the old planet choices as a set, rather than being appended.",
+  "ownership": [
+   {
+    "target": "Local m-th power Hilbert symbol, its Steinberg/skew laws and higher product formula",
+    "owner": "ClassicalArithmeticCompletion:CA.1",
+    "action": "The existing CA.1 nodes answer the old T.7 ownership request; redirect inherited T.7/classical-local-symbols and /hilbert-symbol-steinberg to them."
+   },
+   {
+    "target": "Twists, Galois symbol, Tate local/global/S-integer theorems and finite étale Chern construction",
+    "owner": "MotivicEtaleKTheory:M.1, M.3, M.8",
+    "action": "Import the precise existing nodes; T.7 owns only the concrete normalization and comparison adapters."
+   }
+  ]
+ },
+ "upstreamNotes": [
+  {
+   "roadmap": "ClassicalArithmeticCompletion",
+   "where": "CA.1/norm-residue-symbol-and-the-cohomological-symbol",
+   "note": "Its existential normalization scalar is ε=−1 for the declared Artin-first/root-second symbol and native cup order. A shared norm kernel alone does not fix a unit scalar modulo m. T.7/normalized-local-invariant-comparison supplies the character calculation and cubic test; do not silently assert the positive scalar."
+  },
+  {
+   "roadmap": "QuadraticFormInvariants",
+   "where": "Layer 7B, current Tau Ceti CrossedProduct/Comparison.lean",
+   "note": "The generic crossed-product comparison is already implemented beyond the pins; the all-m Kummer/cyclic-symbol specialization planned here uses it and does not duplicate it."
+  },
+  {
+   "roadmap": "ClassFieldTheory",
+   "where": "Local/Symbol.lean, Local/CyclicClass.lean and Brauer/Torsion.lean at current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+   "note": "The primitive-root coefficient pairing, Kummer-to-Brauer injection and h2MuToBr_cup_kummerClass already exist. The latter covers arbitrary fields and proper Kummer degree, with a negative cyclic class formed from the second input. T.7 imports it with reversed inputs and cup skew-symmetry, and adds only the explicit symbol-algebra corner and coefficient/K₂ adapters. Do not package its former cocycle proof as a new theorem."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-K2SymbolsBrauer--T.6",
+  "date": "2026-10-19",
+  "notes": "Independent review by Codex (GPT-6), session codex-TtePAf, of the separate codex-PVxIak planning pass. Checked every target, source locator, supplier contract, API, test and planet; 8 nodes verified and 12 corrected, no new node. Repaired cyclic splitting, imported existing all-degree Kummer/cyclic and coefficient APIs, corrected source locators, checked the Chern product hypothesis, and confirmed the version-scoped inverse-convention finding and added a confirmed counterexample to the same author chapter’s unrestricted splitting lemma. All 13 original baseline references were independently read at their pins, plus the added Kummer-kernel import. The reader and compact suggested file agree. Accepted as a completed target-level planning pass under PROTOCOL §0, with both stages planned and the exact G1/G2/G3 and supplier obligations retained; no closed or implemented status is claimed.",
+  "checked": [
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/modern-convention-calibration",
+    "verdict": "verified",
+    "note": "Independently read the scanned Stein–Dennis Proposition 1.1, pp.283–285, van der Kallen §5.2, pp.488–489, and Morrow Remark 3.10. Literal substitution gives D(r,s)=P(−r,s) with no inverse. The elementary matrix word and both unit formulas agree; the ℚ(t) tame-residue test distinguishes the two signs."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/general-relations-calculus",
+    "verdict": "verified",
+    "note": "Stein–Dennis H1 and H5 give D1 and D3. Recomputed H3 with increment c(1+ab), followed by H5/H2: the two unit symbols are {u,v} and {v,u} and cancel. T.2/symbol-consequences explicitly applies to commuting units of a ring, so this is not an illicit use of field Matsumoto. All denominators are units."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/threefold-stability",
+    "verdict": "verified",
+    "note": "Read van der Kallen §5.2 and §5.4(3). The stated predicate is threefold stability. The semilocal CRT argument proves exactly the residue-cardinality criterion, including the converse. F₅, Z/25, F₂, F₃ and F₅×F₅ discriminate the hypothesis; the Lean F₅ and F₃ examples are proved."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/threefold-dennis-stein-presentation",
+    "verdict": "verified",
+    "note": "Read §§5.8–5.19, §§6.1–6.23 and §§7.1–7.4. The rank-one chunk, general-position action and stability argument support both inverse identities and ranks n≥3. No rank-two kernel is silently identified with stable K₂; locality alone is not substituted for the stability hypothesis."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/local-presentation-completeness",
+    "verdict": "verified",
+    "note": "The 1975 announcement §2.4 Theorem 1, p.935, and Weibel III.5.11.1(a), p.44, state the all-local result. Neither provides the missing proof for nonfields of residue size two or three. G1 remains explicit and is retained by the detector and uniform dyadic calculation; field and large-residue branches have their stated suppliers."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/relative-homotopy-fibre-comparison",
+    "verdict": "corrected",
+    "note": "Tightened Weibel locator to Definition III.5.7, p.40. Read Levine §2.1 pp.289–290 and the U.5 contracts: the double quotient uses normal cross-commutators, with only i≠j and k≠l. U.5 does not prove relative π₂ or its K₃ boundary. G2 remains; absolute-kernel injectivity is claimed only for a split quotient."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/guarded-relative-presentation",
+    "verdict": "corrected",
+    "note": "Levine p.290 has an unnumbered theorem in §2.1 attributed to Keune Theorem 15, not Theorem 2.1 or reference [18]. The split-pair announcement is §2.6 Theorem 2 on p.935. The Jacobson hypothesis and input guard are correct. Recomputed the F₃[x,y]/(x²,y²), I=(xy) forbidden-triple defect (1,1). Full generation/injectivity remains G3."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/relative-differential",
+    "verdict": "corrected",
+    "note": "Corrected exercise locator to Weibel III.5.14(a)–(b), p.46, and made the 1971 theorem/corollary locator precise. Independently checked D1, both D2 eligibility cases and all three D3 input cases in I⊗Ω_(A/I)/Z. I² tensors to zero. The map, surjectivity and naturality are specified on real Kähler differentials, conditional on G3."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/square-zero-differential-kernel",
+    "verdict": "corrected",
+    "note": "Tightened the exercise locator to p.46. Verified the quotient inverse via the abelian presentation with additive and balanced Leibniz relations, without giving K₂/S a fictitious A-module structure. The rational two-dimensional square-zero determinant detector respects D1–D3 and detects S≠0 even when two is a unit. G3 remains explicit."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/dual-number-differential-isom",
+    "verdict": "corrected",
+    "note": "The main theorem, corollary and integral Example 1 of the 1971 note are on p.1204; the proof is pp.1205–1207. Scanned pages read. D3 makes double-ideal symbols symmetric, D1 makes them 2-torsion, and halving the coefficient kills them only when two is invertible. The integral Z/2 counterexample and separate G2/G3 dependencies are retained."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/zmod-four-symbol-detector",
+    "verdict": "verified",
+    "note": "Independently exhausted all admissible D1/D2/D3 instances: 12/40/56. The parity table respects them. The displayed reductions give a cyclic group of exponent two and the table detects its nonzero generator. Both upper and lower bounds are present, and passage from the presentation to actual K₂ is explicitly conditional on G1."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.6/dyadic-nilpotent-computation",
+    "verdict": "verified",
+    "note": "Recomputed the uniform proof: D2 with increment one makes even/even pairs unit symbols; CA.1 supplies −1 and 5 for n≥3; all three possible unit generators have exponent two before b=D(−1,4)=2D(−2,2) is killed. The general ring identity {5,5}={5,−1} kills the remaining extra generator. Reduction to Z/4 gives the lower bound. No extrapolation from finite samples and no n=1 assertion."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/native-kummer-cup-comparison",
+    "verdict": "corrected",
+    "note": "Corrected the source to formula III.6.10.2 p.58 and Proposition III.6.10.3 p.59. The actual M.3 symbol and M.1 tensor/cup-compatible comparison match the pinned root-ratio Kummer cocycle and explicitCup11. Added the checked pinned kummerMap_eq_one_iff import and removed a redundant proposed Kummer-kernel theorem from Lean. No primitive root is needed for this tensor-valued map."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter",
+    "verdict": "corrected",
+    "note": "Current Tau Ceti already supplies kummerCupPairing, h2MuToBr, injectivity and its torsion image. Replaced their reconstruction by explicit imports and tensor/coefficient transport, with an updated supplier contract. Corrected Weibel locators to pp.57–59. Recomputed the u^j twist and u⁻¹ Brauer changes, including the m=5 negative control; u⁻² belongs to the scalar weight-two coordinate."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/cyclic-symbol-algebra",
+    "verdict": "corrected",
+    "note": "The original split-matrix argument still used β with β^m=b while claiming to be defined over F when only a is an m-th power. Replaced it by Xe_i=αζ^i e_i, Ye_i=e_(i−1), Ye_0=b e_(m−1), which needs only α. Verified the relations, matrix-unit span and faithful descent. Corrected source locators and strengthened split API. The proper-degree algebra keeps dimension m². Independently found the missing minimal-polynomial hypothesis in Weibel III.6.9.1, checked a degree-four counterexample and recorded it as a second version-scoped source finding; the target does not use that false criterion."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/cyclic-algebra-cup-comparison",
+    "verdict": "corrected",
+    "note": "Current Local/CyclicClass.lean already proves h2MuToBr_cup_kummerClass for arbitrary fields and degree d dividing m. Replaced the planned cocycle theorem by its reversed-input application and cup skew-symmetry, importing the coefficient pairing and QFI generic crossed-product comparison. The remaining explicit algebra adapter uses the d-degree corner and Mat_(m/d) decomposition. Corrected the Weibel remark locator to p.59; the sign and proper-degree tests agree."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/normalized-local-invariant-comparison",
+    "verdict": "verified",
+    "note": "Read Milne III Proposition 3.6 and §4 Steps 1–4/Remark 4.5. Checked current character_artinMap, kummerCupPairing and toRatAddCircle_h2MuEquivZMod statements. The positive cup invariant evaluates Art(b) on a root of a; CA.1 is Artin-first/root-second, hence the negative exponent. The Q₇ cubic test distinguishes the sign. e_m is [k/m]↦k, not multiplication by m in Q/Z."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/global-brauer-reciprocity-adapter",
+    "verdict": "corrected",
+    "note": "The former Weibel pp.57–58 citation did not supply Brauer reciprocity. Replaced it by Milne V Example 5.4 p.179 and VII Theorem 8.1(b) p.221, read directly. Global Brauer support/sum remain ClassFieldTheory Layer 10 imports and higher Hilbert reciprocity stays in CA.1. Every place is retained; Layer 14 is not misused as an all-m theorem."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/arithmetic-tate-localization-adapters",
+    "verdict": "corrected",
+    "note": "Corrected the contextual Weibel locator to pp.58–59. Read all cited M.1/M.2/M.3 contracts: local ℓ≠char, number-field global theorem, S containing infinity and all ℓ-places, real 2-adic terms, separate finite S-integer theorem and generic-point Picard kernel agree. The residue sign is ∂h=−κ∂^tame. No stronger arithmetic theorem is manufactured by transport."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.7/normalized-etale-chern-comparison",
+    "verdict": "corrected",
+    "note": "Read Soulé Proposition 2.2.2.3 and proof pp.42–44. Added the verification of hypothesis (M): for two K₁ inputs and output cohomological degree two only i=j=k=k′=1 occurs. The factorial coefficient is −1. Import M.8 and T.2 product normalization; retain ε for raw Hurewicz. Integral products before reduction avoid finite-product assumptions at m=2,4, and the Bockstein quotient is not discarded."
+   }
+  ]
+ }
+}

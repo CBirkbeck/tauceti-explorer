@@ -1,0 +1,274 @@
+{
+  "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII",
+  "title": "Finite flat group schemes and integral p-adic Hodge theory, Part II: tensor displays and ordinary lifts",
+  "area": "padic",
+  "parent": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "summary": "A complete target-level planning pass for tensor displays, corrected very-good embeddings, adapted deformations, hyperspecial comparison interfaces and ordinary lifts. All 179 tensor-route items are assigned;186 independent period/Lubin–Tate items are retained in the split ledger. Seven layers are planned with explicit supplier gaps, not claimed closed or formalized. The construction separates full fixers from connected parahorics, preserves contravariant Dieudonné and linear-dual Tate conventions, and imports current upstream lattice theory. Its explicit ordinary theorem retains rational quasi-isogenies and the correct field of definition.",
+  "readme": "# Finite flat group schemes and integral p-adic Hodge theory, Part II\n\nThis continuation develops integral tensor structures on displays, the corrected adapted deformation theorem, and explicit ordinary lifts. Its endpoint is a lift carrying the entire rational σ-centralizer action in the isogeny category. The base roadmap owns finite flat groups, p-divisible groups, the field Dieudonné classification, height-one Breuil–Kisin modules and their integral crystalline comparisons. This roadmap begins with the additional display and tensor structures those theories need. Every assertion here is a mathematical target, with implementation status unchecked.\n\nThe ten routed briefs divide into three independent developments. The six tensor briefs contribute 179 routed items and are reconciled here. The 33 Lubin–Tate/quasi-canonical items and 153 divisible-module-period items remain assigned, by their original item IDs, to the two continuations proposed in the packet’s restructuring ledger. Those proposals preserve their full original briefs as the design inputs. They are not discarded targets of an allegedly completed period theory.\n\n## Conventions and ownership\n\nThroughout p>2. TD.0–TD.1 allow a perfect residue field k of characteristic p; TD.2–TD.4 and TD.6 use k=F̄_p. TD.5 states its perfect, separably closed or finite-residue hypotheses explicitly. W=W(k), K₀=W[1/p], and K/K₀ is finite totally ramified unless a finite residue extension is displayed. E is a reflex field, Ĕ its completed maximal unramified base with residue k, and π_E its uniformizer. All complete-local maps are continuous local maps over the stated coefficient ring.\n\nD(H) is contravariant. For a p-divisible group of height h and dimension d its Hodge submodule Fil¹ has rank d; D(Q_p/Z_p) has F=σ and D(μ_{p∞}) has F=pσ. The linear dual Tate lattice is L=Hom_Zp(T_pH,Z_p)=T_p(H*)⊗Z_p(−1). Cartier duality gives D(H*)=D(H)∨(−1). When μ_y induces the weight-(0,1) filtration, the local-model convention is μ_y⁻¹. In the hyperspecial notation μ₀ is the inverse Hodge cocharacter and υ₀=σ(μ₀⁻¹). Hoff’s weight-(0,−1) convention is translated before a comparison is used.\n\nWrite G for the connected reductive generic group. Gscr=G̃ denotes the smooth full integral fixer cut out scheme-theoretically by the chosen mixed tensors. Gscr° is its connected parahoric. These groups cannot be interchanged in tensor torsors. The generic-neutral schematic closure used in TD.3/neutral-closure is a separate smooth closure, with its own stated hypotheses. For Hoff’s parahoric display and for the ordinary construction require Gscr=Gscr°. A cutting family means equality of group functors on all coefficient algebras, rather than equality on geometric points. Mixed tensors include both covariant and dual factors; their transport uses inverse dual maps.\n\nThe three coefficient rings have different roles. 𝔖=W[[u]] is the Eisenstein Breuil–Kisin ring with φ(u)=uᵖ; S is its imported completed PD evaluation ring; Ŵ(R) is the Zink coefficient ring of a complete-local base. An elementary modification modulo E(u), a tilde module over a frame, and the image in φ*M coincide only through the stated comparison. In particular the map diag(1,p) need not be injective on a torsion base. The first-order quotient of a local model is R_G/(m_G²+π_E R_G), and c must be base-changed on both sides to that same ring.\n\nThis plan checked the reviewed audit: there is no audit entry for this new continuation. The base roadmap’s accepted plan and package were read. At the pinned Mathlib and Tau Ceti commits, Witt-vector operations and divided powers exist; integral displays and the tensor deformation theory were not found. The baseline below lists only declarations whose statements were read. Current upstream main and the current Tau Ceti source tree were also checked. In particular current ReductiveGroups Part II already owns the classical algebraic lattice constructions, and AlgebraicVectorBundles owns the general vector-bundle direction. Their work is imported. The nine newer upstream roadmaps were screened; no display or tensor-deformation development was found there.\n\nThe current base R07.4/bk-integral-comparisons supplies the contravariant height-one equivalence and its integral φ*𝔐/u, φ*𝔐/E and PD comparisons. R07.4/bms-kisin-functor supplies a fully faithful tensor functor, with whole-ring nonexactness retained. R07.2 supplies smooth-base de Jong theory. CR.0/fontaine-envelope supplies the actual period carrier; CR.7’s fine evaluation and variance nodes supply its crystal interfaces. General Grassmannians, formal completions, descent and Hartogs remain with SchemeAndStackFoundations. Current RG2.3 supplies fixers and lattice chains; BunG’s fine ordinary and σ-centralizer targets supply the Newton theory. The requests below name the exact statements still required from these suppliers. An unregistered routed roadmap name is never used as a prerequisite.\n\nThe local-model ring is always taken from a supplied geometric datum. Normality, flatness and generic regularity are hypotheses of that datum until G1 is supplied; they are not inferred from smoothness of Gscr. Likewise an integral pointwise tensor comparison, representability of its isomorphism scheme, flatness of that scheme, and triviality of its torsor are four different assertions. G2–G4 keep their supplier obligations visible.\n\n## Layer sequence and implementation shape\n\nTD.0 constructs invariant frame algebra. TD.1 uses it for canonical transport and universality. TD.2 puts tensor structures on these objects. TD.3 proves the corrected very-good criteria and the allowed existence cases. TD.4 proves the adapted deformation and integral recognition theorems. TD.5 isolates the hyperspecial, period-comparison and lattice-specialization interfaces. TD.6 performs the explicit ordinary construction and states precisely what it exports to a Levi application.\n\nThe suggested file follows the fixed upstream shape: light definitions on existing carriers, terminal statements expressible there, and a few mathematical examples. Heavy display, group-torsor, local-model and p-divisible carriers remain targets in this document. No claim of formalization follows from elaboration of that small native-carrier fragment. The fragment tests the first-order ideal, the two-block scaling phenomenon and tensor-family transport; it does not replace the planned definitions with propositions having missing data.\n\n## Worked checks\n\nFor a rank-two normal pair M=Se₁⊕Se₂ with M₁=Se₁⊕Ie₂, a preserving map has lower-left entry in I. Its tilde matrix scales the upper-right Frobenius entry by p and divides the lower-left through φ₁. Over D_{k[ε]}, a graph coordinate Z=Vε produces c with lower-left ε. Reducing the comparison diag(1,p) modulo p erases that direction. This simultaneously tests the four-block formula, the canonical construction of c, and the need for very-goodness before prescribing a tensor section.\n\nFor H₀=μ_{p∞}⊕Q_p/Z_p, the contravariant module has one slope1 and one slope0 direction. Fil¹ is its multiplicative line. The elementary Eisenstein lattice is 𝔖e₁⊕E𝔖e₂ in this order. The diagonal Newton Levi preserves this filtration, so its central ordinary modification gives an adapted lift. A scalar p in J_b(Q_p) acts by a self-quasi-isogeny of the lift and cannot act as an integral unit automorphism. These tests detect a reversed Hodge rank, a missing Tate dual twist, and an overstrong automorphism claim.\n\nFor the hyperspecial rank-one lattice of G_m, a Tate-lattice change by p specializes to a crystal-lattice coset of valuation1. Its Kottwitz invariant is1 on both sides. Requiring the specializing matrix to lie in G(W) would force valuation0 and contradict this example. For GL₂, an arbitrary change of the bounded Frobenius representative can move the Hodge line; a simultaneous framing by a separately fixed μ-line must be checked, not inferred from the double coset.\n\nFor a ramified reflex field, π_E can annihilate a first-order direction that p alone does not. Thus TD.1 constructs c modulo m²+pR and then reduces both modules and tensors modulo m²+π_ER. A formula that compares the two sides over different quotients fails this base-ring check even when its special-fibre matrix happens to agree.\n",
+  "prerequisites": [
+    "BunGAndNewtonStrata",
+    "CrystallineCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GeometricSatakeAndFusion",
+    "ReductiveGroupsPartII",
+    "SchemeAndStackFoundations"
+  ],
+  "stages": [
+    {
+      "key": "TD.0",
+      "title": "Frames and contravariant displays",
+      "description": "Starting with pinned Witt vectors and divided powers, construct the Zink ring, relative logarithmic PD frames and the normal-pair tilde functor with matrix [[φA,pφB],[φ₁C,φD]]. Keep its map diag(1,p) to φ*M separate from its image in torsion rings. Define contravariant displays and base change, establish the complete-local p-divisible anti-equivalence and perfect-ring finite-projective Dieudonné comparison, and export the height-one GL-shtuka interface. Targets: Zink coefficient ring, Display frame, Dieudonné modules over perfect rings, Logarithmic Witt coordinates on a PD kernel, Normal-decomposable frame pair, Perfect-ring height-one shtuka comparison, Invariant tilde module, Relative Dieudonné–Witt frame, Strict base change of tilde modules, Comparison with Frobenius pullback, Contravariant Dieudonné display, Base change of displays, Displays and p-divisible groups.",
+      "requires": [
+        "CrystallineCohomology:CR.7/dieudonne-evaluation",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible"
+      ]
+    },
+    {
+      "key": "TD.1",
+      "title": "Canonical first-order transport and universal displays",
+      "description": "Construct c through relative-frame factorization for a=m²+pR, and base change both sides to m²+π_ER in local-model applications. Define first-order constancy by Ψ̄c=Ψ₀. Construct the Grassmannian filtration pair, prove universality of the chosen display and crystalline deformation comparison, and construct the canonical rational Frobenius section using the corrected p-adic lattice topology. Targets: Universal marked filtration pair, Tilde factorization through an enlarged frame ideal, Canonical first-order comparison, Canonical rational Witt section, Constancy of a display to first order, The rational section preserves lifted tensors, Crystalline deformation of displays, Universal display with rigid first order.",
+      "requires": [
+        "CrystallineCohomology:CR.7/dieudonne-evaluation",
+        "CrystallineCohomology:CR.7/messing-filtration-interface",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "TD.2",
+      "title": "Integral tensors and very-good embeddings",
+      "description": "Package a smooth full-fixer tensor datum with its supplied good normal flat local-model embedding; distinguish its connected parahoric. Form the completed orbit ring, elementary filtration lattice and integral tensor torsors, using explicit purity and normal-section inputs. Define horizontality, very-goodness, chain and unramified variants, parahoric G-displays and adapted lifts independently of the desired quotient theorem. Targets: Integral tensor and local-model datum, Height-one tensor filtration lattice, Completed orbit deformation ring, Integral tensors on the filtration lattice, Breuil–Kisin to tilde lattice comparison, Integral tilde tensors and tensor frames, First-order tensor horizontality, Dieudonné display with parahoric structure, Very good integral Hodge embedding, Adapted p-divisible deformation, Independence of the defining tensors, Unramified coefficient detection, Very-good periodic lattice-chain embedding.",
+      "requires": [
+        "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.1",
+        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.3/lattice-chain-stabilizer-schemes",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "TD.3",
+      "title": "Criteria and existence of very-good embeddings",
+      "description": "Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product and segment criteria. Prove formal-curve and arithmetic-curve tangent detection, retaining the nonstrict Breuil comparison. Import existing RG2 algebraic lattices to obtain the nonexceptional, paired, Dᴴ PEL, specified Dᴴ central-enlargement, standard wild type-A and specified symplectic type-A very-good conclusions, with every representation and ramification hypothesis. Targets: Integral tensors along a formal curve, Invariant endomorphisms are horizontal, Curvewise horizontality of the canonical comparison, Very-goodness descends to a summand, Products preserve very-goodness, Curve-spanned tangent criterion, Very-goodness for the generic neutral closure, Endomorphism and centralizer criterion, Arithmetic-curve criterion, Isomorphic copies preserve very-goodness, Very-good Dᴴ PEL representations, Standard wild type-A representations, Independence of the determining segment, Dᴴ central enlargement with very-good chains, Symplectic type-A central enlargement, Very-good chains in the nonexceptional cases, Very-good chains with a perfect pairing.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2",
+        "ReductiveGroupsPartII:RG2.3"
+      ]
+    },
+    {
+      "key": "TD.4",
+      "title": "Versal adapted deformations and integral tensor comparison",
+      "description": "Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedness criteria and DVR factorization by interpolation and integral ideal contraction. Obtain the versal quotient under assumptions(A),(B),(C), integral crystalline/Witt tensors using punctured exactness, Kottwitz image and tensor frames, and étale recognition with fixed integral type. Compare Hoff Assumption2.28 to very-goodness and prove the marked G-display universality under it. Targets: Exactness of the integral functor on the punctured disc, The crystalline Galois image has trivial Kottwitz invariant, Tensor frames for crystalline lattices, Integral crystalline and Witt tensor comparison, A tensor-preserving first-order rigid section, Tensor Hodge filtrations and residual lifts, Hoff’s infinitesimal compatibility condition, Tangent lifting at a DVR point, Interpolation of two tensor displays, Four infinitesimal adaptedness criteria, Adapted DVR points factor through the local-model quotient, Versal adapted deformation theorem, Universal marked parahoric display, Recognition from integral étale tensors.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bms-kisin-functor",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bt-type-equivalence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2",
+        "ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism",
+        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.3/parahoric-kottwitz-characterization",
+        "SchemeAndStackFoundations:SF.0/hartogs-affine-sections",
+        "SchemeAndStackFoundations:SF.0/hartogs-regular-sequence",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.4/smooth-lifting-torsor"
+      ]
+    },
+    {
+      "key": "TD.5",
+      "title": "Hyperspecial lifts, horizontal loci and specialization",
+      "description": "Give the reductive hyperspecial specialization with its residue-field frame hypotheses, the explicit height-one Frobenius matrix and correctly framed special group. Define and identify the corrected rational horizontal Fil⁰ locus and smooth adapted quotient. Evaluate the existing Fontaine envelope on the chosen geometric normal cover, request the missing relative comparison, and produce universal étale tensors. Prove rational tensor-torsor independence, realize admissible isogenous lifts, specialize Tate lattices with their Kottwitz and central-quotient compatibility, and make connections integral after Frobenius pullback. Retain the toral-admissibility and geometric-Hodge supplier obligations. Targets: Hyperspecial Breuil–Kisin tensor frames, Relative evaluation of the crystalline period construction, Weak admissibility of the toral filtration, Hyperspecial adapted lift, Relative comparison for p-divisible coefficients, Hodge cocharacter and Frobenius double coset, Explicit height-one adapted lift, Frobenius pullback makes the lattice connection integral, A correctly framed hyperspecial Dieudonné datum, Horizontal Fil⁰ deformation locus, Corrected equality of the horizontal and adapted loci, Formally smooth hyperspecial adapted deformation space, Étale tensors in the hyperspecial universal family, Hyperspecial étale recognition, Comparison with geometric realization tensors, Rational tensor torsor for conjugate admissible filtrations, Specialization of a tensor-compatible Tate lattice, An admissible filtration produces an adapted isogenous lift, Hodge bound and Kottwitz invariant under specialization, Specialization through a quotient with central Galois image.",
+      "requires": [
+        "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
+        "BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy",
+        "BunGAndNewtonStrata:BG1/transferred-torus-specialness",
+        "CrystallineCohomology:CR.0/fontaine-envelope",
+        "CrystallineCohomology:CR.7",
+        "CrystallineCohomology:CR.7/dieudonne-evaluation",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-tate-module",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/de-jong-dieudonne-equivalence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bms-kisin-functor",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.4",
+        "GeometricSatakeAndFusion:GS0:Witt-geometry",
+        "ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "TD.6",
+      "title": "Ordinary lifts and rational symmetries",
+      "description": "Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected fixer and central filtration statements; use the central elementary Breuil–Kisin modification for an adapted ordinary lift over each allowed O_K. Lift all of J_b(Q_p) in the isogeny category. Export a separate conditional M-adapted interface for nonordinary basic-Levi applications, retaining its M-valued filtration and corrected very-good compatibility. Targets: Ordinary tensor datum, The ordinary Levi has connected full fixer, Central Hodge filtration in the ordinary Levi, Central ordinary Breuil–Kisin lift, Existence of the adapted ordinary lift, Rational σ-centralizer action on the ordinary lift, Adapted lift compatible with a specified Levi filtration.",
+      "requires": [
+        "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
+        "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
+        "BunGAndNewtonStrata:BG1/ordinary-class",
+        "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy",
+        "BunGAndNewtonStrata:BG1/ordinary-straight-translation",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.4",
+        "ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism",
+        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.3/parahoric-kottwitz-characterization"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "KPZ26",
+      "title": "Integral models of Shimura varieties with parahoric level structure, II",
+      "authors": "Mark Kisin, Georgios Pappas and Rong Zhou",
+      "edition": "Forum of Mathematics, Pi (2026), published 89-page PDF",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/div-class-title-integral-models-of-shimura-varieties-with-parahoric-level-structure-ii-div.pdf",
+      "sha256": "d0438498fbe4501e6d9c0cc7cf3ea9fc02ba5e11d326f2d77dd42715658a198b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§3.1.5,3.1.10; §§5.1–5.3, pp.47–62; §§6.1–6.3, pp.62–71; §7.1.3–7.1.6, pp.72–74; §7.3.1(2), p.86 and §7.3.2, p.87"
+      ]
+    },
+    {
+      "id": "KP18",
+      "title": "Integral models of Shimura varieties with parahoric level structure",
+      "authors": "Mark Kisin and Georgios Pappas",
+      "edition": "Publications Mathématiques de l’IHÉS 128 (2018), pp.121–218",
+      "url": "https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf",
+      "sha256": "e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§3.1–3.3, pp.162–182, including proofs of Lemmas3.1.9,3.1.17,3.2.6,3.2.14 and Proposition3.2.17"
+      ]
+    },
+    {
+      "id": "KZ25",
+      "title": "Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+      "authors": "Mark Kisin and Rong Zhou",
+      "edition": "arXiv:2103.09945v2,7 October2024,63-page author version; published Annals202 (2025)",
+      "url": "https://arxiv.org/pdf/2103.09945v2",
+      "sha256": "62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§3.2–3.4, pp.22–28; the numbering here is the author version: Lemma3.4.3 and Theorem3.4.5"
+      ]
+    },
+    {
+      "id": "Kisin17",
+      "title": "Mod p points on Shimura varieties of abelian type",
+      "authors": "Mark Kisin",
+      "edition": "Author 99-page version dated27 August2016; JAMS30 (2017),819–914; page numbers below are author pages",
+      "url": "https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf",
+      "sha256": "d3c19cddc9e8b073428de559a7215aae4f793490227b6c71d87477ccdb5d994a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1.1–1.2, pp.5–16; proof of Proposition1.3.9, p.21; §1.4.5–Lemma1.4.6, pp.24–25; proof of Theorem2.2.3, p.32; Errata E.1–E.4, p.96"
+      ]
+    },
+    {
+      "id": "Zhu17",
+      "title": "Affine Grassmannians and the geometric Satake in mixed characteristic",
+      "authors": "Xinwen Zhu",
+      "edition": "Annals of Mathematics185 (2017),403–492",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+      "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§0.3, p.410; §3.2 and proof of Proposition3.11, pp.460–463"
+      ]
+    },
+    {
+      "id": "vanHoften24",
+      "title": "Mod p points on Shimura varieties of parahoric level",
+      "authors": "Pol van Hoften",
+      "edition": "Forum of Mathematics, Pi12 (2024), e20, published67-page PDF",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf",
+      "sha256": "d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Example2.2.10, p.14; §§3.1.5–3.1.7, pp.27–28; AppendixA.4.3, pp.64–65"
+      ]
+    },
+    {
+      "id": "Hoff23",
+      "title": "On parahoric (G,μ)-displays",
+      "authors": "Manuel Hoff",
+      "edition": "arXiv:2311.00127v1,2023,37 pages",
+      "url": "https://arxiv.org/pdf/2311.00127v1",
+      "sha256": "4ada497769174b02d9229818e1120be14ccf4d5157ab8c2c87c64dd20f74b98c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1.3–1.5, pp.13–16; §2.1, pp.16–20; §2.3, pp.24–29, particularly Assumption2.28 and Theorem2.36"
+      ]
+    },
+    {
+      "id": "Lau14",
+      "title": "Relations between Dieudonné displays and crystalline Dieudonné theory",
+      "authors": "Eike Lau",
+      "edition": "Algebra & Number Theory8 (2014),2201–2262",
+      "url": "https://msp.org/ant/2014/8-9/ant-v8-n9-p04-p.pdf",
+      "sha256": "f650eaf6a47c7e74b3d0b1007e3dd3bd2e90c32be0d3aeb4ed57bc8a517563b8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemma2.4, p.2216; Theorem5.3 and Corollaries5.5–5.6, pp.2243–2244"
+      ]
+    },
+    {
+      "id": "Anschuetz22",
+      "title": "Extending torsors on the punctured Spec(A_inf)",
+      "authors": "Johannes Anschütz",
+      "edition": "arXiv:1804.06356v2,21 October2020; published J. Reine Angew. Math.783 (2022),227–268",
+      "url": "https://arxiv.org/pdf/1804.06356v2",
+      "sha256": "27c2e6fef2d1fd82ad825b087dbf19b1cd496b8bfc7a60ce6bdba8deaca08354",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition10.3 and proof, author p.33: extension of parahoric torsors over punctured O_E[[z]]"
+      ]
+    },
+    {
+      "id": "Wintenberger97",
+      "title": "Propriétés du groupe tannakien des structures de Hodge p-adiques et torseur entre cohomologies cristalline et étale",
+      "authors": "Jean-Pierre Wintenberger",
+      "edition": "Annales de l’Institut Fourier47 (1997),1289–1334",
+      "url": "https://aif.centre-mersenne.org/item/10.5802/aif.1600.pdf",
+      "sha256": "4049036e27703b422c1fe78465aa4c5ae4ce938b532383a5c6335016687f0c64",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4.1.2, p.1320; Corollary4.4.2 and remarks, pp.1327–1329; §4.5, pp.1329–1333, particularly Proposition4.5.3 and following unnumbered corollary"
+      ]
+    },
+    {
+      "id": "Zhou20",
+      "title": "Mod p isogeny classes on Shimura varieties with parahoric level structure",
+      "authors": "Rong Zhou",
+      "edition": "arXiv:1707.09685v2,February2018 author version; published2020; use v2 numbering explicitly",
+      "url": "https://arxiv.org/pdf/1707.09685v2",
+      "sha256": "2c42c35bc35469c33cfd8a10462b8089db681c57d39b84563bc3b119bb749722",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§5.5, pp.18–19, the M-valued filtration assumption and conditional adapted lift; compare published-number citation in vanHoften24 AppendixA.4.3"
+      ]
+    }
+  ],
+  "status": "draft"
+}

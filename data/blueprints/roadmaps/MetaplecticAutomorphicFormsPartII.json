@@ -1,0 +1,117 @@
+{
+  "id": "MetaplecticAutomorphicFormsPartII",
+  "title": "Metaplectic groups, Weil representations and automorphic theta kernels, Part II: finite Weil–Heisenberg representations",
+  "area": "automorphic",
+  "parent": "MetaplecticAutomorphicForms",
+  "summary": "This Part II develops the finite, odd-characteristic representation theory needed by tame and classical p-adic types. Starting from the parent roadmap’s algebraic Heisenberg extension, it constructs Schrödinger models, proves central-character uniqueness including cyclic centers of higher p-power order, and normalizes a genuine finite symplectic action. Partial-polarization restriction retains the quadratic determinant twist, and isotropic induction and tensor fixed vectors supply the finite inputs to Fintzen and Stevens. The independent automorphic theta-correspondence routes have an explicit companion-roadmap proposal.",
+  "readme": "This Part II develops the finite, odd-characteristic representation theory needed by tame and classical p-adic types. Starting from the parent roadmap’s algebraic Heisenberg extension, it constructs Schrödinger models, proves central-character uniqueness including cyclic centers of higher p-power order, and normalizes a genuine finite symplectic action. Partial-polarization restriction retains the quadratic determinant twist, and isotropic induction and tensor fixed vectors supply the finite inputs to Fintzen and Stevens. The independent automorphic theta-correspondence routes have an explicit companion-roadmap proposal.\n\nH(V) is the native factor-set extension supplied by MetaplecticAutomorphicForms:MP.0: coordinates (t,v), product (t,v)(s,w)=(t+s+B(v,w)/2,v+w), commutator ghg⁻¹h⁻¹=(B(v,w),0). Sp(V) is TauCeti.BilinForm.isometryGroup B. For V=X⊕X*, B((x,y),(x′,y′))=y′(x)−y(x′). In coordinates y(z) is a dot product. ψ is unit-valued, and scalar equations use its image in C. Native semidirect products put the normal subgroup first: H(V)⋊Sp(V). The notation Sp(V)⋉H(V) in papers denotes this same group after exchanging the coordinate order.\n\nThe full target, API and test specification is research/blueprint/readmes/MetaplecticAutomorphicFormsPartII.md. The parent is the first prerequisite through its generic MP.0 algebraic nodes; its characteristic-zero smooth and analytic MP.1–MP.8 results are not finite-field inputs. Local metaplectic covers, global theta lifts and automorphic multiplicity formulas belong to the companion proposal in the packet. Source locators refer to the exact editions below.",
+  "prerequisites": [
+    "MetaplecticAutomorphicForms",
+    "MordellLawrenceVenkatesh"
+  ],
+  "stages": [
+    {
+      "key": "FW.0",
+      "title": "Finite symplectic coordinates",
+      "description": "Over a finite field k of odd characteristic, assemble coordinates adapted to a specified isotropic I: V=I⊕V₀⊕J, I⊥=I⊕V₀, perfect I–J pairing and nondegenerate V₀, with dim V=2 dim I+dim V₀. Import the general Lagrangian basis-extension theorem from MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis. General symplectic-basis existence and even dimension already exist in current Tau Ceti and are not new targets. Use native bilinear forms, submodules and isometries. Import the parent MP.0 algebraic Heisenberg extension, half-form commutator and center, polarization equivalence and isometry action; the current library’s rank-one Heisenberg group is an existing carrier.",
+      "requires": [
+        "MetaplecticAutomorphicForms:MP.0",
+        "MordellLawrenceVenkatesh:LV.3"
+      ]
+    },
+    {
+      "key": "FW.1",
+      "title": "Finite Heisenberg representations",
+      "description": "For nontrivial ψ:k→Cˣ and dim V=2n, construct the finite Schrödinger FDRep on Fun(X,C), π(t,x,y)f(z)=ψ(t+y(z)+y(x)/2)f(z+x), and identify native induction. Compute its character qⁿψ(t) on the center and zero elsewhere; prove irreducibility and uniqueness. More generally, for finite J, normal H, abelian J/H and invariant θ with nondegenerate commutator pairing, prove the unique θ-scalar irreducible has dimension squared [J:H], allowing H/ker θ of order pᵃ. For Lagrangians A,B, construct T_BA by finite left averaging and prove T_AA=|A|id and T_AB T_BA=|A||A∩B|id.",
+      "requires": [
+        "MetaplecticAutomorphicFormsPartII:FW.0"
+      ]
+    },
+    {
+      "key": "FW.2",
+      "title": "Genuine finite Weil actions",
+      "description": "Choose Egorov intertwiners μ(g) for g∈Sp(V) and their native projective multiplier. With parity Rf(z)=f(−z) and S⁺ its even subspace, prove μ commutes with R and normalize by κ(g)=det μ(g)/(det μ(g)|S⁺)². Prove ω=κμ is a genuine, scalar-choice-independent homomorphism, including Sp₂(F₃), characterized by det ω=(det ω|S⁺)². Give exact lower-shear, diagonal and Fourier formulas with the quadratic determinant character and pinned J sign. Construct Ω(h,g)=π(h)ω(g) on the native H(V)⋊Sp(V). Pull it back to P⋊K only from a specified special isomorphism P≃H(V) equivariant for a specified K→Sp(V).",
+      "requires": [
+        "MetaplecticAutomorphicFormsPartII:FW.1"
+      ]
+    },
+    {
+      "key": "FW.3",
+      "title": "Parabolic restriction and isotropic induction",
+      "description": "For isotropic I, identify Sψ,V with Ind_H(I⊥)^H(V) Sψ,V̄, V̄=I⊥/I, and identify I-fixed vectors with the smaller Schrödinger space by evaluation at zero in its mixed model. If P stabilizes I, prove its action on these vectors is (χ_k∘det on I)⊗Ωψ,V̄. Deduce the corrected induction formula from P⋉H(I⊥) to P⋉H(V), retaining this twist. For cyclic-center data J,H,θ over Fp and a subgroup U lifting isotropic I with θ(U∩H)=1, construct θ_I(hu)=θ(h) on HU, prove its unique Heisenberg representation η_I satisfies Ind_Q^J η_I≅η and η^U≅η_I for Q the preimage of I⊥, and compute its dimension.",
+      "requires": [
+        "MetaplecticAutomorphicFormsPartII:FW.0",
+        "MetaplecticAutomorphicFormsPartII:FW.1",
+        "MetaplecticAutomorphicFormsPartII:FW.2"
+      ]
+    },
+    {
+      "key": "FW.4",
+      "title": "Fixed vectors and type-theoretic exports",
+      "description": "If U stabilizes isotropic I and its quotient action stabilizes a Lagrangian L₀ in I⊥/I, prove that the inverse image L is Lagrangian and its Schrödinger fixed line carries χ_k(det on I)χ_k(det on L₀). Deduce a nonzero U-fixed vector when both determinant characters are trivial, in particular for unipotent induced actions. For orthogonal sums, identify the pulled-back Schrödinger and normalized Weil–Heisenberg actions with tensor products, including the F₃ exception and the empty family, and prove the pure tensor of nonzero fixed vectors is nonzero. Export these finite inputs to Fintzen’s and Stevens’s type constructions, whose p-adic quotients and action identifications remain with their consumer roadmap.",
+      "requires": [
+        "MetaplecticAutomorphicFormsPartII:FW.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "F21",
+      "title": "Types for tame p-adic groups",
+      "authors": "Jessica Fintzen",
+      "edition": "Annals of Mathematics 193 (2021), arXiv:1810.04198v2; page locators below refer to this 39-page version",
+      "url": "https://arxiv.org/pdf/1810.04198v2",
+      "sha256": "bd332fd73956082656d767870566fdafd0fce3d834cccb223779a7724c3da8cc",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Section 7, pp. 30–34: Lemmas 7.7, 7.8 and 7.10; footnote 3 on p. 33."
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "The supercuspidal representations of p-adic classical groups",
+      "authors": "Shaun Stevens",
+      "edition": "Inventiones mathematicae 172 (2008), 289–352; arXiv:math/0607622v2, 55 pages; page locators refer to arXiv",
+      "url": "https://arxiv.org/pdf/math/0607622v2",
+      "sha256": "b5b409260344f0d86fbe98bee2c046971a5e9042ab8174f199343d10b5857109",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 3.5, p. 14.",
+        "Lemma 5.6 and Corollary 5.7, pp. 29–31.",
+        "Lemma 5.12 and its proof, pp. 32–33."
+      ]
+    },
+    {
+      "id": "N02",
+      "title": "An Explicit Construction of the Metaplectic Representation over a Finite Field",
+      "authors": "Markus Neuhauser",
+      "edition": "Journal of Lie Theory 12 (2002), 15–30; publisher PDF; journal page numbers",
+      "url": "https://www.heldermann-verlag.de/jlt/jlt12/NEUHAUSLAT2E.PDF",
+      "sha256": "1f8b7011be2d894640db21a9aa94b5916481bcb1f8783e287c27a4df069807c3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Section 2, pp. 16–17: Schrödinger model and Lemma 2.1.",
+        "Theorem 3.3, p. 18: generators.",
+        "Theorem 4.1, pp. 19–20: generator operators.",
+        "Theorem 4.2, pp. 20–22: parity subspaces.",
+        "Theorem 4.3 and following determinant calculation, pp. 22–23.",
+        "Example 4.4, pp. 23–24."
+      ]
+    },
+    {
+      "id": "FS25",
+      "title": "Construction of tame supercuspidal representations in arbitrary residue characteristic",
+      "authors": "Jessica Fintzen and David Schwein",
+      "edition": "Author manuscript dated April 15, 2025, 53 pages; only the odd-characteristic parts are used",
+      "url": "https://www.math.uni-bonn.de/people/schwein/documents/fintzen_schwein25.pdf",
+      "sha256": "9d8bdc451c612c5be1afd086bd8f944387405ab6a308de996f45b103c2576d16",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Section 3.1, pp. 8–11: odd-order Heisenberg groups and the standard model.",
+        "Section 3.3, pp. 14–16: Lemmas 3.3.1 and 3.3.4.",
+        "Section 3.4, pp. 16–18: Construction 3.4.2, Remark 3.4.3 and Definitions 3.4.4–3.4.5."
+      ]
+    }
+  ],
+  "status": "draft"
+}

@@ -1,0 +1,534 @@
+{
+ "roadmapId": "K2SymbolsBrauer",
+ "protocol": "blueprint-v1",
+ "part": "T.3-localization-comparison",
+ "status": "complete",
+ "scope": [
+  "K2SymbolsBrauer:T.3:localization-comparison"
+ ],
+ "summary": "A target-level continuation completing the planning pass for the later localization comparison. It reuses the four existing local/Dedekind/transfer comparison targets and the earlier-owned Milnor residue and norm theory. Three additional targets package the pointwise finite-support residue family, compare the ordered Milnor product map with the signed Quillen boundary in every degree, and distinguish Milnor unit-part specialization from Quillen specialization by its explicit correction. The product-normalized Matsumoto map is used throughout, retaining the torus sign against the Hurewicz comparison. All scoped targets are planned, not formalized or supplier-closed; the precise torsion-Serre quotient, product-model comparison, inherited Matsumoto inputs and arbitrary-residue complete-DVR support remain recorded owner contracts.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:DirectSum.mk",
+    "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+    "provides": "Builds a dependent direct-sum element supported on a chosen finite set; use pointwise finite support, not a finite family of component homomorphisms.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:DirectSum.ext",
+    "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+    "provides": "Equality of dependent direct-sum elements follows from equality at every coordinate.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:DirectSum.map",
+    "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+    "provides": "Maps a dependent direct sum by a family of additive homomorphisms.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:DirectSum.map_apply",
+    "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+    "provides": "The coordinate of the mapped element is the corresponding component map applied to that coordinate.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:DirectSum.toAddMonoid",
+    "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+    "provides": "The additive homomorphism out of a direct sum induced by its component homomorphisms; used for residue-norm sums.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Algebra.norm",
+    "module": "Mathlib/RingTheory/Norm/Defs.lean",
+    "provides": "The determinant norm for a ring algebra; for finite field extensions it is the ordinary field norm, including inseparable extensions.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Algebra.norm_algebraMap",
+    "module": "Mathlib/RingTheory/Norm/Defs.lean",
+    "provides": "For a free algebra S over R, the norm of algebraMap x equals x raised to Module.finrank R S; finite field extensions satisfy the needed hypotheses.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite",
+    "module": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+    "provides": "Finiteness of the places where an element is not integral; to bound nonzero orders use this for both a and a⁻¹.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.finite_setOf_ord_ne_zero",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/Zeros.lean",
+    "provides": "For an explicit IsFunctionField k F argument, the places with nonzero order of an element form a finite set; no exact-constant-field assumption.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "tauceti:TauCeti.SplitK0.finrankEquiv",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/FiniteDimensionalVectorSpace.lean",
+    "provides": "For a division ring k with Small.{v} k, split K₀ of FGModuleCat.{v} k is additively equivalent to ℤ by dimension. The smallness condition is automatic when scalars and carriers have the same universe. Identification with the connective K₀ model remains the owning K-theory roadmap’s comparison.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   },
+   {
+    "ref": "tauceti:TauCeti.SplitK0.finrankEquiv_of",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/FiniteDimensionalVectorSpace.lean",
+    "provides": "With the same Small.{v} k hypothesis, the dimension equivalence takes an object class to its dimension; in particular a line has value 1.",
+    "checked": "Statement read at the recorded pinned commits, 2026-10-19."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "Kbook.2013",
+   "title": "The K-book: An Introduction to Algebraic K-theory",
+   "authors": "Charles A. Weibel",
+   "edition": "Author-hosted combined draft dated 29 August 2013. Printed page numbers are those in this draft; PDF page numbers count from the cover.",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+   "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "II.6.4.1, printed p.120 / PDF p.128: localization as a quotient of finitely generated module categories; checked in independent review.",
+    "III.1.5.4, printed p.185 / PDF p.193; III.1.7.1 and its following paragraph, printed p.187 / PDF p.195.",
+    "III.6.1–6.1.5, printed pp.231–232 / PDF pp.239–240; III.6.3–6.5.3, printed pp.234–238 / PDF pp.242–246.",
+    "III.7.1–7.6.4, printed pp.245–252 / PDF pp.253–260; the residue and norm theory is imported from its existing owners.",
+    "V.3.3.2 and V.3.5–3.7.2, printed pp.386–390 / PDF pp.394–398; V.4.2.1, printed p.400 / PDF p.408.",
+    "Exercise V.5.1 and V.5.3, printed p.405 / PDF p.413; V.6.1–6.1.2, printed p.406 / PDF p.414; V.6.6–6.7, printed pp.409–411 / PDF pp.417–419."
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "K2SymbolsBrauer:T.3:localization-comparison/product-residue-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.3:localization-comparison",
+   "realises": [
+    "K2SymbolsBrauer:T.3:localization-comparison"
+   ],
+   "title": "The product map intertwines higher residues with the signed localization boundary",
+   "kind": "theorem",
+   "statement": "Let R be a discrete valuation ring with fraction field F, residue field k and parameter π. Write r_v,n : K⁽ᴹ⁾_n(F) → K⁽ᴹ⁾_(n−1)(k) for T.3/higher-milnor-residues with the parameter LAST; Φ_n for T.2/graded-map, defined by the ordered product of unit classes; and D_n : K_n(F) → K_(n−1)(k) for the actual K.3 localization connecting map with D₁[π]=1 and the RIGHT module convention. For every n≥1, D_n ∘ Φ_n = (−1)^(n−1) Φ_(n−1) ∘ r_v,n. Thus δ_n=(−1)^(n−1)D_n satisfies δ_nΦ_n=Φ_(n−1)r_v,n. In degree two Φ₂=θ₂♮m is the product-normalized Matsumoto equivalence, and D₂Φ₂{f,g}=t_v(f,g)⁻¹, whereas δ₂Φ₂=t_v. If θ₂♮(z)=θ₂(εz) for the globally fixed torus sign ε∈{±1}, then D₂θ₂m=−εr_v,2 in additive residue notation, or t_v^(−ε) multiplicatively. No value of ε is assumed and no higher Φ_n is asserted invertible.",
+   "hypotheses": [
+    "R is a commutative DVR; F is its fraction field and k its native residue field. No completeness, finite residue field, coefficient field or characteristic restriction is assumed.",
+    "K.3 supplies the torsion-module localization sequence, dévissage and resolution, and its right product boundary law. Φ₀ identifies the integer class with rank, and Φ₁ takes a unit to its K₁ class.",
+    "The comparison θ₂♮, rather than an unspecified classical-to-Quillen isomorphism, is the one fixed by T.2/graded-map-degree-two-identification."
+   ],
+   "proofSteps": [
+    "Expand every symbol using f_i=u_iπ^(a_i). Bilinearity, skew-commutativity and {π,π}={−1,π} reduce it to a sum of symbols of R-units and symbols {u₁,…,u_(n−1),π}. This is an argument on generators, not a claimed splitting of Milnor K-theory of R.",
+    "A product of R-unit classes lifts to K_n(R), so its boundary is zero by localization exactness. Its reduction is Φ of the reduced units by naturality of K.7 products.",
+    "For a unit product b of degree n−1, the left action obtained from the right module law gives D_n(Φ(b)·[π])=(−1)^(n−1)Φ(b̄)D₁[π]. Dévissage sends D₁[π]=[k] to 1. This is exactly the residue value on a uniformizer-last symbol.",
+    "Agreement on all symbol generators proves equality of homomorphisms in every degree. In degree two substitute the imported product-normalized equivalence Φ₂=θ₂♮m and use ε²=1 to transport to θ₂.",
+    "For f=π^a u and g=π^b v, the resulting multiplicative value is (−1)^(ab) v̄^a ū^(−b), the inverse of the roadmap tame symbol. The diagonal π,π contributes −1, not 1."
+   ],
+   "acceptance": [
+    "At ℚ with the 5-adic valuation: t₅(2,5)=2, D₂Φ₂{2,5}=3; t₅(5,2)=3, D₂Φ₂{5,2}=2; D₂Φ₂{5,5}=4 in 𝔽₅ˣ. These distinguish inversion from the identity.",
+    "D₁Φ₁{π}=1. For k=ℚ(t), R=k[[π]] and x={2,t,π}, D₃Φ₃(x)=Φ₂{2,t}. The t-adic boundary of the right side is 1/2∈ℚˣ, while that of its negative is 2. This detects the positive degree-three sign; a finite-field K₂ target cannot do so.",
+    "All-unit symbols have zero boundary. δ₂ and D₂ have the same kernel and inverse values, but their map equality is never asserted.",
+    "Transport through θ₂ carries ε explicitly. A finite-field K₂=0 test cannot determine that sign."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.3/localization-boundary",
+    "K2SymbolsBrauer:T.3/higher-milnor-residues",
+    "K2SymbolsBrauer:T.2/milnor-alternating",
+    "K2SymbolsBrauer:T.2/graded-map",
+    "K2SymbolsBrauer:T.2/graded-map-degree-two-identification",
+    "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
+    "GeneralAlgebraicKTheory:K.3/dvr-degree-one-boundary",
+    "GeneralAlgebraicKTheory:K.3/localization-product-boundary",
+    "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
+    "GeneralAlgebraicKTheory:K.3",
+    "GeneralAlgebraicKTheory:K.7"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.3, printed p.246 / PDF p.254; V.6.6.1, printed p.409 / PDF p.417; Exercise V.5.3, printed p.405 / PDF p.413",
+     "match": "The higher-degree identity is derived here from the uniformizer-last normalization and the right module law; V.6.6.1 computes the parameter-first degree-two boundary. It is not quoted as an all-degree comparison theorem in the source."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Milnor–Quillen residue comparison"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3:localization-comparison/global-residue-hom",
+   "parentStageId": "K2SymbolsBrauer:T.3:localization-comparison",
+   "realises": [
+    "K2SymbolsBrauer:T.3:localization-comparison"
+   ],
+   "title": "Package the finite-support family as a total Milnor residue homomorphism",
+   "kind": "construction",
+   "statement": "Let V be an indexed family of normalized discrete valuations on a field F of finite character: for each a∈Fˣ only finitely many v∈V have ord_v(a)≠0. For n≥1 construct MilnorK.globalResidueHom(V,n) : K⁽ᴹ⁾_n(F) → ⨁_(v∈V) K⁽ᴹ⁾_(n−1)(k_v), the unique additive homomorphism with v-coordinate r_v,n. The direct sum is the existing dependent DirectSum, using Additive k_vˣ in degree one. It is not the direct sum of the individual homomorphisms: each input has finite support, while infinitely many component homomorphisms may be nonzero. For a Dedekind domain R with F=Frac(R) and V its nonzero primes, the total Quillen boundary satisfies D⁽ᴿ⁾_n Φ_n = (−1)^(n−1)(⨁_v Φ_(n−1)) globalResidueHom(V,n). In particular degree two transports the inherited Dedekind sequence through Φ₂ and coordinatewise negation/inversion.",
+   "hypotheses": [
+    "n≥1, V is a set-indexed family with the explicit finite-character property, and every residue field is the native residue of its valuation ring.",
+    "The global Quillen comparison clause uses the height-one-prime family of a Dedekind domain and its actual localization sequence. No full Quillen boundary into a direct sum is postulated for an arbitrary family of DVRs."
+   ],
+   "proofSteps": [
+    "Import T.3/finite-support: a finite sum of symbols has residue support inside the finite union of the order supports of all entries. Use it to construct an element of the existing dependent direct sum from the coordinate function v↦r_v,n(x).",
+    "Coordinatewise additivity and DirectSum.ext prove the homomorphism laws and uniqueness. The construction is independent of a symbol presentation because every coordinate is already a homomorphism on Milnor K-theory.",
+    "For Dedekind primes, the pinned Support.finite theorem controls poles only. Apply it to both a and a⁻¹ to bound the nonzero-order support. For function-field places import TauCeti.Place.finite_setOf_ord_ne_zero directly. No new place or divisor is defined.",
+    "For the global square compare coordinates using product-residue-comparison and the factorization of the localization boundary through R_v. DirectSum.map supplies the componentwise Φ, and DirectSum.ext assembles equality.",
+    "The inherited exact sequence retains its ordinary Quillen arrow D₂. To display the roadmap residue arrow, compose that arrow with negation on the residue direct sum and the following arrow with negation on its source. Exactness then follows from an isomorphism of sequences, not merely from equality of kernels."
+   ],
+   "acceptance": [
+    "The constructor uses pointwise finite support, not a finitely supported family of maps.",
+    "In degree one the map is the existing principal-divisor coefficient map on the chosen family, and in degree two its coordinates are the roadmap t_v.",
+    "Every API item below is specified and every test below has a concrete expected value or failure. The full Quillen sequence and transfers remain imported under their existing identifiers."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.3/finite-support",
+    "K2SymbolsBrauer:T.3:localization-comparison/product-residue-comparison",
+    "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+    "mathlib:DirectSum.mk",
+    "mathlib:DirectSum.ext",
+    "mathlib:DirectSum.map",
+    "mathlib:DirectSum.map_apply",
+    "mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite",
+    "tauceti:TauCeti.Place.finite_setOf_ord_ne_zero",
+    "GeneralAlgebraicKTheory:K.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.6.5, printed pp.236–237 / PDF pp.244–245; III.7.4, printed pp.247–248 / PDF pp.255–256; V.6.6–6.6.1, printed p.409 / PDF p.417",
+     "match": "The displayed residue coproducts motivate the packaged homomorphism. The construction and its API are derived from the earlier finite-support theorem and the pinned DirectSum, not attributed verbatim to the book."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Total residue homomorphism"
+   },
+   "api": [
+    {
+     "name": "MilnorK.globalResidueHom",
+     "role": "constructor",
+     "statement": "The additive homomorphism to the dependent residue direct sum, constructed with the finite-support proof for each input."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_apply",
+     "role": "projection",
+     "statement": "For every v and x, the v-coordinate of globalResidueHom(V,n)(x) is r_v,n(x)."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_unique",
+     "role": "extensionality",
+     "statement": "A homomorphism to this direct sum with all the same residue coordinates equals globalResidueHom(V,n)."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_support_subset",
+     "role": "characterisation",
+     "statement": "For any finite symbol expression for x, the support of globalResidueHom(V,n)(x) is contained in the union of the nonzero-order supports of all its entries; equality is not asserted."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_eq_zero_iff",
+     "role": "characterisation",
+     "statement": "globalResidueHom(V,n)(x)=0 iff r_v,n(x)=0 for every v. Thus its kernel is the intersection of the individual residue kernels."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_degree_one",
+     "role": "compatibility",
+     "statement": "At n=1 the coordinates are ord_v(a); for Dedekind primes and for function-field places, compare to the existing principal divisor by coefficient extensionality."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_degree_two",
+     "role": "compatibility",
+     "statement": "At n=2 its coordinates in k_vˣ are t_v(f,g), with addition on Additive k_vˣ interpreted multiplicatively."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_quillen",
+     "role": "compatibility",
+     "statement": "For a Dedekind R, D⁽ᴿ⁾_n Φ_n=(−1)^(n−1)DirectSum.map(Φ_(n−1)) globalResidueHom(V,n). This compares actual maps, not only groups."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_reindex",
+     "role": "functoriality",
+     "statement": "Relabeling V by an equivalence, and transporting its valuations and native residue fields along that equivalence, reindexes the output. No unrestricted field-extension naturality is claimed."
+    }
+   ],
+   "uses": [
+    {
+     "where": "K2SymbolsBrauer:T.5/unramified-subgroup and tame-kernel sequences",
+     "how": "Identifies the residue-kernel subgroup using the existing finite-support codomain, and supplies the correctly signed map from the imported Dedekind localization row."
+    },
+    {
+     "where": "SchemeKTheoryOperations:S.3 and EllipticKTheory:E.3",
+     "how": "Exports the field-symbol boundary calculation and actual direct-sum comparison for the affine Dedekind/DVR cases; scheme support and curve gluing stay with those consumers."
+    },
+    {
+     "where": "K2SymbolsBrauer:T.4 reciprocity targets",
+     "how": "Provides reusable coordinate and finite-support vocabulary. Their norms, proper-curve reciprocity and place/closed-point dictionaries remain earlier-owned inputs, not prerequisites introduced by this construction."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MilnorK.globalResidueHom_empty",
+     "statement": "For V empty the codomain is trivial and every input maps to zero. For x=0 all coordinates are zero for any V.",
+     "kind": "degenerate"
+    },
+    {
+     "name": "MilnorK.globalResidueHom_principal_divisor",
+     "kind": "compatibility",
+     "statement": "For F=ℚ and V the rational primes, globalResidueHom(V,1){25/2} has coefficient −1 at 2, coefficient 2 at 5, and zero elsewhere. These are the coefficients of the existing principal divisor of 25/2; degree zero of each residue group is ℤ, not a residue-field unit group."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_rational_symbol",
+     "statement": "For F=ℚ and V the rational primes, globalResidueHom(V,2){2,5} has only its 5-coordinate nontrivial, with value 2∈𝔽₅ˣ. The coordinate at 2 is 1 because 𝔽₂ˣ is trivial. The Quillen-boundary coordinate is 3 at 5.",
+     "kind": "computation"
+    },
+    {
+     "name": "MilnorK.globalResidueHom_steinberg",
+     "statement": "For the same family, {2,−1}={2,1−2} maps to zero at every prime. Its entries have a nonzero-order support at 2, so the support bound can be strict.",
+     "kind": "computation"
+    },
+    {
+     "name": "MilnorK.globalResidueHom_inverse_and_diagonal",
+     "statement": "For ℚ at the prime 5, {5,2} has coordinate 3 and {5,5} has coordinate 4. Adding a symbol to its additive inverse yields the zero direct-sum element.",
+     "kind": "computation"
+    },
+    {
+     "name": "MilnorK.globalResidueHom_degree_three",
+     "kind": "computation",
+     "statement": "For k=ℚ(t), F=k((π)) and V the singleton π-adic family, globalResidueHom(V,3){2,t,π} has coordinate {2,t}∈K⁽ᴹ⁾₂(k). Its image under Φ₂ has t-adic Quillen boundary 1/2∈ℚˣ. The actual D₃ has the positive coordinate Φ₂{2,t}; negating it would give t-adic boundary 2."
+    },
+    {
+     "name": "MilnorK.globalResidueHom_infinite_family",
+     "statement": "For V=ℕ with every indexed valuation the same 5-adic valuation on ℚ, {2,5} has the nontrivial coordinate 2 at every index. Finite character fails, so this input cannot be sent to a dependent direct sum by the proposed coordinates.",
+     "kind": "non-example"
+    }
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3:localization-comparison/specialization-product-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.3:localization-comparison",
+   "realises": [
+    "K2SymbolsBrauer:T.3:localization-comparison"
+   ],
+   "title": "Compare unit-part specialization with the two Quillen product specializations",
+   "kind": "theorem",
+   "statement": "With R,F,k,π,Φ,D and r as in product-residue-comparison, let λ_π,n be the imported Milnor unit-part specialization and n≥1. Then λ_π,n(x)=r_v,n+1(x·{−π}) and Φ_n(λ_π,n(x))=(−1)^n D_(n+1)(Φ_n(x)·[−π]). For the K-book specialization q_π,n(z)=D_(n+1)([π]·z), one instead has q_π,n(Φ_n x)=Φ_n(λ_π,n(x)+r_v,n(x)·{−1}). Equivalently, q_π,nΦ_n=Φ_nλ_(−π),n. For π′=uπ with u∈Rˣ, both these compared specializations change by −Φ_n(r_v,n(x)·{ū}); r_v and D are independent of π. These are equalities of homomorphisms; they do not assert an all-degree isomorphism or identify q_π with λ_π.",
+   "hypotheses": [
+    "n≥1; λ_π is T.3/higher-milnor-residues in the same parameter-last convention as r.",
+    "q_π uses the K-book RIGHT-linear boundary and multiplication by [π] on the LEFT. The corrected formula uses [−π] on the RIGHT and the degree sign."
+   ],
+   "proofSteps": [
+    "Use the imported Serre expansion d_π(x)=λ_π(x)+r_v(x)Π, with Π on the right. Since d_π{−π}={−1}+Π, Π{−1}=−{−1}Π and Π²={−1}Π, the coefficient of Π in d_π(x)d_π{−π} is exactly λ_π(x). Thus r_v(x{−π})=λ_π(x).",
+    "Apply product-residue-comparison in degree n+1 to x{−π} and use multiplicativity of Φ. This proves the corrected Quillen formula.",
+    "For q_π commute the degree-one [π] past Φ_n(x). The factor (−1)^n from graded commutativity cancels the factor (−1)^n of the boundary comparison. The coefficient of Π in d_π(x)Π is λ_π(x)+r_v(x){−1}.",
+    "The parameter-change formula of T.3/specialisation-change-of-uniformiser gives λ_(uπ)=λ_π−r_v·{ū}. Bilinearity and the right module law give the same change for q. For u=−1 the sign of the correction is immaterial because {−1} is killed by 2, so q_πΦ=Φλ_(−π).",
+    "On unramified unit products r_v=0, both formulas reduce to reduction of units. On {π} they differ; this is a mathematical distinction between the source constructions, not a new source erratum."
+   ],
+   "acceptance": [
+    "For R=ℤ_(5), λ₅,1{5}=0 in additive Milnor notation, but q₅,1([5])=[−1], corresponding to 4∈𝔽₅ˣ. The corrected expression −D₂([5]·[−5])=0.",
+    "For the same R, λ₁₀,1{5}={3}, while q₁₀,1([5])={2}, because q₅{5}−{2}={−1/2}={2} in 𝔽₅ˣ. A uniformizer-independent specialization fails this test.",
+    "For a unit u both specializations take Φ₁{u} to [ū]. In higher degree every all-unit symbol reduces in its original order.",
+    "For k=ℚ(s), F=k((t)), x={s,t}, λ_t,2(x)=0 and q_t,2Φ₂(x)=Φ₂{s,−1}; the latter is detected by the s-adic residue −1. This tests the correction beyond degree one."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.3:localization-comparison/product-residue-comparison",
+    "K2SymbolsBrauer:T.3/higher-milnor-residues",
+    "K2SymbolsBrauer:T.3/serre-residue-algebra",
+    "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
+    "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser",
+    "K2SymbolsBrauer:T.2/graded-map",
+    "GeneralAlgebraicKTheory:K.3/localization-product-boundary"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.3 and its Serre algebra proof, printed p.246 / PDF p.254; V.6.6.4 and the specialization paragraph immediately following it, printed p.410 / PDF p.418",
+     "match": "The two specialization constructions are stated separately in the source. Their comparison, the −π correction and the displayed tests are derived here with the roadmap parameter-last convention."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Milnor–Quillen specialization comparison"
+   }
+  }
+ ],
+ "importedTargets": [
+  {
+   "id": "K2SymbolsBrauer:T.3/localization-boundary",
+   "from": "K2SymbolsBrauer--T.3",
+   "use": "The degree-two local boundary theorem is the inherited target, refined by product-residue-comparison in all degrees.",
+   "normalization": "Replace an unspecified Matsumoto/Quillen identification by Φ₂=θ₂♮m. The actual D₂ is inverse tame; δ₂=−D₂ is the roadmap tame symbol.",
+   "prerequisites": [
+    "K2SymbolsBrauer:T.3/tame-symbol-hom",
+    "K2SymbolsBrauer:T.2/matsumoto",
+    "K2SymbolsBrauer:T.2/graded-map",
+    "GeneralAlgebraicKTheory:K.3/dvr-degree-one-boundary",
+    "GeneralAlgebraicKTheory:K.3/localization-degree-one-index",
+    "GeneralAlgebraicKTheory:K.3/localization-product-boundary",
+    "GeneralAlgebraicKTheory:K.7"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+   "from": "K2SymbolsBrauer--T.3",
+   "use": "The full primewise exact row, its finite-support codomain, kernel and SK₁ cokernel stay imported.",
+   "normalization": "Retain D₂ in the ordinary row. If replacing it by the roadmap residue through Φ₂, negate both the residue coordinate and its outgoing arrow.",
+   "prerequisites": [
+    "K2SymbolsBrauer:T.3/localization-boundary",
+    "K2SymbolsBrauer:T.3/finite-support",
+    "K2SymbolsBrauer:T.1/k2-pi2",
+    "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+    "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+    "GeneralAlgebraicKTheory:K.3/resolution-theorem",
+    "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
+    "mathlib:IsDedekindDomain.HeightOneSpectrum",
+    "GeneralAlgebraicKTheory:K.3"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3/quillen-transfer-norm-residue",
+   "from": "K2SymbolsBrauer--T.3",
+   "use": "The finite-Dedekind transfer diagram in every connective degree, and its degree-two residue norm product, stay imported.",
+   "normalization": "No e in the pushforward boundary formula. At degree one the residue transfer is the field norm, at degree zero its rank is the residue degree f.",
+   "prerequisites": [
+    "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+    "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
+    "GeneralAlgebraicKTheory:K.3/devissage-theorem",
+    "GeneralAlgebraicKTheory:K.3/abelian-localization-theorem",
+    "mathlib:Algebra.norm"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison",
+   "from": "K2SymbolsBrauer--T.3",
+   "use": "The equality of the two finite-field transfers in degree two stays imported for every finite extension, including inseparable ones. First reduce an arbitrary finite extension to a tower of simple extensions using transitivity of both transfers. Apply T.4/transfer-base-change only to those simple steps before prime-to-p detection; it is not cited as an arbitrary-extension theorem.",
+   "normalization": "Use N^Q Φ₂,E=Φ₂,F N^M. A constant ε commutes with both additive transfers, so this is equivalent to the earlier normalized classical statement; higher-degree transfer equality is not asserted.",
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
+    "K2SymbolsBrauer:T.4/milnor-projection-formula",
+    "K2SymbolsBrauer:T.4/prime-to-p-closure",
+    "K2SymbolsBrauer:T.4/p-closed-generation",
+    "K2SymbolsBrauer:T.4/degree-reduction",
+    "K2SymbolsBrauer:T.2/matsumoto",
+    "K2SymbolsBrauer:T.1/k2-pi2",
+    "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula",
+    "K2SymbolsBrauer:T.4/transfer-base-change",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+    "GeneralAlgebraicKTheory:K.3/finite-field-transfer-base-change"
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3/higher-milnor-residues",
+   "from": "K2SymbolsBrauer--T.3",
+   "use": "Single owner of r_v,n and λ_π,n, parented in T.3:symbols. This continuation only compares those maps."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3/finite-support",
+   "from": "K2SymbolsBrauer--T.3",
+   "use": "Single owner of the finite-support theorem. The new construction packages its output in the existing dependent direct sum."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+   "from": "K2SymbolsBrauer--T.3",
+   "use": "Single owner of the general Milnor norm/residue formula, parented in T.4. Its inherited arbitrary-residue complete-DVR gap remains recorded."
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "K2SymbolsBrauer:T.3:localization-comparison",
+   "status": "planned",
+   "note": "Every stage target has an explicit owner and interface. Three new target-level nodes refine the inherited four comparison nodes; earlier Milnor residues, specialization, product signs, finite support and norm construction are imported without duplicate IDs. The reader states their exact maps, hypotheses, API and tests.",
+   "remaining": [
+    "GeneralAlgebraicKTheory K.3 must supply the requested torsion Serre quotient and its naturality; K.7 must supply the degree-(1,1) product-model comparison already requested by T.2.",
+    "The inherited T.2:symbols finite-field classical presentation and stable-witness gaps, and T.4 arbitrary-residue complete-DVR routing gap, prevent closure.",
+    "Maintainer stage/consumer normalization updates recorded in restructure and upstreamNotes; no out-of-scope file is edited."
+   ]
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.3",
+   "need": "For every Dedekind domain R with fraction field F, finitely generated torsion R-modules form a Serre subcategory of finitely generated R-modules, and localization induces an exact equivalence of the Serre quotient with finite-dimensional F-vector spaces. Retain the functorial identifications for R→R_p and for restriction of scalars along finite inclusions of Dedekind domains. Dévissage identifies the torsion term with the filtered finite-support sum of the residue-field K-theories. K.3/abelian-localization-theorem, devissage-theorem and resolution-theorem are imported named inputs, not substitutes for this quotient equivalence. Source: K-book II.6.4.1 and V.6.1, V.6.6.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+    "K2SymbolsBrauer:T.3/quillen-transfer-norm-residue",
+    "K2SymbolsBrauer:T.3:localization-comparison/product-residue-comparison",
+    "K2SymbolsBrauer:T.3:localization-comparison/global-residue-hom"
+   ]
+  },
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.7",
+   "need": "Compare K.7's product with Loday's plus-construction product in degree (1,1). For rings A and A′, under the identification of the base-point component of the K-theory space with BGL(−)⁺ (K.2:plus/plus-equals-Q) and of K₁ with π₁BGL⁺ (KTheoryLowDegrees U.6/pi1-plus-construction), the degree-(1,1) part K₁(A) ⊗ K₁(A′) → K₂(A ⊗ A′) of the biexact external product of K.7/products-from-biexact-functors equals Loday's product [f]∗[f′] = [γ ∘ (f ∧ f′)] (Loday §2.1.10 and Theorem 2.1.11; Weibel IV.1.10), where γ is built from tensor products of matrices and the block-sum H-space structure. State it naturally in A and A′, with the identification S¹ ∧ S¹ ≅ S² used by K.7's sign conventions made explicit; for a commutative ring the internal product is this followed by the multiplication R ⊗ R → R. The value on two unit classes and its sign relative to T.1/k2-pi2 are planned in K2SymbolsBrauer:T.2/unit-loop-product-symbol and are not requested. K.7/products-from-biexact-functors and K.7/unit-multiplication-and-K0-tensor-comparison do not state this comparison, and the locators read here state the plus product only.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
+    "K2SymbolsBrauer:T.3:localization-comparison/product-residue-comparison"
+   ],
+   "inheritedFrom": "K2SymbolsBrauer--T.2-graded-map; no second unit-symbol theorem is requested here."
+  }
+ ],
+ "gaps": [
+  {
+   "id": "G-inherited-Matsumoto",
+   "title": "Inherited classical presentation inputs",
+   "detail": "The accepted T.2:symbols plan retains G-finite-classical and G-stable-witness. This continuation uses T.2/graded-map-degree-two-identification, which explicitly inherits them; no assertion that checking the Steinberg relations proves Matsumoto injectivity is made. Owner: K2SymbolsBrauer T.2:symbols. The all-degree product/residue comparison itself only needs the existing Milnor presentation and product map, not invertibility in higher degrees."
+  },
+  {
+   "id": "G-inherited-arbitrary-residue-DVR",
+   "title": "Inherited generic complete-DVR support for Milnor norms",
+   "detail": "The general Milnor norm/residue proof used by T.4 and T.3/transfer-and-norm-residue rests on the unregistered Local Fields and Ramification, Part II routing brief in the existing T.3 packet, contracts DVR.0–DVR.3 (finite extensions, integral-closure lattice, norm valuation/residue, component lengths). The current upstream local-field roadmap assumes finite residue field and does not supply those general contracts. Preserve the earlier gap and routing brief; proposed identifiers are not executable prerequisites here. The Quillen finite-Dedekind localization/transfer square and the two-transfer equality proof by arbitrary FIELD base change do not use this complete-DVR gap."
+  }
+ ],
+ "restructure": [
+  {
+   "kind": "stage-order-and-text",
+   "detail": "Retain RT-AREA-ktheory-1/28: T.3:symbols → T.4 → T.3:localization-comparison. Move the higher Milnor residue/specialization/product-sign and finite-support text to T.3:symbols, whose existing nodes realize this stage. Keep the later stage for comparison with Quillen K-theory. This is a maintainer change to the atlas, not an edit here."
+  },
+  {
+   "kind": "normalization-transport",
+   "detail": "The existing localization-boundary, dedekind-localization-boundary and milnor-quillen-transfer-comparison targets remain their single owners. Assembly must read their classical-to-Quillen identification as Φ₂=θ₂♮m from T.2/graded-map-degree-two-identification. If a consumer uses the Hurewicz θ₂ instead, retain ε and replace D₂Φ₂=−r₂ by D₂θ₂m=−εr₂. For a displayed exact row with arrow r₂ rather than D₂, also negate the following residue-to-K₁ arrow."
+  }
+ ],
+ "sourceIssues": [],
+ "upstreamNotes": [
+  {
+   "supplier": "SchemeKTheoryOperations:S.3",
+   "note": "Consumer, not a prerequisite. Its ring/scheme adapter imports the product-normalized boundary formula and distinguishes actual D₂ from δ₂=−D₂. Scheme support, coherent/perfect comparison and closed-point gluing remain S.3-owned. No S.3 input is used to prove the DVR ring comparison."
+  },
+  {
+   "supplier": "EllipticKTheory:E.3",
+   "note": "Consumer, not a prerequisite. Use the same parameter-last residue convention and identify its curve maps via the scheme/place dictionary owned elsewhere. Finite pushforward uses residue norms without an extra ramification factor; pullback has the ramification factor."
+  },
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.3",
+   "note": "The index, DVR degree-one boundary, right product boundary and arbitrary-field transfer base-change are precise existing plan nodes, not new requests or pinned declarations. The requested torsion Serre quotient remains outstanding. Artinian component lengths belong to G-theory dévissage; no K(B)=G(B) for a nonregular Artin ring is used."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+   "note": "Current main supplies finite-residue local-field norm valuations, and AlgebraicCurves supplies function-field places, normalization and completion interfaces. Read both current Suggested.lean files and the current Tau Ceti library. None supplies Quillen/Milnor K-theory or the full arbitrary-residue finite-extension support; preserve the inherited Part II routing brief without widening either upstream roadmap."
+  }
+ ],
+ "audit": {
+  "reviewedAudit": "AUDIT-29 / REV-AUDIT-29, data/library-coverage.json",
+  "checked": "2026-10-19",
+  "finding": "No Milnor or Quillen K-theory/residue comparison at the pins. Generic direct sums, norm determinants, degree-zero dimension and finite order-support inputs are present and imported. Current read-only main was also searched, including the nine newer roadmap directions; no existing K-theoretic target was replanned.",
+  "upstreamDocumentsRead": [
+   "TauCetiRoadmap/AlgebraicCurves/README.md and Suggested.lean, Layers 0–2, 5, 9 and the consumer contracts",
+   "TauCetiRoadmap/LocalFieldsRamification/README.md and Suggested.lean, Layers 0 and 3, native valuation and norm interfaces"
+  ],
+  "currentMainCommits": {
+   "roadmap": "0d144d044dacebca17b654695b6f1ad58f159b27",
+   "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+   "mathlib": "6b7abb3c7686292736be2955bd3eb9ebf63b456a"
+  }
+ },
+ "suggestedLean": {
+  "policy": "Compact statements over carriers that exist at the pins. Milnor/Quillen groups and every new target remain README-only until their owner constructions exist. The file calibrates inversion, direct-sum sign transport and existing determinant norms; it supplies no axiomatized substitute K-groups.",
+  "compiled": true,
+  "validation": "Independent review: lean-check at the recorded pins, 2026-10-19: exit 0; only ten proof-placeholder warnings; 101 lines, no data definitions. Available memory before checking: 80 GB."
+ },
+ "author": {
+  "agent": "Codex",
+  "session": "codex-QcGmv4",
+  "date": "2026-10-19"
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3-localization-comparison",
+  "date": "2026-10-19",
+  "notes": "Independent review by Codex, session codex-sr7SnE (#10786), of codex-QcGmv4’s plan. Accepted as a complete planning pass with coverage planned, not closed. Corrected the ineffective finite-field degree-three sign check, added degree-one and degree-three total-residue tests and all required test kinds, made the Small universe hypothesis explicit, and reduced the two-transfer proof to simple extensions before invoking its base-change input. Two supplier requests and two inherited gap records remain explicit. See the review report for source, baseline, dependency and validation checks."
+ }
+}

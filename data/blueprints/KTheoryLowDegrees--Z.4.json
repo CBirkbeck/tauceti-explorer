@@ -1,0 +1,1318 @@
+{
+ "roadmapId": "KTheoryLowDegrees",
+ "protocol": "blueprint-v1",
+ "part": "Z.4",
+ "status": "complete",
+ "scope": [
+  "KTheoryLowDegrees:Z.4"
+ ],
+ "summary": "Standalone Z.4 import packet for Dedekind projectives and rank/determinant K0. The accepted Z.3 companion already supplies all 43 target nodes, with 45 API items, 26 definition tests and six planets. No duplicate nodes are introduced. The issue predecessor U.1 has no Z.4 coverage. This pass provides a complete standalone reader, an explicit target/import inventory, fresh source and selected-baseline evidence, and a compact suggested file elaborated at the pins. Source-decomposed is a planning status; all implementation statuses remain unchecked. Assembly must retain the existing node IDs and count the imported nodes and planets only once.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Algebra.intNorm_eq_norm",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/IntegralClosure/IntegralRestrict.lean",
+    "provides": "intNorm = Algebra.norm when B is finite free over A.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:ClassGroup.equivPic",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "Existing multiplicative equivalence between ClassGroup and Pic for every commutative domain.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:CommRing.Pic.AsModule",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "The representative module of a Picard class.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:CommRing.Pic.mapAlgebra",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "Existing extension-of-scalars homomorphism on invertible-module classes.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:CommRing.Pic.mk",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "Canonical class of an invertible module, with an actual linear-equivalent representative.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:CommRing.Pic.mk_dual",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "Pic.mk (Dual R M) = (Pic.mk R M)⁻¹.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:CommRing.Pic.mk_eq_mk_iff",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "Two invertible modules represent the same Pic class exactly when they are linearly isomorphic.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:CommRing.Pic.mk_eq_one_iff_free",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "Pic.mk R M = 1 iff M is free.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:CommRing.Pic.mk_tensor",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "Tensor products of invertible modules represent the product in Pic.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:Ideal.relNorm",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "provides": "Relative ideal norm Ideal S →*₀ Ideal R for a finite torsion-free extension of Dedekind domains, the span of the element norms.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:Ideal.spanIntNorm_localization",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "provides": "spanNorm commutes with localisation at M ≤ R⁰: spanNorm Rₘ (I Sₘ) = (spanNorm R I) Rₘ.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:Ideal.spanNorm_singleton",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "provides": "spanNorm (span {r}) = span {Algebra.intNorm R S r}.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:LinearMap.lTensor",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+    "kind": "def",
+    "provides": "Tensor a linear map f on its left with the identity on a module; the map is TensorProduct.map id f.",
+    "checked": "Statement, real body and enclosing hypotheses reread in the exact pinned source on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:LinearMap.range",
+    "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+    "provides": "The range submodule of a semilinear map with surjective coefficient homomorphism; the identity coefficient map here is surjective.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:Module.Invertible",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "M is invertible if the evaluation Mᵛ ⊗ M → R is bijective; invertible modules are finite projective (instances in the same file).",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:Module.Invertible.exists_linearEquiv_ideal",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "An invertible module is isomorphic to an ideal when the fraction-ring Pic group is trivial, including every domain.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:Module.Invertible.linearEquiv",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "provides": "The evaluation isomorphism Mᵛ ⊗[R] M ≃ₗ R for invertible M.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:TrivSqZeroExt",
+    "kind": "def",
+    "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+    "provides": "The trivial square-zero extension R × M with (r₁ + m₁)(r₂ + m₂) = r₁r₂ + r₁m₂ + r₂m₁.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:TrivSqZeroExt.inr_mul_inr",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+    "provides": "Two elements in the module summand multiply to zero, for left and right module actions.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:TrivSqZeroExt.snd_mul",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+    "provides": "The module coordinate of a product is r·n + m·s, with the second summand using the right action.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "mathlib:contractLeft",
+    "module": "Mathlib/LinearAlgebra/Contraction.lean",
+    "kind": "def",
+    "provides": "The native evaluation map Dual R N tensor N to R, over a commutative semiring.",
+    "checked": "Statement, real body and enclosing hypotheses reread in the exact pinned source on 2026-10-19."
+   },
+   {
+    "ref": "tauceti:ClassGroup.relNorm",
+    "kind": "def",
+    "module": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
+    "provides": "The relative norm ClassGroup S →* ClassGroup R induced by Ideal.relNorm.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:ClassGroup.relNorm_extendedHom",
+    "kind": "theorem",
+    "module": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
+    "provides": "relNorm (extendedHom c) = c ^ finrank R S.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:ClassGroup.relNorm_mk0",
+    "kind": "theorem",
+    "module": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
+    "provides": "relNorm (mk0 I) = mk0 (Ideal.relNorm0 R I).",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:IsDedekindDomain.finite_integer_classGroup",
+    "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+    "kind": "instance",
+    "provides": "Finiteness of the class group of S.integer K when ClassGroup R is finite.",
+    "checked": "Statement, real body and enclosing hypotheses reread in the exact pinned source on 2026-10-19."
+   },
+   {
+    "ref": "tauceti:IsDedekindDomain.integerClassGroupEquiv",
+    "kind": "def",
+    "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+    "provides": "Cl(S.integer K) ≃* Cl(R) ⧸ ⟨[v] : v ∈ S⟩ (the file also provides the IsDedekindDomain instance on S.integer K).",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:IsDedekindDomain.integerClassGroupEquiv_extendedHom",
+    "kind": "lemma",
+    "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+    "provides": "integerClassGroupEquiv (extendedHom c) = the class of c in the quotient.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:IsDedekindDomain.integer_extendedHom_surjective",
+    "kind": "lemma",
+    "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+    "provides": "Extension Cl(R) → Cl(S.integer K) is surjective.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:IsDedekindDomain.ker_integer_extendedHom",
+    "kind": "lemma",
+    "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+    "provides": "Its kernel is generated by the classes of the primes in S.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:TauCeti.SplitK0",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+    "kind": "def",
+    "provides": "Existing split Grothendieck group of an essentially small additive category.",
+    "checked": "Statement, real body and enclosing hypotheses reread in the exact pinned source on 2026-10-19."
+   },
+   {
+    "ref": "tauceti:TauCeti.SplitK0.liftEquiv",
+    "kind": "def",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+    "provides": "Universal additive-invariant extension to the existing split Grothendieck group.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:TauCeti.SplitK0.of",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+    "kind": "def",
+    "provides": "Native object class in the split Grothendieck group.",
+    "checked": "Statement, real body and enclosing hypotheses reread in the exact pinned source on 2026-10-19."
+   },
+   {
+    "ref": "tauceti:TauCeti.SplitK0.of_biprod",
+    "kind": "theorem",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+    "provides": "Binary biproduct class is the sum of classes.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:TauCeti.SplitK0.of_congr",
+    "kind": "theorem",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+    "provides": "Isomorphic objects have equal classes.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   },
+   {
+    "ref": "tauceti:TauCeti.finiteProjectiveModules",
+    "kind": "def",
+    "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+    "provides": "Existing object property and essentially small additive full subcategory of finite projective R-modules.",
+    "checked": "Statement and enclosing hypotheses reread in the exact pinned source on 2026-10-19. Imported nodes retain their own earlier baseline provenance."
+   }
+  ],
+  "sourceFiles": [
+   {
+    "library": "mathlib",
+    "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+    "sha256": "dfde1ba66beaeae084182d880e917e1a3969a487208ac1eda5088e2204ae7b9f"
+   },
+   {
+    "library": "mathlib",
+    "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+    "sha256": "c0d0fe06681fe12e647b319e55bbcaa256b68de1e7dbdf0c64aa91d75042c39e"
+   },
+   {
+    "library": "mathlib",
+    "module": "Mathlib/LinearAlgebra/Contraction.lean",
+    "sha256": "1abf6c66f43938add29c3a32394d10d51680dc3cc8ffc90a22d75121e7bd90ab"
+   },
+   {
+    "library": "mathlib",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+    "sha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06"
+   },
+   {
+    "library": "mathlib",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "sha256": "ae71e63c506fb2c681528eab2e9dd680f16a2146d014ba2206517abcf2c10a56"
+   },
+   {
+    "library": "mathlib",
+    "module": "Mathlib/RingTheory/IntegralClosure/IntegralRestrict.lean",
+    "sha256": "e1053388cae81fb4942b58f67745472fa3826896ff3e84f8f9e75ad5eaccd772"
+   },
+   {
+    "library": "mathlib",
+    "module": "Mathlib/RingTheory/PicardGroup.lean",
+    "sha256": "1303d272b5f720a246c65ab2305df51f2254e1118063ac072f1c0f06c2553e86"
+   },
+   {
+    "library": "tauceti",
+    "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+    "sha256": "097a23e20b21472b4a5cb6e76dde030669c539212f84e97d4092136ae678a18e"
+   },
+   {
+    "library": "tauceti",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+    "sha256": "44cde7491a9a659ff89e2a4256911391bf5cd0bd8bb16a8aa06b3c7334730988"
+   },
+   {
+    "library": "tauceti",
+    "module": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
+    "sha256": "f79454e1b85200c94bc6f840f6cd57fa921bc68f63a7010023f690f906cb38e6"
+   },
+   {
+    "library": "tauceti",
+    "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
+    "sha256": "752771bcb6438cd69369ad6e04ddf90dc2aad5e06e2ac3c19a5eb3b3ae20b889"
+   }
+  ],
+  "review": {
+   "verdict": "confirmed",
+   "by": "REV-KTheoryLowDegrees--Z.4",
+   "date": "2026-10-19",
+   "declarations": 35,
+   "sourceFiles": 11,
+   "method": "Read declarations with enclosing hypotheses from the exact pinned Git objects; all eleven file hashes match this inventory and the shared Lean build. Native carriers, quotient direction, tensor evaluation, norm localization and finiteness requirements agree with their uses. Other baseline evidence in imported prerequisite chains retains its accepted provenance."
+  }
+ },
+ "sources": [
+  {
+   "id": "Kbook.I",
+   "title": "The K-book, Chapter I: Projective Modules and Vector Bundles",
+   "authors": "Charles A. Weibel",
+   "edition": "Standalone author-hosted chapter, 54 pages; chapter-local page numbering.",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf",
+   "sha256": "f9662904b3f3477a05025175f1f8fd2d063156d6599f6b806137cbb2cc61fd76",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "I section 3, pp. 16-19: Picard functoriality, determinant, Propositions 3.4 and 3.5, Dedekind ideal decomposition and intersection description.",
+    "I Exercises 3.4 and 3.5, p. 24; Exercise 3.8, p. 25."
+   ]
+  },
+  {
+   "id": "Kbook.II",
+   "title": "The K-book, Chapter II: The Grothendieck group K0",
+   "authors": "Charles A. Weibel",
+   "edition": "Standalone author-hosted chapter, 106 pages; chapter-local page numbering.",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf",
+   "sha256": "529ea8a5853e9fa55279e7ad79047155409b10847bd924b56f708f0950ebc607",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "II Definition 2.3 and Lemma 2.3.1, p. 8; Proposition 2.6 and Corollaries 2.6.2-2.6.3, p. 11.",
+    "II Example 2.8.1, p. 13; Exercise 2.2, p. 14."
+   ]
+  },
+  {
+   "id": "Milne.ANT",
+   "title": "Algebraic Number Theory",
+   "authors": "J. S. Milne",
+   "edition": "Version 3.08, 19 July 2020, 166 PDF pages.",
+   "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf",
+   "sha256": "24b83c789a89f25aebffb3cbe4ae5ca29edd0075acc072de093d140770630847",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Theorem 3.31 and its notes, printed pp. 57-58, PDF pp. 59-60.",
+    "Example 4.6, printed p. 71, PDF p. 73.",
+    "Section 5, S-units, printed p. 90, PDF p. 92."
+   ]
+  },
+  {
+   "id": "Cohen",
+   "title": "Advanced Computational Algebraic Number Theory",
+   "authors": "Henri Cohen",
+   "edition": "Public author manuscript dated 11 July 2001, 592 PDF pages; not collated against the published volume.",
+   "url": "https://www.math.utoronto.ca/~ila/Cohen%20--%20Advanced%20topics%20in%20computational%20number%20theory.pdf",
+   "sha256": "0b01c8f1755378c216c563c7d75e05edbf1c3a95843524f4ede6f0216a1cb159",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Corollary 1.2.11, printed p.5/PDF p.19; Lemma 1.2.20 and Theorem 1.2.19, printed pp.9-10/PDF pp.23-24.",
+    "Corollaries 1.2.24-1.2.27, printed pp.11-12/PDF pp.25-26; Definition 1.2.33, printed p.15/PDF p.29; Theorem 1.2.35, printed p.16/PDF p.30.",
+    "Relative integral pseudo-bases, printed p.77/PDF p.91; Definition 2.2.11 and Propositions 2.2.12-2.2.13, printed pp.80-82/PDF pp.94-96; Exercise 2.22, printed p.130/PDF p.144."
+   ],
+   "reviewedBy": "REV-KTheoryLowDegrees--Z.4"
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf",
+   "read": "2026-10-19",
+   "sha256": "f9662904b3f3477a05025175f1f8fd2d063156d6599f6b806137cbb2cc61fd76"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf",
+   "read": "2026-10-19",
+   "sha256": "529ea8a5853e9fa55279e7ad79047155409b10847bd924b56f708f0950ebc607"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf",
+   "read": "2026-10-19",
+   "sha256": "24b83c789a89f25aebffb3cbe4ae5ca29edd0075acc072de093d140770630847"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.utoronto.ca/~ila/Cohen%20--%20Advanced%20topics%20in%20computational%20number%20theory.pdf",
+   "citation": "Public author manuscript dated 11 July 2001, 592 PDF pages; not collated against the published volume.",
+   "read": "2026-10-19",
+   "sha256": "0b01c8f1755378c216c563c7d75e05edbf1c3a95843524f4ede6f0216a1cb159"
+  }
+ ],
+ "nodes": [],
+ "imports": [
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/coprime-ideal-representative",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Coprime representative of an ideal class",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/coprime-ideal-sum",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "The coprime ideal sum identity",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/ideal-sum",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "The two-ideal Steinitz identity",
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Steinitz ideal identity"
+   }
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/projective-ideal-summands",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Decomposition into ideals",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/steinitz",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Steinitz classification of projectives",
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Steinitz classification"
+   }
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/projective-classification",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Classification by rank and determinant",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/line-class-product",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Additive class formula for tensor products of lines",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/reduced-line-class",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "construction",
+   "title": "The reduced class of a line bundle",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/projective-class-normal-form",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Rank and determinant normal form",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-equivalence",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "construction",
+   "title": "Rank and Picard group classification",
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Rank and determinant classification"
+   }
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-apply",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Coordinates of a virtual class",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-inverse",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Inverse rank/Pic coordinates",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-mul",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Multiplication law in rank/Pic coordinates",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-ring-equiv",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "construction",
+   "title": "The ring H⁰(R) ⊕ Pic(R) of a Dedekind domain",
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "The ring H⁰(R) ⊕ Pic(R)"
+   }
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/class-group-pic-mk0",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "The ideal class of I is the Picard class of I",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/ideal-class-representative-independence",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Independence of the ideal representative",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-class-group-equivalence",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "construction",
+   "title": "Rank and Steinitz class coordinates",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/pic-map-extended-hom",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Base change on Pic is extension of ideals",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/k0-base-change-coordinates",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Base change in rank/Pic coordinates",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/localization-eq-integer",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "A localisation is a ring of S-integers",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/localization-class-group",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Class group of a localisation",
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Relative class groups"
+   }
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/k0-localization",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Localisation on K₀ of a Dedekind domain",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/k0-ring-of-integers",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "application",
+   "title": "K₀ of the ring of integers of a number field",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/k0-s-integers",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "application",
+   "title": "K₀ of the S-integers of a number field",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/zsqrtd-neg-five-integers",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "ℤ[√−5] is the ring of integers of ℚ(√−5)",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/nonprincipal-ideal-class",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "application",
+   "title": "The nonprincipal ideal of ℤ[√−5] in K₀",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/pic-norm",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "construction",
+   "title": "The norm on Picard groups of Dedekind domains",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/invertible-injection-class",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Index ideal of a map of invertible modules",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/top-exterior-inclusion-injective",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "The top exterior power of an ideal inclusion",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-eq-rel-norm",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "The index ideal is the relative norm",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/ideal-restriction-determinant",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Determinant of an ideal as a module over the base",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/restriction-rank",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Rank of a restriction of scalars",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/restriction-determinant",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Determinant of a restriction of scalars",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/k0-transfer-coordinates",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "The transfer on K₀ in rank/Pic coordinates",
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Norm formula for the transfer"
+   }
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/restriction-determinant-product",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "theorem",
+   "title": "Transfer from a product of Dedekind domains",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/number-field-extension-k0",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "application",
+   "title": "Extension of number fields on K₀",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/projective-class-injective",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Projective classes determine projective modules",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/projective-cancellation",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Cancellation of projective summands",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/index-ideal",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "definition",
+   "title": "Index ideal of a linear map",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-evaluation",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "The evaluation image is an invertible ideal",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-congr",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Index ideal is invariant under isomorphisms",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-free",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Index ideal in free rank one",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-localisation",
+   "packet": "KTheoryLowDegrees--Z.3.json",
+   "kind": "lemma",
+   "title": "Index ideal commutes with localisation",
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "importedDefinitions": [
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/reduced-line-class",
+   "apiNames": [
+    "TauCeti.RingK0.picToK0",
+    "TauCeti.RingK0.picToK0_apply",
+    "TauCeti.RingK0.picToK0_ofAdd_mk",
+    "TauCeti.RingK0.rankℤ_picToK0",
+    "TauCeti.RingK0.det_picToK0",
+    "TauCeti.RingK0.picToK0_mul_picToK0",
+    "TauCeti.RingK0.picToK0_injective",
+    "TauCeti.RingK0.range_picToK0"
+   ],
+   "testNames": [
+    "TauCeti.RingK0.picToK0_zero_test",
+    "TauCeti.RingK0.picToK0_dual_test",
+    "TauCeti.RingK0.picToK0_det_test",
+    "TauCeti.RingK0.picToK0_not_class_test"
+   ],
+   "contractLocation": "readmes/KTheoryLowDegrees--Z.4.md"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-equivalence",
+   "apiNames": [
+    "TauCeti.RingK0.rankPicEquiv",
+    "TauCeti.RingK0.rankPicEquiv_apply",
+    "TauCeti.RingK0.rankPicEquiv_symm",
+    "TauCeti.RingK0.rankPicEquiv_ext",
+    "TauCeti.RingK0.rankPicEquiv_of",
+    "TauCeti.RingK0.rankPicEquiv_one",
+    "TauCeti.RingK0.rankPicEquiv_symm_zero_ofAdd",
+    "TauCeti.RingK0.ker_rankℤ_equiv_pic",
+    "TauCeti.RingK0.rankPicEquiv_isPrincipalIdealRing"
+   ],
+   "testNames": [
+    "TauCeti.RingK0.rankPic_zero_test",
+    "TauCeti.RingK0.rankPic_negative_test",
+    "TauCeti.RingK0.rankPic_nontrivial_test",
+    "TauCeti.RingK0.rankPic_pid_test",
+    "TauCeti.RingK0.rankPic_ideal_test"
+   ],
+   "contractLocation": "readmes/KTheoryLowDegrees--Z.4.md"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-ring-equiv",
+   "apiNames": [
+    "TauCeti.RingK0.rankPicRingEquiv",
+    "TauCeti.RingK0.rankPicRingEquiv_toAddEquiv",
+    "TauCeti.RingK0.rankPicRingEquiv_fst",
+    "TauCeti.RingK0.rankPicRingEquiv_snd",
+    "TauCeti.RingK0.rankPicRingEquiv_symm_one",
+    "TauCeti.RingK0.sk0_eq_bot",
+    "TauCeti.RingK0.ker_rankℤ_sq_eq_bot",
+    "TauCeti.RingK0.rankℤ_ringHom"
+   ],
+   "testNames": [
+    "TauCeti.RingK0.rankPicRing_line_sq_test",
+    "TauCeti.RingK0.rankPicRing_pid_test",
+    "TauCeti.RingK0.rankPicRing_det_not_mul_test",
+    "TauCeti.RingK0.rankPicRing_rank_test"
+   ],
+   "contractLocation": "readmes/KTheoryLowDegrees--Z.4.md"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/rank-class-group-equivalence",
+   "apiNames": [
+    "TauCeti.RingK0.rankClassGroupEquiv",
+    "TauCeti.RingK0.steinitzClass",
+    "TauCeti.RingK0.steinitzClass_of_prod_ideal",
+    "TauCeti.RingK0.rankClassGroupEquiv_symm_mk0",
+    "TauCeti.RingK0.rankClassGroupEquiv_ideal",
+    "TauCeti.RingK0.rankClassGroupEquiv_one_sub_ideal",
+    "TauCeti.RingK0.rankClassGroupEquiv_eq"
+   ],
+   "testNames": [
+    "TauCeti.RingK0.rankClassGroup_int_test",
+    "TauCeti.RingK0.rankClassGroup_zero_test",
+    "TauCeti.RingK0.rankClassGroup_representative_test",
+    "TauCeti.RingK0.rankClassGroup_nonprincipal_test",
+    "TauCeti.RingK0.rankClassGroup_equivPic_test"
+   ],
+   "contractLocation": "readmes/KTheoryLowDegrees--Z.4.md"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/pic-norm",
+   "apiNames": [
+    "CommRing.Pic.relNorm",
+    "CommRing.Pic.relNorm_equivPic",
+    "CommRing.Pic.relNorm_mk_ideal",
+    "CommRing.Pic.relNorm_mapAlgebra",
+    "CommRing.Pic.relNorm_self",
+    "CommRing.Pic.relNorm_relNorm",
+    "CommRing.Pic.relNorm_det_restrict"
+   ],
+   "testNames": [
+    "CommRing.Pic.relNorm_self_test",
+    "CommRing.Pic.relNorm_integers_test",
+    "CommRing.Pic.relNorm_equivPic_test",
+    "CommRing.Pic.relNorm_unnormalised_test",
+    "CommRing.Pic.relNorm_ext_test"
+   ],
+   "contractLocation": "readmes/KTheoryLowDegrees--Z.4.md"
+  },
+  {
+   "nodeId": "KTheoryLowDegrees:Z.4/index-ideal",
+   "apiNames": [
+    "Module.Invertible.indexIdeal",
+    "Module.Invertible.indexIdeal_zero",
+    "Module.Invertible.mem_indexIdeal",
+    "Module.Invertible.indexIdeal_tmul",
+    "Module.Invertible.indexIdeal_congr",
+    "Module.Invertible.indexIdeal_localisation"
+   ],
+   "testNames": [
+    "Module.Invertible.indexIdeal_id_test",
+    "Module.Invertible.indexIdeal_six_test",
+    "Module.Invertible.indexIdeal_zero_test"
+   ],
+   "contractLocation": "readmes/KTheoryLowDegrees--Z.4.md"
+  }
+ ],
+ "targetCoverage": [
+  {
+   "target": "Ideal identity and coprime representatives",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/coprime-ideal-representative",
+    "KTheoryLowDegrees:Z.4/coprime-ideal-sum",
+    "KTheoryLowDegrees:Z.4/ideal-sum"
+   ]
+  },
+  {
+   "target": "Positive-rank Steinitz classification, with a separate zero case",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/projective-ideal-summands",
+    "KTheoryLowDegrees:Z.4/steinitz",
+    "KTheoryLowDegrees:Z.4/projective-classification",
+    "KTheoryLowDegrees:Z.4/projective-class-injective",
+    "KTheoryLowDegrees:Z.4/projective-cancellation"
+   ]
+  },
+  {
+   "target": "Rank/determinant additive and square-zero ring coordinates on all virtual classes",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/line-class-product",
+    "KTheoryLowDegrees:Z.4/reduced-line-class",
+    "KTheoryLowDegrees:Z.4/projective-class-normal-form",
+    "KTheoryLowDegrees:Z.4/rank-pic-equivalence",
+    "KTheoryLowDegrees:Z.4/rank-pic-apply",
+    "KTheoryLowDegrees:Z.4/rank-pic-inverse",
+    "KTheoryLowDegrees:Z.4/rank-pic-mul",
+    "KTheoryLowDegrees:Z.4/rank-pic-ring-equiv"
+   ]
+  },
+  {
+   "target": "Independence of the ideal representative and the existing class-group/Pic comparison",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/class-group-pic-mk0",
+    "KTheoryLowDegrees:Z.4/ideal-class-representative-independence",
+    "KTheoryLowDegrees:Z.4/rank-class-group-equivalence"
+   ]
+  },
+  {
+   "target": "Scalar extension and ideal extension",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/pic-map-extended-hom",
+    "KTheoryLowDegrees:Z.4/k0-base-change-coordinates"
+   ]
+  },
+  {
+   "target": "Actual localization, class-group quotient and K0 kernel",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/localization-eq-integer",
+    "KTheoryLowDegrees:Z.4/localization-class-group",
+    "KTheoryLowDegrees:Z.4/k0-localization"
+   ]
+  },
+  {
+   "target": "Rings of integers, S-integers and the nonprincipal quadratic example",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/k0-ring-of-integers",
+    "KTheoryLowDegrees:Z.4/k0-s-integers",
+    "KTheoryLowDegrees:Z.4/zsqrtd-neg-five-integers",
+    "KTheoryLowDegrees:Z.4/nonprincipal-ideal-class"
+   ]
+  },
+  {
+   "target": "Normalized Picard norm and index-ideal/top-exterior comparison",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/pic-norm",
+    "KTheoryLowDegrees:Z.4/invertible-injection-class",
+    "KTheoryLowDegrees:Z.4/top-exterior-inclusion-injective",
+    "KTheoryLowDegrees:Z.4/index-ideal-eq-rel-norm",
+    "KTheoryLowDegrees:Z.4/ideal-restriction-determinant",
+    "KTheoryLowDegrees:Z.4/index-ideal",
+    "KTheoryLowDegrees:Z.4/index-ideal-evaluation",
+    "KTheoryLowDegrees:Z.4/index-ideal-congr",
+    "KTheoryLowDegrees:Z.4/index-ideal-free",
+    "KTheoryLowDegrees:Z.4/index-ideal-localisation"
+   ]
+  },
+  {
+   "target": "Finite-flat restriction, product ranks and number-field extension",
+   "nodeIds": [
+    "KTheoryLowDegrees:Z.4/restriction-rank",
+    "KTheoryLowDegrees:Z.4/restriction-determinant",
+    "KTheoryLowDegrees:Z.4/k0-transfer-coordinates",
+    "KTheoryLowDegrees:Z.4/restriction-determinant-product",
+    "KTheoryLowDegrees:Z.4/number-field-extension-k0"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "KTheoryLowDegrees:Z.4",
+   "status": "source_decomposed",
+   "detail": "Every Z.4 target is supplied by the 43 accepted same-roadmap nodes listed in imports and targetCoverage, not replanned here. The reader states all hypotheses, proof routes, API contracts and definition tests. The native Lean subset is explicitly delimited. No unresolved planning refinement is added for this layer.",
+   "remaining": []
+  }
+ ],
+ "gaps": [],
+ "requests": [],
+ "restructure": [],
+ "sourceIssues": [],
+ "sourceIssueImports": {
+  "packet": "KTheoryLowDegrees--Z.3.json",
+  "ids": [
+   "KTheoryLowDegrees/E1",
+   "KTheoryLowDegrees/E2",
+   "KTheoryLowDegrees/E6",
+   "KTheoryLowDegrees/E16",
+   "KTheoryLowDegrees/E17",
+   "KTheoryLowDegrees/E18",
+   "KTheoryLowDegrees/E29"
+  ],
+  "note": "Existing source corrections, not new findings. This independent review reread all seven in the public chapter/manuscript versions listed here. Original novelty searches and combined-draft/published-version evidence remain inherited; no fresh full errata or published-book collation is asserted.",
+  "checked": [
+   {
+    "sourceIssueId": "KTheoryLowDegrees/E1",
+    "review": {
+     "verdict": "confirmed",
+     "reason": "Confirmed the chapter-local p.25 single-prime case: its exponent group is Z. The historical combined-draft correction remains inherited; no new combined/published collation is claimed.",
+     "by": "REV-KTheoryLowDegrees--Z.4"
+    }
+   },
+   {
+    "sourceIssueId": "KTheoryLowDegrees/E2",
+    "review": {
+     "verdict": "confirmed",
+     "reason": "Confirmed II p.11 transposes P and Q in the summand. P=R and Q=0 contradict the subsequent vanishing bounds until the factors are restored.",
+     "by": "REV-KTheoryLowDegrees--Z.4"
+    }
+   },
+   {
+    "sourceIssueId": "KTheoryLowDegrees/E6",
+    "review": {
+     "verdict": "confirmed",
+     "reason": "Confirmed Cohen printed p.9/PDF p.23 omits nonzero for the scaling scalar. Multiplication by zero sends a nonzero ideal to zero, so it cannot be an equivalence.",
+     "by": "REV-KTheoryLowDegrees--Z.4"
+    }
+   },
+   {
+    "sourceIssueId": "KTheoryLowDegrees/E16",
+    "review": {
+     "verdict": "confirmed",
+     "reason": "Confirmed II p.14 asserts both composites. For Q to Q times Q, pullback after transfer takes (1,0) to (1,1), while its kernel contains all (a,-a); only transfer after pullback is multiplication by [B].",
+     "by": "REV-KTheoryLowDegrees--Z.4"
+    }
+   },
+   {
+    "sourceIssueId": "KTheoryLowDegrees/E17",
+    "review": {
+     "verdict": "confirmed",
+     "reason": "Confirmed Cohen printed p.9/PDF p.23 uses the positive-rank form without stating its exception. The next page handles the zero module separately, as the imported node does.",
+     "by": "REV-KTheoryLowDegrees--Z.4"
+    }
+   },
+   {
+    "sourceIssueId": "KTheoryLowDegrees/E18",
+    "review": {
+     "verdict": "confirmed",
+     "reason": "Confirmed I p.18 requires the nonzero-ideal qualification to classify Picard objects: the zero ideal of a domain has rank zero.",
+     "by": "REV-KTheoryLowDegrees--Z.4"
+    }
+   },
+   {
+    "sourceIssueId": "KTheoryLowDegrees/E29",
+    "review": {
+     "verdict": "confirmed",
+     "reason": "Confirmed Cohen printed p.82/PDF p.96 demands an integral beta with the prescribed fractional valuations. I=(1/2)Z over Q forces valuation -1 at 2. Clearing denominators first repairs the proof without changing the norm-span result.",
+     "by": "REV-KTheoryLowDegrees--Z.4"
+    }
+   }
+  ]
+ },
+ "importProvenance": {
+  "packet": "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
+  "sha256": "eda62f2753a5f79352c81eb298df3dc0d284519ecff8b08251155e465df260e3",
+  "reviewer": "independent-review-REV-KTheoryLowDegrees--Z.3~3",
+  "status": "accepted",
+  "reviewDate": "2026-10-07",
+  "note": "This receipt records an existing independent review, not a review by this worker. The owner remains authoritative for node statements, source records, prerequisites, proof steps and API/tests."
+ },
+ "upstreamCheck": {
+  "date": "2026-10-19",
+  "roadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+  "mathlibMainCommit": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+  "taucetiMainCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+  "read": [
+   "GrothendieckEulerForms/README.md and Suggested.lean",
+   "AlgebraicVectorBundles/README.md and relevant Suggested.lean signatures",
+   "Current Tau Ceti Picard, norm and S-integer interfaces"
+  ],
+  "disposition": "Retain RS-18 ownership: explicit ring calculations are Part II of GrothendieckEulerForms. Import existing categorical K0 and current vector-bundle geometry, without planning either again. No current Steinitz/rank-Pic ring classification was found."
+ },
+ "auditBasis": {
+  "libraryAudit": "AUDIT-29; data/library-coverage.json, KTheoryLowDegrees:Z.4",
+  "structure": "Accepted RS-18",
+  "inputs": [
+   "KTheoryLowDegrees--U.1.json",
+   "KTheoryLowDegrees--Z.3.json",
+   "ArithmeticKTheory:N.1 accepted packet",
+   "Atlas Z.4 stage targets and incident stage links"
+  ],
+  "boundary": "General S-integer localization and finite-extension specializations belong to the arithmetic consumer. They are not prerequisites of Z.4 and no backward dependency is added."
+ },
+ "importedCounts": {
+  "nodes": 43,
+  "kinds": {
+   "lemma": 21,
+   "theorem": 12,
+   "construction": 5,
+   "application": 4,
+   "definition": 1
+  },
+  "apiItems": 45,
+  "unitTests": 26,
+  "planets": 6
+ },
+ "suggestedCheck": {
+  "path": "research/blueprint/suggested/KTheoryLowDegrees--Z.4.lean",
+  "sha256": "e5048b9c2b51c3eb58c4fa81ee5e3a065cb9a493bc6d97ec02265b12a4b3949a",
+  "lines": 195,
+  "result": "lean-check exit 0, 18 intentional theorem-admission warnings and no other diagnostics; checked 2026-10-19. No admitted data definitions. Heavy constructions and full APIs/tests remain README targets under the 2026-10-12 shape rule.",
+  "independentReview": {
+   "by": "REV-KTheoryLowDegrees--Z.4",
+   "date": "2026-10-19",
+   "result": "Unchanged file independently elaborated with lean-check: exit 0; 18 intentional theorem-admission warnings, no other diagnostics. check_sorry_data passed; available memory 81 GiB."
+  }
+ },
+ "dependencyCheck": {
+  "importedRootNodes": 43,
+  "reachablePlannedNodes": 96,
+  "reachableBaselineRefs": 219,
+  "unresolvedLeaves": [],
+  "cycles": 0,
+  "intersectingGapRecords": [],
+  "intersectingRequestRecords": [],
+  "note": "Graph traversal from imported IDs through blueprint and integrated nodes. This verifies resolution and acyclicity; inherited baseline evidence is not relabelled as a fresh audit of 219 declarations.",
+  "independentReview": {
+   "by": "REV-KTheoryLowDegrees--Z.4",
+   "date": "2026-10-19",
+   "result": "Recomputed all imports, owner SHA, coverage partition, API/test/planet counts, reader names, cycles and unresolved leaves; all recorded values match. No gap/request neededBy intersects the reachable closure."
+  }
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-KTheoryLowDegrees--Z.4",
+  "date": "2026-10-19",
+  "notes": "Independent review of the standalone packet, all 43 imported contracts and their source matches, 35 direct baseline declarations at the exact pins, closure, all 45 API items/26 tests/six planets, current upstream ownership and native Lean signatures. No mathematical correction, new node or baseline replacement was needed. Added fresh public Cohen version/locator evidence, independent confirmations of seven inherited source corrections, and synchronized the reader. The authoritative Z.3 owner remains unchanged; 219 transitive baseline references retain their accepted provenance. The 2026-10-09 target-level detail setting and 2026-10-12 compact Lean shape override the issue template’s older lemma-level/full-signature wording. Lean elaborated unchanged: 195 lines, 18 intentional theorem-admission warnings and no other diagnostics.",
+  "checked": [
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/coprime-ideal-representative",
+    "verdict": "verified",
+    "note": "Cohen Cor. 1.2.11, p.5; approximation gives an integral representative. The I=R branch avoids asserting the approximation scalar is nonzero without justification."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/coprime-ideal-sum",
+    "verdict": "verified",
+    "note": "Cohen Lem. 1.2.20, p.9; the explicit section and kernel (z,-z) work over any commutative ring under comaximality."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/ideal-sum",
+    "verdict": "verified",
+    "note": "Cohen Lem. 1.2.20, p.9; nonzero scaling before and after the coprime calculation preserves both ideal modules."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/projective-ideal-summands",
+    "verdict": "verified",
+    "note": "Weibel I p.18; induct on a finite free ambient module, split the coordinate image ideal, and count rank-one summands. The empty decomposition handles zero."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/steinitz",
+    "verdict": "verified",
+    "note": "Cohen Th. 1.2.19, pp.9-10, corrected at rank zero; iterated ideal-sum and the imported determinant API identify the final ideal class."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/projective-classification",
+    "verdict": "verified",
+    "note": "Weibel I Prop. 3.4, p.17; Cohen Cor. 1.2.24, p.11. Equal positive rank and determinant identify the ideal summands; zero is separate."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/line-class-product",
+    "verdict": "verified",
+    "note": "Weibel I Prop. 3.5, pp.17-18 and II Cor. 2.6.2, p.11. Tensor product of ideal lines is ideal multiplication; ideal-sum gives the square-zero reduced classes."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/reduced-line-class",
+    "verdict": "verified",
+    "note": "The subtraction of [R] makes the trivial line zero. The ideal-sum identity proves additivity; determinant is a left inverse and the normal form identifies the rank kernel."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/projective-class-normal-form",
+    "verdict": "verified",
+    "note": "Weibel I Prop. 3.4, p.17; for P=0 the coefficient is -1 and the determinant line is R, so the formula still gives zero."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-equivalence",
+    "verdict": "verified",
+    "note": "Weibel II Cor. 2.6.3, p.11 and Milne Th. 3.31, pp.57-58. Generator normal forms and the SplitK0 universal property prove the inverse on all integers."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-apply",
+    "verdict": "verified",
+    "note": "The two coordinates are the imported rank and determinant, not a new invariant. Rank-domain supplies finrank on actual projectives."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-inverse",
+    "verdict": "verified",
+    "note": "The inverse is (n-1)[R]+[L]; n=0 and n=-1 check its integer normalization without restricting to actual projective ranks."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-mul",
+    "verdict": "verified",
+    "note": "Weibel I Ex. 3.4, p.24 and II Def. 2.6.1, p.11. The rank-weighted integer exponents agree with the independent reduced-class square-zero calculation."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-ring-equiv",
+    "verdict": "verified",
+    "note": "Weibel II Cor. 2.6.2-2.6.3, p.11. The target is the existing square-zero extension with additive Pic; determinant alone is not a tensor-product homomorphism."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/class-group-pic-mk0",
+    "verdict": "verified",
+    "note": "Weibel I Prop. 3.5, pp.17-18; unfolding the pinned equivPic compares the embedded ideal with its native module through the injective fraction-field map."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/ideal-class-representative-independence",
+    "verdict": "verified",
+    "note": "Milne Th. 3.31, p.58 and Cohen Cor. 1.2.24, p.11. Pic equality and linear equivalence make the K0 inverse independent of the chosen nonzero ideal."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/rank-class-group-equivalence",
+    "verdict": "verified",
+    "note": "Transport rankPicEquiv through the existing equivPic. The representative formula and the zero-class test retain the original carriers and normalization."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/pic-map-extended-hom",
+    "verdict": "verified",
+    "note": "Weibel I Prop. 3.2, p.16 and Ex. 3.5, p.24. Injectivity over a Dedekind domain supplies flatness and identifies the tensor ideal with its extended ideal."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/k0-base-change-coordinates",
+    "verdict": "verified",
+    "note": "Weibel II Ex. 2.8.1, p.13. Arbitrary maps preserve constant rank and base-change determinant; only the ideal-class description requires injectivity."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/localization-eq-integer",
+    "verdict": "verified",
+    "note": "Weibel I p.19 and Ex. 3.8, p.25; Milne p.90. The nonzero denominator ideal and prime-disjointness argument prove the localization conditions only for the specified S_M."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/localization-class-group",
+    "verdict": "verified",
+    "note": "Weibel I Ex. 3.8, p.25. Transport the pinned Set.integer quotient along the localization equivalence and preserve its actual extension map."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/k0-localization",
+    "verdict": "verified",
+    "note": "The rank coordinate is fixed and the class coordinate is the quotient. Its reduced-ideal generators have the opposite sign to the Cartan residue classes."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/k0-ring-of-integers",
+    "verdict": "verified",
+    "note": "Milne Th. 3.31, p.58 and Weibel I p.19. Finite class group identifies exactly the torsion and the class-number-one case, after rank/ClassGroup classification."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/k0-s-integers",
+    "verdict": "verified",
+    "note": "Milne p.90; the native integerClassGroupEquiv and its extension formula apply directly to Set.integer. No unproved assertion that every Dedekind overring is a localization is used."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/zsqrtd-neg-five-integers",
+    "verdict": "verified",
+    "note": "Milne Ex. 4.6, p.71. The imported quadratic generator and squarefree mod-four criterion identify Zsqrtd(-5) with the number-field integers."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/nonprincipal-ideal-class",
+    "verdict": "verified",
+    "note": "Milne Ex. 4.6, p.71. The norm equation excludes principality, I squared is (2), and the displayed scalar identifies I with J; x is nonzero of order two."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/pic-norm",
+    "verdict": "verified",
+    "note": "Cohen Def. 2.2.11, p.80 and Prop. 2.2.13, p.82, with E29 denominator clearing. The real body transports the existing class-group norm, so normalization and degree power follow."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/invertible-injection-class",
+    "verdict": "verified",
+    "note": "Cohen Def. 1.2.33, p.15 motivates the index; the explicitly broader proof follows from dual evaluation and Pic tensor/dual formulas."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/top-exterior-inclusion-injective",
+    "verdict": "verified",
+    "note": "For nonzero J, both restrictions have rank d. Fraction-field base change makes their top-exterior map an isomorphism; torsion-freeness then gives injectivity."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-eq-rel-norm",
+    "verdict": "verified",
+    "note": "Cohen Def. 2.2.11 and Prop. 2.2.12(3), pp.80-81. Localize at maximal ideals, principalize J in the semilocal Dedekind algebra, and use the pinned norm-localization and determinant formulas. The field case is explicit."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/ideal-restriction-determinant",
+    "verdict": "verified",
+    "note": "Cohen Th. 1.2.35, p.16 and Cor. 1.2.25, p.11 motivate the relation. Index-ideal evaluation plus the norm comparison gives det_R J=N(J) det_R B, with the algebra determinant retained."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/restriction-rank",
+    "verdict": "verified",
+    "note": "Weibel II Ex. 2.8.1, p.13. Finite torsion-free over a Dedekind domain supplies projectivity; fraction-field localization and the dimension tower law give d times the B-rank."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/restriction-determinant",
+    "verdict": "verified",
+    "note": "Cohen Cor. 1.2.25, p.11 and the relative integral pseudo-basis discussion p.77. Steinitz over B reduces positive rank to the ideal formula; rank zero gives 1=1."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/k0-transfer-coordinates",
+    "verdict": "verified",
+    "note": "Weibel II Ex. 2.8.1 and Ex. 2.2, pp.13-14, with E16. Additive extension from projective classes gives (dr,N(C) sigma^r), including negative r; push-pull is multiplication by [B]."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/restriction-determinant-product",
+    "verdict": "verified",
+    "note": "Use the imported finite-product K0 equivalence and composition of transfers. Each component keeps its own rank exponent; the empty family has zero K0."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/number-field-extension-k0",
+    "verdict": "verified",
+    "note": "Specialize the verified finite-injective formula to integer rings. Cohen p.77 and Ex. 2.22, p.130 supply the nonfree-algebra warning; extra upstairs inverted primes do not preserve finiteness automatically."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/projective-class-injective",
+    "verdict": "verified",
+    "note": "Apply rank and determinant to equality in native SplitK0, then projective classification. No circular assumption of cancellation is needed."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/projective-cancellation",
+    "verdict": "verified",
+    "note": "Cancel integer ranks and invertible determinant classes, then use projective classification. Zero common summands are allowed."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/index-ideal",
+    "verdict": "verified",
+    "note": "Cohen Def. 1.2.33, p.15 is the motivation, not a claim of identical generality. The native evaluation range is defined for arbitrary modules and maps, with three distinct image tests."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-evaluation",
+    "verdict": "verified",
+    "note": "Tensoring an injection with the flat dual and composing with the evaluation equivalence proves injectivity; its range is a nonzero invertible ideal over a domain."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-congr",
+    "verdict": "verified",
+    "note": "Pre/postcomposition acts by an equivalence on the evaluation source, preserving its range. The reader correctly notes that this argument also works without the imported stronger hypotheses."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-free",
+    "verdict": "verified",
+    "note": "The dual basis evaluates a rank-one map to its scalar generator, including scalar zero. Thus the result is (a), not always the unit ideal."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-localisation",
+    "verdict": "verified",
+    "note": "The finite-projective dual-base-change supplier identifies the two evaluation maps; localization of their images agrees. No arbitrary-dual base-change assertion is made."
+   }
+  ]
+ }
+}

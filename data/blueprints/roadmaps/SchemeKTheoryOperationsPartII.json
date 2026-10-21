@@ -1,0 +1,104 @@
+{
+ "id": "SchemeKTheoryOperationsPartII",
+ "title": "K-theory of schemes, localisation and operations, Part II: supported formal K-theory and derived intersection degrees",
+ "area": "motivic",
+ "parent": "SchemeKTheoryOperations",
+ "summary": "This Part II extends K-theory of schemes, localisation and operations to noetherian and locally noetherian formal schemes, after Appendix B of Zhang's proof of the arithmetic fundamental lemma. It builds the Grothendieck group of coherent modules and the Gillet–Soulé group of strict complexes with formal support, the cup product and the Tor pairing, the regular comparison and the codimension and dimension filtrations, Zhang's Lemmas B.1 and B.2 on closed unions and Tor vanishing, and the derived Euler–Poincaré pairing whose values are the intersection numbers on Rapoport–Zink spaces, with dimensions read on stalks and supports read formally.",
+ "readme": "# K-theory of schemes, localisation and operations, Part II: supported formal K-theory and derived intersection degrees\n\n**Purpose.** Intersection numbers on Rapoport–Zink spaces and other regular formal schemes (the arithmetic fundamental lemma, the Kudla–Rapoport conjecture and their relatives) are Euler–Poincaré characteristics of derived tensor products of structure sheaves, taken in Grothendieck groups with formal supports. This roadmap builds that machinery once: K′₀ of coherent modules and the Gillet–Soulé group K₀^Y of strict complexes with formal support on noetherian and locally noetherian formal schemes, the cup product and the Tor pairing, the regular comparison K₀^Y(X) ≅ K′₀(Y) under finite dimension and the resolution property, the codimension and dimension filtrations, Zhang's Lemmas B.1 and B.2, and the derived Euler–Poincaré pairing (B.4) with its base change, pushforward and projection formulas.\n\n**Scope and boundaries.** It starts where K-theory of schemes, localisation and operations (SchemeKTheoryOperations) stops: that roadmap owns perfect complexes, K- and G-theory of schemes, supports and dévissage (S.3), the coniveau filtration (S.4), products, Adams operations and the rational multiplicativity of the support filtration (S.6), and cycle classes and Riemann–Roch (S.7), all for schemes. Formal schemes, ideals of definition, closed formal subschemes, coherent formal modules and proper formal morphisms are imported from Adic spaces, Part II (AdicSpacesPartII F0, upstream AdicSpacesPartIII F0); Cohen–Macaulay, catenary and regular rings and schemes from Scheme, stack, cohomology and intersection foundations (SF.0, SF.4), with degree and the tensor/dual formula on arbitrary proper curves from SF.3; the Koszul complex and ordinary derived tensor and projection formula from Enhanced derived categories of sheaves (E1); dévissage and resolving-category comparison from General algebraic K-theory (K.3). This roadmap adds only what formal schemes need beyond schemes. The special cycles, their derived classes and the intersection numbers of the arithmetic fundamental lemma and of the Kudla–Rapoport conjecture belong to their consumers.\n\n**Conventions.** Formal schemes are locally noetherian. Dimension and codimension use stalks (local rings), rather than the underlying formal space. Stalk dimension differs from neighbourhood dimension even for schemes. With the maximal-ideal-adic topology, |Spf ℤ_p⟦t⟧| is a point but its dimension is 2. Supports are formal: a coherent module is supported on Y = V(𝒥) when a power of 𝒥 kills it. K₀^Y is the global strict (Gillet–Soulé) group; lengths are over the complete discrete valuation ring A over which the supports are proper schemes. Pure dimension is used for noetherian X. Tor Euler sums require a uniform finite bound. Proper pushforward uses EGA’s adic finite-type notion. The general proper formal higher-direct-image supplier contract is an explicit remaining gap in FK.4.\n\n**Sources.** Zhang, *Weil representation and arithmetic fundamental lemma*, Ann. of Math. 193 (2021), Appendix B; Li–Zhang, *Kudla–Rapoport cycles and derivatives of local densities* (arXiv:1908.01701v3), §1.8 and its uses; EGA I §§0.7, I.10 and EGA III₁ §3.4; the Stacks project for commutative algebra.\n\n**Layers.** FK.0 local algebra and formal supports; FK.1 Grothendieck groups, cup product and Tor pairing; FK.2 regular comparison, filtrations, affine multiplicativity and noetherian exhaustion; FK.3 closed unions and Tor vanishing (Lemmas B.1, B.2); FK.4 the Euler degree and the derived Euler–Poincaré pairing (B.4).\n\n**Non-goals.** Multiplicativity of the codimension filtration under the cup product on non-affine formal schemes (Zhang's (B.3) for formal schemes) is open in the source and is not planned; consumers use Zhang's Remark 5.3 and Li–Zhang's Remark 6.4.11. Continuous K-theory of the thickenings of a formal scheme is a different object and is not constructed here.\n",
+ "prerequisites": [
+  "SchemeKTheoryOperations",
+  "AdicSpacesPartII",
+  "SchemeAndStackFoundations",
+  "EnhancedDerivedSheaves",
+  "GeneralAlgebraicKTheory"
+ ],
+ "stages": [
+  {
+   "key": "FK.0",
+   "title": "Local algebra and formal supports on locally noetherian formal schemes",
+   "description": "Fix the local algebra that formal schemes need. Prove that the stalk of Spf A at an open prime p, the localisation A_p and the completed localisation share their completion, so that dimension, regularity and the Cohen–Macaulay property can be read on A_p. Define the local dimension dim_x X = dim O_{X,x}, the dimension and pure dimension of a formal scheme, and the local and global codimension of a closed formal subscheme, measured through stalks and not through the underlying space. Define regular and Cohen–Macaulay formal schemes (Spf A regular iff A regular) and prove the codimension formula codim_X Z = d − dim Z on noetherian Cohen–Macaulay formal schemes of pure dimension d, which identifies codimension on Spf A with height in Spec A. Define regular immersions and effective Cartier divisors of formal schemes with their local Koszul resolutions. Define formal support (a power of the ideal kills the module), its Serre subcategory Coh_Y(X), and its affine description by supports in Spec A, distinguishing it from topological support. Construct the Tor sheaves Tor_j^{O_X}(F, G) of coherent modules, glued from Tor_j^A over affine formal opens through the flatness of completed localisations, with stalks, long exact sequences, formal supports and the vanishing above the dimension on regular formal schemes.",
+   "requires": [
+    "AdicSpacesPartII:F0",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.4",
+    "EnhancedDerivedSheaves:E1"
+   ]
+  },
+  {
+   "key": "FK.1",
+   "title": "Grothendieck groups, cup product and Tor pairing of noetherian formal schemes",
+   "description": "Define K′₀(X) as the Grothendieck group of the abelian category of coherent modules on a noetherian formal scheme, with restriction, closed pushforward, flat pullback, and K′₀(Spf A) ≅ G₀(A). Prove the dévissage K₀(Coh_Y(X)) ≅ K′₀(Y) for formally supported modules. Define the category of bounded complexes of locally free coherent modules with formally supported homology, closed under cones, tensor products and pullback, and the Gillet–Soulé group K₀^Y(X) with the short-exact-sequence and quasi-isomorphism relations, support enlargement, restriction and pullback. Prove the affine transport: on Spf A all these objects are those of Spec A with support V(J), so the parent's affine results apply. Construct the homology class map K₀^Y(X) → K′₀(Y), the supported cup product K₀^Y × K₀^Z → K₀^{Y∩Z}, and, on regular formal schemes, the Tor pairing K′₀(Y) × K′₀(Z) → K′₀(Y ∩ Z) with the derived intersection Y ∩^L Z and its compatibility with the cup product.",
+   "requires": [
+    "SchemeKTheoryOperationsPartII:FK.0",
+    "SchemeKTheoryOperations:S.2",
+    "SchemeKTheoryOperations:S.3",
+    "SchemeKTheoryOperations:S.6",
+    "GeneralAlgebraicKTheory:K.3",
+    "AdicSpacesPartII:F0",
+    "EnhancedDerivedSheaves:E1"
+   ]
+  },
+  {
+   "key": "FK.2",
+   "title": "Regular comparison, filtrations and noetherian exhaustion",
+   "description": "Prove the regular supported dévissage: for a regular noetherian formal scheme of finite dimension with the resolution property (for example an affine one), the homology class map K₀^Y(X) → K′₀(Y) is an isomorphism, inverted by finite locally free resolutions. Define the codimension filtration F^iK₀^Y(X) by supports of ambient codimension ≥ i and the dimension filtration F_iK′₀(X), with their graded pieces and rationalisations, and prove that F^{d−i} corresponds to F_i on regular formal schemes of pure dimension d. Prove the rational multiplicativity F^a ∪ F^b ⊆ F^{a+b} on affine regular formal schemes by transport to Spec A (its Euler-characteristic consequence appears in FK.4); the non-affine case is not asserted. Define the K-groups, filtrations and products of a locally noetherian formal scheme as inverse limits over a noetherian open exhaustion, prove their independence of the exhaustion and their stabilisation for quasi-compact supports when the exhaustion members are regular of finite dimension with the resolution property.",
+   "requires": [
+    "SchemeKTheoryOperationsPartII:FK.1",
+    "SchemeKTheoryOperations:S.3",
+    "SchemeKTheoryOperations:S.4",
+    "SchemeKTheoryOperations:S.6",
+    "GeneralAlgebraicKTheory:K.3"
+   ]
+  },
+  {
+   "key": "FK.3",
+   "title": "Closed unions and Tor vanishing (Zhang's Lemmas B.1 and B.2)",
+   "description": "Prove Lemma B.1: for a noetherian formal scheme that is the union of two closed formal subschemes, restriction to the two pieces gives an isomorphism of cokernels of K′₀ of the overlap, the overlap maps need not be injective, and for locally noetherian formal schemes the statement holds for inverse limits of cokernels. Prove Lemma B.2(i): if Z₁ → X is a regular immersion, Z₂ is Cohen–Macaulay and the intersection has the expected codimension at every point, the higher Tor sheaves of O_{Z₁} and O_{Z₂} vanish; and Lemma B.2(ii): on an expected-dimensional part Y of Z₁ ∩ Z₂ = Y ∪ Y′ they vanish modulo K′₀(Y ∩ Y′), with the localisation done at primes of the stalks. Prove that the pullback of the class of an effective Cartier divisor whose preimage is again Cartier is the class of the preimage.",
+   "requires": [
+    "SchemeKTheoryOperationsPartII:FK.2",
+    "SchemeAndStackFoundations:SF.0",
+    "EnhancedDerivedSheaves:E1"
+   ]
+  },
+  {
+   "key": "FK.4",
+   "title": "Euler degree and the derived Euler–Poincaré pairing (B.4)",
+   "description": "Show that a scheme proper over Spf A lives over a thickening Spec A/ϖ^n, and define its Euler degree K′₀(W) → ℤ as the alternating sum of A-lengths of cohomology. Define the derived Euler–Poincaré pairing χ(X, F ⊗^L G) = Σ(−1)^{i+j} length R^iπ_* Tor_j(F, G) for coherent sheaves F on Y and G on Z in a regular formal scheme X, with the closed formal subschemes Y, Z meeting in a scheme proper over Spf A, as a symmetric biadditive pairing on K′₀ and on K₀^Y through the cup product, computed on any noetherian open containing the intersection. Prove the functoriality of the degree under proper pushforward and its behaviour under finite extensions of the discrete valuation ring (factor f) and flat base change (factor e). Prove that the pairing of a zero-dimensional class with any coherent module is length times generic rank, so it vanishes on supports of codimension ≥ 1, and that the pairing with an effective Cartier divisor is deg[F] − deg[F(−D)], the degree of the restricted line bundle on a proper curve. Extend the pairing to power-annihilated sheaves by dévissage, using ambient cohomology only with a compatible A-structure. Construct proper pushforward on K′₀ of formal schemes and prove the projection formula. General proper formal coherent higher direct images remain a precise supplier request to AdicSpacesPartII F0. The layer is planned at target level, with this recorded gap; it is not closed.",
+   "requires": [
+    "SchemeKTheoryOperationsPartII:FK.2",
+    "SchemeKTheoryOperationsPartII:FK.3",
+    "SchemeKTheoryOperations:S.2",
+    "SchemeKTheoryOperations:S.6",
+    "SchemeKTheoryOperations:S.7",
+    "AdicSpacesPartII:F0",
+    "EnhancedDerivedSheaves:E1",
+    "SchemeAndStackFoundations:SF.3"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "ZHANG21",
+   "title": "Weil representation and arithmetic fundamental lemma",
+   "authors": "Wei Zhang",
+   "edition": "Ann. of Math. 193 (2021), 863–978",
+   "url": "https://annals.math.princeton.edu/2021/193-3/p05",
+   "readSections": [
+    "Appendix B, pp. 971–975",
+    "§§3–5 uses of Appendix B"
+   ]
+  },
+  {
+   "id": "LIZHANG22",
+   "title": "Kudla–Rapoport cycles and derivatives of local densities",
+   "authors": "Chao Li and Wei Zhang",
+   "edition": "arXiv:1908.01701v3; J. Amer. Math. Soc. 35 (2022)",
+   "url": "https://arxiv.org/abs/1908.01701",
+   "readSections": [
+    "§1.8",
+    "§§2.4, 2.8, 5.2, 10.4–10.5"
+   ]
+  }
+ ],
+ "status": "draft"
+}

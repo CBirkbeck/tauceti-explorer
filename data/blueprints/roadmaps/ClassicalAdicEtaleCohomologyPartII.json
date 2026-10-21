@@ -1,0 +1,251 @@
+{
+  "id": "ClassicalAdicEtaleCohomologyPartII",
+  "title": "The classical analytic cohomology inputs to diamonds, Part II",
+  "area": "padic",
+  "parent": "ClassicalAdicEtaleCohomology",
+  "summary": "This continuation proves Poincaré duality for mod-p étale cohomology of smooth proper rigid spaces over mixed-characteristic fields, starting from formal canonical sheaves and integral Faltings traces. A second route proves proper-smooth relative torsion finiteness and uses it to obtain Zariski-constructible proper base change with all torsion coefficients. Derived integral duality, local-system coefficients and constant cohomology sheaves are included with their precise hypotheses.",
+  "readme": "See research/blueprint/readmes/ClassicalAdicEtaleCohomologyPartII.md for conventions, all targets, API outlines, discriminating tests, source locators, supplier contracts and the five explicit proof-closure gaps. Independently reviewed by REV-DESIGN-ClassicalAdicEtaleCohomologyPartII; see its review report for corrections and follow-up contracts.",
+  "prerequisites": [
+    "ClassicalAdicEtaleCohomology",
+    "AInfCohomology",
+    "AdicCoefficientsAndComparisons",
+    "AdicSpacesPartII",
+    "AdicSpacesPartIIPartII",
+    "ArithmeticGaloisDuality",
+    "DerivedDeRhamCohomology",
+    "DiamondEtaleCohomology",
+    "DiamondsAndVStacks",
+    "EnhancedDerivedSheaves",
+    "PadicHodgeTheory",
+    "PerfectoidSpaces",
+    "SchemeAndStackFoundations"
+  ],
+  "stages": [
+    {
+      "key": "PD.0",
+      "title": "Almost coherent nearby cycles",
+      "description": "Specialize the abstract almost-module formalism to admissible formal O_C-models. Construct almost coherent derived nearby-cycle complexes, their modulo-p reduction and generic fibre, and the almost proper-duality comparison. Retain the finite-dimensional almost amplitude. The universally coherent duality and general nearby-cycle coherence contracts G1 and G3 are explicit.",
+      "requires": [
+        "AInfCohomology:AI.1",
+        "AdicSpacesPartII:F0",
+        "AdicSpacesPartII:R2",
+        "AdicSpacesPartII:R3",
+        "EnhancedDerivedSheaves:E1",
+        "PadicHodgeTheory:P8",
+        "PerfectoidSpaces:P0",
+        "PerfectoidSpaces:P3",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:key"
+      ]
+    },
+    {
+      "key": "PD.1",
+      "title": "Formal canonical sheaves and traces",
+      "description": "Construct coherent formal dualizing complexes as derived inverse limits, with canonical flat bottom sheaf and finite-level reduction. Prove étale/algebraic comparison and Hartogs gluing for geometrically reduced residue fibres. Construct bottom traces, the generic top-differential identification and model-independent coherent traces on equal-dimensional smooth rigid spaces. G1 and G2 supply the valuation-base geometry. The generic identification and coherent rigid trace construction use algebraically closed C; separatedness is explicit for formal duality.",
+      "requires": [
+        "AInfCohomology:AI.1",
+        "AdicSpacesPartII:F0",
+        "AdicSpacesPartII:R2",
+        "AdicSpacesPartII:R3",
+        "ClassicalAdicEtaleCohomologyPartII:PD.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:key"
+      ]
+    },
+    {
+      "key": "PD.2",
+      "title": "Integral Faltings traces",
+      "description": "Define scalar-torsion-free nearby cohomology and the completed cotangent BMS maps. On smooth models normalize the inverse by Fontaine dlog; compare its rational generic fibre with the coordinate-character Hodge–Tate map. Define nice models and glue the honest integral top trace by Hartogs. Reduce it to the derived mod-p trace and prove pseudo-finite rig-étale trace compatibility.",
+      "requires": [
+        "AInfCohomology:AI.0:integral",
+        "AInfCohomology:AI.1",
+        "AInfCohomology:AI.4",
+        "AdicSpacesPartII:R2",
+        "AdicSpacesPartII:R3",
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomologyPartII:PD.0",
+        "ClassicalAdicEtaleCohomologyPartII:PD.1",
+        "DerivedDeRhamCohomology:DD.0",
+        "PadicHodgeTheory:P8"
+      ]
+    },
+    {
+      "key": "PD.3",
+      "title": "Polystable local duality",
+      "description": "Define standard polystable models and their p-power root towers, with product-one Galois group. Use normalized character lines with their genuine parameter factors. Compute continuous cohomology by Koszul complexes and prove the honest décalage comparison. Construct normalized root projections, prove derived root-algebra self-duality, orient the group trace and deduce the almost local perfect pairing.",
+      "requires": [
+        "AInfCohomology:AI.0:integral",
+        "AInfCohomology:AI.1",
+        "AInfCohomology:AI.3",
+        "AdicSpacesPartII:R2",
+        "ClassicalAdicEtaleCohomologyPartII:PD.0",
+        "ClassicalAdicEtaleCohomologyPartII:PD.1",
+        "ClassicalAdicEtaleCohomologyPartII:PD.2",
+        "DerivedDeRhamCohomology:DD.0",
+        "PerfectoidSpaces:P3"
+      ]
+    },
+    {
+      "key": "PD.4",
+      "title": "Descent of local almost duality",
+      "description": "Define the Faltings cup pairing relative to the shifted mod-p dualizing complex. Prove descent under proper rig-isomorphisms. Construct derived almost invariants and orbits retaining the finite group action, prove torsor Shapiro identifications, and descend duality along finite good quotients even when their order is divisible by p. Apply local altered uniformization G2 to all nice models.",
+      "requires": [
+        "AdicSpacesPartII:R2",
+        "ArithmeticGaloisDuality:D7",
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomologyPartII:PD.0",
+        "ClassicalAdicEtaleCohomologyPartII:PD.2",
+        "ClassicalAdicEtaleCohomologyPartII:PD.3",
+        "EnhancedDerivedSheaves:E1"
+      ]
+    },
+    {
+      "key": "PD.5",
+      "title": "Global étale Poincaré duality",
+      "description": "Construct the model-independent global almost trace, prove derived and degreewise almost duality, and detect finite F_p isomorphisms after almost scalar extension. Normalize the analytic top trace and deduce Galois-equivariant mod-p Poincaré duality, including finite local systems. Prove proper p-adic perfectness and pass to constant Z/pⁿ, Z_p and Q_p coefficients with the derived shift −2d and possible integral torsion.",
+      "requires": [
+        "AInfCohomology:AI.1",
+        "AdicSpacesPartII:R2",
+        "AdicSpacesPartIIPartII:RZ.5",
+        "ArithmeticGaloisDuality:D7",
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomology:H3",
+        "ClassicalAdicEtaleCohomologyPartII:PD.0",
+        "ClassicalAdicEtaleCohomologyPartII:PD.2",
+        "ClassicalAdicEtaleCohomologyPartII:PD.4",
+        "PadicHodgeTheory:P8"
+      ]
+    },
+    {
+      "key": "PD.6",
+      "title": "Proper smooth relative finiteness",
+      "description": "Over strictly totally disconnected perfectoid bases prove coherence, relative strict-containment finite-presentation factorization and the spectral-sequence factorization lemma. Deduce almost finite presentation of relative O⁺/p cohomology. Combine continuous elementary divisors, primitive comparison and all-p quasi-pro-étale base change to obtain finite local systems Rⁱf_*L for proper smooth f. Include finite p-power coefficients and finitely generated lisse Z_p higher direct images with their limit comparisons.",
+      "requires": [
+        "AInfCohomology:AI.1",
+        "AdicSpacesPartII:R1",
+        "AdicSpacesPartII:R2",
+        "ArithmeticGaloisDuality:D7",
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomology:H3",
+        "DiamondEtaleCohomology:C1",
+        "DiamondsAndVStacks:D1",
+        "EnhancedDerivedSheaves:E2",
+        "PadicHodgeTheory:P8",
+        "PerfectoidSpaces:P0",
+        "PerfectoidSpaces:P3",
+        "SchemeAndStackFoundations:SF.0",
+        "PerfectoidSpaces:P5",
+        "PerfectoidSpaces:P6"
+      ]
+    },
+    {
+      "key": "PD.7",
+      "title": "Zariski-constructible proper base change",
+      "description": "Define the locally bounded Zariski-constructible derived category, distinct from Huber constructibility. Prove affinoid constructible algebraization, étale locality and finite-cover generation. Combine proper resolution descent, generic smoothness and relative finiteness to prove proper constructible pushforward. Prove invariance under arbitrary algebraically closed field extension, then all-torsion proper base change. Apply it to Heuer’s constant cohomology sheaf on smooth rigid bases over algebraically closed K.",
+      "requires": [
+        "AInfCohomology:AI.1",
+        "AdicCoefficientsAndComparisons:L2",
+        "AdicSpacesPartII:R3",
+        "AdicSpacesPartIIPartII:RZ.0",
+        "AdicSpacesPartIIPartII:RZ.1",
+        "AdicSpacesPartIIPartII:RZ.2",
+        "AdicSpacesPartIIPartII:RZ.5",
+        "ClassicalAdicEtaleCohomology:H0",
+        "ClassicalAdicEtaleCohomology:H3",
+        "ClassicalAdicEtaleCohomology:H5",
+        "ClassicalAdicEtaleCohomologyPartII:PD.0",
+        "ClassicalAdicEtaleCohomologyPartII:PD.5",
+        "ClassicalAdicEtaleCohomologyPartII:PD.6",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "PadicHodgeTheory:P8",
+        "PerfectoidSpaces:P3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Z",
+      "title": "Mod-p Poincaré Duality in p-adic analytic geometry",
+      "authors": "Bogdan Zavyalov",
+      "edition": "arXiv:2111.01830v3, 21 February 2024; preprint page and theorem numbers throughout. Published in Annals of Mathematics 201 (2025), 647–773; the published text was not compared.",
+      "url": "https://arxiv.org/pdf/2111.01830v3",
+      "readSections": [
+        "§§1–5, pp. 1–83; Appendices A–D, pp. 84–99; references."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "a984d973782649972a835b302e20ec91fc9c1abc5e5b43c7eccc5934b9c2c951"
+    },
+    {
+      "id": "AC",
+      "title": "Almost coherent modules and almost coherent sheaves",
+      "authors": "Bogdan Zavyalov",
+      "edition": "arXiv:2110.10773v3, 28 August 2022; numbering used by Z. Latest v5 (16 March 2026) checked at the affected §4.9 and §5.5 statements only.",
+      "url": "https://arxiv.org/pdf/2110.10773v3",
+      "readSections": [
+        "§§4.5–4.9, pp. 94–114 (definitions, affine equivalences and Hom); §5.1, pp. 114–118; §5.5, pp. 129–131; §6.13, pp. 170–172."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "4e10dd0c3692526dac796efdc1871214e7849aa9c300f82c5a9057db37e18ea0"
+    },
+    {
+      "id": "SW",
+      "title": "Berkeley lectures on p-adic geometry",
+      "authors": "Peter Scholze and Jared Weinstein",
+      "edition": "Authors’ version, 27 March 2020, §10.5, printed pp. 82–89; read in the maintainer’s cleared library. Annals of Mathematics Studies 207, Princeton University Press, 2020.",
+      "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+      "readSections": [
+        "§10.5, Theorem 10.5.1 through the proof of Proposition 10.5.10, pp. 82–89."
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BH",
+      "title": "The six functors for Zariski-constructible sheaves in rigid geometry",
+      "authors": "Bhargav Bhatt and David Hansen",
+      "edition": "arXiv:2101.09759v2, 22 September 2021; preprint page numbers. Compositio Mathematica 158 (2022), 437–482.",
+      "url": "https://arxiv.org/pdf/2101.09759v2",
+      "readSections": [
+        "Introduction and Definition 3.1; §2.3, Theorems 2.27 and 2.29, pp. 13–14; §§3.1–3.3, pp. 14–20; §3.5, Lemma 3.25 and its proof, p. 25."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "2dccae2b3f1eb298ce429a5d80fd284e16ef721072dbed0a5136fbac205cc3c8"
+    },
+    {
+      "id": "H",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "authors": "Ben Heuer",
+      "edition": "Inventiones Mathematicae 240 (2025), 261–312; published open-access PDF.",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
+      "readSections": [
+        "Conventions on the algebraically closed field, §1; §2.6, Proposition 2.18 and proof, p. 279."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd"
+    },
+    {
+      "id": "U",
+      "title": "Altered Local Uniformization Of Rigid-Analytic Spaces",
+      "authors": "Bogdan Zavyalov",
+      "edition": "Author’s current arXiv PDF of 2102.04752, accessed 19 October 2026; only the main theorem statements read. Published in Israel Journal of Mathematics 263 (2024).",
+      "url": "https://arxiv.org/pdf/2102.04752",
+      "readSections": [
+        "Introduction, Theorems 1.3–1.4, pp. 4–5; proof not independently decomposed here."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "db8066d6bae7d044058ed9a109077b4c1ed2f89c71c33b3b39278c1598728f1c"
+    },
+    {
+      "id": "PS",
+      "title": "Perfectoid spaces: a survey",
+      "authors": "Peter Scholze",
+      "edition": "Author’s arXiv:1303.5948 version in the cleared library; printed pages.",
+      "url": "https://arxiv.org/pdf/1303.5948",
+      "readSections": [
+        "§3.2, Theorem 3.17 and proof, pp. 19–20; surrounding constructible comparison argument, pp. 17–19."
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}

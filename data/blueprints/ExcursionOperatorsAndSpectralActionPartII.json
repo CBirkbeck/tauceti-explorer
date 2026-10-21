@@ -1,0 +1,2410 @@
+{
+ "roadmapId": "ExcursionOperatorsAndSpectralActionPartII",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "ExcursionOperatorsAndSpectralActionPartII:SC0",
+  "ExcursionOperatorsAndSpectralActionPartII:SC1",
+  "ExcursionOperatorsAndSpectralActionPartII:SC2",
+  "ExcursionOperatorsAndSpectralActionPartII:SC3",
+  "ExcursionOperatorsAndSpectralActionPartII:SC4",
+  "ExcursionOperatorsAndSpectralActionPartII:SC5",
+  "ExcursionOperatorsAndSpectralActionPartII:SC6"
+ ],
+ "status": "complete",
+ "summary": "Plan the proof that the Fargues–Scholze spectral center acts by very stable distributions for every connected reductive group over a p-adic field. Quantitative Hecke averaging gives stability and atomic-parameter constancy; basic-inner-form detection constructs a surjection between the FS image centers and establishes compatibility with Levi restriction, stable character transfer and matching test functions. Harmonic analysis and local-shtuka trace theorems are separate imported continuations, with precise missing supplier contracts.",
+ "baseline": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "declarations": [
+   {
+    "ref": "mathlib:Finsupp",
+    "kind": "structure",
+    "module": "Mathlib/Data/Finsupp/Defs.lean",
+    "provides": "Finite coefficient vectors on an existing index type, with exact nonzero support.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:Finsupp.mem_support_iff",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Finsupp/Defs.lean",
+    "provides": "Membership in Finsupp.support is equivalent to a nonzero coefficient; used in the atomic-support criterion.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:Submodule",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
+    "provides": "Submodules over a semiring/module; used for annihilators and support-minimal vectors.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:Subalgebra",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+    "provides": "Subalgebras with inherited scalar algebra structure; used for very stable and image centers.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:Finset.expect",
+    "kind": "def",
+    "module": "Mathlib/Algebra/BigOperators/Expect.lean",
+    "provides": "Finite arithmetic expectation; its empty-set value is zero, so nonemptiness of stable fibers is stated separately.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:Fintype.expect_eq_sum_div_card",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/BigOperators/Expect.lean",
+    "provides": "In a characteristic-zero field, finite expectation is the sum divided by the cardinality.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:AddChar.complexBasis",
+    "kind": "def",
+    "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+    "provides": "Additive characters of a finite abelian group give a complex basis of all its complex-valued functions.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:AddChar.wInner_cWeight_eq_boole",
+    "kind": "lemma",
+    "module": "Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean",
+    "provides": "Character orthogonality for the normalized counting inner product on a finite group.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:AlgHom.range",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+    "provides": "The image subalgebra of an algebra homomorphism.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:AlgHom.rangeRestrict",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+    "provides": "An algebra homomorphism with codomain restricted to its image.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:AlgHom.rangeRestrict_surjective",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+    "provides": "Surjectivity onto the image, not onto the original codomain.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:Ideal.quotientKerEquivRange",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+    "provides": "The algebra equivalence from a source modulo the ring-homomorphism kernel to its image subalgebra.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "mathlib:MeasureTheory.norm_integral_le_of_norm_le_const",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+    "provides": "A finite-measure integral has norm at most a uniform norm bound times total measure.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "tauceti:TauCeti.ExactK0",
+    "kind": "def",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+    "provides": "The Grothendieck group for a specified Quillen exact structure on an essentially small additive category with binary biproducts.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "tauceti:TauCeti.ExactK0.lift",
+    "kind": "def",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+    "provides": "The additive map out of exact K_0 from a short-exact additive invariant; supplies the existing algebraic universal property, not a smooth-character theorem.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   },
+   {
+    "ref": "tauceti:TauCeti.AbelianK0.homologyEulerChar",
+    "kind": "def",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/EulerCharacteristic.lean",
+    "provides": "The finite alternating sum of cohomology classes in the Grothendieck group of an abelian category.",
+    "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "H26",
+   "title": "Excursion operators and the stable Bernstein center",
+   "authors": "David Hansen",
+   "edition": "Forum of Mathematics, Pi 14 (2026), e10, pp. 1–14; version of record",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AB00A1DF177B6DAB542489D58DA1C8AD/S2050508626100286a.pdf/excursion-operators-and-the-stable-bernstein-center.pdf",
+   "sha256": "30f08ae39b020187b8368d4096411527f64555923232e6d42c3b21e314396936",
+   "read": "2026-10-19",
+   "readSections": [
+    "Entire article, pp. 1–14: definitions, Lemmas 2.1–2.6, Propositions 2.5 and 2.7, proofs of Theorems 1.1 and 1.4, and Corollaries 1.2–1.3"
+   ]
+  },
+  {
+   "id": "FU25",
+   "title": "Stability of elliptic Fargues–Scholze L-packets",
+   "authors": "Chenji Fu",
+   "edition": "arXiv:2501.00652v1 (1 January 2025)",
+   "url": "https://arxiv.org/pdf/2501.00652v1",
+   "sha256": "f77b54a8526888c95c2cf0d32e158a38040cd28c4021e9c2c7df1b9abb169524",
+   "read": "2026-10-19",
+   "readSections": [
+    "§§3.1–3.3, pp. 18–21: dual-root product, finite H_g, Fourier growth",
+    "§4.2, pp. 24–25: invariant fibers, especially Lemma 4.2.7",
+    "§4.3, pp. 26–27: proof of Theorem 4.3.1 and equidistribution"
+   ]
+  },
+  {
+   "id": "HKW22",
+   "title": "On the Kottwitz conjecture for local shtuka spaces",
+   "authors": "David Hansen, Tasho Kaletha and Jared Weinstein",
+   "edition": "Forum of Mathematics, Pi 10 (2022), e13, pp. 1–79; version of record",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33A94496879999F3D63C2997F2D50D9D/S2050508622000075a.pdf/div-class-title-on-the-kottwitz-conjecture-for-local-shtuka-spaces-div.pdf",
+   "sha256": "d05a7f84ce98862d470d114946b7002e8d5ab1df3c4d77fb4851ff45f5d80049",
+   "read": "2026-10-19",
+   "readSections": [
+    "§3.1, pp. 12–13: rational torus finiteness and class topology",
+    "§3.2, pp. 14–16: inv[b], uniqueness and torus fibers",
+    "§3.3, pp. 17–18: Equation (3.3.3) sign",
+    "§6.4, pp. 61–62: finite length and the stated star-extension Mant functor",
+    "§6.5, pp. 65–66: Theorem 6.5.2",
+    "Appendix C, p. 75: Theorem C.1.1 characterizing nonelliptic virtual representations as proper-parabolic induced combinations",
+    "Appendix A.2, p. 72: Lemma A.2.1 and the half-sum convention for the sign in (3.3.3)"
+   ]
+  },
+  {
+   "id": "FS24",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues and Peter Scholze",
+   "edition": "arXiv:2102.13459v4 (2024)",
+   "url": "https://arxiv.org/pdf/2102.13459v4",
+   "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+   "read": "2026-10-19",
+   "readSections": [
+    "§I.9, pp. 34–35: Definition I.9.2, Proposition I.9.3, Conjecture I.9.5 and the separate following stable-center expectation"
+   ]
+  },
+  {
+   "id": "FKS21v2",
+   "title": "A twisted Yu construction, Harish-Chandra characters, and endoscopy",
+   "authors": "Jessica Fintzen, Tasho Kaletha and Loren Spice",
+   "edition": "arXiv:2106.09120v2 (3 September 2021); preprint of Duke Mathematical Journal 172 (2023), pp. 2241–2301. Published full text not retrieved.",
+   "url": "https://arxiv.org/pdf/2106.09120v2",
+   "sha256": "126958839c2203b485d22ec960f8e0f6a795d00103adadb6c184aa6edb75b51a",
+   "read": "2026-10-19",
+   "readSections": [
+    "Introduction, pp. 2–4: scope and field restrictions",
+    "§4.3, pp. 19–23: especially assumptions on p and exponential convergence on p. 20",
+    "§4.4, pp. 24–26: regular packets, stable sums, Theorem 4.4.4"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-center",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC0",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0"
+   ],
+   "title": "Stable central distributions",
+   "kind": "definition",
+   "statement": "Define Z_st(G) as the complex submodule of Z(G) consisting of z with z(f)=0 for every f in U(G), where z(f) is distribution evaluation, not convolution as a test function.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Import the categorical Bernstein center from SR.3 and the unstable test-function space from ET.1. G1 must supply the essentially compact invariant-distribution realization, its pairing and the character quotient; the current upstream categorical-center plan alone does not provide this comparison.",
+    "Take the annihilator of U(G) inside Z(G); linearity of evaluation gives the submodule structure."
+   ],
+   "acceptance": [
+    "The defining quantifier ranges over all unstable test functions; the ambient object is a submodule, with no claimed closure under multiplication."
+   ],
+   "prerequisites": [
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+    "mathlib:Submodule"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§1.1, pp. 1–2",
+     "match": "Introduces distributional stability and the linear space of stable central elements."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Stable Bernstein center"
+   },
+   "api": [
+    {
+     "name": "StableCenter.mem_iff",
+     "role": "characterisation",
+     "statement": "z lies in Z_st(G) if and only if every f in U(G) satisfies z(f)=0."
+    },
+    {
+     "name": "StableCenter.toCenter",
+     "role": "coercion",
+     "statement": "The inclusion Z_st(G) -> Z(G) is complex linear and injective."
+    },
+    {
+     "name": "StableCenter.zero_add_smul",
+     "role": "structure",
+     "statement": "Zero, sums and all complex scalar multiples of stable central distributions are stable."
+    },
+    {
+     "name": "StableCenter.eval_unstable",
+     "role": "simp",
+     "statement": "Evaluation of any stable central element on an unstable test function is zero."
+    }
+   ],
+   "tests": [
+    {
+     "name": "StableCenter.torus",
+     "kind": "compatibility",
+     "statement": "For a torus T, stable and rational conjugacy agree, U(T)=0 and Z_st(T)=Z(T)."
+    },
+    {
+     "name": "StableCenter.zero",
+     "kind": "degenerate",
+     "statement": "The zero distribution belongs to Z_st(G), even when U(G) is nonzero."
+    },
+    {
+     "name": "StableCenter.unit",
+     "kind": "characterisation",
+     "statement": "The convolution identity delta_1 belongs to Z_st(G), using the imported stable-delta_1 theorem."
+    },
+    {
+     "name": "StableCenter.annihilator_fixture",
+     "kind": "non-example",
+     "statement": "For the pairing on C^2 and U=span{(1,-1)}, the functional (a,b) annihilates U exactly when a=b; (1,0) fails. This checks the annihilator operation, without representing C^2 as a p-adic character space."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SC0/stability-algebra",
+     "how": "The stable annihilator receives the very stable action."
+    },
+    {
+     "where": "Hansen Theorem 1.1, p. 2",
+     "how": "Its weaker distributional conclusion follows from very stability."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC0",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0"
+   ],
+   "title": "Very stable central distributions",
+   "kind": "definition",
+   "statement": "Define Z_vst(G)={z in Z(G) | for every f in U(G), z*f belongs to U(G)} as a complex subalgebra of Z(G). The stability of the identity distribution delta_1 is an imported harmonic-analysis theorem, not part of this definition.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use the SR.3 categorical Bernstein center, its convolution realization requested through G1, and the ET.1 unstable subspace.",
+    "The unit, addition, scalar multiplication and composition preserve U(G); convolution multiplication agrees with composition."
+   ],
+   "acceptance": [
+    "Convolution has codomain H(G) by essential compactness; the condition is preservation of a subspace."
+   ],
+   "prerequisites": [
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+    "mathlib:Subalgebra"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§1.1, pp. 1–2",
+     "match": "Defines the convolution-preservation condition and its algebra structure."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Very stable Bernstein center"
+   },
+   "api": [
+    {
+     "name": "VeryStableCenter.mem_iff",
+     "role": "characterisation",
+     "statement": "z is very stable if and only if z*f is unstable for every unstable f."
+    },
+    {
+     "name": "VeryStableCenter.toCenter",
+     "role": "coercion",
+     "statement": "The inclusion into Z(G) is an injective complex algebra map."
+    },
+    {
+     "name": "VeryStableCenter.map_unstable",
+     "role": "functoriality",
+     "statement": "Convolution by z induces a linear endomorphism of U(G)."
+    },
+    {
+     "name": "VeryStableCenter.one_mul",
+     "role": "structure",
+     "statement": "The identity and products of very stable elements are very stable."
+    }
+   ],
+   "tests": [
+    {
+     "name": "VeryStableCenter.torus",
+     "kind": "compatibility",
+     "statement": "Every central distribution of a torus is very stable since U(T)=0."
+    },
+    {
+     "name": "VeryStableCenter.zero_one",
+     "kind": "degenerate",
+     "statement": "Both zero convolution and identity convolution preserve U(G)."
+    },
+    {
+     "name": "VeryStableCenter.diagonal_fixture",
+     "kind": "non-example",
+     "statement": "On C^2 with U=span{(1,-1)}, diagonal convolution diag(a,b) preserves U exactly when a=b; diag(1,0) fails, despite sending zero to U."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SC0/very-stability-criterion",
+     "how": "Converts the main target into preservation of stable tempered characters."
+    },
+    {
+     "where": "SC3/fargues-scholze-stability",
+     "how": "The geometric central map takes values in this subalgebra."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC0/stability-algebra",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC0",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0"
+   ],
+   "title": "Relations between the two stable centers",
+   "kind": "theorem",
+   "statement": "Z_vst(G) embeds in Z_st(G), and Z_st(G) is a module over Z_vst(G) under convolution. In particular the convolution of a very stable element with a stable element is stable.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "For z very stable and f unstable, inversion gives another unstable function f^vee(g)=f(g^(-1)). Then z*f^vee is unstable; the G1 stable-delta_1 theorem and the usual distribution pairing give delta_1(z*f^vee)=z(f)=0.",
+    "Put z^vee(f)=z(f^vee). Inversion preserves U(G) and intertwines central convolution, so z^vee is very stable. For stable y and unstable f, (y*z)(f)=y(z^vee*f)=0. These identities follow by unfolding convolution on the unimodular group."
+   ],
+   "acceptance": [
+    "Use stable delta_1 and the inversion in the usual distribution pairing explicitly; do not infer that all products of stable elements are stable."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§1.1, pp. 1–2",
+     "match": "Relates the annihilator definition to preservation under convolution."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC0",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0"
+   ],
+   "title": "Character criterion for very stability",
+   "kind": "theorem",
+   "statement": "For z in Z(G), the following are equivalent: z belongs to Z_vst(G); z·SD(G) is contained in SD(G); z·SD_temp(G) is contained in SD_temp(G). Here (z·Theta)(f)=Theta(z*f).",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "The G1 harmonic-analysis interface identifies unstable functions with the simultaneous annihilator of stable tempered virtual characters and identifies stable characters with their stable orbital behavior.",
+    "Preservation of U implies preservation of its character annihilators, since center action preserves D and D_temp.",
+    "If stable tempered characters stay stable, evaluate them on z*f for unstable f and apply the same annihilator criterion to z*f."
+   ],
+   "acceptance": [
+    "The third condition suffices without an LLC classification; center preservation of tempered support is supplied independently of stability."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Lemma 2.2, p. 6",
+     "match": "Gives the three equivalent formulations of very stability."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Very stability criterion"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-tempered-faithfulness",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC0",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0"
+   ],
+   "title": "Stable tempered characters detect the very stable center",
+   "kind": "theorem",
+   "statement": "The action of Z_vst(G) on SD_temp(G) is faithful: a very stable z annihilating every stable tempered virtual character is zero.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "The G1 unstable-function criterion implies z*f lies in U(G) for every f in H(G), because every stable tempered character vanishes on it.",
+    "In particular z*f^vee is unstable for each f. Apply the G1 stable delta_1 theorem and delta_1(z*f^vee)=z(f) to get z(f)=0 for every f; faithful distribution evaluation gives z=0."
+   ],
+   "acceptance": [
+    "The theorem is used for Z_FS only after SC3 proves its very stability."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stability-algebra",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Lemma 2.3, p. 6",
+     "match": "Proves faithfulness without assuming a complete description of tempered packets."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Stable tempered faithfulness"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC1",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1"
+   ],
+   "title": "Hecke operators on virtual characters",
+   "kind": "construction",
+   "statement": "For dominant mu with 1 in B(G,mu), set F_mu=i_1^* T_(V_mu dual) i_(1!). Its bounded finite-length cohomology defines an Euler-class map on K_0 of finite-length smooth representations. After iota and complex linearization obtain T_mu:D(G)->D(G), with T_mu([A])=sum_j (-1)^j [H^j F_mu(A)]. The condition on mu is equivalently trivial action of Z(Ghat)^Gamma on V_mu.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus.",
+    "Use the normalized Hecke family, basic stratum adjunctions, and the G2 adapted shriek finite-length theorem."
+   ],
+   "proofSteps": [
+    "Import the normalized Hecke operator, its unit and duality from the exact HS1 nodes, and basic-stratum shriek extensions from HS3/hecke-operators-between-strata. HS3/admissibility-duality-and-adjunction supplies bounded finite length in its star convention; G2 supplies the adapted shriek statement. Do not replace i_! by i_*.",
+    "The Euler relation sends distinguished triangles to sums, using the existing Grothendieck-group universal property.",
+    "Identify the complexified finite-length Grothendieck group with the finite span of irreducible characters through the G1 character independence theorem."
+   ],
+   "acceptance": [
+    "No t-exactness is required; negative degrees contribute with their Euler signs."
+   ],
+   "prerequisites": [
+    "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+    "HeckeStacksAndLocalShtukas:HS1/monoidality-of-hecke-operators",
+    "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+    "HeckeStacksAndLocalShtukas:HS3/hecke-operators-between-strata",
+    "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
+    "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
+    "BunGAndNewtonStrata:BG1/admissible-pair",
+    "BunGAndNewtonStrata:BG1",
+    "GeometricSatakeAndFusion:GS4:integral-dual-group",
+    "tauceti:TauCeti.ExactK0",
+    "tauceti:TauCeti.ExactK0.lift",
+    "tauceti:TauCeti.AbelianK0.homologyEulerChar"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§2.2, pp. 6–7",
+     "match": "Constructs the decategorified Hecke map from shriek extensions."
+    },
+    {
+     "sourceId": "HKW22",
+     "locator": "Proposition 6.4.5 and Definition 6.4.6, pp. 61–62",
+     "match": "Supplies finite-length input in its stated Mant convention; the shriek adaptation remains the explicit G2 supplier obligation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Hecke character operators"
+   },
+   "api": [
+    {
+     "name": "HeckeCharacterOperator.apply_class",
+     "role": "characterisation",
+     "statement": "T_mu of the character class of A is the alternating sum of the finite-length cohomology classes of F_mu(A)."
+    },
+    {
+     "name": "HeckeCharacterOperator.map_add_smul",
+     "role": "structure",
+     "statement": "T_mu is complex linear on D(G)."
+    },
+    {
+     "name": "HeckeCharacterOperator.triangle",
+     "role": "relation",
+     "statement": "A distinguished triangle of finite-length inputs gives the corresponding Euler sum after F_mu."
+    },
+    {
+     "name": "HeckeCharacterOperator.zero_weight",
+     "role": "simp",
+     "statement": "T_0 is the identity, using the unit Hecke kernel and i_1^* i_(1!)=id."
+    },
+    {
+     "name": "HeckeCharacterOperator.k0_agreement",
+     "role": "compatibility",
+     "statement": "Before iota and complexification the map is the additive map supplied by ExactK0.lift; its finite Euler sum agrees with AbelianK0.homologyEulerChar on bounded complexes."
+    }
+   ],
+   "tests": [
+    {
+     "name": "HeckeCharacterOperator.unit",
+     "kind": "computation",
+     "statement": "For mu=0, T_0(Theta)=Theta."
+    },
+    {
+     "name": "HeckeCharacterOperator.zero_object",
+     "kind": "degenerate",
+     "statement": "The zero representation and zero virtual character map to zero."
+    },
+    {
+     "name": "HeckeCharacterOperator.shift",
+     "kind": "computation",
+     "statement": "For any input complex A and integer n, the Euler character of F_mu(A[n]) is (-1)^n times that of F_mu(A)."
+    },
+    {
+     "name": "HeckeCharacterOperator.additivity",
+     "kind": "compatibility",
+     "statement": "For A direct-sum B, its output Euler character is the sum of the two outputs, with no assumption that F_mu has only degree-zero cohomology."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Hansen Lemma 2.4 and Proposition 2.5, pp. 7–8",
+     "how": "Supplies the commuting operators and scalar action modulo induction."
+    },
+    {
+     "where": "SC2/character-averaging",
+     "how": "Normalized operators converge on elliptic character restrictions."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-central-commutation",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC1",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1"
+   ],
+   "title": "Hecke and excursion commutation on characters",
+   "kind": "lemma",
+   "statement": "For a in Z_spec(G), z=Psi_G(a), and Theta in D(G), T_mu(z·Theta)=z·T_mu(Theta) for each mu allowed in the self-Hecke construction.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use the Hecke-compatible geometric center map and its restriction along the chosen basic stratum embedding.",
+    "Take cohomology Euler classes of the commuting natural transformations; then transport coefficients and complex-linearize."
+   ],
+   "acceptance": [
+    "The result is restricted to z in the FS image; no commutation with arbitrary Bernstein central elements is asserted."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic/stratum-maps",
+    "ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Lemma 2.4, p. 7",
+     "match": "Decategorifies Hecke compatibility of the excursion action."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-modulo-induction",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC1",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1"
+   ],
+   "title": "Stable Hecke action modulo induced characters",
+   "kind": "comparison",
+   "statement": "Let D_ind(G) be the span of characters induced from proper Levi subgroups, equivalently the kernel of elliptic restriction by the G1 theorem. T_mu preserves D_ind(G). For stable Theta in SD(G), T_mu(Theta) - (dim V_mu)Theta belongs to D_ind(G).",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "The G2 shriek HKW formula shows that T_mu(Theta) has zero elliptic restriction whenever Theta does.",
+    "For stable Theta the invariant fibers contain exactly one rational conjugacy class for each occurring weight; replace all character values by Theta(g) and sum weight multiplicities to dim V_mu.",
+    "Apply the G1 elliptic-kernel theorem to both conclusions.",
+    "The geometric trace and invariant-fiber assertions in this step are precisely contract G2; do not treat them as supplied by finite-dimensional Fourier algebra or by the generic HS3 amplitude statement alone."
+   ],
+   "acceptance": [
+    "The correction is an induced virtual character; it is not claimed to be tempered."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Proposition 2.5, pp. 7–8",
+     "match": "Identifies the stable scalar action in the quotient by induced characters."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-character-operators",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC1",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1"
+   ],
+   "title": "Hecke operators between basic inner forms",
+   "kind": "construction",
+   "statement": "For any dominant mu and basic b in B(G,mu), let G_b be the associated extended pure inner form. The functors i_1^* T_(V_mu dual) i_(b!) and i_b^* T_(V_mu) i_(1!) yield complex-linear Euler maps T_mu:D(G_b)->D(G) and T_mu^rev:D(G)->D(G_b). The superscript rev names the reverse geometric operator and does not mean a linear transpose.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus.",
+    "The G2 interface supplies bounded finite-length cohomology for both shriek functors for all dominant mu, without a minuscule assumption."
+   ],
+   "proofSteps": [
+    "Apply the same Euler construction as the self-Hecke case to each pair of basic strata.",
+    "Use dual V_mu only in the forward direction; fix weights and signs in the reverse character formula by the G2 duality comparison."
+   ],
+   "acceptance": [
+    "For b=1 the forward operator is the self-Hecke operator; no global identification of star and shriek extensions is used."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology",
+    "HeckeStacksAndLocalShtukas:HS1/monoidality-of-hecke-operators",
+    "HeckeStacksAndLocalShtukas:HS1/properties-and-weil-equivariance",
+    "HeckeStacksAndLocalShtukas:HS3/hecke-operators-between-strata",
+    "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
+    "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
+    "BunGAndNewtonStrata:BG1/basic-class",
+    "BunGAndNewtonStrata:BG1/admissible-pair",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic/stratum-maps"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§2.2, p. 9",
+     "match": "Introduces the two directed character operators for basic inner forms."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Inner form Hecke operators"
+   },
+   "api": [
+    {
+     "name": "InnerHecke.forward_apply",
+     "role": "characterisation",
+     "statement": "The forward operator is the Euler class of i_1^* T_(V_mu dual) i_(b!)."
+    },
+    {
+     "name": "InnerHecke.reverse_apply",
+     "role": "characterisation",
+     "statement": "The reverse operator is the Euler class of i_b^* T_(V_mu) i_(1!)."
+    },
+    {
+     "name": "InnerHecke.linear",
+     "role": "structure",
+     "statement": "Both directed maps preserve complex linear combinations."
+    },
+    {
+     "name": "InnerHecke.basic_one",
+     "role": "compatibility",
+     "statement": "For b=1, forward agrees with HeckeCharacterOperator for the same mu and normalization."
+    },
+    {
+     "name": "InnerHecke.euler_shift",
+     "role": "relation",
+     "statement": "A shift by n in either input multiplies its Euler output by (-1)^n."
+    }
+   ],
+   "tests": [
+    {
+     "name": "InnerHecke.trivial_modification",
+     "kind": "computation",
+     "statement": "For mu=0 and b=1 both maps are the identity."
+    },
+    {
+     "name": "InnerHecke.zero_input",
+     "kind": "degenerate",
+     "statement": "The zero character has zero forward and reverse image."
+    },
+    {
+     "name": "InnerHecke.basic_one_agreement",
+     "kind": "compatibility",
+     "statement": "For b=1 the forward formula uses V_mu dual and agrees with the self-Hecke formula, including all cohomological signs."
+    },
+    {
+     "name": "InnerHecke.dual_convention",
+     "kind": "non-example",
+     "statement": "For GL_1 and a nonzero cocharacter mu, the forward and reverse kernels have opposite cocharacter labels; the API must not identify their labels merely because the dimensions are both one."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Hansen Proposition 2.7, p. 9",
+     "how": "Gives the two central commutation identities and stable trace scalars."
+    },
+    {
+     "where": "SC5/kernel-inclusion and SC6/character-transfer",
+     "how": "Detects nonzero operators on the quasi-split form and compares transfer."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-central-commutation",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC1",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1"
+   ],
+   "title": "Central commutation across inner forms",
+   "kind": "theorem",
+   "statement": "For a in the common spectral center, z=Psi_G(a), z_b=Psi_(G_b)(a), T_mu(z_b·Theta)=z·T_mu(Theta) and T_mu^rev(z·Xi)=z_b·T_mu^rev(Xi), for all Theta in D(G_b) and Xi in D(G).",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Restrict the Hecke-compatible natural central transformation to the two basic strata, using the basic case of the stratum-center comparison.",
+    "Decategorify the two natural commutation squares using the inner Hecke Euler maps."
+   ],
+   "acceptance": [
+    "Both directions use the same spectral element and the basic inner-form identification of spectral centers."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-character-operators",
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic/stratum-maps"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Proposition 2.7(i), p. 9",
+     "match": "Uses the same spectral action to intertwine the central operators on the two forms."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Inner form central commutation"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC1/stable-inner-hecke-formula",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC1",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1"
+   ],
+   "title": "Stable inner form Hecke formula",
+   "kind": "theorem",
+   "statement": "For matching strongly regular elliptic elements g in G(E), g_b in G_b(E), and stable Theta in SD(G_b), T_mu(Theta)(g)=e(G)e(G_b)(dim V_mu)Theta(g_b). For stable Xi in SD(G), T_mu^rev(Xi)(g_b)=e(G)e(G_b)(dim V_mu)Xi(g). The signs e are the Kottwitz signs, including e(G*)=1 for a quasi-split form.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use G2: the adapted shriek HKW elliptic formula is the sum over pairs (lambda,[g_b]) with inv[b](g,g_b)=the coinvariant image of lambda, weighted by dim V_mu[lambda], multiplied by e(G)e(G_b).",
+    "HKW Remark 3.2.5 gives uniqueness and Fu Lemma 4.2.7 gives existence for each occurring weight. Stability makes the character value independent of [g_b].",
+    "For the reverse operator use the reversed invariant, weight duality, and the same sign product; sum all weight dimensions."
+   ],
+   "acceptance": [
+    "All dominant weights and all relevant basic b are allowed; the statement is confined to matching elliptic elements."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-character-operators",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-sign",
+    "GeometricSatakeAndFusion:GS4:integral-dual-group"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Proposition 2.7(ii), p. 9",
+     "match": "Computes the scalar on stable elliptic restrictions in both directions."
+    },
+    {
+     "sourceId": "HKW22",
+     "locator": "Theorem 6.5.2, pp. 65–66; Equation (3.3.3), §3.3, p. 18",
+     "match": "Supplies the elliptic character formula and Kottwitz sign conversion, subject to the documented extension-convention comparison."
+    },
+    {
+     "sourceId": "FU25",
+     "locator": "Lemma 4.2.7, p. 25",
+     "match": "Provides existence of the invariant fibers used when collapsing the sum."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Stable inner form Hecke formula"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC2/elliptic-stable-average",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC2",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2"
+   ],
+   "title": "Finite stable averaging on elliptic classes",
+   "kind": "construction",
+   "statement": "For strongly regular elliptic g, let R_g be the finite nonempty set of G(E)-conjugacy classes in the stable class of g. For a conjugation-invariant function h on the elliptic locus define Av(h)(g)=|R_g|^(-1) sum_[gprime] in R_g h(gprime). This is the finite arithmetic mean, not a measure-weighted mean. For a virtual character the notation Av(Theta) denotes this function only; it is not by definition a virtual character.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "ET.0 supplies finite rational class fibers; membership of g makes R_g nonempty.",
+    "Use Mathlib finite expectation on the finite class set; conjugation invariance makes representatives immaterial."
+   ],
+   "acceptance": [
+    "The function is stable on the elliptic locus, linear in h and idempotent; agreement with a global stable projection is a separate G1 theorem."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+    "mathlib:Finset.expect",
+    "mathlib:Fintype.expect_eq_sum_div_card"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§2.2, p. 8",
+     "match": "Defines the finite average needed for elliptic convergence."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Elliptic stable averaging"
+   },
+   "api": [
+    {
+     "name": "EllipticAverage.apply",
+     "role": "characterisation",
+     "statement": "Av(h)(g) equals the finite expectation of h over R_g."
+    },
+    {
+     "name": "EllipticAverage.linear",
+     "role": "structure",
+     "statement": "Av is complex linear on conjugation-invariant elliptic functions."
+    },
+    {
+     "name": "EllipticAverage.stable",
+     "role": "relation",
+     "statement": "Stably conjugate elliptic inputs have the same average."
+    },
+    {
+     "name": "EllipticAverage.idempotent",
+     "role": "relation",
+     "statement": "Av(Av(h))=Av(h)."
+    },
+    {
+     "name": "EllipticAverage.finset_expect",
+     "role": "compatibility",
+     "statement": "For any enumeration of R_g by a nonempty finite type, the value equals Mathlib finite expectation, independently of the enumeration."
+    }
+   ],
+   "tests": [
+    {
+     "name": "EllipticAverage.two_classes",
+     "kind": "computation",
+     "statement": "If R_g has two classes with h-values 2 and 6, Av(h)(g)=4."
+    },
+    {
+     "name": "EllipticAverage.singleton",
+     "kind": "compatibility",
+     "statement": "If R_g is a singleton, Av(h)(g)=h(g); in particular this holds for a torus."
+    },
+    {
+     "name": "EllipticAverage.zero",
+     "kind": "degenerate",
+     "statement": "The average of the zero function is zero."
+    },
+    {
+     "name": "EllipticAverage.nonuniform",
+     "kind": "non-example",
+     "statement": "For the two values 2 and 6, the weighted sum with weights 1/4 and 3/4 equals 5 and is not the stable average 4."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Hansen Lemma 2.6, pp. 8–9",
+     "how": "Is the pointwise limit of normalized Hecke character values."
+    },
+    {
+     "where": "SC3/cuspidal-pairing-limit",
+     "how": "The G1 stable-projection theorem agrees with this average on the elliptic locus."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC2/rho-averaging-sequence",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC2",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2"
+   ],
+   "title": "The dual-root averaging sequence",
+   "kind": "definition",
+   "statement": "For m a nonnegative integer define mu_m=4m rho_dual=2m sum_(alpha positive root of Ghat) alpha in X*(That)=X_*(T). Write N=the number of positive roots of Ghat and d_m=dim V_(mu_m)=(4m+1)^N. Then mu_m is dominant, in the dual root lattice, trivial on Z(Ghat)^Gamma, and V_(mu_m) is self-dual. Averaging estimates use m>=1.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use the based dual root datum from GS4; writing 4m rho_dual as 2m times the positive-root sum places it in the dual root lattice even when rho_dual is not a character.",
+    "Differentiate the characteristic-zero algebraic representation on the derived group, identifying its highest weight and torus weight multiplicities with the LieHighestWeight Layer 6 input; the central character is fixed by mu_m. Specialize that imported integral Weyl character formula as in Fu Lemma 3.1.2 to obtain the product of symmetric root strings. Evaluate at one for d_m and invert weights for self-duality. The representation/weight dictionary is part of request R9, not a replacement Weyl theorem."
+   ],
+   "acceptance": [
+    "Use roots of the dual group, hence coroots of G; the published Hansen wording is corrected in source issue E2."
+   ],
+   "prerequisites": [
+    "GeometricSatakeAndFusion:GS4:integral-dual-group",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§2.2, p. 8; corrected positive-root convention",
+     "match": "Selects the highest weights used by Fu averaging."
+    },
+    {
+     "sourceId": "FU25",
+     "locator": "Lemmas 3.1.2–3.1.3, pp. 18–19",
+     "match": "Gives the formal-character product, exact dimension and self-duality with the dual-root convention."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Dual root averaging sequence"
+   },
+   "api": [
+    {
+     "name": "RhoSequence.value",
+     "role": "characterisation",
+     "statement": "mu_m is 2m times the sum of positive roots of Ghat, viewed as a cocharacter of G."
+    },
+    {
+     "name": "RhoSequence.zero",
+     "role": "simp",
+     "statement": "mu_0=0 and d_0=1."
+    },
+    {
+     "name": "RhoSequence.central_trivial",
+     "role": "compatibility",
+     "statement": "V_(mu_m) has trivial action of Z(Ghat)^Gamma, hence 1 belongs to B(G,mu_m)."
+    },
+    {
+     "name": "RhoSequence.character",
+     "role": "data",
+     "statement": "The formal character is product_(alpha positive root of Ghat) sum_(j=-2m)^(2m) e^(j alpha), with each root string having length 4m+1."
+    },
+    {
+     "name": "RhoSequence.dimension",
+     "role": "simp",
+     "statement": "d_m=(4m+1)^N is positive."
+    },
+    {
+     "name": "RhoSequence.self_dual",
+     "role": "equivalence",
+     "statement": "There exists a Ghat-equivariant isomorphism from V_(mu_m) to its contragredient; no canonical choice of invariant pairing is claimed."
+    }
+   ],
+   "tests": [
+    {
+     "name": "RhoSequence.torus",
+     "kind": "degenerate",
+     "statement": "With no roots, mu_m=0 and d_m=1 for every m."
+    },
+    {
+     "name": "RhoSequence.A1",
+     "kind": "computation",
+     "statement": "In dual type A1 with positive root alpha, mu_m=2m alpha and d_m=4m+1."
+    },
+    {
+     "name": "RhoSequence.B2_coroots",
+     "kind": "non-example",
+     "statement": "For G of type B2 with positive roots e1-e2,e2,e1,e1+e2, the positive coroot sum is 4e1+2e2, so mu_m=8m e1+4m e2. Using the G-root sum 3e1+e2 would give a different, incorrect sequence."
+    },
+    {
+     "name": "RhoSequence.initial",
+     "kind": "compatibility",
+     "statement": "At m=0 the representation is the one-dimensional trivial representation and the Hecke operator is the identity."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Fu Lemma 3.1.2 and Proposition 3.3.1, pp. 18–21",
+     "how": "The product formula controls the dimension and nontrivial Fourier coefficients."
+    },
+    {
+     "where": "Hansen Lemma 2.6, pp. 8–9",
+     "how": "The central-trivial weights define self-Hecke averaging operators."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC2/weight-averaging-kernel",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC2",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2"
+   ],
+   "title": "Normalized weight multiplicity kernel",
+   "kind": "construction",
+   "statement": "For m>=1 and gprime representing a class in R_g, define C_m(g,gprime)=d_m^(-1) sum_(lambda with coinvariant image inv(g,gprime)) dim V_(mu_m)[lambda]. This is a finitely supported weight sum, and each C_m is a nonnegative real rational number, with sum_(R_g) C_m(g,gprime)=1. Equivalently it is the pushforward to H_g=ker(X_*(T_g)_Gamma -> pi_1(G)_Gamma) of the normalized weight multiplicity distribution, transported along the invariant bijection R_g≃H_g.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Import integral pi_1, the torus Kottwitz description and basic-class classification from their exact BG1 nodes. Request through R8 their compatibility with the stable-conjugacy invariant. Then use G2 uniqueness and existence of invariant fibers and Fu Lemmas 3.2.1–3.2.3 for the finite H_g quotient of the dual root lattice.",
+    "Sum nonnegative integer weight dimensions over each fiber and divide by positive d_m.",
+    "Each occurring weight has exactly one class, so the mass is one.",
+    "The geometric trace and invariant-fiber assertions in this step are precisely contract G2; do not treat them as supplied by finite-dimensional Fourier algebra or by the generic HS3 amplitude statement alone."
+   ],
+   "acceptance": [
+    "The target is the kernel H_g, rather than the full cocharacter coinvariant group."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/rho-averaging-sequence",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/elliptic-stable-average",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+    "GeometricSatakeAndFusion:GS4:integral-dual-group",
+    "BunGAndNewtonStrata:BG1/algebraic-fundamental-group",
+    "BunGAndNewtonStrata:BG1/torus-norm-description",
+    "BunGAndNewtonStrata:BG1/classification-by-two-invariants",
+    "BunGAndNewtonStrata:BG1"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Lemma 2.6 proof, p. 8",
+     "match": "Rewrites the normalized elliptic Hecke formula as a probability kernel."
+    },
+    {
+     "sourceId": "FU25",
+     "locator": "Lemmas 3.2.1–3.2.3, pp. 19–20; Lemmas 4.2.6–4.2.7, pp. 24–25",
+     "match": "Identifies the finite quotient receiving weights and the invariant fibers."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Weight averaging kernel"
+   },
+   "api": [
+    {
+     "name": "WeightKernel.apply",
+     "role": "characterisation",
+     "statement": "Each coefficient is the sum of weight multiplicities in its invariant fiber divided by d_m."
+    },
+    {
+     "name": "WeightKernel.nonnegative",
+     "role": "relation",
+     "statement": "Every coefficient is nonnegative."
+    },
+    {
+     "name": "WeightKernel.total_mass",
+     "role": "relation",
+     "statement": "The coefficients over all classes in R_g sum to one."
+    },
+    {
+     "name": "WeightKernel.pushforward",
+     "role": "compatibility",
+     "statement": "Via R_g≃H_g this is the pushforward of the normalized finite weight multiset; reordering or changing a representative leaves it unchanged."
+    },
+    {
+     "name": "WeightKernel.hecke_evaluation",
+     "role": "characterisation",
+     "statement": "For any Theta, normalized self-Hecke elliptic evaluation is the sum of C_m(g,gprime)Theta(gprime)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "WeightKernel.torus",
+     "kind": "degenerate",
+     "statement": "For a torus, H_g=0, R_g is a singleton and its coefficient is one."
+    },
+    {
+     "name": "WeightKernel.A1_mod2",
+     "kind": "computation",
+     "statement": "In dual type A1 with root lattice Z alpha and quotient Z/2 mapping alpha to 1, weights j alpha for -2m<=j<=2m have multiplicity one. The two masses are (2m+1)/(4m+1) and 2m/(4m+1), rather than exactly 1/2."
+    },
+    {
+     "name": "WeightKernel.A1_m1",
+     "kind": "computation",
+     "statement": "For m=1 in that quotient, the masses are 3/5 and 2/5 and their sum is one."
+    },
+    {
+     "name": "WeightKernel.center_kernel",
+     "kind": "non-example",
+     "statement": "For G=GL_1 the full cocharacter coinvariant group is Z but H_g=ker(Z->Z)=0. A construction averaging over all of Z fails both finiteness and the singleton coefficient test."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Hansen Lemma 2.6 proof, p. 8",
+     "how": "Separates the character values from the finite weight distribution."
+    },
+    {
+     "where": "SC2/uniform-weight-equidistribution",
+     "how": "Finite Fourier inversion is applied to this distribution."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC2/uniform-weight-equidistribution",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC2",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2"
+   ],
+   "title": "Uniform quantitative weight equidistribution",
+   "kind": "theorem",
+   "statement": "There exists C_G>=0 such that for every strongly regular elliptic g and m>=1, sum_(gprime in R_g) |C_m(g,gprime)-1/|R_g|| <= C_G/m. If N=0 then H_g and R_g are singletons and the left side is zero.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Fu identifies H_g as a finite quotient of the dual root lattice; a nontrivial character is nontrivial on some positive dual root.",
+    "Evaluate the product formula: the corresponding geometric-series factor is bounded independently of m, while the other N-1 factors are at most 4m+1 in absolute value. Divide by (4m+1)^N.",
+    "Apply finite abelian Fourier inversion/orthogonality from the pinned Mathlib declarations to bound the error for every h in H_g.",
+    "ET.0/HKW Lemma 3.1.1 supplies finitely many rational maximal-torus conjugacy types. Take the maximum of the finitely many constants and cardinalities; enlarge it to include initial m."
+   ],
+   "acceptance": [
+    "The constant depends only on the fixed group over E, not on g or its stable class."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/weight-averaging-kernel",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/rho-averaging-sequence",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+    "mathlib:AddChar.complexBasis",
+    "mathlib:AddChar.wInner_cWeight_eq_boole"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Lemma 2.6 proof, pp. 8–9",
+     "match": "Uses Fu quantitative growth to obtain a uniform bound across elliptic classes."
+    },
+    {
+     "sourceId": "FU25",
+     "locator": "Proposition 3.3.1, p. 21; proof of Theorem 4.3.1, pp. 26–27",
+     "match": "Bounds all nontrivial Fourier coefficients by one lower power of m."
+    },
+    {
+     "sourceId": "HKW22",
+     "locator": "Lemma 3.1.1, pp. 12–13",
+     "match": "Provides the finiteness of rational maximal-torus conjugacy types needed for a group-uniform constant."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Uniform weight equidistribution"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC2/character-averaging",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC2",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2"
+   ],
+   "title": "Discriminant-weighted character averaging",
+   "kind": "theorem",
+   "statement": "Let Theta be any element of D(G), and U a compact subset of G(E) with this property: for each elliptic stable class meeting U, U contains a representative of every rational conjugacy class in it. Then there is C_(Theta,U)>=0 such that for all m>=1 and g in U strongly regular elliptic, |D_G(g)|^(1/2) |d_m^(-1) T_(mu_m)(Theta)(g)-Av(Theta)(g)| <= C_(Theta,U)/m.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use the G2 self-Hecke elliptic formula to identify d_m^(-1)T_(mu_m)(Theta)(g) with sum_(R_g) C_m(g,gprime)Theta(gprime).",
+    "Subtract the arithmetic average and apply the sum of absolute coefficient errors from uniform weight equidistribution.",
+    "The Weyl discriminant is stable-invariant; choose representatives in U and use the G1 Harish-Chandra local boundedness of |D|^(1/2)|Theta| on compact sets.",
+    "The geometric trace and invariant-fiber assertions in this step are precisely contract G2; do not treat them as supplied by finite-dimensional Fourier algebra or by the generic HS3 amplitude statement alone."
+   ],
+   "acceptance": [
+    "Uniformity is weighted by the discriminant; the compact set contains representatives, not entire noncompact conjugacy orbits."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/weight-averaging-kernel",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/uniform-weight-equidistribution",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/elliptic-stable-average",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Lemma 2.6, pp. 8–9",
+     "match": "Proves weighted uniform convergence on compact sets with enough stable representatives."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Character averaging estimate"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC3/compact-stable-representatives",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC3",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC3"
+   ],
+   "title": "Compact representatives for the cuspidal integrals",
+   "kind": "lemma",
+   "statement": "Choose finitely many representatives T of rational elliptic maximal-torus conjugacy classes and compact subsets C_T of T(E). There is a compact U in G(E) containing all C_T such that every strongly regular elliptic stable class meeting U has representatives of every rational conjugacy class in U.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "ET.0 and HKW Lemma 3.1.1 give finitely many rational conjugacy classes of E-embeddings of each fixed torus that are geometrically conjugate to its inclusion.",
+    "For each T choose representatives for those embedding classes, including the inclusion and the finitely many geometric Weyl identifications. Take the union of their images of C_T.",
+    "This finite union is compact. A strongly regular element in one image has that embedded torus as centralizer; every rational conjugacy class in its stable class is represented by another chosen embedding of the same original element."
+   ],
+   "acceptance": [
+    "U contains compact sets of representatives, rather than a union of whole conjugacy orbits. The assertion includes singular points of C_T only for compactness, without imposing character values there."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§2.3, pp. 10–11, compact-U step",
+     "match": "Expands the representative choice used before applying the uniform averaging estimate."
+    },
+    {
+     "sourceId": "HKW22",
+     "locator": "Lemma 3.1.1, pp. 12–13",
+     "match": "Provides finiteness of rational torus conjugacy classes and the stable-class topology."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC3/cuspidal-pairing-limit",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC3",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC3"
+   ],
+   "title": "Averaging against cuspidal test functions",
+   "kind": "theorem",
+   "statement": "For Xi in D_temp(G) let P_st(Xi) in SD_temp(G) be the G1 stable projection. For every cuspidal f in I(G)_cusp, (d_m^(-1)T_(mu_m)(Xi)-P_st(Xi))(f) tends to zero as m tends to infinity. More precisely, its absolute value is at most C_(Xi,f)/m for m>=1.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "G1 supplies the cuspidal Weyl integration formula, with a finite sum of integrals over elliptic tori, compact orbital-support closures C_T, and bounded |D|^(1/2)O_t(f).",
+    "G1 supplies P_st(Xi)(g)=Av(Xi)(g) for elliptic g. Choose compact U using compact stable representatives; character averaging bounds the other factor |D|^(1/2)(d_m^(-1)T(Xi)-P_st Xi) by C/m on all C_T.",
+    "Extend that weighted factor by zero outside the strongly regular locus, and apply the pinned finite-measure integral norm bound on each compact C_T. Sum the finitely many Weyl coefficients."
+   ],
+   "acceptance": [
+    "Neither the approximants nor the error are asserted to be tempered; Xi is tempered so that the imported stable projection is available."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/character-averaging",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/compact-stable-representatives",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/elliptic-stable-average",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+    "mathlib:MeasureTheory.norm_integral_le_of_norm_le_const"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§2.3, pp. 10–11",
+     "match": "Converts elliptic uniform convergence into convergence of pairings with cuspidal functions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Cuspidal averaging limit"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC3",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC3"
+   ],
+   "title": "Very stability of the Fargues–Scholze center",
+   "kind": "theorem",
+   "statement": "For every connected reductive G over every finite extension E of Q_p, Psi_G:Z_spec(G)->Z(G) factors through Z_vst(G). Hence Z_FS(G)=range(Psi_G) is contained in Z_vst(G), and all its elements are stable distributions. There is no tameness, residual-prime-size, quasi-splitness or discrete-parameter restriction.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Induct on semisimple rank. For an induced stable tempered character i_M^G Theta_M, use the ES7 normalized-induction dictionary and the SR.2 central restriction identity z·i_M^G=i_M^G(r_M(z)·-), with r_M(Psi_G a)=Psi_M(res a). The smaller-rank result makes this stable.",
+    "G1 supplies the Arthur decomposition into induced and elliptic stable tempered summands and Hansen Lemma 2.1 preserving the cuspidal/noncuspidal test-function splitting. Reduce to Theta in SD_ell(G) and unstable cuspidal f; z*f is cuspidal.",
+    "For each admissible mu set C_mu=d_mu^(-1)T_mu(Theta)(z*f). The comparison modulo induced characters makes this equal to the constant Theta(z*f), because induced characters vanish on cuspidal functions.",
+    "Hecke central commutation rewrites C_(mu_m)=d_m^(-1)T_(mu_m)(Xi)(f) for Xi=z·Theta. Xi is tempered, independently of stability. Subtract P_st Xi, which vanishes on unstable f, then apply the cuspidal pairing limit to show this constant is zero.",
+    "The very-stability character criterion finishes the induction. At semisimple rank zero G is a torus and stable conjugacy is rational conjugacy."
+   ],
+   "acceptance": [
+    "The proof never assumes z·Theta stable before establishing it; only the independently supplied stable projection of Xi is used."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stability-algebra",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-central-commutation",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-modulo-induction",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/cuspidal-pairing-limit",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic/normalised-induction-dictionary",
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Theorem 1.1, p. 2; proof §2.3, pp. 9–11",
+     "match": "Proves very stability of the FS image for arbitrary connected reductive p-adic groups."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Fargues–Scholze center stability"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-stable-character",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC4",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC4"
+   ],
+   "title": "Atomically stable virtual characters",
+   "kind": "definition",
+   "statement": "A virtual character Theta=sum_(i in S) a_i Theta_(pi_i) is atomically stable if S is a finite nonempty set of pairwise nonisomorphic irreducible smooth representations, every a_i is nonzero, Theta is stable, and every nonzero stable virtual character supported in S has support exactly S. Coefficients of the competing virtual character are arbitrary complex numbers, not necessarily the a_i. Equivalently its irreducible-character coefficient vector is a nonzero support-minimal member of the stable-character subspace.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use the G1 linear independence of irreducible characters to make finite coefficient support intrinsic.",
+    "Express minimality as the absence of a nonzero vector of smaller support in the stable-character subspace; match it to Finsupp.support and Submodule without defining a replacement character carrier."
+   ],
+   "acceptance": [
+    "Zero and the empty support are excluded; testing only proper partial sums of Theta is insufficient."
+   ],
+   "prerequisites": [
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+    "mathlib:Finsupp",
+    "mathlib:Finsupp.mem_support_iff",
+    "mathlib:Submodule"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "§1.1 before Corollary 1.2, p. 2",
+     "match": "Defines the support-minimal stable combinations used to compare semisimple parameters."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Atomically stable character"
+   },
+   "api": [
+    {
+     "name": "AtomicStable.nonzero",
+     "role": "projection",
+     "statement": "An atomically stable virtual character is nonzero."
+    },
+    {
+     "name": "AtomicStable.stable",
+     "role": "projection",
+     "statement": "An atomically stable virtual character belongs to SD(G)."
+    },
+    {
+     "name": "AtomicStable.support_minimal",
+     "role": "characterisation",
+     "statement": "A nonzero stable vector with support contained in the atomic support has the same support."
+    },
+    {
+     "name": "AtomicStable.smul_iff",
+     "role": "relation",
+     "statement": "For c nonzero, cTheta is atomically stable if and only if Theta is."
+    },
+    {
+     "name": "AtomicStable.finsupp_criterion",
+     "role": "compatibility",
+     "statement": "Under the irreducible-character coefficient isomorphism, atomic stability is precisely nonzero support minimality in the stable submodule of complex finitely supported functions."
+    }
+   ],
+   "tests": [
+    {
+     "name": "AtomicStable.zero",
+     "kind": "degenerate",
+     "statement": "The zero character is not atomically stable."
+    },
+    {
+     "name": "AtomicStable.torus_single",
+     "kind": "computation",
+     "statement": "Each irreducible character of a torus is stable and atomically stable."
+    },
+    {
+     "name": "AtomicStable.torus_pair",
+     "kind": "non-example",
+     "statement": "A nonzero combination of two distinct irreducible torus characters is stable but is not atomically stable: either singleton character gives smaller stable support."
+    },
+    {
+     "name": "AtomicStable.arbitrary_coefficients",
+     "kind": "non-example",
+     "statement": "In the coefficient-space fixture SD=span{(1,2,0),(1,1,1)} in C^3, (1,1,1) is not support minimal because (1,2,0) has smaller support, although none of its nonempty proper 0/1 partial sums is in SD."
+    },
+    {
+     "name": "AtomicStable.line_fixture",
+     "kind": "compatibility",
+     "statement": "In the line submodule span{(1,2)} of C^2, every nonzero vector is support minimal; this checks the exact Finsupp/Submodule criterion used in the compact Lean statement."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Hansen Corollary 1.2, p. 2",
+     "how": "Support minimality forces a common central spectral character."
+    },
+    {
+     "where": "SC4/regular-supercuspidal-packet",
+     "how": "The application needs atomicity as an explicit external theorem, not as a synonym for stable packet sum."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-scalar-rigidity",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC4",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC4"
+   ],
+   "title": "Scalar rigidity on an atomic stable support",
+   "kind": "theorem",
+   "statement": "Let Theta=sum_(i in S) a_i Theta_(pi_i) be atomically stable and z in Z_vst(G). Then z_(pi_i)=z_(pi_j) for every i,j in S, where z_pi is the scalar by which z acts on pi.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Very stability makes z·Theta stable. Fix i in S and subtract z_(pi_i)Theta; the result is stable and its i coefficient is zero.",
+    "Its support is contained in S but is strictly smaller unless the vector is zero. Atomic minimality forces it to be zero.",
+    "For each j, a_j is nonzero, so the j coefficient equation implies z_(pi_j)=z_(pi_i)."
+   ],
+   "acceptance": [
+    "This argument uses arbitrary-coefficient support minimality, not the false claim that checking only partial sums is enough."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-stable-character",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+    "SmoothRepresentationsOfLocalGroups:SR.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Corollary 1.2 proof from Theorem 1.1, p. 2",
+     "match": "The central character is constant on the support of an atomic stable virtual character."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Atomic scalar rigidity"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-fs-parameter",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC4",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC4"
+   ],
+   "title": "FS parameters on atomic stable supports",
+   "kind": "theorem",
+   "statement": "If Theta=sum_(i in S) a_i Theta_(pi_i) is atomically stable, all pi_i have the same Fargues–Scholze semisimple L-parameter conjugacy class. Equality is equality in the set of Ghat-conjugacy classes of continuous semisimple Weil parameters with the prescribed Weil projection, using the coefficient topology of the imported ES5/LP2 parameter object before transport by iota.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Apply FS very stability and atomic scalar rigidity to every spectral central function.",
+    "The imported ES5 excursion-character and parameter theorems identify these scalar evaluations with the invariant coordinates of the semisimple parameter.",
+    "Apply LP2 semisimple-character uniqueness to conclude equality of the conjugacy classes, with coefficients transported by the fixed iota."
+   ],
+   "acceptance": [
+    "Do not claim equality of chosen cocycle representatives, recovery of a Weil–Deligne monodromy operator, or agreement with an independently constructed LLC."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-scalar-rigidity",
+    "ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation",
+    "ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object",
+    "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Corollary 1.2, p. 2",
+     "match": "Deduces constancy of the semisimple FS parameter from stability."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Atomic FS parameter constancy"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC4/regular-supercuspidal-packet",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC4",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC4"
+   ],
+   "title": "Regular supercuspidal packet constancy",
+   "kind": "application",
+   "statement": "Target: if G splits over a tame extension, p does not divide the absolute Weyl group order, and phi is a regular supercuspidal parameter with nonempty Kaletha packet Pi_phi(G), then the FS semisimple parameter is constant as pi varies in Pi_phi(G). This target requires the external atomic-stability assertion for sum_(pi in Pi_phi(G)) Theta_pi under exactly these hypotheses; its source justification is open in G3. The conditional implication from that assertion is supplied by the preceding theorem.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus.",
+    "G splits over a tame extension; p does not divide |W_G|; phi is regular supercuspidal; Pi_phi(G) is nonempty."
+   ],
+   "proofSteps": [
+    "Use the external regular-packet construction to obtain a finite set of pairwise nonisomorphic irreducible supercuspidals.",
+    "Discharge G3: establish full arbitrary-coefficient atomic stability under the stated hypotheses, not merely stability of the packet sum.",
+    "Apply atomic FS parameter constancy. The result assigns a single FS class to this packet and makes no assertion that it equals phi."
+   ],
+   "acceptance": [
+    "This is a planned target with an explicit unresolved source gap. The gap does not feed into SC3, SC5 or SC6."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-fs-parameter"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Corollary 1.3 and preceding paragraph, p. 2",
+     "match": "States the regular-packet application with the source hypothesis mismatch exposed."
+    },
+    {
+     "sourceId": "FKS21v2",
+     "locator": "§4.3 assumptions, p. 20; §4.4, pp. 24–26, especially Theorem 4.4.4",
+     "match": "The inspected version proves stability and endoscopic identities with additional exponential-convergence hypotheses; it does not directly state the exact atomic input needed here."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC5",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC5"
+   ],
+   "title": "Kernel inclusion for extended pure inner forms",
+   "kind": "theorem",
+   "statement": "Let G* be quasi-split over E, let b be basic in B(G*), and put G=G*_b. Under the canonical identification of the spectral centers, ker(Psi_(G*)) is contained in ker(Psi_G).",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Prove the contrapositive by semisimple-rank induction. If z=Psi_G(a) is nonzero, SC0 faithfulness and SC3 very stability give a stable tempered character detected by z.",
+    "Use the G1 stable Arthur decomposition. If an induced proper-Levi component is detected, the normalized center restriction is nonzero; the smaller-rank kernel inclusion for the corresponding Levi M of G and M* of G*, together with the ES7 normalized-induction dictionary, forces Psi_(G*)(a) nonzero.",
+    "Otherwise choose Theta in SD_ell(G) with z·Theta nonzero. The G1 center preservation of elliptic summands and injectivity of elliptic restriction give an elliptic g with nonzero value.",
+    "BG1/request R8 supplies a dominant mu with b in B(G*,mu); G2 supplies the adapted shriek trace formula. ET.0 supplies a matching elliptic element g* in G*. The stable inner-Hecke formula makes T_mu(z·Theta)(g*)=e(G)dim(V_mu)(z·Theta)(g), which is nonzero.",
+    "Inner central commutation identifies this with Psi_(G*)(a)·T_mu(Theta), so Psi_(G*)(a) cannot vanish. The rank-zero case uses the same elliptic argument."
+   ],
+   "acceptance": [
+    "The nonzero character is stable only because SC3 has already been proved; this dependency cannot be reversed."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-tempered-faithfulness",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-central-commutation",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/stable-inner-hecke-formula",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic/normalised-induction-dictionary",
+    "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
+    "BunGAndNewtonStrata:BG1/basic-class",
+    "BunGAndNewtonStrata:BG1/classification-by-two-invariants",
+    "BunGAndNewtonStrata:BG1",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+    "SmoothRepresentationsOfLocalGroups:SR.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Theorem 1.4, p. 3; proof §2.4, pp. 11–12",
+     "match": "Shows that the quasi-split FS image detects every inner-form image."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Inner form kernel inclusion"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-map",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC5",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC5"
+   ],
+   "title": "The surjective map between FS centers",
+   "kind": "construction",
+   "statement": "For G*=quasi-split and G=G*_b with b basic, define tau_G:Z_FS(G*) -> Z_FS(G) by tau_G(Psi_(G*)(a))=Psi_G(a). This is the unique surjective Z_spec(G*)-algebra map satisfying that identity, where each FS center is the image subalgebra rather than the whole Bernstein center.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use kernel inclusion to show that the formula is independent of the spectral lift.",
+    "Use the existing first-isomorphism equivalence between a source modulo the kernel and the image, or its universal property, to obtain the algebra map.",
+    "Surjectivity follows by choosing the same spectral element for every element of the target image; uniqueness follows because the source is an image."
+   ],
+   "acceptance": [
+    "No injectivity or surjectivity of Psi onto the whole Bernstein center is assumed or concluded."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion",
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
+    "mathlib:AlgHom.range",
+    "mathlib:AlgHom.rangeRestrict",
+    "mathlib:AlgHom.rangeRestrict_surjective",
+    "mathlib:Ideal.quotientKerEquivRange"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Theorem 1.4, p. 3; construction §2.4, pp. 11–12",
+     "match": "Factors the two spectral maps through their ranges."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Inner form FS center map"
+   },
+   "api": [
+    {
+     "name": "FSCenterTransfer.lift",
+     "role": "constructor",
+     "statement": "Kernel inclusion induces tau_G between the two image algebras."
+    },
+    {
+     "name": "FSCenterTransfer.apply_Psi",
+     "role": "simp",
+     "statement": "tau_G(Psi_(G*)(a))=Psi_G(a) for each spectral element a."
+    },
+    {
+     "name": "FSCenterTransfer.map_add_mul_one",
+     "role": "structure",
+     "statement": "tau_G preserves addition, multiplication, one and the common spectral algebra action."
+    },
+    {
+     "name": "FSCenterTransfer.surjective",
+     "role": "universal-property",
+     "statement": "Every element of Z_FS(G) is tau_G(x) for a source image element x."
+    },
+    {
+     "name": "FSCenterTransfer.unique",
+     "role": "extensionality",
+     "statement": "An algebra map from Z_FS(G*) agreeing with tau_G on every Psi_(G*)(a) equals tau_G."
+    },
+    {
+     "name": "FSCenterTransfer.range_quotient",
+     "role": "compatibility",
+     "statement": "Via Ideal.quotientKerEquivRange, tau_G is the quotient map induced by ker(Psi_(G*)) <= ker(Psi_G)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "FSCenterTransfer.trivial_twist",
+     "kind": "compatibility",
+     "statement": "For b=1 on G*, tau_G is the identity of Z_FS(G*)."
+    },
+    {
+     "name": "FSCenterTransfer.zero_one",
+     "kind": "degenerate",
+     "statement": "tau_G maps zero to zero and the convolution unit to the convolution unit."
+    },
+    {
+     "name": "FSCenterTransfer.quotient_fixture",
+     "kind": "computation",
+     "statement": "For source A=C[X], maps id_A and evaluation at zero induce the quotient A -> C, sending X to zero and constants to themselves."
+    },
+    {
+     "name": "FSCenterTransfer.kernel_direction",
+     "kind": "non-example",
+     "statement": "For the two projections C×C -> C, ker(pr1) is not contained in ker(pr2); no map tau:C->C can satisfy tau(pr1(x))=pr2(x) for every x. This rejects reversing or omitting kernel inclusion."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Hansen Theorem 1.4(i), p. 3",
+     "how": "Its defining spectral formula proves the Levi square."
+    },
+    {
+     "where": "Hansen Theorem 1.4(ii), p. 3",
+     "how": "The same map acts on transferred stable characters and matching functions."
+    }
+   ]
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-levi",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC5",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC5"
+   ],
+   "title": "Compatibility of tau with Levi restriction",
+   "kind": "theorem",
+   "statement": "If M is a Levi subgroup of G=G*_b and M* the corresponding Levi of G*, then r_M o tau_G = tau_M o r_(M*) on Z_FS(G*), with all four maps restricted to their FS image subalgebras and normalized parabolic induction.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use the ES7 normalized-induction dictionary to obtain r_M(Psi_G(a))=Psi_M(res_(M*) a) and the corresponding identity on G*.",
+    "Evaluate both composites on Psi_(G*)(a), use the defining formulas for tau_G and tau_M, and then use surjectivity of Psi_(G*) onto its own range."
+   ],
+   "acceptance": [
+    "The final surjectivity is onto Z_FS(G*); the theorem does not assume a stable-center conjecture."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-map",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic/normalised-induction-dictionary",
+    "SmoothRepresentationsOfLocalGroups:SR.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Theorem 1.4(i), p. 3; §2.4, p. 12",
+     "match": "Gives the commuting Levi-restriction square."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Levi compatibility of center transfer"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC6/character-transfer",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC6",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC6"
+   ],
+   "title": "FS center action commutes with stable character transfer",
+   "kind": "theorem",
+   "statement": "For the extended pure inner form G=G*_b, z in Z_FS(G*) and Theta in SD_temp(G*), Trans_G(z·Theta)=tau_G(z)·Trans_G(Theta). Normalize Trans_G on elliptic stable characters by (Trans_G Theta)(g)=e(G)Theta(g*) for matching elliptic elements; it kills irrelevant Levi summands and commutes with induction from relevant Levi summands.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Import the G1 stable tempered transfer decomposition and its elliptic isomorphism; the Kottwitz-sign convention is fixed here and shared with ET.1.",
+    "Induct on rank using the stable Arthur decomposition. On irrelevant Levi summands both sides vanish; on relevant proper-Levi summands use smaller-rank character-transfer compatibility, the Levi square for tau and central restriction.",
+    "For elliptic Theta use reverse inner Hecke: its elliptic restriction is dim(V_mu)Trans_G(Theta). Thus T_mu^rev(Theta)-dim(V_mu)Trans_G(Theta) is in D_ind(G), by the G1 elliptic-kernel theorem.",
+    "Apply reverse central commutation. The center preserves D_ind(G) and the elliptic summand; the same elliptic comparison applied to stable z·Theta identifies the desired two elliptic restrictions. Divide by the positive dimension and use injectivity of elliptic restriction on D_ell(G)."
+   ],
+   "acceptance": [
+    "Reverse Hecke output is compared modulo induced characters; it is not assumed to lie in the elliptic summand."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-map",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-levi",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-central-commutation",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/stable-inner-hecke-formula",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-modulo-induction",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-sign",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Theorem 1.4(ii), p. 3; proof §2.4, pp. 12–13",
+     "match": "Intertwines the FS center actions with stable tempered transfer."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Stable character transfer compatibility"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII:SC6/matching-test-functions",
+   "parentStageId": "ExcursionOperatorsAndSpectralActionPartII:SC6",
+   "realises": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC6"
+   ],
+   "title": "FS central convolution preserves matching test functions",
+   "kind": "theorem",
+   "statement": "Suppose f* in H(G*) and f in H(G) have matching stable orbital integrals for the inner-form transfer factor e(G). For every z in Z_FS(G*), z*f* and tau_G(z)*f also have matching stable orbital integrals, including vanishing on stable classes in G* with no matching class in G.",
+   "hypotheses": [
+    "E is a finite extension of Q_p; G/E is connected reductive. Fix Haar measures, a prime ell distinct from p, an isomorphism iota from Qbar_ell to C and the compatible square root of q for normalized Satake and induction.",
+    "H(G) consists of locally constant compactly supported complex test functions. D(G) is the complex span of finite-length Harish-Chandra characters; D_temp and D_ell use the harmonic-analysis supplier conventions. U(G) is the subspace of test functions with zero stable orbital integrals on the strongly regular semisimple locus."
+   ],
+   "proofSteps": [
+    "Use ET.3 smooth transfer in characteristic zero to choose a function h* on G* matching tau_G(z)*f.",
+    "For every Theta in SD_temp(G*), transfer duality for (f*,f), character-transfer compatibility, and duality for (h*,tau_G(z)*f) give Theta(z*f* - h*)=0.",
+    "Apply the G1 unstable-function criterion on G*: z*f* - h* has all stable orbital integrals zero. ET.1 linearity of matching gives the required equality and the vanishing on irrelevant classes."
+   ],
+   "acceptance": [
+    "The matching functions need not be canonical representatives; the assertion is about their orbital-integral classes."
+   ],
+   "prerequisites": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC6/character-transfer",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-map",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion"
+   ],
+   "sources": [
+    {
+     "sourceId": "H26",
+     "locator": "Theorem 1.4 final assertion, p. 3; proof §2.4, p. 13",
+     "match": "Passes the character identity to convolution of matching test functions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Matching function compatibility"
+   }
+  }
+ ],
+ "requests": [
+  {
+   "id": "R1",
+   "supplier": "SmoothRepresentationsOfLocalGroups:SR.3",
+   "need": "Reuse the ordinary complex categorical Bernstein center, its scalar action on irreducibles, its action on finite-length objects and its compatibility with the Hecke-algebra corners from the existing upstream SmoothRepresentations Layers 1 and 3. The comparison with essentially compact invariant distributions, faithful distribution evaluation, the dual character action and inversion z^vee(f)=z(f^vee) with delta_1(z*f^vee)=z(f) are explicit additional obligations in G1. The current upstream roadmap is not cited as already containing that distribution comparison or the Arthur/stable analysis.",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-stable-character",
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-scalar-rigidity"
+   ]
+  },
+  {
+   "id": "R2",
+   "supplier": "SmoothRepresentationsOfLocalGroups:SR.2",
+   "need": "Export normalized finite-length parabolic induction and the Bernstein center restriction r_M, with z·i_M^G(Theta)=i_M^G(r_M(z)·Theta), and the adjoint constant-term pairing on test functions. Use the square-root-of-modulus convention in the exact ES7 normalized-induction node.",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-modulo-induction",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/cuspidal-pairing-limit",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-levi",
+    "ExcursionOperatorsAndSpectralActionPartII:SC6/character-transfer"
+   ]
+  },
+  {
+   "id": "R3",
+   "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+   "need": "Build on ET.0/semisimple-conjugacy and ET.0/rational-classes-in-stable-class for the existing stable-conjugacy relation and finite nonempty rational-class fibers. Additionally export finite rational maximal-torus conjugacy types (HKW Lemma 3.1.1, pp. 12–13), finiteness of geometrically conjugate rational embeddings of each fixed torus, and matching of every elliptic inner-form element with an elliptic element in the quasi-split form. These finite representative choices are not a compactness assertion about whole conjugacy orbits.",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/uniform-weight-equidistribution",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/compact-stable-representatives",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion"
+   ]
+  },
+  {
+   "id": "R4",
+   "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+   "need": "Reuse the exact ET.1/orbital-integral, ET.1/kappa-and-stable-orbital-integrals and ET.1/matching-functions nodes for measures, stable sums and the matching-function quotient. Supply their inversion compatibility for U(G), invariance of the discriminant under stable conjugacy, and the normalized duality Theta(f*)=Trans_G(Theta)(f) for the G1 stable-character transfer. Use the exact ET.0/kottwitz-sign node for e(G). The deeper stable-character decomposition and separation theorem remain G1.",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stability-algebra",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-tempered-faithfulness",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/cuspidal-pairing-limit",
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-stable-character",
+    "ExcursionOperatorsAndSpectralActionPartII:SC6/character-transfer",
+    "ExcursionOperatorsAndSpectralActionPartII:SC6/matching-test-functions"
+   ]
+  },
+  {
+   "id": "R8",
+   "supplier": "BunGAndNewtonStrata:BG1",
+   "need": "Build on the exact existing BG0 G-isocrystal/J_b nodes and BG1 basic-class, admissible-pair, classification-by-two-invariants, algebraic-fundamental-group and torus-norm-description nodes. Supply these further compatibilities: every basic b admits a dominant mu with b in B(G,mu); the identity basic class belongs to B(G,mu) exactly when V_mu is trivial on Z(Ghat)^Gamma; and the torus Kottwitz comparison identifies the stable-conjugacy invariant fiber with ker(X_*(T_g)_Gamma -> pi_1(G)_Gamma), retaining integral torsion. These are BG1 refinements, not exports of the BG0 layer. See Hansen §2.2, pp. 6–9, HKW §3.2, pp. 14–16, and Fu §§3.2 and 4.2, pp. 18–19 and 24–25.",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/weight-averaging-kernel",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion"
+   ]
+  },
+  {
+   "id": "R9",
+   "supplier": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+   "need": "Export the pinned dual root datum, characteristic-zero highest-weight representations V_mu, finite torus weight spaces, their tensor/duality and central-character conventions, and the dictionary between their weights and those of the differentiated highest-weight module on the derived group. The general Weyl character formula is imported from the existing LieHighestWeight Layer 6; only its mu_m specialization is planned here. If the representation-to-Lie weight dictionary exceeds this stage, add it in the existing ReductiveGroups direction rather than re-plan a Weyl theory here.",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/stable-inner-hecke-formula",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/rho-averaging-sequence",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/weight-averaging-kernel"
+   ]
+  },
+  {
+   "id": "R10",
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+   "need": "Use the existing integral Weyl character/denominator and dimension formulas for the characteristic-zero highest-weight module of the derived dual Lie algebra. Through R9 identify its weight multiplicities with V_mu; specialize to mu=4m rho_dual and retain the actual dual root lattice. This roadmap owns neither a new Weyl formula nor the highest-weight classification.",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/rho-averaging-sequence"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ExcursionOperatorsAndSpectralActionPartII:SC0",
+   "status": "planned",
+   "remaining": [
+    "Resolve the direct and transitive G1 harmonic-analysis supplier references and the requested existing-roadmap interfaces."
+   ]
+  },
+  {
+   "stageId": "ExcursionOperatorsAndSpectralActionPartII:SC1",
+   "status": "planned",
+   "remaining": [
+    "Resolve the direct and transitive G1 harmonic-analysis supplier references and the requested existing-roadmap interfaces.",
+    "Resolve the direct or transitive G2 shriek finite-length/elliptic-character supplier references."
+   ]
+  },
+  {
+   "stageId": "ExcursionOperatorsAndSpectralActionPartII:SC2",
+   "status": "planned",
+   "remaining": [
+    "Resolve the direct and transitive G1 harmonic-analysis supplier references and the requested existing-roadmap interfaces.",
+    "Resolve the direct or transitive G2 shriek finite-length/elliptic-character supplier references."
+   ]
+  },
+  {
+   "stageId": "ExcursionOperatorsAndSpectralActionPartII:SC3",
+   "status": "planned",
+   "remaining": [
+    "Resolve the direct and transitive G1 harmonic-analysis supplier references and the requested existing-roadmap interfaces.",
+    "Resolve the direct or transitive G2 shriek finite-length/elliptic-character supplier references."
+   ]
+  },
+  {
+   "stageId": "ExcursionOperatorsAndSpectralActionPartII:SC4",
+   "status": "planned",
+   "remaining": [
+    "Resolve the direct and transitive G1 harmonic-analysis supplier references and the requested existing-roadmap interfaces.",
+    "Resolve the direct or transitive G2 shriek finite-length/elliptic-character supplier references.",
+    "Verify G3 regular-packet atomicity under the exact stated tame and p-Weyl hypotheses."
+   ]
+  },
+  {
+   "stageId": "ExcursionOperatorsAndSpectralActionPartII:SC5",
+   "status": "planned",
+   "remaining": [
+    "Resolve the direct and transitive G1 harmonic-analysis supplier references and the requested existing-roadmap interfaces.",
+    "Resolve the direct or transitive G2 shriek finite-length/elliptic-character supplier references."
+   ]
+  },
+  {
+   "stageId": "ExcursionOperatorsAndSpectralActionPartII:SC6",
+   "status": "planned",
+   "remaining": [
+    "Resolve the direct and transitive G1 harmonic-analysis supplier references and the requested existing-roadmap interfaces.",
+    "Resolve the direct or transitive G2 shriek finite-length/elliptic-character supplier references."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "G1",
+   "title": "Harmonic-analysis continuation has no addressable layers yet",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stability-algebra",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+    "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-tempered-faithfulness",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-modulo-induction",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/character-averaging",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/cuspidal-pairing-limit",
+    "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-stable-character",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion",
+    "ExcursionOperatorsAndSpectralActionPartII:SC6/character-transfer",
+    "ExcursionOperatorsAndSpectralActionPartII:SC6/matching-test-functions"
+   ],
+   "detail": "The accepted PAPER-HANSEN-26 route 2 assigns this input to SmoothRepresentationsCharactersPartII, but no roadmap definition, packet nodes or reserved stage IDs exist at the design audit. Required: the comparison of the existing categorical Bernstein center with essentially compact invariant distributions, faithful evaluation and the convolution/inversion pairing; irreducible-character independence and the finite-length K_0 character dictionary; Kazhdan density/null-function criterion; Arthur decompositions I(G)=direct sum_M I(M)_cusp^W and D_temp(G)=direct sum_M D_ell(M)^W with stable versions; D_ind=kernel of elliptic restriction and injectivity on D_ell; center preservation of these splittings and Hansen Lemma 2.1; unstable functions exactly those annihilated by SD_temp; stable delta_1; stable projection P_st agreeing with the finite elliptic average (Varma Lemma 3.4.5 as cited in Hansen p. 11); Harish-Chandra discriminant-weighted local character and orbital-integral bounds, cuspidal Weyl integration and compact orbital supports; stable tempered inner transfer with elliptic isomorphism, irrelevant-Levi vanishing and induction/Weyl compatibility, normalized by e(G). Hansen §2.1 and §§2.3–2.4, pp. 4–6 and 10–13, identify the interface. These are imported obligations, not new nodes here, and no fictitious stage identifier is used."
+  },
+  {
+   "id": "G2",
+   "title": "HKW continuation and the shriek character interface need supplier layers",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-modulo-induction",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-character-operators",
+    "ExcursionOperatorsAndSpectralActionPartII:SC1/stable-inner-hecke-formula",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/weight-averaging-kernel",
+    "ExcursionOperatorsAndSpectralActionPartII:SC2/character-averaging",
+    "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion"
+   ],
+   "detail": "The accepted PAPER-HANSEN-26 route 3 assigns the geometric/trace input to HeckeStacksAndLocalShtukasKottwitzPartII; there are no defined or reserved stage IDs. Required for all dominant mu and basic b: bounded finite-length cohomology and the HKW elliptic character sum for the actual shriek functors i_1^*T_(V_mu dual)i_(b!) and i_b^*T_(V_mu)i_(1!), with sign e(G)e(G_b); inv[b] from HKW Definition 3.2.2, pp. 14–15, uniqueness from Remark 3.2.5, p. 15, and supported-weight existence from Fu Lemma 4.2.7, p. 25. HKW Proposition 6.4.5 and Definition 6.4.6, pp. 61–62, state Mant with (i_b)_*, whereas Hansen uses (i_b)_!. The supplier must prove the adapted formula by the documented Verdier-duality/inversion and representation-duality comparisons, tracking sign, cohomological shifts and the reverse invariant. A global equality of star and shriek extensions is not an acceptable substitute. No refined LLC hypothesis from HKW Theorem 6.5.1 is imported into Theorem 6.5.2."
+  },
+  {
+   "id": "G3",
+   "title": "Regular-packet atomicity under the exact corollary hypotheses remains unverified",
+   "neededBy": [
+    "ExcursionOperatorsAndSpectralActionPartII:SC4/regular-supercuspidal-packet"
+   ],
+   "detail": "Hansen Corollary 1.3, p. 2, uses full atomic stability of the Kaletha regular supercuspidal packet sum assuming only tame splitting and p not dividing |W_G|. The inspected FKS arXiv:2106.09120v2 §4.3, p. 20, also assumes characteristic zero and convergence of the exponential map on the positive-depth Lie algebra; a sufficient bound is p >= (2+e)n. Its §4.4 retains those assumptions and Theorem 4.4.4, p. 26, states stability/endoscopy, not arbitrary-coefficient support minimality. Read the 2023 version of record or a subsequent primary source to verify whether the extra convergence condition was removed, and supply the atomicity argument under exactly Hansen’s hypotheses. Publisher full text was not obtained in this run. This is an unresolved source/supplier check, not a finding that the published corollary is false. The conditional implication from an atomic packet sum is already fully planned, and the main stability and inner-form theorems are independent of this gap."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "create-supplier-continuation",
+   "roadmap": "SmoothRepresentationsCharactersPartII",
+   "parent": "SmoothRepresentationsOfLocalGroups",
+   "reason": "Respect accepted PAPER-HANSEN-26 route 2. Give G1 addressable stages for the stable harmonic-analysis and character interfaces; then replace G1 annotations by actual requested stage/node references. Current upstream SmoothRepresentations covers smooth categories, induction and Bernstein theory and is imported unchanged."
+  },
+  {
+   "action": "create-supplier-continuation",
+   "roadmap": "HeckeStacksAndLocalShtukasKottwitzPartII",
+   "parent": "HeckeStacksAndLocalShtukas",
+   "reason": "Respect accepted PAPER-HANSEN-26 route 3. Give G2 addressable finite-length, invariant-fiber and shriek HKW trace stages, including the star/shriek comparison; replace G2 by real supplier references. Do not re-plan those geometric theorems in this roadmap."
+  },
+  {
+   "action": "reconcile-design-name",
+   "roadmap": "ExcursionOperatorsAndSpectralActionPartII",
+   "reason": "The two accepted paper routes use historical proposed id ExcursionOperatorsAndSpectralActionStableCenter. This issue selects ExcursionOperatorsAndSpectralActionPartII for both; they have the same stability endpoint and the FS conjectural boundary adds no second proof direction. Keep a single continuation under the issue-selected id."
+  }
+ ],
+ "conjectures": [
+  {
+   "title": "The stronger stable-center expectation is a boundary",
+   "sourceId": "FS24",
+   "locator": "§I.9, p. 35, paragraph following Conjecture I.9.5",
+   "statement": "For quasi-split G, FS expect Psi_G to be injective and its image to consist exactly of stable distributions. This roadmap proves inclusion into the very stable subalgebra and the inner-form image quotient; it proves neither injectivity nor equality with the whole stable center. Conjecture I.9.5 itself concerns rationality and independence of ell; it is a different conjecture."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII/E1",
+   "source": "H26",
+   "kind": "misprint",
+   "locator": "Published version, §2.4, p. 13, reverse-Hecke functor in the elliptic-transfer paragraph",
+   "printed": "The rightmost stratum extension is printed with an index i rather than the identity-basic-stratum index 1.",
+   "correction": "Use i_(1!) in the composite i_b^* T_(V_mu) i_(1!).",
+   "reason": "The source category is the quasi-split group attached to the identity basic stratum, and the definition on p. 9 has this index.",
+   "affects": "nothing",
+   "known": "Already recorded as PAPER-HANSEN-26/E1 and confirmed in REV-PAPER-HANSEN-26; the present review confirms the correction independently.",
+   "searched": [
+    "Published Cambridge version read on 2026-10-19",
+    "PAPER-HANSEN-26.result.json and its accepted independent review"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently read the displayed reverse operator on published p. 13 and compared its source and target with the definition on p. 9. The extension starts at the identity basic stratum, so its index must be 1.",
+    "by": "REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII/E2",
+   "source": "H26",
+   "kind": "misprint",
+   "locator": "Published version, §2.2, p. 8, definition of rho_G preceding Lemma 2.6",
+   "printed": "The explanatory root-set label assigns rho_G to the positive roots of G even though rho_G is then used as a highest weight of Ghat, hence a cocharacter of G.",
+   "correction": "Use the positive roots of Ghat, equivalently the positive coroots of G, in mu_m=4m rho_dual.",
+   "reason": "Fu Lemma 3.1.2 and the character product require the dual-root sum; in type B2 the root and coroot sums differ, as the explicit test records.",
+   "affects": "nothing",
+   "known": "Already recorded as PAPER-HANSEN-26/E2 and confirmed in REV-PAPER-HANSEN-26; the intended dual-root interpretation is unchanged.",
+   "searched": [
+    "Published Cambridge version read on 2026-10-19",
+    "Fu arXiv:2501.00652v1 §3.1",
+    "PAPER-HANSEN-26.result.json and its accepted independent review"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked the published p. 8 notation against Fu Lemma 3.1.2, pp. 18–19, and the type B2 root/coroot fixture. The highest weight lies in X_*(T_G), and the Weyl-product specialization uses positive roots of Ghat. This confirms the intended dual-root correction.",
+    "by": "REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII"
+   }
+  },
+  {
+   "id": "ExcursionOperatorsAndSpectralActionPartII/E3",
+   "source": "HKW22",
+   "kind": "misprint",
+   "locator": "Published version, §3.3, p. 18, explanatory sentence after Equation (3.3.3); compare Appendix A.2, p. 72",
+   "printed": "The sentence identifies rho_G with the full positive-root sum while Equation (3.3.3) uses the exponent pairing with 2rho_G.",
+   "correction": "Interpret rho_G as half the positive-root sum, so 2rho_G is the full sum in the Kottwitz-sign exponent.",
+   "reason": "Appendix A.2 defines 2rho using the full positive-coroot sum in the dual root datum and proves the sign identity in Lemma A.2.1. Doubling that sum again would make every sign trivial. For split GL_2 and the quaternionic basic inner form with mu=(1,0), the correct exponent is odd and the sign product is -1.",
+   "affects": "nothing",
+   "known": "Already recorded as PAPER-HANSEN-KALETHA-WEINSTEIN-22/E5; independently confirmed in this review and newly included in this packet.",
+   "searched": [
+    "Published Cambridge version, §3.3 p. 18 and Appendix A.2 p. 72, read on 2026-10-19",
+    "PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json, source issue E5"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The displayed published page and its Appendix A.2 use the half-sum convention in the exponent. The GL_2/quaternion example distinguishes it from the literal doubled exponent. All packet formulas already retain e(G)e(G_b), so no theorem statement changes.",
+    "by": "REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII"
+   }
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AB00A1DF177B6DAB542489D58DA1C8AD/S2050508626100286a.pdf/excursion-operators-and-the-stable-bernstein-center.pdf",
+   "read": "2026-10-19",
+   "sha256": "30f08ae39b020187b8368d4096411527f64555923232e6d42c3b21e314396936",
+   "citation": "Forum of Mathematics, Pi 14 (2026), e10, pp. 1–14; version of record"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2501.00652v1",
+   "read": "2026-10-19",
+   "sha256": "f77b54a8526888c95c2cf0d32e158a38040cd28c4021e9c2c7df1b9abb169524",
+   "citation": "arXiv:2501.00652v1 (1 January 2025)"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33A94496879999F3D63C2997F2D50D9D/S2050508622000075a.pdf/div-class-title-on-the-kottwitz-conjecture-for-local-shtuka-spaces-div.pdf",
+   "read": "2026-10-19",
+   "sha256": "d05a7f84ce98862d470d114946b7002e8d5ab1df3c4d77fb4851ff45f5d80049",
+   "citation": "Forum of Mathematics, Pi 10 (2022), e13, pp. 1–79; version of record"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2102.13459v4",
+   "read": "2026-10-19",
+   "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+   "citation": "arXiv:2102.13459v4 (2024)"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2106.09120v2",
+   "read": "2026-10-19",
+   "sha256": "126958839c2203b485d22ec960f8e0f6a795d00103adadb6c184aa6edb75b51a",
+   "citation": "arXiv:2106.09120v2 (3 September 2021); preprint of Duke Mathematical Journal 172 (2023), pp. 2241–2301. Published full text not retrieved."
+  }
+ ],
+ "libraryAudit": {
+  "date": "2026-10-19",
+  "reviewed": "data/library-coverage.json: base ES0, ES1:spectral-center and ES7:parabolic records read. These do not supply stable harmonic analysis or the new targets.",
+  "currentUpstream": "Read current TauCetiRoadmap main: ReductiveGroups, RepresentationTheory/RootSystems and RepresentationTheory/LieHighestWeight layer interfaces; SmoothRepresentations README and Suggested center/induction scope. None contains the specific stable-distribution or HKW trace targets. Current TauCeti searched as well as the two pins; no stable-conjugacy/Arthur/FS-center declarations found.",
+  "negativeChecks": [
+   "Do not infer a smooth irreducible-character basis from TauCeti.simpleClassBasis: its ArtinianRing module hypotheses do not apply to the p-adic smooth category.",
+   "Generic categorical centers, exact K_0, finite Fourier theory and quotient-to-range equivalences are baseline/imported objects, not new nodes.",
+   "SmoothRepresentationsOfLocalGroupsPartII is the existing unitary/Fell-topology continuation and does not own the missing SmoothRepresentationsCharactersPartII harmonic analysis."
+  ]
+ },
+ "sourceCoverage": [
+  {
+   "route": "PAPER-HANSEN-26 route 1",
+   "items": "All 13 routed target families covered by SC0–SC6; general harmonic analysis and HKW trace material remain with accepted routes 2 and 3."
+  },
+  {
+   "route": "PAPER-FARGUES-SCHOLZE-21 stable-center continuation",
+   "items": "The stronger quasi-split expectation appears explicitly as a conjectural boundary, not an implementation or theorem claim."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII",
+  "date": "2026-10-19",
+  "notes": "Independent review by Codex session codex-od7Jbq of the design by session codex-s6reGX. Read all five exact public source versions, all node locators and cited pinned declarations; rechecked current upstream ownership. Corrected supplier precision, BG1 ownership, the distribution-model boundary, normalization names and the HKW Appendix C description. Removed three satisfied stage requests, confirmed both inherited source issues and added independently confirmed HKW rho misprint E3. The 28 targets are justified conditionally on the three explicit gaps; all seven stages are planned and none closed. Accepted as a finished target-level planning pass, not as an implementation or a claim that G1–G3 are discharged. The unchanged suggested Lean file elaborates with only its 13 expected proof-placeholder warnings. Corrected the baseline declaration-kind label for Finsupp from def to structure; the cited name, module and provided interface are unchanged.",
+  "checked": [
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-center",
+    "verdict": "corrected",
+    "note": "H26 §1.1, pp. 1–2: the annihilator is a complex submodule, not an asserted subalgebra. Corrected the categorical-center/distribution boundary in G1 and supplied exact ET.1 orbital/stable-quotient imports. The torus and C^2 tests distinguish the annihilator condition."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stable-center",
+    "verdict": "corrected",
+    "note": "H26 §1.1, pp. 1–2: preservation of U is closed under composition and the algebra operations. Clarified that the convolution realization still needs G1, and added exact ET.1 imports. The diagonal C^2 test rejects unequal eigenvalues."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC0/stability-algebra",
+    "verdict": "corrected",
+    "note": "H26 pp. 1–2 and Lemma 2.3, p. 6: stable delta_1 and inversion give the inclusion and module action with the stated usual-convolution convention. Added exact ET.1 imports; no multiplication closure is claimed for Z_st."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC0/very-stability-criterion",
+    "verdict": "corrected",
+    "note": "H26 Lemma 2.2, pp. 5–6: the unstable-function annihilator criterion and center preservation of tempered summands are precisely G1. Exact ET.1 quotient inputs now accompany the requested inversion compatibility."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-tempered-faithfulness",
+    "verdict": "corrected",
+    "note": "H26 Lemma 2.3, p. 6: stable tempered annihilation forces every z*f^vee to be unstable; stable delta_1 then gives z(f)=0. Exact ET.1 inputs were added. Faithful distribution evaluation is an explicit G1 obligation."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC1/self-hecke-character-operator",
+    "verdict": "corrected",
+    "note": "H26 §2.2, pp. 6–7; HKW Proposition 6.4.5 and Definition 6.4.6, pp. 61–62: Euler signs require no t-exactness. Replaced coarse HS and BG0 references by the actual operator/unit/basic-stratum, star finite-length and admissible-pair nodes. BG1/R8 and G2 retain the central-character and shriek comparisons."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-central-commutation",
+    "verdict": "verified",
+    "note": "H26 Lemma 2.4, p. 7: Hecke compatibility of the supplied spectral action descends through finite-length Euler classes. The assertion concerns FS central elements, not arbitrary center operators."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC1/hecke-modulo-induction",
+    "verdict": "corrected",
+    "note": "H26 Proposition 2.5, pp. 7–8: the elliptic trace formula proves both preservation of the induced span and stable scalar action modulo it. Replaced the conjugacy stage by its exact nodes. General elliptic-kernel identification remains G1, consistent with HKW Theorem C.1.1, p. 75."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-character-operators",
+    "verdict": "corrected",
+    "note": "H26 p. 9: the forward operator uses V dual and the reverse uses V. Replaced HS and BG stage placeholders by exact basic-source, duality and J_b/basic/admissible nodes. G2 explicitly tracks the remaining all-mu shriek finite-length/trace comparison."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC1/inner-hecke-central-commutation",
+    "verdict": "verified",
+    "note": "H26 Proposition 2.7, p. 9: both directed Hecke functors intertwine the common spectral-center action. The listed ES7 stratum-map node supplies the common central action; no identification of arbitrary inner-form centers is used."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC1/stable-inner-hecke-formula",
+    "verdict": "corrected",
+    "note": "H26 Proposition 2.7, p. 9; HKW Theorem 6.5.2, pp. 65–66: stable sums collapse to dimension with sign e(G)e(G_b). Added exact conjugacy and Kottwitz-sign imports. G2 retains the actual shriek adaptation; HKW (3.3.3) is read with the corrected rho convention in E3."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC2/elliptic-stable-average",
+    "verdict": "corrected",
+    "note": "H26 Lemma 2.6, pp. 8–9: average over rational conjugacy classes, not individual elements or arbitrary weights. Exact ET.0 nodes supply the finite nonempty fiber. Four tests cover singleton, two-class, linearity and stable fixed points."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC2/rho-averaging-sequence",
+    "verdict": "verified",
+    "note": "Fu Lemma 3.1.2, pp. 18–19; H26 p. 8: Weyl specialization gives mu_m=4m rho_dual, d_m=(4m+1)^N and self-duality. This uses existing LieHighestWeight Layer 6 and the R9 group-to-Lie dictionary. Type B2 distinguishes roots from coroots; rank-zero and A1 tests give the correct dimensions."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC2/weight-averaging-kernel",
+    "verdict": "corrected",
+    "note": "Fu §§3.2 and 4.2, pp. 18–19 and 24–25; HKW Remark 3.2.5, p. 15: uniqueness plus supported-weight existence makes total mass one. Added integral pi_1/torus/classification nodes and the missing BG1 invariant comparison request. No rationalization discards torsion."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC2/uniform-weight-equidistribution",
+    "verdict": "corrected",
+    "note": "Fu §§3.1–3.3 and §4.3, pp. 18–21 and 26–27: a nontrivial character is nontrivial on a dual root, so one geometric sum is bounded and the rest grow polynomially. Exact conjugacy inputs were added; finite torus types remain the precise ET.0/R3 refinement giving a group-uniform O(1/m) constant."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC2/character-averaging",
+    "verdict": "corrected",
+    "note": "H26 Lemma 2.6, pp. 8–9: finite coefficient errors plus character bounds give the weighted compact estimate, not unweighted uniform convergence across singularities. Added exact rational-class inputs; G1 supplies the Harish-Chandra local bounds and G2 supplies the trace formula."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC3/compact-stable-representatives",
+    "verdict": "corrected",
+    "note": "H26 §2.3, pp. 10–11; HKW Lemma 3.1.1, pp. 12–13: finite tori and rational embeddings produce compact representative sets for stable classes meeting the compact elliptic-torus supports. Added exact conjugacy nodes; the extra torus/embedding finiteness stays R3. No compactness of full conjugacy orbits is assumed."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC3/cuspidal-pairing-limit",
+    "verdict": "corrected",
+    "note": "H26 §2.3, pp. 10–11: weighted bounds on compact torus supports and cuspidal Weyl integration give C/m after subtracting P_st. Added exact ET.1 measure/quotient nodes; G1 explicitly supplies the projection-average identity and analytic integration inputs."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC3/fargues-scholze-stability",
+    "verdict": "corrected",
+    "note": "H26 Theorem 1.1, p. 2, proof pp. 10–11: proper-Levi induction, cuspidal reduction and the pairing limit show very stability for all connected reductive p-adic G. Replaced undefined NORM by the named ES7 dictionary. Xi=z·Theta is only assumed tempered before the final argument, so the proof does not use stability circularly."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-stable-character",
+    "verdict": "corrected",
+    "note": "H26 §1.1, p. 2: atomicity is nonzero support minimality among arbitrary complex coefficient combinations, not only packet subsums. Added exact ET.1 quotient inputs; irreducible-character independence stays G1. Five fixtures include a nonconstant-coefficient atomic line."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-scalar-rigidity",
+    "verdict": "verified",
+    "note": "H26 proof of Corollary 1.2, p. 2: subtract one eigenvalue times the atomic vector. A nonzero remainder would have strictly smaller support, hence all eigenvalues on the support agree. The light Lean theorem and its real submodule carrier state this argument faithfully."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC4/atomic-fs-parameter",
+    "verdict": "verified",
+    "note": "H26 Corollary 1.2, p. 2: very stability gives scalar rigidity, then the exact ES5 excursion-character and LP2 semisimple-character bijection determine one conjugacy class. This proves constancy of the FS class and does not identify it with another packet parametrization."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC4/regular-supercuspidal-packet",
+    "verdict": "verified",
+    "note": "H26 Corollary 1.3, p. 2, gives the target under tame splitting and p not dividing the absolute Weyl order. The implication from full atomicity is justified by the preceding two nodes. G3 honestly retains the unverified atomicity input: FKS v2 §4.3 p. 20 has an additional exponential-convergence assumption and Theorem 4.4.4 p. 26 asserts stability/endoscopy. No unsupported exact-hypothesis atomicity claim is accepted."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC5/kernel-inclusion",
+    "verdict": "corrected",
+    "note": "H26 Theorem 1.4, p. 3, proof pp. 11–12: contrapositive rank induction detects a stable tempered character and uses the nonzero inner-Hecke scalar on its elliptic part. Corrected BG0 to the exact J_b/basic/classification inputs plus BG1/R8 for existence of mu, added exact conjugacy inputs, and spelled out the ES7 normalization. SC3 precedes this use of stability."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-map",
+    "verdict": "verified",
+    "note": "H26 Theorem 1.4, pp. 3 and 12: ker Psi_G* contained in ker Psi_G induces a unique surjection from range Psi_G* to range Psi_G. All four generic algebra range/quotient citations were independently confirmed. The three Lean examples include incomparable projection kernels to catch reversed inclusion."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC5/inner-form-center-levi",
+    "verdict": "corrected",
+    "note": "H26 Theorem 1.4(i), pp. 3 and 12: evaluate both composites on a spectral-algebra element and use surjectivity onto the image. Replaced undefined NORM by the precise ES7 normalized-induction dictionary; no stable-center equality is assumed."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC6/character-transfer",
+    "verdict": "corrected",
+    "note": "H26 Theorem 1.4(ii), pp. 3 and 12–13: proper-Levi rank induction and reverse Hecke compare the elliptic part modulo induced characters. Exact conjugacy/sign and ET.1 quotient inputs were added. G1 supplies irrelevant-Levi vanishing and transfer duality; the proof does not assume reverse Hecke preserves the elliptic summand."
+   },
+   {
+    "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC6/matching-test-functions",
+    "verdict": "corrected",
+    "note": "H26 Theorem 1.4(iii), pp. 3 and 13: transfer a chosen matching representative, pair against stable tempered characters, and apply the unstable-function criterion. Added exact ET.1 quotient nodes and replaced the satisfied ET.3 request by ET.3/local-transfer-existence. This supplier is characteristic-zero transfer at every p, not only a large-p fundamental lemma."
+   }
+  ]
+ }
+}

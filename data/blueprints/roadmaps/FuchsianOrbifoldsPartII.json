@@ -1,0 +1,177 @@
+{
+  "id": "FuchsianOrbifoldsPartII",
+  "title": "Fuchsian groups and orbifold Riemann surfaces, Part II: Nielsen cores and quadratic-class surfaces",
+  "area": "analysis",
+  "parent": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+  "summary": "Build the missing finite-area Nielsen cores of finitely generated Fuchsian groups of the second kind, then construct the bordered orbifolds attached to real quadratic narrow ideal classes. Their continued-fraction polygons give exact signatures, lengths and areas. Cusp-normalized conformal rigidity recovers the class, while multiplicity-preserving measures and truncated Stokes provide the geometric input to arithmetic equidistribution.",
+  "readme": "The parent supplies effective actions, ordinary quotient charts, polygons, cusps and cofinite signatures. This Part II adds geodesic boundary and arithmetic cores. Its full companion reader pins every target, API, example, source locator and proof repair. The independent Bakker–Tsimerman volume/gonality continuation already belongs to HyperbolicCurveVolumesAndGonality and is imported by ownership, never duplicated. All statements are planning targets; the compact suggested file contains only light definitions and milestones statable at the baseline pins.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "MultiquadraticPartII",
+    "AutomorphicSpectralTheory",
+    "tauceti:TauCetiRoadmap/ConformalMapping",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  ],
+  "stages": [
+    {
+      "key": "N.0",
+      "title": "Nielsen regions and bordered signatures",
+      "description": "For a nonelementary discrete subgroup of PSL₂(ℝ), define its limit set in the full ideal circle, the closed hyperbolic hull and its orbifold quotient. Prove geometric finiteness for finitely generated groups, identify funnels and their primitive boundary axes, construct the finite signature (g;m₁,…,mᵣ;s;t), and derive area=2π(2g−2+s+t+Σ(1−1/mⱼ)) from polygon Gauss–Bonnet. Boundary means actual geodesic boundary; paired polygon edges and cusp truncation curves are excluded. Include the first-kind comparison with the parent’s cofinite case.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-7-euler-characteristic-and-finite-decompositions",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid"
+      ]
+    },
+    {
+      "key": "N.1",
+      "title": "Quadratic cycles and their Ford polygons",
+      "description": "Import the primitive reduced minus cycle of a narrow class A of positive fundamental discriminant D. For Nₖ=Σⱼ≤ₖnⱼ and m=Nℓ, construct Sₖ=T^NₖST^−Nₖ, Γ_A=⟨S₁,…,Sℓ,T^m⟩ and its strip outside the unit discs. Verify side identifications, the free product ℤ*(C₂)^*ℓ, full cusp stabilizer ⟨T^m⟩, cyclic-rotation conjugacy, endpoint inequalities and γ_w=S₁⋯SℓT^m. Prove second kind and infinite index using a nonempty free ideal interval, not an invalid converse from infinite index alone.",
+      "requires": [
+        "FuchsianOrbifoldsPartII:N.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates"
+      ]
+    },
+    {
+      "key": "N.2",
+      "title": "The arithmetic core and its boundary",
+      "description": "Carry out the finite-arc cutting algorithm with its disjoint-disc endpoint induction. Construct F_A as the quotient of C(Λ_A) by Γ_A and the map to the modular orbifold. Identify signature (0;2 repeated ℓ_A;1;1), a simple primitive oriented boundary projecting to the parametrized C_A, length 2log ε_D and area πℓ_A. Record distances 2arsinh(n/2) between chosen height-one lifts without interpreting them as intrinsic cone-point distances. Use D=12 and D=28 as signature, length and lift-spacing tests; the complete worked example, including covering multiplicities, is in N.4.",
+      "requires": [
+        "FuchsianOrbifoldsPartII:N.1",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "nodeImports": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/oriented-closed-geodesic",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/closed-geodesic-length",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/geodesic-orientation-reversal"
+      ]
+    },
+    {
+      "key": "N.3",
+      "title": "Conformal recovery of the narrow class",
+      "description": "Double the bordered core across its analytic geodesic boundary with cone orders retained. Prove that an orientation-preserving conformal orbifold equivalence lifts to a PSL₂(ℝ) conjugacy. Normalize the unique cusp to ∞, identify the maximal-height elliptic lifts Nₖ+mℤ+i, force the dilation to equal one, and recover the cyclic digit sequence from their successive gaps. Conclude, for a fixed real quadratic field, that the conformal orbifold class of F_A determines A.",
+      "requires": [
+        "FuchsianOrbifoldsPartII:N.2",
+        "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
+        "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle"
+      ]
+    },
+    {
+      "key": "N.4",
+      "title": "Core measures and complementary coverings",
+      "description": "Push the finite upstairs core measure to the modular orbifold, retaining all multiplicities. Define normalized finite-family and genus probability measures. Prove ν_A+ν_{JA⁻¹}=3(ℓ_A+ℓ_{JA⁻¹})μ_mod as an equality of measures, including self-intersections and reciprocal boundaries. Deduce exact modular probability for the whole narrow class group, any genus when J is a square, and an individual class with A²=J. The asymptotic equidistribution theorem remains with GN.4. Work D=12 and D=28 explicitly, including complementary multiplicities 9 and 21.",
+      "requires": [
+        "FuchsianOrbifoldsPartII:N.2",
+        "MultiquadraticPartII:RQ.2",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ]
+    },
+    {
+      "key": "N.5",
+      "title": "Cusp-truncated Stokes and spectral inputs",
+      "description": "Construct height truncations of the actual core polygon and their oriented boundary bookkeeping. For C² Γ_A-invariant F with −y²(F_xx+F_yy)=λF and vanishing horizontal ∂z flux, prove existence of the height-truncated integral and (λ/2)I_A(F)=∮∂F_A i∂zF dz. Give the L¹ version and the level-one Maass/Eisenstein critical-line specializations from AS Fourier and differentiated cusp inputs; replace the boundary by C_A only for full modular invariance. Import ordinary/corners Stokes from current DifferentialGeometry Layer 5.",
+      "requires": [
+        "FuchsianOrbifoldsPartII:N.2",
+        "FuchsianOrbifoldsPartII:N.4",
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "AutomorphicSpectralTheory:AS.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "DIT16",
+      "title": "Geometric invariants for real quadratic fields",
+      "authors": "W. Duke, Ö. Imamoḡlu and Á. Tóth",
+      "edition": "Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+      "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§2 pp.950–954, arithmetic conventions and Nielsen region; §3 pp.954–959, complete proof of Theorem 1 and Figures 1–7",
+        "§4 pp.959–960, complementary surfaces and exact covering cases",
+        "§5 pp.961–962, eigenvalue and Fourier normalizations; §7 Lemmas 1–2 and (7.9)–(7.11), p.972",
+        "Images of pp.958, 959 and 972 checked against text extraction"
+      ]
+    },
+    {
+      "id": "LU23",
+      "title": "Geodesic cover of Fuchsian groups",
+      "authors": "Zhipeng Lu",
+      "edition": "Annales mathématiques Blaise Pascal 30 (2023), no. 2, 189–199; DOI 10.5802/ambp.421",
+      "url": "https://www.numdam.org/item/10.5802/ambp.421.pdf",
+      "sha256": "c0f8b7e6bc6d22e140de2bc8c2c6bf7758bd11ca07518ac4385dd989f8bc1063",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§3.1 pp.194–195, geometric finiteness, second-kind hypothesis, Nielsen region and Proposition 3.5",
+        "§3.2 pp.196–197, horocyclic truncation; §3.3 p.198, finite-sided Nielsen intersections and funnels"
+      ]
+    },
+    {
+      "id": "SERIES05",
+      "title": "A Crash Course on Kleinian Groups",
+      "authors": "Caroline Series",
+      "edition": "Rendiconti dell’Istituto di Matematica dell’Università di Trieste 37 (2005), 1–38; journal-hosted notes",
+      "url": "https://rendiconti.dmi.units.it/volumi/37/01.pdf",
+      "sha256": "4eb1f4c626d58673afdcd7b5769854d288e860d951af76695a4129a0d70e28c8",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "The convex core, pp.32–33, especially the two-dimensional Fuchsian statement after Proposition 4.60",
+        "Theorem 3.33 p.21, finite generation and geometric finiteness for Fuchsian groups"
+      ]
+    },
+    {
+      "id": "UPSTREAM",
+      "title": "Current supplier roadmaps and completed covering theory",
+      "authors": "The Tau Ceti roadmap contributors",
+      "edition": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "FuchsianOrbifolds README and Suggested.lean, Layers 0–6; ConformalMapping README L2/L4",
+        "DifferentialGeometry README Layer 5.3/5.5 and Suggested.lean Stokes signatures; AlgebraicTopology Stages 1/7",
+        "Completed/UniversalCovers README Stage 2, STATUS and Suggested.lean: ordinary lifting and deck conjugation are already implemented, including at the packet baseline",
+        "IntegralLattices README Layer B2–B3 and Suggested.lean LayerBContract; GlobalNumberFields owns the consumed order/NarrowPic carriers",
+        "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: OnePoint projective action, UpperHalfPlane polygon/measure and Fuchsian quotient/cusp files searched; no limit-set or Nielsen-core API found"
+      ]
+    }
+  ],
+  "status": "draft",
+  "upstreamImports": [
+    {
+      "supplier": "DifferentialGeometry",
+      "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "layers": [
+        5
+      ],
+      "need": "Ordinary and corners Stokes, boundary orientation and comparison of top-form and curve integrals; these are current roadmap targets, not implemented declarations at the pins.",
+      "neededBy": [
+        "FuchsianOrbifoldsPartII:N.5/core-stokes"
+      ],
+      "location": "TauCetiRoadmap/DifferentialGeometry/README.md, Layer 5.3 and 5.5; Suggested.lean integralTopForm_mextDeriv and corners interfaces."
+    },
+    {
+      "supplier": "IntegralLattices",
+      "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "layers": [
+        "B2",
+        "B3"
+      ],
+      "need": "Consume the oriented primitive binary form/ideal class dictionary, its mandatory sign clause at positive discriminant, and compatibility with inversion and composition. GN.3 supplies only the maximal-order/DIT convention adapter to the pinned NarrowClassGroup.",
+      "neededBy": [
+        "FuchsianOrbifoldsPartII:N.4/complementarity"
+      ],
+      "location": "TauCetiRoadmap/IntegralLattices/README.md, Layer B2–B3; Suggested.lean LayerBContract. GlobalNumberFields Layer 11 owns the consumed order and NarrowPic carriers."
+    }
+  ],
+  "dependencyGranularity": "GN.4 imports only the three bottom-level geodesic nodes listed in N.2/nodeImports, never its surface-equidistribution theorem. That theorem consumes this roadmap, so a whole-layer GN.4 prerequisite would create a spurious cycle."
+}

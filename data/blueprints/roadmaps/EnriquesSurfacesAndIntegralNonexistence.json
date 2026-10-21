@@ -1,0 +1,283 @@
+{
+  "id": "EnriquesSurfacesAndIntegralNonexistence",
+  "title": "Enriques surfaces and nonexistence over the integers",
+  "area": "arithmeticgeometry",
+  "parent": null,
+  "summary": "This roadmap develops geometric Enriques surfaces over arbitrary fields and flat proper algebraic-space families, their canonical degree-two covers, characteristic-two types and numerical lattices. It combines Picard descent, dyadic twisting, finite-field genus-one fibrations and lattice configuration arguments to plan integral and F₂ nonexistence. The endpoints retain explicit completeness, omitted-configuration and source-acquisition gates rather than claiming that these gaps are proved.",
+  "readme": "The reviewed packet specifies nine target-level layers, with exact hypotheses, proof contracts, definition APIs and discriminating tests. Its accompanying reader needs the synchronization listed in the independent review before packaging. Current upstream imports are limited to their actual scope; proposed surface-Picard, numerical descent, unpointed/quasielliptic genus-one, K3 and Fontaine interfaces and both classification gates remain explicit.",
+  "prerequisites": [
+    "SchemeAndStackFoundations",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "WeilConjectures"
+  ],
+  "stages": [
+    {
+      "key": "E0",
+      "title": "Geometric Enriques surfaces and their lattice",
+      "description": "Define the shared geometric condition over arbitrary fields, prove Picard and cohomological invariants and identify the even unimodular numerical lattice using IntegralLattices Layer 6A.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.5",
+        "WeilConjectures:WC.7"
+      ]
+    },
+    {
+      "key": "E1",
+      "title": "Half-fibres, canonical covers and exceptionality",
+      "description": "Develop half-fibres and integral two-sections, the three characteristic-two types, canonical local torsors, the conductrix and exceptional-fibration restrictions. Establish the general partner theorem and canonical-type-to-fibration correspondence. Make nef reduction, primitive-isotropic half-fibres, distinct-fibration intersection and exceptional special-double-fibre criteria explicit.",
+      "requires": [
+        "EnriquesSurfacesAndIntegralNonexistence:E0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "E2",
+      "title": "Families, Picard descent and canonical torsors",
+      "description": "Use flat proper finitely presented algebraic spaces. Construct their relative Picard and numerical objects, canonical-cover obstruction and twisting, constant/split distinctions, and descent of curves and fibrations under the cohomological Brauer hypothesis. Specialize descent over finite fields and prove labelled fibre descent and the I₀* exclusion for both elliptic and quasielliptic fibrations.",
+      "requires": [
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "EnriquesSurfacesAndIntegralNonexistence:E0",
+        "EnriquesSurfacesAndIntegralNonexistence:E1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "E3",
+      "title": "Integral Picard constancy through dyadic twists",
+      "description": "First prove numerical constancy and Num-only point counts. Obtain local sections and projective scheme models, compare canonical covers over Q₂, remove the ramified difference with one of four global twists and apply the imported Fontaine obstruction. Split the remaining étale extension. The finite-field point-count theorem is stated independently of a Z-family.",
+      "requires": [
+        "EnriquesSurfacesAndIntegralNonexistence:E0",
+        "EnriquesSurfacesAndIntegralNonexistence:E1",
+        "EnriquesSurfacesAndIntegralNonexistence:E2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.5",
+        "WeilConjectures:WC.7"
+      ]
+    },
+    {
+      "key": "E4",
+      "title": "Finite-field Jacobians and descended sections",
+      "description": "Apply the generic Jacobian model and local genus-one comparison. Repair smooth-point and Tsen arguments, obtain constant Jacobian Picard and matching fibre point counts. Import the rational-Jacobian classification with its completeness gate.",
+      "requires": [
+        "EnriquesSurfacesAndIntegralNonexistence:E0",
+        "EnriquesSurfacesAndIntegralNonexistence:E1",
+        "EnriquesSurfacesAndIntegralNonexistence:E2",
+        "EnriquesSurfacesAndIntegralNonexistence:E3",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1"
+      ]
+    },
+    {
+      "key": "E5",
+      "title": "Candidate configurations and their first reductions",
+      "description": "Keep fourteen elliptic candidates and four quasielliptic ones. Exclude the three omitted elliptic cases as a separate proof obligation; establish multiplicity and partner restrictions, then the I₈, II*, IV*, IV and multiple-I₄* reductions on their precise domains.",
+      "requires": [
+        "EnriquesSurfacesAndIntegralNonexistence:E0",
+        "EnriquesSurfacesAndIntegralNonexistence:E1",
+        "EnriquesSurfacesAndIntegralNonexistence:E2",
+        "EnriquesSurfacesAndIntegralNonexistence:E4"
+      ]
+    },
+    {
+      "key": "E6",
+      "title": "Ten-curve lattices and the I₄* exclusion",
+      "description": "Specify both ten-curve graphs and revised integral Gram matrices. Use built discriminant forms and even overlattices, generic degree-zero Picard quotients, descended integral two-sections of square 0 or −2, and exhaustive incidence orbits to exclude I₄*.",
+      "requires": [
+        "EnriquesSurfacesAndIntegralNonexistence:E0",
+        "EnriquesSurfacesAndIntegralNonexistence:E1",
+        "EnriquesSurfacesAndIntegralNonexistence:E2",
+        "EnriquesSurfacesAndIntegralNonexistence:E4",
+        "EnriquesSurfacesAndIntegralNonexistence:E5"
+      ]
+    },
+    {
+      "key": "E7",
+      "title": "III* exclusions and restricted fibrations",
+      "description": "Treat multiple and simple III* separately, with the four simple incidence cases. Prove the two-configuration impossibility over any algebraically closed field, importing the characteristic-independent partner theorem.",
+      "requires": [
+        "EnriquesSurfacesAndIntegralNonexistence:E1",
+        "EnriquesSurfacesAndIntegralNonexistence:E5",
+        "EnriquesSurfacesAndIntegralNonexistence:E6"
+      ]
+    },
+    {
+      "key": "E8",
+      "title": "Lifting and the two nonexistence endpoints",
+      "description": "Establish the characteristic-two lifting/deformation contracts, rule out exceptional modulo-four fibres, and assemble the F₂ and integral endpoints only after classification completeness and the omitted-configuration exclusions. Separate tangent cohomology and the supersingular α₂ nonlifting branch from exceptional-classical de Rham nonlifting.",
+      "requires": [
+        "EnriquesSurfacesAndIntegralNonexistence:E1",
+        "EnriquesSurfacesAndIntegralNonexistence:E2",
+        "EnriquesSurfacesAndIntegralNonexistence:E3",
+        "EnriquesSurfacesAndIntegralNonexistence:E5",
+        "EnriquesSurfacesAndIntegralNonexistence:E6",
+        "EnriquesSurfacesAndIntegralNonexistence:E7",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SCH23-author",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+      "url": "https://www.math.uni-duesseldorf.de/~schroeer/publications_pdf/EnriquesOverIntegers_Juli2022.pdf",
+      "sha256": "828efee55d68b29b5c1617872cc97955bb22374500de721cddd24a7b3c1ed191",
+      "readSections": [
+        "Introduction and §§1–15, author pp. 1–49; figures (13), (15), (17) and matrices (14), (16)"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "ESB21",
+      "title": "On exceptional Enriques surfaces",
+      "authors": "Torsten Ekedahl and Nicholas I. Shepherd-Barron",
+      "edition": "arXiv:math/0405510v2, 26 August 2021",
+      "url": "https://arxiv.org/pdf/math/0405510v2",
+      "sha256": "286a66bd91e12053a50d562100c7dcd635a4f3ac103e95a80c1d416934fb3cf3",
+      "readSections": [
+        "§§2–4, pp. 4–14; conductor construction/Lemma 2.3, Proposition 2.8(6), fibre-classification proof, Proposition 3.16, Theorem 4.2 and Corollary 4.3; §1 statements, pp. 1–3"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "DI21",
+      "title": "The Deligne–Illusie theorem and exceptional Enriques surfaces",
+      "authors": "Stefan Schröer",
+      "edition": "Revised author version, 4 January 2021; Eur. J. Math. 7 (2021), 489–525",
+      "url": "https://www.math.uni-duesseldorf.de/~schroeer/publications_pdf/DeligneIllusie_2021.pdf",
+      "sha256": "806acbf84c48c72ca5a62550cae5033928d44f669dfa870d905c0c7e3edd627a",
+      "readSections": [
+        "§3, Proposition 3.3/Corollary 3.4, pp. 11–12; §§4–7, pp. 13–24, including Proposition 4.2/Theorem 4.3, Theorem 6.1, Proposition 7.1 and Theorem 7.2"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "MMV22",
+      "title": "On extra-special Enriques surfaces",
+      "authors": "Gebhard Martin, Giacomo Mezzedimi and Davide Cesare Veniani",
+      "edition": "arXiv:2201.05481v1, 14 January 2022; manuscript dated 17 January 2022",
+      "url": "https://arxiv.org/pdf/2201.05481v1",
+      "sha256": "d1eddae313c18886ecea690875841e844781a221aad4fe89e9c737658caa0e46",
+      "readSections": [
+        "Mathematical text pp. 1–8, including Definition 1.1, Theorem 1.2/Remark 1.5, Lemmas 2.1–2.4 and the extra-special classification; Theorem 1.2 quotes an older proof not obtained here."
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "Stacks",
+      "title": "The Stacks Project",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online tags accessed 11 October 2026; stable tags are the locators, no page numbers",
+      "url": "https://stacks.math.columbia.edu",
+      "readSections": [
+        "Tag 0D24, §99.11, Lemmas 99.11.3–4 and Proposition 99.11.8, statements and proofs",
+        "Tag 0D3D, Lemma 74.13.2, statement and proof",
+        "Tag 0EMV, §68.11, Lemma 68.11.4 and the elementary étale neighbourhood construction",
+        "Tag 0H74, Lemma 15.13.3, statement and proof"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "Fontaine-author",
+      "title": "Schémas propres et lisses sur Z",
+      "authors": "Jean-Marc Fontaine",
+      "edition": "Public author scan, preprint 91-02, 14 PDF pages; printed pagination differs from the 1993 published article",
+      "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/Zschemas.pdf",
+      "sha256": "3a0d2b7a95db090438b43a86040d92b748e351a6461257dd083151864f33dc67",
+      "readSections": [
+        "Title/abstract, introduction, Theorem 1 and Remarks (a)–(c), printed pp. 1–3 (PDF pp. 1–4); full proof not read"
+      ],
+      "accessDate": "2026-10-11"
+    }
+  ],
+  "status": "draft",
+  "proposedSupplierRoadmaps": [
+    "NumericalPicardAndContractionDescent",
+    "GenusOneFibrationsAndRationalEllipticSurfaces",
+    "EverywhereGoodReductionAndLowDegreeHodgeNumbers",
+    "K3SurfacesAndSymplecticBoundedness"
+  ],
+  "importsFromTauCetiRoadmaps": [
+    {
+      "roadmap": "IntegralLattices",
+      "layer": "Layer 6A, indefinite even unimodular uniqueness",
+      "sourceItem": "PAPER-SCHROER-23/207",
+      "read": "Current README Layer 6A (lines 1643–1651) and Suggested.lean Layer6 example read; owns this theorem, which is planned there rather than proved at the pinned library.",
+      "contract": "Even unimodular indefinite integral lattices of equal signature are isometric; apply at signature (1,9).",
+      "neededBy": [
+        "EnriquesSurfacesAndIntegralNonexistence:E0/numerical-lattice-isometry"
+      ],
+      "implementationStatus": "planned upstream; import only",
+      "roadmapCommit": "c251d2e42c66f14c279d1e5c2708c5a91d8c8aec"
+    },
+    {
+      "roadmap": "JacobianChallenge",
+      "layer": "Layer D: pointed smooth-curve relative Picard and Jacobian; Layer E: abelian varieties",
+      "contract": "Reuse Layer D fppf relative-Picard sheaf construction and the Jacobian constructor for smooth proper geometrically connected integral POINTED curves. v1 requires a rational base point; unpointed curves and their Pic¹ torsor are v2, and quasielliptic regular nonsmooth curves are not covered. The genus-one supplier must give those missing adapters. Layer E constructs abelian varieties and is not a fibrewise-Jacobian surface theorem.",
+      "neededBy": [
+        "EnriquesSurfacesAndIntegralNonexistence:E4/mordell-weil-descent"
+      ],
+      "implementationStatus": "existing upstream roadmap; geometry signatures depend on its future interface",
+      "roadmapCommit": "c251d2e42c66f14c279d1e5c2708c5a91d8c8aec"
+    },
+    {
+      "roadmap": "AlgebraicVectorBundles",
+      "layer": "Invertible sheaves, tensor operations and relative Spec",
+      "contract": "Reuse the current native invertible-sheaf and Picard objects where present, and the upstream tensor/relative-Spec direction for the canonical rank-two algebra. This roadmap does not plan a general Picard-group theorem or surface Picard representability. Current TauCeti CartierDivisor/Picard is not asserted to belong to the older pinned baseline.",
+      "neededBy": [
+        "EnriquesSurfacesAndIntegralNonexistence:E2/etale-pic-tau-cover"
+      ],
+      "implementationStatus": "current roadmap read; use existing native objects where supplied",
+      "roadmapCommit": "c251d2e42c66f14c279d1e5c2708c5a91d8c8aec"
+    },
+    {
+      "roadmap": "LocalFieldsRamification",
+      "layer": "Layers 1–2: unit filtration and unramified extensions",
+      "contract": "Use the existing complete local-field theory for the Q₂ unit square classes and unramified quadratic model, then prove the concrete twist adapter here.",
+      "neededBy": [
+        "EnriquesSurfacesAndIntegralNonexistence:E3/four-twist-good-reduction",
+        "EnriquesSurfacesAndIntegralNonexistence:E3/dyadic-representatives"
+      ],
+      "implementationStatus": "existing upstream roadmap; imports recorded in node graph",
+      "roadmapCommit": "c251d2e42c66f14c279d1e5c2708c5a91d8c8aec"
+    }
+  ],
+  "consumers": [
+    {
+      "roadmap": "RealSurfacePeriodIndex",
+      "item": "PAPER-BENOIST-24/114",
+      "contract": "EnriquesSurfacesAndIntegralNonexistence:E0/is-enriques"
+    },
+    {
+      "stage": "CohomologyComparisons:CP.5",
+      "contract": "EnriquesSurfacesAndIntegralNonexistence:E0/is-enriques"
+    },
+    {
+      "stage": "MotivesAndCohomologyFoundations:MC.7",
+      "contract": "EnriquesSurfacesAndIntegralNonexistence:E0/is-enriques"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+    "date": "2026-10-11",
+    "notes": "Scope and stage order checked against the reviewed packet; this accepts planning only, with explicit proof/supplier gates and mandatory reader synchronization."
+  }
+}

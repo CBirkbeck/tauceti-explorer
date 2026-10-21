@@ -1,0 +1,317 @@
+{
+  "id": "GSp4NonregularModularityLifting",
+  "title": "Minimal modularity lifting for GSp₄ in nonregular weight",
+  "area": "langlands",
+  "parent": null,
+  "summary": "Construct minimal modularity lifting for ordinary symplectic rank-four Galois representations in nonregular Siegel weight (a,2), using cuspidal coherent cohomology in degrees zero and one, corrected Fourier doubling, Klingen Taylor–Wiles comparison and selected-module balance. Add characteristic-zero singular-weight interpolation, ordinary p-adic family lifting and the four-chamber weight-two rank-one/classicality argument. Keep the minimal balanced, p-adic family and characteristic-zero higher-Hida branches distinct, and expose every unresolved proof gate and supplier contract.",
+  "readme": "Construct minimal modularity lifting for ordinary symplectic rank-four Galois representations in nonregular Siegel weight (a,2), using cuspidal coherent cohomology in degrees zero and one, corrected Fourier doubling, Klingen Taylor–Wiles comparison and selected-module balance. Add characteristic-zero singular-weight interpolation, ordinary p-adic family lifting and the four-chamber weight-two rank-one/classicality argument. Keep the minimal balanced, p-adic family and characteristic-zero higher-Hida branches distinct, and expose every unresolved proof gate and supplier contract.\n\nThe detailed roadmap is research/blueprint/readmes/GSp4NonregularModularityLifting.md. All twelve layers are planned at target level; no layer is claimed closed. The minimal balanced-module theorem, ordinary p-adic family theorem and characteristic-zero classical theorem retain the exact hypotheses and proof gates stated there.\n\nConventions: geometric Frobenius; cyclotomic character ε has Hodge–Tate weight −1; full symplectic multiplier retained; Ω(k,r)=ω(k+r,r). The BCGP25 arithmetic spin and coherent dual-spin conventions are explicitly compared. General deformation, Hida, compactification and Hecke-determinant machinery belongs to the named suppliers.\n\nSources: Calegari–Geraghty (2020), Pilloni (2020, cleared author version), Pilloni (September 2009 author version of the 2012 paper), Pilloni–Stroh, Mok, and Boxer–Calegari–Gee–Pilloni (2021/2025 author versions). All claims below are in our own words, with version-specific theorem/section/page locators.",
+  "prerequisites": [
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicBundles",
+    "AutomorphicGaloisRepresentationsPartII",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "DeformationAndDerivedPatchingAlgebra",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GlobalGaloisDeformations",
+    "HigherHidaAndColemanTheory",
+    "HodgeTateAndCanonicalSubgroups",
+    "IntegralHeckeAndGaloisDeterminants",
+    "LocalGaloisDeformationRings",
+    "ModularityAndLanglandsExtensions",
+    "PadicHodgeTheory",
+    "ShimuraCompactifications",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "NR0",
+      "title": "Conventions, residual data and tame levels",
+      "description": "Fix the full multiplier and the weight/Frobenius dictionaries, the four-factor ordinary-root condition, the exact CG residual/local data and the q-enlarged minimal tame level. Specify symplectically labelled Klingen Taylor–Wiles refinements, including their product separation. Generic Galois and deformation objects are imported.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4",
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:R04.5",
+        "HigherHidaAndColemanTheory:A0",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "LocalGaloisDeformationRings:L7",
+        "ShimuraCompactifications:C3",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "NR1",
+      "title": "Selected cuspidal Hecke images",
+      "description": "Construct the specialized anemic, full and p-enlarged Hecke images on the actual cuspidal modules, their invariant-level restrictions and joint generalized-root selectors. Define nonzero cuspidal Katz modularity at the prescribed level. The underlying image, determinant and projector theory is imported from the current upstream Hecke roadmap.",
+      "requires": [
+        "AutomorphicBundles:B5",
+        "GSp4NonregularModularityLifting:NR0",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3"
+      ]
+    },
+    {
+      "key": "NR2",
+      "title": "Singular-weight Galois interpolation",
+      "description": "Construct number fields for coherent eigensystems and apply the all-degree Pilloni–Stroh interpolation to their characteristic-zero actions. State the precise qualified Mok crystalline specialization, the no-Steinberg scalar-weight obstruction, ordinary weight-two Galois systems, the pure general-type monodromy upgrade, dual-spin overconvergent interpolation and completed-eigenspace isotypy through the GSp₄ semisimplicity criteria. Preserve every classification and local qualification.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.5",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B4",
+        "AutomorphicBundles:B5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "GSp4NonregularModularityLifting:NR0",
+        "HigherHidaAndColemanTheory:X8",
+        "HodgeTateAndCanonicalSubgroups:T0",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.4",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "PadicHodgeTheory:R06.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ]
+    },
+    {
+      "key": "NR3",
+      "title": "Finite-level Hasse transfer and regular Galois systems",
+      "description": "Use supplied Hasse lifts with finite-level congruences and vanishing thresholds to transfer actual selected image quotients. The annihilator belongs to the selected summand. Construct central characters, residual Galois systems and regular Hecke-valued representations with ordered ordinary local characters. A stronger p-polynomial identity is recorded separately as a proof gap.",
+      "requires": [
+        "AutomorphicBundles:B4",
+        "AutomorphicBundles:B5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6",
+        "GSp4NonregularModularityLifting:NR1",
+        "GSp4NonregularModularityLifting:NR2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.4",
+        "LocalGaloisDeformationRings:L7",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "NR4",
+      "title": "Cuspidal Fourier doubling",
+      "description": "Specialize the formal U,Z,Z₂,X₂ operators and Hasse spaces in characteristic p. Prove ordinary-envelope control and the two kernel systems. Use corrected scalar/vector theta inputs, an all-index contraction obligation and a separately checked scalar recurrence to obtain both root-labelled Hasse-projection injections. Keep all needed weight bounds and restrict the minimal-discriminant argument to cuspidal forms.",
+      "requires": [
+        "AutomorphicBundles:B5",
+        "GSp4NonregularModularityLifting:NR1",
+        "GSp4NonregularModularityLifting:NR3"
+      ]
+    },
+    {
+      "key": "NR5",
+      "title": "Nonregular Hecke-valued minimal deformations",
+      "description": "Use the two independent ordinary lines in the same reconstructed representation to obtain its invariant unramified isotropic two-plane. Construct compatible selected finite-quotient Galois deformations, normalize the full multiplier and pass to the inverse limit. Verify every minimal local condition before invoking the universal classifying map.",
+      "requires": [
+        "GSp4NonregularModularityLifting:NR0",
+        "GSp4NonregularModularityLifting:NR3",
+        "GSp4NonregularModularityLifting:NR4",
+        "GlobalGaloisDeformations:G7",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.4",
+        "LocalGaloisDeformationRings:L7"
+      ]
+    },
+    {
+      "key": "NR6",
+      "title": "Klingen Taylor–Wiles level control",
+      "description": "Construct the labelled Klingen block projector. Prove the high-weight integral pullback/trace comparison, with inverse (tr∘pr_Q∘i)⁻¹∘tr rather than the degree-normalized trace, descend through Hasse and secondary-Hasse strata with explicit H¹ reverse induction, and induct over O/ϖᵐ before passing to E/O. Separate this degree-zero comparison from the BCGP21 derived comparison and module-coinvariant supplier interface.",
+      "requires": [
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B5",
+        "GSp4NonregularModularityLifting:NR0",
+        "GSp4NonregularModularityLifting:NR1",
+        "GSp4NonregularModularityLifting:NR3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ]
+    },
+    {
+      "key": "NR7",
+      "title": "Coherent defect and the selected balance gate",
+      "description": "Identify the dual cuspidal module via L=ω(1,3−a) and supplied integral coherent duality. Deduce torsion-freeness from the appropriate H² vanishing and reduce whole-module balance to the supplied localized characteristic-zero dimension equality. The boundary/Arthur argument belongs to IntegralCoherentHeckeComplexes. State the additional integral p-idempotent and selected-rank obligations needed to prove balance of the αβ summand.",
+      "requires": [
+        "AutomorphicBundles:B3",
+        "DeformationAndDerivedPatchingAlgebra:P9",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "GSp4NonregularModularityLifting:NR0",
+        "GSp4NonregularModularityLifting:NR1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "ModularityAndLanglandsExtensions:ML.4"
+      ]
+    },
+    {
+      "key": "NR8",
+      "title": "Conditional minimal lifting and examples",
+      "description": "Assemble the GSp4 balanced patching datum, including its fixed-multiplier diamond-inertia identity and universal augmentation kernel. Deduce Rmin=T and positive-rank dual cuspidal freeness under the corrected proof gates, then the a≥4 and crystalline classical corollaries at the actual minimal level. Keep scalar-weight H² vanishing and the mod-2 illustration conjectural; check the Weil-restriction and local level examples with their exact limitations.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "DeformationAndDerivedPatchingAlgebra:P9",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "GSp4NonregularModularityLifting:NR0",
+        "GSp4NonregularModularityLifting:NR1",
+        "GSp4NonregularModularityLifting:NR2",
+        "GSp4NonregularModularityLifting:NR5",
+        "GSp4NonregularModularityLifting:NR6",
+        "GSp4NonregularModularityLifting:NR7",
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:R04.5"
+      ]
+    },
+    {
+      "key": "NR9",
+      "title": "Ordinary p-adic lifting in families",
+      "description": "Specialize Pilloni’s admissibility data, keeping its image conditions distinct and its ordered-flag discrepancy explicit. Import Hida horizontal control and generic deformation/defect-zero patching to prove ordinary variable-weight R=T and integral-weight specialization. Deduce ordinary cuspidal p-adic modularity and the parallel GL2-parabolic variant, without asserting classicality of singular specializations.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:R04.5",
+        "HigherHidaAndColemanTheory:I3",
+        "HigherHidaAndColemanTheory:X8",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "LocalGaloisDeformationRings:L7"
+      ]
+    },
+    {
+      "key": "NR10",
+      "title": "Characteristic-zero higher-Hida patching",
+      "description": "Fix the distinct BCGP25 weight-two and integral-enormity data, including its dyadic neat-prime condition. Construct four localized higher-Hida modules and their two-direction torus diamonds, prove weight/diamond freeness, construct the full-multiplier deformation action (with the GSp₄ coefficient descent valid at p=2, BCGP25 Lemma 7.4.8) and the projective Satake coinvariant comparison. Apply a corrected open-ideal patching theorem to obtain local freeness at the characteristic-zero point; rank zero remains possible.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "DeformationAndDerivedPatchingAlgebra:R03.6",
+        "GSp4NonregularModularityLifting:NR2",
+        "GlobalGaloisDeformations:G7",
+        "HigherHidaAndColemanTheory:I3",
+        "HigherHidaAndColemanTheory:X8",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.4",
+        "LocalGaloisDeformationRings:L7",
+        "PadicHodgeTheory:R06.2",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ]
+    },
+    {
+      "key": "NR11",
+      "title": "Rank one and classical weight-two lifting",
+      "description": "Define the two-wall R-regular weight condition and compute multiplicity one only at nonzero regular points on the relevant component. Retain all five conditions of each dyadic/odd automorphic-seed alternative. Prove support through the singular point using the appropriate regular ordinary lifting and solvable descent suppliers, then rank one separately in all four chambers. Apply the image/de Rham/four-multiplicity higher-Coleman criterion to deduce classical weight-two modularity, retaining all unresolved proof gates.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+        "GSp4NonregularModularityLifting:NR10",
+        "GSp4NonregularModularityLifting:NR2",
+        "GlobalGaloisDeformations:G7",
+        "HigherHidaAndColemanTheory:A0",
+        "HigherHidaAndColemanTheory:X8",
+        "LocalGaloisDeformationRings:L7",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "PadicHodgeTheory:R06.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CG20",
+      "title": "Modularity lifting for non-regular symplectic representations",
+      "authors": "Frank Calegari and David Geraghty",
+      "edition": "Duke Math. J. 169 (2020), 801–896; author-hosted published typeset text, read 2026-10-19. Internal page n is published page 800+n.",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
+      "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
+      "readSections": [
+        "§§1,3–9, published pp.801–880",
+        "Appendix A.3.2, pp.887–889, for the downstream comparison interface"
+      ]
+    },
+    {
+      "id": "P20",
+      "title": "Higher coherent cohomology and p-adic modular forms of singular weights",
+      "authors": "Vincent Pilloni",
+      "edition": "Author version of 17 June 2019, read in the maintainer-cleared library on 2026-10-19; author pagination. The final 15 October 2019 revision published in Duke Math. J. 169 (2020), 1647–1807 was not compared. The checksum identifies the cleared author copy read; the public author URL is a bibliographic pointer, not a verified byte match.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf",
+      "sha256": "4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58",
+      "readSections": [
+        "Introduction, author pp.5–6",
+        "§5.3, author pp.24–27",
+        "Bibliography, author pp.111–113"
+      ]
+    },
+    {
+      "id": "P12",
+      "title": "Modularité, formes de Siegel et surfaces abéliennes",
+      "authors": "Vincent Pilloni",
+      "edition": "Public September 2009 author text, 39 pages, read 2026-10-19; author pagination. J. reine angew. Math. 666 (2012), 35–82 was not compared.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/Mod.pdf",
+      "sha256": "dd382d42c077aac2064d145311981b0d25038dbd1d8aa639dcac36449bbd804c",
+      "readSections": [
+        "Introduction, pp.2–4",
+        "§3, pp.13–19",
+        "§5.1–5.7, pp.19–24",
+        "§7.1–7.4, pp.35–38"
+      ]
+    },
+    {
+      "id": "PS16",
+      "title": "Cohomologie cohérente et représentations galoisiennes",
+      "authors": "Vincent Pilloni and Benoît Stroh",
+      "edition": "Public author text, 30 pages, read 2026-10-19; author pagination. The same file (identical SHA-256) is served at https://www.imo.universite-paris-saclay.fr/~pilloni/koko.pdf.",
+      "url": "https://webusers.imj-prg.fr/~benoit.stroh/coco.pdf",
+      "sha256": "2c9f90c39f0efacd3fa076ef189b1d552da900d1968e34c3c8b3e551dcb4e3a1",
+      "readSections": [
+        "Theorem 0.1, pp.1–2",
+        "§3, especially Theorem 3.6 and Remark 3.10, pp.14–18"
+      ]
+    },
+    {
+      "id": "M14",
+      "title": "Galois representations attached to automorphic forms on GSp(4)",
+      "authors": "Chung Pang Mok",
+      "edition": "arXiv:1109.5392v4, read 2026-10-19; PDF pagination.",
+      "url": "https://arxiv.org/pdf/1109.5392v4",
+      "sha256": "6db29e74332261f70fe4a42ec47e6c4fb8e4147c8f6af49b419f9f38b25e693a",
+      "readSections": [
+        "§4 hypotheses, pp.24–25",
+        "Theorem 4.14 and Proposition 4.16, pp.40–42"
+      ]
+    },
+    {
+      "id": "BCGP25",
+      "title": "Modularity theorems for abelian surfaces",
+      "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
+      "edition": "arXiv:2502.20645v1, read 2026-10-19; PDF pagination. No claim is made about unexamined revisions.",
+      "url": "https://arxiv.org/pdf/2502.20645v1",
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
+      "readSections": [
+        "§1.8.12–1.8.20, pp.12–14",
+        "§4.12, pp.112–114",
+        "§7.1–7.5, pp.152–179; detailed reading of §7.2 and §§7.4–7.5"
+      ]
+    },
+    {
+      "id": "BCGP21",
+      "title": "Abelian surfaces over totally real fields are potentially modular",
+      "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
+      "edition": "arXiv:1812.09269v3, read 2026-10-19; PDF pagination. Read as a supplier-interface check, not replanned as another roadmap.",
+      "url": "https://arxiv.org/pdf/1812.09269v3",
+      "sha256": "7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed",
+      "readSections": [
+        "§§7.7–7.8 setup and Proposition 7.8.11, pp.210–216",
+        "Proposition 7.9.8 and proof, pp.222–223"
+      ]
+    }
+  ],
+  "status": "draft"
+}

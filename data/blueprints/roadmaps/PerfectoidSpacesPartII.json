@@ -1,0 +1,177 @@
+{
+ "id": "PerfectoidSpacesPartII",
+ "title": "Perfectoid rings and spaces, Part II: ramification and Riemann extension",
+ "area": "padic",
+ "parent": "PerfectoidSpaces",
+ "summary": "This continuation of Perfectoid rings and spaces controls ramification along a divisor g = 0 on perfectoid algebras. It develops almost-pro-zero towers and Bhatt's quantitative Riemann extension theorem, André's uniform Banach algebra calculus, almost perfectoid algebras and the perfectoid Riemann extension theorem identifying bounded functions off g = 0 with the complete integral closure, the perfectoid Abhyankar lemma for finite étale covers ramified along g, and André's flatness theorem and purity for Kummer towers over W(k)⟦T_1,…,T_n⟧, the inputs of the direct summand theorem.",
+ "readme": "# Perfectoid rings and spaces, Part II: ramification and Riemann extension\n\n**Summary.** This roadmap starts where Perfectoid rings and spaces (PerfectoidSpaces) stops. PerfectoidSpaces builds almost mathematics, perfectoid Tate rings and tilting, perfectoid rational localisation with its explicit almost integral models, and the almost purity theorem for finite étale covers. This Part II controls covers that ramify along a divisor g = 0. Its endpoints are Bhatt's quantitative Riemann extension theorem, André's perfectoid Riemann extension theorem, André's perfectoid Abhyankar lemma, and André's flatness and purity theorems for Kummer towers over W(k)⟦T_1,…,T_n⟧. These are the inputs of both proofs of the direct summand theorem, which the roadmap Direct summands and big Cohen–Macaulay algebras builds on top of this one.\n\n**Layers.** RA.0 almost-pro-zero towers; RA.1 the quantitative Riemann extension theorem; RA.2 uniform Banach algebras (closures, localisations, uniform limits and colimits, root algebras); RA.3 almost perfectoid algebras and the perfectoid Riemann extension theorem; RA.4 the perfectoid Abhyankar lemma; RA.5 purity and André's flatness theorem for Kummer towers.\n\n**Imports.** PerfectoidSpaces P0–P3 (almost mathematics, perfectoid rings and tilting, rational localisation and approximation, almost purity); AdicSpacesPartII R0 and R3 (spectral seminorm, uniformization, uniform completed tensor products, affinoid Noether normalisation); EnhancedDerivedSheaves E1–E2 (derived tensor products, ordinary pro-zero towers and R lim); DerivedDeRhamCohomology DD.1 (complete flatness and Bhatt's flatness criterion); DeformationAndDerivedPatchingAlgebra R03.1 (completion of flat algebras); PerfectoidQuotients Q3 (André's flatness lemma in Bhatt–Scholze's form).\n\n**Non-goals.** The direct summand theorem, its derived variant and big Cohen–Macaulay algebras belong to Direct summands and big Cohen–Macaulay algebras. Almost purity along arbitrary ideals and perfectoidization of integral algebras (Bhatt–Scholze, Theorem 10.9) belong to the Part II of Perfectoid quotients. The characteristic-p Hebbarkeitssatz for arbitrary ideals used for Shimura varieties remains in PerfectoidShimuraVarieties.\n\n**Sources.** Bhatt, On the direct summand conjecture and its derived variant (arXiv:1608.08882v2); André, Le lemme d’Abhyankar perfectoïde and La conjecture du facteur direct (Publ. Math. IHÉS 127, 2018).\n",
+ "prerequisites": [
+  "PerfectoidSpaces",
+  "AdicSpacesPartII",
+  "EnhancedDerivedSheaves",
+  "DerivedDeRhamCohomology",
+  "DeformationAndDerivedPatchingAlgebra",
+  "PerfectoidQuotients"
+ ],
+ "stages": [
+  {
+   "key": "RA.0",
+   "title": "Almost-pro-zero towers and uniform annihilation",
+   "description": "Fix a ring A and an element t with a chosen compatible system of p-power roots t^{1/p^k} (the root ideal of PerfectoidSpaces P0). Targets:\n\n- **Almost-pro-zero towers** (Bhatt Definition 3.2): a tower {M_n}_{n≥1} of A-modules is almost-pro-zero when for every k and n there is m ≥ n with the image of M_m → M_n killed by t^{1/p^k}; equivalently {M_n[t^{1/p^k}]} → {M_n} is a pro-isomorphism for every k. A morphism of towers in D^b(A) is an **almost-pro-isomorphism** when every cohomology tower of its cone is almost-pro-zero. Example 3.3 (the tower A/t^{1/p^n} with transitions multiplication by t^{1/p^n−1/p^{n+1}}) is almost-pro-zero but not pro-zero in the almost category.\n- **Uniform almost-pro-zero towers** relative to a second element g with compatible roots: for every k there is c with the c-step transitions killed by g^{1/p^k} in t-almost modules, for all n at once.\n- **Derived limits** (Bhatt Lemmas 3.4–3.5): R lim of an almost-pro-zero tower is almost zero, and an almost-pro-isomorphism induces an almost isomorphism on R lim.\n- **Linear functors** (Bhatt Lemma 3.6): an additive A-linear functor sends almost-pro-zero towers to almost-pro-zero towers.\n- **Uniform annihilation survives derived tensor products** (the amplitude-zero cone argument behind Bhatt Remark 4.3): if R → R_n (R = A/t^m) has almost-zero kernels and uniformly g^{1/p^k}-annihilated cokernel transitions with constant c, then for every K ∈ D(R) and every i the kernel and cokernel towers of H^i(K) → H^i(K ⊗^L_R R_n) have c-step transitions killed by (tg)^{1/p^k}, with the same c.\n\nOrdinary pro-zero towers, R lim and the Milnor sequence are imported from EnhancedDerivedSheaves E2; the derived tensor product of modules from E1.",
+   "requires": [
+    "PerfectoidSpaces:P0",
+    "EnhancedDerivedSheaves:E1",
+    "EnhancedDerivedSheaves:E2"
+   ]
+  },
+  {
+   "key": "RA.1",
+   "title": "The quantitative Riemann extension theorem",
+   "description": "Let K be a perfectoid field, t ∈ K° with compatible p-power roots and |t| = |p| in characteristic 0 (0 < |t| < 1 in general), A an integral perfectoid K°-algebra (Bhatt §1.4) with perfectoid space X = Spa(A[1/t], A), and g ∈ A with compatible p-power roots. Targets:\n\n- **The annular tower** (Bhatt Notation 4.1): A⟨t^n/g⟩ = O⁺_X(X⟨t^n/g⟩) for the rational subsets X⟨t^n/g⟩ = {|t^n| ≤ |g|}, n ≥ 1, with restriction maps A⟨t^{n+1}/g⟩ → A⟨t^n/g⟩, and its explicit almost presentation A⟨t^n/g⟩/t^m ≅^a A[u_n^{1/p^∞}]/(t^m, (u_n g)^{1/p^k} − t^{n/p^k}) from PerfectoidSpaces P2.\n- **Quantitative Riemann extension** (Bhatt Theorem 4.2, Theorem 1.6), for g an almost nonzerodivisor modulo t^m: the kernels of f_n : A/t^m → A⟨t^n/g⟩/t^m are almost zero, the cokernel tower is uniformly almost-pro-zero with respect to g^{1/p^∞} with constant c = p^k m, and {f_n} is an almost-pro-isomorphism with respect to (tg)^{1/p^∞}.\n- **Derived version** (Bhatt Remark 4.3): for every K ∈ D(A/t^m) the comparison towers H^i(K) → H^i(K ⊗^L A⟨t^n/g⟩/t^m) are uniformly almost-pro-isomorphisms with the same constants; Koszul homology of a regular sequence becomes uniformly almost-pro-zero in nonzero degrees.\n- **Removal of the regularity hypothesis** (Bhatt Remark 4.4), through the universal case K°⟨T^{1/p^∞}⟩, g = T.\n- **Riemann extension after limits** (Bhatt Remark 1.7): A → lim_n A⟨t^n/g⟩ is an almost isomorphism with respect to (tg)^{1/p^∞}, the principal case of Scholze's Hebbarkeitssatz in mixed characteristic.",
+   "requires": [
+    "PerfectoidSpacesPartII:RA.0",
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P2",
+    "EnhancedDerivedSheaves:E1"
+   ]
+  },
+  {
+   "key": "RA.2",
+   "title": "Uniform Banach algebras: closures, localisations, uniform limits and colimits",
+   "description": "K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×| dense in R_{>0} where stated; uniform Banach K-algebras are the complete uniform Tate K-algebras of Tau Ceti and AdicSpacesPartII, with their spectral seminorm and uniformization. Targets:\n\n- **p-root closure and the complete integral closure** of a subring (André A §2.3.1); Mathlib supplies the complete integral closure `completeIntegralClosure`; this layer adds the p-root closure and the localised form (2.18)–(2.19).\n- **The norm–unit-ball dictionary** (André A Sorite 2.3.1, Corollaire 2.3.2): for flat K°-algebras A the gauge norm on A[1/ϖ] has unit ball A_* ; a norm is spectral iff its unit ball equals A°, iff it is completely integrally closed, iff integrally closed, iff p-root closed; uniform Banach K-algebras are equivalent to K°-algebras that are flat, ϖ-adically complete, completely integrally closed in their generic fibre and equal to their almost elements.\n- **Root saturation** g^{-1/p^∞}B° and its six equivalent closedness conditions (André A Lemme 2.5.3, Remarque 2.5.6), and its compatibility with limits (Lemme 2.8.2).\n- **Laurent localisation** A{λ/g} (André A (2.22)–(2.24), Lemmes 2.6.1–2.6.3, with the corrections recorded in the packet) and **Weierstrass localisation** B{f/λ} with its unit-ball formulas (André B §1.2, formulas (1)–(6), §1.2.3).\n- **Uniform limits** ulim (André A (2.27)–(2.28), Lemme 2.8.1) and **uniform filtered colimits** ucolim (§2.9.1, Lemme 2.9.1).\n- **Root algebras** A⟨g^{1/p^i}⟩, A⟨g^{1/p^∞}⟩ (André A Exemple 2.9.3(2)) and their description as uniform colimits of tubular neighbourhoods (Proposition 2.9.2, Corollaire 2.9.3).",
+   "requires": [
+    "AdicSpacesPartII:R0",
+    "AdicSpacesPartII:R3",
+    "PerfectoidSpaces:P0"
+   ]
+  },
+  {
+   "key": "RA.3",
+   "title": "Almost perfectoid algebras and the perfectoid Riemann extension theorem",
+   "description": "K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° ⊂ ϖK° and compatible p-power roots. Targets:\n\n- **The perfectoid coreflection** ♮ = ♯∘♭, right adjoint to the inclusion of perfectoid K-algebras into uniform Banach K-algebras (André A Proposition 3.3.3).\n- **Perfectoid root algebras**: K⟨T^{1/p^∞}⟩-algebras classify compatible root systems (Exemple 3.2.3(1)); A⟨g^{1/p^∞}⟩ is perfectoid with g = (g♭)♯ for A perfectoid (§3.6.1).\n- **Almost perfectoid K⟨T^{1/p^∞}⟩-algebras** (Définition 3.5.2, Proposition 3.5.4, Lemme 3.5.5, Proposition 3.5.6) in the almost setup (K°⟨T^{1/p^∞}⟩, T^{1/p^∞}K°°).\n- **Annular localisations** A{ϖ^j/g} of a perfectoid K⟨T^{1/p^∞}⟩-algebra are perfectoid with integral model (3.16) and tilt A♭{(ϖ♭)^j/g♭} (Proposition 3.6.1).\n- **Scholze's limit lemma** (Proposition 4.2.1): R → lim_j R[j] is an almost isomorphism in (K°[T^{1/p^∞}], (ϖT)^{1/p^∞}).\n- **The perfectoid Riemann extension theorem** (Théorème 4.2.2, Lemme 4.2.3): for A (almost) perfectoid and g ∈ A° a nonzerodivisor with compatible roots, lim_j A{ϖ^j/g}° = g^{-1/p^∞}A°, the complete integral closure of A° in A[1/g]; the **largest perfectoid subalgebra** of A[1/g] (Corollaire 4.2.4).\n- **Uniform limits versus perfectoid limits** (Proposition 4.3.1, Remarque 4.3.1), **lim¹-vanishing for nested systems** (Proposition 4.4.1) and the **nested-systems theorem** (Théorème 4.4.2): uniform limits of compatible systems of perfectoid A{ϖ^j/g}-algebras are almost perfectoid, and ulim is left quasi-inverse and right adjoint to localisation.",
+   "requires": [
+    "PerfectoidSpacesPartII:RA.2",
+    "PerfectoidSpaces:P0",
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P2",
+    "PerfectoidSpaces:P3",
+    "EnhancedDerivedSheaves:E2"
+   ]
+  },
+  {
+   "key": "RA.4",
+   "title": "The perfectoid Abhyankar lemma",
+   "description": "K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p^∞}V), A a perfectoid (or almost perfectoid) K⟨T^{1/p^∞}⟩-algebra and g = T·1. Targets:\n\n- **Annular envelopes of finite étale algebras** (André A Proposition 4.4.4): for B′ finite étale over A[1/g], the system B′ ⊗ A{ϖ^j/g} lies in the nested category, its localisations are recovered, and its uniform limit B satisfies B[1/g] ≅ B′.\n- **Integral almost étaleness** (Proposition 5.2.3): for a perfectoid A-algebra B with g a nonzerodivisor and B[1/g] finite étale over A[1/g], B°ᵃ/p^m is finite étale over A°ᵃ/p^m in (V, m) for every m, and B°[1/g] is almost finite étale over A°[1/g] in (K°, K°°).\n- **Ramified almost purity** (Théorème 5.2.1): equivalences between complete A°ᵃ-algebras finite étale modulo every p^m and finite étale after inverting g, almost perfectoid A-algebras finite étale after inverting g, and finite étale A[1/g]-algebras.\n- **The perfectoid Abhyankar lemma** (Théorème 0.3.1 with Proposition 5.3.1, in the corrected form of the packet): the largest perfectoid A-algebra B in B′, B[1/g] = B′, B° almost equal to the integral closures of A° and of g^{-1/p^∞}A° in B′, B°/p^m almost finite étale over A°/p^m, and almost surjectivity of the trace onto g^{-1/p^∞}A° when B′ is faithful.\n- **Almost perfectoid envelopes of reduced affinoid algebras** from a fixed finite Noether-normalisation and a chosen nonzero g making the localisation étale (§5.4).",
+   "requires": [
+    "PerfectoidSpacesPartII:RA.3",
+    "PerfectoidSpaces:P0",
+    "PerfectoidSpaces:P3",
+    "AdicSpacesPartII:R0"
+   ]
+  },
+  {
+   "key": "RA.5",
+   "title": "Purity and André’s flatness theorem for Kummer towers",
+   "description": "Fix a perfect field k of characteristic p, A = W(k)⟦T_1,…,T_n⟧ and 0 ≠ g ∈ A. Targets:\n\n- **Pure and almost pure maps** (André B Annexe A.1–A.2, A.4): universally injective module and ring maps, their stability properties, the finitely presented splitting criterion, and almost purity with Lemme A.4.1; almost faithfully flat maps are almost pure.\n- **The Krull detection lemma** (André B Lemme 1.1.2).\n- **The normalized two-index Kummer tower** (André B §§2.2–2.4): A_jk = K_j°⟦T^{1/p^j}⟧[g^{1/p^k}][1/p] with K_j = Frac W(k)(ζ_{p^j}), the integral closures A°_jk, their finite-stage Noetherian and complete models, relative integral closedness (allowing zero divisors), and relative complete integral closedness in the union, the unique spectral norm with unit ball A°_jk and the isometric transitions.\n- **Tubular description** (Lemme 2.5.1): Â°ᵃ_∞∞ is the completed colimit of the unit balls of the tubes Â_∞0⟨T^{1/p^∞}⟩{(T−g)/ϖ^i}, and Â_∞∞ is perfectoid.\n- **André's flatness theorem** (Théorème 2.5.2): Â°_∞∞ is almost faithfully flat over A°_∞0 in (K°_∞, K°°_∞), with the Noetherian-stage faithful flatness repaired through the complete flatness criterion.\n- **Purity of Kummer extensions** (Corollaire 2.6.1) for all j, k ∈ N ∪ {∞}, and **generic faithful flatness** (Remarque 2.6.1(1)).\n- **The flat integral model** S = (Â°_∞∞)_!! = A°_∞0 + K°°_∞Â°_∞∞ (§3.1), faithfully flat over A.\n- **Ramified almost flatness modulo p^m** (Théorème 3.2.1, Corollaire 3.2.2), the fragment of the perfectoid Abhyankar lemma that the direct summand theorem consumes.\n\nAndré's flatness lemma in Bhatt–Scholze's form (an absolutely integrally closed p-completely faithfully flat perfectoid cover) is PerfectoidQuotients Q3 and is not replanned here.",
+   "requires": [
+    "PerfectoidSpacesPartII:RA.2",
+    "PerfectoidSpacesPartII:RA.3",
+    "PerfectoidSpacesPartII:RA.4",
+    "PerfectoidSpaces:P0",
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P2",
+    "DerivedDeRhamCohomology:DD.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.1"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BHATT18",
+   "title": "On the direct summand conjecture and its derived variant",
+   "authors": "Bhargav Bhatt",
+   "edition": "arXiv:1608.08882v2 (11 November 2017); published in Inventiones Mathematicae 212 (2018), 297–317. The arXiv text was read; theorem numbers agree with the published version as cited by later work, pages are the preprint's.",
+   "url": "https://arxiv.org/pdf/1608.08882v2",
+   "sha256": "08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§1, Theorems 1.5–1.6 and Remarks 1.7–1.8, pp. 2–3",
+    "§1.4 Notation, p. 3",
+    "§2, Notation 2.1, Definition 2.2, Theorem 2.3, Remarks 2.4–2.7, pp. 4–5",
+    "§3, Notation 3.1, Definition 3.2, Example 3.3, Lemmas 3.4–3.6, pp. 5–6",
+    "§4, Notation 4.1, Theorem 4.2 and proof, Remarks 4.3–4.4, pp. 6–7",
+    "§5, Proposition 5.1 and the proof of Theorem 5.4 (as consumer), pp. 8–10"
+   ]
+  },
+  {
+   "id": "ANDRE18A",
+   "title": "Le lemme d’Abhyankar perfectoïde",
+   "authors": "Yves André",
+   "edition": "Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "url": "https://www.numdam.org/item/10.1007/s10240-017-0096-x.pdf",
+   "sha256": "087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Introduction §§0.3–0.7 and Théorème 0.3.1, pp. 1–4",
+    "§1.1–1.9 almost algebra and Galois extensions, pp. 4–10 (for the inputs owned by PerfectoidSpaces P0)",
+    "§2.3 closures, Sorite 2.3.1, Corollaires 2.3.2–2.3.3, Lemmes 2.3.4–2.3.5, pp. 15–21",
+    "§2.5.5, Lemme 2.5.3 and Remarque 2.5.6, pp. 26–27",
+    "§2.6 Lemmes 2.6.1–2.6.3 and formulas (2.21)–(2.24), pp. 27–30",
+    "§2.8 formulas (2.27)–(2.28), Lemmes 2.8.1–2.8.2, pp. 31–32",
+    "§2.9 uniform colimits, Lemme 2.9.1, Exemples 2.9.3, Proposition 2.9.2, Corollaire 2.9.3, pp. 32–34",
+    "§3.2 Lemme 3.2.2 and Exemples 3.2.3, pp. 35–37",
+    "§3.3.6 Proposition 3.3.3, p. 40",
+    "§3.4.3 Proposition 3.4.2, p. 42",
+    "§3.5.4 Définition 3.5.2, Lemme 3.5.3, Proposition 3.5.4, Remarques 3.5.5, Lemme 3.5.5, Proposition 3.5.6, pp. 46–48",
+    "§3.6 including Proposition 3.6.1 and formulas (3.12)–(3.16), pp. 48–50",
+    "§4 complete: Proposition 4.2.1, Théorème 4.2.2, Lemme 4.2.3, Corollaire 4.2.4, Exemple 4.2.6, Proposition 4.3.1, Remarque 4.3.1, Proposition 4.4.1, Théorème 4.4.2, Proposition 4.4.4, pp. 53–63",
+    "§5 complete: Théorème 5.2.1, Proposition 5.2.3, Remarque 5.2.1, Proposition 5.3.1, §5.4, pp. 63–69",
+    "Exemple 3.1.2(1), p. 35, for general perfect residue field",
+    "§3.5.3, pp. 45–46, for a nonsaturated perfectoid algebra"
+   ]
+  },
+  {
+   "id": "ANDRE18B",
+   "title": "La conjecture du facteur direct",
+   "authors": "Yves André",
+   "edition": "Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
+   "url": "https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf",
+   "sha256": "34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Introduction §§0.4–0.6, pp. 73–74",
+    "§1.1 Lemmes 1.1.1–1.1.2, pp. 75–76",
+    "§1.2 Weierstrass localisation, formulas (1)–(6), §§1.2.1–1.2.3, pp. 76–77",
+    "§2 complete: formulas (7)–(17), Lemme 2.5.1, Théorème 2.5.2, Corollaire 2.6.1, Remarques 2.6.1, pp. 78–83",
+    "§3 complete: Théorème 3.2.1, Corollaire 3.2.2, §§3.3–3.4, pp. 83–84",
+    "Annexe A: A.1–A.2 and A.4 (purity, almost purity, Lemmes A.1.1, A.2.1, A.4.1), pp. 89–92"
+   ]
+  },
+  {
+   "id": "GR03",
+   "title": "Almost ring theory",
+   "authors": "Ofer Gabber and Lorenzo Ramero",
+   "edition": "arXiv:math/0201175v3; cleared library copy",
+   "url": "https://arxiv.org/pdf/math/0201175v3",
+   "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Lemma 2.4.2 and its proof, pp. 22–23"
+   ]
+  },
+  {
+   "id": "ANDRE18B-V1",
+   "title": "La conjecture du facteur direct",
+   "authors": "Yves André",
+   "edition": "arXiv:1609.00345v1 (2016); used only for version comparison",
+   "url": "https://arxiv.org/pdf/1609.00345v1",
+   "sha256": "57a439666e580a6ef58229d706a33d4c4a93ff248e77bc627f2464cf593a41f0",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Lemme 1.1.2, p. 5, compared with the published statement",
+    "§5.5, p. 14, compared with published Annexe A.4, p. 92"
+   ]
+  }
+ ],
+ "status": "draft"
+}

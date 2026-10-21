@@ -1,0 +1,241 @@
+{
+  "id": "NonordinaryCMSpecialValues",
+  "title": "Ray-class distributions and general automorphic constructions, Part II: nonordinary CM special values",
+  "area": "iwasawa",
+  "parent": "AutomorphicPadicLFunctions",
+  "summary": "This roadmap supplies the nonordinary complex special values and normalized elliptic-unit reciprocity needed at an inert prime of an imaginary quadratic field. It proves the auxiliary-character, root-number, conductor, period and coefficient comparisons behind the local optimal-unit argument. Its main unit theorem specializes Finis at an inert valuation prime without assuming ordinary CM reduction. General elliptic units, Hecke characters and Lubin–Tate theory retain their existing owners.",
+  "readme": "The definitive reader is research/blueprint/readmes/NonordinaryCMSpecialValues.md. The six layers form the early special-value branch. AnticyclotomicLocalUnits consumes it; Rubin interpolation and the primitive Iwasawa coordinate belong to InertAnticyclotomicCMMainConjecture. The complete planning pass records explicit supplier and source obligations; no implementation or dependency closure is asserted.",
+  "prerequisites": [
+    "AutomorphicPadicLFunctions",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "CMAllPrimeMainConjectures",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "PadicHodgeRegulators",
+    "SelmerIwasawaCohomology",
+    "LubinTateFormalModulesAndQuasiCanonicalLifts",
+    "DiophantineApproximationAndTranscendence",
+    "ModularSymbolsPadicLFunctions",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+  ],
+  "stages": [
+    {
+      "key": "NCM.0",
+      "title": "CM periods and auxiliary characters",
+      "description": "Fix the actual CM Gross Q-curve, its good differential and a principal complex period lattice; compare the dual/Tate conventions with Kato. Compute the positive canonical root number when 2 splits. Choose a split auxiliary l with p∤(l−1), and define the finite anticyclotomic characters with separate order, layer and conductor indices.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "CMAllPrimeMainConjectures:CZ.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "PadicHodgeRegulators:L1",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+      ]
+    },
+    {
+      "key": "NCM.1",
+      "title": "Normalized elliptic-unit reciprocity",
+      "description": "Specialize the single shared elliptic-unit foundation to BKO’s chosen integral rank-one lattice and Betti vector. Prove the direct-character semilocal dual-exponential formula, its period-change law and the norm-compatible inverse-limit twist comparison. The unsmoothed fraction-module class is not silently treated as integral.",
+      "requires": [
+        "NonordinaryCMSpecialValues:NCM.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.5",
+        "CMAllPrimeMainConjectures:CZ.0",
+        "CMAllPrimeMainConjectures:CZ.1",
+        "PadicHodgeRegulators:L1",
+        "SelmerIwasawaCohomology:L0",
+        "SelmerIwasawaCohomology:L3"
+      ]
+    },
+    {
+      "key": "NCM.2",
+      "title": "Torsion towers and the CM Lubin–Tate comparison",
+      "description": "Form the actual torsion/ring-class composita. Prove disjointness by ramification and l∤h_K, complete splitting of p in prime-to-p ring-class fields, and the semilocal factorization used for character evaluation. Apply the existing Honda/Lubin–Tate theorem to the CM curve after calculating Frobenius as [−p].",
+      "requires": [
+        "NonordinaryCMSpecialValues:NCM.0",
+        "CMAllPrimeMainConjectures:CZ.0",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4",
+        "SelmerIwasawaCohomology:L0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+      ]
+    },
+    {
+      "key": "NCM.3",
+      "title": "Root numbers and forced central zeros",
+      "description": "Prove that auxiliary l-power twists preserve the root number. For nontrivial p-anticyclotomic characters of conductor p^c, prove W(φνχ)=(−1)^c W(φ), using the local Fröhlich–Queyrut root number of the anticyclotomic character at p. Deduce opposite-parity zero values through the actual Hecke functional equation, with the trivial character separate and without any signed local-unit freeness theorem.",
+      "requires": [
+        "NonordinaryCMSpecialValues:NCM.0",
+        "NonordinaryCMSpecialValues:NCM.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.5",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    },
+    {
+      "key": "NCM.4",
+      "title": "Finis’s inert-prime unit specialization",
+      "description": "Construct the Finis family λ=barφν/N and verify its self-duality, infinity type, central point and conductor. Switch Finis’s tower prime to l and his valuation prime to p; calculate all inert μ terms and b_p to be zero. Compare the same good period, including the p-unit discriminant factor, remove the ramified l factors, and obtain almost-all p-unit normalized values and a nontrivial witness.",
+      "requires": [
+        "NonordinaryCMSpecialValues:NCM.0",
+        "NonordinaryCMSpecialValues:NCM.2",
+        "NonordinaryCMSpecialValues:NCM.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.5",
+        "AutomorphicPadicLFunctions:L3h",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4"
+      ]
+    },
+    {
+      "key": "NCM.5",
+      "title": "General nonvanishing and coefficient descent",
+      "description": "Prove the arbitrary-class-number central nonvanishing input through Jia’s Galois-average argument: the fixed-support average with main term 2L(1,κ_R), invariance of the root number under Aut(C/K), Rohrlich’s lattice-point bound derived from the p-adic subspace theorem, and Galois stability of vanishing through the weight-two CM newform and the coefficient-embedding comparison of modular critical values. For canonical data prove that the coefficient field is unramified at p and that the normalized values lie in unramified fields, by Kato’s reciprocity at prime-to-p level; then compare scalar and tensor character kernels using total ramification of the Lubin–Tate levels. Export this restricted repair to the local-unit consumer while retaining the ramified-coefficient limitation.",
+      "requires": [
+        "NonordinaryCMSpecialValues:NCM.0",
+        "NonordinaryCMSpecialValues:NCM.1",
+        "NonordinaryCMSpecialValues:NCM.2",
+        "NonordinaryCMSpecialValues:NCM.3",
+        "NonordinaryCMSpecialValues:NCM.4",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.5",
+        "CMAllPrimeMainConjectures:CZ.5",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "DiophantineApproximationAndTranscendence:DT.2",
+        "ModularSymbolsPadicLFunctions:L4",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BKO21",
+      "title": "Rubin’s conjecture on local units in the anticyclotomic tower at inert primes",
+      "authors": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota",
+      "edition": "Annals of Mathematics 194 (2021), 943–966, published PDF with a repository cover sheet",
+      "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
+      "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3, pp.950–954, including every arrow of the projection and equations (3.1)–(3.10)",
+        "§2, pp.946–950, derivative conventions; §6, pp.962–964, consumer boundary"
+      ]
+    },
+    {
+      "id": "FINIS06",
+      "title": "Divisibility of anticyclotomic L-functions and theta functions with complex multiplication",
+      "authors": "Tobias Finis",
+      "edition": "Annals of Mathematics 163 (2006), 767–807, published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v163-n3-p02.pdf",
+      "sha256": "878674736df503052d7b0a58504740050016a3f7dd0a0048d66cd85eb4c40f82",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1, pp.767–770, especially Theorem 1.1(2) and the local invariants preceding it",
+        "§2, pp.771–774, theta and character conventions",
+        "Proof of Theorem 1.1, pp.793–795, and §4, Theorem 4.1 and its opening proof, pp.795–796; the general proof remains with the existing supplier"
+      ]
+    },
+    {
+      "id": "KATO04",
+      "title": "p-adic Hodge theory and values of zeta functions of modular forms",
+      "authors": "Kazuya Kato",
+      "edition": "Astérisque 295 (2004), 117–290, Numdam published PDF",
+      "url": "https://www.numdam.org/article/AST_2004__295__117_0.pdf",
+      "sha256": "3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§15.6.3–15.6.5, pp.254–256, fraction-module class and localization",
+        "§15.7–15.8 and Proposition 15.9 with its proof, pp.256–260, including (15.9.1)–(15.9.2)"
+      ]
+    },
+    {
+      "id": "RUBIN87",
+      "title": "Local units, elliptic units, Heegner points and elliptic curves",
+      "authors": "Karl Rubin",
+      "edition": "Inventiones Mathematicae 88 (1987), 405–422, published Göttingen scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0088/LOG_0026.pdf",
+      "sha256": "cda9c336ba0a3eb3017e531d352b9b6d9fa73f0f995c7897ef0e4504f34d3f07",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§2–3, pp.407–410, visually checked Lemma 3.1, Theorem 3.2 and Corollary 3.3; only their CM and sign adapters are used"
+      ]
+    },
+    {
+      "id": "ROHRLICH-NOTES",
+      "title": "Root numbers",
+      "authors": "David E. Rohrlich",
+      "edition": "Author-hosted PCMI lecture notes; internal printed page numbers, not the eventual proceedings pagination",
+      "url": "https://math.bu.edu/people/rohrlich/pcmi.pdf",
+      "sha256": "a24e8696660d86af194d3d49e2057686ba5bf093c782e11536f94ac1e1bf8acf",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lecture 1, Propositions 1.4–1.7, pp.14–15",
+        "Lecture 2 §5.1–§5.2, pp.34–36, including the full proof of Proposition 1.5 and equations (2.39)–(2.49)"
+      ]
+    },
+    {
+      "id": "GREENBERG83",
+      "title": "On the Birch and Swinnerton-Dyer conjecture",
+      "authors": "Ralph Greenberg",
+      "edition": "Inventiones Mathematicae 72 (1983), 241–265, published Göttingen scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0072/LOG_0016.pdf",
+      "sha256": "5933a238857a5ef29aa1013a430aa85c55fdd74245c7930bb123b4135c821e18",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proof of Proposition 8, pp.246–247, visually checked local root-number argument; its elliptic curve over Q scope is retained"
+      ]
+    },
+    {
+      "id": "AH05",
+      "title": "Anticyclotomic Iwasawa theory of CM elliptic curves II",
+      "authors": "Adebisi Agboola and Benjamin Howard",
+      "edition": "arXiv:math/0401124, author version dated 30 March 2005; published in Mathematical Research Letters 12 (2005), 611–621",
+      "url": "https://arxiv.org/pdf/math/0401124",
+      "sha256": "8bdbebfadd90e2f1c15f9ccc7320fbd9be25f2a0e5cc3f7cba9904c832a91b14",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Author pp.1–4, especially Proposition 3.1 and Remark 3.2 on p.4; bibliography p.10; the E/Q and class-number-one restrictions are checked"
+      ]
+    },
+    {
+      "id": "ROHRLICH84",
+      "title": "On L-functions of elliptic curves and anticyclotomic towers",
+      "authors": "David E. Rohrlich",
+      "edition": "Inventiones Mathematicae 75 (1984), 383–408, published Göttingen scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0075/LOG_0028.pdf",
+      "sha256": "7ece861469bf83fddff71c6f64f20ae84b416b532c51fd010f1b3e7c13b33539",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and unnumbered main theorem, pp.383–385, visually checked; its class-number-one hypothesis prevents using it alone for general Gross Q-curves"
+      ]
+    },
+    {
+      "id": "JIA24v1",
+      "title": "On L-functions of Hecke characters and anticyclotomic towers",
+      "authors": "Haijun Jia",
+      "edition": "arXiv:2412.05867v1, 8 December 2024, 21 pages; distinct from the paywalled Acta Arithmetica 224 (2026), 99–116 version of record",
+      "url": "https://arxiv.org/pdf/2412.05867v1",
+      "sha256": "591de1f863df7532569740b577f37b6fe5601f16750156536d62bd4844c27f86",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire v1, pp.1–21; Theorem 1 p.2; Property 1 pp.3–4; equations (2.20)–(2.29), pp.6–7; Propositions 1–2 pp.7–8; Main Lemma 2 pp.13–14; Lemma 3 pp.17–18; Proposition 5 pp.18–20; only the order-zero case is used"
+      ]
+    }
+  ],
+  "status": "draft"
+}

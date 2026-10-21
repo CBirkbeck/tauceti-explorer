@@ -1,0 +1,299 @@
+{
+  "id": "MotivesAndAlgebraicCyclesPartII",
+  "title": "Algebraic cycles, pure and mixed motives, Part II: Berkovich motives",
+  "area": "motives",
+  "parent": "MotivesAndAlgebraicCycles",
+  "summary": "This continuation constructs integral Berkovich motivic sheaves on Banach rings, including archimedean bases and small arc-stacks. It develops arc-descent, ball localization, transfers and cancellation, then relates rational Tate weights to K-theory and builds stable six operations, rigidity, algebraic étale comparison and nearby-cycle monodromy. Existing Banach, categorical, Jacobian and diamond infrastructure remains with its owners.",
+  "readme": "The definitive mathematical roadmap is research/blueprint/readmes/MotivesAndAlgebraicCyclesPartII.md. Work with integral étale coefficients and the Banach arc-site. The algebraic comparison is for algebraically closed discrete fields; the explicit monodromy model is over the algebraic closure of F_p. The plan imports existing Banach, enhanced categorical, Jacobian and diamond inputs. It records missing K-theory supplier contracts and makes no RigDA comparison claim.",
+  "prerequisites": [
+    "AdicCoefficientsAndComparisons",
+    "AnalyticStacks",
+    "DiamondEtaleCohomology",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks",
+    "EnhancedDerivedSheaves",
+    "GeneralAlgebraicKTheory",
+    "KTheoryFiniteLocalFields",
+    "MotivesAndAlgebraicCycles",
+    "MotivicEtaleKTheory",
+    "RefinedTraceMethods",
+    "SchemeKTheoryOperations",
+    "TropicalAndBerkovichArithmetic",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology"
+  ],
+  "stages": [
+    {
+      "key": "BM.0",
+      "title": "The Banach arc-site",
+      "description": "Construct the finite-surjectivity arc-site, small arc-stacks, its strictly totally disconnected basis and quasi-pro-étale maps. Prove repleteness and seminormed compact assembly; import the Banach and Berkovich toolkit.",
+      "requires": [
+        "DiamondsAndVStacks:D1",
+        "DiamondsAndVStacks:D2",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ]
+    },
+    {
+      "key": "BM.1",
+      "title": "Finitary sheaves and proper base change",
+      "description": "Construct finitary derived arc-sheaves and prove continuity, geometric-point and complex comparisons, finite-cohomological-dimension proper base change, finitary adjoints and excision.",
+      "requires": [
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "MotivesAndAlgebraicCyclesPartII:BM.0",
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
+      ]
+    },
+    {
+      "key": "BM.2",
+      "title": "Effective motives and ball localization",
+      "description": "Construct integral effective motivic sheaves, the explicit ball localization, free motivic sheaves and finitary left adjoints. Prove the forward torsion-invariance criterion; the rational truncation and complex-point calculations follow through the comparison layers.",
+      "requires": [
+        "DiamondEtaleCohomology:C6",
+        "DiamondEtaleCohomology:C8",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "MotivesAndAlgebraicCyclesPartII:BM.1",
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "TropicalAndBerkovichArithmetic:TB.1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
+      ]
+    },
+    {
+      "key": "BM.3",
+      "title": "Reduced units and the Tate object",
+      "description": "Construct one-units, the reduced multiplicative group and the Tate object. Prove ball invariance, the reduced free multiplicative-group calculation and compactness of the Tate object.",
+      "requires": [
+        "EnhancedDerivedSheaves:E0",
+        "MotivesAndAlgebraicCyclesPartII:BM.0",
+        "MotivesAndAlgebraicCyclesPartII:BM.1",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ]
+    },
+    {
+      "key": "BM.4",
+      "title": "Transfers and geometric-point comparisons",
+      "description": "Construct transfers, marked generalized Jacobians and the curve homotopies needed for explicit free motives. Prove torsion étale comparison, characteristic-prime invertibility, effective tilting and integral homotopy truncation.",
+      "requires": [
+        "AnalyticStacks:AS.1",
+        "DiamondEtaleCohomology:C2",
+        "DiamondsAndVStacks:D2",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:animation",
+        "MotivesAndAlgebraicCyclesPartII:BM.0",
+        "MotivesAndAlgebraicCyclesPartII:BM.1",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.3",
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "TropicalAndBerkovichArithmetic:TB.1",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ]
+    },
+    {
+      "key": "BM.5",
+      "title": "Cancellation over every small arc-stack",
+      "description": "Prove Tate cancellation over arbitrary small arc-stacks, including the explicit rational inverse and permutation coherence. Compute symmetric powers, projective cells and the rational classifying-space motive.",
+      "requires": [
+        "EnhancedDerivedSheaves:E5:animation",
+        "MotivesAndAlgebraicCyclesPartII:BM.1",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.3",
+        "MotivesAndAlgebraicCyclesPartII:BM.4",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ]
+    },
+    {
+      "key": "BM.6",
+      "title": "Motivic K-theory and Adams weights",
+      "description": "Construct spectral motivic K-theory and prove its rational classifying-space comparison and canonical direct-sum Adams splitting.",
+      "requires": [
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:animation",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.5",
+        "SchemeKTheoryOperations:S.6"
+      ]
+    },
+    {
+      "key": "BM.7",
+      "title": "The K-theory of one-units",
+      "description": "Construct and identify the one-unit K-cofibre under root hypotheses, prove its field E-infinity refinement, perfectoid and general analytic descent, and the smooth-completion rational comparison.",
+      "requires": [
+        "DiamondsAndVStacks:D1",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheory:K.5",
+        "GeneralAlgebraicKTheory:K.6",
+        "GeneralAlgebraicKTheory:K.7",
+        "KTheoryFiniteLocalFields:L.2",
+        "KTheoryFiniteLocalFields:L.5",
+        "MotivesAndAlgebraicCyclesPartII:BM.1",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.3",
+        "MotivesAndAlgebraicCyclesPartII:BM.4",
+        "MotivesAndAlgebraicCyclesPartII:BM.6",
+        "RefinedTraceMethods:RT.5",
+        "SchemeKTheoryOperations:S.3",
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ]
+    },
+    {
+      "key": "BM.8",
+      "title": "Stable motives and six operations",
+      "description": "Invert the Tate object coherently, prove projective-line duality and affine pushforward, and apply the abstract six-functor construction to small arc-stacks, including stable tilting.",
+      "requires": [
+        "AnalyticStacks:AS.0",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "MotivesAndAlgebraicCyclesPartII:BM.1",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.3",
+        "MotivesAndAlgebraicCyclesPartII:BM.4",
+        "MotivesAndAlgebraicCyclesPartII:BM.5",
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ]
+    },
+    {
+      "key": "BM.9",
+      "title": "Rigidity and mixed Tate sheaves",
+      "description": "Prove compact generation at nondiscrete geometric points, relative rigidity, quasi-pro-étale monadicity and weak categorical Künneth. Construct the pointwise Artin–Tate subcategory and prove arc-descent and rigidity.",
+      "requires": [
+        "AdicCoefficientsAndComparisons:L5",
+        "AnalyticStacks:AS.0",
+        "DiamondEtaleCohomology:C8",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "MotivesAndAlgebraicCyclesPartII:BM.0",
+        "MotivesAndAlgebraicCyclesPartII:BM.1",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.3",
+        "MotivesAndAlgebraicCyclesPartII:BM.8",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ]
+    },
+    {
+      "key": "BM.10",
+      "title": "Integral algebraic étale motives",
+      "description": "Construct the presentable stable infinity-category of integral algebraic étale motives over a field and its comparison maps. For algebraically closed discrete fields prove compact dualizable generation, rational K-theory and prime-to-characteristic completed mapping formulas, and equivalence with Berkovich motives. Normalize the rational mapping spectrum by K(X)_Q^(j)[−2j], with π_i=K_{i+2j}(X)_Q^(j).",
+      "requires": [
+        "AdicCoefficientsAndComparisons:L5",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivesAndAlgebraicCyclesPartII:BM.2",
+        "MotivesAndAlgebraicCyclesPartII:BM.3",
+        "MotivesAndAlgebraicCyclesPartII:BM.4",
+        "MotivesAndAlgebraicCyclesPartII:BM.6",
+        "MotivesAndAlgebraicCyclesPartII:BM.7",
+        "MotivesAndAlgebraicCyclesPartII:BM.8",
+        "MotivesAndAlgebraicCyclesPartII:BM.9",
+        "MotivicEtaleKTheory:M.5a",
+        "SchemeKTheoryOperations:S.3",
+        "SchemeKTheoryOperations:S.6"
+      ]
+    },
+    {
+      "key": "BM.11",
+      "title": "Nearby cycles and motivic monodromy",
+      "description": "Construct nearby cycles with compatible roots and prove descendability. Over the algebraic closure of a finite field construct the two motivic Galois stacks, identify their quasi-coherent categories and the locally nilpotent monodromy description over the completed Laurent-series algebraic closure.",
+      "requires": [
+        "AnalyticStacks:AS.1",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheory:K.7",
+        "KTheoryFiniteLocalFields:L.1",
+        "MotivesAndAlgebraicCyclesPartII:BM.10",
+        "MotivesAndAlgebraicCyclesPartII:BM.3",
+        "MotivesAndAlgebraicCyclesPartII:BM.6",
+        "MotivesAndAlgebraicCyclesPartII:BM.8",
+        "MotivesAndAlgebraicCyclesPartII:BM.9"
+      ]
+    },
+    {
+      "key": "BM.12",
+      "title": "The v-stack and overconvergent comparison",
+      "description": "Compare perfect characteristic-p Banach arc-stacks with partially proper v-stacks, track canonical compactification, and identify prime-to-p torsion motives with overconvergent étale sheaves and the finite-dimensional spatial-diamond categorical retract.",
+      "requires": [
+        "DiamondEtaleCohomology:C0",
+        "DiamondEtaleCohomology:C2",
+        "DiamondEtaleCohomology:C4",
+        "DiamondEtaleCohomology:C9",
+        "DiamondSixOperations:S2",
+        "DiamondsAndVStacks:D2",
+        "DiamondsAndVStacks:D4",
+        "DiamondsAndVStacks:D6",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "MotivesAndAlgebraicCyclesPartII:BM.0",
+        "MotivesAndAlgebraicCyclesPartII:BM.4",
+        "MotivesAndAlgebraicCyclesPartII:BM.9"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Scholze",
+      "title": "Berkovich motives",
+      "authors": "Peter Scholze",
+      "edition": "arXiv:2412.03382v3, 22 January 2026; JAMS 39 (2026), 697–764",
+      "url": "https://arxiv.org/abs/2412.03382v3",
+      "sha256": "440b4a82eca992d1b7edb5c608bd7de8c336cce7f623f290aa95002cab57d484",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Read all of the 65-page v3 preprint, including proofs and references, with focused rereading of §§4–11. Every Scholze page locator here uses the preprint internal pagination, not JAMS pagination. The published JAMS PDF was not compared."
+      ]
+    },
+    {
+      "id": "vanDerPut",
+      "title": "The class group of a one-dimensional affinoid space",
+      "authors": "Marius van der Put",
+      "edition": "Annales de l’Institut Fourier 30 (1980), no. 4, 155–164",
+      "url": "https://www.numdam.org/item/AIF_1980__30_4_155_0/",
+      "sha256": "583b012282ec23f8da13b9e430a088e48953983643dde6f8a23faf5f2e1b3aca",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 1.1, Lemma 1.2, Corollary 1.3 and proofs, pp. 155–161. The reduction-complement statement is distinguished from the additional analytic disc-boundary refinement."
+      ]
+    },
+    {
+      "id": "BLR",
+      "title": "Néron Models",
+      "authors": "Siegfried Bosch, Werner Lütkebohmert and Michel Raynaud",
+      "edition": "Ergebnisse der Mathematik und ihrer Grenzgebiete (3) 21, Springer, 1990",
+      "url": "https://doi.org/10.1007/978-3-642-51438-8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Maintainer-cleared copy read in place: §9.2, pp. 243–249, especially Proposition 3, Example 8 and Proposition 10. Used for proper Picard and nodal normalization background; not claimed as a direct reduced-modulus marked-Picard theorem. No source file or passage is included."
+      ]
+    },
+    {
+      "id": "CD",
+      "title": "Étale motives",
+      "authors": "Denis-Charles Cisinski and Frédéric Déglise",
+      "edition": "arXiv:1305.5361v4, 5 December 2014; published Compositio Math. 152 (2016), 556–666",
+      "url": "https://arxiv.org/abs/1305.5361v4",
+      "sha256": "46f6f656956cb1236b295e0339ac189adf64e3e8dd15169b3d993e64b786f8f4",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Read §2.2, pp. 25–27; §4.5, p. 41; §5.2, pp. 44–45; the comparison construction and Theorem 5.5.3/Corollary 5.5.5 with proofs, pp. 53–56. Locators use arXiv v4 internal pagination. The infinity-enhancement and transfer-free comparison are explicit supplier contracts, not attributed to an unstated theorem here."
+      ]
+    }
+  ],
+  "status": "draft"
+}

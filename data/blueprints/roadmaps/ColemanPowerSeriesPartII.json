@@ -1,0 +1,261 @@
+{
+  "id": "ColemanPowerSeriesPartII",
+  "title": "Coleman power series, local units, and cyclotomic-unit quotients, Part II: signed anticyclotomic local units",
+  "area": "iwasawa",
+  "parent": "ColemanPowerSeries",
+  "summary": "For p≥5 inert in the unramified quadratic local datum with π=−p, plan the two-variable norm-compatible unit module, inverse Tate twist, anticyclotomic quotient, Coleman character derivatives and signed formal Kummer duality. Construct the independent optimal plus unit and formal-CM optimal local-point system, then prove integral Rubin decomposition and nonzero correct-parity generator derivatives. General Lubin–Tate geometry, completed algebras, CM special values and finite-field counts are imported under precise contracts.",
+  "readme": "# Signed anticyclotomic local units\n\nThis continuation of **Coleman power series, local units, and cyclotomic-unit quotients** proves the integral local-unit decomposition at an inert prime. For every prime p≥5, with Φ/Q_p unramified quadratic, O its integer ring and π=−p, the target is a Λ-linear homeomorphism\n\nV_∞*,+ ⊕ V_∞*,− ≃ V_∞*,  where Λ=O[[G⁻]].\n\nEach sign is free of rank one. Every generator of a sign has nonzero character derivative at every character of that conductor parity. This is BKO Theorem2.1=Theorem5.8 and Corollary2.2 (pp.949,960), with the integral statement retained before extending coefficients or passing to a fraction field. The proof combines two independent constructions: an optimal plus unit with unit augmentation derivative, and a formal-CM optimal system of local points giving the free minus quotient.\n\nThe parent supplies its finite unit/norm and Coleman norm-operator mechanisms. The quadratic Lubin–Tate tower, its torsion, formal logarithm, scalar-Frobenius/Honda comparison, quasi-canonical lifts and lattice neighbours are supplied by LubinTateFormalModulesAndQuasiCanonicalLifts. This roadmap constructs the local-unit and modular-image applications of those inputs. It exports finite-layer signed formal points for the Selmer consumer. The later inert-anticyclotomic p-adic L-function and main conjecture consume this theorem; they are not inputs to the early CM unit construction.\n\n## Standing conventions\n\nFix the BKO local datum throughout. Φ/Q_p is unramified quadratic, O=O_Φ, π=−p, q=p², and F is a Lubin–Tate O-module for π with normalized logarithm λ′(0)=1. Choose a genuine basis v=(v_n) with [π]v_(n+1)=v_n. The imported fields are Φ_n=Φ(F[π^(n+1)]), the tame group Δ of orderp²−1, Θ_n=Φ_n^Δ, and Θ_∞ with Gal(Θ_∞/Φ)=Γ=G⁺×G⁻. The plus direction is cyclotomic and the minus direction is anticyclotomic. Ψ_n is the degreep^n layer of Ψ_∞=Θ_∞^(G⁺). The separate local ring-class tower Ψ′_s has degree(p+1)p^(s−1) for s≥1, with Ψ′_0=Φ and tame group Δ′ of orderp+1. Thus Ψ_n=(Ψ′_(n+1))^Δ′; Δ and Δ′ are different groups.\n\nLet κ be the Lubin–Tate character and ω its tame restriction. Completed group algebras use their compact topology and are written Λ₂=O[[Γ]], Λ=O[[G⁻]]. The inverse Tate twist is Hom_O(T_πF,−), with contragredient action; a star does not mean Pontryagin dual. Pontryagin duals are explicitly Hom_O^cont(−,Φ/O). Principal-unit groups are written additively using their continuous p-adic module structure; the Coleman series still interpolates multiplicative unit sequences. The extension from such sequences to tensor coefficients is made on logarithmic derivatives, not by choosing fictitious tensor-valued units.\n\nFinite characters are continuous and take values in a finite extension of Φ. Conductors, rather than orders, determine signs: c(1)=0, and a nontrivial exact-orderp^n character of G⁻ has conductor exponentn+1. The trivial character and exact-orderp characters are plus; exact-orderp² characters are minus. V_∞*,ε kills derivatives of opposite parity, whereas A^ε kills logarithms of the same parity. Character derivatives have inverse-character covariance; character logarithms have direct-character covariance. δ is the integral augmentation derivative, while δ₁=(1+p⁻¹)δ is in general Φ-valued. Arithmetic local Artin reciprocity and the genuine π-adic basis are used in the Kummer formula.\n\nFormal-group points mean actual maximal-ideal points with the formal addition law. Elliptic points are actual points of the associated curve. The existing parameter-to-point homomorphism is used only in its stated setting: the adic completion of a height-one prime of a Dedekind domain, with the base-changed Weierstrass curve elliptic. AU.6 supplies number-field completion presentations before applying it. The scalar-Frobenius sign in the imported Honda theorem is q-Frobenius[s p] ↔ parameter s p; trace−2p gives parameter−p.\n\n## Ownership and proof order\n\n| Layer | Mathematical output |\n|---|---|\n| AU.0 | Lubin–Tate local units and the inverse twist |\n| AU.1 | Coleman interpolation and character derivatives |\n| AU.2 | Formal Kummer duality |\n| AU.3 | Signed characters, formal points and annihilators |\n| AU.4 | An optimal signed unit |\n| AU.5 | An unramified formal CM point |\n| AU.6 | Completion models and modular quasi-canonical points |\n| AU.7 | Optimal local points and exact traces |\n| AU.8 | Minus-point control and quotient freeness |\n| AU.9 | Integral decomposition and nonvanishing |\n\nAU.0–AU.3 provide the unit module, derivatives and duality. AU.4 gives the optimal plus unit through independent CM special values. AU.5–AU.7 give the primitive formal-CM point and trace system; AU.8 gives the minus quotient and kernel. AU.9 combines them by augmentation and compact Nakayama. In particular, signed freeness and the final direct sum are not assumptions of the optimal-unit proof or of character-derivative nonvanishing.\n\nFor the independent auxiliary split prime ℓ, write conductor(ν)=ℓ^m; then a nontrivial ℓ-power character has orderℓ^(m−1) and factors through L_(m−1), where L_j has degreeℓ^j. The localization tower and z_(fℓ^m) use this conductor convention throughout.\n\nThe alias AnticyclotomicLocalUnits in the accepted extraction is this ColemanPowerSeriesPartII design. A second design of the same Part II from the same route, AnticyclotomicLocalUnits (nine layers ALU.0–ALU.8), was also written; the merge proposal in the packet asks the orchestrator to keep one of the two ids. NonordinaryCMSpecialValues belongs to grouped AutomorphicPadicLFunctionsPartII design #3350; EllipticCurvesPartIISupersingularFiniteFields belongs to grouped EllipticCurvesPartII design #3398. Their stage ids are not present in this checkout. The requests below use existing parent stages as explicit ownership anchors, and the restructure proposals require rewiring to the exact continuation nodes when those designs exist. In particular ordinary Katz L3 is not asserted to supply an inert nonordinary CM theorem. The early zeta-class/Finis result must precede the downstream Rubin p-adic L-function.\n\n## Library baseline and reuse\n\nThe build baseline is Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCetif790474821cf4256814db967cb154e7af3d0c369. The reviewed parent audit was checked: finite algebra norms, formal differentiation and finite local-unit pieces do not already implement the BKO tower or its signed decomposition. The pinned declarations actually reused are:\n\n- **tauceti:TauCeti.unitFiltration**, TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean: The subgroup of K× consisting of units congruent to1 modulo the i-th power of the maximal ideal; i=1 is the actual principal-unit group. Definition read at f790474, lines88–90; unitFiltration_succ membership characterization read.\n- **mathlib:PowerSeries.derivative**, Mathlib/RingTheory/PowerSeries/Derivative.lean: Formal derivative as a derivation; coefficient n is coefficient n+1 multiplied by n+1. Supplies differentiation, not a Coleman map. Definition and coeff_derivative read at082e2d3, lines60–75.\n- **tauceti:WeierstrassCurve.formalPointHomAdicCompletion**, TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean: Additive map from FormalGroupPoint C at the maximal ideal of a height-one Dedekind adic completion into actual affine elliptic points over that completion; requires the base-changed curve elliptic. Full variable context and definition read atf790474, lines227–270. No arbitrary-local-field generalization is claimed.\n- **tauceti:WeierstrassCurve.formalPointHomAdicCompletion_injective**, TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean: Injectivity of the preceding additive map with the same Dedekind completion and ellipticity hypotheses. Statement read atf790474, lines283–287.\n- **tauceti:WeierstrassCurve.range_formalPointHomAdicCompletion**, TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean: The image is the set of elliptic points P with P=0 or 1<Valued.v(xCoord P), in the same height-one completion context. Statement and variable context read atf790474, lines140–164.\n\nCurrent Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 already implements completedGroupAlgebra, its compact-module action and the ℤ_p procyclic power-series coordinate. These are reused through the measures/Iwasawa supplier. They are not claimed to exist at the older build pin. Only the O-coefficient and twisting comparisons are requested. Current TauCetiRoadmap0d144d044dacebca17b654695b6f1ad58f159b27 and the post-snapshot roadmap directories were checked for overlap, including LocalGaloisGroups and ProfiniteArithmetic. No new general completed group algebra, profinite arithmetic or Lubin–Tate foundation is planned here.\n\nThe suggested Lean file contains only light definitions and conditional algebraic milestones over real pinned carriers. Heavy unit/tower/Kummer carriers are README targets. Its completion-map examples retain the Dedekind-completion hypotheses. Elaboration is a signature check, not an implementation claim.\n\n## Source discipline and open closure\n\nThe complete published BKO paper and Rubin1987 article were read. Hazewinkel’s original norm proof and Wintenberger’s local-unit freeness proof were read. The source records give versions, public URLs, hashes and sections actually used. All statements and proof outlines below are in the roadmap’s own words. Wiles’s original height-two reciprocity proof was not obtained; the Kato1993 chapter cited for its normalization is not cleared and was not read. Cox and Narkiewicz are not used as read sources. Abbes–Ullmo (Compositio 1996, Théorème A) is read for the Manin-constant p-unit statement requested in R6, and Fesenko's paper on deeply ramified extensions is read as a lead for G1. The auxiliary quadratic-field estimate instead uses an explicit character-series bound and a finite reduced-form certificate, with the analytic residue and ideal-class comparisons imported under named contracts.\n\nThis is a complete target-level planning pass, with all ten layers planned. It is not proof-closed: G1 is the ramified finite-base norm estimate, G2 is the original reciprocity proof/dual-exponential normalization, G3 and G4 are the supersingular finite-field counts and the early nonordinary CM inputs, which no published stage owns yet, and precise external requests remain. Existing supplier packets can have their own proof gaps, notably canonical Gross-character existence. Those gaps are inherited, not repaired by an ownership citation. Every declaration below remains unchecked for implementation.\n\n",
+  "prerequisites": [
+    "ColemanPowerSeries",
+    "ArithmeticGaloisDuality",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicPadicLFunctions",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "EllipticCurveModularity",
+    "LubinTateFormalModulesAndQuasiCanonicalLifts",
+    "ModularCurvesPartII",
+    "PadicHodgeRegulators",
+    "PadicMeasuresIwasawaAlgebras",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/ModularCurves"
+  ],
+  "stages": [
+    {
+      "key": "AU.0",
+      "title": "Lubin–Tate local units and the inverse twist",
+      "description": "Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order, construct its norm-compatible principal units and inverse Tate twist, and specialize the cyclotomic-direction action. Prove U_∞ free of Λ₂-rank two and V_∞* free of Λ-rank two. Completed group algebras and their topology are imported, not reconstructed. Targets: Anticyclotomic conductor parity; Norm-compatible principal units; Inverse Tate twist; Anticyclotomic local-unit quotient; Two-variable local-unit freeness. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8",
+        "ColemanPowerSeries:L0",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ]
+    },
+    {
+      "key": "AU.1",
+      "title": "Coleman interpolation and character derivatives",
+      "description": "Construct the Lubin–Tate Coleman series from the imported norm-operator mechanism. Define δ, δ_n and δ_χ with π=−p, prove invariance under a change of Tate basis and inverse-character covariance, then descend to V_∞*. Separate the augmentation δ from the normalized trivial-character derivative δ₁. Targets: Lubin–Tate Coleman series; Coates–Wiles derivatives; Twisted derivative covariance; Character derivatives; Anticyclotomic derivative descent; Trivial-character normalization. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "ColemanPowerSeriesPartII:AU.0",
+        "ColemanPowerSeries:L1",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.1",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9"
+      ]
+    },
+    {
+      "key": "AU.2",
+      "title": "Formal Kummer duality",
+      "description": "Apply height-two norm vanishing and elliptic Tate duality to the actual formal module. Construct the full and anticyclotomic perfect Kummer pairings, retaining the inverse/direct limits and the vanishing needed for descent. State both Wiles’s trace formula and the distinct dual-exponential comparison. Targets: Formal Kummer exact sequence; Height-two universal norm vanishing; Formal-to-elliptic Tate duality comparison; Full-tower Kummer pairing; Anticyclotomic Kummer duality; Wiles’s explicit Kummer formula; Wiles’s dual-exponential comparison. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9",
+        "ArithmeticGaloisDuality:R02.1",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "ArithmeticGaloisDuality:R02.4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "ColemanPowerSeriesPartII:AU.0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+        "ArithmeticGaloisDuality:R02.2",
+        "ColemanPowerSeriesPartII:AU.1",
+        "PadicHodgeRegulators:L1"
+      ]
+    },
+    {
+      "key": "AU.3",
+      "title": "Signed characters, formal points and annihilators",
+      "description": "Define character logarithms, finite and infinite signed formal points and opposite-parity signed local units. Prove the divisible-point sum, infinite O-rank, signed annihilator equality, zero intersection and Λ-rank upper bounds. These precede every use of signed freeness. Targets: Character logarithms; Signed formal points; Signed anticyclotomic units; Divisible signed-point sum; Infinite rank of both point signs; Signed annihilator theorem; Signed intersection and rank bounds. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "ColemanPowerSeriesPartII:AU.0",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8",
+        "ColemanPowerSeriesPartII:AU.1",
+        "ColemanPowerSeriesPartII:AU.2",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ]
+    },
+    {
+      "key": "AU.4",
+      "title": "An optimal signed unit",
+      "description": "Choose the auxiliary quadratic field and import the early canonical CM character, elliptic zeta classes, functional equation and Finis unit-value theorem. Construct the exact localized and projected element ξ_ν, compute δ and δ_χ, and descend a unit derivative to ξ*∈V_∞*,+. The early analytic supplier must be independent of Rubin’s decomposition and final p-adic L-function. Targets: Auxiliary imaginary quadratic field; Early CM special-value input; Localized auxiliary elliptic unit; Auxiliary-unit derivative formulas; Auxiliary-unit sign; Optimal signed unit. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "AutomorphicPadicLFunctions:L3",
+        "ColemanPowerSeriesPartII:AU.0",
+        "ColemanPowerSeriesPartII:AU.2",
+        "ArithmeticGaloisDuality:R02.1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "ColemanPowerSeriesPartII:AU.1",
+        "ColemanPowerSeriesPartII:AU.3",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ]
+    },
+    {
+      "key": "AU.5",
+      "title": "An unramified formal CM point",
+      "description": "Import general supersingular finite-field arithmetic and modular parametrizations. Prove the three BKO ramification/counting applications, the prime-to-p fine-level comparison, and the primitive formal CM point. Scalar Frobenius and Honda theory remain owned by LT.4. Handle p=47 with the exceptional j count. Targets: Auxiliary supersingular rational elliptic curve; Optimal parametrization and separable reduction; Ramification bound; Prime-to-p modular j-fibres; Nonelliptic supersingular count; Exceptional supersingular count; Fine-level unramified lift; Primitive formal CM point. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "EllipticCurveModularity:R29.5",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4",
+        "ModularCurvesPartII:R13.4",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "tauceti:TauCetiRoadmap/ModularCurves#9c-axiomatic-regularity-of-quotients",
+        "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+        "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0"
+      ]
+    },
+    {
+      "key": "AU.6",
+      "title": "Completion models and modular quasi-canonical points",
+      "description": "Present Φ and the local ring-class tower as selected Dedekind completions so the pinned formal point map applies. Import the marked quasi-canonical lattice quotients and field identifications from LT.5/LT.7/LT.8; add prime-to-p modular level and prove that their parametrized images lie in the target elliptic formal group. Targets: Dedekind completion models; Modular quasi-canonical points; Formal image of the modular points. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "ColemanPowerSeriesPartII:AU.4",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+        "ColemanPowerSeriesPartII:AU.5",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.5",
+        "ModularCurvesPartII:R13.4",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9"
+      ]
+    },
+    {
+      "key": "AU.7",
+      "title": "Optimal local points and exact traces",
+      "description": "Define y_s as the Δ′-formal trace of x_(s+1), and y=(p+1)Q. Prove primitivity, the Hecke/lattice comparison, y_0=0 and Tr_(Ψ_1/Φ)y_1=−y, and the recurrence Tr_(Ψ_(s+1)/Ψ_s)y_(s+1)=−y_(s−1) for s≥1. All sums use the formal group law. Targets: Optimal local point system; Primitive base point; Hecke relation on marked lattice neighbours; Optimal-point trace identities. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "ColemanPowerSeriesPartII:AU.6",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9",
+        "ColemanPowerSeriesPartII:AU.5",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7",
+        "ModularCurvesPartII:R14.1",
+        "ModularCurvesPartII:R14.5",
+        "EllipticCurveModularity:R29.5"
+      ]
+    },
+    {
+      "key": "AU.8",
+      "title": "Minus-point control and quotient freeness",
+      "description": "Use the primitive trace system to prove the signed minus invariant theorem by cyclic Herbrand quotient and cohomology control, then apply Kummer duality and compact Nakayama to prove V_∞*/V_∞*,− and V_∞*,− free of rank one. Neither conclusion uses the optimal signed unit. Targets: Minus-point invariant theorem; Minus quotient freeness; Minus kernel freeness. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "ColemanPowerSeriesPartII:AU.7",
+        "ColemanPowerSeriesPartII:AU.3",
+        "ArithmeticGaloisDuality:R02.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "ColemanPowerSeriesPartII:AU.0",
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ]
+    },
+    {
+      "key": "AU.9",
+      "title": "Integral decomposition and nonvanishing",
+      "description": "Use δ at augmentation and the optimal plus unit to generate the rank-one minus quotient. Prove Rubin’s integral direct-sum theorem and both signed freeness statements, then the correct-parity nonvanishing for every signed generator. Export the finite signed point convention and retain the earlier numerical range only as a historical regression. Targets: Augmentation-unit generation; Rubin’s integral decomposition; Signed local-unit freeness; Nonzero character derivative on the full module; Correct-parity generator nonvanishing; Historical numerical range regression. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.",
+      "requires": [
+        "ColemanPowerSeriesPartII:AU.4",
+        "ColemanPowerSeriesPartII:AU.8",
+        "ColemanPowerSeriesPartII:AU.1",
+        "ColemanPowerSeriesPartII:AU.3",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "ColemanPowerSeriesPartII:AU.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BKO2021",
+      "title": "Rubin’s conjecture on local units in the anticyclotomic tower at inert primes",
+      "authors": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota",
+      "edition": "Annals of Mathematics194(2021),943–966; published version",
+      "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Entire paper §§1–6, pp.943–966. This roadmap uses §§2–5, especially Theorems2.1,3.4,5.5,5.8, Corollaries2.2,5.6 and equations(3.4)–(3.10). Section6 is read for the export boundary, not planned here."
+      ],
+      "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e"
+    },
+    {
+      "id": "Rubin1987",
+      "title": "Local units, elliptic units, Heegner points and elliptic curves",
+      "authors": "Karl Rubin",
+      "edition": "Inventiones Mathematicae88(1987),405–422",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0088/LOG_0026.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Entire article, pp.405–422, read from page images. In particular Proposition1.1, §§2,4–5, Propositions6.1,7.4, Theorem8.4 and Lemma10.1. The optimal system here is BKO’s formal-CM construction rather than Rubin’s global Heegner construction."
+      ],
+      "sha256": "cda9c336ba0a3eb3017e531d352b9b6d9fa73f0f995c7897ef0e4504f34d3f07"
+    },
+    {
+      "id": "Hazewinkel1977",
+      "title": "On norm maps for one dimensional formal groups III",
+      "authors": "Michiel Hazewinkel",
+      "edition": "Duke Mathematical Journal44(1977),305–314",
+      "url": "https://ir.cwi.nl/pub/10014/10014D.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Entire article §§1–4, pp.305–314, including Theorem1.3, formal norm estimates and proof. Its absolute-unramified-base hypothesis is retained; see G1."
+      ],
+      "sha256": "5bbb94e03c8cbcb82b83bd1dbf28f6a0300a50f18b570668799190f4f268a3c8"
+    },
+    {
+      "id": "Wintenberger1980",
+      "title": "Structure galoisienne de limites projectives d’unités locales",
+      "authors": "Jean-Pierre Wintenberger",
+      "edition": "Compositio Mathematica42(1980 archive volume; printed heading1981),89–103",
+      "url": "https://www.numdam.org/item/CM_1980__42_1_89_0.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§4 theorem, pp.91–92, and its proof §§5.1–5.5.3, pp.92–98; remainder inspected for scope. Nontrivial, noncyclotomic tame components are the freeness input."
+      ],
+      "sha256": "416f7390166f381296df594ed2050300aed0f3ecff6415bd8740a2bcc4b2d94f"
+    },
+    {
+      "id": "LIB",
+      "title": "Pinned declarations and current roadmap ownership",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCetif790474821cf4256814db967cb154e7af3d0c369; roadmap0d144d044dacebca17b654695b6f1ad58f159b27",
+      "url": "https://github.com/TauCetiProject/TauCeti/tree/f790474821cf4256814db967cb154e7af3d0c369",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Read pinned unit filtration, power-series derivative and formal-point completion homomorphism/injectivity/range. Read current LocalFieldsRamification, EllipticCurves, LocalGaloisGroups, ProfiniteArithmetic and parent Coleman roadmap documents; searched the nine post-snapshot roadmap directories and current library. Read current completed group algebra Basic, compact-module action and procyclic power-series coordinate statements."
+      ]
+    },
+    {
+      "id": "AbbesUllmo1996",
+      "title": "À propos de la conjecture de Manin pour les courbes elliptiques modulaires",
+      "authors": "Ahmed Abbes and Emmanuel Ullmo",
+      "edition": "Compositio Mathematica 103 (1996), 269–286; Numdam archive copy",
+      "url": "http://www.numdam.org/item/CM_1996__103_3_269_0.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Introduction and Théorème A, p.269; location of the proof, pp.276–279, checked for scope"
+      ],
+      "sha256": "73fd473d7822b90b4cc4bebbd2b8ca2a05547b6a13e2c3f99210ef8f2ce83cf2"
+    }
+  ],
+  "status": "draft"
+}

@@ -1,0 +1,270 @@
+{
+  "id": "HeckeStacksAndLocalShtukasPartII",
+  "title": "Hecke correspondences and local shtuka cohomology, Part II",
+  "area": "langlands",
+  "parent": "HeckeStacksAndLocalShtukas",
+  "summary": "This continuation plans affine Deligne–Lusztig nonemptiness and dimension, beginning with classical and perfect spherical loci and ending with the shrunken-chamber theorem through cordial reduction. It imports generic root data, Newton invariants and flag geometry from their existing owners. Component theorems, integral specialization and the Kottwitz trace formula form separate proposed continuations. Explicit proof gates preserve the differences between equal characteristic, perfect spherical geometry and the general local-field statement.",
+  "readme": "This continuation plans affine Deligne–Lusztig nonemptiness and dimension, beginning with classical and perfect spherical loci and ending with the shrunken-chamber theorem through cordial reduction. It imports generic root data, Newton invariants and flag geometry from their existing owners. Component theorems, integral specialization and the Kottwitz trace formula form separate proposed continuations. Explicit proof gates preserve the differences between equal characteristic, perfect spherical geometry and the general local-field statement. Full targets, hypotheses, checks, API tests, source reading and scope gates are in the accompanying reader document. Layers HSD0–HSD8 plan loci, reduction, superbasic charts, spherical dimensions, cordiality, double-flat data, correspondences, obstructions and the shrunken theorem. Independent component, integral-model and trace directions are proposed separately. Conventions: arithmetic Frobenius, opposite base chamber and translations by −λ; integral κ and rational Newton dominance are separate. Read He21 §§2–6 and Zhu17 §3.1 with the source corrections in the reader. The generic root and cocenter extensions and geometric transfers remain explicit gates.",
+  "prerequisites": [
+    "HeckeStacksAndLocalShtukas",
+    "ReductiveGroupsPartII",
+    "BunGAndNewtonStrata",
+    "GeometricSatakeAndFusion",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "HSD0",
+      "title": "Affine Deligne–Lusztig loci and conventions",
+      "description": "Own the point condition, exact/bounded spherical loci, geometric realization, transport, virtual dimension and shrunkenness. Import the existing normal form, η, affine flag carrier, Newton invariants and split-rank defect. Targets: Affine Deligne–Lusztig points, Virtual dimension, Shrunken Weyl chambers, Exact and bounded spherical loci, Geometric realization and dimension of ADLVs, Change of framing, centralizers and Kottwitz obstruction.",
+      "requires": []
+    },
+    {
+      "key": "HSD1",
+      "title": "Reduction and class-polynomial dimensions",
+      "description": "Reduce to minimal twisted length; calculate terminal loci; prove the geometric two-branch recurrence, dimension=degree and the dimension-advantage relation. Generic Red-Min and cocenter algebra stay with suppliers. Targets: Reduction to minimal twisted length, Minimal-length affine Deligne–Lusztig loci, Deligne–Lusztig reduction and dimension recurrence, Class polynomials detect dimension and nonemptiness, Universal dimension advantage.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD0"
+      ]
+    },
+    {
+      "key": "HSD2",
+      "title": "Superbasic lattice charts",
+      "description": "Plan normalized semi-modules, extended semi-modules, their lattice strata and charts, and the superbasic GL dimension formula with a central-shift comparison. Targets: Normalized semi-modules and their types, Extended semi-modules, Superbasic GLₕ lattice stratification, Dimensions of superbasic lattice charts, The superbasic GLₕ dimension formula.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD0"
+      ]
+    },
+    {
+      "key": "HSD3",
+      "title": "Spherical dimensions and the virtual upper bound",
+      "description": "Use unipotent loop geometry, Levi and componentwise adjoint reduction, superbasic classification, ordered norm geometry and exact-stratum convolution to prove the spherical/iterated formulas and the flag upper bound. Targets: Unipotent loop geometry in the Levi reduction, Iterated spherical affine Deligne–Lusztig loci, Spherical Levi fibres and dimension reduction, Unramified norm and iterated-locus comparison, Convolution bounds on exact endpoint strata, Componentwise adjoint reduction, Reduction of superbasic adjoint factors, Dimension of spherical and iterated loci, The virtual dimension upper bound.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD0",
+        "HeckeStacksAndLocalShtukasPartII:HSD1",
+        "HeckeStacksAndLocalShtukasPartII:HSD2"
+      ]
+    },
+    {
+      "key": "HSD4",
+      "title": "Generic Newton classes and cordiality",
+      "description": "Construct the greatest cell class, compute its dimension, define cordiality and prove its interval consequence and mutual-advantage invariance. Identify the generic class of x t^λ and use the already owned cordial translation family. Targets: Spherical nonemptiness and Newton upper bounds, Generic Newton class of an Iwahori cell, Dimension at the generic class, Cordial elements, Cordiality under mutual dimension advantage, Cordial saturation and dimensions, Generic class of x t^λ and the dominant family.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD0",
+        "HeckeStacksAndLocalShtukasPartII:HSD1",
+        "HeckeStacksAndLocalShtukasPartII:HSD3"
+      ]
+    },
+    {
+      "key": "HSD5",
+      "title": "Double-flat bounds and factorization",
+      "description": "Import generic dominance subtraction and Demazure combinatorics; construct double-flat data in P∨ and the parabolic factors and invariant ledger. Targets: Double-flat coweight, Parabolic factorization data and invariant ledger.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD0"
+      ]
+    },
+    {
+      "key": "HSD6",
+      "title": "The two geometric correspondences",
+      "description": "Import generic flag incidence spaces and ordinary/Demazure fibre bounds from GeometricSatakeAndFusion. Construct their Frobenius-graph pullbacks and the five chain spaces, prove bounded-model dimension inequalities, and deduce cordial reduction. Targets: Frobenius endpoint correspondences, The two chain-space comparisons, Dimension inequality for the chain spaces, Reduction from a shrunken alcove to a cordial family.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD0",
+        "HeckeStacksAndLocalShtukasPartII:HSD1",
+        "HeckeStacksAndLocalShtukasPartII:HSD5"
+      ]
+    },
+    {
+      "key": "HSD7",
+      "title": "Levi obstructions and basic seeds",
+      "description": "Plan P-alcoves, the all-Levi-classes Kottwitz obstruction, proper-support emptiness, the non-shrunken basic seed and the interval argument. Delimit proper-Levi continuation. Targets: Levi-compatible P-alcove elements, The Levi Kottwitz obstruction, Proper finite support forces emptiness, Basic nonemptiness seed without shrunkenness, Scope of the proper-Levi continuation, From a basic seed to the required Newton class.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD1",
+        "HeckeStacksAndLocalShtukasPartII:HSD4",
+        "HeckeStacksAndLocalShtukasPartII:HSD6"
+      ]
+    },
+    {
+      "key": "HSD8",
+      "title": "The shrunken nonemptiness and dimension theorem",
+      "description": "Assemble the exact He21 criterion and dimension formula; retain both Newton hypotheses and all scope gates. Deduce the basic specialization and the independent-shrunkenness large-translation range. Targets: Nonemptiness for shrunken affine Deligne–Lusztig varieties, Virtual dimension in the shrunken range, The basic specialization, A usable large-translation range.",
+      "requires": [
+        "HeckeStacksAndLocalShtukasPartII:HSD3",
+        "HeckeStacksAndLocalShtukasPartII:HSD7"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "he21",
+      "title": "Cordial elements and dimensions of affine Deligne–Lusztig varieties",
+      "authors": "Xuhua He",
+      "edition": "Forum of Mathematics, Pi 9 (2021), e9; published 15-page article",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-deligne-lusztig-varieties.pdf",
+      "readSections": [
+        "§§1–6, pp. 1–14; closure notation on p. 7 checked on the page image."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "d53843f0c8875cf1e14173ad271e025bd30f177fe319a7d83926629d454683dd"
+    },
+    {
+      "id": "zhu17",
+      "title": "Affine Grassmannians and the geometric Satake in mixed characteristic",
+      "authors": "Xinwen Zhu",
+      "edition": "Annals of Mathematics 185 (2017), 403–492; published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+      "readSections": [
+        "§3.1, pp. 455–460; Lemma 1.22 and Proposition 1.23, p. 428; Proposition 2.3, p. 432; Definition A.13, Proposition A.15 and Corollary A.16, pp. 471–472.",
+        "Proposition A.17 and proof, pp. 472–473; Appendix A.3.4, pp. 480–481, trace input and its hypotheses."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7"
+    },
+    {
+      "id": "he14",
+      "title": "Geometric and homological properties of affine Deligne–Lusztig varieties",
+      "authors": "Xuhua He",
+      "edition": "Annals of Mathematics 179 (2014), 367–404; published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n1-p06-p.pdf",
+      "readSections": [
+        "§§1–2, pp. 371–376; Theorem 4.8 and proof, pp. 382–383; §6, pp. 387–388; Theorem 7.1 and proof, pp. 389–390; §§10–12, pp. 395–402."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "372c913d305f2b9d5f285cfe830d00f5ad3fd98242e31a54991fbf2474b72cbf"
+    },
+    {
+      "id": "he15",
+      "title": "Hecke algebras and p-adic groups",
+      "authors": "Xuhua He",
+      "edition": "arXiv:1511.01386v3, 21 November 2016; survey corresponding to Current Developments in Mathematics 2015",
+      "url": "https://arxiv.org/pdf/1511.01386",
+      "readSections": [
+        "Theorem 2.23, PDF p. 34; §2.9.4 and Theorem 2.27, pp. 36–37; Theorem 2.30, p. 38."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc"
+    },
+    {
+      "id": "gh10",
+      "title": "Dimensions of affine Deligne–Lusztig varieties in affine flag varieties",
+      "authors": "Ulrich Görtz and Xuhua He",
+      "edition": "arXiv:1006.2291v1; Documenta Mathematica 15 (2010), 1009–1028",
+      "url": "https://arxiv.org/pdf/1006.2291",
+      "readSections": [
+        "§§2.4–2.5, PDF pp. 6–9; Proposition 2.5.2 and Corollary 2.5.3."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "8b1261cfaf3e37dc4b10ee643ad2836c741daf5cef0347b0268a9d7ee17883c8"
+    },
+    {
+      "id": "mv20",
+      "title": "Generic Newton points and the Newton poset in Iwahori-double cosets",
+      "authors": "Elizabeth Milićević and Eva Viehmann",
+      "edition": "Forum of Mathematics, Sigma 8 (2020), e50; published author-hosted copy, DOI 10.1017/fms.2020.46",
+      "url": "https://mediatum.ub.tum.de/doc/1600930/file.pdf",
+      "readSections": [
+        "§3.1, PDF pp. 5–8; Definition 3.14, Theorem 3.16 and proof, Corollary 3.17, PDF pp. 9–10."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "2f8585e829abf2ff34758d758240d8685821707931d3e5b5a91b3b5136e58bf4"
+    },
+    {
+      "id": "ghn15",
+      "title": "P-alcoves and nonemptiness of affine Deligne–Lusztig varieties",
+      "authors": "Ulrich Görtz, Xuhua He and Sian Nie",
+      "edition": "arXiv:1211.3784; published Annales scientifiques de l’ÉNS 48 (2015), 647–665; corrected by the separate erratum",
+      "url": "https://arxiv.org/pdf/1211.3784",
+      "readSections": [
+        "Theorems A and B, PDF p. 3; Definition 3.3 and Theorem 3.3.1, pp. 10–11; §§3.5–3.6, pp. 13–15."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "c2293924bff455023796da17c56de70dea547d0e1b6dc41f06ab4216aca135f0"
+    },
+    {
+      "id": "ghnerr",
+      "title": "Erratum to P-alcoves and nonemptiness of affine Deligne–Lusztig varieties",
+      "authors": "Ulrich Görtz, Xuhua He and Sian Nie",
+      "edition": "Official author-hosted 3-page erratum",
+      "url": "https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+      "readSections": [
+        "Entire erratum, pp. 1–3; Propositions 0.0.1 and 0.0.2."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "cf7efbf887e8202c7efd7590e2eebd85c93c89bea81c26fa39a80af8082399c0"
+    },
+    {
+      "id": "ghkr06",
+      "title": "Dimensions of some affine Deligne–Lusztig varieties",
+      "authors": "Ulrich Görtz, Thomas J. Haines, Robert E. Kottwitz and Daniel C. Reuman",
+      "edition": "arXiv:math/0504443; Annales scientifiques de l’ÉNS 39 (2006), 467–511",
+      "url": "https://arxiv.org/pdf/math/0504443",
+      "readSections": [
+        "Proposition 5.3.1 and proof, PDF pp. 19–21; Lemma 5.4.3, pp. 27–28; Corollary 5.4.4, Proposition 5.6.1 and Theorem 5.8.1 with proofs, pp. 29–32."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "bd8387fb533dd8340921e6e89b4004c86ce255b06bdcfa865a35addada7e6943"
+    },
+    {
+      "id": "vie06",
+      "title": "The dimension of some affine Deligne–Lusztig varieties",
+      "authors": "Eva Viehmann",
+      "edition": "arXiv:math/0510385v2, 21 July 2006; Annales scientifiques de l’ÉNS 39 (2006), 513–526",
+      "url": "https://arxiv.org/pdf/math/0510385",
+      "readSections": [
+        "§§1–5, PDF pp. 1–12; definitions, lattice chart proof, Proposition 5.2 and entire proof of Theorem 5.3."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "73de6d27413fbf83a908583306470166594d96753e9362a3c4fa3e47c8ea911c"
+    },
+    {
+      "id": "ham15",
+      "title": "The dimension of affine Deligne–Lusztig varieties in the affine Grassmannian",
+      "authors": "Paul Hamacher",
+      "edition": "International Mathematics Research Notices 2015, 12804–12839; published author-hosted copy",
+      "url": "https://mediatum.ub.tum.de/doc/1319937/1319937.pdf",
+      "readSections": [
+        "Theorem 1.1 and conventions, pp. 12804–12805; all of §2, pp. 12806–12812; §3 setup, pp. 12813–12815."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "dbfc2cebd3477d0e13eb710876531db3d3fecedecc6e118bf1b9d0401e0961e0"
+    },
+    {
+      "id": "ckv15",
+      "title": "Connected components of affine Deligne–Lusztig varieties in mixed characteristic",
+      "authors": "Miaofen Chen, Mark Kisin and Eva Viehmann",
+      "edition": "arXiv:1307.3845; Compositio Mathematica 151 (2015), 1697–1762; numbering here is that of the downloaded arXiv version",
+      "url": "https://arxiv.org/pdf/1307.3845",
+      "readSections": [
+        "Lemma 3.1.1 and proof, PDF pp. 20–21; Proposition 3.3.1, PDF p. 24, for the boundary audit only."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "715c628980850c698445eb7a472ab7aa7b933d61e9ba4ddddf76b82eddd79cfd"
+    },
+    {
+      "id": "vie14",
+      "title": "Truncations of level 1 of elements in the loop group of a reductive group",
+      "authors": "Eva Viehmann",
+      "edition": "Annals of Mathematics 179 (2014), 1009–1040; published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n3-p03-p.pdf",
+      "readSections": [
+        "Introduction and conventions, pp. 1009–1011; Proposition 5.5 and Corollary 5.6 with proof, pp. 1026–1028."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "453cba0430ce4b94d51ea1e7eb3cf74ba11102d7f624b2fa739cc681b4709bf1"
+    },
+    {
+      "id": "hn14",
+      "title": "Minimal length elements of extended affine Weyl groups",
+      "authors": "Xuhua He and Sian Nie",
+      "edition": "Author copy; Compositio Mathematica 150 (2014), 1903–1927",
+      "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/315/8989-affmin-2.pdf",
+      "readSections": [
+        "Introduction, PDF pp. 2–4; Theorem 2.9 and Corollary 2.10 with proofs, PDF pp. 10–12; §5 and §6 introduction, PDF pp. 25–27."
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "370abc45c00d91279f69d115ba10da758a23dfe3b56d1245d0a5370372807e09"
+    }
+  ],
+  "status": "draft"
+}

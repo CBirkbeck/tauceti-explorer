@@ -1,0 +1,2269 @@
+{
+ "protocol": "blueprint-v1",
+ "roadmapId": "StableReductionPartII",
+ "part": "MC.2",
+ "scope": [
+  "StableReductionPartII:MC.2"
+ ],
+ "status": "complete",
+ "summary": "Complete target-level MC.2 continuation: 26 new targets close the planning worklist for relative stable reflexivity, two-base completion and arbitrary completed coefficients, actual completed-ring Hom/Ext, pointed formal and collision charts, sheaf/arbitrary-base descent, coherent universal curves, genus-one comparison, full-range induction and the rigid triangle. Parent polynomial calculations and end targets retain their ids. Seven explicit supplier-stage contracts and one bibliographical source-access gap remain; MC.2 is planned, not closed or implemented. Ordinary complete resolutions are imported from StablePeriodicCurved Layer 2; the new hull is their relative enhancement.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Module.IsReflexive",
+    "module": "Mathlib.LinearAlgebra.Dual.Defs",
+    "provides": "Bijectivity of the actual canonical evaluation M → Hom_R(Hom_R(M,R),R), not existence of an unspecified bidual equivalence.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:Module.bijective_dual_eval",
+    "module": "Mathlib.LinearAlgebra.Dual.Defs",
+    "provides": "Extract canonical evaluation bijectivity from the native reflexivity class.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:Ext",
+    "module": "Mathlib.CategoryTheory.Abelian.Ext",
+    "provides": "R-linear derived Ext bifunctor on an abelian R-linear category with enough projectives; in this part the category is ModuleCat R.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+    "module": "Mathlib.CategoryTheory.Abelian.Ext",
+    "provides": "Compute the native Ext object from the Hom cochain complex of an actual projective resolution.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:isZero_Ext_succ_of_projective",
+    "module": "Mathlib.CategoryTheory.Abelian.Ext",
+    "provides": "Positive-degree native Ext objects vanish when the first categorical argument is projective.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:Module.Flat",
+    "module": "Mathlib.RingTheory.Flat.Basic",
+    "provides": "Native module flatness; tensoring preserves injections, including arbitrary coefficient modules.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+    "module": "Mathlib.RingTheory.AdicCompletion.AsTensorProduct",
+    "provides": "For a finite module over a Noetherian ring, its one-ring ideal-adic completion is the ordinary tensor with the completed ring.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:AdicCompletion.flat_of_isNoetherian",
+    "module": "Mathlib.RingTheory.AdicCompletion.AsTensorProduct",
+    "provides": "The completion algebra is flat over its Noetherian original ring.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   },
+   {
+    "ref": "mathlib:AdicCompletion.residueField_map_bijective",
+    "module": "Mathlib.RingTheory.AdicCompletion.LocalRing",
+    "provides": "Completion at the maximal ideal of a Noetherian local ring preserves its actual residue field.",
+    "checked": "Actual declaration read in the pinned source; suggested signatures elaborate at the same pins."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "Knudsen-II-1983",
+   "title": "The projectivity of the moduli space of stable curves, II: The stacks M_g,n",
+   "authors": "Finn F. Knudsen",
+   "edition": "Math. Scand. 52 (1983), 161–199; journal scan, DOI 10.7146/math.scand.a-12001",
+   "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+   "readSections": [
+    "§2, pp. 171–179: section ideal, stabilization and universal curves",
+    "§3, pp. 180–190: gluing and labelled rigidity; used with the corrected pairing scope",
+    "Appendix, pp. 191–199: Definition 1, Theorem 2, Propositions 4–7 and the nodal example"
+   ],
+   "accessDate": "2026-10-18",
+   "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230"
+  },
+  {
+   "id": "Knudsen-pointed-node",
+   "title": "A closer look at the stacks of stable pointed curves",
+   "authors": "Finn F. Knudsen",
+   "edition": "arXiv:1106.1588v2 (2012), PDF pp. 1–17",
+   "url": "https://arxiv.org/pdf/1106.1588v2",
+   "readSections": [
+    "§2, Proposition 2.1, pp. 5–10: the pointed deformation hull",
+    "§3, Proposition 3.1 and Corollary 3.2, pp. 11–13: polynomial calculation and completion",
+    "§§4–5, pp. 13–16: Main Lemma and geometric stabilization"
+   ],
+   "accessDate": "2026-10-18",
+   "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36"
+  },
+  {
+   "id": "Ile-relative",
+   "title": "Stably reflexive modules and a lemma of Knudsen",
+   "authors": "Runar Ile",
+   "edition": "arXiv:1110.3909v3, PDF pp. 1–27",
+   "url": "https://arxiv.org/pdf/1110.3909v3",
+   "readSections": [
+    "§2, pp. 2–5: Proposition 2.2, Remark 2.3, Example 2.6 and Corollary 2.7",
+    "§3, pp. 6–8: Definitions 3.1/3.4, Proposition 3.5 and Remark 3.6",
+    "§4, pp. 8–10: Definition 4.1, Proposition 4.3 and Remark 4.4",
+    "§6, pp. 18–23: Theorem 6.1, Remark 6.4 and Example 6.5",
+    "§7, pp. 24–26: stabilization over a Noetherian base"
+   ],
+   "accessDate": "2026-10-18",
+   "sha256": "41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743"
+  },
+  {
+   "id": "Stacks-local-flatness",
+   "title": "Criteria for flatness",
+   "authors": "The Stacks Project Authors",
+   "edition": "The Stacks Project, Algebra §10.99, online version read 2026-10-18; tags 00MK and 0523",
+   "url": "https://stacks.math.columbia.edu/tag/00MD",
+   "readSections": [
+    "Lemma 10.99.7, tag 00MK: local Tor criterion",
+    "Lemma 10.99.11, tag 0523: flatness from all infinitesimal thickenings"
+   ],
+   "accessDate": "2026-10-18"
+  },
+  {
+   "id": "Stacks-completion",
+   "title": "Completion for Noetherian rings",
+   "authors": "The Stacks Project Authors",
+   "edition": "The Stacks Project, Algebra §10.97, online version read 2026-10-18; tag 00MC",
+   "url": "https://stacks.math.columbia.edu/tag/00MC",
+   "readSections": [
+    "Lemma 10.97.3: faithful flatness for an ideal in the Jacobson radical; its proof and flatness input"
+   ],
+   "accessDate": "2026-10-18"
+  },
+  {
+   "id": "Stacks-nodal-singular-scheme",
+   "title": "Families of nodal curves",
+   "authors": "The Stacks Project Authors",
+   "edition": "The Stacks Project, Algebraic Curves §53.20, online version read 2026-10-18",
+   "url": "https://stacks.math.columbia.edu/tag/0C58",
+   "readSections": [
+    "Lemma 53.20.1: the Fitting singular scheme of a nodal family is unramified"
+   ],
+   "accessDate": "2026-10-18"
+  },
+  {
+   "id": "Stacks-unramified-diagonal",
+   "title": "The diagonal of an unramified morphism",
+   "authors": "The Stacks Project Authors",
+   "edition": "The Stacks Project, Morphisms Lemma 29.36.13, tag 02GE, read 2026-10-18",
+   "url": "https://stacks.math.columbia.edu/tag/02GE",
+   "readSections": [
+    "Lemma 29.36.13: the diagonal of an unramified morphism is open"
+   ],
+   "accessDate": "2026-10-18"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "definition",
+   "title": "Stably reflexive module",
+   "statement": "For a commutative ring R and an R-module M, stable reflexivity means that the native evaluation M→M** is bijective and Ext_R^i(M,R)=Ext_R^i(M*,R)=0 for every i>0, where M*=Hom_R(M,R). The predicate itself imposes no finiteness. The finite Noetherian theory below adds those hypotheses explicitly. On finite modules over a Noetherian R this agrees with the existing finitely generated Gorenstein-projective predicate; no second complete-resolution or Gorenstein-projective object is defined here.",
+   "hypotheses": [
+    "R is commutative; M is an R-module."
+   ],
+   "prerequisites": [
+    "mathlib:Module.IsReflexive",
+    "mathlib:Ext",
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities"
+   ],
+   "proofSteps": [
+    "Conjoin the existing reflexivity predicate with categorical vanishing of the two actual positive Ext families.",
+    "Use native ModuleCat Ext objects; identify their zero objects with vanishing of the underlying module.",
+    "In the finite Noetherian case, splice the two finite free resolutions to compare with the imported Gorenstein-projective predicate; in the other direction its totally acyclic complex gives the two Ext vanishings and canonical biduality. This is a compatibility theorem, not a new complete-resolution infrastructure."
+   ],
+   "acceptance": [
+    "The bidual map must be canonical evaluation.",
+    "Both positive Ext families, at every degree, are required."
+   ],
+   "sources": [
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Definition 3.1 and Remark 3.2, §3, p. 6",
+     "match": "Defines absolute stable reflexivity; for finite modules over Noetherian rings it agrees with Gorenstein dimension zero."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Remark 3.2, p. 6; Proposition 4.3, pp. 9–10",
+     "match": "The finite Noetherian absolute theory has Gorenstein dimension zero and a complete projective hull; this identifies it with the imported cycle description."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "isReflexive",
+     "role": "compatibility",
+     "statement": "Stable reflexivity implies Mathlib Module.IsReflexive R M, and the induced equivalence is native evaluation."
+    },
+    {
+     "name": "positiveExt",
+     "role": "projection",
+     "statement": "Extract each of the two positive-degree Ext vanishings separately."
+    },
+    {
+     "name": "ofFiniteProjective",
+     "role": "constructor",
+     "statement": "Every finite projective R-module is stably reflexive."
+    },
+    {
+     "name": "linearEquiv",
+     "role": "extensionality",
+     "statement": "An R-linear equivalence M≃N preserves and reflects stable reflexivity, with natural evaluation squares."
+    },
+    {
+     "name": "dual",
+     "role": "functoriality",
+     "statement": "If R is Noetherian and M finite stably reflexive, M* is finite stably reflexive and M** identifies canonically with M."
+    },
+    {
+     "name": "finiteDirectSum",
+     "role": "structure",
+     "statement": "For finitely many finite modules over a Noetherian R, their direct sum is stably reflexive exactly when each summand is."
+    },
+    {
+     "name": "gorensteinProjective_iff",
+     "role": "compatibility",
+     "statement": "For a finite module over a commutative Noetherian R, absolute stable reflexivity is equivalent to the existing StablePeriodicCurved Layer 2 Gorenstein-projective predicate. The current Tau Ceti name is TauCeti.IsGorensteinProjective; it is not present at the programme pin. Identify the cycle and cokernel conventions by an explicit degree-one shift."
+    }
+   ],
+   "uses": [
+    {
+     "where": "StableReductionPartII:MC.2/relative-stable-reflexivity",
+     "how": "Tests the modules on coefficient fibres."
+    },
+    {
+     "where": "StableReductionPartII:MC.2/two-base-completion",
+     "how": "Provides the absolute specialization and the dual complete resolution."
+    }
+   ],
+   "tests": [
+    {
+     "name": "finite-free-nonreduced",
+     "statement": "Over Z/4Z the rank-two free module satisfies the predicate; nilpotents in R do not exclude it."
+    },
+    {
+     "name": "zero",
+     "statement": "The zero module is stably reflexive over every commutative ring, including the zero ring."
+    },
+    {
+     "name": "integer-torsion",
+     "statement": "Z/2Z as a Z-module is not stably reflexive: its Z-dual is zero, so evaluation to its bidual is not injective."
+    },
+    {
+     "name": "node-nonprojective",
+     "statement": "For R=k[x,y]_(x,y)/(xy), the maximal ideal (x,y) is stably reflexive by the parent alternating resolutions and bidual calculation, but is not free or projective: its minimal number of generators is two, while it has rank one on either branch."
+    }
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.2/relative-stable-reflexivity",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "definition",
+   "title": "Relative stable reflexivity",
+   "statement": "For a flat commutative ring map A→R and an R-module M, relative stable reflexivity means: M is flat over A and for each s in the image of MaxSpec R→Spec A, M_s=M⊗_A κ(s) is absolutely stably reflexive over R_s=R⊗_A κ(s). The image consists of contractions of maximal ideals of R, not necessarily maximal ideals of A. The predicate imposes no hidden finiteness.",
+   "hypotheses": [
+    "A→R is flat."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+    "mathlib:Module.Flat"
+   ],
+   "proofSteps": [
+    "Use native module flatness and actual scalar extension to residue fields.",
+    "Take all coefficient points hit by maximal chart ideals; the local specialization is the one closed coefficient fibre."
+   ],
+   "acceptance": [
+    "Do not test only maximal ideals of A in the nonlocal version.",
+    "A-flatness of M is part of the definition, not inferred from geometric flatness of R."
+   ],
+   "sources": [
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Definition 3.4, §3, p. 6",
+     "match": "Specifies flatness and the fibres over the image of maximal chart ideals."
+    },
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Definition 1 and Theorem 2, pp. 191–194",
+     "match": "Supplies the equivalent universal-coefficient formulation in the finite Noetherian setting."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Relative stable reflexivity"
+   },
+   "api": [
+    {
+     "name": "flat",
+     "role": "projection",
+     "statement": "Extract A-flatness of M."
+    },
+    {
+     "name": "fibre",
+     "role": "projection",
+     "statement": "Extract absolute stable reflexivity of M_s for every s hit by a maximal R-ideal."
+    },
+    {
+     "name": "localClosedFibre",
+     "role": "characterisation",
+     "statement": "For a local map of local rings, the predicate is exactly A-flatness together with stable reflexivity of the closed fibre."
+    },
+    {
+     "name": "universalCoefficients",
+     "role": "characterisation",
+     "statement": "For Noetherian A,R and finite M, the predicate is equivalent to the two canonical coefficient Hom isomorphisms and both positive Ext vanishings for every A-module."
+    },
+    {
+     "name": "baseChange",
+     "role": "functoriality",
+     "statement": "Under the finite Noetherian source hypotheses, every A→A′ preserves relative stable reflexivity, with canonical dual and bidual identifications."
+    },
+    {
+     "name": "dual",
+     "role": "functoriality",
+     "statement": "For Noetherian A,R and finite relative stably reflexive M, its R-dual is finite, A-flat and relatively stably reflexive."
+    },
+    {
+     "name": "identityMap",
+     "role": "compatibility",
+     "statement": "For Noetherian R and finite M relative to R→R, this predicate is equivalent to M being finite projective; its absolute specialization relative to a field remains strictly weaker than projectivity over R."
+    }
+   ],
+   "uses": [
+    {
+     "where": "StableReductionPartII:MC.2/polynomial-relative-criterion",
+     "how": "Turns the parent tensor-Hom and Ext calculations into the relative section-ideal theorem."
+    },
+    {
+     "where": "StableReductionPartII:MC.2/two-base-completion",
+     "how": "Distinguishes original-coefficient and completed-coefficient assertions."
+    }
+   ],
+   "tests": [
+    {
+     "name": "identity",
+     "statement": "For finite M over a Noetherian A with R=A, relative stable reflexivity is finite projectivity: coefficient flatness is essential."
+    },
+    {
+     "name": "missing-flatness",
+     "statement": "For A=R=Z_(2), M=A/(2) fails the predicate although every residue-field fibre is a finite-dimensional vector space."
+    },
+    {
+     "name": "node-family",
+     "statement": "Over a field k, the ideal (x,y) in k[x,y]_(x,y)/(xy) is relatively stably reflexive and is not projective over the nodal chart."
+    },
+    {
+     "name": "nonclosed-image",
+     "statement": "For A=k[t]_(t), R=k(t), the maximal ideal of R contracts to (0); the definition tests its generic coefficient fibre, even though no maximal ideal of A is hit."
+    }
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.2/universal-complete-hull",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "construction",
+   "title": "Universally acyclic complete hull",
+   "statement": "For Noetherian A,R, a flat map A→R, and finite relatively stably reflexive M, choose the existing StablePeriodicCurved Layer 2 finite-projective complete complex E with augmentation M≃coker(d_E^(-1)) and the additional coefficient-universality property below. Put (E∨)^i=Hom_R(E^(1−i),R) and d_(E∨)^i=(d_E^(−i))*; there is no alternating sign in this shifted-dual convention. Both E⊗_A N and E∨⊗_A N are exact for every A-module N. Every cycle of E and E∨ is finite over R and flat over A. This is an existence theorem with comparison maps, not a preferred resolution functor. Its underlying complex is the imported totally acyclic complex. Because M=coker d^(−1)≃Z¹(E), E shifted by one has the supplier cycle convention M≃Z⁰(E[1]); the shifted dual here is an explicit reindexing of its ordinary dual.",
+   "hypotheses": [
+    "A,R are Noetherian; R is A-flat; M is finite over R and relatively stably reflexive."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/relative-stable-reflexivity",
+    "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities"
+   ],
+   "proofSteps": [
+    "Use the imported finite-projective totally acyclic complex and complete-resolution comparison infrastructure. For the relative existence theorem, splice finite free resolutions of M and M* through evaluation; the new content is universal exactness over A and A-flat cycles, not definition of an ordinary complete resolution.",
+    "Apply the fibre/coefficient criterion to E and its shifted dual. Exactness after every coefficient tensor makes each short exact sequence of cycles universally exact.",
+    "Flatness of the finite projective terms over A and the Tor exact sequences give A-flatness of all cycles; finite generation follows from Noetherianity.",
+    "Record the finite-projective dual-tensor isomorphisms before comparing E∨ with the dual of a base-changed complex."
+   ],
+   "acceptance": [
+    "Coker degree −1, not a randomly chosen homology group, is M.",
+    "All coefficient modules and both complexes must be tested."
+   ],
+   "sources": [
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Definition 4.1, Proposition 4.3 and Remark 4.4, §4, pp. 9–10",
+     "match": "Splicing the module and dual resolutions gives a complete hull; its tensor and shifted-dual tensor complexes are exact."
+    },
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Theorem 2(2), pp. 192–194",
+     "match": "Uses a doubly infinite finite locally free complex and its dual with universal coefficient acyclicity."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "augmentation",
+     "role": "data",
+     "statement": "Retain a specified equivalence coker d^(-1)≃M; exactness identifies it with im d^0."
+    },
+    {
+     "name": "shiftedDual",
+     "role": "structure",
+     "statement": "The dual has term Hom_R(E^(1−i),R), differential precomposition by d^(−i), and canonical double-dual comparison."
+    },
+    {
+     "name": "tensorExact",
+     "role": "projection",
+     "statement": "For every A-module N both tensor complexes are exact; no flatness of N is assumed."
+    },
+    {
+     "name": "cyclesFlat",
+     "role": "projection",
+     "statement": "Each cycle in either complex is a finite R-module flat over A."
+    },
+    {
+     "name": "baseChange",
+     "role": "compatibility",
+     "statement": "Finite projectivity identifies E∨⊗_A A′ with (E⊗_A A′)∨ canonically; the tensor hull augments to M⊗_A A′."
+    },
+    {
+     "name": "comparison",
+     "role": "other",
+     "statement": "A module isomorphism lifts to comparison maps of complete projective hulls, unique up to homotopy when the augmentation is fixed; no strict choice-independence of a chosen complex is asserted."
+    },
+    {
+     "name": "underlyingTotallyAcyclic",
+     "role": "compatibility",
+     "statement": "Forgetting coefficient-universality gives the existing total-acyclicity predicate, with finiteness on every term. The augmentation identifies M with Z¹(E), hence with the supplier Z⁰ of E[1]; no alternate Gorenstein-projective type is introduced."
+    }
+   ],
+   "uses": [
+    {
+     "where": "StableReductionPartII:MC.2/two-base-completion",
+     "how": "Finite chart cycles let the local Tor criterion change A-flatness to Â-flatness without tensor-limit interchange."
+    },
+    {
+     "where": "StableReductionPartII:MC.2/completed-coefficient-hom-ext",
+     "how": "Universal tensor exactness proves both Hom exchange maps and positive Ext vanishing with arbitrary completed coefficients."
+    }
+   ],
+   "tests": [
+    {
+     "name": "split-hull",
+     "statement": "For finite projective M, the two-term identity complex E^0=M→E^1=M, zero elsewhere, is an exact self-dual hull with coker d^(−1)=M."
+    },
+    {
+     "name": "sign-and-index",
+     "statement": "For this two-term hull the shifted dual again occupies degrees 0 and 1; an unshifted dual instead occupies degrees −1 and 0 and fails the pinned convention."
+    },
+    {
+     "name": "one-sided-insufficient",
+     "statement": "A projective resolution of Z/2Z over Z placed in degrees ≤0 is not a complete hull: it has nonzero degree-zero homology, and its dual detects Ext^1_Z(Z/2Z,Z)."
+    },
+    {
+     "name": "nonflat-coefficient",
+     "statement": "Tensor the parent nodal alternating hull over a polynomial coefficient A with N=A/(a), for a nonzero nonunit coefficient a; both complexes remain exact even though N need not be A-flat."
+    },
+    {
+     "name": "finite-terms-essential",
+     "statement": "Over a field, add an identity disk on an infinite-dimensional vector space in degrees 3 and 4 to the finite two-term hull of k. The degree-zero cokernel stays k and both complexes stay acyclic, but the result is rejected because those two terms are not finite projective."
+    }
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.2/relative-universal-criterion",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Universal coefficient criterion",
+   "statement": "For Noetherian A,R, A→R flat, and M finite over R, relative stable reflexivity is equivalent to the following for every A-module N: α_N:M*⊗_A N→Hom_R(M,R⊗_A N), f⊗n↦(m↦f(m)⊗n), and β_N:M⊗_A N→Hom_R(M*,R⊗_A N), m⊗n↦(f↦f(m)⊗n), are isomorphisms, and Ext_R^i(M,R⊗_A N)=Ext_R^i(M*,R⊗_A N)=0 for every i>0. It is also equivalent to existence of a universally acyclic complete hull. In particular M and M* are A-flat and M→M** is canonical evaluation.",
+   "hypotheses": [
+    "Noetherian A,R; R A-flat; M finite over R."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/relative-stable-reflexivity",
+    "StableReductionPartII:MC.2/universal-complete-hull",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "proofSteps": [
+    "For the fibre definition, use the coefficient cohomology/base-change criterion on finite projective presentations and both resolution complexes; filtered colimits extend finite coefficients to every N.",
+    "Identify β_N with canonical bidual evaluation followed by the first Hom exchange for M*.",
+    "Conversely the two exchange maps force M* and M to be A-flat by the same coefficient criterion; change-of-rings for their flat fibres gives biduality and both fibre Ext vanishings.",
+    "The complete-hull characterization is the splicing theorem and the converse obtained by reading Hom cohomology of the two halves."
+   ],
+   "acceptance": [
+    "β_N is evaluation, not an arbitrary isomorphism between modules.",
+    "Prove the converse without assuming flatness of M beforehand.",
+    "Native Ext agrees with the explicit projective resolutions."
+   ],
+   "sources": [
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Proposition 3.5, Remark 3.6, pp. 6–8; Proposition 4.3 and Remark 4.4, pp. 9–10",
+     "match": "Proves the fibre, universal Hom/Ext and complete-hull characterizations with the Noetherian/coherent hypotheses."
+    },
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Theorem 2, pp. 192–194",
+     "match": "Three equivalent relative stable-reflexivity criteria."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Base change for relative stable reflexivity",
+   "statement": "Under the finite Noetherian hypotheses of the universal coefficient criterion, let A→A′ be any ring map, R′=R⊗_A A′ and M′=M⊗_A A′. Then M′ and (M′)* are flat over A′, M′ is relatively and absolutely stably reflexive over R′, and M*⊗_A A′≃Hom_(R′)(M′,R′). Both canonical Hom exchange maps and both positive Ext vanishings hold for every A′-module N′. No Noetherianity or coherence is required of A′ or R′.",
+   "hypotheses": [
+    "A,R Noetherian; R A-flat; M finite relative stably reflexive; A′ arbitrary."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "StableReductionPartII:MC.2/universal-complete-hull"
+   ],
+   "proofSteps": [
+    "Base change the complete hull term by term; its finite projective terms have canonical dual-tensor identifications.",
+    "For any A′-module N′, associativity identifies each new tensor complex with the original one tensored over A with N′.",
+    "Read the two Hom maps and Ext groups from its augmented halves, and apply again with N′ equal to residue fields."
+   ],
+   "acceptance": [
+    "Include nonflat A′ and nonflat N′.",
+    "The dual map sends f⊗a′ to m⊗b′↦f(m)⊗a′b′; identity and composition squares commute."
+   ],
+   "sources": [
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Proposition 3.5(i)–(iii), pp. 6–7; Proposition 4.3(ii)(b), pp. 9–10",
+     "match": "Allows arbitrary coefficient-ring and coefficient-module changes from the Noetherian source."
+    },
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Proposition 4, p. 194",
+     "match": "Relative stable reflexivity is preserved by coefficient base change, including its canonical dual comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/ambient-relative-reflection",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Faithfully flat reflection of stable reflexivity",
+   "statement": "Let A,R,T be Noetherian, R flat over A, T flat over R, and M finite over R. Relative stable reflexivity of M over A implies relative stable reflexivity of T⊗_R M over A. If R→T is faithfully flat the converse holds. Absolute stable reflexivity has the same preservation/reflection statement for Noetherian R,T and finite M. Canonical duals and all coefficient Hom/Ext comparison maps are obtained by tensoring finite free resolutions, not by assuming Hom commutes with an inverse limit.",
+   "hypotheses": [
+    "Noetherian rings as displayed; M finite over R; faithful flatness required only for reflection."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "proofSteps": [
+    "Use degreewise finite free resolutions to compare Hom and Ext after the flat chart extension R→T; compare M* and its bidual by finite-presentation flat Hom base change.",
+    "For each A-module N identify T⊗_R(R⊗_A N) with T⊗_A N.",
+    "Flat tensor commutes with homology; faithful flat tensor detects the kernel and cokernel of α_N, β_N and each positive Ext module.",
+    "Apply the coefficient criterion; the absolute case uses the same calculation with target R and its dual."
+   ],
+   "acceptance": [
+    "A flat map alone gives no reflection; include R→0 as a failure test.",
+    "The all-N assertion uses degreewise finite free terms, not a bounded resolution assumption."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Proposition 5 and Proposition 6, pp. 194–195",
+     "match": "Localizes the relative condition and compares it with completion."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Remark 3.6, pp. 7–8, and Proposition 4.3, pp. 9–10",
+     "match": "Universal-coefficient and complete-resolution criteria yield the displayed ambient flat change and reflection."
+    },
+    {
+     "sourceId": "Stacks-completion",
+     "locator": "Algebra Lemma 10.97.3, tag 00MC",
+     "match": "Provides the faithful flatness needed when the ambient extension is maximal-ideal completion."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/two-base-completion",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Knudsen completion theorem",
+   "statement": "Let (A,p)→(R,m) be a flat local homomorphism of Noetherian local rings and M a finite R-module. Write Â=lim A/p^n, R̂=lim R/m^n and M̂=R̂⊗_R M, with the continuous local map Â→R̂. Then R̂ is flat over Â, and the following are equivalent: M is relatively stably reflexive over A; M̂ is relatively stably reflexive over A; M̂ is relatively stably reflexive over Â. These statements use all A-modules and all Â-modules in their respective universal criteria. In each case M̂*=R̂⊗_R M* canonically.",
+   "hypotheses": [
+    "A→R flat and local; A,R Noetherian local; M finite over R; both completions are at the displayed maximal ideals."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/ambient-relative-reflection",
+    "StableReductionPartII:MC.2/universal-complete-hull",
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "SchemeAndStackFoundations:SF.0/henselization-noetherian",
+    "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+    "mathlib:AdicCompletion.residueField_map_bijective",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "proofSteps": [
+    "Faithfully flat R→R̂ gives equivalence of the first two conditions and identifies the completed dual by finite-presentation flat Hom base change.",
+    "Flat A→Â has the same residue field k. For any Â-module B, a free A-resolution of k tensored with Â gives Tor_1^Â(k,B)≃Tor_1^A(k,B). Apply the local Tor criterion to the finite R̂-module B=R̂; its A-flatness proves Â-flatness of R̂.",
+    "For the second condition take an A-universally acyclic finite projective R̂-hull. Its cycles and shifted-dual cycles are finite R̂-modules and A-flat. Apply the same Tor comparison and local Tor criterion to each cycle, proving Â-flatness. Their short exact cycle sequences stay exact after tensor with every Â-module, so the hull is Â-universal.",
+    "In the reverse direction a hull universal over Â has Â-flat cycles; restricting along the flat A→Â makes its cycles A-flat, hence makes both complexes universal over A.",
+    "This supplies the needed completion input by a public local-flatness proof. It does not infer any ordinary tensor/limit interchange for arbitrary completed coefficients."
+   ],
+   "acceptance": [
+    "The map Â→R̂ must be the continuous extension of A→R.",
+    "Check the cycle argument for every integer degree and the shifted dual.",
+    "No finite-projectivity assumption on completed coefficient modules is allowed."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Proposition 6, pp. 194–195",
+     "match": "States the three-way equivalence with both coefficient and chart completion; cites Bourbaki rather than supplying this argument."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Proposition 4.3 and Remark 4.4, pp. 9–10",
+     "match": "Supplies the universally acyclic hull and its flat cycle characterization used here."
+    },
+    {
+     "sourceId": "Stacks-local-flatness",
+     "locator": "Algebra Lemma 10.99.7, tag 00MK",
+     "match": "The local Tor test applies to a finite module over the Noetherian local target; it applies to every completed chart cycle."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/infinitesimal-relative-criterion",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Infinitesimal stable-reflexivity criterion",
+   "statement": "For a flat local map of Noetherian local rings (A,p)→(R,m), finite R-module M and ideal I⊆p, M is relatively stably reflexive over A if and only if M/I^nM is relatively stably reflexive over A/I^n for every n≥1, with chart ring R/I^nR. This is the local scope of Appendix Proposition 7. A global assertion needs the corresponding Jacobson condition on IR, not just I⊆Jac(A).",
+   "hypotheses": [
+    "Local flat Noetherian A→R; M finite; I⊆p."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+    "StableReductionPartII:MC.2/relative-stable-reflexivity",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "proofSteps": [
+    "The forward direction is arbitrary coefficient base change.",
+    "For the reverse direction, all quotient modules are A/I^n-flat. The infinitesimal flatness criterion gives A-flatness of M since IR is in the maximal ideal of R.",
+    "The n=1 relative condition descends further to the closed coefficient fibre and supplies its absolute stable reflexivity; the local fibre definition now applies."
+   ],
+   "acceptance": [
+    "Include I=0 and I=p.",
+    "Prevent the false nonlocal extension: A=k[t]_(t), R=k(t)[x], I=(t), M=R/(x) has all quotient modules zero but is not relatively stably reflexive."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Proposition 7, p. 195, in the local setup following Proposition 6",
+     "match": "States the infinitesimal criterion as an exercise."
+    },
+    {
+     "sourceId": "Stacks-local-flatness",
+     "locator": "Algebra Lemma 10.99.11, tag 0523",
+     "match": "Flatness of every infinitesimal quotient detects flatness at target primes above the ideal; local targets satisfy the required support condition."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "comparison",
+   "title": "Completed-ring Hom and Ext",
+   "statement": "For a flat map of commutative rings R→T, any R-module L, and any T-module V, restriction along L→T⊗_R L gives canonical Hom_T(T⊗_R L,V)≃Hom_R(L,V), f↦(l↦f(1⊗l)). The derived comparison gives Ext_T^i(T⊗_R L,V)≃Ext_R^i(L,V) for all i≥0, because a projective R-resolution remains a projective T-resolution. Apply this to T=R̂ and L=J or J*. For the parent finite-projective completed coefficients, composing with its compatible-quotient Hom comparison identifies actual completed-ring Hom with those families. This comparison makes no claim that arbitrary Ext commutes with inverse limits.",
+   "hypotheses": [
+    "R→T flat; L arbitrary R-module; V arbitrary T-module. For T=R̂, R is Noetherian."
+   ],
+   "prerequisites": [
+    "mathlib:CategoryTheory.ProjectiveResolution.isoExt",
+    "StableReductionPartII:MC.2/ambient-relative-reflection",
+    "StableReductionPartII:MC.2/hom-completion-hom-equivalence",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "proofSteps": [
+    "Use scalar extension/restriction adjunction in degree zero, retaining the explicit 1⊗l formula.",
+    "Extend a projective resolution of L along the flat map; its augmentation remains exact and its terms are projective after extension.",
+    "Apply the Hom adjunction degreewise and pass to cohomology; identify the degree-zero map with the explicit one.",
+    "For finite projective Â-coefficients use the parent inverse-limit equivalence after restriction to R. For other coefficients use the completion theorem instead."
+   ],
+   "acceptance": [
+    "The source module is T⊗_R L, not L endowed with an invented completed action.",
+    "Finite projectivity is required only by the parent compatible-family comparison, not by this Hom/Ext adjunction."
+   ],
+   "sources": [
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Example 2.6 and Corollary 2.7, §2, pp. 4–5; Remark 3.6, pp. 7–8",
+     "match": "Uses projective resolutions to compare fibre/change-of-rings Ext; the displayed flat adjunction is the degreewise specialization."
+    },
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Theorem 2 and Proposition 6, pp. 192–195",
+     "match": "The completed criterion concerns actual duals and Ext over the completed chart ring."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/completed-coefficient-hom-ext",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Arbitrary completed-coefficient exchange",
+   "statement": "In the two-base completion theorem, suppose M is relatively stably reflexive over A and put D̂=Hom_(R̂)(M̂,R̂)=R̂⊗_R M*. For every Â-module N, with V=R̂⊗_Â N, the actual R̂-linear maps D̂⊗_Â N→Hom_(R̂)(M̂,V) and M̂⊗_Â N→Hom_(R̂)(D̂,V) are the evaluation isomorphisms, and Ext_(R̂)^i(M̂,V)=Ext_(R̂)^i(D̂,V)=0 for all i>0. All maps are natural in N and in compatible local changes, and compose with completed-ring adjunction to actual Hom_R/Ext_R comparisons.",
+   "hypotheses": [
+    "Flat local Noetherian A→R; M finite relatively stably reflexive; N any Â-module."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/two-base-completion",
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction"
+   ],
+   "proofSteps": [
+    "Apply the completion theorem to obtain relative stable reflexivity over Â.",
+    "Apply its universal coefficient criterion with the actual Â-module N.",
+    "Identify D̂ with the completed original dual by the flat Hom comparison; use evaluation formulas to check naturality.",
+    "Use flat adjunction for the comparison with original-ring Hom and Ext."
+   ],
+   "acceptance": [
+    "Take N=Â/J for arbitrary ideals J, including nonflat coefficients.",
+    "No term R̂⊗_A N is substituted for R̂⊗_Â N.",
+    "No finite presentation of N is assumed."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Appendix, Theorem 2(1), pp. 192–194, and Proposition 6, pp. 194–195",
+     "match": "The universal coefficient formulation after both completions supplies these precise actual-ring conclusions."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Proposition 3.5(iii) and Remark 3.6, pp. 7–8",
+     "match": "Identifies the two canonical exchanges and the positive Ext vanishings."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/polynomial-relative-criterion",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "application",
+   "title": "Relative reflexivity of the polynomial section ideal",
+   "statement": "For the parent monic polynomial nodal model R=A[X,Y]/(q(X,Y)−q(s,t)), J=(x−s,y−t), with A Noetherian, the actual ideal J and its actual dual D are relatively stably reflexive over A. The two canonical coefficient Hom maps are exactly the parent maps, and their native positive Ext groups vanish against R⊗_A N for every A-module N. Flat local chart extensions and both local completions have the corresponding relative conclusions. The parent polynomial identities over arbitrary A, including the zero ring, retain their original non-Noetherian scope.",
+   "hypotheses": [
+    "A Noetherian for the relative criterion; q=X²+γXY+δY² as in the parent; no condition that δ be a unit."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "StableReductionPartII:MC.2/ambient-relative-reflection",
+    "StableReductionPartII:MC.2/two-base-completion",
+    "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
+    "StableReductionPartII:MC.2/section-dual-coefficient-flat",
+    "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+    "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+    "StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing",
+    "StableReductionPartII:MC.2/section-dual-derived-ext-vanishing"
+   ],
+   "proofSteps": [
+    "Read the parent Hom maps on pure tensors and verify that the second is the canonical coefficient-valued evaluation β_N.",
+    "Read the parent actual augmented finite-free resolutions and native Ext comparisons, retaining arbitrary coefficient N.",
+    "Apply the relative criterion once; use the flat reflection and completion theorems for their stated local extensions."
+   ],
+   "acceptance": [
+    "The ideal and dual are the native submodule and Hom module, not modules defined from a matrix cokernel alone.",
+    "Keep the polynomial theorem over non-Noetherian A distinct from the finite Noetherian relative criterion."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Proposition 3.1 and Corollary 3.2, §3, pp. 11–13",
+     "match": "Computes the actual section ideal and dual and then passes to complete local rings."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Remark 3.6, pp. 7–8",
+     "match": "Matches the parent canonical Hom/Ext calculations with relative stable reflexivity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "comparison",
+   "title": "Pointed hull and completed family chart",
+   "statement": "Let C→Spec A be a flat finitely presented nodal curve over a Noetherian local ring, with section Δ through a node of its closed fibre, and x=Δ(p). After the coefficient and formal coordinate choices of the parent pointed-node hull, the completed local pointed algebra is a continuous pullback of R_pd over A_pd: R̂_x≃Â[[u,v]]/(q̃(u,v)−q̃(s,t)), Δ(u)=s, Δ(v)=t. This is the (p,u,v)-adic completion of the parent polynomial model over Â. The isomorphism sends the actual section ideal to (u−s,v−t), and its actual dual and residue quotient to the completed parent ones. Its maps, rather than its coordinate choices, are the data retained in a comparison. At a smooth point the corresponding chart is Â[[z]], Δ(z)=a. No fine representability or canonical hull ring for a stack is asserted.",
+   "hypotheses": [
+    "C/A nodal and finitely presented; A Noetherian local; x on the section; a coefficient-base map into Â and lifts of the nondegenerate binary quadratic form have been chosen."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/pointed-node-normal-form",
+    "StableReductionPartII:MC.2/two-base-completion",
+    "StableReductionPartII:MC.2/completed-coefficient-hom-ext",
+    "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+    "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence",
+    "AlgebraicModuliForArithmeticGeometry:R09.6/scheme-formal-comparison",
+    "AlgebraicModuliForArithmeticGeometry:R09.6/completion-versality",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+   ],
+   "proofSteps": [
+    "Use the parent pointed-node hull and its small-extension lifting property for the compatible Artinian quotients of the completed family.",
+    "Choose compatible lifts inductively and pass to continuous maps of complete local rings; the completed curve and section identify with the displayed quotient.",
+    "Identify it with completion of the actual polynomial ring model, not with an ordinary tensor product of two power-series rings.",
+    "Apply the finite-module dual/residue completion comparisons and the two-base criterion; use the completed-ring Hom adjunction when switching the ring of linearity."
+   ],
+   "acceptance": [
+    "The family base need not map flatly to or from the hull base.",
+    "The section point has the same residue field as the coefficient point; nonsplit nodes use the quadratic form, not an unjustified split xy model.",
+    "A hull map is a choice, not a representing universal object for the deformation groupoid."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Proposition 2.1, §2, pp. 5–10; Corollary 3.2, pp. 12–13",
+     "match": "Supplies the pointed hull with the two section coordinates, and its completed ideal calculation."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "§7, pp. 24–26, application of the pointed local calculation to stabilization",
+     "match": "Uses formal local comparisons to transfer the polynomial construction to the family."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-ideal-local-theorem",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Section ideal of a local Gorenstein family",
+   "statement": "Let (A,p)→(R,m) be a flat local map of Noetherian local rings with a retraction R→A whose composite is the identity, and suppose R/pR is a one-dimensional Gorenstein local ring. For J=ker(R→A), J is relatively stably reflexive over A. Multiplication embeds R in J*=Hom_R(J,R), and J*/R is free of rank one over A, supported on the section. Its generator is a choice, not a canonical trivialization. Duals and this exact quotient commute with arbitrary coefficient base change. In particular this applies at every smooth or nodal point of a section of a Noetherian nodal family.",
+   "hypotheses": [
+    "Local flat Noetherian coefficient map with a specified section retraction; one-dimensional Gorenstein closed chart fibre."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "proofSteps": [
+    "The exact sequence 0→J→R→A→0 makes J A-flat. On the closed fibre its maximal ideal is maximal Cohen–Macaulay over a one-dimensional Gorenstein ring, hence has canonical biduality and both positive dual Ext vanishings.",
+    "Apply the relative fibre criterion. The Hom long exact sequence identifies J*/R with Ext_R^1(A,R); fibre duality and coefficient exchange make this an A-free rank-one module locally.",
+    "A fibre regular element in the section ideal lifts to a nonzerodivisor, proving multiplication R→J* injective.",
+    "Apply the canonical exchanges for arbitrary coefficients and exactness of the A-flat quotient to obtain the base-change exact sequence."
+   ],
+   "acceptance": [
+    "Do not claim the family pairing image J·J*=J.",
+    "In R=A[x,y]/(xy−bc), Δ(x)=b, Δ(y)=c, the section pullback of J* is A⊕A/(b,c), so the rank-two statement holds only on the persistent nodal-section locus."
+   ],
+   "sources": [
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Theorem 6.1(i)–(iv), §6, pp. 18–19; Remark 6.4 and Example 6.5, pp. 20–21",
+     "match": "Proves the local Gorenstein section-ideal theorem and corrects the pairing statement over moving families."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Main Lemma, p. 3, and §4, p. 13",
+     "match": "States the three actual section-ideal properties used by stabilization."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Global section dual and residue line",
+   "statement": "For a nodal family C/S over a locally Noetherian scheme, an arbitrary section Δ with ideal sheaf J has a quasi-coherent dual J∨=Hom_O_C(J,O_C) and an exact sequence 0→O_C→J∨→Δ_*L_Δ→0, with L_Δ invertible on S. These are the actual sheaf dual and quotient, and their formation commutes canonically with every base change S′→S, including non-Noetherian S′. The canonical Hom comparisons agree on chart overlaps, satisfy identity and composition laws, and coincide with the parent polynomial generators wherever those coordinates are chosen.",
+   "hypotheses": [
+    "C/S flat, finitely presented, nodal of pure relative dimension one; S locally Noetherian; Δ arbitrary."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/section-ideal-local-theorem",
+    "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+    "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+    "SchemeAndStackFoundations:SF.0/finite-presentation-limits",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "StableReductionPartII:MC.0/arbitrary-base-duality"
+   ],
+   "proofSteps": [
+    "Use the local Gorenstein theorem at each point on Δ and invertibility of J off Δ. Localize the canonical dual exchange maps on affine charts.",
+    "The quotient is annihilated by J and hence is Δ_* of an O_S-module. The local rank-one identifications make that module invertible; they are not a chosen global trivialization.",
+    "Glue actual internal Hom modules by their universal property; polynomial formulas give chart comparisons, while uniqueness gives the cocycle.",
+    "The local universal coefficient theorem identifies the sheaf pullback dual with the dual of the pulled-back ideal for arbitrary S′; exactness of the quotient is preserved by its coefficient flatness."
+   ],
+   "acceptance": [
+    "A residue generator changes by a unit on overlaps and must descend as a line.",
+    "Arbitrary base change is justified by relative reflexivity; the generic flat-base-change theorem for internal Hom alone is insufficient."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Lemma 2.2, pp. 175–176; Definition 2.3, p. 176",
+     "match": "Uses the section dual, its residue line and their base-change compatibility."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Main Lemma, p. 3, and §4, p. 13",
+     "match": "Supplies the sheaf form of the ideal, dual and residue assertions."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "§7, pp. 24–26",
+     "match": "Globalizes the local section-ideal theorem for stabilization."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/old-mark-collision-chart",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "construction",
+   "title": "Collision chart of pointed expansion",
+   "statement": "In an étale smooth coordinate neighborhood with old marking z=0 and extra section z=a over a commutative ring A, the parent diagonal-cokernel expansion has the actual presentation Proj_(A[z]) A[z][U,V]/((z−a)U+zV), with U,V in degree one. Its U-chart is z(1+v)=a, v=V/U, and its V-chart is z(u+1)=au, u=U/V. The new marking is v=0,z=a, the old one is u=0,z=0. Over a=0 the exceptional P¹ has new mark v=0, old mark v=∞, and attaching point v=−1. The coordinates are local choices; the scheme is the parent intrinsic Proj construction.",
+   "hypotheses": [
+    "A arbitrary commutative ring; the curve is étale locally the smooth coordinate chart; exactly one old mark can meet Δ because old marks are pairwise disjoint."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/expansion",
+    "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "SchemeAndStackFoundations:SF.0/relative-proj-base-change",
+    "AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian"
+   ],
+   "proofSteps": [
+    "Trivialize J∨ by 1/(z−a) and O(D) by 1/z; the diagonal map is the column ((z−a),z).",
+    "Take the symmetric algebra of this actual cokernel, obtaining the displayed linear homogeneous relation.",
+    "Dehomogenize and read the quotient lines defining the lifted sections.",
+    "Glue the two charts; changing the generators multiplies the homogeneous coordinates by units, yielding the same intrinsic expansion."
+   ],
+   "acceptance": [
+    "The signs must match the parent positive diagonal map.",
+    "The three special points on the exceptional line remain distinct in characteristic two."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Definition 2.3 and Theorem 2.4, pp. 176–177, smooth/collision case",
+     "match": "The diagonal-cokernel Proj inserts a three-special-point rational tail at an old-mark collision."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Theorem 5.1 and opening of its proof, pp. 13–14",
+     "match": "States stable pointed expansion but leaves the smooth and collision calculations to the reader and refers to the original proof. The displayed signed chart is derived here from the diagonal cokernel in Knudsen II Definition 2.3 and Theorem 2.4, pp. 176–177."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "symmetricPresentation",
+     "role": "characterisation",
+     "statement": "Identify the intrinsic parent Sym K with A[z][U,V]/((z−a)U+zV), retaining the degree-one quotient generators."
+    },
+    {
+     "name": "affineCharts",
+     "role": "projection",
+     "statement": "Export both affine chart rings and the gluing u=v^(−1) on U,V nonzero."
+    },
+    {
+     "name": "liftedSections",
+     "role": "data",
+     "statement": "The new section has [U:V]=[1:0], z=a; the old section has [0:1], z=0."
+    },
+    {
+     "name": "baseChange",
+     "role": "compatibility",
+     "statement": "Every A→B sends a to its image and pulls back both charts, lifted sections and the contraction to Spec A[z]."
+    },
+    {
+     "name": "exceptionalFibre",
+     "role": "characterisation",
+     "statement": "At a=0 the exceptional component z=0 is P¹; its attachment to the retained component is [1:−1]."
+    },
+    {
+     "name": "coordinateIndependence",
+     "role": "extensionality",
+     "statement": "The local presentation isomorphisms respect changes of smooth coordinate and of the two invertible generators because they identify the same quotient K and quotient lines."
+    }
+   ],
+   "uses": [
+    {
+     "where": "StableReductionPartII:MC.2/collision-chart-flatness",
+     "how": "Gives coefficient-flat affine covers and distinct smooth lifted sections."
+    },
+    {
+     "where": "StableReductionPartII:MC.2/pointed-boundary-induction",
+     "how": "The collision divisor supplies an additional boundary branch under the universal-curve identification."
+    }
+   ],
+   "tests": [
+    {
+     "name": "a-invertible",
+     "statement": "If a is a unit, the two sections are disjoint and the Proj contracts isomorphically to the original smooth chart; no exceptional component occurs."
+    },
+    {
+     "name": "a-zero",
+     "statement": "Over a field with a=0, z(U+V)=0 is the union of the retained affine line and the exceptional P¹, meeting at [1:−1]."
+    },
+    {
+     "name": "characteristic-two",
+     "statement": "Over F₂ with a=0 the attachment is v=1, while the two lifted markings are 0 and ∞; all remain distinct."
+    },
+    {
+     "name": "nilpotent-collision",
+     "statement": "For A=k[ε]/(ε²), a=ε, the U-chart is A[z,w]/(zw−ε). It is A-flat although a is a zero divisor; the construction must not require a to be regular."
+    }
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.2/collision-chart-flatness",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Flatness at an old-mark collision",
+   "statement": "The collision Proj is flat and finitely presented over every coefficient ring A. Its geometric fibres are nodal, its two lifted markings are smooth and disjoint, and the collision fibre has the same arithmetic genus as the original curve. For a=0 the inserted rational tail has exactly the old mark, the new mark and its attachment as special points.",
+   "hypotheses": [
+    "The collision chart and its intrinsic gluing are as specified; no flatness or regularity is imposed on a."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/old-mark-collision-chart",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+   ],
+   "proofSteps": [
+    "On D_+(U), write w=1+v: the ring A[z,w]/(zw−a) is A-free with the normal-form basis 1,z^i,w^j for i,j≥1.",
+    "The rest is covered in D_+(V) by u+1 invertible, where z=au/(u+1) and the ring is A[u,(u+1)^(−1)]. These two opens cover because outside U one has u=0.",
+    "At the new and old sections the relative Jacobian in z is a unit; the sections are disjoint since their homogeneous coordinates differ.",
+    "Use the fibre union and normalization exact sequence to read nodality and genus, and the three flags to read stability of the tail."
+   ],
+   "acceptance": [
+    "The affine cover is displayed and is valid over nonreduced A.",
+    "The new marking is not the attaching point; its smoothness is a relative assertion."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Theorem 2.4, pp. 176–177",
+     "match": "Collision stabilization inserts a rational tail and gives a stable flat family."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Theorem 5.1 and opening of its proof, pp. 13–14",
+     "match": "Asserts the stable-family result and omits the smooth-point calculation. The explicit coefficient-free affine cover and normal-form flatness proof are deductions here from the preceding collision presentation, rather than calculations printed in this theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Flatness transfer from the pointed formal chart",
+   "statement": "For the Noetherian pointed nodal family, C^s=Proj_C Sym K is flat over the coefficient base near the preimage of a nodal section point. The completed family comparison identifies its formal affine charts with completed base changes of the parent polynomial expansion charts. This is a statement about actual local rings of the intrinsic Proj. It uses neither algebraization of an arbitrary formal scheme nor excellence of the coefficient ring.",
+   "hypotheses": [
+    "Noetherian local coefficient base; finitely presented nodal curve with section; the intrinsic finite-presentation sheaf K and the pointed formal comparison."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+    "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "StableReductionPartII:MC.2/two-base-completion",
+    "SchemeAndStackFoundations:SF.0/relative-proj-base-change",
+    "SchemeAndStackFoundations:SF.0/henselization-noetherian",
+    "SchemeAndStackFoundations:SF.4/formal-completion",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "StableReductionPartII:MC.2/section-dual-presentation"
+   ],
+   "proofSteps": [
+    "On a distinguished affine H of the actual Proj over the local chart R, the formal ring is lim H/m^kH, where m is the maximal ideal of R at the section point. This is completion along the inverse image of that point. Use Sym/Proj base change and then complete this affine ring; a polynomial algebra over R̂ is not itself presumed complete.",
+    "The pointed formal comparison identifies these rings with the (p,u,v)-adic completions of the parent polynomial expansion charts over Â. The first polynomial chart has monic leading term vy²; the complementary localization of the second is a polynomial localization. Their explicit parent normal forms give Â-flatness before completion.",
+    "All these polynomial charts are Noetherian. Their displayed ideal-adic completions are flat over them and hence Â-flat. At a point under test, localize in the compared formal charts and complete once more at its maximal ideal; this yields the same maximal-ideal completion B̂ of the actual Proj local ring B. No ordinary tensor product of power-series rings is used.",
+    "The resulting B̂ is Â-flat and hence A-flat. Since B→B̂ is faithfully flat, descend A-flatness to B. Away from the exceptional locus the intrinsic Proj is the original curve. This uses only completions of actual Noetherian rings and requires no algebraization of an arbitrary formal scheme."
+   ],
+   "acceptance": [
+    "Distinguish completion after coefficient base change from a bare tensor product with R_pd.",
+    "State the ideals of formal completion on each distinguished affine and then localize at the point under test.",
+    "Together with the collision calculation, cover every possible location of Δ."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Theorem 5.1, especially the flatness argument, pp. 14–16",
+     "match": "Transfers the explicit nodal affine-chart calculation through the completed pointed local model."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "§7, pp. 24–26",
+     "match": "Discusses the formal local reduction of stabilization to these charts."
+    },
+    {
+     "sourceId": "Stacks-completion",
+     "locator": "Algebra Lemma 10.97.3, tag 00MC",
+     "match": "Faithfully flat local completion reflects module flatness."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Approximation of pointed nodal families",
+   "statement": "For every scheme S, a stable pointed family C/S and one arbitrary additional section admit, locally on affine S, a model over a finite-type Z-algebra A₀ with a stable pointed nodal family, its ordered markings and additional section. Any finite collection of family isomorphisms and their equations descends after enlargement of A₀. The actual section ideal, its dual, residue line, diagonal cokernel, symmetric algebra and Proj are canonically the pullbacks of the corresponding Noetherian-model objects. Two models give the same comparisons after a common enlargement. No global qcqs hypothesis is imposed on S.",
+   "hypotheses": [
+    "C/S proper, flat and finitely presented, with pure one-dimensional geometrically connected nodal genus-g fibres; ordered disjoint smooth old markings; log-dual relatively ample; arbitrary Δ."
+   ],
+   "prerequisites": [
+    "SchemeAndStackFoundations:SF.0/noetherian-approximation",
+    "SchemeAndStackFoundations:SF.0/finite-presentation-limits",
+    "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+    "StableReductionPartII:MC.0/pointed-approximation"
+   ],
+   "proofSteps": [
+    "On an affine base descend the finitely presented curve, all sections and the invertible log-dual line. Use the limit property theorems for properness, flatness, syntomic nodality and disjoint smooth markings, and the parent fibre/ample criteria for genus and stability.",
+    "The section ideal pulls back exactly: in 0→J→O_C→Δ_*O_S→0, the quotient is S-flat. Over the Noetherian model J is finitely presented, and its actual dual commutes with every coefficient pullback by the relative theorem.",
+    "Pull back the residue line and the finite diagonal-cokernel presentation. Sym and Proj commute with coefficient change by their existing universal properties.",
+    "Descend morphisms and equations by the finite-presentation limit theorem; compare two choices after a common enlargement. Glue over affine covers and their refinements using the canonical comparisons."
+   ],
+   "acceptance": [
+    "A finite-presentation module can have a dual that fails arbitrary base change in general; the section-ideal theorem is the essential extra input.",
+    "Do not replace the infinite graded contraction ring by an unjustified interchange of an infinite limit: use the parent finite Veronese presentation.",
+    "A non-qcqs base is handled by local affine constructions and descent."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "§2, pp. 171–179, especially the base-change claims in Definition 2.3 and Corollary 2.6",
+     "match": "The geometric constructions are natural over family bases; this theorem supplies their explicit approximation extension."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "Proposition 3.5, pp. 6–7, and §7, pp. 24–26",
+     "match": "Arbitrary coefficient change of the section dual is the local algebra input; the approximation part is a deduction using the cited foundational suppliers."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Expansion over arbitrary schemes",
+   "statement": "The existing intrinsic diagonal-cokernel construction defines stable (g,n+1)-pointed expansion over every scheme S for each stable pair (g,n), including old-mark collisions and nodal sections. The result is proper, flat and finitely presented over S, of the same genus, with disjoint smooth lifted markings and positive log-dual degree on every geometric component. Its canonical base-change and pointed-isomorphism comparisons satisfy the identity and composition cocycles. The new section is not required to be smooth or disjoint before expansion.",
+   "hypotheses": [
+    "Stable (g,n)-pointed C/S; 2g−2+n>0; arbitrary extra section Δ."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+    "StableReductionPartII:MC.2/collision-chart-flatness",
+    "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+    "StableReductionPartII:MC.2/expansion",
+    "SchemeAndStackFoundations:SF.0/relative-proj-base-change",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+   ],
+   "proofSteps": [
+    "Work over a Noetherian model. The complement of Δ is unchanged; the smooth disjoint case is an isomorphism, the collision case is the displayed tail chart, and the node case is the formal-transfer chart.",
+    "These charts prove flatness, nodality, smoothness/disjointness of lifted marks and the geometric three-flag description. The graph/genus and componentwise degree formulas prove same genus and stability.",
+    "Pull back to an arbitrary base using the approximation theorem, then glue across affine charts.",
+    "All comparisons arise from the canonical sheaf dual, cokernel, Sym and Proj maps, so their identity and composition laws follow from those universal properties."
+   ],
+   "acceptance": [
+    "Include all three fibre types in a single construction.",
+    "Retain automorphisms of the original pointed family and naturality on their isomorphisms."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Definition 2.3 and Theorem 2.4, pp. 176–177",
+     "match": "Defines expansion and identifies its stable pointed fibres."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Theorems 5.1 and 5.2, pp. 13–16",
+     "match": "Verifies flatness and the functorial stable-family construction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/contraction-recovery-comparison",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "comparison",
+   "title": "Recovery of a contracted pointed family",
+   "statement": "Let Y/S be stable (g,n+1)-pointed, and let q:Y→C be the parent contraction after omitting its last marking, with 2g−2+n>0. Let Δ be the image of the omitted mark. There is a unique pointed isomorphism Y≃C^s over C compatible with q, the lifted old markings and the last marking. It is natural in family isomorphisms and every base change. The only contracted component is the rational three-flag tail or bridge rendered unstable by removal of that one marking; no stable component is contracted.",
+   "hypotheses": [
+    "Parent single-mark contraction with its universal structure-sheaf and base-change properties; stable source and stable retained pair."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "StableReductionPartII:MC.2/forget",
+    "AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian"
+   ],
+   "proofSteps": [
+    "Use the parent contraction and componentwise log-dual degrees to classify its exceptional fibre: collision tail, nodal bridge, or none.",
+    "Write D for the old divisor on C, D_Y for the retained divisor on Y and l for the last section. The fibrewise tail/bridge calculations and cohomology/base change give q_*O_Y(l−D_Y)≃J∨(−D). The evaluation diagram identifies q_*O_Y(l) with K(−D), not K itself, and gives q^*K(−D)→O_Y(l) surjective. Tensor by q^*O_C(D), or use Proj Sym K(−D)≃Proj Sym K, to obtain the map Y→C^s with the specified quotient lines. Keep the signs compatible with the positive diagonal.",
+    "The map preserves all quotient lines and is an isomorphism on geometric fibres, hence is quasi-finite. It is proper because Y is proper over S and C^s is separated over S, and is therefore finite. For a finite map between S-flat finitely presented curves, fibrewise isomorphism makes its structure-sheaf map an isomorphism by Nakayama and coefficient-flatness.",
+    "The quotient universal property and the contraction factorization property give uniqueness. Prove over Noetherian models and descend to arbitrary S."
+   ],
+   "acceptance": [
+    "Verify the sheaf comparison and the induced evaluation quotient, not only a bijection on geometric points.",
+    "Include an omitted marking on a rational bridge and one colliding with an old marking.",
+    "Retain the twist K(−D) in the recovery evaluation diagram; its Proj is canonically the same as that of K."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Lemma 2.5 and Corollary 2.6, pp. 178–179",
+     "match": "Constructs the unique map from a contraction back to the intrinsic expansion and proves the inverse comparisons."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Theorem 5.2, p. 16",
+     "match": "States functoriality of stabilization. The inverse comparison comes from Knudsen II Lemma 2.5 and Corollary 2.6, not from this later theorem alone."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "comparison",
+   "title": "Coherent universal-curve equivalence",
+   "statement": "The imported morphisms s:Z̄_(g,n)→M̄_(g,n+1) and c:M̄_(g,n+1)→Z̄_(g,n) form an equivalence of groupoid-valued pseudofunctors over M̄_(g,n) on all schemes. The natural isomorphisms cs≅id and sc≅id are the pointed recovery maps; they commute with pullback, satisfy both triangle identities, and respect reindexing of retained markings. For a family C/S classified by S→M̄_(g,n), the two-fibre product S×_(M̄_(g,n)) M̄_(g,n+1) is canonically the actual curve C. The structural projection is proper flat nodal, and the n old marking loci are actual sections of this universal curve.",
+   "hypotheses": [
+    "g,n≥0, 2g−2+n>0; imported curve-moduli groupoids and their coherent pullback."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/contraction-recovery-comparison",
+    "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+    "StableReductionPartII:key/moduli-curves",
+    "StableReductionPartII:MC.0/pullback-coherence",
+    "StableReductionPartII:MC.0/universal-curve",
+    "StableReductionPartII:MC.0/effective-descent"
+   ],
+   "proofSteps": [
+    "Apply the recovery comparison to sc; contracting the intrinsic expansion recovers the original family and its arbitrary extra section, giving cs.",
+    "Uniqueness of pointed recovery over the contraction makes the two unit/counit composites agree, proving triangle identities and all pullback squares.",
+    "The universal-curve moduli problem represents arbitrary sections of C_T; the equivalence identifies its groupoid with the two-fibre product.",
+    "Transport the actual proper flat nodal curve morphism and marking sections through this equivalence."
+   ],
+   "acceptance": [
+    "Automorphism groups are preserved; do not pass to isomorphism classes.",
+    "At a fibre node the projection is nodal, not smooth.",
+    "Iterated forgetting is compared over the final contraction, with permutation and pullback compatibility."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Corollary 2.6, p. 179",
+     "match": "Identifies the two operations as inverse and hence identifies the universal stable curve with the next pointed moduli stack."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Theorem 5.2, p. 16",
+     "match": "Supplies the functorial stabilization operation. Its coherent inverse is justified here by the original recovery lemma and Corollary 2.6 together with uniqueness, rather than attributed to this theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "comparison",
+   "title": "Stable genus-one curves and one-gons",
+   "statement": "For every scheme S, forgetting the generalized elliptic action gives an equivalence from the imported one-gon generalized elliptic groupoid E₁(S) to the groupoid of stable one-pointed genus-one curves over S. The inverse uses the unique group law on the relative smooth locus with the mark as identity, and its unique extension action on the cubic. It commutes with arbitrary pullback. Consequently M̄₁,₁ is proper smooth Deligne–Mumford over Z of relative dimension one; its reduced boundary is the smooth Cartier stack B(C₂). This proof is independent of the triangle embedding.",
+   "hypotheses": [
+    "Stable pointed genus-one family; the ordered single mark is relatively smooth."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:key/moduli-curves",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-proper",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-dm-locus",
+    "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-cusp",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "StableReductionPartII:MC.2/arbitrary-base-family-approximation"
+   ],
+   "proofSteps": [
+    "The total log-dual degree is 2g−2+n=1. Positivity on each geometric component forces one component: a smooth genus-one curve or an irreducible rational nodal curve.",
+    "The degree-three marked polarization gives the relative noncuspidal Weierstrass cubic locally on S. Use the existing integral Weierstrass presentation and its coordinate-change group; its generalized elliptic law is uniquely recovered from the pointed cubic.",
+    "The coordinate comparisons descend and are compatible with all pullbacks, identifying the two groupoids and preserving their automorphisms.",
+    "Import properness, smoothness, DM and the one-gon cusp from the arithmetic-moduli nodes; no new construction of generalized elliptic curves is made here."
+   ],
+   "acceptance": [
+    "Exclude polygons with more than one component: unmarked components have log degree zero and are not stable.",
+    "The nodal cusp retains the inversion automorphism; it is B(C₂), not Spec Z.",
+    "The Weierstrass discriminant boundary remains valid in characteristics two and three."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Theorem 2.7 and its genus-one argument, p. 179",
+     "match": "Requires the genus-one pointed base; the displayed independent route uses the existing one-gon supplier instead of deriving it from a triangle."
+    },
+    {
+     "sourceId": "Ile-relative",
+     "locator": "§7, pp. 24–26, use of stable pointed families and section-preserving functoriality",
+     "match": "Supports the pointed-family comparison convention; the group-law and properness inputs are precisely the imported arithmetic-moduli nodes."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/pointed-stack-induction-step",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Universal-curve induction",
+   "statement": "Suppose for a stable pair (g,n) the imported M̄_(g,n) is smooth proper DM over Z, of relative dimension d=3g−3+n, and its nodal deformations have independent smoothing coordinates with reduced normal-crossings boundary. Then M̄_(g,n+1) has the same properties with dimension d+1. Over a point at an old node, the universal curve replaces its base coordinate t₁ by xy=t₁, so x and y are the two smoothing coordinates of the expanded bridge. Over an old-mark collision its new tail has smoothing coordinate a transverse to the old boundary. This is an induction theorem, not an assertion that the universal projection is smooth.",
+   "hypotheses": [
+    "The stated smooth proper DM and independent-node-coordinate hypotheses for (g,n); 2g−2+n>0."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+    "StableReductionPartII:MC.2/collision-chart-flatness",
+    "StableReductionPartII:MC.2/old-mark-collision-chart",
+    "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+    "StableReductionPartII:MC.1/versal-node-parameters",
+    "StableReductionPartII:MC.1/normal-crossing-boundary",
+    "SchemeAndStackFoundations:SF.1"
+   ],
+   "proofSteps": [
+    "Representability of the universal-curve morphism transfers DM algebraicity from the base and gives properness by composition; its relative dimension is one.",
+    "On a smooth atlas at a point away from an old node, the universal curve is smooth relative dimension one. At an old node its local deformation equation is xy=t₁; eliminating the independent parameter t₁ proves smoothness of the total space over Z.",
+    "At a collision, the explicit tail chart identifies the new node parameter with the transverse coordinate a; at an old node the bridge chart identifies its two node parameters with x,y. Retain every other old node coordinate.",
+    "Thus the boundary coordinates remain independent, and the complement of their zero loci is the dense smooth-family open. Use the same atlas and the formal-to-étale coordinate comparison already required by MC.1, rather than infer étale normal crossings from arbitrary formal equations."
+   ],
+   "acceptance": [
+    "Dimension increases by one, including g=0 and g=1.",
+    "The nodal universal projection remains nonsmooth at xy=t₁ with x=y=0.",
+    "Prove smoothness and the node-coordinate hypothesis together in the induction."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Theorem 2.7, p. 179",
+     "match": "Uses universal-curve induction for the full pointed stable range and its boundary."
+    },
+    {
+     "sourceId": "Knudsen-pointed-node",
+     "locator": "Proposition 2.1 and Theorem 5.1, pp. 5–10 and 13–16",
+     "match": "Supplies the local pointed node and bridge calculations needed to track smoothing coordinates."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/pointed-boundary-induction",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "comparison",
+   "title": "Boundary under forgetting a mark",
+   "statement": "Under the universal-curve equivalence, the reduced boundary divisors satisfy B_(g,n+1)=π*B_(g,n)+Σ_(i=1)^n s_i(M̄_(g,n)) as relative effective Cartier divisors on the universal curve. The first term records old nodal fibres; the extra n section divisors record new old-mark collision tails. At a universal point on the j-th old node, t_j=xy and a local boundary equation becomes xy∏_(k≠j)t_k; at an old marking a local equation is a∏_k t_k. These are normal crossings étale locally, without asserting globally simple normal crossings.",
+   "hypotheses": [
+    "The induction-step hypotheses, and reduced boundary with independent smoothing coordinates; ordered disjoint old markings."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/pointed-stack-induction-step",
+    "StableReductionPartII:MC.2/old-mark-collision-chart",
+    "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+   ],
+   "proofSteps": [
+    "A new expanded family is nodal exactly when the old curve was nodal or the extra point meets an old mark.",
+    "The local smoothing calculations give multiplicity one for every component and identify the Cartier equations.",
+    "Old markings lie in the smooth locus and are disjoint, so their new divisors are smooth relative to the base and meet only the old boundary branches transversely.",
+    "Use the independent coordinates on a smooth atlas to descend relative normal crossings."
+   ],
+   "acceptance": [
+    "For (g,n)=(0,3), the old boundary is empty but the new boundary has three components.",
+    "Do not omit the section terms or call the global boundary simple."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Theorem 2.7, p. 179, boundary induction",
+     "match": "Describes the next boundary as old-boundary inverse image together with the canonical section loci."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "theorem",
+   "title": "Recovery of the labelled rational triangle",
+   "statement": "Let E/Z be the fixed three-pointed rational triangle of the parent target, and let ι attach its mark P₁ to a stable one-pointed genus-one family F, retaining P₂,P₃. For every scheme S, each isomorphism of the resulting ordered two-pointed genus-two families lifts uniquely to an isomorphism of the original F families and the identity on E_S. Recovery and its comparisons commute with arbitrary base change, including nilpotent thickenings. Hence ι is a representable monomorphism. Using the independent genus-one properness theorem and separatedness of M̄₂,₂, it is a proper monomorphism and therefore a closed immersion.",
+   "hypotheses": [
+    "E is the fixed labelled triangle, not an arbitrary three-pointed genus-one curve; the target retains the ordered P₂,P₃; S arbitrary."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+    "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+    "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+    "StableReductionPartII:MC.2/higher-genus-pointed",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+    "SchemeAndStackFoundations:SF.1",
+    "StableReductionPartII:MC.2/genus-zero-base"
+   ],
+   "proofSteps": [
+    "For a glued family identify the three triangle components by their labelled graph and the two retained markings; the attachment is the unique separating edge adjacent to the unmarked triangle vertex. This graph identification is invariant under every pointed isomorphism.",
+    "The four persistent nodes are actual sections of the relative singular scheme. For a proper nodal curve this scheme is finite unramified over S. Its open diagonal makes two sections agreeing on all geometric fibres equal even over nilpotent bases. Thus a pointed family isomorphism preserves these four singular sections scheme-theoretically, not just as vertices of fibre graphs.",
+    "Cut the four selected nodes by the canonical finite algebra End(I), where I is their ideal. On an étale persistent-node chart R=A[x,y]/(xy), I=(x,y), this algebra is A[x]⊕A[y]; its equal-constant subalgebra is R. The completed version is A[[x]]⊕A[[y]]. Away from the selected sections I is the unit ideal, so End(I)=R. These calculations glue and commute with coefficient change, giving a partial normalization only at the selected nodes. Every isomorphism preserving I lifts canonically to this cut; this is not normalization of the whole nonreduced family.",
+    "Each recovered rational component has three labelled disjoint smooth sections, so the imported genus-zero base identifies it uniquely with P¹; thus its automorphism is the identity. The remaining component with its recovered attachment mark is F.",
+    "Glue the local recovery maps uniquely by the pushout property and descend from Noetherian models; this proves full faithfulness over arbitrary S, not only on geometric points.",
+    "A monomorphism of these algebraic stacks is representable. Properness of the source over Z and separatedness of the ambient target make this map proper; a proper representable monomorphism is a closed immersion."
+   ],
+   "acceptance": [
+    "Include F nodal: its self-node is not among the four nodes cut out.",
+    "Include nonreduced bases; fibre graph uniqueness by itself is insufficient.",
+    "Fixing P₂,P₃ individually excludes reversal of the triangle."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Theorem 2.7 and Figure 4, p. 179; Theorem 3.4, pp. 181–183",
+     "match": "Uses the rigid triangle for the genus-one base and gives the smooth-section pushout used for family recovery."
+    },
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Theorem 3.7, pp. 187–190, with the corrected nodal-section pairing scope",
+     "match": "Provides the labelled rational-component recovery pattern. The present persistent-node argument does not use its erroneous unrestricted pairing equality."
+    },
+    {
+     "sourceId": "Stacks-nodal-singular-scheme",
+     "locator": "Algebraic Curves Lemma 53.20.1, tag 0C58",
+     "match": "Nodality makes the Fitting singular scheme unramified over the base; properness then makes this closed singular scheme finite."
+    },
+    {
+     "sourceId": "Stacks-unramified-diagonal",
+     "locator": "Morphisms Lemma 29.36.13, tag 02GE",
+     "match": "The open diagonal detects equality of singular sections from their agreement at every geometric point, including over nonreduced bases."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/triangle-smoothing-comparison",
+   "parentStageId": "StableReductionPartII:MC.2",
+   "realises": [
+    "StableReductionPartII:MC.2"
+   ],
+   "kind": "comparison",
+   "title": "Four fixed triangle smoothing parameters",
+   "statement": "At a geometric point in the labelled triangle immersion, choose the independent ambient M̄₂,₂ node-smoothing coordinates. Its formal image is defined by the vanishing of the four coordinates for the three internal triangle nodes and the attachment. The remaining parameter is free. If F is nodal, it is precisely its fifth ambient node-smoothing parameter and cuts out the boundary of M̄₁,₁; if F is smooth it is the one-dimensional smooth deformation coordinate. After the MC.1 formal-to-étale comparison these equations describe the image étale locally. There is no assertion that the fifth parameter vanishes on the whole image.",
+   "hypotheses": [
+    "Geometric pointed triangle point; specified branches of the four persistent nodes; independent ambient node parameters on a smooth atlas."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+    "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+    "StableReductionPartII:MC.1/versal-node-parameters",
+    "StableReductionPartII:MC.1/normal-crossing-boundary",
+    "StableReductionPartII:MC.2/pointed-stack-induction-step"
+   ],
+   "proofSteps": [
+    "The three rational triangle components have three labelled flags each and thus no moduli; retain their four gluing nodes unsmoothed.",
+    "Cutting those nodes as in the family-recovery theorem identifies their equisingular deformation groupoid with the one-pointed genus-one deformation groupoid.",
+    "The ambient independent-node deformation ring therefore restricts by setting exactly those four parameters to zero; the source dimension one accounts for the remaining coordinate.",
+    "At a nodal F its own self-node is left free, so its parameter is the source cusp parameter. Apply the same formal-to-étale supplier as the ambient boundary theorem."
+   ],
+   "acceptance": [
+    "The ambient relative dimension is five and the source relative dimension is one.",
+    "At nodal F count five nodes, of which exactly four are fixed.",
+    "Compare deformation groupoids with automorphisms, not only their tangent spaces."
+   ],
+   "sources": [
+    {
+     "sourceId": "Knudsen-II-1983",
+     "locator": "Theorem 2.7, Figure 4 and final local argument, p. 179",
+     "match": "The fixed triangle and its attachment give the rigid genus-one locus; the four/five-node count is the explicit graph calculation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "StableReductionPartII:MC.2",
+   "status": "planned",
+   "remaining": [
+    "Resolve the explicitly scoped generic commutative-algebra supplier contract at DeformationAndDerivedPatchingAlgebra:R03.3; its accepted flat-fibre injection lemma alone does not supply every required comparison. Reuse the existing StablePeriodicCurved Layer 2 ordinary complete-resolution infrastructure; discharge only its new relative coefficient-universality comparison here.",
+    "Retain and discharge the inherited MC.0/MC.1 stack, atlas and formal-to-étale boundary contracts; this part supplies no replacement unpointed algebraicity or formal-to-étale theorem.",
+    "Directly collate the cited Bourbaki completion input from an authorized source if retaining that citation. The two-base completion theorem has a public-source proof route independent of it."
+   ]
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "need": "Supply the generic commutative-algebra contracts used here, without replanning them in MC.2: (i) for local Noetherian A→B and finite B-module N, Tor_1^A(k,N)=0 implies A-flatness (Stacks 00MK); (ii) if I maps into the maximal ideal of B and every N/I^nN is A/I^n-flat, then N is A-flat (Stacks 0523); (iii) canonical fp Hom and degreewise finite-free Ext comparisons under flat chart extension, the flat scalar-extension/restriction Ext adjunction, and flat fibre Ext edge maps; (iv) the coherent coefficient δ-functor exchange/flatness criterion, including filtered-colimit passage to arbitrary coefficient modules, as in Ile Proposition 2.2/Remark 2.3; (v) a finite maximal Cohen–Macaulay module over a one-dimensional Noetherian Gorenstein local ring has canonical biduality, an MCM dual and both positive Ext-to-ring vanishings. The existing flat-fibre-injection-cokernel node is a related input, not a substitute for the all-Tor and arbitrary-coefficient contracts. No derived-completion or inverse-limit theorem is requested.",
+   "neededBy": [
+    "StableReductionPartII:MC.2/universal-complete-hull",
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "StableReductionPartII:MC.2/ambient-relative-reflection",
+    "StableReductionPartII:MC.2/two-base-completion",
+    "StableReductionPartII:MC.2/infinitesimal-relative-criterion",
+    "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction",
+    "StableReductionPartII:MC.2/section-ideal-local-theorem",
+    "StableReductionPartII:MC.2/formal-proj-flatness-transfer"
+   ],
+   "status": "import-contract"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+   "need": "Import the current StableReduction Layer 1 nodal family, local/formal node charts, geometric dual graph and normalization/genus exact sequence. The new pointed hull comparison uses its actual completed local algebra; it does not create a second definition of nodality or graph. Include the relative Fitting singular scheme, its base-change compatibility and unramifiedness; these identify persistent nodal sections scheme-theoretically before the new family-recovery proof cuts them.",
+   "neededBy": [
+    "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+    "StableReductionPartII:MC.2/section-ideal-local-theorem",
+    "StableReductionPartII:MC.2/collision-chart-flatness",
+    "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+    "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+    "StableReductionPartII:MC.2/labelled-triangle-family-recovery"
+   ],
+   "status": "import-contract"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "need": "Import the current StableReduction Layer 2 internal sheaf operations, nodal dualizing line and componentwise degree, relative Proj and polarized descent, and the contraction structure-sheaf universal property. Its Noetherian scope is extended to these particular finite-presentation family constructions by the MC.2 approximation theorem, not asserted as a new general upstream theorem.",
+   "neededBy": [
+    "StableReductionPartII:MC.2/section-ideal-local-theorem",
+    "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+    "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+    "StableReductionPartII:MC.2/contraction-recovery-comparison",
+    "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+    "StableReductionPartII:MC.2/pointed-boundary-induction"
+   ],
+   "status": "import-contract"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+   "need": "Import current StableReduction Layer 3 ordered stable/prestable families, special-flag stability, external/self smooth-section pushouts with their base-change and normalization universal properties, and the single-marking contraction primitive with its finite Veronese presentation. The triangle recovery cuts only the four persistent nodes of an already glued family.",
+   "neededBy": [
+    "StableReductionPartII:MC.2/collision-chart-flatness",
+    "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+    "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+    "StableReductionPartII:MC.2/contraction-recovery-comparison",
+    "StableReductionPartII:MC.2/labelled-triangle-family-recovery"
+   ],
+   "status": "import-contract"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+   "need": "Import current StableReduction Layer 9 marking-preserving stabilization and uniqueness, to compare the single-mark contraction with reindexing and with repeated forgetting. The primitive single-mark construction comes first from Layer 3.",
+   "neededBy": [
+    "StableReductionPartII:MC.2/contraction-recovery-comparison"
+   ],
+   "status": "import-contract"
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.1",
+   "need": "Supply the existing fibred-groupoid/stack, representable-morphism and diagonal APIs and local-on-atlas transfer of DM, properness, smoothness and dimension. Include the criteria that a proper representable monomorphism is a closed immersion and that a proper map to a separated target is proper over that target. No new stack or moduli foundation is introduced here.",
+   "neededBy": [
+    "StableReductionPartII:MC.2/pointed-stack-induction-step",
+    "StableReductionPartII:MC.2/labelled-triangle-family-recovery"
+   ],
+   "status": "import-contract"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/StablePeriodicCurved#layer-2-self-injective-modules-total-acyclicity-and-singularities",
+   "need": "Import the existing finite-projective totally acyclic complex, finitely generated Gorenstein-projective predicate and complete-resolution comparison up to homotopy. Translate the right-module roadmap through opposites for commutative R, and identify its cycle-zero convention with coker d^(−1) by a degree-one shift. The current Tau Ceti declarations CochainComplex.IsTotallyAcyclic and TauCeti.IsGorensteinProjective are read implementations of these carriers at the current library commit, absent from the programme pin. MC.2 adds only the no-hidden-finiteness absolute Hom/Ext predicate, its finite-module compatibility, and the relative A-universality/flat-cycle strengthening.",
+   "neededBy": [
+    "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+    "StableReductionPartII:MC.2/universal-complete-hull"
+   ],
+   "status": "import-contract"
+  }
+ ],
+ "gaps": [
+  {
+   "id": "StableReductionPartII:MC.2/gap-bourbaki-collation",
+   "title": "Bourbaki citation not directly collated",
+   "kind": "source-access",
+   "detail": "Knudsen Appendix Proposition 6 cites Bourbaki, Commutative Algebra, Chapter III, 5.4.4 (printed locator). That text was neither publicly obtained nor present among the cleared private references, so its exact statement and edition/page have not been inspected. The mathematical completion route in this packet replaces that dependency with the explicitly read Stacks local Tor criterion plus the complete-hull argument; no result is attributed to an unread Bourbaki passage. Direct bibliographical discharge of the requested Bourbaki citation remains a source-access task, not a premise of the replacement proof.",
+   "affectedNodes": [
+    "StableReductionPartII:MC.2/two-base-completion"
+   ],
+   "resolution": "Collate the exact cited Bourbaki result from a cleared copy if its original citation must be retained; retain the public replacement proof independently."
+  }
+ ],
+ "sourceIssues": [],
+ "currentUpstreamImports": [
+  {
+   "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+   "layers": [
+    "L0A",
+    "L0B",
+    "L0C"
+   ],
+   "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+   "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+   "locator": "README L0A–L0C, especially internal Hom and pullback in L0B; matching Suggested.lean",
+   "provides": "Existing internal Hom, finitely presented quasi-coherent sources, flat Hom pullback, invertible sheaves, tensor and symmetric algebras. MC.2 proves only the extra arbitrary coefficient pullback for this section ideal.",
+   "usedBy": [
+    "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "StableReductionPartII:MC.2/arbitrary-base-family-approximation"
+   ],
+   "encoding": "This upstream roadmap is absent from the atlas stage snapshot. Its exact owner is recorded here and in the reader; no fictitious pinned declaration or stage id is used. The indexed StableReduction Layer 2 prerequisites supply its curve-specific consumers."
+  },
+  {
+   "roadmap": "tauceti:TauCetiRoadmap/StablePeriodicCurved",
+   "layers": [
+    "Layer 2"
+   ],
+   "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+   "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/StablePeriodicCurved/README.md",
+   "locator": "Layer 2, total acyclicity and finite Gorenstein-projectives; Suggested.lean CompleteProjectiveResolution and IsGorensteinProjective",
+   "provides": "Ordinary finite-projective complete resolutions and their comparison. MC.2 imports this infrastructure and proves its relative coefficient-universality strengthening.",
+   "usedBy": [
+    "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+    "StableReductionPartII:MC.2/universal-complete-hull"
+   ]
+  }
+ ],
+ "libraryInspection": {
+  "audit": "data/library-coverage.json: read the reviewed StableReduction Layers 0–3 and 9 records; the new Part II has no separate built-geometry audit entry. Also read the reviewed StablePeriodicCurved Layer 2 record (not built at the programme pin), and checked its finite-term and complete-resolution target scopes.",
+  "pinnedSearch": "Read the actual dual, Ext, projective-resolution, flatness, completion-as-tensor and local-completion declarations. Searched the pinned Tau Ceti sources and Mathlib for stable/totally reflexive modules, coefficient Ext comparisons, complete resolutions and stable pointed moduli; no implementation of these new targets was located.",
+  "currentTauCeti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+  "currentRoadmaps": "0d144d044dacebca17b654695b6f1ad58f159b27",
+  "currentInspection": "Read current StableReduction README and Suggested.lean, especially Layers 1–3 and 9, and current AlgebraicVectorBundles README/Suggested.lean L0A–L0C. Searched the full current roadmap and Tau Ceti trees for stable reflexivity, complete resolutions and pointed expansion. No competing relative-reflexivity owner was located. Read current StablePeriodicCurved Layer 2 README and Suggested.lean complete-resolution signatures, and current TauCeti/Algebra/Homology/TotallyAcyclic.lean: CochainComplex.IsTotallyAcyclic, its shift theorem, TauCeti.IsGorensteinProjective, isGorensteinProjective_iff and IsGorensteinProjective.finite. These are imported current carriers, not newly planned objects or pinned baseline declarations.",
+  "overlap": "Generic curve families, gluing, contraction, sheaf operations and stack foundations are imports. MC.2 owns the relative stable-reflexivity predicate and its use for pointed expansion. Generic local-flatness/Ext algebra stays with DeformationAndDerivedPatchingAlgebra R03.3. Ordinary total acyclicity and finite Gorenstein-projectives belong to StablePeriodicCurved Layer 2. The MC.2 complete-hull node is only their relative coefficient-universal enhancement, with an explicit shift comparison.",
+  "currentDeclarations": {
+   "commit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+   "module": "TauCeti.Algebra.Homology.TotallyAcyclic",
+   "names": [
+    "CochainComplex.IsTotallyAcyclic",
+    "CochainComplex.IsTotallyAcyclic.shift",
+    "TauCeti.IsGorensteinProjective",
+    "TauCeti.isGorensteinProjective_iff",
+    "TauCeti.IsGorensteinProjective.finite"
+   ],
+   "pinStatus": "The module is absent at f790474; these names are current-library evidence for importing the existing roadmap, not entries in baseline.declarations."
+  },
+  "mathlibDesignSearch": {
+   "date": "2026-10-18",
+   "openPullRequests": "GitHub Mathlib open-PR searches for exact totally acyclic, Gorenstein projective and stably reflexive phrases returned no matches. Broader Gorenstein results concern local ring predicates and do not supply this module interface.",
+   "zulip": "Public archive searches found no matching relative stable-reflexivity design discussion; no API claim is based on absence of a search result."
+  }
+ },
+ "parentImports": [
+  {
+   "id": "StableReductionPartII:MC.0/effective-descent",
+   "title": "Effective descent of pointed stable curves",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.0/pullback-coherence",
+   "title": "Pullback coherence for pointed moduli",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.0/universal-curve",
+   "title": "The universal curve with an arbitrary extra section",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.1/normal-crossing-boundary",
+   "title": "Relative normal-crossings boundary",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.1/versal-node-parameters",
+   "title": "Independent node-smoothing parameters",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/completion-coefficient-tensor",
+   "title": "Two-base tensor quotient for the nodal chart",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel",
+   "title": "Kernel of the two-base comparison",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
+   "title": "The two-base map is surjective",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/cross-ratio",
+   "title": "The cross-ratio compactification",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/expansion",
+   "title": "Expansion at an arbitrary extra section",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/expansion-contraction-inverses",
+   "title": "Expansion and contraction are inverse",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/forget",
+   "title": "Forgetting a marking on the moduli stack",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/genus-one-base",
+   "title": "The one-pointed genus-one base stack",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/genus-zero-base",
+   "title": "The three-pointed rational moduli scheme",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/higher-genus-pointed",
+   "title": "Pointed induction for genus at least two",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/hom-completion-hom-equivalence",
+   "title": "Actual relative Hom and compatible quotient Homs",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/pointed-dm-theorem",
+   "title": "Deligne–Mumford–Knudsen theorem",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/pointed-node-normal-form",
+   "title": "Normal form of a pointed nodal deformation",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/rigid-triangle-embedding",
+   "title": "The rigid triangle locus",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-dual-coefficient-flat",
+   "title": "Coefficient flatness of the section dual",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-dual-coefficient-hom-equivalence",
+   "title": "Coefficient tensor–Hom equivalence for the dual",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+   "title": "Completion of the polynomial section dual",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-dual-derived-ext-vanishing",
+   "title": "Positive derived-functor Ext vanishing for the section dual",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-dual-presentation",
+   "title": "The ordered surjection to the section dual",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence",
+   "title": "Completion of the actual residue quotient",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-ideal-coefficient-flat",
+   "title": "Coefficient flatness of the section ideal",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-ideal-coefficient-hom-equivalence",
+   "title": "Coefficient-valued bidual equivalence",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:MC.2/section-ideal-derived-ext-vanishing",
+   "title": "Positive derived-functor Ext vanishing for the section ideal",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  },
+  {
+   "id": "StableReductionPartII:key/moduli-curves",
+   "title": "Moduli stacks of pointed curves",
+   "packet": "research/blueprint/packets/StableReductionPartII.json"
+  }
+ ],
+ "inheritedSourceIssues": [
+  "StableReductionPartII/E1",
+  "StableReductionPartII/E2",
+  "StableReductionPartII/E3"
+ ],
+ "sourceIssuePolicy": "No new erratum is asserted. The pointed-node gap and moving-family pairing correction are imported from E1/E2, with the corrected statements used throughout. No unrestricted general-clutching closed-immersion claim from E3 is used. The triangle immersion is the separately proved fixed labelled case.",
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+   "read": "2026-10-18",
+   "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1106.1588v2",
+   "read": "2026-10-18",
+   "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1110.3909v3",
+   "read": "2026-10-18",
+   "sha256": "41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743"
+  }
+ ],
+ "targetCoverage": [
+  {
+   "target": "Relative stable-reflexivity owner and canonical arbitrary-coefficient Hom/Ext criterion",
+   "nodes": [
+    "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+    "StableReductionPartII:MC.2/relative-stable-reflexivity",
+    "StableReductionPartII:MC.2/universal-complete-hull",
+    "StableReductionPartII:MC.2/relative-universal-criterion",
+    "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+    "StableReductionPartII:MC.2/polynomial-relative-criterion"
+   ]
+  },
+  {
+   "target": "Both completions, arbitrary completed coefficients and Proposition 7",
+   "nodes": [
+    "StableReductionPartII:MC.2/ambient-relative-reflection",
+    "StableReductionPartII:MC.2/two-base-completion",
+    "StableReductionPartII:MC.2/infinitesimal-relative-criterion",
+    "StableReductionPartII:MC.2/completed-coefficient-hom-ext"
+   ],
+   "sourceAccessGap": "StableReductionPartII:MC.2/gap-bourbaki-collation"
+  },
+  {
+   "target": "Actual completed-ring Hom/Ext and comparison with parent Hom_R families",
+   "nodes": [
+    "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction",
+    "StableReductionPartII:MC.2/completed-coefficient-hom-ext"
+   ],
+   "imports": [
+    "StableReductionPartII:MC.2/hom-completion-hom-equivalence",
+    "StableReductionPartII:MC.2/section-dual-completion-equivalence",
+    "StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence"
+   ]
+  },
+  {
+   "target": "Two-base balancing quotient with no unjustified injectivity",
+   "imports": [
+    "StableReductionPartII:MC.2/completion-coefficient-tensor",
+    "StableReductionPartII:MC.2/completion-coefficient-tensor-surjective",
+    "StableReductionPartII:MC.2/completion-coefficient-tensor-kernel"
+   ],
+   "reader": "The balancing-quotient counterexample uses A=Q[t]_(t), R=A and N=Â; even rank-one free completed coefficients do not make this original-base quotient injective."
+  },
+  {
+   "target": "Pointed polynomial/hull comparison and formal Proj/flatness transfer",
+   "nodes": [
+    "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+    "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+    "StableReductionPartII:MC.2/old-mark-collision-chart",
+    "StableReductionPartII:MC.2/collision-chart-flatness"
+   ],
+   "imports": [
+    "StableReductionPartII:MC.2/pointed-node-normal-form",
+    "StableReductionPartII:MC.2/section-dual-presentation"
+   ]
+  },
+  {
+   "target": "Actual sheaf dual, residue line, descent and arbitrary-base approximation",
+   "nodes": [
+    "StableReductionPartII:MC.2/section-ideal-local-theorem",
+    "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+    "StableReductionPartII:MC.2/expansion-over-arbitrary-bases"
+   ]
+  },
+  {
+   "target": "Pointed family/groupoid interfaces and inverse/pullback coherence",
+   "nodes": [
+    "StableReductionPartII:MC.2/contraction-recovery-comparison",
+    "StableReductionPartII:MC.2/universal-curve-coherent-equivalence"
+   ],
+   "imports": [
+    "StableReductionPartII:key/moduli-curves",
+    "StableReductionPartII:MC.0/pullback-coherence",
+    "StableReductionPartII:MC.0/effective-descent",
+    "StableReductionPartII:MC.0/universal-curve",
+    "StableReductionPartII:MC.2/forget",
+    "StableReductionPartII:MC.2/expansion-contraction-inverses"
+   ]
+  },
+  {
+   "target": "Full stable range, genus-zero base, genus-one base and cross-ratio",
+   "nodes": [
+    "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+    "StableReductionPartII:MC.2/pointed-stack-induction-step"
+   ],
+   "imports": [
+    "StableReductionPartII:MC.2/genus-zero-base",
+    "StableReductionPartII:MC.2/genus-one-base",
+    "StableReductionPartII:MC.2/higher-genus-pointed",
+    "StableReductionPartII:MC.2/pointed-dm-theorem",
+    "StableReductionPartII:MC.2/cross-ratio"
+   ],
+   "reader": "Start at (0,3), (1,1), and (g,0), g≥2; use the induction step. The (0,4) compactification is the actual universal P¹ over (0,3)."
+  },
+  {
+   "target": "Rigid triangle recovery, four fixed parameters and fifth cusp parameter",
+   "nodes": [
+    "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+    "StableReductionPartII:MC.2/triangle-smoothing-comparison"
+   ],
+   "imports": [
+    "StableReductionPartII:MC.2/rigid-triangle-embedding"
+   ]
+  },
+  {
+   "target": "Old-boundary and old-section collision divisors",
+   "nodes": [
+    "StableReductionPartII:MC.2/pointed-boundary-induction"
+   ],
+   "imports": [
+    "StableReductionPartII:MC.1/normal-crossing-boundary"
+   ]
+  }
+ ],
+ "assemblyInstructions": {
+  "keepIds": "Keep every imported parent target id and its mathematical object. Add the new prerequisite proof routes below, rather than duplicating those targets or treating their historical gaps as established theorems.",
+  "proofRoutes": {
+   "StableReductionPartII:MC.2/dual-section-ideal": [
+    "StableReductionPartII:MC.2/polynomial-relative-criterion",
+    "StableReductionPartII:MC.2/section-ideal-local-theorem",
+    "StableReductionPartII:MC.2/section-dual-sheaf-gluing"
+   ],
+   "StableReductionPartII:MC.2/expansion-flat": [
+    "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+    "StableReductionPartII:MC.2/collision-chart-flatness"
+   ],
+   "StableReductionPartII:MC.2/expansion-contraction-inverses": [
+    "StableReductionPartII:MC.2/contraction-recovery-comparison",
+    "StableReductionPartII:MC.2/universal-curve-coherent-equivalence"
+   ],
+   "StableReductionPartII:MC.2/genus-one-base": [
+    "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+    "StableReductionPartII:MC.2/triangle-smoothing-comparison"
+   ],
+   "StableReductionPartII:MC.2/rigid-triangle-embedding": [
+    "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+    "StableReductionPartII:MC.2/triangle-smoothing-comparison"
+   ],
+   "StableReductionPartII:MC.2/pointed-dm-theorem": [
+    "StableReductionPartII:MC.2/pointed-stack-induction-step",
+    "StableReductionPartII:MC.2/pointed-boundary-induction"
+   ]
+  },
+  "cycleAvoidance": "The new formal-flatness proof uses the parent polynomial dual presentation directly, not the unfinished parent expansion-flat target. The inverse proof uses recovery directly, not the unfinished parent inverse theorem. Genus-one properness comes independently from E₁; the rigid triangle is not its premise. The full-range induction carries smoothness and node coordinates together.",
+  "planets": "The parent MC.2 has five planets. Retain all five and add the single new planet Relative stable reflexivity, giving exactly six for the assembled layer."
+ },
+ "prototypeCoverage": {
+  "file": "research/blueprint/suggested/StableReductionPartII--MC.2.lean",
+  "shape": "One light real-bodied predicate over native dual/Ext carriers, six target/API theorem signatures and three discriminating examples; 95 lines at first successful check. No geometric façade types or admitted data definitions.",
+  "expressed": [
+   "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+   "StableReductionPartII:MC.2/ambient-relative-reflection"
+  ],
+  "readerOnly": [
+   "StableReductionPartII:MC.2/relative-stable-reflexivity",
+   "StableReductionPartII:MC.2/universal-complete-hull",
+   "StableReductionPartII:MC.2/relative-universal-criterion",
+   "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+   "StableReductionPartII:MC.2/two-base-completion",
+   "StableReductionPartII:MC.2/infinitesimal-relative-criterion",
+   "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction",
+   "StableReductionPartII:MC.2/completed-coefficient-hom-ext",
+   "StableReductionPartII:MC.2/polynomial-relative-criterion",
+   "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+   "StableReductionPartII:MC.2/section-ideal-local-theorem",
+   "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+   "StableReductionPartII:MC.2/old-mark-collision-chart",
+   "StableReductionPartII:MC.2/collision-chart-flatness",
+   "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+   "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+   "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+   "StableReductionPartII:MC.2/contraction-recovery-comparison",
+   "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+   "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+   "StableReductionPartII:MC.2/pointed-stack-induction-step",
+   "StableReductionPartII:MC.2/pointed-boundary-induction",
+   "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+   "StableReductionPartII:MC.2/triangle-smoothing-comparison"
+  ],
+  "reason": "Relative fibres, complete hulls as an augmented object, geometric families, internal sheaf duals, relative Proj and stacks require the cited supplier carriers/APIs. The current worker shape keeps their full specifications in the reader. The completion signature expresses only the absolute finite-Noetherian specialization."
+ },
+ "planningPass": {
+  "level": "target",
+  "newNodes": 26,
+  "budget": 300,
+  "allTargetsAccountedFor": true,
+  "mathematicalClosure": "Prerequisite chains end in read baseline declarations, imported blueprint targets, current upstream roadmap contracts, or the seven explicit requested stages. A planned stage is not an implemented or supplier-closed stage.",
+  "sourceLanguage": "All source descriptions, proofs and tests are written in the worker’s own words; no source excerpts or section-by-section source summary is stored."
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-StableReductionPartII--MC.2",
+  "date": "2026-10-18",
+  "notes": "Independently checked every target, source locator/match, nine pinned baseline declarations, supplier statements, current upstream ownership, API/tests and reader. Corrected four nodes: omitted smooth-case attribution in the 2012 paper, the recovery evaluation twist and proper/quasi-finite argument, and the inverse-functor attribution. All 26 nodes are verified or corrected. MC.2 remains planned, not closed or implemented, with seven explicit supplier-stage contracts and one bibliographical source-access gap. Suggested Lean elaborates at the pins with nine admitted-proof warnings only.",
+  "checked": [
+   {
+    "nodeId": "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+    "verdict": "verified",
+    "note": "Canonical evaluation and both native positive Ext families agree with Ile Definition 3.1; finite-Noetherian compatibility imports the existing Gorenstein-projective owner. Four discriminating tests and the finite-term restriction are retained."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/relative-stable-reflexivity",
+    "verdict": "verified",
+    "note": "Ile Definition 3.4 tests contractions of maximal chart ideals, including nonclosed coefficient points; coefficient flatness and the local closed-fibre specialization are correct."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/universal-complete-hull",
+    "verdict": "verified",
+    "note": "Ile Definition 4.1, Proposition 4.3 and Remark 4.4 support the shifted dual, augmentation and all-coefficient exactness. The degree-one shift to the current supplier cycle convention is correct; finite terms and flat cycles are explicit."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/relative-universal-criterion",
+    "verdict": "verified",
+    "note": "Ile Proposition 3.5 and Remark 3.6 and Knudsen Appendix Theorem 2 support both canonical exchange maps, both positive Ext families and the converse deriving flatness. The generic exchange input is an explicit supplier request."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+    "verdict": "verified",
+    "note": "Arbitrary coefficient-ring change follows termwise from the universally exact finite-projective hull, including noncoherent targets and nonflat coefficients; it matches Ile Proposition 3.5."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/ambient-relative-reflection",
+    "verdict": "verified",
+    "note": "Degreewise finite-free Hom/Ext comparison proves preservation and faithfully flat reflection. Finiteness and faithful flatness are retained exactly where needed."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/two-base-completion",
+    "verdict": "verified",
+    "note": "Knudsen Appendix Proposition 6 states the three-way equivalence. The public replacement proof changes flatness of every finite completed-chart cycle using Stacks 00MK and unchanged residue fields; no tensor/limit interchange is used. Bourbaki collation remains openly unverified."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/infinitesimal-relative-criterion",
+    "verdict": "verified",
+    "note": "Knudsen Appendix Proposition 7 is used only in the local target scope. Stacks 0523 supplies infinitesimal flatness there; the displayed nonlocal counterexample rules out the stronger assertion."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction",
+    "verdict": "verified",
+    "note": "Flat scalar extension takes projective resolutions to projective resolutions and gives the stated Hom/Ext adjunction for arbitrary modules. The compatible-family comparison retains its separate finite-projective-coefficient restriction."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/completed-coefficient-hom-ext",
+    "verdict": "verified",
+    "note": "Apply the verified two-base criterion to actual completed-ring Hom and Ext with every completed coefficient module. The two coefficient tensor products and ring of linearity are kept distinct."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/polynomial-relative-criterion",
+    "verdict": "verified",
+    "note": "The parent canonical coefficient-Hom and derived-Ext nodes supply exactly this criterion. Their broader polynomial identities are distinguished from the finite-Noetherian relative theorem."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+    "verdict": "verified",
+    "note": "Knudsen 2012 Proposition 2.1 supplies a hull and the small-extension argument, not a fine moduli ring. Compatible formal choices identify the actual section and completed dual; nonsplit quadratic forms and both completions are retained."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/section-ideal-local-theorem",
+    "verdict": "verified",
+    "note": "Ile Theorem 6.1 supplies the local Gorenstein theorem and rank-one residue quotient. The moving-section pairing restriction follows from Remark 6.4/Example 6.5; no unrestricted rank-two family conclusion is used."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "verdict": "verified",
+    "note": "Canonical local duals and flat residue quotients glue to the actual sheaf Hom and residue line. Arbitrary base change uses the special coefficient theorem, not generic nonflat internal-Hom pullback."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/old-mark-collision-chart",
+    "verdict": "corrected",
+    "note": "Checked both dehomogenized charts, positive-diagonal signs, lifted sections and all four tests. Corrected the 2012 locator/match: it omits the smooth calculation; the signed presentation is the packet deduction from the original diagonal cokernel."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/collision-chart-flatness",
+    "verdict": "corrected",
+    "note": "The normal-form free chart and complementary polynomial localization cover the Proj over arbitrary rings. Corrected the source match to distinguish this explicit deduction from the smooth case omitted in the 2012 proof."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+    "verdict": "verified",
+    "note": "Completion is taken on actual affine Proj charts, then localized/completed at the point tested. The explicit flat polynomial charts and faithful flatness justify descent without excellence or algebraization."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+    "verdict": "verified",
+    "note": "Read the exact SF.0 approximation/limit statements and upstream sheaf/Veronese contracts. They support descent of this finite family diagram and its properties; the special dual exchange supplies the otherwise missing arbitrary pullback."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+    "verdict": "verified",
+    "note": "Collision, nodal and disjoint charts supply the three cases; approximation and the canonical sheaf/Proj comparisons give the stable family and coherent arbitrary base change. No unfinished parent flatness conclusion is used as its own premise."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/contraction-recovery-comparison",
+    "verdict": "corrected",
+    "note": "Corrected the evaluation step to use K(−D), then its canonical Proj twist comparison; separated the fibrewise quasi-finiteness argument from properness. Corrected Theorem 5.2 attribution: original Lemma 2.5/Corollary 2.6 prove recovery and inverse comparison."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+    "verdict": "corrected",
+    "note": "Original Corollary 2.6 plus unique pointed recovery gives the inverse maps, triangles and pullback coherence on groupoids. Corrected the later Theorem 5.2 source match to claim functorial stabilization only."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+    "verdict": "verified",
+    "note": "The total log degree one forces irreducible smooth-or-one-gon fibres. Read the four exact arithmetic-moduli supplier statements, including integral Weierstrass smoothness/properness and cusp B(C2); this gives a noncircular genus-one base."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/pointed-stack-induction-step",
+    "verdict": "verified",
+    "note": "The universal curve raises dimension by one; eliminating an independent old smoothing parameter proves smoothness of the total stack. All base cases and the inherited formal-to-étale boundary contract are retained."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/pointed-boundary-induction",
+    "verdict": "verified",
+    "note": "Knudsen Theorem 2.7 gives the old-boundary and collision-section loci; the local equations verify multiplicity one and relative normal crossings, without a globally simple-boundary claim."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+    "verdict": "verified",
+    "note": "Checked labelled graph rigidity, equality of persistent singular sections using Stacks 0C58/02GE, and End(I) partial cutting in the persistent split chart. Source properness is independent of the triangle; general clutching E3 is not used."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.2/triangle-smoothing-comparison",
+    "verdict": "verified",
+    "note": "The four persistent gluing nodes are fixed; the fifth cusp node of a nodal elliptic component stays free. The family/deformation-groupoid recovery supports the equations, with an explicit inherited formal-to-étale requirement."
+   }
+  ]
+ },
+ "assembly": {
+  "job": "ASM-StableReductionPartII",
+  "issue": 9247,
+  "agent": "Codex",
+  "session": "codex-VhiQEb",
+  "date": "2026-10-18",
+  "status": "complete",
+  "reader": "research/blueprint/readmes/StableReductionPartII.md",
+  "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+  "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+  "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+  "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+  "prerequisiteEdits": [
+   {
+    "target": "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+    "added": "StableReductionPartII:MC.0/pointed-approximation",
+    "reason": "The pointed-family finite-diagram approximation is established in MC.0"
+   },
+   {
+    "target": "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+    "added": "StableReductionPartII:MC.0/arbitrary-base-duality",
+    "reason": "The marking twist and log line use the coherent arbitrary-base duality interface"
+   }
+  ],
+  "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC2",
+  "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
+ }
+}

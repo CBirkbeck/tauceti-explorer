@@ -1,0 +1,405 @@
+{
+  "id": "ArcTopologyAndDescent",
+  "title": "The arc-topology and descent for étale cohomology",
+  "area": "etale",
+  "parent": null,
+  "summary": "Build the scheme arc-topology from valuation rings, prove the excision criterion and the coherent-topos pushout theorems, and apply them to torsion étale cohomology, constructible and perfect complexes, henselian completion and rigid generic fibres. Complete arc-sites and a perfectoid basis provide the shared descent interfaces used by prismatic and flat-cohomological applications.",
+  "readme": "The roadmap constructs the rank-at-most-one valuative topology and its complete variants, with precise conventions for fields, coefficient torsion and coherent descent. It culminates in the arc-excision criterion, torsion étale and constructible/perfect-complex descent, formal glueing, affine henselian comparison and rigid generic-fibre applications. Reader document: research/blueprint/readmes/ArcTopologyAndDescent.md. Scheme foundations, enhanced categories, perfect v-descent, perfectoid algebra and analytic geometry are imported from their canonical owners; the algebraic-space Tannaka registration gap is explicit in the packet.",
+  "prerequisites": [
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "DerivedDeRhamCohomology",
+    "DiamondsAndVStacks",
+    "EnhancedDerivedSheaves",
+    "EtaleDualityAndPerverseSheaves",
+    "GeneralAlgebraicKTheory",
+    "PerfectoidQuotients",
+    "PerfectoidSpaces",
+    "PrismaticCohomology",
+    "SchemeAndStackFoundations",
+    "SchemeKTheoryOperations"
+  ],
+  "stages": [
+    {
+      "key": "AT.0",
+      "title": "Valuation extensions and rank intervals",
+      "description": "Valuation-specific algebra: injective local extensions, absolute integral closedness, bounded aic extensions, finite-rank approximation and prime intervals.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "AT.1",
+      "title": "The scheme v- and h-topologies",
+      "description": "Scheme v-covers, the finitely presented h-site and universal descent; Rydh refinement over affine targets, used Zariski locally; the converse h-descent criterion using the imported finite-inductive-level and forward blowup theorems; comparison on perfect schemes.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "DiamondsAndVStacks:D0",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeKTheoryOperations:S.4",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations"
+      ]
+    },
+    {
+      "key": "AT.2",
+      "title": "Arc-covers and spectral submersions",
+      "description": "Define rank-at-most-one arc-covers and their finite affine covering families. Prove stability, the noetherian-target comparison, the affine universal-injectivity test, universal spectral submersion characterisation, inverse-limit stability and the rank-two splitting example.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.1",
+        "DiamondsAndVStacks:D0",
+        "GeneralAlgebraicKTheory:K.5",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "AT.3",
+      "title": "Finitary descent and valuation detection",
+      "description": "Define finitariness and universal descent with coherent totalizations, compact generation by cotruncated objects and descent-detecting families. Impose compact cotruncated generation on the affine finitary criterion and compact generation on Boolean stalk detection. Establish the filtered-totalization interchange and ultraproduct/aic-valuation detection, with the valuation-product component calculation. The continuous v-descent criterion follows here after filtered-totalization interchange. The valuation-product description also proves the infinite-chain non-quotient example and the obstruction to affine covers with only rank-one components.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.1",
+        "ArcTopologyAndDescent:AT.2",
+        "DiamondsAndVStacks:D0",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E2",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "AT.4",
+      "title": "The arc-descent criterion",
+      "description": "Define excisiveness and aic-v-excision using the imported Milnor-square interface. Prove universal aic splitting with the corrected prime-extension lemma, interval induction, the equivalence of arc-descent and excision for finitary v-sheaves, and rank-at-most-one detection of equivalences. The space-valued contractibility test carries a fixed global finite truncation bound.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.1",
+        "ArcTopologyAndDescent:AT.2",
+        "ArcTopologyAndDescent:AT.3",
+        "EnhancedDerivedSheaves:E0",
+        "GeneralAlgebraicKTheory:K.5",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "AT.5",
+      "title": "The coherent arc-topos and unrestricted excision",
+      "description": "Construct the bounded-cardinal arc-site, its comparison across cutoffs and its coherent topos. Prove valuation tests for coherent sheaves, the sheafified Milnor pushout and excision for every small-limit-valued arc-sheaf. Exhibit failure of subcanonicity.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.1",
+        "ArcTopologyAndDescent:AT.2",
+        "ArcTopologyAndDescent:AT.4",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "GeneralAlgebraicKTheory:K.5",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeKTheoryOperations:S.4"
+      ]
+    },
+    {
+      "key": "AT.6",
+      "title": "Étale cohomology and étale objects",
+      "description": "Apply the criterion to torsion étale cohomology and separated qcqs étale objects, finite étale schemes and constructible finite-set sheaves. Identify separated étale objects over aic valuation rings and the finite-chain category, without restricting its morphisms to injections.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.1",
+        "ArcTopologyAndDescent:AT.3",
+        "ArcTopologyAndDescent:AT.4",
+        "ArcTopologyAndDescent:AT.5",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E2",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "AT.7",
+      "title": "Constructible complexes, differentials and perfect schemes",
+      "description": "Prove continuity and arc-hyperdescent of bounded constructible complexes over a finite coefficient ring; compute their finite-rank valuation model. State the smooth h/Zariski differential-form comparison, then establish characteristic-zero h-differential and h-de Rham arc-descent, and upgrade imported perfect-complex v-hyperdescent to arc-hyperdescent on perfect schemes, with the universally-effective-epimorphism criterion.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.1",
+        "ArcTopologyAndDescent:AT.3",
+        "ArcTopologyAndDescent:AT.4",
+        "ArcTopologyAndDescent:AT.5",
+        "ArcTopologyAndDescent:AT.6",
+        "DerivedDeRhamCohomology:DD.0",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeKTheoryOperations:S.4"
+      ]
+    },
+    {
+      "key": "AT.8",
+      "title": "Formal glueing and henselian rigidity",
+      "description": "Formal glueing along finite ideals, its sheafified pushout and small-limit-valued form; full Gabber affine proper base change, rigidity and punctured completion comparison; open and support cohomology with bounded torsion and noetherian multi-ideal variants.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.2",
+        "ArcTopologyAndDescent:AT.4",
+        "ArcTopologyAndDescent:AT.5",
+        "ArcTopologyAndDescent:AT.6",
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "PerfectoidSpaces:P3",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ]
+    },
+    {
+      "key": "AT.9",
+      "title": "The arc_t-topology and rigid generic fibres",
+      "description": "Define arc_t-covers and arc_t-equivalences, prove finitary hyperdescent and invariance for torsion étale cohomology of completed generic fibres, compare covers with generic points of adic spectra, and prove proper rigid GAGA and total-integral-closure excision.",
+      "requires": [
+        "AdicEtaleGeometry:A1",
+        "AdicSpacesPartII:R0",
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.1",
+        "ArcTopologyAndDescent:AT.2",
+        "ArcTopologyAndDescent:AT.3",
+        "ArcTopologyAndDescent:AT.5",
+        "ArcTopologyAndDescent:AT.6",
+        "ArcTopologyAndDescent:AT.8",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations"
+      ]
+    },
+    {
+      "key": "AT.10",
+      "title": "Künneth and affinoid vanishing",
+      "description": "Prove generic-fibre and affinoid Künneth for coefficients of residue-invertible prime order, rational Mayer–Vietoris, shrinking-tube continuity and rational-domain vanishing. Deduce the d+1 bound for arbitrary torsion and the d bound for residue-prime-to-characteristic torsion on a d-dimensional affinoid over a complete algebraically closed nonarchimedean field with nontrivial valuation.",
+      "requires": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:R1",
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.4",
+        "ArcTopologyAndDescent:AT.8",
+        "ArcTopologyAndDescent:AT.9",
+        "EnhancedDerivedSheaves:E1",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "PerfectoidSpaces:P3",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ]
+    },
+    {
+      "key": "AT.11",
+      "title": "I-complete arc-covers and formal schemes",
+      "description": "Define I-complete arc-covers, their complete aic valuation tests and products-of-valuations basis. Prove étale hyperdescent on completed and punctured spectra for finitely generated ideals, compare with henselizations and construct the p-adic formal arc-site with its affine comparison.",
+      "requires": [
+        "AdicSpacesPartII:R0",
+        "ArcTopologyAndDescent:AT.0",
+        "ArcTopologyAndDescent:AT.2",
+        "ArcTopologyAndDescent:AT.3",
+        "ArcTopologyAndDescent:AT.6",
+        "ArcTopologyAndDescent:AT.8",
+        "EnhancedDerivedSheaves:E2",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "AT.12",
+      "title": "Perfectoid bases and integral hyperdescent",
+      "description": "Prove the perfectoid basis for the formal arc-site, structure-sheaf descent and acyclicity on perfectoids, representable formal-scheme descent on that basis, tilting invariance of complete arc-covers and p-complete hyperdescent for A, A-flat and A_inf. Export the precise completed-generic-fibre and proper-henselian comparisons needed by the routed consumers.",
+      "requires": [
+        "AdicEtaleGeometry:A1",
+        "ArcTopologyAndDescent:AT.11",
+        "ArcTopologyAndDescent:AT.2",
+        "ArcTopologyAndDescent:AT.7",
+        "ArcTopologyAndDescent:AT.8",
+        "ArcTopologyAndDescent:AT.9",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "PerfectoidQuotients:Q0:integral-algebra",
+        "PerfectoidSpaces:P1",
+        "PerfectoidSpaces:P3",
+        "PrismaticCohomology:PR.0",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BM21",
+      "title": "The arc-topology",
+      "authors": "Bhargav Bhatt and Akhil Mathew",
+      "edition": "arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
+      "url": "https://arxiv.org/abs/1807.04725v4",
+      "readSections": [
+        "Entire paper, printed pp. 1–64"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "4cdf5593067a425ca0aebc969d34efa4ef296cde613c3d9a6c671db65b9b6620"
+    },
+    {
+      "id": "BS17",
+      "title": "Projectivity of the Witt vector affine Grassmannian",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1507.06490v3, 27 July 2017; Invent. Math. 209 (2017)",
+      "url": "https://arxiv.org/abs/1507.06490v3",
+      "readSections": [
+        "§2 pp. 4–10; Lemma 3.16 p. 14; §4 pp. 15–16; §6 pp. 21–22; Theorem 11.2 p. 40, Theorem 11.15 p. 43 and proof pp. 45–47"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e"
+    },
+    {
+      "id": "BS22",
+      "title": "Prisms and prismatic cohomology",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1905.08229v4, 12 January 2022; Ann. Math. 196 (2022)",
+      "url": "https://arxiv.org/abs/1905.08229v4",
+      "readSections": [
+        "§8.2 pp. 67–69; proof of Theorem 9.1 pp. 71–73"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a"
+    },
+    {
+      "id": "CS24",
+      "title": "Purity for flat cohomology",
+      "authors": "Kęstutis Česnavičius and Peter Scholze",
+      "edition": "arXiv:1912.10932v3, 2023; Ann. Math. 199 (2024)",
+      "url": "https://arxiv.org/abs/1912.10932v3",
+      "readSections": [
+        "§2.2 pp. 18–22; Lemma 3.1.2 p. 30; Lemma 4.2.6 p. 42"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "2f9d3ee868c244a7ddd6579a5dafed10a7ac9eb8b2ffe840db9f2bc115cd6ed4"
+    },
+    {
+      "id": "GR24",
+      "title": "A prismatic approach to crystalline local systems",
+      "authors": "Haoyang Guo and Emanuel Reinecke",
+      "edition": "arXiv:2203.09490v3; Invent. Math. (2024)",
+      "url": "https://arxiv.org/abs/2203.09490v3",
+      "readSections": [
+        "Theorem 6.1 and its proof, pp. 55–56"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "3c49a5f2aa6023c7b01a5ba83a370ddcb92642f4819f64446b7d93bf01b28d26"
+    },
+    {
+      "id": "CMM21",
+      "title": "K-theory and topological cyclic homology of henselian pairs",
+      "authors": "Dustin Clausen, Akhil Mathew and Matthew Morrow",
+      "edition": "arXiv:1803.10897v2; J. Amer. Math. Soc. 34 (2021)",
+      "url": "https://arxiv.org/abs/1803.10897v2",
+      "readSections": [
+        "Proof of Theorem 6.3, p. 51"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c"
+    },
+    {
+      "id": "MAT22",
+      "title": "Faithfully flat descent of almost perfect complexes in rigid geometry",
+      "authors": "Akhil Mathew",
+      "edition": "arXiv:1912.10968v3; J. Pure Appl. Algebra 226 (2022), 106938",
+      "url": "https://arxiv.org/abs/1912.10968v3",
+      "readSections": [
+        "Definition 5.17, Remark 5.18 and Theorem 5.19, pp. 19–22"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "d93b37226d0c4af6ee7e63165d833181914696d4af69383032aa4148c0b3a690"
+    },
+    {
+      "id": "BC22",
+      "title": "Torsors on loop groups and the Hitchin fibration",
+      "authors": "Alexis Bouthier and Kęstutis Česnavičius",
+      "edition": "arXiv:1908.07480v4, 1 June 2022",
+      "url": "https://arxiv.org/abs/1908.07480v4",
+      "readSections": [
+        "Theorem 2.3.4 and Corollary 2.3.5, pp. 29–31"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "ec4b02a2b0821c28646c94699fa4b7eae24c5a07ed48ed1baecf1004934564b7"
+    },
+    {
+      "id": "STACKS",
+      "title": "The Stacks Project: affine analogue of proper base change",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version read 18 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/09Z8",
+      "readSections": [
+        "§59.82, Lemmas 59.82.1–4 and 59.82.6, Example 59.82.5 and Theorem 59.82.7 (09ZI); HTML has no page numbers"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "HUB96",
+      "title": "Étale Cohomology of Rigid Analytic Varieties and Adic Spaces",
+      "authors": "Roland Huber",
+      "edition": "Aspects of Mathematics E30, Vieweg, 1996; maintainer-cleared copy",
+      "url": "https://doi.org/10.1007/978-3-663-09991-8",
+      "readSections": [
+        "Corollary 3.2.2 printed p. 174; §3.2 pp. 178–181 including Theorems 3.2.9–3.2.10; Corollary 4.2.7 printed pp. 244–245"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "b40a5c2ef56784d888206011ecb31bdc5e2e6120721a8c38b78b6cf2cd8d7e1a"
+    },
+    {
+      "id": "BH16",
+      "title": "Algebraization and Tannaka duality",
+      "authors": "Bhargav Bhatt",
+      "edition": "arXiv:1404.7483v1, 29 April 2014; published Camb. J. Math. 4 (2016)",
+      "url": "https://arxiv.org/abs/1404.7483v1",
+      "readSections": [
+        "Theorem 1.5 p. 2; Corollary 1.6 p. 3; conventions pp. 4–5"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "b486fd47dea03a4691e8d75144a54f31f7c65ffb23f57ffae76e42e229141cb3"
+    },
+    {
+      "id": "HJ14",
+      "title": "Differential forms in the h-topology",
+      "authors": "Annette Huber and Clemens Jörder",
+      "edition": "Algebraic Geometry 1 (4) (2014), 449–478; published open-access version",
+      "url": "https://algebraicgeometry.nl/2014-4/2014-4-020.pdf",
+      "readSections": [
+        "Introduction and conventions pp. 451–452; §6.1–6.2 pp. 464–466, especially Corollary 6.5 p. 465"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "395cc275b6aa8d644bd58e46cfa214cfda9d4657987b804abcfb7ffff1bbe72d"
+    },
+    {
+      "id": "HA",
+      "title": "Higher Algebra",
+      "authors": "Jacob Lurie",
+      "edition": "Online version dated 18 September 2017",
+      "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
+      "readSections": [
+        "Corollary 4.7.5.3 and its proof, p. 705; adjacent Theorem 4.7.5.2 pp. 704–706"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3"
+    }
+  ],
+  "status": "draft"
+}

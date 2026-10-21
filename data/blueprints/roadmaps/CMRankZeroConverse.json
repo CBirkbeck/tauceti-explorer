@@ -1,0 +1,158 @@
+{
+  "id": "CMRankZeroConverse",
+  "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: CM rank-zero converses and twist nonvanishing",
+  "area": "iwasawa",
+  "parent": "RankZeroOneBSD",
+  "summary": "This Part II of RankZeroOneBSD plans the all-prime rank-zero converse for CM newforms and CM elliptic curves, and its twist-nonvanishing applications. The proof passes through rational Poitou–Tate, central cyclotomic specialization, the actual Beilinson–Kato class and reciprocity. Completed coefficient and dyadic conventions are explicit. The congruent-number application has an exact half-density after an ordering comparison; the CM twist and non-descent applications have lower proportion at least one half.",
+  "readme": "The reader document research/blueprint/readmes/CMRankZeroConverse.md is the full specification. This Part II of RankZeroOneBSD plans the all-prime rank-zero converse for CM newforms and CM elliptic curves, and its twist-nonvanishing applications. The proof passes through rational Poitou–Tate, central cyclotomic specialization, the actual Beilinson–Kato class and reciprocity. Completed coefficient and dyadic conventions are explicit. The congruent-number application has an exact half-density after an ordering comparison; the CM twist and non-descent applications have lower proportion at least one half. The roadmap owns the shared rank-r p-converse proposition but proves it only for rank zero and CM. It imports all actual L-functions, continuous Selmer/cohomology carriers, main-conjecture inputs and statistical distributions from their owners. Sources are stated in our own words with version-specific locators. No integral BSD valuation, unrestricted converse or positive-density assertion in the cube-sum parameter is planned. All seven layers are planned, not closed; pending supplier registration is recorded as GAP-CM and GAP-SMITH.",
+  "prerequisites": [
+    "RankZeroOneBSD",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "KatoEulerSystems",
+    "SelmerIwasawaCohomology",
+    "ArithmeticGaloisDuality",
+    "AutomorphicGaloisRepresentations",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "PadicHodgeRegulators",
+    "ArithmeticStatistics",
+    "CMAllPrimeMainConjectures",
+    "ArithmeticStatisticsPartIISmithMethod"
+  ],
+  "stages": [
+    {
+      "key": "C.0",
+      "title": "Central conventions and shared propositions",
+      "description": "Define the shared rank-r p-converse implication, the correctly normalized central sign, the central specialization kernel σ_c↦c^(−k/2), and the cohomological/conjugate-dual dictionary. The newform, Selmer, completed-algebra and analytic-rank carriers are imports.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.1",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "RankZeroOneBSD:BSD.0",
+        "SelmerIwasawaCohomology:L2",
+        "SelmerIwasawaCohomology:L3"
+      ]
+    },
+    {
+      "key": "C.1",
+      "title": "Finite-level vanishing and the global line",
+      "description": "For every even weight k≥2 and every λ|p, prove global H⁰ vanishing, H¹_f(ℚ,W)=0 ⇒ H²(Z[1/p],j_*T(h))[1/p]=0 using both Tate-dual applications of rational Poitou–Tate, then the one-dimensional global H¹ theorem. Prove central H_g=H_f, including bad p, by excluding crystalline eigenvalue one on W^∨(1).",
+      "requires": [
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisDuality:R02.4",
+        "AutomorphicGaloisRepresentations:R19.3",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "CMRankZeroConverse:C.0",
+        "KatoEulerSystems:L4",
+        "PadicHodgeRegulators:L1"
+      ]
+    },
+    {
+      "key": "C.2",
+      "title": "Central specialization of the Kato class",
+      "description": "Apply imported derived control at the central character, keeping the degree-one and degree-two Tor terms until amplitude and H² vanishing remove them. Define the actual twist-specialized Kato class, prove the correctly signed class spans the global line assuming rational Kato equality, and show its p-localization is not finite.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.3",
+        "CMRankZeroConverse:C.0",
+        "CMRankZeroConverse:C.1",
+        "KatoEulerSystems:L2",
+        "KatoEulerSystems:L4",
+        "PadicHodgeRegulators:L1",
+        "SelmerIwasawaCohomology:L3",
+        "SelmerIwasawaCohomology:L4"
+      ]
+    },
+    {
+      "key": "C.3",
+      "title": "The rational rank-zero newform converse",
+      "description": "Use the actual Kato reciprocity formula, with f*, the critical period sign and the p-omitted Euler factor, to deduce central nonvanishing; apply the complex period comparison to Hecke-field basis vectors before extending by completed-coefficient linearity. State the non-CM result conditionally on rational Kato equality. Obtain the all-prime CM newform result from the separately owned CM equality; GAP-CM records its absent registered endpoint.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.4",
+        "CMRankZeroConverse:C.1",
+        "CMRankZeroConverse:C.2",
+        "KatoEulerSystems:L3",
+        "KatoEulerSystems:L4",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
+      ]
+    },
+    {
+      "key": "C.4",
+      "title": "CM elliptic curves and quadratic descent",
+      "description": "Use completed coefficients, CM idempotents, weight-two theta induction and finite-condition Shapiro to prove CM Selmer vanishing implies modular Selmer vanishing for E/K with arbitrary CM order. Deduce BT Theorem 1.1 over K for every p. Prove rational corank and analytic-order doubling for E/ℚ, retaining dyadic integral errors before rationalization, and deduce pConverse(E,p,0).",
+      "requires": [
+        "ArithmeticGaloisDuality:D7",
+        "CMRankZeroConverse:C.0",
+        "CMRankZeroConverse:C.3",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "RankZeroOneBSD:BSD.0",
+        "RankZeroOneBSD:BSD.1",
+        "SelmerIwasawaCohomology:L4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
+      ]
+    },
+    {
+      "key": "C.5",
+      "title": "Congruent-number twists and even Goldfeld",
+      "description": "Define the even Goldfeld proposition using both-sign fundamental discriminants ordered by absolute value. Combine the unconditional Smith positive-family corank input (GAP-SMITH pending registration) with the CM 2-converse to obtain density one in positive squarefree residues 1,2,3 mod 8. Use the sign obstruction for an exact half-density among positive squarefree parameters and prove its piecewise-height transfer to fundamental discriminants.",
+      "requires": [
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.5",
+        "CMRankZeroConverse:C.4",
+        "RankZeroOneBSD:BSD.0"
+      ]
+    },
+    {
+      "key": "C.6",
+      "title": "CM twists, cube sums and non-descent",
+      "description": "Combine the imported BKLOS corank-zero lower bound and the all-prime CM 3-converse for imaginary quadratic K where 3 is split or ramified, using the precise unweighted odd-valuation support height. Define and check the cube-sum Weierstrass model for each n≠0 and its j=0 CM action. Prove descending parameters lie in at most two rational-squareclass cosets, their O(√X) count and density zero, then retain lower nonvanishing proportion at least 1/2 among non-descending twists.",
+      "requires": [
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.5",
+        "CMRankZeroConverse:C.4",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BT",
+      "title": "A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
+      "authors": "Ashay A. Burungale and Ye Tian",
+      "edition": "arXiv:2506.03465v2, 11 October 2025, 7 pages; published Annals of Mathematics 203 (2026), no. 1, 1–13",
+      "url": "https://arxiv.org/pdf/2506.03465v2",
+      "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Entire public author version, pp. 1–7; all numbered results and proofs. Locators in this packet refer only to this version."
+      ]
+    },
+    {
+      "id": "Kato",
+      "title": "p-adic Hodge theory and values of zeta functions of modular forms",
+      "authors": "Kazuya Kato",
+      "edition": "Astérisque 295 (2004), 117–290, Numdam scan",
+      "url": "https://www.numdam.org/article/AST_2004__295__117_0.pdf",
+      "sha256": "3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Theorems 12.4–12.5, pp. 221–222; §14.8–14.13, pp. 238–242; §15.6 and §15.13–15.17, pp. 253–255, 264–265."
+      ]
+    },
+    {
+      "id": "BKLOS",
+      "title": "Three-isogeny Selmer groups and ranks of abelian varieties in quadratic twist families over a number field",
+      "authors": "Manjul Bhargava, Zev Klagsbrun, Robert J. Lemke Oliver and Ari Shnidman",
+      "edition": "Public author version, 25 pages; Duke Mathematical Journal 168 (2019), 2951–2989",
+      "url": "https://lemkeoliver.github.io/papers/19-3IsogenySelmer.pdf",
+      "sha256": "af4e5ab9b250700c95c09946509e88b8a3f4a4f7efedf6ddc882a5f742478880",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§2, height and Theorems 2.5 and 2.7, pp. 2–5; §9.2, p. 14; §11, pp. 18–19. Statistical proofs and CM reduction are imported, not redeveloped."
+      ]
+    }
+  ],
+  "status": "draft"
+}

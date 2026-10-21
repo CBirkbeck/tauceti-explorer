@@ -1,0 +1,142 @@
+{
+  "id": "KloostermanSheavesAndBesselIsocrystals",
+  "title": "Kloosterman sheaves and Bessel F-isocrystals for reductive groups",
+  "area": "geomlanglands",
+  "parent": null,
+  "summary": "Construct normalized Kloosterman Hecke eigenobjects for split reductive groups, compare them with the Frenkel–Gross connection and its rigid Frobenius realization, and prove functoriality, local/global monodromy, characteristic-two comparison and Newton ordinarity. Scalar objects and generic geometry are imported from their unique owners.",
+  "readme": "research/blueprint/readmes/KloostermanSheavesAndBesselIsocrystals.md",
+  "prerequisites": [
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "KloostermanMomentsAndPotentialAutomorphy",
+    "BunGAndNewtonStrata",
+    "FiniteFieldsAndCharacterSums",
+    "MotivesAndAlgebraicCycles",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/OrthogonalSpinGroups",
+    "tauceti:TauCetiRoadmap/LocalGaloisGroups"
+  ],
+  "stages": [
+    {
+      "key": "KB.0",
+      "title": "Integral data and normalization",
+      "description": "Fix k=F_q, q=p^s, coefficient field K containing the Dwork parameter and a chosen square root of p, split pinned G and its dual H. Define the root-depth Iwahori quotient, generic character datum and the particular level model on P¹. Fix exponential, Kummer, Tate and Frobenius conventions by rank-one and rank-two calculations.",
+      "requires": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3"
+      ]
+    },
+    {
+      "key": "KB.1",
+      "title": "Rigid automorphic data and Hecke eigenobjects",
+      "description": "Construct clean generic automorphic data and their Hecke eigenobjects in étale, algebraic de Rham and arithmetic coefficient categories. Establish the smooth weight-zero rigid eigenobject, the multiplicative-character variant and its closed-point trace comparison. Use the existing Satake geometry and request the missing coefficient realization.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.0",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6"
+      ]
+    },
+    {
+      "key": "KB.2",
+      "title": "The Frenkel–Gross connection",
+      "description": "Define the group-valued irregular connection from the pinning. Match its invariant parameter with the affine generic character, identify the relevant oper slice and quantized Hitchin action, and prove Zhu’s comparison, including finite central descent. Determine its characteristic-zero differential monodromy without reconstructing scalar Kloosterman connections.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.2"
+      ]
+    },
+    {
+      "key": "KB.3",
+      "title": "Relative de Rham–rigid comparison",
+      "description": "Prove the comparison for minuscule and quasi-minuscule Hecke kernels over a common integral lift, extend across the quasi-minuscule vertex by intermediate extension, and pass through tensor generators. The unconditional main comparison has trivial multiplicative character; rational Kummer data require a separately checked convention.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.1",
+        "KloostermanSheavesAndBesselIsocrystals:KB.2",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4"
+      ]
+    },
+    {
+      "key": "KB.4",
+      "title": "Bessel Frobenius structures",
+      "description": "Transport the rigid Hecke Frobenius to the Frenkel–Gross connection. Extend logarithmically at zero, compute its semisimple Frobenius class, give a convention-correct horizontal matrix equation and closed-point traces, with a separate central-torsor theorem after geometric monodromy is known.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.3",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
+      ]
+    },
+    {
+      "key": "KB.5",
+      "title": "Newton bounds and generic ordinarity",
+      "description": "Specialize the existing rational dominant Newton construction to semisimple Bessel Frobenius classes, normalized by v(q^degree)=1. Use the cuspidal eigenfunction bound and the log fiber at zero to prove generic ordinarity independently of the characteristic-two comparison.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.4",
+        "BunGAndNewtonStrata:BG1"
+      ]
+    },
+    {
+      "key": "KB.6",
+      "title": "Local and global monodromy",
+      "description": "Construct the three Bessel-generated Tannakian groups by specialization of existing Tannakian theory. Prove nontrivial wild inertia, exclude principal PGL₂ using the adjoint irregularity bound, identify geometric and arithmetic monodromy away from the even-A characteristic-two exception, and prove adjoint cohomological rigidity and the prime-to-Weyl-order simple-wild description.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.4",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+        "MotivesAndAlgebraicCycles:MC.6"
+      ]
+    },
+    {
+      "key": "KB.7",
+      "title": "Functoriality and companions",
+      "description": "Prove pinning-compatible functoriality between the groups in one Frenkel–Gross monodromy row, including integral parameters, the central torsor of Frobenius structures and the normalized central Frobenius. Transfer the tensor statement to étale companions by traces and representation-ring restriction. Compare monodromy through compatible systems without asserting an unsupported surjection between coefficient groups.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.6",
+        "KloostermanSheavesAndBesselIsocrystals:KB.5"
+      ]
+    },
+    {
+      "key": "KB.8",
+      "title": "Classical realizations and orthogonal sums",
+      "description": "Identify special-linear and symplectic standard objects with the all-rank scalar supplier. Compute the orthogonal matrices and the invariant line, the quadric Landau–Ginzburg realization for n≥3, and the corrected even-orthogonal toric trace formula; treat SO₄ by its product realization.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.7",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.1",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.2",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.4"
+      ]
+    },
+    {
+      "key": "KB.9",
+      "title": "Hypergeometric realizations and convolution",
+      "description": "Use the generic hypergeometric coefficient supplier to normalize the (2n+1; quadratic) object. Identify odd orthogonal Bessel objects for odd p, prove their multiplicative convolution formula with the correct half twist in odd characteristic; the final layer completes the all-prime identities.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.8",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6"
+      ]
+    },
+    {
+      "key": "KB.10",
+      "title": "The characteristic-two comparison",
+      "description": "Specify Dwork congruence data, prove the signed 2-adic refinement, and compare the two explicit Bessel solution series. Identify maximal-slope quotients on a common constant-Newton locus with the full q=2^s iterated Frobenius multipliers and their shared q^n scale, then apply the imported curve minimal-slope theorem. Transport the appendix coordinate x↦−x by convergent Taylor isomorphisms.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.9",
+        "KloostermanSheavesAndBesselIsocrystals:KB.5",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3"
+      ]
+    },
+    {
+      "key": "KB.11",
+      "title": "Everywhere ordinarity and the exceptional branch",
+      "description": "Compute the toric hypergeometric slopes by nondegeneracy and boundary decomposition. Deduce everywhere ordinarity for all classical groups and G₂, all ranks and all primes, using the characteristic-two comparison. Complete the even-A characteristic-two monodromy table by central pushout.",
+      "requires": [
+        "KloostermanSheavesAndBesselIsocrystals:KB.10",
+        "KloostermanSheavesAndBesselIsocrystals:KB.6",
+        "KloostermanSheavesAndBesselIsocrystals:KB.5"
+      ]
+    }
+  ]
+}

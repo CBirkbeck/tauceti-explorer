@@ -1,0 +1,1920 @@
+{
+ "roadmapId": "MotivesAndAlgebraicCycles",
+ "protocol": "blueprint-v1",
+ "part": "MC.6",
+ "status": "complete",
+ "scope": [
+  "MotivesAndAlgebraicCycles:MC.6"
+ ],
+ "summary": "MC.6 target-level completion: retain 28 stable reconstruction/period targets by reference, specify neutral and relative input data and the strengthened Beck interface, add categorical tensor-functor criteria, fibre-group twisting and source-backed Artin/pure-Tate equivalences and group computations. All targets remain unchecked. Planned rather than closed: precise supplier contracts and the reflection-only/auxiliary quotient obligations remain.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Bialgebra",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Bialgebra/Basic.lean",
+    "provides": "Bialgebras over a commutative semiring; the hypothesis of MC.6/rigid-bialgebra-is-hopf.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Abelian",
+    "module": "Mathlib/CategoryTheory/Abelian/Basic.lean",
+    "provides": "Abelian category structure on the input category, including kernels, cokernels and exact sequences.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Functor.Faithful",
+    "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+    "provides": "Faithfulness of the neutral fibre and diagram-category forgetful functors.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Linear",
+    "module": "Mathlib/CategoryTheory/Linear/Basic.lean",
+    "provides": "The k-linear category structure of the neutral datum and rational Nori category.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.RigidCategory",
+    "kind": "class",
+    "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
+    "provides": "Rigid monoidal categories (left and right duals); the hypothesis of MC.6/rigid-bialgebra-is-hopf, matching the pinned instance TauCeti.FGComoduleCat.instRigidCategory.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:HopfAlgebra",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/HopfAlgebra/Basic.lean",
+    "provides": "Hopf algebras: a bialgebra with an antipode satisfying the two antipode axioms; the conclusion of MC.6/rigid-bialgebra-is-hopf and the input of the pinned Tannakian reconstruction.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "tauceti:TauCeti.FGComoduleCat",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean",
+    "provides": "Finite underlying comodules over an already supplied coalgebra. Diagram-category and abstract comparison equivalences with this carrier remain mathematical targets.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "tauceti:TauCeti.FGComoduleCat.instMonoidalCategory",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/Monoidal.lean",
+    "provides": "The monoidal structure on finite comodules over a bialgebra; the tensor structure Nori's graded multiplicative diagram produces on the diagram category lands here.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "tauceti:TauCeti.FGComoduleCat.instRigidCategory",
+    "kind": "instance",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/Rigid.lean",
+    "provides": "Finitely generated comodules over a commutative Hopf algebra over a field form a rigid monoidal category (RigidCategory, through BraidedCategory.rigidCategoryOfRightRigidCategory). It goes from a Hopf algebra to rigidity: Nori's criterion must first show that A(D_Nori, H^*) is a Hopf algebra, after which this instance gives rigidity.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+    "kind": "def",
+    "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+    "provides": "For a commutative Hopf algebra H over a field k (all in one universe), a natural isomorphism between the functor of points of H (after the universe lift) and tensorAutFunctor k H: Tannakian reconstruction as representability of the tensor automorphism group functor, with both directions (fgPointTensorIsoEquiv is the pointwise group isomorphism).",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "tauceti:TauCeti.Tannaka.tensorAutFunctor",
+    "kind": "def",
+    "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+    "provides": "For a bialgebra H over a commutative ring R, the functor CommAlgCat R ⥤ GrpCat sending A to the group of tensor automorphisms of scalar extension to A on FGComoduleCat R H, that is of the forgetful fibre functor extended to A. It applies to a diagram category once that category is identified with the finite comodules over A(T) (MC.5/diagram-category).",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers",
+    "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
+    "provides": "Given a left adjoint and existence, preservation and reflection of G-split coequalizers, constructs MonadicRightAdjoint G. Read lines 252–330; no relative tensor comparison is included.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Ind",
+    "module": "Mathlib/CategoryTheory/Limits/Indization/Category.lean",
+    "provides": "Category of ind-objects as the full subcategory of presheaves consisting of filtered colimits of representables, with fully faithful Ind.yoneda. Read definition and surrounding statements; a monoidal/internal-comodule adapter is still required.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.exists_leftInverse_of_injective",
+    "kind": "theorem",
+    "module": "Mathlib/RepresentationTheory/Maschke.lean",
+    "provides": "For a finite group over a field whose characteristic does not divide its order, every injective group-algebra linear map has a group-algebra linear left inverse. Over Q this splits submodules and yields the rational Maschke step in the Artin equivalence.",
+    "checked": "Declaration and enclosing hypotheses read at the recorded pinned commit on 2026-10-19; scope and conventions confirmed by REV-MotivesAndAlgebraicCycles--MC.6."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "HMS.2014",
+   "title": "On the relation between Nori motives and Kontsevich periods",
+   "authors": "Annette Huber and Stefan Mueller-Stach",
+   "edition": "arXiv:1105.0865v5, 21 May 2014",
+   "url": "https://arxiv.org/abs/1105.0865v5",
+   "sha256": "e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Sections 2–3, pp.9–13, including comparison coefficients, formal periods, tensor-isomorphism heap and period torsor",
+    "Appendix A, pp.14–16: heaps and the nonemptiness issue",
+    "Appendix B.1–B.11, pp.17–19; B.14–B.16, pp.20–23; B.21–B.22, pp.25–26: retained diagram/tensor/localization contracts"
+   ]
+  },
+  {
+   "id": "DM.TC",
+   "title": "Tannakian Categories",
+   "authors": "Pierre Deligne and James S. Milne",
+   "edition": "Corrected author TeX version, 15 August 2012",
+   "url": "https://www.jmilne.org/math/xnotes/tc.pdf",
+   "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Proposition 1.13; Theorem 2.11 and its proof through 2.16, pp.12 and 20–24",
+    "Propositions 2.20–2.23, pp.24–27; Example 2.30, p.27",
+    "Section 3, especially Theorem 3.2 and Remark 3.3, pp.29–31",
+    "Section 6, Proposition 6.17 and Remark 6.18, p.61: absolute Hodge Artin example; not a proof about the Nori category"
+   ]
+  },
+  {
+   "id": "FS.2021.v4",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues and Peter Scholze",
+   "edition": "arXiv:2102.13459v4, 27 November 2024; selected pages, not the published Astérisque edition",
+   "url": "https://arxiv.org/pdf/2102.13459v4",
+   "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Proposition VI.10.2 and proof, pp.232–234",
+    "VI.10.3 and opening of VI.11, pp.234–236: consumer and scope of reconstruction"
+   ]
+  },
+  {
+   "id": "HMS.2017.corr2025",
+   "title": "Periods and Nori Motives",
+   "authors": "Annette Huber and Stefan Müller-Stach, with contributions of Benjamin Friedrich and Jonas von Wangenheim",
+   "edition": "Author annotated edition, 1 July 2025; author-page numbered pagination, distinct from Springer print and 2017 v6",
+   "url": "https://home.mathematik.uni-freiburg.de/arithgeom/preprints/buch-errata/buch-errata.pdf",
+   "sha256": "6d08014f21a616abb4ba7e177effad4d15e4a215b0f234ce3a4605c20a02b731",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Theorems 7.1.12–7.1.13 and Corollary 7.1.15, pp.142–144; Section 7.4, pp.167–170: universal-property statements and proofs",
+    "Section 8.1, Proposition 8.1.5 and proof, pp.182–185: tensor passage under the field/Dedekind hypotheses used here",
+    "Theorem 9.1.10 and Examples 9.1.11–9.1.13, pp.212–213: fibre extension and Hodge supplier",
+    "Section 9.3, pp.222–225: excision-edge repair dated 27 June 2025 and modified good-pair product",
+    "Section 9.4, pp.229–231: finite Galois calculation and Artin embedding",
+    "Section 9.5, pp.231–239: restriction/corestriction, corrected Proposition 9.5.3, Corollary 9.5.5 and subquotient repair dated 26 June 2025",
+    "Section 10.2.2, pp.246–249: weight convention; Section 10.3, pp.250–251, Definition 10.3.1 and Lemma 10.3.2: pure versus mixed Tate"
+   ]
+  },
+  {
+   "id": "HMS.ERRATA",
+   "title": "Periods and Nori motives: author errata",
+   "authors": "Annette Huber and Stefan Müller-Stach",
+   "edition": "Author webpage accessed 19 October 2026, linked annotated edition dated 1 July 2025",
+   "url": "https://home.mathematik.uni-freiburg.de/arithgeom/preprints/buch-errata/buch.html",
+   "readSections": [
+    "List of errata, including good-pair products, Artin subquotients, restriction/corestriction and weight-structure correction"
+   ]
+  },
+  {
+   "id": "ZHU.2017",
+   "title": "Affine Grassmannians and the geometric Satake in mixed characteristic",
+   "authors": "Xinwen Zhu",
+   "edition": "Annals of Mathematics 185 (2017), 403–492, published PDF",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+   "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
+   "readSections": [
+    "Section 2.5, pp.454–455: neutral reconstruction, connectedness/reductivity, torus case and functoriality; these are consumer requirements, not proofs of the abstract inputs"
+   ]
+  },
+  {
+   "id": "GLX.2025.v3",
+   "title": "The connected components of affine Deligne–Lusztig varieties",
+   "authors": "Ian Gleason, Dong Gyu Lim and Yujie Xu",
+   "edition": "arXiv:2208.07195v3, accepted version, 10 November 2025; version used here rather than unverified published pagination",
+   "url": "https://arxiv.org/pdf/2208.07195v3",
+   "sha256": "d2249ddbe1ae2f4728000d27846d396adffc97b2f8b7b1c82c5d2701153fcb12",
+   "readSections": [
+    "Section 5.1, numbered paragraphs 13–14, pp.31–32, especially Definition 5.1 and discussion after Theorem 5.2: fibre-functor twisting consumer"
+   ]
+  },
+  {
+   "id": "STACKS.TORSION",
+   "title": "The Stacks Project: torsion free modules",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online edition accessed 19 October 2026",
+   "url": "https://stacks.math.columbia.edu/tag/0549",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Section 15.22, especially Lemmas 15.22.2 and 15.22.11 (Tag 0AUW), statements and proofs; HTML, no pagination"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Neutral fibre data",
+   "kind": "definition",
+   "statement": "A neutral fibre datum over a field k consists of an essentially small k-linear abelian rigid symmetric monoidal category C, a specified isomorphism k ≃ End_C(1), and a k-linear exact faithful strong symmetric monoidal functor ω:C→Vect_fd(k). The symmetry is the one that ω preserves. This datum contains neither a representing group nor a Hopf algebra.",
+   "hypotheses": [
+    "k is a field; category and Hom universes are fixed; Vect_fd(k) consists of finite-dimensional k-vector spaces with ordinary tensor symmetry."
+   ],
+   "proofSteps": [
+    "Use existing Abelian, Linear, RigidCategory and monoidal-functor structures; exactness means preserving short exact sequences.",
+    "Identify End(1) with k by the specified scalar map and check its compatibility with ω.",
+    "Supply scalar extension ω_R(X)=R⊗_kω(X), with its induced strong symmetric monoidal structure, for every commutative k-algebra R."
+   ],
+   "prerequisites": [
+    "mathlib:CategoryTheory.Abelian",
+    "mathlib:CategoryTheory.Linear",
+    "mathlib:CategoryTheory.RigidCategory",
+    "mathlib:CategoryTheory.Functor.Faithful"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Theorem 2.11 and Definition 2.19, pp.20,24",
+     "match": "Input data for reconstruction, before any Hopf algebra is known."
+    }
+   ],
+   "acceptance": [
+    "Do not infer neutrality from a fibre functor over a field extension.",
+    "The subquotient-sum hull used by the existing finite representer is distinguished from the tensor hull."
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "NeutralFibreData.baseChange",
+     "role": "functoriality",
+     "statement": "For each k-algebra R, ω_R is a strong symmetric monoidal functor into finite projective R-modules; algebra maps induce coherent base change."
+    },
+    {
+     "name": "NeutralFibreData.finiteLength",
+     "role": "characterisation",
+     "statement": "Every object has finite length, bounded by dim_k ω(X), using exact faithfulness."
+    },
+    {
+     "name": "NeutralFibreData.reflectIso",
+     "role": "compatibility",
+     "statement": "A morphism whose fibre is invertible is invertible; a zero fibre detects the zero object."
+    },
+    {
+     "name": "NeutralFibreData.tensorEquiv",
+     "role": "equivalence",
+     "statement": "A k-linear symmetric monoidal equivalence carrying ω to ωprime transports the datum and all tensor automorphism functors."
+    }
+   ],
+   "tests": [
+    {
+     "name": "neutral_vect",
+     "kind": "computation",
+     "statement": "Vect_fd(k) with the identity functor is neutral and reconstructs the trivial group."
+    },
+    {
+     "name": "neutral_super_sign",
+     "kind": "non-example",
+     "statement": "Super vector spaces in characteristic different from 2 with Koszul symmetry and ordinary forgetful functor fail symmetric compatibility on the odd line: its self-symmetry is minus the identity."
+    },
+    {
+     "name": "neutral_projectives",
+     "kind": "non-example",
+     "statement": "Finite free Z-modules are not an abelian category: multiplication by 2 is both a monomorphism and an epimorphism there but is not invertible. Moreover Z is not a field, so this is not the field-valued datum."
+    },
+    {
+     "name": "neutral_not_semisimple",
+     "kind": "boundary",
+     "statement": "Rep_fd(F_p,C_p) with its forgetful fibre is neutral even though the regular representation is not semisimple."
+    }
+   ],
+   "uses": [
+    {
+     "where": "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+     "how": "Supply the finite-length and exact-faithful input without presupposing a Hopf algebra."
+    },
+    {
+     "where": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+     "how": "Record the exact neutrality and symmetry hypotheses that Satake must prove."
+    }
+   ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/relative-reconstruction-datum",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Relative reconstruction data",
+   "kind": "definition",
+   "statement": "Let A be an essentially small rigid symmetric monoidal category. A relative reconstruction datum consists of a symmetric monoidal category C with coherent tensor A-action, a conservative A-linear strong symmetric monoidal functor F:C→A, and a small filtered full exhaustion C_i of C stable under A-action and F-split coequalizers. Each C_i has X_i and A-enriched representability: Hom_Ci(V⊙X_i,Y) ≃ Hom_A(V,F_iY), natural in V∈A and Y∈C_i and compatible with the action. Require existence and reflection of the indicated coequalizers. Preservation is an additional named hypothesis for the strengthened theorem, not part of the printed FS datum.",
+   "hypotheses": [
+    "F-split means that the image parallel pair is part of a split coequalizer diagram in A.",
+    "Transition functors are full inclusions compatible with F; objects of A are viewed as compact representables in Ind(A). The tensor on Ind(A) is the filtered-colimit-preserving extension of that on A."
+   ],
+   "proofSteps": [
+    "Spell out action associator and unit, the symmetric interchange with C tensor, and F(V⊙Y) ≃ V⊗F(Y), with their coherence squares.",
+    "The representing isomorphism is a natural bijection of Hom sets for every V, not a claimed isomorphism between a set and an A-object.",
+    "Use filtered inclusions to define comparison maps of representers; construct the Ind tensor extension in the proof of the existing coalgebra-assembly target."
+   ],
+   "prerequisites": [
+    "mathlib:CategoryTheory.RigidCategory",
+    "mathlib:CategoryTheory.Ind"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS.2021.v4",
+     "locator": "Proposition VI.10.2 and first proof paragraph, pp.232–233",
+     "match": "Makes the implicit enriched representability and action data explicit without strengthening the printed coequalizer assumption unnoticed."
+    }
+   ],
+   "acceptance": [
+    "Internal right comodules have underlying object in A and coaction in Ind(A), not arbitrary ind-objects.",
+    "Keep the printed reflection-only obligation separate from the sufficient preservation-and-reflection theorem."
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "RelativeReconstructionData.action",
+     "role": "structure",
+     "statement": "Coherent functor A×C→C with action unit/associativity and the tensor-interchange constraints preserved by F."
+    },
+    {
+     "name": "RelativeReconstructionData.representerAdjunction",
+     "role": "universal-property",
+     "statement": "The natural Hom bijections define L_i(V)=V⊙X_i left adjoint to F_i, including unit and counit and both triangle identities."
+    },
+    {
+     "name": "RelativeReconstructionData.transition",
+     "role": "functoriality",
+     "statement": "For C_i⊂C_j, representer comparison X_j→X_i corresponds to the unit element in F(X_i), and yields A_j→A_i and A_i∨→A_j∨ compatibly with composition."
+    },
+    {
+     "name": "RelativeReconstructionData.internalComodule",
+     "role": "data",
+     "statement": "An H-comodule in A is M∈A with ρ:M→M⊗H in Ind(A) satisfying the counit and coassociativity equations; morphisms intertwine ρ."
+    },
+    {
+     "name": "RelativeReconstructionData.preservation",
+     "role": "compatibility",
+     "statement": "The strengthened variant explicitly provides PreservesColimit for each F_i-split parallel pair. Reflection is a different instance."
+    }
+   ],
+   "tests": [
+    {
+     "name": "relative_matrix_side",
+     "kind": "computation",
+     "statement": "For A=Vect_fd(k), C_i=B-Mod_fd with B=M₂(k) and X_i=B, symmetry gives the left tensor monad B⊗V; its product has E12·E21=E11, detecting B opposite."
+    },
+    {
+     "name": "relative_no_global_representer",
+     "kind": "non-example",
+     "statement": "The forgetful functor on finite-support Z-graded finite vector spaces has no global finite representer, since a line in a weight outside its finite support has nonzero fibre and no maps from it."
+    },
+    {
+     "name": "relative_weight_pieces",
+     "kind": "computation",
+     "statement": "For a finite weight set S, the direct sum of one line in each weight represents the restricted fibre; the local algebra is k^S and the dual coalgebras assemble to k[Z]."
+    },
+    {
+     "name": "relative_no_antipode",
+     "kind": "non-example",
+     "statement": "Finite representations of the affine matrix monoid have the relative reconstruction data but are not rigid; their coefficient bialgebra is not asserted to be Hopf."
+    }
+   ],
+   "uses": [
+    {
+     "where": "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+     "how": "Pin the action/adjunction and left-module/right-comodule conventions."
+    },
+    {
+     "where": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+     "how": "Provide relative reconstruction over the rigid coefficient category, without imposing a field or abelianness on A."
+    }
+   ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/relative-beck-sufficient",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Relative reconstruction with preserved split coequalizers",
+   "kind": "theorem",
+   "statement": "For the relative reconstruction datum with F_i preserving as well as reflecting all F_i-split coequalizers, the existing finite-piece, coalgebra-assembly and bialgebra targets give a canonical commutative bialgebra H=colim_i F(X_i)∨ in Ind(A) and a symmetric monoidal equivalence C≃Comod_A(H) over A. If C is rigid, its dualities give an antipode on the same H. This theorem makes no assertion that the extra preservation follows from the reflection-only formulation of FS VI.10.2.",
+   "hypotheses": [
+    "The complete action/enriched-representer/filtered-exhaustion datum of relative-reconstruction-datum is supplied.",
+    "Each F_i preserves F_i-split coequalizers, and the full inclusions preserve the chosen coequalizers."
+   ],
+   "proofSteps": [
+    "Invoke the existing Mathlib Beck theorem on L_i⊣F_i with its separate Has, Preserves and Reflects instances; transport its algebra comparison through F_iL_i(V)≃F(X_i)⊗V.",
+    "For a dualizable A_i, transpose the left A_i-action to a right A_i∨-coaction. The algebra product is the one transported from the monad, not an assumed commutative product.",
+    "Extend tensor to Ind(A) by filtered colimits. Compactness factors any coaction of an A-object through some A_i∨; after enlarging i, the counit/coassociativity equations hold there. Compactness also factors morphism-intertwining equations. Thus the filtered comparison is essentially surjective and fully faithful.",
+    "The Beck presentation by split coequalizers is preserved by tensoring with A and, via conservativity and strong monoidality, by tensoring with C-objects. Choose k containing X_i⊗X_j to prove C_i⊗C_j⊂C_k, then use the existing bialgebra/antipode targets."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-reconstruction-datum",
+    "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+    "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+    "mathlib:CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS.2021.v4",
+     "locator": "Proposition VI.10.2, pp.232–234",
+     "match": "Proof route with a precisely exposed sufficient additional hypothesis; printed hypothesis comparison stays open."
+    }
+   ],
+   "acceptance": [
+    "For weight-bounded graded objects H is the direct sum of group-like coefficient lines, with multiplication e_m e_n=e_(m+n), not the pointwise product of finite endomorphism algebras.",
+    "For the matrix monoid only the bialgebra conclusion holds; rigidity must precede an antipode.",
+    "The ordinary Beck theorem itself is imported, not replanned."
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/fibre-inner-form",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Changing the fibre functor twists the group",
+   "kind": "theorem",
+   "statement": "For neutral (C,ω) over k and a fibre functor η over a k-algebra R, let G=Aut⊗(ω) and T=Isom⊗(ω_R,η). Then T is a right G_R-torsor and Aut⊗(η) is the twist of G_R by T for conjugation. Over any faithfully flat R-algebra S with t∈T(S), the isomorphism G_S→Aut⊗(η)_S sends g to t∘g∘t⁻¹. Replacing t by t∘h changes this isomorphism by conjugation by h. Hence over a field the two groups are pure inner forms; no rational point of T is asserted.",
+   "hypotheses": [
+    "η is k-linear exact faithful strong symmetric monoidal with finite projective R-valued fibres.",
+    "Composition is ordinary functional composition; T carries right source-group action by precomposition."
+   ],
+   "proofSteps": [
+    "Use the existing tensor-isomorphism scheme and torsor theorem to obtain a faithfully flat trivialization.",
+    "Define conjugation over the trivialization and compute its transformation on double overlaps: if t₂=t₁∘h then conjugation through t₂ equals conjugation through t₁ after Int(h).",
+    "Descend the affine group and its action using the existing fpqc affine descent supplier; identify it with Aut⊗(η) by the functor of points."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum",
+    "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+    "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Theorem 3.2 and Remark 3.3, pp.30–31",
+     "match": "Fibre torsor and representing algebra, with conjugation descent as the stated consequence."
+    },
+    {
+     "sourceId": "GLX.2025.v3",
+     "locator": "Section 5.1, paragraph 14, p.32",
+     "match": "Consumer needs comparison of crystalline and ordinary fibre groups as pure inner forms; p-adic equivalences remain with their owners."
+    }
+   ],
+   "acceptance": [
+    "For η=ω_R the identity section gives the original group.",
+    "For commutative G conjugation is trivial, so the group twist is canonically G_R even when the fibre torsor is nontrivial.",
+    "For GL_n the torsor of frames of a rank-n projective module E twists GL_n to Aut_R(E); do not claim every frame torsor has an R-point."
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/artin-diagram-category",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Artin Nori motives",
+   "kind": "definition",
+   "statement": "For a field k embedded in C, define Art(k) as the rational diagram category of finite étale k-schemes with H⁰_B(X)=Q^{X(C)}, maps by pullback and tensor product induced by X×_kY. Equivalently use zero-dimensional reduced pair vertices in degree zero. Retain its faithful exact fibre, finite direct sums, subquotients and tensor duals. Its fully faithful subquotient-closed inclusion into the full Nori category is a separate target, not a definition.",
+   "hypotheses": [
+    "k has characteristic zero and a chosen embedding k→C; choose an algebraic closure inside C.",
+    "Finite étale schemes include disjoint unions; rational coefficients and the ordinary degree-zero symmetry are fixed."
+   ],
+   "proofSteps": [
+    "Restrict the MC.5 diagram-category construction and product to zero-dimensional schemes. A relative pair reduces to X minus Y and has cohomology only in degree zero.",
+    "Use the identity and evaluation on finite sets to supply tensor unit and products. Rigidity follows from the computed finite Galois Hopf algebras."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.5/diagram-category",
+    "MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram",
+    "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions"
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Definitions 9.4.1–9.4.2 and calculation, pp.229–230",
+     "match": "The actual Nori Artin diagram, rather than the different absolute-Hodge example in DM §6."
+    }
+   ],
+   "acceptance": [
+    "The empty scheme has zero fibre, Spec(k) has fibre Q, and products correspond to tensor products."
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "ArtinNori.ofFiniteEtale",
+     "role": "constructor",
+     "statement": "Finite étale X gives an object with fibre Q^{Hom_k(X,C)}; a scheme map gives the contravariant cohomology map."
+    },
+    {
+     "name": "ArtinNori.product",
+     "role": "compatibility",
+     "statement": "H⁰_B(X×Y)≃H⁰_B(X)⊗H⁰_B(Y), preserving unit and ordinary symmetry."
+    },
+    {
+     "name": "ArtinNori.finiteGalois",
+     "role": "equivalence",
+     "statement": "At a finite Galois extension K/k, the diagram category generated by finite Gal(K/k)-sets is equivalent over Q-vector spaces to finite left Q[Gal(K/k)]-modules."
+    },
+    {
+     "name": "ArtinNori.embedding",
+     "role": "functoriality",
+     "statement": "The natural faithful exact symmetric monoidal functor to MM_Nori(k,Q) is the functor whose fullness and ambient subquotient closure artin-nori-embedding proves."
+    }
+   ],
+   "tests": [
+    {
+     "name": "artin_split",
+     "kind": "computation",
+     "statement": "For X=Spec(k) disjoint-union Spec(k), the fibre is Q² with trivial Galois action; this object alone generates the trivial group."
+    },
+    {
+     "name": "artin_quadratic",
+     "kind": "computation",
+     "statement": "For a quadratic Galois K/k the fibre of Spec(K) is the two-dimensional permutation representation; rational projectors (1±σ)/2 split it into unit and nontrivial sign lines."
+    },
+    {
+     "name": "artin_regular",
+     "kind": "computation",
+     "statement": "For finite Galois K/k with group Γ, the fibre is the regular permutation space Q^Γ and the centralizer of right translations is the left regular Q[Γ]; it is not the full matrix algebra."
+    },
+    {
+     "name": "artin_nongalois",
+     "kind": "boundary",
+     "statement": "A nonnormal finite extension L/k gives the permutation representation on embeddings Γ/H after passing to a Galois closure; its field automorphism group alone is insufficient."
+    }
+   ],
+   "uses": [
+    {
+     "where": "MotivesAndAlgebraicCycles:MC.6",
+     "how": "Compute the Artin acceptance example and identify the ambient motivic Galois quotient."
+    }
+   ],
+   "planet": {
+    "name": "Artin motivic Galois group"
+   }
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/artin-galois-equivalence",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Artin motives and finite-image Galois representations",
+   "kind": "theorem",
+   "statement": "Art(k) is symmetrically monoidally equivalent over its Betti fibre to finite-dimensional continuous rational representations of Γ_k=Gal(kbar/k), with the rational vector spaces given the discrete topology. Every such representation factors through a finite quotient. At finite Galois K/k, the diagram endomorphism algebra is Q[Γ] with Δ(g)=g⊗g and ε(g)=1, so its dual coordinate algebra is Q^Γ.",
+   "hypotheses": [
+    "The Artin diagram and rational coefficients of artin-diagram-category are fixed."
+   ],
+   "proofSteps": [
+    "For Γ=Gal(K/k), use the simply transitive embedding set of K and its commuting translation actions to compute the endomorphism algebra, including its multiplication side.",
+    "Every finite Γ-set is a disjoint union of Γ/H; invariant functions identify Q^{Γ/H} inside Q^Γ. All finite representations are quotients and, by rational Maschke, direct summands of finite sums of the regular representation. Import that semisimplicity, not a new Artin–Wedderburn theory.",
+    "Products of finite sets give the diagonal coproduct on Q[Γ]; dualize. Pass through Galois closures and the filtered union of finite Galois extensions. Continuity and compactness of Γ_k imply that the image in discrete GL(V) is finite."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/artin-diagram-category",
+    "mathlib:MonoidAlgebra.exists_leftInverse_of_injective"
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Section 9.4, pp.229–230",
+     "match": "Finite diagram algebra, its bialgebra structure and the profinite limit calculation."
+    }
+   ],
+   "acceptance": [
+    "At a nonabelian finite quotient, left versus right regular multiplication is tested by noncommuting group elements.",
+    "Morphisms are Γ-equivariant linear maps; restricting to maps of finite sets would omit rational projectors."
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/artin-nori-embedding",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Artin motives form a Nori subcategory",
+   "kind": "theorem",
+   "statement": "The natural functor Art(k)→MM_Nori(k,Q) is fully faithful, exact and symmetric monoidal, with image closed under ambient subobjects and quotients. An object of MM_Nori(k,Q) belongs to this image exactly when its base change to kbar is a finite sum of units. Consequently the image is the smallest replete full abelian tensor subcategory generated by H⁰_Nori of finite étale k-schemes.",
+   "hypotheses": [
+    "MC.5 supplies the full rational Nori category over k⊂C, the diagram universal property, the restriction/corestriction and finite-descent contract, and the ℓ-adic realization with finite-étale permutation compatibility specified in the request."
+   ],
+   "proofSteps": [
+    "The diagram universal property gives the faithful exact tensor functor from Art(k). Every ambient Nori morphism between its finite-étale generators acts under the ℓ-adic realization as a Γ_k-equivariant map. Its Betti matrix has rational coefficients; equivariance after Q→Q_ℓ therefore implies rational equivariance, since scalar extension is injective. The Artin–Galois equivalence lifts that matrix to an Artin morphism, and faithfulness of the Betti fibre proves equality. Extend through finite sums and rational projectors. Without the realization contract, functoriality of H⁰ alone would not prove fullness for all ambient Nori morphisms.",
+    "Use corrected Proposition 9.5.3 and Corollary 9.5.5: triviality after algebraic extension descends to a finite extension and exhibits the motive as a summand of a power of H⁰(Spec K). Do not use the false formula res cores(M)=M⊗H⁰(Spec(K⊗_kK)) for arbitrary M.",
+    "The unit of the Nori category is simple since its faithful exact fibre is one-dimensional; finite sums of it are ambient semisimple. Base-changing any quotient of an Artin object therefore gives a sum of units, and descent gives an Artin quotient; duality handles subobjects. Semisimplicity of a full subcategory alone would not prove this."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/artin-galois-equivalence",
+    "MotivesAndAlgebraicCycles:MC.5",
+    "MotivesAndAlgebraicCycles:MC.5/completion-universal-factorisation"
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Example 9.1.13, p.213; Proposition 9.4.3, p.231; corrected Proposition 9.5.3 and Corollary 9.5.5, pp.232–236; 26 June 2025 repair, pp.238–239",
+     "match": "Fullness, geometric triviality descent and the repaired ambient subquotient argument."
+    }
+   ],
+   "acceptance": [
+    "The proof does not infer ambient subquotient closure merely from semisimplicity inside Art(k).",
+    "No exact sequence involving the full geometric motivic group is needed as an input to the Artin quotient.",
+    "Ambient fullness uses the specified ℓ-adic realization and rational scalar descent; it is not inferred merely from the diagram endomorphism calculation."
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/artin-galois-group",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "The proconstant Artin motivic Galois group",
+   "kind": "theorem",
+   "statement": "For the Betti fibre on Art(k), Aut⊗(ω_B|Art(k)) is the proconstant Q-group scheme lim_K Gal(K/k)_Q, with coordinate Hopf algebra colim_K Q^{Gal(K/k)}. The inclusion of Art(k) induces a faithfully flat morphism G_mot(k,Q)→Γ_k,Q. This is a proalgebraic group scheme; its functor on a disconnected Q-algebra is not defined by assigning the abstract set Γ_k to every algebra.",
+   "hypotheses": [
+    "K ranges over finite Galois extensions in the chosen kbar; the ambient Nori group is reconstructed from its proven neutral fibre."
+   ],
+   "proofSteps": [
+    "Compute each finite constant group from the function Hopf algebra, using artin-galois-equivalence.",
+    "Take the compatible inverse limit of finite group schemes and apply the existing neutral reconstruction to identify all tensor automorphisms naturally in value algebras.",
+    "Apply DM Proposition 2.21 to the fully faithful subquotient-closed inclusion; this proves faithful flatness without assuming a period conjecture."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/artin-galois-equivalence",
+    "MotivesAndAlgebraicCycles:MC.6/artin-nori-embedding",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-functoriality"
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Section 9.4, p.230; repaired proof of Theorem 9.1.16, pp.236–239",
+     "match": "Proconstant calculation and quotient."
+    },
+    {
+     "sourceId": "DM.TC",
+     "locator": "Proposition 2.21(a), p.25",
+     "match": "Faithfully flat criterion for a tensor subcategory."
+    }
+   ],
+   "acceptance": [
+    "Over algebraically closed k the group is trivial.",
+    "For a finite quotient C₂ and R=Q×Q, R-points are C₂×C₂: independent components detect an incorrectly constant set-valued functor.",
+    "For k=Q no assertion of a finite-type algebraic group is made."
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/pure-tate-subcategory",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "The pure Tate tensor subcategory",
+   "kind": "definition",
+   "statement": "Let L=1(−1)=H¹_Nori(G_m,{1}) in the full rational Nori category. For n∈Z put L^n=1(−n), using duals for n<0. Define Tate(k) to be the smallest replete full subcategory containing all L^n and closed under finite sums, subobjects and quotients. Tensor products and duals preserve it by exactness and the invertibility of L. This is the pure Tate subcategory; it is not defined by adjoining every ambient extension.",
+   "hypotheses": [
+    "k⊂C; the full Nori category and its exact faithful tensor Betti fibre are supplied by MC.5.",
+    "A Hodge realization separating Tate powers, with type(n,n) on L^n, is supplied as specified in the MC.5 request. Only this separation is used, not a global weight filtration or André semisimplicity."
+   ],
+   "proofSteps": [
+    "Use the MC.5 Tate localization for integer powers, coherence maps L^m⊗L^n≃L^(m+n), and L⁰≃1.",
+    "One-dimensional faithful exact fibres make every L^n simple. Hodge types imply Hom(L^m,L^n)=0 for m≠n, while End(L^n)=Q by tensoring with the inverse and End(1)=Q.",
+    "Subquotients of a finite sum of these ambient simple objects split into the same simples. Thus finite sums already describe Tate(k); do not prove vanishing of all Ext¹ groups in the ambient mixed category."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.5/diagram-localisation",
+    "MotivesAndAlgebraicCycles:MC.5/nori-tensor-category",
+    "MotivesAndAlgebraicCycles:MC.5"
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Definition 10.3.1 and Lemma 10.3.2, pp.250–251; Example 9.1.12, p.213",
+     "match": "Pure versus extension-closed mixed Tate; the proof uses only Tate separation and finite semisimplicity."
+    },
+    {
+     "sourceId": "DM.TC",
+     "locator": "Example 2.30, p.27",
+     "match": "Finite graded vector spaces have the ordinary symmetry used by the G_m example."
+    }
+   ],
+   "acceptance": [
+    "Degree is n on L^n, so its Hodge weight is 2n and its G_m character is t^n; Q(n)=L^(−n) has character t^(−n)."
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "PureTate.power",
+     "role": "constructor",
+     "statement": "For n∈Z the object L^n belongs to Tate(k), with coherent power-zero, addition and duality isomorphisms."
+    },
+    {
+     "name": "PureTate.homPower",
+     "role": "characterisation",
+     "statement": "Hom(L^m,L^n)=0 if m≠n and End(L^n)≃Q; all maps between finite sums are block matrices by degree."
+    },
+    {
+     "name": "PureTate.sumDecomposition",
+     "role": "characterisation",
+     "statement": "Every object is a finite direct sum of Tate powers, uniquely up to degreewise multiplicity; subobjects and quotients remain such sums."
+    },
+    {
+     "name": "PureTate.coefficients",
+     "role": "functoriality",
+     "statement": "M↦(Hom(L^n,M))_n gives finite-support graded rational spaces; tensor on coefficients is the finite convolution of degrees."
+    },
+    {
+     "name": "PureTate.mixedBoundary",
+     "role": "relation",
+     "statement": "The extension-closed category generated by Tate(k) is the mixed Tate category. No equality with Tate(k) and no G_m calculation for that larger category is asserted."
+    }
+   ],
+   "tests": [
+    {
+     "name": "tate_tensor_inverse",
+     "kind": "computation",
+     "statement": "L⊗L⁻¹≃1 and the degree-one and degree-minus-one fibres multiply to degree zero; restricting to nonnegative degrees would fail."
+    },
+    {
+     "name": "tate_two_weights",
+     "kind": "computation",
+     "statement": "End(1⊕L)=Q×Q and Hom(1,L)=0; replacing it by M₂(Q) would erase the Tate grading."
+    },
+    {
+     "name": "tate_even_symmetry",
+     "kind": "computation",
+     "statement": "The self-braiding of L is +1 because the faithful symmetric Betti fibre sends it to the ordinary swap on the tensor square of a one-dimensional rational space, which is the identity. Tate-exponent degree one introduces no Koszul minus sign; Hodge weight 2 is consistent with this convention."
+    },
+    {
+     "name": "tate_extension_boundary",
+     "kind": "non-example",
+     "statement": "The nontrivial two-dimensional unipotent representation of G_a, with unit subobject and unit quotient, shows why extension closure cannot be silently inserted into a tensor-generated semisimple subcategory definition. This is an abstract categorical counterexample, not a claimed Nori realization."
+    }
+   ],
+   "uses": [
+    {
+     "where": "MotivesAndAlgebraicCycles:MC.6",
+     "how": "Compute the Tate acceptance example and fix the exponent convention for the period class L."
+    },
+    {
+     "where": "PeriodsAndSpecialValues:PS.2",
+     "how": "Use the integer Tate inverse in the formal period ring, with period(L)=2πi."
+    }
+   ],
+   "planet": {
+    "name": "Tate motivic Galois group"
+   }
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/pure-tate-graded-equivalence",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Pure Tate motives are finite graded vector spaces",
+   "kind": "theorem",
+   "statement": "There is a Q-linear symmetric monoidal equivalence Tate(k)≃Vect_fd^Z(Q) over the total Betti fibre, with finite support in Z and ordinary symmetry. It sends L^n to the degree-n line. The inverse sends (V_n) to the finite sum of copowers V_n⊗_Q L^n. There is no Koszul sign from the Tate-exponent grading.",
+   "hypotheses": [
+    "The definition and Tate separation of pure-tate-subcategory are supplied.",
+    "Fix the Betti generator of L from the positively oriented loop to identify the total fibre with the ordinary forgetful fibre; alternative choices transport the equivalence coherently."
+   ],
+   "proofSteps": [
+    "Use the computed Hom spaces of Tate powers to identify maps with degree-preserving block matrices.",
+    "Finite semisimplicity gives essential surjectivity and the finite-support decomposition.",
+    "Power-addition maps identify tensor with convolution. The faithful symmetric Betti fibre sends the braiding on Tate lines to ordinary interchange; on the square of a one-dimensional fibre it is the identity. Thus Tate-exponent grading contributes no Koszul sign. Check the total Betti fibre comparison on generators and then on sums."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/pure-tate-subcategory"
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Lemma 10.3.2 and proof, p.250",
+     "match": "Graded equivalence, with the finite-support condition and tensor convention made explicit."
+    },
+    {
+     "sourceId": "DM.TC",
+     "locator": "Example 2.30, p.27",
+     "match": "Tensor reconstruction of graded vector spaces."
+    }
+   ],
+   "acceptance": [
+    "For M=L⁻¹⊕1²⊕L² the dimension vector is 1 at −1, 2 at 0 and 1 at 2, and dim ω(M)=4.",
+    "Maps cannot mix degrees, while tensor does add degrees."
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/pure-tate-galois-group",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "The Tate group is the multiplicative group",
+   "kind": "theorem",
+   "statement": "For every commutative Q-algebra R, tensor automorphisms of the Betti fibre restricted to Tate(k) are naturally Rˣ: a∈Rˣ acts on L^n by a^n, and every tensor automorphism has this form. Thus the coordinate Hopf algebra is Q[t,t⁻¹], Δ(t)=t⊗t, ε(t)=1, S(t)=t⁻¹, and the group is G_m,Q. The full motivic group maps faithfully flatly to this Tate quotient.",
+   "hypotheses": [
+    "The pure Tate equivalence and ambient subquotient closure are fixed; all value algebras, including disconnected and nonreduced ones, are tested."
+   ],
+   "proofSteps": [
+    "Naturality on each finite-dimensional pure degree and all its linear maps forces a scalar a_n; monoidality gives a_(m+n)=a_ma_n and the unit forces a_0=1.",
+    "The inverse-degree line forces a_1 to be a unit and a_n=a_1^n. Conversely these scalars define a tensor automorphism and commute with value-algebra maps.",
+    "Use the existing G_m affine Hopf dictionary rather than rebuilding the diagonalizable-group theory. Apply DM 2.21(a) to the full ambient subquotient-closed Tate inclusion."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/pure-tate-graded-equivalence",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-functoriality"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Example 2.30, p.27; Proposition 2.21(a), p.25",
+     "match": "Graded-vector-space G_m reconstruction and quotient criterion."
+    },
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Definition 10.3.1 and Lemma 10.3.2, p.250",
+     "match": "Identifies precisely the Nori subcategory to which this computation applies."
+    }
+   ],
+   "acceptance": [
+    "At R=Q, a=2 acts by 2 on L and 1/2 on L⁻¹.",
+    "At R=Q[ε]/(ε²), a=1+ε acts by 1+nε on L^n for every integer n; checking only rational points would omit this test.",
+    "On 1⊕L the action is diag(1,a), not an arbitrary invertible 2×2 matrix."
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/tannaka-functoriality",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Tensor functors and morphisms of reconstructed groups",
+   "kind": "theorem",
+   "statement": "Let (C,ω) and (D,η) be neutral Tannakian data over any field k. An exact k-linear strong symmetric monoidal functor U:D→C with a specified tensor isomorphism ω∘U≃η induces f:G_C→G_D. The map f is faithfully flat iff U is fully faithful and every subobject of U(Y) in C is isomorphic as a subobject to U(Y′) for a subobject Y′⊂Y in D. The map f is a closed immersion iff every object of C is a subquotient of U(Y) for some Y∈D.",
+   "hypotheses": [
+    "Both neutral data include their k-valued exact faithful fibres; the comparison of fibres is part of the input.",
+    "The subobject condition concerns ambient C-subobjects of image objects, not just the intrinsic subobjects of the essential image. No characteristic-zero or semisimplicity assumption is imposed."
+   ],
+   "proofSteps": [
+    "Use neutral reconstruction to transfer U to restriction of finite-dimensional representations along f; the specified fibre isomorphism defines f naturally on all commutative k-algebras.",
+    "Use DM Proposition 2.21(a). If f is faithfully flat, descent of invariant subspaces and of intertwiners gives both conditions. Conversely factor f through its scheme-theoretic image; the map onto that image is faithfully flat by the Hopf-subalgebra theorem over a field. For a proper closed image, the finite-dimensional subspace-stabilizer construction in the proof of 2.21(b) supplies an image-stable subspace not stable under G_D; full faithfulness together with the ambient-subobject condition excludes this. Thus the image is G_D. These finite coefficient-space steps are part of the categorical criterion, not a test on dense k-points.",
+    "For the closed-immersion criterion, DM Proposition 2.21(b) identifies surjectivity on coordinate algebras with generation of every finite coefficient space by representations restricted from G_D. Subquotients of finite sums suffice, and finite sums are already included among the objects Y of D."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Proposition 2.21(a)–(b) and proof, p.25, corrected author version 2012",
+     "match": "Faithfully flat and closed-immersion criteria for tensor functors, transported from known groups to arbitrary reconstructed neutral data."
+    }
+   ],
+   "acceptance": [
+    "The faithful-flat criterion retains both full faithfulness and ambient subobject closure.",
+    "All assertions are scheme-theoretic and natural in value algebras; rational points alone do not detect them."
+   ],
+   "tests": [
+    {
+     "name": "tannakaFunctor_trivial_quotient",
+     "kind": "computation",
+     "statement": "The inclusion Vect_fd(k)→Rep_fd(k,C_2) as trivial representations is fully faithful and ambient-subobject closed, and induces the faithfully flat quotient C_2→1."
+    },
+    {
+     "name": "tannakaFunctor_closed_subgroup",
+     "kind": "computation",
+     "statement": "For char(k)≠2, restriction from G_m to μ_2 satisfies the subquotient-generation criterion and induces the closed immersion μ_2→G_m. It is not full: the weight-zero and weight-two lines acquire nonzero morphisms after restriction."
+    },
+    {
+     "name": "tannakaFunctor_nonreduced",
+     "kind": "non-example",
+     "statement": "In characteristic p the closed immersion μ_p→G_m is detected by the coordinate quotient k[t,t⁻¹]→k[t]/(t^p−1); μ_p(kbar)={1} does not identify it with the trivial subgroup scheme."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "REV-MotivesAndAlgebraicCycles--MC.6"
+  }
+ ],
+ "retainedTargetRefinements": [
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
+   "reason": "Apply ordinary functional composition and the completed MC.6 input/example contracts; keep the stable ID.",
+   "statement": "Let D be a graded diagram with commutative product structure and unit, and T_1, T_2 two unital graded multiplicative representations of D in finite dimensional vector spaces over Q (the source works over Q; the construction uses only that Q is a field). The comparison algebra is A_{1,2} = colim_F Hom(T_1|F, T_2|F)^∨, the filtered colimit over finite subdiagrams F of the duals of the spaces of families of linear maps T_1(p) → T_2(p), p in F, commuting with the edges of F. It is a commutative Q-algebra, with multiplication induced as for the tensor structure of the diagram category (Proposition B.16) with Hom(T_1|F, T_2|F) in place of End(T|F). Precomposition by End(T_1|F) gives a right source action and its coordinate coaction A_{1,2}→A_{1,2}⊗A_1. Postcomposition by End(T_2|F) gives a left target action and coaction A_{1,2}→A_2⊗A_{1,2}. These statements use ordinary functional composition. For T_1=T_2=T the algebra is A(D,T).",
+   "apiReplacements": {
+    "ComparisonAlgebra.comul": "The source-group coaction A_{1,2}→A_{1,2}⊗A_1 is dual to precomposition x∘g_1.",
+    "ComparisonAlgebra.rightCoaction": "The target-group coaction A_{1,2}→A_2⊗A_{1,2} is dual to postcomposition g_2∘x. This retained API name does not indicate the action side."
+   }
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
+   "reason": "Apply ordinary functional composition and the completed MC.6 input/example contracts; keep the stable ID.",
+   "statement": "In the setting of Section 3, with T_1 and T_2 unital graded multiplicative representations of the same diagram over Q, a multiplicative comparison isomorphism over a field K ⊃ Q and C(T_1) neutral Tannakian, let T_2 also denote its extension to a tensor fibre functor on C(T_1) (MC.6/fibre-functor-extension). The functor on commutative Q-algebras R ↦ Iso⊗(T_1 ⊗ R, T_2 ⊗ R) is represented by the affine scheme X_{1,2} = Spec A_{1,2}, and likewise X_{2,1} = Spec A_{2,1}. Composition gives X_{1,2}×X_{2,1}→G_2 by (x,y)↦x∘y and X_{2,1}×X_{1,2}→G_1 by (y,x)↦y∘x. The target group G_2 acts on the left, G_2×X_{1,2}→X_{1,2}, by postcomposition, and the source group G_1 on the right, X_{1,2}×G_1→X_{1,2}, by precomposition.",
+   "apiReplacements": {
+    "TensorIsoScheme.compLeft": "The morphism G_2×X_{1,2}→X_{1,2}, (g,x)↦g∘x, dually the target-group coaction A_{1,2}→A_2⊗A_{1,2}.",
+    "TensorIsoScheme.compRight": "The morphism X_{1,2}×G_1→X_{1,2}, (x,g)↦x∘g, dually the source-group coaction A_{1,2}→A_{1,2}⊗A_1.",
+    "TensorIsoScheme.toAut": "The morphism X_{1,2}×X_{2,1}→G_2, (x,y)↦x∘y; the reversed composition has target G_1."
+   },
+   "testReplacements": {
+    "TensorIsoScheme.compose_inverse": "For x:T_1→T_2, x∘x⁻¹ is the unit of G_2 and x⁻¹∘x is the unit of G_1. The action g_2∘x and action x∘g_1 are defined, fixing the side by types.",
+    "TensorIsoScheme.not_group": "There is no distinguished identity or canonical group law on X_{1,2} without a chosen comparison section. A chosen section supplies a group law from the heap. The intrinsic binary composition uses X_{1,2}×X_{2,1} with target G_2 or the reversed factors with target G_1."
+   },
+   "proofSteps": [
+    "Describe the R-points of Spec A_{1,2}: algebra maps A_{1,2} → R are compatible families, over finite subdiagrams F, of R-linear maps T_1|F ⊗ R → T_2|F ⊗ R commuting with the edges and respecting the product structure, by the duality defining A_{1,2}.",
+    "Identify such families with tensor morphisms f_{T_1} ⊗ R → T_2 ⊗ R on C(T_1), using that C(T_1) is generated by the objects attached to vertices (Proposition B.9) and its description by finite comodules.",
+    "Show that every tensor morphism is an isomorphism, by rigidity and Deligne and Milne's Proposition 1.13 (the second step of MC.6/rigid-bialgebra-is-hopf), so that the functor of tensor isomorphisms is represented by Spec A_{1,2}.",
+    "Composition gives the target coaction A_{1,2}→A_2⊗A_{1,2} and source coaction A_{1,2}→A_{1,2}⊗A_1; the two opposite-order composition maps are dual to A_2→A_{1,2}⊗A_{2,1} and A_1→A_{2,1}⊗A_{1,2}."
+   ],
+   "acceptance": [
+    "For T_1 = T_2 the scheme is the group G_1 and the composition morphisms are its multiplication and its actions on itself.",
+    "The scheme has a K-point, the comparison isomorphism (MC.6/period-point); no rational point is asserted.",
+    "Faithful flatness over Q and the torsor property are the general statement MC.6/tensor-iso-torsor.",
+    "Reject the effective rank-one Tate model Q[t] as an isomorphism-torsor coordinate ring: evaluation t ↦ 0 is a unital algebra map but is singular on the Tate fibre. In Q[t,t^-1] the coordinate is a unit, so every map to Q sends it to a nonzero scalar."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+   "reason": "Use a cofinal family containing the unit in the faithful-flatness argument.",
+   "statement": "Let C be a neutral Tannakian category over a field k with fibre functor ω and G = Aut⊗(ω), and let η be a fibre functor on C with values in a commutative k-algebra R. Then the functor Hom⊗(ω, η) on R-algebras is represented by an affine scheme faithfully flat over Spec R, every tensor morphism from ω to η is an isomorphism, and Hom⊗(ω, η) is a G-torsor over R. The G_R-action is on the right by precomposition. The category may be any neutral datum: use neutral-tannaka-reconstruction to reach the finite-comodule model before applying the known-Hopf dictionary.",
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
+    "tauceti:TauCeti.FGComoduleCat",
+    "mathlib:CategoryTheory.Functor.Monoidal"
+   ],
+   "proofSteps": [
+    "Use neutral reconstruction to reach the finite-comodule model, then the ind-algebra (P_X∨)_X of DM Theorem 3.2; its image under the first fibre is O(G). Applying η represents the tensor-morphism functor.",
+    "Every η(P_X∨) is finite projective, so its filtered colimit is flat. For faithful flatness restrict to the cofinal indices X⊕1, whose additive hull contains the unit. At these indices the fibre of the evaluation P_(X⊕1)→1 contains the identity coefficient and is surjective; exact faithfulness reflects the surjection. No such surjection is asserted for an arbitrary X.",
+    "Dualize this surjection. The sequence 0→1→P_(X⊕1)∨→Q_X→0 is exact with Q_X in the category. Applying η gives finite projective quotient, so the sequence splits as R-modules. The colimit contains R purely; after any base change it contains the base ring. Together with flatness this proves faithful flatness.",
+    "Rigidity makes each tensor morphism invertible (DM Proposition 1.13). The map T×G_R→T×T, (t,g)↦(t,t∘g), has inverse (t,u)↦(t,t⁻¹∘u). Faithful flatness makes T a right fpqc G_R-torsor."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+   "reason": "Apply ordinary functional composition and the completed MC.6 input/example contracts; keep the stable ID.",
+   "addPrerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum"
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+   "reason": "Apply ordinary functional composition and the completed MC.6 input/example contracts; keep the stable ID.",
+   "addPrerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum"
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+   "reason": "Apply ordinary functional composition and the completed MC.6 input/example contracts; keep the stable ID.",
+   "addPrerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum"
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+   "reason": "Make split-coequalizer preservation explicit throughout the sufficient relative route.",
+   "addPrerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-reconstruction-datum"
+   ],
+   "statement": "Under the strengthened relative hypotheses below, under the relative reconstruction data, L_i:A→C_i, V↦V⊗X_i, is left adjoint to F_i. Use symmetry to identify its monad with V↦A_i⊗V, where A_i=F(X_i) has the multiplication transported from that monad. The comparison gives C_i≃LeftMod_A(A_i)≃RightComod_A(A_i∨), compatibly with F_i. Modules and comodules have underlying objects in A, not arbitrary objects of Ind(A). Keeping the unswapped expression V⊗A_i instead uses right modules over the opposite multiplication.",
+   "hypotheses": [
+    "The complete relative-reconstruction-datum is supplied: essentially small rigid symmetric coefficient category A, coherent A-action on C, conservative A-linear strong symmetric monoidal F, and the small filtered full exhaustion with enriched representers X_i.",
+    "Each piece has, and F_i both preserves and reflects, the coequalizers of all F_i-split pairs. Each full inclusion C_i→C_j preserves the chosen coequalizers.",
+    "These are the strengthened sufficient hypotheses. The printed reflection-only FS VI.10.2 formulation remains the separately recorded gap; it is not a premise sufficient for the operational conclusions here."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/formal-periods",
+   "reason": "Apply ordinary functional composition and the completed MC.6 input/example contracts; keep the stable ID.",
+   "testReplacements": {
+    "FormalPeriods.tate_laurent_model": "In the localized rank-one model Q[t,t⁻¹], t·t⁻¹=t⁻¹·t=1. This checks the integer Tate inverse; the actual Nori pure-Tate category and G_m computation are the separate pure-tate targets of this part."
+   }
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
+   "reason": "Correct the false Dedekind extension in HMS Remark 2.7; E49 gives a finite-free counterexample.",
+   "statement": "Over a field k, the coefficient map Ψ:P(T_1,T_2)→A_{1,2}, [p,v,λ]↦(f↦λ(f_p(v))), is an isomorphism of vector spaces, and of commutative algebras for unital graded multiplicative representations. For the analogous module presentations over a Dedekind domain R with finite projective fibres, a finite subdiagram F instead gives Hom(T_1|F,T_2|F)=P_F∨ and A_F=P_F∨∨≃P_F/(P_F)_tors. For the full diagram, Ψ identifies A_{1,2} with P/P_tors. Thus the integral map is an isomorphism precisely when the period module is torsion-free; finite projective fibres alone do not imply this. Under the multiplicative hypotheses this is the quotient algebra by its R-torsion ideal.",
+   "hypotheses": [
+    "For the main period theorem k is a field; both fibres are finite-dimensional and the diagrams agree. For the integral comparison use the same coefficient-module/edge-relation presentations over a Dedekind domain R, with finite projective fibres.",
+    "For the algebra assertion the diagram has a unital graded commutative product and both representations are unital graded multiplicative.",
+    "Torsion means annihilation by a nonzero element of the coefficient domain; it is not removed from the symbol presentation by definition."
+   ],
+   "proofSteps": [
+    "Reduce to a finite subdiagram F. The dual of the coefficient quotient P_F is exactly the space of edge-compatible linear-map families, so the canonical coefficient map is P_F→P_F∨∨. Over a field finite-dimensional duality makes this an isomorphism.",
+    "Over a Dedekind domain P_F is finitely generated. Its torsion-free quotient is finite projective by Stacks Lemma 15.22.11 (Tag 0AUW), hence reflexive; all maps to R kill torsion. Consequently the bidual map is the quotient by torsion, rather than necessarily an isomorphism.",
+    "Filtered colimits preserve the quotient maps, and torsion commutes with these colimits: an annihilating relation for a represented element holds at some later finite stage. Hence colim_F(P_F/(P_F)_tors)=P/P_tors. Multiplicativity is checked on the coefficient generators, and torsion is an ideal.",
+    "Counterexample: for p→q, let both representations have Z at each vertex and arrow 2. Compatible map families are (a,a), while P_F=Z e_p⊕Z e_q /〈2(e_q−e_p)〉. The coefficient map kills the nonzero class e_q−e_p, detected by e_p↦0,e_q↦1 in Z/2. The free symmetric tensor completion, all vertices even and rank one, has period algebra Z[x,y]/(2(y−x)) and comparison algebra Z[t], x,y↦t. Thus adding multiplicativity does not repair the claim."
+   ],
+   "acceptance": [
+    "The field-valued statement and its rational Nori application require no new hypothesis.",
+    "Finite projective fibres do not remove torsion in the edge-relation quotient. The integral conclusion is explicitly a torsion quotient.",
+    "The counterexample persists for a unital multiplicative diagram, not just for its finite coefficient-module calculation."
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2014",
+     "locator": "Theorem 2.6 and Remark 2.7, p.10, arXiv:1105.0865v5",
+     "match": "The field argument is valid. The Dedekind assertion in the remark is corrected by the bidual calculation and counterexample E49."
+    },
+    {
+     "sourceId": "STACKS.TORSION",
+     "locator": "Section 15.22, Lemmas 15.22.2 and 15.22.11 (Tags 0549 and 0AUW); HTML, no page numbers",
+     "match": "Torsion quotient and finite projectivity over a Dedekind domain justify the corrected bidual calculation."
+    }
+   ],
+   "tests": [
+    {
+     "name": "PeriodComparison.field",
+     "kind": "computation",
+     "statement": "For a single vertex with fibres k^m and k^n, Ψ is the usual isomorphism k^m⊗(k^n)∨≃Hom(k^m,k^n)∨, of dimension mn."
+    },
+    {
+     "name": "PeriodComparison.integral_torsion",
+     "kind": "counterexample",
+     "statement": "For the two-vertex rank-one Z diagram with common arrow 2, P=Z⊕Z/2, A=Z and Ψ kills the nonzero order-two difference e_q−e_p. The homomorphism e_p↦0,e_q↦1 into Z/2 detects its nonvanishing."
+    },
+    {
+     "name": "PeriodComparison.integral_tensor",
+     "kind": "counterexample",
+     "statement": "The free even symmetric tensor completion has P=Z[x,y]/(2(y−x)), A=Z[t], and Ψ(x)=Ψ(y)=t. Modulo 2 the class y−x is nonzero, so the algebra map is also not injective."
+    },
+    {
+     "name": "PeriodComparison.integral_saturated",
+     "kind": "computation",
+     "statement": "Replacing the common arrow 2 by 1 gives the saturated relation e_q=e_p, hence P=A=Z and Ψ is an isomorphism."
+    }
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
+   "reason": "Pointwise recovery of heap groups requires a point over the value algebra.",
+   "statement": "In the setting of MC.6/tensor-iso-scheme, inversion f ↦ f⁻¹ is an isomorphism of affine schemes X_{1,2} → X_{2,1}, and the composite X_{1,2} × X_{1,2} × X_{1,2} → X_{1,2} × X_{2,1} × X_{1,2} → X_{1,2}, (f, g, h) ↦ f ∘ g⁻¹ ∘ h, makes X_{1,2} an affine heap in the sense of MC.6/affine-torsor; likewise X_{2,1}. The composition actions of G_1 and G_2 are compatible with the heap operation, and whenever X_{1,2}(R) is nonempty, G_2(R) and G_1(R) identify with its left and right heap groups. The scheme actions and torsor identities remain defined even when X_{1,2}(R) is empty.",
+   "proofSteps": [
+    "Construct the inversion map X_{1,2} → X_{2,1} on points and check that it is an isomorphism of affine schemes with inverse the inversion X_{2,1} → X_{1,2}.",
+    "Construct the ternary operation as the composite in the source's diagram: inversion in the middle factor followed by the composition maps of MC.6/tensor-iso-scheme.",
+    "Check the two heap axioms on R-points for every R, where they are identities of composition of tensor isomorphisms: f f⁻¹ h = h, f g⁻¹ g = f, and (f g⁻¹ h) u⁻¹ v = f (u h⁻¹ g)⁻¹ v = f g⁻¹ (h u⁻¹ v).",
+    "Check the action/heap identities on R-points for all R. If X_{1,2}(R) has a point, use it to identify G_2(R) and G_1(R) with the left and right groups of that nonempty heap. For an empty set of R-points this group-recovery assertion is omitted. The scheme torsor statement follows from tensor-iso-torsor by fpqc descent, not from nonemptiness of every point set."
+   ],
+   "acceptance": [
+    "The torsor structure is basepoint free, which is essential because there is no canonical isomorphism between de Rham and singular cohomology over the rationals.",
+    "The inversion identifies the two schemes of isomorphisms, so the choice of order of the two fibre functors is immaterial.",
+    "The identities are checked at the level of affine schemes and not only on rational points.",
+    "The planned heap and point-representability interfaces require the complete neutral Tannakian context, not arbitrary graded multiplicative representations or a comparison alone.",
+    "A torsor can have no R-point. Pointwise heap-group reconstruction is asserted only after nonemptiness, whereas the scheme torsor is fpqc locally inhabited."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+   "reason": "Make split-coequalizer preservation explicit throughout the sufficient relative route.",
+   "statement": "Under the strengthened relative hypotheses below, for the relative finite-piece system, H=colim_i F(X_i)∨ in Ind(A) is a coalgebra. The coactions F(Y)→F(Y)⊗F(X_i)∨ for Y∈C_i are compatible, independent of a sufficiently large i, and induce C≃Comod_A(H). Comod_A(H) means H-comodules whose underlying object lies in A, viewed through A→Ind(A).",
+   "hypotheses": [
+    "The complete relative-reconstruction-datum is supplied: essentially small rigid symmetric coefficient category A, coherent A-action on C, conservative A-linear strong symmetric monoidal F, and the small filtered full exhaustion with enriched representers X_i.",
+    "Each piece has, and F_i both preserves and reflects, the coequalizers of all F_i-split pairs. Each full inclusion C_i→C_j preserves the chosen coequalizers.",
+    "These are the strengthened sufficient hypotheses. The printed reflection-only FS VI.10.2 formulation remains the separately recorded gap; it is not a premise sufficient for the operational conclusions here."
+   ],
+   "proofSteps": [
+    "For i≤j, restrict the representing functor and dualize the induced algebra map to obtain the coalgebra transition F(X_i)∨→F(X_j)∨.",
+    "Form the filtered colimit using the existing Ind category. Define Δ and ε on finite pieces and check independence on overlaps.",
+    "This target constructs the needed Ind adapter: extend tensor by filtered colimits in each variable and embed A as compact representables. Define the internal right-comodule category with underlying objects in A; bare Ind is only its carrier, not an existing comodule theorem.",
+    "Transpose the finite-piece module comparison to get the compatible coaction on each F(Y). For an H-comodule M∈A, compactness factors M→M⊗H through M⊗A_i∨. Tensor preserves filtered colimits; the counit and coassociativity equations involve finitely many maps from the compact object M, and therefore hold after enlarging i. The finite-piece equivalence then supplies an object of C. The identical factorization argument for intertwining equations proves fullness; faithfulness follows at a common finite piece.",
+    "For every Y define c_Y:F(Y)∨⊗F(Y)→H from its coaction. These maps are dinatural in Y and balanced for the A-action: under F(V⊙Y)≃V⊗F(Y), c_(V⊙Y) contracts V∨⊗V by evaluation before applying c_Y. The finite-piece regular-module presentations show that these maps generate H with exactly the morphism, linearity and A-action balancing relations. This internal coefficient presentation is part of the construction and supplies the rigid-antipode proof."
+   ],
+   "api": [
+    {
+     "name": "relativeReconstructionCoalgebra",
+     "role": "data",
+     "statement": "H=colim_i F(X_i)∨ with Δ and ε."
+    },
+    {
+     "name": "relativeReconstructionCoaction",
+     "role": "data",
+     "statement": "For Y∈C, the compatible map F(Y)→F(Y)⊗H."
+    },
+    {
+     "name": "relativeCoalgebraComparison",
+     "role": "compatibility",
+     "statement": "C≃Comod_A(H) commuting with the forgetful functors to A."
+    },
+    {
+     "name": "relativeCoefficient",
+     "role": "universal-property",
+     "statement": "The dinatural maps c_Y:F(Y)∨⊗F(Y)→H present H by matrix coefficients, morphism relations and A-action balancing. For f:Y→Z, c_Z(λ,F(f)v)=c_Y(F(f)∨λ,v). Under F(V⊙Y)≃V⊗F(Y), c_(V⊙Y) contracts V∨⊗V before c_Y. The induced coalgebra and tensor multiplication agree with the finite-piece construction."
+    }
+   ],
+   "tests": [
+    {
+     "name": "relativeCoalgebra_constant",
+     "kind": "degenerate",
+     "statement": "For a constant finite-piece system the colimit is the same coalgebra and the comparison is the finite-piece comparison."
+    },
+    {
+     "name": "relativeCoaction_overlap",
+     "kind": "compatibility",
+     "statement": "For Y in C_i and C_j, the two coactions agree after passage to a common upper piece and to H."
+    },
+    {
+     "name": "relativeCoalgebra_finite_coefficients",
+     "kind": "characterisation",
+     "statement": "For an H-comodule with underlying finite-dimensional vector space, its finitely many matrix coefficients and coassociativity relations lie in one sufficiently large piece."
+    },
+    {
+     "name": "relativeCoefficient_action_balance",
+     "kind": "computation",
+     "statement": "For C=A and F=id_A, take the single enriched representer 1. The reconstruction gives H=1 and c_Y is evaluation F(Y)∨⊗F(Y)→1. The A-action balancing relation forces this; an unbalanced ordinary coend of the underlying functor is not the claimed reconstruction."
+    }
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+   "reason": "Make split-coequalizer preservation explicit throughout the sufficient relative route.",
+   "statement": "Under the strengthened relative hypotheses below, the relative reconstruction coalgebra H has a commutative unital multiplication compatible with Δ and ε; thus H is a bialgebra object in Ind(A), and C≃Comod_A(H) is a symmetric monoidal equivalence over A. No antipode is asserted without rigidity of C.",
+   "hypotheses": [
+    "The complete relative-reconstruction-datum is supplied: essentially small rigid symmetric coefficient category A, coherent A-action on C, conservative A-linear strong symmetric monoidal F, and the small filtered full exhaustion with enriched representers X_i.",
+    "Each piece has, and F_i both preserves and reflects, the coequalizers of all F_i-split pairs. Each full inclusion C_i→C_j preserves the chosen coequalizers.",
+    "These are the strengthened sufficient hypotheses. The printed reflection-only FS VI.10.2 formulation remains the separately recorded gap; it is not a premise sufficient for the operational conclusions here."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+   "reason": "Use dual-object coefficient maps, without requiring a piece to contain the dual of its representer.",
+   "statement": "Under the strengthened relative hypotheses below, if C is also rigid in relative reconstruction, the bialgebra H has an antipode and the comparison identifies C with the rigid category of H-comodules in A. This is an internal relative statement, not the already pinned fixed-Hopf reconstruction theorem.",
+   "hypotheses": [
+    "The complete relative-reconstruction-datum is supplied: essentially small rigid symmetric coefficient category A, coherent A-action on C, conservative A-linear strong symmetric monoidal F, and the small filtered full exhaustion with enriched representers X_i.",
+    "Each piece has, and F_i both preserves and reflects, the coequalizers of all F_i-split pairs. Each full inclusion C_i→C_j preserves the chosen coequalizers.",
+    "These are the strengthened sufficient hypotheses. The printed reflection-only FS VI.10.2 formulation remains the separately recorded gap; it is not a premise sufficient for the operational conclusions here.",
+    "Every object of C is dualizable."
+   ],
+   "proofSteps": [
+    "Use the coefficient presentation from relative-coalgebra-assembly. The strong monoidal functor identifies F(Y∨) with F(Y)∨ and F(Y∨)∨ with F(Y) via biduality. Define S on c_Y(φ⊗v) to be c_(Y∨)(v⊗φ); this tensor notation denotes the categorical symmetry and biduality morphisms.",
+    "Duality sends a morphism relation for f:Y→Z to the corresponding relation for f∨:Z∨→Y∨, so the formula respects all coefficient relations and defines S:H→H in Ind(A). Enlarge the index to contain Y∨ when needed; do not assume X_i∨∈C_i. The same evaluation identities preserve the A-action balancing relations, using the dual coefficient object V∨.",
+    "Apply the coefficient relations to evaluation and coevaluation. The two triangle identities yield μ(S⊗id)Δ=uε and μ(id⊗S)Δ=uε on every c_Y, hence on H. Transport duals across the monoidal equivalence. This uses neither the false identification F(X_i)∨=Hom(X_i⊗X_i,1) nor a pre-existing Hopf instance."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/pro-algebraic-approximation",
+   "reason": "Name the categorical quotient criterion used in the proof.",
+   "addPrerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-functoriality"
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition",
+   "reason": "Name the categorical quotient criterion used in the proof.",
+   "addPrerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-functoriality"
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+   "reason": "Distinguish retained planning contracts from the compact suggested-file implementations.",
+   "hypotheses": [
+    "The base field is Q and D is the diagram of pairs of Definition 1.1, localised at (G_m, {1}, 1).",
+    "The two representations are algebraic de Rham cohomology and singular cohomology of pairs, in the degree of the vertex; the comparison isomorphism plays no part in the identification.",
+    "On the diagram of all pairs the two cohomologies are not graded multiplicative representations, so the algebra structures are taken through the diagram of good pairs (finding E37), with the graded multiplicative structures of the exterior and cross products and the product of pairs (PairDiagram.ProductCompatible in the legacy prototype of the original roadmap (the compact MC.6 suggested file does not implement this interface)): for other structures the products of P_eff and of A_{1,2} need not agree on generators. Use the convention already fixed in MC.5/nori-tensor-category: the inverse de Rham Künneth map is (-1)^{ij} times the exterior product, and the inverse singular map evaluates to (-1)^{ij} times the product of the two evaluations. Both signs are necessary and cancel in the comparison coefficient, leaving the formal-period product unsigned.",
+    "For the full comparison-algebra adapter, use D^+ of good pairs, its geometric product and unit (Spec Q, empty, 0), and the two unital graded multiplicative structures with the common MC.5 sign. In the legacy prototype ProductCompatible now records unit_eq and unital₁, unital₂ as well as mul_eq and the two signed product laws. Both Tate fibres at g=(G_m,{1},1) have rank one. Extend these same representations by MC.5/diagram-localisation; do not supply unrelated representations on the full diagram. These are mathematical supplier contracts, not assumptions of effective rigidity."
+   ],
+   "acceptance": [
+    "The theorem identifies three algebras and turns a presentation by generators and relations into a Tannakian object.",
+    "The identification is of algebras, not only of vector spaces; the multiplicative structure is carried by good pairs.",
+    "The evaluation to the complex numbers plays no part in the theorem; its injectivity is the period conjecture, which the source does not address.",
+    "The exported comparison explicitly commutes with the two localization maps and carries the Tate inverse to the inverse of the comparison Tate class. MC.6/formal-periods provides the one presentation; PS.2 owns the integration/evaluation application, not another Nori category or torsor proof.",
+    "For two degree-one good pairs the two inverse Künneth maps each have sign -1. On coefficient factors 2 and 3 the paired product is (-2)(-3)=6; leaving just one side unsigned gives -6. The specified odd-degree regression in the legacy prototype of the original roadmap (the compact MC.6 suggested file does not implement this interface) distinguishes both defects.",
+    "The target of fullEquiv is ComparisonAlgebra(T_dR^full,T_B^full) on D^full, with its induced good-pair multiplication; the comparisonLocalization theorem states the localization property for the coefficient inclusion defined on finite pieces. An arbitrary algebra structure on an unrelated ring is insufficient.",
+    "These heavy construction signatures are README targets under the current WORKERS/PACKAGE_REVIEW shape rule. They are specified below and remain unchecked; no admitted NoriPeriod data are added to the legacy suggested file."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/period-point",
+   "reason": "Distinguish retained planning contracts from the compact suggested-file implementations.",
+   "hypotheses": [
+    "The comparison is an isomorphism between the de Rham and singular-cohomology representations of the effective diagram of all pairs after extension of scalars to C (request ComplexComparisonPartII:C5; finding E36): natural for morphisms of pairs, compatible with the connecting maps of triples, sending the period of (Spec Q, ∅, 1, [pt]) to 1, and compatible with the exterior-product and cross-product pairings. In the suggested file this is the typed contract PairDiagram.PeriodComparison. After restriction to good pairs with the specified PairDiagram.ProductCompatible structures, it is an isomorphism of unital graded multiplicative representations. The all-pairs pairing laws alone do not assert a single-degree Künneth isomorphism for every pair. A family of complex-linear isomorphisms natural for pullbacks alone does not qualify.",
+    "On good pairs the graded multiplicative structures of de Rham and singular cohomology are those of the exterior and cross products, with the product of good pairs the product of pairs (finding E37; PairDiagram.ProductCompatible in the legacy prototype of the original roadmap (the compact MC.6 suggested file does not implement this interface)). For these structures the comparison is a tensor isomorphism, and the products of P_eff and of A_{1,2} agree on generators. With the MC.5 convention, both inverse Künneth maps carry (-1)^{ij} for degrees i,j; the two signs cancel in the period product. PairDiagram.ProductCompatible records these signs explicitly rather than changing the supplied exterior or cross products. Its geometric unit is the point pair, and both graded multiplicative structures are unital. These inputs are included explicitly in ProductCompatible; they are needed for the full neutral context, in addition to the signed Künneth laws.",
+    "No rational point of X_{1,2} is asserted.",
+    "At the Tate pair, PairHomology.gm_finrank supplies the rank-one calculation and PeriodData supplies nonzero dlog and circle. These hypotheses, together with the comparison isomorphism, justify period_tate_ne_zero and extension through the Tate localization; nonzero vectors in arbitrary finite-dimensional dual spaces would not suffice."
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
+   "reason": "Import the existing finer universal-factorisation target, not a duplicate supplier plan.",
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.5/diagram-category",
+    "MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram",
+    "MotivesAndAlgebraicCycles:MC.5/completion-universal-factorisation",
+    "MotivesAndAlgebraicCycles:MC.5/diagram-localisation",
+    "MotivesAndAlgebraicCycles:MC.5/nori-rigidity",
+    "ComplexComparisonPartII:C5"
+   ],
+   "sources": [
+    {
+     "sourceId": "HMS.2014",
+     "locator": "Section 3, the setting paragraph and Lemma 3.1 with its proof (page 12), arXiv:1105.0865v5",
+     "match": "The node is Lemma 3.1 with its proof, where the universal property of the diagram category is used; the tensor structure needs the hypothesis of finding R401."
+    },
+    {
+     "sourceId": "HMS.2014",
+     "locator": "Lemma 3.1 with proof, p.12; Theorem 1.14, p.8; Lemma B.21 and Proposition B.22, pp.25–26; arXiv:1105.0865v5",
+     "match": "The comparison category produces the second rational fibre and its complex natural comparison on the already full Nori category. Rigidity is the separate MC.5 theorem."
+    },
+    {
+     "sourceId": "HMS.2017.corr2025",
+     "locator": "Theorem 7.1.13, Corollary 7.1.15, pp.142–144, and Propositions 7.4.1–7.4.2, pp.168–169",
+     "match": "The universal-factorisation proof is already planned in MC.5/completion-universal-factorisation and is imported here. The extension then descends through the specified comparison and Tate localization."
+    }
+   ]
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups",
+   "reason": "Expose the recorded auxiliary quotient obligation as a direct supplier dependency.",
+   "addPrerequisites": [
+    "SchemeAndStackFoundations:SF.1"
+   ]
+  }
+ ],
+ "retainedTargets": [
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/torsor",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Torsors in the sense of a ternary operation (heaps)",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The tensor automorphism group of a diagram category, and the motivic Galois group",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The comparison algebra of two representations",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/period-space-of-a-diagram",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The space of periods of a diagram",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The space of periods is the comparison algebra",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/formal-periods",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Formal periods",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Formal periods are the comparison algebra of de Rham and singular cohomology",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "A second representation extends to a fibre functor",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The scheme of tensor isomorphisms is a torsor",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The spectrum of the formal periods is a torsor under the motivic Galois group",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/torsor-groups",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The left and right groups of a nonempty heap",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/affine-torsor",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Torsors in the category of affine schemes",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "A nonempty affine torsor carries affine group schemes on both sides",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "A commutative bialgebra with a rigid comodule category is a Hopf algebra",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/very-good-pairs-generate-periods",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Formal periods are generated by very good pairs",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The scheme of tensor isomorphisms between two fibre functors on a diagram category",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Tensor morphisms between fibre functors form a torsor",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/pro-algebraic-approximation",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Finite subdiagrams give the motivic Galois group as a pro-algebraic group",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/period-point",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "The comparison isomorphism as a complex point of the period torsor",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Relative finite-piece reconstruction",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Filtered reconstruction coalgebra",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Relative Tannaka reconstruction",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Rigidity and the reconstruction antipode",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Finite-subcategory representability",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Neutral reconstruction coalgebra",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Neutral Tannaka reconstruction",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Tannakian finiteness criteria",
+   "implementationStatus": "unchecked"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition",
+   "packet": "MotivesAndAlgebraicCycles.json",
+   "role": "Tannakian connectedness criterion",
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "MotivesAndAlgebraicCycles:MC.6",
+   "status": "planned",
+   "targets": [
+    "MotivesAndAlgebraicCycles:MC.6/torsor",
+    "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
+    "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
+    "MotivesAndAlgebraicCycles:MC.6/period-space-of-a-diagram",
+    "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
+    "MotivesAndAlgebraicCycles:MC.6/formal-periods",
+    "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+    "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
+    "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
+    "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+    "MotivesAndAlgebraicCycles:MC.6/torsor-groups",
+    "MotivesAndAlgebraicCycles:MC.6/affine-torsor",
+    "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups",
+    "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
+    "MotivesAndAlgebraicCycles:MC.6/very-good-pairs-generate-periods",
+    "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
+    "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+    "MotivesAndAlgebraicCycles:MC.6/pro-algebraic-approximation",
+    "MotivesAndAlgebraicCycles:MC.6/period-point",
+    "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+    "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum",
+    "MotivesAndAlgebraicCycles:MC.6/relative-reconstruction-datum",
+    "MotivesAndAlgebraicCycles:MC.6/relative-beck-sufficient",
+    "MotivesAndAlgebraicCycles:MC.6/fibre-inner-form",
+    "MotivesAndAlgebraicCycles:MC.6/artin-diagram-category",
+    "MotivesAndAlgebraicCycles:MC.6/artin-galois-equivalence",
+    "MotivesAndAlgebraicCycles:MC.6/artin-nori-embedding",
+    "MotivesAndAlgebraicCycles:MC.6/artin-galois-group",
+    "MotivesAndAlgebraicCycles:MC.6/pure-tate-subcategory",
+    "MotivesAndAlgebraicCycles:MC.6/pure-tate-graded-equivalence",
+    "MotivesAndAlgebraicCycles:MC.6/pure-tate-galois-group",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-functoriality"
+   ],
+   "remaining": [
+    "Discharge the reflection-only relative monadicity obligation; the sufficient theorem is explicitly stronger.",
+    "Implement the requested extension of the rational Nori category to every required geometric base, Artin change-of-field descent and ℓ-adic realization, Hodge Tate separation, and arbitrary-pair complex comparison. Reuse existing MC.5 completion targets and upstream ModularCurves §0D/§0E for their exact stated inputs.",
+    "Supply the auxiliary affine-heap quotient proof; apply the early abstract stage split before stage-level Satake installation."
+   ]
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "MotivesAndAlgebraicCycles:MC.5",
+   "need": "Supply the rational abelian rigid symmetric Nori category with End(1)=Q and exact faithful Betti fibre over every geometric base k⊂C required by the Artin/Tate examples. The Q case already has MC.5/completion-tensor-assembly and completion-rigidity-proof; import those targets and the existing completion-universal-factorisation rather than plan them again. Use the corrected inverse-excision good-pair tensor construction of HMS annotated §9.3, pp.222–225. The extension in geometric base is beyond the Q-only scope of the current completion-rigidity-proof. This contract asks for the category and first fibre; it does not import completion-two-fibres, which itself consumes MC.6/fibre-functor-extension.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/artin-nori-embedding",
+    "MotivesAndAlgebraicCycles:MC.6/pure-tate-subcategory"
+   ]
+  },
+  {
+   "supplier": "MotivesAndAlgebraicCycles:MC.5",
+   "need": "For the Artin embedding only: construct change of field from the diagram universal property, compatibility with Tate localization and the Betti fibre, finite descent to a finite extension, restriction/corestriction as in corrected HMS Lemma 9.5.1, Propositions 9.5.2–9.5.3 and Corollary 9.5.5, pp.231–236. Require cores(res M)=M⊗H⁰(Spec K), the split res cores→id, and for finite Galois K/k the sum of conjugate motives, not the false scalar-tensor formula for res cores. These prove geometric triviality iff Artin without assuming a motivic exact sequence. Also supply the exact faithful ℓ-adic realization on the rational Nori category, obtained from pair étale cohomology through the diagram universal property, with Betti⊗Q_ℓ comparison and its connecting, product and Tate compatibilities. On H⁰ of a finite étale scheme it must be the canonical permutation Γ_k-representation. This is the geometric input of HMS Example 9.1.13, p.213, required to prove fullness of the Artin inclusion.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/artin-nori-embedding"
+   ]
+  },
+  {
+   "supplier": "MotivesAndAlgebraicCycles:MC.5",
+   "need": "For Tate separation only: extend a faithful Hodge realization of pairs through the Nori universal property, with L^n of Hodge type(n,n), compatibility with tensor and localization, and underlying rational Betti fibre (HMS Example 9.1.12, p.213). The geometric mixed-Hodge input is not supplied by the upstream abstract HodgeStructures roadmap alone. Record that input in the supplier plan. MC.6 needs no full motivic weight filtration or André-motive equivalence.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/pure-tate-subcategory"
+   ]
+  },
+  {
+   "supplier": "ComplexComparisonPartII:C5",
+   "need": "Supply the natural Betti–algebraic-de-Rham comparison for arbitrary rational pairs used by Nori diagrams, including singular pairs, connecting edges, excision, unit and signed good-pair products, and its unique extension through integer Tate powers. The smooth-proper comparison alone is insufficient. MC.6 consumes these comparisons to extend the second fibre and evaluate period coefficients.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
+    "MotivesAndAlgebraicCycles:MC.6/period-point"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.1",
+   "need": "Only the auxiliary recovery of groups from an arbitrary nonempty affine heap needs the effective affine quotient of the flat equivalence relation, with the descent and nonemptiness hypotheses of HMS Appendix A.6 / SGA 3 VII.1.4. The source proof remains an explicit obligation. General effective descent for affine schemes, morphisms, group objects and action laws is already planned by upstream ModularCurves §0E and is imported directly for fibre-inner-form; do not request or plan that theory again.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+   "need": "Import the existing equivalence between finite étale k-schemes and finite continuous Γ_k-sets, including finite splitting fields and pullback/base change. MC.6 linearizes the permutation modules and forms the rational Artin/Nori category; it does not replan the scheme/Galois-set equivalence.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/artin-diagram-category"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+   "need": "Import the existing effective faithfully flat descent of affine schemes and morphisms, compatible with products and therefore with affine group objects and action laws. Apply it to the conjugation descent datum on G after a fibre-isomorphism torsor is trivialized. MC.6 constructs the specific datum and identifies its descent with Aut⊗(η); it does not replan affine descent.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/fibre-inner-form"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+   "need": "Import the finite-dimensional closed-immersion representation and coordinate-coefficient generation criterion for finite-type affine groups. The representation/comodule dictionary and the known-Hopf functor comparison are already credited at the pin; the neutral reconstruction node imports those declarations directly after constructing its Hopf algebra.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.2",
+   "need": "For the formal-period generators, supply rational relative singular homology/cohomology of (X(C),Y(C)) and relative algebraic de Rham cohomology of arbitrary, possibly singular, pairs over Q, finite-dimensional in each degree, functorial for pair morphisms, with the connecting maps of triples and exterior/cross products. This is the MC.6 portion of the existing main-packet cohomology request, beyond merely étale sheaf cohomology. Coordinate the Betti/de Rham input with ComplexComparisonPartII:C5, whose separate request supplies the natural comparison and product compatibilities; no smooth-proper theorem alone supplies arbitrary pairs.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/formal-periods"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Reflection-only relative reconstruction",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-beck-sufficient"
+   ],
+   "detail": "FS VI.10.2 assumes existence and reflection of F-split coequalizers; pinned ordinary Beck separately requires preservation. The strengthened sufficient theorem and its exact datum are planned here. The original weaker statement remains an unmet obligation until preservation is derived from the intended notion, or an alternative proof establishes monadicity under the printed assumptions. No counterexample to FS is claimed. This affects the relative GS integral route, not the separate neutral field proof."
+  },
+  {
+   "title": "Auxiliary affine-heap quotient source",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups"
+   ],
+   "detail": "HMS Appendix A.6 appeals to SGA 3 Exposé VII Theorem 1.4 for the effective affine quotient. That primary proof has not been read in this run. Keep the nonempty, field/faithful-flatness hypotheses and the SF.1 request; do not mark this auxiliary theorem closed. The main period torsor uses known tensor automorphism groups and does not require recovering groups from an arbitrary heap."
+  },
+  {
+   "title": "Early abstract supplier installation",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-reconstruction-datum",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum"
+   ],
+   "detail": "The existing proposed split MC.6:abstract/MC.6:periods must be installed by the maintainer before GS imports a stage. Only node-level early abstract imports are valid now; they have no MC.5 or period prerequisites. No campaign, atlas stage or link edits are authorized by this part or its independent review."
+  }
+ ],
+ "resolvedPriorGaps": [
+  {
+   "title": "Artin and Tate examples absent from the source read",
+   "resolution": "HMS annotated §§9.4–9.5 and §10.3 were read; the new targets compute both groups and account for the 2025 Artin closure correction. Source absence is resolved, with the exact Nori supplier interfaces requested."
+  },
+  {
+   "title": "Diagram universal property lacks a proof source",
+   "resolution": "HMS annotated Theorem 7.1.13 and Corollary 7.1.15 have proofs in §7.4. Source forwarded to MC.5; the original v5 paper alone is not credited with this proof."
+  },
+  {
+   "title": "Abstract input carriers were only implicit",
+   "resolution": "The reader gives explicit neutral data, enriched representer/action/Ind/right-comodule contracts, actual API and discriminating examples. These are mathematical targets. Heavy carriers absent at the pins stay in the reader under the current roadmap shape rule; their absence from Lean is not a vacuous stand-in or a proof claim."
+  }
+ ],
+ "audit": {
+  "libraryCoverage": "data/library-coverage.json has no MotivesAndAlgebraicCycles layer record; no inherited MC.6 closure credit is inferred.",
+  "pinnedBoundary": "Tau Ceti reconstructs a supplied commutative Hopf algebra from its finite comodules; arbitrary neutral and relative reconstruction still need the retained targets. RigidCategory on finite comodules currently requires an existing HopfAlgebra and cannot prove its existence circularly.",
+  "currentBoundary": "Read current ReductiveGroups README/Suggested and RepresentationTheory/SemisimpleAlgebras README; searched all current roadmap README/Suggested files for Tannaka, motives and period-torsor targets. No current roadmap supplies arbitrary neutral reconstruction or the Nori Artin/Tate comparisons. ReductiveGroups owns affine/Hopf dictionaries, known-group representations, diagonalizable groups, finite-type embeddings and reductivity criteria; Maschke is imported.",
+  "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+  "currentTauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+  "currentMathlib": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+  "upstreamRoadmapPath": "TauCetiRoadmap/ReductiveGroups and TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+  "overlap": "Accepted RS-08 leaves MC.6 in place. Existing source routes PAPER-ZHU-17 T01 and PAPER-GLEASON-LIM-XU-26 S02 and confirmed RT-AREA-geomlanglands/17 require one early abstract supplier; no other owner is introduced. No MC.6-specific direct link or overlap file was found in the supplied link directories.",
+  "descentOwner": "The atlas owner for general effective descent is SF.1, not the curves/Picard layer SF.3. Current upstream ModularCurves §0E already plans effective faithfully flat descent of affine schemes, morphisms, groups and actions, so fibre-inner-form imports that existing roadmap directly. Only the auxiliary arbitrary-heap quotient remains requested from SF.1. ModularCurves §0D also supplies finite étale schemes versus finite continuous Galois sets for the Artin input.",
+  "functorialityBoundary": "Current ReductiveGroups layer 1 handles known-group representations and linear embeddings, but does not state DM 2.21(a)–(b) for arbitrary neutral data. The new categorical criterion belongs here and is used by proalgebraic approximation, connectedness, Artin and Tate quotients.",
+  "universalPropertyBoundary": "Read MC.5/completion-universal-factorisation: it already states the required universal property over a field. Import that exact node. Do not depend on MC.5/completion-two-fibres, whose de Rham extension uses the present fibre-functor-extension and would make a circular prerequisite."
+ },
+ "planetSelection": [
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+   "name": "Neutral Tannaka reconstruction"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+   "name": "Relative Tannaka reconstruction"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
+   "name": "Fibre comparison torsor"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+   "name": "Formal period torsor"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/artin-galois-group",
+   "name": "Artin motivic Galois group"
+  },
+  {
+   "ref": "MotivesAndAlgebraicCycles:MC.6/pure-tate-galois-group",
+   "name": "Tate motivic Galois group"
+  }
+ ],
+ "consumerExports": [
+  {
+   "consumer": "GeometricSatakeAndFusion:GS4",
+   "targets": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-beck-sufficient",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition"
+   ],
+   "boundary": "Abstract nodes only, independent of MC.5; relative route retains the printed-FS hypothesis gap. Reductivity is imported from ReductiveGroups layer 6; dual root data are Satake work."
+  },
+  {
+   "consumer": "PAPER-GLEASON-LIM-XU-26/S02",
+   "targets": [
+    "MotivesAndAlgebraicCycles:MC.6/fibre-inner-form"
+   ],
+   "boundary": "General fibre-group twist only; crystalline equivalences, monodromy closure and connected-component claims belong to their p-adic owners."
+  },
+  {
+   "consumer": "PeriodsAndSpecialValues:PS.2 and PS.9",
+   "targets": [
+    "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+    "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+    "MotivesAndAlgebraicCycles:MC.6/period-point"
+   ],
+   "boundary": "Export the actual localized full comparison algebra, both coordinate coactions, chosen C-point and generator evaluation; injectivity of evaluation is a separate conjecture."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "MotivesAndAlgebraicCycles/E48",
+   "kind": "misprint",
+   "locator": "HMS author annotated edition 1 July 2025, Lemma 10.3.2, p.250",
+   "printed": "In paraphrase: the weight-n graded piece is expressed using the Tate object with twist n/2.",
+   "correction": "For the stated cohomological convention it is a sum of 1(−n/2) when n is even, and zero when n is odd. Equivalently L^r=1(−r) has weight 2r.",
+   "reason": "Definition 10.2.4 assigns weight n to H^(n+2j)(Y)(j). Taking n=2,j=−1,Y=Spec k gives weight 2 for 1(−1). The displayed sign in Lemma 10.3.2 would instead assign weight −2 to that same object.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Author errata webpage and linked annotated PDF accessed 19 October 2026; compare Definition 10.2.4, p.246, with Lemma 10.3.2, p.250"
+   ],
+   "source": "HMS.2017.corr2025",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The inspected annotated edition assigns weight 2 to L=1(−1) in Definition 10.2.4 but uses the opposite sign in Lemma 10.3.2. The target uses the consistent negative twist.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.6"
+   }
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E49",
+   "source": "HMS.2014",
+   "kind": "error",
+   "locator": "Remark 2.7 after Theorem 2.6, p.10, arXiv:1105.0865v5, 21 May 2014",
+   "printed": "The coefficient-period isomorphism is asserted to extend to Dedekind coefficients when both representations have finite projective fibres.",
+   "correction": "The Dedekind map is the quotient by R-torsion, hence an isomorphism only if the period module is torsion-free. For finite F it is the bidual map P_F→P_F∨∨. The field statement remains valid.",
+   "reason": "For p→q with both representations Z at each vertex and arrow 2, edge-compatible map families are diagonal Z. The period module is Z e_p⊕Z e_q /〈2(e_q−e_p)〉≃Z⊕Z/2, and Ψ kills the nonzero order-two difference. In the free even symmetric tensor completion this gives P=Z[x,y]/(2(y−x)), A=Z[t], x,y↦t, so it also refutes the algebra extension. Modulo 2 detects the surviving difference.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1105.0865 abstract and version history: latest v5, no journal reference or DOI listed on 19 October 2026; finding scoped to this preprint",
+    "Official author errata page and linked 1 July 2025 book annotation; no correction to this preprint remark located; no assertion is made against a journal version"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independent calculation of the edge-relation quotient, its diagonal dual and the modulo-two detector gives a finite-free counterexample; the tensor completion retains it.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.6"
+   }
+  }
+ ],
+ "sourceIssueReferences": [
+  "MotivesAndAlgebraicCycles/E36",
+  "MotivesAndAlgebraicCycles/E37",
+  "MotivesAndAlgebraicCycles/E38",
+  "MotivesAndAlgebraicCycles/E39",
+  "MotivesAndAlgebraicCycles/E41",
+  "MotivesAndAlgebraicCycles/E42",
+  "PAPER-FARGUES-SCHOLZE-21/E108",
+  "PAPER-FARGUES-SCHOLZE-21/E46"
+ ],
+ "assemblyInstructions": "Keep all 28 retained node IDs in their original packet; do not duplicate their nodes into this part. Apply retainedTargetRefinements by replacing the named fields, replacing API/test statements by name, and appending addPrerequisites without duplicates. They correct the integral torsion claim, action/heap conventions, relative hypotheses and proof interfaces. Add the twelve new nodes once, including tannaka-functoriality added by the independent review. The reader gives the complete effective target catalogue, including proof sketches. The six planetSelection entries replace, rather than augment, the legacy six. Existing early-stage split remains a maintainer action; no graph rewrite is made here.",
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1105.0865v5",
+   "read": "2026-10-19",
+   "sha256": "e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://home.mathematik.uni-freiburg.de/arithgeom/preprints/buch-errata/buch-errata.pdf",
+   "read": "2026-10-19",
+   "sha256": "6d08014f21a616abb4ba7e177effad4d15e4a215b0f234ce3a4605c20a02b731"
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-MotivesAndAlgebraicCycles--MC.6",
+  "date": "2026-10-19",
+  "notes": "Independent target-level review by Codex session codex-duY0Es, distinct from author codex-SAaPvC. Checked all 40 effective targets (28 retained and 12 additional), their primary locators, 34 distinct pinned declarations across the part and retained targets, current upstream ownership, API, 82 planned tests, six replacement planets and compact Lean. Corrected integral torsion (E49), coequalizer preservation, balanced relative coefficients, antipode proof, torsor conventions and faithful flatness, Artin ambient fullness, Tate symmetry, source locators and supplier dependencies; added DM 2.21 as a key target. Confirmed E48. Accepted as a complete planning pass with three explicit gaps and nine supplier contracts; no closure or formalization is claimed. Part and simulated effective assembly pass the checker with no errors or warnings; suggested Lean elaborates with only its theorem-admission warning.",
+  "checked": [
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/torsor",
+    "verdict": "verified",
+    "note": "HMS Appendix A.1: the heap identities allow the empty carrier; nonemptiness is imposed only for recovering acting groups. API and three failure-detecting checks agree."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
+    "verdict": "verified",
+    "note": "HMS B.16 and the pinned GroupFunctor interface: monoidal unit and product constraints, value-algebra functoriality and known-Hopf boundary checked."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
+    "verdict": "verified",
+    "note": "HMS Definition 2.1 and Proposition 2.2: finite Hom-duals, dual restriction maps and coefficient orientation checked, including the part refinement."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-space-of-a-diagram",
+    "verdict": "verified",
+    "note": "HMS Definitions 2.3 and 2.5: direct-sum coefficient quotient with bilinearity and edge relations; source-vector/target-covector order is consistent."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
+    "verdict": "corrected",
+    "note": "HMS Theorem 2.6 is valid over a field. Remark 2.7 needs the torsion quotient over a Dedekind domain; E49 gives module and tensor-algebra counterexamples and the corrected bidual proof."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/formal-periods",
+    "verdict": "corrected",
+    "note": "HMS Definition 2.8: all three relations, product pair and actual Tate localization checked. Corrected the consumer name and inherited the precise SF.2 cohomology request."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+    "verdict": "corrected",
+    "note": "HMS Theorem 2.10 and B.21–B.22: actual full coefficient inclusion and its localization property retained. Removed claims that the compact suggested file implements the legacy product/localization interfaces."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
+    "verdict": "corrected",
+    "note": "HMS Proposition 2.11 and book 7.1.13/7.1.15: import the existing finer MC.5/completion-universal-factorisation; preserve tensor and Tate compatibilities. Do not import completion-two-fibres circularly."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
+    "verdict": "corrected",
+    "note": "HMS Proposition 2.12: left Betti/right de Rham actions checked by composition types. Recovering groups from the heap of R-points requires X(R) nonempty; the scheme torsor need not have such a point."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+    "verdict": "verified",
+    "note": "HMS Theorem 3.3 and preceding neutral input: transport the two actions and faithful flatness through the full formal-period equivalence; no quotient of an arbitrary heap is needed."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/torsor-groups",
+    "verdict": "verified",
+    "note": "HMS Appendix A.4: nonempty set heap yields opposite-side acting groups, with identities and translation conventions checked against the noncommutative example."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/affine-torsor",
+    "verdict": "verified",
+    "note": "HMS Appendix A.5: represent the ternary law by affine morphisms, not just rational points; base change and empty-heap checks agree."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups",
+    "verdict": "corrected",
+    "note": "HMS Appendix A.6: retain nonemptiness and the explicit unread SGA 3 VII.1.4 quotient obligation; add SF.1 as direct supplier. This auxiliary theorem is planned, not closed."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
+    "verdict": "verified",
+    "note": "HMS Theorem B.10: antipode belongs to the supplied bialgebra. Read the native Hopf and finite-comodule structures; the Hopf-to-rigidity instance is not used circularly."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/very-good-pairs-generate-periods",
+    "verdict": "verified",
+    "note": "HMS Theorem 2.10 proof through Proposition 1.5: quotient/presentation reduction uses the diagram comparison and Basic Lemma inputs from MC.5, not the stronger claim that every pair is good."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
+    "verdict": "corrected",
+    "note": "DM Theorem 3.2 and HMS Proposition 2.12: a section can supply a group law, but no distinguished one is intrinsic. Representability and tensor/unit equations remain separate from local existence."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+    "verdict": "corrected",
+    "note": "DM Theorem 3.2 proof: use cofinal X⊕1 for the unit quotient, pure unit inclusion and faithful flatness. Give the inverse to the torsor isomorphism; arbitrary P_X need not surject to 1."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/pro-algebraic-approximation",
+    "verdict": "corrected",
+    "note": "DM 2.20–2.22: tensor-generated full subcategories give algebraic quotients with faithfully flat transitions. Add the categorical DM 2.21 criterion as a direct prerequisite."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-point",
+    "verdict": "corrected",
+    "note": "HMS Theorem 3.3 and DM 3.2: complex comparison defines evaluation and inverts the Tate coefficient. The legacy rank-one and signed-product contracts are planning interfaces, not implemented by the compact suggested file."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+    "verdict": "corrected",
+    "note": "FS VI.10.2 and pinned Beck: put preservation, existence and reflection of F_i-split coequalizers directly in the operational hypotheses, together with preservation by piece inclusions."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+    "verdict": "corrected",
+    "note": "FS VI.10.2: explicitly own the monoidal Ind/internal-comodule adapter and finite-equation factorization. Coefficient presentation includes A-action balancing; C=A,F=id tests H=1."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+    "verdict": "corrected",
+    "note": "FS VI.10.2: use the same strengthened coequalizer hypotheses as the assembly; transport tensor multiplication and symmetry to the already constructed coefficient coalgebra."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+    "verdict": "corrected",
+    "note": "FS VI.10.2: invert coefficients through Y dual and biduality, preserving morphism and A-action balancing relations. Enlarge the index for duals rather than assume the finite piece already contains them."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+    "verdict": "verified",
+    "note": "DM 2.12–2.13: finite additive hull and stabilized subobject intersections construct P_X and its finite algebra before any representing group; the explicit neutral datum is imported."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+    "verdict": "verified",
+    "note": "DM proof of 2.11 through 2.16: filtered finite-dual construction and coefficient/comodule comparison checked, including the finite-versus-tensor hull distinction."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "verdict": "verified",
+    "note": "DM Theorem 2.11: construct the commutative Hopf algebra and fibre-preserving equivalence, then apply the pinned known-Hopf tensor-automorphism comparison. No MC.5 prerequisite."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+    "verdict": "corrected",
+    "note": "DM Proposition 2.20: distinguish finite additive generation from tensor generation. Retain the upstream ReductiveGroups layer-1 finite-type embedding input and its precise request."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition",
+    "verdict": "corrected",
+    "note": "DM 2.22, with its characteristic-zero hypothesis: add the categorical faithfully-flat quotient criterion needed for finite quotients. Do not conflate connectedness and reductivity."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/neutral-fibre-datum",
+    "verdict": "verified",
+    "note": "DM Theorem 2.11 and 1.13: explicit field-valued exact faithful symmetric fibre, scalar-compatible End(1), essential smallness and transport API; three tests checked."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/relative-reconstruction-datum",
+    "verdict": "verified",
+    "note": "FS VI.10.2: coherent A-action, enriched finite representers, conservative A-linear F and filtered exhaustion specified. Reflection-only source variant is recorded separately from the sufficient strengthened datum."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/relative-beck-sufficient",
+    "verdict": "verified",
+    "note": "Pinned ordinary Beck has a left-adjoint hypothesis and separate existence/preservation/reflection conditions. The relative adjunction and Ind adapter are supplied by the retained reconstruction targets, not credited to Beck."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/fibre-inner-form",
+    "verdict": "corrected",
+    "note": "DM 3.2–3.3: conjugation changes by Int(h) under t_2=t_1∘h. Import existing upstream ModularCurves §0E effective affine descent instead of requesting it from the curves/Picard layer SF.3."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/artin-diagram-category",
+    "verdict": "corrected",
+    "note": "HMS book §9.4: import existing ModularCurves §0D finite-étale/Galois-set equivalence. The new target is the rational diagram category, not another finite-set equivalence."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/artin-galois-equivalence",
+    "verdict": "verified",
+    "note": "HMS book Propositions 9.4.1–9.4.3, pp.229–231: finite Galois regular representation, rational Maschke and filtered finite quotients give continuous rational representations with finite image."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/artin-nori-embedding",
+    "verdict": "corrected",
+    "note": "Use the ℓ-adic realization/Betti compatibility to prove ambient fullness, and corrected book §9.5 for ambient subquotient closure. State the geometric-base and finite-descent contracts explicitly; the diagram universal property alone is insufficient."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/artin-galois-group",
+    "verdict": "corrected",
+    "note": "HMS book §9.4 and DM 2.21(a): inverse limit of finite constant group schemes, not a constant value-algebra functor. Add the categorical quotient criterion for the full motivic group map."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/pure-tate-subcategory",
+    "verdict": "corrected",
+    "note": "HMS book Definition 10.3.1/Lemma 10.3.2 with confirmed E48: pure subquotient closure differs from extension closure. Derive self-symmetry +1 from the faithful symmetric Betti fibre, not merely the weight."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/pure-tate-graded-equivalence",
+    "verdict": "corrected",
+    "note": "HMS book Lemma 10.3.2 and DM Example 2.30: integer exponent grading, ordinary symmetry and finite support; prove the symmetry via the Betti fibre."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/pure-tate-galois-group",
+    "verdict": "corrected",
+    "note": "DM Example 2.30 and 2.21(a): a unit acts by its integer powers over every value algebra. Add the quotient criterion; test Laurent inversion and a nonreduced algebra."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tannaka-functoriality",
+    "verdict": "added",
+    "note": "DM Proposition 2.21(a)–(b), p.25: exact fibre-compatible tensor functors correspond contravariantly to group maps; ambient subobject/fullness and subquotient-generation criteria supply previously implicit key steps. Current upstream does not already plan this arbitrary-neutral criterion."
+   }
+  ]
+ }
+}

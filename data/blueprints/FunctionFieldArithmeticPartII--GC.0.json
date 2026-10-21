@@ -1,0 +1,1108 @@
+{
+ "roadmapId": "FunctionFieldArithmeticPartII",
+ "protocol": "blueprint-v1",
+ "part": "GC.0",
+ "scope": [
+  "FunctionFieldArithmeticPartII:GC.0"
+ ],
+ "status": "complete",
+ "summary": "A complete target-level refinement of root Picard stacks: actual native scheme fibres and arrows, tensor/dual coherence, all integer degree components, root-frame square quotient, its relative μ₂ gerbe, the variant with a section only on R, and full inertia equations. Ordinary Picard, generic monoidal geometry, stackification and torsors are imported. Coverage is planned, not closed: exact finite-étale frame and native scheme-site integration contracts remain with their suppliers; the compact suggested file exposes only native data and coordinate milestones.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+    "provides": "The full subcategory of native sheaves of modules satisfying isInvertible; its morphisms include non-isomorphisms, so root arrows explicitly use native isomorphisms.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+    "provides": "The free rank-one invertible sheaf, with its underlying free PUnit module; unit comparisons are isomorphisms, not definitional equalities.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+    "provides": "The native sheafified tensor product packaged as an invertible sheaf.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+    "provides": "An isomorphism of the left factor induces an isomorphism of tensor products, with the right factor fixed.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrRight",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+    "provides": "An isomorphism of the right factor induces an isomorphism of tensor products, with the left factor fixed.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductAssoc",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+    "provides": "The native invertible-sheaf associator (L⊗K)⊗M≅L⊗(K⊗M); this alone does not provide the complete monoidal instance.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductComm",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+    "provides": "The native unsigned tensor symmetry L⊗K≅K⊗L.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialLeftIso",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+    "provides": "The comparison trivial⊗L≅L in the native invertible-sheaf category.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso",
+    "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+    "provides": "The comparison L⊗trivial≅L in the native invertible-sheaf category.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
+    "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+    "provides": "Native module pullback along f:X→Y, a functor Y.Modules→X.Modules; the pin does not bundle its rank-one restriction.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackId",
+    "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+    "provides": "The natural isomorphism pullback(1_X)≅identity on native modules.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp",
+    "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+    "provides": "For f:X→Y and g:Y→Z, pullback(g) followed by pullback(f) identifies with pullback(f≫g).",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Core",
+    "module": "Mathlib/CategoryTheory/Core.lean",
+    "provides": "The groupoid of all objects and isomorphisms of a category, retaining all automorphisms.",
+    "checked": "Actual declaration statement read at the exact atlas pin on 2026-10-18; source bytes checked against the pinned git object."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "YZ19",
+   "title": "Shtukas and the Taylor expansion of L-functions (II)",
+   "authors": "Zhiwei Yun and Wei Zhang",
+   "edition": "Annals of Mathematics 189 (2019), 393–526; author-hosted published PDF, read 2026-10-18",
+   "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+   "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+   "readSections": [
+    "Definition A.1, p. 514; A.1.1–A.1.2 and Definition A.2, p. 515",
+    "A.1.3–A.1.5, pp. 515–517, for the boundary with global effective sections",
+    "A.2.2, pp. 521–522, and A.3.1, pp. 523–524, for all-degree tensor and torsor consumers"
+   ],
+   "scope": "The cited application has k finite of odd characteristic and R reduced finite. The native/descent arguments in this part separately justify the extension to arbitrary fields of characteristic different from 2 with R finite étale; no finite-field or Frobenius theorem is being generalized by citation alone."
+  },
+  {
+   "id": "StacksPic",
+   "title": "The Stacks Project: Picard stacks",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online edition, accessed 2026-10-18; tag 0372, no fixed pagination",
+   "url": "https://stacks.math.columbia.edu/tag/0372",
+   "readSections": [
+    "Section 95.16, Lemma 95.16.1 and its descent proof"
+   ]
+  },
+  {
+   "id": "StacksRes",
+   "title": "The Stacks Project: Restriction of scalars",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online edition, accessed 2026-10-18; tag 05Y8, no fixed pagination",
+   "url": "https://stacks.math.columbia.edu/tag/05Y8",
+   "readSections": [
+    "Section 97.11, Lemmas 97.11.1–97.11.3 and Proposition 97.11.5"
+   ]
+  },
+  {
+   "id": "StacksKummer",
+   "title": "The Stacks Project: Kummer theory",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online edition, accessed 2026-10-18; section tag 03PK, lemma tags 03PL and 040N, no fixed pagination",
+   "url": "https://stacks.math.columbia.edu/tag/03PK",
+   "readSections": [
+    "Section 59.28, Lemma 59.28.1 (tag 03PL) for the étale topology with 2 invertible, and Lemma 59.28.3 (tag 040N) for the fppf topology, both specialized to n=2"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "Native root Picard fibres and descent",
+   "kind": "definition",
+   "statement": "For i_S:R_S→X_S a root object is (L,K,ι), with L∈InvertibleSheaf(X_S), K∈InvertibleSheaf(R_S), and ι:(K⊗K).obj≅(Modules.pullback i_S).obj L.obj. An arrow to (L′,K′,ι′) is a pair of native isomorphisms (f:L≅L′,v:K≅K′) satisfying ι′∘(v⊗v)=i_S* f∘ι in R_S.Modules. Componentwise identities, composition and inverse make these a groupoid. Along S′→S pull back both lines and transport ι using the canonical tensor and pullback-composition comparisons. This defines the actual scheme-site stack refining the imported parent root-picard; its projection to the ordinary Picard stack forgets K and ι. No section of either line is part of this definition.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/root-picard",
+    "SchemeAndStackFoundations:SF.3/picard-groupoid",
+    "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrRight",
+    "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
+    "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackId",
+    "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp",
+    "mathlib:CategoryTheory.Core"
+   ],
+   "proofSteps": [
+    "Use native invertible sheaves for each object field and native module isomorphisms for ι. The arrow equation is a fixed typed equality of module morphisms. Use tensor congruence to compose and invert it; no isomorphism-class quotient is taken.",
+    "Import the coherent symmetric monoidal pullback on the native Picard core from SF.3/picard-groupoid, including its AlgebraicVectorBundles L0A/L0B dependencies. For the Cartesian base-change square, compare restriction-after-pullback and pullback-after-restriction using Modules.pullbackComp and equality of the composites.",
+    "Descend L and K by the imported effective invertible-sheaf descent. Descend ι and its invertibility by the sheaf condition for module morphisms. Descend compatible pairs of arrows by the same condition; all cocycles are retained."
+   ],
+   "acceptance": [
+    "The forgetful functor has the full native ordinary Picard fibre as its codomain.",
+    "Native data and native arrow structures in the suggested file elaborate without admitted data. The groupoid and pseudofunctor instances are geometric README targets."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Definition A.1, printed p. 514; A.1.1, p. 515",
+     "match": "The two lines and square identification define the root Picard groupoid. The native arrow square and descent formulation make its functor-of-groupoids statement precise. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    },
+    {
+     "sourceId": "StacksPic",
+     "locator": "Section 95.16, Lemma 95.16.1, tag 0372; online edition, no fixed page",
+     "match": "Effective descent of line bundles and their isomorphisms supplies the ordinary Picard stack; it is imported and applied to both factors."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.nativeFibres",
+     "role": "constructor",
+     "statement": "The groupoid of the displayed native triples and compatible pairs of isomorphisms over S; objects are the specialization RootPicardData i_S."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.nativeIso",
+     "role": "characterisation",
+     "statement": "Hom between two triples is exactly RootPicardData.Iso with the displayed square. Two arrows are equal if and only if their L- and K-isomorphisms agree; identity, composition and inverse project to the corresponding operations on both components."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.pullback",
+     "role": "functoriality",
+     "statement": "For h:S′→S, send (L,K,ι) to (h_X*L,h_R*K,h_R*ι transported through tensor/restriction comparisons), and arrows to their pulled pairs. The pullback-identity and pullback-composition isomorphisms project to the native ones on both lines and satisfy the pseudofunctor triangle and associativity laws."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.baseChange",
+     "role": "compatibility",
+     "statement": "For k′/k, the root stack for (X_k′,R_k′) identifies with restriction to k′-schemes, compatibly with forget and pullback."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.descent",
+     "role": "equivalence",
+     "statement": "The restriction functor to each fppf descent groupoid is an equivalence, on objects and all arrows."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.forget",
+     "role": "projection",
+     "statement": "Forget K and ι to the imported ordinary line-bundle stack; on arrows retain f, without quotienting its scalars."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_native_empty",
+     "kind": "degenerate",
+     "statement": "If R is empty, the unique invertible sheaf and unique comparison on R_S give an equivalence with the ordinary Picard groupoid of X_S."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_native_negative",
+     "kind": "non-example",
+     "statement": "For X=P¹_k, R a rational point and L=O(−1), choose a frame of L|R and K=O_R. The resulting root object has degree −1; no square root of L on all of X is required."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_native_nonsquare_arrow",
+     "kind": "computation",
+     "statement": "Over k=F₅, X=P¹ and R one rational point, fix L=O and ι=1. The pair f=1, v=2 is not a root arrow because 2²=4≠1; f=4, v=2 is a full root automorphism."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_native_nontrivial_root",
+     "kind": "non-example",
+     "statement": "Let S be an elliptic curve over an algebraically closed field of characteristic ≠2 with a nontrivial order-two invertible sheaf M and chosen M²≅O. For X=P¹ and rational R, L=O_XS and K=M give a root object without a global root-line frame."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Yun–Zhang, Definition A.1 and A.1.1, pp. 514–515",
+     "how": "The moduli groupoid and its actual arrows are needed for the square quotient and relative gerbe."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:GC.0/root-picard and FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
+     "how": "These fibres underlie both the degree grading and the target obtained by forgetting a global effective section."
+    }
+   ],
+   "refines": [
+    "FunctionFieldArithmeticPartII:GC.0/root-picard"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/root-tensor-coherence",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "Coherent tensor product and dual of root data",
+   "kind": "theorem",
+   "statement": "The native root stack is a symmetric monoidal stack of Picard groupoids. Tensor sends (L,K,ι),(M,N,κ) to (L⊗M,K⊗N, (K⊗N)²≅K²⊗N²→L|R⊗M|R≅(L⊗M)|R); the first comparison reorders the middle factors by the ordinary symmetry. The unit is (O_X,O_R,canonical O_R²≅O_X|R). The dual is (L∨,K∨, (K∨)²≅(K²)∨→(L|R)∨≅L∨|R), where the middle map is (ι∨)⁻¹. Associators, ordinary unsigned symmetry, unitors, evaluation and double dual descend from the native lines, satisfy triangle, pentagon, hexagon and inverse laws, and commute coherently with arbitrary base change and the forgetful functor. The degree grading introduces no Koszul sign.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "SchemeAndStackFoundations:SF.3/picard-groupoid",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductAssoc",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductComm",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialLeftIso",
+    "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso"
+   ],
+   "proofSteps": [
+    "Import the coherent monoidal, rank-one dual and pullback interface from the native Picard groupoid supplier; do not redevelop sheaf tensor products or duals.",
+    "Define the displayed tensor square using associators and the middle-factor interchange. Apply duality to ι and invert it to obtain the correctly oriented dual comparison.",
+    "The ordinary coherence isomorphisms of both line factors satisfy the root-arrow square by naturality. Their underlying equalities prove every required root coherence diagram because an arrow is determined by its two line isomorphisms. Pullback comparisons follow the same argument."
+   ],
+   "acceptance": [
+    "For a root object A, A⊗A∨ is canonically isomorphic to the root unit, with its square identification respected.",
+    "On three root objects the underlying L and K associators are the native ones; fourfold products satisfy the pentagon.",
+    "Over an odd field a degree-one object exchanged with itself has ordinary symmetry, not multiplication by −1."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Definition A.1, p. 514; A.2.2, pp. 521–522",
+     "match": "The all-degree root Picard objects support tensor translations and inverses. The explicit coherence is the categorical refinement of those operations, using the imported native Picard structure. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "declarationName": "TauCeti.RamifiedClassField.GC0.tensorDualCoherence",
+   "upstreamPrerequisites": [
+    "UPSTREAM:AlgebraicVectorBundles:L0A",
+    "UPSTREAM:AlgebraicVectorBundles:L0B"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/root-degree-components",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "Root degree components in every integer degree",
+   "kind": "theorem",
+   "statement": "Define the fibrewise locally constant integer degree of (L,K,ι) to be deg(L), with no division by two. For every d∈Z, the root degree-d stack is the 2-pullback of ordinary Picard^d along forget. These open-and-closed components decompose the root stack as a coproduct indexed by Z. Tensor maps degrees (d,e) to d+e; dual maps d to −d. The decomposition commutes with arbitrary k-scheme base change. Ordinary Picard^d is imported as a G_m-gerbe over its Picard-sheaf torsor Pic^d under Pic^0. This neither chooses X(k) nor supplies a k-object in every component. Over an algebraic closure every integer component has objects.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/root-tensor-coherence",
+    "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+    "SchemeAndStackFoundations:SF.3/picard-scheme-without-point",
+    "SchemeAndStackFoundations:SF.1/two-fibre-product"
+   ],
+   "proofSteps": [
+    "Import the ordinary family degree and its open-and-closed components from SF.3/picard-stack-curve, and pull those components back along forget. Families with several degrees on disconnected bases correspond to the coproduct, not to a single fixed-degree fibre.",
+    "Compute tensor and dual degree on L via the imported ordinary degree formulas. Restriction to the zero-dimensional R imposes no parity condition on this degree.",
+    "Over an algebraic closure choose a point of X to exhibit O(d x); its restriction to finite reduced R has a square root. This is a test proof of geometric nonemptiness, not a point included in the definition over k. Keep Pic^d as the supplier torsor."
+   ],
+   "acceptance": [
+    "The object O(−1) in the native negative-degree test lies in component −1.",
+    "After base extension, the degree-d component is the pullback of the original degree-d component.",
+    "No equivalence Pic^d≃Pic^0 is asserted without a chosen degree-d class; no universal line is inferred from a rational point of the Picard sheaf."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Definition A.1, p. 514; A.2.2, pp. 521–522",
+     "match": "The definition ranges over all integers, and tensor translation by signed away divisors uses those components. The ordinary torsor and family-degree results are imports from SF.3. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "declarationName": "TauCeti.RamifiedClassField.GC0.degreeComponents",
+   "refines": [
+    "FunctionFieldArithmeticPartII:GC.0/root-picard"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "Root frames and the square action",
+   "kind": "construction",
+   "statement": "Import Pic_{X,R}, the groupoid of (L,γ:i_S*L≅O_RS), with arrows f satisfying γ′∘i_S*f=γ. Put T=Res_R/k G_m. For u∈T(S), set (L,γ)·u=(L,u²γ). The map to root triples sends (L,γ) to (L,O_RS,γ⁻¹), using the canonical O_RS²≅O_RS. For an intrinsic root triple, its root frames e:O_RS≅K form a T-torsor. Extract γ=(ι∘e²)⁻¹. Changing frame by e′=e∘mul(u⁻¹) changes γ to u²γ; this fixes the sign convention. This construction is natural in S, retains arrows on L, and identifies the atlas map Pic_{X,R}→RootPic with a T-torsor after every scheme base change. Rigidified line bundles themselves are imported, including the current native RigidifiedLineBundle carrier, not defined again here.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "SchemeAndStackFoundations:SF.3/picard-groupoid",
+    "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.1/torsor-representability",
+    "SchemeAndStackFoundations:SF.1/affine-fpqc-descent"
+   ],
+   "proofSteps": [
+    "Use the imported native rigidified-line groupoid along i_S. Finite-étale Weil restriction supplies the frame functor and T, with arbitrary base-change compatibility; this is the precise GC0-WEIL-FRAMES request.",
+    "Over a frame, apply ι to e² and invert to extract γ. Compare e and e′ to obtain the formula γ′=u²γ, including its identity and product laws.",
+    "For a map S→RootPic, objects of the 2-fibre product with Pic_{X,R} are rigidified lines together with a specified root isomorphism to the given triple. Sending this datum to its induced frame gives the frame torsor, including its arrows; the inverse uses that frame. Descent supplies frames locally even when K is not globally trivial."
+   ],
+   "acceptance": [
+    "The ordinary rigidification-change action without squaring would lose the relative μ₂ stabilizer.",
+    "The inverse square orientation is fixed by γ:L|R→O: (u²γ)⁻¹ u²=γ⁻¹.",
+    "A finite non-split R is treated by restriction of scalars and not by a chosen list of k-points."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "A.1.1, p. 515",
+     "match": "The rigidified Picard stack and the square of its usual rigidification action present the root Picard stack; the frame calculation makes the chosen direction explicit. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    },
+    {
+     "sourceId": "StacksRes",
+     "locator": "Section 97.11, Lemmas 97.11.1–97.11.3 and Proposition 97.11.5, tag 05Y8; online edition, no fixed page",
+     "match": "Restriction of scalars is a sheaf, commutes with base change and has the representability and local-lifting properties used for finite-étale root frames."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.frameAtlas",
+     "role": "constructor",
+     "statement": "Send (L,γ) to (L,O,γ⁻¹), with the canonical unit-square comparison inserted."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.rescale",
+     "role": "structure",
+     "statement": "The right action is (L,γ)·u=(L,u²γ), acts identically on underlying f, and satisfies action identity/composition."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.frameChange",
+     "role": "characterisation",
+     "statement": "Frames differing by u⁻¹ give γ′=u²γ and the root arrow (1,u) between the resulting atlas objects."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.frameBaseChange",
+     "role": "functoriality",
+     "statement": "Root frames, their T-action and the atlas square commute with arbitrary S′→S, including nonflat maps."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.frameTorsor",
+     "role": "equivalence",
+     "statement": "The 2-fibre of frameAtlas over A is the T-torsor of frames of its actual K; no global frame is chosen."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_frame_empty",
+     "kind": "degenerate",
+     "statement": "For R=∅, T is the trivial group scheme, Pic_{X,R} is the ordinary Picard stack and the atlas is its identity up to equivalence."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_frame_weights",
+     "kind": "computation",
+     "statement": "Over F₅ with a fixed frame of L_R, u=2 changes γ=1 to γ′=4. The comparison on K is multiplication by 2, since 4⁻¹·2²=1; changing γ by 2 instead fails this square."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_frame_nonsplit",
+     "kind": "non-example",
+     "statement": "For R=Spec F_{q²}, T(F_q)=F_{q²}×, not F_q××F_q×. Frames and all formulas use this actual algebra."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_frame_torsor_descent",
+     "kind": "non-example",
+     "statement": "The nontrivial order-two root line M in native_nontrivial_root gives a frame torsor with no S-section, but it has local sections and descends to the original root triple."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Yun–Zhang A.1.1–A.1.2, p. 515",
+     "how": "The frame atlas gives both the square quotient and the weight-one section chart."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:GC.0/square-action-quotient",
+     "how": "Its quotient equivalence requires torsor descent rather than an orbit set on S-points."
+    }
+   ],
+   "refines": [
+    "FunctionFieldArithmeticPartII:GC.0/square-action-quotient"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "Square quotient equivalence on objects and arrows",
+   "kind": "theorem",
+   "statement": "The root-frame atlas induces a base-change-compatible equivalence [Pic_{X,R}/T]≃RootPic_{X,R}, where T acts by γ↦u²γ. The quotient means the stackification of the action groupoid, equivalently T-torsors with equivariant maps to the rigidified Picard stack, with full descent isomorphisms. The equivalence commutes with the map to the ordinary Picard stack and restricts to every d∈Z. On the atlas it is the stated (L,O,γ⁻¹) functor; on a change by u its root isomorphism is (1,u). The inverse uses the torsor of actual root-line frames, with unit and counit recovered by descent of the frame identification. For nonempty R the rigidified Picard stack has trivial inertia and is an algebraic space; SF.3 ordinary Picard algebraicity and SF.1 quotient algebraicity give algebraicity of RootPic. For empty R the statement reduces to the ordinary Picard stack, without treating it as an algebraic space.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
+    "FunctionFieldArithmeticPartII:GC.0/root-degree-components",
+    "SchemeAndStackFoundations:SF.1/two-fibre-product",
+    "SchemeAndStackFoundations:SF.1/quotient-stack",
+    "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+    "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
+    "SchemeAndStackFoundations:SF.1/setoid-criterion"
+   ],
+   "proofSteps": [
+    "The arrow (1,u) satisfies the square by (u²γ)⁻¹u²=γ⁻¹, so the atlas functor is equivariant with the specified comparison and cocycle.",
+    "Identify its 2-kernel pair with the T-action groupoid using the frame torsor. Apply the imported quotient stackification universal property to obtain the comparison.",
+    "An intrinsic root triple supplies its frame torsor and equivariant rigidification. The local frame identifications descend to the counit; reconstructing the same frame torsor gives the unit. Check both triangle identities on the covering torsor, then descend. This proves full faithfulness as well as local essential surjectivity.",
+    "For algebraicity, the frame morphism over the ordinary algebraic Picard stack is representable by finite-étale restriction of line-frame spaces. If R≠∅, an automorphism of L trivial on R is the identity because Γ(X_S,O)=Γ(S,O) universally and R_S→S is faithfully flat. Thus Pic_{X,R} is an algebraic space. Apply the imported smooth-T quotient theorem; handle R=∅ separately."
+   ],
+   "acceptance": [
+    "The equivalence identifies full arrow groupoids, not just isomorphism classes.",
+    "The nontrivial root-line example is in its essential image through a nontrivial frame torsor.",
+    "Its composite with forget is the usual quotient induced by square T→T, not a map discarding ordinary scalar arrows."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "A.1.1, p. 515",
+     "match": "The square-action quotient statement is implemented through the intrinsic root frames; its descent and full-arrow form are the needed refinement. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "declarationName": "TauCeti.RamifiedClassField.GC0.squareQuotient",
+   "refines": [
+    "FunctionFieldArithmeticPartII:GC.0/square-action-quotient"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/relative-root-gerbe",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "The forgetful root gerbe and its band",
+   "kind": "theorem",
+   "statement": "The forgetful morphism RootPic_{X,R}→Pic_X is a gerbe banded by H=Res_R/k μ₂, compatibly with arbitrary scheme base change and degree components. For a fixed L on X_S, the 2-fibre is the groupoid of (K,ι:K²≅L_R); its arrows act over the identity of L. For every such object, relative automorphisms are exactly units u on R_S with u²=1. Root objects exist fppf-locally, and any two are locally isomorphic. A chosen root trivializes this gerbe as BH_S; no canonical global root or product splitting is asserted. H is finite étale of rank 2^ρ for ρ=rank(R/k). Over an algebraic closure with r branch points the relative inertia is μ₂^r. The entire root stack has the ordinary scalar automorphisms in addition, as the full-stabilizer theorem specifies.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
+    "SchemeAndStackFoundations:SF.2/fppf-kummer-sequence",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.1/torsor-representability"
+   ],
+   "proofSteps": [
+    "In the 2-fibre over L include a specified identification of the underlying line with L, so the root-arrow equation is over the identity, not an unrestricted scalar on L.",
+    "Finite-étale-locally split R_S and trivialize L_R; trivial lines then give a local root. Isomorphisms between two roots are locally frames with a prescribed square, and the n=2 Kummer epimorphism supplies them.",
+    "The same arrow square identifies every relative automorphism with a unit on R_S whose square is one. Finite-étale restriction of scalars gives H and all base-change comparisons. Composition is unit multiplication, which is commutative, so it supplies the canonical band.",
+    "Choose one root only to describe the equivalence with H-torsors: send another root to the sheaf of root isomorphisms from the chosen one, and descend the inverse twist. This is a conditional neutrality statement."
+   ],
+   "acceptance": [
+    "At R=∅ the band is trivial and forget is an equivalence.",
+    "Over F₅, with R a rational point and L=O fixed, root identifications 1 and 2 are not isomorphic over that fixed L: 2 is not a square. They become isomorphic after a quadratic extension; being a gerbe is a local assertion.",
+    "For nonempty R, μ₂ relative inertia prevents the forgetful morphism from being representable by algebraic spaces."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "A.1.1, p. 515",
+     "match": "The forgetful map is the restriction-of-scalars μ₂-gerbe. The fixed-underlying-line qualification isolates the stated band. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    },
+    {
+     "sourceId": "StacksKummer",
+     "locator": "Section 59.28, Lemma 59.28.1, tag 03PL, and Lemma 59.28.3, tag 040N; online edition, no fixed page",
+     "match": "Lemma 59.28.3 supplies positive n=2 fppf Kummer lifting; the separate Lemma 59.28.1 supplies étale lifting because 2 is invertible. These give the local comparison arrows after finite-étale splitting of R."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "declarationName": "TauCeti.RamifiedClassField.GC0.relativeGerbe",
+   "refines": [
+    "FunctionFieldArithmeticPartII:GC.0/square-action-quotient"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/native-root-section-fibres",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "Native root data with a section only on R",
+   "kind": "definition",
+   "statement": "The root-section fibre has objects (A,α) where A=(L,K,ι) is a native root object and α∈Γ(R_S,K); arrows are root arrows (f,v) with v(α)=α′. There is no section a of L on X_S and no equation against a|R. This is the native RootPicardSectionData i_S and its displayed Iso type, organized into an fppf stack using the native section pullback and descent. Forgetting α is a morphism to RootPic and has the zero-section right inverse. The squared evaluation is ι(α⊗α)∈Γ(R_S,L_R), using the imported native tensorSection operation; it need not extend to X_S. Tensor sends (A,α),(B,β) to (A⊗B,α⊗β), making a commutative monoid stack with unit section 1. The zero-section object is not tensor-invertible when R_S≠∅. On the empty R_S even its zero section is a frame. The tensor-invertible objects are exactly those with α a frame of K.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/root-picard-section",
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/root-tensor-coherence",
+    "SchemeAndStackFoundations:SF.3/picard-groupoid",
+    "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+    "FunctionFieldArithmeticPartII:RS.0/section-power"
+   ],
+   "proofSteps": [
+    "Use the actual module global-section type on R_S. The arrow condition is equality after the native sheaf isomorphism evaluated on the top open.",
+    "Pull back α with the native section unit map, then use the same line comparisons as for root pullback. Effective section descent follows from descent of module morphisms O→K and of the root data.",
+    "The zero section needs no existence theorem for global sections of L. For tensor, use imported tensorSection and the root tensor comparison. Tensor coherence follows by the imported section compatibility. An inverse section exists precisely when α generates the rank-one module at every point of R_S; use its inverse frame, not the dual of an arbitrary section."
+   ],
+   "acceptance": [
+    "The forgetful map and zero section preserve the underlying root triple.",
+    "Square evaluation lands only in sections on R_S; no extension map to sections on X_S is fabricated.",
+    "Its monoidal structure is distinguished from the Picard structure of the stack obtained by forgetting α."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "A.1.2 and Definition A.2, p. 515; A.1.5, p. 517",
+     "match": "The variant adds a root section only. The effective symmetric-space definition adds a different global section and a compatibility equation; its forgetful maps explain the two separate interfaces. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.nativeSectionFibres",
+     "role": "constructor",
+     "statement": "The groupoid of native RootPicardSectionData i_S, including any α in the actual section module."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.sectionIso",
+     "role": "characterisation",
+     "statement": "An isomorphism consists of RootPicardData.Iso and v(α)=α′, exactly as in RootPicardSectionData.Iso. Two section arrows are equal if and only if their underlying root arrows agree; identities and composition project to those of the root groupoid."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.forgetSection",
+     "role": "projection",
+     "statement": "Forget only α; on arrows keep the full root isomorphism."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.RootPicardSectionData.zero",
+     "role": "constructor",
+     "statement": "Send A to (A,0); its root is A and its root section is zero, as in zero_forget and zero_section."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.sectionPullback",
+     "role": "functoriality",
+     "statement": "Pull back α along R_S′→R_S with the native section pullback, respecting identity, composition and arbitrary base change."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.squareEvaluation",
+     "role": "projection",
+     "statement": "Evaluate ι on the tensor square of α to obtain a section of i_S*L, naturally under root-section isomorphisms and pullback."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.sectionTensor",
+     "role": "structure",
+     "statement": "Tensor root triples and their root sections, with the ordinary symmetric monoid coherence and section 1 as unit; inverses exist precisely on the frame locus."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_section_negative",
+     "kind": "non-example",
+     "statement": "For X=P¹, R a rational point and L=O(−1), choose K=k and ι and take α=1. This is a root-section object although H⁰(P¹,O(−1))=0, so it cannot encode an effective global section."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_section_zero",
+     "kind": "degenerate",
+     "statement": "Every root object admits α=0, even in negative degree; when R_S is nonempty this object is not tensor-invertible. This requires the ramification scheme after base change, not just R, to be nonempty."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_section_nilpotent",
+     "kind": "non-example",
+     "statement": "Over k=F₅ and S=Spec k[ε]/(ε²), take X=P¹_k, R a rational point, K=O_RS and α=ε. Then α≠0 and α²=0. The definition accepts this section and does not replace its module by reduced points."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_section_empty",
+     "kind": "compatibility",
+     "statement": "For R=∅, the unique section on the empty scheme makes forgetSection an equivalence with RootPic≃Pic_X."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.GC0.check_section_empty_base",
+     "kind": "degenerate",
+     "statement": "For S=∅ and any R, both X_S and R_S are empty. The root-section fibre is the terminal groupoid and its zero section is a frame and tensor-invertible, even if R itself is nonempty."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Yun–Zhang A.1.2, p. 515",
+     "how": "The section quotient has root-section weight one and rigidification weight two."
+    },
+    {
+     "where": "Yun–Zhang A.1.5, p. 517; FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
+     "how": "Forget the global effective section a while retaining α_R, then forget α_R. These are distinct maps."
+    }
+   ],
+   "refines": [
+    "FunctionFieldArithmeticPartII:GC.0/root-picard-section"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/section-quotient-comparison",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "The section quotient and affine root-section charts",
+   "kind": "theorem",
+   "statement": "Let V=Res_R/k A¹, with T-action a↦u a. Then RootPicSection≃[(Pic_{X,R}×V)/T] for the diagonal right action (γ,a)·u=(u²γ,u a). On the atlas this sends (L,γ,a) to (L,O,γ⁻¹,a); forgetting a is the square quotient comparison, and a=0 is the zero section. In frames the squared evaluation has coordinate γ⁻¹ a² in L_R, unchanged by (γ,a)↦(u²γ,u a). The forgetful map RootPicSection→RootPic is representable and affine, fppf-locally the projection A^ρ→S obtained by trivializing the actual K on the finite-étale R_S. Its zero section is a closed immersion. The comparison and all these maps commute with arbitrary base change and every integer degree.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-section-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
+    "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
+    "SchemeAndStackFoundations:SF.1/two-fibre-product",
+    "SchemeAndStackFoundations:SF.1/quotient-stack",
+    "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
+    "SchemeAndStackFoundations:SF.1"
+   ],
+   "proofSteps": [
+    "In a root frame e write α=e(a). With e′=e u⁻¹, its coordinate is a′=u a while γ′=u²γ. These formulas supply an equivariant atlas functor with the same root comparison (1,u).",
+    "Apply the same frame-torsor descent inverse as in square-quotient-comparison, now retaining the equivariant coordinate a. Unit and counit preserve α because they are induced by its actual frames.",
+    "For a fixed root object over S, its 2-fibre of sections is the sheaf S′↦Γ(R_S′,K_S′), not a quotient by root automorphisms. Split R and frame K locally to identify it with A^ρ. The transition maps are invertible linear maps, so the affine schemes and zero sections descend by SF.1/affine-fpqc-descent.",
+    "Use the square/weight-one identity to check squared evaluation and the compatibility of both forgetting maps. Since all formulas are on R_S, they add no global section to L."
+   ],
+   "acceptance": [
+    "Over one split branch point and F₅, (γ,a)=(1,1) and u=2 yield (4,2). Both have squared evaluation 1, since 4⁻¹·2²=1.",
+    "At a=0 the relative μ₂ inertia survives; at a frame it is killed. Thus the section variant is not uniformly the same μ₂-gerbe over ordinary Pic_X.",
+    "When R=∅, V is the final scheme and the section quotient is the ordinary Picard stack."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "A.1.2, p. 515",
+     "match": "The associated quotient uses the square action on the rigidification and the dilation action on the root-section coordinate. Its affine chart is descent of those actual root sections. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "declarationName": "TauCeti.RamifiedClassField.GC0.sectionQuotient",
+   "refines": [
+    "FunctionFieldArithmeticPartII:GC.0/root-picard-section"
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/root-stabilizers",
+   "parentStageId": "FunctionFieldArithmeticPartII:GC.0",
+   "realises": [
+    "FunctionFieldArithmeticPartII:GC.0"
+   ],
+   "title": "Full and relative inertia, including root sections",
+   "kind": "theorem",
+   "statement": "For any root object over S, its full automorphism sheaf consists of c∈Γ(S,O_S)× and u∈Γ(R_S,O_RS)× satisfying u²=c|R_S; here c acts on L via the universal identity Γ(X_S,O)=Γ(S,O). Relative to a fixed L and its identity, impose c=1, giving Res μ₂. With root section α, add uα=α. These are equalities of sheaves on every S′→S, including nonreduced S′. After base change to an algebraically closed field with r branch points and compatible frames, full inertia is {(c,u_1,…,u_r):u_j²=c}, and the section inertia additionally has u_j a_j=a_j. Relative section inertia is μ₂ on exactly the zero coordinates and trivial on nonzero coordinates over that field. If any a_j≠0 then c=1 in the full section inertia; if r>0 and every coordinate is nonzero the full section inertia is trivial. For r=0 the full inertia remains G_m, while relative inertia is trivial.",
+   "hypotheses": [
+    "k is a field of characteristic different from 2. X/k is a smooth projective geometrically connected curve. i:R→X is a closed immersion and R is finite étale over k, possibly empty. In the original application k is finite and R is reduced, so these hypotheses hold.",
+    "For a k-scheme S, X_S=X×_k S and R_S=R×_k S; i_S:R_S→X_S is the base change of i. All stacks use the big fppf scheme site, with the imported fpqc constructions restricted to it. Pullbacks include their identity and composition isomorphisms.",
+    "Line bundles are native TauCeti.AlgebraicGeometry.InvertibleSheaf objects; arrows are isomorphisms, not all morphisms in that full subcategory. Tensor products are native sheaf tensor products, not tensor products of global sections."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/native-root-section-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/relative-root-gerbe",
+    "FunctionFieldArithmeticPartII:GC.0/section-quotient-comparison",
+    "SchemeAndStackFoundations:SF.3/picard-stack-curve"
+   ],
+   "proofSteps": [
+    "An automorphism of an invertible sheaf is multiplication by a unique unit. The imported universal global-functions identity for X_S identifies the unit on L with c from S; the root line has unit u on R_S.",
+    "Translate the root-arrow square to u²=c|R. Translate preservation of α to uα=α. These equations are functorial on all S′, so they compute group sheaves, not only geometric point groups.",
+    "Set c=1 for relative inertia. In split geometric coordinates, a nonzero field element cancels in u_j a_j=a_j, forcing u_j=1 and c=1 if any such coordinate exists. Do not cancel α over arbitrary rings; retain the equations there."
+   ],
+   "acceptance": [
+    "With one split branch point, full root inertia is G_m via u↦(u²,u), whereas relative inertia is μ₂.",
+    "Over F₅ at α=0, u=−1 is a relative automorphism; at α=1 it is not.",
+    "For r=2 and α=(1,0), the full section inertia is μ₂ on the second coordinate. At α=(0,0) it also contains varying c.",
+    "Over F₅[ε]/(ε²) with α=ε, the equations apply without declaring α zero because α²=0: u=−1 does not fix α, since −ε≠ε.",
+    "For r=0, all section-coordinate equations are vacuous and the full inertia is G_m. The coordinate full-triviality milestone explicitly assumes r>0, while the relative frame-stabilizer milestone needs no nonempty-index assumption."
+   ],
+   "sources": [
+    {
+     "sourceId": "YZ19",
+     "locator": "Definition A.1, p. 514; A.1.1–A.1.2, p. 515",
+     "match": "Taking automorphisms in the defining groupoids gives the full scalar-square equation and its section-preservation equation. The gerbe statement specifies only the relative group. The cited application is over a finite field; the displayed native and descent arguments justify the stated general-field, finite-étale extension."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/GC0",
+    "namespace": "TauCeti.RamifiedClassField.GC0"
+   },
+   "declarationName": "TauCeti.RamifiedClassField.GC0.inertiaEquations"
+  }
+ ],
+ "importedParentTargets": [
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/root-picard",
+   "title": "The graded root Picard stack",
+   "statement": "Pic_X^√R(S) is the groupoid of (L,K_R,ι), where L is a line bundle on X×S, K_R a line bundle on R×S and ι:K_R²≅L|_{R×S}. Its degree-d component imposes degree d on every geometric fibre; d ranges over all integers. Tensor product and dual give the graded commutative Picard stack.",
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicard.object",
+     "role": "constructor",
+     "statement": "Create (L,K_R,ι) from the two line bundles and the square identification."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicard.degree",
+     "role": "projection",
+     "statement": "The degree is the fibrewise degree of L, additive under tensor product."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicard.tensor",
+     "role": "structure",
+     "statement": "Tensor two objects and their root identifications; dual gives inverse up to coherent isomorphism."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicard.forget",
+     "role": "projection",
+     "statement": "Forget K_R,ι to the ordinary Picard stack."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicard.test_empty_R",
+     "kind": "degenerate",
+     "statement": "At R=∅ this is the ordinary graded Picard stack."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicard.test_degree_minus_one",
+     "kind": "non-example",
+     "statement": "Negative-degree components contain line bundles and are not declared empty."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicard.test_stabilizer",
+     "kind": "characterisation",
+     "statement": "Over an algebraically closed field with r geometric branch points, forgetting roots has relative stabilizer μ₂^r."
+    }
+   ],
+   "planet": {
+    "name": "Root Picard stack"
+   }
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/square-action-quotient",
+   "title": "Square-action presentation of the root Picard stack",
+   "statement": "Let Pic_{X,R} classify (L,γ:L|_R≅O_R). Then Pic_X^√R≃[Pic_{X,R}/[2]Res_{R/k}G_m], where the acting group changes the rigidification through its square. The forgetful morphism to Pic_X is a Res_{R/k}μ₂-gerbe.",
+   "planet": {
+    "name": "Square-action Picard quotient"
+   }
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:GC.0/root-picard-section",
+   "title": "The root Picard stack with a root section",
+   "statement": "Pic_X^{√R;√R}(S) additionally carries α_R∈Γ(R×S,K_R). It does not carry a global section of L. The zero root section is allowed.",
+   "api": [
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicardSection.object",
+     "role": "constructor",
+     "statement": "Adjoin α_R to a root-Picard object, including α_R=0."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicardSection.forget",
+     "role": "projection",
+     "statement": "Forget α_R to Pic_X^√R."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicardSection.squareEvaluation",
+     "role": "projection",
+     "statement": "The squared section ι(α_R²) lies in L|_R."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicardSection.test_zero",
+     "kind": "degenerate",
+     "statement": "Every root-Picard object admits the zero root section."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicardSection.test_empty_R",
+     "kind": "compatibility",
+     "statement": "At R=∅ the forgetful map is an equivalence."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.rootPicardSection.test_weights",
+     "kind": "non-example",
+     "statement": "In the rigidified quotient α_R has weight one while the rigidification has weight two."
+    }
+   ],
+   "planet": {
+    "name": "Root Picard sections"
+   }
+  }
+ ],
+ "supplierContracts": [
+  {
+   "nodeId": "SchemeAndStackFoundations:SF.3/picard-groupoid",
+   "uses": "Native Picard core, coherent tensor/dual and pullback, and effective invertible-sheaf descent; imports existing AlgebraicVectorBundles L0A/L0B."
+  },
+  {
+   "nodeId": "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+   "uses": "Ordinary curve Picard stack in all degrees, universal scalar automorphisms, algebraicity and family-degree decomposition."
+  },
+  {
+   "nodeId": "SchemeAndStackFoundations:SF.3/picard-scheme-without-point",
+   "uses": "The degree-d Picard sheaf as a torsor, without a chosen rational point; do not import a universal line bundle from a sheaf point."
+  },
+  {
+   "nodeId": "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+   "uses": "Actual Mathlib pseudofunctor, IsStack, strong transformation and modification vocabulary on the scheme fppf site."
+  },
+  {
+   "nodeId": "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+   "uses": "Ordinary stackification and full two-fibre products, preserving stabilizers."
+  },
+  {
+   "nodeId": "SchemeAndStackFoundations:SF.1/two-fibre-product",
+   "uses": "The scheme-site categorical pullback triples with an isomorphism."
+  },
+  {
+   "nodeId": "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
+   "uses": "Effective descent for affine schemes and their morphisms."
+  },
+  {
+   "nodeId": "SchemeAndStackFoundations:SF.2/fppf-kummer-sequence",
+   "uses": "Positive n=2 local square-root lifting and the μ₂ kernel."
+  }
+ ],
+ "requests": [
+  {
+   "id": "GC0-WEIL-FRAMES",
+   "supplier": "SchemeAndStackFoundations:SF.1",
+   "need": "For finite étale R→Spec k of rank ρ, give the actual scheme-site functors T(S)=Γ(R_S,O)× and V(S)=Γ(R_S,O), represent them by Res_R/k G_m and Res_R/k A¹, and identify after an étale splitting with G_m^ρ and A^ρ. Formation must commute with arbitrary S′→S. For each native invertible K on R_S, represent the relative frame functor S′↦Isom(O_R_S′,K_S′) as an affine T_S-torsor, locally inhabited on the fppf (indeed étale) site; compare its arrows with native isomorphisms, and descend its linear section charts. These are generic finite-étale Weil-restriction/frame inputs, not a new GC.0 construction of generic rigidified line bundles.",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
+    "FunctionFieldArithmeticPartII:GC.0/relative-root-gerbe",
+    "FunctionFieldArithmeticPartII:GC.0/section-quotient-comparison"
+   ]
+  },
+  {
+   "id": "GC0-NATIVE-INTEGRATION",
+   "supplier": "SchemeAndStackFoundations:SF.3",
+   "need": "Realize the existing SF.3/picard-groupoid and picard-stack-curve contracts on the same native InvertibleSheaf fibres used here, with explicit comparison of the new current-library InvertibleSheaf.pullback, RigidifiedLineBundle and eulerDegree interfaces to the atlas-pin module pullback, tensor/unit and full isomorphism groupoids. Restriction to R_S, pullback in S, native duality and tensorSection must share coherent identity/composition, tensor and unit comparisons. Identify fibrewise integer degree with the ordinary degree-d substack. Keep the ordinary Picard stack, Picard sheaf and rigidified Picard functor distinct, and retain Pic^d torsors without any chosen degree-one point. This asks integration of existing owners (JacobianChallenge A/D; AlgebraicVectorBundles L0A/L0B), not their replanning.",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/root-tensor-coherence",
+    "FunctionFieldArithmeticPartII:GC.0/root-degree-components",
+    "FunctionFieldArithmeticPartII:GC.0/native-root-section-fibres"
+   ]
+  },
+  {
+   "id": "GC0-ORDINARY-SITE",
+   "supplier": "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+   "need": "On the actual big scheme fppf site, identify the native invertible-sheaf pseudofunctors and their root-arrow groupoids with the supplier stack carrier. Use the current generic SF.1 two-fibre-product, quotient-stack and stackification interfaces on this site, preserving the explicit isomorphism in each two-fibre object and all torsor descent arrows. Provide the ordinary quotient universal property for the rigidified Picard groupoid, including the R=empty stack case; the nonempty-R algebraic-space reduction uses the imported setoid criterion. This is a comparison between existing ordinary stack interfaces, not diamond geometry.",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
+    "FunctionFieldArithmeticPartII:GC.0/section-quotient-comparison"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "FunctionFieldArithmeticPartII:GC.0",
+   "status": "planned",
+   "remaining": [
+    "Discharge the three precise supplier integration contracts GC0-WEIL-FRAMES, GC0-NATIVE-INTEGRATION and GC0-ORDINARY-SITE; their exact objects and comparison maps are specified here.",
+    "When the genuine scheme-stack and family-degree interfaces exist, replace the exhaustive geometric omission ledger with the compact end signatures and elaborate those signatures against the supplier implementations."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "GC0-LEAN-GEOMETRY",
+   "title": "Geometric end signatures require the integrated native scheme-stack interfaces",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/root-tensor-coherence",
+    "FunctionFieldArithmeticPartII:GC.0/root-degree-components",
+    "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
+    "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
+    "FunctionFieldArithmeticPartII:GC.0/relative-root-gerbe",
+    "FunctionFieldArithmeticPartII:GC.0/native-root-section-fibres",
+    "FunctionFieldArithmeticPartII:GC.0/section-quotient-comparison",
+    "FunctionFieldArithmeticPartII:GC.0/root-stabilizers"
+   ],
+   "detail": "The native data/arrow and section structures are typed at the atlas pins, and the coordinate milestones elaborate. The pins do not provide the assembled native Picard pseudofunctor, coherent rank-one pullback/dual/section interface, finite-étale root-frame functor or family degree component dictionary needed to state the quotient and gerbe end signatures. Their precise contracts are assigned in the three requests and the reader omission ledger. No arbitrary carrier, unnamed predicate or admitted data definition substitutes for them. This is the GC.0 restriction of the parent LEAN-GEOMETRY leaf, not a mathematical proof gap in the frame argument."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "FunctionFieldArithmeticPartII/E2",
+   "kind": "error",
+   "locator": "Yun–Zhang published edition, A.1.3, pp. 515–516; parent finding FunctionFieldArithmeticPartII/E2",
+   "printed": "The source identifies the whole geometric fibre over a vanishing effective section value with the classifying stack of μ₂.",
+   "correction": "For a fixed zero target value the full fibre factor is [Spec K[t]/(t²)/μ₂]; only its reduced substack is Bμ₂.",
+   "reason": "The root-section coordinate satisfies t²=0. It can be nonzero on a dual-number test scheme. The section-preservation equation and the square-map two-pullback retain this nilpotent thickening.",
+   "affects": "a stated result",
+   "known": "Existing parent finding FunctionFieldArithmeticPartII/E2, confirmed by REV-DESIGN-FunctionFieldArithmeticPartII~2. No new source error is claimed by this part.",
+   "searched": [
+    "The parent E2 record contains the author-page, Annals and arXiv correction searches and their version checks. This part inherits that search audit; it re-read the published A.1.3 statement and its square-map diagram on 2026-10-18, without claiming a new exhaustive erratum search."
+   ],
+   "inheritedFrom": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+   "scope": "The effective-fibre theorem belongs to GC.1. Here the inherited correction is used only to retain nonreduced root sections and test that a square-zero section need not vanish.",
+   "source": "YZ19",
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-FunctionFieldArithmeticPartII--GC.0",
+    "reason": "The published A.1.3, pp. 515–516, gives Bμ₂ for the full vanishing-value factor. Diagram (A.1), p. 516, is instead the square-map 2-pullback: after framing a fixed target line its zero factor is [Spec K[t]/(t²)/μ₂]. The dual-number section t=ε distinguishes it from Bμ₂; reducing the factor recovers Bμ₂. This inherited effective-fibre correction remains owned by GC.1.",
+    "date": "2026-10-18"
+   }
+  }
+ ],
+ "sourceIssueScope": "No new source error was found in the GC.0 statements. The parent E2 correction concerning nonreduced effective fibres remains owned by GC.1; root sections here retain nilpotents and are never reduced before squaring.",
+ "planetPolicy": {
+  "newPlanets": 0,
+  "importedPlanets": [
+   "FunctionFieldArithmeticPartII:GC.0/root-picard",
+   "FunctionFieldArithmeticPartII:GC.0/square-action-quotient",
+   "FunctionFieldArithmeticPartII:GC.0/root-picard-section"
+  ],
+  "reason": "The accepted parent already assigns Root Picard stack, Square-action Picard quotient and Root Picard sections to GC.0. Refinements add no duplicate planet; the combined layer has three."
+ },
+ "upstreamNotes": {
+  "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+  "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+  "read": [
+   "JacobianChallenge README (full) and Suggested.lean",
+   "AlgebraicVectorBundles README (full) and Suggested.lean L0A/L0B; native tensorSection, coherent monoidal pullback, rank-one/dual comparison",
+   "Current Tau Ceti LineBundle/Pullback.lean, LineBundle/Rigidified/Basic.lean, LineBundle/Rigidified/Automorphisms.lean, PicardFunctor/Rigidified.lean and LineBundle/Degree.lean"
+  ],
+  "boundary": "Current native pullback, rigidification and Euler degree are existing code beyond the pins; import and integrate them. A set-valued rigidified Picard functor for a chosen section is not the full ordinary Picard stack or the root quotient."
+ },
+ "audit": {
+  "reviewedCoverage": "No FunctionFieldArithmeticPartII entry exists in data/library-coverage.json. Read reviewed AUDIT-20 FunctionFieldArithmetic FA.0–FA.1: arithmetic divisor/weighted degree/Riemann–Roch code is existing work, not scheme-family Picard stacks. SF.3 planned contracts are cited as contracts; its needs_changes review is not evidence of implementation.",
+  "detail": "Target level. No new roadmap, restructuring or upward ownership move."
+ },
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+   "read": "2026-10-18",
+   "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+   "citation": "Author-hosted version of the Annals published article; Appendix A.1.3, pp. 515–516 and diagram (A.1), p. 516, independently re-read for the inherited E2 finding."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.0",
+  "date": "2026-10-18",
+  "notes": "Independently checked all nine target nodes, all 13 pinned baseline declarations and every direct supplier contract. Corrected the nonempty-root-locus conditions, the étale Kummer citation, and source-version/review bookkeeping; strengthened three API items and added an empty-base test. Read the current upstream owners and reviewed library audit. The complete planning pass remains planned, with three precise integration requests and one honest geometric-signature gap. No implementation is claimed.",
+  "checked": [
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
+    "verdict": "corrected",
+    "note": "Definition A.1, p. 514, and Stacks Lemma 95.16.1 support native triples and effective descent. The general-field extension follows from the displayed line-descent argument. Strengthened arrow extensionality and pullback coherence in the API; all four tests distinguish genuine root data."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/root-tensor-coherence",
+    "verdict": "verified",
+    "note": "Definition A.1, p. 514, and A.2.2, pp. 521–522, motivate the operations. Native unsigned tensor coherence and inverse dual-square orientation give the stated root structure; generic monoidal and dual theory remains imported from SF.3 and AlgebraicVectorBundles L0A/L0B."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/root-degree-components",
+    "verdict": "verified",
+    "note": "Definition A.1, p. 514, permits every integer degree. Ordinary family degree and Pic^d torsors are supplied by the exact SF.3 nodes. No parity or rational-point assumption is introduced, and geometric nonemptiness is distinct from a k-object."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
+    "verdict": "verified",
+    "note": "A.1.1, p. 515, gives the square action. With γ:L_R→O and e′=e u⁻¹, γ′=u²γ and atlas arrow (1,u) have the correct orientation. The frame torsor, nonsplit R and arbitrary base change use the precise finite-étale supplier contract."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
+    "verdict": "verified",
+    "note": "A.1.1, p. 515, matches the quotient. Frame-torsor descent gives full faithfulness, unit/counit and essential surjectivity. Supplier quotient and algebraicity statements were read. Empty R retains the ordinary Picard stack and its scalar arrows."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/relative-root-gerbe",
+    "verdict": "corrected",
+    "note": "A.1.1, p. 515, matches the relative band. Fixed-L arrows force c=1. Corrected the Kummer locator: Lemma 59.28.3 gives fppf lifting and Lemma 59.28.1 gives étale lifting with 2 invertible. Rank 2^ρ and empty-R neutrality follow after finite-étale splitting."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/native-root-section-fibres",
+    "verdict": "corrected",
+    "note": "A.1.2, Definition A.2, p. 515, and A.1.5, p. 517, distinguish a section only on R from a global effective section. Corrected zero-section noninvertibility to R_S≠∅, added an empty-base regression, and made arrow extensionality explicit. Nilpotent sections and the frame criterion are retained."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/section-quotient-comparison",
+    "verdict": "verified",
+    "note": "A.1.2, p. 515, has weights two and one. The coordinate γ⁻¹a² is invariant; descent of the actual section module over finite-étale R_S gives affine rank-ρ charts and closed zero. No quotient by automorphisms is taken in the fixed-root 2-fibre."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.0/root-stabilizers",
+    "verdict": "corrected",
+    "note": "Automorphisms in Definition A.1 and A.1.1–A.1.2, pp. 514–515, give u²=c and uα=α on all test schemes. Corrected full triviality at an everywhere-nonzero geometric section to require r>0. Added the vacuous r=0 check and stronger coordinate Lean milestones; arbitrary-ring equations remain uncancelled."
+   }
+  ]
+ },
+ "assembly": {
+  "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+  "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+  "job": "ASM-FunctionFieldArithmeticPartII"
+ }
+}

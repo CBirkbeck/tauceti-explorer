@@ -3,76 +3,162 @@
   "roadmaps": {
     "AInfCohomology": {
       "action": "keep",
-      "reason": "Keep the independent integral AΩ construction, BKF linear algebra, geometric specializations and semistable/Kisin applications. The generic §4.2 supplier lemmas currently recorded in CP.5 are owned here at AI.5, without moving the separate AI.2 classification. All ten stage identities and the early integral/rational comparison split remain."
+      "reason": "Keep the independent integral AΩ construction, BKF linear algebra, geometric specializations and semistable/Kisin applications. The generic BMS1 §§3–4 algebra recorded in the CohomologyComparisons decomposition is owned here, each piece upstream of every use: the coherence of Witt vectors and the §4.2 specialization objects at AI.0; the structure theory of finitely presented A_inf-modules (Lemmas 4.6–4.10, Corollary 4.12, Proposition 4.13) at AI.2, whose Lemma 4.26 uses it; and the complex-level specialization lemmas (Lemma 4.14 to Corollary 4.20) at AI.5. AI.3 owns the integral pro-étale sheaves for every locally noetherian adic space over Spa(Q_p, Z_p), and AI.6 the comparison of semistable A_inf cohomology with CP.3's canonical B_dR^+ deformation. AI.2's classification stays at AI.2. All ten stage identities and the early integral/rational comparison split remain."
     },
     "CohomologyComparisons": {
       "action": "keep",
-      "reason": "Keep a comparison-and-compatibility roadmap, not a second construction of its inputs. Narrow CP.0 and CP.5 only as specified; retain all seven stages and all actual geometric, filtered, semistable, integral and multiplicative comparison proofs. Add the missing CP.3 input for the late filtered part of CP.2."
+      "reason": "Keep a comparison-and-compatibility roadmap, not a second construction of its inputs. Narrow CP.0 and CP.5 only as specified; retain all seven stages and all actual geometric, filtered, semistable, integral and multiplicative comparison proofs. Add the missing CP.3 input for the filtered part of CP.2. CP.2 owns the good-reduction B_dR^+-lattice identification of BMS1 §13.4 and imports Proposition 13.21 from CR.3:Frobenius-isogeny; CP.3 owns the constant-coefficient de Rham comparison that P8 extends; CP.4 owns the agreement of the log-prismatic and semistable A_inf/Hyodo–Kato routes and transports CR.6's monodromy and uniformizer formulas; CP.1 owns the agreement of the A_inf and prismatic maps over O_C."
     },
     "CrystallineCohomology": {
       "action": "keep",
-      "reason": "Keep PD envelopes, crystalline/log-crystalline sites, ordinary and relative de Rham–Witt, Hyodo–Kato theory, finiteness and source-qualified duality. Derived/prismatic constructions have different universal properties; their comparisons cannot replace this roadmap. All eleven stages remain."
+      "reason": "Keep PD envelopes, crystalline/log-crystalline sites, ordinary and relative de Rham–Witt, Hyodo–Kato theory, finiteness and source-qualified duality. Derived/prismatic constructions have different universal properties; their comparisons cannot replace this roadmap. CR.0 builds the envelope of ker θ on the pinned library carriers and stays upstream of AI.0; the lci comparison of PD envelopes with derived de Rham cohomology is DerivedDeRhamCohomology DD.4's. CR.3:Frobenius-isogeny owns BMS1 Proposition 13.21, and CR.6 owns N φ = p φ N and the change-of-uniformizer transformation. All eleven stages remain."
     },
     "DerivedDeRhamCohomology": {
       "action": "keep",
-      "reason": "Keep the full cotangent/derived-power, derived-completion, derived-de-Rham, Cartier and quasisyntomic foundations, including the log extension. Ordinary two-term library algebra is reused, not mistaken for the full derived theory. All seven stages remain."
+      "reason": "Keep the full cotangent/derived-power, derived-completion, derived-de-Rham, Cartier and quasisyntomic foundations, including the log extension. Ordinary two-term library algebra is reused, not mistaken for the full derived theory. DD.4 is the single owner of the comparison between derived de Rham cohomology of a regular or lci quotient and the classical PD envelope (Bhatt, Lemma 3.39, Corollary 3.40, Theorem 3.27), with CR.0 supplying the classical envelopes. All seven stages remain."
     },
     "PadicHodgeTheory": {
       "action": "keep",
-      "reason": "Keep period rings, period functors/admissibility, monodromy and analytic foundations, early relative period sheaves and later geometric/arithmetic applications. Import the CP comparison maps, without feeding those later theorems into their early sheaf constructions. All ten stages remain."
+      "reason": "Keep period rings, period functors/admissibility, monodromy and analytic foundations, early relative period sheaves and later geometric/arithmetic applications. Import the CP comparison maps, without feeding those later theorems into their early sheaf constructions. R06.1 imports the O_C special elements and the kernel-generator criterion from AI.0:integral and the PD structure from CR.0. P8:local-rational imports the integral pro-étale sheaves from AI.3 and is the early owner of Scholze's primitive comparison theorem. P8 imports the constant-coefficient de Rham comparison from CP.3 and owns its extension to de Rham lisse sheaves and families. All ten stages remain. RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
     },
     "PerfectoidQuotients": {
       "action": "keep",
-      "reason": "Keep the independent integral prefix and the closed-perfectoid-quotient application. Q0’s prism suffix and Q1 explicitly import PR.0/PR.1, while Q2–Q4 retain universal perfectoidization, stronger Andre flatness and actual surjectivity. No late prismatic comparison or v-descent is added to the early proof route. All seven stages remain."
+      "reason": "Keep the independent integral prefix and the closed-perfectoid-quotient application. The comparison of integral perfectoid rings with perfectoid Tate rings (BMS1 Lemmas 3.20–3.21) is imported from PerfectoidSpaces P1, and Q2 imports BS22 Construction 7.6 and Lemma 7.7 to Proposition 7.10 from PR.2. Q0’s prism suffix and Q1 explicitly import PR.0/PR.1, while Q2–Q4 retain universal perfectoidization, stronger Andre flatness and actual surjectivity. No late prismatic comparison or v-descent is added to the early proof route. All seven stages remain."
     },
     "PrismaticCohomology": {
       "action": "keep",
-      "reason": "Keep actual delta/prism algebra, relative and derived prismatic theories, Nygaard/twists, etale/absolute/q-crystalline/F-crystal/log variants and their source-qualified comparisons. Theories with equivalent realizations are not duplicate constructions. All nine stages and the independent early quotient route remain."
+      "reason": "Keep actual delta/prism algebra, relative and derived prismatic theories, Nygaard/twists, etale/absolute/q-crystalline/F-crystal/log variants and their source-qualified comparisons. Theories with equivalent realizations are not duplicate constructions. PR.2 owns BS22 Construction 7.6 and Lemma 7.7 to Proposition 7.10, which Q2 applies; PR.4 owns the prismatic logarithm and the first Chern classes that CP.6 compares; PR.8 keeps its log-prismatic realizations, whose agreement with the AI.6/CR.6 semistable route is CP.4's. All nine stages and the independent early quotient route remain."
     }
   },
   "layers": {
+    "AInfCohomology:AI.0": {
+      "action": "keep",
+      "reason": "Own, for an arbitrary perfectoid field K with tilt O♭ and A_inf = W(O♭), the generic coefficient algebra that the CohomologyComparisons decomposition recorded at CP.0 and that AI.2, AI.5 and CP.5 use: the coherence of W_r(O) with its finite-presentation transfer lemmas (BMS1 Proposition 3.24, Lemmas 3.25–3.28, Corollary 3.29), and the §4.2 specialization objects (the Teichmüller element x, W̃ = colim_n A_inf/(x^{1/p^n}) with p-adic completion W(k) and kernel Q an A_inf[1/p]-module, the discrete valuation ring A_inf,(p) with p-adic completion W(K♭) and the flatness of A_inf → W(K♭), and, for K of characteristic 0 containing all p-power roots of unity, that μ = [ε] − 1 is a unit in W(K♭)). AI.0 is upstream of AI.0:integral, AI.2, AI.3, AI.5 and CP.0, so every consumer imports these without a CP.0 input."
+    },
     "AInfCohomology:AI.0:integral": {
       "action": "keep",
-      "reason": "Own the O_C-specialized integral coefficient structures and their structural proofs, using the generic Q0:integral-algebra/library carriers and the CR.0 PD envelope. Do not reconstruct rational period rings here or give this early stage its late period-comparison return as an input."
+      "reason": "Own the O_C-specialized integral coefficient structures and their structural proofs, using the generic Q0:integral-algebra/library carriers and the CR.0 PD envelope: the choice of ε and its change, μ = [ε] − 1, ξ = μ/φ^{−1}(μ), ξ̃ = φ(ξ) and θ̃ = θ∘φ^{−1}; the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (an element of ker θ generates it if and only if its Witt coordinate r_1 (index 1, with r_0 the zeroth coordinate) is a unit, and generators are nonzerodivisors) and the theorem that ξ generates ker θ; the normalization of the Witt reduction (CR.0's map A_inf → W(k) kills μ and sends ξ and ξ̃ to p); the O_C instance of CR.0's regular-principal envelope (A_crys is the p-adic completion of A_inf[ξ^m/m!], p-torsion-free, and its ordinary and derived p-completions agree); and the Breuil–Kisin twists. R06.1 imports these and does not plan them again. Do not reconstruct rational period rings here or give this early stage its late period-comparison return as an input."
     },
     "AInfCohomology:AI.0:period-comparison": {
       "action": "keep",
-      "reason": "Own the comparison between the integral coefficient presentations and the supplied arithmetic/rational period-ring presentations, including the specified normalization identifications. R06.1 supplies actual rational ring constructions and its period-ring-level arithmetic-model comparison. This later stage compares those imported maps with the specified integral theta/PD/twist structures; it does not reprove R06.1’s arithmetic-model theorem. CP.0 imports this compatibility but retains its geometric and cohomological diagrams."
+      "reason": "Own only the identifications that involve both AI.0's integral normalizations and R06.1's rational rings and that R06.1 does not itself need: the realization of the Breuil–Kisin twist A_inf{1} and of its étale realization Z_p(1) in B_dR^+ and B_crys, compared with Z_p t; the θ̃-specializations of A_inf and A_crys into the rational rings; and the Frobenius-twisted scalar-extension identities. R06.1 owns the structure maps A_inf → A_crys → B_crys^+ → B_dR^+ with the injectivity of A_crys → B_dR^+, the element t with t/ξ a unit, the ideals I^[r]A_inf = μ^r A_inf and the agreement of Fontaine's arithmetic construction with the perfectoid and CR.0 presentations; this later stage imports them and does not prove them again. CP.0 imports this compatibility but retains its geometric and cohomological diagrams."
+    },
+    "AInfCohomology:AI.2": {
+      "action": "keep",
+      "reason": "Own the structure theory of finitely presented A_inf-modules free after inverting p (BMS1 Lemmas 4.6–4.10 with Remark 4.11, Corollary 4.12, Proposition 4.13), with their exact hypotheses, together with the BKF modules and Fargues' classification. AI.2's own Lemma 4.26 reduces to the finite free case by Proposition 4.13, and Remark 4.29 (full faithfulness of Fargues' functor) rests on Lemma 4.26, so these lemmas cannot sit at AI.5, which requires AI.2. Import the coherence lemmas and the §4.2 specialization objects from AI.0."
+    },
+    "AInfCohomology:AI.3": {
+      "action": "keep",
+      "reason": "Own the integral pro-étale package for every locally noetherian adic space X over Spa(Q_p, Z_p), not only for generic fibres of smooth formal schemes: O_X^+, Ô_X^+, Ô^+_{X♭}, the classical A_inf,X^cl = W(Ô^+_{X♭}) and its derived p-completion, with θ, the affinoid perfectoid basis, and the almost acyclicity of Ô_X^+ and Ô^+_{X♭} on affinoid perfectoids, on the corrected pro-étale site (Scholze 2013 Definition 4.1, Lemma 4.2, Definition 4.3 to Proposition 4.8, Lemma 4.10, Definition 5.9 and Lemma 5.10, Theorem 6.5 for A_inf; BMS1 Definition 5.4 for the derived A_inf,X). The rational sheaves and their comparison with these integral ones are constructed in P8:local-rational, which imports AI.3. The AΩ construction on smooth formal schemes is unchanged. The classical sheaf of Scholze Definition 6.1 and the derived-p-completed sheaf of BMS1 Definition 5.4 are separate constructions; their agreement requires its own completion argument."
     },
     "AInfCohomology:AI.5": {
       "action": "keep",
-      "reason": "Own the perfect proper A_inf-cohomology object, its BKF structure and the generic BMS §4.2 torsion/specialization/finiteness/freeness and adjacent-degree base-change package. Preserve the exact hypotheses of the reviewed CP.5 supplier nodes when assigning their construction ownership here. AI.2 continues to own its separate finite-free BKF/Fargues classification; CP.5 owns the geometric applications."
+      "reason": "Own the perfect proper A_inf-cohomology object, its BKF structure (BMS1 Theorem 14.3) and the complex-level BMS1 §4.2 specialization lemmas, Lemma 4.14 to Corollary 4.20 with Remark 4.21, with the exact hypotheses listed in their owner record. AI.2 owns the module structure theory (Lemmas 4.6–4.10, Corollary 4.12, Proposition 4.13) that its Lemma 4.26 uses, and its BKF/Fargues classification; AI.0 owns the coherence lemmas and the §4.2 specialization objects; CP.5 owns the geometric applications. The BKF property imports BMS1 Proposition 13.21 from CR.3:Frobenius-isogeny, and the μ-inverted étale comparison (BMS1 Theorem 5.7 and Theorem 14.3(iv)) imports Scholze's primitive comparison from P8:local-rational. Preserve the exact hypotheses of the reviewed CP.5 supplier nodes when assigning their construction ownership here."
+    },
+    "AInfCohomology:AI.6": {
+      "action": "keep",
+      "reason": "Own the comparison of semistable A_inf cohomology, and of its log-crystalline A_crys specialization, base-changed to B_dR^+, with CP.3's canonical B_dR^+ deformation of the smooth generic fibre (Česnavičius–Koshikawa). CP.3 → AI.6 is added, and CP.4 imports this comparison for its filtration compatibility instead of planning it again. AI.6's other semistable constructions are unchanged."
     },
     "CrystallineCohomology:CR.0": {
       "action": "keep",
-      "reason": "Own ordinary PD envelopes and the shared completed A_cris envelope and its canonical PD coefficient maps; import generic divided-power carriers and DD.1 completion, preserving ordinary-versus-derived hypotheses. Derived de Rham and prismatic comparisons remain separate later theorems."
+      "reason": "Own ordinary PD envelopes and the shared completed A_cris envelope with the maps given by its universal property, built on the pinned library carriers: PreTilt, WittVector, WittVector.fontaineTheta, and WittVector.map applied to the residue map of the tilt for the Witt reduction A_inf → W(k). CR.0 is upstream of AI.0, AI.0:integral and R06.1, so no CR.0 node may require them. It exports the envelope of ker θ + pA, its p-completion A_cris, θ_cris, the induced map A_cris → W(k) and, as a conditional theorem for a generator of ker θ that is a nonzerodivisor modulo p, the explicit regular-principal envelope; AI.0:integral applies it to O_C with its ξ and owns the normalizations (μ ↦ 0, ξ ↦ p). Import generic divided-power carriers and DD.1 completion, preserving ordinary-versus-derived hypotheses. The comparison of explicit PD envelopes with derived de Rham cohomology in the lci range (Bhatt, Lemma 3.39, Corollary 3.40, Theorem 3.27) is DD.4's, which imports CR.0's envelopes and Bhatt's Lemmas 3.37–3.38; so CR.0 needs no DD.0 input, and DD.0 → CR.0 is not added. Prismatic comparisons remain separate later theorems."
+    },
+    "CrystallineCohomology:CR.3:Frobenius-isogeny": {
+      "action": "keep",
+      "reason": "Own BMS1 Proposition 13.21, the rational base change of crystalline cohomology over A_crys along a fixed section k → O_C/p, with its inputs: the rational Frobenius isogeny for qcqs smooth O_C/p-schemes, which the proof reduces to smooth affine (not necessarily proper) k-schemes, and crystalline base change. The stage's scope must therefore include smooth affine, non-proper schemes. AI.5 (the BKF property of Theorem 14.3), CP.2 and CP.5 import it; CR.3:Frobenius-isogeny → AI.5, → CP.2 and → CP.5 are added."
+    },
+    "CrystallineCohomology:CR.6": {
+      "action": "keep",
+      "reason": "Own the Hyodo–Kato relation N φ = p φ N in the chosen convention and the computation of the change-of-uniformizer transformation of the Hyodo–Kato-to-log-de-Rham map, with its logarithm, exponential and sign normalization. CP.4, whose text also asked to verify and compute them, imports them and transports them through B_st → B_dR."
     },
     "PadicHodgeTheory:R06.1": {
       "action": "keep",
-      "reason": "Own rational period rings, filtration/monodromy/Galois structures, their canonical structure maps and the period-ring-level comparison with the arithmetic construction, built from the shared integral coefficients and PD envelope. Reuse the existing pinned BDeRhamPlus/BDeRham carriers. AI.0:period-comparison subsequently compares these imported maps with its integral theta/PD/twist structures; it is not a second proof of this stage’s arithmetic-model comparison and is not an input of this stage. CP.0 is not an input either."
+      "reason": "Own rational period rings, filtration/monodromy/Galois structures, their canonical structure maps and the period-ring-level comparison with the arithmetic construction, built from the shared integral coefficients and PD envelope. Reuse the existing pinned BDeRhamPlus/BDeRham carriers. R06.1 imports from AI.0:integral the choice of ε and its change, μ = [ε] − 1, ξ = μ/φ^{−1}(μ), the O_C instance of the kernel-generator criterion with the nonzerodivisor property, and the theorem that ξ generates ker θ; it imports the PD structure on ker θ_cris from CR.0. It proves what concerns its classical element p♭ and generator [p♭] − p (that it generates ker θ, by the imported criterion, and differs from ξ by a unit), the Galois action on ε and p♭, and the rational ring theorems. AI.0:period-comparison subsequently compares these imported maps with its integral twist and θ̃ structures; it is not a second proof of this stage’s arithmetic-model comparison and is not an input of this stage. CP.0 is not an input either."
+    },
+    "PadicHodgeTheory:P8:local-rational": {
+      "action": "keep",
+      "reason": "Keep the rational relative period sheaves, local acyclicity, strictness and the local Poincaré lemmas, built on the integral pro-étale package imported from AI.3 (the accepted PadicHodgeTheory decomposition planned that package here and asked for its relocation; see owners). This early cut is also the owner of Scholze's primitive comparison theorem and its integral consequences (owner record), a target its text did not name, until the early substage P8:primitive that FIX-RT-AREA-padic-1 proposes is created after it and takes that record unchanged. P8:local-rational → AI.5 is added so that AI.5's global comparisons import it; P8:local-rational → CP.3 already exists. Its inputs (AI.3, AdicEtaleGeometry A1–A2, ClassicalAdicEtaleCohomology H0, PerfectoidSpaces P0, P3 and P7) are already its ancestors. It still uses no CP.3 or CP.4 input."
+    },
+    "PadicHodgeTheory:P8": {
+      "action": "keep",
+      "reason": "Keep the B_dR^+-local systems, filtered modules with integrable connection, de Rham lisse sheaves, the proper smooth comparison with coefficients, its relative form and the degree-one abelian comparison. Import the constant-coefficient de Rham comparison, its degeneration statements and its agreement with the period-sheaf construction from CP.3 (owner record), and the primitive comparison from P8:local-rational. P8 owns only the extension to de Rham lisse sheaves and to relative families, and it does not prove the agreement for L = Ẑ_p again."
     },
     "CohomologyComparisons:CP.0": {
       "action": "narrow",
-      "keeps": "Keep the comparison functors for formal schemes, special fibres, generic fibres and their sites; algebraic/formal proper-cohomology comparison, compatible geometric points and the O_C-versus-residue-field base-change comparison. Keep the normalization dictionary as actual identifications among imported maps, with theta/tilde-theta, xi/tilde-xi/mu, Witt reduction, Breuil–Kisin uniformizer and Frobenius/HT-sign conventions visible. Retain the geometric/cohomological commutativity proofs, Tate/Breuil–Kisin/filtration twist comparisons, and compatibility of scalar extension with semilinear linearization. All hypotheses and acceptance cases remain. Import the integral coefficient structures from AI.0:integral, the PD A_cris envelope/maps from CR.0, the rational period-ring structure maps from R06.1, and their coefficient-presentation comparison from AI.0:period-comparison, rather than constructing or proving those four packages again. The normalization dictionary is not an arbitrary package satisfying the desired comparison theorem.",
+      "keeps": "Keep the comparison functors for formal schemes, special fibres, generic fibres and their sites; algebraic/formal proper-cohomology comparison, compatible geometric points and the O_C-versus-residue-field base-change comparison. Keep the normalization dictionary as actual identifications among imported maps, with theta/tilde-theta, xi/tilde-xi/mu, the Witt reduction, arithmetic/geometric Frobenius and HT(chi_p) = +1 conventions visible. The Breuil–Kisin uniformizer normalization is supplied by none of the imported packages, and CP.0 continues to construct it: a uniformizer π of O_K with compatible p-power roots π♭ ∈ O_C♭, its Eisenstein polynomial E(T), the map S = W(k)[[T]] → A_inf that sends T to [π♭]^p and is the Frobenius on W(k) (BMS1 §4.4), and the map S → W(k) that sends T to 0 and is the Frobenius on W(k) (BMS1, Introduction); CP.5, which imports R07.4, compares it with R07.4's Kisin normalization. Retain the geometric/cohomological commutativity proofs, and the Tate/Breuil–Kisin/filtration twist comparisons and the compatibility of scalar extension with semilinear linearization on the compared cohomology and complexes, importing the coefficient-level comparisons (t versus mu, A_inf{1} versus Z_p(1), Frobenius-twisted scalar extension) from AI.0:integral and AI.0:period-comparison. All hypotheses and acceptance cases remain. Import the integral coefficient structures from AI.0:integral, the PD A_cris envelope and its universal-property maps from CR.0, the rational period-ring structure maps from R06.1, and their coefficient-presentation comparison from AI.0:period-comparison, rather than constructing or proving those four packages again. Import from AI.0 the coherence of W_r(O) (BMS1 Proposition 3.24, Lemmas 3.25–3.28, Corollary 3.29) and the §4.2 specialization objects (x, W̃ = colim A_inf/(x^{1/p^n}) → W(k) with kernel Q, A_inf,(p) a discrete valuation ring with A_inf → W(K♭) flat, and mu a unit in W(C♭)): the reviewed node CP.0/coherence-of-witt-vectors-of-perfectoid-integers and items (a), (b) and the mu-unit clause of (e) of CP.0/ainf-specialization-dictionary become aliases of AI.0 nodes. The normalization dictionary is not an arbitrary package satisfying the desired comparison theorem.",
       "suppliedBy": [
         "AInfCohomology:AI.0:integral",
         "CrystallineCohomology:CR.0",
         "PadicHodgeTheory:R06.1",
-        "AInfCohomology:AI.0:period-comparison"
+        "AInfCohomology:AI.0:period-comparison",
+        "AInfCohomology:AI.0"
       ],
-      "reason": "The flagged coefficient duplication is construction versus assembly, not grounds to remove CP.0’s geometric targets. Make the existing owner split enforceable and give all three recorded consumers CP.1, CP.2 and CP.3 direct links to each supplier. Preserve existing imports and reviewed dictionary nodes as provenance/import adapters; do not silently delete their hypotheses, proofs, tests or recorded gaps."
+      "reason": "The flagged coefficient duplication is construction versus assembly, not grounds to remove CP.0’s geometric targets. Make the existing owner split enforceable and give all three recorded stage consumers CP.1, CP.2 and CP.3 direct links to each coefficient supplier. At node level the reviewed decomposition also feeds the two CP.0 nodes into five CP.5 nodes. Those CP.5 nodes move to AI.2 and AI.5, and their CP.0 prerequisites are re-pointed to the new owners, so that no AI.2 or AI.5 node requires a CP.0 node: the coherence node and the §4.2 specialization objects go to AI.0; theta, xi, mu and the normalization of the Witt reduction go to AI.0:integral, which applies CR.0's map; B_crys^+ goes to R06.1. AI.0 is already upstream of AI.2, AI.5 and CP.0, so this needs no new link. Preserve existing imports and reviewed dictionary nodes as provenance/import adapters; do not silently delete their hypotheses, proofs, tests or recorded gaps."
     },
     "CohomologyComparisons:CP.5": {
       "action": "narrow",
-      "keeps": "Keep the actual geometric applications: every stated all-n torsion-length inequality, the mod-p dimension comparison, the supported direction of torsion-freeness, and the distinction between one-degree lattice inclusion and recovery requiring the exact additional adjacent-degree hypotheses. Keep the identifications of the actual etale/crystalline/A_inf realizations, integral reconstruction and canonicality claims only in their proved scope, semistable/model restrictions, and normalization comparisons with the R07 Fontaine–Laffaille/Breuil–Kisin objects and the R06.4 interface. Import the generic BMS §4.2 A_inf-module and complex specialization, finiteness/freeness and adjacent-degree base-change lemmas from AI.5 instead of reproving them. Preserve the reviewed source statements, proofs, acceptance examples and gap annotations as supplier records or aliases; retain the separate AI.2 BKF/Fargues classification at its existing owner. Do not upgrade a length inequality to a subquotient theorem, reverse the torsion-freeness implication, or remove degree i+1 from the recovery theorem.",
+      "keeps": "Keep the actual geometric applications: every stated all-n torsion-length inequality, the mod-p dimension comparison, the supported direction of torsion-freeness, and the distinction between one-degree lattice inclusion and recovery requiring the exact additional adjacent-degree hypotheses. Keep the geometric form of Lemma 4.18 (Remarks 14.4 and 14.7: for a fixed index, crystalline and de Rham torsion-freeness are equivalent, and the substitution rule in Theorems 14.5/14.6) and the length-monotonicity observation from the proof of Theorem 14.5(ii). Keep the identifications of the actual etale/crystalline/A_inf realizations, integral reconstruction and canonicality claims only in their proved scope, and the semistable/model restrictions, including the semistable branch: the Česnavičius–Koshikawa §§7–8 torsion inequalities with their log-de Rham/crystalline torsion assumptions and ramification-normalized length factors, and their functorial lattice theorem (a model-independent lattice only under those assumptions). For the small-weight Fontaine–Laffaille/Breuil–Kisin regimes keep the normalization comparisons with R07's classified integral objects: the Fontaine–Laffaille objects of R07.3 and the Breuil–Kisin modules of R07.4, including the comparison of CP.0's BMS uniformizer normalization with R07.4's. Import the structure theory of finitely presented A_inf-modules (Lemma 4.9, Proposition 4.13) from AI.2, the complex-level specialization, freeness and adjacent-degree base-change lemmas (Lemma 4.14 to Corollary 4.20, with Remark 4.21) from AI.5, and BMS1 Proposition 13.21 from CR.3:Frobenius-isogeny, instead of reproving them. Preserve the reviewed source statements, proofs, acceptance examples and gap annotations as supplier records or aliases; retain the separate AI.2 BKF/Fargues classification at its existing owner. Do not upgrade a length inequality to a subquotient theorem, reverse the torsion-freeness implication, or remove degree i+1 from the recovery theorem.",
       "suppliedBy": [
-        "AInfCohomology:AI.5"
+        "AInfCohomology:AI.5",
+        "AInfCohomology:AI.2"
       ],
-      "reason": "The integrated partial comparison decomposition already labels these generic §4.2 lemmas as AI.5 supplier material pending re-homing. Assign one construction owner without deleting the geometric §14 applications or changing the AI.2 classification. CP.6 is the only recorded consumer of CP.5 and receives the direct replacement AI.5 input."
+      "reason": "The integrated partial comparison decomposition tags these generic §4.2 lemmas as AI.5/AI.2 supplier material pending re-homing, with Proposition 4.13 at AI.2. Assign one construction owner to each part: the module structure theory to AI.2, whose Lemma 4.26 uses Proposition 4.13 (an AI.5 owner would close a node-level cycle AI.2 → AI.5 → AI.2, since AI.5 requires AI.2), and the complex-level lemmas to AI.5. The geometric §14 applications and the AI.2 classification stay where they are. CP.6 is the only recorded stage consumer of CP.5 and receives the direct replacement inputs AI.5 and AI.2. The first revision's 'R06.4 interface' is withdrawn: CP.5's text compares only with R07's objects, and R07.3 → CP.5 is added because its Fontaine–Laffaille comparison had no supplier path."
     },
     "CohomologyComparisons:CP.2": {
       "action": "keep",
-      "reason": "Retain rational crystalline assembly, section-dependent crystalline base change, Galois/Frobenius compatibility and admissibility consequences. Add CP.3 only for the later filtered comparison: the reviewed CP.2 proof explicitly uses the canonical B_dR^+ deformation and comparison agreement from CP.3. There is no reverse CP.2 -> CP.3 link and no claim that an unfiltered B_cris isomorphism alone identifies the Hodge filtration. Preserve the distinction between a fixed residue-field section and a genuinely canonical DVR specialization."
+      "reason": "Retain rational crystalline assembly, Galois/Frobenius compatibility, multiplication and the period invariants needed to identify D_cris (R06.2 owns the period-invariant and admissibility theorems). Import BMS1 Proposition 13.21, the section-dependent rational base change, from CR.3:Frobenius-isogeny, and keep its use in the comparison together with the canonical-section variant for a discretely valued base (Theorem 14.6). Own the good-reduction B_dR^+-lattice identification of BMS1 §13.4 (formerly recorded at CP.3; see owners): it uses Proposition 13.21, Theorem 14.5(i)'s B_crys comparison and AI.5's Fargues pair, none of which CP.3 may import. Add CP.3 for the filtered comparison: CP.2 uses CP.3's Theorem 13.1, finite freeness (Theorem 13.19) and the agreement under Remark 13.20 with Scholze's de Rham comparison. There is no reverse CP.2 -> CP.3 link and no claim that an unfiltered B_cris isomorphism alone identifies the Hodge filtration. Preserve the distinction between a fixed residue-field section and a genuinely canonical DVR specialization."
+    },
+    "CohomologyComparisons:CP.3": {
+      "action": "keep",
+      "reason": "Keep the canonical B_dR^+ deformation of BMS1 §13 (Theorem 13.1, finite freeness by Theorem 13.19, Remark 13.20) and its comparison with étale cohomology after inverting ξ. CP.3 is the single owner of the constant-coefficient de Rham comparison for proper smooth X over a discretely valued K: the filtered G_K-equivariant isomorphism H^i_ét(X_C, Q_p) ⊗ B_dR ≅ H^i_dR(X/K) ⊗_K B_dR, the Hodge–de Rham degeneration and the Hodge–Tate decomposition, and the agreement of the B_dR^+-deformation construction with the period-sheaf construction on P8:local-rational's sheaves; P8 imports it. The good-reduction identification of BMS1 §13.4 (Proposition 13.23, its degreewise form and the agreement with Theorem 14.5(i)) is CP.2's, so CP.3 has no CP.2, AI.5 or Proposition 13.21 input. CP.3 imports Scholze's primitive comparison theorem from P8:local-rational."
+    },
+    "CohomologyComparisons:CP.4": {
+      "action": "keep",
+      "reason": "Keep the B_st comparison for proper flat semistable formal O_K-models, its G_K, Frobenius, monodromy and filtration compatibilities and its transport to the admitted algebraic models. Import from CR.6 the relation N φ = p φ N and the change-of-uniformizer transformation (CR.6 owns their construction and computation); CP.4 transports them through B_st → B_dR and proves the independence of the descended comparison. Import from AI.6 the comparison of semistable A_inf cohomology with CP.3's canonical B_dR^+ deformation and use it for filtration compatibility. CP.4 is the single owner of the agreement of PR.8's log-prismatic comparisons with the semistable A_inf/Hyodo–Kato route on the standard semistable chart, in PR.8's Cartier-type, perfect-log-prism and Kummer-étale scope; PR.8 → CP.4 is added. R06.1 → CP.4 is recorded directly for B_st, its structures and the embedding B_st → B_dR for log p = 0, formerly among CP.0's ring maps; CP.4 keeps the uniformizer-dependent map and its correction."
+    },
+    "PrismaticCohomology:PR.4": {
+      "action": "keep",
+      "reason": "Keep the étale comparison and the p-adic Tate twists. PR.4 also owns the prismatic logarithm log_Δ: T_p((A/I)^×) → A{1} (Bhatt–Lurie, Absolute prismatic cohomology, §2, Construction 2.7.4) and the prismatic, crystalline, syntomic and étale first Chern classes of line bundles (ibid. §7 and §8.2), which its cited sources (Bhatt–Lurie §§7–8) cover but its text names only through 'arithmetic Chern/regulator consumers'. CP.6 imports them; PR.4 → CP.6 is added."
+    },
+    "PrismaticCohomology:PR.8": {
+      "action": "keep",
+      "reason": "Keep the log-prismatic site, its derived extension, descent, Nygaard filtration and realization comparisons in the exact ranges of Koshikawa and Koshikawa–Yao. PR.8 keeps its own log realizations on the standard semistable chart; their agreement with the AI.6/CR.6 semistable route is owned by CP.4 (PR.8 → CP.4), so PR.8 does not prove it again."
+    },
+    "PerfectoidQuotients:Q0:integral-algebra": {
+      "action": "keep",
+      "reason": "Keep the integral perfectoid rings in BS22's scope, the necessary A_inf/θ descriptions, the completion distinctions and the comparison lemmas needed when passing from a semiperfectoid quotient to a Tate ring. Import the general comparison between integral perfectoid rings and perfectoid Tate rings (BMS1 Lemma 3.20, with the ring of integral elements bounded in the converse, and Lemma 3.21, with π a nonzerodivisor) from PerfectoidSpaces P1, which plans them and is upstream (owner record)."
+    },
+    "CohomologyComparisons:CP.1": {
+      "action": "keep",
+      "reason": "Retain the O_C comparison agreement owned by CP.1. Application of BS22 Theorem 18.2 requires the symmetric monoidal functor and Hodge–Tate structure-map compatibility of Notation 18.1."
+    },
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3": {
+      "action": "keep",
+      "reason": "RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594. This stage uses only early R06.2 formalism, not the R06.3 general theorem."
+    },
+    "PadicHodgeTheory:R06.2": {
+      "action": "keep",
+      "reason": "Keep period functors, admissibility, filtered modules, weak admissibility, full faithfulness, the bigness criterion and the CF proposition interface. The phrase “prove weak admissibility versus admissibility” is divided here: the numerical/formal criteria remain, but essential surjectivity is proved at R06.3. Early consumers R07.3 and P7 import only this formalism. The nodes crystalline-equivalence-over-breve-base and fixed-bound-fiber-functor-triviality retain their R06.2-prefixed ids but are placed after the proof in R06.3; the latter still has its independent torsor-proof gap. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
+    },
+    "PadicHodgeTheory:R06.3": {
+      "action": "keep",
+      "reason": "Keep monodromy and the Weil–Deligne construction; also own both actual CF proof routes and the perfect-residue realization consumers moved from R06.2. The general route uses the early R07.3 FL theorem, the specialized fundamental lifting lemma and early R06.1/R06.2 period formalism; it does not use R07.4. The finite-Q_p Berger route retains its P7, PG.2 and RD.2 inputs. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
+    },
+    "PadicHodgeTheory:R06.4": {
+      "action": "narrow",
+      "keeps": "Keep the rational consequences and the import interface for R07.3’s rational FL theorem: its covariance, filtration-to-HT sign and Tate-shift dictionary, comparisons with classified integral objects, and the ordinary/crystalline criteria with their exact endpoint, dyadic and ramification restrictions. Retain existing node ids and acceptance cases as import adapters. Import Theorem 8.4 and the natural rational period-functor comparison from R07.3, instead of rebuilding the FL ring, comparison or rational admissibility proof here.",
+      "suppliedBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3"
+      ],
+      "reason": "RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594."
+    },
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4": {
+      "action": "narrow",
+      "keeps": "Keep the power-series and Eisenstein coefficient rings, finite-height Frobenius modules, descent, finite-flat/p-divisible classifications, full faithfulness and the specific Kisin comparison of the G_{K_∞}-realizations Hom_{𝔖,φ}(M,𝔖^ur)⊗Q_p and Hom_{Fil,φ,N}(D,B_st^+), for K/K_0 finite totally ramified with k perfect and the stated nonnegative filtration/height bounds. Preserve contravariance, the dimension/height conclusions and the existing dyadic/local restrictions of each classification theorem. In semistable-finite-height, obtain the general admissibility assertion by importing R06.3/colmez-fontaine-perfect-residue; retain the construction and comparison, without a second general CF proof.",
+      "suppliedBy": [
+        "PadicHodgeTheory:R06.3"
+      ],
+      "reason": "The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
     }
   },
   "links": [
@@ -159,61 +245,449 @@
     {
       "source": "AInfCohomology:AI.5",
       "target": "CohomologyComparisons:CP.5",
-      "reason": "Retain the supplier link for the generic A_inf torsion/specialization and adjacent-degree linear algebra. The geometric application and its exact hypotheses are not supplied merely by naming this link."
+      "reason": "Retain the supplier link for the complex-level A_inf specialization, freeness and adjacent-degree lemmas (BMS1 Lemma 4.14 to Corollary 4.20). The geometric application and its exact hypotheses are not supplied merely by naming this link."
     },
     {
       "source": "AInfCohomology:AI.5",
       "target": "CohomologyComparisons:CP.6",
-      "reason": "Direct replacement input from the unique owner of the generic A_inf torsion/specialization and adjacent-degree linear algebra. The geometric application and its exact hypotheses are not supplied merely by naming this link."
+      "reason": "Direct replacement input from the owner of the complex-level A_inf specialization, freeness and adjacent-degree lemmas. The geometric application and its exact hypotheses are not supplied merely by naming this link."
     },
     {
       "source": "CohomologyComparisons:CP.3",
       "target": "CohomologyComparisons:CP.2",
-      "reason": "New explicit input to the late filtered crystalline comparison: the reviewed CP.2 construction uses CP.3’s canonical B_dR^+ deformation/comparison and its agreement with de Rham realization. Keep the unfiltered crystalline construction distinct; do not add the reverse edge."
+      "reason": "Input to CP.2: Theorem 13.1, finite freeness (Theorem 13.19) and the agreement with Scholze's de Rham comparison under Remark 13.20, used for the B_dR^+-compatibility in Theorem 14.5(i) and the filtration in Theorem 14.6(i). The good-reduction identification of §13.4 is CP.2's own; CP.3 has no CP.2, AI.5 or Proposition 13.21 input. Keep the unfiltered crystalline construction distinct; do not add the reverse edge."
+    },
+    {
+      "source": "AInfCohomology:AI.2",
+      "target": "CohomologyComparisons:CP.5",
+      "reason": "Owner input: the structure theory of finitely presented A_inf-modules (BMS1 Lemma 4.9, Proposition 4.13) formerly recorded at CP.5. AI.2 already reaches CP.5 through AI.5; the link records the direct import."
+    },
+    {
+      "source": "AInfCohomology:AI.2",
+      "target": "CohomologyComparisons:CP.6",
+      "reason": "Direct replacement for CP.5's consumer CP.6 (§15 forwarding): the A_inf-module structure theory now owned by AI.2."
+    },
+    {
+      "source": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+      "target": "AInfCohomology:AI.5",
+      "reason": "BMS1 Theorem 14.3's BKF property uses Proposition 13.21 (via Corollary 4.20 and comparison (iii)); the proposition is owned by CR.3:Frobenius-isogeny."
+    },
+    {
+      "source": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+      "target": "CohomologyComparisons:CP.2",
+      "reason": "CP.2 imports Proposition 13.21 for its section-dependent base change and its canonical-section variant (Theorem 14.6(i)), and for the degreewise good-reduction identification."
+    },
+    {
+      "source": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+      "target": "CohomologyComparisons:CP.5",
+      "reason": "CP.5's lattice recovery over O_C uses Proposition 13.21 for the B_crys^+-freeness hypothesis of Corollary 4.20, as the reviewed decomposition's link records."
+    },
+    {
+      "source": "PadicHodgeTheory:P8:local-rational",
+      "target": "AInfCohomology:AI.5",
+      "reason": "AI.5's global μ-inverted étale comparison (BMS1 Theorem 5.7, used for Theorem 14.3(iv)) and the finiteness of H^i_ét(X, Z_p) needed by Corollary 4.20 import Scholze's primitive comparison and finiteness from P8:local-rational's early cut."
+    },
+    {
+      "source": "CohomologyComparisons:CP.3",
+      "target": "AInfCohomology:AI.6",
+      "reason": "AI.6 compares semistable A_inf cohomology base-changed to B_dR^+ with CP.3's canonical B_dR^+ deformation; it now owns that comparison and imports the deformation."
+    },
+    {
+      "source": "PrismaticCohomology:PR.8",
+      "target": "CohomologyComparisons:CP.4",
+      "reason": "CP.4 owns the agreement of PR.8's log-prismatic comparisons with the semistable A_inf/Hyodo–Kato route on the standard semistable chart, in PR.8's scope."
+    },
+    {
+      "source": "PrismaticCohomology:PR.4",
+      "target": "CohomologyComparisons:CP.6",
+      "reason": "CP.6 compares first Chern classes under the prismatic logarithm; PR.4 owns the prismatic logarithm and the first Chern classes (Bhatt–Lurie, Absolute prismatic cohomology §§2, 7–8)."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "CohomologyComparisons:CP.4",
+      "reason": "Direct import of B_st, its Frobenius/monodromy/Galois structure and the embedding B_st → B_dR (log p = 0), formerly listed among CP.0's ring maps. CP.4 keeps the uniformizer-dependent map and its correction."
+    },
+    {
+      "source": "CohomologyComparisons:CP.3",
+      "target": "CohomologyComparisons:CP.5",
+      "reason": "CP.5's lattice recovery over O_C uses Theorem 13.1's B_dR^+-lattice H^i_crys(X/B_dR^+) as the second member of Fargues' pair. The pair was already reachable through CP.3 → CP.2 → CP.5; this records the direct use."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "CohomologyComparisons:CP.5",
+      "reason": "CP.5's retained small-weight target compares its lattices with R07's Fontaine–Laffaille objects, which R07.3 constructs; R07.3 did not reach CP.5."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PadicHodgeTheory:R06.3",
+      "reason": "The general CF first proof uses FL Theorem 8.4 to construct an initial admissible filtration on each simple isocrystal (CF Proposition 6.2, author pp. 32–33). It imports R07.3/fl-admissibility without R06.4 or R07.4."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PadicHodgeTheory:R06.4",
+      "reason": "R06.4’s two rational FL theorem nodes are import adapters for R07.3/fl-admissibility and fl-period-comparison, with their sign dictionary and applications retained locally. Records the existing stage input explicitly."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PadicHodgeTheory:R06.5",
+      "reason": "Forward the rational FL supplier directly to the recorded consumer of narrowed R06.4; the geometric application continues to use R06.4’s convention and endpoint interfaces."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "reason": "R07.4/semistable-finite-height imports the actual perfect-residue CF theorem, not the R06.2 proposition or a finite-Q_p-only result; Kisin’s finite-height comparison remains local."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "AInfCohomology:AI.7",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "CohomologyComparisons:CP.5",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:R08.3",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:R08.4",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "PadicHodgeTheory:R06.4",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "The R06.2 interface records this essential-surjectivity consumer. Import the actual CF proof from R06.3, retaining R06.2 as the supplier of period-functor/filtered-module formalism."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "reason": "The R06.2 interface records this essential-surjectivity consumer. Import the actual CF proof from R06.3, retaining R06.2 as the supplier of period-functor/filtered-module formalism."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "LocalGaloisDeformationRings:R08.5",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PotentialModularityAndCompatibleSystems:R23.3",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "HeegnerPointEulerSystems:HE.3",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.2",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:R08.5",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "PrismaticCohomology:PR.7",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
     }
   ],
   "owners": [
     {
-      "target": "The O_C-specialized integral A_inf coefficients, theta/tilde-theta, xi/tilde-xi/mu, Witt reduction and Breuil–Kisin twist structures with their structural proofs; generic perfectoid/Witt carriers remain imported.",
+      "target": "The O_C-specialized integral A_inf coefficients and their structural proofs: ε and the change of ε, μ = [ε] − 1, ξ = μ/φ^{−1}(μ), ξ̃ = φ(ξ), θ and θ̃ = θ∘φ^{−1}; the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (an element of ker θ generates it if and only if its Witt coordinate r_1 (index 1, with r_0 the zeroth coordinate) is a unit, and generators are nonzerodivisors) and the theorem that ξ generates ker θ; the normalization of the Witt reduction (CR.0's map A_inf → W(k) kills μ and sends ξ and ξ̃ to p); the O_C instance of CR.0's regular-principal envelope; and the Breuil–Kisin twist structures. Generic perfectoid/Witt carriers remain imported.",
       "owner": "AInfCohomology:AI.0:integral",
       "formerly": [
-        "CohomologyComparisons:CP.0"
+        "CohomologyComparisons:CP.0",
+        "PadicHodgeTheory:R06.1"
       ]
     },
     {
-      "target": "The shared PD-envelope construction of A_cris, its source-qualified completion and canonical PD coefficient maps; this is not the derived-de-Rham or prismatic comparison theorem.",
+      "target": "The shared PD-envelope construction of A_cris on the pinned library carriers (PreTilt, WittVector, WittVector.fontaineTheta), its source-qualified completion and the maps given by its universal property, including θ_cris, the Witt reduction A_inf → W(k) built from WittVector.map and the induced A_cris → W(k); this is not the derived-de-Rham or prismatic comparison theorem.",
       "owner": "CrystallineCohomology:CR.0",
       "formerly": [
         "CohomologyComparisons:CP.0"
       ]
     },
     {
-      "target": "Rational period-ring constructions, their canonical structure maps, filtration/period-ring structures and period-ring-level arithmetic-model comparison, reusing the existing BDeRhamPlus/BDeRham carriers; this excludes the late comparison between coefficient presentations.",
+      "target": "Rational period-ring constructions, their canonical structure maps (A_inf → A_crys → B_crys^+ → B_dR^+, with the injectivity of A_crys → B_dR^+), the element t with t/ξ a unit, the ideals I^[r]A_inf = μ^r A_inf, the filtration/period-ring structures and the period-ring-level arithmetic-model comparison, reusing the existing BDeRhamPlus/BDeRham carriers, together with R06.1's classical generator [p♭] − p and its relation to ξ. This excludes the O_C special elements and the generator criterion (AI.0:integral) and the late comparison between coefficient presentations (AI.0:period-comparison).",
       "owner": "PadicHodgeTheory:R06.1",
       "formerly": [
         "CohomologyComparisons:CP.0"
       ]
     },
     {
-      "target": "Compatibility of the imported arithmetic/rational period-ring maps with the specified integral theta/PD/twist structures. This is not a second proof of R06.1’s period-ring-level arithmetic-model comparison, not the coefficient constructions themselves and not CP.0’s geometric/cohomological comparison diagrams.",
+      "target": "The comparison of AI.0's integral twist and Frobenius-twist normalizations with R06.1's rational rings: the Breuil–Kisin twist A_inf{1} and its étale realization Z_p(1) in B_dR^+ and B_crys, compared with Z_p t; the θ̃-specializations of A_inf and A_crys into the rational rings; and the Frobenius-twisted scalar-extension identities. It excludes what R06.1 owns (the structure maps, t, the ideals I^[r] and the arithmetic-model comparison), the coefficient constructions themselves and CP.0’s geometric/cohomological comparison diagrams.",
       "owner": "AInfCohomology:AI.0:period-comparison",
       "formerly": [
         "CohomologyComparisons:CP.0"
       ]
     },
     {
-      "target": "The generic BMS §4.2 A_inf-module/complex specialization, torsion-length, finite-presentation/freeness and adjacent-degree base-change lemmas already tagged AI.5 supplier material in the partial CP decomposition. This excludes AI.2’s separate BKF/Fargues classification and CP.5’s geometric §14 applications.",
+      "target": "Coherence of W_r(O) for the ring of integers O of a perfectoid field and the finite-presentation transfer lemmas (BMS1 Proposition 3.24, Lemmas 3.25–3.28, Corollary 3.29). The reviewed node CP.0/coherence-of-witt-vectors-of-perfectoid-integers becomes an alias of the AI.0 node, as the accepted FIX-RT-PAPER-BHATT-MORROW-SCHOLZE-18 routes it.",
+      "owner": "AInfCohomology:AI.0",
+      "formerly": [
+        "CohomologyComparisons:CP.0"
+      ]
+    },
+    {
+      "target": "The BMS1 §4.2 specialization objects for a perfectoid field K: the Teichmüller lift x of a nonzero noninvertible element of O♭ (a nonzerodivisor mapping to 0 in W(k)); W̃ = colim_n A_inf/(x^{1/p^n}), p-torsion-free with p-adic completion W(k), and Q = ker(W̃ → W(k)), an A_inf[1/p]-module (proofs of Lemmas 4.9(iii) and 4.16); A_inf,(p), a discrete valuation ring whose valuation is the index of the first nonzero Teichmüller coefficient, with p-adic completion W(K♭), so that A_inf → W(K♭) is flat (proof of Lemma 4.10 and the remark after Corollary 4.17); and, for K of characteristic 0 containing all p-power roots of unity, μ = [ε] − 1 a unit in W(K♭). Items (a), (b) and the μ-unit clause of (e) of CP.0/ainf-specialization-dictionary become aliases; the dictionary keeps only the identification of these imported maps.",
+      "owner": "AInfCohomology:AI.0",
+      "formerly": [
+        "CohomologyComparisons:CP.0"
+      ]
+    },
+    {
+      "target": "The structure theory of finitely presented A_inf-modules free after inverting p (BMS1 §4.2), with its exact hypotheses: Kedlaya's Lemma 4.6 (vector bundles on the punctured spectrum are free) with Lemmas 4.7–4.8; Lemma 4.9 (for M finitely presented with M[1/p] finite free: M is perfect, M_tor is killed by a power of p and is finitely presented and perfect, M has Tor-dimension at most 2 with Tor_2(M, W(k)) = 0, and Tor_i(M, W(k)) = 0 for i > 0 if M has no x-torsion); Lemma 4.10 with Remark 4.11; Corollary 4.12; and Proposition 4.13 (the functorial sequence 0 → M_tor → M → M_free → M̄ → 0 and the two freeness criteria, the second for K of characteristic 0). AI.2's Lemma 4.26 reduces to the finite free case by Proposition 4.13 and Remark 4.29 rests on Lemma 4.26, while AI.5 requires AI.2. The reviewed nodes CP.5/perfectness-and-tor-bounds-for-ainf-modules and CP.5/ainf-module-structure-theorem become aliases of the AI.2 nodes.",
+      "owner": "AInfCohomology:AI.2",
+      "formerly": [
+        "CohomologyComparisons:CP.5"
+      ]
+    },
+    {
+      "target": "The complex-level specialization lemmas of BMS1 §4.2 for A_inf = W(O_K♭), retaining their hypotheses. Lemma 4.14 concerns finitely presented W_n(O_K♭)-modules. Corollary 4.15 concerns finitely presented A_inf-modules M with M[1/p] free: the two Witt specializations have equal rank and length((M ⊗ W(k))/p^n) ≥ length((M ⊗ W(K♭))/p^n) for every n ≥ 1. Lemma 4.16 concerns C ∈ D(A_inf) with every H^j(C)[1/p] free, without requiring C perfect: H^i(C) ⊗ W(k) → H^i(C ⊗^L W(k)) is injective and becomes bijective after inverting p; absence of x-torsion in H^{i+1}(C) gives an integral bijection. Corollary 4.17 requires C perfect AND every H^j(C)[1/p] free: all cohomology is finitely presented; p-torsion-freeness of H^i(C ⊗^L W(k)) gives finite freeness of H^i(C); integral degreewise base change additionally requires H^{i+1}(C) ⊗ W(k) p-torsion-free. These statements hold for any perfectoid field K. Lemmas 4.18–4.19 and Corollary 4.20 additionally require characteristic 0 and all p-power roots of unity. Lemma 4.18 requires C perfect with all H^j(C)[1/p] free and equates p-torsion-freeness of the two derived specializations in the fixed degree. Lemma 4.19 requires M finitely presented, M[1/(pμ)] finite projective and M ⊗ B_crys^+ finite projective, and concludes M[1/p] finite free. Corollary 4.20 requires C perfect, all H^j(C)[1/(pμ)] free and all H^j(C ⊗^L B_crys^+) free; it gives finite presentation and rational freeness, with the same degree-i freeness and additional degree-(i+1) base-change conditions as Corollary 4.17. Remark 4.21 permits the corresponding de Rham torsion-freeness tests. The reviewed nodes CP.5/specialization-length-inequality, CP.5/witt-versus-tilt-specialization-inequality, CP.5/derived-to-degreewise-witt-specialization, CP.5/finite-presentation-and-freeness-criterion, CP.5/mu-inverted-freeness-criterion and the generic half of CP.5/crystalline-de-rham-torsionfreeness-equivalence become aliases of AI.5 nodes. AI.2 retains the module structure theory and BKF/Fargues classification. CP.5 retains the geometric §14 applications, including Remarks 14.4 and 14.7 and the length monotonicity in the proof of Theorem 14.5(ii).",
       "owner": "AInfCohomology:AI.5",
       "formerly": [
         "CohomologyComparisons:CP.5"
+      ]
+    },
+    {
+      "target": "BMS1 Proposition 13.21: for X proper smooth formal over O_C, Y = X_{O_C/p}, Ȳ = X_k and a fixed section k → O_C/p, the canonical φ-equivariant isomorphism H^i_crys(Y/A_crys)[1/p] ≅ H^i_crys(Ȳ/W(k)) ⊗_{W(k)} A_crys[1/p], hence finite freeness over A_crys[1/p]; with its inputs, the rational Frobenius isogeny for qcqs smooth O_C/p-schemes (reduced to smooth affine k-schemes, which need not be proper) and crystalline base change; and its application with the canonical section k → O_K/p → O_C/p for X over O_K, K discretely valued (proof of Theorem 14.6(i)). The reviewed node CP.2/rational-crystalline-base-change-along-residue-section becomes an alias; the distinction between a fixed section and the canonical one is kept.",
+      "owner": "CrystallineCohomology:CR.3:Frobenius-isogeny",
+      "formerly": [
+        "CohomologyComparisons:CP.2"
+      ]
+    },
+    {
+      "target": "The good-reduction B_dR^+-lattice identification of BMS1 §13.4 and its compatibilities: Proposition 13.23 (RΓ_crys(X_{O/p}/A_crys) ⊗_{A_crys} B_dR^+ ≃ RΓ_crys(X/B_dR^+)), its degreewise form H^i_crys(X_{O/p}/A_crys) ⊗ B_dR^+ ≅ H^i_crys(X/B_dR^+), which uses Proposition 13.21's rational freeness, the agreement of Theorem 14.5(i)'s B_crys comparison with Theorem 13.1 under it, and its compatibility with Fargues' pair attached to H^i_Ainf(X). The reviewed node CP.3/good-reduction-bdr-lattice-identification becomes an alias of a CP.2 node. CP.3 keeps Theorem 13.1, Theorem 13.19 and Remark 13.20.",
+      "owner": "CohomologyComparisons:CP.2",
+      "formerly": [
+        "CohomologyComparisons:CP.3"
+      ]
+    },
+    {
+      "target": "Integral pro-étale sheaves O_X^+, Ô_X^+, Ô^+_{X♭} and θ for every locally noetherian adic space X over Spa(Q_p, Z_p), using the corrected covers and affinoid perfectoid basis. Scholze 2013 Definitions 4.1 and 4.3, Lemmas 4.2 and 4.10, Proposition 4.8, Definition 5.9 and Lemma 5.10 supply the completed integral structure sheaf, tilt and their almost acyclicity. Distinguish Scholze's classical Witt sheaf A_inf,X^cl = W(Ô^+_{X♭}) (Definition 6.1, Theorem 6.5) from BMS1's A_inf,X = derived p-completion of that Witt sheaf (Definition 5.4); do not identify these globally without proving a completion comparison. AI.3 owns both integral constructions and their affinoid-perfectoid evaluations. P8:local-rational owns the rational period sheaves and imports this integral package.",
+      "owner": "AInfCohomology:AI.3",
+      "formerly": [
+        "PadicHodgeTheory:P8:local-rational"
+      ]
+    },
+    {
+      "target": "The constant-coefficient de Rham comparison for proper smooth X over a complete discretely valued K with perfect residue field: the filtered G_K-equivariant isomorphism H^i_ét(X_C, Q_p) ⊗ B_dR ≅ H^i_dR(X/K) ⊗_K B_dR, the Hodge–de Rham degeneration and the Hodge–Tate decomposition, and the agreement of the B_dR^+-deformation construction (BMS1 Theorem 13.1 with Remark 13.20) with the period-sheaf construction (Scholze 2013 Theorem 8.4 for L = Ẑ_p, on P8:local-rational's sheaves and Poincaré lemma). P8 owns only the extension to de Rham lisse sheaves and to relative families, citing this for L = Ẑ_p.",
+      "owner": "CohomologyComparisons:CP.3",
+      "formerly": [
+        "PadicHodgeTheory:P8"
+      ]
+    },
+    {
+      "target": "Scholze's primitive comparison theorem and its integral consequences, in the numbering of the version on Scholze's web page: Theorem 4.9 (connected affinoid noetherian adic spaces over Spa(Q_p, Z_p) are K(π,1) for p-torsion coefficients), Lemma 4.12, Lemmas 5.3–5.8 and Theorem 5.1 (for X proper smooth over Spa(K, K^+) with K an algebraically closed complete extension of Q_p, K^+ an open bounded valuation subring, and L an F_p-local system: H^i(X_ét, L) is finite, H^i(X_ét, L) ⊗ K^{+a}/p ≅ H^i(X_ét, L ⊗ O_X^{+a}/p), and H^i(X_ét, L) = 0 for i > 2 dim X), the relative form Corollary 5.11, the finiteness of H^i_ét(X_C, Z_p) for proper smooth rigid X over a discretely valued field (Theorem 1.1, recalled as BMS1's Theorem 5.1), and the almost A_inf and B_dR^+ forms RΓ_ét(X, Z_p) ⊗ A_inf^a ≅ RΓ(X_proét, A_inf,X^a) and RΓ_ét(X, Z_p) ⊗ B_dR^+ ≅ RΓ_proét(X, B_dR,X^+) from the first steps of the proof of Theorem 8.4. Its inputs are Lemma 2.12 (PerfectoidSpaces P0), Lemma 5.2 (already in P8:local-rational), Definition 5.9 and Lemma 5.10 (AI.3), almost purity and tilde-limits (PerfectoidSpaces P3 and P7), AdicEtaleGeometry A1–A2 and ClassicalAdicEtaleCohomology H0, all ancestors of P8:local-rational. BMS1 Theorem 5.7 (the cone killed by W(m♭), with the derived A_inf,X) is proved where AI.5's global μ-inverted comparison uses it, importing this; CP.3 and P8 import it too. When the early substage P8:primitive proposed by FIX-RT-AREA-padic-1 exists, it takes this record unchanged. For finite free lisse Z_p-sheaves, the coefficient version of the first comparison in Theorem 8.4, pp. 48–49, is also part of this early package: establish the mod-p^n comparisons and the inverse-limit conditions of Lemma 3.18 before taking the almost A_inf and B_dR^+ limits. The constant-coefficient derived formulation above does not by itself prove this coefficient extension.",
+      "owner": "PadicHodgeTheory:P8:local-rational",
+      "formerly": [
+        "PadicHodgeTheory:P8"
+      ]
+    },
+    {
+      "target": "The comparison of semistable A_inf cohomology, and of its log-crystalline A_crys specialization, base-changed to B_dR^+, with the canonical B_dR^+ deformation of the smooth generic fibre (Česnavičius–Koshikawa); CP.4 imports it for its filtration compatibility.",
+      "owner": "AInfCohomology:AI.6",
+      "formerly": [
+        "CohomologyComparisons:CP.4"
+      ]
+    },
+    {
+      "target": "The relation N φ = p φ N on Hyodo–Kato cohomology and the change-of-uniformizer transformation of the Hyodo–Kato-to-log-de-Rham map, with the logarithm, exponential and sign normalization; CP.4 transports them through B_st → B_dR and proves the independence of the descended comparison.",
+      "owner": "CrystallineCohomology:CR.6",
+      "formerly": [
+        "CohomologyComparisons:CP.4"
+      ]
+    },
+    {
+      "target": "Agreement of the log-prismatic comparisons of PR.8 with the semistable A_inf/Hyodo–Kato comparisons on the standard semistable chart, in PR.8's Cartier-type, perfect-log-prism and Kummer-étale scope; PR.8 keeps its own realizations.",
+      "owner": "CohomologyComparisons:CP.4",
+      "formerly": [
+        "PrismaticCohomology:PR.8"
+      ]
+    },
+    {
+      "target": "The comparison of derived de Rham cohomology of a quotient by a regular sequence, or of an lci morphism of flat Z/p^n-algebras, with the classical PD envelope (Bhatt, p-adic derived de Rham cohomology, Lemma 3.39, Corollary 3.40 and Theorem 3.27), with its flatness and regularity hypotheses; CR.0 supplies the classical envelopes and Lemmas 3.37–3.38. This is the decision of the confirmed RT-AREA-padic-2/36.",
+      "owner": "DerivedDeRhamCohomology:DD.4",
+      "formerly": [
+        "CrystallineCohomology:CR.0"
+      ]
+    },
+    {
+      "target": "For a prism (A, I), with quotient R = A/I, the prismatic logarithm log_Δ: T_p(R^×) → A{1} (Bhatt–Lurie, Absolute prismatic cohomology, Construction 2.7.4, pp. 34–35), together with the prismatic line-bundle class (§7.3), the syntomic first Chern class (Construction 7.5.1, pp. 181–182), its crystalline specialization over F_p (Construction 7.5.3), its étale generic-fibre specialization after inverting p (Construction 7.5.4), and their compatibility (Remark 7.5.5). These are the classes CP.6 compares; §8.2 supplies the more general characteristic-class context.",
+      "owner": "PrismaticCohomology:PR.4",
+      "formerly": [
+        "CohomologyComparisons:CP.6"
+      ]
+    },
+    {
+      "target": "The comparison of integral perfectoid rings with perfectoid Tate rings and their rings of integral elements (BMS1 Lemma 3.20, with the ring of integral elements bounded in the converse, and Lemma 3.21, with π a nonzerodivisor); Q0:integral-algebra keeps its quotient applications.",
+      "owner": "PerfectoidSpaces:P1",
+      "formerly": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ]
+    },
+    {
+      "target": "Agreement of the A_inf specialization maps over O_C with the prismatic comparisons, using BS22 Notation 18.1 and Theorem 18.2, pp. 122–124. The uniqueness concerns endomorphisms of the prismatic cohomology functor, regarded as a symmetric monoidal functor on p-completely smooth R-algebras over a perfect prism (A, I), R = A/I, equipped with and compatible with its natural Hodge–Tate structure map; it is not unrestricted uniqueness of arbitrary comparison maps. CP.1 must verify these structures for its O_C comparison before applying the theorem, with polynomial/torus tests. PR.6 owns this generic uniqueness theorem. AI.7 retains only agreement of its S-valued Breuil–Kisin specializations and cannot apply this perfect-prism theorem to a nonperfect S-prism without another argument.",
+      "owner": "CohomologyComparisons:CP.1",
+      "formerly": [
+        "AInfCohomology:AI.7"
+      ]
+    },
+    {
+      "target": "BS22 Construction 7.6 with its Hodge–Tate filtration, and Lemma 7.7 to Proposition 7.10 (discreteness, the weakly initial prism with idempotent retract, the regular quotient, and the quasiregular semiperfectoid initial prism); Q2 keeps its universal-perfectoidization applications and their import obligations.",
+      "owner": "PrismaticCohomology:PR.2",
+      "formerly": [
+        "PerfectoidQuotients:Q2"
+      ]
+    },
+    {
+      "target": "Fontaine–Laffaille Theorem 8.4(i)–(ii): rational admissibility for filtration length < p and the natural contravariant rational period-functor comparison, over K = W(k)[1/p] for perfect k, all primes p. RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594.",
+      "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "formerly": [
+        "PadicHodgeTheory:R06.4"
+      ]
+    },
+    {
+      "target": "General Colmez–Fontaine weakly admissible ⇒ admissible, including the semistable/crystalline equivalence for complete discretely valued perfect-residue bases. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained.",
+      "owner": "PadicHodgeTheory:R06.3",
+      "formerly": [
+        "PadicHodgeTheory:R06.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
       ]
     }
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-RS-01",
-    "date": "2026-09-23",
-    "notes": "The proposal keeps all seven roadmaps and 61 stages, narrows only CP.0 (it imports four coefficient packages) and CP.5 (it imports the generic BMS §4.2 specialization package from AI.5), and names five owners. The report resolves all 95 unordered evidence pairs in one table, as construction-versus-comparison or construction-versus-application relations. Spot checks of the stage texts support this: Q2 imports PR.2 derived prismatic extension, PR.0 compares its envelopes with CR.0 PD envelopes, AI.1 exports Lη to CR.4, and CR.3 keeps only its corrected tower application. Both narrowed layers forward to all consumers. With the twelve accepted restructurings applied, all 16 new links apply and none closes a cycle; the one new reachability, CP.3 -> CP.2, is justified in the report. See REV-RS-01.md.",
-    "corrections": []
-  }
+    "reviewer": "independent-review-REV-FIX-RT-RS-01~2",
+    "date": "2026-10-18",
+    "notes": "Independent review of FIX-RT-RS-01~2 by Codex, session codex-7AYw97, issue #8932, following REV-FIX-RT-RS-01. Accepted the ownership repair for RT-RS-01/30: early R07.3 owns rational Fontaine–Laffaille Theorem 8.4 and its period comparison; R06.4 imports it. R06.3 owns the original perfect-residue Colmez–Fontaine proof; R07.4 imports it and retains Kisin’s finite-height construction/comparison. R06.2 remains the proposition and early-formalism interface. Independently checked the FL/CF public proof passages, lifting hypotheses, source scopes, pinned carriers, consumer forwarding and dependency graphs. The other 31 finding dispositions remain as independently reviewed on 10 October; their 22 layer decisions, 21 owner records and 31 links are unchanged. Corrected stale proof-supplier references, made the sign dictionary’s admissibility/range assumptions explicit in its statement, and completed the CF filtration locators. All checkers pass. See REV-FIX-RT-RS-01~2.md for per-finding evidence and limitations. This accepts the fix, preserving P7’s 25 proof gaps, the existing VB-stage cycle and the external-packet/document synchronization obligations; no stage or Lean proof is certified complete.",
+    "checked": [
+      {
+        "item": "RT-RS-01/30: Fontaine–Laffaille",
+        "result": "FL Theorem 8.4(i)–(ii), pp. 595–596, permits all primes and arbitrary perfect k at e=1, Fil^j D=D and Fil^{j+p}D=0. The normalized functor is contravariant and dual to covariant V_cris. Proposition 7.17, p. 594, does not prove the all-stable-lattice essential-image claim."
+      },
+      {
+        "item": "RT-RS-01/30: general Colmez–Fontaine",
+        "result": "CF author Theorem A, p. 2; Proposition 2.1/Corollary 2.6, pp. 12–17; Propositions 3.2/3.5, pp. 19/22; Proposition 4.5, pp. 24–25; Propositions 5.1–5.3/5.6–5.8, pp. 26–31; §6.1, pp. 31–33. The first proof uses early FL and covers perfect residue fields without [K:Q_p]<∞."
+      },
+      {
+        "item": "Kisin comparison retained",
+        "result": "Brinon–Conrad Proposition 11.3.3 and Remark 11.3.4, pp. 182–183, distinguish the finite-height comparison map from its general admissibility consequence. R07.4 keeps the former with its scope."
+      },
+      {
+        "item": "Prior dispositions",
+        "result": "Compared every raw finding with its verification and the previous independent review. All 22 pre-fix layer records, 21 owners and 31 links remain equal as JSON values; /25, /26 and /29 remain rejected."
+      },
+      {
+        "item": "Carriers and current upstream",
+        "result": "Re-read pinned Isocrystal/IsocrystalHom, WittVector.map, FontaineTheta, BDeRham and the presentation cotangent map; checked AUDIT-37/38 and coverage bookkeeping. Current AdicSpaces/LocalGaloisGroups and cyclotomic character work remain imported. No new baseline declaration is claimed."
+      },
+      {
+        "item": "Graph and forwarding",
+        "result": "Read-only full assembly: 5,054 edge-incident vertices, 15,132 edges, acyclic; all 50 RS links carry application evidence, none skipped. All 6 R06.4 and 12 R07.4 direct consumers have direct supplier edges. Raw proposal union: 5,103 vertices, 15,359 edges, acyclic."
+      },
+      {
+        "item": "Projected draft dependencies",
+        "result": "P7 already has VB3:general-BC → VB4 → R06.2 → VB3:general-BC before the fix. No new cyclic edge or R06.4→R07.3 / R06.3→R06.2 return path. The early external FL closure also imports R07.2/dieudonne-ring, in addition to R06.1/R06.2 and libraries; it imports no later proof stage."
+      },
+      {
+        "item": "API and tests",
+        "result": "All 300 pre-fix node ids, existing API items and definition tests are preserved. The 2 added key theorem targets have source-specific proof sketches and acceptance cases; no new definition requires an API. Final totals: 302 nodes, 640 API items, 373 definition tests."
+      },
+      {
+        "item": "Validation",
+        "result": "check_blueprint at the pinned declaration index: 0 errors, 0 warnings. check_restructure, intake check-files and git diff --check pass. No Lean deliverable is changed; no compilation was run."
+      }
+    ]
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-RS-01",
+      "date": "2026-09-23",
+      "notes": "The proposal keeps all seven roadmaps and 61 stages, narrows only CP.0 (it imports four coefficient packages) and CP.5 (it imports the generic BMS §4.2 specialization package from AI.5), and names five owners. The report resolves all 95 unordered evidence pairs in one table, as construction-versus-comparison or construction-versus-application relations. Spot checks of the stage texts support this: Q2 imports PR.2 derived prismatic extension, PR.0 compares its envelopes with CR.0 PD envelopes, AI.1 exports Lη to CR.4, and CR.3 keeps only its corrected tower application. Both narrowed layers forward to all consumers. With the twelve accepted restructurings applied, all 16 new links apply and none closes a cycle; the one new reachability, CP.3 -> CP.2, is justified in the report. See REV-RS-01.md.",
+      "corrections": []
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-RS-01",
+      "date": "2026-10-10",
+      "notes": "Independent review of FIX-RT-RS-01 following REV-RS-01 and the verification REV-RT-RS-01. Checked all 32 findings, public sources, pinned declarations and dependency graphs. Corrected the index-1 Witt criterion, μ non-generator test, rational-freeness hypotheses, classical versus derived A_inf sheaves, coefficient primitive comparison, quotient-unit logarithm and Hodge–Tate-compatible uniqueness. Finding /30 remains unresolved: neither Fontaine–Laffaille proof ownership across R07.3/R06.4 nor the general Colmez–Fontaine supplier for R07.4 is settled. Both are now explicitly referred to the R07 family without the contradictory unconditional R06.4 assignment. See REV-FIX-RT-RS-01.md for the exact remaining decisions. This review does not certify completion of the partial P7 blueprint."
+    }
+  ],
+  "fix": {
+    "job": "FIX-RT-RS-01~2",
+    "issue": 8931,
+    "agent": "Codex",
+    "session": "codex-4EkcIG",
+    "date": "2026-10-17",
+    "findings": [
+      "RT-RS-01/30"
+    ],
+    "scope": "Resolve both remaining supplier choices and forward their consumers, following REV-FIX-RT-RS-01. Prior independent review verdicts are retained; independent review of this round is required. No complete blueprint closure or Lean implementation is claimed."
+  },
+  "fixHistory": [
+    {
+      "job": "FIX-RT-RS-01",
+      "issue": 5705,
+      "agent": "Claude",
+      "session": "claude-jBSCUj",
+      "date": "2026-10-07",
+      "base": "8cb560da44fe48f6a3f02ee08b0755504a83efe8",
+      "findings": [
+        "RT-RS-01/1",
+        "RT-RS-01/2",
+        "RT-RS-01/3",
+        "RT-RS-01/4",
+        "RT-RS-01/5",
+        "RT-RS-01/6",
+        "RT-RS-01/7",
+        "RT-RS-01/8",
+        "RT-RS-01/9",
+        "RT-RS-01/10",
+        "RT-RS-01/11",
+        "RT-RS-01/12",
+        "RT-RS-01/13",
+        "RT-RS-01/14",
+        "RT-RS-01/15",
+        "RT-RS-01/16",
+        "RT-RS-01/17",
+        "RT-RS-01/18",
+        "RT-RS-01/19",
+        "RT-RS-01/20",
+        "RT-RS-01/21",
+        "RT-RS-01/22",
+        "RT-RS-01/23",
+        "RT-RS-01/24",
+        "RT-RS-01/27",
+        "RT-RS-01/28",
+        "RT-RS-01/30",
+        "RT-RS-01/31",
+        "RT-RS-01/32"
+      ],
+      "scope": "Ownership, forwarding links and narrowed-layer contracts. No blueprint closure or implementation is claimed; node-level work is handed to the member blueprint jobs in RT-RS-01.fixes.md."
+    }
+  ]
 }

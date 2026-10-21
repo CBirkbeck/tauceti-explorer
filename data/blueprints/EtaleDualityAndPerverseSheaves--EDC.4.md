@@ -1,0 +1,1125 @@
+# Roadmap: weak Lefschetz, projective bundles and blow-ups
+
+**Summary.** Weak Lefschetz for bounded constructible complexes on a separated finite-type scheme, for any closed subscheme with affine complement and every finite, integral and rational coefficient regime, with its compact-support, supported (Gysin), integral and Galois-equivariant forms; Deligne's smooth projective statement and its Gysin, integral and ample-divisor refinements as corollaries; weak Lefschetz for generic affine hyperplane sections; the cohomology of smooth complete intersections, also in families; the ring, pushforward, pairing, flag-bundle, section-class and Frobenius parts of the projective-bundle formula; the sheaf-level blow-up decomposition with its retraction and weights; split injectivity of pullback with supports; and the vanishing and restricted subspaces of a smooth divisor. Twelve EDC.6 coefficient and comparison interfaces that accepted packets import by id are kept at the end.
+
+The [packet](../packets/EtaleDualityAndPerverseSheaves--EDC.4.json) records prerequisites and the intended API. The [suggested file](../suggested/EtaleDualityAndPerverseSheaves--EDC.4.lean) contains only real-bodied definitions over native linear maps and numbers, linear-algebra milestones and discriminating examples, plus the three pinned affine-geometry declarations. The full geometric and enhanced-category targets, declaration names, hypotheses and tests are specified here.
+
+## Scope and ownership
+
+This document owns EDC.4. The twelve EDC.6 interfaces specify the coefficient and comparison inputs used by the separate EDC.6 roadmap. EDC.5, EDC.7 and EDC.8 have separate roadmaps; their perverse-sheaf, decomposition and trace theories are imported here. Each target is stated with the hypotheses its consumers need; the source special cases serve as corollaries and checks.
+
+- EtaleCohomologyFoundations §§0.7–0.11, F.1–F.6 supplies six operations, localization, compact supports, support-sensitive Artin vanishing, finiteness, generic local acyclicity, normalized adic realization, duality, purity, traces and Gysin maps. Its §0.9 and §F.7 supply the projective-bundle formula and the global ordinary/compact blow-up decomposition with explicit exceptional Gysin columns and inverse signs, and weak Lefschetz for smooth ample hyperplane sections with constant coefficients; its §F.8 supplies the field perverse t-structures and affine vanishing of perverse objects. These are imported; the residue here is weak Lefschetz for complexes in all coefficient regimes and its refinements.
+- LefschetzPencilsAndVanishingCycles (open pull request #873) supplies the Veronese embeddings (§3.4), the identification of the total space of a pencil with the blow-up along its axis (§3.3), the cohomology of that total space (§4.5), generic hyperplane restriction (§7b.7) and rational weak Lefschetz under a dual support bound (§7b.9). The axis blow-up target of earlier rounds is retired to it.
+- DeligneWeightsAndPurity (open pull request #929) §9.3 states, for smooth hyperplane sections and rational coefficients, the transpose relation of Gysin and restriction and the rational weak Lefschetz used for hard Lefschetz; it is the agreement check for the Gysin form and the vanishing and restricted subspaces.
+- EnhancedDerivedSheaves §§0.1–0.4 supplies enhanced unbounded derived categories, coefficient tensor/Hom, finite Tor amplitude and coherent functors. Its §E4.5 supplies the enhanced coefficient-system limit and all higher coherence. The system definition below imports that limit rather than rebuilding it from triangulated categories.
+- ClassicalAdicEtaleCohomology §§8.2, 11.1 supplies the proper/nonproper algebraic-to-adic comparisons in their different coefficient ranges; its §§5.4–5.6 supply general-base nearby cycles and universal local acyclicity over general bases.
+- AdicCoefficientsAndComparisons (open pull request #965) Layer L3 states ECD 27.1–27.4; the retained diamond interfaces cite its atlas nodes. The strong exceptional-pullback transport that L3 does not state is a gap of the accepted EDC.6 packet.
+- ComplexComparisonPartII §§C−1.1, C6.0–C6.6 supplies analytification, constructible topological coefficients, finite and adic ordinary/compact Artin comparison, and proper/lower-shriek relative comparison on ctf inputs. Its §C5.4 supplies the integral analytic Chern/exponential identification. Only additional nonproper Rf\_\* exchange is requested.
+- SchemeAndStackFoundations §§4.11, 5.4–5.5 supplies blow-ups, projective bundles in the lines convention, Chow Chern classes and normal bundles, using StableReduction Layer 4 for the Rees-algebra blow-up. The exceptional-divisor identification, affine complements of ample sections, complete-intersection families, generic affine Bertini smoothness and the ample-line bridge are the geometric requests below.
+- The accepted EDC.5 packet supplies the perverse t-structure, perverse Artin vanishing, shifted local systems, quasi-finite exactness and the integral perversity p⁺ that the weak Lefschetz family now uses, and the perverse interfaces of the retained EDC.6 material. EDC.3/chern-classes and EDC.3/cycle-class-map remain the suppliers for higher étale Chern classes and descent of cycle classes to Chow groups.
+
+## Conventions
+
+The pinned baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The reviewed EDC.4 library audit is AUDIT-18 (not built). Current Tau Ceti and the current upstream roadmaps were checked separately for duplication; an upstream roadmap contract is not claimed as compiled library code.
+
+Unless a target explicitly gives a broader finite-coefficient scope, schemes in the geometric targets are separated and of finite type over a specified field k. The suggested file retains only native linear-algebra models and the three pinned affine-geometry declarations; it does not construct geometric cohomology carriers.
+
+Integral coefficients O are the ring of integers of a finite extension E/ℚ\_ℓ, with a chosen uniformizer λ; ℓ is prime and invertible in k. Finite coefficients have a positive annihilator invertible in k. Perverse coefficient regimes are finite ℓ-power torsion fields or DVR quotients, O, or finite E. The intended IntegralDatum and RationalDatum interfaces record these data in the reader; they are not admitted Lean carriers.
+
+Cohomological shifts satisfy H^q(K\[n]) = H^{q+n}(K). Geometric Frobenius acts on E(1) by q inverse (EtaleCohomologyFoundations §F.10.2b). Point and hyperplane trace classes have degree +1 (§0.11).
+
+Perverse t-structures are the middle perversity of EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure (EtaleCohomologyFoundations §F.8 upstream); pD^{≥a} := pD^{≥0}\[−a]. For O-coefficients p⁺ is the dual perversity of EDC.5/integral-dual-perversity. For field coefficients K ∈ pD^{≥a} is equivalent to the dual support bound dim Supp ℋ^q(DK) ≤ −a − q used in Weil II 6.2.11.
+
+Projective bundles parametrize lines in V, with O(1) dual to the tautological line. Thus the Chern relation is the sum of c\_r(V) xi^(m+1-r), with plus signs. Exceptional self-intersection is multiplication by minus zeta.
+
+Every geometric declaration is a planning target with implementationStatus unchecked. Intended declaration names below specify the future API. The suggested file contains only real-bodied definitions on existing Mathlib types, native linear-algebra milestones and examples. Its admitted theorem bodies check elaboration only; the enhanced categories and geometric constructions remain reader targets.
+
+Derived tensor, internal Hom and finite-level coefficient reduction are the enhanced operations of EnhancedDerivedSheaves §0.3 in the ambient unbounded coefficient category. Tor amplitude is tested there against every degree-zero coefficient sheaf. A bounded restriction is obtained from an actual bounded-constructible witness.
+
+The intended ambient coefficient category is the unbounded enhanced derived category of the appropriate module sheaves, supplied by EnhancedDerivedSheaves §§0.1–0.4. Finite torsion coefficients use small-étale module sheaves and their t-exact pro-étale comparison. Integral and rational coefficients use completed coefficient sheaves O\_X and E\_X on the pro-étale site (Bhatt–Scholze 6.8.1–6.8.2, p.58; 6.8.15, p.62; EtaleCohomologyFoundations §F.4). Ordinary étale constant-O sheaves do not model this category. Constructibility and completeness are conditions imported with the adic formalism.
+
+## Exact supplier contracts
+
+| Supplier and revision | Contract consumed |
+| --- | --- |
+| tauceti:TauCetiRoadmap/EtaleCohomologyFoundations — open pull request TauCetiProject/TauCetiRoadmap#938, read at head c4ee54f4b3b32173235ff75fa9db736daecb66fe on 2026-10-17 | §0.7 ClassicalAlgebraic.supportLocalization: open–closed localization triangles, sections with supports; §0.8 ClassicalAlgebraic.properSupports; §F.2.5 VanishingCycles.compactSupportCohomology: compactification-defined Rf\_!, proper agreement, compact-support localization; §0.9 ClassicalAlgebraic.cycleClasses: Kummer c₁, localized cycle classes of regular immersions, projective bundle formula with hyperplane-power summands, P^m calculation; §0.10 ClassicalAlgebraic.smoothBoundaryPurity: smooth-pair purity i^!Λ ≅ Λ\_Z(−c)\[−2c]; §0.11 ClassicalAlgebraic.smoothTrace: normalized smooth trace and its composition law; §F.0.3 VanishingCycles.etaleTateTwists; §F.0.4 VanishingCycles.universalHomeomorphismEtaleEquivalence: Tate twists; topological invariance; §F.1 VanishingCycles.constructibleDerivedCategory: D^b\_c, D^b\_ctf, Tor amplitude; §§F.2.1, F.2.7 VanishingCycles.properBaseChange, etaleKunnethCompactSupport: proper base change; projection formula; §F.2.3 VanishingCycles.localAcyclicity: local and universal local acyclicity; §F.3 VanishingCycles.affineArtinVanishing, etaleFiniteness, lisseDirectImageTransport: Artin vanishing with support bound; finiteness; lissity of smooth proper direct images; §§F.4.1–F.4.6 VanishingCycles.normalizedAdicSystems … adicFunctoriality: normalized ℓ-adic systems, realization, pro-étale comparison, integral finiteness and derived reduction, rational and finite-E realization, Galois action; §F.5 VanishingCycles.etaleExceptionalInverseImage, etaleVerdierDuality: exceptional inverse image, Verdier duality, biduality, adic duality; §F.6 VanishingCycles.smoothPurity, smoothPairGysin, etaleGaussBonnet: smooth purity, Poincaré duality, Gysin maps with projection and self-intersection formulas, Gauss–Bonnet; §F.7 VanishingCycles.etaleBlowup, etaleWeakLefschetz: adic projective bundle formula, blow-up decomposition of RΓ and RΓ\_c, weak Lefschetz for smooth ample hyperplane sections; §F.8 VanishingCycles.fieldPerverseTStructure, intermediateExtension: field perverse t-structures for finite and ℓ-adic coefficients; affine vanishing H^i(P) = 0 for i &gt; 0 and H^i\_c(P) = 0 for i &lt; 0, both integral hearts, torsion-free H⁰\_c for the p⁺-heart; §F.10.2b VanishingCycles.frobeniusCohomology: scheme Frobenius is geometric Frobenius; Frobenius on Tate twists; §F.2.2 VanishingCycles.smoothBaseChange; §F.3 VanishingCycles.genericLocalAcyclicity: smooth base change; generic universal local acyclicity with base change over a dense open |
+| tauceti:TauCetiRoadmap/EnhancedDerivedSheaves — open pull request TauCetiProject/TauCetiRoadmap#908, read at head b3ea60e3efc3bd4a0b541fb54469dcbf88772064 on 2026-10-17; the atlas nodes EnhancedDerivedSheaves:E4/\* cited as prerequisites are its atlas form | §0.3 ClassicalDerived.tensorHom, inverseLimits, derivedCompletion: enhanced tensor and internal Hom, finite Tor amplitude, derived limits and Milnor sequences, derived completion; §0.4 ClassicalDerived.functorCoherence (coefficientComparison): coherent derived functors, exchange maps and coefficient change; §E4.5: coefficient-system limit in enhanced stable categories, coCartesian sections, all higher coherences and reconstruction on replete topoi |
+| tauceti:TauCetiRoadmap/ClassicalAdicEtaleCohomology — open pull request TauCetiProject/TauCetiRoadmap#875, read at head e36805f4bbf96f644034fbc220ab0607a15ace83 on 2026-10-17; the atlas nodes ClassicalAdicEtaleCohomology:H5/\* cited as prerequisites are its atlas form | §8.2: proper algebraic comparison; §11.1: nonproper algebraic comparison (Huber 3.8.1); §5.4: oriented products of étale topoi and general-base nearby cycles; Orgogozo constructibility and base change after modification in the stated proper finite-presentation scope |
+| tauceti:TauCetiRoadmap/SchemeAndStackFoundations — merged on TauCetiRoadmap main (README last changed at d2081398eedfbd4153d3067aa98a21b5a5270957); the atlas stages SchemeAndStackFoundations:SF.\* are its atlas form | §4.11: modifications, strict transforms, blow-ups (with StableReduction Layer 4); §5.4: projective bundles in the lines convention, Chern classes on Chow groups; §5.5: normal cones and normal bundles of regular immersions |
+| tauceti:TauCetiRoadmap/ComplexComparisonPartII — open pull request TauCetiProject/TauCetiRoadmap#848, read at head d6cb0fc8f2ef059d222be2503f8e99285293111a on 2026-10-17 | §C−1.1: analytification and its underlying topological carrier; §C5.4: integral analytic Chern class, exponential cocycle and topological c₁ identification; §§C6.0–C6.4: stratified topology, constructible topological coefficients, finite ordinary and compact Artin comparisons; §C6.5: proper Rf\_\* and separated Rf\_! exchange on the ctf domain; §C6.6: normalized ℤ\_ℓ/ℚ\_ℓ topological realization and Artin comparison |
+| tauceti:TauCetiRoadmap/LefschetzPencilsAndVanishingCycles — open pull request TauCetiProject/TauCetiRoadmap#873, read at head 4c7deab75898820bcc1fedd1db4df1010cfc2303 on 2026-10-17 | §2.3: cohomology of smooth quadrics (agreement check for complete intersections in families); §3.3: the total space of a transverse-axis pencil is the blow-up along A ∩ X; §3.4: LefschetzPencil.veronese, veronese\_isClosedImmersion, veronese\_hyperplane; §4.5: cohomology of the total space of a pencil, with restriction and Gysin formulas; hypersurfaces outside the middle degree; §7b.7: InvariantCycles.genericHyperplaneRestriction (generic universal local acyclicity of the hyperplane incidence family, ℚ̄\_ℓ); §7b.9: InvariantCycles.dualSupportAffineVanishing and weak Lefschetz under a support bound (ℚ\_ℓ) |
+| tauceti:TauCetiRoadmap/DeligneWeightsAndPurity — open pull request TauCetiProject/TauCetiRoadmap#929, read at head 5f713c436ee303ceb25938d815e236b1a2c3d09a on 2026-10-17 | §9.3(a),(c): Gysin map as transpose of restriction, i\_\* ∘ i^\* = L\_η, rational weak Lefschetz and its Gysin form for smooth hyperplane sections |
+| tauceti:TauCetiRoadmap/AdicCoefficientsAndComparisons — open pull request TauCetiProject/TauCetiRoadmap#965, read at head 4a7b4d83e2622df066e2a883525bb755bce6b115 on 2026-10-17; the atlas nodes AdicCoefficientsAndComparisons:L2/\*, L3/\*, L4/\*, L6/\* cited as prerequisites are its atlas form | Layer L3: ECD 27.1–27.4: tensor and pullback compatibility, full faithfulness, internal-Hom and pushforward right adjoints, proper-support comparison; Layers L2, L4, L6: qcqs compactification and support extension, DVR proper-support comparison, constructible direct-image comparison |
+
+The remaining named atlas prerequisites are listed at each target. Their exact fine nodes are used wherever available; geometric stage requests are spelled out below.
+
+- `mathlib:AlgebraicGeometry.isClosedImmersion_iff_isAffineHom` (`Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean`): A morphism is a closed immersion iff it is affine and surjective on sections over affine opens; used to see that a closed subscheme of an affine scheme maps to it by an affine morphism.
+- `mathlib:AlgebraicGeometry.isAffine_of_isAffineHom` (`Mathlib/AlgebraicGeometry/Morphisms/Affine.lean`): Given an affine morphism f : X → Y and an affine Y, X is affine. For the Lefschetz complement, first express U as a closed subscheme of the affine projective basic open; this lemma does not assert that arbitrary open subschemes are affine.
+- `mathlib:AlgebraicGeometry.Proj.basicOpenIsoSpec` (`Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Basic.lean`): For a homogeneous element of positive degree, the native basic open D\_+(f) is isomorphic to Spec of the degree-zero localization. With the graded projective-space bridge this gives the affine hyperplane complement; it does not supply that geometric bridge by itself.
+
+## How to read the build
+
+Begin with affine vanishing and compact-support vanishing on affine schemes, which turn perverse amplitude into vanishing ranges. The weak Lefschetz theorem for complexes follows from the localization sequence; its Gysin, integral and ample-divisor forms are corollaries, and the generic affine form reduces to it on projective space after generic base change. Ample-divisor chains yield complete-intersection cohomology, also in families. In parallel, the projective-bundle ring, pushforward, flag-bundle and section-class calculations support the sheaf-level blow-up decomposition and its support retractions. Vanishing and restricted spaces then use the actual adjoint restriction/Gysin maps. The retained EDC.6 interfaces start with the enhanced normalized-system category, then its realization and duality, scalar extension and analytic orientation; diamond comparisons come last and assert only right-adjoint recovery.
+
+## Layer EDC.4: weak Lefschetz, projective bundles and blow-ups
+
+<a id="edc-4-affine-vanishing-hypercohomology"></a>
+
+### Artin vanishing for constructible complexes on affine schemes
+
+Let k be a separably closed field, n ≥ 1 invertible in k, Λ a noetherian ring with nΛ = 0, and U an affine scheme of finite type over k. (a) Imported, not planned here: for every constructible sheaf F of Λ-modules on U\_ét, H^q(U, F) = 0 for q &gt; dim Supp F (Artin's affine vanishing with the support-sensitive bound; EtaleCohomologyFoundations §F.3, VanishingCycles.affineArtinVanishing). (b) Let K ∈ D^b\_c(U, Λ) and let d\_q ∈ ℤ ∪ {−∞} satisfy dim Supp ℋ^q(K) ≤ d\_q for every q (dim ∅ = −∞). Then H^m(U, K) = 0 for every m &gt; max\_q (q + d\_q). (c) In particular, if dim Supp ℋ^q(K) ≤ −q for all q, that is K ∈ pD^{≤0}(U), then H^m(U, K) = 0 for m &gt; 0 (for perverse K this is the statement of EtaleCohomologyFoundations §F.8, imported); and H^m(U, K) = 0 for m &gt; dim U + max{q : ℋ^q(K) ≠ 0}. (d) The same bounds hold for K ∈ D^b\_c(U, O\_E) and D^b\_c(U, E) (E/ℚ\_ℓ finite, ℓ invertible in k). (e) Universal homeomorphisms: the bounds (a)–(d) hold for every affine scheme U′ with a universal homeomorphism U′ → U onto an affine U of finite type over k, supports being measured in |U′| = |U|. In particular they hold when k is perfect of characteristic p and U′ is an affine perfect k-scheme perfectly of finite presentation, for example the perfection of an affine k-scheme of finite type. Parts (b)–(e) are the complex, adic and perfect forms that the upstream section does not state.
+
+k separably closed; n invertible in k; Λ noetherian with nΛ = 0 (for (a) and (b)).
+
+U affine of finite type over k; affineness is essential: H²(P¹, Λ(1)) = Λ although dim P¹ = 1.
+
+For O\_E and E coefficients use EtaleCohomologyFoundations §§F.4.1–F.4.5: normalized ℓ-adic systems with cohomological and Tor intervals uniform in the level, their realization, and finite E/ℚ\_ℓ through O\_E lattices. O\_E-coefficients are regarded as ℤ\_ℓ-coefficients with an O\_E-action along the finite free ℤ\_ℓ → O\_E; this changes neither the cohomology groups, nor the supports, nor the perversity conditions, nor the maps, and a finitely generated O\_E-module is O\_E-torsion-free exactly when it is ℤ\_ℓ-torsion-free.
+
+For (e): U′ → U a universal homeomorphism with U affine of finite type over k; in the perfect case k is perfect of characteristic p and U′ is affine, perfect and perfectly of finite presentation.
+
+**Proof plan.**
+
+1. (a) is EtaleCohomologyFoundations §F.3 (VanishingCycles.affineArtinVanishing), which states the constructible bound q &gt; dim Supp F for prime-to-characteristic torsion coefficients; it is the statement of SGA 4 XIV Théorème 3.1 and Corollaire 3.2, restated as BBD Corollaire 4.1.4.
+2. (b) Use the hypercohomology spectral sequence E₂^{p,q} = H^p(U, ℋ^q K) ⇒ H^{p+q}(U, K), which converges because K is bounded. By (a), E₂^{p,q} = 0 for p &gt; d\_q, so every term with p + q = m vanishes when m &gt; q + d\_q for all q.
+3. (c) is (b) with d\_q = −q, respectively d\_q = dim U.
+4. (d) For O = ℤ\_ℓ, apply (b) to each level ℤ/ℓ^n of the normalized system (EtaleCohomologyFoundations §F.4.1). The universal-coefficient sequence puts the support of ℋ^q(K\_n) inside the supports of ℋ^q(K) and ℋ^{q+1}(K), and q + d\_{q+1} &lt; (q+1) + d\_{q+1}, so the levels satisfy the same bound max\_q(q + d\_q). Pass to the realization: §F.4.2 identifies RΓ of the realization with Rlim of the finite levels; the groups H^{m−1}(U, K\_n) are finite (§F.3), so the Milnor lim¹ term vanishes and H^m(U, K) = 0 above the bound. For O = O\_E restrict scalars to ℤ\_ℓ; rational coefficients follow by inverting ℓ (§F.4.5). The bound is imposed only on nonzero ordinary cohomology sheaves.
+5. (e) A universal homeomorphism induces an equivalence of étale sites transporting sheaves, supports and cohomology (EtaleCohomologyFoundations §F.0.4, VanishingCycles.universalHomeomorphismEtaleEquivalence; for perfections Zhu, Remark A.4 and Proposition A.5). An affine perfect k-scheme perfectly of finite presentation is the perfection of a k-scheme of finite presentation (Zhu, Definition A.13 and Proposition A.15), and that model is affine because affineness passes between a scheme and its perfection (Zhu, Lemma A.7(6)); apply (a)–(d) to the model.
+
+**Checks.**
+
+- U = 𝔸¹\_k, F constructible: H^q(𝔸¹, F) = 0 for q ≥ 2; the bound is sharp: for n &gt; 1, H¹(𝔾\_m, ℤ/n) ≅ ℤ/n(−1) ≠ 0.
+- K = i\_{x\*}Λ\[−q] for a closed point x: d\_q = 0, and H^m(U, K) = 0 for m ≠ q, as (b) predicts.
+- Non-example: U = P¹ is not affine and H²(P¹, Λ(1)) ≅ Λ, so affineness cannot be dropped.
+- Perfect case: over an algebraically closed k of characteristic p, the perfection Spec k\[t^{1/p^∞}] of 𝔸¹ is not of finite type, yet it has H^q = 0 for q ≥ 2 with constructible coefficients, exactly as 𝔸¹ by (e).
+
+*Needs:* the exact upstream contracts cited in the proof plan.
+
+*Source:* [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §4, (4.1.6), p. 218. Deligne's proof of weak Lefschetz rests on the cohomological dimension of affine varieties (SGA 4 XIV 3.2).
+
+*Source:* [SGA 4, Exposé XIV: Théorème de finitude pour un morphisme propre; dimension cohomologique des schémas algébriques affines](https://www.normalesup.org/~forgogozo/SGA4/14/14.pdf), XIV, Théorème 3.1 and Corollaire 3.2, LNM 305 pp. 159–160. Théorème 3.1 gives the affine bound in terms of support dimension; Corollaire 3.2 gives cd X ≤ dim X over a separably closed field. The retyped edition retains margin pagination.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.3, VanishingCycles.affineArtinVanishing (README at head c4ee54f). States affine Artin vanishing for prime-to-characteristic torsion sheaves on affine finite-type schemes over a separably closed field, with the sharper bound by the dimension of the support for constructible sheaves; imported as part (a).
+
+*Source:* [Affine Grassmannians and the geometric Satake in mixed characteristic](https://arxiv.org/pdf/1407.8519v3), Appendix A.1.2, Remark A.4, Proposition A.5 and Lemma A.7(6), pp. 45–47; A.2.1, Definition A.13 and Proposition A.15, pp. 49–50 (arXiv v3). The perfection map is a universal homeomorphism inducing an equivalence of étale sites; affineness passes between a scheme and its perfection; a perfect space perfectly of finite presentation has a finitely presented model. These give part (e).
+
+*Intended declaration names:* `TauCeti.EtaleDuality.affine_vanishing_hypercohomology`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/affine-vanishing-hypercohomology`.
+
+<a id="edc-4-compact-support-vanishing-smooth-affine"></a>
+
+### Compact-support vanishing on affine schemes and its smooth lisse case
+
+Let k be a separably closed field, U an affine scheme of finite type over k and a ∈ ℤ, with coefficients as in the conventions (Λ finite with invertible annihilator, O = O\_E, or E). (a) Imported, not planned here: H^i\_c(U, P) = 0 for i &lt; 0 for every perverse P on U; for O this holds in the p-heart and in the p⁺-heart (EtaleCohomologyFoundations §F.8). (b) If K ∈ pD^{≥a}(U), then H^i\_c(U, K) = 0 for i &lt; a. For field coefficients (a finite field of characteristic ℓ, or E) the condition K ∈ pD^{≥a} is the dual support bound dim Supp ℋ^q(D\_U K) ≤ −a − q for every q, the form used in Weil II 6.2.11 and in LefschetzPencilsAndVanishingCycles §7b.9 (InvariantCycles.dualSupportAffineVanishing, stated there for ℚ\_ℓ on hyperplane complements and imported). (c) If Λ = O and K ∈ p⁺D^{≥a}(U), then H^i\_c(U, K) = 0 for i &lt; a and H^a\_c(U, K) is a torsion-free O-module. (d) Smooth case: if U is smooth of pure dimension d and L is a locally constant constructible sheaf of Λ-modules (Λ finite), or a locally free lisse O- or E-sheaf, then L ∈ pD^{≥d}(U) and H^i\_c(U, L) = 0 for i &lt; d; for a locally free lisse O-sheaf also L ∈ p⁺D^{≥d}(U), so H^d\_c(U, L) is torsion-free.
+
+k separably closed; U affine of finite type over k. Affineness is essential: H⁰\_c(P¹, Λ) = Λ ≠ 0 although Λ\[1] is perverse on P¹.
+
+Coefficient regimes: Λ a finite ring whose annihilator is invertible in k; O = O\_E for a finite extension E/ℚ\_ℓ with ℓ invertible in k; or E. Perverse t-structures are the middle perversity of EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure and, for O and E, of EDC.5/adic-perverse-t-structures; for O the dual perversity p⁺ is that of EDC.5/integral-dual-perversity. These agree with VanishingCycles.fieldPerverseTStructure of EtaleCohomologyFoundations §F.8. O\_E-coefficients are regarded as ℤ\_ℓ-coefficients with an O\_E-action along the finite free ℤ\_ℓ → O\_E; this changes neither the cohomology groups, nor the supports, nor the perversity conditions, nor the maps, and a finitely generated O\_E-module is O\_E-torsion-free exactly when it is ℤ\_ℓ-torsion-free.
+
+For the duality steps, D\_U = RHom(−, a^!Λ) for a : U → Spec k is the dualizing functor of EtaleCohomologyFoundations §F.5; biduality holds on D^b\_c for finite fields, DVR quotients O/λ^m, O and E. A finite ring Λ is reduced to self-injective ℤ/ℓ^m-coefficients by restriction of scalars, as in EDC.5/perverse-artin-vanishing.
+
+**Proof plan.**
+
+1. (a) is EtaleCohomologyFoundations §F.8 for finite and rational coefficients and both integral hearts; in the atlas it is the compact-support half of EtaleDualityAndPerverseSheaves:EDC.5/perverse-artin-vanishing (BBD 4.1.1–4.1.2 with duality).
+2. (b) Induct on the perverse amplitude of the bounded K. The triangle pτ^{≤b}K → K → pτ^{≥b+1}K and the long exact sequence of RΓ\_c(U, −) reduce the claim to a single shifted perverse object P\[−b] with b ≥ a, and H^i\_c(U, P\[−b]) = H^{i−b}\_c(U, P) vanishes for i &lt; b by (a), in particular for i &lt; a. For field coefficients D\_U exchanges pD^{≥a} and pD^{≤−a} (EDC.5/perverse-verdier-self-duality), and pD^{≤−a} is the support condition dim Supp ℋ^q ≤ −a − q (EDC.5/middle-perverse-t-structure); this gives the dual support form.
+3. (c) For P in the p⁺-heart, D\_U P lies in the p-heart (EDC.5/integral-dual-perversity), so H^m(U, D\_U P) = 0 for m &gt; 0 by perverse Artin vanishing (EDC.5/perverse-artin-vanishing). Duality for U → Spec k gives RΓ\_c(U, P) ≅ RHom\_O(RΓ(U, D\_U P), O); as O has global dimension one, H^i\_c(U, P) = 0 for i &lt; 0 and H^0\_c(U, P) = Hom\_O(H^0(U, D\_U P), O) is torsion-free. The truncation argument of (b) for p⁺ then gives H^i\_c(U, K) = 0 for i &lt; a and H^a\_c(U, K) ≅ H^0\_c(U, p⁺H^a(K)), which is torsion-free. EtaleCohomologyFoundations §F.8 states the same two facts for the hearts.
+4. (d) For a locally constant constructible L on smooth U of pure dimension d, L\[d] is perverse (EDC.5/shifted-local-systems-perverse, using smooth purity i\_x^!L ≅ i\_x^\*L(−c)\[−2c]), so L ∈ pD^{≥d} and (b) applies. For a locally free lisse O-sheaf, D\_U(L\[d]) = L^∨(d)\[d] is again a shifted locally free lisse sheaf, hence p-perverse, so L\[d] lies in the p⁺-heart as well and (c) applies.
+5. Cross-check with Deligne's route (Weil II 4.1.6): for field coefficients and lisse L, Poincaré duality gives H^i\_c(U, L) ≅ H^{2d−i}(U, L^∨(d))^∨, which vanishes for 2d − i &gt; d by Artin vanishing (EDC.4/affine-vanishing-hypercohomology (a)). The residue-field dévissage of the fourth round remains a valid alternative for locally constant sheaves over self-injective finite rings; the perverse argument above makes it unnecessary.
+
+**Checks.**
+
+- U = 𝔸^d: H^i\_c(𝔸^d, Λ) = 0 for i ≠ 2d, in particular for i &lt; d.
+- U = 𝔾\_m (d = 1): H⁰\_c(𝔾\_m, Λ) = 0 while H¹\_c(𝔾\_m, Λ) = Λ ≠ 0 for nonzero Λ — the bound i &lt; d is sharp.
+- Non-example: U = P¹ is not affine and H⁰\_c(P¹, Λ) = Λ ≠ 0 although d = 1.
+- A complex that is not a shifted local system: on U = 𝔸¹ with j : 𝔾\_m → 𝔸¹, K = j\_!Λ\[1] is perverse; H^i\_c(𝔸¹, K) = H^{i+1}\_c(𝔾\_m, Λ) vanishes for i &lt; 0, and H⁰\_c(𝔸¹, K) ≅ Λ, so (b) is sharp for a = 0.
+- The p⁺ hypothesis in (c) is needed: on U = Spec k with O-coefficients, the p-perverse torsion object O/λ has H⁰\_c = O/λ, which is torsion; its dual (O/λ)\[−1] lies in the p⁺-heart and has H⁰\_c = 0 and torsion H¹\_c = O/λ, so torsion-freeness is asserted in degree a only.
+
+*Needs:* `EDC.4/affine-vanishing-hypercohomology`, `EDC.5/perverse-artin-vanishing`, `EDC.5/shifted-local-systems-perverse`, `EDC.5/integral-dual-perversity`, `EDC.5/perverse-verdier-self-duality`, `EDC.5/middle-perverse-t-structure`, `EDC.5/adic-perverse-t-structures`.
+
+*Source:* [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §4, (4.1.6), p. 219; Proposition (6.2.11) and the first paragraph of its proof, pp. 249–250. In (4.1.6) Deligne deduces the vanishing of H^i\_c(X − Y) for i ≤ n from affine vanishing and Poincaré duality on the smooth affine complement; in (6.2.11) he obtains the same vanishing for a complex whose dual satisfies a support bound, by duality and Artin vanishing.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.8, VanishingCycles.fieldPerverseTStructure (affine vanishing clause), with §F.5 (README at head c4ee54f). For affine X over a separably closed field and finite or rational coefficients, perverse objects have no compactly supported cohomology in negative degrees; for integral coefficients both hearts have this property and H⁰\_c is torsion-free for the p⁺-heart. Imported as part (a); §F.5 supplies the dualizing functor.
+
+*Source:* [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), §7b.9, Lemma (affine vanishing from a dual support bound), InvariantCycles.dualSupportAffineVanishing (README at head 4c7deab). States H^i\_c(A, K) = 0 for i ≤ n on a hyperplane complement A of a projective X, for ℚ\_ℓ-complexes whose dual satisfies the shifted support bound; this is the rational dual-support form of (b), imported.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.compact_support_vanishing_smooth_affine`, `TauCeti.EtaleDuality.compact_support_vanishing_of_perverse_amplitude`, `TauCeti.EtaleDuality.compact_support_torsionFree_of_pPlus`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/compact-support-vanishing-smooth-affine`.
+
+<a id="edc-4-weak-lefschetz"></a>
+
+### The weak Lefschetz theorem for complexes
+
+Let k be a separably closed field, X a separated scheme of finite type over k, i : Y → X a closed subscheme whose complement j : U → X is affine, n ∈ ℤ, and K ∈ D^b\_c(X, Λ) for a coefficient regime of the conventions (Λ finite with invertible annihilator, O = O\_E, or E). (a) If j^\*K ∈ pD^{≥n+1}(U), the restriction H^q\_c(X, K) → H^q\_c(Y, i^\*K) is bijective for q &lt; n and injective for q = n; when X is proper these are the ordinary groups H^q(X, K) → H^q(Y, i^\*K). (b) Dually, if j^\*K ∈ pD^{≤n+1}(U), the forgetful map H^q\_Y(X, K) → H^q(X, K) is bijective for q &gt; n + 2 and surjective for q = n + 2. (c) If Λ = O and j^\*K ∈ p⁺D^{≥n+1}(U), the cokernel of H^n\_c(X, K) → H^n\_c(Y, i^\*K) is a torsion-free O-module. (d) If X, Y and K come from X₀, Y₀ and K₀ over a subfield k₀ with k = k₀^sep, the maps of (a)–(c) are Gal(k/k₀)-equivariant; over k₀ = 𝔽\_q they commute with the geometric Frobenius. (e) Classical case: let X be smooth projective of pure dimension n + 1, Y = X ∩ H for a hyperplane H of a projective embedding containing no irreducible component of X (Y need not be smooth), and L a locally constant constructible Λ-sheaf (Λ finite) or a locally free lisse O- or E-sheaf. Then L ∈ pD^{≥n+1}(X), so H^q(X, L) → H^q(Y, i^\*L) is bijective for q &lt; n and injective for q = n. Imported, not planned here: for a smooth ample hyperplane section and constant coefficients this is VanishingCycles.etaleWeakLefschetz of EtaleCohomologyFoundations §F.7, and for ℚ\_ℓ-complexes on a projective X with Y a hyperplane section, (a) under the equivalent dual support bound is LefschetzPencilsAndVanishingCycles §7b.9. This node adds the finite and integral coefficient regimes, arbitrary closed subschemes with affine complement in a separated X, the compact-support and supported forms (a)–(c) and the equivariance (d).
+
+k separably closed; X separated of finite type over k; U = X − Y affine. The affineness of U is the only property of Y that is used; for a hyperplane section of a projective X it holds because U is closed in P^N − H ≅ 𝔸^N.
+
+Coefficient regimes: Λ a finite ring whose annihilator is invertible in k; O = O\_E for a finite extension E/ℚ\_ℓ with ℓ invertible in k; or E. Perverse t-structures are the middle perversity of EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure and, for O and E, of EDC.5/adic-perverse-t-structures; for O the dual perversity p⁺ is that of EDC.5/integral-dual-perversity. These agree with VanishingCycles.fieldPerverseTStructure of EtaleCohomologyFoundations §F.8. O\_E-coefficients are regarded as ℤ\_ℓ-coefficients with an O\_E-action along the finite free ℤ\_ℓ → O\_E; this changes neither the cohomology groups, nor the supports, nor the perversity conditions, nor the maps, and a finitely generated O\_E-module is O\_E-torsion-free exactly when it is ℤ\_ℓ-torsion-free.
+
+For field coefficients K ∈ pD^{≥n+1} is equivalent to the dual support bound dim Supp ℋ^q(DK) ≤ −n − 1 − q of Weil II 6.2.11 and LefschetzPencilsAndVanishingCycles §7b.9.
+
+This theorem is distinct from hard Lefschetz (DeligneWeightsAndPurity:DWP.9) and makes no claim about the nondegeneracy of the intersection form on the vanishing part (EDC.4/vanishing-and-restriction-subspaces).
+
+For (d), K₀ is a bounded constructible complex on X₀ whose pullback is K; the Frobenius conventions are those of EtaleCohomologyFoundations §F.10.2b.
+
+**Proof plan.**
+
+1. Affineness in the classical case: U = X − Y → P^N − H is a closed immersion, hence an affine morphism (mathlib:AlgebraicGeometry.isClosedImmersion\_iff\_isAffineHom), into the affine scheme P^N − H = D\_+(h) ≅ Spec of a degree-zero localization (mathlib:AlgebraicGeometry.Proj.basicOpenIsoSpec); so U is affine (mathlib:AlgebraicGeometry.isAffine\_of\_isAffineHom).
+2. (a) The localization triangle j\_!j^\*K → K → i\_\*i^\*K (EtaleCohomologyFoundations §0.7, ClassicalAlgebraic.supportLocalization) and compact supports (§§0.8, F.2.5) give the exact sequence … → H^q\_c(U, j^\*K) → H^q\_c(X, K) → H^q\_c(Y, i^\*K) → H^{q+1}\_c(U, j^\*K) → …. By EDC.4/compact-support-vanishing-smooth-affine (b), H^q\_c(U, j^\*K) = 0 for q &lt; n + 1. Hence restriction is injective for q ≤ n and surjective for q ≤ n − 1. For proper X, compact and ordinary cohomology agree on X and on the closed Y.
+3. (b) The triangle i\_\*i^!K → K → Rj\_\*j^\*K gives … → H^{q−1}(U, j^\*K) → H^q\_Y(X, K) → H^q(X, K) → H^q(U, j^\*K) → …. Perverse Artin vanishing on the affine U (EDC.5/perverse-artin-vanishing) gives H^m(U, j^\*K) = 0 for m &gt; n + 1, hence surjectivity for q ≥ n + 2 and injectivity for q ≥ n + 3.
+4. (c) In the sequence of (a), the cokernel of H^n\_c(X, K) → H^n\_c(Y, i^\*K) injects into H^{n+1}\_c(U, j^\*K), which is torsion-free by EDC.4/compact-support-vanishing-smooth-affine (c).
+5. (d) All maps are induced by morphisms of schemes and complexes defined over k₀, hence commute with the Galois action (EtaleCohomologyFoundations §F.4.6, VanishingCycles.adicFunctoriality, and §F.10.2b, VanishingCycles.frobeniusCohomology).
+6. (e) L\[n+1] is perverse on the smooth X (EDC.5/shifted-local-systems-perverse), so L ∈ pD^{≥n+1}(X), and j^\* is t-exact; apply (a) with X proper.
+
+**Checks.**
+
+- X = P^{n+1}, Y = P^n a hyperplane: i^\* : H^q(P^{n+1}, Λ) → H^q(P^n, Λ) is an isomorphism for q ≤ 2n (the P^m calculation of EtaleCohomologyFoundations §0.9), consistent with the theorem.
+- X = P¹ × P¹ ⊂ P³ (n + 1 = 2), Y a smooth conic: i^\* is injective on H¹ = 0 and an isomorphism on H⁰; on H² (outside the range) the map Λ(−1)² → Λ(−1) is not injective, so the range q ≤ n is sharp.
+- n + 1 = 1 (X a smooth projective curve, Y a finite set of points): H⁰(X) → H⁰(Y) is injective.
+- Agreement with the upstream statement: for Y smooth and L = Λ constant, the conclusion is that of EtaleCohomologyFoundations §F.7 (VanishingCycles.etaleWeakLefschetz), whose plane-cubic check H¹(P²) = 0 → H¹(C) = Λ² is injective and not surjective.
+- Singular ambient space: for the projective cone X ⊂ P³ over a smooth conic (a quadric surface with one singular point, a local complete intersection), Λ\_X\[2] is perverse, so restriction to a hyperplane section Y missing the vertex is bijective on H⁰ and injective on H¹; smoothness of X is not used.
+- (b) in the smooth case: for X = P^{n+1}, Y = P^n and K = Λ, purity identifies H^q\_Y(X, Λ) with H^{q−2}(P^n, Λ(−1)), and H^{q−2}(P^n)(−1) → H^q(P^{n+1}) is bijective for q &gt; n + 2 and surjective for q = n + 2.
+
+*Planet:* Weak Lefschetz theorem.
+
+*Needs:* `EDC.4/compact-support-vanishing-smooth-affine`, `EDC.5/perverse-artin-vanishing`, `EDC.5/shifted-local-systems-perverse`, `mathlib:AlgebraicGeometry.isClosedImmersion_iff_isAffineHom`, `mathlib:AlgebraicGeometry.Proj.basicOpenIsoSpec`, `mathlib:AlgebraicGeometry.isAffine_of_isAffineHom`.
+
+*Source:* [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §4, (4.1.6), pp. 218–219; Proposition (6.2.11)(i) and the first paragraph of its proof, pp. 249–250. (4.1.6): the long exact sequence of relative cohomology and the vanishing of H^i\_c(X − Y) for i ≤ n give weak Lefschetz for a smooth projective X. (6.2.11)(i): for a complex K on a projective X whose dual satisfies a shifted support bound, restriction to every hyperplane section is bijective below n and injective in degree n, by the same argument.
+
+*Source:* [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §7, p. 299. Weil I derives weak Lefschetz from affine vanishing and Poincaré duality, the route of the classical case (e).
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.7, VanishingCycles.etaleWeakLefschetz; §0.7 ClassicalAlgebraic.supportLocalization (README at head c4ee54f). §F.7 states weak Lefschetz for a smooth ample hyperplane section of a smooth projective variety with finite or ℓ-adic constant coefficients; §0.7 states the open–closed localization triangles used in (a) and (b).
+
+*Source:* [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), §7b.9, Theorem (weak Lefschetz under a support bound) (README at head 4c7deab). States weak Lefschetz for ℚ\_ℓ-complexes on a projective X under the dual support bound, for every hyperplane section including singular ones; imported as the rational hyperplane case of (a).
+
+*Intended declaration names:* `TauCeti.EtaleDuality.weak_lefschetz`, `TauCeti.EtaleDuality.weak_lefschetz_compactSupport`, `TauCeti.EtaleDuality.weak_lefschetz_supported`, `TauCeti.EtaleDuality.weak_lefschetz_cokernel_torsionFree`, `TauCeti.EtaleDuality.weak_lefschetz_galois`, `TauCetiRoadmap.EtaleDualityAndPerverseSheaves.LinearModels.restriction_injective_of_exact`, `TauCetiRoadmap.EtaleDualityAndPerverseSheaves.LinearModels.restriction_bijective_of_exact`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/weak-lefschetz`.
+
+<a id="edc-4-weak-lefschetz-gysin"></a>
+
+### The dual (Gysin) form of weak Lefschetz
+
+Let k be separably closed, X a smooth separated k-scheme of finite type of pure dimension n + 1, and i : Y → X a smooth closed subscheme of pure dimension n (a smooth effective Cartier divisor) whose complement U is affine, for instance a smooth hyperplane section of a smooth projective X. Let L be a locally constant constructible Λ-sheaf (Λ finite) or a locally free lisse O- or E-sheaf. Then the Gysin map i\_\* : H^q(Y, i^\*L) → H^{q+2}(X, L(1)) is bijective for q &gt; n and surjective for q = n. Equivalently H^{q+2}(X, L(1))/i\_\*H^q(Y, i^\*L) injects into H^{q+2}(U, L(1)), which vanishes for q + 2 &gt; n + 1. If X, Y and L are defined over k₀ with k = k₀^sep, the Gysin map is Gal(k/k₀)-equivariant, and over 𝔽\_q it commutes with the geometric Frobenius.
+
+As stated; X need not be proper: the argument uses only the localization triangle, smooth-pair purity and the affineness of U.
+
+Coefficient regimes: Λ a finite ring whose annihilator is invertible in k; O = O\_E for a finite extension E/ℚ\_ℓ with ℓ invertible in k; or E. Perverse t-structures are the middle perversity of EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure and, for O and E, of EDC.5/adic-perverse-t-structures; for O the dual perversity p⁺ is that of EDC.5/integral-dual-perversity. These agree with VanishingCycles.fieldPerverseTStructure of EtaleCohomologyFoundations §F.8. O\_E-coefficients are regarded as ℤ\_ℓ-coefficients with an O\_E-action along the finite free ℤ\_ℓ → O\_E; this changes neither the cohomology groups, nor the supports, nor the perversity conditions, nor the maps, and a finitely generated O\_E-module is O\_E-torsion-free exactly when it is ℤ\_ℓ-torsion-free.
+
+**Proof plan.**
+
+1. L\[n+1] is perverse on the smooth X (EDC.5/shifted-local-systems-perverse), so L(1) ∈ pD^{≤n+1}(X); EDC.4/weak-lefschetz (b) applies to K = L(1).
+2. Smooth-pair purity identifies i^!L(1) ≅ i^\*L\[−2] (EtaleCohomologyFoundations §0.10, ClassicalAlgebraic.smoothBoundaryPurity, and its adic form in §F.6, VanishingCycles.smoothPairGysin), so H^{q+2}\_Y(X, L(1)) ≅ H^q(Y, i^\*L) and the forgetful map becomes the Gysin map i\_\*. EDC.4/weak-lefschetz (b) gives bijectivity for q + 2 &gt; n + 2 and surjectivity for q + 2 = n + 2.
+3. For field coefficients and proper X this is the transpose of EDC.4/weak-lefschetz (e) under Poincaré duality on X and Y (the Gysin map is the transpose of i^\*, EtaleCohomologyFoundations §F.6), which gives the same ranges.
+4. Equivariance as in EDC.4/weak-lefschetz (d); the Gysin map raises the twist by one.
+
+**Checks.**
+
+- X = P^{n+1}, Y = P^n: i\_\* : H^q(P^n) → H^{q+2}(P^{n+1})(1) sends h^j to h^{j+1}; it is an isomorphism for n &lt; q ≤ 2n and surjective for q = n.
+- n = 0: Y a finite set of d ≥ 1 distinct geometric points on a smooth connected projective curve X; i\_\* : H⁰(Y) = Λ^d → H²(X, Λ(1)) = Λ is the sum map, surjective.
+- The range is sharp: for X = P¹ × P¹ and Y a conic, i\_\* : H⁰(Y) → H²(X)(1) is not surjective onto Λ² (q = 0 &lt; n = 1).
+- Agreement with DeligneWeightsAndPurity §9.3(c) (open pull request #929): for a smooth hyperplane section of a smooth projective X and ℚ\_ℓ-coefficients the dual Gysin statement there is this conclusion.
+
+*Needs:* `EDC.4/weak-lefschetz`, `EDC.5/shifted-local-systems-perverse`.
+
+*Source:* [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §4, (4.1.6), p. 219. Deligne states the Gysin (dual) form of weak Lefschetz.
+
+*Source:* [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §7, p. 300. Weil I uses the surjectivity of the Gysin map H^{n−1}(Y)(−1) → H^{n+1}(X) as the dual of weak Lefschetz.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §§0.7, 0.10 and F.6 (README at head c4ee54f). §0.10 states smooth-pair purity i^!Λ ≅ Λ\_Z(−c)\[−2c] with its class, and §F.6 the Gysin maps of smooth pairs with their projection formulas and adic realizations; with the triangle of §0.7 they give the Gysin sequence used here.
+
+*Source:* [Deligne weights, purity and the Weil bounds (TauCetiRoadmap roadmap README, open pull request #929)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/5f713c436ee303ceb25938d815e236b1a2c3d09a/TauCetiRoadmap/DeligneWeightsAndPurity/README.md), §9.3(a),(c) (README at head 5f713c4). States, for a smooth hyperplane section of a smooth projective variety and ℚ\_ℓ-coefficients, that the Gysin map is the transpose of restriction and the dual Gysin form of weak Lefschetz; used here as the rational agreement check.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.weak_lefschetz_gysin`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/weak-lefschetz-gysin`.
+
+<a id="edc-4-weak-lefschetz-integral"></a>
+
+### Integral weak Lefschetz: torsion-freeness of the cokernel
+
+In the situation of EDC.4/weak-lefschetz with Λ = O = O\_E: if j^\*K ∈ p⁺D^{≥n+1}(U), then H^{n+1}\_c(U, j^\*K) is a torsion-free O-module and so is the cokernel of H^n\_c(X, K) → H^n\_c(Y, i^\*K). In particular (Weil II 4.1.6), for X smooth projective of pure dimension n + 1, Y = X ∩ H a hyperplane section and U = X − Y, the group H^{n+1}\_c(U, ℤ\_ℓ) is torsion-free and H^n(Y, ℤ\_ℓ)/i^\*H^n(X, ℤ\_ℓ) is torsion-free; the same holds with ℤ\_ℓ replaced by O\_E or by any locally free lisse O-sheaf L on X.
+
+k separably closed, ℓ invertible; X separated of finite type over k with U = X − Y affine; for the classical case X smooth projective of pure dimension n + 1 and Y a hyperplane section.
+
+The integral perversity p⁺ is the dual of p (EtaleDualityAndPerverseSheaves:EDC.5/integral-dual-perversity). A locally free lisse O-sheaf L on a smooth X of pure dimension n + 1 satisfies L ∈ p⁺D^{≥n+1}, because D(L\[n+1]) = L^∨(n+1)\[n+1] is p-perverse.
+
+RΓ\_c(U, ℤ\_ℓ) is a perfect complex of ℤ\_ℓ-modules with RΓ\_c(U, ℤ\_ℓ) ⊗^L ℤ/ℓ ≅ RΓ\_c(U, ℤ/ℓ): this is EtaleCohomologyFoundations §F.4.4 (VanishingCycles.adicFiniteness). O\_E-coefficients are regarded as ℤ\_ℓ-coefficients with an O\_E-action along the finite free ℤ\_ℓ → O\_E; this changes neither the cohomology groups, nor the supports, nor the perversity conditions, nor the maps, and a finitely generated O\_E-module is O\_E-torsion-free exactly when it is ℤ\_ℓ-torsion-free.
+
+**Proof plan.**
+
+1. General case: EDC.4/weak-lefschetz (c), whose torsion-freeness input is EDC.4/compact-support-vanishing-smooth-affine (c).
+2. Deligne's route for K = ℤ\_ℓ, kept as a cross-check: since RΓ\_c(U, ℤ\_ℓ) is perfect with derived reduction RΓ\_c(U, ℤ/ℓ) (EtaleCohomologyFoundations §F.4.4), there is a short exact sequence 0 → H^n\_c(U, ℤ\_ℓ) ⊗ ℤ/ℓ → H^n\_c(U, ℤ/ℓ) → Tor₁^{ℤ\_ℓ}(H^{n+1}\_c(U, ℤ\_ℓ), ℤ/ℓ) → 0. The middle term vanishes by EDC.4/compact-support-vanishing-smooth-affine (d) (n &lt; n + 1), so H^{n+1}\_c(U, ℤ\_ℓ) has no ℓ-torsion, and a finitely generated ℤ\_ℓ-module without ℓ-torsion is torsion-free.
+3. The exact sequence H^n(X, ℤ\_ℓ) → H^n(Y, ℤ\_ℓ) → H^{n+1}\_c(U, ℤ\_ℓ) of EDC.4/weak-lefschetz embeds H^n(Y)/i^\*H^n(X) into the torsion-free H^{n+1}\_c(U, ℤ\_ℓ).
+
+**Checks.**
+
+- X = P^{n+1}: H^{n+1}\_c(𝔸^{n+1}, ℤ\_ℓ) = 0 (torsion-free) and the cokernel H^n(P^n)/H^n(P^{n+1}) = 0.
+- X a smooth projective surface (n = 1) with Y a smooth hyperplane curve: H¹(Y, ℤ\_ℓ)/i^\*H¹(X, ℤ\_ℓ) is a free ℤ\_ℓ-module (the vanishing part of the curve's H¹ is saturated).
+- Affineness diagnostic: U = P¹ is smooth of dimension one but non-affine, and H⁰\_c(U, ℤ/ℓ) = ℤ/ℓ ≠ 0. Thus smoothness alone does not supply the compact-vanishing input used by the universal-coefficient argument.
+- p⁺ cannot be replaced by p: for X = U = Spec k, Y = ∅ and n = −1, the p-perverse torsion object O/λ has H⁰\_c = O/λ, which is torsion.
+
+*Planet:* Integral weak Lefschetz.
+
+*Needs:* `EDC.4/compact-support-vanishing-smooth-affine`, `EDC.4/weak-lefschetz`, `EDC.5/integral-dual-perversity`.
+
+*Source:* [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §4, (4.1.6), p. 219. Deligne's (4.1.6): the universal coefficient formula gives the torsion-freeness of H^{n+1}\_c(X − Y, ℤ\_ℓ), hence of H^n(Y, ℤ\_ℓ)/H^n(X, ℤ\_ℓ).
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.4.4, VanishingCycles.adicFiniteness (README at head c4ee54f). States finite generation over ℤ\_ℓ, bounded perfect RΓ and RΓ\_c, and the derived reduction RΓ\_c(X, K\_ℤℓ) ⊗^L ℤ/ℓ^n ≅ RΓ\_c(X, K\_n) for separated finite-type schemes over a separably closed field; this is the hypothesis of the first step.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.weak_lefschetz_integral`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/weak-lefschetz-integral`.
+
+<a id="edc-4-ample-divisor-weak-lefschetz"></a>
+
+### Weak Lefschetz for ample divisors and hypersurface sections
+
+Let k be separably closed, X a proper k-scheme, ℒ an ample invertible O\_X-module, r ≥ 1 and s ∈ Γ(X, ℒ^{⊗r}) with zero scheme Y = V(s). Then U = X − Y = X\_s is affine, so the conclusions of EDC.4/weak-lefschetz (a)–(d) apply to (X, Y) under their respective hypotheses: restriction uses j^\*K ∈ pD^{≥n+1}, the supported direction uses j^\*K ∈ pD^{≤n+1}, the integral saturation uses p⁺D^{≥n+1}, and equivariance requires descent data. Coefficients may be finite, O or E. In particular, if X is smooth projective of pure dimension n + 1 and s is nonzero on every irreducible component (so Y is an effective Cartier divisor), restriction H^q(X, L) → H^q(Y, L) is bijective for q &lt; n and injective for q = n for every locally constant constructible or locally free lisse L, and when Y is smooth the Gysin statement of EDC.4/weak-lefschetz-gysin holds. This applies to Y = X ∩ V(F) for a homogeneous form F of degree r on P^N ⊃ X, and by induction along a chain X = X\_0 ⊃ X\_1 ⊃ … ⊃ X\_c of smooth successive ample divisors.
+
+X proper over k separably closed; ℒ ample; Y the zero scheme of a section of a positive power of ℒ. For the statements about local systems X is smooth projective of pure dimension n + 1 and the section is nonzero on every irreducible component, so Y is an effective Cartier divisor.
+
+Only the affineness of X − Y = X\_s is used beyond EDC.4/weak-lefschetz, together with topological invariance of the étale site (Y and Y\_red have the same cohomology; EtaleCohomologyFoundations §F.0.4).
+
+**Proof plan.**
+
+1. X is proper over k and ℒ^{⊗r} is ample, so X\_s = X − Y is affine (Stacks, Tag 0EKE: for f universally closed and ℒ f-ample, X\_s → S is affine; requested from SchemeAndStackFoundations:SF.0). Ampleness alone does not suffice without properness: on a quasi-affine non-affine X with ℒ = O\_X and s = 1, X\_s = X.
+2. With U = X\_s affine, apply each part of EDC.4/weak-lefschetz with its own amplitude, coefficient and descent hypotheses. For EDC.4/weak-lefschetz-gysin also retain the smooth-pair and lisse-coefficient hypotheses needed to identify supported cohomology by purity; affineness alone does not supply that identification.
+3. Hypersurface sections: the degree-r Veronese embedding (LefschetzPencilsAndVanishingCycles §3.4, LefschetzPencil.veronese with veronese\_isClosedImmersion and veronese\_hyperplane) turns V(F) ∩ X into a hyperplane section of the re-embedded X (Weil I, 5.7), whose complement is affine by the argument of EDC.4/weak-lefschetz.
+4. Chains: apply the statement to each X\_{j+1} ⊂ X\_j (each smooth projective) and compose.
+
+**Checks.**
+
+- X = P^{n+1}, Y a smooth quadric hypersurface (r = 2): H^q(Y) ≅ H^q(P^{n+1}) for q &lt; n.
+- n + 1 = 2, X = P², Y a smooth plane cubic curve: H⁰(P²) → H⁰(Y) is an isomorphism (q = 0 &lt; n = 1) and H¹(P²) = 0 → H¹(Y) = Λ² is injective.
+- Non-example: take X = P¹ × P¹ and ℒ = O(0,2), nef but not ample, with s vanishing at two distinct points of the second factor. Then Y is the disjoint union of two fibres and H⁰(X,Λ) = Λ → H⁰(Y,Λ) = Λ² is diagonal, not an isomorphism although 0 &lt; n = 1. The complement P¹ × G\_m is non-affine and H¹\_c(P¹ × G\_m,Λ) = Λ ≠ 0, violating the low-degree compact vanishing required in the proof.
+
+*Needs:* `EDC.4/weak-lefschetz`, `EDC.4/weak-lefschetz-gysin`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.3`.
+
+*Source:* [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §5, (5.7), p. 292. Weil I's Veronese re-embedding turns degree-r hypersurface sections into hyperplane sections.
+
+*Source:* [The Stacks Project, Chapter 29: Morphisms of Schemes](https://stacks.math.columbia.edu/download/morphisms.pdf), Morphisms of Schemes, Lemma 44.18, Tag 0EKE. For X proper (universally closed) and ℒ ample, X\_s is affine: the complement of an ample divisor in a proper scheme is affine.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.0.4, VanishingCycles.universalHomeomorphismEtaleEquivalence (README at head c4ee54f). States that universal homeomorphisms induce equivalences of étale sites with transport of sheaves and cohomology; used to replace Y by its reduction.
+
+*Source:* [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), §3.4, Theorem (existence of Lefschetz pencils), LefschetzPencil.veronese, veronese\_isClosedImmersion, veronese\_hyperplane (README at head 4c7deab). Defines the degree-r Veronese embedding as the classifying map of O(r), proves it is a closed immersion and that hyperplane pullbacks are the degree-r hypersurfaces; consumed for hypersurface sections.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.ample_divisor_weak_lefschetz`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/ample-divisor-weak-lefschetz`.
+
+<a id="edc-4-generic-affine-weak-lefschetz"></a>
+
+### Weak Lefschetz for generic affine hyperplane sections
+
+Let k be a separably closed field, V a separated scheme of finite type over k, π : V → 𝔸^N a quasi-finite morphism, and P a perverse complex on V for a coefficient regime of the conventions (Λ finite with invertible annihilator, O with the perversity p, or E). For (a, b) ∈ k^N × k put H\_{a,b} = {Σ a\_i x\_i + b = 0} ⊂ 𝔸^N, V\_{a,b} = π^{−1}(H\_{a,b}) with closed immersion ι\_{a,b}, and let j\_{a,b} : V − V\_{a,b} → V be the open complement. There is a dense open 𝒰 of the parameter space 𝔸^{N+1} of affine maps 𝔸^N → 𝔸¹ such that for (a, b) ∈ 𝒰(k): (1) H^q(V, j\_{a,b!}j\_{a,b}^\*P) = 0 for q &lt; 0; (2) the restriction H^q(V, P) → H^q(V\_{a,b}, ι\_{a,b}^\*P) is bijective for q &lt; −1 and injective for q = −1. (3) If V is smooth of pure dimension d ≥ 1 and F is a locally constant constructible Λ-sheaf (Λ finite) or a locally free lisse O- or E-sheaf, then H^q(V, F) → H^q(V\_{a,b}, F) is bijective for q &lt; d − 1 and injective for q = d − 1; if moreover V is connected and d ≥ 2, then V\_{a,b} is nonempty and connected. (4) If V is smooth and irreducible of dimension d ≥ 2 and π is unramified, then V\_{a,b} is smooth and irreducible of dimension d − 1 for (a, b) in a dense open. For smooth irreducible V and unramified π, iterate (3) and (4) along successive generic affine hyperplanes H\_1, H\_2, … ⊂ 𝔸^N only for 1 ≤ i ≤ d − 1: the resulting sections have dimension d − i ≥ 1 and are smooth and connected. The i-th restriction is bijective in degrees q &lt; d − i and injective in degree q = d − i. No connectedness is claimed for a final zero-dimensional section.
+
+k separably closed; V separated of finite type; π quasi-finite. For (4), V smooth irreducible and π unramified.
+
+Coefficient regimes: Λ a finite ring whose annihilator is invertible in k; O = O\_E for a finite extension E/ℚ\_ℓ with ℓ invertible in k; or E. Perverse t-structures are the middle perversity of EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure and, for O and E, of EDC.5/adic-perverse-t-structures; for O the dual perversity p⁺ is that of EDC.5/integral-dual-perversity. These agree with VanishingCycles.fieldPerverseTStructure of EtaleCohomologyFoundations §F.8. O\_E-coefficients are regarded as ℤ\_ℓ-coefficients with an O\_E-action along the finite free ℤ\_ℓ → O\_E; this changes neither the cohomology groups, nor the supports, nor the perversity conditions, nor the maps, and a finitely generated O\_E-module is O\_E-torsion-free exactly when it is ℤ\_ℓ-torsion-free.
+
+The open 𝒰 depends on V, π and P; nothing is asserted for special hyperplanes: (a, b) = (0, 0) gives the whole of V and (0, b) with b ≠ 0 the empty section.
+
+Katz states (1)–(3) for ℚ̄\_ℓ-coefficients and, in (3), for local complete intersections V of pure dimension d, where F\[d] is perverse; this node plans the smooth case, in which the perversity of F\[d] is EDC.5/shifted-local-systems-perverse.
+
+**Proof plan.**
+
+1. Reduction to projective space: put K := Rπ\_\*P on 𝔸^N and K̄ := Rι\_\*K for the open immersion ι : 𝔸^N → P^N. Quasi-finite direct images are left t-exact (EtaleDualityAndPerverseSheaves:EDC.5/quasi-finite-perverse-exactness), so K̄ ∈ pD^{≥0}(P^N), and H^q(V, P) = H^q(P^N, K̄).
+2. Generic exchange, following Katz Appendix A.1–A.5, pp.218–221: write f = ιπ : V → P^N and use the universal hyperplane incidence and its open complement over the dual projective space. The complement projection is locally a product, so its extension-by-zero exchange is invertible by smooth base change (A.2). Generic base change for Rf\_\* (EtaleCohomologyFoundations §F.3) makes the other open-complement exchange invertible after shrinking the parameter base (A.3). The localization triangles and proper direct image for the closed incidence then give the closed-restriction exchange (A.4–A.5). Pull back that dense open along the nonzero affine forms defining hyperplanes other than infinity; this gives 𝒰 ⊂ 𝔸^{N+1}. Thus RΓ(H̄, K̄|\_{H̄}) = RΓ(V\_{a,b}, ι\_{a,b}^\*P). For N = 0, quasi-finite V is zero-dimensional and the assertion follows directly in negative degrees after excluding b = 0.
+3. Coefficient extension of the exchange just constructed: Katz proves it for ℚ̄\_ℓ, but the same incidence argument works for bounded constructible finite coefficients using the generic base-change supplier. For any finite Λ, forget to ℤ/n, filter the finitely many cohomology sheaves by their finitely many residue-characteristic layers, and intersect the finitely many resulting dense opens. For O use one residue complex P ⊗ᴸ\_O O/λ to choose the open; this complex need not be perverse. Reduction commutes with the exchange because O/λ is a perfect O-complex, and the bounded constructible exchange cone vanishes by derived Nakayama. This uses one open, not a separate open at every λ-power. For E choose an integral constructible lattice complex (Bhatt–Scholze Proposition 6.8.14(2), pp.61–62) and invert λ. Now apply EDC.4/weak-lefschetz (a) on P^N with n = −1, since K̄ ∈ pD^{≥0} and the complement is affine. It gives (2); localization shows that (2) is equivalent to (1).
+4. (3) For smooth V of pure dimension d, F\[d] is perverse (EDC.5/shifted-local-systems-perverse); apply (2) to P = F\[d]. To obtain connectedness independently of F, intersect this open with the one obtained from a nonzero constant finite-field sheaf. For d ≥ 2 its H⁰ restriction is an isomorphism; connected V therefore has a nonempty connected section.
+5. (4) is the Bertini input requested from SchemeAndStackFoundations:SF.0 (Katz, Lemma 3.5): for smooth irreducible V and unramified π the parameters with smooth (d − 1)-dimensional section contain a dense open; with the connectedness of (3) this gives irreducibility (Katz, Corollary 3.4.3).
+6. Iteration: restrict the quasi-finite unramified map to the first smooth section and regard it as a map to H\_1 ≅ 𝔸^{N−1}. Repeat while the source dimension is at least two, ending in dimension one (Katz, Sums of Betti numbers, Theorem 8, pp.8–9). Applying (3) at the i-th step gives q &lt; d − i and q = d − i as stated. Generic zero-dimensional sections can have several points.
+
+*Used by* FiniteFieldsAndCharacterSums:FF.2/smooth-affine-betti-bound (Katz, Sums of Betti numbers, Theorem 2): the induction on dimension restricts to a generic affine hyperplane section, smooth and connected, with cohomology unchanged below degree d − 1 and injective in degree d − 1
+
+**Checks.**
+
+- V = 𝔸² with π the identity and F = Λ: a generic line V\_{a,b} ≅ 𝔸¹ is connected and H^q(𝔸²) → H^q(𝔸¹) is bijective for q = 0 and injective for q = 1.
+- Sharpness at q = d − 1: for V = 𝔸² − C with C a smooth affine conic (characteristic not two), H¹(V, Λ) ≅ Λ(−1) by the Gysin sequence, while a generic line meets C in two points and H¹(V\_{a,b}, Λ) ≅ Λ(−1)²; restriction is injective and not surjective.
+- Special parameters are excluded: for π the identity of 𝔸², (a, b) = (0, 0) gives V\_{0,0} = V and (0, 1) gives the empty section; neither lies in 𝒰.
+- Agreement with the source: for ℚ̄\_ℓ-coefficients and smooth V, (3) is Katz's weak Lefschetz (Affine cohomological transforms, Corollary 3.4.1), and (1)–(2) are his Theorem 3.4 with f = 0.
+- Iteration stops before dimension zero: in characteristic different from two, take the smooth connected affine quadric surface x² + y² + z² = 1 in 𝔸³ with its closed immersion. One generic plane section is a smooth connected affine conic, but the next generic plane cuts it in two reduced geometric points. Thus smoothness can persist in dimension zero while connectedness fails.
+- Integral exchange uses a single dense open chosen for P ⊗ᴸ\_O O/λ; the residue complex is allowed to have two ordinary cohomology degrees. A proposed proof that merely intersects the opens for all O/λ^a is not sufficient.
+
+*Needs:* `EDC.4/weak-lefschetz`, `EDC.5/quasi-finite-perverse-exactness`, `EDC.5/shifted-local-systems-perverse`, `SchemeAndStackFoundations:SF.0`.
+
+*Source:* [Affine cohomological transforms, perversity, and monodromy](https://web.math.princeton.edu/~nmk/old/ACT.pdf), §3, Theorem 3.4, pp.180–181; Corollaries 3.4.1–3.4.3, pp.181–182; Lemma 3.5 and proof, pp.182–183; Appendix A.1–A.5, pp.218–221. For a perverse sheaf on a separated finite-type V with a quasi-finite map to affine space, a generic affine hyperplane section has vanishing negative-degree cohomology of the extension by zero and gives restriction bijective below −1 and injective in degree −1; the corollaries specialize to lisse sheaves on local complete intersections (weak Lefschetz), connectedness (weak Bertini) and, for unramified maps, smooth irreducible sections (weak smooth Bertini), with the smoothness lemma 3.5.
+
+*Source:* [Sums of Betti numbers in arbitrary characteristic](https://web.math.princeton.edu/~nmk/BettiSum14.pdf), Part I, proof of Theorem 2, p. 3; Part II, Theorem 8, p. 8 (author manuscript). Katz applies affine weak Lefschetz, citing Corollaries 3.4.1 and 3.4.3 of the affine-transform paper, to a generic affine hyperplane section of a smooth connected affine variety, and iterates it along successive generic sections; this is the use recorded by FiniteFieldsAndCharacterSums:FF.2.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.3, constructible generic base change; §F.2.2, smooth base change (README at head c4ee54f). Generic base change for constructible direct images and smooth base change supply the two open-complement exchanges in Katz Appendix A; localization gives the closed-restriction exchange. For O only the residue complex is used to choose the open, followed by derived Nakayama; the proof does not intersect infinitely many opens.
+
+*Source:* [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), §7b.7, InvariantCycles.genericHyperplaneRestriction (README at head 4c7deab). States generic universal local acyclicity of the universal hyperplane incidence family for ℚ̄\_ℓ-complexes on a projective variety, with the noncharacteristic exchange for general sections; the rational form of the generic base change used here.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.generic_affine_weak_lefschetz`, `TauCeti.EtaleDuality.generic_affine_extensionByZero_vanishing`, `TauCeti.EtaleDuality.generic_affine_section_connected`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/generic-affine-weak-lefschetz`.
+
+<a id="edc-4-complete-intersection-cohomology"></a>
+
+### Cohomology of smooth complete intersections
+
+Let k be separably closed, ℓ invertible in k, and X ⊂ P^N\_k a smooth complete intersection of dimension m ≥ 1 (there is a chain P^N = X\_N ⊃ X\_{N−1} ⊃ … ⊃ X\_m = X with each X\_r = X\_{r+1} ∩ H\_r for a hypersurface H\_r, all X\_r smooth). Let Λ = ℤ/ℓ^a, ℤ\_ℓ or ℚ\_ℓ and h = c₁(O(1))|\_X ∈ H²(X, Λ(1)). Then: (a) for q ≠ m, 0 ≤ q ≤ 2m, H^q(X, Λ) = 0 for q odd and H^q(X, Λ(q/2)) is free of rank one for q even; h^{q/2} generates for q &lt; m. For q &gt; m, a generator is dual to h^{m−q/2} under Poincaré duality, and h^{q/2} is deg(X) times that generator (after the trace normalization); the restriction H^q(P^N, Λ) → H^q(X, Λ) is an isomorphism for q &lt; m. (b) H^m(X, Λ) = Λ(−m/2)·h^{m/2} ⊕ H^m(X, Λ)\_0 when m is even (for Λ = ℚ\_ℓ, and for ℤ/ℓ^a or ℤ\_ℓ when deg X is prime to ℓ), with H^m(X)\_0 := ker(∪h : H^m(X) → H^{m+2}(X)(1)); H^m(X) = H^m(X)\_0 when m is odd. (c) With ℤ\_ℓ coefficients all H^q(X, ℤ\_ℓ) are torsion-free. (d) If X is defined over 𝔽\_q, the geometric Frobenius acts on H^{2j}(X, ℚ\_ℓ), 2j ≠ m, by multiplication by q^j. The comparison of primitive ranks across characteristics is the separate target EDC.6/complete-intersection-betti-comparison; it is not a conclusion of this node. (e) Families: let S be a scheme on which ℓ is invertible and f : X → S a smooth projective morphism whose geometric fibres are smooth complete intersections of dimension m ≥ 1 and fixed multidegree in P^N, embedded in P^N\_S with relative hyperplane class η ∈ H⁰(S, R²f\_\*Λ(1)). For Λ = ℤ/ℓ^a and 0 ≤ q ≤ 2m with q ≠ m, R^qf\_\*Λ = 0 for q odd, and for q even R^qf\_\*Λ(q/2) is the constant sheaf Λ\_S, generated by η^{q/2} for q &lt; m and by the section dual to η^{m−q/2} under the relative trace pairing for q &gt; m; R^mf\_\*Λ is locally constant constructible, and for m even with the degree prime to ℓ it splits as Λ\_S(−m/2)·η^{m/2} ⊕ ker(∪η). The same holds for the ℤ\_ℓ- and ℚ\_ℓ-systems (R^qf\_\*ℤ/ℓ^a)\_a. Over S = Spec k₀ the constant sheaves Λ\_S(−q/2) give back the Galois and Frobenius statements of (d).
+
+X a smooth complete intersection in P^N over a separably closed field; ℓ invertible.
+
+The splitting in (b) uses that h^m has degree deg X on X (Tr(h^m) = deg X): it is a direct sum over ℚ\_ℓ, and over ℤ/ℓ^a or ℤ\_ℓ only when deg X is a unit.
+
+For (e): S any scheme with ℓ invertible; f smooth projective with a relative embedding in P^N\_S and geometric fibres smooth complete intersections of dimension m ≥ 1 and fixed multidegree; the relative trace is that of EtaleCohomologyFoundations §0.11 for smooth separated finitely presented f.
+
+**Proof plan.**
+
+1. Induction along the chain X\_N = P^N ⊃ … ⊃ X\_m = X, each X\_r an ample divisor in the smooth projective X\_{r+1} (EDC.4/ample-divisor-weak-lefschetz): H^q(X\_{r+1}) → H^q(X\_r) is bijective for q &lt; r and injective for q = r; the Gysin map H^q(X\_r)(−1) → H^{q+2}(X\_{r+1}) is bijective for q &gt; r and surjective for q = r (EDC.4/weak-lefschetz-gysin).
+2. Hence H^q(X) ≅ H^q(P^N) for q &lt; m, where H^\*(P^N) has one Λ(−i) in each even degree 2i generated by the hyperplane powers (EtaleCohomologyFoundations §0.9 and the first check of §F.7), and by Poincaré duality on X (§§F.5–F.6, with the adic realization of §F.4.4) H^q(X) for q &gt; m is dual to H^{2m−q}(X), which is Λ·h^{m−q/2} or 0.
+3. Torsion-freeness: for each smooth divisor X\_r in X\_{r+1}, integral weak Lefschetz (EDC.4/weak-lefschetz-integral) gives an injection H^r(X\_{r+1}, ℤ\_ℓ) → H^r(X\_r, ℤ\_ℓ) with torsion-free cokernel. The source group is in a degree below dim X\_{r+1}, hence identified with the free projective-space group by the already proved low-degree calculation. Therefore the middle group of X\_r is free as well. Integral Poincaré duality and its universal-coefficient sequence then give freeness in all higher degrees, including degree r+1. This avoids assuming freeness in degree r+1 to prove it in degree r.
+4. Splitting (b): Tr\_X(h^m) = deg X (the degree of the hyperplane class on X, from the point normalization of EtaleCohomologyFoundations §0.9 and the projection formula of §F.6), so h^{m/2} ∪ h^{m/2} ≠ 0 and Λh^{m/2} is a direct summand complementary to the kernel of ∪h when deg X is invertible in Λ.
+5. Frobenius: the low-degree hyperplane powers have eigenvalue q^j in untwisted cohomology (geometric Frobenius acts on Λ(1) by q⁻¹, EtaleCohomologyFoundations §F.10.2b). In high degrees use the perfect Frobenius-equivariant pairing with low degrees, whose multiplier is q^m; the resulting eigenvalue is q^j even when h^j is not an integral generator.
+6. (e) The upstream finiteness statements are used first on noetherian models. Zariski-locally on an arbitrary S, descend the smooth projective finitely presented embedding and its finite defining data to a finitely generated ℤ\[1/ℓ]-algebra; smoothness and the required fibre conditions are retained after enlarging that algebra. Proper base change pulls the resulting local systems and pairings back to S, so the formulas below are valid on any S and glue by their canonical hyperplane and trace maps. By smooth and proper base change each R^qf\_\*Λ is locally constant constructible with geometric stalks H^q(X\_s̄, Λ) (EtaleCohomologyFoundations §F.3, VanishingCycles.lisseDirectImageTransport), computed by (a)–(c). The global section η^{q/2} of R^qf\_\*Λ(q/2) generates every stalk for q &lt; m, so Λ\_S → R^qf\_\*Λ(q/2) is an isomorphism. For q &gt; m, the relative trace R^{2m}f\_\*Λ(m) → Λ\_S (§0.11) and cup product give a pairing R^qf\_\*Λ(q/2) ⊗ R^{2m−q}f\_\*Λ(m − q/2) → Λ\_S that is perfect on stalks by Poincaré duality on the fibres, so R^qf\_\*Λ(q/2) ≅ Λ\_S. The splitting of R^mf\_\*Λ is the stalkwise splitting of (b), defined by global sections. Over S = Spec k₀ a constant sheaf Λ(−j) has geometric Frobenius eigenvalue q^j, which is (d).
+
+**Checks.**
+
+- X = P^m itself (N = m): H^m(X)\_0 = 0 and every statement reduces to the P^m calculation of EtaleCohomologyFoundations §0.9.
+- X a smooth plane cubic (m = 1): H¹(X, ℚ\_ℓ) = H¹(X)\_0 has dimension 2 = b\_1^0 for degree 3.
+- X a smooth quadric surface in P³ (m = 2, degree 2): H²(X, ℚ\_ℓ(1)) = ℚ\_ℓh ⊕ H²\_0 with dim H²\_0 = 1; with ℤ/2 coefficients the splitting fails (deg X = 2 is not invertible), as the hypothesis requires.
+- Smooth plane conic with Λ = ℤ/2: H²(X, Λ(1)) ≅ Λ but h = 2\[point] = 0. With ℤ₂, h spans an index-two submodule. Thus high-degree freeness must not be stated as generation by h.
+- The active forms are typed over the common finite-type separated k-base; the carrier data for ample sections and complete-intersection chains are the SchemeAndStackFoundations:SF.0 requests of this packet.
+- Quadric family: for a smooth quadric f : X → S of relative dimension m ≥ 1 (degree 2), R^{2i}f\_\*ℤ\_ℓ(i), 2i ≠ m, is constant, generated by η^i for 2i &lt; m and by the trace-dual section γ\_i for m &lt; 2i ≤ 2m. The relation is η^i = 2γ\_i. For ℓ = 2, γ\_i is an integral class specified by the perfect pairing, not division by an invertible scalar. This agrees with LefschetzPencilsAndVanishingCycles §2.3 (open pull request #873).
+- Agreement with LefschetzPencilsAndVanishingCycles §4.5, Application (hypersurfaces outside the middle degree, ℚ\_ℓ-coefficients): for a smooth hypersurface the groups outside degree m are those of projective space, as (a) states.
+- `TauCeti.EtaleDuality.completeIntersection_conic_generator` (non-example): On a smooth conic in characteristic different from 2, the hyperplane class has trace 2 and vanishes with F\_2 coefficients. A high-degree generator therefore uses duality rather than blindly using h^r.
+
+*Planet:* Cohomology of complete intersections.
+
+*Needs:* `EDC.4/ample-divisor-weak-lefschetz`, `EDC.4/weak-lefschetz`, `EDC.4/weak-lefschetz-gysin`, `EDC.4/weak-lefschetz-integral`, `SchemeAndStackFoundations:SF.0`.
+
+*Source:* [Lectures on Étale Cohomology](https://www.jmilne.org/math/CourseNotes/LEC.pdf), §16 (aside on complete intersections), p. 110. Milne gives the low-degree calculation, dual high-degree groups and primitive rational decomposition. The integral refinement uses saturated weak Lefschetz and integral duality; it does not assert that high integral hyperplane powers are generators.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §0.9, ClassicalAlgebraic.cycleClasses; §F.7, first check (README at head c4ee54f). §0.9 states the projective bundle formula with hyperplane-power generators and degree-one point normalization, giving H^\*(P^N) in the second step; the first check of §F.7 records the same calculation with ℓ-adic coefficients.
+
+*Source:* [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), §2.3 (smooth quadrics) and §4.5, Application (hypersurfaces outside the middle degree) (README at head 4c7deab). States the rational cohomology of a smooth hypersurface outside the middle degree and the cohomology of smooth quadrics in families; used as agreement checks for (a) and (e), which add integral coefficients, complete intersections of any multidegree and families of them.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.complete_intersection_cohomology`, `TauCeti.EtaleDuality.complete_intersection_integral_free`, `TauCeti.EtaleDuality.complete_intersection_primitive_split`, `TauCeti.EtaleDuality.complete_intersection_odd_primitive`, `TauCeti.EtaleDuality.complete_intersection_frobenius`, `TauCeti.EtaleDuality.complete_intersection_family_constant`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology`.
+
+<a id="edc-4-projective-bundle-decomposition"></a>
+
+### The projective-bundle decomposition: ring structure, pushforward, pairing and Frobenius weights
+
+Let X be a quasi-compact quasi-separated scheme and Λ a finite ring annihilated by an integer n invertible on X (by derived extension of scalars from ℤ/n, as in EtaleCohomologyFoundations §0.9), with bounded constructible K. For Λ = O\_E or E require additionally that X is of finite type over a field with ℓ invertible and take bounded constructible K. Let V be a locally free O\_X-module of rank m + 1, π : P(V) → X the projective bundle of lines in V and ξ = c₁(O(1)) ∈ H²(P(V), Λ(1)). (a) Imported, not planned here: the map ⊕\_{j=0}^{m} Λ\_X(−j)\[−2j] → Rπ\_\*Λ\_{P(V)} given by ξ^j is an isomorphism (EtaleCohomologyFoundations §0.9, ClassicalAlgebraic.cycleClasses, for finite Λ; its adic realization is §F.7); the extension to every bounded constructible K, including nonperfect finite-coefficient K, gives H^q(P(V), π^\*K) ≅ ⊕\_j H^{q−2j}(X, K(−j)) for every such K. The node adds: (b) ring structure: ⊕\_q H^q(P(V), Λ(∗)) = H^∗(X, Λ(∗))\[ξ]/(Σ\_{r=0}^{m+1} c\_r(V) ξ^{m+1−r}); (c) for π\_\* the relative smooth proper trace pushforward (relative dimension m), over every base allowed above, π\_\*(π^\*a ∪ ξ^j) = 0 for j &lt; m and π\_\*(π^\*a ∪ ξ^m) = a; (d) if X and V are defined over a field k₀ and k = k₀^sep, the decomposition H^q(P(V)\_k, Λ) ≅ ⊕\_j H^{q−2j}(X\_k, Λ)(−j) is Gal(k/k₀)-equivariant; over k₀ = 𝔽\_q the geometric Frobenius acts on the j-th summand as F\_X ⊗ q^j (untwisted cohomology); (e) for X smooth proper of pure dimension d over k separably closed, the Poincaré pairing on P(V) restricted to the summands j and j' vanishes when j + j' &lt; m and is ⟨π^\*a ξ^j, π^\*b ξ^{m−j}⟩ = ⟨a, b⟩\_X when j + j' = m. (f) Complete flag bundles: for V of rank r ≥ 2 let φ : Fl(V) → X be the complete flag bundle, built as the tower of projective bundles P(V) ← P(Q\_1) ← … with tautological lines and ξ\_i the class of the dual of the i-th tautological line. Then H^\*(Fl(V), Λ) is a free H^\*(X, Λ)-module on the monomials ξ\_1^{a\_1}⋯ξ\_{r−1}^{a\_{r−1}} with 0 ≤ a\_i ≤ r − i, φ^\* is split injective in every degree, and φ^\*V carries the tautological filtration by subbundles with line-bundle quotients whose first Chern classes x\_1, …, x\_r satisfy φ^\*c\_k(V) = e\_k(x\_1, …, x\_r) (the splitting principle; the Whitney formula is that of EDC.3/chern-classes). (g) Zero and infinity sections: for a line bundle L and V = O\_X ⊕ L (m = 1) the sections P(O\_X) and P(L) of P(V) → X are disjoint divisors with cl(P(L)) = ξ and cl(P(O\_X)) = ξ + π^\*c₁(L); their product vanishes, which is the relation ξ² + π^\*c₁(L)ξ = 0 of (b).
+
+X qcqs with n invertible and Λ a finite ℤ/n-algebra; for O\_E or E additionally X is of finite type over a field with ℓ invertible. Only (e) requires X smooth proper over a field; (c) uses relative trace and does not require X smooth. V is locally free of rank m + 1; for (f) V has rank r ≥ 2.
+
+P(V) parametrizes lines in V and ξ = c₁(O(1)), with O(1) dual to the tautological line: this is SchemeAndStackFoundations §5.4 (projectiveBundle V := relativeProj of the symmetric algebra of V^∨, with projectiveBundle\_dual\_convention) on TauCetiRoadmap main; the plus-sign Chern relation follows this convention.
+
+Twists and Frobenius conventions are those of EtaleCohomologyFoundations §F.0.3 (etaleTateTwists) and §F.10.2b (geometric Frobenius acts on Λ(−1) by q).
+
+The étale Chern classes c\_r(V) of (b) are those of EtaleDualityAndPerverseSheaves:EDC.3/chern-classes (defined by the projective-bundle relation); EtaleCohomologyFoundations states c₁ (§0.9) but not the higher étale classes. The adic extension is the realization of §F.7 in its finite-type range; O\_E-coefficients are regarded as ℤ\_ℓ-coefficients with an O\_E-action along the finite free ℤ\_ℓ → O\_E; this changes neither the cohomology groups, nor the supports, nor the maps, and a finitely generated O\_E-module is O\_E-torsion-free exactly when it is ℤ\_ℓ-torsion-free.
+
+**Proof plan.**
+
+1. (a) for the constant coefficient object is imported from EtaleCohomologyFoundations §0.9 and its adic realization §F.7. For arbitrary bounded constructible K, form the same cup-power columns ⊕\_j K(−j)\[−2j] → Rπ\_\*π^\*K. On a geometric stalk proper base change identifies this with the P^m formula for the bounded Λ-module complex K\_x. Extend the free-coefficient calculation to such a complex by a bounded-above free resolution: the uniform fibre cohomological-dimension bound 2m makes each total degree depend on a finite truncation. This proves the columns are an isomorphism without assuming K has finite Tor dimension. Taking cohomology gives the asserted formula. For ctf K the imported projection formula (§F.2.7) gives the same map; for O\_E and E use the normalized adic realization and its uniform bounds.
+2. (b) is the definition of the Chern classes by the projective-bundle relation (EDC.3/chern-classes) together with the freeness in (a).
+3. (c) Use the relative smooth proper trace of EtaleCohomologyFoundations §0.11 (extended from ℤ/n to finite Λ by coefficient extension, and realized adically by §F.7). It exists for π : P(V) → X independently of smoothness of X. Its projection formula gives π\_\*(π^\*a ∪ ξ^j) = a ∪ π\_\*(ξ^j). For j &lt; m the target of π\_\*(ξ^j) is negative-degree cohomology of X and vanishes; π\_\*(ξ^m) = 1 by the degree-one fibre normalization Tr\_{P^m}(ξ^m) = 1 and base change. The map α ↦ π\_\*(ξ^m ∪ α) therefore retracts π^\*, as required for pullback injectivity.
+4. (d) ξ is the Chern class of a line bundle defined over k₀, so it is Galois-invariant in H²(P(V)\_k, Λ(1)); in untwisted cohomology F^\*ξ = q·ξ (EtaleCohomologyFoundations §F.10.2b: geometric Frobenius acts on Λ(1) by q⁻¹), which gives the stated action.
+5. (e) Tr\_{P(V)} = Tr\_X ∘ π\_\* (compatibility of smooth traces with composition, EtaleCohomologyFoundations §0.11, ClassicalAlgebraic.smoothTrace), and (c).
+6. (f) Iterate (a) and (c) along the tower of projective bundles of the tautological quotients (Grothendieck 1958, §1): each stage multiplies the basis by the powers ξ\_i^a with a at most its relative dimension, and the pushforward of the top power splits each pullback. The tautological sub-line bundles give the filtration of φ^\*V; its Chern-root identity is the Whitney formula of EDC.3/chern-classes applied to the filtration.
+7. (g) P(L) is the zero scheme of the composite of the tautological inclusion O(−1) → π^\*V with the projection to π^\*O\_X, a section of O(1); P(O\_X) is the zero scheme of O(−1) → π^\*L, a section of O(1) ⊗ π^\*L. Each section is regular, and the class of the zero scheme of a regular section of a line bundle is its first Chern class (EtaleCohomologyFoundations §0.9, Cartier-divisor agreement). The two sections are disjoint, so the product of their classes is zero.
+
+**Checks.**
+
+- X = Spec k for k separably closed, E = k^{m+1}: P(E) = P^m and (a) is H^∗(P^m) = Λ\[ξ]/(ξ^{m+1}) (EtaleCohomologyFoundations §0.9).
+- P¹-bundle over a smooth projective geometrically connected curve C over 𝔽\_q: the geometric Frobenius has eigenvalues those of H^a(C) and q times those of H^{a−2}(C) on H^a(P(E)); e.g. dim H²(P(E)) = 2 with eigenvalues q, q.
+- The Frobenius twist on the summand j is q^j, not 1: 'equal Betti numbers' is not enough (the stage forbids merely equating Betti numbers).
+- Agreement with the upstream statement: on a rank-one bundle P(V) = X and only the j = 0 summand occurs, and the zero bundle has empty projectivization, as in the checks of EtaleCohomologyFoundations §0.9.
+- (f) For V of rank 3 over a separably closed point, Fl(V) is the flag variety of k³; the six basis monomials 1, ξ\_1, ξ\_2, ξ\_1², ξ\_1ξ\_2, ξ\_1²ξ\_2 give Betti numbers 1, 2, 2, 1.
+- (g) Over X = Spec k with L trivial, P(V) = P¹ and both sections are points of class ξ, so ξ² = 0, as the relation with c₁(L) = 0 requires.
+- Nonperfect coefficients: over a separably closed point take Λ = ℤ/4, K = ℤ/2 in degree zero and P(V) = P¹. Then H⁰(P¹,K) = ℤ/2 and H²(P¹,K(1)) = ℤ/2, with all other groups zero. K has infinite projective dimension over Λ; the formula must still apply.
+- Relative trace and splitting do not require a smooth base: for a nonreduced qcqs X with n invertible and V = O\_X², π\_\*(ξ·π^\*a) = a and φ^\* remains split injective for iterated projective bundles.
+- For V = O\_X ⊕ L with X a smooth proper curve, π\_\*(ξ²) = −c₁(L) by the Chern relation and π\_\*(ξ) = 1. Thus the trace retraction α ↦ π\_\*(ξ ∪ α) is a left inverse of π^\*, but its value on the higher column ξ can be nonzero; it is not in general the coordinate projection of the projective-bundle decomposition.
+
+*Planet:* Projective bundle formula.
+
+*Needs:* `EDC.3/chern-classes`.
+
+*Source:* [Lectures on Étale Cohomology](https://www.jmilne.org/math/CourseNotes/LEC.pdf), §23, Theorem 23.2, p. 139. Milne states the lines-convention projective-bundle basis and the relation defining its Chern classes. Adjunction sends the Kummer cup-power morphisms to the specified derived columns.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §0.9, ClassicalAlgebraic.cycleClasses; §F.7; §0.11, ClassicalAlgebraic.smoothTrace; §F.10.2b (README at head c4ee54f). §0.9 states the étale projective bundle formula with hyperplane-power summands for finite coefficients; §F.7 its adic realization; §0.11 the normalized smooth trace and its composition law; §F.10.2b the Frobenius convention. Part (a) is imported from §0.9 and §F.7.
+
+*Source:* [Scheme and stack foundations (TauCetiRoadmap roadmap README on main)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/d2081398eedfbd4153d3067aa98a21b5a5270957/TauCetiRoadmap/SchemeAndStackFoundations/README.md), §5.4, projectiveBundle and projectiveBundle\_dual\_convention (README at main d208139). Constructs the projective bundle as the relative Proj of the symmetric algebra of the dual, with O(1), the tautological quotient and the comparison with the quotient convention; this fixes the lines convention used here.
+
+*Source:* [La théorie des classes de Chern](https://www.numdam.org/article/BSMF_1958__86__137_0.pdf), §1, pp. 138–139; §2, Lemme 1, p. 141. §1 builds the complete flag bundle of a vector bundle as an iterated projective bundle of tautological quotients, on which the pullback of the bundle is completely split; Lemme 1 deduces from the projective-bundle basis axiom that pullback to the flag bundles is injective. Used for (f).
+
+*Intended declaration names:* `TauCeti.EtaleDuality.bundleColumn`, `TauCeti.EtaleDuality.projective_bundle_decomposition`, `TauCeti.EtaleDuality.projective_bundle_cohomology`, `TauCeti.EtaleDuality.projective_bundle_chern_relation`, `TauCeti.EtaleDuality.projective_bundle_pushforward`, `TauCeti.EtaleDuality.projective_bundle_pushforward_lower`, `TauCeti.EtaleDuality.projective_bundle_frobenius`, `TauCeti.EtaleDuality.projective_bundle_pairing`, `TauCeti.EtaleDuality.flag_bundle_cohomology`, `TauCeti.EtaleDuality.flag_bundle_pullback_injective`, `TauCeti.EtaleDuality.projective_bundle_section_classes`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/projective-bundle-decomposition`.
+
+<a id="edc-4-blowup-direct-images"></a>
+
+### Direct images along the blow-up of a smooth centre
+
+Let k be a field, ℓ invertible in k, X a smooth separated finite-type k-scheme, i : Z → X a smooth closed subscheme of pure codimension c ≥ 2, π : X̃ = Bl\_Z X → X the blow-up, E = π^{−1}(Z) the exceptional divisor with j : E → X̃ and p = π|\_E : E → Z, and ζ := c₁(O\_E(1)) = −j^\*c₁(O\_X̃(E)) ∈ H²(E, Λ(1)). Then X̃ is smooth, E is a smooth divisor with E ≅ P(N\_{Z/X}) over Z (imported), Λ\_X → Rπ\_\*Λ\_X̃ is split injective, and Rπ\_\*Λ\_X̃ ≅ Λ\_X ⊕ ⊕\_{a=1}^{c−1} i\_\*Λ\_Z(−a)\[−2a]; equivalently π\_\*Λ = Λ, R^{2a}π\_\*Λ ≅ i\_\*Λ\_Z(−a) for 1 ≤ a ≤ c − 1 (generated by the image of ζ^a under j^\*), and R^qπ\_\*Λ = 0 for all other q &gt; 0. Λ is a finite ring whose annihilator is invertible in k, O\_E or E. The splitting is the actual sum of the adjunction unit and j\_\*(zeta^(a-1)p^\*(-)); its restriction to E has columns 1,-zeta,...,-zeta^(c-1).
+
+X smooth, separated and of finite type over a field k, Z ⊂ X smooth of pure codimension c ≥ 2; ℓ invertible in k.
+
+The geometry of the blow-up (X̃ smooth, E = P(N\_{Z/X}), O\_X̃(−E)|\_E = O\_E(1), π an isomorphism over X − Z, π proper) is requested from SchemeAndStackFoundations:SF.0. TauCetiRoadmap main states blow-ups and strict transforms (SchemeAndStackFoundations §4.11 with StableReduction Layer 4) and normal bundles of regular immersions (§5.5), but not this identification of the exceptional divisor.
+
+**Proof plan.**
+
+1. Over X − Z, π is an isomorphism, so Rπ\_\*Λ|\_{X−Z} = Λ.
+2. π is proper, so proper base change (EtaleCohomologyFoundations §F.2.1, VanishingCycles.properBaseChange) gives (R^qπ\_\*Λ)\_z̄ = H^q(P^{c−1}\_{z̄}, Λ) at geometric points z̄ of Z: Λ(−a) for q = 2a ≤ 2(c − 1), 0 otherwise (EDC.4/projective-bundle-decomposition (a) over a point).
+3. Use the adjunction unit for Λ\_X and, for 1 ≤ a ≤ c−1, the morphism i\_\*Λ\_Z(−a)\[−2a] → Rπ\_\*Λ\_X̃ obtained from p^\*, multiplication by ζ^{a−1}, and the exceptional-divisor Gysin map j\_\* (EtaleCohomologyFoundations §F.6, VanishingCycles.smoothPairGysin). Their direct sum defines the proposed decomposition morphism.
+4. Check this morphism on geometric stalks by proper base change. Off Z it is the identity. Over Z its restriction to E has columns 1 and −ζ^a, since j^\*j\_\*y = −ζ∪y by the self-intersection formula of EtaleCohomologyFoundations §F.6. These form the projective-bundle basis, so the morphism is an isomorphism. The trace π\_\* splits its first column by the degree-one projection formula. Merely knowing the cohomology sheaves of a complex would not prove a derived splitting.
+5. Applying RΓ recovers VanishingCycles.etaleBlowup of EtaleCohomologyFoundations §F.7, which states the decomposition of RΓ(Bl\_Z X, Λ) with the same exceptional Gysin columns; this node is its sheaf-level form over X, needed for supports and compact supports in EDC.4/pullback-injective-blowup-bundle.
+
+**Checks.**
+
+- Blow-up of a point in a surface (c = 2): R²π\_\*Λ = Λ\_x(−1) at the point x, generated by the class of the exceptional curve.
+- c = 3, Z a point in a threefold: R²π\_\*Λ = Λ\_x(−1), R⁴π\_\*Λ = Λ\_x(−2), R¹ = R³ = 0.
+- Non-example: for c = 1 the blow-up is an isomorphism and Rπ\_\*Λ = Λ; the formula's sum over 1 ≤ a ≤ c − 1 is then empty, so no correction term appears.
+- The active forms are typed over the common finite-type separated k-base; the exceptional-divisor geometry is the SchemeAndStackFoundations:SF.0 request of this packet.
+
+*Needs:* `EDC.4/projective-bundle-decomposition`, `SchemeAndStackFoundations:SF.0`.
+
+*Source:* [Lectures on Étale Cohomology](https://www.jmilne.org/math/CourseNotes/LEC.pdf), §33, proof of Lemma 33.2, p. 194. Milne computes the direct images along the blow-up of the codimension-two axis by proper base change: π\_\*Λ = Λ, R²π\_\*Λ supported on A ∩ X, other R^r = 0.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.2.1, VanishingCycles.properBaseChange; §F.6, VanishingCycles.smoothPairGysin; §F.7, VanishingCycles.etaleBlowup (README at head c4ee54f). §F.2.1 states proper base change for torsion D⁺ complexes; §F.6 the Gysin maps with projection and self-intersection formulas; §F.7 the global decomposition of RΓ(Bl\_Z X, Λ) for a smooth centre of codimension c ≥ 1, with its compact-support analogue.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.blowupSplitMap`, `TauCeti.EtaleDuality.blowup_direct_images`, `TauCeti.EtaleDuality.blowupColumn_cohomology`, `TauCeti.EtaleDuality.blowup_exceptional_restriction`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/blowup-direct-images`.
+
+<a id="edc-4-blowup-formula"></a>
+
+### The blow-up formula along a smooth centre: retraction, traces and Frobenius weights
+
+In the situation of EDC.4/blowup-direct-images, for every q the map Φ : H^q(X, Λ) ⊕ ⊕\_{a=1}^{c−1} H^{q−2a}(Z, Λ(−a)) → H^q(X̃, Λ), (x, (z\_a)) ↦ π^\*x + Σ\_a j\_\*(ζ^{a−1} ∪ p^\*z\_a), where j\_\* : H^{r}(E, Λ(s)) → H^{r+2}(X̃, Λ(s+1)) is the Gysin map of the divisor E, is an isomorphism; this decomposition with its displayed exceptional Gysin columns and inverse signs is VanishingCycles.etaleBlowup of EtaleCohomologyFoundations §F.7, imported. The node adds the following compatibilities of this specific Φ: its inverse has first component π\_\* (the Gysin pushforward, with π\_\*π^\* = id); j^\*π^\*x = p^\*i^\*x; π\_\*j\_\*(ζ^{a−1} ∪ p^\*z) = 0 for 1 ≤ a ≤ c − 1 (degree reasons along the fibres P^{c−1}); for X proper over k separably closed, Tr\_X̃(π^\*x) = Tr\_X(x) on top-degree classes; if X, Z are defined over k₀ (k = k₀^sep) Φ is Gal(k/k₀)-equivariant and over 𝔽\_q the geometric Frobenius acts on the summand H^{q−2a}(Z)(−a) as F\_Z ⊗ q^a (untwisted). Λ is a finite ring whose annihilator is invertible in k, O\_E or E.
+
+As in EDC.4/blowup-direct-images; for Galois and Frobenius statements X and Z are defined over k₀ and the cohomology is that of X\_k, Z\_k.
+
+For cohomology over a non-separably-closed k₀ the decomposition is of Galois modules after base change to k.
+
+**Proof plan.**
+
+1. Apply RΓ(X, −) to Rπ\_\*Λ\_X̃ ≅ Λ\_X ⊕ ⊕\_a i\_\*Λ\_Z(−a)\[−2a] (EDC.4/blowup-direct-images): H^q(X̃) ≅ H^q(X) ⊕ ⊕\_a H^{q−2a}(Z)(−a). This is the decomposition stated by EtaleCohomologyFoundations §F.7.
+2. Retain the imported exceptional Gysin columns of EtaleCohomologyFoundations §F.7. At the sheaf level EDC.4/blowup-direct-images identifies their exceptional restrictions as −ζ^a p^\*; this supplies the comparison before applying any support functor. No second global blow-up decomposition is planned.
+3. π\_\*π^\* = id: π is proper birational between smooth schemes of the same dimension, so π^!Λ\_X ≅ Λ\_X̃ by smooth purity on both sides (EtaleCohomologyFoundations §F.6) and the trace defines π\_\*; π\_\*1 = 1 because π is an isomorphism over a dense open, and the projection formula (§F.2.7) gives π\_\*π^\*x = x ∪ π\_\*1 = x.
+4. Traces: Tr\_X̃ = Tr\_X ∘ π\_\* (composition of smooth traces, EtaleCohomologyFoundations §0.11) and π\_\*π^\* = id. Equivariance and Frobenius as in EDC.4/projective-bundle-decomposition (d): ζ and the Gysin map of E are defined over k₀ and j\_\* raises the twist by one.
+
+**Checks.**
+
+- Blowing up a k-rational point x on a smooth projective surface S over separably closed k (c = 2): H²(S̃) = H²(S) ⊕ Λ(−1)·\[E] with \[E]² = −1, H¹, H³ unchanged; if the surface and the point descend to 𝔽\_q, the new geometric Frobenius eigenvalue is q. Checked independently of any Weil bound (the stage's acceptance test).
+- Blowing up a point in P³ (c = 3): b₂ and b₄ both increase by one, b\_odd unchanged.
+- Euler characteristic: χ(X̃) = χ(X) + (c − 1)χ(Z); for c = 1 nothing changes.
+- Axis of a Lefschetz pencil (c = 2; replaces the retired EDC.4/pencil-axis-blowup): for X ⊂ P^N smooth projective and an axis A transverse to X, H^q(Bl\_{A∩X}X) ≅ H^q(X) ⊕ H^{q−2}(A ∩ X)(−1), and over 𝔽\_q the geometric Frobenius acts on the second summand as q·F\_{A∩X}. The incidence identification is LefschetzPencilsAndVanishingCycles §3.3 and the decomposition with its restriction and Gysin formulas is §4.5 there; both are imported.
+
+*Planet:* Blow-up formula.
+
+*Needs:* `EDC.4/blowup-direct-images`, `EDC.4/projective-bundle-decomposition`.
+
+*Source:* [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §7, p. 299. Weil I uses the blow-up formula along the smooth codimension-two centre A ∩ X: H\*(X̃) = H\*(X) ⊕ H^{\*−2}(A ∩ X)(−1).
+
+*Source:* [Lectures on Étale Cohomology](https://www.jmilne.org/math/CourseNotes/LEC.pdf), §33, proof of Lemma 33.2, p. 194. Milne obtains H\*(X\*) ≅ H\*(X) ⊕ H\*−2(A ∩ X)(−1) from the degenerating Leray spectral sequence of the blow-up.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.7, VanishingCycles.etaleBlowup; §F.6; §0.11 (README at head c4ee54f). §F.7 states the blow-up decomposition of RΓ and RΓ\_c for a smooth centre with exceptional Gysin maps and their inverse signs, over an arbitrary field, with finite or ℓ-adic coefficients; its checks include the exceptional curve of square −1. The decomposition, explicit columns and inverse signs are imported; this node records the proper-trace retraction, support functoriality and Frobenius weights.
+
+*Source:* [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), §3.3 (the total space of a pencil) and §4.5 (the cohomology of the total space) (README at head 4c7deab). Identifies the incidence family of a transverse-axis pencil with the blow-up along the codimension-two centre and states its cohomology decomposition with restriction and Gysin formulas, from EtaleCohomologyFoundations §F.7; this is the c = 2 axis case, imported.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.blowupCohomologyMap`, `TauCeti.EtaleDuality.blowup_formula`, `TauCeti.EtaleDuality.blowup_first_inverse`, `TauCeti.EtaleDuality.blowup_frobenius`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/blowup-formula`.
+
+<a id="edc-4-pullback-injective-blowup-bundle"></a>
+
+### Pullback along blow-ups and projective bundles is split injective
+
+Let σ : X' → X be either (i) the blow-up of a smooth k-scheme X along a smooth closed subscheme Z of pure codimension c ≥ 2, or (ii) a projective bundle P(E) → X of relative dimension r ≥ 1 over a qcqs X, or (iii) the complete flag bundle Fl(E) → X of a vector bundle E of rank s ≥ 2 over a qcqs X, with ℓ invertible. For Λ a finite ring whose annihilator is invertible, O\_E or E, σ^\* : H^q(X, Λ) → H^q(X', Λ) is split injective, with retraction π\_\* in case (i), a ↦ σ\_\*(ξ^r ∪ −) in case (ii) and the iterated pushforward of the top monomial ξ\_1^{s−1}ξ\_2^{s−2}⋯ξ\_{s−1} in case (iii); the same holds for cohomology with compact supports and for cohomology with supports in a closed subset T ⊂ X and its preimage. In case (ii) the cokernel is the sum of H^{q−2j}(X, Λ)(−j) for 1≤j≤r; for r=1 this is H^{q−2}(X, Λ)(−1), and in case (i) the cokernel is ⊕\_{a=1}^{c−1} H^{q−2a}(Z, Λ)(−a), so σ^\* is bijective in degrees q &lt; 2 (and an isomorphism in all degrees when Z = ∅).
+
+As in EDC.4/blowup-formula (case (i)) or EDC.4/projective-bundle-decomposition (case (ii)); integral coefficients O\_E allowed.
+
+The adic projective-bundle case has the finite-type and bounded-constructible range of EDC.4/projective-bundle-decomposition. Supports and compact supports use the same proper derived decomposition, not a new pullback on compact supports for arbitrary nonproper morphisms.
+
+For compact supports assume X separated of finite type over a field, so RΓ\_c is the supplied structural lower-shriek functor. The blow-up case retains that same geometric range from blowup-direct-images; the finite-coefficient ordinary/support projective-bundle statement keeps the qcqs range.
+
+**Proof plan.**
+
+1. (i) EDC.4/blowup-formula: H^q(X') = σ^\*H^q(X) ⊕ (exceptional summands), with π\_\*σ^\* = id.
+2. (ii) EDC.4/projective-bundle-decomposition (a) and (c).
+3. Compact supports and supports in T: apply the same decompositions of Rσ\_\*Λ (EDC.4/blowup-direct-images, EDC.4/projective-bundle-decomposition (a)), which are isomorphisms in D(X, Λ), to RΓ\_c(X, −) and RΓ\_T(X, −); for σ proper, Rσ\_! = Rσ\_\* (EtaleCohomologyFoundations §0.8, ClassicalAlgebraic.properSupports) and supports in the preimage of T are computed by the triangles of §0.7.
+4. (iii) EDC.4/projective-bundle-decomposition (f): iterate case (ii) along the tower of projective bundles.
+
+**Checks.**
+
+- P¹-bundle over a separably closed geometric point: H⁰(pt) → H⁰(P¹) bijective, H²(P¹) = Λ(−1) is the cokernel.
+- Blow-up of one geometric point on a smooth connected projective surface over a separably closed field: σ^\* bijective on H⁰, H¹, H³, H⁴ and injective with cokernel Λ(−1) on H².
+- Integral coefficients: σ^\* is split injective on H^q(X, ℤ\_ℓ), so torsion in H^q(X, ℤ\_ℓ) injects into H^q(X', ℤ\_ℓ).
+- Flag bundle: for E of rank 2 the flag bundle is P(E), and case (iii) is case (ii) with r = 1.
+
+*Needs:* `EDC.4/blowup-formula`, `EDC.4/projective-bundle-decomposition`, `EDC.4/blowup-direct-images`.
+
+*Source:* [On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://arxiv.org/pdf/1912.11942v3), Lemma 5.11.3(2)–(5), Invent. Math. 228 (2022), pp. 251–252 (published edition). Part (2) identifies the blow-up and trivial P¹ bundle in the diagonal cases; (3) proves pullback injectivity; (4) gives the exceptional summands; (5) computes the two classes for the trivial bundle. This node exports the resulting retractions and supported forms.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §§0.7–0.8, ClassicalAlgebraic.supportLocalization and ClassicalAlgebraic.properSupports (README at head c4ee54f). §0.7 states sections with supports and the open–closed triangles; §0.8 states compactification-defined lower shriek with proper agreement Rf\_! = Rf\_\*; together they transport the derived decompositions to supports and compact supports.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.pullback_injective_blowup_bundle`, `TauCeti.EtaleDuality.bundle_supported_retraction`, `TauCeti.EtaleDuality.blowup_supported_retraction`, `TauCeti.EtaleDuality.bundle_supported_cokernel`, `TauCeti.EtaleDuality.blowup_supported_cokernel`, `TauCeti.EtaleDuality.supported_modification_low_degrees`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/pullback-injective-blowup-bundle`.
+
+<a id="edc-4-vanishing-and-restriction-subspaces"></a>
+
+### Vanishing and restricted subspaces of a smooth divisor, and primitive subspaces
+
+Let k be separably closed, ℓ invertible, E a field of coefficients (finite of characteristic ℓ, or finite over ℚ\_ℓ), X a smooth proper k-scheme of pure dimension n + 1 and i : Y → X a smooth effective Cartier divisor (pure dimension n), with class L = c₁(O\_X(Y)) ∈ H²(X, E(1)); the principal case is a smooth hyperplane section of a smooth projective X, with L = c₁(O\_X(1)). Define the vanishing subspace Van(Y) := ker(i\_\* : H^n(Y, E) → H^{n+2}(X, E(1))) and the restricted subspace Res(Y) := im(i^\* : H^n(X, E) → H^n(Y, E)), both E-subspaces of H^n(Y, E). Then, with respect to the Poincaré pairing ⟨y, y'⟩ = Tr\_Y(y ∪ y') on H^n(Y, E) (perfect and (−1)^n-symmetric after the identification E(n) ≅ E over k), Res(Y) = Van(Y)^⊥ and Van(Y) = Res(Y)^⊥; dim Res(Y) + dim Van(Y) = dim H^n(Y). Moreover i\_\*i^\* = L ∪ − on H^∗(X). For 0 ≤ q ≤ n + 1 the primitive subspace is P^q(X) := ker(L^{n+2−q} : H^q(X, E) → H^{2n+4−q}(X, E(n+2−q))). These identities define kernels, images and orthogonals. Complementary decompositions require additional nondegeneracy hypotheses; the rational ample case and the resulting Lefschetz decomposition are supplied by DeligneWeightsAndPurity:DWP.9. Over finite fields of coefficients even an ample divisor need not give complementary Res(Y) and Van(Y).
+
+X smooth proper of pure dimension n + 1 over k separably closed; Y a smooth effective Cartier divisor (for instance a smooth hyperplane section); field coefficients E (so that orthogonal complements have complementary dimensions). Ampleness of Y is not used.
+
+**Proof plan.**
+
+1. Van(Y) and Res(Y) are kernels and images of E-linear maps between finite-dimensional spaces (finiteness: EtaleCohomologyFoundations §F.3, VanishingCycles.etaleFiniteness, for finite fields of coefficients; §§F.4.4–F.4.5 for ℓ-adic fields).
+2. i\_\* is the transpose of i^\* for the Poincaré pairings of Y and X (EtaleCohomologyFoundations §F.6, Gysin maps and their projection formula): ⟨i^\*x, y⟩\_Y = ⟨x, i\_\*y⟩\_X. Hence y ⊥ Res(Y) ⟺ i\_\*y ⊥ H^n(X) ⟺ i\_\*y = 0 (perfectness of Poincaré duality on X, §§F.5–F.6), i.e. Res(Y)^⊥ = Van(Y); the pairing on Y is perfect, so Van(Y)^⊥ = Res(Y) and the dimensions add up.
+3. i\_\*i^\*x = cl(Y) ∪ x = L ∪ x (projection formula of §F.6 and the agreement of the class of a Cartier divisor with the Kummer first Chern class of O\_X(Y), §0.9). Ampleness plays no role in these three steps.
+4. P^q(X) is a kernel of an E-linear map; nothing about its complement is claimed.
+
+**API.**
+
+- `TauCeti.EtaleDuality.vanishingSubspace`: Van(Y) := ker(i\_\* : H^n(Y, E) → H^{n+2}(X, E(1))) as an E-subspace of H^n(Y, E).
+- `TauCeti.EtaleDuality.restrictedSubspace`: Res(Y) := im(i^\* : H^n(X, E) → H^n(Y, E)) as an E-subspace of H^n(Y, E).
+- `TauCeti.EtaleDuality.restrictedSubspace_eq_orthogonal`: Res(Y) = Van(Y)^⊥ for the Poincaré pairing of Y.
+- `TauCeti.EtaleDuality.vanishingSubspace_eq_orthogonal`: Van(Y) = Res(Y)^⊥ for the Poincaré pairing of Y.
+- `TauCeti.EtaleDuality.finrank_restricted_add_vanishing`: dim Res(Y) + dim Van(Y) = dim H^n(Y, E).
+- `TauCeti.EtaleDuality.gysin_comp_restriction`: i\_\* ∘ i^\* = L ∪ − : H^q(X, E) → H^{q+2}(X, E(1)).
+- `TauCeti.EtaleDuality.primitiveSubspace`: P^q(X) := ker(L^{n+2−q} : H^q(X, E) → H^{2n+4−q}(X, E(n+2−q))) for q ≤ n + 1.
+- `TauCeti.EtaleDuality.vanishingSubspace_galois`: If X, Y are defined over k₀, Van(Y) and Res(Y) are Gal(k/k₀)-stable subspaces.
+
+*Used by* DeligneWeightsAndPurity:DWP.9 (orthogonal decomposition of a hyperplane section, Weil II 4.3.9): hard Lefschetz upgrades Res(Y) = Van(Y)^⊥ to H^n(Y) = Res(Y) ⊕ Van(Y)
+
+*Used by* LefschetzPencilsAndVanishingCycles:LPV.4 (global vanishing cycles): the vanishing cycles of a Lefschetz pencil span Van(Y) and Res(Y) is their orthogonal
+
+*Used by* Deligne, Weil II (4.3.1)–(4.3.2): Ev(Y) and Ev(Y)^⊥ for the trace pairing on H^n(Y)
+
+*Used by* DeligneWeightsAndPurity §9.3(a) (open pull request #929, Weil II 4.1.2): the transpose relation of i\_\* and i^\* and the identity i\_\* ∘ i^\* = L\_η, for a smooth hyperplane section and ℚ\_ℓ-coefficients; the subspaces here are their kernel and image
+
+**Checks.**
+
+- X = P^{n+1}, Y = P^n: Van(Y) = 0 for n odd (H^n(Y) = 0) and for n even Van(Y) = 0 since i\_\* is an isomorphism H^n(P^n) → H^{n+2}(P^{n+1}); Res(Y) = H^n(Y).
+- Take X = P² with its O(3) Veronese embedding and Y a smooth plane cubic, which is a hyperplane section for that embedding. Then Res(Y)=0 and Van(Y)=H¹(Y), of dimension 2.
+- The intersection Res(Y) ∩ Van(Y) is not asserted to be 0: in characteristic ℓ coefficients E = 𝔽\_2 and n even, the restricted class of a quadric hyperplane section can be isotropic; only orthogonality is proved.
+- The P², O(3) test uses the actual degree-three Veronese embedding of LefschetzPencilsAndVanishingCycles §3.4 (LefschetzPencil.veronese). Orthogonality uses the actual restriction/Gysin maps, not arbitrary subspaces with matching dimensions.
+- `TauCeti.EtaleDuality.vanishingSubspace_projectiveSpace` (computation): For X = P^{n+1} and Y = P^n a hyperplane, Van(Y) = 0 and Res(Y) = H^n(Y).
+- `TauCeti.EtaleDuality.restrictedSubspace_planeCubic` (computation): For X=P² embedded by O(3), a smooth plane cubic Y is a hyperplane section; Res(Y)=0 and Van(Y)=H¹(Y,E) has dimension 2.
+- `TauCeti.EtaleDuality.vanishingSubspace_zero_of_curve_point` (degenerate): For n=0, X a smooth connected projective curve and Y a nonempty reduced hyperplane section of d points, Van(Y) is the kernel of the sum map E^d → E and has dimension d−1.
+- `TauCeti.EtaleDuality.not_vanishing_inf_restricted_eq_bot` (non-example): Use 𝔽₂ coefficients over a separably closed base field of characteristic different from 2. Take X a smooth quadric threefold and Y its smooth quadric surface hyperplane section. H²(Y) ≅ 𝔽₂², Res(Y) is spanned by h = (1,1), and h∪h has trace 2 = 0, so Res(Y) = Van(Y) is nonzero. This detects an unjustified direct-sum axiom.
+- `TauCeti.EtaleDuality.primitiveSubspace_degree_zero` (degenerate): For a connected smooth projective X of dimension D, P⁰(X)=H⁰(X,E)=E, since L^{D+1} lands above degree 2D.
+- `TauCeti.EtaleDuality.primitiveSubspace_projectiveSpace` (computation): For X=P^D and 0&lt;q≤D, P^q(X)=0: in positive even degree the specified power sends the hyperplane generator to a nonzero hyperplane power, and in odd degree the domain is zero.
+- `TauCeti.EtaleDuality.primitiveSubspace_quadricSurface` (computation): For X=P¹×P¹ with L=(1,1), P²(X) is the one-dimensional kernel of (a,b)↦a+b, spanned by (1,−1). This distinguishes the primitive kernel from either zero or all H².
+
+*Planet:* Vanishing and restricted subspaces.
+
+*Needs:* the exact upstream finiteness, duality, Gysin and divisor-class contracts cited in the proof plan; no affine-complement or Lefschetz hypothesis.
+
+*Source:* [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §4.3, before Lemme (4.3.2), p. 222. Deligne uses the vanishing part of H^n(Y) and its orthogonal for the trace pairing; this node constructs both as subspaces without the hard-Lefschetz splitting.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §§0.9, F.3, F.5–F.6 (README at head c4ee54f). §F.3 states finiteness of cohomology, §§F.5–F.6 duality, Gysin maps and their projection formula, and §0.9 the agreement of divisor classes with Kummer first Chern classes; these supply every step except the orthogonality argument itself.
+
+*Source:* [Deligne weights, purity and the Weil bounds (TauCetiRoadmap roadmap README, open pull request #929)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/5f713c436ee303ceb25938d815e236b1a2c3d09a/TauCetiRoadmap/DeligneWeightsAndPurity/README.md), §9.3(a) (README at head 5f713c4). States that the Gysin map of a smooth hyperplane section is the transpose of restriction and that i\_\* ∘ i^\* is cup product with the hyperplane class, with ℚ\_ℓ-coefficients; the orthogonality here is the kernel–image form of that adjunction for any smooth divisor and any field of coefficients.
+
+*Source:* [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), §3.4, LefschetzPencil.veronese and veronese\_hyperplane (README at head 4c7deab). The degree-three Veronese embedding of P² makes a plane cubic a hyperplane section; used by the plane-cubic test.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.vanishingSubspace`, `TauCeti.EtaleDuality.restrictedSubspace`, `TauCeti.EtaleDuality.primitiveSubspace`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.4/vanishing-and-restriction-subspaces`.
+
+### Worked examples
+
+For a smooth plane cubic C in P², weak Lefschetz says that H¹(P²)→H¹(C) is injective; it is 0→E² and need not be surjective. Regard C as a hyperplane section for the O(3) Veronese embedding: the restricted space is zero and the vanishing space is all E². For a smooth quadric threefold and smooth quadric surface section with F₂ coefficients, the two ruling coordinates instead make the restricted and vanishing spaces equal to the nonzero diagonal. Orthogonal complements therefore do not imply complementary summands.
+
+The general form needs no smoothness: on the projective cone over a smooth conic, Λ\[2] is perverse, so restriction to a hyperplane section missing the vertex is bijective on H⁰ and injective on H¹. In the affine generic form, removing a smooth conic C from 𝔸² leaves H¹ of rank one, while a generic line meets C twice and its complement has H¹ of rank two: restriction is injective in degree d − 1 = 1 and not surjective.
+
+A smooth conic has degree two in P². Its hyperplane class is twice the degree-one generator of top cohomology; modulo two it vanishes. This is why the complete-intersection statement uses the dual high-degree generator integrally and asserts a hyperplane-power splitting only after the degree is invertible; in a family of quadrics the high-degree generator is η^i/2. Blowing up a rational point on a smooth projective surface adds one middle Tate class, with exceptional square −1; the first inverse component is the proper trace, and geometric Frobenius acts on the new class by q when the data descend to F\_q. On P(O ⊕ L) the infinity section has class ξ and the zero section ξ + c₁(L), and their product vanishes.
+
+### Dependencies
+
+The EDC.4 internal graph is acyclic. It uses EtaleCohomologyFoundations, LefschetzPencilsAndVanishingCycles, the accepted EDC.5 perverse interfaces, the two specified EDC.3 interfaces and the precise SchemeAndStackFoundations geometry requests. No EDC.4 target depends on EDC.6. Hard Lefschetz and its complementary decomposition remain in DeligneWeightsAndPurity, not assumed here.
+
+## Layer EDC.6: retained coefficient and comparison interfaces
+
+These node identities remain here because accepted packets import them. Every heavy category, realization and comparison below is a reader target with its intended future API. The suggested file introduces none of their carriers by an admitted data definition.
+
+<a id="edc-6-scheme-adic-diamond-operation-comparisons-index"></a>
+
+### Scheme, adic and diamond comparisons of the duality operations, with their exact hypotheses
+
+Index of comparisons, with each construction imported from its owner. In characteristic p, for torsion Λ killed by an integer prime to p, ECD 27.1–27.3 give monoidal pullback c\_X^\*, its full faithfulness, and its right adjoint Rc\_{X\*}; the internal-Hom and pushforward identities are right-adjoint identities. For f : Y → X separated of finite type between qcqs schemes of characteristic p, ECD 27.4 gives Rf^◇\_!c\_Y^\* ≅ c\_X^\*Rf\_! and Rf^!Rc\_{X\*} ≅ Rc\_{Y\*}Rf^{◇!}. It does not assert c\_Y^\*Rf^! ≅ Rf^{◇!}c\_X^\*, or c^\*RHom ≅ RHom(c^\*−,c^\*−). The analogous ! comparison over a complete DVR with perfect residue field is imported from L4 (27.5), while constructible Rf\_\* comparison and full faithfulness in that setting are imported from L6 (27.6–27.7). For scheme → adic, H5/proper-comparison-3-7-2 supplies proper comparison for torsion sheaves in its stated generality, and H5/comparison-over-nonarchimedean-fields-3-8-1 supplies the finite-type comparison over a complete nonarchimedean field with coefficient torsion prime to char(k), not necessarily prime to the residue characteristic. Duality recovered by Rc\_{X\*} is EDC.6/diamond-transport-of-duality; stronger c^\* transport requires the additional comparison recorded as a gap of the accepted EDC.6 packet (EtaleDualityAndPerverseSheaves--EDC.6.json), with its request to AdicCoefficientsAndComparisons:L3.
+
+For each comparison retain its own geometric and coefficient range: ECD 27.1–27.4 require characteristic p and torsion coefficients prime to p; ECD 27.5–27.7 use their DVR and analytic scopes. Huber 3.7.2 allows arbitrary torsion for proper comparison; 3.8.1 requires constructible torsion prime to char(k), with no residue-characteristic restriction when char(k)=0.
+
+Tensor, internal Hom and coefficient change are the enhanced operations of EnhancedDerivedSheaves §0.3 (ClassicalDerived.tensorHom) in the ambient unbounded derived category; finite Tor amplitude is tested against all degree-zero module sheaves as defined there. Bounded outputs require actual bounded-constructible restriction witnesses (EtaleCohomologyFoundations §F.1). The scheme-side six operations and duality are those of EtaleCohomologyFoundations §§0.7–0.8, F.2 and F.5.
+
+**Proof plan.**
+
+1. Import the comparison theorems from their owners: AdicCoefficientsAndComparisons L2 (qcqs compactification), L3 (27.1–27.4), L4 (27.5), L6 (27.6–27.7), and ClassicalAdicEtaleCohomology H5 (Huber 3.7.2 and 3.8.1; upstream ClassicalAdicEtaleCohomology §8.2, proper algebraic comparison, and §11.1, nonproper algebraic comparison). The scheme-side dualizing complex and biduality are EtaleCohomologyFoundations §F.5 (VanishingCycles.etaleExceptionalInverseImage, VanishingCycles.etaleVerdierDuality).
+2. Do not invert a right-adjoint identity to obtain a pullback identity. Apply 27.3–27.4 and the unit K ≅ Rc\_{X\*}c\_X^\*K to recover scheme duality via Rc\_{X\*}; see EDC.6/diamond-transport-of-duality.
+
+**Checks.**
+
+- X = 𝔸¹ over a perfectoid field of characteristic p: Rf^◇\_!Λ = c^\*Rf\_!Λ = Λ(−1)\[−2] (ECD 27.4).
+- For smooth X of dimension d, Rc\_{X\*}K\_{X^◇/B} ≅ Λ(d)\[2d]. A strong identification before Rc\_\* is conditional on the separate L3 essential-image/counit theorem; it is not a check supplied by ECD 27.1–27.4.
+
+*Needs:* `AdicCoefficientsAndComparisons:L2/scheme-support-extension`, `AdicCoefficientsAndComparisons:L2/coefficient-and-unbounded-extension`, `AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2`, `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`, `AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3`, `AdicCoefficientsAndComparisons:L3/internal-Hom-right-adjoint`, `AdicCoefficientsAndComparisons:L3/pushforward-right-adjoint`, `AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5`, `AdicCoefficientsAndComparisons:L4/analytic-test-space`, `AdicCoefficientsAndComparisons:L6/constructible-direct-image-comparison-27-6`, `AdicCoefficientsAndComparisons:L6/constructible-full-faithfulness-27-7`, `AdicCoefficientsAndComparisons:L6/trait-open-comparison`, `AdicCoefficientsAndComparisons:L6/semistable-boundary-induction`, `ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2`, `ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1`.
+
+*Source:* [Étale cohomology of diamonds](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf), §27, Proposition 27.2, p. 163. c\_X^\* is fully faithful for any scheme X of characteristic p with Λ as in the statement.
+
+*Source:* [Étale cohomology of diamonds](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf), §27, Proposition 27.4, p. 165. Rf^◇\_!c\_Y^\* ≅ c\_X^\*Rf\_! for f separated of finite type between qcqs schemes of characteristic p.
+
+*Source:* [Classical analytic étale cohomology (TauCetiRoadmap roadmap README, open pull request #875)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e36805f4bbf96f644034fbc220ab0607a15ace83/TauCetiRoadmap/ClassicalAdicEtaleCohomology/README.md), §8.2 (proper algebraic comparison) and §11.1 (nonproper algebraic comparison, Huber 3.8.1) (README at head e36805f). States the comparison of algebraic and analytic étale cohomology for proper maps and, for constructible sheaves and finite-type maps over a complete nonarchimedean field, without properness; the H5 nodes cited here are the atlas form of these sections.
+
+*Source:* [Adic coefficients and the comparison of schemes with v-sheaves (TauCetiRoadmap roadmap README, open pull request #965)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4a7b4d83e2622df066e2a883525bb755bce6b115/TauCetiRoadmap/AdicCoefficientsAndComparisons/README.md), Layer L3, §§L3/commutation-and-adjoints-27-1-27-3, L3/full-faithfulness-27-2, L3/internal-Hom-right-adjoint, L3/pushforward-right-adjoint, L3/rf-shriek-comparison-27-4 (README at head 4a7b4d8). The open pull request states ECD 27.1–27.4 in characteristic p (tensor and pullback compatibility, full faithfulness, the two right-adjoint identities and the proper-support comparison) under the same node names that are cited here as prerequisites; it states no essential-image or counit theorem for exceptional pullback.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.scheme_diamond_fullyFaithful`, `TauCeti.EtaleDuality.scheme_diamond_lowerShriek`, `TauCeti.EtaleDuality.scheme_diamond_upperShriek_rightAdjoint`, `TauCeti.EtaleDuality.scheme_diamond_RHom_rightAdjoint`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/scheme-adic-diamond-operation-comparisons-index`.
+
+<a id="edc-6-classical-and-proetale-adic-categories"></a>
+
+### Classical and pro-étale ℓ-adic constructible categories
+
+Let X be a scheme of finite type over a field (or over ℤ\[1/ℓ]-regular bases of dimension ≤ 1), ℓ invertible on X, E/ℚ\_ℓ finite with ring of integers O and uniformizer λ. Imported, not planned here: for O = ℤ\_ℓ, EtaleCohomologyFoundations §§F.4.1–F.4.6 state the normalized bounded constructible ℓ-adic systems (VanishingCycles.normalizedAdicSystems), their classical realization K\_ℤℓ = Rlim K\_n (VanishingCycles.classicalAdicRealization), the comparison Rν\_\*K\_pro ≅ K\_ℤℓ with the pro-étale realization (VanishingCycles.etaleProetaleAdicComparison), integral finiteness and derived reduction (VanishingCycles.adicFiniteness), rational and finite-E realization through O\_E lattices (VanishingCycles.rationalAdicRealization), and the passage of proper, smooth and Rf\_! exchange, projection, tensor and Künneth through normalized systems (VanishingCycles.adicFunctoriality); §F.5 states adic duality as the realization of the finite-level duality. The node adds the λ-adic form for a possibly ramified O: the category D^b\_c(X, O), obtained by taking the homotopy category of the normalized full subcategory of the enhanced coefficient-system limit of EnhancedDerivedSheaves §E4.5, with K\_m ∈ D\_ctf(X, O/λ^m) and homotopy-coherent derived reduction equivalences (EDC.6/normalized-adic-system) is equivalent to Bhatt–Scholze's D\_cons(X\_proét, O) of derived λ-complete objects whose reductions are constructible, compatibly with the reduction functors K ↦ K ⊗^L O/λ^m. D^b\_c(X, E) := D^b\_c(X, O) ⊗ E is the full subcategory D\_cons(X\_proét, E), and D^b\_c(X, Ē) is the 2-colimit over finite E'/E. Both carry the six operations f^\*, Rf\_\*, Rf\_!, f^!, ⊗, RHom, compatible with the finite-level ones under reduction and with coefficient extension E → E'; for O = ℤ\_ℓ these are the imported operations.
+
+X of finite type over a field (or a regular base of dimension ≤ 1) with ℓ invertible; E/ℚ\_ℓ finite.
+
+For the six operations use the hypotheses of Bhatt–Scholze §§6.6–6.7 and Remark 6.8.15: noetherian finite-dimensional bases with ℓ invertible, and the quasi-excellence hypothesis of 6.7.1 for nonproper direct image. Completion and coefficient reconstruction on a replete topos are EnhancedDerivedSheaves E4 (§E4.5); constructibility, boundedness and the scheme six operations are additional inputs, not consequences of repleteness alone.
+
+Tensor, internal Hom and coefficient change are the enhanced operations of EnhancedDerivedSheaves §0.3 in the ambient unbounded derived category; finite Tor amplitude is tested there against all degree-zero sheaves. Bounded outputs require actual bounded-constructible restriction witnesses. General-ring trace evaluation uses ctf inputs; bounded duality on every Dbc object uses its stated coefficient regime.
+
+**Proof plan.**
+
+1. Pro-étale side: D(X\_proét, O) and derived completion are EnhancedDerivedSheaves E4 (coefficient-system reconstruction, EnhancedDerivedSheaves:E4/coefficient-system-reconstruction); D\_cons is the subcategory of complete objects with constructible reductions (Bhatt–Scholze 6.5).
+2. Use the enhanced limit and all higher coherence of EnhancedDerivedSheaves §E4.5, taking its homotopy category only afterwards. The equivalence with λ-adic systems: K ↦ (K ⊗^L O/λ^m)\_m with inverse Rlim (Bhatt–Scholze, comparison with Ekedahl's category; EnhancedDerivedSheaves:E4/inverse-limit-reconstruction). For O = ℤ\_ℓ this is EtaleCohomologyFoundations §§F.4.2–F.4.3; for ramified O the same argument applies to the tower O/λ^m, since O/λ^{em} is a finite free ℤ/ℓ^m-algebra (e the ramification index) and the realization, its Milnor sequence and the pro-étale comparison only use the uniform bounds and the finite-level operations.
+3. Six operations on D^b\_c(X, O): defined levelwise on normalized systems by the finite-level operations of EtaleCohomologyFoundations §§0.7–0.8, F.2 and F.5, which preserve D\_ctf and commute with ⊗^L O/λ^m (projection formula, §F.2.7; finiteness, §F.3); E and Ē by localization and colimit (Bhatt–Scholze 6.8; for finite E also §F.4.5).
+
+**Checks.**
+
+- X = Spec Ω, Ω separably closed: D^b\_c(X, O) ≃ D^b\_{fg}(O) and D^b\_c(X, E) ≃ D^b\_{fd}(E).
+- The constant system (O/λ^m)\_m corresponds to O\_X; its rationalization is E\_X.
+
+*Needs:* `EDC.6/normalized-adic-system`, `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`, `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`.
+
+*Source:* [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2), §§6.5–6.8, especially Proposition 6.6.11, Theorem 6.7.1 and Lemma 6.7.2, Proposition 6.8.14 and Remark 6.8.15, pp. 49–62 (arXiv v2). Bhatt–Scholze define constructible complexes on X\_proét with O and E coefficients and compare them with the classical category.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §§F.4.1–F.4.6 and F.5 (README at head c4ee54f). States normalized ℓ-adic systems with common cohomological and Tor intervals, their classical realization, the classical/pro-étale comparison, integral finiteness and derived reduction, rational and finite-E realization, and the passage of the operations through normalized systems; §F.5 states adic duality as the realization of finite-level duality. The ℤ\_ℓ statements are imported.
+
+*Source:* [Enhanced derived categories of sheaves (TauCetiRoadmap roadmap README, open pull request #908)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b3ea60e3efc3bd4a0b541fb54469dcbf88772064/TauCetiRoadmap/EnhancedDerivedSheaves/README.md), §0.3 (ClassicalDerived.tensorHom, inverseLimits, derivedCompletion) and §E4.5 (README at head b3ea60e). States enhanced derived tensor and internal Hom with finite Tor amplitude, derived limits with Milnor sequences, derived completion with reduction recovery, and coefficient reconstruction on replete topoi.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.classical_proetale_equivalence`, `TauCeti.EtaleDuality.normalized_system_equivalence`, `TauCeti.EtaleDuality.normalized_system_reduction`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/classical-and-proetale-adic-categories`.
+
+<a id="edc-6-adic-transport-of-duality-and-classes"></a>
+
+### Transport of traces, duality and Gysin classes to ℓ-adic and rational coefficients
+
+In the situation of EDC.6/classical-and-proetale-adic-categories, for X separated of finite type over a field k. Imported, not planned here: for O = ℤ\_ℓ and for ℚ\_ℓ and finite E, EtaleCohomologyFoundations §F.5 states adic duality as the realization of finite-level duality, §F.6 the adic realizations of the smooth trace, purity and Gysin maps, §F.4.4 finite generation and derived reduction of geometric cohomology, and §F.4.5 rational tensor, Hom and duality. The node states these for a possibly ramified O = O\_E and records the integral details used downstream: (a) the dualizing complex K\_X := a^!O ∈ D^b\_c(X, O) reduces to the finite-level K\_X ⊗^L O/λ^m and D\_X := RHom(−, K\_X) preserves D^b\_c(X, O); the evaluation K → D\_XD\_XK is an isomorphism for all K ∈ D^b\_c(X, O) (its reductions have finite Tor amplitude over O/λ^m, so the imported ctf biduality applies levelwise and passes to the limit) and for D^b\_c(X, E); D\_X exchanges Rf\_\* and Rf\_!, f^\* and f^!. (b) The smooth trace Tr\_f, the purity isomorphism f^!O ≅ O(d)\[2d] for smooth f of relative dimension d, the Gysin maps and the cycle class map cl : CH^r(X) → H^{2r}(X, O(r)) are the limits of their finite-level versions, with integral torsion retained: for geometric cohomology (X over a separably closed field), H^q(X, O) = lim H^q(X, O/λ^m) is a finitely generated O-module whose torsion is not discarded, and the universal-coefficient sequences 0 → H^q(X, O) ⊗ O/λ^m → H^q(X, O/λ^m) → H^{q+1}(X, O)\[λ^m] → 0 hold. (c) After ⊗E these give the rational statements, compatible with extension of scalars E → E' ⊂ Ē (D\_X, traces and cycle classes commute with − ⊗\_E E').
+
+X separated of finite type over a field; ℓ invertible; O = O\_E.
+
+The inverse-limit, finite-generation and finite-group Mittag-Leffler assertions in (b) concern geometric cohomology over a separably closed field. Arbitrary-field arithmetic cohomology is not asserted finite. Cycle-class transport uses the perfect-field and cycle hypotheses of EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map, whose descent to Chow groups EtaleCohomologyFoundations does not state.
+
+**Proof plan.**
+
+1. Use ambient coefficient reduction and the uniform ordinary/Tor bounds of the enhanced normalized systems for the bounded restrictions. O is a DVR of global dimension one: bounded constructible O-complexes are stratumwise perfect, and their derived reductions lie in D\_ctf(X,O/λ^m) with a common interval. Apply exactly the ctf biduality and exchange isomorphisms of EtaleCohomologyFoundations §F.5 at those levels; the dual systems retain common constructibility and bounds, and enhanced reconstruction gives integral biduality. Quotient-to-quotient reduction is not bounded on every Dbc object. No biduality on arbitrary nonperfect finite-level Dbc inputs is imported. Finite-group Mittag–Leffler is used only for geometric cohomology.
+2. Traces, purity and Gysin maps are compatible with reduction by construction (their finite-level constructions in EtaleCohomologyFoundations §§0.9–0.11 and F.6 are natural in Λ), hence define maps of systems; cycle classes likewise (EDC.3/cycle-class-map).
+3. Universal coefficients: RΓ(X, K) ⊗^L O/λ^m ≅ RΓ(X, K ⊗^L O/λ^m) for K ∈ D^b\_c(X, O) and RΓ(X, K) ∈ D^b\_{fg}(O) (for O = ℤ\_ℓ this is §F.4.4; for ramified O the same argument over the tower O/λ^m). The finiteness clause is geometric; over arbitrary k the absolute Galois cohomology need not be finitely generated.
+4. Coefficient extension: E' is finite free over E, so all operations commute with − ⊗\_E E'.
+
+**Checks.**
+
+- X smooth proper connected of dimension d over k separably closed: H^{2d}(X, O(d)) ≅ O via the limit trace, and Poincaré duality over O has the Ext¹ correction of integral duality (EtaleCohomologyFoundations §F.5, adic duality as the realization of §F.4).
+- An Enriques surface over k separably closed of characteristic ≠ 2 with ℓ = 2: H²(X, ℤ\_2) has torsion ℤ/2, which the integral statement retains.
+
+*Needs:* `EDC.6/classical-and-proetale-adic-categories`, `EDC.3/cycle-class-map`, `EDC.6/api-normalized-system-reduction`.
+
+*Source:* [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2), Remark 6.8.15, p. 62 (arXiv v2). Bhatt–Scholze: the six operations and duality on constructible ℓ-adic complexes on the pro-étale site.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §§F.4.4–F.4.5, F.5 and F.6 (README at head c4ee54f). States integral finiteness and derived reduction of geometric cohomology, rational tensor/Hom/duality with finite E, adic duality, and the adic realizations of purity and Gysin maps; imported for ℤ\_ℓ, ℚ\_ℓ and finite E.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.adic_cohomology_finite`, `TauCeti.EtaleDuality.integralUniversalCoefficient_exact`, `TauCeti.EtaleDuality.integral_duality_reduction`, `TauCeti.EtaleDuality.integral_biduality`, `TauCeti.EtaleDuality.integral_chern_reduction`, `TauCeti.EtaleDuality.integral_gysin_reduction`, `TauCeti.EtaleDuality.integral_trace_reduction`, `TauCeti.EtaleDuality.BoundedDualityCoefficients`, `TauCeti.EtaleDuality.integralReduction_realization`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes`.
+
+<a id="edc-6-rational-perverse-coefficient-extension"></a>
+
+### Perverse t-structures with ℓ-adic coefficients and coefficient extension
+
+For X of finite type over k (ℓ invertible) and E/ℚ\_ℓ finite, the middle perverse t-structure of EDC.5/middle-perverse-t-structure on D^b\_c(X, E) and on D^b\_c(X, Ē) := 2-colim\_{E'} D^b\_c(X, E') is compatible with coefficient extension: for a finite extension E ⊂ E', K ↦ K ⊗\_E E' is t-exact, induces an exact functor Perv(X, E) → Perv(X, E'), commutes with j\_!\* and IC (IC\_X(L) ⊗\_E E' ≅ IC\_X(L ⊗\_E E')), and Hom\_{Perv(X,E')}(K ⊗ E', L ⊗ E') = Hom\_{Perv(X,E)}(K, L) ⊗\_E E'. Reduction from O to O/λ (K ↦ K ⊗^L O/λ) is right t-exact for p and sends the heart of p to pD^{\[−1,0]} (EDC.5/integral-dual-perversity). Simple objects of Perv(X, Ē) are defined over some finite E'.
+
+X of finite type over a field, ℓ invertible; E ⊂ E' finite extensions of ℚ\_ℓ.
+
+The perverse t-structures are those of EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure (stated upstream as VanishingCycles.fieldPerverseTStructure, EtaleCohomologyFoundations §F.8, for finite and ℓ-adic coefficients). The Hom scalar-extension identity is for a finite coefficient-field extension (general algebraic extensions through the stated filtered colimit), not an arbitrary field homomorphism.
+
+**Proof plan.**
+
+1. Faithfully flat finite scalar extension commutes with stalks and costalks and is exact, hence perverse t-exact. It commutes with images in the heart, so commutes with j\_!\* and IC without using the special standard-truncation formula. The algebraic-closure case is the filtered union of finite coefficient extensions.
+2. Homs: RHom commutes with the finite free extension (EDC.6/adic-transport-of-duality-and-classes).
+3. Reduction: K ⊗^L O/λ sits in the triangle K →λ K → K ⊗^L O/λ →, whose perverse cohomology sequence gives the amplitude \[−1, 0].
+
+**Checks.**
+
+- IC\_X(Ē) of a smooth curve is Ē\[1].
+- For X = Spec Ω, ⊗E' is the scalar extension of finite-dimensional vector spaces.
+- `TauCeti.EtaleDuality.coefficient_extension_reflects_zero_morphism` (compatibility): Finite faithful field extension detects a zero morphism between perverse objects.
+- `TauCeti.EtaleDuality.coefficient_extension_point_rank` (computation): Extension of a finite-dimensional point coefficient space preserves rank, also for a quadratic field extension.
+- `TauCeti.EtaleDuality.coefficient_extension_zero_object` (degenerate): Extension sends the zero perverse object to zero.
+
+*Needs:* `EDC.5/middle-perverse-t-structure`, `EDC.5/perverse-intermediate-extension`, `EDC.5/integral-dual-perversity`, `EDC.6/classical-and-proetale-adic-categories`, `EDC.6/adic-transport-of-duality-and-classes`.
+
+*Source:* [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), §4.0, pp.101–102; 6.1.2(A″),(B″), pp.149–150; 2.2.18, p.73. §4.0 specifies finite coefficient extensions and integral coefficient regimes. Finite free extension preserves stalks, costalks and images; the filtered coefficient-field construction and comparison in 6.1.2 support the algebraic-closure form. Integral duality remains distinct from rational self-duality.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.8, VanishingCycles.fieldPerverseTStructure and VanishingCycles.intermediateExtension (README at head c4ee54f). States the middle perverse t-structure over a field for finite and ℓ-adic coefficients, intermediate extension as an image with its no-boundary-subobject/quotient characterization, and the integral perversities p and p⁺ exchanged by duality; coefficient extension E → E' is not stated there and is what this node adds.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.extendCoefficients_tExact`, `TauCeti.EtaleDuality.extendCoefficients_intermediateExtension`, `TauCeti.EtaleDuality.extendCoefficients_intersectionComplex`, `TauCeti.EtaleDuality.extendCoefficients_hom`, `TauCeti.EtaleDuality.extendPerverse_faithful`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/rational-perverse-coefficient-extension`.
+
+<a id="edc-6-complex-analytic-comparison"></a>
+
+### Comparison with the complex-analytic constructible category
+
+Let X be separated of finite type over ℂ, X^an its analytification and Λ a finite ring (killed by n), O\_E or E. Imported from ComplexComparisonPartII §§C6.3–C6.6: finite ordinary and compact Artin comparison, proper Rf\_\* exchange, separated Rf\_! exchange on ctf inputs, and normalized ℤ\_ℓ/ℚ\_ℓ topological realization. The residue here is the categorical and perverse form, ramified O\_E coefficients, the rational essential image, and the additional nonproper Rf\_\* exchange requested below. The comparison functor ε^\* : D^b\_c(X\_ét, Λ) → D^b\_c(X^an, Λ) (constructible for algebraic stratifications) is an equivalence for finite Λ (BBD 6.1.2, from Artin's comparison theorem SGA 4 XVI 4.1), commutes with f^\*, Rf\_\*, Rf\_! and f^! in their constructible ranges for morphisms of finite type. Tensor and RHom comparison are stated in the ambient unbounded categories: for bounded constructible K,L, finite Tor amplitude of K gives bounded-constructible restriction receipts for K⊗^L L and RHom(K,L), and the comparisons then restrict through these receipts. Bounded Verdier duality on every Dbc object is asserted only for the finite-field, DVR-quotient, integral and rational coefficient regimes; for a general finite ring it uses the existing ctf input range. The functor is t-exact for the middle perverse t-structures, so it identifies Perv(X\_ét, Λ) with algebraically constructible perverse sheaves on X^an and preserves j\_!\* and IC. For O\_E coefficients the corresponding equivalence follows from finite-level comparison. For E coefficients the functor is fully faithful with essential image the algebraically constructible complexes whose cohomology local systems on normal connected strata admit monodromy-stable O\_E lattices (BBD 6.1.2(A″),(B″)); it is an equivalence onto that image; the comparison of trace maps and cycle classes with topological orientation classes is EDC.6/trace-orientation-comparison.
+
+X separated of finite type over ℂ; algebraically constructible complexes; Λ finite, O\_E or E.
+
+For E coefficients the analytic target is restricted to the monodromy-stable-lattice essential image. A rank-one E local system on ℂ× with monodromy ℓ admits no stable O\_E lattice and is not the analytification of an étale E local system.
+
+Tensor and internal-Hom outputs are first ambient objects. A bounded output is corestricted only with its actual bounded-constructible witness; the displayed comparisons use finite-Tor first input. Analytic complex-field tensor/RHom used by geometric-origin constructors has separate field-coefficient boundedness receipts.
+
+**Proof plan.**
+
+1. Import analytification and the finite/adic ordinary and compact comparisons from ComplexComparisonPartII §§C−1.1,C6.0–C6.6 (TauCetiRoadmap #848, head d6cb0fc). Its generic enhanced analytic categories use EnhancedDerivedSheaves §§0.1–0.4. It already supplies proper Rf\_\* and separated Rf\_! exchange on ctf inputs. Request only the remaining nonproper constructible Rf\_\* comparison through SchemeAndStackFoundations:SF.2. BBD 6.1.2, pp.148–151 supplies the categorical refinement: finite and integral equivalences and rational full faithfulness with the stable-lattice essential image. Apply the finite comparisons levelwise to the coherent λ-adic systems for ramified O\_E.
+2. For the finite non-ctf coefficient range, use BBD 6.1.2(C),(C′),(C″), pp.148–151 and its localization/dévissage argument to extend the operation comparison beyond the imported ctf exchange. Rf\_! is computed by proper pushforward and j\_! using the existing Nagata compactifications. Define the f^! exchange by adjunction; compute it locally via smooth purity and closed/open localization as in BBD p.151. Do not infer it solely from global full faithfulness of ε^\*.
+3. Perverse t-exactness: the stalk/costalk conditions are computed on points of X and stratifications, which agree on both sides.
+4. Realize Dbc in the unbounded coefficient category appropriate to its regime and AnalyticDbc in the native derived category of analytic module sheaves. Compare the ambient tensor and RHom of the realized inputs; finite-Tor boundedness receipts and realization isomorphisms identify the bounded restrictions. Over complex coefficient fields, use their separate analytic boundedness theorem, not a universal bounded operation over arbitrary rings.
+
+**Checks.**
+
+- X = 𝔸¹\_ℂ: H^q(𝔸¹\_ét, Λ) = H^q(ℂ, Λ) = Λ for q = 0, 0 otherwise.
+- IC of the nodal cubic over ℂ: ε^\*IC\_X = ν\_\*Λ\_{P¹(ℂ)}\[1], the topological IC complex.
+- `TauCeti.EtaleDuality.analytic_monodromy_nonunit` (non-example): On C× a rank-one analytic E local system with monodromy the uniformizer has no monodromy-stable finite free O lattice.
+
+*Planet:* Comparison with complex-analytic sheaves.
+
+*Needs:* `EDC.6/adic-transport-of-duality-and-classes`, `EDC.5/middle-perverse-t-structure`, `EDC.5/perverse-intermediate-extension`, `SchemeAndStackFoundations:SF.2`, `EDC.5/perverse-sheaf-category`.
+
+*Source:* [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 6.1.2(A)–(C), (A′)–(C′), (A″)–(C″) and the proof, pp.148–151. Finite and integral categories agree with algebraically constructible analytic objects; rational comparison is fully faithful with the stable-lattice essential image on normal connected strata. The proof on p.151 handles operations by local factorization and dévissage.
+
+*Source:* [Complex comparison, part II (TauCetiRoadmap README, open pull request #848)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/d6cb0fc8f2ef059d222be2503f8e99285293111a/TauCetiRoadmap/ComplexComparisonPartII/README.md), §§C−1.1,C6.0–C6.6 (README at head d6cb0fc). Supplies the analytic carrier, constructible topological coefficients, finite and adic ordinary/compact Artin comparison, and proper/lower-shriek exchange on the ctf domain. These are imported, not replanned.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.finite_analytic_equivalence`, `TauCeti.EtaleDuality.integral_analytic_equivalence`, `TauCeti.EtaleDuality.rational_analytic_fullyFaithful`, `TauCeti.EtaleDuality.rational_analytic_essentialImage`, `TauCeti.EtaleDuality.analytic_comparison_tExact`, `TauCeti.EtaleDuality.analytic_pushforward_comparison`, `TauCeti.EtaleDuality.analytic_pullback_comparison`, `TauCeti.EtaleDuality.analytic_lowerShriek_comparison`, `TauCeti.EtaleDuality.analytic_upperShriek_comparison`, `TauCeti.EtaleDuality.analytic_tensor_comparison`, `TauCeti.EtaleDuality.analytic_RHom_comparison`, `TauCeti.EtaleDuality.analyticComparison_realization`, `TauCeti.EtaleDuality.analytic_tensor_field_bounded`, `TauCeti.EtaleDuality.analytic_RHom_field_bounded`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison`.
+
+<a id="edc-6-trace-orientation-comparison"></a>
+
+### Algebraic traces and cycle classes versus topological orientation
+
+Let X be smooth separated of pure dimension d over ℂ and Λ = ℤ/n, ℤ\_ℓ or ℚ\_ℓ. Under the comparison isomorphism H^q(X\_ét, Λ) ≅ H^q(X^an, Λ) (EDC.6/complex-analytic-comparison) and the identification Λ(1) ≅ Λ given by exp(2πi/n) ↦ 1 (ζ\_n ↦ 1): (a) the étale trace Tr : H^{2d}\_c(X\_ét, Λ(d)) → Λ (EtaleCohomologyFoundations §0.11) corresponds to integration against the complex orientation, Tr\_X ↦ ∫\_{X^an}, sending the class of a point to 1; (b) the étale cycle class cl(Z) ∈ H^{2r}(X\_ét, Λ(r)) of a closed subvariety of codimension r corresponds to the topological fundamental class of Z^an (Poincaré dual of \[Z^an]); (c) cup products and compactly supported duality pairings correspond. The sign convention: c₁(O(1)) on P¹ maps to the positive generator of H²(P¹(ℂ), ℤ) for the complex orientation, with the Kummer sequence matched to the exponential sequence by exp(2πi·/n).
+
+X smooth over ℂ; the identification Λ(1) ≅ Λ through e^{2πi/n} is part of the statement (other choices change Tr by a sign or a unit).
+
+**Proof plan.**
+
+1. Use the analytic Kummer sequence and exp(2πi·) with the same positive root-of-unity coordinates. The Kummer connecting cocycle is the exponential integral Chern cocycle modulo n. ComplexComparisonPartII §C5.4 already identifies the integral analytic class with the topological c₁, and §C6.3 fixes the positive Kummer generator on G\_m. The residue here is the commutative Kummer/exponential connecting square and its trace/Gysin normalization, as in BBD 6.1.4, pp.151–152.
+2. Traces are normalized by points and c₁(O(1)) on P¹ (EtaleCohomologyFoundations §0.11, ClassicalAlgebraic.smoothTrace, whose P¹ check sends c₁(O(1)) to 1), and the topological integration satisfies the same normalization; both are compatible with Gysin maps of points, so they agree.
+3. Cycle classes: both sides are determined by the fundamental class of the smooth locus and semi-purity (EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map; the localized classes of regular immersions are EtaleCohomologyFoundations §0.9).
+
+**Checks.**
+
+- X = P¹: Tr(c₁(O(1))) = 1 on both sides (the stage's acceptance: P¹'s orientation).
+- X a connected smooth open curve: H²\_c(X, Λ(1)) ≅ Λ with the same normalization.
+- A smooth divisor D ⊂ X: cl(D) = c₁(O(D)) maps to the topological Poincaré dual of \[D] under both routes.
+- `TauCeti.EtaleDuality.orientation_projective_line_positive` (computation): After the positive Tate-generator orientation identification, c1(O(1)) on P¹(C) integrates to +1.
+
+*Needs:* `EDC.6/complex-analytic-comparison`, `EDC.3/cycle-class-map`, `SchemeAndStackFoundations:SF.2`.
+
+*Source:* [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 6.1.4, pp.151–152, with the operation comparison of 6.1.2, pp.148–151. The orientation line is the d-fold Tate line; the exponential identifies the integral and torsion orientation coordinates. Fundamental classes and Gysin maps retain their shifts and twists.
+
+*Source:* [Complex comparison, part II (TauCetiRoadmap README, open pull request #848)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/d6cb0fc8f2ef059d222be2503f8e99285293111a/TauCetiRoadmap/ComplexComparisonPartII/README.md), §C5.4 (integralLineBundleChernClass); §C6.3 (artinComparison), positive-loop check. Supplies the integral analytic Chern class through the exponential cocycle and its topological identification; fixes the positive root-of-unity Kummer coordinate. The orientation comparison uses these existing constructions.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.trace_orientation_comparison`, `TauCeti.EtaleDuality.chern_orientation_comparison`, `TauCeti.EtaleDuality.gysin_orientation_comparison`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/trace-orientation-comparison`.
+
+<a id="edc-6-complete-intersection-betti-comparison"></a>
+
+### Betti numbers of smooth complete intersections are independent of the field
+
+Fix N, m and a multidegree (d\_1, …, d\_{N−m}). For every separably closed field k of characteristic ≠ ℓ and every smooth complete intersection X ⊂ P^N\_k of that multidegree and dimension m, every Betti number is independent of the geometric field, and dim H^m(X, ℚ\_ℓ) equals the topological Betti number b\_m(X\_ℂ^an) of any smooth complete intersection X\_ℂ ⊂ P^N\_ℂ of the same multidegree, and hence the primitive rank b\_m^0 = dim H^m(X, ℚ\_ℓ)\_0 of EDC.4/complete-intersection-cohomology is a function of (N, m, d\_•) only; for a smooth hypersurface of degree d, b\_m^0 = ((d − 1)^{m+2} + (−1)^m(d − 1))/d.
+
+Smooth complete intersections of a fixed multidegree; ℓ invertible in k.
+
+m≥1 for the primitive-rank and displayed hypersurface formula, as in EDC.4/complete-intersection-cohomology; d≥1. Zero-dimensional reduced cohomology is a different convention.
+
+**Proof plan.**
+
+1. The parameter scheme S ⊂ ∏ P(Sym^{d\_i}) over Spec ℤ\[1/ℓ] of tuples defining a smooth complete intersection of dimension m is open with geometrically irreducible (hence connected) fibres and nonempty over every point; the universal family f : 𝒳 → S is smooth and proper (requested from SchemeAndStackFoundations:SF.0).
+2. Smooth proper base change makes R^mf\_\*ℚ\_ℓ lisse on the connected parameter scheme (EtaleCohomologyFoundations §F.3, VanishingCycles.lisseDirectImageTransport, at finite levels, then §F.4), hence its rank is constant. Identifications of different geometric fibres require a choice of path or specialization data; the canonical conclusion here is equality of ranks, not a canonical identification of all fibres.
+3. Over ℂ, Artin's comparison (EDC.6/complex-analytic-comparison) identifies dim H^m(X\_ℂ, ℚ\_ℓ) with the topological Betti number. The hypersurface formula: by étale Gauss–Bonnet (EtaleCohomologyFoundations §F.6, VanishingCycles.etaleGaussBonnet) χ(X) = deg c\_m(T\_X), and c(T\_X) = (1+h)^{N+1}∏(1+d\_ih)^{−1} restricted to X (requested from SchemeAndStackFoundations:SF.5); EDC.4/complete-intersection-cohomology gives all other Betti numbers, so b\_m is determined by χ.
+
+**Checks.**
+
+- Smooth plane cubics: b\_1 = 2 over every k (= (8 − 2)/3 = 2 by the formula with m = 1, d = 3).
+- Smooth quadric surfaces: b\_2^0 = (1 + 1)/2 = 1.
+- Further values of the hypersurface formula, checked in the suggested file: conic 0, cubic surface 6, quartic surface 21, quintic threefold 204 (b₃ = 204).
+
+*Needs:* `EDC.4/complete-intersection-cohomology`, `EDC.6/complex-analytic-comparison`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.5`.
+
+*Source:* [Lectures on Étale Cohomology](https://www.jmilne.org/math/CourseNotes/LEC.pdf), §16, p. 110. Milne: the primitive rank depends only on m and the degrees, with the explicit hypersurface formula.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.3, VanishingCycles.lisseDirectImageTransport; §F.6, VanishingCycles.etaleGaussBonnet (README at head c4ee54f). §F.3 states lissity of R^if\_\* for smooth proper f with finite lisse coefficients; §F.6 states étale Gauss–Bonnet deg c\_d(T\_X) = Σ(−1)^i dim H^i(X, ℚ\_ℓ) for smooth proper X over an algebraically closed field.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.complete_intersection_betti_comparison`, `TauCeti.EtaleDuality.complete_intersection_betti_all_degrees`, `TauCeti.EtaleDuality.complete_intersection_primitive_rank`, `TauCeti.EtaleDuality.hypersurface_primitive_rank`, `TauCetiRoadmap.EtaleDualityAndPerverseSheaves.hypersurfacePrimitiveRank`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/complete-intersection-betti-comparison`.
+
+<a id="edc-6-diamond-transport-of-duality"></a>
+
+### Transport of duality and perversity statements to diamonds in characteristic p
+
+Let k be of characteristic p, X separated of finite type over k, and Λ torsion killed by an integer prime to p. Put a : X → Spec k, B = (Spec k)^◇, and K\_{X^◇/B} = a^{◇!}c\_{Spec k}^\*Λ. For K ∈ D^b\_c(X, Λ), ECD 27.2–27.4 imply Rc\_{X\*}K\_{X^◇/B} ≅ K\_X and Rc\_{X\*}RHom(c\_X^\*K, K\_{X^◇/B}) ≅ D\_XK. These recover scheme duality through the right adjoint. The stronger assertions c\_X^\*K\_X ≅ K\_{X^◇/B} and c\_X^\*D\_XK ≅ D\_{X^◇/B}c\_X^\*K are conditional on an additional exceptional-pullback/internal-Hom comparison and preservation of the essential image; these inputs are not supplied by 27.1–27.4. No perverse t-structure on arbitrary diamonds is asserted.
+
+Characteristic p, finite-type separated X over k, torsion coefficients prime to p; the dualizing complex is relative to B = (Spec k)^◇.
+
+The strong pullback transport requested by the stage remains a recorded gap of the accepted EDC.6 packet (gap “Strong diamond exceptional-pullback and internal-Hom transport”, with its AdicCoefficientsAndComparisons:L3 request); this node proves only right-adjoint recovery.
+
+The Rc\_\* identities live in the unbounded etale derived category. A bounded constructible K enters through its etale realization; no preservation of D^b\_c by Rc\_\* on arbitrary diamond objects is assumed. The relative dualizing objects on both sides use their actual maps to the common base.
+
+Tensor, internal Hom and coefficient change are the enhanced operations of EnhancedDerivedSheaves §0.3 in the ambient unbounded derived category; the scheme dualizing complex, biduality and exchange isomorphisms are EtaleCohomologyFoundations §F.5. Bounded outputs require actual bounded-constructible restriction witnesses.
+
+**Proof plan.**
+
+1. Use R a^! Rc\_{Spec k\*} ≅ Rc\_{X\*}R a^{◇!} and Rc\_{Spec k\*}c\_{Spec k}^\*Λ ≅ Λ to recover K\_X.
+2. Apply the internal-Hom right-adjoint identity of 27.3 with first input c\_X^\*K, then the unit K ≅ Rc\_{X\*}c\_X^\*K to obtain D\_XK.
+3. A counit c\_X^\*Rc\_{X\*}D\_{X^◇/B}c\_X^\*K → D\_{X^◇/B}c\_X^\*K need not be an isomorphism by full faithfulness alone; the missing essential-image argument is recorded as a gap.
+
+**Checks.**
+
+- For X=𝔸^d, Rc\_{X\*}K\_{(𝔸^d)^◇/B} ≅ Λ(d)\[2d], and Rc\_{X\*}RHom(c\_X^\*Λ,K\_{X^◇/B}) gives the same scheme dualizing complex.
+- For X=P¹, right-adjoint recovery gives Λ(1)\[2]. Strong c^\* transport on either example remains conditional on the additional L3 theorem; these checks assert no unconditional counit isomorphism.
+
+*Needs:* `EDC.6/scheme-adic-diamond-operation-comparisons-index`, `AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2`, `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`, `AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3`, `AdicCoefficientsAndComparisons:L3/internal-Hom-right-adjoint`, `AdicCoefficientsAndComparisons:L3/pushforward-right-adjoint`.
+
+*Source:* [Étale cohomology of diamonds](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf), §27, Proposition 27.4, p. 165. 27.4 compares ! operations using c^\* for Rf\_! and Rc\_\* for Rf^!; together with 27.2–27.3 it supplies right-adjoint recovery, not an unconditional c^\* duality isomorphism.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.diamond_transport_of_duality`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/diamond-transport-of-duality`.
+
+<a id="edc-6-normalized-adic-system"></a>
+
+### Uniformly bounded constructible normalized adic systems
+
+For a complete DVR O as in the coefficient conventions, write R\_n=O/λ^(n+1). Import Sys\_O as the limit in enhanced stable categories of D(X\_ét,R\_n) under derived coefficient reduction (EnhancedDerivedSheaves §E4.5). Equivalently, use its coCartesian-section description: levels, reduction equivalences, all higher associator coherences and homotopy-coherent maps. A list of level isomorphisms with only identity and triple equations in the triangulated homotopy categories is insufficient. Define the normalized full subcategory by requiring each level bounded constructible, a single ordinary interval and Tor interval valid at every level (Tor tested against all degree-zero ambient R\_n-sheaves), and one finite algebraic stratification with all level cohomology sheaves lisse finite. NormalizedSystem is the homotopy category of this enhanced full subcategory; take the homotopy category after the enhanced limit. Reduction is ambient derived tensor, corestricted to bounded objects only through these witnesses. For O=ℤ\_ℓ the uniform-bounds system is imported from EtaleCohomologyFoundations §F.4.1; the residue is the ramified tower and the common-stratification API. No unrestricted triangulated inverse limit is declared constructible.
+
+X is a noetherian finite-dimensional scheme with ℓ invertible; O is the ring of integers in a finite extension of ℚ\_ℓ, with uniformizer λ. The geometric comparison and six-operation extensions retain their additional finite-type/base hypotheses from their respective nodes.
+
+**Proof plan.**
+
+1. Use the enhanced coefficient diagram and its full homotopy-coherent limit of EnhancedDerivedSheaves §E4.5, with tensor associators of §§0.3–0.4. Restrict it by the ordinary/Tor bounds and constructibility predicate; do not reconstruct its objects or morphisms from a 2-limit of homotopy categories. Its visible identity/triple comparisons are consequences of this full coherence, not the definition. All Tor and reduction tests occur in the unbounded ambient coefficient categories.
+2. Bhatt–Scholze Definition 6.5.1 and Proposition 6.6.11 (pp.49,54) identify constructibility with derived completeness and stratumwise perfect local models. For a noetherian finite-dimensional X these provide a common finite stratification and uniform bounds. The operations and their reduction compatibilities use Lemmas 6.7.13,6.7.18–6.7.20 (pp.57–58), with rational passage in 6.8.14–6.8.15 (pp.61–62). E4 reconstruction gives completeness, not constructibility by itself.
+3. The normalization equivalence identifies every level with derived coefficient reduction; for O = ℤ\_ℓ this is the comparison of EtaleCohomologyFoundations §§F.4.1–F.4.3.
+4. Over O, which has global dimension one, integral-to-quotient reduction of a bounded constructible complex has a bounded realization. Quotient-to-quotient reduction does not have this property on all Dbc objects. On a separably closed point, R = ℤ/ℓ² and M = R/ℓ have Tor\_i(M, M) = M and Ext^i(M, M) = M for every i ≥ 0; the periodic multiplication-by-ℓ free resolution proves the obstruction (compare the Tor check of EtaleCohomologyFoundations §F.1). M remains in Dbc and in the point perverse heart, but has no finite Tor amplitude.
+5. Use the coefficient-module sheaf category for the specified regime: finite levels have the t-exact native étale identification, while integral and rational objects realize in the pro-étale completed-coefficient category (EtaleCohomologyFoundations §F.4.3). Neither faithful realization nor its t-compatibility is asserted for ordinary étale constant-O sheaves.
+
+**API.**
+
+- `TauCeti.EtaleDuality.normalized_system_reduction`: Under the equivalence, the n-th level is canonically isomorphic to derived reduction of the original integral complex.
+- `TauCeti.EtaleDuality.normalized_system_uniform_bounds`: Every normalized system has one lower and one upper ordinary cohomological bound valid at every level.
+- `TauCeti.EtaleDuality.normalized_system_common_strata`: Every normalized system has one finite algebraic stratification on which every cohomology sheaf at every level is lisse.
+- `TauCeti.EtaleDuality.normalized_system_finiteTor`: Each bounded level of a normalized system has finite Tor amplitude, measured in its ambient unbounded coefficient category against all degree-zero sheaves; the system predicate supplies the same interval for all levels.
+
+*Used by* EtaleDualityAndPerverseSheaves:EDC.6/classical-and-proetale-adic-categories: the λ-adic constructible category is NormalizedSystem, compared with D\_cons(X\_proét, O) through the reduction functors and Rlim
+
+*Used by* EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes: levelwise duality, traces and Gysin maps are maps of normalized systems; the reduction API identifies their levels with derived reductions
+
+*Used by* EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons (accepted EDC.6 packet): strict reduction of the operations is stated on normalized systems, using their common strata and uniform Tor bounds
+
+*Used by* EtaleDualityAndPerverseSheaves:EDC.7/restricted-constructible-categories (accepted EDC.7 packet): the common stratification and uniform bounds select the good-model strata for specialization to finite fields
+
+**Checks.**
+
+- The reduction functors and their composition transformations are those of the imported enhanced limit; passing to its homotopy category preserves them without replacing the system by a list of pairwise isomorphisms.
+- Agreement with the upstream notion: for O = ℤ\_ℓ a system is normalized exactly when it is a normalized system in the sense of EtaleCohomologyFoundations §F.4.1 whose levels admit one common lisse stratification; the constant tower is normalized there and here.
+- `TauCeti.EtaleDuality.adic_constant_normalized` (computation): The constant integral complex produces a normalized system with uniform ordinary and Tor bounds.
+- `TauCeti.EtaleDuality.adic_reduction_coherence` (compatibility): Successive reductions through n,m,l agree with direct reduction by the specified coefficient associator.
+- `TauCeti.EtaleDuality.adic_underived_residue_tower_excluded` (non-example): On a geometric point the ordinary compatible tower M\_n=O/λ concentrated in degree zero is not a derived-normalized system. Already (O/λ)⊗^L\_{O/λ²}(O/λ) has a nonzero O/λ in every nonpositive degree, so reduction from n=1 to n=0 is not M\_0\[0].
+- `TauCeti.EtaleDuality.nonperfect_point_unbounded_operations` (non-example): Over a separably closed point and R=Z/ell², the degree-zero finite module M=R/ell belongs to Dbc, is not finite-Tor, and its ambient self-tensor has M in every nonpositive degree while its ambient self-RHom has M in every nonnegative degree. The test fixes the actual quotient module and asserts those cohomology identifications in the ambient categories.
+- `TauCeti.EtaleDuality.adic_integral_torsion_derived_levels` (computation): The integral torsion object O/λ is retained: its derived n-th level is the perfect two-term complex \[R\_n --λ→ R\_n] in degrees −1,0. These levels form a normalized enhanced system with uniform Tor interval \[−1,0], unlike the underived degree-zero residue tower.
+
+*Planet:* Normalized constructible adic systems.
+
+*Needs:* `EnhancedDerivedSheaves:E4/coefficient-system-reconstruction`, `EnhancedDerivedSheaves:E4/inverse-limit-reconstruction`.
+
+*Source:* [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2), §§6.5–6.8, especially Proposition 6.6.11, Theorem 6.7.1 and Lemma 6.7.2, Proposition 6.8.14 and Remark 6.8.15, pp. 49–62 (arXiv v2). Bhatt–Scholze define constructible complexes on X\_proét with O and E coefficients and compare them with the classical category.
+
+*Source:* [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 2.2.14, p.71. Finite Tor is required for a bounded coefficient transition; general bounded constructible objects are not automatically in the ctf subcategory.
+
+*Source:* [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), §F.4.1, VanishingCycles.normalizedAdicSystems (README at head c4ee54f). Defines normalized bounded constructible ℓ-adic systems with common cohomological and Tor intervals independent of the level, with tensor, internal Hom for uniformly perfect sources and admissible truncations; checks the constant tower and the failure for unrelated ranks.
+
+*Source:* [Enhanced derived categories of sheaves (TauCetiRoadmap roadmap README, open pull request #908)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b3ea60e3efc3bd4a0b541fb54469dcbf88772064/TauCetiRoadmap/EnhancedDerivedSheaves/README.md), §E4.5 (Sys\_I and coCartesian sections), with §§0.3–0.4. Coefficient systems are a limit of enhanced stable categories with all higher coherences; a 2-limit of triangulated homotopy categories loses the required information.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.AdicSystem`, `TauCeti.EtaleDuality.AdicSystem.IsNormalized`, `TauCeti.EtaleDuality.NormalizedSystem`, `TauCeti.EtaleDuality.levelReduction`, `TauCeti.EtaleDuality.HasFiniteTorAmplitude`, `TauCeti.EtaleDuality.BoundedConstructible`, `TauCeti.EtaleDuality.boundedRestriction`, `TauCeti.EtaleDuality.boundedRestrictionIso`, `TauCeti.EtaleDuality.CoefficientDerived`, `TauCeti.EtaleDuality.coefficientRealization`, `TauCeti.EtaleDuality.finiteCoefficientEquivalence`, `TauCeti.EtaleDuality.finiteCoefficientEquivalence_tExact`, `TauCeti.EtaleDuality.finiteCoefficientEquivalence_realization`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/normalized-adic-system`.
+
+<a id="edc-6-api-normalized-system-reduction"></a>
+
+### normalized system reduction API lemma
+
+In the coefficient, geometric and category setting of Uniformly bounded constructible normalized adic systems: Under the equivalence, the n-th level is canonically isomorphic to derived reduction of the original integral complex.
+
+**Proof plan.**
+
+1. The n-th evaluation of the enhanced coefficient-system limit is derived reduction by its normalization equivalence; use its coCartesian transition edges and the coefficient associator for successive reductions. This is a natural equivalence in the original complex, not an arbitrary isomorphism chosen for each level.
+2. The downstream uses are EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes. They cite this lemma directly rather than implicitly taking the API as proved.
+
+**Checks.**
+
+- On a geometric point, the constant integral object O has n-th level R\_n in degree zero.
+- For the integral torsion object O/λ, the n-th level is \[R\_n --λ→ R\_n] in degrees −1,0, not the degree-zero residue module; successive derived reductions preserve this two-term model.
+
+*Needs:* `EDC.6/normalized-adic-system`.
+
+*Source:* [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2), §3.5, Lemmas 3.5.5 and 3.5.7, pp.25–26; §6.5, Definition 6.5.1, p.49 (arXiv v2); enhanced refinement: EnhancedDerivedSheaves §E4.5. Reduction of reconstruction recovers every level; the enhanced evaluation and its coefficient associator are imported from EnhancedDerivedSheaves §E4.5. Definition 6.5.1 identifies the constructible adic subcategory.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.normalized_system_reduction`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-reduction`.
+
+<a id="edc-6-api-normalized-system-uniform-bounds"></a>
+
+### normalized system uniform bounds API lemma
+
+In the coefficient, geometric and category setting of Uniformly bounded constructible normalized adic systems: Every normalized system has one lower and one upper ordinary cohomological bound valid at every level.
+
+**Proof plan.**
+
+1. Project the ordinary-bound witness in the normalized full-subcategory predicate. Under reconstruction from a bounded integral complex with ordinary amplitude \[a,b], O has global dimension one, so derived reduction has ordinary amplitude contained in \[a−1,b] for all n. Uniformity does not follow merely from each level being bounded separately.
+2. The downstream use is EtaleDualityAndPerverseSheaves:EDC.7/restricted-constructible-categories (accepted EDC.7 packet), which cites this lemma directly rather than implicitly taking the API as proved.
+
+**Checks.**
+
+- On a point, O in degree zero has the same ordinary interval \[0,0] at every level.
+- On a point, O/λ has uniform ordinary interval \[−1,0] at every derived level. A family with bounds depending on n supplies no uniform-bound witness.
+
+*Needs:* `EDC.6/normalized-adic-system`.
+
+*Source:* [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2), §6.5, Definition 6.5.1 and Lemmas 6.5.3–6.5.4, pp.49–50 (arXiv v2). Constructible integral complexes and their bounded reductions supply the ordinary boundedness comparison; the O-resolution of O/λ^n has length one uniformly in n, giving the explicit interval \[a−1,b].
+
+*Intended declaration names:* `TauCeti.EtaleDuality.normalized_system_uniform_bounds`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-uniform-bounds`.
+
+<a id="edc-6-api-normalized-system-common-strata"></a>
+
+### normalized system common strata API lemma
+
+In the coefficient, geometric and category setting of Uniformly bounded constructible normalized adic systems: Every normalized system has one finite algebraic stratification on which every cohomology sheaf at every level is lisse.
+
+**Proof plan.**
+
+1. Project the common-stratification witness in the normalized full-subcategory predicate. For reconstructed constructible pro-étale complexes use Bhatt–Scholze Proposition 6.6.11 to choose one finite algebraic stratification; derived reduction of each stratumwise perfect O-local model remains lisse in every cohomological degree. Individual level stratifications alone are not the asserted common witness.
+2. The downstream uses are EtaleDualityAndPerverseSheaves:EDC.7/restricted-constructible-categories. They cite this lemma directly rather than implicitly taking the API as proved.
+
+**Checks.**
+
+- The constant O-system on a connected smooth X uses the single stratum X for every n.
+- On A¹ with j:G\_m→A¹, the system of j\_!O uses the fixed two-stratum decomposition G\_m and {0}; reductions have lisse cohomology on G\_m and zero stalk at {0}.
+
+*Needs:* `EDC.6/normalized-adic-system`.
+
+*Source:* [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2), §6.6, Proposition 6.6.11, p.54 (arXiv v2). The stratumwise perfect-local-system description of constructibility supplies one finite stratification. Derived reduction preserves that single stratification at every level.
+
+*Intended declaration names:* `TauCeti.EtaleDuality.normalized_system_common_strata`.
+
+Target: `EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-common-strata`.
+
+### Worked examples
+
+On a geometric point, normalized O-systems recover bounded complexes of finitely generated O-modules. The object O/λ is present, but its reductions are two-term derived complexes, not degree-zero residue modules at every level. On C×, rank-one monodromy λ gives an analytic E-local system without a stable O-lattice, excluding essential surjectivity onto all algebraically stratified analytic rational local systems. On a smooth connected open curve, the positive root-of-unity coordinate identifies the compact top trace with +1 on a point class. For diamonds, applying Rc\_\* recovers the scheme dualizing complex; inverting the counit needs the additional theorem recorded as a gap of the EDC.6 packet.
+
+### Dependencies
+
+The retained interfaces use the enhanced normalized-system reconstruction, the accepted EDC.5 perverse interfaces, EDC.3 cycle classes, EDC.4 complete intersections, the exact ClassicalAdicEtaleCohomology and ComplexComparisonPartII comparisons, and AdicCoefficientsAndComparisons L2–L6. Their precise fine prerequisites appear above. Strong c^\* duality transport is never inferred from the full faithfulness of c^\*.
+
+## Downstream consumers
+
+- `EtaleDualityAndPerverseSheaves--EDC.6.json`: `EDC.6/scheme-adic-diamond-operation-comparisons-index`, `EDC.6/classical-and-proetale-adic-categories`, `EDC.6/adic-transport-of-duality-and-classes`, `EDC.6/rational-perverse-coefficient-extension`, `EDC.6/complex-analytic-comparison`, `EDC.6/trace-orientation-comparison`, `EDC.6/complete-intersection-betti-comparison`, `EDC.6/diamond-transport-of-duality`, `EDC.6/normalized-adic-system`, `EDC.6/api-normalized-system-reduction`, `EDC.6/api-normalized-system-uniform-bounds`, `EDC.6/api-normalized-system-common-strata`. importsFromPackets of the accepted EDC.6 packet; its coverage record for EDC.6 uses these ids.
+- `EtaleDualityAndPerverseSheaves--EDC.7.json`: `EDC.4/projective-bundle-decomposition`, `EDC.6/adic-transport-of-duality-and-classes`, `EDC.6/classical-and-proetale-adic-categories`, `EDC.6/complex-analytic-comparison`, `EDC.6/normalized-adic-system`, `EDC.6/trace-orientation-comparison`. prerequisites of accepted EDC.7/EDC.8 nodes
+- `CohomologyComparisons.json`: `EDC.4/projective-bundle-decomposition`, `EDC.4/pullback-injective-blowup-bundle`. prerequisites of CP.6
+- `WeightsInEtaleCohomology.json`: `EDC.4/weak-lefschetz`, `EDC.4/pencil-axis-blowup`. prerequisites of R34.4/finite-field-pencil-descent; EDC.4/pencil-axis-blowup is retired in round five (replacement EDC.4/blowup-formula, upstream LefschetzPencilsAndVanishingCycles §4.5)
+- `IgusaVarietiesAndTorsionConcentration.json`: `EDC.4/affine-vanishing-hypercohomology`. prerequisite of IG.4/artin-vanishing-upper-bound
+- `CompletedCohomologyPartII--CC.8.json`: `EDC.6/complex-analytic-comparison`, `EDC.6/trace-orientation-comparison`. text references
+
+## Requests
+
+- To `SchemeAndStackFoundations:SF.0`, used by `EDC.4/blowup-direct-images`: Blow-ups along regular immersions of smooth schemes: for Z ⊂ X a smooth closed subscheme of pure codimension c of a smooth k-scheme, Bl\_Z X is smooth and proper over X, an isomorphism over X − Z, the exceptional divisor E = π^{-1}(Z) is the projective bundle P(N\_{Z/X}) over Z with O\_{Bl}(−E)|\_E ≅ O\_E(1) (Stacks, Divisors, blowing up along a regular immersion). TauCetiRoadmap main already states blow-ups and strict transforms (SchemeAndStackFoundations §4.11, with StableReduction Layer 4) and normal bundles of regular immersions (§5.5); the request is the identification of the exceptional divisor, which EtaleCohomologyFoundations §F.7 also consumes.
+- To `SchemeAndStackFoundations:SF.0`, used by `EDC.4/ample-divisor-weak-lefschetz`: For f : X → S universally closed (e.g. X proper over a field) and ℒ f-ample, X\_s → S is affine for every s ∈ Γ(X, ℒ) (Stacks, Tag 0EKE). TauCetiRoadmap main does not state it. The Veronese re-embedding requested in earlier rounds is now stated upstream as LefschetzPencil.veronese with veronese\_isClosedImmersion and veronese\_hyperplane (LefschetzPencilsAndVanishingCycles §3.4, open pull request #873) and is no longer requested.
+- To `SchemeAndStackFoundations:SF.0`, used by `EDC.4/complete-intersection-cohomology`, `EDC.6/complete-intersection-betti-comparison`: Smooth complete-intersection chains in P^N\_k (positive-degree homogeneous regular sequences whose successive zero schemes are smooth, each an ample divisor in the previous one), and the parameter scheme of smooth complete intersections of a given multidegree in P^N over ℤ\[1/ℓ]: an open subscheme of a product of projective spaces of forms, smooth with geometrically irreducible fibres over Spec ℤ\[1/ℓ], over which the universal complete intersection is smooth and proper.
+- To `SchemeAndStackFoundations:SF.3`, used by `EDC.4/ample-divisor-weak-lefschetz`: Bridge the existing Tau Ceti line-bundle/invertible-sheaf carrier to finite-type k-schemes and its tensor powers, sections and pullback. A chosen ample line has a positive tensor power induced by O(1) under an actual closed projective embedding. The zero scheme of the chosen section supplies the actual divisor. Reuse the existing line-bundle work; no new competing carrier is owned by EDC.
+- To `SchemeAndStackFoundations:SF.5`, used by `EDC.6/complete-intersection-betti-comparison`: The total Chern class of the tangent bundle of a smooth complete intersection X ⊂ P^N of multidegree (d\_1, …, d\_{N−m}): c(T\_X) = (1+h)^{N+1}∏(1+d\_ih)^{−1} restricted to X, from the Euler sequence and the conormal sequence of the regular embedding, with deg h^m = ∏d\_i. TauCetiRoadmap main states the Chern classes, Whitney sum and c(T\_{P^n}) (SchemeAndStackFoundations §5.4) and normal bundles of regular immersions (§5.5); the tangent–normal sequence of a smooth subvariety and this computation are the request. With étale Gauss–Bonnet (EtaleCohomologyFoundations §F.6) it gives the hypersurface Betti formula.
+- To `SchemeAndStackFoundations:SF.2`, used by `EDC.6/complex-analytic-comparison`: Extend the existing ComplexComparisonPartII §C6.5 supplier only by the canonical nonproper constructible Rf\_\* exchange over ℂ, for finite-type f with its precise coefficient and boundedness range, and its compatible λ-adic/rational realization (SGA 4 XVI §4; BBD 6.1.2(C),(C′),(C″), pp.148–151). Route this through SchemeAndStackFoundations:SF.2 under the atlas convention. The analytic carrier, finite/adic ordinary and compact comparisons, proper Rf\_\* and separated Rf\_! ctf exchange already belong to ComplexComparisonPartII §§C−1.1,C6.0–C6.6; its §C5.4 owns the integral analytic Chern/exponential comparison. EnhancedDerivedSheaves owns the ambient unbounded operations. None of these existing constructions is requested again.
+- To `SchemeAndStackFoundations:SF.0`, used by `EDC.4/generic-affine-weak-lefschetz`: Bertini for generic affine hyperplane sections: for V smooth and irreducible of dimension d ≥ 2 over a separably closed field and π : V → 𝔸^N unramified, the affine maps (a, b) for which π^{−1}{Σ a\_i x\_i + b = 0} is smooth of pure dimension d − 1 contain a dense open of the parameter space 𝔸^{N+1} (Katz, Affine cohomological transforms, Lemma 3.5, p. 182). Connectedness and irreducibility then follow from the cohomological statement of EDC.4/generic-affine-weak-lefschetz; only the smoothness is requested.
+
+## Gaps
+
+No gap remains in this packet.
+
+- **Strong exceptional-pullback and duality transport to diamonds** is held by `EtaleDualityAndPerverseSheaves--EDC.6.json` (gap “Strong diamond exceptional-pullback and internal-Hom transport”). The accepted EDC.6 packet records this gap for its stage target, with the same request to AdicCoefficientsAndComparisons:L3 (now open pull request #965, whose Layer L3 states ECD 27.1–27.4 and no essential-image or counit theorem). The two EDC.6 nodes retained here assert only right-adjoint recovery, so they need neither the gap nor the request; both were removed from this packet in round five.
+
+## Resolved supplier requests
+
+- Nearby cycles over general bases and compactification boundary machinery requested from EDC.5/EDC.6: General-base nearby cycles have an existing owner. Import the oriented-product construction and Orgogozo theorem with their stated hypotheses (in particular proper finite-presentation scope for modification and constructibility, not unrestricted universal base change). Repoint the GS.6/GS.7 requests; no EDC target or new Part II is needed. (§5.4, OrientedEtaleProduct and general-base constructibility/base change after modification; EtaleCohomologyFoundations §§G.1–G.3 for compactifications)
+- Perverse t-structure relative to a base and universal local acyclicity, requested from EDC.4 by GlobalShtukasAndFunctionFieldLanglands (recorded in round four as the gap “Relative perverse t-structures and universal local acyclicity over a base”): In Lafforgue's usage the normalisation 'relative to X^I' is a convention for complexes that are universally locally acyclic over the smooth base X^I: degree and weight are normalised relative to that morphism, that is, explicitly, if s = dim X^I = |I|, the relatively normalized complex K\_rel has K\_rel\[s] absolutely perverse, or K\_rel = K\_abs\[−s]. GS.1 and GS.2 therefore need the absolute perverse category and intersection complexes (EDC.5/perverse-sheaf-category, EDC.5/intersection-complex-of-local-system), universal local acyclicity (EtaleCohomologyFoundations §F.2.3, ClassicalAdicEtaleCohomology §5.6) and that shift, not a relative perverse t-structure in the sense of Hansen–Scholze. No owner and no Part II are needed; the gap is closed. (Lafforgue, Chtoucas pour les groupes réductifs, Théorème 0.9, p. 11, and §0.12, item 7, p. 39 (arXiv v6))
+
+## Retired targets
+
+The drafts retired in round four are listed with their replacements in the packet (`retiredDraftNodes`). Round five retires one more:
+
+- `EDC.4/pencil-axis-blowup` (Cohomology of the blow-up along the axis of a pencil) → `EDC.4/blowup-formula`; upstream owner tauceti:TauCetiRoadmap/LefschetzPencilsAndVanishingCycles §§3.3, 4.5 (open pull request #873, head 4c7deab), with EtaleCohomologyFoundations §F.7. The axis blow-up and its cohomology decomposition with restriction and Gysin formulas are stated upstream in LefschetzPencilsAndVanishingCycles §§3.3 and 4.5; the Galois and Frobenius equivariance over a finite field is EDC.4/blowup-formula with c = 2, whose acceptance records the axis case.
+
+## Corrections to source conventions
+
+The following corrections specify the conventions required when the perverse and IC interfaces consume these sources. The numbered locators refer to the editions listed below.
+
+- `EtaleDualityAndPerverseSheaves/E11` (2.2.12 (ii)\*, p. 71 (Numdam scan of Astérisque 100, 1982; checked on the page image)): K ∈ D^{≤p} iff H^i i\_x^\*K = 0 for i &gt; p(2 dim x); K ∈ D^{≥p} iff H^i i\_x^!K = 0 for i &lt; p(2 dim x). Both inequalities are reversed in print.
+- `EtaleDualityAndPerverseSheaves/E12` (Théorème 4.3.1 (ii), p. 112 (Numdam scan)): L is an irreducible lisse ℚ̄\_ℓ-sheaf: §4 works in D^b\_c(X, ℚ̄\_ℓ) (4.0).
+- `EtaleDualityAndPerverseSheaves/E13` (Appendix A.3.1, printed p.55 (arXiv 1407.8519v3); published p.478): IC\_X|\_U ≅ ℚ̄\_ℓ\[dim X] (unnormalized; a half-twist normalization is a separate choice).
+- `EtaleDualityAndPerverseSheaves/E14` (A.3.3, published pp.479–480; arXiv v3 p.55): Use geometric irreducibility for a scalar top trace; in general retain the vector space indexed by top-dimensional geometric components.
+- `EtaleDualityAndPerverseSheaves/E15` (A.3.3, published p.480 first paragraph; arXiv v3 pp.55–56): Retain a chosen finite-type model and its ordinary trace, or track the powers of p by which model comparisons rescale that trace. An intrinsic automorphism-invariant scalar normalization on the perfection is unavailable.
+
+## References
+
+The numbered references at each target distinguish source statements from the additional compatibility arguments required here. Edition and checksum receipts are recorded in the accompanying packet.
+
+- [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), A. A. Beilinson, J. Bernstein, P. Deligne; Astérisque 100 (1982), pp. 5–171; Numdam scan with OCR text layer (printed page = PDF page − 1), read 2026-10-06; excerpts checked against page images. Relevant sections: 1.3.6–1.3.17, pp.29–38; 1.4.3–1.4.26, pp.43–55; 2.1.3–2.1.23, pp.57–65; 2.2.10–2.2.18, pp.69–73; 3.3.4 and 4.0–4.3.1, pp.98–113; 5.1.14–5.1.15, pp.128–129; 5.3.1–5.4.10, pp.134–144; 6.1.2–6.1.10, pp.149–159; 6.2.4–6.2.10, pp.162–165; 3.2.2–3.2.4, pp.86–87; 3.2.17–3.2.18, pp.95–96; 5.1.2.3–5.1.2.5, pp.123–124; 5.4.11–5.4.15, pp.145–147; 1.4.16–1.4.19, pp.51–53; 2.2.14, p.71; 3.2.2–3.2.5, pp.86–87; 3.2.17–3.2.18 and proof completion, pp.95–97; 5.1.2.3–5.1.2.5, pp.123–124; 5.4.10–5.4.15, pp.144–147 (revision-three rereading).
+- [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), Pierre Deligne; Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR, read 2026-10-06. Relevant sections: 4.1.1–4.1.6, pp.217–219; 4.2.2, p.219; 4.3.1–4.3.3, pp.222–223; 6.2.10–6.2.11 and the proof of 6.2.11, pp.249–250 (read 2026-10-17).
+- [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), Pierre Deligne; Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR, read 2026-10-06. Relevant sections: 2.3–2.6, pp.281–282; 5.1–5.8, pp.289–292; 7.1–7.3, pp.298–301.
+- [Lectures on Étale Cohomology](https://www.jmilne.org/math/CourseNotes/LEC.pdf), J. S. Milne; Version 2.21 (22 March 2013), read 2026-10-06; the text layer mangles symbols. Relevant sections: 16.4 and complete-intersection discussion, pp.109–110; 23.2, pp.139–140; 27.12–27.13, pp.158–159; 33.2 and proof, pp.193–194; 23.2–23.3, pp.139–140 (reread 2026-10-17: projective-bundle basis and the Chern relation with plus signs).
+- [SGA 4, Exposé XIV: Théorème de finitude pour un morphisme propre; dimension cohomologique des schémas algébriques affines](https://www.normalesup.org/~forgogozo/SGA4/14/14.pdf), M. Artin; Retyped edition of LNM 305 (version 71766d9, 2024), with LNM page numbers in the margin; read 2026-10-06. Relevant sections: 1.1, printed p.145; 3.1–3.4 and start of §4, printed pp.159–162 (margin pagination; Corollaire 3.2 is p.160); Théorème 3.1 and Corollaire 3.2, printed pp.159–160 (revision-three verification).
+- [The Stacks Project, Chapter 29: Morphisms of Schemes](https://stacks.math.columbia.edu/download/morphisms.pdf), The Stacks Project Authors; Version ed88ff78 (compiled 14 July 2026), read 2026-10-06. Relevant sections: Tag 0EKE, Lemma 44.18, p.106 in the fetched PDF; Tag 01VH, p.83 in the fetched PDF.
+- [On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://arxiv.org/pdf/1912.11942v3), Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu; Inventiones Mathematicae 228 (2022), 107–375; published cleared copy read in place on 2026-10-17. The URL identifies the earlier arXiv version; the node locator uses the published pagination.. Relevant sections: Lemma 5.11.3(2)–(5), published pp.251–252 (cleared published copy).
+- [Affine Grassmannians and the geometric Satake in mixed characteristic](https://arxiv.org/pdf/1407.8519v3), Xinwen Zhu; arXiv 1407.8519v3 (2016); published Ann. of Math. 185 (2017); read 2026-10-06. Relevant sections: 2.11 and proof, pp.25–27; A.3.1–A.3.3, pp.54–56, including visual check of the IC shift in A.3.1, p.55; A.1.2–A.2.1, pp.45–50: Remark A.4, Proposition A.5, Lemma A.7, Definition A.13, Proposition A.15 (read 2026-10-17).
+- [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2), Bhargav Bhatt, Peter Scholze; arXiv 1309.1198v2 (2014); published Astérisque 369 (2015); read 2026-10-06. Relevant sections: 5.5.1–5.5.4, p.40; 6.5.1–6.5.6, p.49; 6.6.11, 6.7.1–6.7.2, 6.8.14–6.8.15, pp.55–62; 6.6.11, p.54; 6.7.1–6.7.21, pp.55–58; 6.8.1–6.8.2, p.58; 6.8.11–6.8.15, pp.61–62 (revision-three rereading).
+- [Étale cohomology of diamonds](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf), Peter Scholze; Author manuscript dated 14 April 2026; read 2026-10-06. Relevant sections: 27.1–27.7 with proof, pp.163–168.
+- [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Xinwen Zhu; Annals of Mathematics 185 (2017), 403–492, version of record. Relevant sections: A.1.2, p.465 (perfect-field convention); A.3.1–A.3.3, pp.478–480.
+- [Étale cohomology foundations (TauCetiRoadmap roadmap README, open pull request #938)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4ee54f4b3b32173235ff75fa9db736daecb66fe/TauCetiRoadmap/EtaleCohomologyFoundations/README.md), TauCetiRoadmap contributors; README.md at head c4ee54f4b3b32173235ff75fa9db736daecb66fe of TauCetiProject/TauCetiRoadmap#938, read 2026-10-17. Relevant sections: Scope and ownership; Conventions; Exact supplier contracts; §§0.5–0.11; §§F.1, F.2.1–F.2.7, F.3; §§F.4.1–F.4.6, F.10.2b; §§F.5–F.8; §F.2.2 and §F.3 generic local acyclicity, reread 2026-10-17 at the same head.
+- [Enhanced derived categories of sheaves (TauCetiRoadmap roadmap README, open pull request #908)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b3ea60e3efc3bd4a0b541fb54469dcbf88772064/TauCetiRoadmap/EnhancedDerivedSheaves/README.md), TauCetiRoadmap contributors; README.md at head b3ea60e3efc3bd4a0b541fb54469dcbf88772064 of TauCetiProject/TauCetiRoadmap#908, read 2026-10-17. Relevant sections: Layer 0, §§0.1–0.4; Layer E4 headings, §E4.5.
+- [Classical analytic étale cohomology (TauCetiRoadmap roadmap README, open pull request #875)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e36805f4bbf96f644034fbc220ab0607a15ace83/TauCetiRoadmap/ClassicalAdicEtaleCohomology/README.md), TauCetiRoadmap contributors; README.md at head e36805f4bbf96f644034fbc220ab0607a15ace83 of TauCetiProject/TauCetiRoadmap#875, read 2026-10-17. Relevant sections: Scope and ownership; §8.2; §11.1.
+- [Scheme and stack foundations (TauCetiRoadmap roadmap README on main)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/d2081398eedfbd4153d3067aa98a21b5a5270957/TauCetiRoadmap/SchemeAndStackFoundations/README.md), TauCetiRoadmap contributors; README.md as last changed at d2081398eedfbd4153d3067aa98a21b5a5270957 on TauCetiProject/TauCetiRoadmap main (current at main 350e970 on 2026-10-17). Relevant sections: §4.11; §4.13; §§5.4–5.5.
+- [Complex comparison, part II (TauCetiRoadmap README, open pull request #848)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/d6cb0fc8f2ef059d222be2503f8e99285293111a/TauCetiRoadmap/ComplexComparisonPartII/README.md), TauCetiRoadmap contributors; README at d6cb0fc8f2ef059d222be2503f8e99285293111a, read independently on 2026-10-17. Relevant sections: §C5.4, integralLineBundleChernClass and exponential cocycle; §§C6.0–C6.6, including all checks and exact prerequisites.
+- [Affine cohomological transforms, perversity, and monodromy](https://web.math.princeton.edu/~nmk/old/ACT.pdf), Nicholas M. Katz; J. Amer. Math. Soc. 6 (1993), no. 1, 149–222; author-hosted scan of the published article. Relevant sections: §§3.0–3.5, pp.179–182: Corollary 3.0.2, Theorem 3.4, Corollaries 3.4.1–3.4.3, Lemma 3.5; Appendix A.1–A.5, pp.218–221; Lemma 3.5 proof, pp.182–183 (independent review round five).
+- [Sums of Betti numbers in arbitrary characteristic](https://web.math.princeton.edu/~nmk/BettiSum14.pdf), Nicholas M. Katz; Author manuscript; published Finite Fields Appl. 7 (2001), 29–44. Relevant sections: Part I, Theorem 2 and its proof, pp.2–4; Part II, Theorem 8, p.8.
+- [La théorie des classes de Chern](https://www.numdam.org/article/BSMF_1958__86__137_0.pdf), Alexander Grothendieck; Bull. Soc. Math. France 86 (1958), 137–154; Numdam scan. Relevant sections: §1, pp.137–139: projective bundles, flag bundles and complete splitting; §2, axioms A1–A4 and Lemmes 1–2, pp.140–142.
+- [Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale](https://arxiv.org/pdf/1209.5352v6), Vincent Lafforgue; arXiv 1209.5352v6 (28 September 2016); published J. Amer. Math. Soc. 31 (2018), 719–891. Relevant sections: Théorème 0.9, p.11; §0.12, Notations et conventions, item 7, p.39.
+- [Lefschetz pencils, nearby cycles and vanishing cycles (TauCetiRoadmap roadmap README, open pull request #873)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c7deab75898820bcc1fedd1db4df1010cfc2303/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md), TauCetiRoadmap contributors; README.md at head 4c7deab75898820bcc1fedd1db4df1010cfc2303 of TauCetiProject/TauCetiRoadmap#873, read 2026-10-17. Relevant sections: Scope and ownership; Conventions; Exact supplier contracts; §§2.3, 3.3, 3.4; §§4.1–4.5; §7b.7 (genericHyperplaneRestriction); §7b.9.
+- [Deligne weights, purity and the Weil bounds (TauCetiRoadmap roadmap README, open pull request #929)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/5f713c436ee303ceb25938d815e236b1a2c3d09a/TauCetiRoadmap/DeligneWeightsAndPurity/README.md), TauCetiRoadmap contributors; README.md at head 5f713c436ee303ceb25938d815e236b1a2c3d09a of TauCetiProject/TauCetiRoadmap#929, read 2026-10-17. Relevant sections: Exact supplier contracts (EtaleCohomologyFoundations §F.7 entry); §9.3.
+- [Adic coefficients and the comparison of schemes with v-sheaves (TauCetiRoadmap roadmap README, open pull request #965)](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4a7b4d83e2622df066e2a883525bb755bce6b115/TauCetiRoadmap/AdicCoefficientsAndComparisons/README.md), TauCetiRoadmap contributors; README.md at head 4a7b4d83e2622df066e2a883525bb755bce6b115 of TauCetiProject/TauCetiRoadmap#965, read 2026-10-17. Relevant sections: §1 Scope and ownership; Layer L3 (ECD 27.1–27.4); Layer headings L2, L4, L6.

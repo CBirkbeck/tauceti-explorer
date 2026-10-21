@@ -1,0 +1,210 @@
+{
+  "id": "FunctionFieldArithmeticPartII",
+  "title": "Global function fields, reciprocity and automorphic foundations, Part II: root stacks and ramified geometric class field theory",
+  "area": "functionfields",
+  "parent": "FunctionFieldArithmetic",
+  "summary": "This extension builds on arithmetic reciprocity to plan finite and infinite root stacks and ramified rank-one geometric class field theory. Its targets include the all-degree multiplicative root-Picard local system, coherent Abel–Jacobi pullbacks, ramified norms and the quadratic Frobenius-trace comparison. The current specification includes native finite cyclic and infinite rational-character coordinates, universal coactions and invariant algebras, affine Spec limits, framed normalization covers and comparisons under coefficient change. General tensor/pullback infrastructure is imported from upstream AlgebraicVectorBundles L0A–L0B through SF.3/JAC-A. The independent review of revision 2 accepts the 717-node planning pass after reader reconciliation and exact-pin suggested-file elaboration. Every declaration remains unchecked and every stage partial; the eight gaps and thirteen supplier requests retain the missing sheaf geometry, coherent descent, exactness and infinite root-groupoid obligations. Elaboration with admitted proofs does not establish any implementation or geometric closure. The independent symplectic source route remains an unaccepted split proposal.",
+  "readme": "See the definitive roadmap document in research/blueprint/readmes/FunctionFieldArithmeticPartII.md. This Part II begins after the parent’s arithmetic reciprocity and imports ordinary Picard geometry and geometric stack infrastructure, including current upstream AlgebraicVectorBundles L0A–L0B through SF.3. Its general root-stack API retains full fibres, arbitrary positive exponents and genuine two-limits. GC.2 uses all signed root divisors in the modified-unit right-action groupoid and the distinct Picard double quotient. The independent symplectic L-value route is assigned in the packet’s unaccepted restructuring proposal.",
+  "prerequisites": [
+    "FunctionFieldArithmetic",
+    "SchemeAndStackFoundations",
+    "EtaleDualityAndPerverseSheaves",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "DiamondsAndVStacks",
+    "AlgebraicModuliForArithmeticGeometry"
+  ],
+  "stages": [
+    {
+      "key": "RS.0",
+      "title": "Root-object and affine-chart interfaces",
+      "description": "Native invertible-sheaf tensor and section powers, canonical trivial-power coordinates and the root equation with its unit coefficient; scalar equations for root arrows; isomorphisms of root data; root-specific universal Hopf coaction on A[T]/(Tⁿ−f), its counit/coassociativity, character weights and compatibility with the existing μ_n points. μ_n and monic quotient bases are baseline imports. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader. The finite action comparison has weighted monic/character coordinates, exact kernel and module cokernel, sharp injectivity and surjectivity criteria, a unit-parameter inverse and specified matrix determinant; normalized-coframe torsors are not arbitrary coarse root charts. Its elementary native proof branch has separate quotient-root relation, Euclidean power reduction, character-power and root-evaluation leaves. An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations. For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation. Normalization covers now commute with arbitrary changes of the test A-algebra. For phi:B to C and p=(u,y), the actual A-algebra map Dp to D(phi p) sends T to T and coefficients through phi, preserves identity and composition, and commutes with every actual framed-arrow normalization map. Its coefficient square is a native ring pushout, hence its spectrum square is Cartesian. The native isomorphism with the chosen scheme pullback has both forward and inverse projection formulas, for every natural exponent. For positive exponent these components form a native natural transformation between the underlying normalization cover functors; the whole chart natural transformation factors through it exactly, and each component gives the Cartesian square of the existing singleton fppf covers. No flatness or injectivity of phi is assumed: over Z/4 to Z/2 a nonzero square-zero normalized section is killed. Wild exponents and zero rings remain allowed. Native sheaf RootObject comparison, local frame existence, stackification, effective fpqc descent, coherent iterated scheme comparisons, infinite genuine 2-limits and higher-universe adapters remain open, as do all inherited source, supplier and geometric obligations. Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations. Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations. For every positive exponent and arbitrary change of test A-algebra, the actual chosen-frame normalization functor now has a native natural isomorphism over Spec C with the native Over.pullback of the normalization functor over Spec B. Its components use the existing chosen scheme comparison followed by native symmetry; both forward and inverse projections and actual framed-arrow naturality are specified. The actual native adjunction counit, specialized to normalization, recovers the previous normalizationChangeNatTrans through this isomorphism, and the whole normalized-chart natural transformation transports in both directions. The nonflat Z/4 to Z/2 tests kill a nonzero square-zero section and collapse a nonidentity minus-one stabilizer; no faithfulness of coefficient change or pullback is asserted. Wild exponents and zero rings are retained. General native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes, the full omission ledger and inherited source findings retain their scope.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    },
+    {
+      "key": "RS.1",
+      "title": "Finite root stacks",
+      "description": "The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the invariant-ring calculation via the universal Hopf coaction, valid in arbitrary characteristic; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader. Finite root data satisfy effective fpqc descent by the imported QCoh equivalence; algebraicity and coarse properties use their separate owners. On the finite affine chart, compare the actual diagonal character coordinates with the zero-character row. Universally invariant elements have only a constant coefficient; the native algebra-map equalizer is A through the coefficient map for every positive exponent, including wild and nonreduced bases.",
+      "requires": [
+        "FunctionFieldArithmeticPartII:RS.0",
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "DiamondsAndVStacks:D0"
+      ]
+    },
+    {
+      "key": "RS.2",
+      "title": "Infinite root stacks and DVR fibres",
+      "description": "Divisibility transitions and coherent inverse limits; finite DVR reduced fibres and the infinite reduced gerbe, with neutralizations distinguished from canonical constructions. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader. Native finite-free affine transition maps and their iterated-quotient basis; infinite affine fpqc quotient; factorial reindexing; compatible Kummer-torsor/class comparisons. Infinite H1 is fpqc, finite Kummer is fppf; the all-roots-of2 example rejects a change to fppf infinite torsors. Identify each finite unity-root chart A[T]/(T^n−1) with A[Z/n], explicitly compare positive-divisibility transitions and the native coaction/counit/root-antipode; these finite formulas precede the still-required A[Q/Z] colimit and infinite quotient identification.\n\nSpecify the normalized characters c_n([k])=[k/n] and compatible finite chart maps. Their actual unity-root colimit equivalence with the native group algebra A[Q/Z] has separate injectivity, surjectivity, rational inverse-basis and comultiplication/counit/antipode/coefficient statements. Test orientation, scaled divisibility and wild nilpotents. This coordinate plan remains distinct from coherent groupoid, Spec-limit and fpqc quotient constructions; all stage coverage remains partial.\n\nOn C_A(f) for arbitrary f, use the inherited unity-root coordinate equivalence E_A:H_A≃A[Q/Z] to transport the LEFT coaction: η_f=(E_A⊗id_C)ρ_f into A[Q/Z]⊗_A C_A(f). State η_f(u_i)=e_[1/d_i]⊗u_i and η_f(u_i^k)=e_[k/d_i]⊗u_i^k, native counit/coassociativity, injectivity, universal coinvariance equivalence under tensor congr, and unity-chart agreement after transporting both tensor factors. Do not replace universal invariance by invariance under base-field points in wild characteristic. Coefficient-naturality and geometric fpqc descent require their own stated comparisons. The rational-character tensor coefficient map and coaction naturality square now have explicit declaration-sized contracts with unchanged character weights and one-way coinvariance preservation. The conditional proof prototype admits incoming coordinate/coaction dependencies; geometric transports and fpqc quotient work remain open. The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes.\n\nThe ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. On the actual factorial affine colimit C_A(f), universal LEFT coinvariants are precisely the coefficient image A for every commutative base and arbitrary section. Rational-character coefficient extraction detects each finite-level nonconstant coefficient without cancelling a root or assuming reducedness. The native algebra-map equalizer is A through the coefficient inclusion. This algebraic identification is distinct from coherent root-object reindexing, affine Spec limits, fpqc frame torsors and geometric quotient universality. The actual positive-divisibility colimit now has a rational-character LEFT coaction, compatible with every finite coaction, with native counit and coassociativity. Its universal coinvariants are exactly and uniquely the coefficient ring, realized by the native equalizer algebra equivalence; the factorial and positive-divisibility invariant coordinates agree. Still open: higher-universe target transports, coefficient-change naturality of these new positive-divisibility comparisons, coherent root-object groupoid reindexing, Spec-limit comparison, fpqc frame torsors and geometric quotient/descent, DVR and Kummer-limit routes. The reserved general root-stack key, all ten partial stages, all eight gaps, all thirteen supplier requests and every earlier source route remain open as recorded. Coefficient-ring maps between the actual positive-divisibility affine colimits and rational-character tensor products now satisfy root/constant formulas, identity and composition, commute with factorial cofinality and intertwine the universal coactions. The induced map of actual native coaction equalizers is natural in the unique invariant coefficient; its injectivity and surjectivity are exactly those of the coefficient-ring map. Arbitrary nonflat maps and zero rings are included, without reflecting ambient coinvariance. Still open: higher-universe target transport, coherent root-object groupoid reindexing, Spec-limit comparison, fpqc frame torsors and geometric quotient/descent, DVR and Kummer-limit routes. The general reserved root-stack key, all ten partial stages, eight gaps, thirteen supplier requests and prior paper routes remain as recorded. The actual positive-divisibility affine chart is now specified as a native scheme inverse limit, with unique maps from arbitrary test schemes, finite projection/extensionality and precomposition laws. Native Spec carries the existing factorial algebra equivalence to a scheme isomorphism and reverses arbitrary coefficient maps, with structural-base and factorial-comparison squares. These are affine-chart results in a common arbitrary universe. Coherent root-object groupoid reindexing, higher-universe transport, Cartesian tensor base-change, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open; all ten stages, eight gaps and thirteen supplier requests remain partial or open. The arbitrary coefficient base-change square of the actual positive-divisibility affine root chart now has a native ring pushout and scheme pullback witness. Its concrete B-algebra tensor equivalence B⊗_A D_A(f)≃D_B(φ(f)) identifies pure tensors and inverse roots; its actual categorical scheme isomorphism identifies both projections. Flatness is not assumed and nilpotents are retained. Coherent root-object groupoid reindexing, higher-universe transport, finite-projection coherence for the general stack comparison, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open. All ten stages, eight gaps and thirteen supplier requests remain partial or open. For any coefficient A-algebra B, extend the actual positive-divisibility root coaction through the native tensor adjunction and prove its equality with δ_B after the tensor base-change equivalence. Its universal tensor coinvariants are precisely the new coefficient ring B, through the actual native equalizer equivalence, with unique coefficients and agreement with chart invariant coordinates. Nonflat maps, zero rings and wild nonzero nilpotents are retained. This is an affine algebra/action comparison only; higher-universe adapters, coherent root-object groupoids, finite-projection coherence for general stack base change, TOWER-AFF fpqc frame torsors, infinite quotient/descent and DVR/Kummer comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope.",
+      "requires": [
+        "FunctionFieldArithmeticPartII:RS.0",
+        "FunctionFieldArithmeticPartII:RS.1",
+        "SchemeAndStackFoundations:SF.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "DiamondsAndVStacks:D0",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "GC.0",
+      "title": "Root Picard stacks",
+      "description": "Graded line bundles with square roots along the reduced finite divisor R; square-action quotient, forgetful gerbe and the version carrying a root section. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "requires": [
+        "FunctionFieldArithmeticPartII:RS.0",
+        "FunctionFieldArithmeticPartII:RS.1",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    },
+    {
+      "key": "GC.1",
+      "title": "Root divisors and Abel–Jacobi maps",
+      "description": "Hat and nonzero-section spaces, evaluation pullbacks, smoothness, symmetric coarse spaces, tensor addition, ordered maps and both Abel–Jacobi maps. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "requires": [
+        "FunctionFieldArithmeticPartII:GC.0",
+        "FunctionFieldArithmeticPartII:RS.0",
+        "FunctionFieldArithmeticPartII:RS.1",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    },
+    {
+      "key": "GC.2",
+      "title": "Adelic root Picard groupoids",
+      "description": "Modified local-unit fibre products, the full signed root-divisor right-action groupoid A_F×/O_{√R}× and its further idele double quotient to the root Picard groupoid, with all stabilizers and the valuation/line-bundle sign convention retained. The root-divisor groupoid is not an effective symmetric-power space. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "requires": [
+        "FunctionFieldArithmetic:FA.2",
+        "FunctionFieldArithmeticPartII:GC.0",
+        "FunctionFieldArithmeticPartII:GC.1",
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    },
+    {
+      "key": "GC.3",
+      "title": "Symmetric local systems",
+      "description": "Tame rank-one coefficients, collision descent, graded symmetric powers, exterior-power cohomology and associative multiplicativity. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "requires": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "FunctionFieldArithmeticPartII:GC.1",
+        "FunctionFieldArithmeticPartII:RS.1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ]
+    },
+    {
+      "key": "GC.4",
+      "title": "High-degree Abel–Jacobi descent",
+      "description": "Evaluation-surjective affine fibre charts, weighted-quotient simple connectivity and effective descent above the precise degree threshold. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "requires": [
+        "FunctionFieldArithmeticPartII:GC.0",
+        "FunctionFieldArithmeticPartII:GC.1",
+        "FunctionFieldArithmeticPartII:GC.3",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    },
+    {
+      "key": "GC.5",
+      "title": "All-degree character sheaves",
+      "description": "Effective auxiliary divisors, canonical comparison and cocycles, all-degree extension, Abel–Jacobi pullback, unit, associativity and commutativity. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "requires": [
+        "FunctionFieldArithmeticPartII:GC.1",
+        "FunctionFieldArithmeticPartII:GC.2",
+        "FunctionFieldArithmeticPartII:GC.3",
+        "FunctionFieldArithmeticPartII:GC.4",
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    },
+    {
+      "key": "GC.6",
+      "title": "Ramified norms and quadratic traces",
+      "description": "Root multiplicative sheaf, root norm, two-categorical exactness, quadratic specialization and Frobenius trace equal to the quadratic idele character. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "requires": [
+        "FunctionFieldArithmetic:FA.2",
+        "FunctionFieldArithmetic:FA.4",
+        "FunctionFieldArithmeticPartII:GC.0",
+        "FunctionFieldArithmeticPartII:GC.1",
+        "FunctionFieldArithmeticPartII:GC.2",
+        "FunctionFieldArithmeticPartII:GC.3",
+        "FunctionFieldArithmeticPartII:GC.5",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "YZ19",
+      "title": "Shtukas and the Taylor expansion of L-functions (II)",
+      "authors": "Zhiwei Yun and Wei Zhang",
+      "edition": "Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Appendix A, pp. 514–526, statements and proofs in full",
+        "Introduction pp. 393–396; §6.2.1 pp. 496–497 and §6.2.3 p. 499 for consumers",
+        "Page images pp. 515, 519, 521, 523 checked against extracted formulas"
+      ]
+    },
+    {
+      "id": "AGV08",
+      "title": "Gromov–Witten theory of Deligne–Mumford stacks",
+      "authors": "Dan Abramovich, Tom Graber and Angelo Vistoli",
+      "edition": "arXiv:math/0603151v2, 13 April 2008; Appendix B",
+      "url": "https://arxiv.org/pdf/math/0603151v2",
+      "sha256": "c2889c567c21aa5473ba0be75221dbb67ca122210fa4e4973f4727c490bdd5eb",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Appendix B.1–B.2 pp. 52–54; root gerbes and roots of line bundles with sections"
+      ]
+    },
+    {
+      "id": "TV17",
+      "title": "Infinite root stacks and quasi-coherent sheaves on logarithmic schemes",
+      "authors": "Mattia Talpo and Angelo Vistoli",
+      "edition": "arXiv:1410.1164v2, 12 December 2017; published Proc. London Math. Soc. 116 (2018), 1187–1243",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§3 pp. 12–16, definitions and proofs of 3.2–3.5 and 3.7–3.13; single-divisor specialization"
+      ]
+    },
+    {
+      "id": "B24",
+      "title": "On the birational section conjecture with strong birationality assumptions",
+      "authors": "Giulio Bresciani",
+      "edition": "Inventiones Mathematicae 235 (2024), 129–150; online 26 September 2023, open-access version of record",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
+      "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "pp. 135–136 root stacks over a DVR and the infinite reduced fibre; references pp. 149–150"
+      ]
+    },
+    {
+      "id": "AV23",
+      "title": "Symplectic L-functions and symplectic Reidemeister torsion (mod squares)",
+      "authors": "Amina Abdurrahman and Akshay Venkatesh",
+      "edition": "arXiv:2303.13436v1, 23 March 2023; published 2025 version not inspected",
+      "url": "https://arxiv.org/pdf/2303.13436v1",
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "pp. 1–2 arithmetic target, §3.1–3.4 pp. 26–28, §4.2 p. 35 proof architecture; all 38 reviewed route contracts, not all proofs of §§3–6/App. D"
+      ]
+    }
+  ],
+  "status": "draft",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-FunctionFieldArithmeticPartII~2",
+    "date": "2026-10-11",
+    "notes": "Reviewed ordering, parent boundary, supplier targets, current upstream ownership, scope and packet/reader correspondence. Stage descriptions include historical refinements; the companion packet’s current contracts and explicit remaining lists govern. The separate symplectic split is not accepted by this review."
+  }
+}

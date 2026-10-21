@@ -1,0 +1,160 @@
+{
+  "id": "SymplecticReidemeisterTorsionModSquares",
+  "title": "Symplectic Reidemeister torsion mod squares and the étale Chern class",
+  "area": "topology",
+  "parent": null,
+  "summary": "This plan constructs signed Reidemeister torsion for symplectic local systems, its extension over normal rings and its identification with the étale second Chern transgression. It imports the existing graded determinant and spinor norm theories. A characteristic-free circle proof, normalized specialization, an explicit Gaussian witness and the arithmetic transfer argument connect the topological theorem to finite-field K-theory.",
+  "readme": "A signed determinant construction assigns a square class to symplectic local systems on oriented three-manifolds. Its normalized form is a natural μ₂-torsor over normal coefficient rings. Bordism, a characteristic-free circle formula, finite-field K-theory and a density argument identify it with the étale second Chern transgression. The reader states the exact conventions, all supplier contracts and the remaining arithmetic-scheme input. It also includes the higher-dimensional boundary theorem, mapping-class identity and real Chern-class vanishing. Generic determinant functors and the existing spinor norm are imported.",
+  "prerequisites": [
+    "KTheoryLowDegrees",
+    "StableHomotopyKTheory",
+    "KTheoryFiniteLocalFields",
+    "K3BlochGroups",
+    "MotivicEtaleKTheory",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups"
+  ],
+  "stages": [
+    {
+      "key": "RT.0",
+      "title": "Symmetric complexes and algebraic boundaries",
+      "description": "Signed cochain conventions; ε-symmetric and strict Poincaré complexes; explicit algebraic boundary; semicharacteristic parity and local constancy; local strictification and field splitting; cellular manifold pairings.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "RT.1",
+      "title": "Determinant signs and Lagrangian volumes",
+      "description": "Import graded lines and the coherent determinant functor. Specify parity reduction, line square classes, reverse-wedge duality, shifts, strongly even termwise comparisons, cohomology determinants and Lagrangian square classes.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.0",
+        "KTheoryLowDegrees:Z.3",
+        "KTheoryLowDegrees:Z.6"
+      ]
+    },
+    {
+      "key": "RT.2",
+      "title": "Cellular torsion and bordism signs",
+      "description": "Construct symplectic and cellular volumes, prove invariance under elementary cellular changes and subdivision, compare duality volumes, define torsion in odd dimensions and compute its orientation and boundary signs. Prove normalized boundary torsion is trivial in dimension 4j−1.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.0",
+        "SymplecticReidemeisterTorsionModSquares:RT.1",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-11-triangulations-pl-structures-and-collapse"
+      ]
+    },
+    {
+      "key": "RT.3",
+      "title": "Families, semicharacteristics and characteristic classes",
+      "description": "Extend the generic torsion over normal rings; prove base change for the normalized class using even strict models. Construct labelled bordism, its low-degree homology comparison and the normalized transformation on integral H₃ modulo two. Prove evenness in dimension three without using the final comparison, and specify the étale Chern transformation.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.2",
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-6-knot-concordance-and-4d-cobordism-owned-here",
+        "StableHomotopyKTheory:H.1",
+        "MotivicEtaleKTheory:M.1",
+        "MotivicEtaleKTheory:M.8",
+        "KTheoryFiniteLocalFields:L.1"
+      ]
+    },
+    {
+      "key": "RT.4",
+      "title": "Circle formula and explicit mapping tori",
+      "description": "Compare the pinned spinor norm with the bilinear convention; prove the Zassenhaus and circle formulas in every odd characteristic using the alternating cross pairing P(x,(1−A)y); compute mapping-torus torsion, a genus-two cocycle model and the nonsquare Gaussian example.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "RT.5",
+      "title": "Transfer and controlling extensions",
+      "description": "Define goodness using normalized torsion, Chern-liftability and controlling extensions with upper-density-zero exceptional sets. Prove the transfer lemma, the number-field rank bound, controlling torsion witnesses, composita and intermediate-field descent.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.3",
+        "SymplecticReidemeisterTorsionModSquares:RT.4",
+        "K3BlochGroups:V.2",
+        "K3BlochGroups:V.4",
+        "MotivicEtaleKTheory:M.7",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-11-the-frobenius-von-mangoldt-coefficient-and-its-summatory-functions",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c"
+      ]
+    },
+    {
+      "key": "RT.6",
+      "title": "The density-one argument",
+      "description": "Propagate goodness through independent liftable classes and multiquadratic extensions. Build a disjoint totally imaginary cyclic extension and a finite Galois-stable liftable subspace; prove the cubic density improvement and density one for good rational primes.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.5",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-7-the-auxiliary-prime-and-the-crossing-data",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c"
+      ]
+    },
+    {
+      "key": "RT.7",
+      "title": "Comparison over rings and fields",
+      "description": "Use arithmetic-scheme quadratic-cover detection to prove the comparison in characteristic zero; lift mod-two integral homology from finite fields through Sylow subgroups and Witt vectors; pass to characteristic p and filtered colimits. Deduce the topological theorem and the all-odd-characteristic mapping-class identity.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.6",
+        "SymplecticReidemeisterTorsionModSquares:RT.3",
+        "SymplecticReidemeisterTorsionModSquares:RT.4"
+      ]
+    },
+    {
+      "key": "RT.8",
+      "title": "The real Chern class",
+      "description": "Identify the real degree-two Chern component with the metaplectic extension; use a lift through the universal integral cover and Bockstein compatibility to prove c₃₁ vanishes on the full mod-two homology of the discrete real symplectic group.",
+      "requires": [
+        "SymplecticReidemeisterTorsionModSquares:RT.3",
+        "MotivicEtaleKTheory:M.8",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "AV-v1",
+      "title": "Symplectic L-functions and symplectic Reidemeister torsion (mod squares)",
+      "authors": "Amina Abdurrahman and Akshay Venkatesh",
+      "edition": "arXiv:2303.13436v1, 23 March 2023; all AV page and statement numbers in this plan refer to these 98 pages",
+      "url": "https://arxiv.org/pdf/2303.13436v1",
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§1.1, pp. 1–4; §1.3.3, p. 6; §2, pp. 10–26; Appendices A–C, pp. 61–90",
+        "TeX source consulted for signs and matrices; SHA-256 e18e82663000a365452b439e971bb49d05a7ea6ce03201309166120e30a44c9e. Arithmetic §§3–6 and Appendix D are outside this roadmap."
+      ]
+    },
+    {
+      "id": "JRV",
+      "title": "On the bilinear structure associated to Bezoutians",
+      "authors": "Florent Jouve and Fernando Rodriguez Villegas",
+      "edition": "arXiv:1004.4208v3, 12 September 2013",
+      "url": "https://arxiv.org/pdf/1004.4208v3",
+      "sha256": "974292033622656f55a7aa39bf622cc745d672b5ceb43f99706fa1c2fa3e1011",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Theorem 5.1 and its proof, pp. 16–17; Lemma 6.1, p. 18. Only the Zassenhaus determinant formula is used."
+      ]
+    },
+    {
+      "id": "Thom",
+      "title": "Quelques propriétés globales des variétés différentiables",
+      "authors": "René Thom",
+      "edition": "Commentarii Mathematici Helvetici 28 (1954), 17–86",
+      "url": "https://www.maths.ed.ac.uk/~v1ranick/papers/thomcob.pdf",
+      "sha256": "3129a3e78fc854b2dd26e1b195335a7d1043e7d911206320c54bbd73b74aaac3",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Chapter IV §8, Theorem IV.13, p. 81: Ω₀^SO = ℤ and Ω₁^SO = Ω₂^SO = Ω₃^SO = 0. The extension to labelled CW complexes is a target proved by skeletal induction here, rather than attributed directly to this coefficient calculation."
+      ]
+    }
+  ],
+  "status": "draft"
+}

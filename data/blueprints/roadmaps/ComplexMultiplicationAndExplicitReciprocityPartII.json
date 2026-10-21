@@ -1,0 +1,246 @@
+{
+  "id": "ComplexMultiplicationAndExplicitReciprocityPartII",
+  "title": "Complex multiplication and explicit reciprocity, Part II: CM heights and Galois orbits",
+  "area": "arithmeticgeometry",
+  "parent": "ComplexMultiplicationAndExplicitReciprocity",
+  "summary": "Unify the total-reflex and corrected quaternionic proofs of the averaged Colmez formula, then deduce individual height estimates, primitive and general CM Galois-orbit bounds, period-coordinate heights and bounded-degree CM finiteness. Explicit source and supplier gaps prevent a claim of proof closure.",
+  "readme": "The full target statements, conventions, APIs, tests and source repairs are in research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocityPartII.md. The two averaged-height branches prove one common target by alternative routes.",
+  "prerequisites": [
+    "AbelianSchemesAndArithmeticModuli",
+    "AnalyticNumberTheory",
+    "ArakelovGeometryAndAbelianHeights",
+    "AutomorphicBundles",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "FaltingsFinitenessAndIsogenyTheoremsPartII",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "GrossZagierAndArithmeticHeights",
+    "HeightsRationalPointsAndObstructions",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "LubinTateFormalModulesAndQuasiCanonicalLifts",
+    "MetaplecticAutomorphicForms",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "PELModuli",
+    "ReductiveGroupsPartII",
+    "ShimuraData",
+    "ShimuraVarieties",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/ReductiveGroups"
+  ],
+  "stages": [
+    {
+      "key": "CMH.0",
+      "title": "CM characters and height linearity",
+      "description": "For the profinite absolute Galois group Γ_Q, CM⁰ consists of rational-valued locally constant conjugation-invariant functions a for which a(σ)+a(cσ) is constant. For a CM algebra E and type Φ, put a_Φ(σ)=#(Φ∩σΦ) and a⁰_Φ equal to its conjugacy average, computed in any finite Galois quotient through which the action factors. Expand a in finite-image irreducible Artin characters and set Z̃(a)=−Σ_η a_η((L_f′/L_f)(0,η)+(log f_η)/2). Define h_Col(E,Φ)=Z̃(a⁰_Φ). Every nontrivial character occurring is totally odd; the trivial term uses ζ(0) and ζ′(0). Define H_CM⊂CM⁰ to be the Q-span, over all CM pairs, of a⁰_Φ. It is the domain determined by total Faltings heights. Every generator is invariant under σ↦σ⁻¹ and vanishes at complex conjugation c; consequently H_CM is a proper subspace of CM⁰, since the constant function 1 does not vanish at c. For a maximal-order CM pair (E,Φ), stable unscaled Faltings height depends only on that pair. For product CM algebras extend height additively. There is a unique Q-linear map ht_H:H_CM→R with ht_H(a⁰_Φ)=h_Falt(E,Φ). Inducing a field type to a CM overfield Ẽ multiplies a⁰ by [Ẽ:E]. Uniqueness here is only on the overlap span H_CM. Colmez’s period-normalized functional on all CM⁰ requires its component-period values and a sign/conductor/metric adapter; total heights alone do not specify that extension. The individual height conjecture on H_CM remains unproved and unused. For a CM field E/F with [F:Q]=d≥1 and χ=χ_E/F, (1/(2d))Σ_{Φ∈CM(E)}a⁰_Φ=2^(d−2)(1+(1/d)Ind_{Γ_F}^{Γ_Q}χ). Consequently 2^(−d)Σ_Φ h_Col(E,Φ)=−(L_f′/L_f)(0,χ)/2−log(D_E/D_F)/4−d log(2π)/2. The sums contain all 2^d types with multiplicity one. On H_CM define IndividualColmez to mean ∀a∈H_CM, ht_H(a)=Z̃(a), equivalently the individual formula h_Falt(E,Φ)=h_Col(E,Φ) for every maximal-order CM pair. This is the total-height form of the conjecture. A formulation on all CM⁰ must instead use the additional component-period normalization of Colmez Theorem 0.3 and its adapter; it is not defined by extending ht_H arbitrarily. Neither formulation is proved or assumed here. CMH.9 proves equality only on each averaged character.",
+      "requires": [
+        "AnalyticNumberTheory:AN.4",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+        "ShimuraVarieties:V5"
+      ]
+    },
+    {
+      "key": "CMH.1",
+      "title": "Integral CM and total reflex families",
+      "description": "Given a CM field E/F of degree 2d and an embedding ι₀:E→C, form T=Res_E G_m/ker(N_F/Q) and T_so=ker(N_E/F). The map z↦z/z̄ identifies T/(Res_F G_m/ker N_F/Q) with T_so. The kernel subtorus is identified with G_m by N_F/Q; the diagonal G_m→T instead has kernel μ_d. Character vectors of T have a_ι+a_cι independent of ι. The distinguished cocharacter selects ι₀ and has reflex norm the quotient Res_E G_m→T. For each p let K_so,p be the image of (O_E⊗Z_p)× in (E⊗Q_p)×/(F⊗Q_p)×=T_so(Q_p). Define K₀,p to be the largest compact subgroup of T(Q_p) above K_so,p, equivalently Z_p×·r((O_E⊗Z_p)×), with Z_p× in the kernel G_m through the norm identification. Put K₀=∏pK₀,p. This is a compact open subgroup and need not be the maximal compact of T(A_f). For compact open K⊂T(A_f), import the canonical finite étale CM stack Y_K/E with its Artin reciprocity action, and normalize Spec O_E in it. At every p with K_p=K₀,p this normalization is finite étale over O_E⊗Z_p. In particular Y₀=Y_K₀ is finite étale over O_E. For smaller levels no unramifiedness assertion is made. Let E♯ be the finite étale Q-algebra whose embedding Γ_Q-set is CM(E). Complementing a type is its CM involution, so E♯ is a product of CM fields of total degree 2^d. For a chosen ι₀, Φ♯ consists of the types containing ι₀ and has size 2^(d−1). Its T-representation H♯=E♯ has character pullback [Φ]↦Σ_{ι∈Φ}[ι]. Choose ξ∈E♯× with ξ̄=−ξ and Im ι_Φ(ξ)>0 for Φ containing ι₀; after multiplying ξ by a positive integer so that ψ(x,y)=Tr(ξxȳ) is integral on O_E♯, this form polarizes H♯, giving an abelian scheme A♯/Y₀ of dimension 2^(d−1). Its maximal-order lattice is O_E♯. A faithful rational T-representation H of Hodge types (−1,0),(0,−1), with a polarizing T-equivariant alternating form valued in the norm character and a K-stable full adelic lattice on which that form is integral, gives a polarized abelian scheme A_H over the normalized integral CM model Y_K. Its generic fiber is the supplied canonical-model family and its ℓ-adic Tate module over Y_K[1/ℓ] is the chosen lattice. The total reflex pair decomposes as the product of reflex pairs indexed by Γ_Q-orbits of CM(E). Its class function satisfies a⁰_(E♯,Φ♯)=(1/(2d))Σ_Φ a⁰_(E,Φ), hence h_Falt(E♯,Φ♯)=(1/(2d))Σ_Φ h_Falt(E,Φ). The latter follows from Colmez linearity and product additivity, not the individual Colmez conjecture.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0",
+        "NeronModelsAndSemistableAbelianVarieties:R11.5",
+        "ReductiveGroupsPartII:RG2.0a",
+        "ShimuraData:D3",
+        "ShimuraVarieties:V4",
+        "ShimuraVarieties:V5",
+        "ShimuraVarieties:V8",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+      ]
+    },
+    {
+      "key": "CMH.2",
+      "title": "CM integral realizations",
+      "description": "At q|p of E and a geometric point y of Y_K, every K_p-stable lattice N_p in an algebraic T_Qp-representation N gives a crystalline Q_p-representation of Γ_y. The reciprocity character factors through the image T_q of Res_Eq/Qp G_m, and restricting to K_q=K_p∩T_q(Q_p) recovers the same representation functor. For N_p as above, the integral Breuil–Kisin module M(N_p,y) is tensor-compatible. Use W=W(k̄_y), a uniformizer π_y of the actual completed local ring O_y, and its Eisenstein polynomial E_y(u) over W. Then its crystalline realization is φ*M/uφ*M and its de Rham realization is φ*M/E_y(u)φ*M. These have the B_cris and filtered B_dR comparisons to N_p,y, compatibly with duals, tensors and changing the local CM representation. The cohomological realization of an abelian scheme uses the dual of its Tate module. The generic tensor functor from T-representations to filtered de Rham bundles extends to integral lattices on Y_K. Its completions at y are the de Rham modules of the CM Breuil–Kisin comparison. At q where Y_K is étale over O_E, it also gives a compatible F-crystal with these crystalline fibers. For a polarized weight-one H, the resulting H_dR is the dual of H¹_dR(A_H/Y_K), with its dual Hodge filtration, and the crystals agree with the corresponding Dieudonné realization. At a geometric point y with residue field kbar, the pointwise crystalline realization is over W(kbar), using that geometric PD thickening. Let D contain primes ramified in E and primes with K_p≠K₀,p. For a faithful polarized H and integral tensors with stabilizer T over Z[1/D], the tensor-preserving isomorphisms O⊗H_Z→H_dR form a T-torsor over Y_K[1/D]. The extended de Rham tensors are horizontal and independent of the chosen faithful realization. Their p-adic comparison with étale tensors uses compatibility with absolute Hodge cycles, not algebraicity of arbitrary Hodge cycles. The T-action on A_H is a faithful rational action T→Aut⁰(A_H)=(End(A_H)⊗Q)×, and level-changing Hecke isogenies extend over the integral CM models with compatible de Rham and crystalline realization maps. Integral endomorphisms and rational quasi-isogenies are distinguished. For the tautological H₀=E, the torus T_E acts by multiplication and the lattice is O_E. For H₀=E, let V₀={f∈End_Q(E):f(ax)=āf(x)}. Write f_a(x)=a x̄; then f_a∘f_a is multiplication by aā. This gives a rank-one E-module with hermitian form ⟨f_a,f_b⟩=a b̄, rational quadratic form Q₀(f_a)=Tr_F/Q(aā), and an integral lattice from O_E. Its filtered realization has Hodge line ω₀=Fil¹V₀,dR on Y₀. Equip this line with ||z||²=|[z,z̄]₀|, where [,]₀ is the bilinear form of Q₀. Since Q₀ is positive definite, [z,z̄]₀ is positive for z≠0 and the absolute value is redundant. The printed negative sign would give a negative squared norm. At a geometric y over q|p, with W the Witt vectors of its algebraically closed residue field, the cohomological tautological crystal decomposes by primes q′|p of E. The q-factor is the Dieudonné crystal of the Lubin–Tate O_Eq-module, with the dual-Tate convention fixed above; every q′≠q factor is W⊗Zp O_Eq′ with Frobenius Fr⊗1. Applying conjugate-semilinear endomorphisms gives the corresponding decomposition of V₀,cris by primes of F. The Newton cocharacter of a geometric CM fiber factors through T. For the distinguished prime 𝔭 of F under q, the Frobenius invariants in V₀,cris,𝔭 span its rational crystal exactly when 𝔭 is nonsplit in E. The associated polarized weight-one fibers A_H are supersingular exactly in that nonsplit case, with the nonzero faithful realization understood.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AutomorphicBundles:B1",
+        "AutomorphicBundles:B2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2",
+        "ShimuraData:D1",
+        "ShimuraVarieties:V8"
+      ]
+    },
+    {
+      "key": "CMH.3",
+      "title": "The total reflex determinant",
+      "description": "Put r=2^(d−1) and H=H♯_dR. Clifford-style composition of ω₀ on H gives ω₀⊗gr⁻¹H→Fil⁰H, generically an isomorphism of rank r bundles. Its determinant is a canonical nonzero section Δ of L=ω₀^(−r)⊗det Fil⁰H⊗(det gr⁻¹H)⁻¹. Its zero divisor is effective and measures the integral failure of that map to be an isomorphism. Let A be a complete characteristic-zero DVR with perfect residue field, B a finite product of complete DVRs finite flat over A with separable fraction fields, C a complete DVR A-algebra with perfect residue field containing all embeddings Υ_all:B→C, and M an invertible B-module. For Υ⊂Υ_all let K_Υ(M) be the kernel of M⊗A C→∏_{η∈Υ}(M⊗B,η C). Set M(Υ)=(M⊗A C)/(K_Υ(M)+K_Υc(M)). The module has finite C-length. Work factorwise after the maximal unramified decomposition; no global monogenic generator is assumed. For the partition quotient, after decomposing B into local monogenic factors with integral generator π, length_C M(Υ)=Σ_{η∈Υ,η′∉Υ}v_C(ηπ−η′π). Equivalently it is half the full discriminant valuation minus the sums over unordered pairs within Υ and within Υc. Contributions between distinct unramified factors vanish. The formula is nonnegative and is unchanged by an invertible B-module twist. For a finite quotient of Γ_Qp, define μ_p on complex class functions by linear extension of the Artin conductor exponent on irreducible characters. Extend to locally constant functions by normalized conjugacy averaging, compatibly with refining the quotient. For K/Q_p finite étale and Υ⊂Hom(K,P), set a_Υ(σ)=#(Υ∩σΥ); also let a_ηη′ be the indicator σ∘η=η′. This is a functional on locally constant functions, with no claim of boundedness on all continuous functions. For K/Q_p a local field with maximal unramified K₀, splitting field P and e_P=v_P(p), μ_p(a_ηη)=v_P(η(d_K/Qp))/e_P. If η≠η′ agree on K₀, μ_p(a_ηη′)=−v_P(ηπ−η′π)/e_P; if they disagree on K₀ it is zero. Thus length_C M(Υ)=(e_P/2)(μ_p(a_Υ)+μ_p(a_Υc)), when C=O_P and B=O_K. Extend by unramified-factor additivity. Use the unscaled squared Hodge metric, the ω₀ absolute-value metric, and the volume metric on det H♯_dR dual to integration on top cohomology. The canonical Δ has norm 1, so in arithmetic Picard groups det H♯_dR=Δ+rω₀−2Ω♯. The trace-one top de Rham class η has |∫η|=(2π)^r; multiplying η by a unit u multiplies that absolute period by |σu|. Consequently deĝ(det H♯_dR)/deg_C Y₀=2^d d log(2π). For 𝔭|p in F put d_𝔭=[F_𝔭:Q_p], E_𝔭=E⊗F F_𝔭, and form its total reflex algebra from the local CM-type Galois set. Restriction CM(E)→CM(E_𝔭) has fibers 2^(d−d_𝔭). Its local total reflex character equals 2^(d_𝔭−2)(1+d_𝔭⁻¹Ind χ_𝔭), including split χ_𝔭=1. With the integral filtered identification of the total reflex graded pieces, this comparison gives length_q(Δ)=2^(d−2)v_q(d_F/Q). With all preceding integral and metric gates established, deĝ(Δ)/deg_C Y₀=2^(d−1)log D_F and deĝ(Ω♯)/deg_C Y₀=Σ_Φ h_Falt(E,Φ). Hence 2^(−d)Σ_Φ h_Falt(E,Φ)=deĝ(ω₀)/(4 deg_C Y₀)+(log D_F)/4−d log(2π)/2. These normalized degrees are unchanged by finite étale change of level.",
+      "requires": [
+        "ArakelovGeometryAndAbelianHeights:R35.1",
+        "ArakelovGeometryAndAbelianHeights:R35.2",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "AutomorphicBundles:B2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2"
+      ]
+    },
+    {
+      "key": "CMH.4",
+      "title": "The orthogonal averaged-height route",
+      "description": "For the auxiliary quadratic space V=(E,Tr_F/Q(ξ x x̄)) of signature (2d−2,2), its maximal lattice L and CM cycle Y, compare the restricted orthogonal Hodge line ω with ω₀ on the CM model. The required normalized difference deĝ(ω|Y)/deg_C Y−deĝ(ω₀)/deg_C Y₀ is the discriminant correction log D_F, up to the explicitly supported bad-prime logarithms in Proposition 9.5.1. The comparison must use the actual filtered Hodge sublattices, not a false equality of full V-lattices. For d≥2 and admissible auxiliary L, choose a weakly holomorphic vector-valued form f of weight 1−n⋄/2 with integral principal part, c_f(0,0)≠0 and the proper-intersection condition of Hypothesis 8.3.1. The normalized average of h_Falt−h_Col equals [Ê⋄(f):Y]/(4 c_f(0,0) deg_C Y), modulo rational multiples of log p at the specified bad primes. The coefficient and all metric conversions are those of the unscaled height. An auxiliary pair is a fractional O_E-ideal a and ξ∈F× negative at the distinguished real embedding and positive at all others. It is good at p when ξ·Nm_E/F(a)·d_F/Q is the unit ideal after localizing at p. A compatible maximal Z-lattice L⊂(E,Tr_F/Q(ξx x̄)) is good at p in the integral quadratic sense of Definition 5.3.3. The field trace is Tr_F/Q, because its argument lies in F. For every finite set S of rational primes, auxiliary (a,ξ) and a compatible maximal L can be chosen good at every p∈S. In particular there are two choices with coprime bad-prime products. The arithmetic input is: Nm Cl(E)→Cl⁺(F) is surjective if E/F ramifies at a finite place, and otherwise has image ker χ_E/F. In the everywhere-finite-unramified case d is even and χ_E/F(d_F)=(-1)^(d/2). For d≥2, the average height discrepancy is zero. First put it in the Q-span of log p using two auxiliary choices with coprime bad sets. Then for each p choose p-good data, an embedding L⊂L⋄ with L⋄ self-dual at p and rank-two positive complement Λ, and a form f with nonzero constant term and negative support avoiding numbers represented by Λ_Q. Its vertical error divisor avoids the p-fiber. Unique factorization makes the rational log-prime coefficients independent, so each coefficient vanishes. For d=1, E imaginary quadratic and either CM type, h_Falt(E,Φ)=−(L_f′/L_f)(0,χ_E)/2−log D_E/4−log(2π)/2. This is the classical Chowla–Selberg case in the unscaled metric. It supplies the degree-one branch where the signature and positive-complement argument of §9 is unavailable.",
+      "requires": [
+        "AnalyticNumberTheory:AN.4",
+        "ArakelovGeometryAndAbelianHeights:R35.1",
+        "ArakelovGeometryAndAbelianHeights:R35.2",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "AutomorphicBundles:B2",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "MetaplecticAutomorphicForms:MP.7",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    },
+    {
+      "key": "CMH.5",
+      "title": "Component heights and nearby types",
+      "description": "For maximal-order CM abelian varieties A,B with the same field E and type Φ, h(A,τ)=h(B,τ) for each τ∈Φ, using the imported torsion-free determinant line and its Hodge metric. Thus write h(Φ,τ). The assertion includes isogenous integral lattices and conjugation of the type; it does not assert invariance of arbitrary non-CM partial heights. For a CM type Φ, let E_Φ be its trace reflex field and d_Φ, d_Φc the absolute norms over E_Φ of the relative discriminants of the selected and complementary reflex orders. Then h_YZ(Φ)−Σ_{τ∈Φ}h(Φ,τ)=−log(d_Φ d_Φc)/(4[E_Φ:Q]). Taking all 2^g types, their averaged discriminant correction is −log D_F/4. Two types Φ₁,Φ₂ of a degree-2g CM field are nearby when their symmetric difference is {τ₁,τ₂}, with τ₂=cτ₁. For the unordered edge {Φ₁,Φ₂} set h_near=(h(Φ₁,τ₁)+h(Φ₂,τ₂))/2. Every type has g neighbors and the type cube has g·2^(g−1) unordered edges. For g≥1, 2^(−g)Σ_Φ h_YZ(Φ)=2^(1−g)Σ_{unordered nearby edges}h_near−log D_F/4. Each component h(Φ,τ) occurs once as an endpoint contribution of an edge, and each edge height contains the factor 1/2.",
+      "requires": [
+        "ArakelovGeometryAndAbelianHeights:R35.2",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.4",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ]
+    },
+    {
+      "key": "CMH.6",
+      "title": "Corrected different-torsion comparison",
+      "description": "For nearby types and a finite Galois number field K/Q containing the chosen E, take O_E-abelian varieties A₁,A₂,A with good reduction over O_K, A_i of type Φ_i. A different-graph datum is an O_E-isogeny f:A₁×A₂→A whose kernel is the graph of a specified O_E-isomorphism A₁[δ_E/F]→A₂[δ_E/F]. The different δ_E/F is an ideal, so ideal torsion is used without choosing a global generator. For CM types Θ₁,Θ₂, the rank-one CM Breuil–Kisin modules over S⊗O_E have Frobenius multipliers given by the complementary-type Eisenstein products. Modulo δ_E/F these multipliers agree when the type is changed by conjugate-pair flips, since x−x̄ lies in δ_E/F. The resulting different-torsion group schemes are O_E-isomorphic, and every O_E-linear automorphism of their constant generic fiber extends over the valuation ring. This is valid also at p=2. After enlarging K to make the relevant different torsion constant, the finite flat kernel Q of the extended graph isogeny has both projections isomorphic to the integral A_i[δ_E/F] at every finite place. Thus it is the integral graph of the specified generic isomorphism. It is O_E-linearly isomorphic to its Cartier dual; the O_E-action factors through O_E/δ_E/F, where conjugation is trivial. If f:A→B is an O_E-isogeny of good-reduction abelian varieties with kernel Q O_E-linearly self-dual and with conjugation acting trivially on its O_E-action, the desired equality is h(A,τ)=h(B,τ) for the relative O_F component determinant. At places ramified in F/Q this requires a comparison of the relative/image Hodge pieces and their determinant lengths with the paper’s raw τ-quotients. Self-duality alone does not make tensoring with O_K along τ exact or make those quotients locally free. For a different-graph datum, h_near(Φ₁,Φ₂)=(h(A₁,τ₁)+h(A₂,τ₂))/2=h(A,τ)/2, where A is viewed with its O_F-action and τ is the changed place of F. The target uses the integral graph and the proven relative determinant comparison at every finite place. It does not apply to a general O_E-isogenous A. For B=E+Ej, jx=x̄j, a maximal O_B containing O_E and with no finite place ramified in both B and E, set Λ₁=O_E, Λ₂=Ej∩O_B and Λ₀=O_B. The induced isogeny from the two nearby CM complex tori to (V₁⊕V₂)/Λ₀ has kernel Λ₀/(Λ₁+Λ₂), with both projections identifying it with δ_E/F⁻¹Λ_i/Λ_i. At a division prime B, E/F is unramified and the kernel is zero. At a split prime the graph is generated by (π−π̄)⁻¹(1−j_p) after a compatible local presentation.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.4",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.5",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2"
+      ]
+    },
+    {
+      "key": "CMH.7",
+      "title": "Quaternionic CM points and Hodge lines",
+      "description": "For every CM E/F of degree 2g there is a totally definite incoherent quaternion algebra 𝔹/A_F admitting A_E→𝔹, with at least two ramified places, no finite place ramified in both E and 𝔹, and a maximal finite adelic order containing Ô_E. Choose finite inert S with g+|S| odd and ≥3: S=∅ for odd g≥3, |S|=1 for even g, and |S|=2 for g=1. Put U=Ô_𝔹×. For each real τ, switching its invariant gives the coherent curve algebra B(τ). For this datum let X=lim_U X_U with right 𝔹_f×-action. A CM point is P∈X fixed by E× through the chosen embedding. Its image P_U lies in X_U(E^ab). Restrict the metrized Hodge bundle L̄_U to the Zariski closure P̄_U in the integral curve model and put h_L(P_U)=deĝ(L̄_U|P̄_U)/[F(P_U):F]. The archimedean metric is ||dz||=2 Im z. The value is constant on each Galois reciprocity orbit by functoriality of the metrized degree. Independence across all permitted CM points is a consequence of the quaternionic height formula in CMH.8; it is not assumed in this definition. For the CM abelian variety A₀ over a good-reduction field K represented by the auxiliary PEL CM point, let N̄(A₀,τ) use the relative/image O_F Hodge determinants. Define N̄_U=L̄_U²(−d_𝔹). The target is an isometry N̄(A₀,τ)≅N̄_U|P̄_U⊗O_K. It includes the integral Kodaira–Spencer comparison at every prime and the complex Hodge/Petersson isometry; identifying raw ramified τ-quotients is a separate required theorem. For maximal order U containing Ô_E as above, 2^(−g)Σ_Φ h_YZ(Φ)=h_L(P_U)/2−log(d_𝔹 D_F)/4. This uses the corrected nearby theorem only on the actual quaternionic graph kernels and includes the integral relative Hodge-line gates.",
+      "requires": [
+        "AnalyticNumberTheory:AN.4",
+        "ArakelovGeometryAndAbelianHeights:R35.1",
+        "ArakelovGeometryAndAbelianHeights:R35.4",
+        "AutomorphicBundles:B4",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.5",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1",
+        "HilbertModularVarietiesAndShimuraCurves:R18.2",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5",
+        "PELModuli:M5",
+        "ShimuraVarieties:V4"
+      ]
+    },
+    {
+      "key": "CMH.8",
+      "title": "Quaternionic self-intersection and adjunction",
+      "description": "For the compact maximal-order quaternionic datum, e=[O_E×:O_F×] and the precise modified arithmetic self-intersection i₀ of §8, i₀(P,P)/e=(L_f′/L_f)(0,χ_E/F)+(1/2)log(d_E/F/d_𝔹). The modification, Green function, finite local lengths and unit factors use the imported Gross–Zagier normalization; i₀ is not the raw intersection of a horizontal divisor with itself. For the same datum and the same i₀, i₀(P,P)/e=−h_L(P_U). Prove arithmetic adjunction on the actual integral curve model with the required vertical correction and invariant local lift at ramified CM places; neither global étaleness of the CM section nor absence of vertical terms is assumed. For the constructed compact maximal-order datum, h_L(P_U)=−(L_f′/L_f)(0,χ_E/F)+(1/2)log(d_𝔹/d_E/F). The value is independent of the chosen CM point and compatible with the integral Hodge-line convention above.",
+      "requires": [
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7",
+        "GrossZagierAndArithmeticHeights:GZ.0",
+        "GrossZagierAndArithmeticHeights:GZ.2",
+        "GrossZagierAndArithmeticHeights:GZ.6",
+        "GrossZagierAndArithmeticHeights:GZ.7",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5"
+      ]
+    },
+    {
+      "key": "CMH.9",
+      "title": "The shared averaged Colmez formula",
+      "description": "For every maximal-order CM field E/F with [F:Q]=g≥1, averaging over all 2^g types gives 2^(−g)Σ_Φ h_Falt(E,Φ)=−(L_f′/L_f)(0,χ_E/F)/2−log(D_E/D_F)/4−g log(2π)/2. Equivalently in the Yuan–Zhang metric the last term is absent. Imprimitive types are included. The individual Colmez conjecture is neither assumed nor proved.",
+      "requires": [
+        "ArakelovGeometryAndAbelianHeights:R35.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.4",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8"
+      ]
+    },
+    {
+      "key": "CMH.10",
+      "title": "Individual height bounds and distant isogenies",
+      "description": "For every g≥1 and ε>0 there is C_g,ε>0 such that h_E/h_F≥C_g,ε D_E^(1/4−ε) for all degree-2g CM fields E/F. Class numbers are those of maximal orders. The constants may be ineffective. The CM regulator ratio is bounded above and below in terms of g using the unit index 1 or 2; it is not generally 1. For each primitive maximal-order CM type (E,Φ), every A in its unpolarized maximal-CM class and every ε>0 admit B in that class such that every complex isogeny A→B has degree≥c_g,ε D_E^(1/4−ε). Polarizations on B are not fixed in advance. Primitivity ensures the full endomorphism algebra is E, so Hom is described by ideals. For fixed g and every ε>0, the quadratic Hecke character χ_E/F of every degree-2g CM field satisfies |(L_f′/L_f)(1,χ)|≤C_g,ε D_E^ε. With Q=D_E/D_F, functional equation gives the unscaled average as (log Q)/4+(L_f′/L_f)(1,χ)/2−gγ/2−g log(2π). Hence the absolute value of the average is ≤C′_g,ε D_E^ε. For all maximal-order CM types, including imprimitive ones, every g≥1 and ε>0 admit C_g,ε>0 with h_Falt(E,Φ)≤C_g,ε D_E^ε. If b_g∈R is the uniform lower bound on dimension-g stable heights, then h_Falt(E,Φ)≤2^g mean_Ψ h_Falt(E,Ψ)−(2^g−1)b_g. No positivity of b_g or absolute-value upper bound on each height is assumed.",
+      "requires": [
+        "AnalyticNumberTheory:AN.4",
+        "ArakelovGeometryAndAbelianHeights:R35.6",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.9"
+      ]
+    },
+    {
+      "key": "CMH.11",
+      "title": "Primitive CM Galois orbits",
+      "description": "For a polarized dimension-g primitive maximal-CM A with polarized coarse moduli field F_A, there is F′_A/F_A of degree≤2·3^(4g²) defining A, its polarization, full 3-torsion and all O_E-endomorphisms. For B=A/T_I chosen by an ideal kernel over F′_A, choose n killing T_I and g₀:B→A with g₀f=[n]; equip B with g₀*λ_A. Then F_B⊂F′_A, and F′_A F′_B defines both with degree over F_A≤4·3^(8g²). The originally supplied polarization on an unrelated B is not retained. Let κ_g>0 be the dimension-g geometric isogeny exponent. For every 0<δ<1/(4κ_g), the distant-isogeny lower bounds, individual height bounds and common-field bound imply [F_A:Q]≥c_g,δ D_E^δ. Choose δκ_g<a<1/4 and height exponent ε<a/κ_g. For sufficiently large D_E the term D_E^ε cannot account for a lower isogeny degree cD_E^a in the maximum max(1,h_Falt(A),[k:Q])^κ_g, forcing its field-degree term. For every g≥1 there are c_g,δ_g>0 such that a polarized dimension-g A with primitive O_E-CM and End(A_C)=O_E satisfies [F_A:Q]≥c_g D_E^δ_g. Here F_A is the field of its polarized coarse moduli point, so in characteristic zero its degree is the cardinality of the absolute Galois orbit of that point. The field need not itself define A.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.10",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.5",
+        "PELModuli:M6"
+      ]
+    },
+    {
+      "key": "CMH.12",
+      "title": "General CM orders and Galois orbits",
+      "description": "For a principally polarized CM point x∈A_g(Q̄), put R_x=Z(End(A_x)). After an isogeny decomposition A_x∼∏_i A_i^n_i into pairwise nonisogenous simple CM factors, R_x is a full order in E_x=∏_i K_i with maximal order O_x=∏_i O_Ki. A repeated isotypic power contributes its field once; nonisogenous factors with isomorphic abstract CM fields retain separate factors. Set D_x=|disc_Z R_x| using the trace form on E_x, and J_x=[O_x:R_x]. For every CM point, D_x=J_x²∏_i D_Ki, with the factors indexed as in the center-order definition. This is the integral trace-pairing change-of-basis formula. The Mumford–Tate compact index is a different invariant and cannot replace J_x in this equality. For a primitive degree-2h CM type, let r:Cl(E*)→Cl(E) be its reflex ideal map and r̃=r∘Nm_L/E* for a normal closure L. There are dimension-only factors comparing |im r| with the absolute polarized moduli orbit of a maximal-CM realization. The relative marked orbit over E* is Cl(E*)/H, with H⊂ker r and [ker r:H]≤2^h. Passing to the absolute unmarked point changes sizes by at most the reflex degree and the finite number of CM markings, both bounded in h. Therefore the primitive absolute orbit bound gives a power lower bound on |im r|. For finite number-field extension L/K, [Cl(K):Nm_L/K Cl(L)]≤[L:K]. For K=E* inside the normal closure of a degree-2h CM field this is bounded in h. Hence |im(r∘Nm)|≥|im r|/[L:E*], so its primitive positive-power discriminant bound persists. Let T_x be the Mumford–Tate torus in its actual integral GSp representation, K_x=T_x(A_f)∩GSp_2g(Ẑ), and I_x=[T_x(Ẑ):K_x], with T_x(Ẑ) maximal compact. There exist c_g,d_g>0 with J_x≤I_x^c_g(∏_i D_Ki)^d_g. Keep the field-discriminant factor. The proof includes ramified primes and p=2; exponential arguments there start sufficiently deep in the p-adic filtration. Fix g. Suppose every primitive degree-2h type for each 1≤h≤g has |im r̃|≥c_h D_E^δ_h with δ_h>0. Then every principally polarized CM point x∈A_g has |Gal(Q̄/Q)·x|≥c_g D_x^δ_g for some c_g,δ_g>0. This includes nonmaximal center orders, imprimitive types and repeated simple factors; the smaller-dimensional primitive inputs are all required. For every g≥1 there are C_g,b_g>0 such that D_x≤C_g |Gal(Q̄/Q)·x|^b_g for every CM point x∈A_g(Q̄). Equivalently the absolute polarized coarse orbit has a uniform positive-power lower bound in the center-order discriminant. This is unconditional in all dimensions; it does not retain the older g≤6 or GRH restriction.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.11",
+        "PELModuli:M6",
+        "ShimuraVarieties:V4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups"
+      ]
+    },
+    {
+      "key": "CMH.13",
+      "title": "CM lift heights and bounded-degree finiteness",
+      "description": "For fixed g, the complex entries of a CM period matrix Z representing a point of A_g lie in a normal closure of the product center algebra, of degree at most (2g)!. The real and imaginary entries lie after adjoining i, so each has degree at most d_g=2·(2g)!. Integral symplectic fractional transformations preserve the complex field; taking real and imaginary parts is accounted for separately. This safe bound suffices, with no claim that each coordinate has degree≤2g. Fix g. If I⊂O_E is a full Z-lattice for a degree-2g CM field, it admits a Z-basis whose conjugates are bounded by a polynomial in D_E[O_E:I]. If I has multiplier order R, first scale it by ν∈E× so that νI⊂O_E and [O_E:νI] is polynomially bounded in |disc R|. In the canonical C^g embedding, covolume(I)=2^(−g)√D_E[O_E:I]. Nonmaximal lattices need not be invertible O_E-ideals. Fix g and the chosen standard Siegel fundamental set F_g. Starting with the order-sensitive CM lattice and principal Riemann form, construct a symplectic period matrix whose coordinate heights, real sizes and reciprocal imaginary determinant are polynomial in D_x. A symplectic integral reduction into F_g preserves a polynomial bound on the algebraic coordinate heights. The reduction input uses h₀(Z)=max(max_ij|z_ij|,1/det Im Z); this analytic size is distinct from algebraic Weil height. For every g≥1 there are C_g,a_g>0 such that each CM point x∈A_g has a representative Z∈F_g with max(1,max_ij H_abs(Z_ij),max_ij H_abs(Re Z_ij),max_ij H_abs(Im Z_ij))≤C_g D_x^a_g. H_abs is absolute multiplicative Weil height. Together with coordinate degree≤2·(2g)!, this is equivalent up to dimension-only powers to the naive algebraic-coordinate height convention needed for counting. For every g≥1 and N≥1, only finitely many CM points x∈A_g(Q̄) satisfy [Q(x):Q]≤N. The field is the polarized coarse moduli field. The general orbit bound bounds D_x by C_g N^b_g, then the lift-height and coordinate-degree bounds put all chosen representatives in a finite Northcott set. Thus any family with uniformly bounded moduli degrees contains only boundedly many distinct CM points, as used by Masser–Zannier; no bound on multiplicities in a parameterization is asserted.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups"
+      ]
+    }
+  ]
+}

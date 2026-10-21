@@ -1,0 +1,113 @@
+{
+  "id": "LefschetzPencilsAndVanishingCyclesPartII",
+  "title": "Lefschetz pencils, nearby cycles and vanishing cycles, Part II: prescribed finite-field points",
+  "area": "etale",
+  "parent": "LefschetzPencilsAndVanishingCycles",
+  "summary": "Construct a smooth geometrically integral affine curve through a prescribed rational point of a scheme smooth near that point, meeting a chosen dense open over the original field. A bounded polynomial graph and its étale pullback replace a projective Bertini argument. This supplies the local same-field curve input to Kisin–Zhou, beyond the parent’s finite-extension existence result.",
+  "readme": "# Prescribed finite-field points\n\nThis Part II adds the one-point same-field curve supplier to the parent’s LPV.3 finite-extension pencil existence. Its two layers use the existing multivariate polynomial, spectrum, étale and geometric-integrality carriers. FC.0 constructs a bounded-exponent graph through zero and proves coefficient preservation and avoidance. FC.1 pulls it back along an étale chart and retains the rational marked component. The zero-dimensional case uses a constant map from A¹.\n\nThe full reader is research/blueprint/readmes/LefschetzPencilsAndVanishingCyclesPartII.md. All fields are allowed; the finite-field application keeps the residue field and Frobenius power unchanged. General smooth coordinates, boundary-image dimension and marked-component geometry are imported from SchemeAndStackFoundations SF.0. Projective or multipoint Bertini, pencils, stack-atlas lifting, singular local-model root subgroups, hypersurface monodromy and semistable potential maps have their separate owners. The packet records the issue-authorized allocation of the last two directions.",
+  "prerequisites": [
+    "LefschetzPencilsAndVanishingCycles",
+    "SchemeAndStackFoundations"
+  ],
+  "stages": [
+    {
+      "key": "FC.0",
+      "title": "Polynomial graphs over the original field",
+      "description": "Define φ(m,B):k[X₀,…,Xₘ₋₁]→k[T], X_i↦T^(B^i), using Mathlib evaluation. Prove bounded-support coefficient preservation via existing base-B digit uniqueness and surjectivity for m>0. For nonzero h choose B≥2 exceeding every individual support exponent; its graph is a closed immersion through zero with nonzero substituted polynomial, and over a field meets D(h) densely. Include the m=0 boundary, the one-variable identification, F₂ rational-line failure and the wrong-base collision. This is polynomial nonvanishing, not a point-counting assertion. The reader gives the complete graph API and tests.",
+      "requires": []
+    },
+    {
+      "key": "FC.1",
+      "title": "Marked étale curves through prescribed points",
+      "description": "For an integral affine chart π:V→A^m over k, m>0, mark y∈V(k) over zero, contain the image of V∖U in V(h), and pull back the FC.0 graph. Select the connected component through (y,0); prove it affine, étale over A¹, smooth of relative dimension one, geometrically integral and with dense inverse image of U. Export a k-curve morphism through any k-rational smooth point with U dense on its component. Treat dimension zero by a constant A¹ map. Over F_q retain residue degree one. Import general coordinates and rational-point component geometry from SF.0; no projectivity, multiple-point or full Shimura result is asserted.",
+      "requires": [
+        "LefschetzPencilsAndVanishingCyclesPartII:FC.0",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "KZ-v2",
+      "title": "Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+      "authors": "Mark Kisin and Rong Zhou",
+      "edition": "arXiv:2103.09945v2, 7 October 2024; published Annals of Mathematics 202 (2025), no. 3, 1077–1156; final publication not compared",
+      "url": "https://arxiv.org/abs/2103.09945v2",
+      "pdf": "https://arxiv.org/pdf/2103.09945v2",
+      "doi": "10.4007/annals.2025.202.3.3",
+      "sha256": "62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§5.2, Proposition 5.2.3 and Remark 5.2.4, pp. 49–52 (boundary of the local-model argument)",
+        "Corollary 5.2.7 and proof, pp. 52–53 (smooth-chart curve use)",
+        "§5.3, Proposition 5.3.5 and proof, p. 54 (second curve use)"
+      ]
+    },
+    {
+      "id": "POO04",
+      "title": "Bertini theorems over finite fields",
+      "authors": "Bjorn Poonen",
+      "edition": "Author PDF dated 31 August 2004, 23 pages; Annals of Mathematics 160 (2004), 1099–1127",
+      "url": "https://math.mit.edu/~poonen/papers/bertini.pdf",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§3.3, Theorem 3.3, remarks and Corollary 3.4, author-PDF p. 10; comparison of hypotheses only"
+      ],
+      "sha256": "52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d"
+    },
+    {
+      "id": "STACKS",
+      "title": "The Stacks Project: smooth coordinates and geometric integrality",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version accessed 19 October 2026; stable tags used as locators",
+      "url": "https://stacks.math.columbia.edu",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Morphisms of Schemes §29.37, Lemma 29.37.21, tag 054L, statement and proof (unpaginated)",
+        "Varieties §33.25, Lemma 33.25.10, tag 0CDW, statement and proof (unpaginated)",
+        "Varieties §33.7, Lemma 33.7.14, tag 04KV, statement and proof (unpaginated; rational point and geometric connectedness)"
+      ]
+    },
+    {
+      "id": "MATHLIB-EVAL",
+      "title": "Multivariate polynomial evaluation",
+      "authors": "The Mathlib contributors",
+      "edition": "Pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "eval₂Hom and its constant, variable, monomial and composition lemmas, lines 77–213"
+      ]
+    },
+    {
+      "id": "MATHLIB-DIGITS",
+      "title": "Natural-number base expansion",
+      "authors": "The Mathlib contributors",
+      "edition": "Pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Digits/Defs.lean",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Nat.ofDigits_inj_of_len_eq, lines 312–331",
+        "Companion Digits/Lemmas.lean: Nat.ofDigits_eq_sum_mapIdx, lines 37–45"
+      ]
+    },
+    {
+      "id": "MATHLIB-SCHEMES",
+      "title": "Étale, smooth and open scheme morphisms",
+      "authors": "The Mathlib contributors",
+      "edition": "Pinned commit 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Morphisms/Etale.lean, lines 35–145",
+        "Morphisms/Smooth.lean, lines 54–219",
+        "Morphisms/ClosedImmersion.lean, lines 91–116",
+        "Morphisms/UniversallyOpen.lean, lines 35–89 and 104–146",
+        "Geometrically/Integral.lean, lines 33–109",
+        "RingTheory/Smooth/StandardSmooth.lean, lines 51–130 (standard presentations and relative dimension)",
+        "Topology/Irreducible.lean, lines 194–208 (nonempty opens and open maps)"
+      ]
+    }
+  ],
+  "status": "draft"
+}

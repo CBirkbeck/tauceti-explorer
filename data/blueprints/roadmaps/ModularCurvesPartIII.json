@@ -1,0 +1,141 @@
+{
+  "id": "ModularCurvesPartIII",
+  "title": "Modular curves, following Katz–Mazur, Part III: geometric Frey–Mazur (import index)",
+  "area": "arithmeticgeometry",
+  "parent": "tauceti:TauCetiRoadmap/ModularCurves",
+  "summary": "This identifier records the 64 Bakker–Tsimerman route items already accounted for by the independently accepted GeometricFreyMazur plan. It imports that plan’s 67 targets and their existing API, tests, planets and supplier obligations. It assigns no new mathematical ownership. Eleven import stages index GF.0–GF.10 pending a maintainer merger; the owner remains planned, with implementation unchecked and 19 open supplier requests.",
+  "readme": "# Modular curves, Part III: geometric Frey–Mazur\n\nThis identifier records the 64 Bakker–Tsimerman route items already accounted for by the independently accepted GeometricFreyMazur plan. It imports that plan’s 67 targets and their existing API, tests, planets and supplier obligations. It assigns no new mathematical ownership. Eleven import stages index GF.0–GF.10 pending a maintainer merger; the owner remains planned, with implementation unchecked and 19 open supplier requests.\n\nUse GeometricFreyMazur as the sole mathematical owner. The detailed reader and packet map the entire route, preserve corrected hypotheses and list the inherited obligations. This is a completed import audit and a proposed merger, not mathematical closure or an applied restructuring.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "GeometricFreyMazur"
+  ],
+  "stages": [
+    {
+      "key": "GF.0",
+      "title": "Projective frames, quotient surface and special loci (import)",
+      "description": "Import GF.0: the existing scalar-framed projective level curve has two Weil-square-class components, a left PGL₂ action by inverse frame precomposition and residual [−1] automorphisms. The owner adds Z(p), its CM signs, singular bicusps, exact branch orders 2,3,p and finite Hecke images. It imports the parent’s compactified cyclic T_m and ψ(m) degree; no universal elliptic curve is asserted on the scalar quotient.",
+      "requires": [
+        "GeometricFreyMazur:GF.0"
+      ]
+    },
+    {
+      "key": "GF.1",
+      "title": "Compact modular metrics and systoles (import)",
+      "description": "Import GF.1: for p>5 distinguish the cusped Γ(p) quotient from the compact (2,3,p) triangle quotient. Use the accepted surviving M_p, whose cusped and compact lengths are 4 log p+O(1), radius ρ_X=2 log p+O(1), cusp separation, metric inequalities and q-disc/Hecke-radius comparisons. The latter requires both log p+C<R and R+log m<2 log p−C for integer m≥1 prime to p. The printed killed witness and single-cusp detour are not reused.",
+      "requires": [
+        "GeometricFreyMazur:GF.1"
+      ]
+    },
+    {
+      "key": "GF.2",
+      "title": "Small-height lifts and cusp repulsion (import)",
+      "description": "Import GF.2: entrywise matrix norm gives the existing height convention. Short elliptic and cusp displacement produces integral SL₂ lifts only within a fixed component; double-coset factors remain explicit. Unique cusp lifts, midpoint lenses and the O(p^(24δ)) overlap count require δ fixed sufficiently small before p grows.",
+      "requires": [
+        "GeometricFreyMazur:GF.2"
+      ]
+    },
+    {
+      "key": "GF.3",
+      "title": "Heegner and bicusp arithmetic repulsion (import)",
+      "description": "Import GF.3: small linear equations reconstruct primitive matrices while preserving determinant sign. Positive-definite Gaussian/Eisenstein centralizers give Heegner repulsion; anti-Heegner points use conjugate real analytic loci. At least three bicusps give a signed small-Hecke locus, tube proximity and cusp separation; two do not suffice.",
+      "requires": [
+        "GeometricFreyMazur:GF.3"
+      ]
+    },
+    {
+      "key": "GF.4",
+      "title": "Big diagonal overlap and reconstruction (import)",
+      "description": "Import GF.4: big diagonals impose both matched-coordinate equalities and have codimension two. A logarithmic reduced-quadratic centralizer count feeds the signed overlap dichotomy. In the cusp branch the rotation bound uses min(p,1+p sinh R/sinh d), with p at d=0, before taking exponential shell bounds.",
+      "requires": [
+        "GeometricFreyMazur:GF.4"
+      ]
+    },
+    {
+      "key": "GF.5",
+      "title": "Four multiplicity bounds and cusped measures (import)",
+      "description": "Import GF.5: canonical degree is the sum of weighted projection degrees times 2g_X−2, and volume equals 2πDeg. Keep separate CM⁺, CM⁻, stronger p-weighted SBC and qualified big-diagonal bounds. Projectionwise cusped measures give zero for constant cusp coordinates. Big-diagonal decay requires both projected cycles nonconstant and non-Hecke; all analytic supplier requests remain on the owner.",
+      "requires": [
+        "GeometricFreyMazur:GF.5"
+      ]
+    },
+    {
+      "key": "GF.6",
+      "title": "Gonality pencils and normalized pullbacks (import)",
+      "description": "Import GF.6: normalize the image without increasing gonality, use a degree-n pencil to form P¹→SymⁿZ, and normalize a dominant pullback component under Gⁿ⋊S_n. Weighted projected cycles have the required nondegeneracy and degree sums. Native Sym only supplies the point-set carrier; it does not supply the projective surface quotient or relative cycle morphism.",
+      "requires": [
+        "GeometricFreyMazur:GF.6"
+      ]
+    },
+    {
+      "key": "GF.7",
+      "title": "Ramification decay and geometric rigidity (import)",
+      "description": "Import GF.7: exhaust inertia by the CM signs, SBC and big diagonals. Cyclic local inertia has at most one p factor. Combine the four multiplicity estimates into Ram α=o(Deg C), retain the exact −2deg α term in Hurwitz, and contradict the independent Deg C/(2n) lower bound. This gives complex bounded-gonality geometric rigidity.",
+      "requires": [
+        "GeometricFreyMazur:GF.7"
+      ]
+    },
+    {
+      "key": "GF.8",
+      "title": "Modular gonality and full linear monodromy (import)",
+      "description": "Import GF.8: derive gon(X_Γ)≥7[PSL₂(Z):Γ]/800 for congruence Γ from the imported spectral, area and Li–Yau inputs. A coset action killed by order-p transvections gives proper index ≥p and actual full SL₂ monodromy for p>max(5,800N/7), with a separate no-quadratic-self-twist target. These are separate results rather than prerequisites of the corrected Hecke descent.",
+      "requires": [
+        "GeometricFreyMazur:GF.8"
+      ]
+    },
+    {
+      "key": "GF.9",
+      "title": "Actual torsion, descent and characteristic-zero fields (import)",
+      "description": "Import GF.9: keep the actual Ψ after forming its coarse classifying map. Hecke containment supplies a geometric isogeny f with f[p]=λΨ; the rank-one Hom sign action and odd p descend f without a full-image premise. Extend over U by the original abelian-scheme interface. Finite-type spreading gives uniform characteristic-zero rigidity, separately transports monodromy, and proves the family and function-field formulations.",
+      "requires": [
+        "GeometricFreyMazur:GF.9"
+      ]
+    },
+    {
+      "key": "GF.10",
+      "title": "Bounded-genus and minimal-model consequences (import)",
+      "description": "Import GF.10: enlarge strict thresholds for bounded genus and rational/elliptic normalizations. Apply the separate surface supplier to cyclic quotient charts, classify rational curves on the resolution as exceptional or Hecke strict transforms, and obtain some minimal model by known-curve contractions. General type for p>11 and uniqueness are explicitly excluded, as on the owner.",
+      "requires": [
+        "GeometricFreyMazur:GF.10"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BT16",
+      "title": "p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "edition": "Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
+      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "readSections": [
+        "Entire published article, §§1–7, pp.709–744, read to match the routed targets; no source excerpt is retained."
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BTE",
+      "title": "Erratum to p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "edition": "Five-page author erratum, including Propositions 2.1, 3.1, 4.1, 4.2",
+      "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
+      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1",
+      "readSections": [
+        "Entire five-page author erratum, §§1–5, including Propositions 2.1, 3.1, 4.1 and 4.2."
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "ABR96",
+      "title": "A linear lower bound on the gonality of modular curves",
+      "authors": "Dan Abramovich",
+      "edition": "Author preprint alg-geom/9609012, corresponding to IMRN 1996, 1005–1011; locators below use the five-page preprint",
+      "url": "https://arxiv.org/pdf/alg-geom/9609012",
+      "sha256": "5ff2134fbfb6bd702fa7051637027405c8e0d77a595830a63e8ad36f50791779",
+      "readSections": [
+        "Theorem 0.1 and §§1.1–1.7, pp.1–3 of the five-page author preprint."
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}

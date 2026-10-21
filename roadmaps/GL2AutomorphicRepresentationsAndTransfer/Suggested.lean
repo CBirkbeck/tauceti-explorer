@@ -1,0 +1,2028 @@
+/-
+This file is not the roadmap and is not exhaustive. The companion README is
+definitive. These statements suggest Lean forms so contributors can converge
+on names and signatures; placeholder proofs claim no implementation.
+
+The imports use Mathlib 082e2d3 and Tau Ceti f790474. Actual matrix groups,
+representations, newforms and symmetric powers are reused. Automorphic,
+smooth, Weil–Deligne and trace-formula objects belong to the dependencies
+named in the README. Where their conditions cannot be stated on the existing
+carriers, explicit signature omissions point to the README target and list
+the names needed. Algebraic fragments do not replace those full targets.
+-/
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.RepresentationTheory.Basic
+import Mathlib.RepresentationTheory.Invariants
+import Mathlib.RingTheory.Ideal.Operations
+import Mathlib.Data.Finset.Insert
+import Mathlib.LinearAlgebra.FiniteDimensional.Defs
+import Mathlib.Basic.Complex.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Field.ZMod
+import Mathlib.MeasureTheory.Measure.Haar.Basic
+import Mathlib.Algebra.Group.Action.Defs
+import Mathlib.Algebra.Group.Action.Basic
+import Mathlib.Algebra.Group.Subgroup.Basic
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.GroupTheory.FiniteAbelian.Duality
+import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
+import Mathlib.Analysis.Complex.Polynomial.Basic
+import Mathlib.Topology.Algebra.OpenSubgroup
+import Mathlib.Topology.Algebra.Group.Units
+import Mathlib.Algebra.Ring.Int.Parity
+import Mathlib.Topology.Algebra.InfiniteSum.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Complex
+import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
+import Mathlib.RepresentationTheory.Irreducible
+import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic
+import Mathlib.MeasureTheory.Measure.WithDensity
+import Mathlib.FieldTheory.AbsoluteGaloisGroup
+import Mathlib.FieldTheory.IsAlgClosed.Basic
+import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.NumberTheory.NumberField.AdeleRing
+import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
+import Mathlib.GroupTheory.Finiteness
+import Mathlib.GroupTheory.Exponent
+import Mathlib.GroupTheory.Index
+import TauCeti.NumberTheory.NumberField.Global.RayClass.Modulus
+import Mathlib.Topology.LocallyConstant.Basic
+import Mathlib.RepresentationTheory.Induced
+import Mathlib.NumberTheory.Zsqrtd.Basic
+import TauCeti.NumberTheory.ModularForms.Newforms.Newform
+import TauCeti.RepresentationTheory.ClassicalGroups.SymmetricPower
+import TauCeti.RepresentationTheory.ProjectiveRepresentation.SchurMultiplier
+import Mathlib.LinearAlgebra.PiTensorProduct.Finite
+import Mathlib.Topology.Algebra.Group.Matrix
+import Mathlib.Topology.Algebra.Group.Quotient
+import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.NumberTheory.LocalField.Basic
+import Mathlib.NumberTheory.DirichletCharacter.Basic
+import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
+import Mathlib.Algebra.Group.AddChar
+import Mathlib.Algebra.GroupWithZero.Divisibility
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
+import Mathlib.Algebra.BigOperators.Pi
+import Mathlib.GroupTheory.Solvable
+import Mathlib.RingTheory.Localization.AtPrime.Basic
+import Mathlib.RingTheory.Ideal.Maps
+import Mathlib.RingTheory.DedekindDomain.AdicValuation
+import TauCeti.Algebra.Quaternion.Split
+
+noncomputable section
+set_option linter.unusedVariables false
+set_option linter.unusedSectionVars false
+
+namespace TauCeti.GL2Blueprint
+open _root_.Matrix
+
+section Congruence
+variable {R : Type*} [CommRing R]
+
+def k0 (I : Ideal R) : Subgroup (GeneralLinearGroup (Fin 2) R) := by sorry
+lemma k0_mem (I : Ideal R) (g : GeneralLinearGroup (Fin 2) R) :
+    g ∈ k0 I ↔ g.val 1 0 ∈ I := by sorry
+lemma k0_mono {I J : Ideal R} (h : I ≤ J) : k0 I ≤ k0 J := by sorry
+lemma k0_top : k0 (⊤ : Ideal R) = ⊤ := by sorry
+lemma k0_scalar (I : Ideal R) (u : Rˣ) : GeneralLinearGroup.scalar (Fin 2) u ∈ k0 I := by sorry
+-- TauCeti.GL2Blueprint.k0_identity
+example (I : Ideal R) : (1 : GeneralLinearGroup (Fin 2) R) ∈ k0 I := by sorry
+-- TauCeti.GL2Blueprint.k0_level_zero
+example : k0 (⊤ : Ideal R) = ⊤ := by sorry
+-- TauCeti.GL2Blueprint.k0_wrong_entry
+example (u l : GeneralLinearGroup (Fin 2) (ZMod 5))
+    (hu : u.val = !![1, 1; 0, 1]) (hl : l.val = !![1, 0; 1, 1]) :
+    u ∈ k0 (⊥ : Ideal (ZMod 5)) ∧ l ∉ k0 (⊥ : Ideal (ZMod 5)) := by sorry
+
+def k1 (I : Ideal R) : Subgroup (GeneralLinearGroup (Fin 2) R) := by sorry
+lemma k1_mem (I : Ideal R) (g : GeneralLinearGroup (Fin 2) R) :
+    g ∈ k1 I ↔ g.val 1 0 ∈ I ∧ g.val 1 1 - 1 ∈ I := by sorry
+lemma k1_le_k0 (I : Ideal R) : k1 I ≤ k0 I := by sorry
+lemma k1_mono {I J : Ideal R} (h : I ≤ J) : k1 I ≤ k1 J := by sorry
+lemma k1_top : k1 (⊤ : Ideal R) = ⊤ := by sorry
+lemma k1_scalar (I : Ideal R) (u : Rˣ) :
+    GeneralLinearGroup.scalar (Fin 2) u ∈ k1 I ↔ (u : R) - 1 ∈ I := by sorry
+-- TauCeti.GL2Blueprint.k1_identity
+example (I : Ideal R) : (1 : GeneralLinearGroup (Fin 2) R) ∈ k1 I := by sorry
+-- TauCeti.GL2Blueprint.k1_level_zero
+example : k1 (⊤ : Ideal R) = ⊤ := by sorry
+-- TauCeti.GL2Blueprint.k1_not_principal
+example (g : GeneralLinearGroup (Fin 2) (ZMod 5)) (hg : g.val = !![2, 0; 0, 1]) :
+    g ∈ k1 (⊥ : Ideal (ZMod 5)) ∧ g.val ≠ !![1, 0; 0, 1] := by sorry
+end Congruence
+
+/- Signature omissions: The AA.0 Haar product, AA.1 adelic group, AA.2 quotient/central-character L² and AL.0 test-function carriers are absent. An arbitrary compact set, measure or vector space cannot satisfy these GL₂ identifications.
+README targets: R16.1/local-adelic-compact-comparison, R16.1/iwasawa-cartan, R16.1/haar-quotient-comparison, R16.1/finite-level-comparison.
+Omitted declaration names: TauCeti.GL2Blueprint.compactComparison, TauCeti.GL2Blueprint.iwasawaCartan, TauCeti.GL2Blueprint.haarComparison, TauCeti.GL2Blueprint.finiteLevelComparison.
+-/
+section LocalRepresentation
+variable {G V : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
+/- Signature omissions: The SR.2 principal-series and Steinberg constructions
+and ET.6 classification are absent. The newvector existence and dimension
+statements are given below on Mathlib's actual GL₂(F) and invariant carriers,
+with smoothness and admissibility written explicitly.
+README target: R16.2/local-classification.
+Omitted declaration name: TauCeti.GL2Blueprint.localClassification.
+Full source-level tests awaiting the principal-series and Steinberg carriers:
+TauCeti.GL2Blueprint.conductor_unramified,
+TauCeti.GL2Blueprint.conductor_steinberg,
+TauCeti.GL2Blueprint.conductor_ramified_steinberg.
+-/
+
+/-- Algebraic least-level signature. The local-field section supplies the
+nonempty level set for the actual last-row subgroups K₁(pⁿ). -/
+def conductorExponent (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
+    (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) : ℕ := by sorry
+lemma conductor_min (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
+    (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) :
+    (∃ v ∈ (Representation.invariants (ρ.comp (K (conductorExponent ρ K hex)).subtype)), v ≠ 0) ∧
+    ∀ n < conductorExponent ρ K hex,
+      ¬ ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0 := by sorry
+lemma conductor_iso {W : Type*} [AddCommGroup W] [Module ℂ W]
+    (ρ : Representation ℂ G V) (σ : Representation ℂ G W) (K : ℕ → Subgroup G)
+    (e : V ≃ₗ[ℂ] W) (he : ∀ g v, e (ρ g v) = σ g (e v))
+    (hρ : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0)
+    (hσ : ∃ n, ∃ v ∈ (Representation.invariants (σ.comp (K n).subtype)), v ≠ 0) :
+    conductorExponent ρ K hρ = conductorExponent σ K hσ := by sorry
+lemma conductor_unramified_twist (ρ σ : Representation ℂ G V)
+    (K : ℕ → Subgroup G) (he : ∀ n g, g ∈ K n → ρ g = σ g)
+    (hρ : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0)
+    (hσ : ∃ n, ∃ v ∈ (Representation.invariants (σ.comp (K n).subtype)), v ≠ 0) :
+    conductorExponent ρ K hρ = conductorExponent σ K hσ := by sorry
+-- TauCeti.GL2Blueprint.conductor_unramified
+-- Missing: ρ is the unramified generic principal series; K=K₁(pⁿ).
+example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
+    (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0)
+    (hzero : ∃ v ∈ (Representation.invariants (ρ.comp (K 0).subtype)), v ≠ 0) :
+    conductorExponent ρ K hex = 0 := by sorry
+
+/-- A normalized element of an actual one-dimensional fixed submodule.
+ell must be SR.2.3/whittaker-functionals' chosen Whittaker functional restricted to that line. -/
+def normalizedNewvector (L : Submodule ℂ V) (ell : L →ₗ[ℂ] ℂ)
+    (hdim : Module.finrank ℂ L = 1) (hell : ell ≠ 0) : L := by sorry
+lemma normalizedNewvector_fixed (ρ : Representation ℂ G V) (K : Subgroup G)
+    (ell : (Representation.invariants (ρ.comp K.subtype)) →ₗ[ℂ] ℂ)
+    (hdim : Module.finrank ℂ (Representation.invariants (ρ.comp K.subtype)) = 1) (hell : ell ≠ 0) (g : K) :
+    ρ g.val (normalizedNewvector (Representation.invariants (ρ.comp K.subtype)) ell hdim hell).val =
+      (normalizedNewvector (Representation.invariants (ρ.comp K.subtype)) ell hdim hell).val := by sorry
+lemma normalizedNewvector_eval (L : Submodule ℂ V) (ell : L →ₗ[ℂ] ℂ)
+    (hdim : Module.finrank ℂ L = 1) (hell : ell ≠ 0) :
+    ell (normalizedNewvector L ell hdim hell) = 1 := by sorry
+lemma normalizedNewvector_unique (L : Submodule ℂ V) (ell : L →ₗ[ℂ] ℂ)
+    (hdim : Module.finrank ℂ L = 1) (hell : ell ≠ 0) (v : L) (hv : ell v = 1) :
+    v = normalizedNewvector L ell hdim hell := by sorry
+lemma normalizedNewvector_twist {W : Type*} [AddCommGroup W] [Module ℂ W]
+    (L : Submodule ℂ V) (L' : Submodule ℂ W) (e : L ≃ₗ[ℂ] L')
+    (ell : L →ₗ[ℂ] ℂ) (ell' : L' →ₗ[ℂ] ℂ)
+    (hdim : Module.finrank ℂ L = 1) (hdim' : Module.finrank ℂ L' = 1)
+    (hell : ell ≠ 0) (hell' : ell' ≠ 0) (he : ∀ v, ell' (e v) = ell v) :
+    e (normalizedNewvector L ell hdim hell) = normalizedNewvector L' ell' hdim' hell' := by sorry
+-- TauCeti.GL2Blueprint.normalizedNewvector_line
+example (ell : (⊤ : Submodule ℂ ℂ) →ₗ[ℂ] ℂ) (hell : ∀ z, ell z = 2 * z.val) :
+    (normalizedNewvector ⊤ ell (by sorry) (by sorry)).val = (1 / 2 : ℂ) := by sorry
+-- TauCeti.GL2Blueprint.normalizedNewvector_rescale
+example (L : Submodule ℂ V) (ell : L →ₗ[ℂ] ℂ)
+    (hdim : Module.finrank ℂ L = 1) (hell : ell ≠ 0) (a : ℂ) (ha : a ≠ 0) :
+    normalizedNewvector L (a • ell) hdim (by sorry) =
+      a⁻¹ • normalizedNewvector L ell hdim hell := by sorry
+-- TauCeti.GL2Blueprint.normalizedNewvector_zero_functional
+example (L : Submodule ℂ V) : ¬ ∃ v : L, (0 : L →ₗ[ℂ] ℂ) v = 1 := by sorry
+end LocalRepresentation
+
+section LocalNewvectors
+open scoped ValuativeRel
+variable {F : Type*} [Field F] [CharZero F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F]
+variable {V : Type*} [AddCommGroup V] [Module ℂ V]
+
+/-- The earlier k1 subgroup over the valuation ring, embedded in GL₂(F).
+This abbreviation introduces neither a local-field carrier nor a second
+congruence subgroup. Level zero is the integral maximal compact subgroup. -/
+abbrev localK1 (F : Type*) [Field F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F] (n : ℕ) :
+    Subgroup (GeneralLinearGroup (Fin 2) F) :=
+  (k1 (𝓂[F] ^ n)).map
+    (GeneralLinearGroup.map (algebraMap 𝒪[F] F))
+
+/-- The image of the earlier lower-left subgroup; this is a specialization
+of k0, rather than another Iwahori or local-field carrier. -/
+abbrev localK0 (F : Type*) [Field F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F] (n : ℕ) :
+    Subgroup (GeneralLinearGroup (Fin 2) F) :=
+  (k0 (𝓂[F] ^ n)).map
+    (GeneralLinearGroup.map (algebraMap 𝒪[F] F))
+
+lemma localK0_zero : localK0 F 0 = localK1 F 0 := by sorry
+lemma localK0_antitone {m n : ℕ} (h : m ≤ n) :
+    localK0 F n ≤ localK0 F m := by sorry
+lemma localK1_le_localK0 (n : ℕ) : localK1 F n ≤ localK0 F n := by sorry
+
+-- The Iwahori specialization still constrains the lower-left entry.
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 1; 0, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK0 F 1 := by sorry
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 0; 1, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∉ localK0 F 1 := by sorry
+example (u : 𝒪[F]ˣ) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+      (GeneralLinearGroup.scalar (Fin 2) u) ∈ localK0 F 1 := by sorry
+
+lemma localK1_zero : localK1 F 0 =
+    (⊤ : Subgroup (GeneralLinearGroup (Fin 2) 𝒪[F])).map
+      (GeneralLinearGroup.map (algebraMap 𝒪[F] F)) := by sorry
+lemma localK1_antitone {m n : ℕ} (h : m ≤ n) :
+    localK1 F n ≤ localK1 F m := by sorry
+lemma localK1_le_integral (n : ℕ) : localK1 F n ≤ localK1 F 0 := by sorry
+
+-- Specialization checks: distinguish the last row from the first row,
+-- and distinguish K₁ from a principal congruence subgroup.
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 1; 0, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK1 F 1 := by sorry
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 0; 1, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∉ localK1 F 1 := by sorry
+example (u : 𝒪[F]ˣ) (hu : (u : 𝒪[F]) - 1 ∉ 𝓂[F])
+    (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![(u : 𝒪[F]), 0; 0, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK1 F 1 ∧
+      GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ≠ 1 := by sorry
+
+/-- The embedded congruence subgroups are compact open in the local matrix
+unit group. These signatures supply the inputs to compact-open admissibility;
+they do not assemble the adelic comparison of R16.1. -/
+lemma localK0_isCompact (n : ℕ) :
+    IsCompact (localK0 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+lemma localK0_isOpen (n : ℕ) :
+    IsOpen (localK0 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+lemma localK1_isCompact (n : ℕ) :
+    IsCompact (localK1 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+lemma localK1_isOpen (n : ℕ) :
+    IsOpen (localK1 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+
+/-- Every element of K0 is an integral scalar times an element of K1.
+For positive n the scalar can be the lower-right entry; at level zero take 1.
+This is the concrete subgroup input to the fixed-space comparison. -/
+lemma localK0_scalar_mul_localK1 (n : ℕ)
+    (g : GeneralLinearGroup (Fin 2) F) (hg : g ∈ localK0 F n) :
+    ∃ (u : 𝒪[F]ˣ) (h : GeneralLinearGroup (Fin 2) F),
+      h ∈ localK1 F n ∧
+      g = GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+        (GeneralLinearGroup.scalar (Fin 2) u) * h := by sorry
+
+/-- Integral scalar matrices generate K0(n)/K1(n) for n>0; at n=0 the
+subgroups coincide. An unramified scalar action therefore identifies the two
+fixed submodules at every level. No spherical or irreducibility assumption
+is needed for this comparison. -/
+lemma localK0_invariants_eq_localK1
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    (hcent : ∀ (u : 𝒪[F]ˣ) (v : V),
+      π (GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+        (GeneralLinearGroup.scalar (Fin 2) u)) v = v) (n : ℕ) :
+    Representation.invariants (π.comp (localK0 F n).subtype) =
+      Representation.invariants (π.comp (localK1 F n).subtype) := by sorry
+
+-- Boundary and distinction checks for the embedded subgroups.
+-- The Weyl element belongs at level zero and is excluded at level one.
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![0, 1; -1, 0]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK0 F 0 ∧
+      GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∉ localK0 F 1 := by sorry
+-- Conditional on a nonidentity residue unit; there need not be one over F2.
+example (u : 𝒪[F]ˣ) (hu : (u : 𝒪[F]) - 1 ∉ 𝓂[F]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+      (GeneralLinearGroup.scalar (Fin 2) u) ∈ localK0 F 1 ∧
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+      (GeneralLinearGroup.scalar (Fin 2) u) ∉ localK1 F 1 := by sorry
+
+-- The unramified scalar-action hypothesis cannot be omitted: a nontrivial
+-- scalar eigenvalue kills all K0 invariants, even if K1 invariants are nonzero.
+example (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    (u : 𝒪[F]ˣ) (a : ℂ) (ha : a ≠ 1)
+    (hscalar : ∀ v : V,
+      π (GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+        (GeneralLinearGroup.scalar (Fin 2) u)) v = a • v)
+    (n : ℕ)
+    (hfixed : ∃ v ∈ Representation.invariants (π.comp (localK1 F n).subtype), v ≠ 0) :
+    Representation.invariants (π.comp (localK0 F n).subtype) = ⊥ ∧
+      Representation.invariants (π.comp (localK0 F n).subtype) ≠
+        Representation.invariants (π.comp (localK1 F n).subtype) := by sorry
+
+/-- Casselman, Theorem 1 and its proof, pp. 302–306, in the last-row
+convention of the README. Infinite dimensionality excludes determinant
+characters. No conductor or nonempty-level hypothesis is assumed. -/
+theorem newvectorLevelExists
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V) :
+    ∃ n, ∃ v ∈ Representation.invariants (π.comp (localK1 F n).subtype),
+      v ≠ 0 := by sorry
+
+/-- The complete dimension formula, not an assumption that a fixed line exists.
+Natural subtraction expresses max(0, n-c+1). Casselman, Corollary to the
+Proof, p. 306; apply his top-left convention to the contragredient and twist
+back to obtain the lower-last-row subgroup used here. -/
+theorem casselmanNewvector
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V) (n : ℕ) :
+    Module.finrank ℂ (Representation.invariants (π.comp (localK1 F n).subtype)) =
+      n + 1 - conductorExponent π (localK1 F)
+        (newvectorLevelExists π hsm hadm hinf) := by sorry
+
+/-- The central-character assertion for the minimal K₀-line. For positive
+conductor the lower-right entry of an integral K₀ matrix is a unit; u is that
+unit, rather than an arbitrary value of the determinant. At conductor zero
+the fixed line is spherical. -/
+theorem casselmanNewvector_k0_character
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (ω : Fˣ →* ℂˣ)
+    (hcent : ∀ z v, π (GeneralLinearGroup.scalar (Fin 2) z) v = (ω z : ℂ) • v)
+    (hc : 0 < conductorExponent π (localK1 F)
+      (newvectorLevelExists π hsm hadm hinf))
+    (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g ∈ k0 (𝓂[F] ^ conductorExponent π (localK1 F)
+      (newvectorLevelExists π hsm hadm hinf)))
+    (u : 𝒪[F]ˣ) (hu : (u : 𝒪[F]) = g.val 1 1)
+    (v : Representation.invariants (π.comp (localK1 F
+      (conductorExponent π (localK1 F)
+        (newvectorLevelExists π hsm hadm hinf))).subtype)) :
+    π (GeneralLinearGroup.map (algebraMap 𝒪[F] F) g) v.val =
+      (ω (Units.map (algebraMap 𝒪[F] F).toMonoidHom u) : ℂ) • v.val := by sorry
+
+/-- Nonvanishing of the chosen Whittaker functional on the newvector line.
+The second character condition says it is nontrivial on the inverse maximal
+ideal. Equivariance uses actual upper unipotent matrices. Existence of this
+nonzero functional is SR.2.3's genericity theorem, not an assumption about its
+restriction to the newvector line. Casselman, proof of Theorem 1, pp. 303–306. -/
+theorem casselmanNewvector_whittaker_eval
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (ψ : AddChar F ℂ) (hψ : Continuous ψ)
+    (hψO : ∀ a : 𝒪[F], ψ (a : F) = 1)
+    (hψp : ∃ x : F, (∀ a : 𝒪[F], a ∈ 𝓂[F] →
+      x * (a : F) ∈ (𝒪[F] : Set F)) ∧ ψ x ≠ 1)
+    (ell : V →ₗ[ℂ] ℂ) (hell : ell ≠ 0)
+    (hwhit : ∀ (x : F) (g : GeneralLinearGroup (Fin 2) F),
+      g.val = !![1, x; 0, 1] → ∀ v, ell (π g v) = ψ x * ell v) :
+    ∃ v : Representation.invariants (π.comp (localK1 F
+      (conductorExponent π (localK1 F)
+        (newvectorLevelExists π hsm hadm hinf))).subtype), ell v.val ≠ 0 := by sorry
+
+end LocalNewvectors
+
+section IwahoriOldforms
+open scoped ValuativeRel
+variable {F : Type*} [Field F] [CharZero F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F]
+variable {V : Type*} [AddCommGroup V] [Module ℂ V]
+
+/-- Casselman, Corollary to the Proof, p. 306; Calegari–Geraghty,
+§1.3, printed pp. 805–806, with infinite dimensionality as in the README.
+A nonzero spherical vector is the unramified hypothesis. -/
+theorem iwahoriOldforms_dimensions
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (hsph : ∃ v ∈ Representation.invariants (π.comp (localK1 F 0).subtype), v ≠ 0) :
+    Module.finrank ℂ (Representation.invariants (π.comp (localK1 F 0).subtype)) = 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) = 2 := by sorry
+
+/-- The actual oldform operator, expressed as a finite sum of the concrete
+right-coset representatives of I diag(ϖ,1) I, with vol(I)=1. A is a full set
+of residue representatives, so its cardinality is q. The sum acts by π;
+there is no independent operator or replacement Hecke algebra in the input.
+The spherical double coset adds s=diag(1,ϖ). Its eigenvalue λ is
+sqrt(q)*(α+β); the scalar action c is ω(ϖ)=α*β.
+
+In the basis (v,π(s)v), U has columns (λ,-1) and (q*c,0).
+The -1 coefficient gives cyclicity also at a repeated Satake root.
+Sources: CG20 §1.3, printed pp. 805–806; Casselman p. 306; the matrix computation
+and coset normalization are explained in the README. -/
+theorem iwahoriOldforms
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (ϖ : 𝒪[F]) (hϖ : Ideal.span ({ϖ} : Set 𝒪[F]) = 𝓂[F])
+    (ϖF : Fˣ) (hϖF : (ϖF : F) = (ϖ : F))
+    (A : Finset 𝒪[F]) (hA : ∀ x : 𝒪[F], ∃! a : A, x - a.val ∈ 𝓂[F])
+    (g : A → GeneralLinearGroup (Fin 2) F)
+    (hg : ∀ a, (g a).val = !![(ϖ : F), (a.val : F); 0, 1])
+    (s : GeneralLinearGroup (Fin 2) F) (hs : s.val = !![1, 0; 0, (ϖ : F)])
+    (v : V) (hv : v ∈ Representation.invariants (π.comp (localK1 F 0).subtype))
+    (hv0 : v ≠ 0) (lam c : ℂ)
+    (hcent : ∀ w, π (GeneralLinearGroup.scalar (Fin 2) ϖF) w = c • w)
+    (heigen : ((∑ a : A, π (g a)) + π s) v = lam • v) :
+    let U : Module.End ℂ V := ∑ a : A, π (g a)
+    Module.finrank ℂ (Representation.invariants (π.comp (localK1 F 0).subtype)) = 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) = 2 ∧
+      Representation.invariants (π.comp (localK0 F 1).subtype) =
+        Submodule.span ℂ ({v, U v} : Set V) ∧
+      (∀ a : ℂ, U v ≠ a • v) ∧
+      (∀ w ∈ Representation.invariants (π.comp (localK0 F 1).subtype),
+        U w ∈ Representation.invariants (π.comp (localK0 F 1).subtype) ∧
+          U (U w) - lam • U w + ((A.card : ℂ) * c) • w = 0) := by sorry
+
+-- Companion-matrix tests in the basis (v,π(s)v). These test the U formula,
+-- independently of a choice or ordering of residue representatives.
+example : (!![(2 : ℂ), 1; -1, 0] - 1) ^ 2 = 0 ∧
+    !![(2 : ℂ), 1; -1, 0] - 1 ≠ 0 := by sorry
+example : !![(5 : ℂ), 6; -1, 0] ^ 2 -
+    5 • !![(5 : ℂ), 6; -1, 0] + 6 • (1 : Matrix (Fin 2) (Fin 2) ℂ) = 0 := by sorry
+example : !![(5 : ℂ), 6; -1, 0] ^ 2 -
+    5 • !![(5 : ℂ), 6; -1, 0] + 3 • (1 : Matrix (Fin 2) (Fin 2) ℂ) ≠ 0 := by sorry
+
+/-- The excluded determinant characters: unramified χ is trivial on O×,
+so both the spherical and Iwahori invariant spaces are the whole ℂ line.
+This calculation also applies to nontrivial χ. No genericity is assumed. -/
+theorem iwahoriDeterminantCharacter
+    (χ : Fˣ →* ℂˣ)
+    (hχ : ∀ u : 𝒪[F]ˣ, χ (Units.map (algebraMap 𝒪[F] F).toMonoidHom u) = 1)
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) ℂ)
+    (hπ : ∀ g z, π g z = (χ (GeneralLinearGroup.det g) : ℂ) * z) :
+    Representation.invariants (π.comp (localK1 F 0).subtype) = ⊤ ∧
+      Representation.invariants (π.comp (localK0 F 1).subtype) = ⊤ ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK1 F 0).subtype)) = 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) = 1 := by sorry
+
+-- A supplied nontrivial unramified character gives an actual nontrivial
+-- representation with Iwahori dimension one, not two.
+example (χ : Fˣ →* ℂˣ)
+    (hχ : ∀ u : 𝒪[F]ˣ, χ (Units.map (algebraMap 𝒪[F] F).toMonoidHom u) = 1)
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) ℂ)
+    (hπ : ∀ g z, π g z = (χ (GeneralLinearGroup.det g) : ℂ) * z)
+    (g : GeneralLinearGroup (Fin 2) F) (hg : χ (GeneralLinearGroup.det g) ≠ 1) :
+    π g (1 : ℂ) ≠ 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) ≠ 2 := by sorry
+end IwahoriOldforms
+
+section Spherical
+/-- Complete homogeneous polynomial, given by the nonsingular GL₂ recurrence. -/
+def sphericalValues (α β : ℂ) (m : ℕ) : ℂ := by sorry
+lemma sphericalValues_zero (α β : ℂ) : sphericalValues α β 0 = 1 := by sorry
+lemma sphericalValues_recurrence (α β : ℂ) (m : ℕ) :
+    sphericalValues α β (m + 2) = (α + β) * sphericalValues α β (m + 1) -
+      α * β * sphericalValues α β m := by sorry
+lemma sphericalValues_swap (α β : ℂ) (m : ℕ) :
+    sphericalValues α β m = sphericalValues β α m := by sorry
+lemma sphericalValues_equal (α : ℂ) (m : ℕ) :
+    sphericalValues α α m = (m + 1) * α ^ m := by sorry
+-- TauCeti.GL2Blueprint.sphericalValues_one
+example (α β : ℂ) : sphericalValues α β 1 = α + β := by sorry
+-- TauCeti.GL2Blueprint.sphericalValues_two
+example (α β : ℂ) : sphericalValues α β 2 = α ^ 2 + α * β + β ^ 2 := by sorry
+-- TauCeti.GL2Blueprint.sphericalValues_collision
+example : sphericalValues 1 1 2 = 3 := by sorry
+/- Signature omissions: The full Iwahori–Hecke algebra and its center, the Kirillov model and the type Hom-multiplicity remain supplier interfaces. The oldforms theorem above uses the actual GL₂(F) fixed spaces and concrete finite double-coset sum; it needs none of these missing carriers.
+README targets: R16.2/iwahori-center, R16.2/supercuspidal-kirillov, R16.2/henniart-unicity.
+Omitted declaration names: TauCeti.GL2Blueprint.iwahoriCenter, TauCeti.GL2Blueprint.supercuspidalKirillov, TauCeti.GL2Blueprint.henniartUnicity.
+-/
+end Spherical
+
+section SupercuspidalProjectivity
+variable {p : ℕ} [Fact p.Prime]
+variable {F : Type*} [NontriviallyNormedField F] [NormedAlgebra ℚ_[p] F]
+    [FiniteDimensional ℚ_[p] F] [CompleteSpace F]
+variable {V W X : Type*} [AddCommGroup V] [Module ℂ V]
+    [AddCommGroup W] [Module ℂ W] [AddCommGroup X] [Module ℂ X]
+
+/-- R16.2/supercuspidal-projective on the existing representation carriers.
+Smoothness means open vector stabilizers, admissibility means finite-dimensional
+compact-open invariants, and supercuspidality uses compact-mod-center matrix
+coefficients against the smooth dual. The latter two conditions are required
+only of π. Every representation has the same scalar central character ω.
+The conclusion lifts an equivariant linear map through a surjective equivariant
+linear map. There is no topology on the coefficient modules in this smooth
+category. The separate L-coefficient DLB descent interface is not asserted here. -/
+theorem supercuspidalProjective
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    (σ : Representation ℂ (GeneralLinearGroup (Fin 2) F) W)
+    (τ : Representation ℂ (GeneralLinearGroup (Fin 2) F) X)
+    [Representation.IsIrreducible π]
+    (ω : Fˣ →* ℂˣ) (hω : IsOpen (ω.ker : Set Fˣ))
+    (hπsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hσsm : ∀ w : W, IsOpen {g | σ g w = w})
+    (hτsm : ∀ x : X, IsOpen {g | τ g x = x})
+    (hπcent : ∀ z v, π (GeneralLinearGroup.scalar (Fin 2) z) v = (ω z : ℂ) • v)
+    (hσcent : ∀ z w, σ (GeneralLinearGroup.scalar (Fin 2) z) w = (ω z : ℂ) • w)
+    (hτcent : ∀ z x, τ (GeneralLinearGroup.scalar (Fin 2) z) x = (ω z : ℂ) • x)
+    (hπadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hπcusp : ∀ (v : V) (ell : V →ₗ[ℂ] ℂ),
+      IsOpen {g : GeneralLinearGroup (Fin 2) F | ∀ w, ell (π g w) = ell w} →
+      IsCompact (closure ((QuotientGroup.mk : GeneralLinearGroup (Fin 2) F →
+        GeneralLinearGroup (Fin 2) F ⧸ Subgroup.center (GeneralLinearGroup (Fin 2) F)) ''
+          {g | ell (π g v) ≠ 0})))
+    (q : Representation.IntertwiningMap σ τ) (hq : Function.Surjective q)
+    (f : Representation.IntertwiningMap π τ) :
+    ∃ lift : Representation.IntertwiningMap π σ, q.comp lift = f := by sorry
+
+end SupercuspidalProjectivity
+
+section CDT
+variable {G H V : Type*} [Group G] [Group H] [AddCommGroup V] [Module ℂ V]
+/-- Restriction part of the CDT construction. Θ is the supplier's full finite
+GL₂(Z/xⁿ) representation, ι is the exact U₀(x)/U(xⁿ) inclusion. Construction
+of Θ from the regular character and the O-lattice are unavailable conditions. -/
+def cdtVexingType (Θ : Representation ℂ G V) (ι : H →* G) : Representation ℂ H V := by sorry
+lemma cdtVexingType_restrict (Θ : Representation ℂ G V) (ι : H →* G) :
+    cdtVexingType Θ ι = Θ.comp ι := by sorry
+lemma cdtVexingType_lattice {O : Type*} [CommRing O] [Module O V]
+    (Θ : Representation ℂ G V) (ι : H →* G)
+    (Λ : Submodule O V) (hstable : ∀ g v, v ∈ Λ → Θ g v ∈ Λ) :
+    ∀ h v, v ∈ Λ → cdtVexingType Θ ι h v ∈ Λ := by sorry
+lemma cdtVexingType_unramified (Θ Θ' : Representation ℂ G V) (ι : H →* G)
+    (h : ∀ g, Θ g = Θ' g) : cdtVexingType Θ ι = cdtVexingType Θ' ι := by sorry
+-- TauCeti.GL2Blueprint.cdtVexingType_scalar_extension
+-- Missing: W is the scalar extension of the chosen stable O-lattice.
+example {W : Type*} [AddCommGroup W] [Module ℂ W]
+    (Θ : Representation ℂ G V) (ρ : Representation ℂ G W) (ι : H →* G)
+    (e : W ≃ₗ[ℂ] V) (he : ∀ g v, e (ρ g v) = Θ g (e v)) :
+    ∀ h v, e (cdtVexingType ρ ι h v) = cdtVexingType Θ ι h (e v) := by sorry
+-- TauCeti.GL2Blueprint.cdtVexingType_unramified_twist
+example (Θ Θ' : Representation ℂ G V) (ι : H →* G)
+    (he : ∀ g, Θ g = Θ' g) : cdtVexingType Θ ι = cdtVexingType Θ' ι := by sorry
+/- Signature omissions: The CDT full type Θ(θ), the principal-congruence fixed space and the supplier Hom_K occurrence are absent, so arbitrary modules or occurrence counts cannot satisfy these statements; cdtVexingType with its API and the scalar-extension and unramified-twist tests remain above as true fragments.
+README targets: R16.2/cdt-vexing-type, R16.3/cdt-inertia-multiplicity.
+Omitted declaration names: TauCeti.GL2Blueprint.cdtInertiaMultiplicity.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.cdtVexingType_distinct_inertia.
+-/
+end CDT
+
+section Parameters
+/- Signature omissions: The ET.6 local class and Weil–Deligne parameter carriers and the AL.2 local factors are absent, so arbitrary maps and functions cannot satisfy these parameter and factor identities; steinbergParameter and normalizationBridge remain below as true matrix computations.
+README targets: R16.3/principal-series-parameter, R16.3/supercuspidal-parameter, R16.3/conductor-epsilon-comparison.
+Omitted declaration names: TauCeti.GL2Blueprint.principalParameter, TauCeti.GL2Blueprint.supercuspidalParameter, TauCeti.GL2Blueprint.conductorEpsilon.
+-/
+/-- The concrete nonzero monodromy calculation in geometric Frobenius coordinates.
+Missing from this signature: embedding this matrix pair in R01.2's WD carrier. -/
+theorem steinbergParameter (q α : ℂ) (hq : q ≠ 0) (hα : α ≠ 0) :
+    let N : Matrix (Fin 2) (Fin 2) ℂ := !![0, 1; 0, 0]
+    let R : Matrix (Fin 2) (Fin 2) ℂ := !![α / q, 0; 0, α * q]
+    N ^ 2 = 0 ∧ N ≠ 0 ∧ R * N = (q ^ 2)⁻¹ • (N * R) := by sorry
+-- Here q is the square root of the residue cardinality. N is NOT discarded.
+-- Missing: A is Frobenius of recπ; the actual Tate rec has this scalar half-twist.
+theorem normalizationBridge (A : Matrix (Fin 2) (Fin 2) ℂ) (u : ℂ) :
+    (u • A).det = u ^ 2 * A.det := by sorry
+/- The primitive dyadic test in R16.3/supercuspidal-parameter uses
+A = ((Z₂,Z₂),(2Z₂,Z₂)), α = ((0,-1/2),(1,0)), J = Q₂[α]ˣ U¹_A,
+and π = c-Ind_J Λ. The SR.2 compact-induction and ET.6 LLC carriers are
+required to state its actual tests. Omitted test names:
+TauCeti.GL2Blueprint.primitiveDyadic_conductor_three (Artin conductor 3,
+Swan conductor 1), primitiveDyadic_factor_one (L=1 and N=0), and
+primitiveDyadic_not_quadratic_induced. The quadratic type field does not
+induce the Weil parameter. No arbitrary representation or WD map is substituted.
+-/
+
+/- Signature omissions: The AF.1 archimedean class and parameter carriers (gl2-real-discrete-series, archimedean-llc-gln) and the AL.2 standard factor are absent, so arbitrary maps and functions cannot satisfy these identifications; Mathlib’s Complex.Gammaℝ and Complex.Gammaℂ fix the gamma normalizations used in the true examples below.
+README targets: R16.2/archimedean-classification, R16.3/archimedean-factor-comparison.
+Omitted declaration names: TauCeti.GL2Blueprint.archimedeanClassification, TauCeti.GL2Blueprint.archimedeanFactors.
+-/
+-- True fragments for R16.2/R16.3 with Mathlib’s Deligne gamma factors (no source-level
+-- test name; the AL.2 factor of D_k itself is omitted above).
+-- Normalization Γℝ(s)=π^{−s/2}Γ(s/2) of the R16.3 statement (Complex.Gammaℝ_def).
+example (s : ℂ) :
+    Complex.Gammaℝ s = (Real.pi : ℂ) ^ (-s / 2) * Complex.Gamma (s / 2) :=
+  Complex.Gammaℝ_def s
+-- Normalization Γℂ(s)=2(2π)^{−s}Γ(s) of the R16.3 statement (Complex.Gammaℂ_def).
+example (s : ℂ) :
+    Complex.Gammaℂ s = 2 * (2 * (Real.pi : ℂ)) ^ (-s) * Complex.Gamma s :=
+  Complex.Gammaℂ_def s
+-- The m=0 boundary: the split parameter has Γℝ(s+t)Γℝ(s+t+1)=Γℂ(s+t).
+example (s t : ℂ) :
+    Complex.Gammaℝ (s + t) * Complex.Gammaℝ (s + t + 1) = Complex.Gammaℂ (s + t) :=
+  Complex.Gammaℝ_mul_Gammaℝ_add_one (s + t)
+-- Index convention k=m+1: the induced factor Γℂ(s+t+m/2) is Γℂ(s+t+(k−1)/2).
+example (s t : ℂ) (m : ℕ) :
+    Complex.Gammaℂ (s + t + (m : ℂ) / 2) =
+      Complex.Gammaℂ (s + t + (((m + 1 : ℕ) : ℂ) - 1) / 2) := by sorry
+
+/-- Membership uses the supplier parameter and quadratic Weil-induction maps.
+Missing: q is the actual residue cardinality, inertiaOrder the actual exact
+order, θ continuous/tame, F'/F unramified quadratic, and N=0 in ind θ. -/
+def tamelyDihedral (P C W : Type*) (ℓ q : ℕ) (rec : P → W)
+    (ind : C → W) (inertiaOrder : C → ℕ) : Set P := by sorry
+lemma tamelyDihedral_parameter {P C W : Type*} (ℓ q : ℕ) (rec : P → W)
+    (ind : C → W) (inertiaOrder : C → ℕ) (π : P) :
+    π ∈ tamelyDihedral P C W ℓ q rec ind inertiaOrder ↔
+      ℓ.Prime ∧ ℓ ≠ 2 ∧ q % ℓ = ℓ - 1 ∧
+        ∃ θ, inertiaOrder θ = ℓ ∧ rec π = ind θ := by sorry
+lemma tamelyDihedral_unramified_twist {P C W : Type*} (ℓ q : ℕ)
+    (rec : P → W) (ind : C → W) (inertiaOrder : C → ℕ)
+    (twistP : P → P) (twistC : C → C)
+    (horder : ∀ θ, inertiaOrder (twistC θ) = inertiaOrder θ)
+    (hrec : ∀ π θ, rec π = ind θ → rec (twistP π) = ind (twistC θ))
+    (π : P) (hπ : π ∈ tamelyDihedral P C W ℓ q rec ind inertiaOrder) :
+    twistP π ∈ tamelyDihedral P C W ℓ q rec ind inertiaOrder := by sorry
+-- TauCeti.GL2Blueprint.tamelyDihedral_order_three
+-- An actual order-three value is distinct from its inverse; q=2 acts as inversion.
+example {G : Type*} [Group G] (x : G) (hx : orderOf x = 3) :
+    x ^ 2 = x⁻¹ ∧ x⁻¹ ≠ x := by sorry
+-- TauCeti.GL2Blueprint.tamelyDihedral_order_two_excluded
+example {G : Type*} [Group G] (x : G) (hx : orderOf x = 2) :
+    x⁻¹ = x := by sorry
+-- TauCeti.GL2Blueprint.tamelyDihedral_unramified_character
+example {P C W : Type*} (ℓ q : ℕ) (hℓ : 2 < ℓ)
+    (rec : P → W) (ind : C → W) (inertiaOrder : C → ℕ)
+    (hunram : ∀ θ, inertiaOrder θ = 1) :
+    tamelyDihedral P C W ℓ q rec ind inertiaOrder = ∅ := by sorry
+/- Signature omissions: The actual unramified-quadratic Galois action on tame characters and ET.6’s supercuspidal subset are absent, so an arbitrary involution or subset cannot satisfy these statements; tamelyDihedral with its parameter and twist API and its three tests remain above as true fragments.
+README targets: R16.3/tamely-dihedral, R16.3/tamely-dihedral-supercuspidal.
+Omitted declaration names: TauCeti.GL2Blueprint.tamelyDihedral_conjugate, TauCeti.GL2Blueprint.tamelyDihedralSupercuspidal.
+-/
+end Parameters
+
+section Global
+/- Signature omissions: Use AL.3 Fourier reconstruction, global-whittaker-factorization and global-multiplicity-one, then AL.3 strong-multiplicity-one. The source π, its cusp embedding, its actual local components and its rational model are indispensable. The old statements quantified over unrelated functions and multiplicities.
+README targets: R16.4/cuspidal-tensor-factorization, R16.4/global-whittaker-expansion, R16.4/global-multiplicity-one, R16.4/strong-multiplicity-one, R16.4/cohomological-rationality.
+Omitted declaration names: TauCeti.GL2Blueprint.cuspidalTensor, TauCeti.GL2Blueprint.globalWhittakerExpansion, TauCeti.GL2Blueprint.globalMultiplicityOne, TauCeti.GL2Blueprint.strongMultiplicityOne, TauCeti.GL2Blueprint.cohomologicalRationality.
+-/
+/-- Trivial stabilizer on existing global isomorphism classes under determinant twists.
+P must be AF.2's cusp classes and H its Hecke characters; this is not a new carrier. -/
+def nonCM (H P : Type*) [Group H] [MulAction H P] : Set P := by sorry
+lemma nonCM_iff {H P : Type*} [Group H] [MulAction H P] (π : P) :
+    π ∈ nonCM H P ↔ ∀ χ : H, χ • π = π → χ = 1 := by sorry
+lemma nonCM_twist {H P : Type*} [Group H] [MulAction H P]
+    (π : P) (hπ : π ∈ nonCM H P) (χ : H) : χ • π ∈ nonCM H P := by sorry
+lemma nonCM_self_twist_square {H P : Type*} [CommGroup H] [MulAction H P]
+    (central : P → H) (hcentral : ∀ χ π, central (χ • π) = χ ^ 2 * central π)
+    (π : P) (χ : H) (hχ : χ • π = π) : χ ^ 2 = 1 := by sorry
+-- TauCeti.GL2Blueprint.nonCM_free_action
+example {H : Type*} [Group H] (π : H) : π ∈ nonCM H H := by sorry
+-- TauCeti.GL2Blueprint.nonCM_trivial_character
+example {H P : Type*} [Group H] [MulAction H P] (π : P) : (1 : H) • π = π := by sorry
+-- TauCeti.GL2Blueprint.nonCM_quadratic_stabilizer
+example {H P : Type*} [Group H] [MulAction H P] (π : P) (χ : H)
+    (hne : χ ≠ 1) (hsquare : χ ^ 2 = 1) (hfix : χ • π = π) :
+    π ∉ nonCM H P := by sorry
+/- Signature omissions: The actual Rankin–Selberg integrals and completed L-functions are unavailable. The GL₂ converse needs every Hecke-quasicharacter twist, generic local factors/Casselman–Wallach globalizations, central-character automorphy, Euler convergence, dual entireness, strip bounds and the epsilon functional equations. AL.3/gln-converse-full-rank is used at n=2; reduced rank gives no n=2 theorem.
+README targets: R16.5/whittaker-integral-comparison, R16.5/full-gl2-converse, R16.5/classical-l-function-comparison.
+Omitted declaration names: TauCeti.GL2Blueprint.whittakerIntegral, TauCeti.GL2Blueprint.gl2Converse, TauCeti.GL2Blueprint.classicalLFunction.
+-/
+-- Variable conversion only; the README separately states local root numbers,
+-- the discriminant, conductor and global additive-character product formula.
+theorem globalEpsilon (k : ℂ) (s : ℂ) :
+    (1 - s) + (k - 1) / 2 = k - (s + (k - 1) / 2) := by sorry
+end Global
+
+section Classical
+/- Signature omissions: The primitive exact-conductor newform subtype and actual AF.5 adelization map with fixed k, nebentypus, infinity type and coefficient projections must exist before these equivalences and their API can be stated. No equivalence of two arbitrary types is asserted. The sound old-level/scalar tests below remain concrete fragments.
+README targets: R16.6/primitive-classical-bijection.
+Omitted declaration names: TauCeti.GL2Blueprint.primitiveBijection, TauCeti.GL2Blueprint.primitiveBijection_conductor, TauCeti.GL2Blueprint.primitiveBijection_weight_character, TauCeti.GL2Blueprint.primitiveBijection_hecke, TauCeti.GL2Blueprint.primitiveBijection_normalized, TauCeti.GL2Blueprint.primitiveBijection_inverse.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.primitiveBijection_weight_two.
+-/
+-- TauCeti.GL2Blueprint.primitiveBijection_old_level
+-- Missing: old is the upstream oldform inclusion of primitive conductor M<N;
+-- cond is the actual conductor, not the ambient level. Old forms fail the N subtype.
+example {Old : Type*} (f : Old) (M N : ℕ) (hMN : M < N)
+    (cond : Old → ℕ) (hcond : cond f = M) : cond f ≠ N := by sorry
+-- TauCeti.GL2Blueprint.primitiveBijection_scalar_normalization
+example {N : ℕ} [NeZero N] {k : ℤ} (f : HeckeRing.GL2.Newform N k)
+    (c : ℂ) (hc : c ≠ 1) : c * (UpperHalfPlane.qExpansion 1 f.toCuspForm).coeff 1 ≠ 1 := by
+  simpa only [HeckeRing.GL2.Newform.qExpansion_coeff_one, mul_one] using hc
+-- Good-prime polynomial coefficient conversion. Full ramified U and central
+-- finite-unit character comparison are omitted until upstream Layer 4/AF.5 exists.
+theorem classicalHeckeLevel (α β z ap χp : ℂ)
+    (htrace : z * (α + β) = ap) (hdet : α * β = χp) :
+    z * α + z * β = ap ∧ (z * α) * (z * β) = χp * z ^ 2 := by sorry
+
+section Weight
+open scoped TensorProduct
+variable {ι : Type} [Fintype ι]
+
+/-- For the Hilbert application, ι is the finite set of real embeddings and k≥2.
+The existing symmetric power is the coefficient carrier, even at k=2. -/
+abbrev HilbertWeightSpace (K : Type) [Field K] (k : ι → ℕ) :=
+  ⨂[K] i, Sym[K]^(k i - 2) (Fin 2 → K)
+
+/-- One actual symmetric-power factor with its determinant twist. -/
+def hilbertWeightFactor (K : Type) [Field K] (k : ℕ) (m : ℤ) :
+    Representation K (GeneralLinearGroup (Fin 2) K) (Sym[K]^(k - 2) (Fin 2 → K)) where
+  toFun g := ((GeneralLinearGroup.det g : K) ^ m) • TauCeti.symPowerRep K 2 (k - 2) g
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- Tensor over the embeddings; the group is the product of the GL₂ factors.
+This is the complex point realization of Res_{F/ℚ} GL₂ after the embeddings
+are fixed. Purity is imposed in the cohomological scalar lemma below. -/
+def hilbertWeightRepresentation (K : Type) [Field K] (k : ι → ℕ) (m : ι → ℤ) :
+    Representation K (ι → GeneralLinearGroup (Fin 2) K) (HilbertWeightSpace K k) where
+  toFun g := PiTensorProduct.map fun i => hilbertWeightFactor K (k i) (m i) (g i)
+  map_one' := by sorry
+  map_mul' := by sorry
+
+lemma hilbertWeightRepresentation_scalar (K : Type) [Field K]
+    (k : ι → ℕ) (m : ι → ℤ) (hk : ∀ i, 2 ≤ k i) (u : ι → Kˣ) :
+    hilbertWeightRepresentation K k m (fun i => GeneralLinearGroup.scalar (Fin 2) (u i)) =
+      (∏ i, ((u i : K) ^ ((k i : ℤ) - 2 + 2 * m i))) •
+        (1 : Module.End K (HilbertWeightSpace K k)) := by sorry
+
+lemma hilbertWeightRepresentation_pure (K : Type) [Field K]
+    (k : ι → ℕ) (m : ι → ℤ) (hk : ∀ i, 2 ≤ k i) (w : ℤ)
+    (hw : ∀ i, (k i : ℤ) + 2 * m i = w) (u : ι → Kˣ) :
+    hilbertWeightRepresentation K k m (fun i => GeneralLinearGroup.scalar (Fin 2) (u i)) =
+      (∏ i, (u i : K) ^ (w - 2)) • (1 : Module.End K (HilbertWeightSpace K k)) := by sorry
+
+lemma hilbertWeightRepresentation_dimension (K : Type) [Field K]
+    (k : ι → ℕ) (hk : ∀ i, 2 ≤ k i) :
+    Module.finrank K (HilbertWeightSpace K k) = ∏ i, (k i - 1) := by sorry
+
+lemma hilbertWeightRepresentation_dual (K : Type) [Field K]
+    (k : ι → ℕ) (m : ι → ℤ) (hk : ∀ i, 2 ≤ k i) (u : ι → Kˣ) :
+    (hilbertWeightRepresentation K k m).dual
+        (fun i => GeneralLinearGroup.scalar (Fin 2) (u i)) =
+      (∏ i, (u i : K) ^ (-((k i : ℤ) - 2 + 2 * m i))) •
+        (1 : Module.End K (Module.Dual K (HilbertWeightSpace K k))) := by sorry
+
+/-- Scalar extension compares these actual tensor carriers and intertwines
+the coefficient-mapped matrix action. Equality on pure tensors specifies
+the action on the whole scalar extension. -/
+lemma hilbertWeightRepresentation_base_change (K L : Type) [Field K] [Field L]
+    [Algebra K L] (k : ι → ℕ) (m : ι → ℤ) :
+    ∃ e : (L ⊗[K] HilbertWeightSpace K k) ≃ₗ[L] HilbertWeightSpace L k,
+      ∀ g : ι → GeneralLinearGroup (Fin 2) K, ∀ a : L, ∀ v : HilbertWeightSpace K k,
+        e (a ⊗ₜ[K] hilbertWeightRepresentation K k m g v) =
+          hilbertWeightRepresentation L k m
+            (fun i => GeneralLinearGroup.map (algebraMap K L) (g i)) (e (a ⊗ₜ[K] v)) := by sorry
+-- TauCeti.GL2Blueprint.hilbertWeightRepresentation_weight_two
+example (g : Fin 1 → GeneralLinearGroup (Fin 2) ℂ) :
+    Module.finrank ℂ (HilbertWeightSpace ℂ (fun _ : Fin 1 => 2)) = 1 ∧
+      hilbertWeightRepresentation ℂ (fun _ : Fin 1 => 2) (fun _ => 0) g = 1 := by sorry
+-- TauCeti.GL2Blueprint.hilbertWeightRepresentation_weight_three
+example (u : ℂˣ) :
+    Module.finrank ℂ (HilbertWeightSpace ℂ (fun _ : Fin 1 => 3)) = 2 ∧
+      hilbertWeightRepresentation ℂ (fun _ : Fin 1 => 3) (fun _ => 1)
+          (fun _ => GeneralLinearGroup.scalar (Fin 2) u) =
+        (u : ℂ) ^ 3 • (1 : Module.End ℂ (HilbertWeightSpace ℂ (fun _ : Fin 1 => 3))) := by sorry
+-- TauCeti.GL2Blueprint.hilbertWeightRepresentation_mixed_parity
+example : ¬ ∃ m₁ m₂ w : ℤ, 2 + 2 * m₁ = w ∧ 3 + 2 * m₂ = w := by sorry
+end Weight
+
+-- The scalar parameter conversion is actual matrix algebra. The README requires
+-- Frobenius inversion/contragredient and nebentypus agreement before identifying
+-- this with R17.6/classical-higher-weight-attachment and its determinant ε·χ_cyc^{k−1}.
+theorem weightKParameterConversion (α β z : ℂ) :
+    z * α + z * β = z * (α + β) ∧
+    (z * α) * (z * β) = z ^ 2 * (α * β) := by sorry
+/- Signature omissions: The designated characteristic-zero automorphic multiplicity space at its compatible level/infinite type must be identified first. An arbitrary vector space does not have dimension one; integral/torsion multiplicity is separate.
+README targets: R16.6/geometry-and-galois-exports.
+Omitted declaration names: TauCeti.GL2Blueprint.geometricExports.
+-/
+end Classical
+
+section Quaternion
+/- Signature omissions: The smooth division-algebra and essentially square-integrable GL₂(F) class carriers, local JL, the ET.6 parameters and AF.1’s archimedean character interfaces are absent, so arbitrary maps cannot satisfy these local transfer identities; quaternionSwap remains below as a true parity computation.
+README targets: R17.1/local-quaternionic-comparison, R17.1/norm-character-steinberg, R17.1/real-quaternionic-comparison, R17.1/wild-dyadic-transfer.
+Omitted declaration names: TauCeti.GL2Blueprint.localQuaternionic, TauCeti.GL2Blueprint.normCharacterSteinberg, TauCeti.GL2Blueprint.realQuaternionic, TauCeti.GL2Blueprint.wildDyadicTransfer.
+-/
+section QuaternionRamification
+open NumberField IsDedekindDomain
+open scoped NumberField
+variable {K : Type*} [Field K] [NumberField K]
+
+-- R17.1/swapped-quaternion-invariants: a corollary of the prescribed Hilbert signs in
+-- GlobalQuadraticForms 4.4, not a new proof of that supplier's theorem.
+theorem existsQuaternionRamification_iff
+    (Sf : Finset (HeightOneSpectrum (𝓞 K))) (Si : Finset (InfinitePlace K)) :
+    (∃ a b : Kˣ,
+      (∀ v : HeightOneSpectrum (𝓞 K),
+        Nonempty (QuaternionAlgebra (v.adicCompletion K)
+          (algebraMap K (v.adicCompletion K) (a : K)) 0
+          (algebraMap K (v.adicCompletion K) (b : K)) ≃ₐ[v.adicCompletion K]
+          Matrix (Fin 2) (Fin 2) (v.adicCompletion K)) ↔ v ∉ Sf) ∧
+      (∀ w : InfinitePlace K,
+        Nonempty (QuaternionAlgebra w.Completion
+          (algebraMap K w.Completion (a : K)) 0
+          (algebraMap K w.Completion (b : K)) ≃ₐ[w.Completion]
+          Matrix (Fin 2) (Fin 2) w.Completion) ↔ w ∉ Si)) ↔
+    (∀ w ∈ Si, w.IsReal) ∧ Even (Sf.card + Si.card) := by
+  sorry
+
+-- The actual algebra-isomorphism conclusion is stronger than equality of classes.
+-- ClassFieldTheory 10 and SemisimpleAlgebras 6 supply the uniqueness route.
+theorem quaternionAlgEquivOfLocalSplitting (a b c d : Kˣ)
+    (hf : ∀ v : HeightOneSpectrum (𝓞 K),
+      Nonempty (QuaternionAlgebra (v.adicCompletion K)
+        (algebraMap K (v.adicCompletion K) (a : K)) 0
+        (algebraMap K (v.adicCompletion K) (b : K)) ≃ₐ[v.adicCompletion K]
+        Matrix (Fin 2) (Fin 2) (v.adicCompletion K)) ↔
+      Nonempty (QuaternionAlgebra (v.adicCompletion K)
+        (algebraMap K (v.adicCompletion K) (c : K)) 0
+        (algebraMap K (v.adicCompletion K) (d : K)) ≃ₐ[v.adicCompletion K]
+        Matrix (Fin 2) (Fin 2) (v.adicCompletion K)))
+    (hi : ∀ w : InfinitePlace K,
+      Nonempty (QuaternionAlgebra w.Completion
+        (algebraMap K w.Completion (a : K)) 0
+        (algebraMap K w.Completion (b : K)) ≃ₐ[w.Completion]
+        Matrix (Fin 2) (Fin 2) w.Completion) ↔
+      Nonempty (QuaternionAlgebra w.Completion
+        (algebraMap K w.Completion (c : K)) 0
+        (algebraMap K w.Completion (d : K)) ≃ₐ[w.Completion]
+        Matrix (Fin 2) (Fin 2) w.Completion)) :
+    Nonempty (QuaternionAlgebra K (a : K) 0 (b : K) ≃ₐ[K]
+      QuaternionAlgebra K (c : K) 0 (d : K)) := by
+  sorry
+
+-- Empty support has an actual global split witness already in the pinned library.
+example : Nonempty (QuaternionAlgebra K 1 0 1 ≃ₐ[K]
+    Matrix (Fin 2) (Fin 2) K) :=
+  ⟨TauCeti.QuaternionAlgebra.oneEquivMatrix (1 : Kˣ)⟩
+
+-- A singleton finite place with no infinite ramification cannot be realized.
+example (v : HeightOneSpectrum (𝓞 K)) :
+    ¬ ((∀ w ∈ (∅ : Finset (InfinitePlace K)), w.IsReal) ∧
+      Even (({v} : Finset (HeightOneSpectrum (𝓞 K))).card +
+        (∅ : Finset (InfinitePlace K)).card)) := by simp
+
+-- A finite place and one real place give the admissible cardinality two.
+example (v : HeightOneSpectrum (𝓞 K)) (w : InfinitePlace K) (hw : w.IsReal) :
+    (∀ z ∈ ({w} : Finset (InfinitePlace K)), z.IsReal) ∧
+      Even (({v} : Finset (HeightOneSpectrum (𝓞 K))).card +
+        ({w} : Finset (InfinitePlace K)).card) := by
+  simpa using hw
+end QuaternionRamification
+
+-- The actual parity calculation for swapping one ramified and one split place.
+-- Ramification realization is the preceding theorem; this is its set-counting consequence.
+theorem quaternionSwap {V : Type*} [DecidableEq V] (S : Finset V)
+    (v τ : V) (hv : v ∉ S) (hτ : τ ∈ S) (hvt : v ≠ τ) :
+    Even S.card → Even (insert v (S.erase τ)).card := by
+  have hv' : v ∉ S.erase τ := fun h => hv (Finset.mem_of_mem_erase h)
+  have hpos : 0 < S.card := Finset.card_pos.mpr ⟨τ, hτ⟩
+  rw [Finset.card_insert_of_notMem hv', Finset.card_erase_of_mem hτ,
+    Nat.sub_add_cancel (Nat.succ_le_of_lt hpos)]
+  exact id
+
+example : Even (insert (2 : ℕ) (({0, 1} : Finset ℕ).erase 0)).card := by norm_num
+example : ¬ Even (insert (2 : ℕ) ({0, 1} : Finset ℕ)).card := by norm_num
+example : ¬ Even ({0} : Finset ℕ).card := by norm_num
+end Quaternion
+
+section Trace
+variable {G : Type*} [Group G]
+/-- Difference of the actual character-isotypic idempotents. Missing: eH/eK
+are the exact extended-Iwahori/Haar-normalized functions, χ unitary and their
+ω⁻¹ central equivariance. This function does not invent a test-function carrier. -/
+def steinbergProjectorDifference (eH eK : G → ℂ) : G → ℂ := by sorry
+lemma steinbergProjectorDifference_eval (eH eK : G → ℂ) (g : G) :
+    steinbergProjectorDifference eH eK g = eH g - eK g := by sorry
+lemma steinbergProjectorDifference_central (eH eK : G → ℂ) (z : G) (ωz : ℂ)
+    (hH : ∀ g, eH (z * g) = ωz⁻¹ * eH g)
+    (hK : ∀ g, eK (z * g) = ωz⁻¹ * eK g) (g : G) :
+    steinbergProjectorDifference eH eK (z * g) =
+      ωz⁻¹ * steinbergProjectorDifference eH eK g := by sorry
+/- Signature omissions: The integrated trace distributions of St⊗χdet, the determinant character and the unramified principal series are absent, so arbitrary trace functionals cannot take these values (the two former API statements contradicted each other); steinbergProjectorDifference with its evaluation, central and twist API and the two pointwise tests remain as true fragments.
+README targets: R17.2/steinberg-projector-difference.
+Omitted declaration names: TauCeti.GL2Blueprint.steinbergProjectorDifference_steinberg, TauCeti.GL2Blueprint.steinbergProjectorDifference_character.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.steinbergProjectorDifference_trivial_norm, TauCeti.GL2Blueprint.steinbergProjectorDifference_unramified_principal.
+-/
+lemma steinbergProjectorDifference_twist (eH eK η : G → ℂ) :
+    steinbergProjectorDifference (fun g => η g * eH g) (fun g => η g * eK g) =
+      fun g => η g * steinbergProjectorDifference eH eK g := by sorry
+-- TauCeti.GL2Blueprint.steinbergProjectorDifference_outside_support
+example (eH eK : G → ℂ) (g : G) (hH : eH g = 0) (hK : eK g = 0) :
+    steinbergProjectorDifference eH eK g = 0 := by sorry
+-- TauCeti.GL2Blueprint.steinbergProjectorDifference_scalar_twist
+example (eH eK η : G → ℂ) (g : G) :
+    steinbergProjectorDifference (fun x => η x * eH x) (fun x => η x * eK x) g =
+      η g * steinbergProjectorDifference eH eK g := by sorry
+/- Signature omissions: The inner-form and cyclic matching functions, the C_c^∞ carriers, norm classes, centralizer measures and Satake transforms are absent, so arbitrary orbital-integral maps cannot satisfy these identities and a transfer map between arbitrary types need not exist; cyclicMatching_central and the quadratic Satake arithmetic test remain below as true fragments.
+README targets: R17.2/quaternionic-orbital-matching, R17.2/cyclic-local-matching.
+Omitted declaration names: TauCeti.GL2Blueprint.quaternionicOrbitalMatching, TauCeti.GL2Blueprint.cyclicMatching, TauCeti.GL2Blueprint.cyclicMatching_norm, TauCeti.GL2Blueprint.cyclicMatching_non_norm, TauCeti.GL2Blueprint.cyclicMatching_unit, TauCeti.GL2Blueprint.cyclicMatching_satake.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.cyclicMatching_degree_one, TauCeti.GL2Blueprint.cyclicMatching_non_norm_test.
+-/
+lemma cyclicMatching_central {ZE ZF : Type*} [Group ZE] [Group ZF]
+    (norm : ZE →* ZF) (ω : ZF →* ℂˣ) (z : ZE) :
+    (ω.comp norm) z = ω (norm z) := by sorry
+-- TauCeti.GL2Blueprint.cyclicMatching_quadratic_satake
+example : ((2 : ℂ) ^ 2 + 3 ^ 2 = 13) ∧ ((2 : ℂ) ^ 2 * 3 ^ 2 = 36) := by sorry
+/- Signature omissions: The AS.2/AS.4/AS.6 and ET.4 trace distributions of a matched factorizable test function and its operators on Borel inductions are absent, so arbitrary complex scalars or endomorphisms cannot satisfy these identities.
+README targets: R17.2/continuous-residual-ledger, R17.2/strong-cuspidal-vanishing, R17.2/specialized-trace-comparison.
+Omitted declaration names: TauCeti.GL2Blueprint.spectralLedger, TauCeti.GL2Blueprint.strongCuspidalVanishing, TauCeti.GL2Blueprint.specializedTraceComparison, TauCeti.GL2Blueprint.jointSpectralAbsoluteBounds, TauCeti.GL2Blueprint.heckeMeasureSeparation.
+The companion target gives the separate derivative and logarithmic-orbital bounds.
+The circle fragment below only proves the zero-singleton step of that argument.
+-/
+end Trace
+
+section SpectralCircle
+open MeasureTheory
+open scoped ENNReal MeasureTheory
+
+-- The norm of the complex continuous spectral density is the nonnegative d.
+-- Its L¹ bound makes this measure finite; countable fibres give zero atoms
+-- even without a bound on d's essential supremum.
+theorem spectralCircle_fibre_countable (T : ℝ) (x : AddCircle T) :
+    Set.Countable ((fun t : ℝ => (t : AddCircle T)) ⁻¹' {x}) := by
+  obtain ⟨r, rfl⟩ := QuotientAddGroup.mk_surjective x
+  apply (Set.countable_range (fun n : ℤ => r + n • T)).mono
+  intro t ht
+  have htr : (t : AddCircle T) = (r : AddCircle T) := ht
+  have hz : ((t - r : ℝ) : AddCircle T) = 0 := by
+    rw [AddCircle.coe_sub, htr, sub_self]
+  obtain ⟨n, hn⟩ := (AddCircle.coe_eq_zero_iff T).mp hz
+  exact ⟨n, by dsimp; rw [hn]; ring⟩
+
+theorem spectralCircle_density_singleton (T : ℝ) [Fact (0 < T)]
+    (d : ℝ → ℝ≥0∞) (x : AddCircle T) :
+    ((volume.withDensity d).map (fun t : ℝ => (t : AddCircle T))) {x} = 0 := by
+  have hmeas : Measurable (fun t : ℝ => (t : AddCircle T)) :=
+    AddCircle.measurable_mk'
+  rw [Measure.map_apply hmeas (measurableSet_singleton x)]
+  exact (spectralCircle_fibre_countable T x).measure_zero (volume.withDensity d)
+
+-- Both the identity Weyl orbit and the other reflection-fixed orbit are null.
+example (d : ℝ → ℝ≥0∞) :
+    ((volume.withDensity d).map (fun t : ℝ => (t : AddCircle (1 : ℝ)))) {0} = 0 :=
+  spectralCircle_density_singleton 1 d 0
+
+example (d : ℝ → ℝ≥0∞) :
+    ((volume.withDensity d).map (fun t : ℝ => (t : AddCircle (1 : ℝ))))
+      {((1 / 2 : ℝ) : AddCircle (1 : ℝ))} = 0 :=
+  spectralCircle_density_singleton 1 d _
+
+-- An atom in the input survives periodization: the density hypothesis matters.
+example :
+    ((Measure.dirac (0 : ℝ)).map (fun t : ℝ => (t : AddCircle (1 : ℝ)))) {0} = 1 := by
+  have hmeas : Measurable (fun t : ℝ => (t : AddCircle (1 : ℝ))) :=
+    AddCircle.measurable_mk'
+  rw [Measure.map_apply hmeas (measurableSet_singleton 0)]
+  simp
+
+end SpectralCircle
+
+/- Signature omissions: The actual conductor-N weight-one primitive newforms and full-O(2) limit D₁(0) automorphic subtype, odd nebentypus and lowering-operator condition are unavailable. Weight one has parameter 1⊕sgn and is not a negative symmetric-power coefficient system.
+README targets: R16.6/weight-one-classical-comparison.
+Omitted declaration names: TauCeti.GL2Blueprint.weightOneClassicalComparison.
+-/
+end TauCeti.GL2Blueprint
+
+/-
+Supplier boundary for the converse and multiplicity interfaces:
+globalWhittakerExpansion imports AL.3/gln-fourier-expansion;
+globalMultiplicityOne imports AL.3/global-multiplicity-one after Fourier reconstruction;
+strong multiplicity one imports AL.3/strong-multiplicity-one.
+gl2Converse compares the full GL1 twist family with
+AL.3/gln-converse-full-rank at n=2, retaining the R16.5 local growth,
+genericity, archimedean, dual entireness, strip and epsilon hypotheses.
+AL.3/gln-converse-reduced-rank has n>=3 and supplies no rank-two shortcut.
+These ownership annotations add no missing native carrier or proof.
+-/
+
+/-
+Archimedean classification imports AF.1/weil-group-real,
+AF.1/gl2-real-discrete-series, AF.1/normalized-real-parabolic-induction,
+AF.1/langlands-classification, AF.1/vogan-generic-unitary-dual,
+AF.1/archimedean-llc-gln and AF.1/casselman-wallach-globalization.
+The README specifies the real parity/integer and complex z^p bar(z)^q
+boundaries, including the irreducible full-O(2) limit at real ratio sgn.
+Factors use AL.1/canonical-archimedean-factor and
+AL.2/archimedean-standard-epsilon, including complex epsilon i^|m|.
+These are imports from the single AF.1 owner; no proposed AF.1b split is
+required. The native class and factor interfaces must precede these signatures.
+-/
+
+namespace TauCeti.GL2Transfer
+
+open _root_.Matrix
+
+
+/- Signature omissions: Global JL is an equivalence only between the supplied non-norm quaternionic discrete spectrum and the D-compatible cuspidal GL₂ spectrum over the same number field and central character. All actual local JL, Hecke, twisting and inverse maps are required; an arbitrary pair of types need not be equivalent.
+README targets: R17.3/global-jl.
+Omitted declaration names: TauCeti.GL2Transfer.globalJL, TauCeti.GL2Transfer.globalJL_local, TauCeti.GL2Transfer.globalJL_central, TauCeti.GL2Transfer.globalJL_inverse, TauCeti.GL2Transfer.globalJL_twist, TauCeti.GL2Transfer.globalJL_split.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.jl_split_test, TauCeti.GL2Transfer.jl_steinberg_test, TauCeti.GL2Transfer.jl_eisenstein_excluded_test, TauCeti.GL2Transfer.jl_inverse_test.
+-/
+section Satake
+variable {K L : Type*} [CommRing K] [CommRing L]
+
+/-- The transfer-specific power rule on the existing GL, not a Satake carrier:
+the representative `A ^ f` of the base-changed Satake class at a place of residue
+degree `f`. f=0 is the formal matrix-power extension, not a field extension. -/
+def unramifiedBaseChange (A : GeneralLinearGroup (Fin 2) K)
+    (f : ℕ) : GeneralLinearGroup (Fin 2) K := A ^ f
+
+lemma unramifiedBaseChange_one (A : GeneralLinearGroup (Fin 2) K) :
+    unramifiedBaseChange A 1 = A := by sorry
+
+lemma unramifiedBaseChange_tower (A : GeneralLinearGroup (Fin 2) K) (f g : ℕ) :
+    unramifiedBaseChange (unramifiedBaseChange A f) g =
+      unramifiedBaseChange A (f * g) := by sorry
+
+lemma unramifiedBaseChange_conjugate (A P : GeneralLinearGroup (Fin 2) K) (f : ℕ) :
+    unramifiedBaseChange (P * A * P⁻¹) f = P * unramifiedBaseChange A f * P⁻¹ := by sorry
+
+lemma unramifiedBaseChange_det (A : GeneralLinearGroup (Fin 2) K) (f : ℕ) :
+    GeneralLinearGroup.det (unramifiedBaseChange A f) = GeneralLinearGroup.det A ^ f := by sorry
+
+lemma unramifiedBaseChange_map (φ : K →+* L) (A : GeneralLinearGroup (Fin 2) K) (f : ℕ) :
+    GeneralLinearGroup.map φ (unramifiedBaseChange A f) =
+      unramifiedBaseChange (GeneralLinearGroup.map φ A) f := by sorry
+
+-- TauCeti.GL2Transfer.bc_degree_one_test
+example (A : GeneralLinearGroup (Fin 2) K) : unramifiedBaseChange A 1 = A := by sorry
+
+-- TauCeti.GL2Transfer.bc_identity_test
+example (f : ℕ) : unramifiedBaseChange (1 : GeneralLinearGroup (Fin 2) K) f = 1 := by sorry
+
+-- TauCeti.GL2Transfer.bc_diagonal_square_test
+example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
+    (unramifiedBaseChange A 2).val = !![4, 0; 0, 9] ∧
+    (unramifiedBaseChange A 2).val.trace = 13 ∧
+    (unramifiedBaseChange A 2).val.det = 36 := by sorry
+
+-- TauCeti.GL2Transfer.bc_not_identity_test
+example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
+    unramifiedBaseChange A 2 ≠ unramifiedBaseChange A 1 := by sorry
+
+-- TauCeti.GL2Transfer.bc_tower_test
+example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
+    (unramifiedBaseChange (unramifiedBaseChange A 2) 3).val = !![64, 0; 0, 729] ∧
+    unramifiedBaseChange (unramifiedBaseChange A 2) 3 = unramifiedBaseChange A 6 := by sorry
+end Satake
+
+/- Signature omissions: Cyclic base change is a map only between the supplier's isobaric GL₂ classes over F and over the given prime-cyclic E/F, with the arithmetic LLC normalization and the R17.2 trace comparison, and its Galois invariance refers to the actual Gal(E/F) action on automorphic classes over E; a function between two arbitrary types, or invariance under an arbitrary self-map, is not this statement.
+README targets: R17.4/cyclic-base-change.
+Omitted declaration names: TauCeti.GL2Transfer.cyclicBaseChange, TauCeti.GL2Transfer.cyclicBaseChange_local, TauCeti.GL2Transfer.cyclicBaseChange_unramified, TauCeti.GL2Transfer.cyclicBaseChange_central, TauCeti.GL2Transfer.cyclicBaseChange_twist, TauCeti.GL2Transfer.cyclicBaseChange_galois, TauCeti.GL2Transfer.cyclicBaseChange_coefficients.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.cyclic_split_test, TauCeti.GL2Transfer.cyclic_inert_test, TauCeti.GL2Transfer.cyclic_induced_test, TauCeti.GL2Transfer.cyclic_odd_degree_test.
+-/
+section Cyclic
+variable {FClass EClass V W LF LE H HF HE C K : Type*} [CommRing K]
+
+-- TauCeti.GL2Transfer.cyclic_inert_test (matrix component)
+example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
+    (unramifiedBaseChange A 2).val = !![4, 0; 0, 9] := by sorry
+end Cyclic
+
+/- Signature omissions: Solvable base change is the isobaric class map for a finite solvable Galois E/F with chosen compatible embeddings, characterized independently of a prime-cyclic tower; maps between arbitrary types cannot satisfy the identity, tower and twist laws simultaneously.
+README targets: R17.4/solvable-base-change.
+Omitted declaration names: TauCeti.GL2Transfer.solvableBaseChange, TauCeti.GL2Transfer.solvableBaseChange_refl, TauCeti.GL2Transfer.solvableBaseChange_tower, TauCeti.GL2Transfer.solvableBaseChange_local, TauCeti.GL2Transfer.solvableBaseChange_twist.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.solvable_empty_test, TauCeti.GL2Transfer.solvable_two_towers_test, TauCeti.GL2Transfer.solvable_degree_six_test, TauCeti.GL2Transfer.solvable_cuspidality_test.
+-/
+section Solvable
+variable {FClass EClass LClass V W LF LE HF HE : Type*}
+
+-- TauCeti.GL2Transfer.solvable_degree_six_test (matrix component)
+example (A : GeneralLinearGroup (Fin 2) ℚ) (hA : A.val = !![2, 0; 0, 3]) :
+    (unramifiedBaseChange (unramifiedBaseChange A 2) 3).val = !![64, 0; 0, 729] := by sorry
+end Solvable
+
+/- Signature omissions: The Gelbart–Jacquet construction needs the genuine unitary cuspidal GL₂ and isobaric GL₃ carriers, all-place local factors/LLC and the distinct highly ramified T-converse input. The matrix component below does not construct an automorphic lift.
+README targets: R17.4/adjoint-lift.
+Omitted declaration names: TauCeti.GL2Transfer.adjointLift, TauCeti.GL2Transfer.adjointLift_local, TauCeti.GL2Transfer.adjointLift_unramified, TauCeti.GL2Transfer.adjointLift_twist, TauCeti.GL2Transfer.adjointLift_central.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.adjoint_diagonal_test, TauCeti.GL2Transfer.adjoint_scalar_test, TauCeti.GL2Transfer.adjoint_twist_test, TauCeti.GL2Transfer.adjoint_not_sym_square_test.
+-/
+section AdjointMatrix
+variable {K : Type*} [Field K]
+/-- The diagonal matrix formula only; automorphic existence is the omitted
+`adjointLift` interface. Nonzero Satake roots are required in comparisons. -/
+def adjointSatakeDiagonal (α β : K) : Matrix (Fin 3) (Fin 3) K :=
+  diagonal ![α / β, 1, β / α]
+
+-- TauCeti.GL2Transfer.adjoint_diagonal_test (matrix component)
+example : adjointSatakeDiagonal (2 : ℚ) 3 =
+    !![2/3, 0, 0; 0, 1, 0; 0, 0, 3/2] := by sorry
+-- TauCeti.GL2Transfer.adjoint_scalar_test (matrix component)
+example (a : K) (ha : a ≠ 0) : adjointSatakeDiagonal a a = 1 := by sorry
+-- TauCeti.GL2Transfer.adjoint_twist_test (matrix component)
+example (α β u : K) (hu : u ≠ 0) :
+    adjointSatakeDiagonal (u * α) (u * β) = adjointSatakeDiagonal α β := by sorry
+-- TauCeti.GL2Transfer.adjoint_not_sym_square_test (matrix component)
+example : adjointSatakeDiagonal (2 : ℚ) 3 ≠ diagonal ![4, 6, 9] := by sorry
+end AdjointMatrix
+
+section PureCubicPhase
+-- R17.4/nonnormal-cubic-base-change: a concrete norm-phase component.
+-- These identities do not assert local matching or automorphic transfer.
+/-- Multiplication by a+b*t+c*t² in the basis (1,t,t²), with t³=2. -/
+def pureCubicMatrix (a b c : ℚ) : Matrix (Fin 3) (Fin 3) ℚ :=
+  !![a, 2*c, 2*b; b, a, 2*c; c, b, a]
+def pureCubicNorm (a b c : ℚ) : ℚ := (pureCubicMatrix a b c).det
+def pureCubicQuadratic (a b c : ℚ) : ℚ :=
+  ((pureCubicMatrix a b c).trace ^ 2 -
+    (pureCubicMatrix a b c * pureCubicMatrix a b c).trace) / 2
+lemma pureCubicNorm_formula (a b c : ℚ) :
+    pureCubicNorm a b c = a^3 + 2*b^3 + 4*c^3 - 6*a*b*c := by
+  simp [pureCubicNorm, pureCubicMatrix, Matrix.det_fin_three]
+  ring
+lemma pureCubicQuadratic_formula (a b c : ℚ) :
+    pureCubicQuadratic a b c = 3*a^2 - 6*b*c := by
+  simp [pureCubicQuadratic, pureCubicMatrix, Matrix.trace_fin_three]
+  ring
+lemma pureCubicPhase_positive (a b c : ℚ) :
+    pureCubicNorm (1+a) b c - 3*(1+a) =
+      -2 + pureCubicQuadratic a b c + pureCubicNorm a b c := by
+  rw [pureCubicNorm_formula, pureCubicNorm_formula, pureCubicQuadratic_formula]
+  ring
+lemma pureCubicPhase_negative (a b c : ℚ) :
+    pureCubicNorm (-1+a) b c - 3*(-1+a) =
+      2 - pureCubicQuadratic a b c + pureCubicNorm a b c := by
+  rw [pureCubicNorm_formula, pureCubicNorm_formula, pureCubicQuadratic_formula]
+  ring
+example : pureCubicMatrix 0 1 0 ^ 3 = (2 : ℚ) • (1 : Matrix (Fin 3) (Fin 3) ℚ) := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [pureCubicMatrix, pow_succ, Matrix.mul_apply, Fin.sum_univ_succ]
+example : pureCubicMatrix 1 0 0 = 1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [pureCubicMatrix]
+example (a b c : ℚ) : pureCubicMatrix a b c 2 1 = b := rfl
+example : pureCubicNorm 0 1 0 = 2 := by
+  norm_num [pureCubicNorm_formula]
+example : pureCubicNorm 0 0 1 = 4 := by
+  norm_num [pureCubicNorm_formula]
+example : pureCubicNorm 1 1 1 = 1 := by
+  norm_num [pureCubicNorm_formula]
+example : pureCubicQuadratic 1 1 1 = -3 := by
+  norm_num [pureCubicQuadratic_formula]
+example : pureCubicQuadratic 0 1 0 = 0 := by
+  norm_num [pureCubicQuadratic_formula]
+example : pureCubicQuadratic 1 0 0 = 3 := by
+  norm_num [pureCubicQuadratic_formula]
+example : (Matrix.det (!![3, 0, 0; 0, 0, -3; 0, -3, 0] :
+    Matrix (Fin 3) (Fin 3) ℚ)) = (-108 : ℚ) / 4 := by
+  rw [Matrix.det_fin_three]
+  change (3*0*0 - 3*(-3)*(-3) - 0*0*0 + 0*(-3)*0 + 0*0*(-3) - 0*0*0 : ℚ) = -108/4
+  norm_num
+example : ¬ ∃ x : ZMod 8, x^2 = 5 := by decide
+end PureCubicPhase
+
+/- Signature omissions: Non-normal cubic base change uses actual cubic K/F,
+its S₃ closure L and quadratic resolvent E, Hecke-character and automorphic
+isobaric carriers, and the full WD restriction and local factors. The README
+constructs arbitrary cubic character induction from JPSS1979 Theorem14.2
+pp.253–255, with ET.6 pair compatibility, and applies the full n=2 converse.
+It checks dual entireness, strip bounds, centre, Euler convergence and the
+product of the local lambda factors. The exception is the norm-twist family
+of AI_{E/F}ξ; its output is the two-character isobaric class over K.
+README targets: R17.4/nonnormal-cubic-base-change.
+Omitted declaration names: TauCeti.GL2Transfer.cubicBaseChange,
+TauCeti.GL2Transfer.cubicBaseChange_local,
+TauCeti.GL2Transfer.cubicBaseChange_unramified,
+TauCeti.GL2Transfer.cubicBaseChange_twist,
+TauCeti.GL2Transfer.cubicBaseChange_central,
+TauCeti.GL2Transfer.cubicBaseChange_unique,
+TauCeti.GL2Transfer.cubicBaseChange_exception,
+TauCeti.GL2Transfer.nonnormalCubicInduction,
+TauCeti.GL2Transfer.nonnormalCubicInduction_local,
+TauCeti.GL2Transfer.nonnormalCubicInduction_standard,
+TauCeti.GL2Transfer.nonnormalCubicInduction_twist,
+TauCeti.GL2Transfer.nonnormalCubicInduction_norm.
+Full source-level tests awaiting these carriers:
+TauCeti.GL2Transfer.cubic_split_test, cubic_one_two_test, cubic_inert_test,
+cubic_not_three_test, cubic_exception_test, cubic_steinberg_test,
+nonnormal_induction_trivial_test, nonnormal_induction_norm_test,
+nonnormal_induction_non_norm_test, nonnormal_induction_inert_test,
+nonnormal_induction_transposition_test. Algebraic fixtures below test the
+standard S₃ matrices and their order-two restriction, not automorphy.
+-/
+section CubicExceptionFixtures
+-- Standard S₃ generators, with cycle C and reflection R. The generic
+-- representation and induction construction belongs to the upstream roadmap.
+example : (!![0, -1; 1, -1] : Matrix (Fin 2) (Fin 2) ℤ)^3 = 1 := by
+  decide
+example : (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)^2 = 1 := by
+  decide
+example :
+    (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ) * !![0, -1; 1, -1] *
+      !![0, 1; 1, 0] = (!![0, -1; 1, -1])^2 := by
+  decide
+-- A reflection fixes (1,1) and negates (1,-1): restriction is 1 ⊕ sgn.
+example : Matrix.mulVec (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)
+    ![1, 1] = ![1, 1] := by decide
+example : Matrix.mulVec (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)
+    ![1, -1] = ![-1, 1] := by decide
+example : Matrix.det (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ) = -1 := by
+  decide
+end CubicExceptionFixtures
+
+/- Signature omissions: Quadratic automorphic induction needs the quadratic K/F, the continuous Hecke-character carrier of K, its Galois conjugation, actual Weil induction and the isobaric and cuspidal GL₂ carriers; a map between arbitrary types, an arbitrary σ or an arbitrary cuspidal subtype does not express the cuspidality criterion.
+README targets: R17.4/quadratic-induction (accepted R17.5 target moved before the cubic use).
+Omitted declaration names: TauCeti.GL2Transfer.quadraticInduction, TauCeti.GL2Transfer.quadraticInduction_local, TauCeti.GL2Transfer.quadraticInduction_central, TauCeti.GL2Transfer.quadraticInduction_baseChange, TauCeti.GL2Transfer.quadraticInduction_twist, TauCeti.GL2Transfer.quadraticInduction_cuspidal.
+Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.induction_invariant_test, TauCeti.GL2Transfer.induction_split_test, TauCeti.GL2Transfer.induction_determinant_test, TauCeti.GL2Transfer.induction_noninvariant_test.
+-/
+section QuadraticInduction
+variable {FClass EClass H V L2 L1 HF C : Type*}
+
+-- In the basis {e, g e} the parameter of a coset element g is antidiagonal; its
+-- determinant -(a * b) carries the sign η_{K/F}(g) = -1.
+-- TauCeti.GL2Transfer.induction_determinant_test (matrix component)
+example {K : Type*} [CommRing K] (a b : K) :
+    (!![0, a; b, 0] : Matrix (Fin 2) (Fin 2) K).det = -(a * b) := by sorry
+end QuadraticInduction
+
+/- Signature omissions: The non-norm JL domain, eligible cuspidal range, actual Hecke/local-factor maps, compatible rational models and prescribed infinity/globalization hypotheses are required. Equality of rationality fields does not itself provide those models.
+README targets: R17.3/norm-exception, R17.3/split-hecke, R17.3/local-factors, R17.3/strong-multiplicity-one, R17.3/multiplicity-one, R17.3/coefficient-conjugation, R17.3/rational-models, R17.3/definite-infinity, R17.3/indefinite-parity, R17.3/invariant-exchange, R17.3/supercuspidal-globalization.
+Omitted declaration names: TauCeti.GL2Transfer.norm_exception, TauCeti.GL2Transfer.split_hecke, TauCeti.GL2Transfer.local_factors, TauCeti.GL2Transfer.strong_multiplicity_one, TauCeti.GL2Transfer.multiplicity_one, TauCeti.GL2Transfer.coefficient_conjugation, TauCeti.GL2Transfer.rational_models, TauCeti.GL2Transfer.definite_infinity, TauCeti.GL2Transfer.invariant_exchange, TauCeti.GL2Transfer.supercuspidal_globalization.
+-/
+
+-- Pure parity consequence of the supplied ramification parity.
+theorem indefinite_parity (d t : ℕ) (hd : 1 ≤ d) (h : Even ((d - 1) + t)) :
+    t % 2 = (d - 1) % 2 := by sorry
+
+/- Signature omissions: These R17.4 interfaces need the actual prime-cyclic or solvable extension, its Galois action on automorphic classes over E, the cuspidal subtypes, the norm-kernel characters and the localRep restriction maps; with arbitrary types, functions and ℓ they are false.
+README targets: R17.4/local-compatibility, R17.4/cyclic-descent, R17.4/cuspidality, R17.4/cyclic-descent-fibers, R17.4/isobaric-fibers, R17.4/tower-independence, R17.4/solvable-descent, R17.4/prescribed-local-base-change.
+Omitted declaration names: TauCeti.GL2Transfer.local_compatibility, TauCeti.GL2Transfer.cyclic_descent, TauCeti.GL2Transfer.cuspidality, TauCeti.GL2Transfer.cyclic_descent_fibers, TauCeti.GL2Transfer.isobaric_fibers, TauCeti.GL2Transfer.tower_independence, TauCeti.GL2Transfer.solvable_descent, TauCeti.GL2Transfer.prescribed_local_base_change.
+-/
+section BCTheorems
+variable {FClass EClass CF CE H V W LF LE C : Type*}
+
+/- Signature omissions: Cubic induction requires a cyclic degree-three number-field extension and its continuous Hecke-character carrier, actual Weil induction and local-factor maps. The non-invariant orbit is the cuspidal branch; an invariant character gives the three rank-one summands.
+README targets: R17.4/cubic-character-induction.
+Omitted declaration names: TauCeti.GL2Transfer.cubic_character_induction.
+-/
+/-
+Signature omission: TauCeti.GL2Transfer.gl3_recognition.
+The analytic input is AL.3/gln-converse-reduced-rank at n=3: all GL1 twists
+(or twists unramified at the specified finite S), dual entireness, strip bounds
+and the functional equation. Nonempty S gives agreement outside S only.
+The highly ramified T variant is the R17.4 filling-and-twisting corollary. The second input is
+AL.3/rs-global-poles with rs-boundary-nonvanishing and finiteness at s=1 of the
+omitted local factors (AL.2/jacquet-shalika-satake-bound at unramified places; the
+requested AL.3 unitary local convergence bound at ramified and archimedean places), for two unitary cuspidal GL3
+representations and equality of their Rankin–Selberg factors against the first
+dual, not equality of arbitrary objects or an isobaric uniqueness theorem.
+The actual representation, twist, completed L/epsilon and pole carriers are
+missing; this omission is not a theorem signature. The adjoint and cubic
+induction applications consume the analytic input.
+-/
+
+-- Carayol's extraordinary dyadic comparison (his §12.2.2 Proposition) is planned in
+-- AutomorphicGaloisRepresentations R19.2 (R19.2/carayol-cubic-base-change-of-extraordinary),
+-- which imports the cubic transfer and Artin automorphy from here; it is not restated.
+end BCTheorems
+
+/- Signature omissions: The torsion-idele extension needs the quotient
+μ_n(F)\μ_n(𝔸_F) and its complex-place condition. It differs from prescription
+on full F_v×. Mathlib already supplies the idele class group at the pin;
+the arithmetic signatures below reuse it. Current Tau Ceti's HeckeCharacter
+abbreviates this carrier. Full-local prescription is planned below, with its
+Chevalley/ray-quotient proof chain in R16.1/full-local-character-prescription.
+The integral finite-group lifting contract and Brauer character interfaces below
+provide R17.5/odd-residual-lift; the Galois inflation and topology interface is omitted.
+README targets: R17.5/finite-hecke-extension, R17.5/odd-residual-lift.
+Omitted declaration names: TauCeti.GL2Transfer.finite_hecke_extension, TauCeti.GL2Transfer.odd_residual_lift.
+-/
+
+/-- Descent and finite-character extension through an open finite quotient.
+The congruence subgroup N is an input, not an arithmetic existence claim. -/
+theorem finite_character_extension_iff
+    {G : Type*} [CommGroup G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (H N : Subgroup G) [N.FiniteIndex] (hN : IsOpen (N : Set G))
+    (χ : H →* ℂˣ) :
+    (∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = χ h) ∧
+      (∀ n ∈ N, Ψ n = 1) ∧
+      (Set.range Ψ).Finite ∧
+      (∀ g : G, Ψ g ^ Monoid.exponent (G ⧸ N) = 1)) ↔
+    ∀ h : H, (h : G) ∈ N → χ h = 1 := by
+  constructor
+  · rintro ⟨Ψ, hΨ, hker, -, -⟩ h hh
+    rw [← hΨ h]
+    exact hker h hh
+  · intro hχ
+    let q := QuotientGroup.mk' N
+    let f : H →* G ⧸ N := q.comp H.subtype
+    have hf : f.rangeRestrict.ker ≤ χ.ker := by
+      intro h hh
+      apply hχ
+      have he : f h = 1 := congrArg Subtype.val hh
+      exact (QuotientGroup.eq_one_iff _).mp he
+    let ξ : f.range →* ℂˣ :=
+      f.rangeRestrict.liftOfSurjective f.rangeRestrict_surjective ⟨χ, hf⟩
+    obtain ⟨η, hη⟩ := MonoidHom.domRestrict_surjective ℂ f.range ξ
+    let : DiscreteTopology (G ⧸ N) := QuotientGroup.discreteTopology hN
+    let Ψ : ContinuousMonoidHom G ℂˣ :=
+      { toMonoidHom := η.comp q
+        continuous_toFun :=
+          (show Continuous (η : G ⧸ N → ℂˣ) from continuous_of_discreteTopology).comp
+            (show Continuous (q : G → G ⧸ N) from QuotientGroup.continuous_mk) }
+    refine ⟨Ψ, ?_, ?_, ?_, ?_⟩
+    · intro h
+      have hre := congrArg (fun ψ : f.range →* ℂˣ => ψ (f.rangeRestrict h)) hη
+      change η (f h) = χ h
+      rw [show η (f h) = ξ (f.rangeRestrict h) from hre]
+      exact MonoidHom.liftOfRightInverse_comp_apply _ _ _ _ _
+    · intro n hn
+      change η (q n) = 1
+      rw [show q n = 1 from (QuotientGroup.eq_one_iff n).mpr hn, η.map_one]
+    · exact (Set.finite_range η).subset (by rintro y ⟨g, rfl⟩; exact ⟨q g, rfl⟩)
+    · intro g
+      change η (q g) ^ Monoid.exponent (G ⧸ N) = 1
+      rw [← η.map_pow, Monoid.pow_exponent_eq_one, η.map_one]
+
+-- Trivial local data extends even when the ambient group is infinite.
+example {G : Type*} [CommGroup G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (H : Subgroup G) :
+    ∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = 1) ∧ (∀ g : G, Ψ g = 1) ∧ (Set.range Ψ).Finite := by
+  obtain ⟨Ψ, hext, hker, hfinite, -⟩ :=
+    (finite_character_extension_iff H ⊤ isOpen_univ (1 : H →* ℂˣ)).mpr
+      (by intro h _; rfl)
+  exact ⟨Ψ, hext, fun g => hker g (by trivial), hfinite⟩
+
+-- In a finite discrete ambient group every subgroup character extends.
+example {G : Type*} [CommGroup G] [Finite G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [DiscreteTopology G] (H : Subgroup G) (χ : H →* ℂˣ) :
+    ∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = χ h) ∧ (Set.range Ψ).Finite := by
+  obtain ⟨Ψ, hext, -, hfinite, -⟩ :=
+    (finite_character_extension_iff H ⊥ (isOpen_discrete _) χ).mpr
+      (by intro h hh; have he : h = 1 := Subtype.ext hh; rw [he, χ.map_one])
+  exact ⟨Ψ, hext, hfinite⟩
+
+-- A nontrivial value on the intersection forbids an extension killing N.
+example {G : Type*} [CommGroup G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (H N : Subgroup G) [N.FiniteIndex] (hN : IsOpen (N : Set G))
+    (χ : H →* ℂˣ) (h : H) (hh : (h : G) ∈ N) (hne : χ h ≠ 1) :
+    ¬ ∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = χ h) ∧ (∀ n ∈ N, Ψ n = 1) ∧ (Set.range Ψ).Finite ∧
+      (∀ g : G, Ψ g ^ Monoid.exponent (G ⧸ N) = 1) := by
+  intro hext
+  exact hne ((finite_character_extension_iff H N hN χ).mp hext h hh)
+
+
+section ArithmeticCharacterPrescription
+open NumberField IsDedekindDomain TauCeti.GlobalNumberFields
+open scoped NumberField
+
+-- Chevalley, Theorem 1, primary proof §§1–5 pp. 36–39: the proof chain is in the README.
+-- These are planned arithmetic theorems; their sorry proofs claim no implementation.
+variable {K : Type*} [Field K] [NumberField K]
+
+theorem fg_of_units_outside_finset (E : Subgroup Kˣ)
+    (S : Finset (HeightOneSpectrum (𝓞 K)))
+    (hE : ∀ x : E, ∀ v : HeightOneSpectrum (𝓞 K), v ∉ S →
+      v.valuation K (((x : Kˣ) : K)) = 1) : E.FG := by
+  sorry
+
+theorem chevalley_power_congruence (E : Subgroup Kˣ) [Group.FG E]
+    (n : ℕ) (hn : 0 < n) (T : Finset (HeightOneSpectrum (𝓞 K))) :
+    ∃ m : Modulus K, m.infinitePart = ∅ ∧ Disjoint m.support T ∧
+      ∀ x : E, IsCongrOne m (x : Kˣ) → ∃ y : E, y ^ n = x := by
+  sorry
+
+theorem chevalley_finiteIndex_congruence (E : Subgroup Kˣ) [Group.FG E]
+    (H : Subgroup E) [H.FiniteIndex] (T : Finset (HeightOneSpectrum (𝓞 K))) :
+    ∃ m : Modulus K, m.infinitePart = ∅ ∧ Disjoint m.support T ∧
+      ∀ x : E, IsCongrOne m (x : Kˣ) → x ∈ H := by
+  obtain ⟨m, hm, hT, hp⟩ := chevalley_power_congruence E
+    (Monoid.exponent (E ⧸ H))
+    (Nat.pos_of_ne_zero (Monoid.exponent_ne_zero_of_finite (G := E ⧸ H))) T
+  refine ⟨m, hm, hT, ?_⟩
+  intro x hx
+  obtain ⟨y, rfl⟩ := hp x hx
+  apply (QuotientGroup.eq_one_iff _).mp
+  change (QuotientGroup.mk' H) (y ^ Monoid.exponent (E ⧸ H)) = 1
+  rw [map_pow, Monoid.pow_exponent_eq_one]
+
+theorem finite_hecke_full_local_prescription
+    (S : Finset (HeightOneSpectrum (𝓞 K)))
+    (χ : ∀ v : S, ContinuousMonoidHom (v.val.adicCompletion K)ˣ ℂˣ)
+    (hχ : ∀ v : S, (Set.range (χ v)).Finite) :
+    ∃ Ψ : ContinuousMonoidHom (IdeleClassGroup (𝓞 K) K) ℂˣ,
+      (Set.range Ψ).Finite ∧
+      (∀ v : S, Ψ.toMonoidHom.comp
+        (IdeleClassGroup.ofAdicCompletion (𝓞 K) K v.val) = (χ v).toMonoidHom) ∧
+      (∀ w : InfinitePlace K, Ψ.toMonoidHom.comp
+        (IdeleClassGroup.ofCompletion (𝓞 K) K w) = 1) := by
+  sorry
+
+end ArithmeticCharacterPrescription
+
+/- A concrete domain test: the unramified quadratic character of ℚ₂× and
+the trivial character agree on integral units and torsion, but differ at 2.
+This proves no global extension theorem. -/
+section FullLocalCharacterTests
+open Filter
+open scoped Topology
+
+private def unramifiedQuadraticTwo : ContinuousMonoidHom ℚ_[2]ˣ ℂˣ where
+  toFun u := (-1 : ℂˣ) ^ (u : ℚ_[2]).valuation
+  map_one' := by simp
+  map_mul' u v := by
+    simp only [Units.val_mul, Padic.valuation_mul u.ne_zero v.ne_zero, _root_.zpow_add]
+  continuous_toFun := by
+    apply IsLocallyConstant.continuous
+    rw [IsLocallyConstant.iff_eventually_eq]
+    intro u
+    have hball : ∀ᶠ v : ℚ_[2]ˣ in 𝓝 u, ‖(v : ℚ_[2]) - u‖ < ‖(u : ℚ_[2])‖ :=
+      (Units.continuous_val.sub continuous_const).norm.continuousAt.eventually
+        (gt_mem_nhds (by simp))
+    filter_upwards [hball] with v hv
+    have hn := Padic.norm_eq_of_norm_sub_lt_right hv
+    rw [Padic.norm_eq_zpow_neg_valuation v.ne_zero,
+      Padic.norm_eq_zpow_neg_valuation u.ne_zero] at hn
+    have he : (v : ℚ_[2]).valuation = (u : ℚ_[2]).valuation := by
+      exact neg_injective ((zpow_right_inj₀ (by norm_num : (0 : ℝ) < 2)
+        (by norm_num : (2 : ℝ) ≠ 1)).mp hn)
+    rw [he]
+
+private def twoUnit : ℚ_[2]ˣ := Units.mk0 2 (by norm_num)
+
+example : unramifiedQuadraticTwo twoUnit = (-1 : ℂˣ) := by
+  change (-1 : ℂˣ) ^ Padic.valuation (2 : ℚ_[2]) = -1
+  rw [show Padic.valuation (2 : ℚ_[2]) = 1 from by
+    exact Padic.valuation_p (p := 2), zpow_one]
+
+example (u : ℚ_[2]ˣ) (hu : (u : ℚ_[2]).valuation = 0) :
+    unramifiedQuadraticTwo u = 1 := by
+  change (-1 : ℂˣ) ^ (u : ℚ_[2]).valuation = 1
+  rw [hu, zpow_zero]
+
+example (u : ℚ_[2]ˣ) : unramifiedQuadraticTwo u ^ 2 = 1 := by
+  change ((-1 : ℂˣ) ^ (u : ℚ_[2]).valuation) ^ 2 = 1
+  rw [← zpow_natCast, ← _root_.zpow_mul, mul_comm, _root_.zpow_mul]
+  norm_num
+
+example (u : ℚ_[2]ˣ) (hu : IsOfFinOrder u) : unramifiedQuadraticTwo u = 1 := by
+  obtain ⟨n, hn, hpow⟩ := isOfFinOrder_iff_pow_eq_one.mp hu
+  have hv : (u : ℚ_[2]).valuation = 0 := by
+    have hp : (u : ℚ_[2]) ^ n = 1 := congrArg Units.val hpow
+    have he := congrArg Padic.valuation hp
+    rw [Padic.valuation_pow, Padic.valuation_one] at he
+    exact (mul_eq_zero.mp he).resolve_left (by exact_mod_cast hn.ne')
+  change (-1 : ℂˣ) ^ (u : ℚ_[2]).valuation = 1
+  rw [hv, zpow_zero]
+
+example : unramifiedQuadraticTwo ≠ 1 := by
+  intro h
+  have he := DFunLike.congr_fun h twoUnit
+  change (-1 : ℂˣ) ^ Padic.valuation (2 : ℚ_[2]) = 1 at he
+  rw [show Padic.valuation (2 : ℚ_[2]) = 1 from by
+    exact Padic.valuation_p (p := 2), zpow_one] at he
+  have hcoe := congrArg (fun u : ℂˣ => (u : ℂ)) he
+  norm_num at hcoe
+
+/- The finite arithmetic witness for auxiliary ramification at 5. These
+examples use Mathlib's Dirichlet-character carrier; they do not assert a
+Dirichlet-to-Hecke comparison or general prescribed-local existence. -/
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+private abbrev quadraticDirichletFive : DirichletCharacter ℂ 5 :=
+  (quadraticChar (ZMod 5)).ringHomComp (Int.castRingHom ℂ)
+
+private lemma quadraticDirichletFive_two : quadraticDirichletFive 2 = -1 := by
+  have h : quadraticChar (ZMod 5) 2 = -1 :=
+    quadraticChar_neg_one_iff_not_isSquare.mpr (by decide)
+  simp only [quadraticDirichletFive, MulChar.ringHomComp_apply, h, map_neg, map_one]
+
+example : quadraticDirichletFive 0 = 0 := MulChar.map_zero quadraticDirichletFive
+
+example : quadraticDirichletFive 2 = -1 := quadraticDirichletFive_two
+
+example : quadraticDirichletFive (-1) = 1 := by
+  have h : quadraticChar (ZMod 5) (-1) = 1 :=
+    (quadraticChar_one_iff_isSquare (F := ZMod 5) (by norm_num)).mpr
+      ⟨(2 : ZMod 5), by decide⟩
+  simp only [quadraticDirichletFive, MulChar.ringHomComp_apply, h, map_one]
+
+example : quadraticDirichletFive ^ 2 = 1 :=
+  ((quadraticChar_isQuadratic (ZMod 5)).comp (Int.castRingHom ℂ)).sq_eq_one
+
+private lemma quadraticDirichletFive_ne_one : quadraticDirichletFive ≠ 1 := by
+  intro h
+  have he := DFunLike.congr_fun h (2 : ZMod 5)
+  rw [quadraticDirichletFive_two,
+    MulChar.one_apply (by decide : IsUnit (2 : ZMod 5))] at he
+  norm_num at he
+
+example : quadraticDirichletFive ≠ 1 := quadraticDirichletFive_ne_one
+
+example : quadraticDirichletFive.IsPrimitive := by
+  change DirichletCharacter.conductor quadraticDirichletFive = 5
+  rcases (Nat.dvd_prime (by decide : Nat.Prime 5)).mp
+      (DirichletCharacter.conductor_dvd_level quadraticDirichletFive) with h1 | h5
+  · exact False.elim (quadraticDirichletFive_ne_one
+      ((DirichletCharacter.eq_one_iff_conductor_eq_one
+        (χ := quadraticDirichletFive)).mpr h1))
+  · exact h5
+
+/- Finite-quotient character extension may increase order: the nontrivial
+quadratic character of {0, 2} ≤ ℤ/4ℤ extends to a quartic character, and no
+extension has square one. These are finite-group checks, not an arithmetic
+prescription theorem or a Grunwald–Wang counterexample. -/
+private def quarticCharacter : AddChar (ZMod 4) ℂ where
+  toFun a := Complex.I ^ a.val
+  map_zero_eq_one' := by norm_num
+  map_add_eq_mul' := by
+    intro a b
+    rw [ZMod.val_add]
+    fin_cases a <;> fin_cases b <;>
+      norm_num [ZMod.val, pow_succ, Complex.I_mul_I, mul_assoc]
+
+private theorem characterExtensionOrder_square_ne_one
+    (χ : AddChar (ZMod 4) ℂ) (hχ : χ 2 = -1) : χ ^ 2 ≠ 1 := by
+  intro h
+  have htwo : χ 2 = χ 1 ^ 2 := by
+    simpa only [show (1 : ZMod 4) + 1 = 2 from rfl, pow_two] using
+      χ.map_add_eq_mul (1 : ZMod 4) 1
+  have hsq : χ 1 ^ 2 = 1 := by
+    simpa using DFunLike.congr_fun h (1 : ZMod 4)
+  rw [htwo, hsq] at hχ
+  norm_num at hχ
+
+example (χ : AddChar (ZMod 4) ℂ) (a : ZMod 4) (ha : a + a = 0) : χ a ^ 2 = 1 := by
+  rw [pow_two, ← χ.map_add_eq_mul, ha, χ.map_zero_eq_one]
+
+example : quarticCharacter 2 = -1 := by
+  change Complex.I ^ (2 : ZMod 4).val = -1
+  rw [show (2 : ZMod 4).val = 2 from rfl]
+  exact Complex.I_sq
+
+example : quarticCharacter ^ 4 = 1 := by
+  ext a
+  change (Complex.I ^ a.val) ^ 4 = 1
+  fin_cases a <;> norm_num [ZMod.val, pow_succ, Complex.I_mul_I, mul_assoc]
+
+example : quarticCharacter ^ 2 ≠ 1 := by
+  apply characterExtensionOrder_square_ne_one
+  change Complex.I ^ (2 : ZMod 4).val = -1
+  rw [show (2 : ZMod 4).val = 2 from rfl]
+  exact Complex.I_sq
+
+example (χ : AddChar (ZMod 4) ℂ) (hχ : χ 2 = -1) : χ ^ 2 ≠ 1 :=
+  characterExtensionOrder_square_ne_one χ hχ
+
+end FullLocalCharacterTests
+
+open Matrix IsDedekindDomain
+open scoped BigOperators NumberField
+
+section ModularCharacters
+variable {Γ k : Type*} [Group Γ] [Finite Γ] [Field k] [IsAlgClosed k]
+variable (p : ℕ) [Fact p.Prime] [CharP k p]
+variable (m : ℕ) (hm : 0 < m) (hmp : Nat.Coprime m p)
+variable (hΓ : ∀ g : Γ, Nat.Coprime (orderOf g) p → orderOf g ∣ m)
+variable (τ : rootsOfUnity m k ≃* rootsOfUnity m ℂ)
+
+/-- Sum of the τ-lifts of the eigenvalues, with algebraic multiplicities;
+defined only on p-regular elements. This is not reduction of the ordinary trace. -/
+def brauerCharacter (p : ℕ) [Fact p.Prime] [CharP k p]
+    (m : ℕ) (hm : 0 < m) (hmp : Nat.Coprime m p)
+    (hΓ : ∀ g : Γ, Nat.Coprime (orderOf g) p → orderOf g ∣ m)
+    (τ : rootsOfUnity m k ≃* rootsOfUnity m ℂ)
+    (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k) :
+    {g : Γ // Nat.Coprime (orderOf g) p} → ℂ := by
+  sorry
+
+lemma brauerCharacter_spectrum (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k)
+    (g : {g : Γ // Nat.Coprime (orderOf g) p}) (a : Fin n → rootsOfUnity m k)
+    (ha : (r g.val).val.charpoly =
+      ∏ i : Fin n, (Polynomial.X - Polynomial.C ((a i : kˣ) : k))) :
+    brauerCharacter p m hm hmp hΓ τ n r g =
+      ∑ i : Fin n, ((τ (a i) : ℂˣ) : ℂ) := by sorry
+
+lemma brauerCharacter_one (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k) :
+    brauerCharacter p m hm hmp hΓ τ n r ⟨1, by simp⟩ = n := by sorry
+
+lemma brauerCharacter_conjugate (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k)
+    (g h : {g : Γ // Nat.Coprime (orderOf g) p}) (x : Γ)
+    (hx : h.val = x * g.val * x⁻¹) :
+    brauerCharacter p m hm hmp hΓ τ n r h =
+      brauerCharacter p m hm hmp hΓ τ n r g := by sorry
+
+-- A scalar root is lifted as a root, rather than as an integer representative of its trace.
+example (r : Γ →* GeneralLinearGroup (Fin 1) k)
+    (g : {g : Γ // Nat.Coprime (orderOf g) p}) (a : rootsOfUnity m k)
+    (ha : (r g.val).val.charpoly = Polynomial.X - Polynomial.C ((a : kˣ) : k)) :
+    brauerCharacter p m hm hmp hΓ τ 1 r g = ((τ a : ℂˣ) : ℂ) := by sorry
+
+-- Primitive cube roots give -1, including in residual characteristic two.
+example (r : Γ →* GeneralLinearGroup (Fin 2) k)
+    (g : {g : Γ // Nat.Coprime (orderOf g) p}) (a : rootsOfUnity m k)
+    (ha : (r g.val).val.charpoly =
+      (Polynomial.X - Polynomial.C ((a : kˣ) : k)) *
+      (Polynomial.X - Polynomial.C (((a ^ 2) : kˣ) : k)))
+    (hτ : IsPrimitiveRoot ((τ a : ℂˣ) : ℂ) 3) :
+    brauerCharacter p m hm hmp hΓ τ 2 r g = -1 := by sorry
+
+-- The identity detects the rank in characteristic zero, even when p divides it.
+example (r : Γ →* GeneralLinearGroup (Fin p) k) :
+    brauerCharacter p m hm hmp hΓ τ p r ⟨1, by simp⟩ = (p : ℂ) ∧ (p : ℂ) ≠ 0 := by
+  constructor
+  · exact brauerCharacter_one p m hm hmp hΓ τ p r
+  · exact Nat.cast_ne_zero.mpr (Nat.Prime.ne_zero Fact.out)
+
+end ModularCharacters
+
+/-- Fong–Swan with a stable free lattice and the supplied residual module. -/
+theorem solvable_finite_image_integral_lift
+    (Γ : Type*) [Group Γ] [Finite Γ] (hsolv : Group.IsSolvable Γ)
+    (p : ℕ) [Fact p.Prime]
+    (k : Type*) [Field k] [CharP k p] [IsAlgClosed k]
+    (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k)
+    (hirr : Representation.IsIrreducible
+      ((Units.coeHom (Module.End k (Fin n → k))).comp
+        (GeneralLinearGroup.toLin.toMonoidHom.comp r))) :
+    ∃ (E : Type) (_ : Field E) (_ : NumberField E)
+      (v : HeightOneSpectrum (𝓞 E)),
+      letI : v.asIdeal.IsPrime := v.isPrime
+      ∃ (f : Localization.AtPrime v.asIdeal →+* k)
+        (ρ : Γ →* GeneralLinearGroup (Fin n) (Localization.AtPrime v.asIdeal))
+        (P : GeneralLinearGroup (Fin n) k),
+        RingHom.ker f = IsLocalRing.maximalIdeal (Localization.AtPrime v.asIdeal) ∧
+        ∀ g : Γ, r g = P * GeneralLinearGroup.map f (ρ g) * P⁻¹ := by
+  sorry
+
+
+/- Reduction detects oddness once a genuine integral lift and its residual
+comparison have been constructed. This algebraic fragment does not construct
+that lift. README target: R17.5/odd-residual-lift. -/
+section OddReductionTests
+/-- Reduction at odd residue characteristic detects the sign of an involution. -/
+theorem involution_det_eq_neg_one_of_reduction
+    {R k : Type*} [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (A : GeneralLinearGroup (Fin 2) R) (hA : A ^ 2 = 1)
+    (hred : GeneralLinearGroup.det (GeneralLinearGroup.map f A) = (-1 : kˣ)) :
+    GeneralLinearGroup.det A = (-1 : Rˣ) := by
+  have hsq : (GeneralLinearGroup.det A : R) ^ 2 = 1 := by
+    have h := congrArg (fun B => (GeneralLinearGroup.det B : R)) hA
+    simpa using h
+  rcases sq_eq_one_iff.mp hsq with hpos | hneg
+  · have hmap : f (GeneralLinearGroup.det A : R) = (-1 : k) := by
+      have h := congrArg (fun u : kˣ => (u : k)) hred
+      simpa only [GeneralLinearGroup.map_det, Units.coe_map, MonoidHom.coe_coe,
+        Units.val_neg, Units.val_one] using h
+    rw [hpos, map_one] at hmap
+    have hzero : (2 : k) = 0 := by
+      calc
+        (2 : k) = 1 + 1 := by norm_num
+        _ = -1 + 1 := congrArg (fun x : k => x + 1) hmap
+        _ = 0 := by simp
+    exact False.elim (h2 hzero)
+  · exact Units.ext hneg
+
+/-- Apply the sign comparison to a representation at a chosen involution. -/
+theorem involution_odd_of_reduction
+    {G R k : Type*} [Group G] [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (ρ : G →* GeneralLinearGroup (Fin 2) R) (c : G) (hc : c ^ 2 = 1)
+    (hred : GeneralLinearGroup.det (GeneralLinearGroup.map f (ρ c)) = (-1 : kˣ)) :
+    GeneralLinearGroup.det (ρ c) = (-1 : Rˣ) :=
+  involution_det_eq_neg_one_of_reduction f h2 (ρ c)
+    (by rw [← map_pow, hc, map_one]) hred
+
+private def mixedSignInvolution : GeneralLinearGroup (Fin 2) ℤ where
+  val := !![1, 0; 0, -1]
+  inv := !![1, 0; 0, -1]
+  val_inv := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_succ]
+  inv_val := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_succ]
+
+local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
+
+-- Mixed eigenvalues 1 and -1 give an odd involution at residue characteristic 3.
+example : GeneralLinearGroup.det mixedSignInvolution = (-1 : ℤˣ) := by
+  apply involution_det_eq_neg_one_of_reduction (Int.castRingHom (ZMod 3)) (by decide)
+  · apply Units.ext
+    rw [pow_two]
+    change mixedSignInvolution.val * mixedSignInvolution.val = (1 : Matrix (Fin 2) (Fin 2) ℤ)
+    exact mixedSignInvolution.val_inv
+  · rw [GeneralLinearGroup.map_det]
+    apply Units.ext
+    norm_num [mixedSignInvolution, GeneralLinearGroup.det, Matrix.det_fin_two]
+
+-- A scalar -I has determinant +1 in rank two, so it is not residual oddness.
+example : GeneralLinearGroup.det
+    (GeneralLinearGroup.map (Int.castRingHom (ZMod 3))
+      (GeneralLinearGroup.scalar (Fin 2) (-1 : ℤˣ))) = 1 := by
+  rw [GeneralLinearGroup.map_det, GeneralLinearGroup.det_scalar]
+  norm_num
+
+-- At characteristic 2 the identity reduces to determinant -1 but is not odd.
+example : (1 : GeneralLinearGroup (Fin 2) ℤ) ^ 2 = 1 ∧
+    GeneralLinearGroup.det
+      (GeneralLinearGroup.map (Int.castRingHom (ZMod 2))
+        (1 : GeneralLinearGroup (Fin 2) ℤ)) = (-1 : (ZMod 2)ˣ) ∧
+    GeneralLinearGroup.det (1 : GeneralLinearGroup (Fin 2) ℤ) ≠ (-1 : ℤˣ) := by
+  constructor
+  · simp
+  constructor
+  · simp only [map_one]
+    apply Units.ext
+    norm_num
+  · simp only [map_one]
+    intro h
+    have hval := congrArg (fun u : ℤˣ => (u : ℤ)) h
+    norm_num at hval
+
+/- A lattice comparison supplies an isomorphism, not a preferred common basis.
+Conjugacy by its change-of-basis matrix is sufficient for the oddness step. -/
+theorem involution_det_eq_neg_one_of_residual_conjugacy
+    {R k : Type*} [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (A : GeneralLinearGroup (Fin 2) R) (hA : A ^ 2 = 1)
+    (B P : GeneralLinearGroup (Fin 2) k)
+    (hcomp : B = P * GeneralLinearGroup.map f A * P⁻¹)
+    (hodd : GeneralLinearGroup.det B = (-1 : kˣ)) :
+    GeneralLinearGroup.det A = (-1 : Rˣ) := by
+  apply involution_det_eq_neg_one_of_reduction f h2 A hA
+  have hdet : GeneralLinearGroup.det B =
+      GeneralLinearGroup.det (GeneralLinearGroup.map f A) := by
+    simp [hcomp, mul_assoc]
+  exact hdet.symm.trans hodd
+
+/-- Oddness transfers across a specified residual representation isomorphism. -/
+theorem involution_odd_of_residual_conjugacy
+    {G R k : Type*} [Group G] [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (ρ : G →* GeneralLinearGroup (Fin 2) R)
+    (rbar : G →* GeneralLinearGroup (Fin 2) k)
+    (P : GeneralLinearGroup (Fin 2) k)
+    (hcomp : ∀ g, rbar g = P * GeneralLinearGroup.map f (ρ g) * P⁻¹)
+    (c : G) (hc : c ^ 2 = 1)
+    (hodd : GeneralLinearGroup.det (rbar c) = (-1 : kˣ)) :
+    GeneralLinearGroup.det (ρ c) = (-1 : Rˣ) :=
+  involution_det_eq_neg_one_of_residual_conjugacy f h2 (ρ c)
+    (by rw [← map_pow, hc, map_one]) (rbar c) P (hcomp c) hodd
+
+-- The mixed-sign integral involution remains residually odd in every basis.
+example (P : GeneralLinearGroup (Fin 2) (ZMod 3)) :
+    GeneralLinearGroup.det mixedSignInvolution = (-1 : ℤˣ) := by
+  let f := Int.castRingHom (ZMod 3)
+  let B := P * GeneralLinearGroup.map f mixedSignInvolution * P⁻¹
+  have hA : mixedSignInvolution ^ 2 = 1 := by
+    apply Units.ext
+    rw [pow_two]
+    change mixedSignInvolution.val * mixedSignInvolution.val = (1 : Matrix (Fin 2) (Fin 2) ℤ)
+    exact mixedSignInvolution.val_inv
+  apply involution_det_eq_neg_one_of_residual_conjugacy f (by decide)
+    mixedSignInvolution hA B P rfl
+  have hred : GeneralLinearGroup.det (GeneralLinearGroup.map f mixedSignInvolution) =
+      (-1 : (ZMod 3)ˣ) := by
+    rw [GeneralLinearGroup.map_det]
+    apply Units.ext
+    norm_num [f, mixedSignInvolution, GeneralLinearGroup.det, Matrix.det_fin_two]
+  simp [B, hred, mul_assoc]
+
+-- A basis change cannot make the scalar -I residually odd in rank two.
+example (P : GeneralLinearGroup (Fin 2) (ZMod 3)) :
+    GeneralLinearGroup.det
+      (P * GeneralLinearGroup.map (Int.castRingHom (ZMod 3))
+        (GeneralLinearGroup.scalar (Fin 2) (-1 : ℤˣ)) * P⁻¹) = 1 := by
+  simp [GeneralLinearGroup.map_det, mul_assoc]
+
+-- An arbitrary residual basis still cannot distinguish determinant signs at 2.
+example (P : GeneralLinearGroup (Fin 2) (ZMod 2)) :
+    (1 : GeneralLinearGroup (Fin 2) ℤ) ^ 2 = 1 ∧
+    GeneralLinearGroup.det
+      (P * GeneralLinearGroup.map (Int.castRingHom (ZMod 2))
+        (1 : GeneralLinearGroup (Fin 2) ℤ) * P⁻¹) = (-1 : (ZMod 2)ˣ) ∧
+    GeneralLinearGroup.det (1 : GeneralLinearGroup (Fin 2) ℤ) ≠ (-1 : ℤˣ) := by
+  constructor
+  · simp
+  constructor
+  · simp only [map_one, mul_one, mul_inv_cancel]
+    apply Units.ext
+    norm_num
+  · simp only [map_one]
+    intro h
+    have hval := congrArg (fun u : ℤˣ => (u : ℤ)) h
+    norm_num at hval
+
+end OddReductionTests
+
+section ArithmeticLifting
+variable {G I T : Type*} [Group G] [Group I] [Group T]
+
+-- AddCircle 1 over Q is the existing additive Q/Z quotient, with trivial action.
+-- Q/Z is discrete, so continuous cochains on the Krull-topologized G_F are the
+-- locally constant ones. The equation displays exactly the trivial-action
+-- 2-cocycle condition, without a fake H² type. Generic groups fail this.
+theorem tate_vanishing (F : Type*) [Field F] [NumberField F]
+    (α : Field.absoluteGaloisGroup F → Field.absoluteGaloisGroup F → AddCircle (1 : ℚ))
+    (hcont : IsLocallyConstant
+      (fun p : Field.absoluteGaloisGroup F × Field.absoluteGaloisGroup F => α p.1 p.2))
+    (hα : ∀ g h k, α g h + α (g * h) k = α g (h * k) + α h k) :
+    ∃ b : Field.absoluteGaloisGroup F → AddCircle (1 : ℚ),
+      IsLocallyConstant b ∧ ∀ g h, α g h = b g + b h - b (g * h) := by sorry
+
+-- r is continuous with discrete finite image, i.e. its kernel is open in the
+-- Krull topology; the lift has the same property. Generic groups do not have
+-- this lifting property. The matrix/projective carriers are already in Mathlib.
+theorem finite_projective_lift (F : Type*) [Field F] [NumberField F]
+    (r : Field.absoluteGaloisGroup F →* ProjGenLinGroup (Fin 2) ℂ)
+    (hr : IsOpen (r.ker : Set (Field.absoluteGaloisGroup F))) :
+    ∃ ρ : Field.absoluteGaloisGroup F →* GeneralLinearGroup (Fin 2) ℂ,
+      IsOpen (ρ.ker : Set (Field.absoluteGaloisGroup F)) ∧ Set.Finite (Set.range ρ) ∧
+        ProjGenLinGroup.mk.comp ρ = r := by sorry
+
+end ArithmeticLifting
+
+/- Signature omissions: The continuous finite-image irreducible Galois representation, actual projective-image classification, local Weil data and automorphic parameter maps must be typed. The dihedral/tetrahedral/octahedral/solvable source hypotheses cannot be discarded from the existential automorphy statement.
+README targets: R17.5/dihedral-artin, R17.5/tetrahedral-artin, R17.5/octahedral-artin, R17.5/solvable-artin.
+Omitted declaration names: TauCeti.GL2Transfer.dihedral_artin, TauCeti.GL2Transfer.tetrahedral_artin, TauCeti.GL2Transfer.octahedral_artin, TauCeti.GL2Transfer.solvable_artin.
+-/
+/- Signature omissions: Use the actual G_Q or totally-real G_F, finite-image irreducible odd representation, its solvable image and the genuine weight-one classical/adelic dictionary. Conductor, nebentypus and all-place infinity-type hypotheses remain. The totally real extension is still requested from R16.6.
+README targets: R17.5/q-weight-one, R17.5/tr-weight-one, R17.5/residual-lt-application.
+Omitted declaration names: TauCeti.GL2Transfer.q_weight_one, TauCeti.GL2Transfer.tr_weight_one, TauCeti.GL2Transfer.residual_lt_application.
+-/
+/-! The finite section for the mod-three application. -/
+/- Signature omissions: Tunnell's globalisation, Carayol's prescribed-local induction and the octahedral mod-3 application need the p-adic Weil group, the number-field globalisation data, the CM Hecke-character carrier and the normalized weight-one newform carrier; existence over arbitrary index types and maps is false.
+README targets: R17.5/tunnell-primitive-globalization, R17.5/prescribed-local-induction, R17.5/octahedral-mod-three-application.
+Omitted declaration names: TauCeti.GL2Transfer.tunnell_primitive_globalization, TauCeti.GL2Transfer.prescribed_local_induction, TauCeti.GL2Transfer.octahedral_mod_three_application.
+-/
+/- The two additional analytic signatures require the actual admissible GL₃
+restricted tensor representation, its completed twisted factors, and the
+finite-image Artin/automorphic GL₂ carriers of AF, AL, R01 and ET.6.
+README targets: R17.4/highly-ramified-converse and
+R17.5/artin-all-place-upgrade.
+Omitted names: TauCeti.GL2Transfer.highlyRamifiedConverse,
+TauCeti.GL2Transfer.artinAllPlaceUpgrade.
+The README specifies the fill-and-twist construction, the archimedean
+hypothesis, and the local factor cancellation; arbitrary predicates would
+not encode these theorems.
+-/
+section FiniteSection
+
+/-- Reduction modulo λ = (1 + √−2): ℤ[√−2] → F₃, sending √−2 to −1. -/
+def redSqrtNegTwo : ℤ√(-2) →+* ZMod 3 := Zsqrtd.lift ⟨-1, by decide⟩
+
+/-- The section used by the octahedral mod-3 application (Darmon–Diamond–Taylor,
+Theorem 3.14(a)): an injective homomorphism GL₂(F₃) → GL₂(ℤ[√−2]) reducing to the
+identity modulo (1 + √−2). Use the explicit generators in Darmon–Diamond–Taylor; the matrix
+and quadratic-integer carriers already exist at the pins. -/
+theorem gl2F3_section :
+    ∃ s : GeneralLinearGroup (Fin 2) (ZMod 3) →* GeneralLinearGroup (Fin 2) (ℤ√(-2)),
+      Function.Injective s ∧
+        (GeneralLinearGroup.map redSqrtNegTwo).comp s = MonoidHom.id _ := by sorry
+
+end FiniteSection
+
+/- Signature omissions: The characteristic-two applications need G_Q, continuity, absolute irreducibility with the stated projective image, and the actual Katz, classical and witness carriers with their q-expansion, level, character, conductor and residual maps; existence claims over arbitrary carriers and maps are false.
+README targets: R17.6/solvable-dihedral, R17.6/rt-technical-lemma, R17.6/serre-odd-trick, R17.6/rohrlich-tunnell, R17.6/wiese-odd-lift, R17.6/unramified-katz, R17.6/qualitative-residual-modularity, R17.6/weight-two-witness.
+Omitted declaration names: TauCeti.GL2Transfer.solvable_dihedral, TauCeti.GL2Transfer.rt_technical_lemma, TauCeti.GL2Transfer.serre_odd_trick, TauCeti.GL2Transfer.rohrlich_tunnell, TauCeti.GL2Transfer.wiese_odd_lift, TauCeti.GL2Transfer.unramified_katz, TauCeti.GL2Transfer.qualitative_residual_modularity, TauCeti.GL2Transfer.weight_two_witness.
+-/
+/- Signature omissions: The classical attachments in R17.6 require the actual
+modular-curve eigenprojector realization, coefficient descent and integral
+ramified local–global comparison. At F=Q the modular-curve tower itself is
+Carayol's parabolic realization (2.2, 4.9); no change to a compact quaternionic
+carrier is involved. The special branch requires the nonzero Picard–Lefschetz
+map onto the normalization kernel (Langlands 7.14), and the ramified trace
+formula follows from Varshavsky math/0505564v2, Theorem 2.1.3, applied to
+(c₂,c₁) when d>a and its Verdier-dual transpose when a>d. The ideal lemma
+below proves the contraction exponents; it does not encode the six operations
+or the local trace. Retain D(j!F)=Rj*DF at cusps. The odd-prime
+comparison needed at ell=2 uses the ordinary cases of Carayol's Theorem B;
+extraordinary dyadic compatibility at ell not equal to 2 additionally uses
+strong cubic transfer. Good-place trace data alone do not supply these maps.
+README targets: R17.6/classical-parabolic-realization,
+R17.6/classical-higher-weight-attachment,
+R17.6/classical-weight-one-attachment, R17.6/classical-conductor-comparison.
+Suggested names: TauCeti.GL2Transfer.classical_parabolic_realization,
+TauCeti.GL2Transfer.classical_higher_weight_attachment,
+TauCeti.GL2Transfer.classical_weight_one_attachment,
+TauCeti.GL2Transfer.classical_conductor_comparison.
+-/
+section RamifiedCurveIdeals
+
+/-- The ideal-power test for contraction of the reordered curve correspondence
+with ramification orders a<d. The witness n=a works even when a>1. -/
+theorem ramification_contraction {R : Type*} [CommRing R] (I : Ideal R)
+    {a d : ℕ} (ha : 0 < a) (had : a < d) :
+    I ^ d ≤ I ^ a ∧ ∃ n : ℕ, 0 < n ∧ (I ^ d) ^ n ≤ (I ^ a) ^ (n + 1) := by
+  constructor
+  · exact Ideal.pow_le_pow_right (Nat.le_of_lt had)
+  · refine ⟨a, ha, ?_⟩
+    rw [← pow_mul, ← pow_mul]
+    apply Ideal.pow_le_pow_right
+    have hstep : a + 1 ≤ d := had
+    simpa only [Nat.mul_comm a d] using Nat.mul_le_mul_left a hstep
+
+-- The Frobenius branch is contracting in the ordinary-stalk orientation.
+example {R : Type*} [CommRing R] (I : Ideal R) {d : ℕ} (hd : 1 < d) :
+    I ^ d ≤ I ^ 1 ∧ ∃ n : ℕ, 0 < n ∧ (I ^ d) ^ n ≤ (I ^ 1) ^ (n + 1) :=
+  ramification_contraction I (by decide) hd
+
+-- Both branches may be ramified: n=2 gives (I³)² ⊆ (I²)³.
+example {R : Type*} [CommRing R] (I : Ideal R) : (I ^ 3) ^ 2 ≤ (I ^ 2) ^ 3 := by
+  rw [← pow_mul, ← pow_mul]
+
+-- Equal orders do not satisfy the contraction test for a nonzero proper ideal.
+example : ¬ ∃ n : ℕ, 0 < n ∧
+    ((Ideal.span ({(2 : ℤ)} : Set ℤ)) ^ 1) ^ n ≤
+      ((Ideal.span ({(2 : ℤ)} : Set ℤ)) ^ 1) ^ (n + 1) := by
+  rintro ⟨n, _, h⟩
+  simp only [pow_one, Ideal.span_singleton_pow,
+    Ideal.span_singleton_le_span_singleton] at h
+  have horder : n + 1 ≤ n :=
+    (pow_dvd_pow_iff (by norm_num : (2 : ℤ) ≠ 0)
+      (by norm_num [Int.isUnit_iff] : ¬ IsUnit (2 : ℤ))).mp h
+  exact Nat.not_succ_le_self n horder
+
+end RamifiedCurveIdeals
+
+section CharacteristicTwo
+variable {G : Type*} [Group G] {k : Type*} [Field k] [CharP k 2]
+
+-- Missing: k algebraically closed, r continuous absolutely irreducible with
+-- finite solvable projective image. Here is the actual scalar normalization;
+-- the identification of its linear image with odd dihedral D_n is in the README.
+theorem determinant_untwist (r : G →* GeneralLinearGroup (Fin 2) k)
+    (hfinite : Set.Finite (Set.range r)) :
+    ∃ ξ : G →* kˣ, Set.Finite (Set.range ξ) ∧
+      ∀ g, ξ g ^ 2 = GeneralLinearGroup.det (r g) ∧
+        GeneralLinearGroup.det (GeneralLinearGroup.scalar (Fin 2) (ξ g)⁻¹ * r g) = 1 := by sorry
+
+-- Missing: r̄₀ = Ind φ, its Teichmüller lift φ̃, D = disc K, normF = N_{K/Q} f(φ̃) and
+-- N = N(r̄₀); hcond is the conductor formula |D|·N f(φ̃) = 2^ν N proved in the README.
+-- hfund is the 2-adic shape of a fundamental discriminant. Given these, the four
+-- dyadic cases of Rohrlich–Tunnell §2 fix ν (case (ii) is printed "D ≡ ±5 (mod 8)",
+-- and ν = 3 belongs to case (iv), not (iii)).
+theorem teichmuller_conductor (D : ℤ) (normF N ν : ℕ) (hN : Odd N)
+    (hfund : D % 4 = 1 ∨ D % 16 = 8 ∨ D % 16 = 12)
+    (hcond : D.natAbs * normF = 2 ^ ν * N) :
+    (Odd D → Odd normF → ν = 0) ∧ (D % 8 = 5 → normF % 8 = 4 → ν = 2) ∧
+      (D % 8 = 4 → Odd normF → ν = 2) ∧ (D % 8 = 0 → Odd normF → ν = 3) := by sorry
+
+end CharacteristicTwo
+
+/- Signature omissions: Compatible descent and the potential-modularity interface need the actual cyclic or solvable automorphic descent, Galois invariance, a λ-independent twist and the supplied intermediate Galois attachments; existence over an arbitrary class type is false.
+README targets: R17.6/compatible-descent, R17.6/potential-modularity-interface.
+Omitted declaration names: TauCeti.GL2Transfer.compatible_descent, TauCeti.GL2Transfer.potential_modularity_interface.
+-/
+section TransferExports
+variable {G H V W FClass EClass Λ K : Type*} [Group G] [Group H] [Field K]
+
+-- Missing the Galois specialization: G=G_F, H=G_E, i the restriction. Linear
+-- disjointness of E from the projective-kernel field M is exactly what gives
+-- hdisj (G_E surjects onto Gal(M/F)). Equality of projective ranges is the
+-- criterion that gives residual absolute irreducibility, imported from R01.4.
+theorem disjoint_irreducibility (i : H →* G)
+    (r : G →* GeneralLinearGroup (Fin 2) K)
+    (hdisj : i.range ⊔ (ProjGenLinGroup.mk.comp r).ker = ⊤) :
+    Set.range (ProjGenLinGroup.mk.comp (r.comp i)) = Set.range (ProjGenLinGroup.mk.comp r) := by sorry
+
+-- The index-two Mackey criterion on Mathlib's induced representation, over any
+-- algebraically closed field (characteristic two included); over ℚ it fails, e.g.
+-- for Z/4 ⊃ Z/2 and the sign character. Missing only the Galois specialization:
+-- Γ = G_F, Kgp = G_K for the quadratic K/F and E = G_E for a finite E/F. σθ is the
+-- one-dimensional representation of θ. In characteristic zero and for finite Γ,
+-- TauCeti.simple_indFDRep_ofLinearCharacter_iff is the pinned unrestricted case.
+-- Restricted to E, Ind θ is irreducible exactly when E ⊄ Kgp and θ differs from
+-- its conjugate on E ∩ Kgp; when E ≤ Kgp it is the sum of two characters.
+theorem quadratic_restriction {Γ k : Type*} [Group Γ] [Field k] [IsAlgClosed k]
+    (Kgp E : Subgroup Γ)
+    [Kgp.Normal] (hK : Kgp.index = 2) (θ : Kgp →* kˣ) (σθ : Representation k Kgp k)
+    (hσθ : ∀ x, σθ x = (θ x : k) • LinearMap.id) :
+    Representation.IsIrreducible ((Representation.ind Kgp.subtype σθ).comp E.subtype) ↔
+      ∃ s ∈ E, s ∉ Kgp ∧ ∃ x : Kgp, (x : Γ) ∈ E ∧ θ x ≠ θ (MulAut.conjNormal s x) := by
+  sorry
+
+-- Missing the actual compatible-family polynomial projection and λ-independent
+-- coefficient field; this explicit formula compares each restricted Frobenius.
+theorem compatible_base_change (ρ : Λ → G →* GeneralLinearGroup (Fin 2) K)
+    (i : H →* G) (FrobF : V → G) (FrobE : W → H) (below : W → V) (f : W → ℕ)
+    (hfrob : ∀ w, i (FrobE w) = FrobF (below w) ^ f w) :
+    ∀ ell w, ρ ell (i (FrobE w)) = unramifiedBaseChange (ρ ell (FrobF (below w))) (f w) := by sorry
+
+end TransferExports
+
+end TauCeti.GL2Transfer

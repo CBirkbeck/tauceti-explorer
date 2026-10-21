@@ -1,0 +1,158 @@
+{
+  "id": "SelmerIwasawaCohomologyPartII",
+  "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology, Part II: p-adic height pairings and bi-extensions of cycles",
+  "area": "iwasawa",
+  "parent": "SelmerIwasawaCohomology",
+  "summary": "Construct p-adic heights for geometrically trivial cycles on smooth projective varieties, with local Kummer indices and the canonical Panchishkin splitting. Prove the uniform crystalline bi-extension theorem using supported syntomic Abel–Jacobi classes, strict semistable alterations, compatible period comparisons and deeper-stratum annihilators. The target-level plan records its exact supplier interfaces and the local-height proof-verification gap; arithmetic level raising and adjoint Selmer vanishing receive separate ownership proposals.",
+  "readme": "The reader document research/blueprint/readmes/SelmerIwasawaCohomologyPartII.md states every target, API, unit test and source locator. This continuation begins after the parent L4 finite local conditions and uses existing CR.6, RD.4 and PH period infrastructure. Its central arithmetic result is DL24 Theorem A.8 with n<p, saturated disjointness under every correspondence and the asymmetric stratum codimension bound. The canonical local construction includes exceptional quotients; G1 prevents closure of that proof. Generic Bockstein and curve-specific applications retain their existing owners. The two independent paper continuations in issue #3430 are assigned to the explicit split proposals in this packet.",
+  "prerequisites": [
+    "ArithmeticGaloisDuality",
+    "ArithmeticGaloisRepresentations",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DeligneWeightsAndPurity",
+    "EtaleDualityAndPerverseSheaves",
+    "MotivesAndAlgebraicCycles",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "SchemeAndStackFoundations",
+    "SelmerIwasawaCohomology",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  ],
+  "stages": [
+    {
+      "key": "HP.0",
+      "title": "Geometric classes and mixed extensions",
+      "description": "Construct admissible geometric coefficient towers, the continuous geometric Hochschild–Serre edge with its fixed connecting-cocycle convention, finite étale span correspondences with support transport, geometrically trivial and V-restricted cycle domains, and the mixed extension of disjoint complementary cycles. Import raw cycles, enhanced localization, Poincaré trace and generic continuous-cochain/limit machinery; retain singular supports and distinguish geometric from arithmetic cycle-class vanishing. Targets: Admissible geometric coefficient towers, Geometric Hochschild–Serre edge map, Connecting cocycles with fixed signs, Finite étale correspondences and support transport, Geometrically trivial cycles and Selmer-restricted cycles, Mixed extension of disjoint cycles.",
+      "requires": [
+        "ArithmeticGaloisDuality:D7",
+        "ArithmeticGaloisDuality:R02.1",
+        "MotivesAndAlgebraicCycles:MC.0",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "SchemeAndStackFoundations:SF.5",
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ]
+    },
+    {
+      "key": "HP.1",
+      "title": "Local indices and canonical global heights",
+      "description": "Compare the non-p Kummer local index with the cup/Mayer–Vietoris index, normalized so the trace-boundary sends a uniformizer to −1. Define the Panchishkin subrepresentation, prove its crystalline weak-admissibility criterion and extension stability inside the crystalline category, and show geometric AJ classes on the stated pure semistable summands satisfy the finite condition. Construct the canonical local Kummer-torsor height with its completed-unit criterion and the idelic global height under (V1)–(V3), including local decomposition. The canonical local proof with exceptional quotients is explicitly G1; no unconditional Bockstein identification is asserted. Targets: Local index away from p, Equality with the Beilinson local index, The Panchishkin subrepresentation, Crystalline Panchishkin criterion and extension stability, Finite Abel–Jacobi classes for pure semistable summands, Canonical local height of finite mixed extensions, Global height and its cycle decomposition.",
+      "requires": [
+        "SelmerIwasawaCohomologyPartII:HP.0",
+        "SelmerIwasawaCohomology:L0",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "SelmerIwasawaCohomology:L4",
+        "PadicHodgeTheory:R06.2",
+        "CrystallineCohomology:CR.4",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "CohomologyComparisons:CP.4",
+        "DeligneWeightsAndPurity:DWP.7",
+        "SelmerIwasawaCohomology:L1",
+        "ArithmeticGaloisDuality:R02.4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+      ]
+    },
+    {
+      "key": "HP.2",
+      "title": "Syntomic cycles with proper support",
+      "description": "From the supplier-owned integral Kato/Sato sheaves construct the supported syntomic complex, the heart defined by geometric vanishing of its étale image, and its B_cris-valued Abel–Jacobi edge. Under the imported d-density predicate define the unique log-rigid obstruction through the monodromy quotient and prove the supported cycle lift has zero positive residue. Import CR.6/RD.4 log complexes, support and spectral-sequence definitions, rather than recreate them. Targets: Supported syntomic Abel–Jacobi domain, The log-rigid obstruction map, Syntomic lifts of supported cycle classes.",
+      "requires": [
+        "SelmerIwasawaCohomologyPartII:HP.0",
+        "PadicHodgeTheory:R06.5",
+        "CrystallineCohomology:CR.6",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.3"
+      ]
+    },
+    {
+      "key": "HP.3",
+      "title": "Alteration and compatible period comparisons",
+      "description": "Choose a strict semistable alteration with flat horizontal boundary, and form supported coefficient diagrams by coherent enhanced boundary totalization. Prove the exact admissibility/base-change claims for the unbarred log and barred log/trivial period complexes, construct their compatible supported B_st comparison and the weight-raising edge compatibility, and deduce the all-degree strict-pair kernel comparison. Transfer it by compact-support trace to ker ρ⊆ker(res α) after one finite extension depending on the open. Retain the Frobenius-restricted monodromy edge; the altered open need not be d-dense. Targets: Altered semistable pairs and coherent boundary complexes, The supported period diagram of an altered pair, Admissibility and cohomology of the boundary period diagram, Period comparison with compatible syntomic maps, Compatibility of the syntomic Abel–Jacobi edge, Strict-pair kernel comparison in every degree, Kernel comparison after one finite extension.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.4",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "CrystallineCohomology:CR.6",
+        "PadicHodgeTheory:R06.5",
+        "PadicHodgeTheory:R06.1",
+        "SelmerIwasawaCohomologyPartII:HP.0",
+        "SelmerIwasawaCohomologyPartII:HP.2",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4"
+      ]
+    },
+    {
+      "key": "HP.4",
+      "title": "Correspondence annihilators and finite classes",
+      "description": "Prove finite-filtration annihilation, and use the imported supported and positive weight sequences to bound the obstruction kernel by 4d−1 deeper-stratum pieces. The ideal I annihilating all deeper-stratum cohomology then kills it through I^{4n−5}. Combine the syntomic cycle lift and kernel comparison to obtain the finite supported Abel–Jacobi theorem with source U_t and target U. Show a localization with no deeper-stratum cohomology cuts out a crystalline pure weight −1 summand and gives uniform elements outside the maximal ideals. Targets: Annihilation from a finite filtration, Deeper-stratum annihilation of the rigid obstruction, Finite supported Abel–Jacobi classes after annihilation, Crystalline pure localized cohomology.",
+      "requires": [
+        "SelmerIwasawaCohomologyPartII:HP.0",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "CrystallineCohomology:CR.6",
+        "SelmerIwasawaCohomologyPartII:HP.2",
+        "SelmerIwasawaCohomologyPartII:HP.3",
+        "SelmerIwasawaCohomology:L4",
+        "PadicHodgeTheory:R06.5",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7"
+      ]
+    },
+    {
+      "key": "HP.5",
+      "title": "Crystalline bi-extensions and height units",
+      "description": "Prove the localized finite-condition exactness and pushout for an extension whose dual class is finite and supported in the crystalline pure summand. Apply the finite supported AJ theorem three times to obtain uniform t,t′ independent of cycles under saturated disjointness and the asymmetric stratum codimension bound. Descend the full extension only through the injective valuation quotient. Deduce finite bi-extensions for disjoint closures on a proper smooth model when n<p, and completed-unit local heights when the canonical-height hypotheses hold. Targets: Finite-condition exactness for the localized extension, Uniform crystalline cycle bi-extensions, Disjoint closures on a smooth model.",
+      "requires": [
+        "SelmerIwasawaCohomologyPartII:HP.4",
+        "SelmerIwasawaCohomology:L4",
+        "PadicHodgeTheory:R06.2",
+        "SelmerIwasawaCohomologyPartII:HP.0",
+        "SelmerIwasawaCohomology:L0",
+        "SelmerIwasawaCohomologyPartII:HP.1"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "DL24",
+      "title": "A p-adic arithmetic inner product formula",
+      "authors": "Daniel Disegni; Yifeng Liu",
+      "edition": "Inventiones mathematicae 236 (2024), 219–371; version of record, with arXiv:2204.09239v3 compared",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-024-01243-7.pdf",
+      "sha256": "e8c4e026fab0fe89fd7dcbc724009af7b867ad910937ffb9fa7e72289f0f1ef8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Appendices A and B, published pp. 320–368; all statements and proofs read in arXiv v3, and journal locators and corrected displays checked in the published PDF.",
+        "Introduction, pp. 221–222, definition of Γ_{K,p}; §4.5, equation (4.8), p. 293."
+      ]
+    },
+    {
+      "id": "NEK-SC",
+      "title": "Selmer complexes",
+      "authors": "Jan Nekovář",
+      "edition": "Astérisque 310 (2006), Numdam public scan",
+      "url": "https://www.numdam.org/item/AST_2006__310__R1_0.pdf",
+      "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§11.3, pp. 363–374, particularly §11.3.9: norm heights and the sign of the Bockstein comparison.",
+        "§11.4, pp. 375–382: assumptions §11.4.1, exceptional quotient spaces and the canonical-height correction in §11.4.5–11.4.6."
+      ]
+    },
+    {
+      "id": "SCHOLL94",
+      "title": "Height pairings and special values of L-functions",
+      "authors": "A. J. Scholl",
+      "edition": "Author copy of Proc. Sympos. Pure Math. 55.1 (1994), 571–598; locators here use the author copy’s printed pages",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/height-all.pdf",
+      "sha256": "e1214babfd7c4e4c47847472aa7a94fdaadfd65ecac81618088d54c1962d3e12",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§5.0–5.4, Theorem 5.3 and the extension/cup comparison diagram, author-copy printed pp. 18–21, read on page images; theorem assumptions in §5.0 and referenced §3.6 distinguished from the étale computation used here."
+      ]
+    }
+  ],
+  "status": "draft"
+}

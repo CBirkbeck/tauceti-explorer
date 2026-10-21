@@ -1,0 +1,2825 @@
+{
+ "roadmapId": "LieHighestWeightPartII",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "LieHighestWeightPartII:N0",
+  "LieHighestWeightPartII:N1",
+  "LieHighestWeightPartII:N2",
+  "LieHighestWeightPartII:N3",
+  "LieHighestWeightPartII:N4",
+  "LieHighestWeightPartII:N5"
+ ],
+ "status": "complete",
+ "summary": "Extend the existing highest-weight roadmap by zero-inclusive sl2 triples, their nilpotent adjoint orbits and increasing representation filtrations. Prove recognition using classical standard and half-spin modules and independently certified exceptional adjoint profiles. Construct geometric weight patterns and prove that they determine the positive real part of a complex semisimple parameter. The integral completion and category-O briefs have independent successor owners, recorded under restructure.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:IsSl2Triple",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/Sl2.lean",
+    "provides": "The three sl2 bracket relations together with h≠0; excludes the zero triple.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:LieModule.toEnd",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/OfAssociative.lean",
+    "provides": "The native Lie homomorphism taking x to its action on a Lie module.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:LieAlgebra.ad",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/OfAssociative.lean",
+    "provides": "The adjoint action as a Lie homomorphism to module endomorphisms.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:LieAlgebra.IsKilling",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/Killing.lean",
+    "provides": "Nondegeneracy of the Killing form, used as the finite-dimensional characteristic-zero semisimplicity hypothesis.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.FilteredObject",
+    "kind": "declaration",
+    "module": "Mathlib/CategoryTheory/Filtration/Basic.lean",
+    "provides": "An underlying object with a filtration by monomorphisms, with its existing category and commuting morphisms.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "tauceti:TauCeti.iSup_eigenspace_toEnd_intCast_eq_top",
+    "kind": "declaration",
+    "module": "TauCeti/Algebra/Lie/Sl2/Spectrum.lean",
+    "provides": "For a nonzero sl2 triple, finite modules over an algebraically closed characteristic-zero field are sums of integer eigenspaces.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "tauceti:TauCeti.exists_int_of_hasEigenvalue",
+    "kind": "declaration",
+    "module": "TauCeti/Algebra/Lie/Sl2/Spectrum.lean",
+    "provides": "Eigenvalues of a triple neutral element in a finite module are integers; the actual declaration has weaker general ring hypotheses.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "tauceti:TauCeti.finrank_eigenspace_toEnd_neg",
+    "kind": "declaration",
+    "module": "TauCeti/Algebra/Lie/Sl2/WeightMultiplicity.lean",
+    "provides": "Finite modules over characteristic-zero fields have equal multiplicities at opposite weights.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "tauceti:TauCeti.Sl2Std.exists_isInternal_lieModuleEquiv",
+    "kind": "declaration",
+    "module": "TauCeti/Algebra/Lie/Sl2/Decomposition.lean",
+    "provides": "Decomposition of finite sl2 modules into standard highest-weight modules, over an algebraically closed characteristic-zero field.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "tauceti:TauCeti.lieHomOfSl2Basis",
+    "kind": "declaration",
+    "module": "TauCeti/Algebra/Lie/Sl2/Basic.lean",
+    "provides": "Constructs a Lie homomorphism from an sl2 basis and images satisfying the bracket relations, including zero images.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "tauceti:TauCeti.DynkinType.cartanMatrix",
+    "kind": "declaration",
+    "module": "TauCeti/LinearAlgebra/RootSystem/DynkinType.lean",
+    "provides": "Bourbaki-ordered integral Cartan matrices, with Aij=〈αi,αj∨〉.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "tauceti:TauCeti.oppositionPerm",
+    "kind": "declaration",
+    "module": "TauCeti/LinearAlgebra/RootSystem/Opposition.lean",
+    "provides": "The permutation of a chosen root base induced by −w0, with root and coroot compatibility.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:LieModule.isNilpotent_iff_forall",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/Engel.lean",
+    "provides": "Engel’s theorem: for a Noetherian Lie algebra, its module is nilpotent iff every action endomorphism is nilpotent. Applied to the centralizer acting on the finite adjoint module, it yields a faithful nilpotent and hence solvable algebra.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:LieDerivation.IsKilling.exists_eq_ad",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/Derivation/Killing.lean",
+    "provides": "Every derivation of a finite-dimensional Killing Lie algebra over a field is inner; no algebraic closedness hypothesis is required.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:Module.End.exists_isNilpotent_isSemisimple",
+    "kind": "declaration",
+    "module": "Mathlib/LinearAlgebra/JordanChevalley.lean",
+    "provides": "Over a perfect field, a finite-dimensional endomorphism has commuting nilpotent and semisimple parts in its generated algebra.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:LieModule.exists_nontrivial_weightSpace_of_isSolvable",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/LieTheorem.lean",
+    "provides": "Lie’s theorem with solvability and the native IsTriangularizable hypothesis; over the present algebraically closed field finite endomorphisms split, supplying this hypothesis. Apply recursively to quotients to triangularize.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   },
+   {
+    "ref": "mathlib:LieDerivation.exp",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Lie/Derivation/Basic.lean",
+    "provides": "A nilpotent derivation exponentiates to a native Lie equivalence in characteristic zero, given the rational module structure; finite sums rather than analytic exponentials.",
+    "checked": "Actual statement read using git show at the pinned commit, 2026-10-18."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "CH",
+   "title": "On the generalized Ramanujan and Arthur conjectures over function fields",
+   "authors": "Dan Ciubotaru; Michael Harris",
+   "edition": "arXiv:2311.15300v1, 26 November 2023; printed page numbering. Annals 204 (2026), 545–601 is a distinct, uncollated revision.",
+   "url": "https://arxiv.org/pdf/2311.15300v1",
+   "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
+   "read": "2026-10-18",
+   "readSections": [
+    "§§2.1–2.2, pp.6–7, especially Definition 2.2 and Lemma 2.4",
+    "§6.12, p.24, Lemma 6.30",
+    "§10.1, p.32, Proposition 10.2",
+    "Appendix, pp.35–37, Lemma 10.9 and Tables 2–4"
+   ]
+  },
+  {
+   "id": "BAL",
+   "title": "Part I: Geometry of semisimple Lie algebras",
+   "authors": "Ana Bălibanu",
+   "edition": "Undated author notes, author-hosted copy; printed page numbering.",
+   "url": "https://people.math.harvard.edu/~ana/part1.pdf",
+   "sha256": "e6c3e0d0a7ef0df8a162940e302dfbea5d10cf4d2c2872728033346d6501ed38",
+   "read": "2026-10-18",
+   "readSections": [
+    "§5, pp.13–17, Theorem 5.1, Corollary 5.2, Proposition 5.4, Lemma 5.7; algebraic arguments adapted to any algebraically closed field of characteristic zero"
+   ]
+  },
+  {
+   "id": "SOM",
+   "title": "Nilpotent orbits and Weyl group representations",
+   "authors": "Eric Sommers",
+   "edition": "Preliminary notes, 17 July 2009.",
+   "url": "https://www.math.utah.edu/~ptrapa/sommers-preliminary-notes.pdf",
+   "sha256": "4efd401e9f7ed75cd1ec83d6a7f51e5be744ed15c08e72a8651462649fa54dc8",
+   "read": "2026-10-18",
+   "readSections": [
+    "§§2.1–2.4, pp.11–13, Theorem 2.4.1",
+    "§3.1, pp.15–16, characteristic diagrams, Dynkin–Kostant–Malcev and labels 0,1,2"
+   ]
+  },
+  {
+   "id": "DG",
+   "title": "Computing with nilpotent orbits in simple Lie algebras of exceptional type",
+   "authors": "Willem A. de Graaf",
+   "edition": "arXiv:math/0702193v2, 14 December 2007; published LMS Journal of Computation and Mathematics 11 (2008), 280–297.",
+   "url": "https://arxiv.org/pdf/math/0702193v2",
+   "sha256": "8f78bc359826032475efa37b4c53958b25bfe136286774c8dd55bf1cdcd059e6",
+   "read": "2026-10-18",
+   "readSections": [
+    "§2, pp.2–3, weighted Dynkin diagrams",
+    "§3, pp.4–5, Lemmas 2–3 and fixed-characteristic orbit argument"
+   ]
+  },
+  {
+   "id": "SLA",
+   "title": "SLA nilpotent-orbit data, nilporb.gi",
+   "authors": "Willem A. de Graaf and SLA contributors",
+   "edition": "GAP SLA commit 30b585c78be885925776f01522fdce036d45e661; an independent numerical cross-check, not a proof oracle.",
+   "url": "https://raw.githubusercontent.com/gap-packages/sla/30b585c78be885925776f01522fdce036d45e661/gap/nilporb.gi",
+   "sha256": "d22e9f2d770cf3b02628474b893cdcbcf8564ef0c468806b298d4f93b16d0f50",
+   "read": "2026-10-18",
+   "readSections": [
+    "SLAfcts.nilporbs: weighted diagrams for G2, F4, E6, E7, E8; F4 list before its GAP-numbering permutation"
+   ]
+  },
+  {
+   "id": "MIL",
+   "title": "Reductive Groups",
+   "authors": "J. S. Milne",
+   "edition": "Author notes, version 2.00, 10 March 2018; not the Algebraic Groups book.",
+   "url": "https://www.jmilne.org/math/CourseNotes/RG.pdf",
+   "sha256": "f5d282908082622f39627e6850395fccebd4f0ed9c47eba3209deda286235291",
+   "read": "2026-10-18",
+   "readSections": [
+    "§20.3–20.6, pp.102–103; §20.16–20.18, pp.104–105; §20.27–20.31, pp.107–108",
+    "§17.59, p.80, read while following a cross-reference; its Picard-group claim is corrected below"
+   ]
+  },
+  {
+   "id": "JAN",
+   "title": "Representations of Algebraic Groups",
+   "authors": "Jens Carsten Jantzen",
+   "edition": "Second edition, AMS Mathematical Surveys and Monographs 107 (2003); maintainer-cleared reference copy, read in place.",
+   "url": "https://doi.org/10.1090/surv/107",
+   "sha256": "5772b172cd315a4710220880e2dc9fb83fe2d512e5fb760c2f0f24a297222839",
+   "read": "2026-10-18",
+   "readSections": [
+    "Part II §§2.1–2.7, pp.175–179: regular semi-invariants, highest weights, and the rank-one extension proof in Proposition II.2.6"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "LieHighestWeightPartII:N0/zero-triple",
+   "parentStageId": "LieHighestWeightPartII:N0",
+   "realises": [
+    "LieHighestWeightPartII:N0"
+   ],
+   "title": "Zero-inclusive sl2 triples",
+   "kind": "definition",
+   "statement": "A triple (h,e,f) is sl2-or-zero if it is (0,0,0) or satisfies Mathlib IsSl2Triple(h,e,f). Over K this is equivalent to the three equations [e,f]=h, [h,e]=2e, [h,f]=−2f, without a nonzero condition.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is any K-Lie algebra."
+   ],
+   "proofSteps": [
+    "If h=0, the last two equations give e=f=0 since 2 is invertible. Otherwise use the native structure.",
+    "Map triples through Lie homomorphisms using the three equations; noninjective maps can take a nonzero triple to zero."
+   ],
+   "prerequisites": [
+    "mathlib:IsSl2Triple"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "§2.1, p.6; Definition 2.2",
+     "match": "The filtration includes the zero nilpotent, for which the natural triple must be zero."
+    }
+   ],
+   "acceptance": [
+    "The adapter agrees exactly with the native structure on h≠0."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Triples",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Zero-inclusive sl2 triple"
+   },
+   "api": [
+    {
+     "name": "IsSl2TripleOrZero.zero",
+     "role": "constructor",
+     "statement": "The triple (0,0,0) satisfies the adapter."
+    },
+    {
+     "name": "IsSl2TripleOrZero.iff_relations",
+     "role": "characterisation",
+     "statement": "It is equivalent to the three bracket equations in characteristic zero."
+    },
+    {
+     "name": "IsSl2TripleOrZero.iff_of_ne_zero",
+     "role": "compatibility",
+     "statement": "If h≠0, the adapter is equivalent to Mathlib IsSl2Triple."
+    },
+    {
+     "name": "IsSl2TripleOrZero.map",
+     "role": "functoriality",
+     "statement": "Any K-Lie homomorphism maps adapted triples to adapted triples; identity and composition act as expected."
+    }
+   ],
+   "tests": [
+    {
+     "name": "zero_triple",
+     "kind": "degenerate",
+     "statement": "(0,0,0) is adapted but is not Mathlib IsSl2Triple."
+    },
+    {
+     "name": "standard_triple",
+     "kind": "compatibility",
+     "statement": "The standard E,F,H of sl2 give the native nonzero branch."
+    },
+    {
+     "name": "vanishing_neutral",
+     "kind": "non-example",
+     "statement": "(0,e,f) cannot be adapted when e≠0; likewise a central nonzero h with e=f=0 fails."
+    }
+   ],
+   "uses": [
+    {
+     "where": "CH Definition 2.2 and Lemma 2.4",
+     "how": "The zero nilpotent participates in the filtration and recognition statements."
+    },
+    {
+     "where": "N0 restriction and N1 filtration",
+     "how": "Construct a zero restriction homomorphism and a filtration concentrated at weight zero."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N0/nilpotent-orbit",
+   "parentStageId": "LieHighestWeightPartII:N0",
+   "realises": [
+    "LieHighestWeightPartII:N0"
+   ],
+   "title": "Nilpotent adjoint orbits",
+   "kind": "construction",
+   "statement": "Let N(L)={e∈L : ad(e) is nilpotent}. Restrict the adjoint G(K)-action to N(L), and take its native orbit set. On adapted triples use simultaneous Ad-conjugation of all three entries. The nilpotent element map sends the orbit of (h,e,f) to the orbit of e.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form."
+   ],
+   "proofSteps": [
+    "Conjugating ad(e) by Ad(g) preserves a nilpotence exponent.",
+    "Use the existing group-action orbit relation and quotient, not a new equality relation on underlying elements.",
+    "The triple equations are preserved because Ad(g) is a Lie automorphism.",
+    "For the triple-to-nilpotent map, restrict the adjoint module via the pinned sl2 basis constructor; the standard-module decomposition proves the raising operator nilpotent, including the zero branch."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/zero-triple",
+    "mathlib:LieAlgebra.ad",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+    "tauceti:TauCeti.lieHomOfSl2Basis",
+    "tauceti:TauCeti.Sl2Std.exists_isInternal_lieModuleEquiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "SOM",
+     "locator": "§3.1, pp.15–16",
+     "match": "The adjoint action defines nilpotent orbits, and the triple-orbit correspondence includes the zero homomorphism."
+    }
+   ],
+   "acceptance": [
+    "Changing G by a central isogeny gives the same orbit relation over K."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Triples",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Nilpotent adjoint orbit"
+   },
+   "api": [
+    {
+     "name": "NilpotentOrbit.mk",
+     "role": "constructor",
+     "statement": "An element with nilpotent adjoint endomorphism gives its orbit class."
+    },
+    {
+     "name": "NilpotentOrbit.eq_iff",
+     "role": "characterisation",
+     "statement": "Two classes coincide iff some g∈G(K) sends one representative to the other."
+    },
+    {
+     "name": "NilpotentOrbit.nilpotentPart",
+     "role": "projection",
+     "statement": "The triple orbit maps to the orbit of e and is independent of representative."
+    },
+    {
+     "name": "NilpotentOrbit.centralIsogeny",
+     "role": "compatibility",
+     "statement": "Surjectivity on K-points of a central isogeny identifies these orbit sets; no rational-point version over a nonclosed field is asserted."
+    }
+   ],
+   "tests": [
+    {
+     "name": "zero_orbit",
+     "kind": "degenerate",
+     "statement": "Only e=0 lies in the zero orbit."
+    },
+    {
+     "name": "sl2_two_orbits",
+     "kind": "computation",
+     "statement": "For sl2, there are exactly the zero orbit and the orbit of E."
+    },
+    {
+     "name": "outer_is_not_inner",
+     "kind": "non-example",
+     "statement": "For so8 the two very-even SO-orbits in the partition (4,4) are not identified, even though an O-element interchanges them."
+    }
+   ],
+   "uses": [
+    {
+     "where": "CH Lemmas 2.4 and 10.9",
+     "how": "Express the conjugacy conclusion and the equivalence of choosing nilpotents or triples."
+    },
+    {
+     "where": "N2 very-even separation",
+     "how": "Keep SO/adjoint conjugacy distinct from full orthogonal conjugacy."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N0/jordan-centralizer",
+   "parentStageId": "LieHighestWeightPartII:N0",
+   "realises": [
+    "LieHighestWeightPartII:N0"
+   ],
+   "title": "Jordan decomposition and the reduction to distinguished nilpotents",
+   "kind": "lemma",
+   "statement": "For semisimple L, the Jordan decomposition ad(x)=S+N comes from unique commuting x_s,x_n∈L. If [x,e]=0 or e is an ad(x)-eigenvector, x_s and x_n preserve that condition with the corresponding semisimple eigenvalue and zero nilpotent contribution. For nonzero semisimple s, L^s is reductive with proper semisimple derived algebra; a nilpotent e∈L^s lies in [L^s,L^s].",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate)."
+   ],
+   "proofSteps": [
+    "Use nondegenerate Killing form to identify inner derivations; the semisimple/nilpotent Jordan parts of a derivation are derivations (check the generalized-eigenspace bracket rule). Thus their inner elements are x_s,x_n.",
+    "Place s in a Cartan via maximal torus structure. Roots vanishing on s give the derived semisimple algebra of its centralizer, with the complementary toral center.",
+    "In the centralizer, any nonzero component in that toral center is semisimple, so nilpotence forces that component to vanish. A nonzero semisimple s cannot be central in L, so the derived centralizer has smaller dimension."
+   ],
+   "prerequisites": [
+    "mathlib:LieAlgebra.IsKilling",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "mathlib:LieDerivation.IsKilling.exists_eq_ad",
+    "mathlib:Module.End.exists_isNilpotent_isSemisimple"
+   ],
+   "sources": [
+    {
+     "sourceId": "BAL",
+     "locator": "§5, proof of Theorem 5.1, pp.14–15",
+     "match": "The induction uses Jordan stability and the proper derived centralizer; these algebraic steps also work over K."
+    }
+   ],
+   "acceptance": [
+    "For sl3, the centralizer of diag(1,1,−2) has derived algebra sl2; a nilpotent commuting with it has zero central component."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Triples",
+    "namespace": "TauCeti.NilpotentOrbits"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N0/jacobson-morozov",
+   "parentStageId": "LieHighestWeightPartII:N0",
+   "realises": [
+    "LieHighestWeightPartII:N0"
+   ],
+   "title": "Jacobson–Morozov theorem",
+   "kind": "theorem",
+   "statement": "Every e∈N(L) extends to an adapted triple (h,e,f). Conversely e and f in every adapted triple are ad-nilpotent, and ad(h) is diagonalizable with integer eigenvalues. The zero e has only the zero triple.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate)."
+   ],
+   "proofSteps": [
+    "Induct on dim L. If L^e contains a nonzero semisimple element, apply the Jordan-centralizer reduction and induction in its derived algebra.",
+    "In the remaining case every element of L^e is ad-nilpotent. The Killing pairing of e with L^e vanishes, so e lies in im(ad e); choose h with [h,e]=2e and replace h by its semisimple part.",
+    "Apply pinned Engel to the centralizer acting faithfully on L, so it is nilpotent and Kh+L^e is solvable. The solvable algebra Kh+L^e acts triangularly by Lie’s theorem; operators from L^e are strictly triangular. Thus tr(ad h·ad x)=0 for x∈L^e, giving h∈im(ad e). Project a preimage f to the ad(h)-eigenspace −2 to obtain [e,f]=h.",
+    "The resulting sl2 action on L has nilpotent raising/lowering operators and diagonalizable integral h by pinned sl2 theory. Each argument is algebraic over K; no analytic integration or complex-field transfer is used."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/zero-triple",
+    "LieHighestWeightPartII:N0/jordan-centralizer",
+    "mathlib:LieAlgebra.IsKilling",
+    "tauceti:TauCeti.iSup_eigenspace_toEnd_intCast_eq_top",
+    "tauceti:TauCeti.Sl2Std.exists_isInternal_lieModuleEquiv",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+    "mathlib:LieModule.exists_nontrivial_weightSpace_of_isSolvable",
+    "mathlib:LieModule.isNilpotent_iff_forall"
+   ],
+   "sources": [
+    {
+     "sourceId": "BAL",
+     "locator": "Theorem 5.1 and its proof, pp.13–15",
+     "match": "Provides the Killing-form induction. Restrict strict triangularity to L^e, correcting the sentence recorded as E4."
+    }
+   ],
+   "acceptance": [
+    "Zero is included; in sl2, E extends to the standard triple."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Triples",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Jacobson–Morozov theorem"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N0/triple-integration",
+   "parentStageId": "LieHighestWeightPartII:N0",
+   "realises": [
+    "LieHighestWeightPartII:N0"
+   ],
+   "title": "Algebraic integration of a triple and inner invariance",
+   "kind": "theorem",
+   "statement": "An adapted triple determines a rational homomorphism SL2,K→G with differential E↦e,F↦f,H↦h; the zero triple gives the trivial homomorphism. In every finite L-module, any Ad(g) twist is isomorphic to the original module. In particular the triple restricted characters are invariant under simultaneous Ad(G(K))-conjugation.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form.",
+    "M is a finite-dimensional K-Lie module for L; representations mean Lie modules, including those not descending to a chosen non-simply-connected G."
+   ],
+   "proofSteps": [
+    "Embed G as a closed subgroup of GL(V) using ReductiveGroups Layer 1. Decompose the restricted sl2-module V into standard modules and integrate their explicit polynomial SL2 actions.",
+    "Check the two unipotent one-parameter subgroups lie in G: for a nilpotent X in Lie(G), the finite polynomial exp(tX) preserves the defining ideal. The left-invariant derivation attached to X preserves that ideal, so all Taylor coefficients of each defining function along exp(tX) vanish; factorials are invertible. The upper and lower unipotent subgroups generate SL2, so the integrated map has image in G.",
+    "For inner invariance it suffices, by root subgroups and Bruhat, to handle the simple-root SL2 subgroups of G. In any finite L-module their raising/lowering operators are nilpotent by pinned sl2 decomposition; their finite exponentials implement the adjoint twist. Multiply these intertwiners.",
+    "All identities are finite polynomial identities over K. The proof does not assume that an arbitrary L-module descends to the selected group G."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/zero-triple",
+    "tauceti:TauCeti.lieHomOfSl2Basis",
+    "tauceti:TauCeti.Sl2Std.exists_isInternal_lieModuleEquiv",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "mathlib:LieDerivation.exp"
+   ],
+   "sources": [
+    {
+     "sourceId": "BAL",
+     "locator": "Corollary 5.2, p.13",
+     "match": "The source integrates the sl2 map; the plan spells out its algebraic closed-subgroup justification."
+    },
+    {
+     "sourceId": "CH",
+     "locator": "Definition 2.2, p.6; Appendix, Lemma 10.9, p.35",
+     "match": "Conjugacy must act consistently on every Lie module, including half-spin modules."
+    }
+   ],
+   "acceptance": [
+    "The Weyl element in this SL2 sends h to −h.",
+    "For G=SO(8), inner twists of a Lie half-spin module are isomorphic although the module does not descend to SO(8)."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Triples",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Algebraic integration of triples"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N0/kostant-conjugacy",
+   "parentStageId": "LieHighestWeightPartII:N0",
+   "realises": [
+    "LieHighestWeightPartII:N0"
+   ],
+   "title": "Kostant conjugacy for a fixed nilpotent",
+   "kind": "theorem",
+   "statement": "For adapted triples (h,e,f) and (h′,e,f′), there is u∈Z_G(e)(K) simultaneously carrying h to h′ and f to f′. Consequently the map from adapted-triple orbits to nilpotent orbits is a bijection.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form."
+   ],
+   "proofSteps": [
+    "For e=0 use the zero branch. Otherwise decompose L under the first triple. L^e has nonnegative h-weights and u=L^e∩[L,e] is precisely its positive-weight part.",
+    "The difference h′−h belongs to u. Successively remove its lowest positive-weight component using exp(ad x) for x in that component, dividing by its nonzero weight. Higher commutators raise degree, so the process terminates. Each factor comes from an element of Z_G(e)(K) by triple integration applied to the nilpotent x.",
+    "After matching h, the difference of the f entries lies both in L^e and in h-weight −2, so vanishes. Combine this fiber transitivity with Jacobson–Morozov and equivariance."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/jacobson-morozov",
+    "LieHighestWeightPartII:N0/triple-integration",
+    "tauceti:TauCeti.Sl2Std.exists_isInternal_lieModuleEquiv",
+    "LieHighestWeightPartII:N0/nilpotent-orbit",
+    "mathlib:LieDerivation.exp"
+   ],
+   "sources": [
+    {
+     "sourceId": "BAL",
+     "locator": "Proposition 5.4, Remark 5.6 and Lemma 5.7, pp.15–17",
+     "match": "The positive centralizer and uniqueness of f prove fiber transitivity. Finite exponentials replace a generic unipotent closed-orbit theorem."
+    }
+   ],
+   "acceptance": [
+    "The conjugator fixes the chosen e, not merely its orbit."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Triples",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Kostant conjugacy theorem"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N0/neutral-conjugacy",
+   "parentStageId": "LieHighestWeightPartII:N0",
+   "realises": [
+    "LieHighestWeightPartII:N0"
+   ],
+   "title": "Conjugacy from the neutral element",
+   "kind": "theorem",
+   "statement": "Two adapted triples in L are Ad(G(K))-conjugate iff their neutral elements h,h′ are Ad(G(K))-conjugate. Thus dominant characteristic elements classify triple orbits.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form."
+   ],
+   "proofSteps": [
+    "Reduce to h=h′; zero is immediate. Let L_j be its integer eigenspaces. The map ad(e):L_0→L_2 is surjective by sl2 decomposition, so the Z_G(h)^0-orbit of e is open in the affine space L_2.",
+    "The same holds for e′. Characteristic zero ensures separability for the orbit tangent calculation. Two open orbits in irreducible L_2 intersect, and hence coincide. After matching e, f is unique because L^e has no negative h-weights."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/triple-integration",
+    "tauceti:TauCeti.Sl2Std.exists_isInternal_lieModuleEquiv",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ],
+   "sources": [
+    {
+     "sourceId": "DG",
+     "locator": "§3, Lemmas 2–3, pp.4–5",
+     "match": "The fixed-characteristic orbit is open in degree two; this supplies uniqueness without using a Bala–Carter classification."
+    },
+    {
+     "sourceId": "SOM",
+     "locator": "§3.1, pp.15–16",
+     "match": "The characteristic determines the nilpotent orbit."
+    }
+   ],
+   "acceptance": [
+    "In sl2 the neutral characteristic is 0 or the dominant element H."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Triples",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Neutral-element conjugacy"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N1/restriction",
+   "parentStageId": "LieHighestWeightPartII:N1",
+   "realises": [
+    "LieHighestWeightPartII:N1"
+   ],
+   "title": "Restriction along an adapted triple",
+   "kind": "construction",
+   "statement": "An adapted triple gives the native Lie homomorphism sl2(K)→L with images H↦h,E↦e,F↦f. Pull back any finite Lie module M along it using the existing Lie-module restriction. The zero triple gives the trivial sl2 action.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is any K-Lie algebra.",
+    "M is a finite-dimensional K-Lie module for L; representations mean Lie modules, including those not descending to a chosen non-simply-connected G."
+   ],
+   "proofSteps": [
+    "Apply the pinned basis-to-Lie-hom constructor with the bracket equations.",
+    "Use existing restriction of scalars for Lie modules; uniqueness is equality on the three basis vectors."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/zero-triple",
+    "tauceti:TauCeti.lieHomOfSl2Basis",
+    "mathlib:LieModule.toEnd"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Definition 2.2, p.6; Appendix proof of Lemma 10.9, p.35",
+     "match": "The representation is read as an sl2 representation via the triple."
+    }
+   ],
+   "acceptance": [
+    "This is a comparison with the native restriction operation, not a second representation carrier."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Filtration",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "api": [
+    {
+     "name": "Sl2TripleOrZero.restrict",
+     "role": "constructor",
+     "statement": "The restricted module has H,E,F actions respectively ρ(h),ρ(e),ρ(f)."
+    },
+    {
+     "name": "Sl2TripleOrZero.restrict_map",
+     "role": "functoriality",
+     "statement": "An L-module map is an sl2-module map after restriction; identities and composition are preserved."
+    },
+    {
+     "name": "Sl2TripleOrZero.restrict_native",
+     "role": "compatibility",
+     "statement": "For the standard triple of sl2, restriction along its identity homomorphism is the original module."
+    },
+    {
+     "name": "Sl2TripleOrZero.restrict_zero",
+     "role": "simp",
+     "statement": "For the zero triple every sl2 element acts by zero."
+    }
+   ],
+   "tests": [
+    {
+     "name": "restriction_zero",
+     "kind": "degenerate",
+     "statement": "A two-dimensional trivial L-module restricts to two copies of the sl2 trivial module."
+    },
+    {
+     "name": "restriction_standard",
+     "kind": "compatibility",
+     "statement": "The sl2 standard module restricts to Sl2Std(K,1), with H-weights 1,−1."
+    },
+    {
+     "name": "restriction_sign",
+     "kind": "non-example",
+     "statement": "For the standard nonzero triple of sl2, swapping E and F while fixing H violates [E,F]=H. Replacing H by −H as well gives a valid swapped triple."
+    }
+   ],
+   "uses": [
+    {
+     "where": "N1 graded comparison",
+     "how": "Use the pinned sl2 decomposition without replanning it."
+    },
+    {
+     "where": "N2 Jordan partitions",
+     "how": "Translate standard-module sl2 summands into nilpotent Jordan blocks."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N1/weight-filtration",
+   "parentStageId": "LieHighestWeightPartII:N1",
+   "realises": [
+    "LieHighestWeightPartII:N1"
+   ],
+   "title": "The increasing weight filtration of a triple",
+   "kind": "construction",
+   "statement": "For an adapted triple t and a finite L-module M, put M_j=ker(ρ(h)−j·id), j∈Z, and W_i^t(M)=Σ_{j≤i}M_j as K-submodules of M. Use the native Mathlib filtered-object category with index Z. The family is increasing, zero for i sufficiently negative, and M for i sufficiently positive. Reindexing by i↦−i agrees with the existing decreasing finite filtered-space convention; this node owns only the filtration supplied by a triple.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is any K-Lie algebra.",
+    "M is a finite-dimensional K-Lie module for L; representations mean Lie modules, including those not descending to a chosen non-simply-connected G."
+   ],
+   "proofSteps": [
+    "For a nonzero triple use the pinned integral eigenspace direct sum; for the zero triple M_0=M and all other M_j vanish.",
+    "Finite dimension bounds the finite set of nonzero eigenspaces. Inclusions of subspaces give the existing functor into MonoOver(M), with underlying module unchanged.",
+    "The pieces are vector subspaces, not generally L-submodules; raising and lowering have degrees +2 and −2."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/zero-triple",
+    "LieHighestWeightPartII:N1/restriction",
+    "tauceti:TauCeti.iSup_eigenspace_toEnd_intCast_eq_top",
+    "tauceti:TauCeti.exists_int_of_hasEigenvalue",
+    "mathlib:CategoryTheory.FilteredObject"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Definition 2.2 and Lemma 2.4, pp.6–7",
+     "match": "The source uses the increasing sum of h-eigenspaces, not the lowering monodromy convention."
+    }
+   ],
+   "acceptance": [
+    "W is increasing, bounded and exhaustive; its underlying object is precisely M."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Filtration",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Weight filtration of a triple"
+   },
+   "api": [
+    {
+     "name": "Sl2WeightFiltration.step",
+     "role": "projection",
+     "statement": "The step is the sum of native LinearMap eigenspaces at integers j≤i."
+    },
+    {
+     "name": "Sl2WeightFiltration.mono",
+     "role": "structure",
+     "statement": "For i≤k, W_i⊆W_k, giving a native FilteredObject."
+    },
+    {
+     "name": "Sl2WeightFiltration.map",
+     "role": "functoriality",
+     "statement": "Every L-linear map sends W_i into W_i; the induced maps satisfy identity and composition."
+    },
+    {
+     "name": "Sl2WeightFiltration.zero",
+     "role": "simp",
+     "statement": "For t=0, W_i=0 when i<0 and W_i=M when i≥0."
+    },
+    {
+     "name": "Sl2WeightFiltration.decreasingComparison",
+     "role": "compatibility",
+     "statement": "The decreasing filtration Fil^n=W_(−n) agrees with the object of PadicHodgeTheory:R06.2/filtered-vector-spaces whenever that generic finite-filtered category is used; no generic category is reconstructed here."
+    }
+   ],
+   "tests": [
+    {
+     "name": "trivial_jump",
+     "kind": "degenerate",
+     "statement": "For the one-dimensional trivial module the only graded jump is at 0."
+    },
+    {
+     "name": "standard_steps",
+     "kind": "computation",
+     "statement": "For Sl2Std(K,1), dim W_i is 0 for i<−1, 1 for −1≤i<1, and 2 for i≥1."
+    },
+    {
+     "name": "adjoint_steps",
+     "kind": "computation",
+     "statement": "For the sl2 adjoint module, dim W_(−2)=1, dim W_(−1)=1, dim W_0=2, dim W_2=3; these are not the graded multiplicities 1,0,1,0,1."
+    }
+   ],
+   "uses": [
+    {
+     "where": "CH Lemma 2.4",
+     "how": "Compare dimension functions over all representations."
+    },
+    {
+     "where": "CH Appendix Tables 2–4",
+     "how": "Take successive quotients before interpreting printed numeric entries."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N1/graded-comparison",
+   "parentStageId": "LieHighestWeightPartII:N1",
+   "realises": [
+    "LieHighestWeightPartII:N1"
+   ],
+   "title": "Graded pieces and recovery of sl2 multiplicities",
+   "kind": "theorem",
+   "statement": "There is a natural K-linear isomorphism gr_i W=W_i/W_(i−1)≅M_i, induced by the eigenspace inclusion. Write d_i=dim gr_i W. Then d_i=d_(−i), d_i is finitely supported, and for n≥0 the multiplicity of Sl2Std(K,n) in the restricted module is m_n=d_n−d_(n+2)≥0. Conversely d_i=Σ_{n≥|i|, n≡i mod2}m_n. Thus equal cumulative dimension functions, equal graded dimension functions, and isomorphic restricted sl2 modules are equivalent.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is any K-Lie algebra.",
+    "M is a finite-dimensional K-Lie module for L; representations mean Lie modules, including those not descending to a chosen non-simply-connected G."
+   ],
+   "proofSteps": [
+    "Split W_i as W_(i−1)⊕M_i using the direct eigenspace decomposition.",
+    "In Sl2Std(K,n) every weight n,n−2,…,−n has multiplicity one. Subtract the two counts at n and n+2 to isolate m_n.",
+    "Use finite support to recover W dimensions by cumulative sums, or d_i by successive differences. Nonnegativity follows from actual multiplicities, not from subtraction in natural numbers alone."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N1/weight-filtration",
+    "tauceti:TauCeti.Sl2Std.exists_isInternal_lieModuleEquiv",
+    "tauceti:TauCeti.finrank_eigenspace_toEnd_neg"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Appendix proof of Lemma 10.9, p.35",
+     "match": "Restriction is determined by its weight multiplicities; this node states the explicit inversion and fixes the filtration/graded distinction."
+    }
+   ],
+   "acceptance": [
+    "For V(2)⊕2V(0), d_0=3,d_2=1 and m_0=2,m_2=1; cumulative dim W_0=4."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Filtration",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Graded sl2 multiplicities"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N1/tensor-exactness",
+   "parentStageId": "LieHighestWeightPartII:N1",
+   "realises": [
+    "LieHighestWeightPartII:N1"
+   ],
+   "title": "Exact tensor and dual compatibility",
+   "kind": "theorem",
+   "statement": "The assignment M↦(M,W^t) is exact and compatible with tensor products and duals: module morphisms are strict; a short exact sequence stays exact at every W_i; W_i(M⊗N)=Σ_{a+b=i}im(W_aM⊗W_bN), equivalently the sum for a+b≤i; W_i(M*)=Ann(W_(−i−1)M); the tensor unit has its single jump at 0. The comparisons preserve associativity, symmetry, unit and evaluation maps.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is any K-Lie algebra.",
+    "M,N are finite-dimensional L-modules."
+   ],
+   "proofSteps": [
+    "A module map commutes with h and hence respects each eigenspace. Surjectivity and injectivity are checked separately on the integral eigenspaces, which proves strictness and levelwise exactness.",
+    "On tensors the eigenvalues add; on the contragredient dual they change sign. Sum the relevant eigenspaces.",
+    "The resulting comparisons are the identity on underlying tensors and the ordinary evaluation map, so their coherence follows on pure tensors. No assertion that the category of all filtered spaces is abelian is needed."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N1/weight-filtration",
+    "LieHighestWeightPartII:N1/graded-comparison",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "§2.1–§2.2, pp.6–7, Definition 2.2",
+     "match": "The filtration is representation-indexed; the stated tensor and dual laws follow from its eigenvalue construction."
+    }
+   ],
+   "acceptance": [
+    "V(1)⊗V(1) has graded dimensions 1,2,1 at −2,0,2; duality fixes the filtration of the unit."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Filtration",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Exact tensor filtration"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N2/classical-partitions",
+   "parentStageId": "LieHighestWeightPartII:N2",
+   "realises": [
+    "LieHighestWeightPartII:N2"
+   ],
+   "title": "Classical triples and partitions with invariant forms",
+   "kind": "theorem",
+   "statement": "For L=sl(V), so(V,B) or sp(V,B), the restricted standard module decomposes as ⊕_{n≥0}V(n)⊗U_n, so e has Jordan blocks of size n+1 with multiplicity dim U_n. In type A all partitions of dim V occur. For orthogonal B, each even block size has even multiplicity; for alternating B, each odd block size has even multiplicity. These partitions classify the GL/SL, O, or Sp triple orbits, respectively. For SO(2r), an O-orbit splits into two SO-orbits exactly when its partition is very even (every block size even and each multiplicity even); otherwise it remains one orbit.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "V is finite-dimensional; in orthogonal and symplectic cases B is nondegenerate and respectively symmetric or alternating; the classical semisimple rank hypotheses exclude abelian so2."
+   ],
+   "proofSteps": [
+    "The standard V(n) has one Jordan block of size n+1 for E. Its invariant bilinear form is unique up to scalar and is symmetric for even n and alternating for odd n (solve the E,F recurrence in the standard weight basis).",
+    "The B-pairing between distinct isotypic summands vanishes by sl2 irreducibility. On V(n)⊗U_n it is the tensor product of that standard invariant form and a nondegenerate form on U_n. Over K, such forms are classified by dimension; alternating multiplicity forms have even dimension. This proves existence and O/Sp uniqueness without importing a book classification table.",
+    "In the orthogonal centralizer a symmetric multiplicity factor has an element of determinant −1, whose determinant on V(n)⊗U_n is (−1)^(n+1). Such a factor exists exactly when some odd block size occurs. If all block sizes are even, every orthogonal centralizer element has determinant +1, and index two gives the split. In type A, adjust a GL conjugator to determinant one by a scalar, using algebraic closedness."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N1/restriction",
+    "LieHighestWeightPartII:N1/graded-comparison",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Appendix, proof of Lemma 10.9, p.35",
+     "match": "The classical argument identifies block dimensions with restricted sl2 summands and isolates very-even splitting. The present proof spells out invariant forms instead of treating the cited inaccessible book as read."
+    }
+   ],
+   "acceptance": [
+    "For sp4, (3,1) is forbidden while (2,2) occurs. For so8, (4,4) splits into two SO-orbits, while (3,3,1,1) does not."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Classical",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Classical nilpotent partitions"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N2/half-spin-separation",
+   "parentStageId": "LieHighestWeightPartII:N2",
+   "realises": [
+    "LieHighestWeightPartII:N2"
+   ],
+   "title": "Half-spin separation of the very-even pair",
+   "kind": "theorem",
+   "statement": "For a very-even partition in so(2r), r is even. Choose ascending positive odd neutral coordinates 0<a1≤…≤ar and simple roots ±ε1+ε2, ε3−ε2,…,εr−ε_(r−1). The two dominant characteristics are (a1,a2,…,ar) and (−a1,a2,…,ar). In the fixed Lie half-spin module S+ whose weights are half-sign vectors with an even number of minus signs, their largest nonzero graded weights are A=½Σa_j and A−a1. Thus their filtration dimension functions differ.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is split so(2r), r≥4, and the partition is very even."
+   ],
+   "proofSteps": [
+    "Over the algebraic closure, construct the half-spin highest-weight Lie module L(½Σ ε_j) from highest-weight classification. Compute its weights by the minuscule D_r Weyl orbit: the even-minus half-sign vectors. For K=ℂ compare this with the exterior-algebra half-spin construction supplied by SpinRepresentations Layer 5.",
+    "The two orthogonal orbit branches differ by changing exactly one coordinate sign. Maximizing over the even-minus sign vectors gives A for the all-positive point; after the first sign change parity requires losing at least a1, and changing the first sign achieves it.",
+    "Use graded comparison to pass from differing maximal graded weight to differing cumulative functions. This is a Lie representation (or a representation of Spin), not a claim of descent to SO."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N2/classical-partitions",
+    "LieHighestWeightPartII:N1/graded-comparison",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Appendix, proof of Lemma 10.9, p.35",
+     "match": "The half-spin test separates the two very-even orbits; use graded support and the corrected chain orientation."
+    }
+   ],
+   "acceptance": [
+    "In so8, partition (4,4) gives a=(1,1,3,3), and the maxima in S+ are 4 and 3. Partition (2,2,2,2) gives 2 and 1."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Classical",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Half-spin separation"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N2/classical-recognition",
+   "parentStageId": "LieHighestWeightPartII:N2",
+   "realises": [
+    "LieHighestWeightPartII:N2"
+   ],
+   "title": "Recognition in the classical simple types",
+   "kind": "theorem",
+   "statement": "In a classical simple L, equal W_i dimensions in the standard module determine the adapted triple orbit, except for a very-even pair in type D. In type D adjoining one fixed half-spin highest-weight Lie module to the test family determines the orbit. Hence equality for every finite L-module implies inner conjugacy.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form.",
+    "L has classical simple type A, B, C or D; use the explicit standard realization supplied by classification."
+   ],
+   "proofSteps": [
+    "Use graded inversion to recover the sizes and counts of all Jordan blocks.",
+    "Apply the invariant-form classification; in the single split case apply half-spin separation, then transport through the chosen Lie isomorphism."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N2/classical-partitions",
+    "LieHighestWeightPartII:N2/half-spin-separation",
+    "LieHighestWeightPartII:N1/graded-comparison",
+    "LieHighestWeightPartII:N0/neutral-conjugacy",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Appendix, Lemma 10.9, p.35, classical part",
+     "match": "The standard representation, supplemented by half-spin precisely for the split orthogonal case, supplies a finite test family."
+    }
+   ],
+   "acceptance": [
+    "No collection restricted to SO-descending standard tensor powers is substituted for the stated Lie test family."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Classical",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Classical filtration recognition"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N3/dominant-characteristic",
+   "parentStageId": "LieHighestWeightPartII:N3",
+   "realises": [
+    "LieHighestWeightPartII:N3"
+   ],
+   "title": "Necessary conditions on a dominant characteristic",
+   "kind": "theorem",
+   "statement": "Conjugate an adapted triple so that h lies in a fixed dominant Cartan chamber. Its simple-root labels a_i=α_i(h) are integers in {0,1,2}, and a is fixed by opposition −w0. For its adjoint grading d_m=dim L_m, d_m=d_(−m) and d_m≥d_(m+2) for every integer m≥0.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form.",
+    "L is simple and a Cartan and positive system are fixed."
+   ],
+   "proofSteps": [
+    "Use triple integration to put h in a maximal torus and then in the dominant chamber; integral eigenvalues give nonnegative integral labels.",
+    "For a simple root α with α(h)>2, the lowering f kills its root vector: f has degree −2 and its negative-root components cannot subtract a positive root from the simple α to leave a root of positive degree. But lowering is injective in positive weights in every sl2 summand. This contradiction gives the upper bound 2.",
+    "The SL2 Weyl element sends h to −h; uniqueness in the dominant chamber identifies h with −w0 h and hence a with its opposition permutation.",
+    "Apply the adjoint sl2 multiplicity formula for the inequality."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N0/triple-integration",
+    "LieHighestWeightPartII:N1/graded-comparison",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+    "tauceti:TauCeti.oppositionPerm"
+   ],
+   "sources": [
+    {
+     "sourceId": "SOM",
+     "locator": "§3.1, pp.15–16",
+     "match": "Dominant neutral elements have labels 0,1,2."
+    },
+    {
+     "sourceId": "DG",
+     "locator": "§2, pp.2–3",
+     "match": "Weighted diagrams encode the dominant neutral element; opposition and multiplicity inequalities are explicit necessary consequences of sl2 theory."
+    }
+   ],
+   "acceptance": [
+    "For E6, opposition imposes a1=a6 and a3=a5 in Bourbaki numbering; a2 and a4 are fixed."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Exceptional",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Dominant characteristic"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N3/root-profile",
+   "parentStageId": "LieHighestWeightPartII:N3",
+   "realises": [
+    "LieHighestWeightPartII:N3"
+   ],
+   "title": "Adjoint grading from integral root coefficients",
+   "kind": "construction",
+   "statement": "For exceptional type T, let Φ_T be the finite root set in its Bourbaki simple-root lattice Z^r. For a∈Z^r define D_T(a)_m=r·δ_(m,0)+#{c∈Φ_T : Σ_i c_i a_i=m}. Regard D_T(a) as a finitely supported Z→N function. For a characteristic a this is exactly the adjoint graded multiplicity function, with no nilpotent classification input.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "T is G2,F4,E6,E7 or E8; r is its rank.",
+    "The Cartan convention is Aij=〈αi,αj∨〉; root coefficients, not coroot coefficients, are used."
+   ],
+   "proofSteps": [
+    "Use the finite integral root data supplied by RootSystems Layer 6, compared with the pinned Cartan matrices. Count integer dot products over that root set, then add the Cartan zero-weight rank.",
+    "Identify each root space with a one-dimensional adjoint eigenspace and the Cartan with its r-dimensional zero-weight summand.",
+    "For computation, generate roots by simple reflections c_j↦c_j−Σ_i c_i Aij, all other coordinates unchanged. Prove this finite set is the supplied root set using its reflection closure and generation, rather than trusting an unbounded search."
+   ],
+   "prerequisites": [
+    "tauceti:TauCeti.DynkinType.cartanMatrix",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Appendix, Tables 2–4, pp.35–37",
+     "match": "The printed numbers are interpreted as graded adjoint dimensions."
+    },
+    {
+     "sourceId": "DG",
+     "locator": "§2, pp.2–3",
+     "match": "Root evaluations on the characteristic calculate the grading."
+    }
+   ],
+   "acceptance": [
+    "Every profile has total sum dim L and is symmetric in m; at a=0 it is concentrated at 0."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Exceptional",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Adjoint root profile"
+   },
+   "api": [
+    {
+     "name": "AdjointRootProfile.coeff",
+     "role": "projection",
+     "statement": "The coefficient is the exact rank-plus-root count formula."
+    },
+    {
+     "name": "AdjointRootProfile.total",
+     "role": "relation",
+     "statement": "Σ_m D_T(a)_m=r+|Φ_T|."
+    },
+    {
+     "name": "AdjointRootProfile.neg",
+     "role": "relation",
+     "statement": "D_T(a)_(−m)=D_T(a)_m, by the root involution c↦−c."
+    },
+    {
+     "name": "AdjointRootProfile.adjoint",
+     "role": "compatibility",
+     "statement": "For a characteristic, D_T(a)_m=dim ker(ad h−m)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "zero_profile",
+     "kind": "degenerate",
+     "statement": "At a=0 the coefficients are dim L at 0 and zero elsewhere."
+    },
+    {
+     "name": "principal_g2",
+     "kind": "computation",
+     "statement": "For G2, a=(2,2), the nonnegative coefficients at m=0,…,10 are 2,0,2,0,1,0,1,0,1,0,1, totaling 14 after reflection."
+    },
+    {
+     "name": "principal_f4",
+     "kind": "computation",
+     "statement": "For F4 principal a=(2,2,2,2), D_0=4 and the total dimension is 52, whereas dim W_0=28. Omitting the Cartan term fails this test."
+    },
+    {
+     "name": "root_coroot_orientation",
+     "kind": "non-example",
+     "statement": "G2 uses [[2,−1],[−3,2]] (short root first), and F4 has A23=−2,A32=−1; transposing or reindexing requires the corresponding explicit root-coordinate comparison."
+    }
+   ],
+   "uses": [
+    {
+     "where": "N3 exceptional recognition",
+     "how": "Produce profiles from root data without a classification table."
+    },
+    {
+     "where": "CH Appendix Tables 2–4",
+     "how": "Decode each row as a graded count, and recover increasing filtration dimensions by cumulative sum."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N3/candidate-certificate",
+   "parentStageId": "LieHighestWeightPartII:N3",
+   "realises": [
+    "LieHighestWeightPartII:N3"
+   ],
+   "title": "Finite certificates for exceptional characteristics",
+   "kind": "construction",
+   "statement": "For T exceptional, C_T is the finite subset of {0,1,2}^r consisting of opposition-fixed labels a satisfying D_T(a)_m≥D_T(a)_(m+2) for all m≥0. Implement the test over 0≤m≤B_T where B_T=2·max_{c∈Φ_T}Σ_i|c_i|; outside that range coefficients vanish. A certificate records the exact finite root set, its comparison to the pinned root datum, and the list of distinct pairs (a,D_T(a)) for a∈C_T, with injectivity checked by integer equality.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "Use the same T, root coefficients, Cartan convention and profile as the preceding node."
+   ],
+   "proofSteps": [
+    "Enumerate the 3^r label vectors, filter by the explicit opposition permutation, then by the finite nonnegative sl2 multiplicity tests.",
+    "All computations are exact integer addition, multiplication, counting and comparison; no floating arithmetic or probabilistic exclusion is used.",
+    "An independent scratch computation gives |C_T|=7,28,34,274,245 in the order G2,F4,E6,E7,E8. These are candidate counts, not orbit counts. Formal certification remains the theorem in the next node."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N3/root-profile",
+    "LieHighestWeightPartII:N3/dominant-characteristic",
+    "tauceti:TauCeti.oppositionPerm"
+   ],
+   "sources": [
+    {
+     "sourceId": "DG",
+     "locator": "§2, pp.2–3; §3, Lemmas 2–3, pp.4–5",
+     "match": "Weighted diagrams and the adjoint grading motivate the finite check. The larger necessary-diagram certificate here is an explicitly derived alternative, not a theorem asserted in de Graaf."
+    },
+    {
+     "sourceId": "CH",
+     "locator": "Appendix, Lemma 10.9, p.35",
+     "match": "The exceptional proof needs separation; a superset of possible characteristics suffices."
+    }
+   ],
+   "acceptance": [
+    "Every actual dominant triple characteristic belongs to C_T; no converse or completeness of the candidate list is asserted."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Exceptional",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Exceptional characteristic certificate"
+   },
+   "api": [
+    {
+     "name": "CharacteristicCandidates.mem",
+     "role": "characterisation",
+     "statement": "Membership is the conjunction of labels 0/1/2, opposition invariance and the stated finite inequalities."
+    },
+    {
+     "name": "CharacteristicCandidates.sound",
+     "role": "compatibility",
+     "statement": "Every dominant characteristic of an adapted triple belongs to the finite set."
+    },
+    {
+     "name": "CharacteristicCandidates.bound",
+     "role": "relation",
+     "statement": "All profile coefficients outside [−B_T,B_T] vanish, justifying the finite loop."
+    },
+    {
+     "name": "CharacteristicCandidates.check",
+     "role": "data",
+     "statement": "The certificate checker recomputes profiles from the root set and compares every unequal pair; any corrupted root or profile record is rejected."
+    }
+   ],
+   "tests": [
+    {
+     "name": "candidate_zero",
+     "kind": "degenerate",
+     "statement": "The zero vector belongs to C_T and has the zero-nilpotent profile."
+    },
+    {
+     "name": "candidate_counts",
+     "kind": "computation",
+     "statement": "Root counts are 12,48,72,126,240; candidate counts are 7,28,34,274,245."
+    },
+    {
+     "name": "e6_opposition_essential",
+     "kind": "non-example",
+     "statement": "Without opposition, E6 has 212 labels passing only the sl2 inequalities and 123 distinct profiles, hence collisions; with opposition only 34 labels remain and their profiles are all distinct."
+    },
+    {
+     "name": "candidates_not_orbits",
+     "kind": "non-example",
+     "statement": "G2 has 7 candidates but only 5 nilpotent orbits including zero. Membership is a necessary test, not an existence theorem."
+    }
+   ],
+   "uses": [
+    {
+     "where": "N3 candidate-profile injectivity",
+     "how": "Reduce separation to a transparent finite check."
+    },
+    {
+     "where": "N3 E6/E7 cases",
+     "how": "Give direct certificates, without inferring Levi conjugacy from E8 conjugacy."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N3/candidate-profile-injective",
+   "parentStageId": "LieHighestWeightPartII:N3",
+   "realises": [
+    "LieHighestWeightPartII:N3"
+   ],
+   "title": "Exceptional profile injectivity certificate",
+   "kind": "theorem",
+   "statement": "For each T=G2,F4,E6,E7,E8 and a,b∈C_T, equality D_T(a)=D_T(b) implies a=b. The theorem checks the entire finite candidate set, including zero, against the existing integral root datum. It neither assumes nor proves that all candidates are realised by triples.",
+   "hypotheses": [
+    "All definitions and root-data comparisons are those of the preceding two nodes."
+   ],
+   "proofSteps": [
+    "Prove equality of the root enumeration with the pinned Bourbaki root model.",
+    "For each finite candidate set, compute the profile vectors on [−B_T,B_T]. Sort or compare them by exact integer equality and verify there is no equal pair with unequal labels.",
+    "Evaluate this checker within the proof assistant against the finite input; the scratch Python check is independent evidence only. Counts of distinct profiles are respectively 7,28,34,274,245."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N3/candidate-certificate",
+    "LieHighestWeightPartII:N3/root-profile"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Appendix, Lemma 10.9 and Tables 2–4, pp.35–37",
+     "match": "This is a new finite-certificate proof of the required exceptional separation, not a claim that the source states candidate-set injectivity."
+    },
+    {
+     "sourceId": "DG",
+     "locator": "§2–§3, pp.2–5",
+     "match": "Provides the weighted-diagram interpretation used to formulate the check."
+    }
+   ],
+   "acceptance": [
+    "E6 and E7 are checked in their own root sets; no Levi-restriction shortcut."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Exceptional",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Exceptional profile injectivity"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N3/exceptional-separation",
+   "parentStageId": "LieHighestWeightPartII:N3",
+   "realises": [
+    "LieHighestWeightPartII:N3"
+   ],
+   "title": "Exceptional adjoint separation",
+   "kind": "theorem",
+   "statement": "If L is simple exceptional and two adapted triples have equal adjoint graded multiplicities (equivalently equal W_i dimensions on L for every i), then the triples are Ad(G(K))-conjugate. Thus the adjoint module alone is a test family in every exceptional type, including E6 and E7.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form."
+   ],
+   "proofSteps": [
+    "Move both neutral elements to the same dominant Cartan. Their labels lie in C_T by necessary conditions.",
+    "Identify their adjoint profiles with D_T. The finite certificate makes the labels equal, and a simple-root basis then makes the neutral elements equal.",
+    "Apply neutral-element conjugacy to finish."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N3/dominant-characteristic",
+    "LieHighestWeightPartII:N3/root-profile",
+    "LieHighestWeightPartII:N3/candidate-profile-injective",
+    "LieHighestWeightPartII:N0/neutral-conjugacy",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+    "LieHighestWeightPartII:N1/graded-comparison"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Appendix, Lemma 10.9, p.35",
+     "match": "The adjoint test separates exceptional triples. The plan supplies direct E6/E7 arguments in place of the unsupported E8-to-Levi inference."
+    }
+   ],
+   "acceptance": [
+    "The result covers the zero triple and all five exceptional types."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Exceptional",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Exceptional adjoint separation"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N3/appendix-table-interface",
+   "parentStageId": "LieHighestWeightPartII:N3",
+   "realises": [
+    "LieHighestWeightPartII:N3"
+   ],
+   "title": "Certified interpretation of the appendix tables",
+   "kind": "construction",
+   "statement": "For each of the 91 row labels in CH v1 Tables 2–4 (E8:70, F4:16, G2:5 including zero), provide a checked characteristic and a root-vector triple certificate. Printed Bala–Carter names are opaque row keys here; the verified assertion is that the supplied representative has the stated characteristic and profile, not a theorem identifying that key with the semantic Bala–Carter classification. The exported datum is its finitely supported adjoint graded profile D_T(a). Its cumulative filtration dimension is F_i=Σ_{j≤i}D_T(a)_j. Published row values and external SLA data are untrusted inputs to a checker, not axioms, and the record does not assert a full Bala–Carter classification.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "Use precisely CH arXiv v1 table labels and Bourbaki root conventions."
+   ],
+   "proofSteps": [
+    "Obtain diagram and root-vector witness candidates from the public de Graaf/SLA material. Convert F4 numbering before comparison (the list in SLA before its permutation is Bourbaki). Check the three bracket equations in a rational Chevalley model and transport through the existing split root model; zero uses the zero triple.",
+    "For each row recompute D_T(a) from roots. Compare the printed nonnegative entries after the graded/cumulative correction, filling negative entries by symmetry; prove vanishing beyond the bound.",
+    "Export cumulative sums and their finite differences. Separation uses the larger candidate certificate and does not rely on completeness or names of these 91 rows. E6/E7 use the same formula, without attributing nonexistent tables to CH."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N3/root-profile",
+    "LieHighestWeightPartII:N3/candidate-profile-injective",
+    "LieHighestWeightPartII:N0/zero-triple",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Tables 2–4, pp.35–37",
+     "match": "All printed rows are targets of the arithmetic verifier, with headers corrected to graded dimensions."
+    },
+    {
+     "sourceId": "DG",
+     "locator": "§3, pp.4–5",
+     "match": "A proposed characteristic can be certified by explicit degree ±2 root-vector witnesses."
+    },
+    {
+     "sourceId": "SLA",
+     "locator": "SLAfcts.nilporbs, exceptional branches",
+     "match": "An independent source of candidate diagrams and root-vector triples; no database assertion is trusted without checking."
+    }
+   ],
+   "acceptance": [
+    "The checker accepts every correctly converted row or produces an exact discrepancy; data ingestion never supplies the orbit-separation proof."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Exceptional",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Exceptional appendix profiles"
+   },
+   "api": [
+    {
+     "name": "ExceptionalTableRow.profile",
+     "role": "projection",
+     "statement": "The row profile is D_T(a), with the native finite-support carrier."
+    },
+    {
+     "name": "ExceptionalTableRow.cumulative",
+     "role": "data",
+     "statement": "F_i=Σ_{j≤i}d_j, eventually zero/M on the two ends."
+    },
+    {
+     "name": "ExceptionalTableRow.difference",
+     "role": "relation",
+     "statement": "F_i−F_(i−1)=d_i as integers."
+    },
+    {
+     "name": "ExceptionalTableRow.adjoint",
+     "role": "compatibility",
+     "statement": "The checked triple witness identifies the row with the native eigenspace dimensions."
+    }
+   ],
+   "tests": [
+    {
+     "name": "table_zero",
+     "kind": "degenerate",
+     "statement": "The zero E8/F4/G2 rows have coefficient 248/52/14 at 0 and zero elsewhere."
+    },
+    {
+     "name": "principal_dimensions",
+     "kind": "computation",
+     "statement": "Principal profiles have zero multiplicities equal to rank and maximal degrees 58,22,10 for E8,F4,G2, with total dimensions 248,52,14."
+    },
+    {
+     "name": "filtration_header_rejected",
+     "kind": "non-example",
+     "statement": "The F4 principal row begins 4,0,4 as graded counts; treating them as nested filtration dimensions must be rejected. Its cumulative F_0 is 28."
+    },
+    {
+     "name": "independent_data_counts",
+     "kind": "computation",
+     "statement": "As a numerical cross-check, SLA has nonzero counts 4,15,20,44,69; after adding zero its profiles are pairwise distinct for counts 5,16,21,45,70. These orbit counts are not substituted for candidate-set counts."
+    }
+   ],
+   "uses": [
+    {
+     "where": "CH Tables 2–4",
+     "how": "Make the appendix usable without the Fil/gr convention error."
+    },
+    {
+     "where": "Consumers of exceptional weight patterns",
+     "how": "Read finite profiles and cumulative sums through an API instead of treating printed tables as formal facts."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N4/filtration-recognition",
+   "parentStageId": "LieHighestWeightPartII:N4",
+   "realises": [
+    "LieHighestWeightPartII:N4"
+   ],
+   "title": "Conjugacy recognition from all representation filtrations",
+   "kind": "theorem",
+   "statement": "For two adapted triples t,t′ in semisimple L, the following are equivalent: (1) simultaneous Ad(G(K))-conjugacy; (2) for every finite-dimensional L-module M and i∈Z, dim W_i^t(M)=dim W_i^t′(M); (3) for every such M their restricted sl2 modules are isomorphic. It suffices in (2) to test the pullbacks of the classical standard modules, one chosen Lie half-spin per type-D factor, and the adjoint module of each exceptional factor.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form."
+   ],
+   "proofSteps": [
+    "Use complete reducibility of the adjoint module to decompose L as a finite direct sum of simple ideals; the connected adjoint group is the product of the corresponding adjoint groups. This is a fixed-factor decomposition, so no outer permutation of isomorphic factors is allowed.",
+    "Pull back each finite module of one factor along its projection, making the other ideals act trivially. The global dimension hypothesis then yields that factor’s classical or exceptional recognition hypothesis.",
+    "Take the product of the factor conjugators and lift it to G(K) through its central isogeny to the adjoint form. Conversely inner invariance identifies restrictions; graded comparison identifies (2) and (3). Treat the empty product L=0 by the zero triple."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N2/classical-recognition",
+    "LieHighestWeightPartII:N3/exceptional-separation",
+    "LieHighestWeightPartII:N0/triple-integration",
+    "LieHighestWeightPartII:N1/graded-comparison",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "Lemma 2.4, pp.6–7; Appendix Lemma 10.9, p.35",
+     "match": "The simple result is assembled over simple factors, with all finite Lie modules as tests."
+    }
+   ],
+   "acceptance": [
+    "A half-spin test is legal even for adjoint G; the quantifier is on L-modules.",
+    "Factor-selective modules prevent two isomorphic simple factors from being silently permuted."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/Recognition",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Filtration conjugacy recognition"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N5/root-coset-half-integrality",
+   "parentStageId": "LieHighestWeightPartII:N5",
+   "realises": [
+    "LieHighestWeightPartII:N5"
+   ],
+   "title": "Half-integrality on a root-lattice coset",
+   "kind": "lemma",
+   "statement": "Let X be an abelian group, Q⊆X the subgroup generated by a finite set of simple roots, ν:X→R an additive functional, and λ∈X. If ν(Q)⊆½Z, then ν(μ)∈½Z iff ν(λ)∈½Z for every μ∈λ+Q. More generally the same assertion holds with any additive subgroup of R in place of ½Z. Membership in ½Z means 2ν(x) is an integer.",
+   "hypotheses": [
+    "X is the actual chosen weight lattice, or X*(T) when applying the result to algebraic G-representations; do not identify them across isogenies."
+   ],
+   "proofSteps": [
+    "Express μ−λ as an integer combination of simple roots. Additive subgroup closure gives ν(μ)−ν(λ)∈½Z.",
+    "Use subgroup closure under addition and subtraction for the two implications."
+   ],
+   "prerequisites": [],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "§6.12, Lemma 6.30, p.24",
+     "match": "Every module weight differs from its highest weight by the root lattice; the algebraic coset argument is isolated here."
+    }
+   ],
+   "acceptance": [
+    "For A1 with α=2ω and ν(α)=1/2, ν(ω)=1/4, so the standard highest-weight module does not have half-integral values; the adjoint highest weight α does."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/WeightPatterns",
+    "namespace": "TauCeti.NilpotentOrbits"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N5/highest-weight-test",
+   "parentStageId": "LieHighestWeightPartII:N5",
+   "realises": [
+    "LieHighestWeightPartII:N5"
+   ],
+   "title": "The highest-weight half-integrality test",
+   "kind": "theorem",
+   "statement": "For L semisimple, fix a root base and real linear functional ν on its real weight space. Assume ν(α_i)∈½Z for every simple root. For any dominant integral highest weight λ and its finite irreducible L(λ), every weight μ of L(λ) has ν(μ)∈½Z iff ν(λ)∈½Z. The statement also applies to algebraic G-representations using their genuine character lattice; no dominance of ν is required.",
+   "hypotheses": [
+    "K is an algebraically closed field of characteristic zero.",
+    "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+    "ν is a real functional on the abstract weight lattice tensored with R, not an ordering of elements of K."
+   ],
+   "proofSteps": [
+    "Highest-weight theory places every occurring μ in λ+Q and guarantees that λ itself occurs.",
+    "Apply the coset lemma in one direction; use occurrence of λ in the other.",
+    "For an irreducible algebraic G-module in characteristic zero, differentiation stays irreducible: a Lie-stable subspace is a sum of Cartan weight spaces and hence T-stable, while the root subgroups act by finite exponentials of their derivatives and preserve it. Torus and root-subgroup generation makes it G-stable. Distinct algebraic torus characters have distinct derivatives in characteristic zero. Apply the Lie result with the module’s actual torus weights."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N5/root-coset-half-integrality",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "§6.12, Lemma 6.30, p.24",
+     "match": "The highest weight alone tests all weights, once simple-root pairings are half-integral."
+    }
+   ],
+   "acceptance": [
+    "The root-integrality hypothesis is necessary; do not strengthen it silently to full weight-lattice half-integrality."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/WeightPatterns",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Highest-weight half-integrality test"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N5/weight-pattern",
+   "parentStageId": "LieHighestWeightPartII:N5",
+   "realises": [
+    "LieHighestWeightPartII:N5"
+   ],
+   "title": "Geometric weight patterns",
+   "kind": "definition",
+   "statement": "Fix q>1 real. For a finite-dimensional complex space V and a semisimple invertible operator A such that every eigenvalue has modulus q^(i/2) for some i∈Z, define n_A:Z→N by the algebraic multiplicity of eigenvalues of modulus q^(i/2). It has finite support and total dim V. For a semisimple s∈G(C) geometric in every finite algebraic representation τ, the representation-indexed weight pattern is (τ,i)↦n_(τ(s))(i). Isomorphic representations have the same function.",
+   "hypotheses": [
+    "The modulus uses the usual complex absolute value; q is fixed and strictly greater than 1.",
+    "G is a connected complex semisimple algebraic group; τ is finite-dimensional and algebraic."
+   ],
+   "proofSteps": [
+    "The map i↦q^(i/2) is injective. Group eigenvalues by their absolute values; geometricity ensures that every eigenvalue is counted once.",
+    "For semisimple A its algebraic eigenspace dimensions equal its eigenvalue multiplicities. Use this comparison rather than defining a new generalized-eigenspace theory."
+   ],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "§10.1, p.32, definition of weight patterns and Proposition 10.2",
+     "match": "The pattern records modulus weights in each representation, discarding unitary phases."
+    }
+   ],
+   "acceptance": [
+    "A pattern remembers absolute values and multiplicities, not the full complex spectrum."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/WeightPatterns",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Geometric weight pattern"
+   },
+   "api": [
+    {
+     "name": "WeightPattern.coeff",
+     "role": "projection",
+     "statement": "The coefficient is the sum of multiplicities of all eigenvalues with the specified modulus."
+    },
+    {
+     "name": "WeightPattern.total",
+     "role": "relation",
+     "statement": "Σ_i n_A(i)=dim V."
+    },
+    {
+     "name": "WeightPattern.directSum",
+     "role": "compatibility",
+     "statement": "Patterns add under direct sums, and the unit has coefficient one at 0."
+    },
+    {
+     "name": "WeightPattern.tensor",
+     "role": "compatibility",
+     "statement": "Patterns convolve under tensor products: n_(A⊗B)(i)=Σ_(j+k=i)n_A(j)n_B(k)."
+    },
+    {
+     "name": "WeightPattern.dual",
+     "role": "compatibility",
+     "statement": "The contragredient pattern reflects indices: n_(A∨)(i)=n_A(−i)."
+    },
+    {
+     "name": "WeightPattern.conjugate",
+     "role": "functoriality",
+     "statement": "Similarity of A, or group conjugacy of s, preserves its pattern; these identifications respect representation isomorphisms."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pattern_unit",
+     "kind": "degenerate",
+     "statement": "Every operator on the zero space gives zero; the one-dimensional trivial representation gives the delta function at 0."
+    },
+    {
+     "name": "pattern_sl2_standard",
+     "kind": "computation",
+     "statement": "diag(q^(1/2),q^(−1/2)) in SL2 gives coefficients one at 1 and −1 in the standard representation."
+    },
+    {
+     "name": "pattern_phase_loss",
+     "kind": "non-example",
+     "statement": "diag(i,−i) and identity in SL2 have equal patterns in every algebraic representation (all weights are 0), but are not conjugate as semisimple elements."
+    },
+    {
+     "name": "pattern_tensor",
+     "kind": "computation",
+     "statement": "The tensor square of the standard SL2 example has multiplicities 1,2,1 at weights 2,0,−2."
+    }
+   ],
+   "uses": [
+    {
+     "where": "CH Proposition 10.2",
+     "how": "Compare the positive real parts of two parameters."
+    },
+    {
+     "where": "CH §10.1, subsequent parameter applications",
+     "how": "Express the representationwise geometric weight data without adding local Galois or automorphic theory here."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N5/positive-real-part",
+   "parentStageId": "LieHighestWeightPartII:N5",
+   "realises": [
+    "LieHighestWeightPartII:N5"
+   ],
+   "title": "Positive real part in a complex torus",
+   "kind": "construction",
+   "statement": "For a complex algebraic torus T with character lattice X, let T_pos=Hom(X,R_(>0))⊆T(C). For s∈T(C), define r(s) by χ(r(s))=|χ(s)| for every χ∈X, and u(s)=s/r(s), whose character values have modulus one. For a semisimple group element choose a maximal torus; r(s) is well-defined up to group conjugacy, equivalently Weyl orbit after a fixed torus choice.",
+   "hypotheses": [
+    "T is a complex algebraic torus; G is connected complex semisimple for the group-conjugacy assertion."
+   ],
+   "proofSteps": [
+    "The character description of a split complex torus identifies its points with Hom(X,C×). Absolute value is multiplicative, so it defines the positive part without a logarithm or a lattice-basis choice.",
+    "Weyl automorphisms commute with absolute value on characters. Maximal-torus conjugacy and semisimple conjugacy in a fixed torus therefore make its Weyl orbit independent of choices.",
+    "In an algebraic representation, the eigenvalues of τ(r(s)) are the moduli of the T-weight values at s, counted with the same weight multiplicities."
+   ],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "§10.1, Proposition 10.2, p.32",
+     "match": "The real part strips off the compact torus factor and is only defined up to Weyl conjugacy."
+    }
+   ],
+   "acceptance": [
+    "The construction uses X*(T) of the actual group; it is compatible with central isogenies on their given character lattices."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/WeightPatterns",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Positive real part"
+   },
+   "api": [
+    {
+     "name": "PositivePart.character",
+     "role": "characterisation",
+     "statement": "χ(r(s))=|χ(s)| for every character χ, which uniquely determines r(s)."
+    },
+    {
+     "name": "PositivePart.mul",
+     "role": "functoriality",
+     "statement": "r(st)=r(s)r(t), with the identity and inverses preserved inside a fixed torus."
+    },
+    {
+     "name": "PositivePart.weyl",
+     "role": "functoriality",
+     "statement": "r(w·s)=w·r(s) for w in the Weyl group."
+    },
+    {
+     "name": "PositivePart.eigenvalues",
+     "role": "compatibility",
+     "statement": "The multiset of eigenvalues of τ(r(s)) is the multiset of eigenvalue moduli of τ(s)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "positive_compact",
+     "kind": "degenerate",
+     "statement": "If every character value has modulus 1, r(s)=1; compact phases are discarded."
+    },
+    {
+     "name": "positive_sl2",
+     "kind": "computation",
+     "statement": "For diag(z,z^−1), r(s)=diag(|z|,|z|^−1)."
+    },
+    {
+     "name": "positive_weyl",
+     "kind": "compatibility",
+     "statement": "The SL2 Weyl involution replaces |z| with its inverse; both represent the same group-conjugacy class."
+    },
+    {
+     "name": "positive_not_full_parameter",
+     "kind": "non-example",
+     "statement": "For z=i the positive part is identity although diag(i,−i) is not identity."
+    }
+   ],
+   "uses": [
+    {
+     "where": "CH Proposition 10.2",
+     "how": "Specify exactly what equal weight patterns determine."
+    },
+    {
+     "where": "N5 character separation",
+     "how": "Convert weight patterns into traces of a positive torus point."
+    }
+   ]
+  },
+  {
+   "id": "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+   "parentStageId": "LieHighestWeightPartII:N5",
+   "realises": [
+    "LieHighestWeightPartII:N5"
+   ],
+   "title": "Algebraic characters with a prescribed leading weight",
+   "kind": "theorem",
+   "statement": "Let G be connected complex semisimple, T a maximal torus, and choose positive roots. For every dominant λ in the actual lattice X*(T), there exists a finite algebraic G-module V_λ whose formal character is the orbit sum of λ plus an integer combination of orbit sums of strictly lower dominant weights. The λ-weight has multiplicity one, all other weights lie in λ minus the positive-root monoid, and the character is W-invariant. This existence statement is the group-to-character bridge; it does not assume that every finite Lie module descends to G.",
+   "hypotheses": [
+    "Use opposite Borels B−=TU− and B+=TU+ and the chosen character lattice, without replacing it by the simply connected weight lattice."
+   ],
+   "proofSteps": [
+    "In the native coordinate Hopf algebra O(G), consider regular functions satisfying f(gb)=λ(b)^(-1)f(g) for b∈B−. Define f_λ on the dense open cell U+TU− by f_λ(u+tu−)=λ(t)^(-1). This is an auxiliary subspace of O(G), not a new induced-representation carrier.",
+    "Extend f_λ over each simple-reflection translate of the open cell. The SL2 root-subgroup identity makes the extra coordinate occur with exponent ⟨λ,α∨⟩≥0. Bruhat dimensions show that the omitted cells have codimension at least two. Extension across that remainder can be proved on translates of U+TU−: each chart is affine space times a torus, so its coordinate algebra is a Laurent polynomial UFD. A reduced denominator would have an irreducible divisor meeting the already covered open set, a contradiction. Thus the rational function is regular on every chart and glues globally; this argument does not assume an unprovided general Hartogs theorem.",
+    "Use local finiteness of the coordinate comodule to take the finite-dimensional G-span V_λ of f_λ. Restriction to the open cell is injective. Its right-B−-equivariance identifies that restriction with polynomial functions on U+ times λ(t)^(-1); under left T-translation the coordinate weights subtract positive roots. Hence all weights are ≤λ and its λ-weight space consists of constants, of dimension one. The normalizer of T makes the character W-invariant, yielding the claimed orbit-sum triangularity.",
+    "Every finite algebraic module has a finite composition series, and traces and formal characters add in short exact sequences. Consequently the triangular characters of V_λ lie in the span of simple algebraic characters. No assertion of Lie-module descent, Borel–Weil cohomology, or a positive-characteristic Weyl formula is needed."
+   ],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element"
+   ],
+   "sources": [
+    {
+     "sourceId": "JAN",
+     "locator": "Part II, Proposition II.2.2 p.176, Proposition II.2.6 pp.178–179 and Corollary II.2.7 p.179",
+     "match": "The existence proof extends a regular semi-invariant by simple-root SL2 identities. Only the finite coordinate-comodule span and its leading weight are needed here."
+    },
+    {
+     "sourceId": "MIL",
+     "locator": "§20.3–20.4 pp.102–103 and §20.27–20.28 p.107",
+     "match": "The algebraic highest-weight and character-basis statements use the true character lattice of G; the proof input is expanded from Jantzen."
+    }
+   ],
+   "acceptance": [
+    "For SL2 the construction permits λ=ω and gives leading weights ±ω; for PGL2 λ=ω is not in X*(T), whereas λ=2ω is legal.",
+    "The boundary exponent is zero for λ=0 and negative for an antidominant simple-root pairing, detecting the dominance condition."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/WeightPatterns",
+    "namespace": "TauCeti.NilpotentOrbits"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N5/character-separation",
+   "parentStageId": "LieHighestWeightPartII:N5",
+   "realises": [
+    "LieHighestWeightPartII:N5"
+   ],
+   "title": "Characters separate Weyl orbits in a torus",
+   "kind": "theorem",
+   "statement": "Let G be connected complex semisimple, T a maximal torus, W its Weyl group, and x,y∈T(C). If tr τ(x)=tr τ(y) for every irreducible finite algebraic G-representation τ, then x and y are W-conjugate. The highest weights range over the dominant weights in X*(T), so the statement holds for any isogeny form.",
+   "hypotheses": [
+    "Use algebraic representations, not arbitrary abstract representations of G(C)."
+   ],
+   "proofSteps": [
+    "The preceding existence theorem gives triangular algebraic characters for every dominant weight in X*(T). Dominance induction expresses every W-orbit sum as a linear combination of these characters. A finite composition series expresses each of their characters as a sum of simple algebraic characters, so the simple algebraic characters span C[X*(T)]^W.",
+    "Invariant Laurent polynomials separate finite W-orbits: if the two orbits are disjoint, choose a Laurent polynomial taking 0 on one finite orbit and 1 on the other by interpolation of the finitely many distinct torus points. Average its W-translates and divide by |W|.",
+    "Equal irreducible characters therefore force equal invariant functions and exclude disjoint orbits. This finite-group argument requires no general GIT quotient theorem."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element"
+   ],
+   "sources": [
+    {
+     "sourceId": "MIL",
+     "locator": "§20.27–20.28, p.107",
+     "match": "Triangular algebraic characters span the invariant character algebra."
+    },
+    {
+     "sourceId": "CH",
+     "locator": "§10.1, Proposition 10.2, p.32",
+     "match": "The proof invokes determination of the positive parameter by all representation characters; the invariant-character argument makes this input explicit."
+    }
+   ],
+   "acceptance": [
+    "For PGL2 only even SL2 highest weights are legal; nevertheless their characters separate PGL2 torus Weyl orbits."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/WeightPatterns",
+    "namespace": "TauCeti.NilpotentOrbits"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII:N5/real-part-recognition",
+   "parentStageId": "LieHighestWeightPartII:N5",
+   "realises": [
+    "LieHighestWeightPartII:N5"
+   ],
+   "title": "Recognition of the positive real part",
+   "kind": "theorem",
+   "statement": "Fix q>1. If semisimple s,s′∈G(C) are q-geometric in every finite algebraic representation and have identical representation-indexed weight patterns, then their positive real parts r(s),r(s′) are conjugate in G(C), equivalently W-conjugate after moving them into a fixed T. It suffices to compare patterns on irreducibles. No conjugacy of s and s′ themselves is asserted.",
+   "hypotheses": [
+    "G is connected complex semisimple; positive parts and patterns use the preceding definitions."
+   ],
+   "proofSteps": [
+    "For each irreducible τ, compute tr τ(r(s))=Σ_i n_(τ(s))(i)·q^(i/2), using the positive-part eigenvalue comparison. The equal-pattern hypothesis makes these traces equal for s and s′.",
+    "Apply character separation in the fixed torus. Direct-sum additivity explains why irreducibles suffice."
+   ],
+   "prerequisites": [
+    "LieHighestWeightPartII:N5/weight-pattern",
+    "LieHighestWeightPartII:N5/positive-real-part",
+    "LieHighestWeightPartII:N5/character-separation"
+   ],
+   "sources": [
+    {
+     "sourceId": "CH",
+     "locator": "§10.1, Proposition 10.2, p.32",
+     "match": "All geometric weight patterns determine the real part up to Weyl action."
+    }
+   ],
+   "acceptance": [
+    "The compact-phase SL2 example in the pattern tests is allowed and shows why the conclusion concerns only positive real parts."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/RepresentationTheory/NilpotentOrbits/WeightPatterns",
+    "namespace": "TauCeti.NilpotentOrbits"
+   },
+   "planet": {
+    "name": "Real-part recognition"
+   }
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine",
+   "need": "The invariant form on each standard sl2 irreducible is unique up to scalar and symmetric in even highest weight, alternating in odd highest weight. The pinned decomposition/classification is reused; only this invariant-form application is needed.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/classical-partitions"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+   "need": "Cartan/root-space decomposition for a finite semisimple algebra, simple-root sl2 subalgebras, one-dimensional root spaces, generalized-eigenspace bracket rule and placement of semisimple elements in a Cartan. Supply the ordinary root-vector bases used in the finite appendix checks.",
+   "neededBy": [
+    "LieHighestWeightPartII:N0/jordan-centralizer",
+    "LieHighestWeightPartII:N0/jacobson-morozov",
+    "LieHighestWeightPartII:N3/dominant-characteristic",
+    "LieHighestWeightPartII:N3/root-profile",
+    "LieHighestWeightPartII:N3/appendix-table-interface"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality",
+   "need": "Honest Cartan weight spaces, integral weights and tensor/dual weight laws for finite modules. No new weight-space or eigenspace carrier is built here.",
+   "neededBy": [
+    "LieHighestWeightPartII:N1/tensor-exactness",
+    "LieHighestWeightPartII:N3/dominant-characteristic",
+    "LieHighestWeightPartII:N5/highest-weight-test"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+   "need": "Weights of L(λ) lie in λ plus the root lattice and λ occurs. Import ordinary PBW/Verma theory rather than planning it here.",
+   "neededBy": [
+    "LieHighestWeightPartII:N5/highest-weight-test"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+   "need": "Finite-dimensional irreducibles for every dominant integral Lie weight, including D_r half-spin; this is Lie-module classification, not a claim that these modules all descend to an algebraic group. The narrow algebraic-character existence bridge is proved in N5.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/half-spin-separation",
+    "LieHighestWeightPartII:N5/highest-weight-test"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem",
+   "need": "Weyl complete reducibility. Applied to the adjoint module this decomposes a semisimple algebra as a finite direct sum of simple ideals, with factor projections used in N4.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/classical-partitions",
+    "LieHighestWeightPartII:N4/filtration-recognition"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+   "need": "Formal Lie characters, leading dominant orbit sums and highest-weight weight multiplicities; this contract does not assert algebraic-group descent. Compute the minuscule D_r half-spin weights over K using the actual Lie weight lattice.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/half-spin-separation"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+   "need": "The normalized Chevalley system and the Serre-presentation isomorphism Matrix.ToLieAlgebra(K,Aᵀ)≅L for simple L, where Aij=αi(hj) is the root-row/coroot-column Cartan matrix, assembled componentwise for semisimple L. The transpose is required because the Serre constructor uses [Hi,Ej]=CMij Ej. This supplies the Lie-algebra isomorphism from a classical root type to its standard model and the root-generator bracket conventions for finite appendix witnesses; a root-system isomorphism alone is not a Lie-algebra isomorphism.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/classical-recognition",
+    "LieHighestWeightPartII:N3/appendix-table-interface"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+   "need": "The native reductive Lie decomposition into center and semisimple derived algebra, used after identifying a semisimple centralizer from its roots. Do not assert complete reducibility for arbitrary modules over an abelian center.",
+   "neededBy": [
+    "LieHighestWeightPartII:N0/jordan-centralizer"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+   "need": "Finite algebraic representation/comodule category with tensor and dual operations, the coordinate comodule and its local finiteness (every element is contained in a finite-dimensional subcomodule), and a faithful closed immersion of an affine algebraic group into GL(V).",
+   "neededBy": [
+    "LieHighestWeightPartII:N0/triple-integration",
+    "LieHighestWeightPartII:N5/weight-pattern",
+    "LieHighestWeightPartII:N5/positive-real-part",
+    "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+    "LieHighestWeightPartII:N5/character-separation"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+   "need": "Lie(G), differentiation of rational representations, and the adjoint action identified with the native Lie bracket. Compatibility with morphisms, centralizers and base change.",
+   "neededBy": [
+    "LieHighestWeightPartII:N0/nilpotent-orbit",
+    "LieHighestWeightPartII:N0/triple-integration",
+    "LieHighestWeightPartII:N0/neutral-conjugacy",
+    "LieHighestWeightPartII:N2/classical-partitions",
+    "LieHighestWeightPartII:N5/highest-weight-test"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+   "need": "Closed centralizers, identity components and algebraic group quotients. For the fixed-h orbit argument use the ordinary orbit tangent map and characteristic-zero separability; the open-orbit calculation is proved in N0/neutral-conjugacy, not assumed as a nilpotent-orbit classification.",
+   "neededBy": [
+    "LieHighestWeightPartII:N0/nilpotent-orbit",
+    "LieHighestWeightPartII:N0/neutral-conjugacy"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+   "need": "Tori and their genuine character/cocharacter lattices, T(C)=Hom(X*(T),C×), semisimple/unipotent Jordan decomposition for group elements.",
+   "neededBy": [
+    "LieHighestWeightPartII:N5/weight-pattern",
+    "LieHighestWeightPartII:N5/positive-real-part",
+    "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+    "LieHighestWeightPartII:N5/character-separation"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+   "need": "Connected semisimple groups, adjoint and simply connected forms, central isogenies and their surjectivity on algebraically closed K-points; decomposition of the adjoint form along simple factors.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/classical-partitions",
+    "LieHighestWeightPartII:N4/filtration-recognition"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+   "need": "Maximal torus conjugacy, Weyl action and conjugacy of semisimple elements in a fixed torus, root subgroups and Bruhat generation. N5 also uses the open-cell product U+×T×U−, root-subgroup SL2 coordinate identities and the Bruhat-cell dimension formula (the open cell and its simple-reflection translates miss codimension at least two). These are ordinary Bruhat structure inputs; the regular semi-invariant extension and its character application are proved in N5. These are ordinary group structure inputs; the triple-specific integration is built in N0.",
+   "neededBy": [
+    "LieHighestWeightPartII:N0/jordan-centralizer",
+    "LieHighestWeightPartII:N0/triple-integration",
+    "LieHighestWeightPartII:N0/neutral-conjugacy",
+    "LieHighestWeightPartII:N5/highest-weight-test",
+    "LieHighestWeightPartII:N5/positive-real-part",
+    "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+    "LieHighestWeightPartII:N5/character-separation"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+   "need": "The dominant chamber as a fundamental domain, uniqueness of a dominant representative and longest-element chamber action.",
+   "neededBy": [
+    "LieHighestWeightPartII:N3/dominant-characteristic",
+    "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+    "LieHighestWeightPartII:N5/character-separation"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+   "need": "Classification of irreducible reduced root systems and the A/B/C/D or exceptional case split. Lie-algebra realization is imported separately from LieHighestWeight Layer 7.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/classical-recognition",
+    "LieHighestWeightPartII:N3/exceptional-separation",
+    "LieHighestWeightPartII:N4/filtration-recognition"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+   "need": "Finite Bourbaki integral root models, simple-root coefficient vectors, generation by simple reflections and the explicit D_r roots, fundamental weights and even-sign Weyl action. The half-spin weight formula is proved using these coordinates in N2 and compared with the existing complex spin owner. Compare orientation with the pinned DynkinType.cartanMatrix.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/half-spin-separation",
+    "LieHighestWeightPartII:N3/root-profile",
+    "LieHighestWeightPartII:N3/appendix-table-interface"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ",
+   "need": "Over C, the existing exterior/Clifford half-spin Lie modules, their exact Cartan identification, parity-labelled half-sign weights and comparison with fundamental highest weights. For arbitrary K the required Lie half-spin is already imported from LieHighestWeight Layers 4/6; no field extension of the complex spin-group construction is requested.",
+   "neededBy": [
+    "LieHighestWeightPartII:N2/half-spin-separation"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "LieHighestWeightPartII:N0",
+   "status": "planned",
+   "remaining": []
+  },
+  {
+   "stageId": "LieHighestWeightPartII:N1",
+   "status": "planned",
+   "remaining": []
+  },
+  {
+   "stageId": "LieHighestWeightPartII:N2",
+   "status": "planned",
+   "remaining": []
+  },
+  {
+   "stageId": "LieHighestWeightPartII:N3",
+   "status": "planned",
+   "remaining": []
+  },
+  {
+   "stageId": "LieHighestWeightPartII:N4",
+   "status": "planned",
+   "remaining": []
+  },
+  {
+   "stageId": "LieHighestWeightPartII:N5",
+   "status": "planned",
+   "remaining": []
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "LieHighestWeightPartII/E1",
+   "source": "CH",
+   "kind": "misprint",
+   "locator": "arXiv:2311.15300v1, Definition 2.2 p.6 versus Appendix p.35 and Tables 2–4 pp.35–37",
+   "printed": "Table entries and the half-spin maximum are described using filtration steps.",
+   "correction": "Interpret the entries and the finite maximal support as graded multiplicities. Keep the recognition hypothesis in cumulative dimensions and relate it by finite differences.",
+   "reason": "For the F4 principal element the nonnegative sequence starts 4,0,4, which cannot be nested dimensions; an increasing exhaustive filtration is nonzero in all sufficiently large degrees.",
+   "affects": "nothing",
+   "known": "Already recorded and independently confirmed as PAPER-CIUBOTARU-HARRIS-26/E4; correction in the published revision not established.",
+   "searched": [
+    "2026-10-18: arXiv abs/2311.15300 still lists only v1.",
+    "2026-10-18: Annals article metadata gives a later revision; no revised text was read, so no claim is made about its wording.",
+    "Existing reviewed PAPER-CIUBOTARU-HARRIS-26 sourceIssues E4,E6,E17 were read as correction leads and their source passages rechecked. This is not a new-discovery claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The principal F4 profile begins 4,0,4, which cannot be dimensions of nested subspaces. The finite half-spin maximum likewise concerns graded support. The correction preserves the cumulative recognition hypothesis through finite differences.",
+    "by": "REV-DESIGN-LieHighestWeightPartII"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII/E2",
+   "source": "CH",
+   "kind": "gap",
+   "locator": "arXiv:2311.15300v1, Appendix proof of Lemma 10.9, p.35",
+   "printed": "The exceptional proof infers the E6 and E7 claims by treating them as Levi subalgebras of E8.",
+   "correction": "Check the E6 and E7 root systems directly. The candidate-profile certificate supplies this without relying on orbit labels.",
+   "reason": "A grading on the Levi adjoint summand does not specify the grading of the other E8 summands. Conjugacy in E8 also need not be conjugacy in the Levi.",
+   "affects": "the proof",
+   "known": "Already recorded and independently confirmed as PAPER-CIUBOTARU-HARRIS-26/E6; no assertion about the later Annals revision.",
+   "searched": [
+    "2026-10-18: arXiv abs/2311.15300 still lists only v1.",
+    "2026-10-18: Annals article metadata gives a later revision; no revised text was read, so no claim is made about its wording.",
+    "Existing reviewed PAPER-CIUBOTARU-HARRIS-26 sourceIssues E4,E6,E17 were read as correction leads and their source passages rechecked. This is not a new-discovery claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The Levi summand profile alone does not determine the complementary E8 summands or conjugacy inside the Levi. Direct E6/E7 candidate enumeration independently succeeds and supplies the missing proof route.",
+    "by": "REV-DESIGN-LieHighestWeightPartII"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII/E3",
+   "source": "CH",
+   "kind": "misprint",
+   "locator": "arXiv:2311.15300v1, Appendix so(2n) paragraph, p.35",
+   "printed": "The simple-root chain and ascending neutral coordinates use opposite order conventions.",
+   "correction": "For ascending a1≤…≤ar use ε3−ε2,…,εr−ε_(r−1) after the two fork roots; otherwise reverse the coordinate ordering.",
+   "reason": "For (1,1,3,3), pairing ε2−ε3 gives −2, contradicting dominance in the printed chamber. The half-spin maxima remain 4 and 3.",
+   "affects": "nothing",
+   "known": "Already recorded and independently confirmed as PAPER-CIUBOTARU-HARRIS-26/E17; no assertion about the later Annals revision.",
+   "searched": [
+    "2026-10-18: arXiv abs/2311.15300 still lists only v1.",
+    "2026-10-18: Annals article metadata gives a later revision; no revised text was read, so no claim is made about its wording.",
+    "Existing reviewed PAPER-CIUBOTARU-HARRIS-26 sourceIssues E4,E6,E17 were read as correction leads and their source passages rechecked. This is not a new-discovery claim."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "With ascending (1,1,3,3), the printed descending-chain root has pairing −2. Reversing that chain gives a dominant chamber and the half-spin maxima remain 4 and 3.",
+    "by": "REV-DESIGN-LieHighestWeightPartII"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII/E4",
+   "source": "BAL",
+   "kind": "misprint",
+   "locator": "Author-hosted part1.pdf, §5, proof of Theorem 5.1, p.15; bytes identified in sourceVersions",
+   "printed": "The triangularization sentence makes all operators from Kh+L^e strictly triangular, including h.",
+   "correction": "Only operators from the nilpotent centralizer L^e are strictly triangular; ad h is upper triangular. This gives the required trace zero for ad h·ad x, x∈L^e.",
+   "reason": "In a nonzero triple ad h has eigenvalue 2 on e, so cannot be strictly triangular. The corrected trace argument proves the intended step.",
+   "affects": "nothing",
+   "known": "No correction found in the checked author-hosted copy; not an exhaustive novelty claim.",
+   "searched": [
+    "2026-10-18: author-hosted notes read at the exact SHA-256 listed above.",
+    "2026-10-18: author-site search for part1 corrections did not locate a correction; no inference about unpublished corrections."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "BAL p.15 triangularizes too much: h cannot be strictly upper triangular when [h,e]=2e and e is nonzero. Only the centralizer terms need strict triangularity; h is upper triangular, which still gives the required vanishing trace.",
+    "by": "REV-DESIGN-LieHighestWeightPartII"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII/E5",
+   "source": "MIL",
+   "kind": "error",
+   "locator": "Reductive Groups v2.00 (10 March 2018), §20.29–20.30, p.108",
+   "printed": "The simple-module Weyl character formula is stated under a general-field split reductive hypothesis before the characteristic-zero subsection.",
+   "correction": "Restrict that simple-module formula to characteristic zero; in positive characteristic the displayed expression is a Weyl-module character, not generally a simple-module character. N5 only uses characteristic zero and triangular characters.",
+   "reason": "For SL2 in characteristic p>0, the simple module of highest weight pω is the two-dimensional Frobenius twist of the standard module. The displayed Weyl expression instead has dimension p+1.",
+   "affects": "nothing",
+   "known": "No corresponding entry found in the author’s course-note errata on 2026-10-18; no claim of novelty or of the wording of another edition.",
+   "searched": [
+    "2026-10-18: author RG page still identifies v2.00 March 2018.",
+    "2026-10-18: https://www.jmilne.org/math/CourseNotes/errata.html, Reductive Groups and algebraic-group sections checked; no matching correction found.",
+    "Independent review, 2026-10-18: the author’s CourseNotes/errata.html RG subsection lists earlier v1.00 corrections, but does not list this issue; the identified v2.00 source text was rechecked directly."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The statement in Milne §20.30 lacks the characteristic-zero restriction required by the simple-character formula. In characteristic p the simple SL2 module of highest weight pω is the two-dimensional Frobenius twist, whereas the Weyl expression has dimension p+1. The roadmap assumes characteristic zero.",
+    "by": "REV-DESIGN-LieHighestWeightPartII"
+   }
+  },
+  {
+   "id": "LieHighestWeightPartII/E6",
+   "source": "MIL",
+   "kind": "error",
+   "locator": "Reductive Groups v2.00 (10 March 2018), §17.59, p.80",
+   "printed": "The sentence assigns trivial Picard group and a factorial coordinate ring to PGL_n as well as SL_n.",
+   "correction": "Keep the assertion for SL_n. For PGL2 over C the Picard group is nontrivial; none of the roadmap uses a factoriality claim for O(PGL_n). The extension proof works on translates of the open-cell Laurent polynomial charts.",
+   "reason": "The source’s own §20.29 says that a semisimple group has trivial Picard group exactly when it is simply connected, while PGL2 is not simply connected (§17.60). Thus the asserted universal PGL_n vanishing is already incompatible with those statements.",
+   "affects": "nothing",
+   "known": "No corresponding entry found in the checked author errata; no exhaustive novelty claim.",
+   "searched": [
+    "2026-10-18: author course-note errata, Reductive Groups section checked.",
+    "2026-10-18: internal comparison with §17.60 p.80 and §20.29 p.108.",
+    "Independent review, 2026-10-18: the author’s CourseNotes/errata.html RG subsection lists earlier v1.00 corrections, but does not list this issue; the identified v2.00 source text was rechecked directly."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Milne §17.59 includes PGL_n in its zero-Picard claim, contradicting §17.60 and §20.29 for PGL2. The local Laurent-UFD extension proof avoids that false global assertion.",
+    "by": "REV-DESIGN-LieHighestWeightPartII"
+   }
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2311.15300v1",
+   "read": "2026-10-18",
+   "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
+   "citation": "On the generalized Ramanujan and Arthur conjectures over function fields; arXiv:2311.15300v1, 26 November 2023; printed page numbering. Annals 204 (2026), 545–601 is a distinct, uncollated revision."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://people.math.harvard.edu/~ana/part1.pdf",
+   "read": "2026-10-18",
+   "sha256": "e6c3e0d0a7ef0df8a162940e302dfbea5d10cf4d2c2872728033346d6501ed38",
+   "citation": "Part I: Geometry of semisimple Lie algebras; Undated author notes, author-hosted copy; printed page numbering."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.utah.edu/~ptrapa/sommers-preliminary-notes.pdf",
+   "read": "2026-10-18",
+   "sha256": "4efd401e9f7ed75cd1ec83d6a7f51e5be744ed15c08e72a8651462649fa54dc8",
+   "citation": "Nilpotent orbits and Weyl group representations; Preliminary notes, 17 July 2009."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0702193v2",
+   "read": "2026-10-18",
+   "sha256": "8f78bc359826032475efa37b4c53958b25bfe136286774c8dd55bf1cdcd059e6",
+   "citation": "Computing with nilpotent orbits in simple Lie algebras of exceptional type; arXiv:math/0702193v2, 14 December 2007; published LMS Journal of Computation and Mathematics 11 (2008), 280–297."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://raw.githubusercontent.com/gap-packages/sla/30b585c78be885925776f01522fdce036d45e661/gap/nilporb.gi",
+   "read": "2026-10-18",
+   "sha256": "d22e9f2d770cf3b02628474b893cdcbcf8564ef0c468806b298d4f93b16d0f50",
+   "citation": "SLA nilpotent-orbit data, nilporb.gi; GAP SLA commit 30b585c78be885925776f01522fdce036d45e661; an independent numerical cross-check, not a proof oracle."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.jmilne.org/math/CourseNotes/RG.pdf",
+   "read": "2026-10-18",
+   "sha256": "f5d282908082622f39627e6850395fccebd4f0ed9c47eba3209deda286235291",
+   "citation": "Reductive Groups; Author notes, version 2.00, 10 March 2018; not the Algebraic Groups book."
+  },
+  {
+   "kind": "cleared book",
+   "url": "https://doi.org/10.1090/surv/107",
+   "read": "2026-10-18",
+   "sha256": "5772b172cd315a4710220880e2dc9fb83fe2d512e5fb760c2f0f24a297222839",
+   "citation": "Representations of Algebraic Groups; Second edition, AMS Mathematical Surveys and Monographs 107 (2003); maintainer-cleared reference copy, read in place."
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/2026/204-2/p03",
+   "read": "2026-10-18",
+   "status": "Article metadata read; revised 8 October 2025 text was not obtained or collated. All CH source issues below concern only the identified v1 bytes."
+  }
+ ],
+ "routeCoverage": [
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/zero-triple-adapter",
+   "nodes": [
+    "LieHighestWeightPartII:N0/zero-triple"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/jacobson-morozov",
+   "nodes": [
+    "LieHighestWeightPartII:N0/jacobson-morozov"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/kostant-conjugacy",
+   "nodes": [
+    "LieHighestWeightPartII:N0/kostant-conjugacy"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/sl2-filtration",
+   "nodes": [
+    "LieHighestWeightPartII:N1/weight-filtration"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/filtration-recognition",
+   "nodes": [
+    "LieHighestWeightPartII:N4/filtration-recognition"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/highest-weight-test",
+   "nodes": [
+    "LieHighestWeightPartII:N5/highest-weight-test"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/weight-pattern",
+   "nodes": [
+    "LieHighestWeightPartII:N5/weight-pattern"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/real-part-recognition",
+   "nodes": [
+    "LieHighestWeightPartII:N5/real-part-recognition"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/classical-recognition",
+   "nodes": [
+    "LieHighestWeightPartII:N2/classical-recognition"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/exceptional-adjoint-separation",
+   "nodes": [
+    "LieHighestWeightPartII:N3/exceptional-separation"
+   ]
+  },
+  {
+   "item": "PAPER-CIUBOTARU-HARRIS-26/appendix-tables",
+   "nodes": [
+    "LieHighestWeightPartII:N3/appendix-table-interface"
+   ]
+  }
+ ],
+ "restructure": [
+  {
+   "kind": "split",
+   "title": "Coalesce the nilpotent continuation under the claimed Part II id",
+   "reason": "The claimed issue explicitly permits the first independent continuation to be planned here. LieHighestWeightPartIINilpotentOrbits is an alias for this roadmap, not a second package.",
+   "fromRoadmap": "LieHighestWeightPartIINilpotentOrbits",
+   "toRoadmap": "LieHighestWeightPartII",
+   "items": [
+    "PAPER-CIUBOTARU-HARRIS-26/zero-triple-adapter",
+    "PAPER-CIUBOTARU-HARRIS-26/jacobson-morozov",
+    "PAPER-CIUBOTARU-HARRIS-26/kostant-conjugacy",
+    "PAPER-CIUBOTARU-HARRIS-26/sl2-filtration",
+    "PAPER-CIUBOTARU-HARRIS-26/filtration-recognition",
+    "PAPER-CIUBOTARU-HARRIS-26/highest-weight-test",
+    "PAPER-CIUBOTARU-HARRIS-26/weight-pattern",
+    "PAPER-CIUBOTARU-HARRIS-26/real-part-recognition",
+    "PAPER-CIUBOTARU-HARRIS-26/classical-recognition",
+    "PAPER-CIUBOTARU-HARRIS-26/exceptional-adjoint-separation",
+    "PAPER-CIUBOTARU-HARRIS-26/appendix-tables"
+   ]
+  },
+  {
+   "kind": "split",
+   "title": "One algebraic completion owner and one category-O consumer",
+   "reason": "The integral completion and completed category-O briefs have different carriers, dependencies and proof obligations from nilpotent orbit recognition; each extends the same ordinary highest-weight parent.",
+   "directions": [
+    {
+     "roadmap": "PadicEnvelopingAlgebras",
+     "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+     "items": [
+      "PAPER-FU-24/skew-rank",
+      "PAPER-FU-24/associated-graded-symbol",
+      "PAPER-FU-24/regular-symbol-strictness",
+      "PAPER-FU-24/graded-principal-quotient",
+      "PAPER-FU-24/completion-ideal",
+      "PAPER-FU-24/completion-quotient",
+      "PAPER-FU-24/integral-sl2-pbw",
+      "PAPER-FU-24/integral-central-generators",
+      "PAPER-FU-24/central-quotients",
+      "PAPER-FU-24/completed-enveloping",
+      "PAPER-FU-24/completed-central-quotients",
+      "PAPER-FU-24/generic-element",
+      "PAPER-FU-24/uniform-nonvanishing-mod-p",
+      "PAPER-FU-24/central-pbw-normal-form",
+      "PAPER-FU-24/central-filtered-rank",
+      "PAPER-FU-24/central-graded-cone",
+      "PAPER-FU-24/completed-central-domain",
+      "PAPER-FU-24/algebraic-quotient",
+      "PAPER-FU-24/isotypic-multiplicity-dimension",
+      "PAPER-FU-24/integral-image-lattice",
+      "PAPER-FU-24/bounded-degree-image",
+      "PAPER-FU-24/rational-endomorphism-quotient",
+      "PAPER-FU-24/completed-image-and-reduction",
+      "PAPER-FU-24/generic-multiplication-injection",
+      "PAPER-FU-24/generic-cyclic-growth",
+      "PAPER-FU-24/small-coordinate-strips",
+      "PAPER-FU-24/nongeneric-counterexample",
+      "PAPER-FU-24/affinoid-verma",
+      "PAPER-FU-24/affinoid-verma-annihilator",
+      "PAPER-FU-24/local-algebraic-representation",
+      "PAPER-FU-24/explicit-multiaffine-majorant",
+      "PAPER-FU-24/bounded-central-division",
+      "PAPER-FU-24/weighted-pbw-completion",
+      "PAPER-FU-24/free-lie-pbw",
+      "PAPER-FU-24/finite-pbw-coefficients",
+      "PAPER-FU-24/weighted-central-closedness",
+      "PAPER-FU-24/weighted-central-radius-injection",
+      "PAPER-FU-24/weighted-central-domain",
+      "PAPER-FU-24/split-field-harish-chandra",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.2.29",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.2.34-flat",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.2.35"
+     ],
+     "brief": "Own integral central reductions and completed enveloping algebras, importing field PBW, highest-weight and central-character theory. Start with finite free split sl2 at odd p in Fu; retain the exact Ardakov–Wadsley integral-weight, n≥0 and very-good-prime assumptions. Prove the cyclic generic-annihilator multiplicity bound by a multiaffine majorant 2Σ_i α_i∏_(j≠i)(k_j+1), including all low-coordinate strips and the equal-Casimir nongeneric counterexample. Distinguish the integral image lattice from all matrices. Own weighted PBW completions at all real ρ≥1, bounded central projection/division, exact ideal kernel, attained quotient norm and coefficient-preserving radius injections; derive domains from the unweighted domain without asserting all-real Noetherianity. PBW spanning in the pins is not independence. Add BCGP split reductive finite-E, all-prime Arens–Michael U(g)_r, transition flatness/density, injective algebraic inclusion and exact finitely generated module completion. Its three items are 2.2.29, 2.2.34-flat, 2.2.35. Do not infer dyadic Fu uniform-group claims from that extension. NoncommutativeAnalyticDistributions consumes these algebras and owns the analytic distribution/germ comparison; there is no reverse dependency.",
+     "sourceRoutes": [
+      "PAPER-FU-24 → PadicEnvelopingAlgebras (39 items)",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25 → PadicEnvelopingAlgebras (3 items)"
+     ]
+    },
+    {
+     "roadmap": "LieHighestWeightPartIICompletedCategoryO",
+     "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+     "items": [
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/1.8.4-root-data",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/1.8.8-gsp4",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.2.38-O",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.2.38-completedO",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.2.39",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.1-discrete",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.1-solid",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.2-duality",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.3-poincare",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.4",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.5-levi",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.9-HC",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.12",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.13",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.14",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.16",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.17",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.19-O",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.19-vanishing",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.19-highest",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.19-factors",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.25",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.30",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.32",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.3.33",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.1-cells",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.3-root-coordinates",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.4",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.5-root",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.5-formal",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.6-stabilizer",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.7",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.8",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.9-membership",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.9-ordinary",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.9-dual",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.9-K0",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.10",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.4.11",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.5.1-action",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.5.2-intertwiner",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.5.2-integral",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.6.1-partial",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.6.2",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.6.3",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.6.4-integral",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.6.4-nonintegral",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.7.0-natural",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.7.0-canonical",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.7.1",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.7.2",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.7.3",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.7.4",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.7.6",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.8.1-polynomial",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.8.1-laurent",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.8.2",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/2.8.3",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.2-banach",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.3",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.4",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.5",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.6",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.8",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.9",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.10",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.11",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.16",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.18-moving-lie",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.21",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.22",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.24",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.25",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.27",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.30",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.31",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.32",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.33",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.34",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.35",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.36",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.38",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.41",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.43",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.44-dual",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.2.44-reverse",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.2",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.6-stabilizer",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.7",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.9-levels",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.10",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.11",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.12",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.14",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.3.15",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.3",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.5",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.6",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.8",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.9",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.10",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.12",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.13",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.15",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.17",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.18",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.4.19",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.1-Loc",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.2",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.3",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.4",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.5-central-blocks",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.7",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.8-B-twist",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.11",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.14",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.16",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.17",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.20-image",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.20-bound",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.20-highest",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.20-factors",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.23-bound",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.23-highest",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.5.25-fibre",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.1-geometry",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.3",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.5-coefficient-extension",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.6",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.7-Cartan",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.9",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.12",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.13-comparison",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.14-overlap",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.14-closed",
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/3.6.15"
+     ],
+     "brief": "Own full/parabolic category O, Chevalley–Eilenberg homology with Levi actions, Casselman–Osborne and Kostant homology; separate all four parts of BCGP Theorem 2.3.19. Import ordinary PBW, Verma, finite highest-weight and Harish–Chandra theory with its pinned implementation boundaries, and import the completion owner above, NoncommutativeAnalyticDistributions and the solid functional-duality owner. Build Z-solid formal Schubert cells and twisted Verma modules with support shifts; use λ+1 in the intertwiners and the weak exponential non-Liouville hypothesis. Keep Theorem 2.3.32 behind an explicit replacement for false Lemma 2.7.5. Build the actual (g,G), (g,Q), dagger-orbit and stabilizer categories at their Banach stages, horizontal center, Cla and D-tilde-la; HCS is exact contravariant and Loc is derived RHom. State Theorems 3.5.11 and 3.5.23 and finite-dimensional comparison separately, respecting singular central characters. For singular GSp4 Klingen λ=(1,1;even w), Theorem 3.6.9 concerns extensions up to nonzero scalar; the overlap argument in 3.6.15 leaves constrained-fibre membership unresolved since (x+1)∂+1 kills an ambient analytic germ. Keep that proof obligation visible to higher Coleman theory.",
+     "sourceRoutes": [
+      "PAPER-BOXER-CALEGARI-GEE-PILLONI-25 → LieHighestWeightPartIICompletedCategoryO (136 items)"
+     ]
+    }
+   ]
+  }
+ ],
+ "upstreamNotes": [
+  "Read the current LieHighestWeight and ReductiveGroups README files in full and their Suggested files; checked current RootSystems, SpinRepresentations and OrthogonalSpinGroups scopes. Nothing here re-plans ordinary sl2, PBW, highest-weight, root classification or spin representations.",
+  "The current TauCeti library at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 additionally has TauCeti/Algebra/Lie/Killing/AdNilpotent.lean: killingForm_eq_zero_of_isNilpotent_ad_of_lie_eq_zero, range_ad_eq_orthogonal_ker_ad, mem_range_ad_self_of_isNilpotent_ad and exists_lie_eq_self_of_isNilpotent_ad. Statements read on 2026-10-18; this file is absent at f790474. Reuse these existing trace/first-bracket facts when implementing N0; no separate node plans them. The new target is completion to an sl2 triple.",
+  "The generic finite filtered-space category is already planned at PadicHodgeTheory:R06.2/filtered-vector-spaces (P7 packet, statement read). N1 uses Mathlib FilteredObject and owns only the eigenfiltration and its properties; there is no new generic filtered-space category or arithmetic dependency.",
+  "The reviewed library audit has no direct nilpotent-orbit entry. AUDIT13 AF.1/AF.4 and pinned sources show existing representation/central-character infrastructure, not the new orbit and recognition targets. Public source searches and the current library search did not locate a full Jacobson–Morozov or nilpotent-orbit-recognition implementation."
+ ],
+ "conventions": [
+  "K is an algebraically closed field of characteristic zero.",
+  "L is a finite-dimensional semisimple K-Lie algebra (equivalently, in this setting, its Killing form is nondegenerate).",
+  "G is a connected semisimple algebraic K-group with a specified identification Lie(G)≅L; its action is Ad(G(K)), equivalently that of the adjoint form.",
+  "M is a finite-dimensional K-Lie module for L; representations mean Lie modules, including those not descending to a chosen non-simply-connected G.",
+  "Triple order is (h,e,f), with [e,f]=h, [h,e]=2e, [h,f]=−2f.",
+  "Filtrations are increasing W_i=Σ_(j≤i)M_j; e has degree +2. Printed CH table entries mean dim gr_i, not dim W_i.",
+  "Exceptionals use Bourbaki order, Cartan rows indexed by roots and columns by coroots. E6 opposition swaps 1↔6,3↔5.",
+  "Only N5 positive parts and weight patterns require K=C; its real functionals act on the abstract real weight lattice."
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-LieHighestWeightPartII",
+  "date": "2026-10-18",
+  "notes": "Independent target-level review of all 28 nodes, all 17 pinned baseline declarations, 19 supplier requests, nine definition/construction APIs and their 32 tests, six source issues, the reader, the six layers and the compact Lean outline. Corrected two unsupported/misplaced SOM citations, the CH Lemma 2.4 page span and a zero-sensitive sign non-example, and made the Serre-constructor transpose explicit in the supplier contract. All five candidate computations and all 91 printed numeric profiles were independently reproduced. No nodes added or baseline declarations removed. Accepted as a complete plan; implementation remains unchecked and formal finite certificates and representative witnesses remain targets. See research/blueprint/reviews/REV-DESIGN-LieHighestWeightPartII.md.",
+  "checked": [
+   {
+    "nodeId": "LieHighestWeightPartII:N0/zero-triple",
+    "verdict": "verified",
+    "note": "The three relations force h=0 iff e=f=0 in characteristic zero. The adapter preserves the native nonzero IsSl2Triple contract and admits precisely the extra zero triple."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N0/nilpotent-orbit",
+    "verdict": "corrected",
+    "note": "Moved the SOM locator to §3.1, pp.15–16, where adjoint orbits and the triple correspondence occur. Quotients use the connected inner action, include zero and retain the distinction between O and SO."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N0/jordan-centralizer",
+    "verdict": "corrected",
+    "note": "Removed SOM §2.4 as unsupported for this reduction. BAL Theorem 5.1 proof, pp.14–15, supplies the proper derived-centralizer induction; generalized eigenspace brackets and inner derivations justify the stated algebraic adaptation."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N0/jacobson-morozov",
+    "verdict": "verified",
+    "note": "Checked the induction, Jordan-centralizer reduction and the centralizer-nilpotent Engel/Lie alternative. The trace argument yields h in im(ad e), then the degree −2 projection supplies f. The new current-library first-bracket facts are reused, not re-planned."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N0/triple-integration",
+    "verdict": "verified",
+    "note": "Finite sl2 decomposition gives the algebraic SL2 action in a faithful ambient representation. The finite exponential preserves the defining ideal in characteristic zero; root generators supply membership in G. This also proves inner invariance for arbitrary Lie modules without group descent."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N0/kostant-conjugacy",
+    "verdict": "verified",
+    "note": "At fixed e the difference of neutral elements has positive centralizer weights. Successive finite exponentials remove them, with the degree −2 kernel condition giving uniqueness of f. Nilpotent exponentials are supplied by the integration step."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N0/neutral-conjugacy",
+    "verdict": "verified",
+    "note": "DG Lemmas 2–3, pp.4–5, support the degree-two open-orbit argument. Surjectivity of ad(e):L0→L2 follows from sl2 strings; characteristic-zero separability and irreducibility give a unique open orbit, followed by uniqueness of f."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N1/restriction",
+    "verdict": "corrected",
+    "note": "Native basis-to-hom and Lie-module restriction supply the construction and its API. Restricted the sign non-example to the standard nonzero triple, since swapping the zero triple does not fail."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N1/weight-filtration",
+    "verdict": "verified",
+    "note": "The increasing sum of integer eigenspaces has the stated zero jump, finite bounds and native FilteredObject comparison. The generic decreasing filtered-space owner is reused by reindexing, not duplicated."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N1/graded-comparison",
+    "verdict": "verified",
+    "note": "Integral diagonalization identifies gr_i with the i-eigenspace. Finite differences recover cumulative dimensions and sl2 irreducible multiplicities d_n−d_(n+2), including the zero and trivial summands."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N1/tensor-exactness",
+    "verdict": "verified",
+    "note": "Maps preserve neutral eigenspaces, yielding strictness and levelwise exactness. Tensor convolution and the dual index −i−1 agree with the increasing convention and the existing weight laws."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N2/classical-partitions",
+    "verdict": "verified",
+    "note": "The invariant-form parity on sl2 irreducibles gives the orthogonal/symplectic partition constraints. The determinant of a centralizer reflection is (−1)^block-size, so precisely the very-even orthogonal class splits under SO."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N2/half-spin-separation",
+    "verdict": "verified",
+    "note": "Checked ascending D_r root signs, the actual half-sign weight lattice and the even-sign Weyl action. In the very-even case the fixed half-spin maxima are A and A−a1; the example (1,1,3,3) gives 4 and 3. No descent to SO is assumed."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N2/classical-recognition",
+    "verdict": "corrected",
+    "note": "The standard module recovers the partition; one fixed Lie half-spin separates the SO split pair. A classical root-type identification is upgraded using the existing Lie Serre presentation rather than being treated as a Lie-algebra isomorphism by itself. Made the supplier contract explicit: the Serre constructor takes the transpose of the root-row Cartan matrix, as stated by the current upstream presentation theorem."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N3/dominant-characteristic",
+    "verdict": "verified",
+    "note": "Root sl2 strings give labels 0,1,2; the SL2 Weyl element conjugates h to −h, giving opposition invariance. The adjoint sl2 decomposition gives every multiplicity inequality used by the finite candidate set."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N3/root-profile",
+    "verdict": "verified",
+    "note": "The formula counts root coefficient pairings and adds rank at degree zero. Independently generated the finite roots using the pinned Cartan orientation; root counts are 12,48,72,126,240 and support bounds 10,22,22,34,58."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N3/candidate-certificate",
+    "verdict": "verified",
+    "note": "The finite checker uses a necessary-condition superset, not an asserted orbit classification. Exhaustive exact integer enumeration independently reproduces candidate counts 7,28,34,274,245, with zero and the principal label included."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N3/candidate-profile-injective",
+    "verdict": "verified",
+    "note": "Independent exhaustive profile comparison gives 7,28,34,274,245 distinct profiles on the respective candidate sets. Removing E6 opposition gives 212 candidates but only 123 profiles. Lean certificates and root-datum comparison remain explicit implementation targets."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N3/exceptional-separation",
+    "verdict": "verified",
+    "note": "Actual neutral elements lie in the checked candidate set; profile injectivity identifies their dominant characteristics, and neutral conjugacy identifies the triples. E6 and E7 are checked directly, avoiding the unsupported E8-Levi inference."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N3/appendix-table-interface",
+    "verdict": "verified",
+    "note": "Independently parsed and matched all 91 numeric CH profiles to profiles recomputed from the pinned SLA diagrams: 5 G2,16 F4,70 E8. The construction additionally requires root-vector witnesses; those and semantic Bala–Carter labels are not claimed verified by this arithmetic check."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N4/filtration-recognition",
+    "verdict": "corrected",
+    "note": "Expanded the CH Lemma 2.4 locator to pp.6–7. Factor-selective modules prevent permutation of repeated simple factors; the adjoint-group product conjugator lifts on algebraically closed points. Finite differences give the stated equivalence with restricted sl2 modules."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N5/root-coset-half-integrality",
+    "verdict": "verified",
+    "note": "The integer/half-integer test uses the abstract real root space and the actual root lattice, so no order on K or unrestricted algebraic-group weight lattice is introduced. Root-coset invariance gives the claimed implication."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N5/highest-weight-test",
+    "verdict": "verified",
+    "note": "The occurring highest weight and λ minus nonnegative root combinations give both implications, with all weights quantified. Differentiation preserves irreducibility here by torus weights and root subgroup generation in characteristic zero."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N5/weight-pattern",
+    "verdict": "verified",
+    "note": "The finite pattern records moduli q^(i/2) for q>1, including zero-dimensional, direct-sum, tensor and dual tests. Equal moduli deliberately forget phases; the semisimple invertibility hypothesis excludes zero eigenvalues."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N5/positive-real-part",
+    "verdict": "verified",
+    "note": "Absolute value of every genuine torus character is a multiplicative positive character. Weyl compatibility and maximal-torus conjugacy make its orbit intrinsic; this does not force semisimple elements with different phases to be conjugate."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+    "verdict": "verified",
+    "note": "Read Jantzen II.2.2, p.176 and II.2.6–2.7, pp.178–179, in the cleared second edition. The regular semi-invariant on U+TU−, rank-one boundary exponents and Laurent-UFD extension give the algebraic representation on the actual character lattice; local finiteness gives a finite module. Lie-module existence alone would not suffice."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N5/character-separation",
+    "verdict": "verified",
+    "note": "Dominance induction on leading orbit sums spans Weyl-invariant Laurent characters using allowed algebraic highest weights. Finite-orbit interpolation and averaging separate positive Weyl orbits. Milne §20.30 is used only in characteristic zero."
+   },
+   {
+    "nodeId": "LieHighestWeightPartII:N5/real-part-recognition",
+    "verdict": "verified",
+    "note": "A geometric pattern determines each trace at the positive part by summing n_i q^(i/2). Character separation then gives Weyl conjugacy and hence conjugacy of positive real parts, with no conclusion about phases."
+   }
+  ]
+ }
+}

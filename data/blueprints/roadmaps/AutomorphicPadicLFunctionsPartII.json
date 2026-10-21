@@ -1,0 +1,181 @@
+{
+  "id": "AutomorphicPadicLFunctionsPartII",
+  "title": "Ray-class distributions and general automorphic constructions, Part II: critical Hecke values",
+  "area": "iwasawa",
+  "parent": "AutomorphicPadicLFunctions",
+  "summary": "Construct equivariant coherent Eisenstein–Kronecker classes and their critical evaluations over totally imaginary fields admitting a lifted CM type. Compare them with explicitly normalized analytic currents and orbit Eisenstein series, prove critical-value integrality and period algebraicity, and construct ordinary p-adic ray-class interpolation. Generic Poincaré, CM, cohomology and measure theories are imported. The independent nonordinary CM direction has its own split proposal.",
+  "readme": "The reader specifies nine construction-ordered layers, all targets, definition APIs and tests, source locators, exact supplier contracts and three mathematical proof obligations.",
+  "prerequisites": [
+    "AutomorphicPadicLFunctions",
+    "AbelianSchemesAndArithmeticModuliPartII",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "ComplexComparisonPartII",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicMeasuresIwasawaAlgebras",
+    "PeriodsAndSpecialValues",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  ],
+  "stages": [
+    {
+      "key": "KV.0",
+      "title": "Critical types and CM coefficient lines",
+      "description": "Fix the lifted CM type of a totally imaginary field containing its maximal CM subfield, and distinguish the value index α from the derivative index a=α−1. Specify the based CM abelian datum over an arithmetic model and its two cotangent actions. Identify exactly the critical invariant divided-power coefficient lines. Generic diagonalizable-group weight decompositions, CM Serre tensors and Hodge eigenspaces are imported; only their critical-value specialization is owned here. Targets: Lifted CM types and critical coefficient indices; CM abelian data with bases and torsion; Critical coefficient invariants.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P0",
+        "AutomorphicPadicLFunctions:L0",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.0",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1"
+      ]
+    },
+    {
+      "key": "KV.1",
+      "title": "Residues and equivariant Eisenstein–Kronecker classes",
+      "description": "Specify trace-zero functions on finite étale torsion, the equivariant support-cohomology residue calculation and the completed inverse-limit comparison. Define the unique Eisenstein–Kronecker class with prescribed trace-zero residue and its invariant derivatives. Prove independence and functoriality using the existing completed Poincaré bundle. The construction retains the actual finite-level equivariant cohomology and its transition maps rather than treating a pro-sheaf as an ordinary coherent sheaf. Targets: Trace-zero functions on étale torsion; Equivariant residue and inverse-limit comparison; Equivariant coherent Eisenstein–Kronecker class; Flat derivatives of the coherent class.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P0",
+        "AbelianSchemesAndArithmeticModuliPartII:P1",
+        "AbelianSchemesAndArithmeticModuliPartII:P2",
+        "AutomorphicPadicLFunctionsPartII:KV.0",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "KV.2",
+      "title": "Critical evaluation and integral refinement",
+      "description": "Evaluate at torsion by the imported splitting principle and group moment maps, then cap the critical group-cohomology component with the oriented free-unit fundamental cycle. Establish finite-index scaling, the refined evaluation that does not invert Nf, and its comparison with the unrefined value. Compare the residue class with the imported logarithm/polylogarithm construction. For unit groups with torsion, normalized evaluation is integral only where the torsion order is invertible or a separate divisibility theorem applies. Targets: Torsion specialization and group-cohomology moments; Orientation-normalized critical Eisenstein classes; Change of unit subgroup with its normalization; Refined evaluation without inverting the conductor norm; Comparison of refined and unrefined evaluations; Comparison with the de Rham polylogarithm.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P2",
+        "AbelianSchemesAndArithmeticModuliPartII:P3",
+        "AutomorphicPadicLFunctionsPartII:KV.0",
+        "AutomorphicPadicLFunctionsPartII:KV.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "SchemeAndStackFoundations:SF.2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "KV.3",
+      "title": "Analytic representatives and current normalization",
+      "description": "Construct the CM Borel differential complex using imported forms and the bundle-valued current resolution. Define the generalized lattice Eisenstein–Kronecker functions, their gamma-completed Mellin continuation and their phase-sensitive functional equation. Normalize the current by the corrected contraction recurrence and verify its differential equation with the specified residue. Distinguish the poles of K from those of π^(−s)Γ(s)K; keep the inverse covolume factor and the negative trace-Fourier convention. Targets: Unit Borel model and relative Dolbeault complex; Relative currents and residue-normalized integration; Generalized Eisenstein–Kronecker series; Poisson continuation with completed residues; Residue-normalized Eisenstein–Kronecker current; The current realizes the coherent class.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P0",
+        "AbelianSchemesAndArithmeticModuliPartII:P3",
+        "AutomorphicPadicLFunctionsPartII:KV.0",
+        "AutomorphicPadicLFunctionsPartII:KV.1",
+        "AutomorphicPadicLFunctionsPartII:KV.2",
+        "ComplexComparisonPartII:C1",
+        "ComplexComparisonPartII:C5",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "KV.4",
+      "title": "Orbit sums and explicit critical classes",
+      "description": "Define convergent unit-orbit Eisenstein series and their continuation by integration over the logarithmic unit torus. Prove the gamma-factor fibre integral with a fixed orientation and measure. Identify the analytically represented critical class, including the corrected weight-dependent sign and dual-period conversion. The full algebraic-residue/current/orientation comparison is an explicit theorem obligation, so the interpolation proof cannot silently drop its sign. Targets: Eisenstein series over unit orbits; Fibre integration of Kronecker series; Explicit critical class in analytic and algebraic bases.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P0",
+        "AutomorphicPadicLFunctionsPartII:KV.0",
+        "AutomorphicPadicLFunctionsPartII:KV.2",
+        "AutomorphicPadicLFunctionsPartII:KV.3",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1"
+      ]
+    },
+    {
+      "key": "KV.5",
+      "title": "Periods and integral critical Hecke values",
+      "description": "Attach periods and ideal structures to the Serre tensor datum and define the exact factorial and two-period normalizer. Identify ray-partial Hecke values with orbit Eisenstein sums; prove residue-value integrality, torsion distribution and full critical-value integrality with its auxiliary-ideal factor. Deduce algebraicity, the generalized Shimura formula and the weak Deligne period relation. The latter permits a zero L-value. Full-unit integral normalization is a separate divisibility obligation at nonunit torsion indices. Targets: Ideal structures and compatible complex periods; Critical-value normalization; Partial Hecke L-functions as unit-orbit series; Integrality of normalized Eisenstein sums; Torsion distribution and the smoothing identity; Integral differences of partial critical values; Regularized integrality and algebraicity; Katz–Shimura algebraicity for totally imaginary extensions; Deligne period comparison modulo algebraic units.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicPadicLFunctions:L0",
+        "AutomorphicPadicLFunctionsPartII:KV.0",
+        "AutomorphicPadicLFunctionsPartII:KV.1",
+        "AutomorphicPadicLFunctionsPartII:KV.2",
+        "AutomorphicPadicLFunctionsPartII:KV.4",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "PeriodsAndSpecialValues:PS.0",
+        "PeriodsAndSpecialValues:PS.1"
+      ]
+    },
+    {
+      "key": "KV.6",
+      "title": "Ordinary levels and p-adic theta coordinates",
+      "description": "Define p-ordinarity for the lifted type without requiring L itself to be a CM field. Specify connected multiplicative levels, paired étale isogenies, canonical differentials and unit p-adic periods. Construct the CM Eisenstein theta class using the imported integral Poincaré trivialization, and identify invariant differential moments with its algebraic critical evaluations. The finite-free multivariable Amice transform is an input from the measure roadmap. Targets: Ordinary lifted types and CM level structures; Canonical differentials and p-adic periods; The p-adic theta function of a residue class; Canonical formal derivatives and embedding monomials.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P2",
+        "AbelianSchemesAndArithmeticModuliPartII:P4",
+        "AutomorphicPadicLFunctions:L3",
+        "AutomorphicPadicLFunctionsPartII:KV.0",
+        "AutomorphicPadicLFunctionsPartII:KV.1",
+        "AutomorphicPadicLFunctionsPartII:KV.2",
+        "AutomorphicPadicLFunctionsPartII:KV.5",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ]
+    },
+    {
+      "key": "KV.7",
+      "title": "Eisenstein measures and partial Fourier moments",
+      "description": "Construct the bounded Eisenstein measure, retaining the extra Σ-period factor caused by the determinant line. Prove translation through the étale ordinary isogeny, define the normalized one-direction Weil-pairing Fourier transform, and compute locally constant twists of all critical moments. The transform divides by p^(dn), its character sign is negative, and its individual coefficients need not be integral even when the original theta measure is integral. Targets: The CM Eisenstein measure and its moments; p-power translation with Weil-pairing weights; Normalized partial Fourier transform; Locally constant twists of Eisenstein moments.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:P2",
+        "AbelianSchemesAndArithmeticModuliPartII:P4",
+        "AutomorphicPadicLFunctionsPartII:KV.6",
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ]
+    },
+    {
+      "key": "KV.8",
+      "title": "Ray-class interpolation and bounded desmoothing",
+      "description": "Define Katz’s local factor with its conductor decomposition and the correct extension at trivial Σ-components. Specify auxiliary-ideal Dirac smoothing atoms and construct smoothed ray-class measures using the tame-congruence unit closure. Prove bounded removal of the smoothing factors, then the fully normalized interpolation formula for critical characters with both complete p-Euler products. Sign compatibility, integral unit-index descent and uniform measure-algebra divisibility are explicit proof obligations; the CM-field case compares with the existing Katz measure. Targets: Katz’s local factor for a lifted ordinary type; Auxiliary-ideal smoothing measures; Smoothed ray-class measures from the CM Eisenstein measure; Bounded removal of auxiliary ideals; Critical Hecke-value interpolation over totally imaginary fields.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicPadicLFunctions:L0",
+        "AutomorphicPadicLFunctions:L3",
+        "AutomorphicPadicLFunctionsPartII:KV.2",
+        "AutomorphicPadicLFunctionsPartII:KV.5",
+        "AutomorphicPadicLFunctionsPartII:KV.6",
+        "AutomorphicPadicLFunctionsPartII:KV.7",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "KS-v4",
+      "title": "Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation",
+      "authors": "Guido Kings and Johannes Sprang",
+      "edition": "arXiv:1912.03657v4, 85-page preprint (2024); published metadata: Annals of Mathematics 202 (2025), 1–109. All locators here use the preprint page numbers.",
+      "url": "https://arxiv.org/pdf/1912.03657v4",
+      "sha256": "fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72",
+      "readSections": [
+        "§§1–2: CM types, coefficient invariants, Poincaré residue classes, evaluation and refinement",
+        "§3: analytic models, currents, continuation and explicit values",
+        "§4: periods and critical Hecke-value integrality/algebraicity",
+        "§5: ordinary structures, theta functions and p-adic interpolation",
+        "Appendix A.1: equivariant derived functors"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "BKO-2021",
+      "title": "Rubin’s conjecture on local units in the anticyclotomic tower at inert primes",
+      "authors": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota",
+      "edition": "Annals of Mathematics 194 (2021), 943–966; the published author-repository PDF.",
+      "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
+      "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e",
+      "readSections": [
+        "Introduction, pp.943–944, for the inert-prime direction",
+        "§3, pp.950–954: canonical characters, elliptic-unit reciprocity and central values",
+        "§6, pp.961–962: the nonordinary CM application and ownership boundary"
+      ],
+      "readDate": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}

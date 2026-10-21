@@ -1,0 +1,120 @@
+{
+  "id": "SmallRamificationAndAbelianVarietyBaseCasesPartII",
+  "title": "Small ramification and the base cases for Serre modularity, Part II: low-degree Hodge obstructions",
+  "area": "arithmeticgeometry",
+  "parent": "SmallRamificationAndAbelianVarietyBaseCases",
+  "summary": "A higher-cohomology continuation of the everywhere-good-reduction obstruction. Starting from existing discriminant, Fontaine–Laffaille and comparison theories, it plans Fontaine’s higher-weight torsion ramification estimate and the global 7-adic cyclotomic filtration. These yield off-diagonal Hodge vanishing through total degree three for proper smooth rational schemes with unramified Witt-ring scheme models at every prime, and the resulting K3 bad-reduction obstruction.",
+  "readme": "The normative reader document is research/blueprint/readmes/SmallRamificationAndAbelianVarietyBaseCasesPartII.md. All statements use HT(χ)=+1, geometric Frobenius for cohomological purity and v₀(p)=1. This extension adds the 1993 higher-weight argument beyond R25.1–R25.3; finite-flat group schemes, period rings, comparison functors, general purity, K3 definitions and Enriques covers keep their existing owners. Author-scan pagination is distinguished from the proceedings pagination. Every layer is a target-level plan, with explicit supplier contracts and no implementation claim.",
+  "prerequisites": [
+    "SmallRamificationAndAbelianVarietyBaseCases",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicHodgeTheory",
+    "SchemeAndStackFoundations",
+    "ArithmeticGaloisRepresentations",
+    "DeligneWeightsAndPurity",
+    "K3SurfacesAndSymplecticBoundedness",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+  ],
+  "stages": [
+    {
+      "key": "LH.0",
+      "title": "Unramified local models and cohomology",
+      "description": "Define the existential proper smooth scheme models over W(F̄_p), with generic-fibre isomorphism, for every p. From them obtain the unramified-away-from-seven, crystalline-at-seven dual cohomology representation, the exact Hodge–Tate sign dictionary and smooth proper purity. Models over ramified extensions or algebraic spaces alone do not satisfy this input.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "PadicHodgeTheory:R06.1",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.5",
+        "DeligneWeightsAndPurity:DWP.7",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ]
+    },
+    {
+      "key": "LH.1",
+      "title": "Higher-weight torsion crystalline ramification",
+      "description": "For unramified K=W(k)[1/p], perfect k, 0<r<p−1 and a killed-p Fontaine–Laffaille module of weights [0,r], construct the filtered valuation truncations and their solution functor. Prove unique polynomial solution lifting, comparison with the imported torsion crystalline representation, the field-detection criterion and the approximate-embedding bound. Deduce the strict normalized different inequality v₀(𝔇)<1+r/(p−1), and export it for killed-p crystalline subquotients. Import the FL objects and generic ramification criterion. The positive range excludes p=2.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+        "PadicHodgeTheory:R06.1",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ]
+    },
+    {
+      "key": "LH.2",
+      "title": "The global crystalline filtration at seven",
+      "description": "Define the finite global crystalline category of all 7-power exponents and the descending character filtration. Prove trivial-endpoint extension rigidity, the four simple objects F_7(i), the ordered mod-seven extension splitting except possibly quotient 1/sub χ³, the no-trivial-quotient decomposition and the exhaustive finite filtration. Pass through stable lattices and compact inverse limits to the rational filtration of any globally unramified-outside-seven representation crystalline at seven of weights [0,3]. Import certified discriminant bounds from the base roadmap.",
+      "requires": [
+        "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+      ]
+    },
+    {
+      "key": "LH.3",
+      "title": "Low-degree cohomology and Hodge vanishing",
+      "description": "For proper smooth X/Q with all the Witt scheme models, combine the global filtration and proper smooth purity to prove H^1_et=H^3_et=0 and H^2_et≅Q_7(−1)^b. Via Hodge–Tate comparison prove H^j(X,Ω_X^i)=0 for i≠j and i+j≤3. Include the global Z-model and independent Z_p-model specializations, without converses or a degree-four assertion.",
+      "requires": [
+        "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.0",
+        "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2",
+        "DeligneWeightsAndPurity:DWP.0",
+        "PadicHodgeTheory:R06.2",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "LH.4",
+      "title": "K3 obstruction and boundary examples",
+      "description": "Use the shared projective geometric K3 predicate and coherent base change to prove h^{2,0}=1, hence the existence of a bad prime over W(F̄_p). Projective Z_p-scheme models supplied by the Enriques consumer meet the hypothesis. Check projective spaces and diagonal Hodge classes, and the strict total-degree restriction. Proper/projective comparison for a more general intrinsic K3 input belongs to the K3 owner; canonical covers and twisting belong to the Enriques owner.",
+      "requires": [
+        "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.3",
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Fontaine93",
+      "title": "Schémas propres et lisses sur Z",
+      "authors": "Jean-Marc Fontaine",
+      "edition": "Proceedings of the Indo-French Conference on Geometry (1993), pp. 43–56; author preprint 91-02, cover and printed pp. 1–13; accessed 2026-10-19",
+      "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/Zschemas.pdf",
+      "sha256": "3a0d2b7a95db090438b43a86040d92b748e351a6461257dd083151864f33dc67",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire author scan: cover, introduction, notation, letter containing Theorems 1–2 and Remarks (a)–(c), §§1–3, alternative ramification argument and bibliography (14 PDF pages). All locators below use its printed pagination; PDF page is printed page plus one."
+      ]
+    },
+    {
+      "id": "Schroeer23",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "Annals of Mathematics 197 (2023), no. 1; author revision dated 19 July 2022, §5 read through the publisher-independent author PDF; accessed 2026-10-19",
+      "url": "https://www.math.uni-duesseldorf.de/~schroeer/publications_pdf/EnriquesOverIntegers_Juli2022.pdf",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§5, pp. 14–17, especially Proposition 5.5 and its use of Fontaine Theorem 1 and first remark on p. 16. Read through the web PDF text; no claim to have downloaded or hashed this copy."
+      ]
+    },
+    {
+      "id": "LMFDB32a3",
+      "title": "Elliptic curve 32.a3 (Cremona 32a2)",
+      "edition": "LMFDB live database, accessed 2026-10-19",
+      "authors": "LMFDB Collaboration",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/32/a/3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Minimal Weierstrass equation, arithmetic invariants and local data at 2: y²=x³−x, minimal discriminant 64, j=1728, additive reduction. Database values calibrate only the negative model test."
+      ]
+    }
+  ],
+  "status": "draft"
+}

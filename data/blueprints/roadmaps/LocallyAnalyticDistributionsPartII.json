@@ -1,0 +1,248 @@
+{
+ "id": "LocallyAnalyticDistributionsPartII",
+ "title": "Locally analytic distributions, growth, and character spaces, Part II: noncommutative distribution algebras and microlocalisation",
+ "area": "representations",
+ "parent": "LocallyAnalyticDistributions",
+ "summary": "This continuation of Locally analytic distributions, growth, and character spaces builds the noncommutative theory of locally analytic distributions on compact p-adic Lie groups. It develops p-valued groups and Lazard Lie lattices, the convolution algebra D(G, K), the Fréchet–Stein structure of Schneider–Teitelbaum with coadmissible modules and Banach steps D_r(G, K), completed enveloping algebras, Frommer's theorem and the Arens–Michael envelope, the Ardakov–Wadsley microlocalisation of Iwasawa algebras and Lie modules, and central specialisation, ending with Fu's theorem that the rational Iwasawa algebra of a product of first congruence subgroups of SL₂(ℤ_p) injects into every integral central quotient of the completed enveloping algebra, together with the Schneider–Teitelbaum duality for admissible Banach representations and the algebraic Peter–Weyl theorem on compact open subgroups of SL₂.",
+ "readme": "# Roadmap: locally analytic distributions, Part II — noncommutative distribution algebras and microlocalisation\n\n**Summary.** This roadmap starts where *Locally analytic distributions, growth and character spaces* (LocallyAnalyticDistributions) stops. That roadmap builds the spaces C^an(X, K) of locally analytic functions on compact p-adic manifolds, their strong duals D(X, K), completed tensor products and the commutative Amice and Mellin theory on ℤ_p and on abelian groups. Here the group G is a compact p-adic Lie group that need not be commutative. The roadmap makes D(G, K) an algebra under convolution and develops the structure that the representation theory of p-adic Lie groups and the p-adic Langlands programme use: the Fréchet–Stein property of Schneider and Teitelbaum with its coadmissible modules and Banach steps D_r(G, K); the completed enveloping algebras Û(g)_K, the closures U_r(g) and Frommer's theorem; the Arens–Michael envelope 𝒰(g); the Ardakov–Wadsley microlocalisation of the Iwasawa algebra K[[G]], which identifies it with Û(g)_K up to S_0-torsion; and central specialisation along infinitesimal characters. The final theorem is Fu's Theorem 1.5: for p odd, G a finite product of first congruence subgroups of SL₂(ℤ_p) and every integral parameter λ ∈ ℤ_p^m, the composite ℚ_p[[G]] → Û(g) → Û(g)_λ is injective. It is the algebraic input of Fu's sharp bound dim S_k(K_f) ≪ (min k_i)^{−1}Δ(k) for cohomological cusp forms over fields that are not totally real. The last layer adds the Schneider–Teitelbaum duality between finitely generated K[[G]]-modules and admissible Banach representations and the algebraic Peter–Weyl theorem on compact open subgroups of SL₂, which convert Iwasawa-module statements into multiplicities of algebraic representations.\n\nThe targets below are specifications for formalisation. Every definition comes with the API it needs and with checks that a plausible wrong definition fails; every theorem carries its hypotheses, its source and the earlier targets, library declarations and supplier layers it rests on. The companion [Suggested.lean](Suggested.lean) proposes Lean forms for the few targets whose carriers exist at the pinned libraries; it is not the roadmap and not exhaustive, and this document is definitive.\n\n## Scope and ownership\n\nThis roadmap owns:\n\n- p-valuations, ordered bases and the condition (HYP); the analytic structure of p-valued groups; Lazard's Lie lattice L_G and the normalisation g_R = (1/p) R L_G; first congruence subgroups of SL₂(ℤ_p) and their Lie lattices (Layer ND.0).\n- The Fréchet algebra D(G, K) of a compact locally L-analytic group, whose convolution product is the one of LocallyAnalyticDistributions L1 extended to L-analytic groups and spherically complete K, the embedding U(g_K) ⊂ D(G, K), the rational Iwasawa algebra L[[G]] ⊂ D(G, K) with its coefficient expansion, decompositions over open subgroups and the centrality of Z(g) (ND.1).\n- Fréchet–Stein algebras and coadmissible modules, once, for every roadmap of the atlas; the Banach steps D_r(G, K), their graded rings, the Fréchet–Stein property of D(G, K) and its faithful flatness over L[[G]] (ND.2).\n- The p-adically completed enveloping algebra Û(h)_K of a free R-Lie lattice, the closures U_r(g, K) and Frommer's theorem, the crossed-product structure of D_{r_n}, the weighted completions U(g)_r and the Arens–Michael envelope 𝒰(g) with its coadmissible and admissible modules (ND.3).\n- Algebraic microlocalisation of filtered rings, the microlocalisation of Iwasawa algebras, the identification D_{1/p}(G, K) ≅ Û(g_R)_K and coefficient extension, Lie modules and the comparison of isotypic quotients (ND.4).\n- Central specialisation of D(G, K), D_r, U_r and Û(g); induced infinitesimal characters; strong duality and density for eigenspaces; domains among central quotients; the Ext comparison for finite crossed products; faithfulness of affinoid Verma modules; Fu's injectivity theorem (ND.5).\n- The Schneider–Teitelbaum duality for admissible Banach representations of compact p-adic Lie groups, algebraic functions and the algebraic Peter–Weyl theorem on compact open subgroups of SL₂(ℤ_p) (ND.6).\n\nIt leaves the following to the roadmaps and libraries named, and does not restate them.\n\n- **Function spaces and duality** belong to LocallyAnalyticDistributions, Layer L0: nonarchimedean locally convex spaces, strict morphisms, Hahn–Banach over spherically complete fields, spaces of compact type and nuclear Fréchet spaces with their duality, analytic manifolds and atlases, C^an(M, E), pullback and multiplication, C^an(X × Y) ≅ C^an(X) ⊗̂ C^an(Y), and D(X, K) for compact X with dense Dirac distributions and D(X × Y) ≅ D(X) ⊗̂ D(Y). The convolution product of distributions on a compact analytic group, with its associativity and unit, belongs to its Layer L1 (`L1/distribution-convolution`, stated there for K finite over ℚ_p); ND.1 imports it.\n- **Uniform pro-p groups and Iwasawa algebras** belong to NoncommutativeAndEquivariantIwasawa, Layer NE.0: the lower p-series, uniform and compact p-adic analytic groups, Lazard's noetherian theorem for ℤ_p[[G]] and O[[G]], Zariskian filtrations, compact Nakayama and finite global dimension.\n- **Completed group rings and bounded measures** belong to PadicMeasuresIwasawaAlgebras, Layers L0–L1 (now a Tau Ceti roadmap), with Tau Ceti's completed group algebra (ProfiniteProPGroups, Layer 9).\n- **Schikhof biduality** for torsion-free compact o-modules and complete o-lattices belongs to CompletedCohomologyPartII, Layer CC.3 (`CC.3/qualified-biduality`); ND.6 imports it for the Schneider–Teitelbaum duality.\n- **Classical Lie theory** belongs to the Tau Ceti roadmap LieHighestWeight: sl₂-representations (Layer 0), the PBW theorem and Verma modules (Layer 3), complete reducibility (Layer 5), the centre of U(g) and the Harish-Chandra homomorphism (Layer 7).\n- **Admissible locally analytic representations**, the anti-equivalence with coadmissible D(G, K)-modules (Schneider–Teitelbaum 2003, Theorem 6.3) and the existence of analytic vectors belong to the proposed roadmap LocallyAnalyticRepresentationsOfLocalGroups, which imports Layers ND.1–ND.3 from here.\n- **Solid and quasi-abelian functional analysis** — Banach–Smith and Fréchet–LS duality, solid completed tensors and the solid realisation of coadmissible modules (Boxer–Calegari–Gee–Pilloni Theorem 2.2.32 and Corollary 2.2.36) — form a separate Part II of LocallyAnalyticDistributions, proposed alongside this one; it imports ND.2 and ND.3/arens-michael-envelope.\n- **Growth of algebraic quotients of Û(g)** (Fu §3: generic elements, Theorem 3.2, Proposition 3.4, Theorem 1.6) belongs to the pending algebraic Part II of LieHighestWeight; it imports Û(h)_K from ND.3.\n- **Not in this roadmap**: no automorphic forms, completed cohomology or Emerton's spectral sequence (Fu §7), no category O or analytic localisation, no Colmez functor and no locally analytic vectors in Galois representations.\n\n## Conventions\n\n1. **Fields.** p is a prime, ℚ_p ⊆ L ⊆ K ⊆ ℂ_p with L/ℚ_p finite and K complete; |p| = p^{−1}. Where a statement needs K discretely valued (Fréchet–Stein theory, faithful flatness) or spherically complete (duality), it says so; finite extensions of ℚ_p are both. R denotes the integers of K, π a uniformiser, k the residue field. In ND.4 R is unramified (π = p) until coefficients are extended by base change.\n2. **Groups.** A p-valuation ω takes values in (1/(p−1), ∞], is assumed rational-valued from ND.1 on, and (HYP) is Schneider–Teitelbaum's condition (saturated, ω(h_i) + ω(h_j) > p/(p−1)). For p odd a uniform group carries ω(g) = n + 1 on G^{p^n} ∖ G^{p^{n+1}}, with minimal generators as an ordered basis. G_1 = ker(SL₂(ℤ_p) → SL₂(𝔽_p)); h = diag(1, −1), e = E_{12}, f = E_{21}; for p odd exp(ph), exp(pe), exp(pf) are minimal generators of G_1 and g_{ℤ_p} = (1/p)L_{G_1} = sl₂(ℤ_p).\n3. **Distributions.** D(G, K) = C^an(G, K)′_b. Convolution integrates the left variable first: (λ ∗ μ)(f) = λ(g ↦ μ(h ↦ f(gh))). x ∈ g maps to x̃(f) = (d/dt) f(exp(tx))|₀; with this sign x̃ ∗ ỹ − ỹ ∗ x̃ = [x, y]~ and the ordered monomial x^α pairs with coordinates of the second kind to α!·δ. Schneider–Teitelbaum (2002, Lemma 2.4) differentiate along exp(−tx) and obtain a factor (−1)^{|α|}.\n4. **Norms and Banach steps.** For an ordered basis (h_i), b_i = h_i − 1, b^α the ordered product, τ_α = Σ α_i ω(h_i): ‖Σ d_α b^α‖_r = sup |d_α| r^{τ_α}. D_r(G, K) is the completion, the series with |d_α| r^{τ_α} → 0; D_{<r}(G, K), with bounded |d_α| r^{τ_α}, is a different space. r_n = p^{−1/p^n}.\n5. **Enveloping algebras.** Û(h) = lim_a U(h)/π^a U(h) and Û(h)_K = Û(h) ⊗_R K for a free R-Lie lattice h; Û(h)_{n,K} = Û(π^n h)_K. U_r(g, K) is the closure of U(g_K) in D_r(G, K). U(g)_r is the completion of U(g) for sup |a_n| r^{|n|} in a PBW basis of an integral lattice, and 𝒰(g) = lim_{r≥1} U(g)_r is the Arens–Michael envelope (written Û(g) by Boxer–Calegari–Gee–Pilloni; it is not the single Banach algebra Û(g)_K).\n6. **Casimir and central characters.** In U(sl₂), Δ = ½h² − h + 2ef = ½h² + ef + fe, central, acting on Sym^k by ½k(k + 2) and on a Verma module of highest weight a by ½a(a + 2); Δ is four times the Killing-form Casimir element of Tau Ceti (`TauCeti.casimirElement`). For G_1^m, λ ∈ K^m stands for the character Δ_i ↦ λ_i of Z(g) = K[Δ_1, …, Δ_m]. Fu writes the kernel through p²Δ + λ_0, so λ_0 = −p²λ.\n7. **Modules.** Modules are left modules. A coherent sheaf for a Fréchet–Stein algebra has transition isomorphisms A_n ⊗_{A_{n+1}} M_{n+1} ≅ M_n with the Banach algebra on the left. Flatness of a ring map means flatness on both sides when it is stated without a side.\n8. **Microlocalisation.** S_0 = ⋃_a (p^a + m^{a+1}) ⊆ R[[G]] is used only for R unramified; over a ramified K the microlocalisation K[[G]] → Û(g_R)_K is the base change of the one over ℚ_p.\n9. **Names.** All new declarations live under `TauCeti.`; the namespaces in each layer are proposals. Names follow Mathlib's conventions.\n\n## Exact supplier contracts\n\n**From Mathlib** (`082e2d37e8b0463410cdb532e111cd43d5a66174`). `UniversalEnvelopingAlgebra` with `ι` and `lift` (the universal property, an equivalence between Lie algebra maps L → A and algebra maps U(L) → A); `LieAlgebra.SpecialLinear.sl` and `IsSl2Triple`; `Matrix.SpecialLinearGroup` with `map` along ring homomorphisms; `PadicInt` and `PadicInt.toZMod`; `MonoidHom.ker`; `OreLocalization` and `OreLocalization.OreSet` (Ore localisation of noncommutative rings); `IsRingFiltration`; `IsNoetherianRing`, `IsDomain`; `Module.Flat`, `Module.FaithfullyFlat`; `AbstractMeasure` (measures C(X, R) →L[R] E, without convolution at this commit); `NormedSpace.exp`; `UniformSpace.Completion`; `Subalgebra.topologicalClosure`, `Subgroup.topologicalClosure`; `MvPolynomial`; `IsUltrametricDist`; `IsTopologicalGroup`; `LieModule`.\n\n**From Tau Ceti** (`f790474821cf4256814db967cb154e7af3d0c369`). `TauCeti.IsProP` (pro-p groups); `TauCeti.UniversalEnvelopingAlgebra.pbwFiltration` (the PBW filtration) with `TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration` (ordered monomials span it over any commutative ring: the spanning half of PBW); `TauCeti.casimirElement` with `casimirElement_mem_center` (the Killing-form Casimir, central). The completed group algebra `TauCeti.completedGroupAlgebra` is in later Tau Ceti commits but not at the pin, and is consumed through PadicMeasuresIwasawaAlgebras L1.\n\n**From LocallyAnalyticDistributions L0.** `L0/locally-analytic-function-space`, `L0/locally-analytic-pullback`, `L0/locally-analytic-product`, `L0/locally-analytic-dual-nuclear`, `L0/analytic-manifold-atlases`, `L0/compact-type-spaces`, `L0/compact-type-nuclear-duality`, `L0/compact-type-extension-duality`, `L0/nonarchimedean-hahn-banach`, `L0/banach-open-mapping-lifts`, `L0/strict-morphisms-quasi-abelian`, `L0/nonarchimedean-locally-convex-spaces`, `L0/locally-convex-limits`, `L0/amice-mahler-basis`, `L0/banach-c0-models`, exactly as stated there.\n\n**From LocallyAnalyticDistributions L1.** `L1/distribution-convolution`: the convolution (λ ∗ μ)(f) = μ(y ↦ λ(x ↦ f(xy))) on D(G, K) for a compact analytic group G and K finite over ℚ_p, associative with unit δ_1; by Fubini it equals λ(x ↦ μ(y ↦ f(xy))).\n\n**From CompletedCohomologyPartII CC.3.** `CC.3/qualified-biduality`: evaluation identifies M ≅ D_O D_O M for torsion-free compact O-modules and L ≅ D_O D_O L for complete separated torsion-free O-lattices (Schikhof biduality; Schneider–Teitelbaum 2002, Israel J., §§1–2).\n\n**From NoncommutativeAndEquivariantIwasawa NE.0.** `NE.0/lower-p-series`, `NE.0/uniform-pro-p-group`, `NE.0/compact-padic-analytic-group`, `NE.0/uniform-graded-polynomial`, `NE.0/zariskian-noetherian`, `NE.0/iwasawa-noetherian`, `NE.0/iwasawa-local-iff-pro-p`, `NE.0/compact-nakayama`.\n\n**From PadicMeasuresIwasawaAlgebras L0–L1.** Bounded measures on profinite spaces, the integral and rational measure algebras with convolution in the order xy for nonabelian groups, Dirac elements, and the comparison of integral measures with the completed group algebra.\n\n**From LieHighestWeight (Tau Ceti).** Layer 0: the modules Sym^k(K²). Layer 3: the PBW basis theorem over a field and Verma modules. Layer 5: complete reducibility. Layer 7: Z(U(g)) and the Harish-Chandra homomorphism.\n\n## How to read the build\n\nThe layers are ND.0 to ND.6 in dependency order. Each target is a bold-titled paragraph giving its statement with all hypotheses, the API of a definition or construction as a list of named lemmas, its source with the locator, and *Needs*: the earlier targets, library declarations and supplier layers it rests on. The checks of a definition or construction are the **Checks** bullets under it, one per unit test. Each layer ends with its dependencies. Nothing is optional.\n",
+ "prerequisites": [
+  "LocallyAnalyticDistributions",
+  "NoncommutativeAndEquivariantIwasawa",
+  "PadicMeasuresIwasawaAlgebras",
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+  "CompletedCohomologyPartII"
+ ],
+ "stages": [
+  {
+   "key": "ND.0",
+   "title": "p-valued groups, their analytic structure and Lazard lattices",
+   "description": "Lazard's p-valuations ω on a group, the graded Lie algebra gr G over 𝔽_p[ε], finite rank, ordered bases and the global chart ψ : ℤ_p^d → G, saturation and the condition (HYP) of Schneider–Teitelbaum; uniform pro-p groups (imported from NoncommutativeAndEquivariantIwasawa NE.0) as p-valued groups with (HYP) for odd p; the unique p-adic Lie group structure of a p-valuable group; Lazard's Lie lattice L_G with the normalisation g_R = (1/p) R L_G; the first congruence subgroups G_1 = ker(SL₂(ℤ_p) → SL₂(𝔽_p)), with (1/p) L_{G_1} = sl₂(ℤ_p) for p odd.\n\nTargets:\n\n- **p-valuations, ordered bases and the condition (HYP)** (definition; SCH11 §23, Definition of a p-valuation, p. 169, and §26, Propositions 26.5–26.6, pp. 184–186).\n- **Ordered bases give global coordinates** (theorem; SCH11 §26, Lemma 26.1, Propositions 26.5, 26.6 and 26.15, pp. 181–191).\n- **Uniform pro-p groups are p-valued groups satisfying (HYP)** (theorem; ST03 §4, Remark following Lemma 4.3, p. 20).\n- **The analytic structure of a p-valued group** (theorem; SCH11 §27, Theorem 27.1, p. 192).\n- **The Lazard Lie lattice and the Lie algebras g_R, g_K of a uniform group** (construction; AW13 §10.2, the displayed operations, the Definition of 1/p R L_G and the Lemma, p. 68).\n- **First congruence subgroups of SL₂(ℤ_p) and their products** (definition; FU24 §1, before Theorem 1.4, p. 3, and §5, before Lemma 5.6, p. 19).\n- **The first congruence subgroup of SL₂(ℤ_p) and its Lie lattice** (theorem; FU24 Lemma 4.1, p. 12, and Lemma 5.6 with its proof, p. 19).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "NoncommutativeAndEquivariantIwasawa:NE.0"
+   ]
+  },
+  {
+   "key": "ND.1",
+   "title": "The distribution algebra D(G, K) of a compact p-adic Lie group",
+   "description": "For a compact locally L-analytic group G and K spherically complete, the strong dual D(G, K) of C^an(G, K) (LocallyAnalyticDistributions L0) with the convolution λ ∗ μ = m_*(λ ⊗ μ) of LocallyAnalyticDistributions L1, extended to L-analytic G and spherically complete K: an associative unital Fréchet algebra with dense Dirac distributions; the injective algebra map U(g_K) → D(G, K), x ↦ (f ↦ (d/dt) f(exp(tx))|₀); the rational Iwasawa algebra L[[G]] inside D(G, K) and the coefficient expansion Σ d_α b^α in an ordered basis; the free decomposition over open subgroups and crossed products; centrality of Z(g) for open subgroups of connected algebraic groups.\n\nTargets:\n\n- **The distribution algebra D(G, K) under convolution** (construction; ST02 §2, construction of the convolution and Proposition 2.3, pp. 8–9).\n- **The enveloping algebra inside D(G, K)** (construction; ST02 §2, the derivative action and the limit formula, p. 12).\n- **The rational Iwasawa algebra K[[G]] inside D(G, K)** (construction; ST03 §4, pp. 15–17).\n- **Finite free decomposition over an open subgroup** (theorem; ST02 §3, proof of Lemma 3.1, p. 13).\n- **The centre of U(g) is central in D(G, K)** (theorem; ST02 §3, Proposition 3.7 and its proof, p. 16).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributions:L1",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "PadicMeasuresIwasawaAlgebras:L0",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+   ]
+  },
+  {
+   "key": "ND.2",
+   "title": "Fréchet–Stein algebras, coadmissible modules and the Banach steps D_r(G, K)",
+   "description": "Schneider–Teitelbaum's Fréchet–Stein algebras and coadmissible modules with Theorems A and B, base change, the abelian category of coadmissible modules and the closedness criterion; the norms ‖·‖_r = sup |d_α| r^{τ_α}, 1/p ≤ r < 1, and the Banach steps D_r(G, K) (weighted coefficients tending to zero, distinct from the bounded D_{<r}); graded rings, multiplicativity and noetherianity for r ∈ p^ℚ; flat transitions and the Fréchet–Stein property of D(G, K) for every compact locally L-analytic G; faithful flatness of D(G, K) over L[[G]].\n\nTargets:\n\n- **Fréchet–Stein algebras** (definition; ST03 §3, the opening paragraphs and the Definition, pp. 7–8).\n- **Coherent sheaves and coadmissible modules** (definition; ST03 §3, Definitions of coherent sheaves and coadmissible modules, p. 8, and the canonical topology, p. 11).\n- **Theorems A and B and the abelian category of coadmissible modules** (theorem; ST03 §3, Theorem (A and B), p. 9).\n- **The norms ‖·‖_r and the Banach steps D_r(G, K)** (construction; ST03 §4, the norms ‖·‖′_r and ‖·‖_r, p. 16).\n- **Graded rings, multiplicativity and noetherianity of D_r(G, K)** (theorem; ST03 Lemma 4.3, p. 20).\n- **D(G, K) is a Fréchet–Stein algebra** (theorem; ST03 Lemma 4.8 and Theorem 4.9, pp. 23–24).\n- **Faithful flatness of D(G, K) over the Iwasawa algebra** (theorem; ST03 Proposition 4.7, p. 22).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticDistributionsPartII:ND.1",
+    "NoncommutativeAndEquivariantIwasawa:NE.0"
+   ]
+  },
+  {
+   "key": "ND.3",
+   "title": "Completed enveloping algebras, Frommer's theorem and the Arens–Michael envelope",
+   "description": "The p-adically completed enveloping algebra Û(h)_K of a free R-Lie lattice h and its deformations Û(h)_{n,K}; the closures U_r(g, K) of U(g) in D_r(G, K) and Frommer's theorem (D_r free over U_r, U_r described in the logarithms log(1 + b_i)); the crossed-product decomposition D_{r_n} = U_{r_n} ∗ (G/G^{p^n}) at r_n = p^{−1/p^n} with ‖log(1 + b_i)‖_{r_n} = p^{n−1}; the Arens–Michael envelope 𝒰(g) = lim_r U(g)_r, its Fréchet–Stein structure, coadmissible and admissible 𝒰(g)-modules and exact completion of finitely generated U(g)-modules.\n\nTargets:\n\n- **The p-adically completed enveloping algebra Û(h)_K** (construction; AW13 §3.4 Example (c), §3.5, §3.7 Definition, Lemma and Corollary, §3.8 Definition and Proposition, §3.9 Lemma, pp. 14–17).\n- **The closure U_r(g, K) of U(g) in D_r(G, K)** (construction; KOH07 §1.4, definition of U_r(g, K), p. 15).\n- **Frommer's description of D_r(G, K) over U_r(g, K)** (theorem; KOH07 §1.4, Theorem (Frommer) and Corollary 1.4.1 with proof, pp. 15–16).\n- **D_{r_n}(G, ℚ_p) as a crossed product of U_{r_n}(g) by G/G^{p^n}** (theorem; FU24 Proposition 5.3 and its proof, pp. 17–18).\n- **The Arens–Michael envelope 𝒰(g) and its coadmissible modules** (construction; BCGP25 §2.2.29, Remark 2.2.30, Definition 2.2.31, Definition 2.2.33, §2.2.34 and Proposition 2.2.35, pp. 23–24).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticDistributionsPartII:ND.1",
+    "LocallyAnalyticDistributionsPartII:ND.2",
+    "NoncommutativeAndEquivariantIwasawa:NE.0",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
+   ]
+  },
+  {
+   "key": "ND.4",
+   "title": "Microlocalisation of Iwasawa algebras and Lie modules",
+   "description": "Algebraic microlocalisation of Zariskian filtered rings at homogeneous Ore sets; Lazard's m-adic filtration of R[[G]] with gr R[[G]] ≅ U(gr G ⊗ k); the microlocal Ore set S_0 = ⋃ (p^a + m^{a+1}) over unramified R; the Ardakov–Wadsley theorem Q_{gr p}(R[[G]]) ≅ Û(g_R)_K, the identification D_{1/p}(G, K) ≅ Û(g_R)_K, and the extension to ramified coefficients by base change; microlocalisation of finitely generated modules; Lie modules, semisimplicity of finite-dimensional K[[G]]-modules for congruence kernels; Fu's comparison of W-isotypic quotients before and after microlocalisation.\n\nTargets:\n\n- **Algebraic microlocalisation of complete filtered rings** (construction; AW13 §2.1–2.4, the Definition of the microlocalisation Q_T(A) and Q_T(M), the Lemma and the Corollary, pp. 7–9).\n- **Lazard's m-adic filtration of the Iwasawa algebra of a uniform group** (theorem; AW13 §10.1, §10.2 Lemma, §10.3 Theorem and Corollary, pp. 67–69).\n- **The microlocal Ore set S_0 = ⋃_a (p^a + m^{a+1})** (construction; AW13 §10.4, the definition of S, p. 70, and §10.6, the sets S_n, p. 71).\n- **The microlocalisation of R[[G]] is the completed enveloping algebra** (theorem; AW13 §10.4, Theorem and its proof, pp. 70–71).\n- **The Banach step D_{1/p}(G, K) is the completed enveloping algebra** (theorem; AW14 §5.1 and Lemma 5.2 with proof, p. 14).\n- **Microlocalisation over a ramified coefficient field** (theorem; AW13 §3.9, Lemma, p. 17).\n- **Microlocalisation of finitely generated Iwasawa modules** (construction; FU24 §4, the paragraph after equation (18), p. 14).\n- **Lie modules: semisimplicity and the equivalence with finite-dimensional g-modules** (theorem; AW13 §10.6 Proposition, pp. 71–72).\n- **The Lie module attached to a finite-dimensional representation** (construction; FU24 §4, the paragraphs following equation (18), p. 14).\n- **Microlocalisation preserves W-isotypic quotients** (theorem; FU24 §4, displays (19)–(20) and Theorem 4.3 with its proof, pp. 14–15).",
+   "requires": [
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticDistributionsPartII:ND.1",
+    "LocallyAnalyticDistributionsPartII:ND.2",
+    "LocallyAnalyticDistributionsPartII:ND.3",
+    "NoncommutativeAndEquivariantIwasawa:NE.0",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem"
+   ]
+  },
+  {
+   "key": "ND.5",
+   "title": "Infinitesimal characters and injectivity of central specialisation",
+   "description": "Central specialisations D(G, K)_λ, D^λ_r, U^λ_r and Û(g)_λ, and the eigenspaces C^la(G, K)[λ]; induced infinitesimal characters (λ induced iff 2λ(Δ) + 1 is a square in ℤ_p for SL₂); strong duality D(G, K)_λ ≅ C^la(G, K)[λ]′_b; the locally analytic principal series and density of eigenfunctions, giving ℚ_p[[G]] ↪ D(G, ℚ_p)_λ for induced λ; D(G, ℚ_p)_λ = lim D^λ_{r_n}; domains among central quotients and the small-radius normal form; Ardakov–Brown's Ext comparison for finite crossed products; the topological PBW normal form of U^λ_{r_n}; Fu's direct route for induced λ; faithfulness of affinoid Verma modules (Ardakov–Wadsley) and the endpoint: for G = G_1^m and every λ ∈ ℤ_p^m, ℚ_p[[G]] → Û(g)_λ is injective.\n\nTargets:\n\n- **Central specialisations of distribution and enveloping algebras** (construction; FU24 §5, the definitions before Theorem 5.2, p. 16, and of U^λ_r(g), D^λ_r(G, ℚ_p), p. 17).\n- **Induced infinitesimal characters** (definition; FU24 §5, the Harish-Chandra homomorphism (24) and the definition of induced characters, p. 16).\n- **Strong duality after infinitesimal specialisation** (theorem; FU24 Theorem 5.2, first assertion, and its proof, equations (25)–(26), p. 16).\n- **The locally analytic principal series and a nowhere-vanishing eigenfunction** (construction; FU24 §5, the definition of Ind(χ), p. 16, and the proof of Theorem 5.2, second part, p. 17).\n- **Density of eigenfunctions and injectivity into D(G, ℚ_p)_λ** (theorem; FU24 Theorem 5.2, second assertion, and its proof, pp. 16–17).\n- **Central specialisation commutes with the Banach steps** (theorem; FU24 Proposition 5.5 and its proof, with the estimate preceding (29), pp. 18–19).\n- **Central quotients D^λ_r(G_1^m, ℚ_p) are domains for integral λ** (theorem; FU24 Theorem 5.7 and its proof, p. 20, with Lemma 2.2, p. 6, and Lemma 3.3, p. 9).\n- **Small radii: logarithmic coordinates and central quotients** (theorem; FU24 §5, equations (27) and (30), pp. 17 and 20).\n- **Ext and grade over a finite crossed product** (theorem; AB07 §5.4, Lemma and its proof, and the Corollary, pp. 16–17).\n- **Topological PBW normal form of U^λ_r(g) and its injection into Û(g)_λ** (theorem; FU24 Proof of Theorem 5.1, the displayed description of U^λ_r(g) and the injection into Û(g) ⊗_{Z(g), λ} ℚ_p, p. 21).\n- **Injectivity of central specialisation for induced characters (direct route)** (theorem; FU24 Theorem 5.1 and its proof, pp. 16 and 21).\n- **Integral Casimir parameters come from integral highest weights after a finite extension** (lemma; FU24 Theorem 1.5 and the sentence following it, p. 4).\n- **Affinoid Verma modules are faithful over Iwasawa algebras** (theorem; AW14 Theorem 4.4 (centre), Lemma 4.5, Lemma and Theorem 4.6, pp. 10–11).\n- **Injectivity of central specialisation for every integral parameter** (theorem; FU24 Theorem 1.5 and the following paragraph, pp. 3–4).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticDistributionsPartII:ND.1",
+    "LocallyAnalyticDistributionsPartII:ND.2",
+    "LocallyAnalyticDistributionsPartII:ND.3",
+    "LocallyAnalyticDistributionsPartII:ND.4",
+    "PadicMeasuresIwasawaAlgebras:L0",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+   ]
+  },
+  {
+   "key": "ND.6",
+   "title": "Banach–Iwasawa duality and the algebraic Peter–Weyl theorem",
+   "description": "The Schneider–Teitelbaum anti-equivalence between finitely generated K[[G]]-modules and admissible K-Banach representations of a compact p-adic Lie group; algebraic functions on compact open subgroups of SL₂(ℤ_p) with their degree filtration; the algebraic Peter–Weyl theorem C^alg_{≤k}/C^alg_{≤k−1} ≅ W_k ⊗ W_k^* and K[[G]]/Ann(W_k) ≅ End_K(W_k).\n\nTargets:\n\n- **Admissible Banach representations and finitely generated Iwasawa modules** (theorem; ST02B §3, Proposition 3.1, Lemma 3.4, Theorem 3.5 and Corollary 3.6, pp. 13–15).\n- **Algebraic functions on a compact open subgroup of SL₂(ℤ_p)** (construction; FU24 §6, the definition of C^alg(G, K) and its degree filtration, pp. 21–22).\n- **The algebraic Peter–Weyl theorem on a compact open subgroup of SL₂** (theorem; FU24 §6, pp. 21–22, including (32)).",
+   "requires": [
+    "CompletedCohomologyPartII:CC.3",
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticDistributionsPartII:ND.1",
+    "LocallyAnalyticDistributionsPartII:ND.4",
+    "NoncommutativeAndEquivariantIwasawa:NE.0",
+    "PadicMeasuresIwasawaAlgebras:L0",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "FU24",
+   "title": "Sharp bounds for multiplicities of Bianchi modular forms",
+   "authors": "Weibo Fu",
+   "edition": "Annals of Mathematics 200 (2024), no. 1, 123–152; arXiv:2201.11190v2 (15 February 2024), whose numbering agrees with the published text. The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/2201.11190v2",
+   "readSections": [
+    "§1, Theorems 1.2–1.6, pp. 2–5",
+    "§2, Definition 2.1, Lemmas 2.2–2.3, pp. 5–7",
+    "§3, the Casimir Δ_i, the quotients U_λ, Û_λ and Lemma 3.3, pp. 7–10",
+    "§4, pp. 12–15 (Lazard lattice, D(G, K), (14)–(18), Lemma 4.1, Theorems 4.2–4.3)",
+    "§5, pp. 15–21 (Theorems 5.1, 5.2, 5.7, Propositions 5.3, 5.5, Lemma 5.6, Remark 5.8, proof of Theorem 5.1)",
+    "§6, pp. 21–23"
+   ]
+  },
+  {
+   "id": "ST03",
+   "title": "Algebras of p-adic distributions and admissible representations",
+   "authors": "Peter Schneider and Jeremy Teitelbaum",
+   "edition": "Inventiones Mathematicae 153 (2003), 145–196; arXiv:math/0206056v1 (6 June 2002). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/math/0206056v1",
+   "readSections": [
+    "§1, Propositions 1.1–1.2, pp. 4–5",
+    "§2, Proposition 2.1, p. 6",
+    "§3, pp. 7–14 (Fréchet–Stein algebras, coadmissible modules, Theorems A and B, Corollaries 3.1–3.5, Lemma 3.6, Proposition 3.7, Lemmas 3.8–3.9)",
+    "§4, pp. 14–28 (p-valuations, norms, Lemmas 4.1–4.4, Theorem 4.5, Remark 4.6, Proposition 4.7, Lemma 4.8, Theorems 4.9–4.11)",
+    "§5, Theorems 5.1–5.2, pp. 29–30",
+    "§6, statements of Lemma 6.1 and Theorem 6.3, pp. 31–33"
+   ]
+  },
+  {
+   "id": "ST02",
+   "title": "Locally analytic distributions and p-adic representation theory, with applications to GL2",
+   "authors": "Peter Schneider and Jeremy Teitelbaum",
+   "edition": "Journal of the American Mathematical Society 15 (2002), 443–468; arXiv:math/9912073v1 (9 December 1999). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/math/9912073v1",
+   "readSections": [
+    "§2, the convolution, Proposition 2.3, Lemmas 2.4–2.5 and the derivative action, pp. 8–12",
+    "§3, Lemma 3.1, Propositions 3.2, 3.6 and 3.7, pp. 12–16"
+   ]
+  },
+  {
+   "id": "ST02B",
+   "title": "Banach space representations and Iwasawa theory",
+   "authors": "Peter Schneider and Jeremy Teitelbaum",
+   "edition": "Israel Journal of Mathematics 127 (2002), 359–380; arXiv:math/0005066v1 (7 May 2000). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/math/0005066v1",
+   "readSections": [
+    "§3, Proposition 3.1, Lemmas 3.2–3.4, Theorem 3.5 and Corollary 3.6, pp. 13–15"
+   ]
+  },
+  {
+   "id": "AW13",
+   "title": "On irreducible representations of compact p-adic analytic groups",
+   "authors": "Konstantin Ardakov and Simon Wadsley",
+   "edition": "Annals of Mathematics 178 (2013), 453–557; arXiv:1102.2606v3 (11 May 2012). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/1102.2606v3",
+   "readSections": [
+    "§2.1–2.6, pp. 7–10",
+    "§3.4–3.9, pp. 14–17",
+    "§10.1–10.6 and §10.12–10.13, pp. 67–72 and 77–78",
+    "§11.1–11.2, pp. 78–81"
+   ]
+  },
+  {
+   "id": "AW14",
+   "title": "Verma modules for Iwasawa algebras are faithful",
+   "authors": "Konstantin Ardakov and Simon Wadsley",
+   "edition": "Münster Journal of Mathematics 7 (2014), 5–26; arXiv:1308.5104v1 (23 August 2013). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/1308.5104v1",
+   "readSections": [
+    "§1, Theorems A–C, pp. 1–2",
+    "§4.4–4.6, Theorem 4.4, Lemma 4.5, Lemma and Theorem 4.6, pp. 10–11",
+    "§5.1–5.4, Lemma 5.2, Theorem 5.4, pp. 13–16"
+   ]
+  },
+  {
+   "id": "AB07",
+   "title": "Primeness, semiprimeness and localisation in Iwasawa algebras",
+   "authors": "Konstantin Ardakov and Kenneth A. Brown",
+   "edition": "Transactions of the American Mathematical Society 359 (2007), 1499–1515; arXiv:math/0412401v1 (20 December 2004). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/math/0412401v1",
+   "readSections": [
+    "§5.4, Lemma, its proof and the Corollary, pp. 16–17"
+   ]
+  },
+  {
+   "id": "KOH07",
+   "title": "Invariant distributions on p-adic analytic groups",
+   "authors": "Jan Kohlhaase",
+   "edition": "Duke Mathematical Journal 137 (2007), 19–62; author's copy from the author's page. Its §1.4 summarises H. Frommer, The locally analytic principal series of split reductive groups, Münster SFB 478 preprint 265 (2003), which was not obtained.",
+   "url": "https://www.esaga.uni-due.de/f/jan.kohlhaase/Kohlhaase_Invariant_Distributions.pdf",
+   "readSections": [
+    "§1.4, the summary of ST03, Theorem (Frommer), Corollary 1.4.1 and its proof, pp. 15–16"
+   ]
+  },
+  {
+   "id": "SCHM13",
+   "title": "Verma modules over p-adic Arens–Michael envelopes of reductive Lie algebras",
+   "authors": "Tobias Schmidt",
+   "edition": "Journal of Algebra 390 (2013), 160–180; arXiv:1008.3897v2 (25 June 2013). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "url": "https://arxiv.org/pdf/1008.3897v2",
+   "readSections": [
+    "§3.1–3.2, Propositions 3.1.1, 3.2.1, 3.2.3 and Remark 3.2.2, pp. 4–6",
+    "§4.3, statement of Theorem 4.3.3, p. 16"
+   ]
+  },
+  {
+   "id": "BCGP25",
+   "title": "Modularity theorems for abelian surfaces",
+   "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
+   "edition": "arXiv:2502.20645v1 (28 February 2025), 230 pp. Only §2.2.27–2.2.36 was read for this roadmap.",
+   "url": "https://arxiv.org/pdf/2502.20645v1",
+   "readSections": [
+    "§2.2.27–2.2.36, pp. 23–24"
+   ]
+  },
+  {
+   "id": "SCH11",
+   "title": "p-Adic Lie Groups",
+   "authors": "Peter Schneider",
+   "edition": "Grundlehren der mathematischen Wissenschaften 344, Springer, 2011. Read in the maintainer's cleared library; cited by numbered statement and printed page.",
+   "url": "https://doi.org/10.1007/978-3-642-21147-8",
+   "readSections": [
+    "§23, p-valuations, pp. 169–174",
+    "§26, Lemma 26.1 and Propositions 26.5, 26.6, 26.15, pp. 181–191",
+    "§27, Theorem 27.1, p. 192",
+    "§28, Theorem 28.3 and Corollary 28.5, pp. 199–200",
+    "§29, Proposition 29.2, Corollary 29.6 and Theorem 29.8, pp. 202–206",
+    "§31, Theorem 31.5 and Corollary 31.7, pp. 223–229",
+    "§32, Theorem 32.1, p. 232",
+    "§33, Theorem 33.4, p. 245"
+   ]
+  }
+ ],
+ "status": "draft"
+}

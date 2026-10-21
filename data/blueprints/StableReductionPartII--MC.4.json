@@ -1,0 +1,1156 @@
+{
+ "roadmapId": "StableReductionPartII",
+ "protocol": "blueprint-v1",
+ "part": "MC.4",
+ "scope": [
+  "StableReductionPartII:MC.4"
+ ],
+ "status": "complete",
+ "summary": "Follow-up to the accepted parent: import all fifteen MC.4 targets, supply the uniform integral Hilbert-kernel construction and fixed-line argument, and decompose the tame Jacobi-level connectedness route. Generic positivity, surface and stack machinery remains with its suppliers; precise missing interfaces are recorded without claiming proof closure.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End",
+    "module": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+    "provides": "The existing endomorphism ring, with composition as multiplication and multiplication-by-integer as the integer cast; it does not supply Serre rigidity or relative abelian schemes.",
+    "checked": "Declaration and surrounding conventions read at the pinned commit on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:IsOfFinOrder",
+    "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+    "provides": "Finite multiplicative order in an existing monoid; the power-equals-one characterization is read with the definition.",
+    "checked": "Declaration and surrounding conventions read at the pinned commit on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:orderOf",
+    "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+    "provides": "The order of a monoid element, including the transvection matrix used in the suggested checks.",
+    "checked": "Declaration and surrounding conventions read at the pinned commit on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:Matrix",
+    "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
+    "provides": "Matrices as functions, with the existing finite-index multiplication imported by Matrix.Basic.",
+    "checked": "Declaration and surrounding conventions read at the pinned commit on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:ZMod",
+    "module": "Mathlib/Data/ZMod/Defs.lean",
+    "provides": "The native integer residue ring used for integral level checks.",
+    "checked": "Declaration and surrounding conventions read at the pinned commit on 2026-10-18."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "clm",
+   "title": "Projectivity of the moduli of curves",
+   "authors": "Raymond Cheng; Carl Lian; Takumi Murayama; with Yordanka Kovacheva and Monica Marinescu",
+   "edition": "Author manuscript dated 1 July 2021; not collated with a publisher version",
+   "url": "https://chngr.github.io/assets/mgbar.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Entire manuscript pp.1–33; for this target, positivity §§2–5, pp.6–22, and §§6–7, pp.23–31. Parent corrections E7, E9, E10, E12 and E13 are retained by reference."
+   ],
+   "sha256": "5314dd91d8957fc775ea40e30d9a9cc12159fd5b61a5f0d2640c41b18f19a829"
+  },
+  {
+   "id": "dm",
+   "title": "The irreducibility of the space of curves of given genus",
+   "authors": "Pierre Deligne; David Mumford",
+   "edition": "Public author-hosted scan of Publ. Math. IHES 36 (1969), pp.75–109",
+   "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1969c--IrredModCurves-Deligne-Numdam.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§4, pp.96–104, particularly 4.13–4.21; §5, pp.104–109, including proofs 5.9–5.16."
+   ],
+   "sha256": "d779973708ecef9a098db863df766f173740d75302f15655e4bbc9dd7df739e7"
+  },
+  {
+   "id": "serre",
+   "title": "Rigidite du foncteur de Jacobi d echelon n >= 3",
+   "authors": "Jean-Pierre Serre, appendix to Alexandre Grothendieck, expose 17",
+   "edition": "Seminaire Henri Cartan 13 (1960/61), expose 17, appendix pp.17-18–17-20; public Numdam scan",
+   "url": "https://www.numdam.org/item/SHC_1960-1961__13_2_A4_0.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Appendix pp.17-18–17-20, including scheme-theoretic divisibility, finite-order theorem and root-of-unity lemma."
+   ],
+   "sha256": "5c993695a16086ff090c51d0f486f39bf0bb035ad4edde4e7c75abe64f5d39f7"
+  },
+  {
+   "id": "ehkv",
+   "title": "Brauer groups and quotient stacks",
+   "authors": "Dan Edidin; Brendan Hassett; Andrew Kresch; Angelo Vistoli",
+   "edition": "arXiv:math/9905049v3, 12 February 2001; pagination of this version only",
+   "url": "https://arxiv.org/pdf/math/9905049v3",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Theorem 2.7 and Remark 2.8 p.5; §4.1, Lemma 4.1 and proof of Theorem 2.7 pp.12–13."
+   ],
+   "sha256": "b335dd5d040ed8d994a04c2c12e1fb6c87ea7ed328fa3df6b3d95811afe1bdb0"
+  },
+  {
+   "id": "ekedahl",
+   "title": "Canonical models of surfaces of general type in positive characteristic",
+   "authors": "Torsten Ekedahl",
+   "edition": "Publ. Math. IHES 67 (1988), pp.97–144; public Numdam scan",
+   "url": "https://www.numdam.org/item/PMIHES_1988__67__97_0.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Introduction and main theorem pp.97–100; Part II Theorem 1.7 and its proof pp.126–127. Other results of the paper have not been independently decomposed here."
+   ],
+   "sha256": "0e53d89911bd563cdc5e8a38abc47dc4e990a75e77cbd05055812f6d63b30776"
+  },
+  {
+   "id": "chen-zhang",
+   "title": "The subadditivity of the Kodaira dimension for fibrations of relative dimension one in positive characteristics",
+   "authors": "Yifei Chen; Lei Zhang",
+   "edition": "arXiv:1305.6024v1, 26 May 2013, 14 pages; no identification with later journal pagination",
+   "url": "https://arxiv.org/pdf/1305.6024v1",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Theorem 1.3 p.2; §4, Theorem 4.3 and proof of Theorem 1.3 pp.10–11."
+   ],
+   "sha256": "1812166bab9e188b085c164c1814aa618fb74fb36e00a8a7f6f00d57ec0f3c31"
+  },
+  {
+   "id": "stacks",
+   "title": "The Stacks Project: relative generation, vanishing and ampleness",
+   "authors": "The Stacks Project authors",
+   "edition": "Online stable tags read 18 October 2026; numbered tags replace unstable page numbers",
+   "url": "https://stacks.math.columbia.edu",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Tags 02O1 (Lemma 30.16.2), 01Q3 (Proposition 28.27.13), 01VG (relative ampleness), 0D2M (Lemma 30.21.3), 0D2N (Lemma 30.21.4), 0DUT (Theorem 106.13.9), 0GFB (Lemma 69.21.2), statements and proofs."
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "StableReductionPartII:MC.4/integral-hilbert-kernel",
+   "parentStageId": "StableReductionPartII:MC.4",
+   "realises": [
+    "StableReductionPartII:MC.4"
+   ],
+   "title": "Uniform integral tricanonical equations",
+   "kind": "construction",
+   "statement": "Let S be a quasi-compact Noetherian scheme, g≥2, and f:X→S a stable genus-g family. Put E=f_*ω³, of rank r=5g−5, and use the quotient convention for i:X↪P_S(E), with i*O(1)=ω³. For the ideal sheaf I of i there is d₀≥2 such that for every integer d≥d₀, I(d) is relatively generated, R^jπ_*I(d)=0 for j>0, and K_d=π_*I(d) is finite locally free and commutes with every base change. There is a base-change-compatible exact sequence 0→K_d→Sym^d E→f_*ω^{3d}→0, whose quotient has rank (6d−1)(g−1). Evaluation of K_d generates I(d), and its geometric-fibre equations recover the embedded curve as a closed subscheme. The same d₀ works over every residue characteristic of S, without assuming S is reduced, integral or flat over Z.",
+   "hypotheses": [
+    "Stable means proper flat finitely presented, geometrically connected nodal fibres and relatively ample dualizing line; genus g≥2 is fixed.",
+    "The MC.1 tricanonical embedding and its locally free direct images commute with arbitrary base change.",
+    "π:P_S(E)→S uses one-dimensional quotients, so π_*O(d)=Sym^d E for d≥0."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.1/tricanonical-cohomology",
+    "StableReductionPartII:MC.1/tricanonical-hilbert",
+    "AlgebraicModuliForArithmeticGeometry:R09.1/relative-serre",
+    "AlgebraicModuliForArithmeticGeometry:R09.1/family-regularity"
+   ],
+   "proofSteps": [
+    "In 0→I→O_P→i_*O_X→0, the last two terms are S-flat, hence so is I. Tensoring with any base change stays exact, identifying I_T with the actual ideal of X_T. This is the flat-kernel criterion, not an appeal to constancy of a Hilbert polynomial.",
+    "Choose a finite affine cover trivializing E. Apply the imported relative Serre and S-flat family-regularity theorems on each projective-space chart to I. Take the maximum of these finitely many regularity thresholds: each conclusion holds for every higher degree on the same fixed chart. Descent gives one d₀ on S.",
+    "Push forward the twisted ideal sequence. The higher vanishing supplies surjectivity; projective-bundle cohomology identifies the middle term with Sym^d E. Cohomology and arbitrary base change for the stable family identify the quotient with f_*ω^{3d}.",
+    "Local freeness of the quotient makes the exact sequence locally split as modules; arbitrary pullback therefore preserves its kernel. Relative generation, also pulled back, recovers the fibre ideal sheaf. Equality of degree-d subspaces gives equality of these ideal sheaves after untwisting.",
+    "This refines the proof obligation of the parent finite-degree-equations node. It does not create another generic relative Serre theorem or assert generation of all lower graded pieces of the homogeneous ideal."
+   ],
+   "acceptance": [
+    "Choose d once before applying any characteristic-dependent positivity argument.",
+    "The degree-d equations determine the saturated closed-subscheme ideal, not necessarily the entire graded ideal in lower degrees."
+   ],
+   "sources": [
+    {
+     "sourceId": "clm",
+     "locator": "Lemma 7.1, pp.29–30; Theorem 7.2, pp.30–31",
+     "match": "The fieldwise degree-of-equations argument motivates this integral specialization; the integral uniformity proof is supplied here using the existing relative regularity contracts."
+    },
+    {
+     "sourceId": "stacks",
+     "locator": "Tags 02O1, 01Q3 and 01VG; numbered statements listed in the source receipt",
+     "match": "Relative Serre vanishing and generation on the fixed quasi-compact parameter family permit a uniform threshold; no ampleness neighbourhood changes with degree in this step."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "api": [
+    {
+     "name": "IntegralCurveEquations.degreeBound",
+     "role": "data",
+     "statement": "Choose d₀≥2, valid for every d≥d₀ on this fixed S."
+    },
+    {
+     "name": "IntegralCurveEquations.kernelSequence",
+     "role": "characterisation",
+     "statement": "K_d is the kernel of Sym^d E→f_*ω^{3d}, and its rank is binomial(r+d−1,d)−(6d−1)(g−1)."
+    },
+    {
+     "name": "IntegralCurveEquations.baseChange",
+     "role": "functoriality",
+     "statement": "For any T→S, K_d|T identifies with the multiplication kernel for X_T; identity and composite comparisons agree."
+    },
+    {
+     "name": "IntegralCurveEquations.evaluate",
+     "role": "universal-property",
+     "statement": "π*K_d→I(d) is onto, hence its image cuts out X."
+    },
+    {
+     "name": "IntegralCurveEquations.projectiveFrames",
+     "role": "compatibility",
+     "statement": "Changing a local frame of E transports K_d by Sym^d of that frame; its projective orbit determines the abstract stable curve."
+    },
+    {
+     "name": "IntegralCurveEquations.nativeIdeal",
+     "role": "compatibility",
+     "statement": "On affine projective charts the constructed ideal sheaf is the sheaf associated to the actual closed-immersion ideal, and its fibre is its tensor pullback."
+    },
+    {
+     "name": "IntegralCurveEquations.ext",
+     "role": "extensionality",
+     "statement": "For fixed d and multiplication map, two subbundles with their inclusions in Sym^d E satisfying the kernel sequence coincide; their identification commutes with evaluation and arbitrary pullback."
+    }
+   ],
+   "tests": [
+    {
+     "name": "IntegralCurveEquations.genusTwoRanks",
+     "kind": "computation",
+     "statement": "For g=2, r=5 and the d=2 source and target ranks are 15 and 11; if d=2 satisfies the generation bound its kernel rank is 4. This is not a claim that d=2 always determines the curve."
+    },
+    {
+     "name": "IntegralCurveEquations.degreeOneFails",
+     "kind": "non-example",
+     "statement": "At d=1 the multiplication kernel is zero for every tricanonical curve; its equations define the whole P^{5g−6}, not the curve."
+    },
+    {
+     "name": "IntegralCurveEquations.nonflatFailure",
+     "kind": "non-example",
+     "statement": "For R=Z, ambient Spec R and closed subscheme Spec(R/2), the ideal (2) tensored with F₂ maps to zero in F₂; it is not the actual fibre ideal 0 via an injection. Thus flatness of the quotient is indispensable."
+    },
+    {
+     "name": "IntegralCurveEquations.emptyBase",
+     "kind": "degenerate",
+     "statement": "On the empty base every sheaf statement is vacuous, and one may choose d₀=2; no geometric-point test manufactures a nonempty family."
+    }
+   ],
+   "uses": [
+    {
+     "where": "StableReductionPartII:MC.4/finite-degree-equations",
+     "how": "Supplies the integral flat-ideal and uniform-degree proof omitted from the fieldwise source."
+    },
+    {
+     "where": "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+     "how": "Fixes the same determinant λ_{3d} on every fibre of the finite parameter scheme."
+    }
+   ],
+   "prototype": {
+    "status": "reader target",
+    "reason": "The pinned libraries do not yet have the geometric carriers; WORKERS.md requires the exact statements, APIs and tests here and in the reader, without fabricated Lean carriers."
+   }
+  },
+  {
+   "id": "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+   "parentStageId": "StableReductionPartII:MC.4",
+   "realises": [
+    "StableReductionPartII:MC.4"
+   ],
+   "title": "One determinant line over the integer base",
+   "kind": "theorem",
+   "statement": "Let M be the proper coarse algebraic space of the stable genus-g stack over Z, g≥2. Let V→M̄_g be a representable finite surjective scheme cover, and put h:V→M. Fix any d at least the bound of integral-hilbert-kernel for the pulled-back family, and λ=det f_*ω^{3d} on V. Suppose the generic positivity supplier gives the parent moduli-determinant-ample criterion in every characteristic, and there are a line L on M and e>0 with h*L≅λ^e. Then λ is ample over Z, L is ample over Z, and M is a projective Z-scheme. Neither V nor its fibres need be integral for this argument.",
+   "hypotheses": [
+    "M̄_g is proper finite type Deligne–Mumford over Z, with finite inertia.",
+    "The finite scheme-cover and coarse power-descent contracts are separate inputs, not consequences of coarse-space existence.",
+    "The determinant and its descent power are fixed before testing fibres."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.4/integral-hilbert-kernel",
+    "StableReductionPartII:MC.4/coarse-space",
+    "StableReductionPartII:MC.4/moduli-determinant-ample",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-coarse",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "proofSteps": [
+    "Properness of the stack and finiteness of V→M̄_g imply V is a proper finite-type Z-scheme. The composite h is proper and quasi-finite, hence finite; its geometric fibres have finitely many points by the finite stack cover and the coarse geometric-point property.",
+    "Apply the fixed-degree multiplication and ideal comparison on every V_s over an algebraically closed residue field. The family has finite coarse moduli fibres, so the parent ampleness criterion makes λ_s ample. Reduce nilpotents and components only through the generic criterion, without assuming the total cover normal.",
+    "Apply fixed-line openness of ampleness to λ on the proper scheme V over Spec Z (Stacks 0D2N). The resulting open sets cover Spec Z; relative ampleness is local on the base, so this single λ is relatively ample. No comparison between λ_{3d} for different d is used.",
+    "The same holds for λ^e=h*L. Descend relative ampleness across the finite surjection h using the generic algebraic-space finite descent theorem. An algebraic space carrying such a relatively ample line over Spec Z is a scheme and is projective.",
+    "Only after projectivity and irreducibility choose a dominating component and normalize to obtain the parent normal integral projective cover. This removes the potential circular use of irreducibility to construct the initial parameter scheme."
+   ],
+   "acceptance": [
+    "Do not replace the initial cover by an integral dominating component before irreducibility has been proved.",
+    "No arbitrary-base-change theorem for coarse spaces is used; the family direct images do commute with arbitrary base change."
+   ],
+   "sources": [
+    {
+     "sourceId": "clm",
+     "locator": "Theorem 7.2, pp.30–31, with parent source issue StableReductionPartII/E13",
+     "match": "Its conclusion is retained, while integral regularity fixes the determinant before fibrewise ampleness and openness."
+    },
+    {
+     "sourceId": "ehkv",
+     "locator": "Theorem 2.7 p.5, proof §4.1 pp.12–13",
+     "match": "Finite-type stacks over a Noetherian ground scheme with quasi-finite diagonal admit a finite surjective scheme cover; no fine-level interpretation is supplied."
+    },
+    {
+     "sourceId": "stacks",
+     "locator": "Tag 0D2N, Lemma 30.21.4; Tag 01VG, Definition 29.38.1 and Lemma 29.38.4; Tag 0GFB, Lemma 69.21.2",
+     "match": "The fixed-line openness and locality argument is applied on the proper scheme V. Tag 0GFB descends ampleness along the finite surjection V→M between proper algebraic spaces over the Noetherian ring Z, and establishes schemeness; no algebraic-space openness theorem is assumed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "prototype": {
+    "status": "reader target",
+    "reason": "The pinned libraries do not yet have the geometric carriers; WORKERS.md requires the exact statements, APIs and tests here and in the reader, without fabricated Lean carriers."
+   }
+  },
+  {
+   "id": "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+   "parentStageId": "StableReductionPartII:MC.4",
+   "realises": [
+    "StableReductionPartII:MC.4"
+   ],
+   "title": "Jacobi level as an abelian Teichmuller component",
+   "kind": "comparison",
+   "statement": "Fix g≥2 and N≥3, B=Spec Z[1/N], and G=(Z/N)^{2g}. On the smooth genus-g stack the sheaf of exterior epimorphisms from the prime-to-residue-characteristic fundamental group to G is the full abelian torsion-frame sheaf, after the canonical H¹/Jacobian dual-and-Tate-twist comparisons. In this sheaf the homogeneous symplectic-similitude frames form an open and closed subfunctor, stable under GSp_{2g}(Z/N). Its multiplier map has target the primitive-pairing scheme B_N=Spec Z[1/N,ζ_N]. Fixing a B_N-point gives exactly the symplectic Jacobi-level problem; the unconditioned sheaf of all frames is larger. Pairing conventions use e_N:J[N]×J[N]→μ_N, whereas DM 5.3 uses the H¹ pairing with values in μ_N^{-1}.",
+   "hypotheses": [
+    "Import the relative Jacobian, canonical polarization and arbitrary pullback on the Noetherian MC.1 atlas from JC1, and effective polarized-family descent from R09.4.",
+    "N is invertible, so torsion and frame sheaves are finite étale; the comparison is étale-local and natural in the base.",
+    "The primitive root is part of the base change, not a choice silently made over B."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.4/full-level",
+    "JacobianChallengePartII:JC1/relative-jacobian",
+    "JacobianChallengePartII:JC1/jacobian-base-change",
+    "JacobianChallengePartII:JC1/principal-polarization",
+    "AlgebraicModuliForArithmeticGeometry:R09.4",
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "proofSteps": [
+    "Use relative Kummer theory to identify J[N] with R¹f_*μ_N, and duality between H¹ with constant coefficients and the abelianized fundamental group modulo N. Exterior conjugation is trivial because G is abelian.",
+    "An epimorphism to G from the rank-2g abelianization modulo N is an isomorphism: a surjection of finite free modules of equal finite cardinality has zero kernel, including composite N.",
+    "Transport the cup-product orientation through the dual and Tate twist. Retain its inverse on changing between the H¹ and torsion conventions; test rather than erase this sign/twist.",
+    "Étale-locally all relevant sheaves are finite constant, so the condition that an isomorphism takes the symplectic form to a scalar multiple is a union of connected components. The scalar is primitive and defines the multiplier morphism.",
+    "Fixing the multiplier gives the symplectic level problem; the full GL-frame sheaf is a finite union of translates of the homogeneous subfunctor. This comparison is used only over the smooth locus."
+   ],
+   "acceptance": [
+    "Do not call all GL frames symplectic similitudes when g≥2.",
+    "An H¹-level frame and a torsion frame require the specified dual and twist; a literal identification of their pairings is wrong."
+   ],
+   "sources": [
+    {
+     "sourceId": "dm",
+     "locator": "Definitions 5.3–5.8, pp.105–106; 5.14–5.15, pp.108–109",
+     "match": "Jacobi level is an open-and-closed part of abelian Teichmuller level, and the multiplier separates the fixed symplectic problems."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "api": [
+    {
+     "name": "JacobiTeichComparison.frameEquivalence",
+     "role": "equivalence",
+     "statement": "After the Kummer and dual/twist comparison, the abelian exterior-epimorphism sheaf equals the torsion-frame sheaf."
+    },
+    {
+     "name": "JacobiTeichComparison.multiplier",
+     "role": "projection",
+     "statement": "The homogeneous subfunctor maps to Isom(Z/N,μ_N), with inverse-pairing comparison to the DM convention."
+    },
+    {
+     "name": "JacobiTeichComparison.fixedPairing",
+     "role": "characterisation",
+     "statement": "The fibre at ζ_N is the exact symplectic-level sheaf, not the homogeneous sheaf with ζ forgotten."
+    },
+    {
+     "name": "JacobiTeichComparison.baseChange",
+     "role": "functoriality",
+     "statement": "Kummer, duality, the homogeneous subfunctor and multiplier commute with every pullback between admissible bases."
+    }
+   ],
+   "tests": [
+    {
+     "name": "JacobiTeichComparison.genusTwoNonSimilitude",
+     "kind": "non-example",
+     "statement": "For N=3 and a standard symplectic basis e₁,f₁,e₂,f₂, scaling e₁ by 2 and fixing the other basis vectors is invertible but scales the two symplectic blocks differently; this GL₄-frame is outside GSp₄."
+    },
+    {
+     "name": "JacobiTeichComparison.multiplierThree",
+     "kind": "computation",
+     "statement": "Over C at N=3 there are two primitive pairing choices, ζ₃ and ζ₃^{-1}; the homogeneous problem has both and a fixed component has one."
+    },
+    {
+     "name": "JacobiTeichComparison.compositeLevel",
+     "kind": "compatibility",
+     "statement": "At N=4 the standard frame is an abelian epimorphism and has multiplier 1 after the chosen trivialization, although Z/4 is not a field."
+    },
+    {
+     "name": "JacobiTeichComparison.primeDividingLevel",
+     "kind": "non-example",
+     "statement": "In characteristic p with p|N, J[N] need not be finite étale; the finite-étale frame argument is inapplicable."
+    }
+   ],
+   "uses": [
+    {
+     "where": "StableReductionPartII:MC.4/boundary-level-normalization",
+     "how": "Identifies the smooth finite cover with a component of the abelian Teichmuller cover to which DM 5.9 applies."
+    },
+    {
+     "where": "StableReductionPartII:MC.4/complex-level-orbits",
+     "how": "Identifies the fixed multiplier fibre with the symplectic frame orbit problem."
+    }
+   ],
+   "prototype": {
+    "status": "reader target",
+    "reason": "The pinned libraries do not yet have the geometric carriers; WORKERS.md requires the exact statements, APIs and tests here and in the reader, without fabricated Lean carriers."
+   }
+  },
+  {
+   "id": "StableReductionPartII:MC.4/boundary-level-normalization",
+   "parentStageId": "StableReductionPartII:MC.4",
+   "realises": [
+    "StableReductionPartII:MC.4"
+   ],
+   "title": "Tame normalization of a fixed pairing level",
+   "kind": "construction",
+   "statement": "Over B_N=Spec Z[1/N,ζ_N], let U be the smooth genus-g stack and U_N its fixed-pairing Jacobi-level cover, g≥2 and N≥3. Normalize the stable stack M̄_g×B_N in U_N, retaining every generic component. The resulting stack Y is finite over M̄_g×B_N, proper and flat of finite presentation over B_N; every geometric fibre of Y is normal, and U_N is dense in every such fibre. Consequently its geometric fibre component count is locally constant on B_N and equals that of U_N. Y is not asserted to be a scheme, a smooth stack, or a naive nodal full-level moduli problem.",
+   "hypotheses": [
+    "The parent MC.1 boundary charts are excellent regular schemes, smooth over the integer base, with a relative normal-crossing boundary. Its generic divisorial points have characteristic zero, as required by the absolute local Lemma 5.10 of DM.",
+    "The DM tame Teichmuller normalization theorem applies to G=(Z/N)^{2g}, whose order N^{2g} is invertible on B_N.",
+    "Use the exact finite normalization and normal-component comparison supplier contracts; no arbitrary normalization/base-change claim is made."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+    "StableReductionPartII:MC.1/normal-crossing-boundary",
+    "StableReductionPartII:MC.1/proper-moduli",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization-finite",
+    "SchemeAndStackFoundations:SF.1"
+   ],
+   "proofSteps": [
+    "Use the open-and-closed abelian Teichmuller comparison to select the fixed-pairing component before normalization. Normalize each generic component and descend the finite normalization from étale atlases (R09.5).",
+    "Apply the tame local theorem of DM 5.9–5.10. On strict local normal-crossing charts, the cover is dominated by adjoining roots of the boundary parameters of order invertible on the residue base, and the normalization is obtained by the appropriate finite tame quotient.",
+    "The generic Kummer-chart supplier must give flatness and geometrically normal fibres after taking this quotient; its proof uses the root charts, tame invariants and normality. This is the explicit SF.1 extension request, not a consequence of normalization being finite.",
+    "The nonempty smooth part is dense on every geometric fibre by those same boundary charts. Apply the proper-flat-geometrically-normal component-count theorem DM 4.17(iii), pp.102–103, and its application in 5.11, p.107. Use 4.16 for irreducibility of normal connected components; 4.19 is instead the valuative criterion for properness.",
+    "A normal Noetherian geometric fibre has disjoint irreducible components, so deleting this dense boundary complement preserves its connected-component count."
+   ],
+   "acceptance": [
+    "The tame hypothesis concerns G of order N^{2g}, not the order of GL or Sp acting on its frames.",
+    "In characteristic 2, level 3 is admissible even though Sp₄(F₃) has even order.",
+    "Geometrically normal fibres are a theorem of the Kummer local description; ordinary normalization alone does not imply it."
+   ],
+   "sources": [
+    {
+     "sourceId": "dm",
+     "locator": "Theorem 5.9 and local Lemma 5.10, pp.106–107; Corollary 5.11, p.107; 5.15, pp.108–109; Proposition 4.16 and Theorem 4.17, pp.102–103; normalization after 4.20, pp.103–104",
+     "match": "The tame normalization and proper component-count route transfers connectedness to every admissible characteristic. The statement is an application of this route, not fine representability on the boundary."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "api": [
+    {
+     "name": "CompactJacobiLevel.normalizationMap",
+     "role": "projection",
+     "statement": "Y→M̄_g×B_N is the finite normalization in the prescribed generic cover."
+    },
+    {
+     "name": "CompactJacobiLevel.smoothRestriction",
+     "role": "compatibility",
+     "statement": "Its inverse image over U is the original fixed-pairing smooth level cover U_N."
+    },
+    {
+     "name": "CompactJacobiLevel.geometricFibre",
+     "role": "characterisation",
+     "statement": "Every geometric fibre is normal and contains the original smooth-level fibre densely."
+    },
+    {
+     "name": "CompactJacobiLevel.componentCount",
+     "role": "compatibility",
+     "statement": "The connected-component count of a geometric fibre is locally constant and equals that of its smooth open."
+    },
+    {
+     "name": "CompactJacobiLevel.lift",
+     "role": "universal-property",
+     "statement": "For a normal Noetherian scheme T→M̄_g×B_N with U_T dense in T, a lift U_T→U_N extends uniquely to T→Y. This determines the normalization and comparisons independently of the chosen atlas."
+    },
+    {
+     "name": "CompactJacobiLevel.etaleBaseChange",
+     "role": "functoriality",
+     "statement": "For an etale chart T→M̄_g×B_N, Y×T is the normalization of T in U_N×T. The comparison isomorphisms satisfy identity and composition and agree on overlaps; arbitrary ramified base change is not covered."
+    }
+   ],
+   "tests": [
+    {
+     "name": "CompactJacobiLevel.emptyBoundary",
+     "kind": "compatibility",
+     "statement": "Restriction to a smooth stable-moduli chart gives the original finite étale level cover; the normalization adds no sheets there."
+    },
+    {
+     "name": "CompactJacobiLevel.nonseparatingNode",
+     "kind": "non-example",
+     "statement": "At one nonseparating node the primitive transvection T=[[1,1],[0,1]] satisfies T^k=[[1,k],[0,1]] and has exact order N modulo N, including N=4. Thus boundary ramification can have order N; the cover is not required to be etale there. The suggested file states this arithmetic test."
+    },
+    {
+     "name": "CompactJacobiLevel.levelThreeAtTwo",
+     "kind": "computation",
+     "statement": "For N=3, G=(Z/3)^{2g} has odd order and satisfies the tame theorem in characteristic 2; rejection because the symplectic deck group has even order is incorrect."
+    },
+    {
+     "name": "CompactJacobiLevel.levelExcludedPrime",
+     "kind": "non-example",
+     "statement": "The construction and its normal-fibre theorem are not asserted above any prime dividing N."
+    },
+    {
+     "name": "CompactJacobiLevel.ramifiedPullback",
+     "kind": "non-example",
+     "statement": "Over C the Kummer normalization z^3=t becomes z^3=s^3 after t=s^3. The raw pullback has three components meeting at the origin; its normalization is three disjoint affine lines. Thus even this tame local model does not commute with arbitrary base change without renormalizing."
+    }
+   ],
+   "uses": [
+    {
+     "where": "StableReductionPartII:MC.4/level-connectedness",
+     "how": "Transfers the complex fixed-pairing component count to all fibres of the cyclotomic base."
+    },
+    {
+     "where": "StableReductionPartII:MC.4/irreducible-geometric-fibres",
+     "how": "Allows the choice of level 3 or 4 according to the residue characteristic."
+    }
+   ],
+   "prototype": {
+    "status": "reader target",
+    "reason": "The pinned libraries do not yet have the geometric carriers; WORKERS.md requires the exact statements, APIs and tests here and in the reader, without fabricated Lean carriers."
+   }
+  },
+  {
+   "id": "StableReductionPartII:MC.4/complex-level-orbits",
+   "parentStageId": "StableReductionPartII:MC.4",
+   "realises": [
+    "StableReductionPartII:MC.4"
+   ],
+   "title": "The complex fixed-pairing orbit calculation",
+   "kind": "theorem",
+   "statement": "Let g≥2, N≥3 and ζ_N∈C be primitive. Assuming the generic marked-surface uniformization and integral symplectic-reduction supplier contracts, the analytification of the fixed-pairing smooth curve level scheme is connected: its components correspond to orbits of the orientation-preserving genus-g mapping class group on symplectic frames modulo N, and that action is transitive. This complex calculation together with boundary-level-normalization proves every geometric fibre over B_N is connected.",
+   "hypotheses": [
+    "Use the actual analytification of the MC.4 fine smooth scheme, with the H¹/torsion convention of jacobi-teichmueller-comparison.",
+    "The Teichmuller space is connected; its mapping-class quotient supplies the analytic moduli comparison, rather than an assumed connected moduli space.",
+    "The integral symplectic reduction Sp_{2g}(Z)→Sp_{2g}(Z/N) is onto for composite N as well as prime N."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.4/fine-level-scheme",
+    "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+    "StableReductionPartII:MC.4/boundary-level-normalization",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+    "tauceti:TauCetiRoadmap/GeometricTopology#layer-3-diffeomorphism-groups-with-the-c-topology"
+   ],
+   "proofSteps": [
+    "Use connected marked Teichmuller space and identify the analytic moduli cover as the quotient of its product with the finite set of frames. Components are the mapping-class orbits of that finite set.",
+    "The mapping-class action on integral first homology surjects onto Sp_{2g}(Z) (DM 5.12). Reduce modulo N; use elementary symplectic generators over Z/N, or Chinese remainder and prime-power generators, rather than a finite-field-only argument.",
+    "The symplectic group acts transitively on its own frame torsor, so there is one orbit. Connected analytification implies connectedness of the algebraic complex fibre.",
+    "Since B_N is connected, the locally constant component count from boundary-level-normalization equals one everywhere. Geometric normality plus density then gives connectedness of the smooth fibre, and smoothness makes it irreducible."
+   ],
+   "acceptance": [
+    "Fix the primitive pairing before computing orbits; homogeneous level can have several multiplier components.",
+    "The cited upstream Fuchsian and topology layers do not themselves contain Teichmuller theory or this homology-action theorem. Their precise Part II extensions remain explicit requests and gaps."
+   ],
+   "sources": [
+    {
+     "sourceId": "dm",
+     "locator": "5.12–5.13, pp.107–108; 5.15 and Lemma 5.16, pp.108–109",
+     "match": "DM reduces component counts to the connected marked space and the symplectic orbit calculation. The Weil and Manger inputs it cites have not been read at their original sources here."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC4",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "prototype": {
+    "status": "reader target",
+    "reason": "The pinned libraries do not yet have the geometric carriers; WORKERS.md requires the exact statements, APIs and tests here and in the reader, without fabricated Lean carriers."
+   }
+  }
+ ],
+ "requests": [
+  {
+   "id": "MC4-R1",
+   "supplier": "SchemeAndStackFoundations:SF.1",
+   "need": "Extend the descent owner by the finite scheme-cover theorem: every finite-type algebraic stack over a Noetherian ground scheme with quasi-finite diagonal admits a representable finite surjective map from a scheme. Record the quasi-finite-flat atlas, stack Zariski Main, finite normalization and Galois-translate gluing proof; the cover need not be separated until properness of this particular stack is used. Also supply proper quasi-finite algebraic-space maps are finite. For a finite surjection Y→X between proper algebraic spaces over an affine Noetherian base, if Y is a scheme and the pullback of a line L on X is ample, conclude that X is a scheme and L is ample, hence X is projective over that base.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+    "StableReductionPartII:MC.4/finite-projective-cover"
+   ],
+   "sourceRoute": "EHKV Theorem 2.7 p.5 and proof pp.12–13; CLM Lemma 1.3 p.3 and Theorem 7.2 pp.30–31; Stacks Tag 0GFB, Lemma 69.21.2, for finite ampleness descent over a Noetherian ring. CLM Definition 1.2 supplies no finite-cover theorem. Finite normalization itself is already SF.0/R09.5.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R2",
+   "supplier": "SchemeAndStackFoundations:SF.1",
+   "need": "For a quasi-compact finite-type separated Deligne–Mumford stack over a Noetherian base with coarse space q and an invertible sheaf Λ, supply an integer e>0 and an invertible sheaf L on the coarse space with q*L≅Λ^e. Work in the non-tame integer-base case. Keep the actual groupoid norm cocycle; the forgetful map from equivariant Picard groups need not be injective. A corrected proof source must be read before this contract is counted closed.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+    "StableReductionPartII:MC.4/projective-coarse"
+   ],
+   "sourceRoute": "Parent StableReductionPartII/E7, CLM Lemma 1.5 pp.3–5 and the parent-reported corrected NSF copy pp.4–6. This run read only the 2021 version, not that correction.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R3",
+   "supplier": "SchemeAndStackFoundations:SF.5",
+   "need": "Extend numerical positivity to vector bundles: E nef iff all line quotients after finite maps from smooth projective curves have nonnegative degree; finite surjective pullback detects nefness; quotients, extensions, tensor products and symmetric powers preserve nefness in every characteristic. For a proper finite-type algebraic space over an algebraically closed field, nef E and a locally free quotient Sym^d E→Q whose projective-frame/Grassmann classifying map has finite geometric fibres imply det Q ample. Here finite fibres means finitely many geometric base points for each isomorphism class of quotient after change of projective frame, as in CLM §5; it does not require that the classifying map to the quotient stack be representable. Include the exact generic normal-Chow, nef-big/intersection and Nakai hypotheses; do not assert Q itself ample.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/moduli-determinant-ample",
+    "StableReductionPartII:MC.4/pluricanonical-nef",
+    "StableReductionPartII:MC.4/fixed-degree-ample-descent"
+   ],
+   "sourceRoute": "CLM Definition 4.1 p.11, Lemma 4.3 and Proposition 4.5 p.12, Lemma 4.6 pp.13–14 and Proposition 4.9 pp.15–17; Proposition 5.5 pp.21–22, using preceding projective-frame construction pp.19–21. Existing SF.5/nef-big and AlgebraicVectorBundles L0 supply only parts.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R4",
+   "supplier": "SchemeAndStackFoundations:SF.5",
+   "need": "Route a generic surface extension outside this curve-moduli packet. Required contracts: (a) for a smooth projective minimal general-type surface over an algebraically closed field and m≥2, h¹(ω^m)=0 except possibly characteristic 2, m=2, where h¹≤1; (b) the same bound after twisting by a reduced sum D of disjoint smooth genus≥2 curves with trivial normal line; (c) a smooth projective fibred surface with connected smooth generic fibre of genus≥2 over a genus≥2 base is of general type, including positive characteristic; (d) precise crepant rational-double-point resolution and pluricanonical pushforward under exceptional contractions, tracking marked divisors; (e) the genus-zero Hodge-index and genus-one canonical-bundle/Euler–Noether bounds needed for the pointed induction. These are separate key theorems, not all consequences of (a). Include Noetherian spreading of a negative quotient and coherent base-change localization to reduce characteristic zero to positive characteristic in the smooth-generic nef argument.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
+    "StableReductionPartII:MC.4/pointed-normalization-nef",
+    "StableReductionPartII:MC.4/pluricanonical-nef"
+   ],
+   "sourceRoute": "Ekedahl II Theorem 1.7 pp.126–127, by Serre duality for (a); CLM Lemmas 6.2,6.4 and Proposition 6.7 pp.23–27; Chen–Zhang v1 Theorem 1.3 p.2 and §4 pp.10–11 for (c). Characteristic-zero Mumford 1967 vanishing, BM77 Theorem 2 and Lang80 were not acquired here.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R5",
+   "supplier": "SchemeAndStackFoundations:SF.1",
+   "need": "Extend finite-normalization descent by the tame relative normal-crossing theorem used in DM 5.9–5.10: for the finite Teichmuller cover with finite group G of invertible order, the finite normalization has local Kummer descriptions yielding flatness, geometrically normal fibres, and fibrewise density of the smooth cover. Include the proper-flat-geometrically-normal component-count theorem for Noetherian algebraic stacks, compatible with selecting an open-and-closed generic cover. Tame ramification means invertible local inertia order; the level frame deck group need not have invertible order.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/boundary-level-normalization",
+    "StableReductionPartII:MC.4/level-connectedness"
+   ],
+   "sourceRoute": "DM Theorem 5.9 and Lemma 5.10 pp.106–107, on excellent regular charts with characteristic-zero generic boundary points; Corollary 5.11 p.107; Proposition 4.16 and Theorem 4.17 pp.102–103. Normalization and its etale compatibility are described after 4.20, pp.103–104. Their purity/Abhyankar/Kummer prerequisites require a generic source decomposition, not a claimed implementation.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R6",
+   "supplier": "SchemeAndStackFoundations:SF.3",
+   "need": "Supply the relative finite-etale Kummer/cohomology comparison J[N]≅R¹f_*μ_N and its dual description by abelian fundamental-group quotients, with cup-product/Weil-pairing comparison and the inverse Tate twist of DM H¹ conventions, natural under arbitrary base change of smooth proper genus-g families with N invertible.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+    "StableReductionPartII:MC.4/full-level"
+   ],
+   "sourceRoute": "DM 5.3–5.8 pp.105–106; JC1 supplies the relative Jacobian, not this etale comparison.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R7",
+   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
+   "need": "Supply effective descent of the polarized relative Jacobian from the Noetherian MC.1 atlas and its overlaps, with arbitrary base pullback. The existing field automorphism-rigidity node is already sufficient for the abelian part of MC.4 and must not be replanned.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+    "StableReductionPartII:MC.4/full-level"
+   ],
+   "sourceRoute": "JC1/relative-jacobian, jacobian-base-change and principal-polarization are imported; the exact overlap descent is the parent obligation.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R8",
+   "supplier": "JacobianChallengePartII:JC1",
+   "need": "Extend the Jacobian direction by the faithfulness theorem Aut(C)→Aut(J(C),λ_C) for smooth projective genus-g curves g≥2 over algebraically closed fields, in every characteristic. Only faithfulness is required for MC.4 rigidity; a full strong Torelli equivalence is not required. Combine this with existing curve automorphism finiteness and the existing R09.4 polarized rigidity theorem.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/level-rigidity",
+    "StableReductionPartII:MC.4/fine-level-scheme"
+   ],
+   "sourceRoute": "DM 5.14 p.108 cites Serre; Serre appendix pp.17-18–17-20 proves the abelian congruence step, not curve-to-Jacobian faithfulness. A primary proof of the latter remains to be acquired.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R9",
+   "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+   "need": "Proposed FuchsianOrbifolds, Part II contract: connected genus-g marked Teichmuller space for g≥2, the mapping-class action and its analytic moduli quotient, and the finite level-cover/orbit description used by complex-level-orbits. Current FuchsianOrbifolds explicitly excludes Teichmuller theory; this request is an extension proposal, not an assertion that Layer 4 contains it.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/complex-level-orbits"
+   ],
+   "sourceRoute": "DM proof 5.13 p.108 and 5.15–5.16 pp.108–109, citing Weil, Bourbaki expose 168 (1957/58), not yet read at the original source.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  },
+  {
+   "id": "MC4-R10",
+   "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-3-diffeomorphism-groups-with-the-c-topology",
+   "need": "Proposed GeometricTopology, Part II contract: the orientation-preserving genus-g mapping-class action on H₁(Σ_g,Z) preserves the unimodular symplectic intersection form and surjects onto Sp_{2g}(Z). Supply reduction Sp_{2g}(Z)→Sp_{2g}(Z/N) for all N≥2, with a precise integral symplectic-group supplier rather than a finite-field-only proof. Current Layer 3 supplies the diffeomorphism-group direction, not these statements.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/complex-level-orbits"
+   ],
+   "sourceRoute": "DM 5.12 p.107 and Lemma 5.16 p.109; the Manger 1939 proof cited there remains unread.",
+   "status": "requested in this packet; no supplier file or issue changed"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "StableReductionPartII:MC.4",
+   "status": "planned",
+   "remaining": [
+    "Export and source-check the generic supplier contracts MC4-R1–R10, with the seven precise gap groups; the existing polarized rigidity node needs no duplicate plan.",
+    "Close the unstable pointed-model transport step, including colliding markings after contraction and direct-image exactness.",
+    "Acquire the missing original Weil/Manger and surface references and check the corrected non-tame coarse-power norm proof before claiming proof closure."
+   ],
+   "targets": [
+    {
+     "id": "StableReductionPartII:MC.4/coarse-space",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/pluricanonical-nef",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/finite-degree-equations",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/moduli-determinant-ample",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/projective-coarse",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/finite-projective-cover",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/full-level",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/level-rigidity",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/fine-level-scheme",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/level-connectedness",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/irreducible-geometric-fibres",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/dualizing-section-degree",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/pointed-normalization-nef",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    },
+    {
+     "id": "StableReductionPartII:MC.4/persistent-node-residue-sequence",
+     "disposition": "imported from accepted parent; prerequisite refinements and open contracts recorded here"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Generic stack-cover, power-descent and ampleness interfaces remain requested",
+   "detail": "The initial finite scheme cover has now been sourced at EHKV and its route decomposed. SF.1 still has to publish its exact finite-cover and ampleness-descent nodes; its Keel–Mori node alone is insufficient. The wild coarse power-descent proof must be checked with the groupoid norm cocycle, rather than the false Picard injection recorded as parent E7.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+    "StableReductionPartII:MC.4/projective-coarse",
+    "StableReductionPartII:MC.4/finite-projective-cover"
+   ],
+   "requests": [
+    "MC4-R1",
+    "MC4-R2"
+   ]
+  },
+  {
+   "title": "Generic vector positivity and the Grassmann ampleness lemma",
+   "detail": "CLM generic background has been read. Existing AlgebraicVectorBundles L0 gives symmetric powers/determinants and SF.5 gives line nefness, not this vector criterion or det-Q ampleness theorem. The contracts and their proof ingredients are assigned as proposed SF foundations extensions; no implementation or accepted new owner node exists yet.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/pluricanonical-nef",
+    "StableReductionPartII:MC.4/moduli-determinant-ample"
+   ],
+   "requests": [
+    "MC4-R3"
+   ]
+  },
+  {
+   "title": "Surface theorems and the unstable pointed transport step",
+   "detail": "Ekedahl and Chen–Zhang primary versions are now acquired and read at the indicated statements. Their generic dependencies and the char-zero vanishing source still require supplier decomposition. In the pointed proof, contraction can make previously disjoint markings meet; the coefficient of an exceptional divisor is m minus the sum of coefficients meeting its centre, which need not be nonnegative merely from each a_i≤m. The parent is not closed until a model argument handles those collisions and the ensuing direct-image exactness. Do not extend special-fibre H¹-vanishing to arbitrary unstable nodal curves.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
+    "StableReductionPartII:MC.4/pointed-normalization-nef",
+    "StableReductionPartII:MC.4/pluricanonical-nef"
+   ],
+   "requests": [
+    "MC4-R4"
+   ]
+  },
+  {
+   "title": "Tame Kummer normal-fibre supplier",
+   "detail": "The DM proof has been read, including the finite abelian group route avoiding a prime-to-order condition on the symplectic deck group. Its local normality, flatness and component-count theorem remain generic contracts; finite normalization in R09.5 supplies none of these by itself.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/boundary-level-normalization",
+    "StableReductionPartII:MC.4/level-connectedness"
+   ],
+   "requests": [
+    "MC4-R5"
+   ]
+  },
+  {
+   "title": "Relative cohomological comparison and polarized atlas descent",
+   "detail": "JC1 exact relative Jacobian and polarization nodes are imported. Kummer duality, twist compatibility and effective polarized-family descent must still be exported by SF.3/R09.4.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+    "StableReductionPartII:MC.4/full-level"
+   ],
+   "requests": [
+    "MC4-R6",
+    "MC4-R7"
+   ]
+  },
+  {
+   "title": "Curve-to-Jacobian faithfulness source",
+   "detail": "Serre rigidity has been read at its original source and the needed polarized result is already another packet node. The missing curve faithfulness input is narrowed from a full strong Torelli theorem to the precise injection required, with JC1 as the proposed owner.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/level-rigidity",
+    "StableReductionPartII:MC.4/fine-level-scheme"
+   ],
+   "requests": [
+    "MC4-R8"
+   ]
+  },
+  {
+   "title": "Generic Teichmuller, mapping-class and integral reduction suppliers",
+   "detail": "The original Weil and Manger sources have not been read. DM gives the reduction route and locators but does not prove those inputs. Current FuchsianOrbifolds excludes Teichmuller theory, and current GeometricTopology does not supply the homology surjectivity theorem; Part II ownership proposals are explicit and require routing.",
+   "neededBy": [
+    "StableReductionPartII:MC.4/complex-level-orbits",
+    "StableReductionPartII:MC.4/level-connectedness",
+    "StableReductionPartII:MC.4/irreducible-geometric-fibres"
+   ],
+   "requests": [
+    "MC4-R9",
+    "MC4-R10"
+   ]
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "StableReductionPartII/E-MC4-1",
+   "source": "clm",
+   "kind": "error",
+   "extends": "StableReductionPartII/E12",
+   "locator": "2021 author manuscript, Proposition 6.7 proof, p.26, Case 1 higher-direct-image assertion",
+   "printed": "The pointed induction claims R¹f_*ω^m(D_j)=0 from fibre degrees on a general nodal family with smooth generic fibre.",
+   "correction": "Retain the nefness target, but replace this vanishing step by a proved pointed model/transport or logarithmic positivity argument. The generic evaluation-image repair of Corollary 6.6 does not by itself give the required exact sequence.",
+   "reason": "Blow up a constant smooth genus-g≥2 family at a point of a special fibre. At D_j=0 the exceptional rational tail has degree −m for ω^m and H¹ of dimension m−1. The normalization sequence surjects special-fibre H¹ onto this group, whereas generic H¹ is zero. Top-degree cohomology/base change then precludes the asserted global R¹ vanishing. This is the additional Proposition 6.7 use of the phenomenon in parent E12.",
+   "affects": "the proof",
+   "known": "new; novelty and publisher-version collation unverified",
+   "searched": [
+    "Read the 2021 author copy pp.25–27; parent E12 scopes its finding to the different Corollary 6.6 sequence.",
+    "18 October 2026 title/author plus erratum and Proposition 6.7 searches located no correction. The NSF 10585475 fetch returned 502 or timed out, and its later Proposition 1.40 was not read."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the 1 July 2021 manuscript, Proposition 6.7 p.26. For the blowup of C×P¹ at a special-fibre point, with C smooth of genus at least two and no markings yet, the exceptional P¹ has relative dualizing degree −1. Its m-th power contributes H¹ of dimension m−1, and the normalization sequence maps fibre H¹ onto it. The generic H¹ is zero; top-degree base change forces nonzero R¹. This refutes the displayed vanishing step, not the nefness conclusion. No claim of historical novelty or publisher-version agreement is made.",
+    "by": "REV-StableReductionPartII--MC.4"
+   }
+  },
+  {
+   "id": "StableReductionPartII/E-MC4-2",
+   "source": "dm",
+   "kind": "misprint",
+   "locator": "1969 printed p.107, first sentence of the proof of Theorem 5.13",
+   "printed": "The reduction to the complex fibre cites Theorem 5.13 itself.",
+   "correction": "Use Corollary 5.11, the preceding constancy of geometric fibre component counts.",
+   "reason": "That corollary gives exactly the specialization-independent count needed before the complex orbit calculation; a self-reference cannot justify the reduction.",
+   "affects": "nothing",
+   "known": "new; historical novelty unverified",
+   "searched": [
+    "Read the public published scan p.107 and adjacent Corollary 5.11.",
+    "18 October 2026 bounded Deligne Mumford 1969 5.13 erratum search located no numbered correction."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the published scan, p.107, proof of Theorem 5.13: the cited number is self-referential. Corollary 5.11 on the same page supplies precisely the constant component count used to pass to C. This is a locator correction; the theorem is unaffected. Historical novelty has not been established.",
+    "by": "REV-StableReductionPartII--MC.4"
+   }
+  }
+ ],
+ "imports": [
+  {
+   "packet": "StableReductionPartII.json",
+   "nodes": [
+    "StableReductionPartII:MC.4/coarse-space",
+    "StableReductionPartII:MC.4/pluricanonical-nef",
+    "StableReductionPartII:MC.4/finite-degree-equations",
+    "StableReductionPartII:MC.4/moduli-determinant-ample",
+    "StableReductionPartII:MC.4/projective-coarse",
+    "StableReductionPartII:MC.4/finite-projective-cover",
+    "StableReductionPartII:MC.4/full-level",
+    "StableReductionPartII:MC.4/level-rigidity",
+    "StableReductionPartII:MC.4/fine-level-scheme",
+    "StableReductionPartII:MC.4/level-connectedness",
+    "StableReductionPartII:MC.4/irreducible-geometric-fibres",
+    "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
+    "StableReductionPartII:MC.4/dualizing-section-degree",
+    "StableReductionPartII:MC.4/pointed-normalization-nef",
+    "StableReductionPartII:MC.4/persistent-node-residue-sequence"
+   ],
+   "interpretation": "These fifteen accepted targets, with their APIs and tests, are imported unchanged. The five new nodes refine specified prerequisite arguments. Closure defects inherited through these imports remain listed below."
+  }
+ ],
+ "planetSelection": {
+  "stageId": "StableReductionPartII:MC.4",
+  "nodes": [
+   "StableReductionPartII:MC.4/coarse-space",
+   "StableReductionPartII:MC.4/pluricanonical-nef",
+   "StableReductionPartII:MC.4/projective-coarse",
+   "StableReductionPartII:MC.4/finite-projective-cover",
+   "StableReductionPartII:MC.4/full-level",
+   "StableReductionPartII:MC.4/fine-level-scheme"
+  ],
+  "note": "Retain the parent six planets and their names; this continuation adds zero planets, so assembly still has six."
+ },
+ "supplierChecks": [
+  {
+   "node": "AlgebraicModuliForArithmeticGeometry:R09.1/relative-serre",
+   "suffices": "Uniform high generation and vanishing on a quasi-compact Noetherian fixed family; supplies the integer bound, not projectivity."
+  },
+  {
+   "node": "AlgebraicModuliForArithmeticGeometry:R09.1/family-regularity",
+   "suffices": "S-flat coherent sheaves on projective space have a uniform regularity threshold, finite locally free high pushforwards and arbitrary base change; finite trivializing charts adapt this to P(E)."
+  },
+  {
+   "node": "SchemeAndStackFoundations:SF.1/keel-mori",
+   "suffices": "Finite inertia gives a proper quasi-finite coarse morphism and flat coarse base change; no finite scheme cover or arbitrary coarse base change is concluded."
+  },
+  {
+   "node": "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-coarse",
+   "suffices": "Finite representable correspondence induces a finite map on coarse spaces under its separated finite-type finite-inertia hypotheses."
+  },
+  {
+   "node": "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization-finite",
+   "suffices": "Finite normalization in finite function-field extensions over locally Noetherian Nagata charts; does not imply geometric normality of all fibres."
+  },
+  {
+   "node": "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
+   "suffices": "Finite normalization over the excellent integer base, used after choosing a dominating component."
+  },
+  {
+   "node": "SchemeAndStackFoundations:SF.5/nef-big",
+   "suffices": "Numerical nefness for line bundles; does not supply the vector-bundle quotient criterion or the Grassmann ampleness lemma."
+  },
+  {
+   "node": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity",
+   "suffices": "Over an algebraically closed field and invertible N≥3, a polarized abelian automorphism trivial on A[N] is identity. This is exactly the abelian rigidity needed by the parent curve level theorem."
+  },
+  {
+   "node": "AbelianSchemesAndArithmeticModuli:A6/automorphisms-of-polarized-abelian-varieties",
+   "suffices": "Arithmetic proof provider for the existing R09.4 automorphism owner; import rather than replan Serre rigidity."
+  },
+  {
+   "node": "AbelianSchemesAndArithmeticModuli:A3/torsion-divisibility",
+   "suffices": "Scheme-theoretic vanishing on A[N] is divisibility in Hom by N, including non-etale kernels; the suggested source lemma uses this convention."
+  },
+  {
+   "node": "PELModuli:M2/rigidity",
+   "suffices": "Relative prime-to-characteristic polarized rigidity; its omitted-carrier prototype does not substitute for a proof."
+  }
+ ],
+ "restructure": [
+  {
+   "proposal": "Scheme, stack, cohomology and intersection foundations, Part II",
+   "reason": "MC4-R1–R5 require generic finite stack covers, wild line-power descent, Kummer normal-fibre theorems, vector positivity and a separately scoped surface theory. Keep the current SF.1/SF.5 requests until routing; never put this generic development in the curve-moduli roadmap. Surface theorem ownership is proposed, not accepted."
+  },
+  {
+   "proposal": "Fuchsian groups and orbifold Riemann surfaces, Part II; Geometric topology, Part II",
+   "reason": "Extend the existing Riemann-surface direction to marked Teichmuller moduli and the surface topology direction to its symplectic mapping-class representation. The existing upstream documents remain unchanged."
+  },
+  {
+   "proposal": "Jacobian challenge, Part II — add curve automorphism faithfulness within JC1",
+   "reason": "Reuse the existing Jacobian Part II rather than create a second Jacobian or a new curve-owned generic Torelli theory."
+  }
+ ],
+ "upstreamNotes": [
+  {
+   "roadmap": "AlgebraicVectorBundles",
+   "note": "Read current main at 0d144d044dacebca17b654695b6f1ad58f159b27: L0A–L0C already plan finite locally free tensor, symmetric/exterior power and determinant calculus with pullback. Import these; no new moduli-owned vector-bundle definitions. Current roadmap has no nef bundle or Grassmann quotient ampleness theorem."
+  },
+  {
+   "roadmap": "StableReduction",
+   "note": "Layers 1–5 supply nodes, dualizing/cohomological curves, marked stability and surface resolution/minimal-model directions. They do not supply all-general-type vanishing or the genus-one canonical-bundle/Euler bounds; requests isolate these additions."
+  },
+  {
+   "roadmap": "Current library receipt",
+   "note": "Read current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 and Mathlib 6b7abb3c7686292736be2955bd3eb9ebf63b456a source searches as well as the pins. Existing abelian End is a ring with integer multiplication, but its source explicitly does not establish multiplication isogeny theory. No stack moduli, pluricanonical nefness, tame level compactification or Teichmuller implementation was found. Search results are absence evidence, not a proof of library completeness."
+  }
+ ],
+ "libraryAudit": {
+  "reviewedInput": "data/library-coverage.json",
+  "result": "StableReductionPartII is a newly defined roadmap with no reviewed stage entry. Read relevant R09.1, R09.5 and SF.5 audit entries; geometric stacks and positivity remain missing. Check current upstream rather than infer absence from the older atlas snapshot.",
+  "sourceCheckedModules": [
+   "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
+   "TauCeti/AlgebraicGeometry/AbelianVariety/Hom/Basic.lean",
+   "Mathlib/GroupTheory/OrderOfElement.lean",
+   "Mathlib/LinearAlgebra/SModEq/Basic.lean"
+  ]
+ },
+ "inheritedSourceIssues": [
+  "StableReductionPartII/E7",
+  "StableReductionPartII/E8",
+  "StableReductionPartII/E9",
+  "StableReductionPartII/E10",
+  "StableReductionPartII/E12",
+  "StableReductionPartII/E13"
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://chngr.github.io/assets/mgbar.pdf",
+   "read": "2026-10-18",
+   "sha256": "5314dd91d8957fc775ea40e30d9a9cc12159fd5b61a5f0d2640c41b18f19a829"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1969c--IrredModCurves-Deligne-Numdam.pdf",
+   "read": "2026-10-18",
+   "sha256": "d779973708ecef9a098db863df766f173740d75302f15655e4bbc9dd7df739e7"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/SHC_1960-1961__13_2_A4_0.pdf",
+   "read": "2026-10-18",
+   "sha256": "5c993695a16086ff090c51d0f486f39bf0bb035ad4edde4e7c75abe64f5d39f7"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/9905049v3",
+   "read": "2026-10-18",
+   "sha256": "b335dd5d040ed8d994a04c2c12e1fb6c87ea7ed328fa3df6b3d95811afe1bdb0"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/PMIHES_1988__67__97_0.pdf",
+   "read": "2026-10-18",
+   "sha256": "0e53d89911bd563cdc5e8a38abc47dc4e990a75e77cbd05055812f6d63b30776"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1305.6024v1",
+   "read": "2026-10-18",
+   "sha256": "1812166bab9e188b085c164c1814aa618fb74fb36e00a8a7f6f00d57ec0f3c31"
+  },
+  {
+   "kind": "published",
+   "url": "https://stacks.math.columbia.edu",
+   "read": "2026-10-18"
+  }
+ ],
+ "checks": {
+  "blueprint": "python3 scripts/check_blueprint.py: passed with zero errors and zero warnings on 2026-10-18",
+  "lean": "lean-check passed at pins on 2026-10-18; six admitted-proof warnings, no other diagnostics; compact available-carrier prototype",
+  "interpretation": "Complete target-level pass, MC.4 planned, not closed; implementationStatus unchecked everywhere."
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-StableReductionPartII--MC.4",
+  "date": "2026-10-18",
+  "notes": "Independent target-level review by Codex, session codex-sYnh2Y. All five nodes and five baseline declarations checked; fifteen parent targets and the named supplier contracts read. Corrected DM component/normalization locators and the finite ampleness-descent source/hypotheses; clarified finite fibres in the Grassmann quotient criterion. Added kernel extensionality, normalization lifting and coherent etale pullback APIs, an explicit transvection test and a ramified-base-change counterexample. Confirmed both sourceIssues. Seven gap groups and ten requests remain explicit: accepted as a complete planning pass, MC.4 planned, not closed. No new nodes, planets or implementation claims.",
+  "checked": [
+   {
+    "nodeId": "StableReductionPartII:MC.4/integral-hilbert-kernel",
+    "verdict": "corrected",
+    "note": "Uniform flat ideal argument, ranks, arbitrary pullback and four tests verified; added kernel extensionality. CLM 7.1–7.2 supports the motivation, while exact integral uniformity uses the read R09.1 contracts and Stacks generation/vanishing."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+    "verdict": "corrected",
+    "note": "Fixed determinant, finite cover and noncircular projectivity route verified. Added the exact Noetherian proper algebraic-space descent theorem, Stacks 0GFB, and corrected MC4-R1 source/hypotheses."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+    "verdict": "verified",
+    "note": "Read DM 5.3–5.8 and 5.14–5.15. Checked dual/Tate convention, GSp versus GL, fixed multiplier and composite-level tests. Kummer/descent remain explicit MC4-R6/R7 contracts, not claims about existing carriers."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.4/boundary-level-normalization",
+    "verdict": "corrected",
+    "note": "Read DM 4.16–4.20 and 5.9–5.11. Corrected the component theorem from 4.19 to 4.17 and its pagination; made chart hypotheses explicit. Added normalization universal property, coherent etale pullback and ramified-pullback counterexample; sharpened monodromy test to exact order N. Tame normal-fibre results remain MC4-R5."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.4/complex-level-orbits",
+    "verdict": "verified",
+    "note": "Read DM 5.12–5.16, checked composite symplectic reduction and fixed-pairing orbit route. The original Weil/Manger proofs and proposed upstream Part II extensions remain recorded gaps; no upstream layer is falsely treated as already supplying them."
+   }
+  ],
+  "baselineChecks": [
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End",
+    "verdict": "verified",
+    "note": "Declaration and conventions read at the packet pin; the suggested file elaborates against these carriers."
+   },
+   {
+    "ref": "mathlib:IsOfFinOrder",
+    "verdict": "verified",
+    "note": "Declaration and conventions read at the packet pin; the suggested file elaborates against these carriers."
+   },
+   {
+    "ref": "mathlib:orderOf",
+    "verdict": "verified",
+    "note": "Declaration and conventions read at the packet pin; the suggested file elaborates against these carriers."
+   },
+   {
+    "ref": "mathlib:Matrix",
+    "verdict": "verified",
+    "note": "Declaration and conventions read at the packet pin; the suggested file elaborates against these carriers."
+   },
+   {
+    "ref": "mathlib:ZMod",
+    "verdict": "verified",
+    "note": "Declaration and conventions read at the packet pin; the suggested file elaborates against these carriers."
+   }
+  ],
+  "validation": {
+   "blueprint": "Zero errors and warnings after review.",
+   "lean": "lean-check elaborated the unchanged suggested file at the pins: six admitted-proof warnings, no errors or other warnings."
+  },
+  "sourceReading": "Read each of the five node locators, CLM positivity and pointed proof passages, Serre appendix pp.17-18–17-20 (last page inspected as an image), EHKV Theorem 2.7 and proof, Ekedahl II 1.7 pp.126–127, Chen–Zhang v1 Theorem 1.3 and §4, and the listed Stacks statements. Original sources explicitly left open by the packet remain unread; their proof closure is not certified."
+ },
+ "assembly": {
+  "job": "ASM-StableReductionPartII",
+  "issue": 9247,
+  "agent": "Codex",
+  "session": "codex-VhiQEb",
+  "date": "2026-10-18",
+  "status": "complete",
+  "reader": "research/blueprint/readmes/StableReductionPartII.md",
+  "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+  "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+  "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+  "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+  "prerequisiteEdits": [],
+  "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC4",
+  "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
+ }
+}

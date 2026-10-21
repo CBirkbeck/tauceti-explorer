@@ -1,0 +1,209 @@
+{
+  "id": "ProfiniteCohomologyPartII",
+  "title": "Continuous cohomology of profinite groups, Part II: Massey products and Galois lifting",
+  "area": "algebraicnt",
+  "parent": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+  "summary": "Build the continuous cochain and finite unipotent interfaces needed to interpret higher degree-one Massey products as Galois lifting problems. Develop the explicit stabilizer modules, conjugacy tests and refined local lifting theorem, including real places and rank-one twists. Construct the defined nonvanishing triple with Z/8 coefficients over Q, while importing foundational cohomology, embedding problems and arithmetic duality from their existing owners.",
+  "readme": "The reader document research/blueprint/readmes/ProfiniteCohomologyPartII.md specifies every target, convention, supplier contract, API and discriminating check. This continuation owns Massey-specific continuous comparisons and unipotent calculations. Generic Massey products belong to DGAInfinity; global rational-point and number-field mod-p vanishing theorems belong to the homogeneous-space continuation. The independent negligible-class direction is assigned by the split proposal in the packet.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "ArithmeticGaloisDuality",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "HigherLocalFieldsAndHigherClassFieldTheory"
+  ],
+  "stages": [
+    {
+      "key": "M.0",
+      "title": "Continuous cochains and degree-one defining systems",
+      "description": "Construct the strictly associative continuous inhomogeneous cochain DGA and its canonical cohomology comparison. Specialize DGAInfinity defining systems with d a_ij=−Σ a_im∪a_mj, retain their full set of H² values, and control changes of adjacent representatives.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality"
+      ]
+    },
+    {
+      "key": "M.1",
+      "title": "Unitriangular quotients and Dwyer correspondence",
+      "description": "Reuse the pinned upper-unitriangular carrier, transvections and filtration. Add their ordered factorization, reverse commutator inclusions, adjacent and corner quotient interfaces. Prove the fixed-cochain Dwyer bijection, its negative extension-class sign, definedness and zero-membership lift criteria.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.0",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms"
+      ]
+    },
+    {
+      "key": "M.2",
+      "title": "Abelianized stabilizers and explicit conjugation",
+      "description": "Identify B=(U¹)^ab with the distance-two and distance-three coordinates, compute its A-action and boundary submodule, and provide sparse-conjugation and reversal formulas with correct signs.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.1"
+      ]
+    },
+    {
+      "key": "M.3",
+      "title": "Nilpotent support and outer exponents",
+      "description": "Expose the matrix-support calculation needed for power bounds; define the outer exponent literally by least divisor and prove the small-rank powering factorization. Keep the characteristic-three corner term and the characteristic-two least-divisor correction.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.1",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ]
+    },
+    {
+      "key": "M.4",
+      "title": "Bogomolov vanishing for the derived stabilizer",
+      "description": "Define the Bogomolov restriction kernel and the commutativity-preserving exterior square. Establish their natural character duality and the endpoint-collection normal form for superdiagonal groups, yielding B_Bog(U¹)=0 without assuming the geometric unramified-Brauer comparison.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms"
+      ]
+    },
+    {
+      "key": "M.5",
+      "title": "Cyclic cohomology and fixed conjugacy classes",
+      "description": "Build the cyclic restriction kernel and the conjugacy-power evaluation test. Prove fixed second-diagonal lifts, boundary generation and dual cyclic-kernel vanishing. Establish full fixed-class generation for lengths four and five, retaining the central-commutator calculation.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.2",
+        "ProfiniteCohomologyPartII:M.3",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ]
+    },
+    {
+      "key": "M.6",
+      "title": "Sharpness and explicit obstruction modules",
+      "description": "Record the length-six failure and the nonzero length-four cyclic kernel. Construct the five-dimensional C₂×C₄×C₂ module, its cyclically trivial nonzero dual class and its auxiliary quartic cocycle, with formulas rather than a reference to an unspecified completion.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.2",
+        "ProfiniteCohomologyPartII:M.5"
+      ]
+    },
+    {
+      "key": "M.7",
+      "title": "Refined nonarchimedean lifting",
+      "description": "Construct the internal-sum boundary subgroup P_(r,s), its twisted finite module sequence and explicit retractions. Import the finite-domain splitting-class cup formula. Cancel the obstruction by local duality in the nonsplit case and extend a retraction over its stabilizer in the split case, proving Proposition 5.3.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.1",
+        "ProfiniteCohomologyPartII:M.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+        "ArithmeticGaloisDuality:R02.1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ]
+    },
+    {
+      "key": "M.8",
+      "title": "Real places and ordinary local vanishing",
+      "description": "Prove the finite C₂ duality needed at the real place and extend the refined theorem to every archimedean completion. Deduce ordinary degree-one local Massey vanishing at length at least three.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.7",
+        "ProfiniteCohomologyPartII:M.1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees"
+      ]
+    },
+    {
+      "key": "M.9",
+      "title": "Filtered modules and twisted Dwyer correspondence",
+      "description": "Specialize the strict continuous cochain model to finite Hom coefficient systems. Construct filtered block automorphisms, adjacent semidirect quotients and the noncentral-in-T corner extension. Prove the fixed-adjacent-cocycle bijection and sign, then derive representative-independent existence by conjugation; identify the rank-one internal-sum boundary.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.0",
+        "ProfiniteCohomologyPartII:M.1",
+        "ProfiniteCohomologyPartII:M.7",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ]
+    },
+    {
+      "key": "M.10",
+      "title": "Rank-one twisted local lifting",
+      "description": "Kill the finite diagonal characters over a prime-to-p extension and compare obstructions by restriction/corestriction. Prove the rank-one twisted refined lifting theorem at all number-field places.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.8",
+        "ProfiniteCohomologyPartII:M.9",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ]
+    },
+    {
+      "key": "M.11",
+      "title": "The defined nonvanishing Z/8 triple over Q",
+      "description": "Starting from the existing independent cyclic-eight lifts, construct the UT₄(Z/8) coefficient modules, their dual Wang class and invariant-coordinate obstruction. Deduce a nonzero Sha² kernel and a middle character, prove its embedding problem solvable at every completion but not globally, and conclude Theorem 7.5 using the separate global definedness step.",
+      "requires": [
+        "ProfiniteCohomologyPartII:M.1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "HW",
+      "title": "The Massey vanishing conjecture for number fields",
+      "authors": "Yonatan Harpaz and Olivier Wittenberg",
+      "edition": "arXiv:1904.06512v2, revised 9 December 2021; 33-page preprint pagination. Published Duke Mathematical Journal 172 (2023), 1–41; publisher text not obtained.",
+      "url": "https://arxiv.org/pdf/1904.06512v2",
+      "sha256": "a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Introduction pp.1–2 (defining systems); Notation 2.1, Proposition 2.2 and Corollary 2.3, p.5; Definition 3.2, p.9",
+        "Conjugacy-power pairing and Remark 3.4, pp.9–11",
+        "Proposition 4.1 and finite matrix/cohomology arguments, pp.11–18",
+        "Definition 5.2, Proposition 5.3 and Lemma 5.5 with proofs, pp.18–22",
+        "Proposition 6.1 and Examples 6.2–6.3, pp.23–24",
+        "Coefficient systems, Proposition 7.3, rank-one local reduction, Theorem 7.5 and Lemmas 7.6–7.7, pp.24–31"
+      ],
+      "independentReviewRead": "2026-10-19",
+      "independentReviewScope": "pp.1–31, including every node and errata locator; preprint only, published full text unavailable"
+    },
+    {
+      "id": "Michailov",
+      "title": "Bogomolov multipliers for unitriangular groups",
+      "authors": "Ivo M. Michailov",
+      "edition": "arXiv:1308.3408v2, 11-page PDF served on access; its footer date is 5 July 2019 despite the arXiv version header.",
+      "url": "https://arxiv.org/pdf/1308.3408v2",
+      "sha256": "398b40a6ed3671595f013a14a043e495f2d238c7727ce598258f2d632f0e0969",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Entire paper; especially §2 pp.3–4 and Theorem 3.1 Cases I–II, pp.5–8. Only the superdiagonal-subgroup specialization is planned."
+      ],
+      "independentReviewRead": "2026-10-19",
+      "independentReviewScope": "§§1–3, pp.1–8, including both Theorem 3.1 cases and both reported slips"
+    },
+    {
+      "id": "Moravec",
+      "title": "Unramified Brauer groups of finite and infinite groups",
+      "authors": "Primož Moravec",
+      "edition": "arXiv:1203.3190, preprint pagination",
+      "url": "https://arxiv.org/pdf/1203.3190",
+      "sha256": "5c9ab599504cc270a7d85c9ede418d6052630978e8a9d649e9cc8eeb70170369",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§2, pp.3–4: crossed exterior presentation and commutator map",
+        "Lemma 3.1 and Theorem 3.2, pp.4–6: natural duality and commuting generators",
+        "§4 opening, pp.9–10: commutativity-preserving exterior square and its universal property"
+      ],
+      "independentReviewRead": "2026-10-19",
+      "independentReviewScope": "§2 pp.3–4; Lemma 3.1 and Theorem 3.2 pp.4–6; §4 opening pp.9–10"
+    }
+  ],
+  "status": "draft"
+}

@@ -1,0 +1,419 @@
+{
+  "id": "ModularityAndLanglandsExtensionsPartII",
+  "title": "Modularity, automorphy and Langlands endpoint extensions, Part II: the proof of symmetric power functoriality",
+  "area": "automorphic",
+  "parent": "ModularityAndLanglandsExtensions",
+  "summary": "Part II of ModularityAndLanglandsExtensions, starting where that roadmap stops: the parent (TauCetiRoadmap pull request #1180) states symmetric power functoriality for modular and Hilbert modular forms and the theorems of Newton–Thorne and Clozel–Thorne on the way as endpoints and import contracts, and this roadmap plans their proofs. SP.0–SP.3 move automorphy of symmetric powers along eigenvarieties (Newton–Thorne I Part I: rigid pseudocharacter spaces, analytic continuation of functoriality between definite unitary eigenvarieties, Theorem 2.33 on the eigencurve, Buzzard–Kilford's boundary annuli and ping-pong for Theorem D). SP.4–SP.7 raise the level on definite unitary groups (Newton–Thorne I Part II and Clozel–Thorne III: endoscopic character identities, depth-zero and Iwahori-spherical types, trace-formula level raising to types, level raising to Steinberg by residually reducible deformation theory, Thorne's p-adic level raising, the CM seed σ_0 and Theorem E, Clozel–Thorne's Sym^{l+1}). SP.8 kills ramification with n-regular refinements. SP.9–SP.10 are Newton–Thorne II: automorphy lifting for Sym^{n−1} through the map P → R and the regularity of the pseudodeformation ring, and the induction on supercuspidal primes through seasoned representations. SP.11–SP.13 are Newton–Thorne 2026 with Thorne 2024 §7: the untwisted tensor r_π ⊗ Sym^{r−1}r_σ by comparing deformation problems with congruent special fibres, functoriality lifting for tensor products, residual witnesses for the coefficient-Frobenius twisted tensor, and the Bertrand induction proving SP_n for all n. This is a completed target-level planning pass, with all stages planned rather than closed. G2 remains a conditional intermediate CM seed route; G1,G3–G5 and G7 record missing owners or supplier extensions. G6 is resolved by a perfect-group cyclotomic restriction argument and an explicit finite avoidance set. No endpoint is claimed implemented.",
+  "readme": "# Modularity, automorphy and Langlands endpoint extensions, Part II: the proof of symmetric power functoriality\n\nThis roadmap is the Part II of ModularityAndLanglandsExtensions (TauCetiRoadmap pull request #1180). That roadmap registers symmetric power functoriality as an endpoint: it states Newton–Thorne's theorems for modular forms (Theorems A–E of Newton–Thorne I, Theorem A of Newton–Thorne II), for Hilbert modular forms (Newton–Thorne 2026, Theorems 4.1, 5.9, 6.4 and A) and Clozel–Thorne's sixth and eighth symmetric powers, together with the steps of their proofs as import contracts (its §§4.5–4.11 and 4.23), and gives each a one-line proof route. Its packet records that the methods behind those statements belong to this Part II. This roadmap starts there: it plans the proofs.\nThere are four methods, and all four are needed for the parent's statements as they stand. **Analytic continuation along eigenvarieties** (SP.0–SP.3, Newton–Thorne I Part I): automorphy of Sym^{n−1} is constant on irreducible components of the eigencurve, and ping-pong on Buzzard–Kilford's annuli connects all level-one forms (Theorem D). **Level raising on definite unitary groups** (SP.4–SP.7, Newton–Thorne I Part II and Clozel–Thorne III): types at auxiliary places, a trace-formula count, level raising to Steinberg by residually reducible deformation theory, and a CM seed aim to give one level-one form with automorphic Sym^{n−1} (Theorem E), with the odd-rank CM seed obstruction recorded as G2, and Clozel–Thorne's Sym^{l+1} for l = 5, 7. **Automorphy lifting for symmetric powers** (SP.8–SP.10, Newton–Thorne I §8 and Newton–Thorne II): killing ramification with n-regular refinements, a lifting theorem driven by the regularity of a pseudodeformation ring at an automorphic point rather than by control of a dual Selmer group, and an induction on supercuspidal primes through seasoned representations. **Tensor-product functoriality lifting** (SP.11–SP.13, Newton–Thorne 2026 with Thorne 2024 §7): the untwisted tensor r_π ⊗ Sym^{r−1}r_σ by comparing deformation problems with congruent special fibres, a functoriality lifting theorem for tensor products, residual witnesses for the coefficient-Frobenius twisted tensor, and the Bertrand induction proving SP_n for every n over every totally real field.\n\n## Scope\n\n**What the parent owns and this roadmap imports.** The automorphy predicate and normalisations of Newton–Thorne (ML.0, nodes ML.0/nt26-automorphy-predicate and ML.0/nt26-normalisation-bridge); accessible and n-regular refinements, the symmetric power lift, the statement SP_n and the low-rank cases SP_n for n ≤ 5 (ML.3 nodes accessible-regular-refinement, symmetric-power-lift-over-number-fields, sp-statement, low-rank-symmetric-powers); the finite-field projective image sandwich (ML.3/projective-image-sandwich); the eigenvariety machinery of the package's §4.3 (definite-unitary eigenvarieties with closed realization, Emerton's Jacquet functor, family triangulations, trianguline deformations and the global trianguline tangent bound, the symmetric-power character maps, classicality at non-critical points); Anastassiades–Thorne's level raising for GL_{2n} (§4.4); the one-prime criterion (§4.15); the Clozel–Thorne reductions with Newton–Thorne 2026 Proposition 6.1 and Thorne 2024 §8 (§4.22); Mok's and Kaletha–Mínguez–Shin–White's classifications (ML.4); cyclic and soluble base change for GL_n (ML.5).\n**What neighbouring roadmaps own.** PotentialAutomorphyInfrastructurePartII (PL.0–PL.9) owns ι-ordinarity, soluble descent, potential diagonalisability and the relation ∼, definite unitary groups with their algebraic modular forms, Hecke algebras and ordinary parts, Taylor–Wiles data, the ordinary and potentially diagonalisable lifting theorems (BLGGT Theorem 4.2.1), the residually reducible theory of Thorne and Allen–Newton–Thorne (generic primes, generic R = T, Thorne 2024 Theorem 7.5), and the pseudodeformation rings P with the vanishing of adjoint Bloch–Kato Selmer groups and the regularity of P at automorphic points. PadicFamilies owns the eigencurve and eigenvariety gluing; AdicSpacesPartIIPartII owns irreducible components of rigid spaces; SmoothRepresentationsOfLocalGroups (a Tau Ceti roadmap) owns Iwahori–Hecke algebras with their presentations, compact induction, Jacquet modules and cuspidal support; SmoothRepresentationsOfLocalGroupsPartII owns the Kazhdan–Lusztig classification; EndoscopicTransferAndUnitaryTraceComparison owns transfer factors, fundamental lemmas, the unitary trace formulas and unitary base change; GlobalGaloisDeformations, LocalGaloisDeformationRings and DeformationAndDerivedPatchingAlgebra own deformation problems, local rings and the commutative algebra of patching; GL2ModularityLifting owns quaternionic Taylor–Wiles modules and patching for GL_2; ArithmeticGaloisRepresentations owns adequacy (with the threshold a_0(p)), the mod-p semisimplified Clebsch–Gordan decompositions and characteristic-zero Pieri splittings and enormous subgroups.\n**What this roadmap does not plan.** Level-one change of weight and the cuspidal cohomology of GL_n(ℤ) (Boxer–Calegari–Gee) and the explicit local theory and Galois representations of GSp_4 (BCGP 2018, 2025) were routed to the same design brief; they are independent directions and are proposed as separate Part IIs (restructure entry R1). Equidistribution consequences (Sato–Tate) stay with the parent. The Bianchi and CM-field potential-automorphy results of the parent's §§4.19–4.21, 4.24–4.28, 4.33, 4.38–4.43 use other methods and are not touched.\n\n## Conventions\n\nWe follow the parent's conventions (its Conventions section and ML.0/nt26-normalisation-bridge): geometric Frobenius, local reciprocity sending uniformisers to geometric Frobenius, rec^T(π_v) = rec(π_v ⊗ |det|^{(1−n)/2}), the cyclotomic character ε with Hodge–Tate weight −1. RAESDC, RACSDC, RAECSDC and ι-ordinary are as in PotentialAutomorphyInfrastructurePartII PL.0. For a cuspidal π of GL_2, r_{π,ι} is its p-adic Galois representation; 'Sym^{n−1}r_{π,ι} is automorphic' means it is r_{Π,ι} for a RAESDC (over totally real fields) or RACSDC (over CM fields) Π of GL_n, as in ML.0/nt26-automorphy-predicate. SP_n is the parent's statement ML.3/sp-statement; TP_r is tensor functoriality GL_2 × GL_r → GL_{2r} for RAECSDC representations with irreducible Hodge–Tate regular tensor (Clozel–Thorne I Conjecture 3.2).\n𝒢_n is the group of Clozel–Harris–Taylor, (GL_n × GL_1) ⋊ {1, j}, with multiplier ν; polarized representations take values in 𝒢_n. Pseudocharacters are Chenevier determinants (IntegralHeckeAndGaloisDeterminants IHG.0). φ_p ∈ G_{ℚ_p} is a lift of arithmetic Frobenius acting on coefficients; ^{φ_p}r̄ denotes the coefficient twist, not evaluation at a Frobenius element. a_0(p) ≥ 3 is the adequacy threshold of Newton–Thorne 2026 Lemma 2.3 = Thorne 2024 Lemma 7.3 (ArithmeticGaloisRepresentations G7).\nLocators are to the arXiv versions named under Sources, by PDF page; Clozel–Thorne III is cited by the page numbers of the accepted manuscript. Where the paper extractions recorded a mistake, the nodes use the corrected statement and cite the extraction's E-number (PAPER-NEWTON-THORNE-21/E…, PAPER-NEWTON-THORNE-21-B/E…, PAPER-CLOZEL-THORNE-17/E…, PAPER-NEWTON-THORNE-26/E…).\n\n\n## Planning status after independent review\n\nThis is a finished target-level pass: 105 targets in 14 planned layers, with no closed layer and no implementation claim. The review accepts the corrected plan with its explicit proof boundaries under PROTOCOL §0. G1, G3–G5 and G7 name missing owners or supplier extensions. G2 is the unresolved conjugate-self-duality failure in the NTI odd-rank CM seed construction, including rank three; only the powers-of-two seed construction avoids it. Known low-rank endpoint functoriality does not supply all of that seed data. The NT26 SP.13 induction is a separate route to the endpoint. Former G6 is resolved in the tensor-companion proof using a perfect product subgroup on cyclotomic restriction and a finite auxiliary-place avoidance set.\n\nIn residually reducible lifting arguments, primitivity is the weak source notion tested over the algebraic closure of the residual field. Fix a common finite splitting field for all subgroups of the residual image before fixing coefficient rings. Use the current PL.6/PL.7 weak-source continuations and their exact auxiliary-place boundary. Stage requests do not assert that an unplanned extension is already available. All source findings below concern the exact public versions read; no claim of collation with an unread journal text is made.\n",
+  "prerequisites": [
+    "ModularityAndLanglandsExtensions",
+    "AdicSpacesPartII",
+    "AdicSpacesPartIIPartII",
+    "ArithmeticGaloisDuality",
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "ClassicalSerreModularity",
+    "DeformationAndDerivedPatchingAlgebra",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "GL2ModularityLifting",
+    "GlobalGaloisDeformations",
+    "IntegralHeckeAndGaloisDeterminants",
+    "LocalGaloisDeformationRings",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PadicFamilies",
+    "PadicHodgeTheory",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "PotentialAutomorphyInfrastructurePartII",
+    "PotentialModularityAndCompatibleSystems",
+    "ReductiveGroupsPartII",
+    "SerreWeightAndLevelOptimisation",
+    "SmoothRepresentationsOfLocalGroups",
+    "SmoothRepresentationsOfLocalGroupsPartII",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory"
+  ],
+  "stages": [
+    {
+      "key": "SP.0",
+      "title": "Rigid spaces of pseudocharacters and analytic continuation along components",
+      "description": "**Targets.** The analytic continuation lemma for rigid spaces (Newton–Thorne I, Lemma 2.2): a morphism that sends an affinoid neighbourhood of a point into a Zariski closed subspace sends every irreducible component through the point into it; Conrad's base-change behaviour of irreducible components; the rigid generic fibres 𝒳_ps and 𝒳_{ps,v} of the global conjugate-self-dual and unrestricted local pseudodeformation rings with their absolutely irreducible loci, Azumaya algebras and local splitting (Lemma 2.13); the bijection between polarized lifts and conjugate self-dual traces (Lemma 2.12, with the corrections E10–E11 of the extraction); and the identification of their tangent spaces with Galois cohomology (Lemma 2.14).\n\n**Sources.** Newton–Thorne I (arXiv:1912.11261v3) §2.1, §2.11.1, pp. 24, 30–31.",
+      "requires": [
+        "AdicSpacesPartII:R1",
+        "AdicSpacesPartII:R2",
+        "AdicSpacesPartIIPartII:RZ.1",
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:R04.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.6"
+      ]
+    },
+    {
+      "key": "SP.1",
+      "title": "Analytic continuation of symmetric power functoriality between unitary eigenvarieties",
+      "description": "**Targets.** On the definite unitary eigenvarieties ℰ_2(τ̄_2) and ℰ_n(τ̄_n) of the parent's §4.3, with the symmetric power maps σ_n = σ_{n,g} × σ_{n,p} into 𝒳_{ps,n} × 𝒯_n: Theorem 2.24 (non-critical case) and Theorem 2.27 (ordinary case), which carry the image of every irreducible component through a symmetric-power point into ℰ_n(τ̄_n); Lemma 2.29 (non-criticality of all triangulations passes to Sym^{n−1} when the Weil–Deligne ratio is not a root of unity of order < n); and Corollary 2.28, automorphy of Sym^{n−1} along a whole irreducible component.\n\n**Sources.** Newton–Thorne I §2.18.1, pp. 40–46.",
+      "requires": [
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.0",
+        "PadicFamilies:L2a",
+        "PadicHodgeTheory:R06.3",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "PotentialAutomorphyInfrastructurePartII:PL.8"
+      ]
+    },
+    {
+      "key": "SP.2",
+      "title": "From the eigencurve to definite unitary eigenvarieties",
+      "description": "**Targets.** The twin involution on the eigencurve and its slope and weight identities (Lemma 2.32, with E9); trivialising a family of characters over a CM field (Lemma 2.34, with Chevalley's congruence subgroup theorem); the base-change morphism b from the tame-level-N eigencurve ℰ_0 to the definite unitary eigenvariety ℰ_2 of a soluble CM extension; Theorem 2.33, automorphy of Sym^{n−1} is constant on irreducible components of ℰ_0 under the non-critical or ordinary hypotheses (the theorem the parent states in §4.5 as an import contract); and Lemma 2.35, the locus where those hypotheses fail is Zariski closed.\n\n**Sources.** Newton–Thorne I §2.31, pp. 49–52.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+        "ModularityAndLanglandsExtensions:ML.0",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensions:ML.5",
+        "ModularityAndLanglandsExtensionsPartII:SP.0",
+        "ModularityAndLanglandsExtensionsPartII:SP.1",
+        "PadicFamilies:L2",
+        "PadicFamilies:L2a",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+      ]
+    },
+    {
+      "key": "SP.3",
+      "title": "Level one: the 2-adic boundary of weight space and ping-pong",
+      "description": "**Targets.** Buzzard–Kilford's description of the tame-level-one 2-adic eigencurve over the boundary annulus |8| < |w| < 1 as a disjoint union of annuli X_i on which the slope is i·v_2(w) (Newton–Thorne I Theorem 3.2); the classical weights in the boundary annulus; the position of twins (Lemma 3.3, with E1); refinements of level-one forms at 2 are numerically non-critical and n-regular (Lemma 3.4, with the mod 5 and mod 7 congruences); the local image criteria of Lemma 3.5 (with Sen's theorem); moving within one annulus (Lemma 3.6); the ping-pong move (Lemma 3.7); and Theorem 3.1 = Theorem D, symmetric power functoriality for one level-one form gives it for all (the theorem the parent states in §4.7).\n\n**Sources.** Newton–Thorne I §3, pp. 53–57; Buzzard–Kilford, Compositio Math. 141 (2005).",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "ModularityAndLanglandsExtensions:ML.0",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.2",
+        "PadicFamilies:L2",
+        "PadicFamilies:L2a",
+        "PadicHodgeTheory:R06.3",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "mathlib:padicValNat.pow_two_sub_one"
+      ]
+    },
+    {
+      "key": "SP.4",
+      "title": "Local representation theory for unitary level raising",
+      "description": "**Targets.** At an inert place of a definite unitary group (Newton–Thorne I §1): the quasi-split unitary groups U_n with their Levi subgroups and the pure inner twist of the definite group with its Whittaker normalisation; the archimedean, unramified and split endoscopic character identities (Propositions 1.6–1.7); stable base change BC from tempered representations of U_n to conjugate self-dual parameters extending to ^LU_n, with Mœglin's extended cuspidal support, the L-packets Π(π) and the twisted character identity (Propositions 1.9–1.11); the depth-zero cuspidal representations τ(v) and λ(v, θ) = −R_C^{U_3}θ of U_3(k(v)) and λ̃(ṽ, θ̃) of GL_3(k(ṽ)), their compact inductions and base changes (Proposition 1.12, Corollary 1.13); the types τ(v, n), λ(v, θ, n) of the parahoric p_v with modular irreducibility and the congruence of types (Proposition 1.15); the endoscopic transfer of the test function φ(v, θ, n) (Proposition 1.16, with Kazhdan–Varshavsky); and the fixed-type local lifting rings (Lemma 1.21, Proposition 1.22(3)–(4), with E7). At a ramified place (Clozel–Thorne III §§2–3): the isomorphism of the Iwahori–Hecke algebra of U_{2k+1} with that of Sp_{2k} (Proposition 2.2); the Kazhdan–Lusztig modules X, Y, Z in the L-packet of St_{n−4} ⊞ St_3 ⊞ St_1 with their Iwahori dimensions and Jacquet exponents (Theorems 2.3, 2.5); their integral structures, localisations and duality (Propositions 2.6, 2.9, Corollary 2.8, with E7 of that extraction); and the identification with the Mœglin–Mok packet and its signs (Theorem 3.3, Lemma 3.6, Proposition 3.7).\n\n**Sources.** Newton–Thorne I §1, pp. 8–23; Clozel–Thorne III §§2–3, pp. 4–28.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+        "LocalGaloisDeformationRings:R08.1",
+        "LocalGaloisDeformationRings:R08.2",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "ReductiveGroupsPartII:RG2.4",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "SmoothRepresentationsOfLocalGroups:SR.5",
+        "SmoothRepresentationsOfLocalGroupsPartII:SRU.7",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-9-the-representation-theory-of-gl₂𝔽_q"
+      ]
+    },
+    {
+      "key": "SP.5",
+      "title": "Level raising to prescribed types on definite unitary groups",
+      "description": "**Targets.** Newton–Thorne I §4: the data π = π_2 ⊞ π_{n−2} with the auxiliary place sets T_1, T_2, T_3, the level U and the types τ_g, λ_g; local components at inert places (Lemma 4.3); box sums with the same residual representation are cuspidal or of shape (n − 2, 2) (Lemma 4.5); a form of the definite group with prescribed types by the trace formula (Proposition 4.6); and Theorem 4.1, level raising to a type (whose statement the parent records in §4.4). Clozel–Thorne III §§3–4: the conjugate-symplectic character μ (Lemma 3.4); the count of automorphic representations of the definite unitary group with given stable base change (Theorems 3.8, 3.10); the level-raising set-up with algebraic modular forms S(U, A) and their Hecke algebras; the local types of contributing representations (Proposition 4.1, with the corrected semistability argument); the pairing and the module structure (Proposition 4.3, Lemma 4.4); and Theorem 4.2, level raising for l = 5, 7.\n\n**Sources.** Newton–Thorne I §4, pp. 59–65; Clozel–Thorne III §§3–4, pp. 21–37.",
+      "requires": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "ModularityAndLanglandsExtensionsPartII:SP.4",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+      ]
+    },
+    {
+      "key": "SP.6",
+      "title": "Level raising to Steinberg by residually reducible deformation theory",
+      "description": "**Targets.** Newton–Thorne I §6: Schur and primitive residual representations after split extensions and cuspidality of soluble base changes (Lemma 6.2); auxiliary places with scalar residual Frobenius (Lemma 6.3); deformation data D with their dimension bound (Lemma 6.4); the map from the pseudodeformation ring to the ordinary Hecke algebra (Lemma 6.6); a generic prime unramified outside p (Lemma 6.7, with E22); and Theorem 6.1, level raising to Steinberg. Clozel–Thorne III §5: deformation data and preliminary reductions; the dimension of the reducible locus with Steinberg-type conditions (Lemma 5.3, restricted to unipotent conditions as in E21 of that extraction) and Lemma 5.4; changing characters and the characteristic-l prime giving a Steinberg lift (Lemmas 5.5–5.6); Theorem 5.1 (level raising to Steinberg for residually reducible representations, with E20) and Theorem 5.7 (automorphy lifting from a lift with a long Jordan block). Thorne 2024 Theorem 6.11: level raising to an ι-ordinary lift Steinberg at a q-adic place by p-adic methods.\n\n**Sources.** Newton–Thorne I §6, pp. 75–82; Clozel–Thorne III §5, pp. 37–44; Thorne 2024 §6, pp. 38–41.",
+      "requires": [
+        "ArithmeticGaloisDuality:R02.3",
+        "LocalGaloisDeformationRings:L7",
+        "LocalGaloisDeformationRings:R08.2",
+        "ModularityAndLanglandsExtensions:ML.5",
+        "ModularityAndLanglandsExtensionsPartII:SP.4",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "PotentialAutomorphyInfrastructurePartII:PL.3",
+        "PotentialAutomorphyInfrastructurePartII:PL.6",
+        "PotentialAutomorphyInfrastructurePartII:PL.7",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ]
+    },
+    {
+      "key": "SP.7",
+      "title": "Seeds: residually CM symmetric powers and one level-one form",
+      "description": "**Targets.** The CM newform σ_0 of weight 5 and level Γ_1(4) and the properties of its residual symmetric powers (Lemma 7.2); a weight-5 form with automorphic Sym^{n−1}, Steinberg at a prime q ≡ 3 mod 4 (Corollary 7.3, with level raising for GL_2); Theorem 7.1, residually CM symmetric powers with a Steinberg place (whose statement the parent records in §4.8), with the odd case Proposition 7.4 and its gap E21; Theorem 7.6 = Theorem E, one everywhere unramified form with automorphic Sym^{n−1} (parent §4.9); and Clozel–Thorne III Theorem 6.2, automorphy of Sym^{l+1} for l ∈ {5, 7}.\n\n**Sources.** Newton–Thorne I §7, pp. 82–91; Clozel–Thorne III §6, pp. 44–46.\n\nThe CM seed method is conditional on G2 outside powers of two, including its rank-three construction. Independently known low-rank endpoints do not fill that intermediate proof obligation.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+        "ModularityAndLanglandsExtensions:ML.1",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensions:ML.5",
+        "ModularityAndLanglandsExtensionsPartII:SP.2",
+        "ModularityAndLanglandsExtensionsPartII:SP.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.5",
+        "ModularityAndLanglandsExtensionsPartII:SP.6",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.6",
+        "PotentialAutomorphyInfrastructurePartII:PL.7",
+        "SerreWeightAndLevelOptimisation:R20.2",
+        "mathlib:GaussianInt",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ]
+    },
+    {
+      "key": "SP.8",
+      "title": "Killing ramification with n-regular refinements",
+      "description": "**Targets.** Newton–Thorne I §8: Proposition 8.2, automorphy of Sym^{n−1} for non-CM forms with an n-regular accessible refinement at every ramified prime (with E24); Lemma 8.4, the non-regular locus of a local lifting ring is a principal divisor; and Proposition 8.3, a congruence to a form with n-regular refinements (with E3 and E25, Weston's unobstructedness and the auxiliary prime q_a), whose statement the parent records in §4.10.\n\n**Sources.** Newton–Thorne I §8, pp. 91–96.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.6",
+        "GL2ModularityLifting:R22.3",
+        "LocalGaloisDeformationRings:L7",
+        "LocalGaloisDeformationRings:R08.1",
+        "LocalGaloisDeformationRings:R08.2",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.2",
+        "ModularityAndLanglandsExtensionsPartII:SP.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.7",
+        "PadicFamilies:L2",
+        "mathlib:Polynomial.discr"
+      ]
+    },
+    {
+      "key": "SP.9",
+      "title": "Automorphy lifting for symmetric powers",
+      "description": "**Targets.** Newton–Thorne II §2: the setting (weight-two non-CM π with non-ordinary p-adic restrictions and projective image between PSL_2(𝔽_{p^a}) and PGL_2(𝔽_{p^a}), p^a > max(5, 2n − 1)) and its reductions; Lemma 2.2, symmetric powers of Barsotti–Tate lifts are semistable in the torsion sense, so Sym^{n−1} defines a morphism P → R from the conjugate self-dual pseudodeformation ring to the rank-two deformation ring; Taylor–Wiles data with α^{n−1}, α^{n−2}β, …, β^{n−1} distinct and the rings P_Q; definite unitary Hecke modules with twisted Taylor–Wiles level (Lemma 2.4, Proposition 2.5); patching for p > 2 (Proposition 2.6, Lemma 2.7) and for p = 2 (Proposition 2.8, Lemma 2.9); the support argument, in which regularity of P at an automorphic point replaces control of the dual Selmer group of Sym^{n−1}, with the separate dyadic translation argument; and Theorem 2.1 (whose statement the parent records in §4.11). Newton–Thorne 2026 §4 reuses this template.\n\n**Sources.** Newton–Thorne II (arXiv:2009.07180v2) §2, pp. 5–19.",
+      "requires": [
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisRepresentations:G7",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "DeformationAndDerivedPatchingAlgebra:R03.6",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "GL2ModularityLifting:R22.2",
+        "GL2ModularityLifting:R22.3",
+        "GL2ModularityLifting:R22.6",
+        "GlobalGaloisDeformations:G7",
+        "LocalGaloisDeformationRings:R08.6",
+        "ModularityAndLanglandsExtensions:ML.0",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.1",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "PotentialAutomorphyInfrastructurePartII:PL.3",
+        "PotentialAutomorphyInfrastructurePartII:PL.8",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ]
+    },
+    {
+      "key": "SP.10",
+      "title": "Seasoned representations and the removal of supercuspidal primes",
+      "description": "**Targets.** Newton–Thorne II §3: the semisimple conductor M_π and the set sc(π) of supercuspidal primes (Definition 3.2) with Lemma 3.3; non-ordinary weight-two congruences with controlled type at p and strong local connection away from p (Lemmas 3.4–3.5); seasoned representations (Definition 3.6) and their large residual images at supercuspidal primes (Proposition 3.7); making a representation seasoned (Proposition 3.9); removing one supercuspidal prime (Proposition 3.10); the weight-two case with 2, 3 ∉ sc(π) (Proposition 3.11); and the reductions completing Theorem 3.1 = Theorem A (whose statement the parent records in §4.29), with the corrections E1 and E3 of the extraction.\n\n**Sources.** Newton–Thorne II §3, pp. 20–27.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.4",
+        "AutomorphicGaloisRepresentations:R19.3",
+        "ClassicalSerreModularity:R27.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.8",
+        "ModularityAndLanglandsExtensionsPartII:SP.9",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+        "PotentialAutomorphyInfrastructurePartII:PL.1",
+        "PotentialAutomorphyInfrastructurePartII:PL.5",
+        "PotentialModularityAndCompatibleSystems:R24.3",
+        "SerreWeightAndLevelOptimisation:R20.6",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ]
+    },
+    {
+      "key": "SP.11",
+      "title": "The untwisted tensor product of Newton–Thorne 2026",
+      "description": "**Targets.** Newton–Thorne 2026 §3: the standing hypotheses and the auxiliary data v_a, M, X_0, K_0, u_0 with Lemmas 3.3–3.4; the ordinary companion σ of weights {0, 2} (Lemma 3.1); the polarized representation s = (r_π ⊗ Sym^{r−1}r_σ)|_{G_{K_1}} ⊗ y^{1−r} with its residual decomposition (Lemma 3.5) and its type (with E22); the deformation problems 𝒮_{F_1}, 𝒮′_{F_1}, 𝒮′_{F_2}, 𝒮_{F_3} and the technical Lemma 3.7; two inertial types with the same reduced special fibre and the comparison of deformation rings (Lemmas 3.6, 3.8); finiteness and a Steinberg automorphic lift by Thorne's level raising (Proposition 3.9); generic primes on every component (Propositions 3.10–3.11, the set 𝒫); scalar local restriction and the generic R = T theorem (Propositions 3.12–3.13); every component is automorphic (Proposition 3.14); and Theorem 3.2, automorphy of r_π ⊗ Sym^{r−1}r_σ.\n\n**Sources.** Newton–Thorne 2026 (arXiv:2212.03595v2) §3, pp. 13–25.\n\nFixed type includes monodromy. Assume SP_{r−1},SP_{r+1} already when constructing π₁,π₂. The finiteness proof has two calls to the auxiliary-place variant, with its inherited G7 boundary; the final passage from a generic prime to the characteristic-zero point uses Proposition 3.13 a second time.",
+      "requires": [
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisRepresentations:G7",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "GlobalGaloisDeformations:G7",
+        "LocalGaloisDeformationRings:R08.2",
+        "ModularityAndLanglandsExtensions:ML.1",
+        "ModularityAndLanglandsExtensions:ML.2",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.6",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.1",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "PotentialAutomorphyInfrastructurePartII:PL.4",
+        "PotentialAutomorphyInfrastructurePartII:PL.6",
+        "PotentialAutomorphyInfrastructurePartII:PL.7",
+        "PotentialModularityAndCompatibleSystems:R24.2",
+        "SerreWeightAndLevelOptimisation:R20.2"
+      ]
+    },
+    {
+      "key": "SP.12",
+      "title": "Functoriality lifting for tensor products",
+      "description": "**Targets.** Newton–Thorne 2026 §4: the preliminary reductions (10)–(16) and the CM set-up π_K, σ_K, T with the group determinants t, t′ (with the repair of E24: σ's ramified places join S); Artinian points are torsion semistable and the tensor map P → R (Lemma 4.2, Corollary 4.3); Taylor–Wiles data for the tensor and the rings Δ_Q, R_Q, P_Q; unitary automorphic forms at Taylor–Wiles level (Lemma 4.5, Proposition 4.6); enormous tensor image (Lemma 4.7); patching for p > 2 and p = 2 (Propositions 4.8–4.9); and Theorem 4.1, functoriality lifting for r_π ⊗ r_σ with σ fixed (whose statement the parent records in §4.23).\n\n**Sources.** Newton–Thorne 2026 §4, pp. 25–37.\n\nUse Σ_π for quaternionic ramification and Σ_π∪Σ_σ for S and the unitary level. Taylor–Wiles prime selection uses a perfect residual subgroup; characteristic-zero enormousness is the separate Selmer-vanishing input. Exact BBM, prime-selection and formal-torus contracts are requested in G7.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6",
+        "DeformationAndDerivedPatchingAlgebra:R03.6",
+        "GL2ModularityLifting:R22.2",
+        "GlobalGaloisDeformations:G7",
+        "LocalGaloisDeformationRings:R08.6",
+        "ModularityAndLanglandsExtensionsPartII:SP.9",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.2",
+        "PotentialAutomorphyInfrastructurePartII:PL.8"
+      ]
+    },
+    {
+      "key": "SP.13",
+      "title": "Residual twisted tensors and the induction on n",
+      "description": "**Targets.** Newton–Thorne 2026 §5: the ray class field of modulus (8)∞ and the reciprocity Lemma 5.3; large image from two tamely dihedral places (Proposition 5.4, with E1); the hypotheses S5-global and S5-local; the companions σ, σ′ and the auxiliary prime t (Lemmas 5.6–5.7, with E25 and E28); propagation over the Galois group of the coefficient field (Lemma 5.8 and the completion of Theorem 5.5); Theorems 5.5 and 5.9, residual witnesses for φ_p r̄ ⊗ Sym^{r−1}r̄. §6: Corollary 6.2 and the intermediate claim of Proposition 6.1 (with E8); Proposition 6.3, symmetric-power lifting from two ordinary residual blocks (with Thorne 2024 Proposition 7.4); Thorne 2024's induction step (Theorem 7.6, Corollary 7.2); and the induction proving SP_n for all n (Newton–Thorne 2026 Theorem 6.4, whose statement the parent records in §4.30).\n\n**Sources.** Newton–Thorne 2026 §§5–6, pp. 38–50; Thorne 2024 §7, pp. 42–47.\n\nThe r=1 branch uses the coefficient conjugate directly and never SP₀. G6 is resolved by the explicit perfect-group cyclotomic restriction argument. The modular two-block decomposition is a semisimplified identity, not a splitting of the original representation.",
+      "requires": [
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisRepresentations:G7",
+        "ArithmeticGaloisRepresentations:R01.4",
+        "AutomorphicGaloisRepresentations:R19.3",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "LocalGaloisDeformationRings:R08.2",
+        "ModularityAndLanglandsExtensions:ML.1",
+        "ModularityAndLanglandsExtensions:ML.3",
+        "ModularityAndLanglandsExtensionsPartII:SP.11",
+        "ModularityAndLanglandsExtensionsPartII:SP.12",
+        "ModularityAndLanglandsExtensionsPartII:SP.6",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+        "PotentialAutomorphyInfrastructurePartII:PL.0",
+        "PotentialAutomorphyInfrastructurePartII:PL.1",
+        "PotentialAutomorphyInfrastructurePartII:PL.5",
+        "PotentialAutomorphyInfrastructurePartII:PL.6",
+        "PotentialAutomorphyInfrastructurePartII:PL.7",
+        "PotentialModularityAndCompatibleSystems:R24.3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "nt21",
+      "title": "Symmetric power functoriality for holomorphic modular forms",
+      "authors": "James Newton and Jack A. Thorne",
+      "edition": "Publ. Math. IHÉS 134 (2021), 1–116; read in arXiv:1912.11261v3 (27 September 2021, 101 pp.), whose PDF page numbers are used throughout (the paper extraction PAPER-NEWTON-THORNE-21 used the published pagination)",
+      "url": "https://arxiv.org/abs/1912.11261",
+      "readSections": [
+        "Introduction and the sketch of Part II (pp. 1–8, 57–59)",
+        "§1, definite unitary groups, types and L-packets (pp. 8–23)",
+        "§2.1, §2.3.1, §2.11.1, §2.18.1, §2.31 (pp. 24, 30–31, 40–52)",
+        "§3, ping pong (pp. 53–57)",
+        "§4, Theorem 4.1 and its proof (pp. 59–65)",
+        "§6, Theorem 6.1 and Lemmas 6.2–6.7 (pp. 75–82)",
+        "§7, Theorems 7.1, 7.6, Lemma 7.2, Corollary 7.3, Proposition 7.4 (pp. 82–91)",
+        "§8, Propositions 8.2–8.3, Lemma 8.4 (pp. 91–96)"
+      ]
+    },
+    {
+      "id": "nt21b",
+      "title": "Symmetric power functoriality for holomorphic modular forms, II",
+      "authors": "James Newton and Jack A. Thorne",
+      "edition": "Publ. Math. IHÉS 134 (2021), 117–152; read in arXiv:2009.07180v2 (27 September 2021, 30 pp.), PDF page numbers",
+      "url": "https://arxiv.org/abs/2009.07180",
+      "readSections": [
+        "§1 (pp. 1–4)",
+        "§2, Theorem 2.1, Lemma 2.2, Propositions 2.5–2.8, Lemmas 2.4, 2.7, 2.9 and the proof of Theorem 2.1 (pp. 5–19)",
+        "§3, Definitions 3.2, 3.6, Lemmas 3.3–3.5, Propositions 3.7–3.11, Theorem 3.1 and its proof (pp. 20–27)"
+      ]
+    },
+    {
+      "id": "nt26",
+      "title": "Symmetric power functoriality for Hilbert modular forms",
+      "authors": "James Newton and Jack A. Thorne",
+      "edition": "Ann. of Math. 203 (2026), no. 1; read in arXiv:2212.03595v2 (19 February 2025, 52 pp.), PDF page numbers",
+      "url": "https://arxiv.org/abs/2212.03595",
+      "readSections": [
+        "§§1–2 (pp. 1–12)",
+        "§3, Lemma 3.1, Theorem 3.2, Lemmas 3.3–3.8, Propositions 3.9–3.14 (pp. 13–25)",
+        "§4, Theorem 4.1, Lemmas 4.2, 4.5, 4.7, Corollary 4.3, Propositions 4.6, 4.8, 4.9 and the proof of Theorem 4.1 (pp. 25–37)",
+        "§5, Lemmas 5.3, 5.6–5.8, Proposition 5.4, Theorems 5.5, 5.9 (pp. 38–45)",
+        "§6, Propositions 6.1, 6.3, Corollary 6.2, Theorems 6.4, 6.5 (pp. 45–50)"
+      ]
+    },
+    {
+      "id": "ct17",
+      "title": "Level-raising and symmetric power functoriality, III",
+      "authors": "Laurent Clozel and Jack A. Thorne",
+      "edition": "Duke Math. J. 166 (2017), no. 2, 325–402; read in the accepted manuscript on the second author's web page (lrspiii.pdf), whose page numbers are used",
+      "url": "https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf",
+      "readSections": [
+        "§2, the Iwahori–Hecke algebra of U_{2k+1}, Theorems 2.3, 2.5, Propositions 2.2, 2.6, 2.9, Corollary 2.8 (pp. 4–18)",
+        "§3, Theorems 3.3, 3.8, 3.10, Lemmas 3.4, 3.6, Proposition 3.7 (pp. 19–32)",
+        "§4, Propositions 4.1, 4.3, Lemma 4.4, Theorem 4.2 (pp. 33–37)",
+        "§5, Theorems 5.1, 5.7, Lemmas 5.3–5.6 (pp. 37–44)",
+        "§6, Theorems 6.1–6.2 (pp. 44–46)"
+      ]
+    },
+    {
+      "id": "th24",
+      "title": "A p-adic approach to the existence of level-raising congruences",
+      "authors": "Jack A. Thorne",
+      "edition": "Proc. Lond. Math. Soc. (3) 128 (2024), no. 2, e12584; read in arXiv:2212.03591v2 (22 December 2022, 52 pp.), PDF page numbers",
+      "url": "https://arxiv.org/abs/2212.03591",
+      "readSections": [
+        "§6, Lemma 6.10 and Theorem 6.11 with its proof (pp. 38–41)",
+        "§7, Theorem 7.1, Corollary 7.2, Lemma 7.3, Proposition 7.4, Theorems 7.5–7.6 (pp. 42–47)",
+        "§8, Theorem 8.1 (statement, p. 48)"
+      ]
+    },
+    {
+      "id": "at20",
+      "title": "Raising the level of automorphic representations of GL_{2n} of unitary type",
+      "authors": "Konstantinos Anastassiades and Jack A. Thorne",
+      "edition": "J. Inst. Math. Jussieu (2021); read in arXiv:1912.11267 (22 pp.), PDF page numbers",
+      "url": "https://arxiv.org/abs/1912.11267",
+      "readSections": [
+        "Theorem 5.1 (p. 19)"
+      ]
+    },
+    {
+      "id": "bk05",
+      "title": "The 2-adic eigencurve at the boundary of weight space",
+      "authors": "Kevin Buzzard and L. J. P. Kilford",
+      "edition": "Compositio Math. 141 (2005), 605–619; cited through Newton–Thorne I Theorem 3.2, which states the result in the form used; not read directly",
+      "url": "https://doi.org/10.1112/S0010437X05001314",
+      "readSections": [
+        "Theorem B, as recorded in Newton–Thorne I §3, Theorem 3.2 (p. 53)"
+      ]
+    }
+  ],
+  "status": "draft"
+}

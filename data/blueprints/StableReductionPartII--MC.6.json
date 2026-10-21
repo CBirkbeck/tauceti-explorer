@@ -1,0 +1,1163 @@
+{
+ "roadmapId": "StableReductionPartII",
+ "protocol": "blueprint-v1",
+ "part": "MC.6",
+ "scope": [
+  "StableReductionPartII:MC.6"
+ ],
+ "status": "complete",
+ "summary": "Target-level follow-up of the accepted MC.6 plan: exact Jacobian/Hodge supplier composition, stable-input graph compactification, signed level fibres, stable Picard atlas comparisons, and all-characteristic minimal Torelli and numerical positivity contracts. Existing definitions and six planets are imported without replacement. Planning is complete; supplier proof gaps remain explicit.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme",
+    "module": "Mathlib/AlgebraicGeometry/Scheme",
+    "provides": "Native scheme carrier; no moduli carrier is introduced in the suggested file.",
+    "checked": "Independently read the named declaration and its hypotheses in the cited module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed by REV-StableReductionPartII--MC.6 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsFinite",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite",
+    "provides": "Native finite scheme morphisms, extending affine morphisms with finite affine ring maps.",
+    "checked": "Independently read the named declaration and its hypotheses in the cited module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed by REV-StableReductionPartII--MC.6 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsSeparated",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated",
+    "provides": "Native separated scheme morphisms via closed diagonal; stable under base change.",
+    "checked": "Independently read the named declaration and its hypotheses in the cited module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed by REV-StableReductionPartII--MC.6 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsFinite.of_comp",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite",
+    "provides": "If f followed by separated g is finite, then f is finite. Applied to the map retaining both coordinates.",
+    "checked": "Independently read the named declaration and its hypotheses in the cited module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed by REV-StableReductionPartII--MC.6 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Limits.pullback.lift",
+    "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback",
+    "provides": "The native map retaining a pair of compatible base coordinates.",
+    "checked": "Independently read the named declaration and its hypotheses in the cited module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed by REV-StableReductionPartII--MC.6 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Limits.pullback.lift_fst",
+    "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback",
+    "provides": "First projection of the native pullback lift.",
+    "checked": "Independently read the named declaration and its hypotheses in the cited module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed by REV-StableReductionPartII--MC.6 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Limits.pullback.lift_snd",
+    "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback",
+    "provides": "Second projection of the native pullback lift.",
+    "checked": "Independently read the named declaration and its hypotheses in the cited module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; confirmed by REV-StableReductionPartII--MC.6 on 2026-10-18."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "Yuan2024",
+   "title": "Arithmetic bigness and a uniform Bogomolov-type result",
+   "authors": "Xinyi Yuan",
+   "edition": "Author manuscript dated 21 August 2024; printed page = PDF page. Published Annals 203 (2026), pp.15–119, not collated.",
+   "read": "2026-10-18",
+   "readSections": [
+    "§3.1, pp.41–46; §3.4, pp.54–56; adjoining pp.57–58 for scope."
+   ],
+   "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+   "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e"
+  },
+  {
+   "id": "DGHv3",
+   "title": "Uniformity in Mordell–Lang for curves",
+   "authors": "Vesselin Dimitrov, Ziyang Gao, Philipp Habegger",
+   "edition": "arXiv:2001.10276v3; locators use this version.",
+   "read": "2026-10-18",
+   "readSections": [
+    "§6.1, pp.23–25, especially the universal-Jacobian diagram (6.1)."
+   ],
+   "url": "https://arxiv.org/pdf/2001.10276v3",
+   "sha256": "5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4"
+  },
+  {
+   "id": "Milne2021",
+   "title": "Jacobian Varieties",
+   "authors": "J. S. Milne",
+   "edition": "Author revised notes, 12 June 2021; printed pp.38–41 correspond to PDF pp.38–41.",
+   "read": "2026-10-18",
+   "readSections": [
+    "Theorem12.1 and its sign-uniqueness proof, pp.38–39; opening of §13, pp.40–41. The remainder of the existence proof is an owner proof leaf, not claimed read."
+   ],
+   "url": "https://www.jmilne.org/math/xnotes/JVs.pdf"
+  },
+  {
+   "id": "KnudsenIII",
+   "title": "The projectivity of the moduli space of stable curves, III: The line bundles on M̄_g,n, and a proof of the projectivity of M̄_g,n in characteristic 0",
+   "authors": "Finn Faye Knudsen",
+   "edition": "Mathematica Scandinavica52 (1983), pp.200–212; published scan.",
+   "read": "2026-10-18",
+   "readSections": [
+    "§6, printed pp.210–211, visually read PDF pp.11–12."
+   ],
+   "url": "https://journals.msp.org/mscand/article/download/1623/1622/1654",
+   "sha256": "97c2d29246b5aeff4820b4f7e74aaf8ad2e32eb72c25d05acfb7b2cbd8f017f2"
+  },
+  {
+   "id": "BLR1990",
+   "title": "Néron Models",
+   "authors": "Siegfried Bosch, Werner Lütkebohmert, Michel Raynaud",
+   "edition": "Springer, Ergebnisse21 (1990); maintainer-cleared reference copy, read in place.",
+   "read": "2026-10-18",
+   "readSections": [
+    "§8.4, Theorem1(a) and Proposition2, printed pp.231–232 (PDF240–241); §9.4, Theorem1 and Proposition4, printed pp.259–261 (PDF268–270)."
+   ]
+  },
+  {
+   "id": "FC1990",
+   "title": "Degeneration of Abelian Varieties",
+   "authors": "Gerd Faltings, Ching-Li Chai",
+   "edition": "Springer, Ergebnisse22 (1990); maintainer-cleared reference copy, read in place.",
+   "read": "2026-10-18",
+   "readSections": [
+    "IV Proposition5.1 and Remark5.3, pp.113–114 (PDF125–126); IV Theorem5.7, pp.116–117 (PDF128–129); IV5.13, p.119; V Theorems2.3 and2.5, pp.150–153 (PDF162–165); V§6, pp.180–185, particularly Theorem6.7 for its characteristic-zero restriction."
+   ]
+  },
+  {
+   "id": "StacksRegular",
+   "title": "The Stacks Project: normal and regular schemes",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online HTML read 18 October 2026.",
+   "read": "2026-10-18",
+   "readSections": [
+    "Section28.7, Lemmas28.7.5–6 (normal components); Section28.9, Lemma28.9.4 (regular implies normal), tag02IR. Exact generic targets are imported from SF.0."
+   ],
+   "url": "https://stacks.math.columbia.edu/tag/033H"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "StableReductionPartII:MC.6/stable-input-compactification",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "theorem",
+   "title": "Stable compactification of a stable input family",
+   "statement": "Let B be Spec Z or Spec k for an arbitrary field k, S an integral quasi-projective B-scheme and C→S a stable genus-g family, g≥2. There exist a normal integral scheme S′, a finite surjective map p:S′→S, an open immersion j:S′→S̄′ with S̄′ normal integral projective over B, and a stable family C̄′→S̄′ whose restriction is isomorphic to C×_S S′. The construction preserves an already nodal family; smooth generic fibre is not required.",
+   "hypotheses": [
+    "Integral means reduced and irreducible; finite type is included in quasi-projective. A compactification is over the same B.",
+    "The finite projective cover V→M̄_g is a representable finite surjective map to the stack, carrying the universal stable family."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/graph-closure",
+    "StableReductionPartII:MC.4/finite-projective-cover",
+    "StableReductionPartII:MC.1/finite-unramified-diagonal",
+    "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
+    "mathlib:AlgebraicGeometry.IsFinite.of_comp",
+    "mathlib:CategoryTheory.Limits.pullback.lift"
+   ],
+   "proofSteps": [
+    "Choose a projective B-compactification S̄₀. In W=S×_{M̄_g}V choose a reduced irreducible component W₀ dominating S. Its field L=K(W₀) is finite over K(S).",
+    "The stack diagonal is finite, so W→S×_B V is finite, not generally a monomorphism. Let D be the integral reduced closure of its W₀-image in S̄₀×_B V. Define S̄′ to be the normalization of D in L.",
+    "D is excellent and Nagata. The exact SF.0 finite-normalization target gives a finite S̄′→D, hence projectivity. Over S the result is the normalization of W₀, with a finite surjective map to S. Both normalizations use L; normalization in K(D) can discard isomorphism data.",
+    "Pull the stable universal curve on V to S̄′. The defining stack fibre product supplies the isomorphism on S′. None of these steps uses smoothness of the initial family."
+   ],
+   "acceptance": [
+    "For C=C₀×A¹ with fixed stable C₀, S̄′ has dimension1. Closing only the point [C₀] does not pass.",
+    "Over a field of characteristic≠2, a quadratic twist of a genus2 curve with automorphism group {±1} can become isomorphic to the original curve only over a quadratic field L. The corresponding isomorphism component in the stack fibre product has field L, while its image point has the smaller field. The normalization must retain L.",
+    "For a stable C₀ with a node, the constant family over A¹ is accepted; no smooth-generic restriction is introduced."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "Yuan2024",
+     "locator": "§3.1.4, p.45",
+     "match": "Stable extension after a finite cover; use the accepted correction retaining the base and the finite-cover function field, rather than closing only the moduli image."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/torelli-family-composition",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "construction",
+   "title": "Full-level Torelli by the relative Jacobian",
+   "statement": "Fix g≥2, N≥3 and B_N=Spec Z[1/N,ζ_N] with the chosen primitive root specifying the symplectic pairing. For the MC.4 universal smooth curve f:C_g[N]→M_g[N], use JC1 to form J=Pic⁰_{C/M}, its canonical principal polarization and the induced full symplectic level. Its PEL classifying map τ_N:M_g[N]→A_g[N] has a canonical isomorphism J≅M_g[N]×_{A_g[N]}A_g[N]^univ preserving polarization and level. Formation is natural under every test-scheme pullback; it does not choose a section of C.",
+   "hypotheses": [
+    "Both source and target use the same fixed cyclotomic pairing component. N is invertible on B_N.",
+    "The fine Siegel target can first be used as an algebraic space: its good-base scheme realization is a PEL M6/C5 import, not a prerequisite for the classifying map."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/smooth-torelli",
+    "StableReductionPartII:MC.4/fine-level-scheme",
+    "StableReductionPartII:MC.4/full-level",
+    "JacobianChallengePartII:JC1/relative-jacobian",
+    "JacobianChallengePartII:JC1/jacobian-base-change",
+    "JacobianChallengePartII:JC1/principal-polarization",
+    "PELModuli:M5/siegel-moduli",
+    "PELModuli:M6/universal-family-export",
+    "PELModuli:M6/quasi-projective-realization"
+   ],
+   "proofSteps": [
+    "Import the family Picard construction and its base change. Use the canonical polarization descended from local theta data; there is no global Abel–Jacobi base point.",
+    "Transfer the curve level to its Jacobian torsion with the agreed Weil pairing. Apply fine ppav representability to the object (J,λ,α).",
+    "The universal property supplies the Cartesian family comparison and its identity/composition coherence, rather than just agreement on geometric points."
+   ],
+   "acceptance": [
+    "A genus≥2 family without a section still has τ_N and the Cartesian Jacobian comparison.",
+    "A map from Spec k[ε]/(ε²) is tested by pullback of the same relative Picard object, not just a pointwise Jacobian assignment.",
+    "Changing ζ_N changes the paired base/component; a map between mismatched pairing components is rejected."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "DGHv3",
+     "locator": "§6.1, pp.23–25, diagram(6.1)",
+     "match": "The smooth fine-level Jacobian and its Cartesian universal family over a characteristic-zero component. The integral construction here is supplied by JC1 and PELModuli, not inferred from this complex-geometric passage."
+    },
+    {
+     "sourceId": "BLR1990",
+     "locator": "§8.4, Theorem1(a), pp.231–232; §9.4, Theorem1 and Proposition4, pp.259–261",
+     "match": "The Lie–R¹O comparison, semiabelian Picard identity of a semistable curve and canonical Jacobian polarization; the stable-curve total space need not be regular."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "SmoothTorelli.classifies",
+     "role": "characterisation",
+     "statement": "τ_N classifies exactly (Pic⁰, canonical principal polarization, induced symplectic level)."
+    },
+    {
+     "name": "SmoothTorelli.universalCartesian",
+     "role": "universal-property",
+     "statement": "The displayed universal-Jacobian square is Cartesian as a square of families, with the polarization and level comparisons."
+    },
+    {
+     "name": "SmoothTorelli.baseChange",
+     "role": "functoriality",
+     "statement": "For T→M_g[N] the pulled-back universal comparison is the JC1 comparison for C_T; identity and successive pullbacks agree."
+    },
+    {
+     "name": "SmoothTorelli.forgetLevel",
+     "role": "compatibility",
+     "statement": "For N dividing N′, with compatible cyclotomic base maps and both levels≥3, forgetting level commutes with τ and its family comparison."
+    },
+    {
+     "name": "SmoothTorelli.unlevelled",
+     "role": "compatibility",
+     "statement": "Forgetting full level gives the stack morphism M_g→A_g and then the coarse smooth Torelli map."
+    }
+   ],
+   "tests": [
+    {
+     "name": "SmoothTorelli.noSection",
+     "kind": "non-example",
+     "statement": "A smooth family with no global section is allowed; replacing Pic⁰ by a pointed Abel–Jacobi construction fails."
+    },
+    {
+     "name": "SmoothTorelli.infinitesimal",
+     "kind": "compatibility",
+     "statement": "The construction on a dual-number test scheme is the pullback abelian scheme with its level, including nilpotent directions."
+    },
+    {
+     "name": "SmoothTorelli.pairing",
+     "kind": "non-example",
+     "statement": "A level with Weil pairing ζ_N^a for a∈(Z/NZ)× with a≠1 in Z/NZ does not lie in the fixed ζ_N component until the base/pairing convention changes. Taking a=1+N leaves the pairing unchanged and is not a counterexample."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DGHv3 §6.1, diagram(6.1), pp.23–25",
+     "how": "The universal abelian scheme is used to transport curve families and form difference maps without a section."
+    },
+    {
+     "where": "StableReductionPartII:MC.6/regular-component-hodge-pullback",
+     "how": "The Hodge comparison must concern this Cartesian universal Jacobian, not an unrelated family with isomorphic geometric fibres."
+    }
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.6/regular-component-hodge-pullback",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "comparison",
+   "title": "Canonical Hodge comparison on the fine moduli scheme",
+   "statement": "For τ_N above, let E_A=e*Ω¹_{A_g[N]^univ/A_g[N]}, E_C=f_*ω_{C/M}, and λ_A=det E_A, λ_C=det E_C. There are canonical coherent isomorphisms τ_N*E_A≅E_C and τ_N*λ_A≅λ_C. Their pullback along every T→M_g[N], including nonreduced T, is the relative Jacobian Hodge comparison for C_T. Both bundles have rank g; the second comparison is its determinant.",
+   "hypotheses": [
+    "g≥2, N≥3 and B_N as above; M_g[N] is regular, Noetherian and quasi-compact.",
+    "The integral-base JC6 theorem is applied on integral open-and-closed components of this fine scheme, not to an arbitrary test scheme T."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/torelli-family-composition",
+    "StableReductionPartII:MC.6/jacobian-hodge-comparison",
+    "StableReductionPartII:MC.4/fine-level-scheme",
+    "StableReductionPartII:MC.5/hodge-bundle",
+    "StableReductionPartII:MC.5/hodge-determinant",
+    "SchemeAndStackFoundations:SF.0/noetherian-normal-components",
+    "JacobianChallengePartII:JC6/picard-lie-cohomology",
+    "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles",
+    "JacobianChallengePartII:JC6/hodge-line-isomorphism"
+   ],
+   "proofSteps": [
+    "Regular local rings are integrally closed domains. SF.0 identifies finitely many disjoint integral open-and-closed components; no geometric irreducibility theorem is required.",
+    "Apply JC6 on each component to identify e*Ω¹_J with (R¹f_*O_C)∨≅f_*ω. Use the Cartesian Jacobian comparison to identify the left side with τ_N*E_A.",
+    "Glue the canonical componentwise maps. Pull this map and the represented Picard/base-change comparisons to arbitrary T; do not reapply an integral theorem to nonreduced T.",
+    "Take the fixed-rank determinant using the existing AlgebraicVectorBundles L0C functor imported by MC.5. Identity and composition coherence come from the same natural maps."
+   ],
+   "acceptance": [
+    "On two disconnected integral components the maps glue componentwise, without assuming the full fine scheme integral.",
+    "For a dual-number test base the same comparison survives and its reduction agrees with the geometric comparison.",
+    "In genus2 the bundle rank is2 but its determinant rank is1; replacing E by λ fails."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "BLR1990",
+     "locator": "§8.4, Theorem1(a), pp.231–232; §9.4, Theorem1 and Proposition4, pp.259–261",
+     "match": "The Lie–R¹O comparison, semiabelian Picard identity of a semistable curve and canonical Jacobian polarization; the stable-curve total space need not be regular."
+    },
+    {
+     "sourceId": "DGHv3",
+     "locator": "§6.1, pp.23–25, diagram(6.1)",
+     "match": "The smooth fine-level Jacobian and its Cartesian universal family over a characteristic-zero component. The integral construction here is supplied by JC1 and PELModuli, not inferred from this complex-geometric passage."
+    },
+    {
+     "sourceId": "StacksRegular",
+     "locator": "Lemmas28.7.5–6 and28.9.4",
+     "match": "Regularity supplies normal local domains; quasi-compact Noetherian normal schemes split into finitely many integral components."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/signed-level-fibres",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "theorem",
+   "title": "The sign ambiguity in geometric Torelli fibres",
+   "statement": "Over an algebraically closed field k of arbitrary characteristic with N invertible, the fibre of τ_N over a geometric point is empty or has at most two geometric points. If a preimage is (C,α), the possible points are (C,α) and (C,−α). They are distinct precisely when C is nonhyperelliptic; for hyperelliptic C the hyperelliptic involution identifies them. In genus2 every C is hyperelliptic, so the map is injective on geometric points. Thus τ_N is quasi-finite. No assertion of reduced fibres, separability or proper finiteness is made.",
+   "hypotheses": [
+    "g≥2, N≥3, p∤N, and the fixed symplectic pairing convention of τ_N.",
+    "Use strong Torelli including its ± uniqueness statement, not merely injectivity of the curve-isomorphism-class map."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/torelli-family-composition",
+    "StableReductionPartII:MC.6/torelli-finite-fibres",
+    "JacobianChallengePartII:JC1",
+    "StableReductionPartII:MC.4/level-rigidity"
+   ],
+   "proofSteps": [
+    "Request strong Torelli from the Jacobian owner. Compare two polarized Jacobian isomorphisms using the induced curve isomorphism up to sign.",
+    "Transport full level across that curve isomorphism. The only remaining possibilities are α and −α. For N≥3 these levels differ as torsion trivializations, including in characteristic2.",
+    "Strong Torelli says −1 is induced by a curve automorphism exactly in the hyperelliptic case. The resulting point count and finite-type morphism give quasi-finiteness; no infinitesimal-fibre conclusion follows."
+   ],
+   "acceptance": [
+    "For a nonhyperelliptic genus3 curve and N=3 there are two different curve-level points with the same ppav-level image.",
+    "For a genus2 curve and any allowed N there is one point in a nonempty fibre.",
+    "Characteristic2 with odd N is allowed: multiplication by −1 on étale N-torsion is not multiplication by1.",
+    "A compact-type degeneration of a smooth genus2 curve to two elliptic components has decomposable Jacobian in A₂ but no smooth preimage there; smooth Torelli is not proper."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "Milne2021",
+     "locator": "Theorem12.1(a,b), pp.38–39; existence proof begins §13, pp.40–41",
+     "match": "A polarized Jacobian isomorphism is induced by a curve isomorphism up to sign; sign uniqueness depends on hyperellipticity. The full existence proof remains an explicit supplier proof leaf."
+    },
+    {
+     "sourceId": "DGHv3",
+     "locator": "§6.1, pp.23–25, diagram(6.1)",
+     "match": "The smooth fine-level Jacobian and its Cartesian universal family over a characteristic-zero component. The integral construction here is supplied by JC1 and PELModuli, not inferred from this complex-geometric passage."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "comparison",
+   "title": "Stable Picard and Hodge comparison along a moduli atlas",
+   "statement": "Let U→M̄_g be a quasi-compact regular Noetherian smooth scheme atlas over Z, g≥2, and R=U×_{M̄_g}U. On integral open-and-closed components of U and R the R11.4 stable-family Picard and JC6 comparison identify e*Ω¹_{Pic⁰} with f_*ω. Canonical pullback isomorphisms of the represented relative Picard functor identify the two objects on R and satisfy the cocycle on triple overlaps. They descend a semiabelian Picard group object over the stack and its rank-g Hodge comparison. For any test scheme T→M̄_g the comparison is the pullback one for the classified stable curve, including nonreduced T; a scheme-representability claim on T requires the R11.4 arbitrary-base export, not algebraic-space descent alone.",
+   "hypotheses": [
+    "The MC.1 atlas is smooth over the regular base Z and finite type; its overlaps are representable schemes and regular Noetherian.",
+    "The required arbitrary-base Picard identification and effective scheme representability are the precise R11.4 request. Preserve its early semiabelian and normalization-cohomology gaps."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.1/hilbert-quotient",
+    "StableReductionPartII:MC.1/smooth-dimension",
+    "StableReductionPartII:MC.1/finite-unramified-diagonal",
+    "StableReductionPartII:MC.5/hodge-bundle",
+    "SchemeAndStackFoundations:SF.0/noetherian-normal-components",
+    "SchemeAndStackFoundations:SF.1/space-fppf-descent",
+    "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4/stable-family-picard",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4",
+    "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles",
+    "StableReductionPartII:MC.1/normal-crossing-boundary"
+   ],
+   "proofSteps": [
+    "Use regularity and the exact SF.0 component criterion on U, R and triple overlaps; apply integral-base R11.4 and JC6 componentwise.",
+    "All comparison maps arise from pullback of the same fppf Picard sheaf and the natural Lie/cohomology map. Hence they agree on overlaps and satisfy the cocycle before taking determinants.",
+    "Use algebraic-space group descent and quasi-coherent descent for the stack object and Hodge isomorphism. Ask R11.4 for the additional stable-curve arbitrary-base scheme representation; do not infer it from algebraic-space descent.",
+    "For arbitrary T, pull back the canonical atlas descent and compare its represented Picard functor. This transfers the formula without assuming T integral or regular."
+   ],
+   "acceptance": [
+    "For a stable one-node irreducible genus2 curve with elliptic normalization, the semiabelian fibre has torus rank1 and abelian rank1, but its Hodge rank is2.",
+    "For two elliptic components joined at one separating node, torus rank is0 and Pic⁰ is their product.",
+    "A stable degeneration with local total-space equation xy=t² has nonregular total space at the node; it still lies in the source range.",
+    "On a nonreduced test scheme only the canonical pullback comparison is used; splitting it into integral components is invalid."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "BLR1990",
+     "locator": "§8.4, Theorem1(a), pp.231–232; §9.4, Theorem1 and Proposition4, pp.259–261",
+     "match": "The Lie–R¹O comparison, semiabelian Picard identity of a semistable curve and canonical Jacobian polarization; the stable-curve total space need not be regular."
+    },
+    {
+     "sourceId": "Yuan2024",
+     "locator": "Lemma3.4, pp.43–44",
+     "match": "Uses BLR9.4/1 for stable Picard and the Lie–cohomology/duality comparison; integral Noetherian scope is not a regular-total-space hypothesis."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/boundary-abelian-part",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "comparison",
+   "title": "The abelian part of a stable Jacobian",
+   "statement": "For a stable connected curve C of genus g≥2 over an algebraically closed field k, let ν:⊔_v C̃_v→C be its normalization and Γ its dual multigraph, allowing loops. There is a canonical fppf exact sequence 1→T_Γ→Pic⁰_C→∏_v J(C̃_v)→0, with X*(T_Γ)=H₁(Γ,Z). Put r=b₁(Γ) and a=Σ_v g(C̃_v)=g−r. The abelian quotient has the product principal polarization and defines a point of the a-dimensional ppav stratum of A_g^min. Hodge rank of Pic⁰_C remains g, not a.",
+   "hypotheses": [
+    "Vertices index geometric irreducible components; edges index nodes, including self-nodes.",
+    "The normalized component Jacobians and their principal polarizations are imports, not reconstructed here."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4/normalization-exact-sequence",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4/characters-graph-homology",
+    "JacobianChallengePartII:JC1/principal-polarization",
+    "ShimuraCompactifications:C4/roadmap/semi-abelian-scheme",
+    "ShimuraCompactifications:C5"
+   ],
+   "proofSteps": [
+    "Import the R11.4 units/cohomology exact sequence and graph-character calculation, retaining the recorded normalization proof leaf.",
+    "Use arithmetic-genus additivity to identify g=a+r. Give the abelian quotient the product polarization; its determinant differential is not the whole rank-g semiabelian Hodge bundle.",
+    "Apply the C5 Siegel minimal-stratum interpretation by the abelian part. No claim that the nonproper generalized Jacobian itself lies in A_g is made."
+   ],
+   "acceptance": [
+    "An irreducible stable genus2 curve with one node and elliptic normalization maps to the A₁ stratum, and X*(T)=Z.",
+    "A union of two elliptic curves meeting at one node maps to their product in the interior A₂ (compact type).",
+    "A rational curve with two self-nodes is stable of genus2: X*(T)=Z², abelian quotient0, and the minimal image lies in A₀. Counting only edges between different components fails."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "BLR1990",
+     "locator": "§8.4, Theorem1(a), pp.231–232; §9.4, Theorem1 and Proposition4, pp.259–261",
+     "match": "The Lie–R¹O comparison, semiabelian Picard identity of a semistable curve and canonical Jacobian polarization; the stable-curve total space need not be regular."
+    },
+    {
+     "sourceId": "FC1990",
+     "locator": "IV Proposition5.1, Remark5.3, Theorem5.7, pp.113–117; V Theorem2.3, pp.150–151",
+     "match": "Toroidal extension has a cone condition; minimal compactification exists over Z and records the abelian part. A normal-base extension/Hodge comparison independent of a chosen cone is a requested C5 interface, not a direct quotation of these theorems."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/minimal-torelli-descent",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "construction",
+   "title": "Compactified Torelli in every characteristic",
+   "statement": "For every algebraically closed field k and g≥2 construct t̄_g:M̄_g^coarse→A_g^min over k, extending coarse smooth Torelli. Its value on a stable curve C is the principally polarized abelian part ∏_v J(C̃_v) in the A_a stratum, a=g−b₁(Γ). The stack morphism is defined by canonical semiabelian specialization on regular atlases and descends by the coarse universal property. It is independent of the atlas, finite stable-family cover and any toroidal cone choices; it commutes with extension of algebraically closed fields.",
+   "hypotheses": [
+    "A_g^min is the fixed-field unlevelled Siegel coarse minimal space requested from C5, supported by FC V2.3 over Z and a proved fixed-field comparison. A literal identification with a geometric fibre of the integral model is not assumed; a characteristic-zero Satake theorem alone does not supply this target.",
+    "The C5 normal-base semiabelian extension and Hodge-power contract is an explicit supplier gap. No use is made of FC V6.7 in characteristic p.",
+    "Coarse formation is used over fixed k and permitted flat field extension; no arbitrary nonflat base-change theorem is asserted."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/compactified-torelli",
+    "StableReductionPartII:MC.6/torelli-family-composition",
+    "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+    "StableReductionPartII:MC.6/boundary-abelian-part",
+    "StableReductionPartII:MC.1/smooth-dimension",
+    "StableReductionPartII:MC.1/normal-crossing-boundary",
+    "StableReductionPartII:MC.4/coarse-space",
+    "SchemeAndStackFoundations:SF.1/coarse-moduli-space",
+    "ShimuraCompactifications:C5"
+   ],
+   "proofSteps": [
+    "Choose a quasi-compact smooth scheme atlas of M̄_g over the fixed field k. MC.1 smoothness over k makes the atlas and its scheme double overlaps regular, and the dense smooth-curve locus meets every integral component by the boundary theorem. On each component use its stable Picard semiabelian scheme, generically a canonically polarized abelian scheme. Invoke the requested C5 stable-Jacobian polarized-trait compatibility from R11.3 before applying the normal-base minimal-extension/Hodge-power contract. Both this trait identification and the minimal contraction remain in G-minimal-extension; semiabelianity alone is not the asserted input.",
+    "Uniqueness and the canonical Picard overlap isomorphisms make these maps agree on double overlaps. Descend the stack map; the categorical coarse universal property factors it uniquely through M̄_g^coarse.",
+    "At geometric boundary points apply the abelian-part stratum rule. On the smooth open this is the JC1 Jacobian, so the result extends smooth Torelli.",
+    "FC IV5.1 requires a common toroidal cone on a general normal base. Independence after contraction to the minimal space must be proved by the supplier; a direct toroidal lift is not silently assumed."
+   ],
+   "acceptance": [
+    "A separating elliptic–elliptic genus2 boundary curve maps into A₂, not the lower-dimensional boundary.",
+    "A rational stable genus2 curve with two nodes maps into A₀.",
+    "Moving the attaching points of two fixed smooth components leaves the product-Jacobian image fixed; compactified Torelli need not have finite fibres.",
+    "A characteristic2 example is covered by the all-Z minimal target and the requested semiabelian extension contract, not by characteristic-zero purity."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "FC1990",
+     "locator": "IV Proposition5.1, Remark5.3, Theorem5.7, pp.113–117; V Theorem2.3, pp.150–151",
+     "match": "Toroidal extension has a cone condition; minimal compactification exists over Z and records the abelian part. A normal-base extension/Hodge comparison independent of a chosen cone is a requested C5 interface, not a direct quotation of these theorems."
+    },
+    {
+     "sourceId": "KnudsenIII",
+     "locator": "§6, printed pp.210–211 (PDF11–12)",
+     "match": "Characteristic-zero map from a finite stable-family cover to the Satake compactification and identification of a positive Hodge power. It alone does not prove the all-characteristic target."
+    },
+    {
+     "sourceId": "Yuan2024",
+     "locator": "§3.4, p.56, proof of Hodge nefness and bigness",
+     "match": "Uses compactified Torelli, Hodge pullback and generic finiteness. The smooth Torelli step is read as quasi-finiteness, not proper finiteness."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "CompactifiedTorelli.smoothRestriction",
+     "role": "compatibility",
+     "statement": "Restriction to M_g^coarse is coarse smooth Torelli induced by JC1."
+    },
+    {
+     "name": "CompactifiedTorelli.boundaryValue",
+     "role": "characterisation",
+     "statement": "At C the stratum and ppav point are the polarized product of normalization-component Jacobians."
+    },
+    {
+     "name": "CompactifiedTorelli.atlasIndependence",
+     "role": "extensionality",
+     "statement": "The morphism agrees with every atlas-local semiabelian classifying extension and is uniquely determined by this property."
+    },
+    {
+     "name": "CompactifiedTorelli.fieldExtension",
+     "role": "functoriality",
+     "statement": "Extension of algebraically closed fields preserves the morphism and the boundary-value formula."
+    },
+    {
+     "name": "CompactifiedTorelli.hodgePower",
+     "role": "compatibility",
+     "statement": "Its pullback of the minimal ample Hodge power is the same positive power of the stable curve Hodge line, as stated in minimal-hodge-power."
+    }
+   ],
+   "tests": [
+    {
+     "name": "CompactifiedTorelli.compactType",
+     "kind": "computation",
+     "statement": "For C=E₁∪E₂ meeting at one node, t̄(C)=[E₁×E₂] in A₂."
+    },
+    {
+     "name": "CompactifiedTorelli.allToric",
+     "kind": "computation",
+     "statement": "For a rational curve with two self-nodes, t̄(C) is the unique A₀ point in A₂^min."
+    },
+    {
+     "name": "CompactifiedTorelli.attachmentMotion",
+     "kind": "non-example",
+     "statement": "For two fixed genus≥2 components joined at a node, varying one attaching point changes the stable curve through infinitely many classes while t̄ stays constant."
+    },
+    {
+     "name": "CompactifiedTorelli.characteristicTwo",
+     "kind": "compatibility",
+     "statement": "The same normalization/torus formula is required in characteristic2; a char0-only extension does not pass."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Yuan2024 §3.4, p.56",
+     "how": "Pull back an ample minimal Hodge Q-line along stable classifying maps to prove Hodge nefness and bigness."
+    },
+    {
+     "where": "StableReductionPartII:MC.6/minimal-hodge-power",
+     "how": "The actual morphism, not a boundary point assignment, is needed for invertible-sheaf pullback."
+    }
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.6/minimal-hodge-power",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "comparison",
+   "title": "Stable Hodge as a minimal Hodge pullback",
+   "statement": "Over the k of minimal-torelli-descent, let q:M̄_g→M̄_g^coarse and λ=det(f_*ω). There exist m>0 and an ample invertible sheaf A on A_g^min such that (t̄_g∘q)*A≅λ^⊗m canonically with the semiabelian Hodge comparison. Equivalently, λ descends as a rational line λ_coarse with λ_coarse=t̄_g*ω_min and ω_min ample as a rational line. For every stable family over a projective k-scheme X this yields λ_X^⊗m≅h_X*A; the comparison survives nonreduced test pullback. The power absorbs stabilizer actions and toric determinant signs.",
+   "hypotheses": [
+    "A and m are chosen compatibly from the Siegel minimal Hodge-power theorem; the unlevelled coarse Hodge line need not itself descend integrally.",
+    "Use the rank-g semiabelian invariant-differential determinant across the boundary, not the smaller-rank abelian-part differential determinant."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/minimal-torelli-descent",
+    "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+    "StableReductionPartII:MC.5/hodge-determinant",
+    "ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness",
+    "ShimuraCompactifications:C5",
+    "JacobianChallengePartII:JC6/hodge-line-isomorphism"
+   ],
+   "proofSteps": [
+    "Request the all-characteristic Siegel minimal ample power and its pullback identification on semiabelian normal bases. Compare this semiabelian Hodge line with the stable Hodge line by atlas-comparison.",
+    "Glue the canonical positive-power isomorphisms on overlaps and factor the target morphism through the coarse space. This directly supplies a descending power of λ, without an unsupported wild coarse-line descent assertion.",
+    "For a family pull back the stack equality. Rationalize the line group only after the positive-power statement, with coherent determinant base change."
+   ],
+   "acceptance": [
+    "At an irreducible nodal genus2 curve the rank2 semiabelian determinant is used although the abelian quotient has dimension1.",
+    "For two components of genera g₁,g₂ the determinant symmetry contains (−1)^(g₁g₂); a suitable positive power absorbs this sign on coarse descent.",
+    "For a family over dual numbers the equality is an invertible-sheaf isomorphism pulled back from the stack, not a numerical equality of degrees."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "FC1990",
+     "locator": "IV Proposition5.1, Remark5.3, Theorem5.7, pp.113–117; V Theorem2.3, pp.150–151",
+     "match": "Toroidal extension has a cone condition; minimal compactification exists over Z and records the abelian part. A normal-base extension/Hodge comparison independent of a chosen cone is a requested C5 interface, not a direct quotation of these theorems."
+    },
+    {
+     "sourceId": "KnudsenIII",
+     "locator": "§6, printed pp.210–211 (PDF11–12)",
+     "match": "Characteristic-zero map from a finite stable-family cover to the Satake compactification and identification of a positive Hodge power. It alone does not prove the all-characteristic target."
+    },
+    {
+     "sourceId": "Yuan2024",
+     "locator": "§3.4, p.56, proof of Hodge nefness and bigness",
+     "match": "Uses compactified Torelli, Hodge pullback and generic finiteness. The smooth Torelli step is read as quasi-finiteness, not proper finiteness."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/maximal-variation-generic-finiteness",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "theorem",
+   "title": "Generic finiteness of the extended Torelli classifying map",
+   "statement": "Let k be algebraically closed, X normal integral projective over k, and C→X a stable genus-g family, g≥2, smooth over a dense open U. If U→M_g^coarse has maximal variation in the imported MC.6 sense, the composite h:X→M̄_g^coarse→A_g^min is generically finite onto its reduced integral image Z. The finite field extension K(X)/K(Z) need not be separable. No global finiteness of h or t̄ is required.",
+   "hypotheses": [
+    "The classifying map is to coarse curve moduli; adding a level is not part of maximal variation.",
+    "X is integral and U is dense and nonempty; a dimension-zero X is permitted."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/maximal-variation",
+    "StableReductionPartII:MC.6/signed-level-fibres",
+    "StableReductionPartII:MC.6/minimal-torelli-descent",
+    "StableReductionPartII:MC.4/coarse-space"
+   ],
+   "proofSteps": [
+    "Unlevelled strong Torelli gives finite geometric fibres on the smooth locus; this follows from the same JC1 supplier used in signed-level-fibres after forgetting level.",
+    "Compose the generically quasi-finite U classifying map with this quasi-finite smooth Torelli map. The image of U is dense in h(X), so the resulting dominant map to Z has finite generic residue-field extension.",
+    "Retain the full inseparable degree. Positive-dimensional boundary fibres of t̄ do not change the generic calculation."
+   ],
+   "acceptance": [
+    "An isotrivial family over a positive-dimensional X fails maximal variation; its constant h is not generically finite.",
+    "A generically finite purely inseparable base change of a maximal-variation family stays in range; no generic étaleness test is imposed.",
+    "For X a point the image dimension is0 and the finite field extension condition holds."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "Yuan2024",
+     "locator": "§3.4, p.56, proof of Hodge nefness and bigness",
+     "match": "Uses compactified Torelli, Hodge pullback and generic finiteness. The smooth Torelli step is read as quasi-finiteness, not proper finiteness."
+    },
+    {
+     "sourceId": "Milne2021",
+     "locator": "Theorem12.1, pp.38–39",
+     "match": "Strong Torelli implies finiteness of smooth geometric fibres; no properness theorem is supplied."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/hodge-nef-big-application",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "application",
+   "title": "Nefness and bigness of the Hodge line under maximal variation",
+   "statement": "For the family over X in maximal-variation-generic-finiteness, λ_X=det f_*ω is nef and big. Choose m,A from minimal-hodge-power, let d=dim X, Z=h(X)_red and e=[K(X):K(Z)]. Then deg_X(c₁(λ_X^⊗m)^d)=e·deg_Z(c₁(A|Z)^d)>0. Nefness follows by curve degrees; the nef-and-positive-top-intersection criterion gives bigness, and positive powers detect both properties.",
+   "hypotheses": [
+    "k algebraically closed; X normal integral projective, stable genus g≥2, smooth over a dense maximal-variation open.",
+    "Big means the imported section-growth convention, and nef means nonnegative degree on every integral curve. These are generic SF.5 notions, not new definitions."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/maximal-variation-generic-finiteness",
+    "StableReductionPartII:MC.6/minimal-hodge-power",
+    "StableReductionPartII:MC.6/maximal-variation-hodge",
+    "SchemeAndStackFoundations:SF.5/nef-big",
+    "SchemeAndStackFoundations:SF.5/big-line",
+    "SchemeAndStackFoundations:SF.5/nef-big-numerical",
+    "SchemeAndStackFoundations:SF.5/chow-proper-push",
+    "SchemeAndStackFoundations:SF.5/chern-projection",
+    "SchemeAndStackFoundations:SF.5",
+    "SchemeAndStackFoundations:SF.5/degree"
+   ],
+   "proofSteps": [
+    "Use λ_X^m≅h*A. The requested generic SF.5 pullback theorem makes it nef.",
+    "Projective h is generically finite onto integral Z, so weighted cycle pushforward gives h_*[X]=e[Z]. Apply the Chern projection formula d times and the degree map, including inseparable e.",
+    "The ample restriction A|Z has positive top degree, including the degree convention in dimension0. Apply the SF.5 nef/big numerical theorem and invariance under positive power. Its transitive asymptotic-RR/Kodaira proof leaf remains visible."
+   ],
+   "acceptance": [
+    "On a positive-dimensional constant family λ_X is a constant line and has zero top degree, so omitting maximal variation would fail.",
+    "On an integral projective base curve the formula is deg λ_X^m=e deg A|Z>0.",
+    "For d=0 the degree is positive and a line is big by constant section growth; no positive-dimension assumption is inserted."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "Yuan2024",
+     "locator": "§3.4, p.56, proof of Hodge nefness and bigness",
+     "match": "Uses compactified Torelli, Hodge pullback and generic finiteness. The smooth Torelli step is read as quasi-finiteness, not proper finiteness."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/finite-cover-hodge-descent",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "theorem",
+   "title": "Hodge positivity descends from a finite cover",
+   "statement": "Let p:Y→X be a finite surjective morphism of normal integral projective schemes over an arbitrary field k, and C→X a stable genus-g family g≥2. Put λ_X=det f_*ω and λ_Y for its pulled-back family. Canonically λ_Y≅p*λ_X. Consequently λ_X is nef if and only if λ_Y is nef, and, when these lines are nef, λ_X is big if and only if λ_Y is big. This applies when Y is a normal stable-family cover or an already constructed finite normalization; flatness and separability of p are unnecessary.",
+   "hypotheses": [
+    "Both schemes are projective over the same k; p is finite and surjective, not just dominant on an open.",
+    "The bigness equivalence here is stated for nef lines and uses top intersection, avoiding a stronger unproved general section-growth descent assertion."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.5/hodge-bundle",
+    "StableReductionPartII:MC.5/hodge-determinant",
+    "SchemeAndStackFoundations:SF.5/chow-proper-push",
+    "SchemeAndStackFoundations:SF.5/chern-projection",
+    "SchemeAndStackFoundations:SF.5/nef-big-numerical",
+    "SchemeAndStackFoundations:SF.5",
+    "SchemeAndStackFoundations:SF.5/degree"
+   ],
+   "proofSteps": [
+    "Use arbitrary base change for the Hodge bundle and coherent determinant pullback to identify λ_Y.",
+    "For curves use a component of the finite preimage dominating each integral curve of X; degree scales by its positive field degree. This proves nef descent, and the same projection argument proves ascent.",
+    "For d=dim X use deg_Y(c₁(p*λ_X)^d)=[K(Y):K(X)]deg_X(c₁(λ_X)^d). Apply the nef/big criterion in both directions."
+   ],
+   "acceptance": [
+    "For relative Frobenius F_{Y/k}:Y→Y^(p) on a smooth geometrically integral projective k-curve in characteristic p, pull a stable family on X=Y^(p) back to Y. This finite k-morphism has degree p, so deg λ_Y=p·deg λ_X; an étale-only proof fails. Absolute Frobenius need not be a k-morphism.",
+    "For a finite nonflat cover of a singular normal projective base over k, the equality uses the full generic field degree; no flat pullback of Chow cycles is assumed.",
+    "A positive-dimensional constant family stays nonbig under any finite surjective cover; a cover cannot manufacture maximal variation."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "Yuan2024",
+     "locator": "§3.4, pp.55–56",
+     "match": "Finite-cover reductions in the geometric argument and the subsequent Hodge positivity argument; the general numerical transfer belongs to SF.5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "StableReductionPartII:MC.6/arbitrary-field-hodge-positivity",
+   "parentStageId": "StableReductionPartII:MC.6",
+   "realises": [
+    "StableReductionPartII:MC.6"
+   ],
+   "kind": "theorem",
+   "title": "Hodge positivity over an arbitrary field",
+   "statement": "Let k be any field, X a normal integral projective k-scheme, and f:C→X a stable genus-g family, g≥2, smooth over a dense open U. If U→M_g^coarse is generically quasi-finite onto its image, then λ_X=det f_*ω is nef and big. No perfectness or geometric-integrality assumption on k or X is imposed. The conclusion is geometric positivity of this line, not arithmetic bigness over Spec Z.",
+   "hypotheses": [
+    "Normality is that of X itself; X over an algebraic closure may be nonreduced or reducible.",
+    "Use the arbitrary-field numerical/base-extension and reduced-component comparison requested from SF.5."
+   ],
+   "prerequisites": [
+    "StableReductionPartII:MC.6/maximal-variation",
+    "StableReductionPartII:MC.6/hodge-nef-big-application",
+    "StableReductionPartII:MC.6/finite-cover-hodge-descent",
+    "StableReductionPartII:MC.4/coarse-space",
+    "StableReductionPartII:MC.5/hodge-bundle",
+    "StableReductionPartII:MC.5/hodge-determinant",
+    "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
+    "SchemeAndStackFoundations:SF.5/nef-big",
+    "SchemeAndStackFoundations:SF.5/big-line",
+    "SchemeAndStackFoundations:SF.5/nef-big-numerical",
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "proofSteps": [
+    "Extend to an algebraic closure k̄. For each integral component Z of (X_k̄)_red take its finite normalization Y. The Y are normal integral projective k̄-schemes; pull back the stable family and its Hodge line.",
+    "The smooth dense open and generic quasi-finiteness persist on these components. Use the permitted flat field-base-change comparison for coarse spaces, not arbitrary nonflat coarse base change. Apply hodge-nef-big-application to each Y.",
+    "Use the requested SF.5 component/reduction/normalization detection of nefness and positivity of top intersection, and flat field-extension invariance, to descend to X. Nonreduced geometric base change is treated with its generic multiplicities, not declared integral. Apply the nef/big numerical criterion on the original integral X."
+   ],
+   "acceptance": [
+    "In characteristic p, X may have a finite purely inseparable field of constants over k. Its geometric base change can be nonreduced; the theorem still applies after reduction and normalization, with positive generic multiplicities.",
+    "A geometrically disconnected smooth projective X over a nonclosed k is treated componentwise after k̄, not by choosing just one component.",
+    "A constant positive-dimensional family is excluded by maximal variation even after extending k."
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC6",
+    "namespace": "TauCeti.ModuliCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "Yuan2024",
+     "locator": "§3.4, pp.55–56, geometric Hodge-positivity argument",
+     "match": "The minimal-Torelli pullback supplies the geometric positivity argument. Extension to an arbitrary field here explicitly imports field-extension and component detection from the numerical owner."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "JacobianChallengePartII:JC1",
+   "need": "Extend the existing field/family Jacobian interface by strong Torelli over algebraically closed fields of every characteristic, genus≥2: each isomorphism of canonically principally polarized Jacobians is ± the map induced by a curve isomorphism; the two signs are both induced exactly for hyperelliptic curves. Supply the proof chain for Milne12.1(a), §13 pp.40–45, beyond the read statement/sign proof. Export the consequent unlevelled geometric-fibre injectivity and compatibility with prime-to-characteristic full level. Do not assign this theorem to upstream JacobianChallenge D, which supplies a universal property, not strong Torelli.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/signed-level-fibres",
+    "StableReductionPartII:MC.6/maximal-variation-generic-finiteness"
+   ]
+  },
+  {
+   "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+   "need": "Retain stable-family-picard and normalization-exact-sequence as the owners. Export the canonical arbitrary-base-change identification of the fppf Picard identity functor for a stable genus≥2 family and its semiabelian scheme representation, with identity/composition isomorphisms, so atlas descent gives the same object on nonreduced test schemes. BLR9.4 Theorem1, pp.259–260 actually treats general semistable base schemes, without regular total space; BLR8.4 Theorem1(a), pp.231–232 gives the natural Lie–R¹O map. Complete the existing G-semiabelian-prefix and G-normalization-cohomology chains; the DVR/regular-total-space picard-zero node alone does not supply normalization-exact-sequence in this range. Do not create a second stable Picard theory in MC.6. The supplier’s G-stable-Picard also remains a formalization/proof-chain obligation: independently reading BLR here establishes source applicability but does not amend or discharge the owner packet.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+    "StableReductionPartII:MC.6/boundary-abelian-part"
+   ]
+  },
+  {
+   "supplier": "ShimuraCompactifications:C4",
+   "need": "Supply only the early acyclic semiabelian carrier/extension/abelian-quotient interface needed by R11.4 and the Siegel C5 boundary: torus character lattice, rank-g invariant differentials, and the product polarization on the normalization-component abelian quotient. Retain the R11.4 prefix gap. Do not import the complete C4 degeneration suffix back into stable Picard.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/boundary-abelian-part",
+    "StableReductionPartII:MC.6/stable-picard-atlas-comparison"
+   ]
+  },
+  {
+   "supplier": "ShimuraCompactifications:C5",
+   "need": "Extend/specialize the existing good-prime integral-minimal-space and minimal-hodge-ampleness targets to the unlevelled Siegel minimal scheme over Z of FC V2.3, pp.150–151, and its geometric fibres in every characteristic. Precisely: for a normal integral finite-type k-scheme T and a semiabelian T-scheme G whose dense open is a principally polarized abelian scheme of dimension g and with the following polarized-trait compatibility: on every complete strictly henselian DVR mapping to T with generic point in that open, the polarized generic fibre has the positive polarized degeneration datum of C4/roadmap/polarized-degeneration-data, and its semiabelian realization agrees with the pulled-back G, give the unique extension T→A_g^min of its classifying map, the geometric abelian-part stratum formula, and a canonical identity/composition/base-change-compatible isomorphism h*A≅(det e*Ω¹_G)^m for a minimal ample A and m>0. It suffices to export this on regular atlases plus the normal overlap/base-change comparisons used here. For the stable Picard application, identify this polarized-trait datum using the semistable Jacobian degeneration interface of R11.3; this does not enter the early R11.4 semiabelian carrier prefix. Prove the contraction/independence-of-cone step: IV5.1 and5.7 do not give a toroidal lift for every normal base without a common cone. V6.7 purity is generic-characteristic-zero and cannot fill this characteristic-p gap. Preserve the C5 semiampleness/theta and Stein/base-change proof leaves. The fine-level scheme target in PEL M6 may continue to use good-prime C5; this request concerns the all-characteristic unlevelled stable Torelli target. Identify the fixed-field coarse minimal space used here and prove any required comparison with geometric fibres of the Z-model. Do not infer normality, coarse-space formation or Hodge section-ring base change just from the existence of the integral model.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/minimal-torelli-descent",
+    "StableReductionPartII:MC.6/minimal-hodge-power",
+    "StableReductionPartII:MC.6/boundary-abelian-part"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.5",
+   "need": "Combine the existing nef-big, big-line, nef-big-numerical, weighted proper push and Chern projection interfaces into (i) pullback of an ample line along a projective generically finite morphism of integral projective k-schemes onto its reduced image is nef and big, with top degree [K(X):K(Z)]deg(A|Z)^d; (ii) nefness and, for nef lines, bigness descend and ascend under finite surjective maps of integral projective schemes. Permit inseparable field degree, nonflat finite maps and d=0. Retain the supplier’s asymptotic-RR/Kodaira proof leaf rather than treating its numerical criterion as already proof-closed. No generic positivity definitions or proofs are replanned in MC.6. Also export detection of nefness/top-intersection positivity after arbitrary field extension and passage to the reduced geometric components and their finite normalizations, retaining positive generic multiplicities for nonreduced geometric base change. This is needed to pass from algebraically closed fields to imperfect fields; no geometric-integrality shortcut is allowed.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/hodge-nef-big-application",
+    "StableReductionPartII:MC.6/finite-cover-hodge-descent",
+    "StableReductionPartII:MC.6/arbitrary-field-hodge-positivity"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "StableReductionPartII:MC.6",
+   "status": "planned",
+   "remaining": [
+    "Discharge the five precise supplier requests and four transitive gaps before claiming proof closure; the regular-component and finite-normalization prerequisites now have exact SF.0 node imports.",
+    "Formalize the heavy moduli/Picard/minimal-space carriers and targets in their owners. The compact suggested file checks only the native scheme map retaining the base, with explicit named omissions; it does not formalize the moduli theorems."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "StableReductionPartII:MC.6/G-strong-torelli",
+   "title": "Strong Torelli is a Jacobian-owner proof leaf",
+   "detail": "Milne12.1 statement and sign-uniqueness proof were read. Its §13 existence proof beyond pp.40–41 is not read here and no exact current supplier node supplies it. The JC1 request is a real dependency; signed fibre cardinalities are planned, not established by the current family-Jacobian nodes.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/signed-level-fibres",
+    "StableReductionPartII:MC.6/maximal-variation-generic-finiteness"
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.6/G-stable-picard-descent",
+   "title": "Stable Picard transitive prefix and normalization gaps",
+   "detail": "R11.4 gives the right stable-family statement, and the read BLR theorems confirm its scope, but its transitive G-semiabelian-prefix and G-normalization-cohomology leaves remain. The arbitrary-test-base represented Picard comparison/scheme export is requested precisely. Algebraic-space descent alone is insufficient to assert every descended object is a scheme. G-stable-Picard remains an owner proof-chain obligation despite the independent source reading here.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+    "StableReductionPartII:MC.6/boundary-abelian-part"
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.6/G-minimal-extension",
+   "title": "All-characteristic minimal extension and Hodge-power contract",
+   "detail": "FC V2.3 over Z was read, so the underlying minimal-space existence is source-supported in all characteristics. The existing C5 packet has a good-prime PEL scope, not the exact stable semiabelian normal-base extension/Hodge contract. The common-cone obstruction and minimal contraction must be handled in that owner. Retain its semiampleness/theta and Stein/base-change leaves. KnudsenIII§6 is characteristic0 only. The stable-Jacobian identification with the positive polarized trait datum (via R11.3) is part of this request, before applying the C5 extension contract on fixed-field regular atlases.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/minimal-torelli-descent",
+    "StableReductionPartII:MC.6/minimal-hodge-power"
+   ]
+  },
+  {
+   "id": "StableReductionPartII:MC.6/G-numerical-positivity",
+   "title": "Generic numerical transfer and its existing proof leaves",
+   "detail": "Exact SF.5 nodes supply cycle degree, projection and nef/big targets, but the combined generic-finite/finite-cover theorem is requested and the supplier records asymptotic-RR/Kodaira inputs still requiring proof-source closure. This job supplies the application and degree formula, not a duplicate generic intersection theory. Include the requested field-extension/reduced-component detection needed for the arbitrary-field target.",
+   "neededBy": [
+    "StableReductionPartII:MC.6/hodge-nef-big-application",
+    "StableReductionPartII:MC.6/finite-cover-hodge-descent",
+    "StableReductionPartII:MC.6/arbitrary-field-hodge-positivity"
+   ]
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "StableReductionPartII/E15-MC6",
+   "source": "Yuan2024",
+   "kind": "error",
+   "locator": "Author manuscript 21 August 2024, §3.4, p.56, final Hodge-positivity paragraph; published version not collated.",
+   "printed": "The argument describes the restriction of compactified Torelli to the smooth moduli locus as finite.",
+   "correction": "Use quasi-finiteness on the smooth locus, hence generic finiteness of the maximal-variation composite. Proper finiteness to the entire Siegel target is not needed.",
+   "reason": "In genus2 a smooth family can specialize to a compact-type union of two elliptic curves; its Jacobian specializes to their decomposable product inside A₂. No smooth genus2 curve has that principally polarized Jacobian. Thus the smooth Torelli image is not closed in A₂ and the morphism to A₂ cannot be finite. Finite onto a locally closed image or finite-to-one wording would not have this problem.",
+   "affects": "the proof",
+   "known": "new; no correction located in the checks listed, and the claim is scoped only to the hash-identified author manuscript.",
+   "searched": [
+    "Author publications page, updated June2026, inspected 18 October2026; no erratum linked for this article.",
+    "Annals article page DOI10.4007/annals.2026.203.1.2 inspected; full published PDF not collated.",
+    "Web search for Yuan arithmetic bigness Bogomolov Torelli finite erratum and parent packet sourceIssues."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed only for proper finiteness to the whole A_g in the hash-identified author manuscript, §3.4 p.56. Over C, smooth a stable genus2 curve formed from two elliptic curves meeting in one node. The compact-type Jacobian extends to their product in A₂, whereas a smooth genus2 Jacobian has an irreducible theta divisor and cannot be that product. The smooth Torelli image is therefore not closed and its map to A₂ is not finite. Quasi-finiteness supplies the generic-finiteness step actually used; finite-to-one language is compatible with the argument. The published article is not collated.",
+    "by": "REV-StableReductionPartII--MC.6"
+   }
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+   "citation": "Arithmetic bigness and a uniform Bogomolov-type result, author manuscript 21 August 2024; publisher article page inspected but full published text not collated.",
+   "read": "2026-10-18",
+   "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e"
+  }
+ ],
+ "restructure": [],
+ "parentImports": {
+  "packet": "StableReductionPartII.json",
+  "review": "REV-DESIGN-StableReductionPartII~2",
+  "nodes": [
+   "StableReductionPartII:MC.6/maximal-variation",
+   "StableReductionPartII:MC.6/stable-compactification",
+   "StableReductionPartII:MC.6/graph-closure",
+   "StableReductionPartII:MC.6/stable-compactification-exists",
+   "StableReductionPartII:MC.6/level-stable-compactification",
+   "StableReductionPartII:MC.6/smooth-torelli",
+   "StableReductionPartII:MC.6/torelli-finite-fibres",
+   "StableReductionPartII:MC.6/jacobian-hodge-comparison",
+   "StableReductionPartII:MC.6/compactified-torelli",
+   "StableReductionPartII:MC.6/maximal-variation-hodge"
+  ],
+  "policy": "Keep existing node IDs and definitions. New nodes refine supplier composition, stable input and numerical applications; no parent node is replaced."
+ },
+ "resolvedParentRequests": [
+  {
+   "need": "Regular Noetherian fine scheme is a finite disjoint union of integral components.",
+   "supplier": "SchemeAndStackFoundations:SF.0/noetherian-normal-components",
+   "resolution": "Exact node import, using regular implies normal and quasi-compactness; no geometric irreducibility needed."
+  },
+  {
+   "need": "Normalize graph closure in K(W₀), including a possibly inseparable finite field extension.",
+   "supplier": "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
+   "resolution": "Exact node import over excellent finite-type Z/field schemes; preserve L rather than only K(D)."
+  }
+ ],
+ "planetPolicy": {
+  "newPlanets": 0,
+  "retainParentPlanets": [
+   "Maximal variation",
+   "Stable compactification",
+   "Graph-closure compactification",
+   "Torelli morphism",
+   "Compactified Torelli morphism",
+   "Hodge bigness"
+  ],
+  "reason": "The parent already assigns six MC.6 planets. Assembly must retain those six, with these supplier refinements subordinate to them."
+ },
+ "sourceIssueImports": [
+  {
+   "id": "StableReductionPartII/E4",
+   "action": "Retain the parent confirmed graph-closure correction; no duplicate erratum is opened."
+  }
+ ],
+ "librarySearch": {
+  "audit": "Read data/library-coverage.json entries for upstream StableReduction and JacobianChallenge; MC.6 has no built audit entry.",
+  "pinnedRead": [
+   "Mathlib Scheme carrier; IsFinite and IsSeparated definitions; IsFinite.of_comp and separated pullback instances; native pullback.lift and projection theorems at Mathlib082e2d3.",
+   "No moduli-stack, stable-family relative Picard, Torelli or minimal-Siegel carriers found in the relevant pinned source modules. Native Jacobian coordinates/abstract group carriers do not supply them."
+  ],
+  "currentReadOnly": {
+   "roadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+   "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+   "read": [
+    "JacobianChallenge README and Suggested: field Picard/Jacobian universal property, no strong Torelli signature.",
+    "StableReduction README/Suggested scope: coherent curve duality, stable reduction imported, not replanned.",
+    "AlgebraicVectorBundles README/Suggested L0B–L0C: finite locally free sheaves and coherent determinant pullback already planned.",
+    "Current TauCeti algebraic-geometry source searched for Torelli, stable-family Picard, minimal Siegel and nef/big interfaces; none supplies the missing moduli targets."
+   ]
+  }
+ },
+ "prototypeCoverage": {
+  "mode": "Compact statements over carriers available at the pins; no data placeholders.",
+  "kept": [
+   "Native pullback.lift retains the base and moduli-cover coordinates; its finite-morphism milestone is an application of IsFinite.of_comp. Three projection/specialization examples use the native scheme pullback."
+  ],
+  "readmeOnly": [
+   "StableReductionPartII:MC.6/stable-input-compactification",
+   "StableReductionPartII:MC.6/torelli-family-composition",
+   "StableReductionPartII:MC.6/regular-component-hodge-pullback",
+   "StableReductionPartII:MC.6/signed-level-fibres",
+   "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+   "StableReductionPartII:MC.6/boundary-abelian-part",
+   "StableReductionPartII:MC.6/minimal-torelli-descent",
+   "StableReductionPartII:MC.6/minimal-hodge-power",
+   "StableReductionPartII:MC.6/maximal-variation-generic-finiteness",
+   "StableReductionPartII:MC.6/hodge-nef-big-application",
+   "StableReductionPartII:MC.6/finite-cover-hodge-descent",
+   "StableReductionPartII:MC.6/arbitrary-field-hodge-positivity"
+  ],
+  "reason": "The suggested file states the native scheme part of stable-input-compactification. Stable families, stacks, fine curve/ppav moduli, semiabelian relative Picard objects, compactified Torelli and numerical nef/big carriers are not simultaneously available at the pins. Their full target statements, APIs and tests remain in the reader; no placeholder carrier or assumed conclusion is used to mimic them."
+ },
+ "upstreamNotes": [
+  "Use current AlgebraicVectorBundles L0C through MC.5 for determinant and pullback; do not add a second sheaf determinant theory. No upstream files changed.",
+  "The strong Torelli request extends JacobianChallengePartII JC1, not the already existing upstream JacobianChallenge roadmap."
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-StableReductionPartII--MC.6",
+  "date": "2026-10-18",
+  "notes": "Independent review of all 12 nodes, seven baseline declarations, seven source versions/locators, supplier statements and recorded transitive gaps, both construction APIs and tests, parent coverage, current read-only upstream/library and the suggested Lean file. Four nodes corrected: direct finite-diagonal dependency; pairing residue test; fixed-field atlas and polarized-trait contract; relative Frobenius test. Eight nodes verified, no nodes added or removed. E15-MC6 confirmed with manuscript-only scope. Accepted as a completed target-level planning pass: five requests and four gaps remain open, coverage stays planned and implementationStatus stays unchecked. Packet/reader synchronized; native suggested file elaborates with four admitted-proof warnings only. See the independent review report for evidence and limits.",
+  "checked": [
+   {
+    "nodeId": "StableReductionPartII:MC.6/stable-input-compactification",
+    "verdict": "corrected",
+    "note": "Added the direct finite-diagonal prerequisite used for W→S×V. Verified finite normalization in K(W₀), including constant and twisted families; no smooth-generic assumption needed."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/torelli-family-composition",
+    "verdict": "corrected",
+    "note": "Restricted the pairing test to a nonidentity unit modulo N, and added the a=1+N control. The JC1/PEL composition gives the actual Cartesian family with arbitrary test pullback; DGH supplies the characteristic-zero instance only."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/regular-component-hodge-pullback",
+    "verdict": "verified",
+    "note": "BLR Lie/cohomology, JC6 duality and current AlgebraicVectorBundles determinant match. Stacks normal components justify componentwise use of the integral theorem, followed by arbitrary test pullback."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/signed-level-fibres",
+    "verdict": "verified",
+    "note": "Milne12.1 gives the two signs, identified exactly by the hyperelliptic involution; odd prime-to-characteristic level retains the sign distinction in characteristic2. Only geometric cardinality and quasi-finiteness are planned, under the explicit strong-Torelli gap."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+    "verdict": "verified",
+    "note": "BLR9.4 Theorem1 covers semistable families over general schemes without regular total space. Canonical functor comparisons, regular overlaps and the retained R11.4 scheme-representation/normalization leaves are necessary for the proposed descent."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/boundary-abelian-part",
+    "verdict": "verified",
+    "note": "The R11.4 exact sequence gives character lattice H₁ of the dual multigraph, including loops; g equals abelian dimension plus toric rank. The polarized abelian quotient and the rank-g Hodge determinant remain distinct, under the recorded supplier gaps."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/minimal-torelli-descent",
+    "verdict": "corrected",
+    "note": "Added direct MC.1 smoothness/dense-boundary prerequisites and explicitly chose the atlas over fixed k. Made the C5-requested stable-Jacobian polarized-trait check a required input before normal-base extension. FC cone conditions and its characteristic-zero purity restriction are preserved as boundaries."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/minimal-hodge-power",
+    "verdict": "verified",
+    "note": "FC V2.3 and KnudsenIII §6 support the minimal ample power and characteristic-zero comparison, respectively. Arbitrary-characteristic extension and coherent atlas Hodge comparison remain the precise C5 request; no wild coarse-line descent is assumed."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/maximal-variation-generic-finiteness",
+    "verdict": "verified",
+    "note": "Finite geometric smooth Torelli fibres plus finite-type coarse maps and maximal variation imply a finite generic field extension. Boundary fibres do not affect this and separability is unnecessary."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/hodge-nef-big-application",
+    "verdict": "verified",
+    "note": "The stated degree formula follows from weighted proper push and the Chern projection formula once the Hodge-power comparison is supplied. Nefness and the SF.5 numerical criterion, including dimension0, are retained with their asymptotic proof gap."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/finite-cover-hodge-descent",
+    "verdict": "corrected",
+    "note": "Replaced ambiguous Frobenius with the finite degree-p relative Frobenius k-morphism and specified the family on its target. Hodge base change and the generic-degree formulas require neither flatness nor separability."
+   },
+   {
+    "nodeId": "StableReductionPartII:MC.6/arbitrary-field-hodge-positivity",
+    "verdict": "verified",
+    "note": "Reduction of geometric components, finite normalization, positive generic multiplicities and SF.5 field-extension detection are all explicit. The plan does not assume geometric integrality or reducedness over imperfect fields."
+   }
+  ]
+ },
+ "assembly": {
+  "job": "ASM-StableReductionPartII",
+  "issue": 9247,
+  "agent": "Codex",
+  "session": "codex-VhiQEb",
+  "date": "2026-10-18",
+  "status": "complete",
+  "reader": "research/blueprint/readmes/StableReductionPartII.md",
+  "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+  "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+  "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+  "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+  "prerequisiteEdits": [],
+  "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC6",
+  "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
+ }
+}

@@ -1,0 +1,306 @@
+{
+  "id": "StableReductionPartII",
+  "title": "Stable reduction of curves and stable maps, Part II: moduli of curves and stable compactifications",
+  "area": "arithmeticgeometry",
+  "parent": "tauceti:TauCetiRoadmap/StableReduction",
+  "summary": "This continuation constructs the moduli stacks of smooth and stable pointed curves from the parent’s stable-family and DVR reduction theory. It develops Hilbert presentations, pointed contraction and expansion, clutching and boundary normalization, coarse projectivity, smooth full-level moduli, Hodge determinants and the integral Noether comparison. Stable compactifications and Torelli maps connect these moduli to arithmetic families and relative Picard parameters. The polynomial nodal-chart calculations supply explicit algebraic inputs to expansion, with their relative and completed-local scope kept precise.",
+  "readme": "For g,n≥0 with 2g−2+n>0, the basic object is the groupoid of ordered n-pointed smooth or stable genus-g families over a scheme. Morphisms retain automorphisms and pullback coherence. Start with this moduli problem, then build the unpointed Hilbert atlas and independent node deformations. Pointed expansion identifies the universal stable curve with the next pointed stack; genus-zero and genus-one bases complete the stable range. Clutching records graph quotients and cotangent smoothing lines. The arithmetic layers distinguish coarse spaces, fixed symplectic level schemes, Hodge vector bundles and determinant lines, and sheafified relative Picard points from actual line bundles. Import the parent’s family theory and stable maps, current AlgebraicVectorBundles L0B–L0C operations, and exact early relative Jacobian/Picard contracts. The detailed reader gives each target, its API, tests and mathematical supplier boundaries; all eight layers remain partial.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "AlgebraicModuliForArithmeticGeometry",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "AbelianSchemesAndArithmeticModuli",
+    "PELModuli",
+    "ShimuraCompactifications",
+    "JacobianChallengePartII",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "tauceti:TauCetiRoadmap/AlgebraicVectorBundles"
+  ],
+  "stages": [
+    {
+      "key": "MC.0",
+      "title": "The pointed curve moduli problem",
+      "description": "For every g,n≥0 with 2g−2+n>0 construct the groupoid-valued moduli pseudofunctor of smooth or stable ordered n-pointed genus-g curves over arbitrary schemes, using the parent’s curve-family objects. Establish base-change coherence and effective descent; keep isomorphism groupoids distinct from their sets of isomorphism classes. Construct the universal family with an arbitrary additional section, including sections at a node or coinciding with an existing mark. Export the n canonical marking sections, the proper flat nodal projection and the restriction to the smooth-family base. Smoothness of the total universal stack over Z does not assert smoothness of its projection at a node.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ]
+    },
+    {
+      "key": "MC.1",
+      "title": "The unpointed Deligne–Mumford construction",
+      "description": "For g≥2 construct the tricanonical Hilbert locus with polynomial (6t−1)(g−1), identify its projective-frame torsor and quotient stack, and prove representability, finiteness and unramifiedness of the diagonal. Import the parent’s infinitesimal automorphism vanishing and compute the obstruction space, algebraize versal deformations and obtain independent node-smoothing parameters. Deduce a smooth proper Deligne–Mumford stack over Z of relative dimension 3g−3 with relative normal-crossings boundary. A projective frame is an isomorphism P(f_*ω³)≅P^{5g−6}_S. Its embedded hyperplane line agrees with ω³ up to tensoring by a base invertible sheaf; no linear basis or trivialization of that base line is retained. The canonical relative-polarization locus requires its own relative Hilbert/Isom comparison. Extend locally Noetherian parent cohomology and duality to arbitrary family bases by the separately specified approximation input. The universal Isom scheme is the projective-frame action groupoid U_g×PGL_{5g−5}; its smooth-curve source open is dense. Apply the refined Noetherian scheme criterion to this source before deducing arbitrary-family Isom properness. Stack properness has a separate criterion allowing finite trait extensions. Strict completed local normal-crossings equations require their formal-to-étale comparison.",
+      "requires": [
+        "StableReductionPartII:MC.0",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "MC.2",
+      "title": "Universal curves and the full pointed stable range",
+      "description": "Identify the universal stable curve over M̄_{g,n} with M̄_{g,n+1} by contraction and expansion, including old-mark collisions and nodal bridges, with natural inverse comparisons and arbitrary-base-change coherence. Establish the genus-zero base(0,3), the genus-one base(1,1), the proper smooth Deligne–Mumford theorem of relative dimension3g−3+n for every stable pair, M₀,₄ and its compactification. The labelled genus-one triangle locus imposes four smoothing parameters: its three internal nodes and the attachment; a nodal genus-one component has a fifth. Universal-curve induction also adds old-section collision divisors to the inverse image of the old boundary.\n\nFor the explicit polynomial nodal chart over any commutative coefficient ring, including the zero ring, use the monic ordered coordinates to plan matrix exactness, signed cokernel presentations of the actual section ideal J and dual D=Hom_R(J,R), the denominator-free dual generator, residue and scalar correction, coefficient flatness and arbitrary coefficient base change. Specify the native tensor algebra, its action on the tensor dual, the R′-linear comparison and actual residue quotient, with identity/composition laws. The section evaluation projection is A-linear; it is not generally R-linear. The ideal is finitely presented over its node ring without noetherianity. For flat ambient R→B compare the extended ideal, dual and multiplication quotient; reflection needs faithful flatness. For noetherian R, compare their one-ring adic completions with the corresponding actual completed-ring objects.\n\nTensor the alternating matrix complexes with every A-module M without assuming M flat, using A-flat presentation cokernels. Plan their tensor cokernel equivalences, ordinary R-biduality, both canonical arbitrary-coefficient Hom exchanges and coefficient naturality. Use the actual augmented finite-free R-projective resolutions, signed categorical Hom-cochain comparisons and both native Mathlib positive Ext interfaces to obtain Ext_R^{n+1}(J,R⊗_A M)=Ext_R^{n+1}(D,R⊗_A M)=0. The canonical second exchange identifies the bidual composite with the first Hom exchange; over noetherian A these polynomial calculations meet the relative stable-reflexivity criterion. Its reusable owner-level predicate/theorem is a separate input.\n\nFor compatible coefficient/chart ideals p,m construct Â→R̂ and its scalar tower. Keep R̂⊗_A N→R̂⊗_Â N as the explicitly surjective balancing quotient, without unjustified injectivity. With p finitely generated identify finite-quotient tensor diagrams and their native limits. Transport the completed coefficient action to the original-base limit. For finite free and then finite projective Â-modules N, assemble the ordinary tensor R̂⊗_Â N as the native limit, with retraction-independent projections and inverse laws; no arbitrary-N or general finitely presented interchange is asserted. For any R-module L, including J,D without a completed action, compare Hom_R(L,R̂⊗_Â N) with compatible finite-quotient Hom_R families when N is finite projective over Â. This is not completed-ring Hom or higher Ext.\n\nThe reusable relative stable-reflexivity/two-base completion theorem for arbitrary completed coefficients, Knudsen Appendix Proposition6 Bourbaki input and Proposition7 exercise, faithful reflection, pointed completed-local hull, formal-Proj flatness transfer, coherent family/sheaf descent and arbitrary-base approximation remain explicit owner gaps. The polynomial model does not substitute for those geometric inputs. All geometric stages remain partial.",
+      "requires": [
+        "StableReductionPartII:MC.1",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+        "AlgebraicModuliForArithmeticGeometry:R09.6"
+      ]
+    },
+    {
+      "key": "MC.3",
+      "title": "Clutching, boundary strata and cotangent lines",
+      "description": "Lift the parent’s gluing operations to separating and nonseparating morphisms of pointed moduli stacks. Prove they are representable finite and unramified, classify boundary divisors by stable one-edge graphs with their automorphism quotients, and compute the conormal node-smoothing line as the tensor product of the two cotangent lines. Construct marking cotangent lines and their forgetful correction. Do not assert that a whole separating clutching map is a closed immersion, or that normal crossings are globally simple. Relative node choices in a smoothing are finite unramified, not generally finite étale. Construct the normalization as a stack, retaining constant graph automorphism quotients. The smoothing conormal has unsigned branch exchange; the integral higher-order parameter and atlas descent contracts remain explicit inputs, and characteristic-zero citations do not establish them over Z.",
+      "requires": [
+        "StableReductionPartII:MC.2",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "MC.4",
+      "title": "Coarse moduli, projectivity and full level",
+      "description": "Construct coarse algebraic spaces separately from the stacks. For g≥2 prove projectivity of the unpointed stable coarse space over Z using pluricanonical direct-image nefness and the ampleness lemma. Obtain a finite surjective normal projective scheme cover. Construct smooth-curve symplectic-similitude level N≥3 over Z[1/N], with a fixed pairing component over Z[1/N,ζ_N]; prove representability, regularity, quasi-projectivity, connectedness and dimension 3g−3, and its smooth projective universal curve. Normalize a chosen projective cover for a stable compactification; never declare naive full level on every nodal curve fine. Retain the homogeneous-level multiplier morphism and the exact fixed symplectic subfunctor; forgetting the pairing choice does not identify the two moduli problems. Section-degree positivity uses the generically surjective evaluation image, without special-fibre vanishing on unstable nodal curves. Fix the determinant degree on the single integral parameter family by relative Serre generation/vanishing before applying fibrewise ampleness and fixed-line openness over Z. Import relative Jacobian, polarization and arbitrary pullback from JC1 on the Noetherian tricanonical atlas; the exact polarized-abelian atlas descent and étale cup-product dual/twist comparison remain separate supplier obligations.",
+      "requires": [
+        "StableReductionPartII:MC.1",
+        "StableReductionPartII:MC.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "SchemeAndStackFoundations:SF.5",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "PELModuli:M6",
+        "JacobianChallengePartII:JC1"
+      ]
+    },
+    {
+      "key": "MC.5",
+      "title": "Hodge determinant and integral Noether comparison",
+      "description": "Construct the rank-g Hodge bundle and its determinant line on the stable stacks and prove pullback, forgetting and clutching comparisons. For g≥2 construct the integral line isomorphism λ¹²≅⟨ω,ω⟩⊗O(Δ), its base-change compatibility and uniqueness up to the global units ±1 on the universal integral stack. For a generically smooth stable family over an integral noetherian base compute the boundary pullback at a trait as the sum of node thicknesses. An equality in rational Chow groups does not substitute for this integral Picard-group identity. The rational GRR comparison is proved over C and the integral identity follows by torsion freeness and Picard restriction injectivity. Ordered separating Hodge determinants have exchange sign (−1)^(g₁g₂), while an ordered nonseparating residue changes sign when the branches are swapped. Universal ±1 choices can have identical pullbacks in characteristic2. Import ordinary finite-locally-free exterior powers and determinants with scheme pullback comparisons from current upstream AlgebraicVectorBundles L0B–L0C; retain stack descent, ordered exact-sequence signs and determinant-of-cohomology/Deligne pairing as distinct inputs.",
+      "requires": [
+        "StableReductionPartII:MC.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "SchemeAndStackFoundations:SF.3",
+        "SchemeAndStackFoundations:SF.5",
+        "StableReductionPartII:MC.4"
+      ]
+    },
+    {
+      "key": "MC.6",
+      "title": "Stable compactifications and Torelli",
+      "description": "For an integral quasi-projective S over Z or a field with a stable genus-g family (g≥2), produce a dominant finite cover S′→S and a projective integral compactification carrying a stable extension, by retaining the base in a graph closure. Construct the smooth full-level Torelli map and its Cartesian universal-Jacobian comparison, finite fibres with the ±level ambiguity and the genus-two exception. Construct the compactified Torelli map to the minimal Siegel compactification and its Hodge pullback. For maximal variation deduce nefness and bigness of the pulled-back Hodge line, using generic finiteness rather than a globally finite smooth Torelli morphism. Import early JC1 family constructions and JC6 Hodge comparisons; the Hodge node is the moduli-specific smooth Torelli pullback, obtained on integral components of the regular Noetherian fine scheme and then pulled back. Stable boundary Picard/abelian quotients use exact R11.4 targets, with their transitive atlas and normalization gaps retained.",
+      "requires": [
+        "StableReductionPartII:MC.4",
+        "StableReductionPartII:MC.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "SchemeAndStackFoundations:SF.3",
+        "PELModuli:M5",
+        "PELModuli:M6",
+        "ShimuraCompactifications:C4",
+        "ShimuraCompactifications:C5",
+        "JacobianChallengePartII:JC1",
+        "JacobianChallengePartII:JC6",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+      ]
+    },
+    {
+      "key": "MC.7",
+      "title": "Level Picard parameters and consumer interfaces",
+      "description": "For a fixed genus g≥2, level N≥3 invertible and degree d∈Z define the level-Picard parameter functor and compare it with relative Picᵈ of the universal smooth curve. Keep the fppf-sheafified Picard functor distinct from globally existing line bundles; identify triples only over algebraically closed fields or under the explicit Brauer-obstruction vanishing condition. Export the moduli and family interfaces to the six key-definition consumers, without rebuilding their Hurwitz stacks, mapping-class groups or tautological Chow rings. Import degree components, representability and torsors from JC0 and the exact JC4 obstruction under universal global functions. Lifts form a Pic(T)-torsor; base twists and dual-number tangent deformations discriminate the definition. Consumer exports retain their exact genus/base/stack ranges, and Chen’s pointed coarse M_{1,1} scheme is supplied by the existing all-stable-pairs coarse-space node.",
+      "requires": [
+        "StableReductionPartII:MC.0",
+        "StableReductionPartII:MC.6",
+        "JacobianChallengePartII:JC0",
+        "JacobianChallengePartII:JC4",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "mumford1977",
+      "title": "Stability of projective varieties",
+      "authors": "David Mumford",
+      "edition": "L’Enseignement Mathématique 23 (1977),39–110",
+      "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1977a--StabilityLecturesIHES-Swiss.pdf",
+      "sha256": "558c5e1a56a522c7d6815b4def3e6410690e8e8d28642f49df6887b57905bd80",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "PDF63–68, printed pp.100–105: GRR calculation and Picard torsion arguments"
+      ]
+    },
+    {
+      "id": "milne",
+      "title": "Jacobian Varieties",
+      "authors": "J. S. Milne",
+      "edition": "Corrected author notes,12 June2021",
+      "url": "https://www.jmilne.org/math/xnotes/JVs.pdf",
+      "sha256": "36c3f09c7462dbbd4ae1f8b81a02bd9ff84f03c5a346351d7d5d78fc3f173486",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "PDF27–30 (§8, relative integral-fibre Jacobians);PDF37–45 (§§12–13, Torelli statement and proof)"
+      ]
+    },
+    {
+      "id": "dm",
+      "title": "The irreducibility of the space of curves of given genus",
+      "authors": "Pierre Deligne; David Mumford",
+      "edition": "IHÉS 36 (1969), 75–109",
+      "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1969c--IrredModCurves-Deligne-Numdam.pdf",
+      "sha256": "d779973708ecef9a098db863df766f173740d75302f15655e4bbc9dd7df739e7",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "PDF1–14 and31–36, printed pp.75–87 and104–109;§§2–4 not read in full"
+      ]
+    },
+    {
+      "id": "knudsen2",
+      "title": "The projectivity of the moduli space of stable curves, II: The stacks M_{g,n}",
+      "authors": "Finn Faye Knudsen",
+      "edition": "Math. Scand.52 (1983),161–199",
+      "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "§§1–3, printed pp.161–191 (PDF1–31), rendered scan"
+      ]
+    },
+    {
+      "id": "knudsen2012",
+      "title": "A closer look at the stacks of stable pointed curves",
+      "authors": "Finn Faye Knudsen",
+      "edition": "arXiv:1106.1588v2, 3 April 2012",
+      "url": "https://arxiv.org/pdf/1106.1588v2",
+      "sha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Entire paper, PDF1–17; internal generated header dated 2018 is not a new arXiv version"
+      ]
+    },
+    {
+      "id": "knudsen3",
+      "title": "The projectivity of the moduli space of stable curves, III: The line bundles on M_{g,n}, and a proof of the projectivity of M̄_{g,n} in characteristic 0",
+      "authors": "Finn Faye Knudsen",
+      "edition": "Math.Scand.52 (1983),200–212",
+      "url": "https://journals.msp.org/mscand/article/download/1623/1622/1654",
+      "sha256": "97c2d29246b5aeff4820b4f7e74aaf8ad2e32eb72c25d05acfb7b2cbd8f017f2",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Entire paper, PDF1–13, rendered scan; projectivity argument is characteristic zero"
+      ]
+    },
+    {
+      "id": "ile",
+      "title": "Stably reflexive modules and a lemma of Knudsen",
+      "authors": "Runar Ile",
+      "edition": "arXiv:1110.3909 author preprint",
+      "url": "https://arxiv.org/pdf/1110.3909",
+      "sha256": "41e6a87de44074fdc24770e0f842c6e8846347c3b77483d17371d40c97793743",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Remark6.4 and Example6.5, PDF20–21; remaining proof not yet read"
+      ]
+    },
+    {
+      "id": "clm",
+      "title": "Projectivity of the moduli of curves",
+      "authors": "Raymond Cheng; Carl Lian; Takumi Murayama; in collaboration with Yordanka Kovacheva and Monica Marinescu",
+      "edition": "Author manuscript, 1 July 2021",
+      "url": "https://chngr.github.io/assets/mgbar.pdf",
+      "sha256": "5314dd91d8957fc775ea40e30d9a9cc12159fd5b61a5f0d2640c41b18f19a829",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "PDF1–5,18–33;PDF6–17 generic positivity background not yet read"
+      ]
+    },
+    {
+      "id": "yuan-author-http",
+      "title": "Arithmetic bigness and a uniform Bogomolov-type result",
+      "authors": "Xinyi Yuan",
+      "edition": "Author manuscript,21 August2024; published Ann.Math.203 (2026) is not collated here",
+      "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+      "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "PDF16,41–46,55–57,73–75; only passages routed to this roadmap"
+      ]
+    },
+    {
+      "id": "dgh",
+      "title": "Uniformity in Mordell–Lang for curves",
+      "authors": "Vesselin Dimitrov; Ziyang Gao; Philipp Habegger",
+      "edition": "arXiv:2001.10276v3",
+      "url": "https://arxiv.org/pdf/2001.10276v3",
+      "sha256": "5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "PDF6,23–24,§§1.2,6.1; only the two routed moduli items"
+      ]
+    },
+    {
+      "id": "blr-relative-picard-LwkQQl",
+      "title": "Néron Models",
+      "authors": "Siegfried Bosch; Werner Lütkebohmert; Michel Raynaud",
+      "edition": "Springer, 1990, first edition; inherited selected-page locators, publisher bibliography checked 2026-10-10",
+      "url": "https://link.springer.com/book/10.1007/978-3-642-51438-8",
+      "readSections": [
+        "Inherited review receipt only: §8.1 pp.202–205, §8.4 pp.231–232, §9.3 p.252 and §9.4 pp.260–261. This revision reads exact supplier statements and public Yuan/DGH interfaces; BLR full text is not newly read."
+      ],
+      "accessDate": "2026-10-10",
+      "historicalCopy": {
+        "reader": "Codex — codex-LwkQQl",
+        "date": "2026-10-05",
+        "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
+        "scope": "Inherited selected-page receipt; no full text acquired or read in revision #6378."
+      }
+    },
+    {
+      "id": "av-moduli-consumer-LwkQQl",
+      "title": "Symplectic L-functions and symplectic Reidemeister torsion (mod squares)",
+      "authors": "Amina Abdurrahman; Akshay Venkatesh",
+      "edition": "arXiv:2303.13436v1, 23 March2023 as stamped on downloaded copy; no published2025 collation",
+      "url": "https://arxiv.org/pdf/2303.13436",
+      "readSections": [
+        "§5 opening and §5.1–5.2, PDF/printed pp.39–41; Hurwitz groupoid, Examples5.1–5.2, twisted stack and universal curve. Source mathematics beyond the moduli interface is owned by the consumer."
+      ],
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "accessDate": "2026-10-05"
+    },
+    {
+      "id": "chen-moduli-consumer-LwkQQl",
+      "title": "Nonabelian level structures, Nielsen equivalence, and Markoff triples",
+      "authors": "William Y. Chen",
+      "edition": "arXiv:2011.12940v2; preprint, no publisher collation",
+      "url": "https://arxiv.org/pdf/2011.12940v2",
+      "readSections": [
+        "Introduction pp.2–3 only: smooth pointed stack, Hurwitz covers and specialization to M_{1,1}, explicitly distinguished from its coarse scheme."
+      ],
+      "sha256": "f60283b0b406554c064e3135b18d4446617aed05eb74f7b8d7b66a2f453980cc",
+      "accessDate": "2026-10-05"
+    },
+    {
+      "id": "ll-moduli-consumer-LwkQQl",
+      "title": "Canonical representations of surface groups",
+      "authors": "Aaron Landesman; Daniel Litt",
+      "edition": "arXiv:2205.15352v4; preprint, no publisher collation",
+      "url": "https://arxiv.org/pdf/2205.15352v4",
+      "readSections": [
+        "§1.10 Notation1.10.1–1.10.3, PDF/printed pp.10–11: stable range, complex marked families, dominant étale versal maps, punctures and analytic stack fundamental group."
+      ],
+      "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb",
+      "accessDate": "2026-10-05"
+    }
+  ],
+  "status": "draft"
+}

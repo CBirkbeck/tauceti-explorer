@@ -1,0 +1,265 @@
+{
+  "id": "StableHomotopyKTheoryPartII",
+  "title": "Homotopy foundations for algebraic K-theory, Part II",
+  "area": "topology",
+  "parent": "StableHomotopyKTheory",
+  "summary": "This continuation proves the prime-order generalized Segal conjecture from the Steenrod algebra, the Singer construction and controlled Adams convergence. It then identifies the Tate-valued Frobenius with classical power operations in every integer degree, computes its Steenrod and periodic K-theory forms, and proves the simply connected free-loop Segal theorem while retaining the boundedness counterexamples.",
+  "readme": "This Part II starts from the spectra, smash product, Eilenberg–MacLane objects, Postnikov towers and p-completion planned in StableHomotopyKTheory. It owns extended powers, the stable Steenrod/Singer machinery, the generalized C_p Segal proof, and comparisons with classical power operations. RefinedTraceMethods owns generic Tate theory, the basic Tate diagonal, E∞-ring Tate-valued Frobenius, THH/cyclotomic models and KU. ChromaticHomotopyTheory supplies orientation, generic Thom objects and the height-one Tate input. EnhancedDerivedSheaves supplies the monoidal and parametrised adjunction formalism. The current upstream AlgebraicTopology roadmap supplies ordinary cohomology products. None is reconstructed here.\n\nThe principal targets are NS III.1.7, IV.1.12, IV.1.15–IV.1.16, IV.1.21 and IV.3.7. The scope is prime-order Segal and these applications, rather than the Segal conjecture for arbitrary finite groups. All tensor products are derived. W means the normalizer quotient F_p^×, R^n(X)=[Σ∞_+X,Σ^nR], and negative n uses virtual representation spheres. Compact spaces mean retracts of finite CW homotopy types. The reader document carries the exact statements, hypotheses, proof sketches, checks, APIs and tests; the packet records unresolved supplier interfaces explicitly.",
+  "prerequisites": [
+    "StableHomotopyKTheory",
+    "RefinedTraceMethods",
+    "ChromaticHomotopyTheory",
+    "EnhancedDerivedSheaves",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
+  ],
+  "stages": [
+    {
+      "key": "PO.1",
+      "title": "Extended powers and the Steenrod algebra",
+      "description": "Construct cyclic and symmetric extended powers with their permutation-suspension action, normalize cyclic Tate generators, and construct stable Sq, P and Bockstein operations. Identify the complete stable Steenrod algebra with its Adem presentation, Cartan coproduct and Milnor graded dual, including finite Hopf pieces. These give the explicit algebra needed by the Singer/Adams proof.",
+      "requires": [
+        "EnhancedDerivedSheaves:E5:abstract",
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "PO.2",
+      "title": "Singer construction and the finite-type Segal theorem",
+      "description": "For bounded-below spectra with degreewise finite-dimensional mod-p homology, build the canonical Adams resolution, prove ordinary and inverse-limit strong convergence, and distinguish continuous tower cohomology from ordinary limit cohomology. Construct the twisted Singer functor and augmentation, prove the AGM Tor-equivalence, and compute the continuous cohomology of the representation-sphere Tate tower. Conclude that Δ_p is p-completion in the finite-type case, including S and HF_p.",
+      "requires": [
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.6",
+        "StableHomotopyKTheoryPartII:PO.1"
+      ]
+    },
+    {
+      "key": "PO.3",
+      "title": "The bounded-below generalized Segal conjecture",
+      "description": "Prove the finite inverse-system pro-constancy lemma and fixed-truncation direct-sum compatibility for tensor Tate. Use uniform stabilization of the HF_p tower to prove Δ_p is an equivalence for arbitrary-dimensional F_p-vector-space spectra. Postnikov convergence, exactness and integral presentations then prove Δ_p:X→(X^{⊗p})^{tC_p} is p-completion for every bounded-below X, with no finite-generation assumption.",
+      "requires": [
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.6",
+        "StableHomotopyKTheoryPartII:PO.1",
+        "StableHomotopyKTheoryPartII:PO.2"
+      ]
+    },
+    {
+      "key": "PO.4",
+      "title": "Weyl refinements and degree-zero Frobenius",
+      "description": "Refine the Tate diagonal and E∞-ring Frobenius through W=F_p^× homotopy fixed points. Identify the underlying-space diagonal and the positive-homotopy splitting of the norm sequence. Define the multiplicative degree-zero power and explicit Young-transfer ideal, and compare the quotient operation with Frobenius. Compute ordinary-ring π₀ Frobenius, finite/dualizable p-complete examples and finite-field spherical Witt lifts. Preserve the three explicit supplier interfaces recorded in the packet.",
+      "requires": [
+        "EnhancedDerivedSheaves:E5:abstract",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.4:Habiro-comparison",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.6",
+        "StableHomotopyKTheoryPartII:PO.1",
+        "StableHomotopyKTheoryPartII:PO.3"
+      ]
+    },
+    {
+      "key": "PO.5",
+      "title": "Representation twists and powers in all degrees",
+      "description": "For real virtual bundles define negative Thom spectra and twisted cohomology, keeping the full representation action at all integer ranks. The parametrised Thom adjunction identifies the Rezk power P_p^n:R^n(X)→R^{nρ}(X×BΣ_p), n∈Z. Prove the Tate-suspension and extended-power Thom comparisons, and identify restriction followed by can with Σ^nφ_R, exactly as NS Theorem IV.1.21.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.13",
+        "EnhancedDerivedSheaves:E3",
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheoryPartII:PO.1",
+        "StableHomotopyKTheoryPartII:PO.4"
+      ]
+    },
+    {
+      "key": "PO.6",
+      "title": "Frobenius and the total Steenrod operation",
+      "description": "Split the coefficient Tate targets into products of shifted Eilenberg–MacLane spectra, with corrected odd-primary shifts. Identify the Frobenius components with Sq^i at p=2 and P^i, βP^i at odd p, and the HZ reduction variant. This is equality of spectrum maps and hence gives total Steenrod operations on all degrees, not just π₀.",
+      "requires": [
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheoryPartII:PO.1",
+        "StableHomotopyKTheoryPartII:PO.4",
+        "StableHomotopyKTheoryPartII:PO.5"
+      ]
+    },
+    {
+      "key": "PO.7",
+      "title": "K-theory Frobenius and boundedness counterexamples",
+      "description": "Construct Atiyah cyclic powers on virtual K-theory, compute the C_p and C_{p²} KU Tate coefficients, and identify the stable Frobenius with KU→KU[1/p]→KU_p^∧[1/p], β↦pβ, on compact spaces in the homotopy sense. Exhibit the fixed-sphere and KU-orbit failures of unbounded lemma extensions and the rational swap-tensor KU example showing boundedness is essential for Δ_p.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.1",
+        "ChromaticHomotopyTheory:CH.9",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.4:topological",
+        "StableHomotopyKTheory:H.6",
+        "StableHomotopyKTheoryPartII:PO.3",
+        "StableHomotopyKTheoryPartII:PO.4",
+        "StableHomotopyKTheoryPartII:PO.5"
+      ]
+    },
+    {
+      "key": "PO.8",
+      "title": "The free-loop Segal theorem",
+      "description": "For arbitrary simply connected based Y prove convergence and increasing connectivity of the cosimplicial free-loop suspension-spectrum model, including fixed edgewise subdivisions. Use this control to commute Tate with this particular totalization. Under the imported THH(S[ΩY])≃Σ∞_+LY cyclotomic equivalence, prove φ_p is p-completion and genuine C_{p^n}-fixed points map p-adically equivalently to homotopy fixed points for every n≥1.",
+      "requires": [
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.6",
+        "StableHomotopyKTheoryPartII:PO.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ns18",
+      "title": "On topological cyclic homology",
+      "authors": "Thomas Nikolaus and Peter Scholze",
+      "edition": "Acta Mathematica 221 (2018), 203–409; corrected publisher online PDF",
+      "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf",
+      "sha256": "8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "I.2 Examples I.2.3 and Lemmas I.2.6–I.2.9, pp.219–224",
+        "II.4 Lemma II.4.1 and Corollary II.4.9, pp.260–265",
+        "III.1, pp.285–292",
+        "IV.1, pp.324–340",
+        "IV.3 Lemma IV.3.1, Proposition IV.3.2 and Corollary IV.3.3, pp.345–351; Theorem IV.3.7 and proof, pp.354–355"
+      ]
+    },
+    {
+      "id": "ns19-correction",
+      "title": "Correction to On topological cyclic homology",
+      "authors": "Thomas Nikolaus and Peter Scholze",
+      "edition": "Acta Mathematica 222 (2019), 215–218",
+      "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0222/0001/ACTA-2019-0222-0001-a002.pdf",
+      "sha256": "0b98fb63029a31324ad23504f584e3f414b03f4734ba63f49b943b0bd5f27944",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire four-page correction, pp.215–218"
+      ]
+    },
+    {
+      "id": "lnr12",
+      "title": "The topological Singer construction",
+      "authors": "Sverre Lunøe-Nielsen and John Rognes",
+      "edition": "Documenta Mathematica 17 (2012), 861–909",
+      "url": "https://ems.press/content/serial-article-files/26162?nt=1",
+      "sha256": "33a7b543d1dd697c08ed903dae878b4dedd745a00fed43d15447685f7ad25a1a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "2.1 Proposition 2.2 and proof, pp.864–869; 2.2 Definition 2.3",
+        "3.1 Definition 3.1 and augmentation formulas, Proposition 3.3 and Theorem 3.4, pp.875–877",
+        "4.3 Tate tower, pp.885–888",
+        "5.1 Lemma 5.1 and Theorem 5.2, pp.896–898",
+        "5.2 Proposition 5.7 and Theorem 5.9, pp.902–903",
+        "5.3 Definition 5.10 through Theorem 5.13 and proof, pp.903–906"
+      ]
+    },
+    {
+      "id": "agm85",
+      "title": "The Segal conjecture for elementary abelian p-groups",
+      "authors": "J. F. Adams, J. H. Gunawardena and H. Miller",
+      "edition": "Topology 24 (1985), 435–460",
+      "url": "https://math.mit.edu/~hrm/papers/adams-gunawardena-miller-segal-conjecture.pdf",
+      "sha256": "441f852919661722ba039707007e0869a9bb081cffbd32f119fa876bd05e56dc",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "1 Proposition 1.2 and Theorem 1.3, p.436",
+        "2 Lemmas 2.1–2.2 and proof of Theorem 1.3, pp.438–441; only cyclic Singer input used"
+      ]
+    },
+    {
+      "id": "bmms86",
+      "title": "H∞ ring spectra and their applications",
+      "authors": "Robert R. Bruner, J. Peter May, James E. McClure and Mark Steinberger",
+      "edition": "Lecture Notes in Mathematics 1176 (1986); author-hosted two-page scan",
+      "url": "https://www.math.uchicago.edu/~may/BOOKS/h_infty.pdf",
+      "sha256": "91a6bdea3f047979d5a53af9301411ddc8ae0b40b5da6a2d6b1d8b592bab5d56",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "VIII.1 Propositions 1.1–1.4, scan PDF pp.130–132",
+        "VIII.2 Propositions 2.1–2.4 and Adem proof, scan PDF pp.133–135",
+        "VIII.4 Theorem 4.1, Proposition 4.2 and Lemma 4.3, scan PDF pp.141–142"
+      ]
+    },
+    {
+      "id": "milnor58",
+      "title": "The Steenrod algebra and its dual",
+      "authors": "John Milnor",
+      "edition": "Annals of Mathematics 67 (1958), 150–171",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Milnor-A.pdf",
+      "sha256": "407cc2db0514af4f63a6be5f1e2adca122054a25dc6ea13ce4f8cd9927d29ff0",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "2–3, pp.153–156, Theorem 1",
+        "5 Theorems 2–3 and triangular-pairing proof, pp.159–162",
+        "8 Proposition 2, pp.169–170; Appendix 1, p.171"
+      ]
+    },
+    {
+      "id": "cartan55-I",
+      "title": "Opérations cohomologiques, I",
+      "authors": "Henri Cartan",
+      "edition": "Séminaire Henri Cartan 7, no.2 (1954–1955), exposé 14",
+      "url": "https://www.numdam.org/item/SHC_1954-1955__7_2_A3_0.pdf",
+      "sha256": "f877b26795c18aa139bfd8c74a49f0fc33d374418da75e42743f5090f6aa2e42",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Exposé 14 entire, pp.14-01–14-12; especially §§2–6"
+      ]
+    },
+    {
+      "id": "cartan55-II",
+      "title": "Opérations cohomologiques, II",
+      "authors": "Henri Cartan",
+      "edition": "Séminaire Henri Cartan 7, no.2 (1954–1955), exposé 15",
+      "url": "https://www.numdam.org/item/SHC_1954-1955__7_2_A4_0.pdf",
+      "sha256": "98769f4ae9ad18d20eac3446286d39a45fd440efc3cd5ca619d26b014d48e450",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Exposé 15 entire, pp.15-01–15-10; especially §§3–5, Theorems 1–3"
+      ]
+    },
+    {
+      "id": "cartan55-III",
+      "title": "Opérations cohomologiques, III",
+      "authors": "Henri Cartan",
+      "edition": "Séminaire Henri Cartan 7, no.2 (1954–1955), exposé 16",
+      "url": "https://www.numdam.org/item/SHC_1954-1955__7_2_A5_0.pdf",
+      "sha256": "61b87533b07b20261cb0dbb25260e71aa41192cf58b99442e0deaf8674e2f1e1",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Exposé 16 entire, pp.16-01–16-14; especially §§2–4, Theorems 1 and 1 bis"
+      ]
+    },
+    {
+      "id": "kuhn04",
+      "title": "The McCord model for the tensor product of a space and a commutative ring spectrum",
+      "authors": "Nicholas J. Kuhn",
+      "edition": "Progr. Math. 215 (2004), 213–236; preprint A model for a space tensored with a ring spectrum",
+      "url": "https://arxiv.org/pdf/math/0202042",
+      "sha256": "448a86e091b29fab29e4c20d9a1ba5a85f078018d63e1334a40d334d84d1b290",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "6 Definitions 6.1 and Theorems 6.2, 6.6 with proof, preprint pp.15–16"
+      ]
+    },
+    {
+      "id": "malkiewich17",
+      "title": "Cyclotomic structure in the topological Hochschild homology of DX",
+      "authors": "Cary Malkiewich",
+      "edition": "Algebraic & Geometric Topology 17 (2017), 2307–2356; arXiv v4 (18 February 2017)",
+      "url": "https://arxiv.org/pdf/1505.06778",
+      "sha256": "db2af613698a9311143c7d2edd008bb96c7c60f001175a0fe4818e179c8a70e8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "2.5 Proposition 2.22 and full proof, preprint pp.14–15"
+      ]
+    }
+  ],
+  "status": "draft"
+}

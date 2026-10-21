@@ -1,0 +1,411 @@
+{
+ "id": "PurityForFlatCohomology",
+ "title": "Purity for flat cohomology and the conjectures of Gabber",
+ "area": "algebraicgeometry",
+ "parent": null,
+ "summary": "Purity for flat cohomology after Česnavičius and Scholze: for a Noetherian local complete intersection R and a commutative finite flat R-group G, flat cohomology with supports at the closed point vanishes below dim R, and through degree dim R when R is regular and not a field. The proof passes through virtual dimension and étale depth, a root-extraction lemma in positive characteristic, prismatic Dieudonné modules and a key formula expressing flat cohomology of perfectoid rings by A_inf-cohomology. Consequences are global purity, Gabber's conjectures on local Picard and Brauer groups of complete intersections, purity for groups of multiplicative type, and Česnavičius's purity for the Brauer group of regular schemes with its codimension-one and residue descriptions.",
+ "readme": "This roadmap plans Česnavičius–Scholze, Purity for flat cohomology (Ann. of Math. 199 (2024)), together with Česnavičius, Purity for the Brauer group (Duke 2019). It starts from the punctured spectrum and fppf cohomology with supports (PF.0), proves the étale-depth bound by virtual dimension and Zariski–Nagata purity for vdim ≥ 3 (PF.1), the positive-characteristic case (PF.2), the key formula and purity for perfectoid rings (PF.3), the main theorems for complete intersections and regular rings (PF.4), global purity and Gabber's conjectures (PF.5) and purity for the Brauer group and for tori (PF.6). Reader document: research/blueprint/readmes/PurityForFlatCohomology.md. Scheme and site foundations, Brauer groups of schemes, complete intersections, absolute purity, Zariski–Nagata purity for regular rings and local Grothendieck–Lefschetz are imported from TauCetiRoadmap (SchemeAndStackFoundations, DeformationAndDerivedPatchingAlgebra, LefschetzPencilsAndVanishingCycles, LocalPurity); arc descent, perfectoid algebra and prismatic Dieudonné theory from ArcTopologyAndDescent, PerfectoidQuotients and PrismaticCohomologyPartII. Flat cohomology over animated rings, integral-valuation and explicit-tilt refinements, and the local Lefschetz theorem belong to the pending Part II designs of SchemeAndStackFoundations, PerfectoidQuotients and EtaleDualityAndPerverseSheaves and are recorded gaps. The local punctured-spectrum carrier is imported from LocalPurity §1.1; the regular residue and perfectoid towers from PerfectoidSpaces P7.16a–P7.17. The PD.6 supplier targets are individually checked, while their packet as a whole remains needs_changes.",
+ "prerequisites": [
+  "SchemeAndStackFoundations",
+  "DeformationAndDerivedPatchingAlgebra",
+  "LefschetzPencilsAndVanishingCycles",
+  "ArcTopologyAndDescent",
+  "PerfectoidQuotients",
+  "PrismaticCohomology",
+  "PrismaticCohomologyPartII",
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "DerivedDeRhamCohomology",
+  "InverseGaloisAndArithmeticFundamentalGroups",
+  "PerfectoidSpaces"
+ ],
+ "stages": [
+  {
+   "key": "PF.0",
+   "title": "Punctured spectra, flat cohomology with supports and Hartogs extension",
+   "description": "Extend the existing LocalPurity local punctured spectrum to semilocal rings R, with fppf cohomology with supports H^i_Z(X, F) for abelian sheaves on the big fppf site, with its long exact sequences, excision, Mayer–Vietoris, finite flat descent spectral sequence, limit formula and the étale local-to-global spectral sequence E_2^{ij} = H^i_ét(X, ℋ^j_Z(−, F)) ⇒ H^{i+j}_Z(X, F) (Česnavičius–Scholze Lemma 7.1.1). Prove that a weakly M-regular sequence a_1, …, a_d vanishing on Z kills H^i_Z(Spec A, M~) for i < d over any ring, and the non-Noetherian Hartogs lemma: regular elements (resp. regular pairs) in the local rings along Z give injectivity (resp. bijectivity) of Y(X) → Y(X ∖ Z) for separated (resp. X-affine) Y (Česnavičius–Scholze Lemma 7.2.7). Reuse SchemeAndStackFoundations §2.7 for the general derived-support formalism; include nested-support composition and continuity for a fixed support with qc complement.",
+   "requires": [
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.2",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ]
+  },
+  {
+   "key": "PF.1",
+   "title": "Virtual dimension, étale depth and Zariski–Nagata purity",
+   "description": "Define the virtual dimension vdim(R) = dim R̃ − μ(I) of a Noetherian local ring with R̂ ≅ R̃/I (SGA 2 XIV 5.2–5.5): independence of the presentation, vdim ≤ dim with equality exactly for complete intersections, invariance under completion, henselization and strict henselization, additivity along flat local maps (Avramov), and its incomparability with depth. Prove Gabber's bound H^i_𝔪(R, G) = 0 for i < vdim(R) for finite étale G of invertible order (Česnavičius–Scholze Theorem 3.2.4) from absolute purity and the local Lefschetz theorem, and Zariski–Nagata purity for finite étale covers of U_R when vdim(R) ≥ 2 (full faithfulness) and vdim(R) ≥ 3 (equivalence, π_1^ét(U_R) ≅ π_1^ét(R)) (Theorem 3.3.1).",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "ArcTopologyAndDescent:AT.8",
+    "LefschetzPencilsAndVanishingCycles:LPV.0",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.4",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+   ]
+  },
+  {
+   "key": "PF.2",
+   "title": "Purity in positive characteristic",
+   "description": "Prove vanishing of H^i_𝔪(R, 𝔾_a), H^i_𝔪(R, α_p) and H^i_𝔪(R, ℤ/p) below the depth (Example 4.1.10); the root-extraction lemma comparing H^i_I(A/(f_1, …, f_m), G) with H^i_I(A/(f_1^{1/n_1}, …, f_m^{1/n_m}), G) for a regular sequence f and smooth or finite locally free G, injective for i < d and bijective for i < d − 1 (Lemma 4.1.11, where the complete-intersection hypothesis enters); passage to finite flat local covers of complete intersections (Lemma 4.1.12); and purity H^i_𝔪(R, G) = 0 for i < dim R for complete complete-intersection 𝔽_p-algebras with perfect residue field and G of p-power order (Proposition 4.1.13), through the crystalline key formula of SchemeAndStackFoundationsPartII.",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "PrismaticCohomologyPartII:PD.6",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  },
+  {
+   "key": "PF.3",
+   "title": "Perfectoid rings: Dieudonné modules and the key formula",
+   "description": "Define the Dieudonné side RΓ_Z(A_inf(A), 𝕄(G))^{V=1} for perfectoid A and G of p-power order. Prove G(A) ≅ 𝕄(G)^{V=1}, H^1(A, G) ≅ 𝕄(G)/(V − 1) and H^{≥2}(A, G) = 0 (Proposition 4.2.4); p-complete arc hyperdescent of the Dieudonné side (Proposition 4.2.7) and of flat cohomology with supports on perfectoid algebras (Theorem 5.5.1); the product lemmas 4.2.8–4.2.9, Katz's lemma on Frobenius-fixed vectors and the analysis over products of perfectoid valuation rings with algebraically closed fraction fields (Proposition 4.2.10). Conclude the key formula RΓ_Z(A, G) ≅ RΓ_Z(A_inf(A), 𝕄(G))^{V=1} (Theorem 6.1.1) and purity for perfectoid rings: H^i_Z(A, G) = 0 below the length of a regular sequence vanishing on Z (Theorem 6.1.2).",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PrismaticCohomologyPartII:PD.6",
+    "PrismaticCohomology:PR.0",
+    "ArcTopologyAndDescent:AT.6",
+    "ArcTopologyAndDescent:AT.8",
+    "ArcTopologyAndDescent:AT.11",
+    "ArcTopologyAndDescent:AT.12",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  },
+  {
+   "key": "PF.4",
+   "title": "Purity for complete intersections and regular local rings",
+   "description": "Prove the main theorem of Česnavičius–Scholze: for a Noetherian local complete intersection (R, 𝔪) and a commutative finite flat R-group G, H^i_𝔪(R, G) = 0 for i < dim R (Theorem 6.2.3), by completion, residue and perfectoid towers, André's lemma and the root-extraction lemma; its virtual-dimension form H^i_𝔪(R, G) = 0 for i < vdim(R) for all finite étale G (Theorem 6.2.4), with the counterexample 𝔽_p⟦x, y, z, t⟧/(x^2, y^2, xz − yt) showing that vdim cannot replace dim for α_p (Remark 6.2.6); and the sharpening H^i_𝔪(R, G) = 0 for i ≤ dim R for regular R not a field (Theorem 6.2.7). Includes the completion lemma for regular sequences with bounded torsion (Lemma 6.2.2). The regular residue/perfectoid towers are imports from PerfectoidSpaces P7.16a–P7.17; only their explicit-tilt refinements are requested elsewhere.",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.1",
+    "PurityForFlatCohomology:PF.2",
+    "PurityForFlatCohomology:PF.3",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidQuotients:Q3",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DerivedDeRhamCohomology:DD.1",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "PrismaticCohomologyPartII:PD.6",
+    "LefschetzPencilsAndVanishingCycles:LPV.0",
+    "PerfectoidSpaces:P7"
+   ]
+  },
+  {
+   "key": "PF.5",
+   "title": "Global purity and the conjectures of Gabber",
+   "description": "Prove global purity H^i(X, G) ≅ H^i(X ∖ Z, G) for i < d − 1 and injectivity for i < d along complete intersections of dimension ≥ d or regular rings of dimension ≥ max(d − 1, 1) (Theorem 7.1.2, corrected), Moret-Bailly's purity for torsors and gerbes under finite locally free groups over regular schemes (Theorem 7.1.3, with Auslander's freeness criterion), Gabber's local Picard conjecture Pic(U_R)_tors = 0 for complete intersections of dimension ≥ 3 (Theorem 7.2.1) with its Cohen–Macaulay counterexample and the global Picard corollary for complete intersections in ℙ^n (Corollary 7.2.3), Gabber's local Brauer conjecture Br(R) ≅ Br(U_R) for complete intersections of dimension ≥ 4 or regular of dimension ≥ 2 (Theorem 7.2.5) with its sharpness (Remark 7.2.6), and purity for groups of multiplicative type (Theorems 7.2.8–7.2.9). Defines parafactorial and geometrically parafactorial local rings and states Grothendieck's torsion and dimension-two results.",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.4",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.2",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ]
+  },
+  {
+   "key": "PF.6",
+   "title": "Purity for the Brauer group and for tori on regular schemes",
+   "description": "Prove Česnavičius's purity for the Brauer group: H^2(U_R, 𝔾_m) = 0 for strictly henselian regular R of dimension ≥ 2 (Theorem 5.3), the vanishing of H^1 and H^2 of tori on U_R for henselian regular R with residue field of dimension ≤ 1 (Theorem 1.4), H^q_Z(X, T) = 0 for q ≤ 3 and the resulting isomorphisms H^q(X, T) ≅ H^q(X ∖ Z, T) for q ≤ 2 with injectivity for q = 3 along regular local rings of dimension ≥ 2 (Theorem 6.1), Theorem 1.1 for 𝔾_m on locally Noetherian schemes, the coniveau spectral sequence, the codimension-one intersection formula for H^2 of tori with generically injective H^2 and for the Brauer group (Theorems 6.2, 1.2), flasque tori and the norm-one-torus counterexample (Remark 6.3), and the residue sequences for discrete valuation rings and regular integral schemes with the imperfect-residue exclusion (Remark 6.4).",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.4",
+    "PurityForFlatCohomology:PF.5",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "CS24",
+   "title": "Purity for flat cohomology",
+   "authors": "Kęstutis Česnavičius and Peter Scholze",
+   "edition": "arXiv:1912.10932v3 (26 April 2023, final version); Annals of Mathematics 199 (2024), no. 1, 51–180",
+   "url": "https://arxiv.org/abs/1912.10932v3",
+   "sha256": "2f9d3ee868c244a7ddd6579a5dafed10a7ac9eb8b2ffe840db9f2bc115cd6ed4",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1.1–1.4, pp. 3–8",
+    "Proposition 2.1.9 and proof, pp. 14–15; Lemma 2.2.4 and proof, pp. 19–20",
+    "§3 (3.1–3.3), pp. 29–35",
+    "§4.1–4.2, pp. 36–45",
+    "§5.4–5.5 statements and proofs of Theorems 5.5.1–5.5.2, pp. 68–70",
+    "§6, pp. 82–86",
+    "§7, pp. 86–93",
+    "References, pp. 93–97"
+   ]
+  },
+  {
+   "id": "C19",
+   "title": "Purity for the Brauer group",
+   "authors": "Kęstutis Česnavičius",
+   "edition": "arXiv:1711.06456v4 (1 December 2018); Duke Mathematical Journal 168 (2019), no. 8, 1461–1486",
+   "url": "https://arxiv.org/abs/1711.06456v4",
+   "sha256": "a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1, pp. 1–3",
+    "§2, pp. 3–6",
+    "§3, pp. 6–7",
+    "§5, pp. 11–13",
+    "§6, pp. 13–14",
+    "Appendix A, p. 15",
+    "References, pp. 16–17",
+    "§4, pp. 7–11 (alternative perfectoid proof inputs, read for scope comparison, not rebuilt here)"
+   ]
+  },
+  {
+   "id": "SGA2",
+   "title": "Cohomologie locale des faisceaux cohérents et théorèmes de Lefschetz locaux et globaux (SGA 2)",
+   "authors": "Alexander Grothendieck (augmented edition by Yves Laszlo)",
+   "edition": "arXiv:math/0511279v1, Documents Mathématiques 4, SMF 2005",
+   "url": "https://arxiv.org/abs/math/0511279v1",
+   "sha256": "41ad02c57321a8d2200ff32a929bc93adbc3de0d59dcd5a284d28d859fb87a90",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Exposé X §3, p. 94 (Définitions 3.1–3.2, Théorème 3.4)",
+    "Exposé XIV §5, pp. 198–200 (Proposition 5.2 to Théorème 5.6)",
+    "Exposé XI §3, pp. 101–102 (Définitions 3.1–3.2, Lemme 3.6)",
+    "Exposé XI, Théorème 3.13, p. 105",
+    "Exposé XII, Corollaire 3.7, p. 121",
+    "Exposé III, Proposition 3.3 and Example 3.4, pp. 27–28 (regular-sequence supported vanishing)"
+   ]
+  },
+  {
+   "id": "EGA44",
+   "title": "Éléments de géométrie algébrique IV. Étude locale des schémas et des morphismes de schémas, quatrième partie",
+   "authors": "Alexander Grothendieck (with Jean Dieudonné)",
+   "edition": "Publications Mathématiques de l'IHÉS 32 (1967); Numdam copy",
+   "url": "http://www.numdam.org/item/PMIHES_1967__32__5_0/",
+   "sha256": "b4277fb99c6edf8feec5b01f54368e4b8521bcd52871316c0edf6ff4ae69389e",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§21.13, pp. 314–321 (Corollaire 21.13.3 to Remarque 21.13.13)"
+   ]
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks project",
+   "authors": "The Stacks project authors",
+   "edition": "online, tags 07DV, 09Q1, 09Q7, 09ZL, 0DX9, 0DXR, 0EHC and 0EJP read on 2026-10-19",
+   "url": "https://stacks.math.columbia.edu",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Lemma 10.68.9 (07DV)",
+    "Lemma 23.8.9 (09Q7)",
+    "Lemma 51.4.3 (0DX9)",
+    "Lemma 52.11.3 (0DXR)",
+    "Lemma 52.22.5 (0EJP)",
+    "Lemma 23.8.3 (09Q1)",
+    "Situation 52.16.1 (0EHC)",
+    "Lemma 15.13.2 (09ZL)"
+   ]
+  },
+  {
+   "id": "Poo17",
+   "title": "Rational points on varieties",
+   "authors": "Bjorn Poonen",
+   "edition": "Graduate Studies in Mathematics 186, AMS 2017; author's unofficial version of 18 December 2018",
+   "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+   "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§6.8, pp. 196–198 (Proposition 6.8.1 to Corollary 6.8.5)"
+   ]
+  },
+  {
+   "id": "TCR-SSF",
+   "title": "TauCetiRoadmap SchemeAndStackFoundations README",
+   "authors": "Tau Ceti contributors",
+   "edition": "TauCetiRoadmap main at f30bfe0a3b9d28515e04a1b779af08792e57ea76",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/f30bfe0a3b9d28515e04a1b779af08792e57ea76/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+   "sha256": "121062fb15b9c0bd67de1eb3ff53fd370ecaf441cbfa22aefaffb5d53cf0d176",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Scope/ownership; the statements of §§0.3–0.4, 0.6, 0.14, 0.17, 1.15, 1.18, 2.1–2.3, 2.7, 2.9–2.11, 2.15, 2.22, 3.4 used by the import contracts"
+   ]
+  },
+  {
+   "id": "TCR-DDPA",
+   "title": "TauCetiRoadmap DeformationAndDerivedPatchingAlgebra README (open pull request #1034)",
+   "authors": "Tau Ceti contributors",
+   "edition": "head e0abc60100ba74746306a44d12ac151d5dc6cc9a",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/e0abc60100ba74746306a44d12ac151d5dc6cc9a/TauCetiRoadmap/DeformationAndDerivedPatchingAlgebra/README.md",
+   "sha256": "17030abf852168609bfcdb086f7f12c300d9bceab8fc0828d9f9fee6c38716e2",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§3.4 Regular-sequence ideals and complete intersections",
+    "§6.9 Extending maps from a regular locus (localCI_parafactorial)"
+   ]
+  },
+  {
+   "id": "TCR-LPV",
+   "title": "TauCetiRoadmap LefschetzPencilsAndVanishingCycles README (draft pull request #873)",
+   "authors": "Tau Ceti contributors",
+   "edition": "head 4c9b59c5f758c3964ca73ce60826b2c52d5f1f90",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c9b59c5f758c3964ca73ce60826b2c52d5f1f90/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md",
+   "sha256": "660d06b3c35a97d4bd11a687611af378df61591690d607e1cd95f9b55f6b6b6b",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§0.10 Absolute cohomological purity"
+   ]
+  },
+  {
+   "id": "TCR-LocalPurity",
+   "title": "TauCetiRoadmap LocalPurity README (open pull request #1102)",
+   "authors": "Tau Ceti contributors",
+   "edition": "head 6fd7dbe7d6eb7d835483f6ed90fbe305ec65e664",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/6fd7dbe7d6eb7d835483f6ed90fbe305ec65e664/TauCetiRoadmap/LocalPurity/README.md",
+   "sha256": "763a91b7c90c4be9907db9a19a560d834bab1afc54712ab09a4f1e94336afd2d",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Whole README; in particular §1.1 and §§2.1–2.2"
+   ]
+  },
+  {
+   "id": "TCR-PBL",
+   "title": "TauCetiRoadmap PurityOfBranchLocus README (open pull request #1103)",
+   "authors": "Tau Ceti contributors",
+   "edition": "head 8ba23ff82baa03183998c791a4565ff2f6a5fdf8",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/8ba23ff82baa03183998c791a4565ff2f6a5fdf8/TauCetiRoadmap/PurityOfBranchLocus/README.md",
+   "sha256": "3a0ee10dac0facda550a2e0d794278b65790ac48be4cc0df217a13175581c762",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Summary and §0.3 (auslander_buchsbaum)"
+   ]
+  },
+  {
+   "id": "BC22",
+   "title": "Torsors on loop groups and the Hitchin fibration",
+   "authors": "Alexis Bouthier and Kęstutis Česnavičius",
+   "edition": "Ann. Sci. ÉNS 55 (2022); arXiv:1908.07480",
+   "url": "https://arxiv.org/abs/1908.07480",
+   "readSections": [
+    "Lemma 2.3.2 and proof, p. 27; Theorem 2.3.4 is credited through CS24, not independently verified"
+   ],
+   "sha256": "ec4b02a2b0821c28646c94699fa4b7eae24c5a07ed48ed1baecf1004934564b7",
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "ILO14",
+   "title": "Travaux de Gabber sur l'uniformisation locale et la cohomologie étale des schémas quasi-excellents",
+   "authors": "Luc Illusie, Yves Laszlo and Fabrice Orgogozo (eds.)",
+   "edition": "Astérisque 363–364 (2014); arXiv:1207.3648",
+   "url": "https://arxiv.org/abs/1207.3648v1",
+   "readSections": [
+    "Exposé XVIII-A §2.2, Lemma 2.2 and display (2.a), p. 333; other Lefschetz/duality references are credited through CS24"
+   ],
+   "sha256": "18a6193d6b71ff5ac91eae4443e1c8a54ab8f27f2173fda200d4bec547e3644a",
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "Gro68",
+   "title": "Le groupe de Brauer I–III",
+   "authors": "Alexander Grothendieck",
+   "edition": "Dix exposés sur la cohomologie des schémas, North-Holland/Masson 1968",
+   "readSections": [
+    "Not read (no free or cleared copy); Brauer II 1.4 and 1.8, Brauer III 2.1, 6.1 b), 10.1 cited through CS24 pp. 90, 93 and C19 pp. 2, 7, 13–14"
+   ]
+  },
+  {
+   "id": "Avr77",
+   "title": "Homology of local flat extensions and complete intersection defects",
+   "authors": "Luchezar L. Avramov",
+   "edition": "Mathematische Annalen 228 (1977), 27–37",
+   "readSections": [
+    "Not read; Proposition 3.6 cited through CS24 p. 32"
+   ]
+  },
+  {
+   "id": "Kat73",
+   "title": "p-adic properties of modular schemes and modular forms",
+   "authors": "Nicholas M. Katz",
+   "edition": "Modular functions of one variable III, Lecture Notes in Math. 350 (1973), 69–190",
+   "readSections": [
+    "Proposition 4.1.1 and its proof, pp. 142–145"
+   ],
+   "url": "https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf",
+   "sha256": "f9c14dc0c8da65bbe355926d149141b548a03e4016b883c4b800b14150cc2b1a",
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "Aus62",
+   "title": "On the purity of the branch locus",
+   "authors": "Maurice Auslander",
+   "edition": "American Journal of Mathematics 84 (1962), 116–125",
+   "readSections": [
+    "Original text not read: public publisher endpoint did not serve it; Theorem 1.3 statement and use verified through CS24 p. 88. Original homological proof recorded as gap AUSLANDER-FREENESS."
+   ],
+   "url": "https://www.jstor.org/stable/2372807"
+  },
+  {
+   "id": "MB85",
+   "title": "Pinceaux de variétés abéliennes",
+   "authors": "Laurent Moret-Bailly",
+   "edition": "Astérisque 129 (1985)",
+   "readSections": [
+    "Not read; lemme 2 cited through CS24 p. 87"
+   ]
+  },
+  {
+   "id": "Bou78",
+   "title": "Schéma de Picard local",
+   "authors": "Jean-François Boutot",
+   "edition": "Lecture Notes in Math. 632, Springer 1978",
+   "readSections": [
+    "Not read; IV Lemme 5.1 and V Corollaire 4.9 cited through CS24 p. 90"
+   ]
+  },
+  {
+   "id": "CTS87",
+   "title": "Principal homogeneous spaces under flasque tori: applications",
+   "authors": "Jean-Louis Colliot-Thélène and Jean-Jacques Sansuc",
+   "edition": "Journal of Algebra 106 (1987), 148–205",
+   "readSections": [
+    "§0.5, p. 155; Definition 1.2, pp. 157–158; Theorem 2.2(ii), pp. 161–163; Lemma 2.4, p. 164"
+   ],
+   "url": "https://www.imo.universite-paris-saclay.fr/~jean-louis.colliot-thelene/PHSflasquetori.pdf",
+   "sha256": "80032e69206caa5d86f01e14891ffc59abd629a0696314ab30d05516eac10b9b",
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "DF84",
+   "title": "On the Brauer group of surfaces",
+   "authors": "Frank R. DeMeyer and Timothy J. Ford",
+   "edition": "Journal of Algebra 86 (1984), 259–271",
+   "readSections": [
+    "Not read; Remark 3 cited through C19 p. 1"
+   ]
+  },
+  {
+   "id": "Gro66",
+   "title": "Le groupe de Brauer II: théorie cohomologique",
+   "authors": "Alexander Grothendieck",
+   "edition": "Séminaire Bourbaki 1965/66, exposé 297, pp. 287–307 (1966); distinguish the later Dix exposés edition",
+   "url": "https://www.numdam.org/item/SB_1964-1966__9__287_0/",
+   "sha256": "90c128c2101bba5cf9699c92ae4da2e72fb4b1a873b1e0b992dc242eba3e4848",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1, Lemma 1.1 through Lemma 1.9, pp. 290–293"
+   ]
+  },
+  {
+   "id": "TCR-PerfectoidSpaces",
+   "title": "TauCetiRoadmap PerfectoidSpaces README, PR #818",
+   "authors": "Tau Ceti contributors",
+   "edition": "head 506f5211b5d2e497588b614fcb008f54adfb0688",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/506f5211b5d2e497588b614fcb008f54adfb0688/TauCetiRoadmap/PerfectoidSpaces/README.md",
+   "sha256": "b20fe469db8cc8d35c9e1fdb1f36c021c2fd832d1d9d89af3e75ec6ebbeeecd6",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§P7.16a including coefficient/regularity contracts; §P7.17 regular-finite-flat-perfectoid-tower"
+   ]
+  }
+ ],
+ "status": "draft"
+}

@@ -1,0 +1,1704 @@
+{
+ "roadmapId": "K2SymbolsBrauer",
+ "protocol": "blueprint-v1",
+ "part": "T.4",
+ "status": "complete",
+ "scope": [
+  "K2SymbolsBrauer:T.4"
+ ],
+ "summary": "Target-complete continuation of the broad T.3 packet for rational function fields and reciprocity only. Existing definitions and target identifiers remain imports; twelve proof-completion targets supply corrected polynomial generation, prime-to-p detection through its existing field-theory owner, normal-hull tower comparison, finite complete-DVR descent, all-extension Artinian-length base change and integral curve reciprocity. The reader gives the full inherited construction API/tests and a coherent build order. The arbitrary-residue complete-DVR supplier is proposed with an explicit registration gap; no closed coverage or implementation is claimed.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "tauceti:TauCeti.Place.finite_setOf_ord_ne_zero",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/Zeros.lean",
+    "provides": "{P | P.ord x ≠ 0} is finite, under the hypothesis IsFunctionField k F (F finite over k(x) for a transcendental x): the function-field case only.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Zeros.lean:461. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.ratFuncEquiv",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+    "provides": "Option (HeightOneSpectrum k[X]) ≃ Place k (RatFunc k), none ↦ the place at infinity.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:330. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.heightOneSpectrumEquiv",
+    "module": "TauCeti/FieldTheory/FunctionField/AffineModel/Prime.lean",
+    "provides": "The bijection between places finite on an affine model R and HeightOneSpectrum R. The matching of valuations and residue degrees is not part of it: it is TauCeti.Place.valuation_ofPrime (Prime.lean:100) and TauCeti.Place.degree_ofPrime (Prime.lean:286) in the same file.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/AffineModel/Prime.lean:140. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:Ideal.sum_ramification_inertia_eq_finrank",
+    "module": "Mathlib/RingTheory/RamificationInertia/Basic.lean",
+    "provides": "For a domain R, S finite and flat over R and p a prime of R, ∑_{q over p} e(q) f(q) = Module.finrank R S — the rank of S over R, not the field degree; for a DVR and its integral closure in a finite separable extension the two agree by IsIntegralClosure.rank (Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean:192). The module is RingTheory, not NumberTheory; the NumberTheory file has only the deprecated Ideal.sum_ramification_inertia.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/RamificationInertia/Basic.lean:72. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:Algebra.norm",
+    "module": "Mathlib/RingTheory/Norm/Defs.lean",
+    "provides": "The norm S →* R of an R-algebra (1 when S is not finite free).",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Norm/Defs.lean:61. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:Algebra.norm_norm",
+    "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+    "provides": "norm R (norm S a) = norm R a for a tower R → S → A with S free over R and A free over S.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Norm/Transitivity.lean:207. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Divisor.eval_eq_prod_normResidue",
+    "module": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+    "provides": "For f a unit at every place of D, f(D) = ∏_{P ∈ supp D} N(f(P))^{n_P}.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean:192. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.ord",
+    "module": "Mathlib/AlgebraicGeometry/OrderOfVanishing.lean",
+    "provides": "The order of vanishing of f in the function field of a locally Noetherian integral scheme at a point z, with junk value 0 unless coheight z = 1.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/AlgebraicGeometry/OrderOfVanishing.lean:52. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.adicOfIrreducibleResidueFieldEquiv",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+    "provides": "The residue field of the finite place of an irreducible q ∈ k[X] is k[X]/(q), as a k-algebra equivalence.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:259. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.isUniformizer_adicOfIrreducible",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+    "provides": "An irreducible polynomial is a uniformiser of its own finite place of k(x).",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:246. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.ord_infty",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+    "provides": "The order at infinity is minus the degree: ord_∞ f = −intDegree f.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:125. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.isUniformizer_infty",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+    "provides": "x⁻¹ is a uniformiser at the place at infinity.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:131. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.inftyResidueFieldEquiv",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+    "provides": "The residue field at infinity is k.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:199. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.restrict",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
+    "provides": "For fields k,k′,F,F′ with compatible scalar towers k→F→F′ and k→k′→F′, and algebraic F′/F (Algebra.IsIntegral), normalize the restriction of a place of F′/k′ to obtain a place of F/k. Finiteness and the one-variable function-field hypothesis are not required by this definition.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean:283. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.finite_setOf_restrict_eq",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fibre.lean",
+    "provides": "For compatible constant-field and function-field scalar towers and finite-dimensional F′/F, the fibre of Place.restrict over any place of F/k is finite. The theorem does not require an IsFunctionField hypothesis.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Extension/Fibre.lean:316. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.normResidue",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+    "provides": "The norm to k of the residue of a function that is a unit at a place (Algebra.normUnits of residueUnit).",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Residue.lean:140. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Divisor.principal",
+    "module": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
+    "provides": "The principal divisor div z = Σ_P ord_P(z)·P of a nonzero function.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean:134. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:Algebra.norm_eq_prod_roots",
+    "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+    "provides": "The norm of x is the product of the roots of its minimal polynomial in a splitting field, to the power [L : K⟮x⟯].",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Norm/Transitivity.lean:258. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:Polynomial.resultant_eq_prod_eval",
+    "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+    "provides": "Over a domain R, for f,g ∈ R[X], f splitting over R and natDegree(g) ≤ n, the indexed resultant resultant(f,g,natDegree(f),n) is lead(f)^n times the product of g over the multiset of roots of f. Take n=natDegree(g) for the ordinary degree-indexed resultant; in a splitting field first map the coefficients there.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Polynomial/Resultant/Basic.lean:478. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:IntermediateField.adjoinRootEquivAdjoin",
+    "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+    "provides": "AdjoinRoot (minpoly F α) ≃ₐ[F] F⟮α⟯ for α integral.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean:417. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:Polynomial.modByMonic",
+    "module": "Mathlib/Algebra/Polynomial/Div.lean",
+    "provides": "Remainder on division by a monic polynomial.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/Algebra/Polynomial/Div.lean:137. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "mathlib:Polynomial.degree_modByMonic_lt",
+    "module": "Mathlib/Algebra/Polynomial/Div.lean",
+    "provides": "Over a nontrivial ring R, the remainder of p ∈ R[X] modulo a monic q has degree strictly less than degree(q).",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/Algebra/Polynomial/Div.lean:147. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.Affine.isFunctionField",
+    "kind": "theorem",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Finrank.lean",
+    "provides": "For a Weierstrass curve W over a field F, TauCeti.IsFunctionField F W.FunctionField: the function field of W is an algebraic function field of one variable over F (no ellipticity hypothesis).",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Finrank.lean:183. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Divisor.eval",
+    "kind": "def",
+    "module": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+    "provides": "f(D) ∈ kˣ for a divisor D and f ∈ Fˣ, the product over the support of N_{k(P)/k}(f(P))^{coeff D P}, with local factor 1 where f is not a unit; classical exactly on admissible divisors.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean:118. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Divisor.isUnitAtSupport_iff_disjoint",
+    "kind": "theorem",
+    "module": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+    "provides": "For hF : IsFunctionField k F, a divisor D and f ∈ Fˣ: IsUnitAtSupport D f ↔ Disjoint D.support (principal hF f).support.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean:310. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.IsIntegralClosure.finite_mvPolynomial_of_isPurelyInseparable",
+    "kind": "theorem",
+    "module": "TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean",
+    "provides": "For a field k, P = k[X_1, …, X_r] with fraction field K and a finite purely inseparable extension M/K, every integral closure of P in M is a finite P-module (Stacks 032O); no separability is assumed. The declaration is in namespace TauCeti.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean:167. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.normResidueOrOne",
+    "kind": "def",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+    "provides": "The unit-valued total extension of normResidue, equal to 1 off the order-zero locus; the suggested reciprocity argument is proved to have order zero.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Residue.lean:153. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   },
+   {
+    "ref": "tauceti:TauCeti.Place.degree",
+    "kind": "def",
+    "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+    "provides": "Module.finrank k P.ResidueField; intended residue degree under the explicit IsFunctionField hypothesis, with the native default otherwise.",
+    "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Basic.lean:469. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "Kbook.2013",
+   "title": "The K-book: An Introduction to Algebraic K-theory",
+   "authors": "Charles A. Weibel",
+   "edition": "Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013).",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+   "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "III.6.1.4, PDF p.240/draft p.232; Ex.III.6.2, PDF p.251/draft p.243.",
+    "III.7.1–7.6.4, PDF pp.253–258/draft pp.245–250; ExercisesIII.7.1–7.10, PDF pp.265–266/draft pp.257–258.",
+    "III.6.5.3, Weil reciprocity for F(t), PDF p.244/draft p.236; reread for the degree-two convention comparison."
+   ]
+  },
+  {
+   "id": "Suslin.1980",
+   "title": "Reciprocity laws and the stable rank of polynomial rings",
+   "authors": "A. A. Suslin",
+   "edition": "Math. USSR-Izvestija 15 (1980), no.3, pp.589–623; English translation, MathNet primary scan.",
+   "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=1759&what=fullteng",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1, Lemmas1.3–1.9 and Corollary 1.10, pp.591–594; §2, Lemmas2.1–2.5 and Theorem 2.6, pp.595–597. The switch to groups modulo torsion occurs on p.594 after Corollary 1.10."
+   ]
+  },
+  {
+   "id": "Stacks.20261019",
+   "title": "The Stacks Project: finite normalization and complete discrete valuation rings",
+   "authors": "The Stacks Project authors",
+   "edition": "Live stable-tag statements read 19 October 2026; section numbers identify locations in Commutative Algebra and More on Algebra.",
+   "url": "https://stacks.math.columbia.edu",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Lemma 10.121.8 (02MJ; Commutative Algebra PDF p. 295): norm orders and lengths; Lemma 10.153.4 (04GH; Commutative Algebra PDF p. 414): finite algebras over henselian local rings; Lemma 10.162.8 (032W; Commutative Algebra PDF pp. 446–447): complete Noetherian local rings are Nagata.",
+    "Remark 15.113.6 (09E8; More on Algebra PDF p. 334): separable finite DVR normalization and ef; Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343): finite normalization under base change."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+   "read": "2026-10-19",
+   "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+   "note": "Author-hosted combined draft of 29 August 2013, freshly read. The published AMS book and restricted Gille–Szamuely text were not inspected in this run. Source corrections discussed in the reader are paraphrased and point to inherited finding identifiers."
+  },
+  {
+   "kind": "published",
+   "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=1759&what=fullteng",
+   "read": "2026-10-19",
+   "note": "English primary scan, 35 PDF pages. Corollary 1.10 is integral; from Lemma 1.11 onward the paper uses the quotient by torsion. No integral attribution is made to Theorem 2.6 alone."
+  },
+  {
+   "kind": "live project PDF",
+   "url": "https://stacks.math.columbia.edu/download/algebra.pdf",
+   "read": "2026-10-19",
+   "sha256": "b035a1f02104906a1820636cd332a0d7962fef3318d207a056634cb14dc86947",
+   "note": "Freshly read chapter PDF locators: 10.121.8 p.295; 10.153.4 p.414; 10.162.8 pp.446–447. Tag numbers and full lemma numbers remain the stable identifiers."
+  },
+  {
+   "kind": "live project PDF",
+   "url": "https://stacks.math.columbia.edu/download/more-algebra.pdf",
+   "read": "2026-10-19",
+   "sha256": "ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2",
+   "note": "Freshly read chapter PDF locators: 15.113.6 p.334; 15.116.1 pp.342–343. Tag numbers and full lemma numbers remain the stable identifiers."
+  }
+ ],
+ "nodes": [
+  {
+   "id": "K2SymbolsBrauer:T.4/degree-filtration-generation",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Completion of the polynomial degree reduction",
+   "kind": "lemma",
+   "statement": "For n≥1 and d≥1 let L_d be generated by n-symbols with nonzero polynomial entries of degree at most d. Then L_d/L_(d−1) is generated by symbols with exactly one monic irreducible degree-d entry and all other entries of degree <d. For distinct monic degree-d e₁,e₂, with h=e₁−e₂, {e₁,e₂}={h,e₂}−{h,e₁}+{e₁,−1}; for equal entries {e,e}={e,−1}.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.2/milnor-k-theory",
+    "K2SymbolsBrauer:T.2/milnor-alternating",
+    "K2SymbolsBrauer:T.2/symbol-consequences"
+   ],
+   "proofSteps": [
+    "Expand each polynomial into its leading coefficient and monic part by multilinearity. Retain the mixed symbols containing constants: a constant entry reduces the number of degree-d entries but does not itself put the whole symbol in L₀.",
+    "For distinct maximal-degree entries apply the Steinberg relation to h/e₁ and e₂/e₁, whose sum is 1. Expansion gives the displayed identity. Every resulting term has at most one of those two degree-d entries.",
+    "For a repeated maximal-degree entry use the diagonal identity {e,e}={e,−1}; this branch is necessary over integral coefficients. Induct on the number of degree-d entries, moving entries by graded skew symmetry.",
+    "When only one degree-d entry remains, factor it if reducible. Each factor has smaller degree and the whole symbol then belongs to L_(d−1). Otherwise move the irreducible entry to the last slot, recording the sign. This completes the inherited degree-reduction proof."
+   ],
+   "acceptance": [
+    "The repeated case is retained over ℝ(t); no exterior-algebra rule is assumed.",
+    "For e₁=t,e₂=t−2 over ℚ, h=2; the identity gives the correct nontrivial residue 2 at t−2 in the uniformizer-last convention.",
+    "For n=1 the assertion is polynomial factorization modulo constants; for d=1 the other entries are constants."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.6.1.4, combined PDF p.240/draft p.232; Ex.III.6.2, PDF p.251/draft p.243; III.7.4.2, PDF p.256/draft p.248",
+     "match": "The linear case and the degree filtration; the proof above supplies both the repeated-entry branch and the corrected distinct-entry identity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/bass-tate-filtration-assembly",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Bass–Tate exactness with the corrected filtration proof",
+   "kind": "theorem",
+   "statement": "For every field F and n≥1, 0→Kᴹ_n(F)→Kᴹ_n(F(t))→⊕_(p monic irreducible)Kᴹ_(n−1)(F[t]/p)→0 is split exact. The last map uses uniformizer-last residues; its kernel is the constant image and leading-coefficient specialization retracts that image. Infinity is excluded from this direct sum.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/degree-filtration-generation",
+    "K2SymbolsBrauer:T.4/residue-section",
+    "K2SymbolsBrauer:T.4/filtration-quotients",
+    "K2SymbolsBrauer:T.4/leading-coefficient-splitting",
+    "K2SymbolsBrauer:T.3/finite-support"
+   ],
+   "proofSteps": [
+    "Reuse the existing residue-section h_p and filtration-quotient targets; their statements and representative proof are given in the reader. The preceding completed generation lemma supplies the surjectivity step of each quotient.",
+    "Every rational-function symbol expands into polynomial symbols by numerator/denominator factorization. Hence the union of L_d is all of Kᴹ_n(F(t)). L₀ is the constant image and injects by specialization at infinity.",
+    "Given finitely supported residues choose their maximal polynomial degree and lift their top-degree components by h_p. Repeating at lower degrees constructs a preimage. For a class with all finite residues zero the same descending induction puts it in L₀.",
+    "Changing from uniformizer-first to uniformizer-last multiplies both the degree-n residues and their sections by (−1)^(n−1); exactness and the transfer defined from this sequence are unchanged."
+   ],
+   "acceptance": [
+    "For n=1 this is the divisor factorization F(t)ˣ/Fˣ≃⊕_pℤ.",
+    "For a constant c and g=t, the finite tame residue is c and the omitted infinity residue is c⁻¹.",
+    "h_p uses the unique nonzero polynomial representatives of degree <deg p; the Steinberg check is an equality in F[t], not an assertion that those representatives are constants."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.3.2–7.4.2, PDF pp.255–256/draft pp.247–248",
+     "match": "Milnor exactness and its two filtration lemmas, assembled using the corrected reduction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Bass–Tate exact sequence"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/prime-to-p-detection",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Prime-to-p detection on Milnor groups",
+   "kind": "lemma",
+   "statement": "Fix a prime p. Import from GF.0/maximal-p-extension a maximal algebraic extension F^(p)/F whose finite subextensions have degree prime to p (use the prime set consisting of all primes other than p). Every finite extension of F^(p) has p-power degree. Each element in ker(Kᴹ_n(F)→Kᴹ_n(F^(p))) is killed by an integer prime to p. In particular restriction is injective on p-primary torsion.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "LocalFieldsRamificationPartII:GF.0/maximal-p-extension",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+    "K2SymbolsBrauer:T.2/milnor-k-theory"
+   ],
+   "proofSteps": [
+    "The field-existence construction belongs to the existing arbitrary-rank Part II GF.0, not to K₂. Its maximal-P-extension and P-closed interface is imported. In a finite normal closure of a separable extension, the Sylow-p fixed field has prime-to-p degree, hence is the base. The Galois group is a p-group. A purely inseparable degree is a characteristic power; maximality forces it to be a p-power too.",
+    "The presentation of Milnor K-theory commutes with directed unions of fields: an element and a proof of zero use only finitely many unit entries and finitely many Steinberg relations. Descend those entries and relations to a finite F′⊂F^(p).",
+    "Compose the simple transfers along any generating tower of F′/F. No tower independence is needed: projection and degree formulas show this composite followed by restriction is [F′:F]. It annihilates the kernel element and is prime to p."
+   ],
+   "acceptance": [
+    "An element killed by p^a and by a prime-to-p integer is zero by Bézout.",
+    "No normalized discrete valuation or completeness is asserted for the infinite field F^(p).",
+    "The only imported GF stage is the foundational field-theory node GF.0; none of its later valued-field or analytic targets is needed."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.6.1–7.6.2, PDF p.257/draft p.249",
+     "match": "Prime-to-p detection used by Kato; field existence is imported from its existing owner."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/tower-splitting-formula",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Splitting-field comparison of arbitrary transfer towers",
+   "kind": "lemma",
+   "statement": "Let E/F be finite, M/F a finite normal extension containing a normal hull of E, and N_τ any composite of simple Bass–Tate transfers along a generating tower τ of E/F. Then res_(M/F) N_τ=[E:F]_insep Σ_(σ:E↪_F M) σ_* on Kᴹ_n(E). Thus two towers differ by a map whose every value is killed by [M:F].",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/transfer-base-change",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+    "K2SymbolsBrauer:T.4/simple-transfer"
+   ],
+   "proofSteps": [
+    "For a simple step apply the existing simple-extension base-change lemma over M. The minimal polynomial splits into linear factors, each with its inseparable multiplicity, and the simple norm of a degree-one extension is the identity.",
+    "Induct along the tower. Every embedding of an intermediate field into M extends to all the required roots because M is normal and contains the normal hull. The product of the inseparable multiplicities is [E:F]_insep, so the resulting sum is independent of τ.",
+    "If δ is the difference between two composites, its restriction to M is zero. Choose any tower of M/F and apply its composite transfer to this zero; the degree formula gives [M:F]δ=0.",
+    "Using M instead of E avoids assuming that a nonnormal extension E already splits every tower. The stronger claim that [E:F] kills the difference is unnecessary here."
+   ],
+   "acceptance": [
+    "For a separable nonnormal cubic E/ℚ use its normal closure, not E as a splitting field.",
+    "For a purely inseparable extension of degree p^a the sum has one embedding with multiplicity p^a.",
+    "No general transfer base-change theorem or Kato transitivity is used in this pre-Kato argument."
+   ],
+   "sources": [
+    {
+     "sourceId": "Suslin.1980",
+     "locator": "§1, Corollary 1.10, printed p.594/PDF p.6",
+     "match": "Integral splitting formula before the paper switches to torsion quotients; induction from simple base change."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Finite descent in the prime-degree complete residue square",
+   "kind": "lemma",
+   "statement": "Let F be complete for a normalized discrete valuation, E/F normal of prime degree p, with residue extension l/k. The simple norm is generator-independent by the inherited kato-prime-degree lemma. For α∈Kᴹ_n(E), n≥1, δ=∂_F Nα−N_(l/k)∂_Eα is zero. This completes the inherited kato-complete-residue proof using finite complete extensions only.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/kato-prime-degree",
+    "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+    "K2SymbolsBrauer:T.4/prime-to-p-detection",
+    "K2SymbolsBrauer:T.4/transfer-base-change",
+    "K2SymbolsBrauer:T.3/higher-ramification-formula",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree"
+   ],
+   "proofSteps": [
+    "Use routed arbitrary-residue complete-DVR contracts DVR.0–DVR.2: unique normalized extension, finite free integral closure and ef=p, normality of l/k and surjectivity of the residue Galois action, and determinant norm valuation/residue identities. They are specified in the support brief and remain an explicit supplier gap.",
+    "First prove pδ=0. If e=p,f=1 then l=k. Ramification and self-base-change yield p∂_F Nα=p∂_Eα: every automorphism acts trivially on the residue field, and the purely inseparable self-tensor has length p. If e=1,f=p, the same equations give res_(l/k)δ=0, since the residue action is exactly the normal-residue sum (with inseparable multiplicity). Apply the degree formula for l/k to obtain pδ=0.",
+    "Over F^(p), express the restricted α as a finite sum of symbols with all but one entry in the base using the inherited p-closed-generation lemma. Descend the finitely many entries and relations to a finite F′/F of degree d prime to p. E′=EF′ is still normal of degree p over F′; all these finite fields are complete DVR fields.",
+    "Apply the inherited generated-symbol computation termwise over F′. Its four cases use ord_F N(y)=f ord_E(y) and residue N(unit)=N_(l/k)(residue unit)^e; the totally ramified case chooses the constant coefficient of the Eisenstein minimal polynomial as base uniformizer. Both sides convert from first to last convention by (−1)^(n−1).",
+    "Write r=e(F′/F), s=e(E′/E), e=e(E/F), e₁=e(E′/F′). Then e₁r=se. Both e and e₁ are 1 or p; r and s divide d. Since p∤d, e₁=e and s=r. The tensor l⊗_k k′ is a single field of length1: [l:k] is 1 or p and [k′:k] divides d. This field equals l′, since both have degree f=p/e over k′. Thus the simple residue base-change formula has a single factor, and the two ramification/base-change squares give r res_(k′/k)δ=0.",
+    "Apply the residue transfer to this equality: dδ=r[k′:k]δ=0. Bézout with pδ=0 gives δ=0. No ramification index is canceled in a Milnor group."
+   ],
+   "acceptance": [
+    "The residue field may be infinite, imperfect, or inseparable over the base residue field.",
+    "The argument keeps the inseparable self-tensor multiplicity p.",
+    "Every valuation used after descent is on a finite extension; the infinite detector is used only for finite algebraic data."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.6.2–7.6.3, PDF p.257/draft p.249; Ex.III.7.6–7.8, PDF p.265/draft p.257",
+     "match": "Kato prime-degree square and its generation/base-change ingredients; the displayed annihilator and index calculations fill out the abbreviated descent."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/constant-extension-completion",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Completion of the normal constant-extension residue identity",
+   "kind": "comparison",
+   "statement": "For E/F normal of prime degree p and any place v of F(t)/F, ∂_v N_(E(t)/F(t))=Σ_(w|v)N_(κ(w)/κ(v))∂_w. This is the inherited constant-extension-residue target with its finite-normalization and completion supply made explicit before Kato transitivity.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+    "K2SymbolsBrauer:T.4/transfer-base-change",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+    "K2SymbolsBrauer:T.3/higher-ramification-formula"
+   ],
+   "proofSteps": [
+    "Import AlgebraicCurves Layer2 finite normalization on both charts F[t] and F[t⁻¹], for arbitrary finite E(t)/F(t), and its finite-module completion contract. With R the DVR at v and S its finite normalization, completing S splits as the product of completed local S_w. Inverting a base uniformizer gives E(t)⊗_(F(t)) F(t)^∧_v≃∏_w E(t)^∧_w.",
+    "This tensor product is a product of fields under the finite-normalization contract, including the purely inseparable constant-extension case. Each multiplicity is 1. The residue fields are unchanged by these completions, and their ramification index over the original valued field is 1.",
+    "Apply simple base change for E(t)/F(t). Each complete field factor is normal of degree 1 or p over F(t)^∧_v. Apply the preceding prime-degree square and sum. The completion contract is an imported normalization result, not an unproved correspondence left inside Kato’s argument."
+   ],
+   "acceptance": [
+    "Infinity uses the t⁻¹ chart and is included.",
+    "At a split place the sum has p degree-one terms; at a nonsplit place it has one degree-p term.",
+    "This proof does not cite the general norm–residue theorem that will follow Kato transitivity."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "Ex.III.7.9, PDF p.266/draft p.258; III.7.6.4, PDF p.258/draft p.250",
+     "match": "The normal constant-extension identity used in the commuting square; completion proof given here using the requested normalization contract."
+    },
+    {
+     "sourceId": "Stacks.20261019",
+     "locator": "Lemma 10.153.4 (04GH; Commutative Algebra PDF p. 414); Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343)",
+     "match": "Henselian finite-algebra splitting and normalization/base-change background; finite-module completion is requested from AlgebraicCurves."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/kato-tower-comparison",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Completion of Kato’s generator-independence proof",
+   "kind": "theorem",
+   "statement": "For every finite E/F, every degree n≥0 and every generating tower τ, the composite N_τ is independent of τ and of the simple generators. It defines N_(E/F):Kᴹ_n(E)→Kᴹ_n(F), is transitive in every finite intermediate tower, satisfies the projection and degree formulas, is field norm in degree one, and is multiplication by [E:F] in degree zero. This supplies the inherited milnor-transfer-transitivity target.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/tower-splitting-formula",
+    "K2SymbolsBrauer:T.4/prime-to-p-detection",
+    "K2SymbolsBrauer:T.4/kato-prime-degree",
+    "K2SymbolsBrauer:T.4/constant-extension-completion",
+    "K2SymbolsBrauer:T.4/simple-transfer",
+    "K2SymbolsBrauer:T.4/transfer-low-degrees",
+    "mathlib:Algebra.norm_norm"
+   ],
+   "proofSteps": [
+    "First establish the inherited kato-commuting-square by its isolated-residue lift in E(t): use constant-extension-completion on finite places and infinity, then the defining −∂∞ formula twice. The last simple norm is N_(a/E), not N_(a/F). This uses only normal prime-degree norms and simple norms.",
+    "Fix two towers and x. Their difference δ(x) is torsion by tower-splitting-formula over a finite normal hull. For each prime p dividing its annihilator, restriction to F^(p) detects the p-primary part. Expand each tower after this base change using repeated simple base change; this gives sums of tower norms in the Artinian residue fields with their lengths, without needing the general theorem yet.",
+    "Over F^(p), finite normal hulls have p-power degree. A finite p-group has a subnormal chain with index-p steps; separating purely inseparable radical steps gives a maximal tower of normal prime-degree extensions for each finite field involved. Prime-degree norms are already generator-independent.",
+    "Compare two maximal towers by induction on the total degree. If their first degree-p fields A and B differ, use their compositum AB⊂E. Its degree over F is p², and the commuting square interchanges the A/F and B/F steps. Induction compares the towers above AB and the towers inside E/A and E/B. Do not identify E with AB unless the total degree is p².",
+    "A simple step F⊂F(a) can be refined by a maximal tower: apply the commuting square to its first normal degree-p subfield and the generator a, then induct. Hence every simple-step composite agrees with the maximal-tower value over the detector field.",
+    "The two base-changed tower sums consequently agree, so res δ(x)=0. Prime-to-p detection kills its p-primary part for each prime divisor of the finite annihilator. Thus δ(x)=0 integrally. Concatenation of towers proves transitivity; projection and degree pass along the tower. Degree one follows from Algebra.norm_norm."
+   ],
+   "acceptance": [
+    "A nonnormal cubic uses a normal hull in the annihilator argument.",
+    "A degree p³ extension with distinct first degree-p subfields is compared through AB and the remaining degree-p extension above it.",
+    "Purely inseparable towers and all integral torsion are retained; no rationalization occurs."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.6.1–7.6.4, PDF pp.257–258/draft pp.249–250",
+     "match": "Kato’s theorem and commuting-square proof, with the normal-hull and compositum inductions specified."
+    },
+    {
+     "sourceId": "Suslin.1980",
+     "locator": "Corollary 1.10, p.594/PDF p.6",
+     "match": "The pre-Kato integral splitting formula supplies the finite annihilator, rather than incorrectly using a nonnormal E as its own splitting field."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Kato’s theorem on Milnor norms"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/finite-transfer-base-change",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "General finite-transfer base change with Artinian lengths",
+   "kind": "theorem",
+   "statement": "Let E/F be finite, F′/F arbitrary, and E⊗_F F′≃∏_i A_i its decomposition into local Artinian algebras. Put E_i=A_i/𝔪_i and m_i=length_(A_i)(A_i). For every n≥0, res_(F′/F)N_(E/F)=Σ_i m_i N_(E_i/F′)res_(E_i/E). The norms are Kato’s generator-independent norms.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/kato-tower-comparison",
+    "K2SymbolsBrauer:T.4/transfer-base-change",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree"
+   ],
+   "proofSteps": [
+    "For a simple extension A_i is F′[X]/q_i^(m_i), and this is precisely the inherited simple-extension base-change identity, valid for arbitrary F′ including transcendental extensions and completions.",
+    "For a generating tower apply that identity one step at a time. Refine the finite-dimensional tensor algebras by composition series. Their simple factors are the final residue fields E_i, repeated length_(A_i)(A_i) times: length additivity, including multiplication by residue-extension dimensions when restricting scalars, identifies the total multiplicities.",
+    "Transitivity now identifies each composite of simple norms with N_(E_i/F′). This proof comes after Kato’s theorem; it is not fed into the pre-Kato square.",
+    "The coefficient is module composition length, not the nilpotence index of the maximal ideal. The two agree for the monogenic local factors in the simple lemma but need not agree for a nonsimple extension."
+   ],
+   "acceptance": [
+    "For E/F separable the tensor is reduced and every m_i=1.",
+    "For E=𝔽_p(s^(1/p),t^(1/p)) over F=𝔽_p(s,t), base changing to E gives E[ε,η]/(ε^p,η^p): its length is p² and its maximal-ideal nilpotence index is 2p−1.",
+    "In degree zero the formula is the vector-space identity [E:F]=Σ_i m_i[E_i:F′]; at p=2 the preceding example requires coefficient 4, not 3."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "Ex.III.7.7, PDF p.265/draft p.257; III.7.6.1, PDF p.257/draft p.249",
+     "match": "Simple formula and transitivity; the general Artinian-length formula is derived by tower refinement here."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Milnor norm base change"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/complete-residue-descent",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Completion of the all-extension complete residue square",
+   "kind": "theorem",
+   "statement": "For any complete discretely valued F, any finite E/F, n≥1 and residue fields l/k, ∂_F N_(E/F)=N_(l/k)∂_E on integral Kᴹ_n(E). The residue fields are arbitrary and may be inseparable. This completes the inherited complete-norm-residue target, conditional on the routed DVR support contracts.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/kato-tower-comparison",
+    "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+    "K2SymbolsBrauer:T.4/finite-transfer-base-change",
+    "K2SymbolsBrauer:T.4/prime-to-p-detection",
+    "K2SymbolsBrauer:T.3/higher-ramification-formula",
+    "K2SymbolsBrauer:T.4/restriction-transfer-degree"
+   ],
+   "proofSteps": [
+    "The purely inseparable branch is a tower of normal prime-radical extensions; the preceding prime-degree square and transitivity apply. For the separable branch fix a prime p and split E⊗_F F^(p) into fields, each admitting a normal prime-degree tower. Descend idempotents, polynomial coefficients, generators and normality witnesses to finite F′/F of degree d prime to p. All descended extensions are complete DVR fields. The prime-degree square proves the theorem for each field factor E_i/F′.",
+    "Use routed contract DVR.3 for the precise componentwise residue identity. Write r=e(F′/F), e=e(E/F), e_i=e(E_i/F′), e′_i=e(E_i/E), and l⊗_k k′=∏_j A_j with residue L_j and length t_j. Then Σ_(i over j)e_i[l_i:L_j]=e t_j and Σ_(i over j)e′_i[l_i:L_j]=r t_j. The residue compositum L_j need not exhaust l_i.",
+    "The second identity follows from the first by r e_i=e e′_i and cancellation of e in an equality of positive integer lengths. For the first, compare the full lattices B=S⊗_R R′⊂C=∏S_i. Their torsion quotient D has equal kernel and cokernel composition multiplicities for multiplication by a uniformizer π′. Hence B/π′B and C/π′C have the same L_j-multiplicities. Filtering S/πS gives e t_j on B; filtering each S_i/π′S_i gives e_i[l_i:L_j] on C. This is the source-backed support contract, not cancellation in a Milnor group.",
+    "For δ=∂_F Nα−N_(l/k)∂_Eα, apply general base change and residue ramification to the left term, then the proved E_i/F′ squares. The sum is Σ_j(Σ_(i over j)e′_i[l_i:L_j])N_(L_j/k′)res_(L_j/l)∂_Eα. The second length identity makes this r times the general residue-field base change of N_(l/k)∂_Eα. Thus r res_(k′/k)δ=0.",
+    "Apply the residue transfer: dδ=r[k′:k]δ=0. For every prime p there is such a d prime to p. One d makes δ torsion; testing each prime divisor of its order proves δ=0. No index is canceled in a possibly torsion Milnor group."
+   ],
+   "acceptance": [
+    "This does not silently assume finite or perfect residues.",
+    "Even for separable E/F, the residue tensor can be nonreduced; its t_j must remain.",
+    "Only finite stages carry discrete valuations. The same residue sign multiplies both sides by (−1)^(n−1) under a convention change."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.6.3, PDF p.257/draft p.249",
+     "match": "Normal prime-degree input; the all-extension finite-descent argument is supplied here."
+    },
+    {
+     "sourceId": "Stacks.20261019",
+     "locator": "Lemma 10.121.8 (02MJ; Commutative Algebra PDF p. 295), Lemma 10.162.8 (032W; Commutative Algebra PDF pp. 446–447), Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343)",
+     "match": "Determinant/length norm background, finite complete normalization and the normalization base-change setup; exact lattice contract in the Part II brief."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/finite-normalization-residue",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Completion of the finite-normalization norm–residue formula",
+   "kind": "theorem",
+   "statement": "Let E/F be finite, v a discrete valuation on F, and assume its valuation ring R has finite integral closure S in E. For n≥1, ∂_v N_(E/F)=Σ_(w|v)N_(κ(w)/κ(v))∂_w on Kᴹ_n(E). The hypothesis holds for separable E/F, for complete F, and for finite extensions of one-variable function fields over any constant field by the AlgebraicCurves finite-normalization contract.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/complete-residue-descent",
+    "K2SymbolsBrauer:T.4/finite-transfer-base-change",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+    "K2SymbolsBrauer:T.3/higher-ramification-formula"
+   ],
+   "proofSteps": [
+    "Import finite-normalization completion: E⊗_F F^∧_v≃∏_(w|v) E^∧_w. The finite S/R hypothesis is essential; no blanket defectless statement is asserted for arbitrary DVRs and arbitrary inseparable E/F.",
+    "All factors are fields and have multiplicity 1. Apply finite-transfer-base-change to the completion, and the complete residue square to each factor.",
+    "Completion preserves the residue field and has relative ramification index 1; identify each completed residue with κ(w) and the completed base residue with κ(v). Add the equalities. This realizes the inherited T.3/transfer-and-norm-residue export, parented in T.4 before its Quillen comparison."
+   ],
+   "acceptance": [
+    "Degree one reads ord_v N(x)=Σ_w[κ(w):κ(v)]ord_w(x); no additional e_w multiplies the right hand side.",
+    "For E=ℚ(i), v=5 and x=2+i, N(x)=5; the two places contribute 1 and 0.",
+    "For a base uniformizer the formula recovers [E:F]=Σ_w e_w f_w, explaining why finite normalization cannot simply be omitted."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "Ex.III.7.9, PDF p.266/draft p.258",
+     "match": "Pre-Kato constant-extension special case, extended here after transitivity."
+    },
+    {
+     "sourceId": "Stacks.20261019",
+     "locator": "Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343); Lemma 10.153.4 (04GH; Commutative Algebra PDF p. 414)",
+     "match": "Finite normalization and complete local decomposition background; completion supply explicitly requested from AlgebraicCurves."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/integral-curve-reciprocity",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Integral all-degree reciprocity for any function field",
+   "kind": "theorem",
+   "statement": "Let F be any field and K/F a one-variable function field. For n≥0 and x∈Kᴹ_(n+1)(K), only finitely many ∂_P x are nonzero and Σ_(P∈Place F K)N_(κ(P)/F)∂_P x=0 in Kᴹ_n(F). Equivalently sum over the closed points of the proper regular model, using Kato norms for every finite residue extension, including inseparable ones. The regular model need not be smooth and no exact-constant-field hypothesis is imposed.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/finite-normalization-residue",
+    "K2SymbolsBrauer:T.4/kato-tower-comparison",
+    "K2SymbolsBrauer:T.4/projective-line-reciprocity",
+    "K2SymbolsBrauer:T.4/valuation-comparison",
+    "K2SymbolsBrauer:T.3/finite-support",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+   ],
+   "proofSteps": [
+    "Choose t∈K transcendental over F, with K finite over F(t). Import AlgebraicCurves Layer2 finite normalization on both charts for arbitrary finite K/F(t), and Layer12’s regular proper model, closed-point/place and residue-field dictionary. These existing geometric targets are not replanned here.",
+    "For each place v of F(t), apply finite-normalization-residue to x. Transfer its equality from κ(v) to F, using Kato transitivity to identify the composite residue norms.",
+    "Sum over v. Imported finite support justifies regrouping the finite set of nonzero terms by restriction of places. The result is the projective-line residue sum for N_(K/F(t))x, which is zero by the definition of the simple norms.",
+    "The integral assertion follows from the integral Kato norm and the preceding integral norm–residue square. Suslin’s 1980 §2 gives this pushdown argument after quotienting Milnor groups by torsion; it is historical motivation, not a citation of the full integral claim. The strengthening here keeps the torsion using the proved Kato ingredients."
+   ],
+   "acceptance": [
+    "For n=0 the equation is Σ_P[κ(P):F]ord_P(f)=0, the degree-zero principal-divisor formula.",
+    "For n=1 write the sum multiplicatively to obtain the product of residue-field norms of tame symbols equal to 1.",
+    "Over an imperfect field use the regular normalization and possibly inseparable κ(P)/F; smoothness and separability are not added as hidden hypotheses."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.5.1, PDF p.256/draft p.248; III.7.6.1, PDF p.257/draft p.249",
+     "match": "Integral projective-line identity and generator-independent norms used in the derived pushdown."
+    },
+    {
+     "sourceId": "Suslin.1980",
+     "locator": "§2, Theorem 2.6 and proof, printed p.597/PDF p.9; torsion-quotient convention introduced p.594/PDF p.6",
+     "match": "Historical pushdown proof; §2 is in the torsion quotient. The integral strengthening is derived explicitly from the preceding targets."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Suslin reciprocity"
+   }
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/reciprocity-evaluation-compatibility",
+   "parentStageId": "K2SymbolsBrauer:T.4",
+   "realises": [
+    "K2SymbolsBrauer:T.4"
+   ],
+   "title": "Tame products and divisor evaluation use the existing curve interfaces",
+   "kind": "comparison",
+   "statement": "For a proper regular curve with function field K/F and f,g∈Kˣ, the product over closed points of N_(κ(P)/F)((−1)^(a_P b_P)res_P(f^(b_P)g^(−a_P))) equals 1, where a_P=ord_P f and b_P=ord_P g. If principal divisors are disjoint this identity is (Divisor.principal hF g).eval f=(Divisor.principal hF f).eval g. On an elliptic Weierstrass function field this is exactly EllipticCurves Layer2’s milestone, using its existing divisor evaluation.",
+   "hypotheses": [
+    "All fields have arbitrary characteristic; Milnor groups have integral coefficients."
+   ],
+   "prerequisites": [
+    "K2SymbolsBrauer:T.4/integral-curve-reciprocity",
+    "K2SymbolsBrauer:T.4/valuation-comparison",
+    "K2SymbolsBrauer:T.4/transfer-low-degrees",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+    "tauceti:TauCeti.Divisor.eval_eq_prod_normResidue",
+    "tauceti:TauCeti.Divisor.isUnitAtSupport_iff_disjoint",
+    "tauceti:TauCeti.Divisor.eval",
+    "tauceti:TauCeti.Divisor.principal",
+    "tauceti:TauCeti.Place.normResidue",
+    "tauceti:TauCeti.Place.normResidueOrOne",
+    "tauceti:TauCeti.Place.degree"
+   ],
+   "proofSteps": [
+    "Take n=1 in integral-curve-reciprocity and use the existing degree-one identification of the transfer with the determinant field norm. The local argument f^b g^(−a) has order ab−ba=0, so its residue is a unit.",
+    "Transport the place formula to closed points with AlgebraicCurves Layer12. Its order, residue equivalence and divisor comparisons are inputs; the K₂ layer adds only naturality of the symbol and field norm across them.",
+    "At a place of div g, disjointness makes a=0; the factor is N(res f)^b. At a place of div f it is N(res g)^(−a). Elsewhere it is 1. Thus the product is f(div g)/g(div f). Tau Ceti’s eval_eq_prod_normResidue and isUnitAtSupport_iff_disjoint identify these exact products with its Divisor.eval.",
+    "The pinned function-field instance applies to every affine Weierstrass curve W, so specialize the general evaluation theorem to W.FunctionField without an ellipticity hypothesis. In the elliptic case identify this specialization with the existing EllipticCurves Layer2 milestone. The suggested statements name the local order-zero adapter tame_argument_ord and the specialization weierstrass_eval_principal_reciprocity. Opposite tame conventions invert all local factors and give the same identity."
+   ],
+   "acceptance": [
+    "For f=t,g=t−2 over ℚ, the factors at 0,2,∞ are −1/2,2,−1, with product 1.",
+    "For f=t/(t−1),g=(t−2)/(t−3), disjoint divisors give both evaluations 4/3.",
+    "At the 5-adic place, ∂{5,2}=3∈𝔽₅ˣ; the opposite convention gives 2, so the sign/inversion choice is observable."
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.7.3, PDF p.254/draft p.246; III.7.5.1, PDF p.256/draft p.248",
+     "match": "Uniformizer-first source residue and projective-line formula; the displayed uniformizer-last factor and evaluation adapter are derived here."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "importedTargets": [
+  {
+   "id": "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.3/higher-ramification-formula",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/bass-tate-sequence",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements.",
+   "api": [
+    {
+     "name": "milnorNorm",
+     "statement": "For finite E/F and n≥0, the tower-independent homomorphism N_(E/F):Kᴹ_n(E)→+Kᴹ_n(F)."
+    },
+    {
+     "name": "milnorNorm_simple",
+     "statement": "For E=F(a), identify the general norm with the existing simple transfer N_(a/F)."
+    },
+    {
+     "name": "milnorNorm_trans",
+     "statement": "For finite F⊂E⊂L, N_(L/F)=N_(E/F)∘N_(L/E)."
+    },
+    {
+     "name": "milnorNorm_mul_restrict",
+     "statement": "For homogeneous x over F and y over E, N(res x·y)=x·N(y)."
+    },
+    {
+     "name": "milnorNorm_restrict",
+     "statement": "N_(E/F)res_(E/F)=[E:F] on each homogeneous group."
+    },
+    {
+     "name": "milnorNorm_degree_zero",
+     "statement": "Under Kᴹ₀=ℤ, the norm is multiplication by [E:F]."
+    },
+    {
+     "name": "milnorNorm_degree_one_eq_norm",
+     "statement": "Under Kᴹ₁(E)=Eˣ and Kᴹ₁(F)=Fˣ, the norm equals Algebra.normUnits F."
+    },
+    {
+     "name": "milnorNorm_algEquiv",
+     "statement": "Transport along any F-algebra field equivalence E≃ₐ[F]E′ commutes with norms to F."
+    }
+   ],
+   "tests": [
+    {
+     "name": "general_norm_identity",
+     "statement": "For E=F the map is the identity in every degree."
+    },
+    {
+     "name": "general_norm_quadratic_tower",
+     "statement": "In ℚ⊂ℚ(√2)⊂ℚ(√2,√3), the degree-zero norm sends 1 to 4, equal to the two steps multiplying by 2."
+    },
+    {
+     "name": "general_norm_radical_order",
+     "statement": "For the independent two-radical extension of 𝔽_p(s,t), either generator order gives multiplication by p² in degree zero and the determinant norm in degree one."
+    },
+    {
+     "name": "general_norm_generator_change",
+     "statement": "For ℚ(i), changing the generator i to −i leaves the degree-one norm of 1+i equal to 2."
+    }
+   ],
+   "uses": [
+    {
+     "where": "MotivicEtaleKTheory:M.4",
+     "how": "The simple-generator and transitivity equations make closed-point cycle norms independent of coordinates."
+    },
+    {
+     "where": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+     "how": "The projection and residue equations compose in towers of residue fields."
+    }
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/weil-reciprocity",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/valuation-comparison",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "comparison",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/milnor-projection-formula",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements.",
+   "proofSteps": [
+    "For a constant Milnor class x and any finite place or infinity, the last-slot product law gives ∂_q(res(x)·z)=res(x)·∂_q(z): the entries of x have order zero.",
+    "Choose an isolated finite-residue lift z of y at p, whose residue at every other finite q is zero. The product res(x)·z is an isolated lift of res(x)·y. Its negative infinity residue is x·N(y), proving projection. Infinity is not included among the vanishing residues."
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/leading-coefficient-splitting",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/degree-reduction",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/residue-section",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements.",
+   "api": [
+    {
+     "name": "milnorResidueSection",
+     "role": "constructor",
+     "statement": "h_p:Kᴹ_(n−1)(k_p)→+L_d/L_(d−1), with the monic irreducible polynomial in the last slot."
+    },
+    {
+     "name": "milnorResidueSection_symbol",
+     "role": "characterisation",
+     "statement": "On a symbol use the unique representatives of degree <d and append p."
+    },
+    {
+     "name": "milnorResidueSection_residue",
+     "role": "relation",
+     "statement": "The p-residue composed with h_p is the identity; a distinct degree-d residue gives zero."
+    },
+    {
+     "name": "milnorResidueSection_unique",
+     "role": "extensionality",
+     "statement": "The symbol equation determines h_p since symbols generate."
+    }
+   ],
+   "tests": [
+    {
+     "name": "section_degree_one",
+     "statement": "For n=1, h_p(1)=[{p}] and ∂_p{p}=1∈ℤ."
+    },
+    {
+     "name": "section_linear",
+     "statement": "For p=t−b and n=2, h_p(c)=[{c,t−b}], whose last-convention residue is c."
+    },
+    {
+     "name": "section_sign",
+     "statement": "Putting p first for n=2 gives c⁻¹ instead, so the slot choice is tested."
+    },
+    {
+     "name": "section_st-content",
+     "statement": "Residue representatives of degree <d whose classes add to1 have polynomial sum1; the resulting Steinberg symbol vanishes."
+    }
+   ],
+   "uses": [
+    {
+     "where": "K2SymbolsBrauer:T.4/bass-tate-filtration-assembly",
+     "how": "These sections lift the highest-degree finite residues in descending filtration induction."
+    }
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/filtration-quotients",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/simple-transfer",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "construction",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements.",
+   "api": [
+    {
+     "name": "milnorTransferSimple",
+     "role": "constructor",
+     "statement": "For a integral over F: N_{a/F} : K^M_n(F⟮a⟯) →+ K^M_n(F), defined through the residue at infinity."
+    },
+    {
+     "name": "milnorTransferSimple_eq_neg_residueInfty",
+     "role": "characterisation",
+     "statement": "If ∂_π(y) = x and ∂_p(y) = 0 for every monic irreducible p ≠ π, then N_{a/F}(x) = −∂_∞(y)."
+    },
+    {
+     "name": "residueInfty_eq_neg_sum_transfer",
+     "role": "relation",
+     "statement": "For y ∈ K^M_{n+1}F(t), −∂_∞(y) = Σ_p N_p(∂_p y), a finite sum (Weil's formula III.7.5.1)."
+    },
+    {
+     "name": "milnorTransferSimple_degree_zero",
+     "role": "simp",
+     "statement": "In degree zero N_{a/F}(m) = [F⟮a⟯ : F]·m."
+    },
+    {
+     "name": "milnorTransferSimple_of_mem",
+     "role": "simp",
+     "statement": "If a ∈ F then N_{a/F} is the identity of K^M_n(F)."
+    },
+    {
+     "name": "milnorTransferSimple_mul_restrict",
+     "role": "relation",
+     "statement": "Projection formula: N_{a/F}(res(x)·y) = x·N_{a/F}(y) for x ∈ K^M_*(F) and y ∈ K^M_*(F⟮a⟯). (T.4/milnor-projection-formula)"
+    },
+    {
+     "name": "milnorTransferSimple_restrict",
+     "role": "relation",
+     "statement": "N_{a/F}(res x) = [F⟮a⟯ : F]·x for x ∈ K^M_n(F). (T.4/restriction-transfer-degree)"
+    },
+    {
+     "name": "milnorTransferSimple_one_eq_norm",
+     "role": "compatibility",
+     "statement": "In degree one N_{a/F} is Algebra.norm F on F⟮a⟯ˣ (proved in T.4/transfer-low-degrees)."
+    },
+    {
+     "name": "milnorTransferSimple_kbook",
+     "role": "compatibility",
+     "statement": "N_{a/F} is the same whether the residues are normalised as in the roadmap or as in Theorem III.7.3."
+    }
+   ],
+   "tests": [
+    {
+     "name": "milnorTransferSimple_degree_zero_eq",
+     "kind": "computation",
+     "statement": "For [F⟮a⟯ : F] = d, N_{a/F}(1) = d in K^M_0(F) = ℤ, from y = π: ∂_π(π) = 1, the other finite residues vanish, and ∂_∞(π) = −d."
+    },
+    {
+     "name": "milnorTransferSimple_of_mem_eq_id",
+     "kind": "degenerate",
+     "statement": "If a ∈ F (π = t − a) then N_{a/F} = id: for x ∈ K^M_n(F), y = {x, t − a} has ∂_{t−a}(y) = x, no other finite residue, and ∂_∞(y) = −x."
+    },
+    {
+     "name": "milnorTransferSimple_one_eq_algebraNorm",
+     "kind": "compatibility",
+     "statement": "In degree one N_{a/F} = Algebra.norm F on F⟮a⟯ˣ; for ℚ(i)/ℚ, N(1 + i) = 2."
+    },
+    {
+     "name": "milnorTransferSimple_sign",
+     "kind": "non-example",
+     "statement": "The sign is forced: the maps defined by +∂_∞ = Σ N_p ∂_p would give N_{a/F}(1) = −[F⟮a⟯ : F] in degree zero."
+    },
+    {
+     "name": "milnorTransferSimple_projection_linear",
+     "kind": "characterisation",
+     "statement": "For c ∈ F^× and d ∈ F, N_{a/F}{c, a − d} = {c, N(a − d)}, from the projection formula and the degree-one case (the formula of Corollary III.6.1.5 for a quadratic extension)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "T.4/milnor-transfer-transitivity",
+     "how": "the transfer of any finite extension is the composite of these along a chain of generators, and Kato's theorem makes it independent of the chain"
+    },
+    {
+     "where": "T.4/milnor-projection-formula and T.4/restriction-transfer-degree",
+     "how": "the projection formula and the degree formula are proved for N_{a/F}"
+    },
+    {
+     "where": "T.4/projective-line-reciprocity",
+     "how": "the defining identity −∂_∞ = Σ N_p ∂_p is Weil's formula for the projective line"
+    },
+    {
+     "where": "T.3/transfer-and-norm-residue",
+     "how": "the norm-residue, projection and degree formulas for the general transfer start from the simple case"
+    },
+    {
+     "where": "HigherLocalFieldsAndHigherClassFieldTheory HL.1",
+     "how": "Milnor norms of extensions of higher local fields are these transfers"
+    },
+    {
+     "where": "MotivicEtaleKTheory M.4",
+     "how": "the norms N_{k(x)/F} in the inverse of the diagonal cycle map CH^n(F, n) → K^M_n(F) are Kato's norms built from these transfers"
+    }
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/transfer-low-degrees",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements.",
+   "proofSteps": [
+    "Induct on d=deg π, the degree-one case being the identity. For b∈Eˣ choose the unique polynomial g of degree e<d with g(a)=b.",
+    "Use y={g,π} in the uniformizer-last convention. Its p=π residue is b. At a monic irreducible factor q of g its residue is (π mod q)^(−ord_q g). At infinity its residue is (−1)^(de)lead(g)^(−d), since π is monic.",
+    "The defining projective-line identity gives N_(a/F)(b)=(−1)^(de)lead(g)^d ∏_q N_q(π mod q)^(ord_q g). The other finite places have zero residue. Every factor q has degree <d, so induction identifies its transfer with the field norm.",
+    "The determinant norm of g(a) equals the product of g over the roots of π, with root multiplicities and the relative field degree retained. This is Res(π,g). The resultant formula gives (−1)^(de)lead(g)^d times the product of π over all roots of g with multiplicity. Group by irreducible q to obtain the same expression, also for inseparable π or g."
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/projective-line-reciprocity",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements.",
+   "proofSteps": [
+    "The isolated-lift definition of the simple norms gives −∂∞=Σ_p N_p∂_p. Move the infinity term to obtain reciprocity on F(t), without using generator independence.",
+    "A symbol has nonzero residue only at infinity and at irreducible factors of the numerators or denominators of its entries. A finite sum of symbols therefore has finite support.",
+    "In degree two the transfer is the determinant field norm and the last-slot residue is the chosen tame symbol, so the additive relation becomes the multiplicative product formula. For {c,t−b}, the factors are c at t−b and c⁻¹ at infinity. They are the inverses of the K-book first-slot factors."
+   ],
+   "acceptance": [
+    "For {c,t−b}, the finite factor is c and the infinity factor is c⁻¹; all other factors are 1.",
+    "For {2,t} over ℚ the factors are 2 at t and 1/2 at infinity. Omitting infinity fails the product formula.",
+    "In degree one, n=0, the equality is Σ_v deg(v)ord_v(f)=0 for a rational function.",
+    "At 5 over ℚ, ∂{2,5}=2 in 𝔽₅ˣ, whereas ∂{5,2}=3. The separately named first-slot comparison inverts these degree-two values."
+   ]
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/weil-reciprocity-symbol-form",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/disjoint-support-reciprocity",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/prime-to-p-closure",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/transfer-base-change",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/p-closed-generation",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/kato-prime-degree",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/kato-complete-residue",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/constant-extension-residue",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/kato-commuting-square",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/complete-norm-residue",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "theorem",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements."
+  },
+  {
+   "id": "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+   "fromPacket": "K2SymbolsBrauer--T.3.json",
+   "role": "lemma",
+   "note": "Existing target retained by reference; see the reader and continuation proof map for precise proof refinements.",
+   "proofSteps": [
+    "For n=1 use ord_F N(y)=f ord_E(y). For n>1 use multilinearity, skew commutativity and {π,π}={π,−1} to make a₃,…,a_n units, and reduce a′ and a₂ separately to a unit or a uniformizer. Projection gives Nα={N(a′),a₂,…,a_n}. Compute first in the uniformizer-FIRST convention of K-book III.7.6.3; multiply both outputs by (−1)^(n−1) to recover this packet’s convention.",
+    "Both units: both residues are zero, since the norm of a unit is a unit. First uniformizer and a₂ unit: ord_F N(π′)=f and restriction fixes the base-unit residues, so both outputs are f{ā₂,…,ā_n}.",
+    "First unit and a₂=π: write π=u′(π′)^e. The upper residue is −e{ā′,ā₃,…}, its residue norm is −e{N_l/k(ā′),ā₃,…}; the lower residue is −{res N(a′),ā₃,…}. The determinant filtration identity res N(a′)=N_l/k(ā′)^e identifies them.",
+    "Both uniformizers: π=u′(π′)^e and N(π′)=uπ^f. The upper residue followed by norm is {(−1)^(ef)N_l/k(ū′),ā₃,…}; the lower is {(−1)^f ū⁻¹,ā₃,…}. Since ef=p, either e=1,f=p, where choose π′=π and u′=u=1, or e=p,f=1. In the latter choose π as the constant term of the Eisenstein minimal polynomial of π′, so u=(−1)^p and ū′=−1. The two expressions agree in both cases."
+   ],
+   "acceptance": [
+    "The both-uniformizers case retains the sign and unit correction, and uses ef=p.",
+    "At n=2, negate the first-slot residue on both sides to obtain the roadmap tame-symbol identity.",
+    "For n=1 the identity is ord_F N(y)=f ord_E(y); it uses the degree-zero residue norm."
+   ],
+   "sourceNote": "Derived four-case computation from K-book III.7.6.3, PDF p.257/draft p.249, using the explicitly requested DVR.2 determinant norm identities. No restricted-book proof is claimed to have been inspected."
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "K2SymbolsBrauer:T.4",
+   "status": "planned",
+   "note": "Every T.4 target has a statement, build order, source locator, checks and precise supplier contract. Existing targets are retained by reference and proof completions are acyclic new nodes. A recorded routing gap prevents closed coverage.",
+   "remaining": [
+    "Register/design/review the distinct complete-DVR Part II proposal and install DVR.0–DVR.3 contracts; do not use finite-residue LocalFieldsRamification Layer3 as a generic supplier.",
+    "Confirm the requested finer finite-normalization/completion exports of AlgebraicCurves Layers2/5 and the Layer12 dictionary, and align the EllipticCurves Layer2 evaluation milestone.",
+    "Consolidate continuation proof nodes into the inherited T.4 targets at package assembly, preserving public IDs and the single owner of each construction."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "G-T4-DVR-routing: complete discrete valuation fields with arbitrary residue",
+   "neededBy": [
+    "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+    "K2SymbolsBrauer:T.4/complete-residue-descent",
+    "K2SymbolsBrauer:T.4/finite-normalization-residue"
+   ],
+   "detail": "The distinct proposal LocalFieldsPartIICompleteDiscreteValuations specifies DVR.0 normalized finite extension valuations/completeness and normal residue actions; DVR.1 finite free integral closure, ef and totally ramified Eisenstein uniformizers; DVR.2 determinant norm order/residue identities; DVR.3 componentwise lengths after finite separable generic base change. Its source-backed proof/API/test brief is in restructure.supportPlan. It is not registered, hence no fictitious prerequisite points at it. Existing finite-residue LocalFieldsRamification is insufficient; the registered arbitrary-rank LocalFieldsRamificationPartII is a different roadmap. Until routing supplies these contracts, the listed K₂ proof completions are conditional. This is an explicit planning gap, not formal closure."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+   "need": "Import finite normalization of k[t] and k[t⁻¹] in arbitrary finite K/k(t), without separability. Request the precise finite-normalization completion corollary: for a DVR R with finite integral closure S in E, completing S and inverting a base uniformizer gives E⊗_F F^∧≃∏_w E_w^∧, with unchanged residue fields and index1 for E→E_w^∧. Finite-module completion and Chinese remaindering prove this; do not substitute a number-field-only completion theorem. The geometric normalization owner supplies this, while Layer5 supplies its place-completion interfaces.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.4/constant-extension-completion",
+    "K2SymbolsBrauer:T.4/finite-normalization-residue",
+    "K2SymbolsBrauer:T.4/integral-curve-reciprocity"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+   "need": "Import 12A/12B/12D: regular proper model (possibly nonsmooth), closed points↔places, residue F-algebra equivalences and degrees, Scheme.ord=Place.ord, and Weil divisors↔Divisor with principal divisors matching. T.4 transports tame symbols and norms; it proves none of this dictionary.",
+   "neededBy": [
+    "K2SymbolsBrauer:T.4/integral-curve-reciprocity",
+    "K2SymbolsBrauer:T.4/reciprocity-evaluation-compatibility"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+   "need": "Use the existing elliptic disjoint-support Weil-reciprocity milestone with Tau Ceti principal divisors and Divisor.eval. The general theorem’s specialization must be exactly f(div g)=g(div f). Import the special case and prove its compatibility; general reciprocity is proved independently via F(t).",
+   "neededBy": [
+    "K2SymbolsBrauer:T.4/reciprocity-evaluation-compatibility"
+   ]
+  }
+ ],
+ "restructure": [
+  {
+   "kind": "ownership",
+   "title": "One residue/norm owner and an acyclic order",
+   "detail": "Preserve RT-AREA-ktheory-1/28: T.3:symbols owns higher residues, specialization and finite support; T.4 owns simple/general Milnor transfers and the elementary norm–residue identities before Kato transitivity; T.3:localization-comparison follows T.4 and compares with Quillen transfer. Keep T.4→T.3:localization-comparison, not the reverse."
+  },
+  {
+   "kind": "ownership",
+   "title": "Geometric imports and downstream exports",
+   "detail": "Preserve AC-L39/40/41, with AlgebraicCurves Layers0/1/12 supplying their existing place and dictionary targets. Add/retain EllipticCurves Layer2→T.4 for the compatibility and T.4→MotivicEtaleKTheory M.4 for the integral norm and reciprocity exports (confirmed findings /32 and /12). HigherLocalFields HL.1 imports T.4 norms and reciprocity; it is not a premise. No T.5, T.6, T.7 or Bhatt–Scholze target is in this one-stage continuation."
+  },
+  {
+   "action": "extend",
+   "roadmaps": [
+    "K2SymbolsBrauer"
+   ],
+   "detail": "The needed arbitrary-residue complete-DVR substrate extends the local-fields direction. Its former suggested name collides with an already registered arbitrary-rank Part II, so route a distinct Part II module; no upstream file is edited here.",
+   "proposal": "LocalFieldsPartIICompleteDiscreteValuations (proposed, not registered)",
+   "supportPlan": {
+    "route": "part-ii",
+    "proposedRoadmapId": "LocalFieldsPartIICompleteDiscreteValuations",
+    "title": "Local Fields and Ramification, Part II module: complete discrete valuation fields with arbitrary residue",
+    "extends": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "status": "proposed-for-maintainer-routing; not a registered roadmap or executable prerequisite",
+    "firstPrerequisites": [
+     "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+    ],
+    "boundary": "Extend the existing finite-residue local-field theory to arbitrary-residue complete DVRs. Reuse native Valuation, valuationSubring, IsAdicComplete, integralClosure, IsLocalRing.ResidueField, Algebra.norm and module-length APIs. Compare the general constructions with the existing local-field structures by uniqueness and restriction of scalars. Do not reconstruct finite-residue local fields, add local compactness, assume perfect residues, or import Milnor/Quillen K-theory. AlgebraicCurves keeps completion of a place and the regular-model dictionary; K2SymbolsBrauer keeps Milnor norms, residues and the norm/residue square.",
+    "baselineAudit": [
+     {
+      "declaration": "mathlib:spectralNorm.normedField",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "file": "Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean",
+      "locator": "lines 690–700, 798–828, 910–917",
+      "scope": "The base is a complete nontrivially normed ultrametric field; the extension is algebraic. spectralNorm_unique gives uniqueness of power-multiplicative algebra norms; spectralNorm.completeSpace supplies completeness for a finite-dimensional extension. No residue-field finiteness is assumed. These do not by themselves export a normalized integer-valued valuation or its finite integral-closure lattice."
+     },
+     {
+      "declaration": "tauceti:Valuation.ord",
+      "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+      "file": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+      "scope": "Reuse the existing additive order and uniformizer/unit decomposition, rather than a second order function."
+     },
+     {
+      "declaration": "tauceti:TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer",
+      "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+      "file": "TauCeti/RingTheory/DiscreteValuationRing/Uniformizer.lean",
+      "locator": "lines 47–49, 185–205",
+      "scope": "For any DVR R and irreducible uniformizer π, this existing R-linear equivalence identifies its residue field with the mth maximal-ideal graded piece. No completeness or finite residue field is required. DVR.1 reuses it, then restricts scalars along k→l; no new graded-piece construction."
+     },
+     {
+      "declaration": "mathlib:Ideal.sum_ramification_inertia_eq_finrank",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "file": "Mathlib/RingTheory/RamificationInertia/Basic.lean",
+      "locator": "lines 67–75",
+      "scope": "Existing finite-flat rank formula, already in the packet baseline. After DVR.1 supplies a finite free integral closure and identifies the unique prime, reuse this formula and compare module rank with [E:F]; do not reprove finite-flat ramification algebra."
+     },
+     {
+      "declaration": "tauceti:TauCeti.Algebra.norm_quotient_mk",
+      "pin": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 (current read-only Tau Ceti, after the atlas pin)",
+      "file": "TauCeti/RingTheory/Norm/Quotient.lean",
+      "locator": "lines 29–48",
+      "scope": "For a finite free commutative R-algebra S, the determinant norm commutes with reduction modulo any ideal. Read at current main; not available in the pinned build and not added to its baseline. The future Part II must reuse this current export for DVR.2 rather than plan the reduction theorem again. Its remaining work is the e-step residue filtration and comparison with field norms."
+     }
+    ],
+    "targets": [
+     {
+      "id": "LocalFieldsPartIICompleteDiscreteValuations:DVR.0/finite-extension-valuation",
+      "kind": "construction",
+      "statement": "For a field F with a surjective v:F→ℤᵐ⁰ and v-adically complete valuation ring R, and any finite E/F, construct the unique normalized discrete valuation w on E extending the valuation class of v. E is complete for w, and ord_w(x)=e ord_v(x) on F× for a positive integer e. No separability or residue-field finiteness hypothesis.",
+      "prerequisites": [
+       "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+       "mathlib:spectralNorm.normedField",
+       "mathlib:spectralNorm_unique",
+       "mathlib:spectralNorm.completeSpace"
+      ],
+      "proofSteps": [
+       "Transport the π-adic completeness of R to the nontrivial real norm |x|=2^(−ord_v x) on F, with |0|=0. The valuation and norm topologies have the same powers-of-π neighborhood basis. Apply Mathlib’s existing spectral norm on E/F and its finite-dimensional completeness; no local compactness is used.",
+       "Distinct cosets of the value group of F in that of E give F-linearly independent elements: a linear relation would have a unique term of greatest norm, impossible by the ultrametric inequality. The index is therefore finite, at most [E:F]. A subgroup of ℝ containing ℤ with finite index is (1/e)ℤ for a unique e>0; normalize this group to ℤ and extend by the zero value.",
+       "An alternative normalized valuation with positive restriction index gives a real algebra norm extending |·| on F; spectralNorm_unique makes it the same norm. Surjectivity then identifies the normalized valuations and their ramification indices. Transport this uniqueness through field embeddings, isomorphisms and towers.",
+       "For a normal prime-degree E/F, the extension is Galois or purely inseparable. Lift a residue generator to an integral element and reduce its split minimal polynomial to see that the residue minimal polynomial splits in l. In the Galois case conjugates of that lift cover the distinct residue conjugates; restriction of automorphisms is onto the separable residue action. In the purely inseparable case the residue action has one embedding with its inseparable degree. Export this elementary normal-residue consequence for the prime-degree K₂ argument."
+      ],
+      "api": [
+       {
+        "name": "finiteExtensionValuation",
+        "statement": "The normalized Valuation E ℤᵐ⁰, with surjectivity, positive restriction index and no preinstalled valuation on E.",
+        "role": "other"
+       },
+       {
+        "name": "adicComplete_iff_complete_norm",
+        "statement": "The native π-adic completeness and completeness for 2^(−ord) agree; the norm and valuation topologies agree.",
+        "role": "other"
+       },
+       {
+        "name": "finiteExtensionValuation_unique",
+        "statement": "Any surjective discrete valuation on E with positive restriction index is this valuation; compatibility is a named equality, not a second global instance.",
+        "role": "other"
+       },
+       {
+        "name": "finiteExtensionValuation_tower",
+        "statement": "Restriction indices multiply in a finite tower; compatible embeddings preserve units and induce the native local residue map.",
+        "role": "compatibility"
+       },
+       {
+        "name": "finiteExtensionValuation_localField",
+        "statement": "Under IsNonarchimedeanLocalField F, identify this construction with the existing Layer 0 valuation class and normalized valuation.",
+        "role": "compatibility"
+       },
+       {
+        "name": "normal_prime_residue_action",
+        "role": "compatibility",
+        "statement": "If E/F is normal of prime degree p, l/k is normal, its degree is 1 or p, and Gal(E/F)→Aut_k(l) is surjective; if e=1 the self-base-change sum on E induces exactly the residue norm’s embedding sum with inseparable multiplicity."
+       }
+      ],
+      "tests": [
+       {
+        "name": "identity_extension",
+        "statement": "E=F gives e=1, the original valuation and residue map, and the original topology."
+       },
+       {
+        "name": "infinite_residue_ramification",
+        "statement": "F=ℚ((t)), E=ℚ((s)), t=s²: ord_E(s)=1, ord_E(t)=2 and e=2. No IsNonarchimedeanLocalField instance is assumed."
+       },
+       {
+        "name": "inseparable_residue_separable_field",
+        "statement": "k=F₂(a), F=k((t)), E=F(α), α²+tα+a=0: E/F is separable, e=1, residue l=k(√a) has inseparable degree 2. Reject a separable-residue requirement."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "Stacks.20261019",
+        "locator": "Lemma 10.162.8 (032W; Commutative Algebra PDF pp. 446–447); Lemma 10.153.4 (04GH; Commutative Algebra PDF p. 414); Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343); Lemma 10.121.8 (02MJ; Commutative Algebra PDF p. 295)",
+        "match": "Complete finite normalization, henselian local decomposition and norm/length foundation. The detailed requested consequences are decomposed below; these tags alone are not claimed as an exact export of every consequence."
+       }
+      ],
+      "uses": [
+       {
+        "where": "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+        "how": "Keep complete discrete valuations after finite prime-to-p descent, with ef and the norm/order and residue formulas needed for the four generated-symbol cases."
+       },
+       {
+        "where": "K2SymbolsBrauer:T.4/complete-residue-descent",
+        "how": "Compare all generic base-change factors with Artinian residue components without discarding ramification or multiplicity."
+       }
+      ]
+     },
+     {
+      "id": "LocalFieldsPartIICompleteDiscreteValuations:DVR.1/integral-closure-lattice",
+      "kind": "theorem",
+      "statement": "For the preceding finite E/F, S=integralClosure R E is the valuation ring of w, a complete DVR and a finite free R-module of rank [E:F]=e[l:k], with l and k the native residue fields. Identify π_F S=𝔪_S^e, and the e successive quotients with l as k-vector spaces. Residue extensions may be inseparable.",
+      "prerequisites": [
+       "LocalFieldsPartIICompleteDiscreteValuations:DVR.0/finite-extension-valuation",
+       "tauceti:TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer",
+       "mathlib:Ideal.sum_ramification_inertia_eq_finrank"
+      ],
+      "proofSteps": [
+       "Fix an F-basis of E. Continuity of its coordinate maps in the finite-dimensional spectral norm bounds the closed unit ball S₀ inside π_F^(−N)R^d for one N. The ball is an R-submodule; R is a Noetherian PID, so S₀ is finite and torsion free, hence free. Scaling the chosen basis into S₀ shows that its rank is d=[E:F]. This bounded-lattice argument uses neither compactness nor a finite residue field.",
+       "The ball is a subring. Since it is a finite R-algebra, each of its elements is integral. Conversely the ultrametric monic-polynomial argument bounds every integral element by 1. Thus S₀=integralClosure R E. The normalized discrete valuation identifies its maximal ideal and makes it a DVR; the spectral norm gives completeness.",
+       "Write π_F=uπ_E^e. The quotient S/π_F S has dimension d over k by freeness, and its π_E-adic filtration has e quotients isomorphic to l as k-vector spaces. Therefore d=e[l:k]; this also proves finite residue degree without a perfectness assumption. Reuse TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer for the graded pieces and restrict scalars from l to k. The existing finite-flat Ideal.sum_ramification_inertia_eq_finrank supplies the rank formula once this finite free local lattice is constructed; the filtration identifies its terms with these native e and f.",
+       "If l=k and [E:F]=e, a uniformizer of E generates E/F: its value group forces degree at least e. Uniqueness of the extended valuation bounds the nonleading coefficients of its minimal polynomial, and the constant coefficient has F-order one. Export the resulting Eisenstein polynomial for the two-uniformizer computation."
+      ],
+      "api": [
+       {
+        "name": "valuationSubring_equiv_integralClosure",
+        "statement": "A named R-algebra equivalence identifying the ring, its maximal ideal, residue field and units.",
+        "role": "compatibility"
+       },
+       {
+        "name": "integralClosure_finite_free",
+        "statement": "Module.Finite R S and Module.Free R S; finrank F E equals the R-module rank of S.",
+        "role": "other"
+       },
+       {
+        "name": "ramification_mul_residueDegree",
+        "statement": "e>0, [l:k]>0 and [E:F]=e[l:k], including purely inseparable E/F.",
+        "role": "other"
+       },
+       {
+        "name": "extension_uniformizer_filtration",
+        "statement": "Identify π_F S=𝔪_S^e and the e-step quotient S/π_F S. Reuse TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer for each piece; export the compatibility with the k-vector-space filtration, not a second graded-piece construction.",
+        "role": "other"
+       },
+       {
+        "name": "uniformizer_minpoly_eisenstein",
+        "statement": "If e=[E:F] and l=k, every uniformizer π_E generates E/F and its minimal polynomial over F is Eisenstein over R.",
+        "role": "other"
+       }
+      ],
+      "tests": [
+       {
+        "name": "tame_lattice",
+        "statement": "For t=s² over ℚ, S=ℚ[[s]] is R-free on 1,s; S/tS has two residue layers, each ℚ."
+       },
+       {
+        "name": "constant_lattice",
+        "statement": "E=ℚ(i)((t)) over ℚ((t)) has e=1, [l:k]=2, basis 1,i; t remains a uniformizer."
+       },
+       {
+        "name": "fierce_lattice",
+        "statement": "For α²+tα+a in characteristic 2, R[α] is free on 1,α, local with maximal ideal (t) and residue k(√a), hence a DVR and already the integral closure. It has e=1,f=2, not e=2,f=1."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "Stacks.20261019",
+        "locator": "Lemma 10.162.8 (032W; Commutative Algebra PDF pp. 446–447); Lemma 10.153.4 (04GH; Commutative Algebra PDF p. 414); Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343); Lemma 10.121.8 (02MJ; Commutative Algebra PDF p. 295)",
+        "match": "Complete finite normalization, henselian local decomposition and norm/length foundation. The detailed requested consequences are decomposed below; these tags alone are not claimed as an exact export of every consequence."
+       }
+      ],
+      "uses": [
+       {
+        "where": "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+        "how": "Keep complete discrete valuations after finite prime-to-p descent, with ef and the norm/order and residue formulas needed for the four generated-symbol cases."
+       },
+       {
+        "where": "K2SymbolsBrauer:T.4/complete-residue-descent",
+        "how": "Compare all generic base-change factors with Artinian residue components without discarding ramification or multiplicity."
+       }
+      ]
+     },
+     {
+      "id": "LocalFieldsPartIICompleteDiscreteValuations:DVR.2/norm-valuation-and-residue",
+      "kind": "theorem",
+      "statement": "For every finite extension E/F in DVR.0, ord_F(N_E/F y)=[l:k]ord_E(y) for y≠0. For u∈S×, N_E/F(u)∈R× and res_k(N_E/F u)=N_l/k(res_l u)^e. Here norms are the existing determinant norms, also for inseparable residue extensions.",
+      "prerequisites": [
+       "LocalFieldsPartIICompleteDiscreteValuations:DVR.1/integral-closure-lattice",
+       "mathlib:Algebra.norm"
+      ],
+      "proofSteps": [
+       "For integral nonzero y, the determinant of multiplication on the finite free R-lattice S has order length_R(S/yS). The π_E-filtration gives [l:k]ord_E(y). Write a general y as a quotient to extend the equality to E×.",
+       "For a unit u, reduce its multiplication matrix modulo π_F and filter S/π_F S by the e powers of π_E. On each quotient multiplication is by res_l u on l, with k-determinant N_l/k(res_l u). Multiplication of the e diagonal-block determinants gives the residue formula. This uses no embeddings or separability of l/k. The matrix-reduction step is already TauCeti.Algebra.norm_quotient_mk on current main (after the atlas pin); use it in the future supplier. Algebra.algebraMap_intNorm and Algebra.norm_norm are the existing integral/field and tower comparisons."
+      ],
+      "api": [
+       {
+        "name": "ord_norm",
+        "statement": "The valuation-of-norm identity for all nonzero elements, not just units.",
+        "role": "other"
+       },
+       {
+        "name": "residue_norm_unit",
+        "statement": "The displayed exponent-e residue identity for S×→R×.",
+        "role": "other"
+       },
+       {
+        "name": "norm_integral_norm_unit",
+        "statement": "Use the existing integral norm and Algebra.algebraMap_intNorm to restrict S→R, and restrict the homomorphism to units; do not define a second determinant norm.",
+        "role": "other"
+       },
+       {
+        "name": "norm_tower_and_localField",
+        "statement": "Reuse Algebra.norm_norm for tower maps. Compare the new identities with existing LocalFieldsRamification Layer 3 norms through the DVR.0 uniqueness comparisons.",
+        "role": "compatibility"
+       }
+      ],
+      "tests": [
+       {
+        "name": "ramified_norm_sign",
+        "statement": "For t=s² over ℚ, N(s)=−t and N(2)=4. Hence ord_F N(s)=1, and residue N(2)=2²: both the sign and exponent e=2 are visible."
+       },
+       {
+        "name": "constant_norm_degree",
+        "statement": "For ℚ(i)((t))/ℚ((t)), N(t)=t² and N(1+i)=2; the valuation factor is f=2, not e=1."
+       },
+       {
+        "name": "inseparable_residue_norm",
+        "statement": "For α²+tα+a, N(α)=a=N_l/k(√a), N(t)=t², e=1 and f=2. A norm defined as a product of distinct residue embeddings gives the wrong answer."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "Stacks.20261019",
+        "locator": "Lemma 10.162.8 (032W; Commutative Algebra PDF pp. 446–447); Lemma 10.153.4 (04GH; Commutative Algebra PDF p. 414); Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343); Lemma 10.121.8 (02MJ; Commutative Algebra PDF p. 295)",
+        "match": "Complete finite normalization, henselian local decomposition and norm/length foundation. The detailed requested consequences are decomposed below; these tags alone are not claimed as an exact export of every consequence."
+       }
+      ],
+      "uses": [
+       {
+        "where": "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+        "how": "Keep complete discrete valuations after finite prime-to-p descent, with ef and the norm/order and residue formulas needed for the four generated-symbol cases."
+       },
+       {
+        "where": "K2SymbolsBrauer:T.4/complete-residue-descent",
+        "how": "Compare all generic base-change factors with Artinian residue components without discarding ramification or multiplicity."
+       }
+      ]
+     },
+     {
+      "id": "LocalFieldsPartIICompleteDiscreteValuations:DVR.3/base-change-component-length",
+      "kind": "theorem",
+      "statement": "Let E/F be finite SEPARABLE and F′/F any finite extension of complete discretely valued fields. Let R,S,R′ be their valuation rings, k,l,k′ their residues, e=e(E/F), r=e(F′/F), E⊗F F′=∏E_i with valuation rings S_i and residues l_i. Write l⊗k k′=∏A_j, with L_j the residue of A_j and t_j=length_(A_j)(A_j). Put e_i=e(E_i/F′), e′_i=e(E_i/E). The natural residue maps assign each i to j and inject L_j into l_i. Then Σ_(i over j) e_i[l_i:L_j]=e t_j and Σ_(i over j) e′_i[l_i:L_j]=r t_j. No separability of l/k or equality l_i=L_j is assumed.",
+      "prerequisites": [
+       "LocalFieldsPartIICompleteDiscreteValuations:DVR.1/integral-closure-lattice"
+      ],
+      "proofSteps": [
+       "Separability of E/F makes its tensor with F′ a product of fields. B=S⊗R R′ injects into that algebra by R-flatness of R′; C=∏S_i is its finite normalization and B⊂C are full R′-lattices. Their quotient D is finite torsion. The R′- and B-actions are retained in the following length computation.",
+       "For multiplication by π′ on D, length additivity gives equal composition multiplicities of its kernel and cokernel, component by component. The snake exact sequence therefore gives equal B-module composition multiplicities of B/π′B and C/π′C. The simple factors are the L_j; this is elementary finite-length module additivity, not K(B)=G(B).",
+       "Filter B/π′B=(S/π_F S)⊗k k′ into e copies of l⊗k k′: the j multiplicity is e t_j. The i component of C/π′C has e_i copies of l_i, hence j multiplicity e_i[l_i:L_j]. This proves the first identity. Tower compatibility gives r e_i=e e′_i. Multiply the first identity by r and cancel positive e in ℕ to get the second. No torsion K-group cancellation occurs."
+      ],
+      "api": [
+       {
+        "name": "tensor_normalization_lattice",
+        "statement": "The canonical inclusion B⊂∏S_i is finite, has the stated common fraction algebra, and has finite-length cokernel over R′.",
+        "role": "other"
+       },
+       {
+        "name": "residue_component_map",
+        "statement": "The canonical A_j→l_i factors through an injective L_j→l_i, with complete assignment of factors and invariance under relabeling.",
+        "role": "other"
+       },
+       {
+        "name": "baseChange_component_length",
+        "statement": "Both displayed componentwise identities, natural in finite towers and compatible with e e′_i=r e_i.",
+        "role": "other"
+       },
+       {
+        "name": "separable_scope",
+        "statement": "Do not assert E⊗F F′ is reduced for inseparable E/F. Such E/F is handled by normal prime-degree towers in the K2 consumer; Artinian transfer lengths remain in the arbitrary-field base-change theorem.",
+        "role": "other"
+       }
+      ],
+      "tests": [
+       {
+        "name": "ramified_self_base_change",
+        "statement": "E=ℚ((s)), s²=t, F′=E: r=e=2; two E_i=E, each e_i=e′_i=1; l⊗k k′=ℚ has t_j=1, so the sum is 2."
+       },
+       {
+        "name": "larger_residue_than_compositum",
+        "statement": "E=ℚ((s)), s²=t and F′=ℚ((u)), u²=2t: one E_i=ℚ(√2)((u)), e_i=e′_i=1 and [l_i:L_j]=2 with L_j=ℚ, t_j=1. The length sum is 2; replacing l_i by the residue compositum gives 1 and fails."
+       },
+       {
+        "name": "nonreduced_residue_tensor",
+        "statement": "For α²+tα+a over F₂(a)((t)) and F′=E, the separable generic tensor is E×E but l⊗k l≅l[ε]/ε² has t_j=2. Here e=r=e_i=e′_i=1 and the two residue-degree terms are 1, giving 2=1·2. Using reduced residue factors with multiplicity 1 fails."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "Stacks.20261019",
+        "locator": "Lemma 10.162.8 (032W; Commutative Algebra PDF pp. 446–447); Lemma 10.153.4 (04GH; Commutative Algebra PDF p. 414); Remark 15.116.1 (09EM; More on Algebra PDF pp. 342–343); Lemma 10.121.8 (02MJ; Commutative Algebra PDF p. 295)",
+        "match": "Complete finite normalization, henselian local decomposition and norm/length foundation. The detailed requested consequences are decomposed below; these tags alone are not claimed as an exact export of every consequence."
+       }
+      ],
+      "uses": [
+       {
+        "where": "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+        "how": "Keep complete discrete valuations after finite prime-to-p descent, with ef and the norm/order and residue formulas needed for the four generated-symbol cases."
+       },
+       {
+        "where": "K2SymbolsBrauer:T.4/complete-residue-descent",
+        "how": "Compare all generic base-change factors with Artinian residue components without discarding ramification or multiplicity."
+       }
+      ]
+     }
+    ],
+    "proposedLinks": [
+     {
+      "source": "LocalFieldsPartIICompleteDiscreteValuations:DVR.0/finite-extension-valuation",
+      "target": "K2SymbolsBrauer:T.4/kato-complete-residue",
+      "use": "Valuations and completeness at the finite prime-to-p descent stage."
+     },
+     {
+      "source": "LocalFieldsPartIICompleteDiscreteValuations:DVR.1/integral-closure-lattice",
+      "target": "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+      "use": "Degree ef and totally ramified Eisenstein uniformizer."
+     },
+     {
+      "source": "LocalFieldsPartIICompleteDiscreteValuations:DVR.2/norm-valuation-and-residue",
+      "target": "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+      "use": "Degree-one valuation and unit residue norm; the two mixed generated-symbol cases."
+     },
+     {
+      "source": "LocalFieldsPartIICompleteDiscreteValuations:DVR.3/base-change-component-length",
+      "target": "K2SymbolsBrauer:T.4/complete-norm-residue",
+      "use": "Component multiplicities in the separable complete-extension descent; retain r before transfer back."
+     },
+     {
+      "source": "LocalFieldsPartIICompleteDiscreteValuations:DVR.1/integral-closure-lattice",
+      "target": "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+      "use": "Automatic finite normalization for the complete base, distinct from AlgebraicCurves’ normalization/completion contracts."
+     }
+    ],
+    "otherConsumers": "HigherLocalFields HL.0/HL.1 use finite extensions of residue towers, including infinite first residue fields. They should import this support after their own scope is checked; this is a maintainer lead, not a new edge or a modification of that packet. AlgebraicCurves Layer 5 keeps its arbitrary-residue completion comparisons. The new roadmap has no dependency on K2SymbolsBrauer, HigherLocalFields, ClassFieldTheory or AlgebraicCurves.",
+    "registration": "Maintainer: register/design/review LocalFieldsPartIICompleteDiscreteValuations with the four stable proposed contracts and links above, extending the existing roadmap first. Once registered, replace the generic-support gap by requests and stage prerequisites; once finer owner nodes exist, use their exact IDs. Until then these names occur only in this routing brief, prose and the explicit gap, never in prerequisites or requests.",
+    "collisionAudit": "The registered LocalFieldsRamificationPartII already owns Temkin-style arbitrary-rank GF.0–GF.6. Its scope expressly leaves the complete-DVR module separate. The distinct proposed identifier here avoids reassigning its name or inventing DVR stages inside it. GF.0 field existence is imported by the K₂ detector.",
+    "sourceAudit": "Rechecked the listed Stacks tags, arbitrary-residue scope, and the current Tau Ceti norm quotient theorem. Earlier restricted-book certification belongs to the predecessor; it is not renewed or required as an inspected source in this packet."
+   }
+  }
+ ],
+ "sourceIssues": [],
+ "upstreamNotes": [
+  {
+   "roadmap": "AlgebraicCurves",
+   "note": "Current main read: Layers0/1/2/5/12 already own the geometric and normalization interfaces used here. The precise generic finite-module completion export is requested rather than constructed in K₂."
+  },
+  {
+   "roadmap": "EllipticCurves",
+   "note": "Current Layer2 owns the elliptic evaluation reciprocity milestone; current Tau Ceti’s isogeny-based Weil pairing implementation does not supply general disjoint-support function reciprocity."
+  },
+  {
+   "roadmap": "LocalFieldsRamification",
+   "note": "Existing scope is finite-residue local fields. The current post-pin TauCeti.Algebra.norm_quotient_mk is already implemented and must be reused by the proposed arbitrary-residue DVR.2; it is not a pinned baseline declaration."
+  }
+ ],
+ "continuation": {
+  "predecessor": "K2SymbolsBrauer--T.3.json",
+  "policy": "Retain existing identifiers as imports, without duplicating their node records or editing the predecessor. New nodes are proof refinements/assembly targets of this same layer, not competing constructions. No inherited review is represented as an independent review of this packet.",
+  "proofMap": {
+   "degree-reduction": "degree-filtration-generation",
+   "bass-tate-sequence": "bass-tate-filtration-assembly",
+   "prime-to-p-closure": "prime-to-p-detection",
+   "milnor-transfer-transitivity": "kato-tower-comparison",
+   "kato-complete-residue": "prime-degree-residue-descent",
+   "constant-extension-residue": "constant-extension-completion",
+   "complete-norm-residue": "complete-residue-descent",
+   "T.3/transfer-and-norm-residue": "finite-normalization-residue",
+   "weil-reciprocity": "integral-curve-reciprocity",
+   "disjoint-support-reciprocity": "reciprocity-evaluation-compatibility"
+  },
+  "sourceIssueProvenance": "K2SymbolsBrauer/E5–E8, E10 and E11 are inherited source findings, rechecked in the public combined K-book draft; the reader records the relevant corrections in paraphrase. E13’s original restricted-edition certification is not renewed; the Artinian-length counterexample is computed independently here. No inherited review object is copied.",
+  "packageConsolidation": "At assembly merge the new proof-completion statements into the existing target records named by proofMap, retaining the imported construction IDs and API. The checked standalone continuation avoids duplicate node records; it does not propose two libraries implementing the same norm."
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-K2SymbolsBrauer--T.4",
+  "date": "2026-10-19",
+  "notes": "Independent target-level review of T.4 only: all 12 new nodes, 26 imported target contracts, 28 pinned baseline declarations, source locators, ownership audit, construction APIs/tests, four planets and the suggested Lean file checked. Refined four baseline descriptions and recorded independent source locations; synchronized the reader with the compact Lean statements and named comparison adapters. The packet is one complete planning pass with planned coverage, one explicit arbitrary-residue complete-DVR routing gap and three owner requests; acceptance does not close these dependencies or claim implementation. No nodes added or source findings newly asserted. lean-check passes with exactly two expected admitted-proof warnings. See the review report for per-node, source and red-team verdicts.",
+  "checked": [
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/degree-filtration-generation",
+    "verdict": "verified",
+    "note": "The Steinberg expansion has the displayed signs; mixed constants and repeated entries are retained. Skew commutativity, rather than exterior alternation, is supplied by T.2."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/bass-tate-filtration-assembly",
+    "verdict": "verified",
+    "note": "Degree-quotient sections plus finite descending induction give the finite-place exact sequence; the leading-coefficient retraction proves injectivity of constants. Infinity is excluded from the direct sum."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/prime-to-p-detection",
+    "verdict": "verified",
+    "note": "Read the existing GF.0 maximal-P-extension supplier. Finite-presentation descent and any simple norm tower kill the restriction kernel by a prime-to-p integer without assuming Kato transitivity."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/tower-splitting-formula",
+    "verdict": "verified",
+    "note": "Iterated simple base change is used over a finite normal hull, not over a possibly nonnormal E. The normal-hull degree supplies a sufficient annihilator."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+    "verdict": "verified",
+    "note": "Checked both ef=p cases, the four generated-symbol cases and prime-to-p finite descent. Only finite descended fields are treated as complete DVRs; no index is canceled in a Milnor group. Conditional on the recorded DVR supplier gap."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/constant-extension-completion",
+    "verdict": "verified",
+    "note": "Finite normalization and its requested completion export give field factors of multiplicity one, including the inseparable constant-extension case and infinity. Only normal-prime-degree residue compatibility is used before Kato."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/kato-tower-comparison",
+    "verdict": "verified",
+    "note": "Checked the corrected simple-norm base, normal-hull torsion detection, and compositum induction on longer maximal prime-degree towers. General finite base change is not used as a premise."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/finite-transfer-base-change",
+    "verdict": "verified",
+    "note": "Composition-series multiplicities are local Artinian module lengths, not nilpotence indices. This theorem follows Kato; the two independent p-radicals test distinguishes the coefficients."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/complete-residue-descent",
+    "verdict": "verified",
+    "note": "Checked the componentwise lattice identities and finite prime-to-p descent, with potentially larger residue fields l_i/L_j. Integer-length cancellation is kept separate from Milnor groups. Conditional on DVR.0–DVR.3."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/finite-normalization-residue",
+    "verdict": "verified",
+    "note": "The finite integral-closure hypothesis justifies completion into field factors of multiplicity one. The export keeps its inherited T.3 identifier but its mathematical owner is T.4."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/integral-curve-reciprocity",
+    "verdict": "verified",
+    "note": "Pushdown from an arbitrary one-variable function field uses integral Kato norms and the finite-normalization square. Suslin §2 is correctly marked as a torsion-quotient argument; imperfect constants do not require a smooth model."
+   },
+   {
+    "nodeId": "K2SymbolsBrauer:T.4/reciprocity-evaluation-compatibility",
+    "verdict": "corrected",
+    "note": "Checked the residue-degree sign, order-zero argument and native evaluation quotient. The suggested file now names the proved order-zero adapter and Weierstrass specialization; its two general reciprocity statements remain admitted."
+   }
+  ]
+ }
+}

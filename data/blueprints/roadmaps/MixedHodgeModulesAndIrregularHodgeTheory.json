@@ -1,0 +1,386 @@
+{
+  "id": "MixedHodgeModulesAndIrregularHodgeTheory",
+  "title": "Mixed Hodge modules, exponential mixed Hodge structures and the irregular Hodge filtration",
+  "area": "motives",
+  "parent": null,
+  "summary": "A target-level plan for Saito Hodge modules, their exponential quotient and the irregular Hodge filtration used by the Kloosterman appendix. General D-module algebra is imported from the Springer roadmap. The plan fixes Betti, cohomological, Tate and weight conventions, supplies the classical tg criterion and the general log/Newton computational interfaces, and keeps the special Kloosterman computations with their companion owner.",
+  "readme": "This roadmap constructs the Hodge-module and exponential realization machinery behind the general appendix of Fresán–Sabbah–Yu. It builds on the existing linear Hodge structures and on Springer’s algebraic D-modules, then proves the classical tg criterion, Fourier costalk comparison and log/Newton filtration descriptions. Its reader document is research/blueprint/readmes/MixedHodgeModulesAndIrregularHodgeTheory.md. It exports general interfaces to KloostermanMomentsAndPotentialAutomorphy; that companion owns the special connections and their numerical Hodge computations.",
+  "prerequisites": [
+    "SpringerResolutionAndCharacteristicCycles",
+    "EnhancedDerivedSheaves",
+    "SchemeAndStackFoundations",
+    "HodgeStructuresPartII",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "AlgebraicModuliForArithmeticGeometry",
+    "LefschetzPencilsAndVanishingCycles",
+    "ComplexComparisonPartII"
+  ],
+  "stages": [
+    {
+      "key": "B",
+      "title": "Betti constructibility and regular Riemann–Hilbert",
+      "description": "On analytifications of complex algebraic varieties, construct bounded algebraically constructible rational and complex sheaf categories with the support and cosupport middle perversity, recollement, Verdier duality, the six operations and nearby/vanishing cycles. Prove the algebraic regular Riemann–Hilbert comparison, normalized by DR(M)[dim X], from Springer’s regular holonomic modules. This is the Betti interface; the existing étale perverse roadmaps retain their ℓ-adic objects.",
+      "requires": [
+        "EnhancedDerivedSheaves:E1",
+        "ComplexComparisonPartII:C0",
+        "ComplexComparisonPartII:C5",
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "SpringerResolutionAndCharacteristicCycles:H"
+      ]
+    },
+    {
+      "key": "D",
+      "title": "Formal slopes and the index on a punctured curve",
+      "description": "Import differential operators, holonomicity, transfer, duality and intermediate extension from Springer. Construct formal differential modules at a curve point, the finite ramified exponential decomposition, rational slopes and irregularity. Prove the local index comparison and, for a connection on G_m regular at zero, dim H¹_dR−dim H⁰_dR = irr_∞. The kernel of j_!E→j_!*E has punctual support.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:B",
+        "SpringerResolutionAndCharacteristicCycles:D",
+        "SpringerResolutionAndCharacteristicCycles:H",
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison"
+      ]
+    },
+    {
+      "key": "F",
+      "title": "Exponential connections and Fourier–Laplace operations",
+      "description": "Construct exponential twists with connection d+df, Fourier–Laplace transformation with kernel E^{tτ}, additive derived convolution, and localized Fourier transformation. Prove exactness on holonomic modules, Fourier inversion with the sign involution, duality, regular-input slope bounds and the projector/localization identity. Keep unshifted de Rham degrees 0,…,dim X separate from perverse degrees.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:D",
+        "SpringerResolutionAndCharacteristicCycles:H"
+      ]
+    },
+    {
+      "key": "H.0",
+      "title": "Pure and mixed Hodge modules",
+      "description": "Construct compatible good F,V and Rees modules; define polarizable pure Hodge modules by strict support, recursive specialization and primitive polarizations. Build graded-polarizable algebraic mixed Hodge modules by admissibility and relative monodromy, not by a bare tuple. Prove strict-support extension and semisimplicity, the polarized projective direct-image theorem and abelian strictness. The construction is in every smooth quasi-projective dimension, including the dimensions of pair pushforwards. At a point compare with the existing Tau Ceti rational mixed Hodge structures.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:B",
+        "MixedHodgeModulesAndIrregularHodgeTheory:D",
+        "HodgeStructuresPartII:H.0",
+        "HodgeStructuresPartII:H.2",
+        "HodgeStructuresPartII:H.6",
+        "LefschetzPencilsAndVanishingCycles:LPV.1",
+        "LefschetzPencilsAndVanishingCycles:LPV.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "SpringerResolutionAndCharacteristicCycles:D"
+      ]
+    },
+    {
+      "key": "H.1",
+      "title": "Hodge-module operations, weights and specialization",
+      "description": "Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded derived Hodge modules and establish weight inequalities. Construct normalized nearby and vanishing cycles with can, var and N. Prove curve rank and pure costalk formulas and constant-divisor localization, including singular reduced divisors through the supported ambient category. Normalize D(pQ_U)=pQ_U(dim U) and i* pQ_U=pQ_D[1].",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:H.0",
+        "MixedHodgeModulesAndIrregularHodgeTheory:B",
+        "LefschetzPencilsAndVanishingCycles:LPV.1",
+        "HodgeStructuresPartII:H.2"
+      ]
+    },
+    {
+      "key": "E",
+      "title": "Exponential mixed Hodge structures and the projector",
+      "description": "Define EMHS as the full subcategory with vanishing derived global Betti cohomology. Construct Π by additive convolution with j_!pQ_Gm, prove its reflector and constant-kernel/cokernel properties, and construct its tensor product, induced exponential weights and faithful exact de Rham fibre. Distinguish these weights from the ambient MHM(A¹) weights.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:H.1",
+        "MixedHodgeModulesAndIrregularHodgeTheory:F"
+      ]
+    },
+    {
+      "key": "I",
+      "title": "Deligne filtration and strict bifiltered realization",
+      "description": "Construct the rational Deligne filtration on the exponential twist of a mixed Hodge module on A¹, with the F,V/Rees normalization fixed by the punctual classical object. Prove the filtered Laplace specialization formula, polarized curve strictness and E₁ degeneration, then factor the de Rham realization through Π. Establish strictness simultaneously on W_n∩Fᵖ, not merely separately for the two filtrations.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:E",
+        "MixedHodgeModulesAndIrregularHodgeTheory:H.0",
+        "MixedHodgeModulesAndIrregularHodgeTheory:H.1"
+      ]
+    },
+    {
+      "key": "C",
+      "title": "Classical mixed Hodge structures inside EMHS",
+      "description": "Construct the fully faithful tensor functor V↦Π i_{0!}V from the existing rational mixed Hodge structures, with φ_{t,1} as inverse on its image and agreement with the classical weight filtration. For ΠN in this classical image, identify its bifiltered de Rham fibre with φ_{t,1}N and prove F_irr=F. An integral jumping set alone is not the definition of classical.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:I",
+        "MixedHodgeModulesAndIrregularHodgeTheory:E"
+      ]
+    },
+    {
+      "key": "P",
+      "title": "Cohomology of a pair and its weights",
+      "description": "Construct ordinary, compactly supported and middle exponential cohomology of a smooth quasi-projective pair (U,f), and the coefficient version. Identify the fibres with the unshifted twisted de Rham groups, prove Künneth, duality, the middle-weight criterion and divisor localization, and compute the affine-line and torus-sum Tate examples. At f=0 recover the usual mixed Hodge structures.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:C",
+        "MixedHodgeModulesAndIrregularHodgeTheory:H.1",
+        "MixedHodgeModulesAndIrregularHodgeTheory:E"
+      ]
+    },
+    {
+      "key": "G",
+      "title": "The classical tg criterion and the zero locus",
+      "description": "For V smooth quasi-projective, g regular and M in MHM(V), prove classicality of all degrees for pQ_A¹⊠M with exponential tg, and of the ordinary [*0] and compact [!0] variants. For constant coefficients identify compact cohomology with H_c^{r−2}(g^{-1}(0))(−1), and ordinary cohomology with H^r_{g^{-1}(0)}(V); reduce the latter to H^{r−2}(g^{-1}(0))(−1) when the zero locus is a smooth divisor.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:P",
+        "MixedHodgeModulesAndIrregularHodgeTheory:F",
+        "HodgeStructuresPartII:H.2"
+      ]
+    },
+    {
+      "key": "T",
+      "title": "Fourier cohomology, costalks and weights at infinity",
+      "description": "Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×A¹,tτ), without claiming its Fourier transform is an MHM. Prove the costalk comparison and pure-input Hodge-number formula, and compute the constant correction of Π. Prove the general nearby-infinity monodromy-filtration theorem for Π of a pure Hodge module with no constant submodule, retaining every primitive part. Specific Kloosterman Jordan blocks belong to the companion roadmap.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:G",
+        "MixedHodgeModulesAndIrregularHodgeTheory:H.1",
+        "MixedHodgeModulesAndIrregularHodgeTheory:I",
+        "LefschetzPencilsAndVanishingCycles:LPV.1"
+      ]
+    },
+    {
+      "key": "N",
+      "title": "Logarithmic and Newton descriptions of the filtration",
+      "description": "Construct the pole-order logarithmic filtration on good and non-degenerate compactifications; prove filtered blow-up comparison, model independence, E₁ degeneration and agreement with the EMHS filtration. For a full dimensional Newton-nondegenerate Laurent polynomial, construct the cone Newton complex and prove its comparison and top-degree concentration. For convenient non-degenerate Laurent maps prove that the cone of h_!O→h_*O has constant cohomology, and export the Π comparison. Import toric varieties and refinements; the companion owns the special polytopes, parity tests, monomial bases and Kloosterman Hodge counts. Prove rationally filtered Künneth by the explicit product-model blowups and filtered duality by the compact horizontal-boundary log complex.",
+      "requires": [
+        "MixedHodgeModulesAndIrregularHodgeTheory:P",
+        "MixedHodgeModulesAndIrregularHodgeTheory:I",
+        "MixedHodgeModulesAndIrregularHodgeTheory:T",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+        "AnalyticToricGeometryPartII:NT.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "SchemeAndStackFoundations:SF.2",
+        "HodgeStructuresPartII:H.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "FSY",
+      "title": "Hodge theory of Kloosterman connections",
+      "authors": "Javier Fresán, Claude Sabbah and Jeng-Daw Yu",
+      "edition": "arXiv:1810.06454v5, 13 June 2022; preprint pagination, compared with the Duke journal PDF for the source findings",
+      "url": "https://arxiv.org/pdf/1810.06454v5",
+      "sha256": "835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a",
+      "readSections": [
+        "Appendix A.1–A.7, pp. 59–73, including proofs",
+        "§2.3, Proposition 2.21, pp. 16–18",
+        "§4.3.1–§4.3.3, pp. 35–37"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Sai88",
+      "title": "Modules de Hodge polarisables",
+      "authors": "Morihiko Saito",
+      "edition": "Publ. RIMS 24 (1988), 849–995; EMS scan",
+      "url": "https://ems.press/content/serial-article-files/42460?nt=1",
+      "sha256": "df2653bc41c4564f7c6766ddf95405455b46bfeddd5b0c6e3d30884f244d7847",
+      "readSections": [
+        "§3.1.1–§3.1.8, pp. 902–905",
+        "§3.2.1–§3.2.6, pp. 905–908",
+        "§5.1.6–§5.1.10, pp. 955–958",
+        "§5.2.10–§5.2.14, pp. 967–970",
+        "Theorem 5.3.1 and §5.3.3–§5.3.11, pp. 977–988"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Sai90",
+      "title": "Mixed Hodge modules",
+      "authors": "Morihiko Saito",
+      "edition": "Publ. RIMS 26 (1990), 221–333; EMS scan",
+      "url": "https://ems.press/content/serial-article-files/42511",
+      "sha256": "dbad6d4c4e04bbb4faf201d75f1261cdcab14e452406a480d49a299bf612c06e",
+      "readSections": [
+        "Introduction 0.1–0.3, pp. 221–226",
+        "§1.7–§1.9, pp. 231–232",
+        "§2.2–§2.4 and §2.7–§2.11, pp. 237–247",
+        "§3.29 and §4.1–§4.5, pp. 314–325"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Dimca",
+      "title": "Sheaves in Topology",
+      "authors": "Alexandru Dimca",
+      "edition": "Universitext, Springer, 2004; maintainer-cleared reference copy",
+      "url": "https://doi.org/10.1007/978-3-642-18868-8",
+      "sha256": "df94a967ff4a42867e156e2779ce40713599d694a9315f0d7a26247751327216",
+      "readSections": [
+        "§4.1, Definition 4.1.1 and Theorem 4.1.5, pp. 81–84",
+        "§4.2, pp. 107–117",
+        "§5.1–§5.3, pp. 125–145, particularly 5.1.20, 5.2.16, 5.2.21 and 5.3.3"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Kash84",
+      "title": "The Riemann–Hilbert problem for holonomic systems",
+      "authors": "Masaki Kashiwara",
+      "edition": "Publ. RIMS 20 (1984), 319–365",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~kenkyubu/kashiwara/RiemannHilbert.pdf",
+      "sha256": "50ad9c9f2b1bc1732680266abe2853c366fe84c48094745809efcc0d89c1839f",
+      "readSections": [
+        "Main theorem, §6, pp. 353–355",
+        "§7, proof by reduction to normal crossings, pp. 355–362"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "KS",
+      "title": "Cohomological Hall algebra, exponential Hodge structures and motivic Donaldson–Thomas invariants",
+      "authors": "Maxim Kontsevich and Yan Soibelman",
+      "edition": "arXiv:1006.2706v2, 11 July 2011; preprint pagination",
+      "url": "https://arxiv.org/pdf/1006.2706v2",
+      "sha256": "112e37646324143b1367c99a77e640e6dee25b959a6869dbefe08822935d7899",
+      "readSections": [
+        "§4.2, pp. 27–31, projector and tensor product",
+        "§4.4, pp. 34–37, Definitions 11–12 and Propositions 2–4"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "ESY",
+      "title": "E₁-degeneration of the irregular Hodge filtration",
+      "authors": "Hélène Esnault, Claude Sabbah and Jeng-Daw Yu, with appendices by Morihiko Saito",
+      "edition": "arXiv:1302.4537v3, 30 January 2014; preprint pagination",
+      "url": "https://arxiv.org/pdf/1302.4537v3",
+      "sha256": "121413dfe3841e616ffd965aecb1ebe3d2b1d209e9703c77e3d17dd20f3c5093",
+      "readSections": [
+        "§1.2, Theorem 1.2.2, pp. 5–6",
+        "§1.6, pp. 11–14",
+        "§2.2–§2.4, pp. 19–22",
+        "§3.1–§3.4, pp. 22–26",
+        "Appendices A–B, pp. 26–29"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Yu",
+      "title": "Irregular Hodge filtration on twisted de Rham cohomology",
+      "authors": "Jeng-Daw Yu",
+      "edition": "arXiv:1203.2338v2, 4 October 2013; preprint pagination",
+      "url": "https://arxiv.org/pdf/1203.2338v2",
+      "sha256": "c93ae0e6872773b23c3fb9b4912b129290bb99b66cf749bae6734ab0b3618a1a",
+      "readSections": [
+        "§1, pp. 4–13, especially Lemma 1.6, Theorem 1.7 and Corollary 1.8",
+        "§2, Theorem 2.2 and proof, pp. 14–16",
+        "§4, pp. 25–31, Theorem 4.1, Corollary 4.2, Proposition 4.4 and Theorem 4.6",
+        "Appendix A, Theorem A.1 and Proposition A.2, p. 32"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "MT",
+      "title": "Monodromy at infinity of polynomial maps and Newton polyhedra (appendix by Claude Sabbah)",
+      "authors": "Yutaka Matsui and Kiyoshi Takeuchi; appendix by Claude Sabbah",
+      "edition": "arXiv:0912.5144v12, 22 February 2012; appendix pp. 34–40",
+      "url": "https://arxiv.org/pdf/0912.5144v12",
+      "sha256": "72b79aec67f493556ffbf530fd69b501641aba13febb5f171059e4cb62d4c248",
+      "readSections": [
+        "Appendix A.1–A.5, pp. 34–40; Proposition A.3 and its complete proof"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Sab10",
+      "title": "Fourier–Laplace transform of a variation of polarized complex Hodge structure, II",
+      "authors": "Claude Sabbah",
+      "edition": "arXiv:0804.4328v2; published in Adv. Stud. Pure Math. 59 (2010), 289–347; locators use preprint pages",
+      "url": "https://arxiv.org/pdf/0804.4328v2",
+      "sha256": "5421e4dd10e7b59bcf30363fa25cc28137882bc01b4c20a97e936de5a615bbfa",
+      "readSections": [
+        "§6.a–§6.c, Theorem 6.1 and Proposition 6.10, pp. 30–36"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Mal20",
+      "title": "Sur les points singuliers des équations différentielles",
+      "authors": "Bernard Malgrange",
+      "edition": "Séminaire Goulaouic–Schwartz 1971–1972, exposé XX, pp. 1–13",
+      "url": "https://www.numdam.org/item/SEDP_1971-1972____A20_0.pdf",
+      "sha256": "02476242322da82e4cab763c1ca9286a9aa433ddf83eaf8ddefd45211269ed55",
+      "readSections": [
+        "§1–§3, pp. XX.1–XX.11, local analytic/formal index comparison and Theorem 3.3"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Mal21",
+      "title": "Sur les points singuliers des équations différentielles (suite)",
+      "authors": "Bernard Malgrange",
+      "edition": "Séminaire Goulaouic–Schwartz 1971–1972, exposé XXI, pp. 1–8",
+      "url": "https://www.numdam.org/item/SEDP_1971-1972____A21_0.pdf",
+      "sha256": "152b997f6b8d6d21491f2e585ba064266476a63e76a2b899e66b6c2c6b629d00",
+      "readSections": [
+        "§5, Propositions 5.1 and 5.5, Definition 5.3, pp. XXI.1–XXI.4",
+        "§6, Proposition 6.1, pp. XXI.4–XXI.6"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Mal22",
+      "title": "Sur les points singuliers des équations différentielles (fin)",
+      "authors": "Bernard Malgrange",
+      "edition": "Séminaire Goulaouic–Schwartz 1971–1972, exposé XXII, pp. 1–15",
+      "url": "https://www.numdam.org/item/SEDP_1971-1972____A22_0.pdf",
+      "sha256": "299278e85598bf039669d914ce1ce9064ca6795ed2ae74eb073c6805ddbdb18e",
+      "readSections": [
+        "§8, Proposition 8.4 and Remark 8.5, pp. XXII.6–XXII.7",
+        "§9, formal splitting and ramification algorithm, pp. XXII.7–XXII.12",
+        "§10.C, Theorem 10.3, p. XXII.14"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Zucker",
+      "title": "Hodge theory with degenerating coefficients: L₂ cohomology in the Poincaré metric",
+      "authors": "Steven Zucker",
+      "edition": "Annals of Mathematics 109 (1979), 415–476; journal scan hosted by Christian Schnell",
+      "url": "https://www.math.stonybrook.edu/~cschnell/mat690/Zucker.pdf",
+      "sha256": "99d6bc6eb8043482fd97376e438e130ff599a6ef2de0c097f648268a726a4183",
+      "readSections": [
+        "§4, Theorem 4.8, pp. 433–434",
+        "§5–§6, local L₂ lemmas and their estimates, pp. 434–444",
+        "§7–§8, Theorem 7.12, Corollary 7.13 and Proposition 8.2, pp. 444–448"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "DL",
+      "title": "Weights of exponential sums, intersection cohomology, and Newton polyhedra",
+      "authors": "Jan Denef and François Loeser",
+      "edition": "Invent. math. 106 (1991), 275–294; journal scan on the author’s site",
+      "url": "https://webusers.imj-prg.fr/~francois.loeser/inv91.pdf",
+      "sha256": "de8e88867f8bfb81ceccbf18bbafb843353be74d6bbb470b0d65a474047d423b",
+      "readSections": [
+        "§3.3–§3.9, pp. 280–282, toroidal graph compactification, boundary local acyclicity and the convenient case"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "CY",
+      "title": "The Künneth Formula for the Twisted de Rham and Higgs Cohomologies",
+      "authors": "Kai-Chieh Chen and Jeng-Daw Yu",
+      "edition": "SIGMA 14 (2018), 055, 14 pages; journal PDF",
+      "url": "https://www.imath.kiev.ua/~sigma/2018/055/sigma18-055.pdf",
+      "sha256": "3eb5be54fa3188da3a4db6cc084c8b2e1843bb2e09dfb9d3032b5cb60969249a",
+      "readSections": [
+        "Theorem 1, pp. 1–2; §2.1–§2.3, pp. 2–7; §3.1–§3.2, pp. 7–11, including both comparison lemmas"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "FSY-journal",
+      "title": "Hodge theory of Kloosterman connections",
+      "authors": "Javier Fresán, Claude Sabbah and Jeng-Daw Yu",
+      "edition": "Duke Math. J. 171 (2022), no. 8, 1649–1747; journal PDF on first author’s site",
+      "url": "https://javier.fresan.perso.math.cnrs.fr/kloosterman.pdf",
+      "sha256": "ad040af9cb7b87e1adf72825d2f2e5efb857407e0c573fecb641c43dc2b33039",
+      "readSections": [
+        "Appendix A.2, pp. 1726–1729; Example A.27, p. 1739, compared with the arXiv version for the source findings"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}

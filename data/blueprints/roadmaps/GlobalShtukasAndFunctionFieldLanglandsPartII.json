@@ -1,0 +1,308 @@
+{
+ "id": "GlobalShtukasAndFunctionFieldLanglandsPartII",
+ "title": "Global shtukas and Langlands over function fields, Part II: Ramanujan and Arthur weight constraints",
+ "area": "functionfields",
+ "parent": "GlobalShtukasAndFunctionFieldLanglands",
+ "summary": "Part II of GlobalShtukasAndFunctionFieldLanglands: weight-theoretic constraints on the parent’s global parameters. It plans the generic Ramanujan theorem in the central-compact sector, with a fixed-ι tempered anchor or an arithmetic discrete-series anchor; propagation of complementary series and elimination of extraneous points; and the required local-parameter, globalization and cohomological inputs. The partial layers name their missing supplier contracts. The Arthur endpoint concerns weight patterns and normalized real Satake parts, while a global Arthur homomorphism and the discrete decomposition remain conjectural.",
+ "readme": "# Global shtukas and Langlands over function fields, Part II: Ramanujan and Arthur weight constraints\n\nPart II of GlobalShtukasAndFunctionFieldLanglands: weight-theoretic constraints on the parent’s global parameters. It plans the generic Ramanujan theorem in the central-compact sector, with a fixed-ι tempered anchor or an arithmetic discrete-series anchor; propagation of complementary series and elimination of extraneous points; and the required local-parameter, globalization and cohomological inputs. The partial layers name their missing supplier contracts. The Arthur endpoint concerns weight patterns and normalized real Satake parts, while a global Arthur homomorphism and the discrete decomposition remain conjectural. The local classification and nilpotent-orbit theory are imported from SmoothRepresentationsOfLocalGroupsPartII and LieHighestWeightPartII. The complete targets, hypotheses, proof routes, API and tests are in the companion reader. Layers RA.0–RA.8 have the scope described below; only RA.1 is currently marked planned. The other directions in the original brief remain separate roadmaps.",
+ "prerequisites": [
+  "GlobalShtukasAndFunctionFieldLanglands",
+  "DeligneWeightsAndPurity",
+  "ExcursionOperatorsAndSpectralAction",
+  "FunctionFieldArithmetic",
+  "HeckeStacksAndLocalShtukas",
+  "KloostermanSheavesAndBesselIsocrystals",
+  "LanglandsParameterStacks",
+  "LieHighestWeightPartII",
+  "PadicDifferentialEquationsAndRigidCohomology",
+  "SmoothRepresentationsOfLocalGroups",
+  "SmoothRepresentationsOfLocalGroupsPartII"
+ ],
+ "stages": [
+  {
+   "key": "RA.0",
+   "title": "Geometric local parameters and pure Weil–Deligne parameters",
+   "description": "**Targets.** Integer-weight geometric L-homomorphisms with finite inertia (Ciubotaru–Harris §2.3, Definition 2.5, p.7), and independence of a faithful realization using tensor generation. Distinguish arithmetic Weil–Deligne purity from fixed-ι purity and boundedness. State the weight–monodromy convention with N lowering weights by 2. Pure completion is unique in the fixed-ι GL_n case; the general reductive assertion uses adjoint boundedness and derived-centralizer conjugacy (Gan–Harris–Sawin Lemma 3.5, p.9), not common-weight purity in every faithful representation. The RD.6 tensor-generator converse is requested.",
+   "requires": [
+    "DeligneWeightsAndPurity:DWP.0",
+    "LanglandsParameterStacks:LP0",
+    "LanglandsParameterStacks:LP1",
+    "LieHighestWeightPartII:N0",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.6"
+   ]
+  },
+  {
+   "key": "RA.1",
+   "title": "Weights of ℓ-adic local systems on curves",
+   "description": "**Targets.** Lafforgue’s constant-field twist decomposition (Corollaire VII.8, pp.201–202) and geometricity propagation from one boundary place (Ciubotaru–Harris Proposition 2.7, pp.7–8). Sawin–Templier’s real-weight filtration and purity for parameters in no proper parabolic (Lemma 11.4, p.83) give common weights in irreducible algebraic realizations. For semisimple G the resulting arithmetic weight is 0; reductive centres require a separate normalization. Import the curve weight theory from DWP.5/DWP.8 and GS.6.",
+   "requires": [
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.0",
+    "DeligneWeightsAndPurity:DWP.0",
+    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.8",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.6"
+   ]
+  },
+  {
+   "key": "RA.2",
+   "title": "Rational Satake classes of cuspidal parameters",
+   "description": "**Targets.** The relation between a cuspidal representation π and a parent excursion parameter σ, its associated local systems L(π,τ), rationality of Satake classes (Ciubotaru–Harris Theorem 3.6, p.10), and normalized real parts satisfying 2⟨μ,ν_w⟩=weight(μ). The nonsplit coefficient/support extension of FA.6 is requested; it is not supplied by the existing split integral-model target.",
+   "requires": [
+    "FunctionFieldArithmetic:FA.6",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+    "SmoothRepresentationsOfLocalGroups:SR.4",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.5",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.6"
+   ]
+  },
+  {
+   "key": "RA.3",
+   "title": "Local semisimple parameters and geometric representations",
+   "description": "**Targets.** Framed local-to-global shtuka uniformization and Li-Huerta’s comparison of Genestier–Lafforgue and Fargues–Scholze parameters (Theorems A/C and §§5–6). Plan geometric representations and stability under coefficient transport, normalized induction, Jacquet modules, products and geometric twists (Ciubotaru–Harris Proposition 3.10, pp.10–11), with finite-length Hecke descent. For nonsplit tori use componentwise residue cardinalities, not a uniformizer criterion with an incorrect residue-degree normalization. Restrict central characters to the smooth central torus. Request the equal-characteristic HS2 extension, ES6 normal-image transport and the precise ES5 square-root coefficient law.",
+   "requires": [
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.0",
+    "DeligneWeightsAndPurity:DWP.0",
+    "ExcursionOperatorsAndSpectralAction:ES5",
+    "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+    "HeckeStacksAndLocalShtukas:HS2",
+    "HeckeStacksAndLocalShtukas:HS3",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.0",
+    "SmoothRepresentationsOfLocalGroups:SR.1"
+   ]
+  },
+  {
+   "key": "RA.4",
+   "title": "Discrete series: globalization, purity and Galois conjugation",
+   "description": "**Targets.** Fixed-ι tempered/discrete representations, Casselman’s criterion with central unitarity, the semisimple Gan–Harris–Sawin globalizations in no proper parabolic (Propositions 3.9/3.11, Appendix A), and arithmetic Weil–Deligne purity of weight 0 for semisimple discrete series (Theorem 1.2, Corollary 3.12). The general reductive adjoint statement is conditional on central reduction. Plan Galois conjugation for algebraic discrete-series models and embedding independence for geometric tempered representations. Trace-formula inputs, étale Kloosterman invariant vanishing, arbitrary discrete-series descent and reductive central reduction remain explicit gaps.",
+   "requires": [
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.0",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.1",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.2",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.3",
+    "FunctionFieldArithmetic:FA.6",
+    "KloostermanSheavesAndBesselIsocrystals:KB.1",
+    "KloostermanSheavesAndBesselIsocrystals:KB.11",
+    "KloostermanSheavesAndBesselIsocrystals:KB.6",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.4",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.3",
+    "ExcursionOperatorsAndSpectralAction:ES6:functoriality"
+   ]
+  },
+  {
+   "key": "RA.5",
+   "title": "The generic Ramanujan theorem",
+   "description": "**Targets.** Γ-stable test representations, parameter lifts through the actual central kernel over a finite extension, and the anchored weight argument. A fixed-ι tempered anchor gives fixed-ι integer weights; a discrete-series anchor supplies arithmetic integer weights at every embedding. The generic Ramanujan conclusion is planned with central compact factor at the generic place (Ciubotaru–Harris Theorem 5.4, pp.13–15, corrected scope). A nonsplit Frobenius component is not itself required to be central. Transfer on rational points to adjoint groups and spherical tempered-to-generic compatibility for general unramified quasi-split groups are requested at SR.4; arbitrary noncentral compact parts remain open.",
+   "requires": [
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.0",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.1",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.2",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.3",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.4",
+    "DeligneWeightsAndPurity:DWP.5",
+    "DeligneWeightsAndPurity:DWP.8",
+    "LieHighestWeightPartII:N0",
+    "LieHighestWeightPartII:N5",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.5",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.6",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.7",
+    "SmoothRepresentationsOfLocalGroups:SR.4"
+   ]
+  },
+  {
+   "key": "RA.6",
+   "title": "Elliptic parameters and the stack-purity route",
+   "description": "**Targets.** Ellipticity and weight-0 purity for semisimple global parameters. State Lafforgue–Zhu’s elliptic decomposition with invariants under the full centralizer S_σ, retaining the frozen leg and W^{G_m} in the GL_r example (Proposition 1.2, pp.2–3; Corollary 2.1, p.4). Define constant-coefficient stack realization (Ciubotaru–Harris Expectation 5.9, p.16). Its integer-weight consequence is conditional on DWP.8 stack integrality; deducing that realization from Satake-coefficient cohomology requires a separate bridge. Sun’s real ι-mixedness alone is not treated as that bridge or integer-weight theorem.",
+   "requires": [
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.1",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.2",
+    "DeligneWeightsAndPurity:DWP.7",
+    "DeligneWeightsAndPurity:DWP.8",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+    "LanglandsParameterStacks:LP2:semisimple-characters",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.5"
+   ]
+  },
+  {
+   "key": "RA.7",
+   "title": "Arthur homomorphism data and the discrete spectrum",
+   "description": "**Targets.** Weak global Arthur homomorphism data with continuous Weil factor and algebraic SL₂, and the separate conjectural arithmetic, Satake-compatibility and boundedness requirements (Ciubotaru–Harris Conjectures 1.3/1.8). Record the discrete-spectrum parametrization hypotheses (Conjectures 9.1/9.5), fixed-level rationality through the full Hecke algebra (Lemma 9.2, p.31), and Xue’s finite-codimension Hecke-quotient decomposition (Theorem 3.6.7, pp.30–31). Algebraicity requires a number-field model. Bare good-place compatibility has no ramified consequence; for Xue quotients use Li-Huerta Theorem 6.13, pp.47–48. No global Arthur homomorphism is constructed.",
+   "requires": [
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.2",
+    "DeligneWeightsAndPurity:DWP.0",
+    "DeligneWeightsAndPurity:DWP.5",
+    "FunctionFieldArithmetic:FA.6",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+    "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+    "LanglandsParameterStacks:LP0",
+    "LieHighestWeightPartII:N0",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.3",
+    "SmoothRepresentationsOfLocalGroups:SR.1"
+   ]
+  },
+  {
+   "key": "RA.8",
+   "title": "Weight patterns, Property A and Arthur-type propagation",
+   "description": "**Targets.** Global weight patterns and propagation of complementary-series real parts, with the central-compact scope and ramified-anchor compatibility explicit (Ciubotaru–Harris Theorem 1.11, p.5). The symmetric weight array, Property A and Remark 10.8 (pp.33–35) compare boundary monodromy with good-place weights. Enumerated Sp6/F4/E7/E8 weight certificates eliminate extraneous points under the orbit-profile contracts; N3 must supply semantic orbit-to-triple identifications and the missing E7 profile. The endpoint (Theorem 10.3, pp.33–35) forces the central real part and vanishing on each global weight-graded monodromy piece, not vanishing of the full local discrete-series monodromy.",
+   "requires": [
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.1",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.3",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.4",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.5",
+    "GlobalShtukasAndFunctionFieldLanglandsPartII:RA.7",
+    "LieHighestWeightPartII:N3",
+    "LieHighestWeightPartII:N5",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.7"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "ch26",
+   "title": "On the generalized Ramanujan and Arthur conjectures over function fields",
+   "authors": "Dan Ciubotaru and Michael Harris",
+   "edition": "Annals of Mathematics 204 (2026), no. 2, 545–601; read in arXiv:2311.15300v1 (26 November 2023, 39 pp.), whose page numbers are used throughout; the Annals text (revised 8 October 2025) was not accessible and is not collated",
+   "url": "https://arxiv.org/abs/2311.15300",
+   "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
+   "readSections": [
+    "Independent review: §§1–5, §9 and §10 with Appendix Tables 2–4; every source locator used by RA.0–RA.8 was checked.",
+    "Local supplier interfaces: §6.8–6.10 coordinates, §6.12 and Proposition 6.31/Corollary 6.32; §7 Theorem 7.4, Corollary 7.5 and Remark 7.6; §8.2–8.3 Theorems 8.3/8.5, Definition 8.4 and Remark 8.6."
+   ]
+  },
+  {
+   "id": "ghs",
+   "title": "Local parameters of supercuspidal representations",
+   "authors": "Wee Teck Gan, Michael Harris and Will Sawin, with an appendix by Raphaël Beuzart-Plessis",
+   "edition": "Forum of Mathematics, Pi 12 (2024), e13; published PDF (printed page = PDF page); arXiv:2109.07737v3 was also read: there Theorem 1.2 assumes p > 3, and the published Proposition 3.11, Corollary 3.12 and Remark 3.13 are numbered 3.10, 3.11 and 3.12 (the published Remark 3.10 is new)",
+   "url": "https://doi.org/10.1017/fmp.2024.10",
+   "sha256": "e570036504ba58ededa9f48453e517a710da0f49128fefebfa94f5ff4439bfcc",
+   "readSections": [
+    "§1 Theorems 1.2–1.4 (pp. 3–4)",
+    "§2 Theorems 2.1, 2.3, Corollary 2.4, Definition 2.5 (pp. 6–7)",
+    "§3 in full (pp. 8–11)",
+    "Appendix A, Lemmas A.1 and A.3 with proofs (pp. 38–40)"
+   ]
+  },
+  {
+   "id": "lh",
+   "title": "Local-global compatibility over function fields",
+   "authors": "Siyan Daniel Li-Huerta",
+   "edition": "arXiv:2301.09711v2 (13 August 2023), 54 pp.",
+   "url": "https://arxiv.org/abs/2301.09711",
+   "sha256": "83c269e46bb28713f9081086c0c8f0340c41fccbe224d2ea457e5626421bed6c",
+   "readSections": [
+    "Introduction, Theorems A–D (pp. 1–3)",
+    "§5.12–§5.18 (pp. 36–41)",
+    "§6.9–§6.16 (pp. 45–49)",
+    "§7.1–§7.2 (pp. 50–51)"
+   ]
+  },
+  {
+   "id": "st",
+   "title": "On the Ramanujan conjecture for automorphic forms over function fields I. Geometry",
+   "authors": "Will Sawin and Nicolas Templier",
+   "edition": "arXiv:1805.12231v4 (27 September 2020)",
+   "url": "https://arxiv.org/abs/1805.12231",
+   "sha256": "9dddd64e480b56f3987604a8daf096fa850b74fe998ab1963f55b17f373e3e3c",
+   "readSections": [
+    "§11, Lemmas 11.3–11.5 and the conditional discussion after them (pp. 81–83)"
+   ]
+  },
+  {
+   "id": "xue",
+   "title": "Finiteness of cohomology groups of stacks of shtukas as modules over Hecke algebras, and applications",
+   "authors": "Cong Xue",
+   "edition": "Épijournal de Géométrie Algébrique 4 (2020), Article 6; arXiv:1811.09513v3 (journal pagination)",
+   "url": "https://arxiv.org/abs/1811.09513",
+   "sha256": "b43e7eec00416326ab508ba6af06ec004b186a09874a6a58c1b455170e57a675",
+   "readSections": [
+    "Introduction (pp. 1–4)",
+    "§3.6 (pp. 30–31)",
+    "§4.2 statement (pp. 40–41)"
+   ]
+  },
+  {
+   "id": "lz",
+   "title": "Décomposition au-dessus des paramètres de Langlands elliptiques",
+   "authors": "Vincent Lafforgue and Xinwen Zhu",
+   "edition": "arXiv:1811.07976v2 (11 December 2019)",
+   "url": "https://arxiv.org/abs/1811.07976",
+   "sha256": "871c208f006f5496b3776e1050a20ab85ef88ef7066e351ca188159daf56151d",
+   "readSections": [
+    "§§1–3 (pp. 1–6)",
+    "§4, Lemma 4.1 (p. 7)"
+   ]
+  },
+  {
+   "id": "sun",
+   "title": "L-series of Artin stacks over finite fields",
+   "authors": "Shenghao Sun",
+   "edition": "Algebra & Number Theory 6 (2012), 47–122; read in arXiv:1008.3689v2 (28 March 2011)",
+   "url": "https://arxiv.org/abs/1008.3689",
+   "sha256": "85947e31a4b0f65e7d1cfad998a8f28969411d2e8dca561b645ef266ae8c8d1b",
+   "readSections": [
+    "§2, Theorem 2.11 and its proof (pp. 14–15)",
+    "§2.4.3–2.4.4, pp.8–9; Theorem 2.11 and Remark 2.12 with proof, pp.14–15, independently read 2026-10-19"
+   ]
+  },
+  {
+   "id": "glo",
+   "title": "Globalization of supercuspidal representations over function fields and applications",
+   "authors": "Wee Teck Gan and Luis Lomelí",
+   "edition": "J. Eur. Math. Soc. 20 (2018), 2813–2858; read in arXiv:1510.00131v2",
+   "url": "https://arxiv.org/abs/1510.00131",
+   "sha256": "5f4adc241b2034f97c74719a28c3c8095314fb459e297a29964c52868ecabff4",
+   "readSections": [
+    "Theorem 1.1 and remarks (pp. 1–2)",
+    "§8.1–§8.3, Lemma 8.1, Proposition 8.2 (pp. 38–40)"
+   ]
+  },
+  {
+   "id": "hny",
+   "title": "Kloosterman sheaves for reductive groups",
+   "authors": "Jochen Heinloth, Bao Châu Ngô and Zhiwei Yun",
+   "edition": "Annals of Mathematics 177 (2013), 241–310; read in arXiv:1005.2765v1",
+   "url": "https://arxiv.org/abs/1005.2765",
+   "sha256": "0918c93759cb2d19fe3521c332b45e9c36e4d78b87b84112d65c82761c482004",
+   "readSections": [
+    "§2.3–2.4, Theorems 1–2 and Corollary 2.13, pp.16–18; local invariant and normalizer statements independently read 2026-10-19"
+   ]
+  },
+  {
+   "id": "laf02",
+   "title": "Chtoucas de Drinfeld et correspondance de Langlands",
+   "authors": "Laurent Lafforgue",
+   "edition": "Inventiones Mathematicae 147 (2002), 1–241; author's full text (journal pagination)",
+   "url": "https://www.ihes.fr/~lafforgue/math/fulltext.pdf",
+   "sha256": "af732dac0d2dd00056ff46075f069f09cb2239bcac5cec68b13d17faa8d2ea76",
+   "readSections": [
+    "Chapitre VII §2a: Théorème VII.6, Proposition VII.7, Corollaire VII.8 (pp. 198–202)"
+   ]
+  },
+  {
+   "id": "ty",
+   "title": "Compatibility of local and global Langlands correspondences",
+   "authors": "Richard Taylor and Teruyoshi Yoshida",
+   "edition": "arXiv:math/0412357 author text, pp.6–7; Lemma 1.4(3)–(6)",
+   "url": "https://arxiv.org/abs/math/0412357",
+   "sha256": "a17d283d3a605cd3f031a1178f2914254ee9cbe430b11cfbff8c382e8cd1713b",
+   "readSections": [
+    "§1, definitions of arithmetic WD purity and Lemma 1.4 with proof, pp.6–7, independently read 2026-10-19"
+   ]
+  }
+ ],
+ "status": "draft"
+}

@@ -1,0 +1,277 @@
+{
+  "id": "SpringerResolutionAndCharacteristicCycles",
+  "title": "The Grothendieck simultaneous resolution, the Steinberg variety and characteristic cycles",
+  "area": "representations",
+  "parent": null,
+  "summary": "This roadmap develops the geometry behind normal local models and their characteristic cycles. Starting with a split connected reductive group and its flag scheme, it constructs Grothendieck’s simultaneous resolution, the double incidence scheme and its Weyl-labelled components. It proves the component normality theorem, then identifies nilpotent incidence with conormal geometry. Algebraic differential operators and localisation connect highest-weight modules to positive cycles. The final targets are the zero-operator tangent estimate and the completed Kazhdan–Lusztig cycle identity used in trianguline local models.",
+  "readme": "This roadmap develops the geometry behind normal local models and their characteristic cycles. Starting with a split connected reductive group and its flag scheme, it constructs Grothendieck’s simultaneous resolution, the double incidence scheme and its Weyl-labelled components. It proves the component normality theorem, then identifies nilpotent incidence with conormal geometry. Algebraic differential operators and localisation connect highest-weight modules to positive cycles. The final targets are the zero-operator tangent estimate and the completed Kazhdan–Lusztig cycle identity used in trianguline local models.\n\nFix a split connected reductive group G over k, a Borel B, a maximal torus T⊂B, and U=radᵤ(B). Positive roots are those of u. Put F=G/B, N=dim U, r=dim T, D=dim G=r+2N. The initial geometry assumes char(k)=0 or p>h, where h is the largest Coxeter number of a simple factor, and h=0 for a torus. This is the paper’s explicit bound, stronger than the usual meaning of good characteristic. Layers S–E use characteristic zero. The two Cartan coordinates obey κ₂,w=w⁻¹κ₁,w. The signed cotangent embedding sends ψ to (−ψ,ψ). The half-sum ρ is a weight-space functional and is not assumed an integral character of G. Highest weights are ww₀·0=−wρ−ρ. The central reduction is strict at the trivial infinitesimal character χ₀; ordinary D_F corresponds to BB’s twisting parameter ρ. Cycles have integral coefficients and generic-length multiplicities; no rational equivalence or reduction of a scheme zero fibre is implicit.\n\nReductiveGroups supplies group and root data, LieHighestWeight supplies enveloping, Verma/simple and central-character theory, and current AlgebraicVectorBundles supplies sheaf duals and geometric total spaces. General local algebra and completion criteria come from DeformationAndDerivedPatchingAlgebra. Elementary category O and KL multiplicities have the separate supplier described below. The present roadmap owns the resolution geometry, D-module and localisation bridge, cycle bases and formal geometric identities. It does not construct trianguline varieties, Galois representations, analytic category O, the KL polynomial theory itself, or a general Springer representation. A conormal-intersection conjecture and historical comments on nilpotent component normality and reducible simple cycles are recorded only as landscape.\n\nThe definitive mathematical targets, sources, API and examples are in research/blueprint/readmes/SpringerResolutionAndCharacteristicCycles.md.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "SchemeAndStackFoundations",
+    "DeformationAndDerivedPatchingAlgebra"
+  ],
+  "stages": [
+    {
+      "key": "F",
+      "title": "Flag schemes and relative position",
+      "description": "Construct the flag scheme F=G/B and diagonal orbits U_w in F×F; prove smooth projectivity, orbit dimensions and Bruhat closures. Establish the constant-rank intersection theorem for subbundles over a reduced finite-type base.\n\nThe flag scheme: Let F be the scheme representing the fppf quotient G/B. The quotient map G→F is a right B-torsor, and its functor of points is the sheafification of S↦G(S)/B(S), rather than the naive quotient on every S. Fix the base flag eB and the left G-action.\n\nSmooth projectivity of the flag variety: F is smooth, projective and geometrically integral over k, of dimension N=dim U; D=dim G=r+2N and dim B=r+N, where r=dim T. These dimension equalities persist after extension of k.\n\nRelative position orbits: For w∈W=N_G(T)/T, choose a representative ŵ and let U_w⊂F×F be the diagonal G-orbit of (eB,ŵB), with its locally closed reduced orbit scheme. Define Ū_w as its reduced closed closure. These constructions are independent of ŵ.\n\nDimensions and closures of the Bruhat orbits: The U_w are smooth geometrically integral, dim U_w=N+ℓ(w), and F×F is their disjoint stratification. The support of Ū_w is the union of U_v for v≤w in Bruhat order. In particular Ū_w is geometrically integral and U_w is its dense smooth open stratum.\n\nIntersection of subvector bundles: Let Y be reduced and locally of finite type over a field, E a finite-rank vector bundle, and E₁,E₂ subvector bundles (locally direct summands). If dim(E₁,y∩E₂,y)=a for every closed y∈Y, their scheme theoretic intersection in E is a vector subbundle of rank a, with fibre the intersection of the two fibres. No assertion is made over a nonreduced base.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "G",
+      "title": "The Grothendieck simultaneous resolution",
+      "description": "Construct g̃=G×ᴮb and its incidence embedding in F×g, its regular and regular semisimple loci and q:g̃→g. Prove smoothness, proper surjectivity, quasi-finiteness over gʳᵉᵍ and finite étaleness of degree |W| over gʳˢ.\n\nThe Grothendieck simultaneous resolution: Define g̃=G×ᴮb using (g,x)∼(gb,Ad(b⁻¹)x). Identify it with the closed incidence scheme {(gB,ψ)∈F×g:Ad(g⁻¹)ψ∈b}. The bundle projection is p:g̃→F, and q:g̃→g sends (gB,ψ) to ψ.\n\nRegular and regular semisimple loci: Use the reductive Lie-algebra Jordan decomposition. An element ψ is regular when its algebraic centralizer has dimension r. It is regular semisimple when it is both regular and semisimple. Write gʳᵉᵍ and gʳˢ for these open subschemes, and g̃ʳᵉᵍ,q⁻¹(gʳˢ) for their scheme inverse images. Set tʳᵉᵍ=t∩gʳˢ.\n\nProperness and the regular covering: The scheme g̃ is smooth and geometrically integral of dimension D. The map q is proper and surjective; q⁻¹(gʳᵉᵍ)→gʳᵉᵍ is quasi-finite (hence finite), and q⁻¹(gʳˢ)→gʳˢ is finite étale of constant degree |W|.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:F",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "I",
+      "title": "Incidence components and birational projections",
+      "description": "Construct X=g̃×_g g̃, the two projections pr_i, π to F×F, the Cartan maps κ_i and the strata V_w. Define reduced closures X_w, prove the stratum vector-bundle rank, Bruhat support, lci and reducedness of X, and the proper birational projection theorem with isomorphisms above g̃ʳᵉᵍ.\n\nThe double incidence scheme: Define X=g̃×_g g̃ using q on each side, with pr₁,pr₂:X→g̃ and π=(p∘pr₁,p∘pr₂):X→F×F. Its closed incidence presentation is triples (F₁,F₂,ψ) with ψ in both Borel Lie subalgebras. The common operator map is q∘pr₁=q∘pr₂.\n\nThe two Cartan projections: The B-equivariant quotient b→b/u≅t, where B acts trivially on the target, defines κ:g̃→t. Put κ_i=κ∘pr_i. On a represented triple, κ_i is the image of Ad(g_i⁻¹)ψ in b/u, using the fixed B⊃T identification. Keep κ_i distinct from pr_i.\n\nIncidence strata: Define V_w=X×_(F×F)U_w, with its scheme inverse-image structure. It is locally closed in X, and π_w:V_w→U_w is the restricted flag projection. Do not substitute the zero-Cartan stratum V′_w.\n\nThe incidence bundle over a Bruhat orbit: π_w:V_w→U_w is a vector bundle of rank dim B−ℓ(w)=r+N−ℓ(w). Its fibre over (gB,gŵB) is Ad(g)(t⊕(u∩Ad(ŵ)u)). Thus V_w is smooth geometrically integral of dimension D for every w.\n\nThe incidence components: Define X_w as the reduced closed closure of V_w in X. Equivalently it is the scheme theoretic image of V_w→X because V_w is reduced. Write pr_i,w and κ_i,w for restrictions. The definition does not identify X_w with π⁻¹(Ū_w).\n\nBruhat support of a component: π(X_w)=Ū_w as closed subsets, and X_w∩V_v≠∅ implies v≤w. The X_w are geometrically irreducible and no distinct X_w is contained in another.\n\nLocal complete intersection of X: The X_w, w∈W, are exactly the irreducible components of X; X is equidimensional of dimension D and is a local complete intersection over k, hence Cohen–Macaulay. This statement concerns X and does not yet prove CM for the separate reduced X_w.\n\nReducedness of X: X is reduced. Its generic points lie above gʳˢ, and each reduced component X_w therefore agrees with its component scheme structure obtained from the generically reduced CM scheme X.\n\nBirational projections of the components: For i=1,2, pr_i,w:X_w→g̃ is proper birational and restricts to an isomorphism above g̃ʳᵉᵍ. In particular that inverse-image open of X_w is smooth. The full q is not asserted birational when W is nontrivial.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:G",
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "SpringerResolutionAndCharacteristicCycles:F",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "key": "C",
+      "title": "Cohen–Macaulayness and Cartan flatness",
+      "description": "Prove equidimensionality and surjectivity of all κ_i and κ_i,w fibres. Import the precise Bezrukavnikov–Riche CM input, transfer it to split reductive groups and characteristic zero using integral models, and apply the local dimension-equality form of miracle flatness.\n\nDimensions of Cartan fibres: For each i∈{1,2}, κ_i:X→t and κ_i,w:X_w→t are surjective, and every geometric fibre of each is equidimensional of dimension D−r=2N.\n\nBezrukavnikov–Riche Cohen–Macaulay theorem: Over an algebraically closed field of characteristic p>h, for a semisimple simply connected split G, the reduced graph closures X_w are Cohen–Macaulay. In the integral model over Z_(p), formation of these closures commutes with the special fibre: X_A,w×F_p=X_Fp,w scheme theoretically. The BR coadjoint and inverse-index conventions are translated before applying this input.\n\nCohen–Macaulayness in the required generality: For split connected reductive G and char(k)=0 or p>h, every X_w is geometrically Cohen–Macaulay. In characteristic zero, choose p>h and the split Chevalley model over A=Z_(p); the closure X_A,w is A-flat and has special fibre X_Fp,w.\n\nFlatness of the Cartan projections: Each κ_i and κ_i,w is flat. Apply the local miracle-flatness theorem: for every local map O_t,κ(x)→O_Y,x, with Y=X or X_w, the source is regular, the target is CM and dim O_Y,x=dim O_t,κ(x)+dim O_(Y_κ(x)),x. The global fibre dimensions alone are not the flatness criterion for arbitrary noetherian schemes.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:I",
+        "SpringerResolutionAndCharacteristicCycles:F",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon"
+      ]
+    },
+    {
+      "key": "N",
+      "title": "Normality of the incidence components",
+      "description": "Identify κ₂,w=w⁻¹κ₁,w and smooth affine fibres of (π,κ_i) on V_w. Prove the regular-root-wall lemma and normality of X_w by Serre R₁+S₂, with every codimension-one boundary accounted for.\n\nThe Weyl relation between Cartan maps: On X_w the morphisms to t satisfy κ₂,w=w⁻¹∘κ₁,w. In particular the two Cartan zero fibres on X_w are the same scheme.\n\nSmooth Cartan and flag fibres: The maps (π,κ_i):V_w→U_w×t are smooth surjective with geometrically irreducible affine-space fibres of dimension N−ℓ(w). For any v∈W, the inverse image of U_w×ker(v−id_t) is geometrically irreducible.\n\nRegular points over a single root wall: Over an algebraic closure, let s_α be a Weyl reflection and v∈W with ℓ(s_αv)>ℓ(v). In the incidence stratum V_v there are regular elements with κ₁ in ker(s_α−id), and they form a nonempty open subset of its inverse image. More precisely choose z on the α-wall and on no distinct root wall, and 0≠c∈k; z+c e_β is regular for the sign β of α lying in the positive roots with v⁻¹β positive.\n\nNormality of the incidence components: Every X_w is geometrically normal. This theorem does not assert normality of the reducible X or of the nilpotent components Z_w.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:I",
+        "SpringerResolutionAndCharacteristicCycles:G",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "SpringerResolutionAndCharacteristicCycles:C",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "key": "S",
+      "title": "The Springer resolution and Steinberg variety",
+      "description": "In characteristic zero prove Chevalley restriction, define the nilpotent cone and Springer resolution Ñ=G×ᴮu, and identify Ñ with T*F using an invariant nondegenerate form. Construct the reduced Steinberg variety Z and its components Z_w, and identify them with conormal closures with the cotangent sign fixed.\n\nChevalley restriction and the nilpotent fibre: In characteristic zero the adjoint quotient is c=Spec k[g]^G≅Spec k[t]^W=t/W≅Aʳ. Its zero fibre has reduced support equal to the nilpotent elements of g, and is the reduced nilpotent cone 𝒩. The composite g̃→g→c equals g̃→κ t→t/W. A nondegenerate invariant symmetric form g≅g* exists for reductive G; the Killing form alone is not adequate on the centre.\n\nThe Springer resolution: In characteristic zero define 𝒩̃=G×ᴮu as the closed subbundle of g̃ cut out by κ=0, and μ:𝒩̃→𝒩 by q. Its incidence points are (gB,ψ) with Ad(g⁻¹)ψ∈u. The map μ is the Springer resolution: proper birational, with smooth source of dimension 2N.\n\nCotangent and conormal identifications: The fixed invariant form identifies T*F≅𝒩̃, because the annihilator of b is u. Under T*(F×F)≅𝒩̃×𝒩̃, embed a triple (F₁,F₂,ψ) as ((F₁,−ψ),(F₂,ψ)). The moment map for diagonal G is ξ₁+ξ₂, so its zero locus corresponds to the common-operator incidence condition. Over U_w its reduced zero locus is T*_(U_w)(F×F).\n\nThe reduced Steinberg variety: Define Z=(X×_c{0})_red, and define Z_w as the reduced closure in Z of V′_w=π⁻¹(U_w)∩Z. There is a canonical isomorphism Z≅(𝒩̃×_𝒩𝒩̃)_red. The raw fibre-product comparison without reduction is a separate target, not part of this definition.\n\nScheme comparison for the Steinberg fibre product: Let Q=𝒩̃×_𝒩𝒩̃ be the scheme fibre product in characteristic zero. The canonical closed immersion Z≅Q_red→Q is an isomorphism if and only if Q is reduced. Thus Z≅Q without reduction is conditional on radicality of the local incidence ideals; equality of geometric points alone does not establish that condition.\n\nComponents and conormal closures: Z is equidimensional of dimension 2N; its irreducible components are exactly the distinct Z_w, w∈W. Under the signed cotangent embedding, Z_w is the reduced conormal closure of U_w. Each V′_w→U_w is a vector bundle of rank N−ℓ(w). No CM or normality assertion for Z_w is included.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "SpringerResolutionAndCharacteristicCycles:G",
+        "SpringerResolutionAndCharacteristicCycles:I",
+        "SchemeAndStackFoundations:SF.0",
+        "SpringerResolutionAndCharacteristicCycles:F",
+        "SpringerResolutionAndCharacteristicCycles:N"
+      ]
+    },
+    {
+      "key": "Y",
+      "title": "Top cycles and scheme theoretic zero fibres",
+      "description": "Specialise native algebraic cycles to the free group on the components of an equidimensional noetherian scheme. Construct generic-length cycles of coherent modules and the unreduced Cartan zero fibres X̄ and X̄_w, preserving their multiplicities.\n\nThe group of top cycles: For a noetherian equidimensional scheme Y of dimension d with finitely many irreducible components, define Z_d(Y)=⊕_(η∈Y generic, dim closure{η}=d) Z[closure{η}]. This is the finite-support subgroup of native AlgebraicCycle Y Z supported at those generic points. There is no rational-equivalence quotient.\n\nThe generic-length cycle of a coherent module: For a noetherian finite-dimensional scheme Y and a coherent O_Y-module M with dim Supp(M)≤d, define [M]_d=Σ_C length_(O_Y,ηC)(M_ηC)[C], where C runs over the finitely many d-dimensional components of Supp(M). Each localized module has finite length. The result is a native dimension-d cycle; when its support lies in a pure d-dimensional reduced Z⊂Y, identify its component coefficients with Z_d(Z). This identification does not turn M into an O_Z-module. Closed subscheme cycles use the pushforward of the full structure sheaf into Y, retaining nilpotent multiplicities.\n\nThe scheme theoretic Cartan zero fibres: Define X̄=X×_(κ₁,t){0} and X̄_w=X_w×_(κ₁,w,t){0}, with their full scheme structures. Their reduced supports lie in Z, so their structure sheaves define cycles in Z_(2N)(Z), denoted [X̄] and [X̄_w]. The same zero fibre on X_w is obtained with κ₂,w.\n\nDimension and Cohen–Macaulayness of zero fibres: X̄ and every X̄_w are equidimensional CM schemes of dimension 2N. Their scheme multiplicities need not be discarded, although their reduced supports have only the Z_v as possible top components.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:S",
+        "SpringerResolutionAndCharacteristicCycles:I",
+        "SpringerResolutionAndCharacteristicCycles:N",
+        "SpringerResolutionAndCharacteristicCycles:C",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "key": "D",
+      "title": "Differential operators and characteristic cycles",
+      "description": "Construct the sheaf D_Y of k-linear differential operators on a smooth characteristic-zero variety, coherent left modules and good filtrations. Prove filtered PBW, existence and comparison of filtrations, reduced characteristic varieties, and the independence of characteristic cycles defined by generic lengths.\n\nThe sheaf of differential operators: Define F_(−1)D_Y=0 and F_pD_Y recursively as the k-linear operators P on O_Y for which [P,f]∈F_(p−1)D_Y for every local function f. Set D_Y=⋃_(p≥0)F_pD_Y with composition multiplication. A coherent left D_Y-module is locally finitely presented over this sheaf of rings and is O_Y-quasi-coherent. After filtered PBW proves local noetherianity, finite presentation is equivalent to finite generation.\n\nFiltered PBW for differential operators: The principal symbol defines an isomorphism of graded O_Y-algebras Sym_(O_Y)(T_Y)≅gr_F D_Y. In étale coordinates x₁,…,x_n, F_pD is freely generated over O by ∂₁^a₁⋯∂_n^a_n with Σa_i≤p. Consequently D is left and right noetherian on affine coordinate charts, and Spec_Y(gr D)=T*Y.\n\nGood filtrations on coherent D-modules: A filtration F_jM, j∈Z, is good when it is increasing, exhaustive, locally bounded below, each F_jM is coherent over O_Y, F_pD·F_jM⊂F_(p+j)M, and gr_FM is locally finitely generated over gr D. Equivalently, locally F_(p+j)M=F_pD·F_jM for all p≥0 once j is large enough. Filtrations are local sheaf data, with global choices where the stated hypotheses provide them.\n\nExistence and comparison of good filtrations: Every coherent D_Y-module admits good filtrations locally. A global coherent O_Y-generating subsheaf yields a global good filtration; on the flag varieties used here such generating subsheaves exist. Any two good filtrations are locally comparable up to bounded shifts. In a short exact sequence of coherent D-modules, choose a good middle filtration and induced filtrations on submodule and quotient; these are good and their graded sequence is exact.\n\nThe characteristic variety: For a coherent D_Y-module M, define Ch(M)⊂T*Y as the reduced closed support of gr_FM for any local good filtration. These closed sets glue independently of the choices. This definition assigns reduced support, not a preferred possibly thickened characteristic subscheme. Put Ch(0)=∅.\n\nThe characteristic cycle: For a coherent D_Y-module M whose reduced characteristic support is empty or pure n-dimensional, define CC(M)=Σ_C length_(O_(T*Y),ηC)((gr_FM)_ηC)[C], over its n-dimensional characteristic components, and set CC(0)=0. This support hypothesis can be stated before the holonomic category is named. Bernstein inequality will identify it with holonomicity. Independence of F is a theorem; generic length, rather than rank after tensoring with the reduced component, is essential.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "SpringerResolutionAndCharacteristicCycles:Y"
+      ]
+    },
+    {
+      "key": "H",
+      "title": "Holonomicity, regularity and equivariance",
+      "description": "Construct the transfer and duality operations used here, establish Kashiwara equivalence and Bernstein inequality, define holonomic and regular holonomic modules and strong algebraic equivariance. Build intermediate extensions, classify finite-orbit simple objects, and prove moment-map support and cycle additivity.\n\nTransfer modules and D-module operations: For a morphism f:Y→Y′ of smooth characteristic-zero varieties define D_(Y→Y′)=O_Y⊗_(f⁻¹O_Y′)f⁻¹D_Y′ with its left D_Y and right f⁻¹D_Y′ actions. Write Lf* for derived tensor with this transfer module and f†=Lf*[dim Y−dim Y′]. For a smooth map of relative dimension d, the abelian pullback is f†[−d]=Lf*. For a closed immersion of codimension c, f†=Lf*[−c] is the inverse in Kashiwara equivalence; direct image for right modules is Rf_*(M⊗^L_(D_Y)D_(Y→Y′)), and left direct image is obtained using the canonical-bundle left/right equivalence. Define duality 𝔻_Y(M)=RHom_(D_Y)(M,D_Y)⊗_(O_Y)ω_Y⁻¹[n] and f_!=𝔻_(Y′)f_+𝔻_Y. Fix this normalization throughout.\n\nKashiwara equivalence: For a closed immersion i:W→Y of smooth varieties, i_+ is exact on quasi-coherent D-modules and induces an equivalence from D_W-modules to D_Y-modules supported set theoretically on W, with inverse H⁰(i†), where i†=Li*[−codim_Y W]. This equivalence restricts to coherent modules. In normal coordinates, the direct image consists of finite sums of normal derivative monomials applied to the original module.\n\nBernstein inequality: Every irreducible component of Ch(M) for a nonzero coherent D_Y-module M has dimension at least n.\n\nHolonomic D-modules: A coherent D_Y-module is holonomic when dim Ch(M)≤n, with zero holonomic. By Bernstein inequality, every component of the characteristic variety of a nonzero holonomic module has dimension n. Holonomicity does not itself impose regular singularities.\n\nFinite holonomic length and cycle additivity: Every holonomic D_Y-module has finite length. For every short exact sequence 0→M′→M→M″→0 of holonomic modules, CC(M)=CC(M′)+CC(M″). Hence CC defines a group homomorphism from K₀(Hol(D_Y)) to the free group on n-dimensional characteristic components.\n\nIntermediate extension: For a locally closed immersion j:W→Y of smooth varieties and holonomic E on W, define j_!*E=im(H⁰j_!E→H⁰j_+E). It restricts to E and has no nonzero subobject or quotient supported on the complement of W in its closure. It is the unique such extension and is simple when E is simple.\n\nRegular holonomic D-modules: An integrable connection is regular if every restriction to a smooth locally closed curve has, at every boundary point of a smooth projective completion, a logarithmic lattice. A simple holonomic module is regular if it is j_!* of a simple regular connection on a smooth locally closed support. A holonomic module is regular when all its simple factors are regular. Use geometric regularity after algebraic closure for general k; its descent and stability are separate inputs.\n\nStrong algebraic equivariance: For a smooth algebraic group H acting on Y, a strongly H-equivariant D-module is a D-module M with an isomorphism a^*M≅p^*M on H×Y, identity and cocycle compatibilities, whose differentiated H-action agrees with the infinitesimal action from D_Y. Both a and p are smooth of relative dimension dim H; a* and p* mean their abelian pullbacks Lf*=f†[−dim H]. Weak equivariance without this differentiated compatibility is insufficient.\n\nMoment-map support and orbit classification: For a strongly H-equivariant coherent D_Y-module M, Ch(M) lies in the zero fibre of the cotangent moment map μ_H:T*Y→Lie(H)*. Over an algebraically closed k, when H acts with finitely many orbits and geometrically connected stabilizers on Y, the strongly H-equivariant regular holonomic simple objects are exactly the intermediate extensions of trivial rank-one connections on individual orbits. For the diagonal G-action on F×F their reduced characteristic support lies in the signed Steinberg variety.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:D",
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "SpringerResolutionAndCharacteristicCycles:S",
+        "SpringerResolutionAndCharacteristicCycles:F",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "L",
+      "title": "Beilinson–Bernstein localisation",
+      "description": "Prove D-affinity of F for the ordinary sheaf D_F, identify its sections with the central reduction at the trivial infinitesimal character, and construct localisation with global-sections inverse. Restrict to the central-reduced principal category O and induce from B-equivariance on F to diagonal G-equivariance on F×F. This layer does not use the KL multiplicity theorem.\n\nD-affinity of the flag variety: In characteristic zero the ordinary sheaf D_F has Γ(F,D_F)≅U(g)⊗_(Z(U(g)),χ₀)k=:U_χ₀, where χ₀ is the infinitesimal character of the trivial representation. Every O-quasi-coherent D_F-module is generated by its global sections and has vanishing H^i(F,M) for i>0. In the BB parameter χ, ordinary D_F is χ=ρ, not χ=0; χ₀ denotes a central character, not this twisting parameter.\n\nBeilinson–Bernstein localisation: Define Loc(M)=D_F⊗_(U_χ₀)M, with the tensor sheafified, for a U_χ₀-module M. The functors Loc and Γ(F,−) are mutually inverse exact equivalences between U_χ₀-modules and O-quasi-coherent D_F-modules. They restrict to finitely generated modules and coherent D_F-modules. This is localisation at a strict central reduction, not merely a generalized central character.\n\nInduction from one flag to two flags: For a strongly B-equivariant regular holonomic D_F-module E, pull E to G×F and descend it along the free B-action (g,hB)·b=(gb,b⁻¹hB). This defines Ind(E) on G×ᴮF≅F×F, [g,hB]↦(gB,ghB), strongly equivariant for diagonal G. Use abelian smooth pullbacks Lf* in this descent; Ind is an exact equivalence. Its inverse is the noncharacteristic restriction Li* to the fibre i:{eB}×F→F×F, equivalently i†[N]. This restriction is exact on these equivariant objects.\n\nPrincipal category O and equivariant localisation: Let O_χ₀ consist of finitely generated U_χ₀-modules, t-semisimple with finite-dimensional weight spaces and locally finite b-action. Its weights lie in the integral principal block. Write M_w=M(ww₀·0)=M(−wρ−ρ), and L_w for its simple quotient. Localisation identifies O_χ₀ with strongly B-equivariant regular holonomic D_F-modules; the induction of L/equivariant-induction identifies the latter with strongly diagonal G-equivariant regular holonomic modules on F×F. The equivalence is exact and labels the simple for w by the orbit U_w.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:F",
+        "SpringerResolutionAndCharacteristicCycles:D",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+        "SchemeAndStackFoundations:SF.0",
+        "SpringerResolutionAndCharacteristicCycles:H",
+        "SpringerResolutionAndCharacteristicCycles:S",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "K",
+      "title": "Verma and simple characteristic cycle bases",
+      "description": "Identify [X̄_w] with the characteristic cycle of the localised Verma module. Prove positivity and Bruhat triangularity for simple cycles, import the KL multiplicity theorem only after localisation, and deduce all three integral bases and the corrected transition matrix.\n\nThe characteristic cycle of a Verma module: With the preceding equivalence and induction understood, CC(M_w)=[X̄_w] in Z_(2N)(Z), for every w∈W. The right side is the scheme theoretic zero-fibre cycle with its generic multiplicities, not [Z_w].\n\nTriangularity of simple characteristic cycles: Write ℒ_w=CC(L_w)=Σ_v a_(w,v)[Z_v]. Then a_(w,v)∈N, a_(w,w)=1, and a_(w,v)=0 unless v≤w. If v<w and Ū_w is smooth at every point of U_v, then a_(w,v)=0. These conclusions do not say that ℒ_w is irreducible.\n\nKazhdan–Lusztig multiplicity input: For w,v∈W put m_(w,v)=[M(ww₀·0):L(vw₀·0)]. The imported KL theorem gives m_(w,v)=P_(w₀w,w₀v)(1), so m_(w,w)=1 and m_(w,v)=0 unless v≤w. Consequently [X̄_w]=Σ_(v≤w)m_(w,v)ℒ_v. Both occurrences of w₀ in the polynomial indices are required.\n\nThe three integral cycle bases: The three families ([Z_w])_(w∈W), (ℒ_w)_(w∈W), and ([X̄_w])_(w∈W) are Z-bases of Z_(2N)(Z). The simple-to-component matrix is A=(a_(w,v)); the zero-fibre-to-simple matrix is M=(m_(w,v)); each is lower unitriangular in any linear extension of Bruhat order. In particular all changes are integral, not just rational.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:L",
+        "SpringerResolutionAndCharacteristicCycles:Y",
+        "SpringerResolutionAndCharacteristicCycles:D",
+        "SpringerResolutionAndCharacteristicCycles:C",
+        "SpringerResolutionAndCharacteristicCycles:H",
+        "SpringerResolutionAndCharacteristicCycles:S",
+        "SpringerResolutionAndCharacteristicCycles:F",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "P",
+      "title": "Parabolic invariance of simple cycles",
+      "description": "Define P_w by dominance of ww₀·0 on its standard Levi, import the extension of the highest-weight module action, and prove invariance of its simple characteristic cycle under the first-flag action in the ambient incidence space. Identify which individual component cycles it fixes.\n\nThe parabolic attached to a simple module: For λ_w=ww₀·0=−wρ−ρ define I_w={α simple positive:⟨λ_w,α∨⟩≥0}, and P_w the standard parabolic generated by B and the negative root subgroups for I_w. It is the largest standard parabolic whose Levi has λ_w dominant. The highest-weight action on L_w extends to an algebraic P_w-action compatible with the Lie action.\n\nParabolic invariance of simple cycles: The cycle ℒ_w, viewed in the ambient F×F×g via Z, is invariant under p·(F₁,F₂,ψ)=(pF₁,F₂,ψ) for p∈P_w. Every component Z_v with a_(w,v)>0 is individually P_w-stable for this ambient action. This action need not preserve all of Z.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+        "SpringerResolutionAndCharacteristicCycles:L",
+        "SpringerResolutionAndCharacteristicCycles:K",
+        "SpringerResolutionAndCharacteristicCycles:H",
+        "SpringerResolutionAndCharacteristicCycles:S"
+      ]
+    },
+    {
+      "key": "T",
+      "title": "Cartan graphs and tangent spaces",
+      "description": "Construct 𝒯=t×_(t/W)t and its components 𝒯_w, establish component detection after completion at closed points, and prove the zero-operator tangent-space upper bound and its smoothness criterion. No conjectural equality is assumed.\n\nThe Cartan fibre product and its graphs: Define 𝒯=t×_(t/W)t as a scheme. For w∈W let 𝒯_w be the graph {(z,w⁻¹z):z∈t}, with its reduced closed graph structure. The pair (κ₁,κ₂) defines κ:X→𝒯, and its restriction κ_w:X_w→𝒯_w is surjective. Graph labels use w⁻¹, consistently with the incidence relation.\n\nThe components of the Cartan fibre product: The irreducible components of 𝒯 are the distinct smooth graphs 𝒯_w≅t. In characteristic zero 𝒯 is reduced and equidimensional of dimension r. The graphs may meet; no disjoint-union assertion is made.\n\nDetection of components after completion: Let x be a closed point of X_w, and y=κ(x)∈𝒯_w. The map of completed local schemes (X_w)^∧_x→𝒯^∧_y factors through (𝒯_(w′))^∧_y if and only if w′=w. When y∉𝒯_(w′), that closed subscheme has empty completion and cannot contain the nonempty source. The generic point used in the proof lies on 𝒯_w, not on X.\n\nThe tangent-space upper bound: Let x=(F₁,F₂,0) be a closed point of X_w∩V_v, and let πx∈U_v. Then dim_(k(x)) T_(X_w),x ≤ dim T_(Ū_w),πx + dim ker(wv⁻¹−id_t) + ℓ(vw₀). All dimensions are over the common residue field after base extension. The hypothesis ψ=0 is essential to the splitting used here.\n\nSmoothness from the tangent bound: With x and v as in the tangent bound, assume Ū_w is smooth at πx and codim_t ker(wv⁻¹−id)=ℓ(w)−ℓ(v). Then X_w is smooth at x. This is a sufficient criterion; no converse is asserted.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:S",
+        "SpringerResolutionAndCharacteristicCycles:N",
+        "SpringerResolutionAndCharacteristicCycles:C",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "SchemeAndStackFoundations:SF.0",
+        "SpringerResolutionAndCharacteristicCycles:I",
+        "SpringerResolutionAndCharacteristicCycles:F"
+      ]
+    },
+    {
+      "key": "E",
+      "title": "Completed cycle identities",
+      "description": "Construct the map on top cycles induced by completion at a closed point using excellent reduced local rings, allowing component splitting. Prove the generic-length base-change formula, define the completed simple cycles and prove the completed KL cycle identity.\n\nCompletion of top cycles at a point: For an excellent reduced pure d-dimensional finite-type k-scheme Y and a closed point x, put A=O_Y,x and Â its maximal-ideal completion. Define c_x:Z_d(Y)→Z_d(Spec Â) by c_x([C])=[Spec(Â/I_CÂ)] if x∈C and by zero otherwise. A completed component can split into several components; its cycle is the sum of all of them with their scheme multiplicities. Excellence makes the completed reduced component reduced.\n\nGeneric-length cycles under completion: Let M be coherent on X̄, and x a closed point of X̄. In Z_(2N)(Spec Ô_(X̄),x) one has [M̂_x]=Σ_v m(Z_v,M)[Spec Ô_(Z_v),x], with the term defined as zero if x∉Z_v. Each completed Z_v is reduced and equidimensional of dimension 2N, but may be reducible. The formula also applies to coherent modules supported on X̄_w.\n\nThe completed simple cycles: For x a closed point of X̄, define ℒ̂_(w,x)=Σ_v a_(w,v)[Spec Ô_(Z_v),x] in the completed top-cycle group, with a missing-component term zero. This is c_x(ℒ_w); it is not a claim to complete the localised D-module itself. The same definition is used in the common reduced support cycle group of X̄.\n\nThe completed Kazhdan–Lusztig cycle identity: For every w∈W and every closed point x of X̄, [Spec Ô_(X̄_w),x]=Σ_(v≤w)P_(w₀w,w₀v)(1)ℒ̂_(v,x), where the left side is zero when x∉X̄_w. The equality is in the common top-cycle group at x and preserves all generic multiplicities and formal branches.",
+      "requires": [
+        "SpringerResolutionAndCharacteristicCycles:Y",
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "SchemeAndStackFoundations:SF.0",
+        "SpringerResolutionAndCharacteristicCycles:S",
+        "SpringerResolutionAndCharacteristicCycles:K"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BHS19",
+      "title": "A local model for the trianguline variety and applications",
+      "authors": "Christophe Breuil, Eugen Hellmann and Benjamin Schraen",
+      "edition": "Publications Mathématiques de l’IHÉS 130 (2019), 299–412; published version",
+      "url": "https://numdam.org/item/10.1007/s10240-019-00111-y.pdf",
+      "sha256": "34ffd69795468054b4caab7847d5ae90393826c889b187397dbe53e16993967a",
+      "readSections": [
+        "§2.1–2.5, printed pp. 309–328, including proofs; PDF page = printed page − 298"
+      ],
+      "read": "2026-10-18"
+    },
+    {
+      "id": "BR12",
+      "title": "Affine braid group actions on derived categories of Springer resolutions",
+      "authors": "Roman Bezrukavnikov and Simon Riche",
+      "edition": "Annales scientifiques de l’École normale supérieure 45 (2012), 535–599",
+      "url": "https://www.numdam.org/item/10.24033/asens.2173.pdf",
+      "sha256": "4f9f6472693dc11198a009fb0fabd13c29cb1af0d186f3765df58e8b3c5826b0",
+      "readSections": [
+        "§1.1, pp. 538–539, hypotheses and coadjoint conventions",
+        "§2.2, Theorem 2.2.1 and Remark 2.2.2, pp. 557–558",
+        "§2.10–2.11, pp. 570–572, proof structure and base-change remark",
+        "§2.14, pp. 574–575, Proposition 2.14.2 and conventions"
+      ],
+      "read": "2026-10-18"
+    },
+    {
+      "id": "M23",
+      "title": "D-modules and singularities",
+      "authors": "Mircea Mustață",
+      "edition": "Author lecture notes, Math 732, Winter 2023; downloaded 18 October 2026",
+      "url": "https://websites.umich.edu/~mmustata/DmodulesNotes.pdf",
+      "sha256": "bf4103231ac100f06416c7552d566bfc7472f4f6d0d49679015abc7acd3aec2a",
+      "readSections": [
+        "§§2.1–2.4, pp. 1–8",
+        "§3.1, p. 9; §3.4, pp. 13–17",
+        "§6.1, pp. 43–47; §6.2, pp. 47–51, equivalence and local proof",
+        "§6.3, pp. 51–52; §6.4, pp. 53–56",
+        "§6.8, pp. 72–77, intermediate extension and simple-module classification",
+        "§7.4.3, pp. 93–94, regularity definitions and preservation statement",
+        "§5.1, pp. 35–36, filtered Ext and biduality statements read; remaining homological package is a gap",
+        "§6.4, pp. 53–56, holonomicity, finite length and cycle arguments",
+        "§6.5–6.6, pp. 62–63, normalized duality and stated proper duality theorem"
+      ],
+      "read": "2026-10-18"
+    },
+    {
+      "id": "BB81",
+      "title": "Localisation de g-modules",
+      "authors": "Alexandre Beilinson and Joseph Bernstein",
+      "edition": "C. R. Acad. Sci. Paris 292 (1981), 15–18; author-hosted scan contains pp. 15–17",
+      "url": "https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/BernBeil_Localization_of_g-modules.pdf",
+      "sha256": "ce805d42fd29e4af6cb540154fe5387c0796106e0f92fd0017274d1aeadb89d1",
+      "readSections": [
+        "§1, p. 15, D-affinity and equivalence",
+        "§2, pp. 16–17, main theorem and proof",
+        "§3, p. 17, compatible algebraic subgroup actions; p. 18 not in the scan"
+      ],
+      "read": "2026-10-18"
+    },
+    {
+      "id": "G98",
+      "title": "Lectures on D-modules",
+      "authors": "Victor Ginzburg, with Vladimir Baranovsky and Sam Evens",
+      "edition": "Author lecture notes, Winter 1998",
+      "url": "https://math.berkeley.edu/~nadler/ginzburg.dmodules.pdf",
+      "sha256": "7534f51335536c322c9c6d25dad991d7cabdb35029b010cf1a2fb179f7ae7aaa",
+      "readSections": [
+        "§1.1, pp. 4–6, good filtrations and characteristic varieties",
+        "§2.1, pp. 23–24, coordinate differential operators",
+        "§4.1, pp. 60–61, holonomicity and conormal support"
+      ],
+      "read": "2026-10-18"
+    }
+  ],
+  "status": "draft"
+}

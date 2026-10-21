@@ -1,0 +1,206 @@
+{
+  "id": "EllAdicHomotopyTypesAndWeights",
+  "title": "ℓ-adic homotopy types of varieties and their weights",
+  "area": "etale",
+  "parent": null,
+  "summary": "Construct the commutative Q_l differential algebra encoding the l-adic homotopy type of a variety, through relative divided-power forms, finite-coefficient pro-simplicial systems and bidegreewise completion. Compare complex varieties with Sullivan rational minimal models, construct integer weight gradings from Frobenius, descend the complex grading to Q, and derive proper smooth formality and weight-bounded presentations for unipotent fundamental groups of normal varieties.",
+  "readme": "Construct the Grothendieck–Miller algebra using existing divided powers and DG algebras, then build its étale realization and Sullivan comparisons. Integer model weights lead to rational descent, formality and normal-variety unipotent relation bounds. Cochain degree, divided-power t-degree and weight are three distinct indices. Work over algebraically closed fields with l invertible. The rational theorem is for complex varieties; the general theorem gives Q_l-gradings. The continuity and stronger conjugacy questions of Weil II 5.3.9–5.3.10 are outside the theorem targets. Detailed targets, APIs, examples and exact proof inputs are in the reader document.",
+  "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty",
+    "ComplexComparisonPartII",
+    "DeligneWeightsAndPurity",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/DGAInfinity",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/ReductiveGroups"
+  ],
+  "stages": [
+    {
+      "key": "EH.0",
+      "title": "Commutative DG refinements and Sullivan models",
+      "description": "Refine the existing internally graded DG carrier by strict graded commutativity, define polynomial homotopies and positive Sullivan/Hirsch minimal algebras, and prove existence, homotopy lifting and uniqueness up to nonunique isomorphism. Full Sullivan models are distinct from DGAInfinity’s A∞ transfer models.\n\nTargets: Strict graded commutativity on the existing DG carrier; Polynomial homotopies of commutative DG maps; Sullivan algebras and their minimal models; Existence, lifting and uniqueness of minimal models.\n\nChecks: An exterior algebra on a degree-one module satisfies the integral condition. Homotopic maps induce the same map on cohomology. The model of an even sphere needs a generator whose differential is a square. Do not replace the connected hypothesis by simple connectivity.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules"
+      ]
+    },
+    {
+      "key": "EH.1",
+      "title": "Relative divided-power simplex forms",
+      "description": "Identify Γ_Z(Z) with the concrete divided-power coordinate ring; define the (cochain,t) bigrading and relative forms Γ_R(R^σ)⊗Λ_R(R^σ/R·diag) with dγ_r(x)=γ_(r−1)(x)dx. Construct all finite-set pullbacks. Quotient by dt, never by t−1 over integral coefficients.\n\nTargets: The rank-one divided-power coordinate; The t-grading of relative forms; Relative divided-power forms on a simplex; Pullback of relative forms.\n\nChecks: Multiplication by t sends γ_n to (n+1)γ_(n+1). d preserves n even though it raises p. For one vertex Ω(σ,R)=R{t} in cochain degree zero, not R. A face map sets omitted coordinates and their differentials to zero.",
+      "requires": [
+        "EllAdicHomotopyTypesAndWeights:EH.0"
+      ]
+    },
+    {
+      "key": "EH.2",
+      "title": "Simplicial cohomology and rational stabilization",
+      "description": "Construct compatible forms on simplicial sets, compute normalized coefficient homotopy and triangular cohomology with binomial cup-product factors, prove the off-diagonal quotient-coefficient theorem, and compare to Sullivan polynomial forms after rational t-stabilization.\n\nTargets: Divided-power forms on a simplicial set; Homotopy of the simplicial coefficient modules; The triangular integral cohomology comparison; Quotient coefficients and the exceptional diagonal; Sullivan polynomial forms; Rational comparison after t-stabilization.\n\nChecks: Restriction to a representable simplex recovers its coefficient algebra by Yoneda. For p=n=0 the simplicial coefficient module is constant R with H₀=R. For the simplicial circle H¹Ω_n≃R for n≥1 and H¹Ω₀=0. Test reduction Z/l^(r+1)→Z/l^r off the diagonal. On a point A_PL=K in degree zero. For a point the degree-n comparison is an isomorphism K·γ_n→K·t^n sending γ_n to t^n/n!; non-surjectivity before stabilization is detected on an edge, not on a point.",
+      "requires": [
+        "EllAdicHomotopyTypesAndWeights:EH.0",
+        "EllAdicHomotopyTypesAndWeights:EH.1",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "EH.3",
+      "title": "Pro-simplicial completion and the homotopy algebra",
+      "description": "Define finite-coefficient forms by a filtered colimit over a pro-simplicial system. Under degreewise mod-l finiteness prove universal coefficients and finite generation, complete bidegreewise with verified ML exactness, rationalize, then stabilize in t to obtain A_l and its cohomology ring.\n\nTargets: Finite-coefficient forms of a pro-simplicial set; The mod-l finiteness condition; Finite generation and l-adic universal coefficients; Bidegreewise completion and its cohomology; The Q_l homotopy algebra of a pro-simplicial set.\n\nChecks: A constant pro-object recovers ordinary finite-coefficient forms. Finite CW complexes satisfy the condition. A finite torsion H^(i+1) contributes a nonzero Tor term even if H^i(X,Z_l)=0. Completion does not introduce an infinite sum over t-degrees. For a point A_l=Q_l.",
+      "requires": [
+        "EllAdicHomotopyTypesAndWeights:EH.1",
+        "EllAdicHomotopyTypesAndWeights:EH.2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "EH.4",
+      "title": "Étale realization and complex comparison",
+      "description": "Attach A_l to a separated finite-type variety over an algebraically closed field using countable étale systems and prove choice comparisons in the quasi-isomorphism localization. Construct the Galois action with finite-level continuity, analytic good-cover refinements, and the complex comparison of minimal models.\n\nTargets: Étale realization of the homotopy algebra; Galois action and its finite-level continuity; Good-cover refinement of complex étale systems; Complex comparison of minimal models.\n\nChecks: For Spec(k), the algebra is quasi-isomorphic to Q_l. On a geometric point the cohomology action is trivial. A noncompact open curve is permitted; compactness is not a hidden hypothesis. For X=G_m,C the model is Λ(a₁)⊗Q_l, with one H¹ class.",
+      "requires": [
+        "EllAdicHomotopyTypesAndWeights:EH.0",
+        "EllAdicHomotopyTypesAndWeights:EH.2",
+        "EllAdicHomotopyTypesAndWeights:EH.3",
+        "SchemeAndStackFoundations:SF.2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "EH.5",
+      "title": "Geometric cohomology and Frobenius weights",
+      "description": "Isolate the geometric cohomology weight realization needed by the homotopy proof, including normal H¹ weights and smooth/proper bounds. Compare the Hodge weight filtration over C with generalized Frobenius weight spaces of good spreads. Import abstract MHS and existing log forms; request the missing geometric Hodge realization in its own direction.\n\nTargets: Geometric cohomology weight filtrations; Geometric Frobenius splitting of Hodge weights.\n\nChecks: For G_m, H¹ has weight 2; for an elliptic curve, H¹ has weight 1. For geometric Frobenius on H²(P¹), eigenvalue q has weight 2, fixing the dual/Tate convention.",
+      "requires": [
+        "ComplexComparisonPartII:C5",
+        "DeligneWeightsAndPurity:DWP.0",
+        "DeligneWeightsAndPurity:DWP.7",
+        "EllAdicHomotopyTypesAndWeights:EH.4",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "EH.6",
+      "title": "Minimal-model filtrations and weight gradings",
+      "description": "Define admissible exhaustive finite-type sub-DG-algebra filtrations; construct homotopy-adapted stable representatives, generalized eigenvalue gradings and their cohomology-product bounds. Coarsen by integer weights and descend to the coefficient field. Prove the common-filtration lemma for a finite set of actual automorphisms, including its use for two G_m gradings.\n\nTargets: Exhaustive finite-type filtrations of minimal models; Stable representatives of homotopy automorphisms; Multiplicative generalized eigenvalue grading; Eigenvalues of a minimal model come from cohomology; Integer weight gradings and their lower bounds; A common filtration for finitely many automorphisms.\n\nChecks: A degree truncation of M is generally not a subalgebra. For a simply connected finite-type model the familiar degree filtration can be refined by finite generator blocks. A Jordan block belongs to one generalized eigenspace; ordinary eigenspaces alone fail to span. In the even-sphere model with σx=ax and dy=x², σy=a²y: its source cohomology degree sum is 4≥3. For an even-sphere model with weight(x₂)=2 and dy=x², weight(y₃)=4, so the differential preserves weight and model weight may exceed degree. Two commuting or noncommuting automorphisms are allowed; averaging over a finite group is not a proof.",
+      "requires": [
+        "DeligneWeightsAndPurity:DWP.0",
+        "EllAdicHomotopyTypesAndWeights:EH.0"
+      ]
+    },
+    {
+      "key": "EH.7",
+      "title": "Rational descent and conjugacy of gradings",
+      "description": "Construct the filtered automorphism tower and its weight G_m extension. Prove compatible prounipotent splitting and conjugacy over the base field. Obtain a rational grading of the Sullivan model of a complex variety splitting Hodge W; prove conjugacy by an automorphism acting identically on Gr^W cohomology.\n\nTargets: Filtered automorphism schemes and the weight extension; Splitting and conjugacy for the weight extension; Rational weight gradings for complex varieties; Conjugacy of rational weight gradings.\n\nChecks: The section corresponding to a grading sends x_w to λ^w x_w. A section is an algebraic G_m morphism, not just an abstract homomorphism of K-points. For an elliptic curve, degree-one generators have weight 1 and their product has weight 2. Identity on Gr^W is the exact proven condition on the conjugator.",
+      "requires": [
+        "EllAdicHomotopyTypesAndWeights:EH.5",
+        "EllAdicHomotopyTypesAndWeights:EH.6",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "EH.8",
+      "title": "l-adic weight splitting, formality and normal fundamental groups",
+      "description": "For an algebraically closed base with l invertible, obtain Q_l model weight splittings. Prove proper smooth formality by the weight-diagonal projection. Construct the finite 1-minimal Lie tower, compare it with the NC.2 unipotent étale group, and prove the normal-variety presentation with generator weights −1,−2 and relation weights −2,−3,−4.\n\nTargets: Weight gradings over arbitrary algebraically closed fields; Formality of proper smooth varieties; The Lie tower dual to a 1-minimal model; Comparison with the unipotent étale fundamental group; Weight-bounded presentations for normal varieties.\n\nChecks: For P¹ minus three rational points over F_q, the geometric H¹ has two weight-2 generators. A proper smooth genus≥1 curve is formal; for an elliptic curve the explicit model is Λ(a₁,b₁), d=0. The sign reversal turns cohomological weights 1,2 into Lie generator weights −1,−2. Depth one is dual H¹_(ét)(X,Q_l). For P¹ minus three points V has two weight −2 generators and R=0: all finite nilpotent free quotients occur.",
+      "requires": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.2",
+        "DeligneWeightsAndPurity:DWP.0",
+        "DeligneWeightsAndPurity:DWP.7",
+        "EllAdicHomotopyTypesAndWeights:EH.0",
+        "EllAdicHomotopyTypesAndWeights:EH.4",
+        "EllAdicHomotopyTypesAndWeights:EH.5",
+        "EllAdicHomotopyTypesAndWeights:EH.6",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "weil-II",
+      "title": "La conjecture de Weil : II",
+      "authors": "Pierre Deligne",
+      "edition": "Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+      "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§5, pp. 234–242, entire; bibliography pp. 250–252"
+      ]
+    },
+    {
+      "id": "sullivan",
+      "title": "Infinitesimal computations in topology",
+      "authors": "Dennis Sullivan",
+      "edition": "Published, Publications mathématiques de l’IHÉS 47 (1977), 269–331",
+      "url": "https://numdam.org/item/PMIHES_1977__47__269_0.pdf",
+      "sha256": "ba6e3f93cad5e39559642920223b99a5657d3afb3a26a8a9037da30482b13d93",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§§2–3, pp. 279–285; §5, pp. 287–289; §6, pp. 289–294; Appendix, pp. 294–296; §7, pp. 296–300; Theorem 8.1, p. 301"
+      ]
+    },
+    {
+      "id": "morgan",
+      "title": "The algebraic topology of smooth algebraic varieties",
+      "authors": "John W. Morgan",
+      "edition": "Published, Publications mathématiques de l’IHÉS 48 (1978), 137–204",
+      "url": "https://www.numdam.org/item/PMIHES_1978__48__137_0.pdf",
+      "sha256": "9909425a426f7d130c0bf0f5994b8b579bd026c48817c34c73763eb91d47d2c4",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Introduction, pp. 137–141; §5, pp. 163–169; §9, Theorem 9.2 and preceding rigidity argument, p. 195; Theorem 9.4 and proof, pp. 198–199"
+      ]
+    },
+    {
+      "id": "morgan-correction",
+      "title": "Correction to: The algebraic topology of smooth algebraic varieties",
+      "authors": "John W. Morgan",
+      "edition": "Published, Publications mathématiques de l’IHÉS 64 (1986), 185",
+      "url": "https://www.numdam.org/item/PMIHES_1986__64__185_0.pdf",
+      "sha256": "c449442e261947874c9ef70f5af585bf640faadf4cb7949f432bbb306febf1e3",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Entire correction, p. 185"
+      ]
+    },
+    {
+      "id": "dgms",
+      "title": "Real homotopy theory of Kähler manifolds",
+      "authors": "Pierre Deligne, Phillip Griffiths, John Morgan and Dennis Sullivan",
+      "edition": "Published, Inventiones mathematicae 29 (1975), 245–274; IAS-hosted scan",
+      "url": "https://publications.ias.edu/sites/default/files/realhomotopytheory.pdf",
+      "sha256": "75d32559e32f59ad17230fb66ab37404585a4e702f013ff175bd6e06b25414b7",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§1, pp. 248–253; §2, pp. 254–255; §6, Main Theorem and first proof, pp. 270–271"
+      ]
+    },
+    {
+      "id": "poids",
+      "title": "Poids dans la cohomologie des variétés algébriques",
+      "authors": "Pierre Deligne",
+      "edition": "ICM Vancouver 1974, Proceedings vol. 1 (1975), 79–85; IAS-hosted scan",
+      "url": "https://publications.ias.edu/sites/default/files/29_Poidsdansla.pdf",
+      "sha256": "4adb0a4d7d12f41f92e24fe4d02897ca38695237599e44ae42fb0100abce5a5f",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§§1–17, pp. 79–84; bibliography p. 85; in particular §8.3 p. 82, §10 p. 83, §§12–14 pp. 83–84; read from page images"
+      ]
+    },
+    {
+      "id": "hodge-III",
+      "title": "Théorie de Hodge : III",
+      "authors": "Pierre Deligne",
+      "edition": "Published, Publications mathématiques de l’IHÉS 44 (1974), 5–77",
+      "url": "https://www.numdam.org/item/PMIHES_1974__44__5_0.pdf",
+      "sha256": "d78d4f46742916cd669279e7db365e4db6a43f38d2dcdec6862c6d27d07216b3",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§6.2.4–6.2.8, pp. 19–21; §6.4, pp. 22–23; §8.1.1–8.1.20, pp. 28–35, including Theorem 8.1.15, pp. 32–33; §8.2.1–8.2.4, pp. 38–39; §8.2.10–8.2.11, p. 40"
+      ]
+    }
+  ],
+  "status": "draft"
+}

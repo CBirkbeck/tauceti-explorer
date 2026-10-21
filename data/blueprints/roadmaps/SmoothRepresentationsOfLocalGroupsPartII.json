@@ -1,0 +1,344 @@
+{
+ "id": "SmoothRepresentationsOfLocalGroupsPartII",
+ "title": "Smooth representations of local groups, Part II: unitary representations, the Fell topology and the unitary spherical dual",
+ "area": "representations",
+ "parent": "SmoothRepresentationsOfLocalGroups",
+ "summary": "Unitary representation theory of reductive p-adic groups on top of the smooth theory: unitary representations of locally profinite groups, functions of positive type and the GNS construction, the unitary dual with its Fell topology and weak containment, unitarizable smooth representations and Bernstein's admissibility theorem, limits of characters (Miličić, Tadić), Heiermann–Opdam's standard modules, and the isolation of the Steinberg representation (Gan–Savin, Appendix B); then the generic unitary spherical dual of split and unramified groups, half-integral Satake parameters and the Kazhdan–Lusztig complementary series of Ciubotaru–Harris.",
+ "readme": "Smooth representations of local groups, Part II starts where Smooth representations of local groups (SmoothRepresentationsOfLocalGroups, SR.0–SR.6, the TauCetiRoadmap roadmap of the reductive-groups bundle) stops: that roadmap builds the smooth category, Hecke algebras, induction and Jacquet functors, admissibility, the Bernstein decomposition, temperedness, Satake and the integral GL_n theory, but no layer treats unitary representations. This Part II adds them: unitary representations of locally profinite groups on Hilbert spaces, functions of positive type and the GNS construction, the unitary dual with the Fell topology and weak containment (Bekka–de la Harpe–Valette, Appendices C and F), unitarizable smooth representations of reductive p-adic groups and Bernstein's admissibility theorem, the limit theorems of Miličić, Tadić and Heiermann–Opdam, and the isolation of the Steinberg representation (Gan–Savin, The local Langlands conjecture for G₂, Appendix B); then the generic unitary spherical dual of split and unramified groups and its Kazhdan–Lusztig organisation by nilpotent orbits (Ciubotaru–Harris, On the generalized Ramanujan and Arthur conjectures over function fields, §§4.2, 6–8). Conventions: complex Hilbert spaces with Mathlib's inner product ⟪x, y⟫, conjugate-linear in x; the positive-type coefficient of (π, v) is g ↦ ⟪v, π g v⟫, which is Bekka–de la Harpe–Valette's ⟨π(g)v, v⟩; strong continuity is stated separately from Tau Ceti's `ContRepresentation.IsUnitary`, as in OperatorAlgebraDynamics and the open NoncompactQuantumSymmetry roadmap; normalised parabolic induction and the Langlands convention are those of SR. The coefficient and Fell-topology theorems are stated for second-countable locally compact groups, including locally profinite groups and compact factors. SRU.1 owns Raikov's theorem; C*-kernel weak containment and its hull-kernel comparison are imported from NoncompactQuantumSymmetry. The sources' corrected statements are used: Gan–Savin Proposition 11.6 as a closure statement, Ciubotaru–Harris Corollaries 6.32 and 7.5 and Theorem 8.5 for real or central-compact Satake parameters. The global applications of both papers (globalisation with isolated components, Ramanujan and Arthur bounds over function fields) belong to LocalLanglandsCorrespondenceForG2 and to the Ramanujan–Arthur route of the Part II of GlobalShtukasAndFunctionFieldLanglands, which import this roadmap. The other Part II directions of SmoothRepresentationsOfLocalGroups proposed by the paper extractions (types and supercuspidal constructions, parahoric centres, unitary level-raising types, characters and trace Paley–Wiener, mod p Bernstein centres and base change, general-linear newforms, Newton cocentres) are separate roadmaps, recorded in the packet's restructure proposal. Independent review retains explicit proof gaps: stages SRU.1–SRU.7 are partial. The nonabelian GNS construction consumes existing Kolmogorov spaces and OperatorTheory/PolarDecomposition, and the KL dictionary here is restricted to split adjoint groups. Real graded-Hecke classification is used only for real or central-compact parameters; the nonsplit companion retains its full isogeny.",
+ "prerequisites": [
+  "SmoothRepresentationsOfLocalGroups",
+  "ReductiveGroupsPartII",
+  "EndoscopicTransferAndUnitaryTraceComparison",
+  "ExcursionOperatorsAndSpectralAction"
+ ],
+ "stages": [
+  {
+   "key": "SRU.0",
+   "title": "Unitary representations and functions of positive type",
+   "description": "Strongly continuous unitary representations of a topological group G on complex Hilbert spaces, as Mathlib's `ContRepresentation ℂ G H` with Tau Ceti's `ContRepresentation.IsUnitary` and the separate strong-continuity condition `∀ v, Continuous (fun g ↦ π g v)`; unitary equivalence; Hilbert direct sums ⊕̂ᵢ πᵢ on Mathlib's `lp (fun i ↦ Hᵢ) 2`. Functions of positive type on a group (Σᵢⱼ cᵢ c̄ⱼ φ(gⱼ⁻¹gᵢ) ≥ 0, Bekka–de la Harpe–Valette [BHV] Definition C.4.1), the sets P(G), P₁(G) (φ(e) = 1) and P≤1(G), and their basic API (C.4.2): φ(g⁻¹) = conj φ(g), |φ(g)| ≤ φ(e), uniform continuity; agreement with Tau Ceti's `IsPositiveDefiniteSub` on `Multiplicative A`. The positive-type coefficient g ↦ ⟪v, π g v⟫ of a vector (C.4.3), its relation to Tau Ceti's `ContRepresentation.matrixCoeff`, and the GNS construction (C.4.10) through Tau Ceti's Kolmogorov space `Matrix.PosSemidef.KolmogorovSpace`, with uniqueness up to unitary equivalence. The unitary dual Ĝ, the set of unitary-equivalence classes of topologically irreducible strongly continuous unitary representations, realised without universe issues as pure normalised positive-type functions modulo GNS equivalence; extremality: φ ∈ ext P₁(G) iff π_φ is irreducible, and ext P≤1(G) = ext P₁(G) ∪ {0} ([BHV] Theorem C.5.2, C.5.5(i)). For G locally profinite: the orthogonal projection e_K onto H^K for compact open K, the K-type projectors e_τ (with the factor dim τ), and density of the smooth vectors H^∞ = ⋃_K H^K, a smooth representation in the sense of SR.0.",
+   "requires": [
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category"
+   ]
+  },
+  {
+   "key": "SRU.1",
+   "title": "Weak containment and the Fell topology",
+   "description": "Weak containment σ ≺ π of unitary representations by uniform approximation on compact sets of positive-type coefficients of σ by finite sums of those of π ([BHV] Definition F.1.1), its normalised convex form (Remark F.1.2, the form of Gan–Savin Definition 11.5), weak equivalence, and the API used downstream (reflexivity, transitivity, passage to subrepresentations and direct sums, invariance under unitary equivalence). Milman's converse to the Krein–Milman theorem in a Hausdorff locally convex space (Mathlib has `closure_convexHull_extremePoints` but not the converse). For G locally profinite: an irreducible σ ≺ π has each normalised coefficient approximated by single normalised coefficients of π ([BHV] Proposition F.1.4), proved through K-bi-invariant coefficients and the pointwise topology on K\\G/K. The Fell topology on Ĝ by the neighbourhoods W(π, φ₁…φₙ, Q, ε) ([BHV] Definition F.2.1), its description by nets (F.2.2) and by single coefficients at irreducible points (F.2.4), limit and cluster points of sequences L[πₙ] ⊆ C[πₙ] (Gan–Savin §11.1), isolated points, and the support supp π (F.2.6). The closure theorem: ⊕_{σ∈S} σ ≺ ⊕_{τ∈T} τ iff S ⊆ closure(T) ([BHV] Exercise F.6.4). Corrected Gan–Savin Proposition 11.6 (an irreducible σ weakly contained in ⊕̂ᵢ πᵢ lies in the Fell closure of {[πᵢ]}; no subsequence statement) and Corollary 11.7 (an isolated such σ is some πᵢ).",
+   "requires": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0"
+   ]
+  },
+  {
+   "key": "SRU.2",
+   "title": "Unitarizable smooth representations of reductive p-adic groups",
+   "description": "For G = 𝐆(F), 𝐆 connected reductive over a nonarchimedean local field F (SR conventions): unitary structures on smooth complex representations, invariant positive-definite hermitian forms with no completeness assumed (Bernstein's Definition 27 [Ber92] Ch. IV §1.1), the predicate `IsUnitarizable` and its API (subrepresentations, finite direct sums, unitary characters and twists, contragredient ≅ complex conjugate); uniqueness of the unitary structure on an irreducible admissible representation up to a positive scalar ([Ber92] Lemma 38; [Cas95] Proposition 2.1.15); orthogonal complements and semisimplicity of admissible unitarizable representations ([Cas95] Propositions 2.1.5, 2.1.14; [Ber92] Proposition 41); preservation of unitarizability by normalised parabolic induction ([Ber92] Proposition 38). The Hilbert completion of a unitarizable smooth representation as a strongly continuous unitary representation, with smooth vectors equal to the original space when it is admissible; Bernstein's theorem that every irreducible unitary representation of G is admissible (Bernstein 1974); the resulting identification of Ĝ with isomorphism classes of irreducible unitarizable smooth representations, the form in which Gan–Savin work (§11). Discrete series representations (SR.3.3) are isolated in the tempered part of Ĝ.",
+   "requires": [
+    "ReductiveGroupsPartII:RG2.4",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.3a",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.1"
+   ]
+  },
+  {
+   "key": "SRU.3",
+   "title": "Limits of unitary representations: characters, K-types and standard modules",
+   "description": "Weak convergence of the distribution characters Θ_π(f) = tr π(f), f ∈ C_c^∞(G), of finite-length representations (characters from Endoscopic transfer ET.4); linear independence of the characters of pairwise non-isomorphic irreducible admissible representations. Miličić's theorem (Gan–Savin Theorem 11.1): a weakly convergent sequence of characters of irreducible unitarizable representations converges to Σ_{σ∈S} n_σ Θ_σ with S finite and S = L[πₙ] = C[πₙ]. Tadić's results: subsequences of tempered characters of a Levi converge weakly to the character of a finite-length representation, cuspidal supports pass to the limit, and Fell convergence implies convergence of infinitesimal characters in the Bernstein variety. Persistence of K-types in limits (Gan–Savin Lemma 11.4). Rodier's heredity of genericity under parabolic induction; Heiermann–Opdam: every irreducible generic representation of a quasi-split G over a p-adic field of characteristic zero is an irreducible standard module. Gan–Savin Proposition 11.2: a generic unitarizable limit point of generic unitarizable representations is, after passing to a subsequence, a subquotient of a limit Ind_P^G(τ) of standard modules Ind_P^G(τₙ).",
+   "requires": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.3a",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.1",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.2"
+   ]
+  },
+  {
+   "key": "SRU.4",
+   "title": "Isolated representations: the Steinberg representation and supercuspidals",
+   "description": "For G split simple over a p-adic field (Gan–Savin Appendix B): the Steinberg representation st_G of the finite reductive group 𝐆(𝔽_q) and its inflation to a hyperspecial maximal compact K; st_G is a K-type of the Steinberg representation St_G (SR.3.4) and the unique one with Iwahori-fixed vectors; Barbasch–Moy: a representation containing st_G is generic. Rodier's decomposition of the unramified principal series containing St_G into 2^r subquotients with known exponents. The Howe–Moore theorem over a nonarchimedean local field: coefficients of a unitary representation of 𝐆(F), 𝐆 almost simple and isotropic, with no nonzero 𝐆(F)⁺-invariant vector vanish at infinity. Consequently the only unitarizable subquotients of that principal series are 1 and St_G; Gan–Savin Proposition 11.3: St_G is isolated in Ĝ when rank G ≥ 2 (false in rank one). Irreducible supercuspidal representations of a group with compact centre are isolated in Ĝ (used with Corollary 11.7 in Gan–Savin Proposition 10.5).",
+   "requires": [
+    "ReductiveGroupsPartII:RG2.3",
+    "ReductiveGroupsPartII:RG2.4",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.3a",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.1",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.2",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.3",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ]
+  },
+  {
+   "key": "SRU.5",
+   "title": "Generic unitary spherical representations of split groups",
+   "description": "Ciubotaru–Harris §6 over any nonarchimedean local field k (no characteristic hypothesis), for G quasi-simple split adjoint with hyperspecial K = G(O): Satake parameters s ∈ T^∨ (SR.4), the polar decomposition s = s_c·s_ν with s_ν = q^ν, ν ∈ t^∨_ℝ, the unramified principal series X(s) and its spherical subquotient L(s), with the sign convention (6.1) pinned against SR's Langlands convention. Half-integrality of ν for a representation V of g^∨ and geometric Satake parameters (Definition 6.3); temperedness of L(s) iff ν = 0; spherical tempered implies generic; Casselman–Kato irreducibility of X(s); L(s) generic iff X(s) irreducible (Barbasch–Moy); hermitian iff w₀ν = −ν. The generic unitary region U^g_0 inside the hermitian locus C_{0,h} of the dominant chamber C₀, the fundamental alcove A₀; Lemma 6.7 (A₀ ∩ C_{0,h} ⊆ U^g_0, complementary series), Lemma 6.8 (no unbounded unitary region, Howe–Moore), the Barbasch–Moy unitarity criterion through the Iwahori–Hecke algebra, and the classification Theorem 6.9 (2^d alcoves; Barbasch, Ciubotaru, Barbasch–Ciubotaru, Tadić). Proposition 6.10, the reduction (6.11)–(6.13), Theorem 6.14 type by type, Lemma 6.30, Proposition 6.31 and Corollary 6.32 stated for real or central-compact Satake parameters, with the G₂ counterexample showing that the printed statement for arbitrary s_c fails.",
+   "requires": [
+    "ReductiveGroupsPartII:RG2.4",
+    "ReductiveGroupsPartII:RG2.5",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.4",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.2",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.3",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.4",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles"
+   ]
+  },
+  {
+   "key": "SRU.6",
+   "title": "Unramified nonsplit groups",
+   "description": "Ciubotaru–Harris §7: for G quasi-simple, adjoint, quasi-split and split over an unramified extension, the pinned outer automorphism τ of G^∨, the τ-fixed group G^∨(τ) and the split group G(τ) dual to it (Table 1); the identification of unramified characters of the minimal Levi with T'^∨ and of W(G, A) with W^τ (SR.4 Frobenius-twisted Satake). Barbasch–Ciubotaru's transfer (Theorem 7.4): for real ν, L^G(ν) is (generic) unitary iff L^{G(τ)}(ν) is; Corollary 7.5 for real or central-compact parameters and every such G except the quasi-split PSU(2n+1); Remark 7.6 on the residual candidate ½ωₙ for PSU(2n+1). The split companion is defined by its full dual root datum and need not be adjoint (PSU(2n+1) gives Sp(2n)). Nonsplit genericity, characteristic and isogeny adapters remain explicit prerequisites.",
+   "requires": [
+    "ReductiveGroupsPartII:RG2.5",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.4",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.5"
+   ]
+  },
+  {
+   "key": "SRU.7",
+   "title": "Kazhdan–Lusztig parameters and spherical complementary series",
+   "description": "The Aubert–Zelevinsky involution on the Grothendieck group of finite-length representations of a reductive p-adic group (Aubert 1995), preservation of cuspidal support and hence of the semisimple local parameter (Ciubotaru–Harris Proposition 4.5, with ExcursionOperators ES5 and ES7); agreement with the Zelevinsky involution of SR.5.3 for GL_n. Kazhdan–Lusztig parameters (s, e, ρ) of irreducible Iwahori-spherical representations of split G and the classification theorem (Kazhdan–Lusztig 1987, Reeder 2002), with its spherical, tempered and generic criteria; the Iwahori–Matsumoto involution preserves unitarity (Barbasch–Moy). The partition of the spherical dual by nilpotent orbits Sph(G, O^∨) (8.1), the central point q^{h/2}, the complementary series CS(G, O^∨), Theorem 8.3 (reduction to the centralizer of the sl₂-triple, except 4A₁ in E₈), extraneous points (Definition 8.4) and Theorem 8.5 restricted to real or central-compact parameters with the corrected F₄ point, and the E₈, 4A₁ exclusion of §8.3. The simplified KL criteria are stated for split adjoint G; the triple-centraliser classification and identification with the zero complementary series use the real or central-compact sector. The full spherical strata retain compact parts and central twists. Aubert’s corrected-resolution proof is an explicit access gap, with its endpoint corroborated by Ban02 Theorem 3.1.",
+   "requires": [
+    "ExcursionOperatorsAndSpectralAction:ES5",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+    "ReductiveGroupsPartII:RG2.5",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "SmoothRepresentationsOfLocalGroups:SR.5",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.2",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.4",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.5",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "GS23",
+   "title": "The local Langlands conjecture for G_2",
+   "authors": "Wee Teck Gan and Gordan Savin",
+   "edition": "Forum of Mathematics, Pi 11 (2023), e28, 1–42 (published version, CC BY 4.0); compared with arXiv:2209.07346v2",
+   "url": "https://doi.org/10.1017/fmp.2023.27",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§10.2–10.3, Proposition 10.5, Proposition 10.7 and Lemma 10.8 with proofs, pp. 28–30 (the uses of Appendix B)",
+    "§11 Appendix B: Topology of unitary dual, Theorem 11.1, Proposition 11.2 and proof, Proposition 11.3, Lemma 11.4 and proofs, Definition 11.5, Proposition 11.6 and proof, Corollary 11.7, pp. 30–33",
+    "References [BHV], [BM], [Co], [HO], [Mi], [Ro], [Ta1], [Ta2], [Vo], pp. 40–42"
+   ],
+   "note": "The Cambridge PDF is stamped per download, so its SHA-256 is not reproducible; the arXiv v2 file (SHA-256 025a257e0450ce545d608208f9757c26b3f51630e8794a5c5834a796696decb7) was used to check that Appendix B has the same numbering. Page numbers are the journal's."
+  },
+  {
+   "id": "CH26",
+   "title": "On the generalized Ramanujan and Arthur conjectures over function fields",
+   "authors": "Dan Ciubotaru and Michael Harris",
+   "edition": "arXiv:2311.15300v1 (26 November 2023); published Annals of Mathematics 204 (2026), no. 2, 545–601 (revision of 8 October 2025, not accessible for collation)",
+   "url": "https://arxiv.org/pdf/2311.15300v1",
+   "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§4.1–4.2 (Theorem 4.2, Proposition 4.5), pp. 11–12",
+    "§5, Lemma 5.2, Theorem 5.4 statement and proof, Corollary 5.7 and proof, pp. 12–16",
+    "§6, (6.1)–(6.6), Lemmas 6.7–6.8, Theorem 6.9, Proposition 6.10, (6.11)–(6.13), Theorem 6.14, §§6.3–6.11 coordinates, Lemma 6.30, Proposition 6.31, Corollary 6.32, pp. 16–25",
+    "§7, Table 1, (7.1)–(7.3), Theorem 7.4, Corollary 7.5, Remark 7.6, pp. 25–27",
+    "§8, (8.1)–(8.2), Theorem 8.3, Definition 8.4, Theorem 8.5, Remarks 8.6–8.7, §8.3, pp. 27–30",
+    "References [Au], [Ba], [BM1], [BM2], [BC1]–[BC3], [Cas1], [Cas2], [Ci1], [Ci2], [HM], [KL], [KS], [Re93], [Re02], [Ta], pp. 36–39"
+   ]
+  },
+  {
+   "id": "BHV",
+   "title": "Kazhdan's Property (T)",
+   "authors": "Bachir Bekka, Pierre de la Harpe and Alain Valette",
+   "edition": "New Mathematical Monographs 11, Cambridge University Press, 2008; authors' version KazhdanTotal.pdf (printed page numbers cited)",
+   "url": "https://perso.univ-rennes1.fr/bachir.bekka/KazhdanTotal.pdf",
+   "sha256": "0281823290dfb42efc0542705b4f232f9e3d9186e945914ffb65b59db790c889",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Appendix A.2, Theorem A.2.2 (Schur's lemma), p. 313",
+    "Appendix C.4, Definition C.4.1, Propositions C.4.2–C.4.3, Theorem C.4.10 (GNS), pp. 373–377",
+    "Appendix C.5, Proposition C.5.1, Theorem C.5.2, Lemmas C.5.3–C.5.4, Theorems C.5.5–C.5.6, Proposition C.5.8, pp. 379–386",
+    "Appendix F.1–F.2, Definition F.1.1, Remark F.1.2, Proposition F.1.4, Definition F.2.1, Propositions F.2.2, F.2.4, Example F.2.5, Definition F.2.6, Proposition F.2.7, pp. 419–430",
+    "Exercise F.6.4, p. 444"
+   ]
+  },
+  {
+   "id": "Ber92",
+   "title": "Representations of p-adic groups (Harvard lectures, Fall 1992)",
+   "authors": "Joseph Bernstein, notes by Karl E. Rumelhart",
+   "edition": "author copy",
+   "url": "https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/Bernst_Lecture_p-adic_repr.pdf",
+   "sha256": "00edf4a96a2eab15a1fdc13d34f63ab2feecc71e658822db887f3af4e5b0eedf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Ch. IV §1.1, Definition 27, Proposition 38, Proposition 39, Lemma 38, Lemma 39, Definition 28, Proposition 40, pp. 83–85",
+    "Ch. IV §1.2, Proposition 41 and Theorem 27 with proof, pp. 86–87"
+   ]
+  },
+  {
+   "id": "Cas95",
+   "title": "Introduction to the theory of admissible representations of p-adic reductive groups",
+   "authors": "William Casselman",
+   "edition": "draft of 1 May 1995, author copy",
+   "url": "https://personal.math.ubc.ca/~cass/research/pdf/p-adic-book.pdf",
+   "sha256": "78b921fc6331ad2b75389f37d15bd5ac3399e6cfc2d7555e1a4d666e0d42612a",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§2.1, Propositions 2.1.4–2.1.15 (projections P_K, unitary admissible representations, contragredients), pp. 20–23"
+   ]
+  },
+  {
+   "id": "Cas80",
+   "title": "The unramified principal series of p-adic groups I. The spherical function",
+   "authors": "William Casselman",
+   "edition": "Compositio Mathematica 40 (1980), no. 3, 387–406 (Numdam)",
+   "url": "http://www.numdam.org/item/CM_1980__40_3_387_0.pdf",
+   "sha256": "6d6f152d691316cea9145e63d43399c3a4f95aa29f042fb002895b2ae0fc1a73",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§3, Theorem 3.1 and Proposition 3.5 (irreducibility of regular unramified principal series), pp. 399–401 (page image of p. 401 checked)"
+   ]
+  },
+  {
+   "id": "HO",
+   "title": "On the tempered L-function conjecture",
+   "authors": "Volker Heiermann and Eric Opdam",
+   "edition": "arXiv:0908.0699v4; published American Journal of Mathematics 135 (2013), no. 3, 777–799",
+   "url": "https://arxiv.org/pdf/0908.0699v4",
+   "sha256": "90c6f9f45e4ac366ef5d49d10d59e7e883ccf93f2e9e98c60235d147d0f39779",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§1, notation, Theorem 1.1 and Corollary 1.2 (standard module conjecture), pp. 1–3"
+   ]
+  },
+  {
+   "id": "BC1",
+   "title": "Whittaker unitary dual of affine graded Hecke algebras of type E",
+   "authors": "Dan Barbasch and Dan Ciubotaru",
+   "edition": "arXiv:0708.4036v2; published Compositio Mathematica 145 (2009), 1563–1616",
+   "url": "https://arxiv.org/pdf/0708.4036v2",
+   "sha256": "db79227f4a3ac16839780585fa6959458c94a097f42926c445a223d5331dbfd4",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§1.1–1.3 (setting, Iwahori–Matsumoto involution, genericity of spherical modules, real infinitesimal character, the orbit O(χ)), pp. 1–3",
+    "§3.1–3.4 (spherical principal series, hermitian and reducibility criteria, constancy of signature, the 0-complementary series theorem, classical types, G2 and F4), pp. 16–18"
+   ]
+  },
+  {
+   "id": "BC3",
+   "title": "Unitary equivalences for reductive p-adic groups",
+   "authors": "Dan Barbasch and Dan Ciubotaru",
+   "edition": "arXiv:0909.5241v3; published American Journal of Mathematics 135 (2013), no. 6, 1633–1674",
+   "url": "https://arxiv.org/pdf/0909.5241v3",
+   "sha256": "3bb8a26762bee1fc64a0a2ac1ca64cbd46b36940fe35f8a90f84d6b4687f3205",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§1.3 (standing characteristic-zero assumption), p. 3",
+    "§6.2, the construction before Corollary 6.2.6, Corollary 6.2.6 and Example 6.2.7, p. 29"
+   ]
+  },
+  {
+   "id": "Aub95",
+   "title": "Dualité dans le groupe de Grothendieck de la catégorie des représentations lisses de longueur finie d'un groupe réductif p-adique",
+   "authors": "Anne-Marie Aubert",
+   "edition": "Transactions of the American Mathematical Society 347 (1995), no. 6, 2179–2189",
+   "url": "https://www.ams.org/journals/tran/1995-347-06/S0002-9947-1995-1285969-0/S0002-9947-1995-1285969-0.pdf",
+   "sha256": "57af9c46769f6edd8e142ddaf465e89acfa2f2147db222d26879a28a06df9693",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§1, Définition 1.5 and Théorème 1.7, p. 2181",
+    "§2, Théorème 2.3 (agreement with Zelevinsky's involution for GL_n), p. 2185",
+    "§3, Corollaire 3.9 (irreducibility of ±D_G(π)), p. 2189"
+   ]
+  },
+  {
+   "id": "CCLTV",
+   "title": "The Howe–Moore property for real and p-adic groups",
+   "authors": "Raf Cluckers, Yves Cornulier, Nicolas Louvet, Romain Tessera and Alain Valette",
+   "edition": "arXiv:1003.1484v1; published Mathematica Scandinavica 109 (2011), 201–224",
+   "url": "https://arxiv.org/pdf/1003.1484v1",
+   "sha256": "a52e3919f46e7ff8a853afc85ec4a1d650c477f6c04dbb709e77331154f79143",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§1, the statement of the Howe–Moore theorem for the subgroup generated by unipotents of a simple algebraic group over a local field, Definition 1.3, Theorem 1.4, pp. 1–2"
+   ]
+  },
+  {
+   "id": "SRup",
+   "title": "Roadmap: smooth representations of local groups (TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md)",
+   "authors": "TauCetiRoadmap contributors",
+   "edition": "branch roadmap/reductive-adelic-smooth-bundle of TauCetiProject/TauCetiRoadmap (pull request #785), head 1cdde3240025076c7f74afcb491e9e97d6fdbea6",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/1cdde3240025076c7f74afcb491e9e97d6fdbea6/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md",
+   "sha256": "7a4e555ba897bbc4173802c04a519144cb4173e28e411c6b20186455c96d520c",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Scope and ownership; Conventions",
+    "SR.0.4 (admissible, smooth-dual, smooth-character)",
+    "SR.2.3 (whittaker-functionals)",
+    "SR.3a.2 (uniform-admissibility)",
+    "SR.3.1, SR.3.3 (square-integrable-tempered, casselman-criterion, harish-chandra-tempered-support, langlands-classification), SR.3.4 (borel-casselman-block, steinberg)",
+    "SR.4.1–4.2 (satake-isomorphism, spherical-parameter), SR.5.3 (highest-derivative-adapter, Zelevinsky involution)"
+   ]
+  },
+  {
+   "id": "NQS",
+   "title": "Noncompact quantum symmetry and particle representations (TauCetiRoadmap/NoncompactQuantumSymmetry/README.md)",
+   "authors": "TauCetiRoadmap contributors",
+   "edition": "open pull request #1015 of TauCetiProject/TauCetiRoadmap, head 9a760926024f4e174803545817430e7cab91caa0",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a760926024f4e174803545817430e7cab91caa0/TauCetiRoadmap/NoncompactQuantumSymmetry/README.md",
+   "sha256": "0a3ef000e5d8005b327d4605021d62fb8199a817b5f0cbb63aeac428d0393c1b",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Scope, conventions, and suppliers",
+    "Shared group C*-algebra and weak-support comparisons",
+    "M0 (strong continuity and topological irreducibility conventions, compact-group isotypic projectors, item 1: bounded unitary Schur lemma)"
+   ]
+  },
+  {
+   "id": "BZ76",
+   "title": "Representations of the group GL(n, F), where F is a non-archimedean local field",
+   "authors": "I. N. Bernstein and A. V. Zelevinsky",
+   "edition": "Russian Mathematical Surveys 31:3 (1976), 1–68; copy from J. Bernstein's publication page",
+   "url": "https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/B-Zel-RepsGL-Usp.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Introduction, pp. 3–4 (unitary representations reduce to algebraic ones through 4.21)",
+    "§4.21, Theorem (a)–(c) on unitary and algebraic representations of GL(n, F), p. 43"
+   ]
+  },
+  {
+   "id": "GI18",
+   "title": "The Shimura–Waldspurger correspondence for Mp_2n",
+   "authors": "Wee Teck Gan and Atsushi Ichino",
+   "edition": "arXiv:1705.10106v3; published Annals of Mathematics 188 (2018), no. 3, 965–1016",
+   "url": "https://arxiv.org/pdf/1705.10106v3",
+   "sha256": "5d1408c5f8bc15a5ceec04a465ceb80cb7265da218138d5a746418ee8b4b291d",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Appendix A.1, Propositions A.1–A.2 and the proof of Proposition A.2, arXiv v3 pp. 29–32 (weak containment of π_S in the Hilbert sum of the Π_i and isolation in the subset of generic unitary representations with exponents ≤ c)"
+   ]
+  },
+  {
+   "id": "CitedOnly",
+   "title": "Works cited by Gan–Savin and Ciubotaru–Harris and used here through their statements",
+   "authors": "D. Miličić (Glasnik Mat. 8 (1973)); M. Tadić (Glasnik Mat. 23 (1988); J. Analyse Math. 51 (1988); Ann. Sci. ÉNS 19 (1986)); F. Rodier (Neptun 1980, Pitman 1984); D. Barbasch and A. Moy (Invent. Math. 98 (1989); Contemp. Math. 177 (1994)); R. Howe and C. C. Moore (J. Funct. Anal. 32 (1979)); I. N. Bernstein (Funct. Anal. Appl. 8 (1974)); D. Kazhdan and G. Lusztig (Invent. Math. 87 (1987)); M. Reeder (Compositio 85 (1993); Represent. Theory 6 (2002)); S. Kato (J. Fac. Sci. Univ. Tokyo 28 (1981)); D. Ciubotaru (Represent. Theory 9 (2005), 10 (2006)); D. Barbasch (J. Inst. Math. Jussieu 9 (2010)); A. W. Knapp and E. M. Stein (1970); J. B. Conway (A course in functional analysis, 2nd ed., 1990); R. Steinberg (Endomorphisms of linear algebraic groups, Mem. AMS 80 (1968))",
+   "edition": "not read for this plan; each node that rests on one of them gives its statement as Gan–Savin, Ciubotaru–Harris or Barbasch–Ciubotaru cite it, with that citing locator",
+   "readSections": [
+    "Bibliographic entries only, as listed in GS23 pp. 40–42 and CH26 pp. 36–39"
+   ]
+  }
+ ],
+ "status": "draft"
+}

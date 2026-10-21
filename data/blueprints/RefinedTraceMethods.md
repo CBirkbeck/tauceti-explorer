@@ -1,0 +1,11832 @@
+# Roadmap: Hochschild, cyclotomic and refined trace methods
+
+**Summary.** Build the mixed and cyclic enhancements of algebraic Hochschild theory, then topological
+Hochschild homology with its circle action, cyclotomic structure and classical restriction operators.
+Construct the Dennis and cyclotomic traces and prove the relative and Beilinson comparisons. Develop
+complex topological K-theory as the base for the q-Hodge and Habiro comparisons, continuous localizing
+invariants and their refined ku/KU computations, and the motivic and syntomic filtrations of traces.
+The two principal bridges are the graded Beilinson square with **uncompleted** p-derived de Rham
+cohomology and the q-Hodge description of refined traces over ku and KU.
+
+## Scope and ownership
+
+The algebraic part adds cyclic objects, mixed complexes and completed totalizations to ordinary
+Hochschild chains. TauCetiRoadmap.DGAInfinity, Layers 6, 8 and 9, supplies normalization, DG Hochschild
+chains, DG Morita invariance and its Hochschild Chern character; their cyclic enhancements and the
+comparison with the Dennis trace are the targets here. StableHomotopyKTheory supplies spectra,
+smash products, E₁/E∞ algebras and coherent spectral modules. GeneralAlgebraicKTheory supplies
+functorial connective and nonconnective K-theory, relative groups, localization and products.
+
+DerivedDeRhamCohomology supplies the cotangent complex, derived exterior powers, derived completion,
+de Rham and de Rham–Witt constructions, and the quasisyntomic site. PrismaticCohomology supplies the
+independent syntomic complexes, their polynomial extension and generic Nygaard completion.
+AInfCohomology supplies geometric AΩ, décalage and the almost category; the trace comparison with
+those objects belongs here. HabiroRings and HabiroCohomologyFoundations supply the arithmetic rings
+and q-Hodge objects that are compared with traces. Their definitions are used without reconstruction.
+
+Classical TR, its R/F/V structure and its graded de Rham–Witt comparison belong here; the finite-local-
+field K-theory applications consume them. The full henselian-pair rigidity theorem, CMM continuity
+for K(R), and the real/equivariant extensions of complex topological K-theory require the named
+Part II extensions. The nilpotent trace square and the square on inverse-limit towers here do not
+supply those stronger conclusions. The sheafified K-theory description of syntomic complexes includes
+an explicit change-of-site requirement.
+
+## Conventions
+
+Work with coherent stable infinity categories and mapping spectra. A limit, functor, group action,
+monoidal structure or adjunction includes its higher compatibility data. A homotopy-category diagram
+alone is insufficient. Universe bounds and regular cardinals are retained in presentability,
+Ind-completion, Calkin categories and relative localizing motives.
+
+The algebraic mixed-complex convention is homological: b has degree −1, B has degree +1,
+b²=B²=bB+Bb=0, and the cyclic parameter has degree −2. Negative and periodic cyclic homology use
+product/completed totalizations; direct sums define cyclic homology. Homological suspension Σ
+corresponds to [1] in a cohomological derived category. Every shift below specifies its convention
+when this distinction enters a comparison.
+
+Fix a prime p whenever p-typical notation occurs. Distinguish three categories: integral circle-
+equivariant cyclotomic spectra with all prime Frobenii; the C_{p∞}-equivariant one-prime category;
+and the circle-equivariant one-prime category CycSp_T,p of Antieau–Nikolaus and AMMN. The Cartier
+heart and its t-structure use CycSp_T,p. Restriction compares the last two TC conventions after the
+stated p-completion; it does not identify their uncompleted mapping spectra. Classical Cartier
+operators satisfy FV=p; VF=p is not a second defining relation.
+
+Write F(R;ℤ_p)=F(R)^∧p and F(R;ℚ_p)=F(R)^∧p[1/p]. Completing after rationalizing gives a different
+functor. Quasi-isogeny denominators may depend on the homotopy degree or a bounded Postnikov window.
+Uniform denominators across an inverse product are asserted only with the relevant connectivity
+argument. All completions and quotients of complexes are derived.
+
+For q-Hodge and cyclonic comparisons retain the compatible local spherical lifts, their global
+coherence, the separate prime-2 hypotheses, the distinction between ku and KU, and the shearing
+Σ^(−2i). A graded module comparison does not assert an E∞ algebra comparison. The ungraded quotient
+A[u,v]/(uv−ξ) in the suggested file is only the underlying coefficient ring; the reader also requires
+|u|=2, |v|=−2 and its spectral realization.
+
+## Exact supplier contracts
+
+
+### Existing Mathlib and Tau Ceti used
+
+The recorded baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
+f790474821cf4256814db967cb154e7af3d0c369. The following declarations are existing carriers and
+elementary interfaces; none supplies a stable infinity category or a trace spectrum.
+
+- [mathlib:Algebra.Etale](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Basic.lean#L206): An R-algebra A is étale if it is formally étale and of finite presentation.
+
+- [mathlib:Algebra.GrothendieckGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean#L36): The Grothendieck group of a commutative monoid M, as the localisation of M at the top submonoid; @[to_additive] generates the additive form Algebra.GrothendieckAddGroup, which is the one applied to (Vect_ℂ(X), ⊕).
+
+- [mathlib:Algebra.Smooth](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Basic.lean#L540): An R-algebra A is smooth if it is formally smooth and of finite presentation.
+
+- [mathlib:AlgebraicTopology.alternatingFaceMapComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/AlternatingFaceMapComplex.lean#L160): The alternating face map complex functor SimplicialObject C ⥤ ChainComplex C ℕ of a preadditive category C, with differential Σ(−1)^i d_i.
+
+- [mathlib:AlgebraicTopology.normalizedMooreComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/MooreComplex.lean#L158): The normalized Moore complex functor SimplicialObject C ⥤ ChainComplex C ℕ of an abelian category.
+
+- [mathlib:CategoryTheory.SimplicialObject](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean#L52): Simplicial objects SimplexCategoryᵒᵖ ⥤ C in a category C.
+
+- [mathlib:CategoryTheory.Tor](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Tor.lean#L44): The left-derived functors Tor_n of the tensor product in a monoidal abelian category with enough projectives.
+
+- [mathlib:DividedPowerAlgebra](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DividedPowerAlgebra/Init.lean#L100): The divided power algebra of an R-module M, as a quotient of the polynomial ring on symbols x^[n] m.
+
+- [mathlib:ExteriorAlgebra.exteriorPower](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean#L79): The n-th exterior power ⋀[R]^n M as a submodule of the exterior algebra.
+
+- [mathlib:HomologicalComplex₂.total](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/TotalComplex.lean#L265): The cited bicomplex totalizer is built from coproducts, giving direct-sum totalization. This declaration does not supply the product or finite-lower-bound Laurent totalizations required by cyclic theory.
+
+- [mathlib:KaehlerDifferential](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Kaehler/Basic.lean#L153): The module of Kähler differentials Ω[S⁄R] of an R-algebra S, as I/I² for the diagonal ideal I.
+
+- [mathlib:Matrix.trace](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Trace.lean#L45): The trace of a square matrix.
+
+- [mathlib:Module.Flat](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean#L113): Flatness of a module over a ring.
+
+- [mathlib:MoritaEquivalence](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Morita/Basic.lean#L59): A Morita equivalence between R-algebras A and B: an R-linear equivalence of module categories ModuleCat A ≌ ModuleCat B.
+
+- [mathlib:VectorBundle](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/VectorBundle/Basic.lean#L375): Topological vector bundles over a field with fibre model F: a fibre bundle whose trivialisations are fibrewise linear with continuous coordinate changes.
+
+- [mathlib:WittVector](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Defs.lean#L52): The ring of p-typical Witt vectors 𝕎 R.
+
+- [mathlib:WittVector.frobenius](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Frobenius.lean#L221): The Witt vector Frobenius 𝕎 R →+* 𝕎 R.
+
+- [mathlib:WittVector.verschiebung](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Verschiebung.lean#L110): The Verschiebung 𝕎 R →+ 𝕎 R.
+
+- [mathlib:tateCohomology](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean#L145): Tate cohomology Ĥ^n(G, M) ∈ ModuleCat R of a representation M of a finite group G, from the Tate complex built with the norm map.
+
+- [tauceti:Rep.FiniteCyclicGroup.tateCohomologyIsoEven](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean#L149): For a finite group G generated by g (hence cyclic), tateCohomology M n for every even n is isomorphic to the homology of the norm/(g − 1) complex of M, independently of n: two-periodicity in even degrees.
+
+- [mathlib:SSet.Quasicategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/Quasicategory/Basic.lean#L41): Inner-horn fillers for every 0<i<n; this predicate already exists, whereas the coherent category operations and mapping-space theorems remain imported.
+
+- [mathlib:LightCondMod](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L42): Sheaves of ModuleCat R on LightProfinite with the coherent topology, with an Abelian instance; this is the light abelian baseline, not solid spectral modules.
+
+- [mathlib:LightCondAb](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L85): LightCondMod Z, with its abelian category instance, used as the target of condensed homotopy sheaves.
+
+- [mathlib:CategoryTheory.Limits.PreservesFilteredColimits](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/Preserves/Filtered.lean#L62): Preservation of all colimits indexed by filtered categories J with J : Type v₂ and Category.{v₂} J, where v₂ is the morphism universe of the target category D (F : C ⥤ D; the docstring says source, the code uses D); it quantifies over every such J, not just N.
+
+- [mathlib:Nat.factorization](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Defs.lean#L50): The finitely supported prime-exponent function; its actual zero/nonprime convention is retained, with m>0 imposed separately.
+
+- [mathlib:Nat.factorization_pow](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Defs.lean#L184): For n,k∈N, factorization(n^k)=k•factorization(n), supplying the fourth-power cofinal specialization.
+
+- [mathlib:MvPolynomial](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Basic.lean#L82): The existing polynomial ring with arbitrary variable index; Fin 2 supplies u,v.
+
+- [mathlib:Ideal.Quotient.mk](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Defs.lean#L83): The ring quotient map R→R/I for a commutative ring and an ideal.
+
+- [mathlib:Ideal.Quotient.lift](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Defs.lean#L144): Descend a ring homomorphism annihilating the ideal to R/I; this supplies the coefficient maps after checking uv−ξ.
+
+- [mathlib:LaurentPolynomial](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L84): The abbreviation AddMonoidAlgebra R Z with its existing ring structure.
+
+- [mathlib:LaurentPolynomial.C](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L131): The constant coefficient ring homomorphism into Laurent polynomials.
+
+- [mathlib:LaurentPolynomial.T](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L155): The monomial single n 1 for integer n; σ and σ⁻¹ are T(1) and T(−1).
+
+- [mathlib:ChainComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L151): Ordinary chain complexes in a category with zero morphisms and the down complex shape; used only for the chain-level compatibility prototype.
+
+- [mathlib:HomologicalComplex.Hom.comm](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L222): Every complex morphism commutes with its differentials at every pair of indices.
+
+- [mathlib:AddCommGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Defs.lean#L111): Additive commutative groups: the carriers of classical Cartier modules.
+
+- [mathlib:AddMonoidHom](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L144): Additive homomorphisms M →+ N, with composition, identity and the pointwise additive group structure used for the operators F and V and the relation FV = p • id.
+
+### From StableHomotopyKTheory:H.5:spectra
+
+The presentably symmetric monoidal stable ∞-category Sp (the underlying ∞-category of symmetric
+spectra with the smash product), with functor categories Sp^{BG} = Fun(BG, Sp), E_1- and
+E_∞-algebras in Sp with their module ∞-categories, Postnikov truncations and connective covers, and
+naive homotopy groups; THH, cyclotomic spectra and KU are built on these.
+
+*Used by:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [Orthogonal spectra](#refinedtracemethods-rt-2-orthogonal-spectra).
+
+Coherent E₁ bimodule categories Mod_{A⊗A^op}, opposite algebras, derived tensor and restriction/base
+change; derivations ker(A⊗A→A)→ΣI, square-zero E₁ algebra multiplication and coherent algebra
+pullbacks, with connective subcategories.
+
+*Used by:* [Connective bimodules and square-zero extensions](#refinedtracemethods-rt-3-square-zero-extensions), [THH with bimodule coefficients](#refinedtracemethods-rt-2-thh-bimodule-coefficients).
+
+Module-category tensor/Morita comparison Mod_A ≃ Ind(Perf(A)), Mod_A dual Mod_(A^op), with
+evaluation the derived right-left tensor and coevaluation the diagonal bimodule. Under the
+identification End^L(Mod_A) ≃ Bimod_A, −⊗_A M corresponds to M. Raskin Examples 1.12.1–1.12.2, p. 4.
+RT.5/dualizable-categories supplies the generic duality contract; RT.2 computes its bimodule bar
+specialization, without requiring smooth/proper A.
+
+*Used by:* [THH with bimodule coefficients](#refinedtracemethods-rt-2-thh-bimodule-coefficients).
+
+Supply coherent modules over even E1/E-infinity ring spectra, graded homotopy modules, double-speed
+Whitehead filtrations and their filtered derived internal Hom/tensor with shearing. Combine E5
+complete filtered derived categories with H.6 connectivity, coconnectivity and derived-completion
+estimates from MW Lemmas 3.9 and 3.11 (pp. 33–35). Existing model-category and Postnikov interfaces
+do not by themselves supply this entire interface; these general types belong to H.5/E5/H.6, not to
+the RT.2 trace functors.
+
+*Used by:* [Filtered derived Hom of even spectra](#refinedtracemethods-rt-5-even-derived-hom), [The completed tensor filtration](#refinedtracemethods-rt-5-even-completed-tensor).
+
+### From EnhancedDerivedSheaves:E5:spectra-comparison
+
+The comparison of concrete spectra (StableHomotopyKTheory H.5) with the abstract stable symmetric
+monoidal ∞-categories of E5:abstract: Sp as a presentably symmetric monoidal stable ∞-category, and
+Mod_{HR}(Sp) ≃ D(R) symmetric monoidally for a commutative ring R (used to identify THH(HA/HR) with
+HH(A/R)).
+
+*Used by:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Orthogonal spectra](#refinedtracemethods-rt-2-orthogonal-spectra).
+
+Rational E∞ ring spectra versus characteristic-zero commutative dg algebras, compatible with derived
+Hochschild/cyclic bar and Bott localization, identifying ku_Q with Q[β] and KU_Q with the
+localization Q[β^{±1}], |β|=2.
+
+*Used by:* [Graded polynomial and Laurent HKR for ku and KU](#refinedtracemethods-rt-4-topological-graded-laurent-hkr), [THH relative to ku and KU](#refinedtracemethods-rt-4-topological-relative-thh-ku).
+
+### From tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality
+
+Hochschild chains of DG (in particular ungraded) algebras over a commutative base, their normalised
+version, invariance under quasi-equivalence (flat resolutions) and derived Morita equivalence; RT.1
+imports these and adds the cyclic operator, Connes' B and the cyclic theories.
+
+*Used by:* [The cyclic bar construction of an algebra](#refinedtracemethods-rt-1-cyclic-bar-construction), [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Morita invariance of Hochschild and cyclic homology](#refinedtracemethods-rt-1-morita-invariance).
+
+### From tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions
+
+Hochschild homology of DG categories and its Morita invariance (via a compact generator), compared
+with RT.1's Hochschild homology of algebras; the Chern character of layer 9 is to be compared with
+RT.3's degree-zero Dennis trace.
+
+*Used by:* [Morita invariance of Hochschild and cyclic homology](#refinedtracemethods-rt-1-morita-invariance), [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace).
+
+### From GeneralAlgebraicKTheory:K.2:plus
+
+Functorial connective K-theory K(A) of unital rings (and its agreement with K(Perf(A)) / Waldhausen
+K-theory), the source of the Dennis and cyclotomic traces.
+
+*Used by:* [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace).
+
+### From GeneralAlgebraicKTheory:K.4
+
+Waldhausen K-theory via the S_•-construction for small stable ∞-categories (and Waldhausen
+categories), with additivity, natural in exact functors; the trace is defined levelwise on S_•C.
+
+*Used by:* [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace).
+
+Functorial Waldhausen/Perf K-theory on connective E_1-rings and small idempotent-complete stable
+∞-categories, agreeing with the cited discrete K.2 ring model and preserving split-exact sequences;
+give the comparison theorem rather than assume equality of models.
+
+*Used by:* [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [Stable K-theory is THH (Dundas–McCarthy)](#refinedtracemethods-rt-3-stable-k-theory-thh), [Stable TC is THH, compatibly with the trace](#refinedtracemethods-rt-3-stable-tc-thh), [The Dundas–Goodwillie–McCarthy theorem](#refinedtracemethods-rt-3-dgm-theorem).
+
+Functorial Perf(A) for arbitrary E₁ rings, the connective Waldhausen S-construction on Cat^perf_∞,
+and natural comparisons with discrete K.2 plus-construction and spectral/dg Waldhausen models.
+Supply split additivity and comparison after connective restriction, including induced maps in
+bimodule square-zero directions.
+
+*Used by:* [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [Relative K-theory, relative TC and K^inv](#refinedtracemethods-rt-3-relative-trace), [Stable K-theory is THH (Dundas–McCarthy)](#refinedtracemethods-rt-3-stable-k-theory-thh), [Stable TC is THH, compatibly with the trace](#refinedtracemethods-rt-3-stable-tc-thh), [The Dundas–Goodwillie–McCarthy theorem](#refinedtracemethods-rt-3-dgm-theorem), [The trace square for filtered towers](#refinedtracemethods-rt-3-tower-square).
+
+Supply a functorial finite-coefficient K-spectrum on unital rings/syntomic local rings with
+K(R;Z/p^n)=K(R)⊗^L Z/p^n and its even homotopy presheaves, proving agreement with the existing K.2
+ring space in the connective range. Include cyclotomic trace compatibility through RT.3. BM Example
+1.6 requires finite-coefficient groups, not tensoring the integral even groups with Z/p^n.
+
+*Used by:* [Syntomic complexes from sheafified even K-groups](#refinedtracemethods-rt-6-syntomic-k-sheaf).
+
+### From StableHomotopyKTheory:H.1
+
+Classifying spaces and the homotopy theory of spaces used for BU = colim G_n(ℂ^∞) and for maps into
+ℤ × BU.
+
+*Used by:* [Representability by ℤ × BU and the space-level Bott equivalence](#refinedtracemethods-rt-4-topological-bu-representability).
+
+Derived pointed mapping classes and cofibrant pointed replacement; closed Hurewicz
+cofibration/nondegenerate basepoint interface for compact Hausdorff spaces, agreeing with based CW
+homotopy classes.
+
+*Used by:* [Representability by ℤ × BU and the space-level Bott equivalence](#refinedtracemethods-rt-4-topological-bu-representability).
+
+### From HabiroCohomologyFoundations:HQ.3
+
+The derived q-de Rham complex q-dR_{R/A} (p-completed and global, glued as in Wagner's Construction
+A.14), the category AniAlg^{q-Hdg}_A of q-Hodge-filtered animated algebras (Wagner [Wag25]
+Definition 3.2), the q-Hodge complex q-Hdg := (colim(fil^0 → (q−1)fil^1 → …))^∧_{(q−1)} and the
+m-truncated derived q-de Rham–Witt objects, as the targets of RT.4:q-Hodge's comparisons.
+
+*Used by:* [The comparison map ψ^0_R and the q-Hodge filtration](#refinedtracemethods-rt-4-q-hodge-q-hodge-comparison-map), [The p-complete q-Hodge comparison for p > 2 (Wagner Theorem 4.8)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-odd), [q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [Completeness, multiplicativity and the graded comparison](#refinedtracemethods-rt-4-q-hodge-q-hodge-multiplicativity), [TC^{−(m)} over ku and twisted q-Hodge filtrations (Wagner Theorem 5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [The Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem 5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem).
+
+The global positive-integer m-twist of the q-Hodge filtration (Wagner Habiro preprint Construction
+3.38, Remark 3.39, pp. 42–44; ku preprint Construction 5.50, p. 73), its derived (q^m−1)-completion,
+lax symmetric monoidal structure, identification of the filtered quotient with q-W_m dR, and
+coherent transition maps under n|m compatible with Habiro gluing. The existing m-truncated q-Witt
+objects and étale base-change assertion do not supply this filtration.
+
+*Used by:* [TC^{−(m)} over ku and twisted q-Hodge filtrations (Wagner Theorem 5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [The Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem 5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem).
+
+Supply the chosen finite-torsion q-Hodge filtrations on Hodge-completed derived qdR(Z/m)/Z for ku,
+and qHdg objects on derived qdR(Z/m)/Z for KU used in MW Corollary 3.8 and Theorem 3.14, with m
+varying along the compatible high-powered Moore tower. Retain this distinction: the filtered ku
+input is Hodge-completed, whereas qHdg is insensitive to Hodge completion by the HQ.3 colimit
+comparison. State the separate p=2 choice/input if the general supplied spherical E₂ lift assumes 2
+invertible. Supply transition maps, graded shearing, derived t/(q−1)-completion and compatibility
+with the general HQ.3/q-hodge-filtrations and /the-q-hodge-complex interfaces; no universal
+functorial choice for all animated rings is presumed.
+
+*Used by:* [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge).
+
+### From HabiroRings:HR.5-number-field-comparison
+
+H_{R/ℤ} for R = O_F[1/Δ] and its identification with the GSWZ Habiro ring of the number field
+(the-number-field-ring), with Δ divisible by disc(F).
+
+*Used by:* [The Habiro ring of a number field from KU (Wagner Corollary 6.15)](#refinedtracemethods-rt-4-habiro-comparison-number-field-habiro).
+
+### From VStackSheavesAndLisseCategories:VS2
+
+Clausen–Scholze solid abelian groups and the solid tensor product (VS2/solid-abelian-groups), which
+RT.4:q-Hodge extends to light condensed and solid spectra, nuclear objects and trace-class maps; the
+second-countable light variant used by Wagner is required.
+
+*Used by:* [Light condensed and solid spectra](#refinedtracemethods-rt-4-q-hodge-solid-spectra).
+
+Light condensed homotopy sheaves and solid spectral mapping objects, right-left relative tensor
+products, compactness for all filtered colimits, and the coherent light-solid sheafification used in
+Wagner 2.1–2.4. Retain the unpublished light-spectral-source gap.
+
+*Used by:* [Light condensed and solid spectra](#refinedtracemethods-rt-4-q-hodge-solid-spectra), [Trace-class maps and nuclear modules](#refinedtracemethods-rt-4-q-hodge-nuclear-objects), [Homological evenness and even homotopy sheaves](#refinedtracemethods-rt-4-q-hodge-homological-evenness).
+
+### From EnhancedDerivedSheaves:E3
+
+Left AND right coherent Kan extensions along BG→* for a small group anima G, in Sp and D(R), with
+orbits⊣trivial⊣fixed and pointwise slice formulas; E3’s current full-inclusion theorem does not
+apply.
+
+*Used by:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation).
+
+Coherent left/right Kan extensions along arbitrary small maps needed here, specifically BG→* for a
+group anima and projections/slices of arbitrary space-indexed diagrams; pointwise (co)limit
+formulas, orbits⊣trivial⊣fixed, and the Beck–Chevalley base-change equivalence. The full-inclusion
+theorem is insufficient.
+
+*Used by:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [The Tate construction for a Kan complex and the dualizing spectrum](#refinedtracemethods-rt-2-parametrised-tate), [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation).
+
+### From EnhancedDerivedSheaves:E0
+
+Straightening and coherent sections for arbitrary small space-indexed diagrams and their slices used
+by parametrized Tate, and coherent inverse towers of spectra; identify the size bounds and
+Beck–Chevalley theorem. Current restricted diagram-shape statement is insufficient.
+
+*Used by:* [The Tate construction for a Kan complex and the dualizing spectrum](#refinedtracemethods-rt-2-parametrised-tate), [The trace square for filtered towers](#refinedtracemethods-rt-3-tower-square).
+
+Quasicategory-valued coherent diagrams on arbitrary small anima, action groupoids BG (including
+topological S¹), slices and N^op; functor/mapping spaces, coherent cones and homotopy limits, and
+Beck–Chevalley for these shapes. Supply accessibility witnesses by a regular cardinal, compact
+generating subcategory and Ind_κ equivalence; small limits/colimits alone are not presentability.
+
+*Used by:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [The Tate construction for a Kan complex and the dualizing spectrum](#refinedtracemethods-rt-2-parametrised-tate), [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation), [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer), [Coalgebras and fixed points of endofunctors](#refinedtracemethods-rt-2-endofunctor-coalgebras), [Genuine cyclotomic spectra coreflect](#refinedtracemethods-rt-2-genuine-cyclotomic-coreflection), [The trace square for filtered towers](#refinedtracemethods-rt-3-tower-square).
+
+Coherent Postnikov inverse towers, coherent sifted diagrams in connective E₁ algebras and their
+square-zero derivation category, comparison cones and mapping-space limit properties.
+
+*Used by:* [Postnikov-convergent algebra functors](#refinedtracemethods-rt-3-postnikov-convergent), [Infinitesimal sifted-colimit preservation](#refinedtracemethods-rt-3-infinitesimal-sifted-colimits).
+
+Coherent perfect-even infinity sites and spectral/condensed sheafification, sheaf-category
+t-structures, evaluation at R, and coherent filtered module presentations; ordinary pointwise
+truncation of a presheaf is insufficient.
+
+*Used by:* [Perfect even modules and the even site](#refinedtracemethods-rt-4-q-hodge-perfect-even-site), [Even flat and solid even flat modules](#refinedtracemethods-rt-4-q-hodge-even-flat-modules), [Homological evenness and even homotopy sheaves](#refinedtracemethods-rt-4-q-hodge-homological-evenness).
+
+Coherent cyclonic E∞ algebra mapping spaces, paths in prime/divisor Tate squares and all higher
+compatibility, coherent lifted Čech diagrams, and gluing cones; a sequence of strict ψ maps does not
+supply this data.
+
+*Used by:* [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic Adams lift coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence), [Cyclonic even filtrations and the KU construction](#refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations).
+
+Coherent natural mapping Kan complexes, sequential functor diagrams and their mapping-space
+limit/colimit properties, plus all-filtered-diagram preservation witnesses for the derivative
+universal property.
+
+*Used by:* [Goodwillie derivatives](#refinedtracemethods-rt-3-goodwillie-calculus).
+
+### From DerivedDeRhamCohomology:DD.0
+
+A cited smooth étale-chart/local polynomial comparison sufficient to transfer the Koszul HKR
+calculation to arbitrary smooth finitely presented commutative base-ring algebras; Algebra.Smooth
+and smooth-cotangent alone supply no such chart theorem.
+
+*Used by:* [The Hochschild–Kostant–Rosenberg theorem](#refinedtracemethods-rt-1-hkr-theorem).
+
+Characteristic-zero graded/derived HKR for the commutative dg algebra Q[β] and its localization
+Q[β^{±1}], |β|=2, with L=A dβ, Hochschild suspension in degree 3 and Connes B=d; support derived
+Laurent localization and graded exterior powers. The ordinary degree-zero smooth theorem is
+insufficient.
+
+*Used by:* [Graded polynomial and Laurent HKR for ku and KU](#refinedtracemethods-rt-4-topological-graded-laurent-hkr).
+
+### From GeneralAlgebraicKTheory:K.6
+
+Extension/comparison of the Frobenius-pair IK spectrum with nonconnective K of Cat^perf_∞ and
+spectral Perf(A), functorial in exact functors and localizing on Verdier exact sequences; the
+current Frobenius-pair declaration has narrower input.
+
+*Used by:* [Localizing and truncating invariants](#refinedtracemethods-rt-3-localizing-invariants), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [K^inv is truncating](#refinedtracemethods-rt-3-kinv-truncating), [Truncating invariants: nil-invariance and excision](#refinedtracemethods-rt-3-truncating-excision).
+
+Nonconnective K on small idempotent-complete stable infinity categories, localization on Verdier
+exact sequences, spectral Perf(A), and comparison with the Frobenius-pair model and connective K in
+nonnegative degrees; natural maps under exact functors.
+
+*Used by:* [Localizing and truncating invariants](#refinedtracemethods-rt-3-localizing-invariants), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [Uniqueness and multiplicativity of the trace](#refinedtracemethods-rt-3-trace-uniqueness-multiplicative), [Relative K-theory, relative TC and K^inv](#refinedtracemethods-rt-3-relative-trace), [K^inv is truncating](#refinedtracemethods-rt-3-kinv-truncating), [Truncating invariants: nil-invariance and excision](#refinedtracemethods-rt-3-truncating-excision), [The trace square for filtered towers](#refinedtracemethods-rt-3-tower-square).
+
+Multiplicative nonconnective K-theory for exact symmetric monoidal functors of small stable
+categories, producing a module over K(End(unit)) from Perf(End(unit))→Q.
+
+*Used by:* [Tate endomorphisms in the finite-action Verdier quotient](#refinedtracemethods-rt-2-tate-verdier-quotient).
+
+Extend the concrete flasque-enlargement/suspension nonconnective spectrum to enhanced
+idempotent-complete small stable categories and E-linear categories. Prove its agreement with the
+existing Frobenius-pair model, Morita invariance, all-degree localization and filtered-colimit laws,
+plus relative/nonunital agreement for the almost-module application. RT.5 uses this concrete
+spectrum and proves motive corepresentability; it does not define K by universality.
+
+*Used by:* [Continuous extensions of localizing invariants](#refinedtracemethods-rt-5-continuous-extension), [The category of relative localizing motives](#refinedtracemethods-rt-5-localizing-motives), [Continuous K-theory of almost modules](#refinedtracemethods-rt-5-almost-module-k).
+
+### From EnhancedDerivedSheaves:E5:abstract
+
+Coherent localization of unbounded dg Λ-modules at underlying b-quasi-isomorphisms and the resulting
+Mod_Λ(D(k)), including tensor/derived Hom; not the derived category of mixed objects in an abelian
+category.
+
+*Used by:* [Derived category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex).
+
+Accessible presentable stable infinity categories with their coherent functor categories,
+mapping-space homotopy pullbacks, adjunctions and inverse towers; exact/accessible functor
+predicates and colimit-preserving left adjoints. Supply coherent arrow-category pullback
+construction for lax equalizers.
+
+*Used by:* [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Genuine cyclotomic spectra](#refinedtracemethods-rt-2-genuine-cyclotomic-spectrum), [Coalgebras and fixed points of endofunctors](#refinedtracemethods-rt-2-endofunctor-coalgebras), [Genuine cyclotomic spectra coreflect](#refinedtracemethods-rt-2-genuine-cyclotomic-coreflection).
+
+Coherent stable Verdier localization, filtered-cofiber mapping-spectrum formula (NS I.3.3(ii)), Ind
+realization, and the symmetric monoidal quotient of a thick tensor ideal (NS I.3.6). RT.2 only
+specializes these to finite-action perfect R-modules and computes the Tate endomorphism ring.
+
+*Used by:* [Tate endomorphisms in the finite-action Verdier quotient](#refinedtracemethods-rt-2-tate-verdier-quotient).
+
+Generic spectral Day convolution on a small symmetric monoidal ∞-category, and the monoidal
+accessible localization criterion: the localization relations are stable under tensoring with
+representables, so the product descends and the right-adjoint inclusion is lax symmetric monoidal.
+BGT 2014 Propositions 5.6–5.7 and Theorems 5.14–5.15, pp. 22–25, specify the specialization proved
+by RT.3/finitary-invariant-tensor-units. The existing symmetric-monoidal-category declaration alone
+does not supply these operations.
+
+*Used by:* [K-theory units of finitary invariants](#refinedtracemethods-rt-3-finitary-invariant-tensor-units).
+
+Coherent accessible t-structures, homotopy objects, exact truncation triangles, the presentable
+extension/colimit-closed connective-subcategory criterion, and the criterion that left separatedness
+plus countable product closure of the connective part implies left completeness (HA 1.4.4.11,
+1.2.1.19). Existing sheaf-specific Postnikov completeness does not supply this generic
+stable-infinity interface.
+
+*Used by:* [The cyclotomic t-structure](#refinedtracemethods-rt-2-cyclotomic-t-structure).
+
+### From StableHomotopyKTheory:H.6
+
+Coherent spectrum tower limits and their Milnor exact sequence, p-completion functoriality and
+compatibility with these towers under the bounded/connective hypotheses used by CMM continuity; an
+object sequence or finite-limit theorem is insufficient.
+
+*Used by:* [The trace square for filtered towers](#refinedtracemethods-rt-3-tower-square), [Postnikov-convergent algebra functors](#refinedtracemethods-rt-3-postnikov-convergent).
+
+Milnor exact sequence for the coherent restriction tower of TR, with the pro-zero positive-σ
+summands and Mittag–Leffler de Rham–Witt forms; no general interchange of inverse limits and
+filtered colimits.
+
+*Used by:* [Hesselholt’s de Rham–Witt comparison for TR](#refinedtracemethods-rt-2-tr-de-rham-witt-hkr).
+
+K(1)-localization at each prime, connective E∞ cover, and the odd-prime KU_p^{h(𝔽_p^××ℤ)} model with
+its map j→ku_p. Supply the principal-unit Adams action and distinguish j from τ≥0KU_p^{hℤ};
+p-completion alone is insufficient.
+
+*Used by:* [The connective image-of-J spectrum j](#refinedtracemethods-rt-4-q-hodge-image-of-j).
+
+Use H.6/burklund-quotient-tower and H.6/burklund-moore-multiplicative for compatible multiplicative
+Moore structures, retaining their E_n exponent bounds and their recorded proof requirement.  Supply
+a coherent complete filtered-spectrum exact-couple interface with derived-limit convergence,
+extending the existing homotopy-category spectral sequence.
+
+*Used by:* [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge), [Filtered derived Hom of even spectra](#refinedtracemethods-rt-5-even-derived-hom), [Pro-idempotence of the finite-coefficient q-Hodge system](#refinedtracemethods-rt-5-pro-qhodge-idempotence), [Trace-class finite-coefficient transitions](#refinedtracemethods-rt-5-graded-trace-class), [Derived convergence of the trace spectral sequences](#refinedtracemethods-rt-6-motivic-convergence).
+
+### From DerivedDeRhamCohomology:DD.1
+
+Koszul resolution of the graded diagonal of Q[β] and its localization Q[β^{±1}] over Q, with β
+degree 2 and its odd Hochschild generator degree 3; supplies the graded Laurent HKR calculation.
+
+*Used by:* [Graded polynomial and Laurent HKR for ku and KU](#refinedtracemethods-rt-4-topological-graded-laurent-hkr).
+
+### From EnhancedDerivedSheaves:E5:presentability
+
+Cocomplete presentable stable categories and filtered-colimit-compatible t-structures with actual
+truncation fiber sequences; identify continuous exact functors with colimit-preserving functors in
+the source setting of Raskin 2.3 and Variant 2.3.2.
+
+*Used by:* [Goodwillie derivatives](#refinedtracemethods-rt-3-goodwillie-calculus), [Pseudo-extensible functors](#refinedtracemethods-rt-3-pseudo-extensible).
+
+Construct PrL_st and E-linear presentable stable modules with coherent tensor, internal Hom,
+left/right duals, strongly continuous adjoints, and the left-adjoint Yoneda embedding for dualizable
+categories. Supply ω₁/cardinal presentations, enriched small-category and spectral-presheaf
+interfaces, functor categories and mapping spectra, compatible Day convolution/localization, and the
+complete filtered/ind/pro module targets. Existing Ind/presentability interfaces are imported
+separately; ordinary one-categories or a monoidal homotopy category do not supply these coherence
+and size data.
+
+*Used by:* [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), [The continuous Calkin category](#refinedtracemethods-rt-5-continuous-calkin), [The category of relative localizing motives](#refinedtracemethods-rt-5-localizing-motives), [Nuclear E-modules](#refinedtracemethods-rt-5-relative-nuclear-module), [The nuclear resolution of length one](#refinedtracemethods-rt-5-nuclear-module-resolution), [Enriched trace-class duality](#refinedtracemethods-rt-5-enriched-duality), [Rigidification of the target](#refinedtracemethods-rt-5-rigidification), [Killing an idempotent pro-algebra](#refinedtracemethods-rt-5-algebra-killing), [Smooth and proper E-linear categories](#refinedtracemethods-rt-5-smooth-proper-category), [The refined localization cofiber](#refinedtracemethods-rt-5-localization-tower-formula), [Refined THH and TC⁻](#refinedtracemethods-rt-5-refined-traces), [Filtered derived Hom of even spectra](#refinedtracemethods-rt-5-even-derived-hom), [The completed tensor filtration](#refinedtracemethods-rt-5-even-completed-tensor), [Invertibility in the complete filtered category](#refinedtracemethods-rt-6-filtered-invertibility), [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality), [Trace-class generation criterion for rigidity](#refinedtracemethods-rt-5-rigidity-criterion), [Circle fixed points and oriented completion](#refinedtracemethods-rt-5-circle-completion-equivalence).
+
+### From CrystallineCohomology:CR.4
+
+Finite and infinite p-typical de Rham–Witt graded algebras, initiality as a Witt complex, R/F/V/d,
+basic differential bases for polynomial rings, étale change and Witt localization descent;
+surjective restriction/Mittag–Leffler and finite-level filtered-colimit interfaces. RT.2 proves
+their full graded comparison with TR, rather than duplicating these constructions.
+
+*Used by:* [Hesselholt’s de Rham–Witt comparison for TR](#refinedtracemethods-rt-2-tr-de-rham-witt-hkr).
+
+### From AInfCohomology:AI.0
+
+Supply the perfectoid ring/tilt and Ainf=W(R^flat) interface, θ, ξ, θ̃=θφ⁻¹, μ=[ε]−1 and
+ξ_r=μ/φ^(−r)(μ), their regularity and p-completion identities. Supply the symmetric monoidal almost
+quotient for W(m_C^flat), its annihilation criterion and derived almost-elements adjoint, plus the
+BMS1 conormal/twist and finite θ̃_r maps used in Remark 6.6. The completed-free and root-limit
+special theorems are proved here; the generic almost category is imported.
+
+*Used by:* [THH of a perfectoid ring](#refinedtracemethods-rt-6-perfectoid-thh), [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), [The trace Nygaard complex](#refinedtracemethods-rt-6-trace-nygaard-complex), [Frobenius factorization for smooth trace complexes](#refinedtracemethods-rt-6-smooth-trace-frobenius), [The trace Breuil–Kisin twist](#refinedtracemethods-rt-6-trace-breuil-kisin-twist), [Agreement with the BMS1 twist](#refinedtracemethods-rt-6-bms1-twist-comparison), [The root ideals controlling almost comparison](#refinedtracemethods-rt-6-almost-root-ideals), [The almost décalage limit comparison](#refinedtracemethods-rt-6-almost-decalage-limit), [Almost elements of a completed free module](#refinedtracemethods-rt-6-almost-free-elements), [The animated extension of imported AΩ](#refinedtracemethods-rt-6-animated-aomega-extension), [The almost comparison map to AΩ](#refinedtracemethods-rt-6-aomega-almost-map), [The two base changes of relative THH](#refinedtracemethods-rt-6-relative-thh-base-change), [The relative DVR coefficient calculation](#refinedtracemethods-rt-6-relative-dvr-coefficients).
+
+### From AInfCohomology:AI.4
+
+Supply the geometric AΩ=Lη_μRΓ(pro-étale Ainf) E∞ functor on p-completed smooth O_C-algebras,
+Frobenius and its (p,ξ)-completeness; its ξ/de Rham and ξ̃/Hodge–Tate comparisons including BMS1
+Theorems 8.3 and 9.4(i). Supply the BMS1 Breuil–Kisin–Fargues twist and its finite-TR/conormal
+dictionary. RT.6 owns the trace-to-AΩ comparison and its animated extension and does not route these
+proofs back through the late AI.7 application.
+
+*Used by:* [Agreement with the BMS1 twist](#refinedtracemethods-rt-6-bms1-twist-comparison), [The animated extension of imported AΩ](#refinedtracemethods-rt-6-animated-aomega-extension), [The almost comparison map to AΩ](#refinedtracemethods-rt-6-aomega-almost-map), [Nygaard agrees with the AΩ décalage filtration](#refinedtracemethods-rt-6-aomega-nygaard-decalage), [The Segal comparison over O_C](#refinedtracemethods-rt-6-segal-oc).
+
+### From KTheoryFiniteLocalFields:L.5
+
+Supply Bökstedt THH(F_p)=F_p[u], and the coherent finite-field Frobenius and finite-Tate inputs of
+NS18 Corollary IV.4.8, Proposition IV.4.9, Corollary IV.4.10, Lemma IV.4.12 and Corollary IV.4.13,
+with the integral S¹-equivariant Z→THH(F_p) map and the weak-Postnikov convergence conditions. RT.6
+uses these to compute perfectoid coefficients and the Q_p/Z_p group-algebra test; it does not
+redevelop local-field K-theory.
+
+*Used by:* [THH of a perfectoid ring](#refinedtracemethods-rt-6-perfectoid-thh), [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), [The root group algebra trace calculation](#refinedtracemethods-rt-6-group-algebra-trace-test).
+
+### From PrismaticCohomology:PR.4
+
+Extend the existing independent quasisyntomic syntomic-complex construction to the finite syntomic
+complex sheaves on the étale site of p-quasisyntomic schemes used in BM Example 1.6, including the
+site functor and Kummer/constant base cases. Supply the change-of-site comparison from the
+quasisyntomic construction to the syntomic-to-étale derived pushforward without defining the
+complexes by K or TC. RT.6 compares with this independent construction; the PR.4→RT.6 link is the
+corrected acyclic direction.
+
+*Used by:* [Syntomic complexes from sheafified even K-groups](#refinedtracemethods-rt-6-syntomic-k-sheaf).
+
+### From RefinedTraceMethods:RT.1
+
+Supply mixed-complex HH/HC⁻/HP totalizations with maps, the integral derived HKR filtration by left
+Kan extension, its p-completely quasismooth form, and coherent THH-to-HH comparison compatibility;
+negative cyclic homology uses product totalization.
+
+*Used by:* [Flat and quasisyntomic descent for trace spectra](#refinedtracemethods-rt-6-trace-flat-descent), [Even Hochschild homology on quasiregular covers](#refinedtracemethods-rt-6-qrsp-hochschild), [Negative and periodic cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), [THH as a deformation of Hochschild homology](#refinedtracemethods-rt-6-thh-hochschild-deformation), [Antisymmetrization into THH](#refinedtracemethods-rt-6-antisymmetrization), [The root group algebra trace calculation](#refinedtracemethods-rt-6-group-algebra-trace-test), [The two base changes of relative THH](#refinedtracemethods-rt-6-relative-thh-base-change), [The mixed-complex comparison compatibility](#refinedtracemethods-rt-6-mixed-complex-map-compatibility).
+
+### From RefinedTraceMethods:RT.2
+
+Supply the enhanced cyclotomic THH/TC⁻/TP/TC functors with coherent circle/finite-C_m Frobenius,
+weak-Postnikov/Tate comparison, classical TR/TC equivalence and Witt π₀TR. Include relative
+base-change and lax monoidal Tate maps; an ordinary circle action on homotopy groups is
+insufficient.
+
+*Used by:* [Refined THH and TC⁻](#refinedtracemethods-rt-5-refined-traces), [Flat and quasisyntomic descent for trace spectra](#refinedtracemethods-rt-6-trace-flat-descent), [THH of a perfectoid ring](#refinedtracemethods-rt-6-perfectoid-thh), [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), [TC⁻/v and TP/φ(ξ)](#refinedtracemethods-rt-6-perfectoid-quotient-comparison), [THH as a deformation of Hochschild homology](#refinedtracemethods-rt-6-thh-hochschild-deformation), [The BMS2 motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [Agreement with the BMS1 twist](#refinedtracemethods-rt-6-bms1-twist-comparison), [Filtered can, Frobenius and the TC fiber](#refinedtracemethods-rt-6-filtered-frobenius), [The TC-internal negative-degree calculation](#refinedtracemethods-rt-6-tc-negative-degrees), [The root group algebra trace calculation](#refinedtracemethods-rt-6-group-algebra-trace-test), [The p-adic Adams operations on traces](#refinedtracemethods-rt-6-adams-operations), [THH of the sphere polynomial ring](#refinedtracemethods-rt-6-sphere-polynomial-thh), [Relative cyclotomic THH over S[z]](#refinedtracemethods-rt-6-relative-sphere-thh), [The two base changes of relative THH](#refinedtracemethods-rt-6-relative-thh-base-change), [Circle fixed points and oriented completion](#refinedtracemethods-rt-5-circle-completion-equivalence).
+
+### From RefinedTraceMethods:RT.3
+
+Supply the finite-coefficient trace, nilpotent relative K/TC comparison and truncating invariant
+through RT.3/cyclotomic-trace, RT.3/dgm-theorem and RT.3/kinv-truncating. The henselian-pair
+rigidity needed for BM Example 1.6 is not supplied by these theorems: route it to the proposed
+RefinedTraceMethodsPartIIHenselianPairs, then specify the syntomic-to-etale site comparison
+separately. The henselian Part II must supply its rigidity theorem and the explicit site comparison;
+downstream even K-sheaf identifications are not an input to their own construction.
+
+*Used by:* [Syntomic complexes from sheafified even K-groups](#refinedtracemethods-rt-6-syntomic-k-sheaf).
+
+### From RefinedTraceMethods:RT.3b
+
+Supply the AMMN Beilinson pullback theorem, its maps χ_i to uncompleted p-derived dR, the
+rational-after-p-completion convention, uniform isogeny bounds and the integral range i≤p−2, under
+R∈qSyn_Zp. RT.6 supplies the filtered even-trace input. PR.7 is a consumer and is not required to
+construct this bridge.
+
+*Used by:* [The filtered trace interface for the Beilinson bridge](#refinedtracemethods-rt-6-ammn-filtered-interface).
+
+### From RefinedTraceMethods:RT.4:topological
+
+Supply ku and KU as coherent oriented even bases, Bott localization, their
+circle-homotopy-fixed-point coefficient rings and the even-filtered periodic convergence proof.
+
+*Used by:* [Refined TC⁻ of rational KU](#refinedtracemethods-rt-5-refined-ku-periodic-computation), [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge).
+
+### From RefinedTraceMethods:RT.4:q-Hodge
+
+Supply Wagner Theorem 4.27 with 4.18(A),(R) and 4.18a(R2), and its E_(n−1) enhancement precisely
+under Remark 4.28’s E_n lift hypotheses (2≤n≤∞). Supply Theorem 5.63 with 2∈R× and 5.43(A2), as a
+Z[β±1]-linear graded module equivalence, and separately justify any multiplicative enhancement used.
+Retain Σ^(−2i), completion and Bott localization. For MW finite Moore/Z/m inputs, prove the separate
+torsion and p=2 extension with compatible transitions; these inputs are not covered automatically by
+the 2-invertible theorem.
+
+*Used by:* [Refined TC⁻ of rational KU](#refinedtracemethods-rt-5-refined-ku-periodic-computation), [The coherent trace interface for Habiro cohomology](#refinedtracemethods-rt-6-habiro-trace-interface), [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge).
+
+### From RefinedTraceMethods:RT.4:Habiro-comparison
+
+Supply the genuine finite-C_m cyclonic comparison, residual-circle fixed points and periodic Habiro
+reconstruction under Wagner 4.18, 2∈R× and 5.43(A2). For R=O_F[1/Δ] require 6|Δ and disc(F)|Δ, and
+use the spherical étale lift of Corollary 6.15. Supply coherent transition maps and prove any
+multiplicative enhancement separately; neither a graded module equivalence nor HR.2’s bounded-below
+solid embedding provides it for periodic KU.
+
+*Used by:* [Refined TC⁻ of rational KU](#refinedtracemethods-rt-5-refined-ku-periodic-computation), [The coherent trace interface for Habiro cohomology](#refinedtracemethods-rt-6-habiro-trace-interface), [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge).
+
+### Compatible multiplicative Moore towers
+
+The precise suppliers are StableHomotopyKTheory H.6/burklund-quotient-tower and
+H.6/burklund-moore-multiplicative. For an E_m-stably monoidal category with m≥2 and a map v:I→1
+whose cofiber has a right-unital multiplication, the former supplies compatible E_n quotient
+structures, n≤m, at exponents q≥n+1, with the uniqueness hypothesis q>n. The latter supplies
+S/8 as E₁, S/32 as E₂, the odd-prime S/p^q bounds q≥n+1, and the stated 2-primary bounds.
+These are stronger inputs than individual Moore cofibers. Their general construction requires the
+Burklund proof interface; the finite q-Hodge comparison additionally requires compatible choices at
+p=2. Neither the exponent condition nor the odd-prime comparison discharges that second requirement.
+(Burklund, Theorem 1.5, p. 2; Theorem 5.2, p. 10; Remark 5.7, p. 12.)
+
+### Proof requirements on the comparisons
+
+The orthogonal/genuine comparison uses the Barwick–Glasman construction cited by NS Theorem II.3.7;
+that external proof must be supplied to identify the classical Bökstedt model. Light solid spectral
+mapping objects and their nuclearity require a public construction beyond the existing abelian light
+condensed carriers. Wagner's global spherical-lift gluing and several even-filtration comparisons
+have sketched proofs, so their stated hypotheses and sufficient flatness assumptions remain explicit.
+
+The general rigidification requires independence of the regular-cardinal presentation in the
+Q-indexed construction. Relative multiplicative motives require the accessible enriched Day-
+convolution localization and compactness of the unit motive. The compatible Moore structures do not
+settle the finite-torsion q-Hodge comparison or its prime-2 choices. The full site-level proof of the
+announced Bhatt–Mathew syntomic K-sheaf comparison requires henselian rigidity and a change-of-site
+argument. Periodic Habiro reconstruction and any multiplicative enhancement require their own proof;
+the bounded-below solid comparison and Wagner's graded module equivalence alone do not supply it.
+Complete filtrations have derived abutments; ordinary strong convergence in an unbounded case requires
+additional estimates. The spectral realization of an ordinary coefficient quotient is also additional
+mathematics. These requirements accompany the exact targets below.
+
+## How to read the build
+
+First construct mixed/cyclic algebraic theory (RT.1) and the categorical foundations of continuous
+localizing invariants (the foundational part of RT.5). The latter supplies duality for the THH trace
+of an endofunctor. Then construct RT.2, RT.3 and the unfiltered RT.3b comparison. The early complex
+K-theory layer RT.4:topological is the RT.4 aggregate's mathematical content; the two named arithmetic
+sublayers follow it. The refined ku/KU applications of RT.5 follow those comparisons. RT.6 constructs
+the motivic and syntomic trace filtrations and the uncompleted graded map before the graded RT.3b
+square. Only after that square is proved does the final RT.6 filtered interface consume it. Within
+each section, prerequisites precede their consumers; the links give the exact build order.
+
+
+## Layer RT.1: Mixed and cyclic algebraic theory
+
+This layer constructs mixed and cyclic algebraic theory. Each target below includes the hypotheses
+and comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-1-cyclic-category"></a>
+
+### Connes' cyclic category and cyclic objects
+
+Work under the following hypotheses: C an arbitrary category; for cyclic modules C = Mod_k with k a
+commutative ring.
+
+Connes' cyclic category Λ has objects [n] = {0,…,n} (n ≥ 0); it contains the simplex category Δ, has
+an automorphism τ_n of [n] of order n+1, and every morphism of Λ factors uniquely as an automorphism
+followed by a morphism of Δ, with the relations τ_n d_i = d_{i−1} τ_{n−1} (1 ≤ i ≤ n), τ_n d_0 =
+d_n, τ_n s_i = s_{i−1} τ_{n+1} (1 ≤ i ≤ n), τ_n s_0 = s_n τ_{n+1}², τ_n^{n+1} = id. The paracyclic
+category Λ_∞ drops τ_n^{n+1} = id. A cyclic object of a category C is a functor Λ^op → C: a
+simplicial object X with operators t_n : X_n → X_n satisfying the dual relations (d_i t_n = t_{n−1}
+d_{i−1} for 1 ≤ i ≤ n, d_0 t_n = d_n, s_i t_n = t_{n+1} s_{i−1} for 1 ≤ i ≤ n, s_0 t_n = t_{n+1}²
+s_n, t_n^{n+1} = id). Cyclic objects form the functor category Fun(Λ^op, C) and restrict along Δ ⊂ Λ
+to simplicial objects.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Appendix B, definitions of Λ_∞,
+Λ_p, Λ (Acta pp. 380-381), Proposition B.1 (Acta p. 381), Theorem B.3 (Acta p. 382; proof pp.
+382-383), Corollary B.4 (p. 383). NS18 Appendix B defines the paracyclic and cyclic categories used
+for THH and their relation to Δ. [Cyclic homology and the Lie algebra homology of
+matrices](#ref-0-loday-quillen-84), §1, p. 567; Lemma 1.1, p. 567. The cyclic operator on the
+Hochschild complex is the structure a cyclic module carries.)
+
+Construction and proof. Define Λ by generators (the coface, codegeneracy and cyclic maps) and the
+relations listed, following NS18 Appendix B, or as the category of nonempty finite cyclically
+ordered sets with degree-one maps. Prove the unique factorisation Λ([m],[n]) = Δ([m],[n]) ×
+Aut_Λ([m]) with Aut_Λ([m]) = ℤ/(m+1); this gives the presentation of cyclic objects by (d_i, s_j,
+t_n). Define Λ_∞ with Aut([n]) = ℤ and the functor Λ_∞ → Λ; record Λ ≃ Λ^op (Connes' self-duality)
+as an API item, not used in the constructions.
+
+The API exposes the following operations and characterizations.
+
+
+- `CyclicCategory`: The category Λ with objects ℕ and morphisms the pairs (φ, g) of a Δ-morphism and a cyclic automorphism, with the composition law of NS18 Appendix B.
+
+- `CyclicCategory.toSimplex`: The faithful wide inclusion Δ → Λ.
+
+- `CyclicCategory.factor`: Every morphism of Λ is uniquely a cyclic automorphism followed by a morphism of Δ.
+
+- `CyclicObject`: Cyclic objects of C: functors Λ^op ⥤ C; CyclicObject.toSimplicial restricts along Δ ⊂ Λ.
+
+- `CyclicObject.mk`: A simplicial object with operators t_n satisfying the listed relations defines a cyclic object, and every cyclic object arises so.
+
+- `CyclicObject.t_pow`: t_n^{n+1} = id on X_n.
+
+- `CyclicObject.map`: Postcomposition with a functor C ⥤ D maps cyclic objects to cyclic objects, compatibly with identities and composition.
+
+**Checks.**
+
+
+- `CyclicCategory.aut_card`: Aut_Λ([n]) is cyclic of order n + 1; for n = 0 it is trivial.
+
+- `CyclicObject.constant`: The constant simplicial object at an object c, with t_n = id, is a cyclic object.
+
+- `CyclicObject.nonexample_sign`: Building B = (1 − τ)sN from the unsigned rotation τ instead of t = (−1)^nτ fails bB + Bb = 0 already for A = k[x] in degree 1 (2 ≠ 0 in k): the cyclic structure is τ, but B needs the signed operator.
+
+- `CyclicObject.toSimplicial_alternatingFaceMap`: For C abelian, the alternating face map complex of the underlying simplicial object of a cyclic object is Mathlib's alternatingFaceMapComplex.
+
+The comparison must satisfy these additional checks: The restriction of a cyclic object to Δ^op is
+its underlying simplicial object, and Mathlib's alternating face map complex applies to it. In a
+cyclic object, t_n^{n+1} = id and d_0 t_n = d_n hold; for the cyclic bar construction of
+RT.1/cyclic-bar-construction these are the identities of the cyclic operator.
+
+This interface is used by `RT.1/cyclic-bar-construction` — the Hochschild complex of an algebra is
+the cyclic module A^{⊗(•+1)}; `RT.2/cyclic-realisation` — the geometric realisation of a cyclic
+object carries a circle action (NS18 Proposition B.5); `RT.2/thh-e1-ring` — THH is the realisation
+of the cyclic bar construction in spectra.
+
+*Needs:* [mathlib:CategoryTheory.SimplicialObject](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean#L52).
+
+<a id="refinedtracemethods-rt-1-cyclic-bar-construction"></a>
+
+### The cyclic bar construction of an algebra
+
+Work under the following hypotheses: k a commutative ring; A an associative unital k-algebra. No
+flatness is assumed for the construction; RT.1/hochschild-homology uses it only for k-flat A or
+after flat resolution.
+
+For a commutative ring k and an associative unital k-algebra A, the cyclic k-module C_•(A/k) has C_n
+= A^{⊗_k(n+1)}, faces d_i(a_0⊗…⊗a_n) = a_0⊗…⊗a_i a_{i+1}⊗…⊗a_n for 0 ≤ i < n and d_n(a_0⊗…⊗a_n) =
+a_n a_0⊗a_1⊗…⊗a_{n−1}, degeneracies s_j inserting 1 after position j, and cyclic operator
+τ_n(a_0⊗…⊗a_n) = a_n⊗a_0⊗…⊗a_{n−1} (the unsigned rotation, which satisfies the cyclic relations);
+the signed operator t_n := (−1)^n τ_n is the one entering b′, the norm N and Connes' B. Its
+alternating face map complex, with b = Σ_{i=0}^n (−1)^i d_i, is the Hochschild complex of A over k
+as constructed by DGAInfinity layer 8 for A viewed as a DG algebra concentrated in degree 0; its
+normalised complex is layer 8's normalised Hochschild complex. The construction is functorial in
+k-algebra maps.
+
+(See [Cyclic homology and the Lie algebra homology of matrices](#ref-0-loday-quillen-84), §1
+'Hochschild and cyclic homology', pp. 566-567. States the Hochschild complex A^{⊗(n+1)} with the
+alternating face differential b. [Cyclic homology and the Lie algebra homology of
+matrices](#ref-0-loday-quillen-84), §1, p. 567; Lemma 1.1, p. 567. States the cyclic operator that
+makes the Hochschild complex a cyclic module.)
+
+Construction and proof. Import the Hochschild chain complex, its bar differential and its normalised
+version from DGAInfinity layer 8, specialised to an ungraded algebra; do not construct them again.
+Exhibit the simplicial k-module structure (d_i, s_j) and identify its alternating face map complex
+(Mathlib alternatingFaceMapComplex) with layer 8's complex termwise. Add the cyclic operator τ_n and
+verify the relations of RT.1/cyclic-category directly from the formulas; record the signed t_n =
+(−1)^nτ_n used by the operators of the complex. Check functoriality: an algebra map f : A → A'
+induces f^{⊗(n+1)} commuting with d_i, s_j, τ_n.
+
+The API exposes the following operations and characterizations.
+
+
+- `CyclicBar`: CyclicBar k A : CyclicObject (ModuleCat k) with (CyclicBar k A)_n = A^{⊗_k(n+1)}.
+
+- `CyclicBar.face_apply`: The face formulas d_i(a_0⊗…⊗a_n) displayed in the statement, including d_n's wrap-around.
+
+- `CyclicBar.cyclic_apply`: τ_n(a_0⊗…⊗a_n) = a_n⊗a_0⊗…⊗a_{n−1}; the signed operator t_n = (−1)^nτ_n is the one used in b′, N and B.
+
+- `CyclicBar.map`: A k-algebra map A → A' induces a map of cyclic modules, with map_id and map_comp.
+
+- `CyclicBar.alternatingFaceMapComplex_iso`: The alternating face map complex of the underlying simplicial module is DGAInfinity layer 8's Hochschild complex of A.
+
+- `CyclicBar.b_comp_b`: b ∘ b = 0 (from the simplicial identities).
+
+**Checks.**
+
+
+- `CyclicBar.ground_ring`: For A = k, H_*(C_•(k/k), b) = k in degree 0 and 0 elsewhere.
+
+- `CyclicBar.H0`: H_0(C_•(A/k), b) ≅ A/[A,A]; for A = M_2(k) this is k via the trace.
+
+- `CyclicBar.polynomial_H1`: For A = k[x], H_1 ≅ k[x]·dx via a_0⊗a_1 ↦ a_0 da_1.
+
+- `CyclicBar.nonexample_signed`: The signed rotation (−1)^nτ_n is not a cyclic structure: for A = k with 2 ≠ 0, d_0 ∘ (−τ_1) = −d_1 ≠ d_1 on A^{⊗2}, whereas the unsigned τ_1 satisfies d_0τ_1 = d_1.
+
+The comparison must satisfy these additional checks: For A = k, C_n = k with all faces the identity,
+so b alternates between 0 and the identity, and the homology is k in degree 0. b ∘ b = 0 follows
+from the simplicial identities; b(a_0⊗a_1) = a_0a_1 − a_1a_0, so H_0 = A/[A,A].
+
+This interface is used by `RT.1/connes-operator` — B is built from t_n, the extra degeneracy and the
+norm N; `KTheoryFiniteLocalFields:L.5/hochschild-homology-of-truncated-polynomial-algebra` — the
+cyclic model of HH of k[x]/(x^e); `RT.2/thh-e1-ring` — the same formula in spectra (with smash
+products) defines the cyclic object whose realisation is THH.
+
+*Needs:* `tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`, [Connes' cyclic category and cyclic objects](#refinedtracemethods-rt-1-cyclic-category), [mathlib:AlgebraicTopology.alternatingFaceMapComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/AlternatingFaceMapComplex.lean#L160), [mathlib:AlgebraicTopology.normalizedMooreComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/MooreComplex.lean#L158).
+
+<a id="refinedtracemethods-rt-1-hochschild-homology"></a>
+
+### Hochschild homology, derived over the base
+
+Work under the following hypotheses: k commutative; A associative unital k-algebra. When A is not
+k-flat the derived definition differs from the homology of A^{⊗_k(•+1)} (example: k = ℤ, A = 𝔽_p).
+
+For k a commutative ring and A an associative k-algebra, Hochschild homology is HH(A/k) := A ⊗^L_{A
+⊗^L_k A^op} A ∈ D(k), computed by the Hochschild complex (C_•(P/k), b) of any k-flat DG k-algebra P
+quasi-isomorphic to A (for commutative A one may take a simplicial resolution by polynomial
+k-algebras). HH_n(A/k) := H_n HH(A/k). When A is k-flat, HH(A/k) is computed by C_•(A/k) itself. For
+a two-sided ideal I ⊂ A the relative theory is HH(A, I) := fib(HH(A/k) → HH((A/I)/k)). HH(A/k) is
+functorial in pairs (k → A) and lands in the T-equivariant derived category through
+RT.2/mixed-complexes-are-circle-modules.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-0-bms2-19), §2.2
+'Hochschild homology', p. 13. BMS2 defines HH(A/R) for commutative rings as a derived object by left
+Kan extension / derived tensor products. [Cyclic homology and the Lie algebra homology of
+matrices](#ref-0-loday-quillen-84), §1 'Hochschild and cyclic homology', pp. 566-567. The Hochschild
+complex computes HH for flat algebras.)
+
+Construction and proof. Construct HH(A/k) as the homology of layer 8's Hochschild complex of a
+k-flat DG resolution P → A, using layer 8's invariance under quasi-equivalence to see independence
+of P. Identify it with A ⊗^L_{A^e} A in the enhanced derived category of EnhancedDerivedSheaves E1,
+using the bar resolution of A over A^e (K-flat when A is k-flat). For commutative A, compare with
+the cyclic bar construction of a simplicial polynomial resolution (animated rings,
+EnhancedDerivedSheaves E5:animation): left Kan extension from polynomial algebras gives the same
+object (BMS2 §2.2). Define relative HH by the fibre and record the long exact sequence.
+
+The API exposes the following operations and characterizations.
+
+
+- `HochschildHomology`: HH(A/k) ∈ D(k), functorial in the pair (k, A).
+
+- `HochschildHomology.ofFlat`: For A flat over k, HH(A/k) ≅ (C_•(A/k), b) in D(k).
+
+- `HochschildHomology.map`: A map of pairs (k → A) → (k' → A') induces HH(A/k) → HH(A'/k'), with map_id and map_comp.
+
+- `HochschildHomology.relative`: HH(A, I) := fib(HH(A/k) → HH((A/I)/k)) with its long exact sequence of homology.
+
+- `HochschildHomology.zeroth`: HH_0(A/k) ≅ A/[A,A] (derived HH_0 agrees with the underived one).
+
+- `HochschildHomology.commutativeAlgebra`: For commutative A, HH(A/k) is an E_∞-k-algebra with the shuffle product, and HH_0(A/k) = A as rings.
+
+**Checks.**
+
+
+- `HochschildHomology.base`: HH(k/k) ≅ k in degree 0.
+
+- `HochschildHomology.polynomial`: HH_*(k[x]/k) ≅ k[x] ⊕ k[x]dx, concentrated in degrees 0 and 1.
+
+- `HochschildHomology.Fp_over_Z_degree2`: HH_2(𝔽_p/ℤ) ≅ 𝔽_p (the divided power generator), while HH_1(𝔽_p/ℤ) = 0.
+
+- `HochschildHomology.dual_numbers_nonvanishing`: For nonzero k and A = k[x]/(x²) with 2 invertible, HH_n(A/k) ≠ 0 for every n ≥ 0, so HH is not Ω^*_{A/k} for non-smooth A.
+
+The comparison must satisfy these additional checks: HH(𝔽_p/ℤ) is computed by a ℤ-flat resolution;
+it is not ⊕ 𝔽_p^{⊗(n+1)} homology (which would be 𝔽_p in degree 0 only). For A k-flat, HH(A/k) is
+the homology of C_•(A/k).
+
+This interface is used by `KTheoryFiniteLocalFields:L.5/hochschild-homology-of-perfect-field` —
+HH_*(k) = k for a perfect field k of characteristic p, relative to 𝔽_p; `RT.2/thh-over-thhz` —
+THH(A) ⊗_{THH(ℤ)} ℤ ≃ HH(A/ℤ) (BMS2 Lemma 2.5); `RT.3/dennis-trace` — the Dennis trace lands in
+HH_*(A); `NS18 Proposition IV.4.3` — HH(𝔽_p/ℤ) is a divided power algebra.
+
+*Needs:* [The cyclic bar construction of an algebra](#refinedtracemethods-rt-1-cyclic-bar-construction), `tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, [mathlib:Module.Flat](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean#L113).
+
+<a id="refinedtracemethods-rt-1-connes-operator"></a>
+
+### Connes' operator B
+
+Work under the following hypotheses: X a cyclic object in k-modules; the explicit formula for B
+holds on normalised chains.
+
+On a cyclic k-module X with cyclic operators τ_n, put t_n := (−1)^nτ_n, N_n := Σ_{i=0}^n t_n^i and
+let s be the extra degeneracy (for the cyclic bar construction s(a_0⊗…⊗a_n) = 1⊗a_0⊗…⊗a_n). Connes'
+operator is B := (1 − t_{n+1}) s N_n : X_n → X_{n+1}; it satisfies b² = 0, B² = 0 and bB + Bb = 0
+already on unnormalised chains, and descends to the normalised complex N(X) (the quotient by
+degenerate elements), where on Hochschild chains B(a_0⊗…⊗a_n) = Σ_{i=0}^n (−1)^{ni}
+1⊗a_i⊗…⊗a_n⊗a_0⊗…⊗a_{i−1}. So (X, b, B) and (N(X), b, B) are mixed complexes (RT.1/mixed-complex),
+naturally in X and quasi-isomorphic.
+
+(See [The homotopy fixed points of the circle action on Hochschild homology](#ref-0-hoyois-15), §2,
+p. 4. Defines Connes' operator B and states the identities b² = B² = bB + Bb = 0.)
+
+Construction and proof. Prove (1 − t)N = 0 = N(1 − t) and the identities b(1 − t) = (1 − t)b′, b′N =
+Nb, where b′ = Σ_{i<n}(−1)^i d_i (Connes; Ginzburg §2). B² = (1 − t)sN(1 − t)sN = 0 since N(1 − t) =
+0; bB + Bb = 0 from b(1 − t) = (1 − t)b′, b′N = Nb and sb′ + b′s = id (Loday–Quillen §1; Hoyois §2).
+Naturality in maps of cyclic modules is immediate from the formula.
+
+The API exposes the following operations and characterizations.
+
+
+- `CyclicObject.connesB`: B : N(X)_n → N(X)_{n+1} for a cyclic k-module X.
+
+- `CyclicObject.connesB_sq`: B ∘ B = 0.
+
+- `CyclicObject.connesB_comm`: b ∘ B + B ∘ b = 0.
+
+- `CyclicObject.connesB_natural`: B commutes with the maps induced by morphisms of cyclic modules.
+
+- `CyclicBar.connesB_apply`: The explicit formula for B on normalised Hochschild chains.
+
+**Checks.**
+
+
+- `CyclicBar.connesB_unit`: B(1) = 0 in N_1(A) because 1⊗1 is degenerate.
+
+- `CyclicBar.connesB_polynomial`: For A = k[x], B[x^m] = [1⊗x^m] = m[x^{m−1}⊗x] in HH_1(k[x]) = k[x]dx, i.e. m x^{m−1}dx.
+
+- `CyclicBar.connesB_sq_unnormalised`: B ∘ B = 0 already on unnormalised chains, since N_{n+1}(1 − t_{n+1}) = 1 − t_{n+1}^{n+2} = 0; normalisation only simplifies the formula for B.
+
+The comparison must satisfy these additional checks: For A = k[x], B[x^m] = [1⊗x^m] = m[x^{m−1}⊗x]
+in HH_1(k[x]) (since 1⊗ab ≡ a⊗b + b⊗a modulo b-boundaries); under HKR this is d(x^m) = m x^{m−1}dx
+(RT.1/b-equals-d). B vanishes on HH_0(k/k) = k.
+
+This interface is used by `RT.1/mixed-complex` — the pair (b, B) is the basic example of a mixed
+complex; `KTheoryFiniteLocalFields:L.4/connes-operator` — Connes' operator on π_* of a T-spectrum
+restricts to B on HH; `RT.1/b-equals-d` — B corresponds to the de Rham differential under HKR.
+
+*Needs:* [Connes' cyclic category and cyclic objects](#refinedtracemethods-rt-1-cyclic-category), [The cyclic bar construction of an algebra](#refinedtracemethods-rt-1-cyclic-bar-construction), [mathlib:AlgebraicTopology.normalizedMooreComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/MooreComplex.lean#L158).
+
+<a id="refinedtracemethods-rt-1-mixed-complex"></a>
+
+### Mixed complexes
+
+Work under the following hypotheses: k a commutative ring; all degrees are integers; b lowers
+degree, B raises degree.
+
+A mixed complex over k is a Z-graded k-module M with b:M_n→M_{n−1}, B:M_n→M_{n+1}, b²=B²=bB+Bb=0 in
+every integer degree. Its maps commute with both operators; weak equivalences are quasi-isomorphisms
+of the underlying b-complex. Equivalently it is an unbounded dg-module over Λ=k[ε]/ε², |ε|=1
+homologically, with ε acting by B. A cyclic module gives a mixed complex by normalization and
+extension by zero into negative degrees. Tensor products use direct sums over all p+q=n with Koszul
+signs, not finite products. Derived tensor products use k-flat replacements.
+
+(See [The homotopy fixed points of the circle action on Hochschild homology](#ref-0-hoyois-15), §2,
+p. 5. Defines mixed complexes (M, b, B) with b² = B² = bB + Bb = 0.)
+
+Construction and proof. Form Z-graded modules with the two square-zero anticommuting operators.
+Identify these data with dg Λ-modules, including the Leibniz identity. Extend the normalized cyclic
+chain complex by zero into negative degrees; its degree-zero relation comes from that extension. Use
+direct-sum tensor products and k-flat replacements for derived products.
+
+The API exposes the following operations and characterizations.
+
+
+- `MixedComplex`: Z-graded k-module with b, B and their three relations in all degrees.
+
+- `MixedComplex.Hom`: Morphisms commuting with b and B; identity and composition.
+
+- `MixedComplex.ofCyclic`: The normalised mixed complex of a cyclic k-module, natural in the cyclic module.
+
+- `MixedComplex.QuasiIso`: A morphism is a quasi-isomorphism iff it induces isomorphisms on b-homology; then it induces isomorphisms on HC, HC⁻ and HP (RT.1/cyclic-homology).
+
+- `MixedComplex.equivDGModule`: Mixed complexes are dg-modules over k[ε]/ε² with |ε| = 1.
+
+- `MixedComplex.tensor`: (M⊗N)_n=⊕_{p∈Z} M_p⊗N_{n−p}, with Koszul differentials; derive using k-flat replacements.
+
+**Checks.**
+
+
+- `MixedComplex.trivial`: k in degree 0 with b = B = 0 is a mixed complex.
+
+- `MixedComplex.ofCyclic_ground`: The mixed complex of k as a k-algebra is quasi-isomorphic to (k, 0, 0).
+
+- `MixedComplex.nonexample`: M = k in degrees 0 and 1, b : M_1 → M_0 and B : M_0 → M_1 both the identity: b² = 0 and B² = 0 but bB + Bb = id ≠ 0, so this is not a mixed complex.
+
+- `MixedComplex.negative_degree`: The complex k in degree −1 with zero operators exists and has H_{−1}=k; extension by zero from N-graded complexes cannot model it.
+
+The comparison must satisfy these additional checks: (k, 0, 0) concentrated in degree 0 is a mixed
+complex; its HC is k[u^{−1}] (RT.1/cyclic-homology). (N C_•(A/k), b, B) is a mixed complex by
+RT.1/connes-operator.
+
+This interface is used by `RT.1/cyclic-homology` — HC, HC⁻ and HP are functors of mixed complexes;
+`RT.1/morita-invariance` — Morita invariance is proved at the level of mixed complexes;
+`RT.2/mixed-complexes-are-circle-modules` — mixed complexes model complexes with circle action.
+
+*Needs:* [Connes' operator B](#refinedtracemethods-rt-1-connes-operator).
+
+<a id="refinedtracemethods-rt-1-derived-mixed-complex"></a>
+
+### Derived category of mixed complexes
+
+Work under the following hypotheses: k commutative; Λ exterior with ε in homological degree 1.
+
+D(Λ) is the localization of all unbounded dg Λ-modules at the maps inducing isomorphisms on
+b-homology. It is not the derived category of the abelian category of mixed complexes. The cyclic,
+negative and periodic totalization functors factor through this localization; its coherent
+enhancement is Mod_Λ(D(k)).
+
+(See [Invariance and localization for cyclic homology of DG algebras](#ref-0-keller-cyclic-96),
+§2.2–2.4, pp. 6–7. Defines the mixed derived category and functorial Morita action. [The homotopy
+fixed points of the circle action on Hochschild homology](#ref-0-hoyois-15), §2, pp. 4–5. Unbounded
+mixed complexes and cyclic norm cofiber sequence.)
+
+Construction and proof. Use the dg-module interpretation. Import coherent localization from EDS E5;
+invert underlying b-quasi-isomorphisms. Hoyois §2 identifies CC, CN and CP with tensor, derived Hom
+and their norm cofiber.
+
+The API exposes the following operations and characterizations.
+
+
+- `DerivedMixedComplex`: Localization at underlying b-quasi-isomorphisms.
+
+- `DerivedMixedComplex.ofMixed`: Localization functor; sends each b-quasi-isomorphism to an equivalence.
+
+- `DerivedMixedComplex.map`: Coherent functoriality and inverse for localized weak equivalences.
+
+**Checks.**
+
+
+- `DerivedMixedComplex.ground`: The degree-zero unit maps to the trivial Λ-module k.
+
+- `DerivedMixedComplex.acyclic`: Every b-acyclic mixed complex is zero in D(Λ).
+
+- `DerivedMixedComplex.not_abelian_derived`: A map with acyclic b-cone is inverted even if it is not a degreewise isomorphism.
+
+The comparison must satisfy these additional checks: The degree-zero unit maps to the trivial
+Λ-module k. Every b-acyclic mixed complex is zero in D(Λ). A map with acyclic b-cone is inverted
+even if it is not a degreewise isomorphism.
+
+This interface is used by `RT.1/morita-invariance` — The inverse Morita action lives in D(Λ).;
+`RT.2/mixed-complexes-are-circle-modules` — Identify the coherent module category, including
+unbounded objects..
+
+*Needs:* [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), `EnhancedDerivedSheaves:E5:abstract`.
+
+<a id="refinedtracemethods-rt-1-cyclic-homology"></a>
+
+### Cyclic, negative cyclic and periodic cyclic homology
+
+Work under the following hypotheses: (M, b, B) a mixed complex over a commutative ring k; u has
+degree −2 throughout this roadmap (NS18 and BMS2 convention).
+
+For a mixed complex (M, b, B) let u be a formal variable of homological degree −2. Then CC⁻(M) :=
+(M[[u]], b + uB) (product totalisation, Π_{i≥0} M_{n+2i} in degree n), CP(M) := (M((u)), b + uB)
+(colim_{r→∞} Π_{i≥−r} M_{n+2i} in degree n, Laurent series with a finite lower bound on the
+u-exponents), and CC(M) := (M ⊗ k[u^{−1}], b + uB) = (⊕_{i≥0} M_{n−2i} in degree n, direct-sum
+totalisation, u·u^0 = 0). HC_n(M) = H_n CC(M), HC⁻_n(M) = H_n CC⁻(M), HP_n(M) = H_n CP(M)
+(2-periodic). For an algebra, HC_n(A/k) := HC_n(C(A/k)) etc., computed from a k-flat resolution when
+A is not flat. Product and sum totalisations are kept distinct: for M concentrated in degree zero,
+both periodic totalisations give k in every even degree. For M_{2j}=k for all j≥0, M_{2j+1}=0 and
+b=B=0, their degree-zero homology is respectively Π_{j≥0}k and ⊕_{j≥0}k; the direct sum does not
+compute HP for this M.
+
+(See [Cyclic homology and the Lie algebra homology of matrices](#ref-0-loday-quillen-84),
+Definition, p. 568; Proposition 1.2, p. 568; Proposition 1.5, p. 569. Defines cyclic homology from
+the (b, B) bicomplex with the direct-sum totalisation. [The homotopy fixed points of the circle
+action on Hochschild homology](#ref-0-hoyois-15), §2, p. 4. Defines negative cyclic and periodic
+cyclic homology with product totalisation.)
+
+Construction and proof. Define the three complexes and check (b + uB)² = b² + u(bB + Bb) + u²B² = 0.
+Show quasi-isomorphisms of mixed complexes induce isomorphisms on all three: for CC by the
+bounded-below column filtration; for CC⁻ and CP by the complete u-adic filtration and the Milnor
+sequence (the product totalisation is what makes this argument work). Compare with Connes' complex
+C^λ = C/(1 − t) when ℚ ⊂ k (classical, recorded as a comparison API item). For Mathlib's direct-sum
+total complex HomologicalComplex₂.total, record that it computes CC but not CC⁻ or CP; product
+totalisation is constructed here.
+
+The API exposes the following operations and characterizations.
+
+
+- `MixedComplex.cyclicComplex`: CC(M) with the direct-sum totalisation.
+
+- `MixedComplex.negativeCyclicComplex`: CC⁻(M) = M[[u]] with b + uB (product totalisation).
+
+- `MixedComplex.periodicCyclicComplex`: CP(M) = M((u)) with b + uB.
+
+- `cyclicHomology`: HC_n(A/k), HC⁻_n(A/k), HP_n(A/k) for an algebra, via its mixed complex.
+
+- `MixedComplex.cyclicComplex_quasiIso`: Quasi-isomorphisms of mixed complexes induce isomorphisms on HC, HC⁻ and HP.
+
+- `periodicCyclicHomology.periodicity`: Multiplication by u gives HP_n ≅ HP_{n−2}.
+
+- `cyclicHomology.connes_complex`: If ℚ ⊆ k, HC_n(A/k) ≅ H_n(C_•(A)/(1 − t)) (Connes' complex).
+
+**Checks.**
+
+
+- `cyclicHomology.ground`: HC_{2m}(k/k) = k and HC_{2m+1}(k/k) = 0 for m ≥ 0.
+
+- `periodicCyclicHomology.ground`: HP_{2m}(k/k) = k for all m ∈ ℤ.
+
+- `negativeCyclicHomology.ground`: HC⁻_n(k/k) = k for n ≤ 0 even and 0 otherwise.
+
+- `negativeCyclicHomology.not_cyclic`: HC⁻_2(k/k) = 0 while HC_2(k/k) = k: defining HC⁻ with k[u^{−1}] (the cyclic convention) instead of k[[u]] gives the wrong groups.
+
+- `periodicCyclicHomology.laurent_bound`: For M_n=k in every integer degree and b=B=0, a periodic degree-zero element (a_i) has a finite lower bound in its u-exponents. The family a_i=1 for every i∈Z is excluded.
+
+- `cyclicHomology.sum_not_product`: For that same M, CC_0=⊕_{i≥0}k whereas CN_0=∏_{i≥0}k; the all-ones family belongs only to CN_0.
+
+The comparison must satisfy these additional checks: HC_*(k/k) = k[u^{−1}] (k in each even degree ≥
+0), HC⁻_*(k/k) = k[u] (k in even degrees ≤ 0), HP_*(k/k) = k[u^{±1}]. For A = k[x] over ℚ ⊂ k:
+HC_n(k[x]) = HC_n(k) for n ≥ 1 and HC_0 = k[x] (homotopy invariance in characteristic 0).
+
+This interface is used by `RT.3b/beilinson-square-ordinary` — HC⁻(R;ℚ_p) → HP(R;ℚ_p) is the bottom
+row of the Beilinson square; `RT.3/goodwillie-rational` — relative K-theory is rationally relative
+HC shifted by one;
+`KTheoryFiniteLocalFields:L.5/relative-cyclic-homology-of-truncated-polynomial-algebra` — rational
+relative cyclic homology of k[x]/(x^e).
+
+*Needs:* [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [mathlib:HomologicalComplex₂.total](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/TotalComplex.lean#L265), [Derived category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex).
+
+<a id="refinedtracemethods-rt-1-sbi-sequence"></a>
+
+### Connes' SBI exact sequence
+
+Work under the following hypotheses: M an arbitrary integer-graded mixed complex; all three long
+exact sequences are indexed by n ∈ ℤ. If M_n=0 for n<0, then HC_n(M)=0 for n<0, I_0 is an
+isomorphism and I_1 is surjective.
+
+For every mixed complex M over k there is a natural long exact sequence … → HH_n(M) →^{I} HC_n(M)
+→^{S} HC_{n−2}(M) →^{B} HH_{n−1}(M) → …, where HH_n(M) = H_n(M, b), I is induced by the inclusion M
+= u^0-column ⊂ CC(M), S is multiplication by u (removing the u^0 column) and B is induced by Connes'
+operator. In particular for an algebra A over k: … → HH_n(A/k) → HC_n(A/k) → HC_{n−2}(A/k) →
+HH_{n−1}(A/k) → …. Analogously HC⁻ and HP sit in … → HC⁻_{n+2} →^{u} HC⁻_n → HH_n → HC⁻_{n+1} → … .
+
+(See [Cyclic homology and the Lie algebra homology of matrices](#ref-0-loday-quillen-84), Theorem
+1.6 and its proof, p. 570. Connes' periodicity exact sequence relating Hochschild and cyclic
+homology. [The homotopy fixed points of the circle action on Hochschild homology](#ref-0-hoyois-15),
+§2, pp. 4–5. Integer-graded mixed modules and their cyclic, negative and periodic constructions give
+the unbounded form of the sequences.)
+
+Construction and proof. The short exact sequence of complexes 0 → M → CC(M) →^{u} CC(M)[2] → 0
+(columns i = 0 and i ≥ 1). Take the long exact homology sequence; identify the connecting map with
+B. For HC⁻ use 0 → u CC⁻(M) → CC⁻(M) → M → 0.
+
+The comparison must satisfy these additional checks: For M = (k,0,0) the sequence splits into 0 →
+HC_{2m} →^S HC_{2m−2} → 0 for m ≥ 1 (HH_{2m}=0); at m=0, I : HH_0=k → HC_0=k is an isomorphism. For
+A smooth over a ℚ-algebra, S agrees under HKR with the projection Ω^n/dΩ^{n−1} ⊕ H^{n−2}_dR ⊕ … →
+H^{n−2}_dR ⊕ … (RT.1/hkr-cyclic-char0).
+
+*Needs:* [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex).
+
+<a id="refinedtracemethods-rt-1-precyclic-mixed-cone"></a>
+
+### Functorial precyclic mixed cone
+
+Work under the following hypotheses: k commutative; cyclic operators signed on Hochschild chains.
+
+For a precyclic k-module C, form the modified mixed complex with degree n component C_n⊕C_{n−1},
+b-matrix [[b,1−t],[0,−b′]], and B-matrix [[0,0],[N,0]]. It is functorial without degeneracies. When
+C is cyclic, its natural comparison to the usual mixed complex is a b-quasi-isomorphism. This allows
+nonunital algebra maps and matrix corners to be used through the modified model, rather than as maps
+preserving degeneracies.
+
+(See [Invariance and localization for cyclic homology of DG algebras](#ref-0-keller-cyclic-96),
+§2.1–2.2, pp. 5–6. Precyclic cone, its operator matrices and comparison to the unital model.)
+
+Construction and proof. Use the precyclic identities to verify the three mixed relations. Use the
+contracting extra degeneracy only for the unital comparison. Normalize after comparison; derive
+localization at b-quasi-isomorphisms.
+
+The API exposes the following operations and characterizations.
+
+
+- `PrecyclicModule`: Faces and cyclic operators satisfying the precyclic identities, without degeneracies.
+
+- `PrecyclicMixedCone`: The cone model with its two operator matrices.
+
+- `PrecyclicMixedCone.map`: Maps commuting with faces and cyclic operators induce mixed maps without assuming degeneracies.
+
+- `PrecyclicMixedCone.compare`: For a cyclic module the comparison to C is a b-quasi-isomorphism.
+
+**Checks.**
+
+
+- `PrecyclicMixedCone.unital`: For the cyclic bar of k the comparison has b-homology k in degree zero.
+
+- `PrecyclicMixedCone.zero`: The zero precyclic object has zero modified complex.
+
+- `PrecyclicMixedCone.corner`: The nonunital corner A→M_r(A) induces a modified mixed map; for r>1 it does not preserve the unital cyclic degeneracy.
+
+The comparison must satisfy these additional checks: For the cyclic bar of k the comparison has
+b-homology k in degree zero. The zero precyclic object has zero modified complex. The nonunital
+corner A→M_r(A) induces a modified mixed map; for r>1 it does not preserve the unital cyclic
+degeneracy.
+
+This interface is used by `RT.1/morita-invariance` — Functorial mixed action through nonunital
+endomorphism corners..
+
+*Needs:* [Connes' cyclic category and cyclic objects](#refinedtracemethods-rt-1-cyclic-category), [Derived category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex).
+
+<a id="refinedtracemethods-rt-1-morita-invariance"></a>
+
+### Morita invariance of Hochschild and cyclic homology
+
+Work under the following hypotheses: A, B k-algebras, Morita equivalent over k; flatness over k or
+derived HH. Derived Morita equivalences of DG algebras are covered by DGAInfinity layer 8 for HH;
+the compatibility with B is added here.
+
+A derived Morita equivalence of k-flat dg algebras induces an equivalence of their objects in D(Λ),
+hence of HH, HC, HC⁻ and HP. More generally a perfect A–B bimodule X defines C(X):C(A)→C(B) in D(Λ),
+compatible with derived tensor composition and invariant under triangles in the bimodule variable.
+Keller constructs it as C(β_X)^{-1}C(α_X) through End_B(B⊕X), using the functorial precyclic mixed
+cone for the nonunital corners; the underlying Hochschild Morita theorem is imported from
+DGAInfinity 8–9. For ordinary Morita equivalences use k-flat replacements. For M_r(A), r≥1, the
+cyclic generalized matrix trace supplies the familiar comparison; its inverse exists in D(Λ), not as
+the naive unital cyclic corner.
+
+(See [Invariance and localization for cyclic homology of DG algebras](#ref-0-keller-cyclic-96),
+§2.1–2.4, pp. 5–7, Theorem 2.4(a),(b). Mixed derived Morita action and triangle compatibility.
+[Cyclic homology and the Lie algebra homology of matrices](#ref-0-loday-quillen-84), Corollary 1.7,
+p. 570. Loday–Quillen Corollary 1.7: cyclic homology is Morita invariant (from the SBI sequence and
+Morita invariance of HH). [Lectures on noncommutative geometry](#ref-0-ginzburg-05), Proposition
+5.2.1, p. 21. Ginzburg Proposition 5.2.1: Hochschild homology is Morita invariant, HH(A) =
+HH(Mat_r(A)).)
+
+Construction and proof. Import normalized Hochschild chains and Morita invariance from DGAInfinity
+8–9. For a perfect bimodule form the endomorphism algebra of B⊕X and the two corner maps using the
+modified precyclic model. Invert C(β_X) using its underlying Hochschild quasi-isomorphism. Keller
+Theorem 2.4 gives compatibility with identity and derived tensor composition. Apply the three
+derived cyclic functors; compare the matrix trace formula in the ordinary matrix case.
+
+The comparison must satisfy these additional checks: HC_*(M_2(k)/k) ≅ HC_*(k/k), with the
+isomorphism induced by the matrix trace in degree 0. For r≥1, HH_0(M_r(A)) = M_r(A)/[M_r(A), M_r(A)]
+≅ A/[A,A] via the trace.
+
+*Needs:* `tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`, `tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions`, [mathlib:MoritaEquivalence](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Morita/Basic.lean#L59), [mathlib:Matrix.trace](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Trace.lean#L45), [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [Functorial precyclic mixed cone](#refinedtracemethods-rt-1-precyclic-mixed-cone), [Derived category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex).
+
+<a id="refinedtracemethods-rt-1-external-products"></a>
+
+### Shuffle and external products
+
+Work under the following hypotheses: k commutative; A, A′ k-flat associative k-algebras (else
+replace by flat resolutions).
+
+For k-flat unital associative k-algebras A,B the Hochschild shuffle is a b-quasi-isomorphism
+C(A)⊗C(B)→C(A⊗B). It need not commute with Connes B. Its cyclic coextension sh+u sh′, together with
+the perturbed Alexander–Whitney inverse, gives the completed negative cyclic comparison and external
+products; the AW coextension may have higher u terms. Derived replacements give HH(A⊗^L
+B/k)≃HH(A/k)⊗^L HH(B/k). HC⁻ has external products; HC is a module over HC⁻. For commutative A the
+multiplication map yields the graded-commutative HH algebra and B is a derivation on homology.
+
+(See [Théorème de Eilenberg–Zilber en homologie cyclique entière](#ref-0-bauval-cyclic-16), §I.1,
+pp. 2–3; §IV, Lemmas IV.1–IV.2 and Theorem IV.3, pp. 12–13. Cyclic shuffle coextensions for
+normalized unital associative algebras. [On the Beilinson fiber square](#ref-0-ammn-20), Proof of
+Corollary 2.9, p. 9. AMMN, proof of Corollary 2.9: the Künneth equivalence THH(R) ⊗ THH(𝔽_p) ≃ THH(R
+⊗_S 𝔽_p), the spectral form of the external product. [Topological Hochschild homology and integral
+p-adic Hodge theory](#ref-0-bms2-19), Remark 2.4 and footnote 7, p. 13. BMS2 Remark 2.4: for
+commutative A, HH(A/R) is an E_∞-R-algebra (A ⊗_{E_∞-R} T), the source of the product on HH_*.)
+
+Construction and proof. Use the ordinary shuffle/AW homotopy equivalence on normalized Hochschild
+chains. Apply the cyclic perturbation: Bauval Lemmas IV.1–IV.2 and Theorem IV.3 give sh+u sh′ and
+AW∞. Use u-adic completion for the negative cyclic comparison; do not assert that the leading
+shuffle commutes with B. Derive tensor products, then compose with multiplication only for
+commutative algebras.
+
+The API exposes the following operations and characterizations.
+
+
+- `HochschildHomology.shuffle`: The shuffle map C(A)⊗C(A′) → C(A⊗A′).
+
+- `HochschildHomology.shuffle_quasiIso`: The leading shuffle is a b-quasi-isomorphism. Its cyclic coextension is a map of completed negative cyclic complexes; a strict B-compatible leading shuffle is not asserted.
+
+- `HochschildHomology.kunneth`: HH(A⊗_kA′/k) ≃ HH(A/k) ⊗^L_k HH(A′/k).
+
+- `HochschildHomology.commRing`: For commutative A, HH_*(A/k) is a graded-commutative k-algebra with HH_0 = A.
+
+- `HochschildHomology.B_derivation`: For commutative A, B is a graded derivation of HH_*(A/k).
+
+- `negativeCyclicHomology.externalProduct`: External product on HC⁻ and the HC⁻-module structure on HC.
+
+- `HochschildHomology.cyclicShuffle`: The negative cyclic coextension sh+u sh′; its leading term is shuffle and (b+uB)(sh+u sh′)=(sh+u sh′)(b+uB).
+
+- `HochschildHomology.CyclicShuffleData`: Hochschild shuffle with degree-two cyclic correction and completed negative cyclic map, satisfying the differential relation and leading-term compatibility.
+
+**Checks.**
+
+
+- `HochschildHomology.kunneth_polynomial`: HH_2(k[x,y]/k) is free of rank one over k[x,y] on dx∧dy.
+
+- `HochschildHomology.shuffle_unit`: On normalized chains NC(k/k)=k in degree zero. Under NC(A)⊗k=NC(A), the shuffle with the ground ring is the identity.
+
+- `HochschildHomology.commRing_compat_Kaehler`: For commutative A, the degree-one part HH_1(A/k) ≅ Ω¹_{A/k} (Mathlib KaehlerDifferential) as A-modules, via a_0⊗a_1 ↦ a_0 da_1.
+
+- `HochschildHomology.noncommutative_nonexample`: For noncommutative A (A = M_2(k)), the shuffle product does not give HH_*(A) a ring structure, since multiplication A⊗A → A is not an algebra map.
+
+- `HochschildHomology.shuffle_not_B_map`: For general normalized unital inputs the uncorrected shuffle fails B-compatibility; the identity is restored by its u sh′ term.
+
+The comparison must satisfy these additional checks: HH_*(k[x,y]/k) ≅ HH_*(k[x]/k) ⊗ HH_*(k[y]/k) =
+Ω^*_{k[x,y]/k} (compatible with HKR). For A commutative, HH_1(A) ∧ HH_1(A) → HH_2(A) sends da∧db to
+the class of the shuffle 1⊗a⊗b − 1⊗b⊗a.
+
+This interface is used by `RT.1/hkr-theorem` — HKR is an isomorphism of graded algebras, using the
+shuffle product; `RT.2/thh-symmetric-monoidal` — the spectral version: THH is symmetric monoidal;
+`RT.3/trace-uniqueness-multiplicative` — multiplicativity of the trace is with respect to these
+products.
+
+*Needs:* [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [mathlib:Module.Flat](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean#L113).
+
+<a id="refinedtracemethods-rt-1-base-change"></a>
+
+### Base change and flat base change for Hochschild homology
+
+Work under the following hypotheses: k→K commutative ground-ring map; derived tensor products
+throughout. For the plain cyclic bar formula assume A flat over k. For HC⁻ and HP base change assume
+K perfect over k; finite projective K suffices for degreewise product formulas.
+
+For a commutative ground-ring map k→K and an associative derived k-algebra A, the derived cyclic bar
+gives C(A⊗^L_k K/K)≃C(A/k)⊗^L_k K as mixed objects. Consequently HH and HC commute with arbitrary
+derived ground-ring base change. HC⁻ and HP commute when K is dualizable (perfect) as a k-module, so
+tensoring by K preserves the products and limits involved. Tor-vanishing identifies A⊗^L_kK with the
+ordinary algebra A⊗_kK but does not by itself identify the plain un-derived bar with derived HH: for
+that use k-flat A. If also K is flat, taking homology commutes with tensor. A flat but nonperfect K
+is insufficient for CN or CP.
+
+(See [The homotopy fixed points of the circle action on Hochschild homology](#ref-0-hoyois-15), §2,
+pp. 4–5. Tensor/derived-Hom descriptions isolate the product obstruction. [Invariance and
+localization for cyclic homology of DG algebras](#ref-0-keller-cyclic-96), §2.2–2.3, pp. 6–7.
+Derived mixed interpretation and flat resolutions. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Appendix B, Proposition B.5, Acta pp. 383–384. Cyclic bar and
+coherent circle realization.)
+
+Construction and proof. Resolve A by k-flat dg or simplicial algebras supplied by DGAInfinity. Base
+change each tensor power and every cyclic structural map; the symmetric monoidal left adjoint
+commutes with realization and CC sums. For CN and CP, dualizability makes tensoring by K preserve
+all products and limits; filtered colimits in CP are preserved too. Separate algebra Tor-vanishing
+from the flatness needed for the plain bar computation. For K=k[t], the sequence (t^i) witnesses
+failure of (∏k)⊗K→∏K to be surjective.
+
+The comparison must satisfy these additional checks: HH_*(ℚ[x]/ℚ) = HH_*(ℤ[x]/ℤ) ⊗ ℚ. HP(ℤ/ℤ) ⊗ ℚ =
+ℚ[u^{±1}] = HP(ℚ/ℚ), while HP of a nontrivial mixed complex need not commute with ⊗ℚ (product
+totalisation).
+
+*Needs:* [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [mathlib:CategoryTheory.Tor](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Tor.lean#L44), [mathlib:Module.Flat](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean#L113).
+
+<a id="refinedtracemethods-rt-1-hh-universal-property"></a>
+
+### Hochschild homology of a commutative ring is its tensor with the circle
+
+Work under the following hypotheses: R → A map of commutative rings (or animated rings);
+E_∞-algebras in D(R) from EnhancedDerivedSheaves E5:abstract.
+
+For a map of commutative rings R → A, HH(A/R) with its circle action is the free T-equivariant
+E_∞-R-algebra on A: HH(A/R) ≃ A ⊗_{R} T := colim_{T} A in CAlg(D(R)) (tensoring the E_∞-R-algebra A
+with the space T = S¹), and for every E_∞-R-algebra B with T-action, maps HH(A/R) → B of
+T-equivariant E_∞-algebras correspond to maps A → B of E_∞-R-algebras. In particular HH(A/R) ≃ A
+⊗^L_{A⊗^L_RA} A as E_∞-algebras.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-0-bms2-19), Remark 2.4
+and footnote 7, p. 13. BMS2 Remark 2.4: HH(A/R) is the initial E_∞-R-algebra with T-action receiving
+A, i.e. A ⊗ T.)
+
+Construction and proof. T is the pushout ∗ ⊔_{∗⊔∗} ∗ (two arcs glued along their endpoints), so A ⊗
+T ≃ A ⊗_{A⊗A} A (tensoring an E_∞-algebra with spaces turns colimits of spaces into colimits of
+E_∞-algebras). The cyclic bar construction is the simplicial model of T (the simplicial circle
+Δ¹/∂Δ¹ has n+1 simplices in degree n), so |C_•(A/R)| ≃ A ⊗ T compatibly with the T-action (NS18
+Proposition B.5 type argument, or BMS2 Remark 2.4). The adjunction (A ↦ A ⊗ T) ⊣ (forget the
+T-action) gives the universal property.
+
+The comparison must satisfy these additional checks: HH(R/R) = R ⊗ T = R. HH(R[x]/R) = R[x] ⊗ T has
+π_* = R[x] ⊕ R[x]dx (consistent with HKR).
+
+*Needs:* [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), `EnhancedDerivedSheaves:E5:abstract/algebra-objects`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`.
+
+<a id="refinedtracemethods-rt-1-etale-base-change"></a>
+
+### Étale base change (Weibel–Geller)
+
+Work under the following hypotheses: A → B étale (Mathlib Algebra.Etale); k-flatness of A and B, or
+derived HH.
+
+For commutative k-algebras and an étale map A→B, derived HH(B/k)≃B⊗^L_A HH(A/k). For k-flat A,B this
+gives HH_*(B/k)≅B⊗_A HH_*(A/k); in particular HH(B/A)≃B. The statement changes algebras over the
+fixed ground ring k. It is not ground-ring base change. Connes B is not generally A-linear, so this
+HH tensor comparison does not yield cyclic tensor comparisons over A. Nor does étale flatness alone
+justify commuting CN or CP with infinite products. No unqualified HC⁻/HP étale tensor or sheaf
+assertion is included here.
+
+(See [Étale descent for Hochschild and cyclic homology](#ref-0-weibel-geller-91), Theorem 0.1, p.
+368; Theorem 2.1, p. 374. Étale algebra descent and the distinct coefficient formula over a fixed
+ground ring.)
+
+Construction and proof. For an étale affine map the diagonal component of B⊗_A B splits off; the
+off-diagonal component contributes zero to Hochschild Tor with diagonal coefficients. Use
+Weibel–Geller Theorem 0.1, keeping k fixed; their Theorem 2.1 has B⊗_A B coefficients. Use derived
+flat replacements as required. Apply the HH comparison to smooth étale charts; keep the cyclic B/d
+comparison separate.
+
+The comparison must satisfy these additional checks: For B = A[1/f], HH_*(A[1/f]/k) =
+HH_*(A/k)[1/f]. For a finite separable field extension L/K of characteristic 0, HH_*(L/ℚ) = L ⊗_K
+HH_*(K/ℚ).
+
+*Needs:* [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Hochschild homology of a commutative ring is its tensor with the circle](#refinedtracemethods-rt-1-hh-universal-property), [Base change and flat base change for Hochschild homology](#refinedtracemethods-rt-1-base-change), [mathlib:Algebra.Etale](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Basic.lean#L206).
+
+<a id="refinedtracemethods-rt-1-hkr-map"></a>
+
+### The antisymmetrisation map and the HKR projection
+
+Work under the following hypotheses: k commutative, A commutative k-algebra (flat over k, or replace
+C_• by the derived HH and ε by its derived version).
+
+For a commutative k-algebra A, the antisymmetrisation map ε_n : Ω^n_{A/k} → HH_n(A/k), a_0
+da_1∧…∧da_n ↦ class of Σ_{σ∈S_n} sgn(σ) a_0⊗a_{σ^{−1}(1)}⊗…⊗a_{σ^{−1}(n)}, is a well-defined natural
+map of graded-commutative k-algebras Ω^*_{A/k} → HH_*(A/k) (with the shuffle product), where
+Ω^n_{A/k} = ⋀^n_A Ω¹_{A/k} is built from Mathlib's Kähler differentials and exterior powers. The map
+π_n : C_n(A/k) → Ω^n_{A/k}, a_0⊗…⊗a_n ↦ a_0 da_1∧…∧da_n, is a chain map (Ω^* with zero differential)
+and π_n ∘ ε_n = n!·id.
+
+(See [Lectures on noncommutative geometry](#ref-0-ginzburg-05), §9.2, p. 45. The antisymmetrisation
+map from differential forms to Hochschild homology and its left inverse up to n!.)
+
+Construction and proof. Check that the antisymmetrised chain is a b-cycle and that its class is
+A-multilinear, alternating and a derivation in each slot, so ε_n factors through ⋀^n Ω¹ (universal
+property of Kähler differentials). Check π ∘ b = 0, so π descends to HH_n; compute π_n ε_n = n! id.
+Multiplicativity: ε is compatible with the shuffle product (RT.1/external-products).
+
+The API exposes the following operations and characterizations.
+
+
+- `HochschildHomology.hkrMap`: ε : Ω^*_{A/k} → HH_*(A/k), natural in k → A.
+
+- `HochschildHomology.hkrMap_apply`: The antisymmetrisation formula on a_0 da_1∧…∧da_n.
+
+- `HochschildHomology.hkrProj`: π : HH_*(A/k) → Ω^*_{A/k}, a_0⊗…⊗a_n ↦ a_0 da_1∧…∧da_n.
+
+- `HochschildHomology.hkrProj_comp_hkrMap`: π_n ∘ ε_n = n! · id.
+
+- `HochschildHomology.hkrMap_mul`: ε is a map of graded-commutative algebras.
+
+- `HochschildHomology.hkrMap_one`: In degree one, ε_1 is an isomorphism with inverse π_1 (all commutative A), compatible with Mathlib's KaehlerDifferential.
+
+**Checks.**
+
+
+- `HochschildHomology.hkrMap_zero`: ε_0 : A → HH_0(A/k) = A is the identity.
+
+- `HochschildHomology.hkrMap_polynomial_two`: For A = k[x,y], ε_2(dx∧dy) = class of 1⊗x⊗y − 1⊗y⊗x, a generator of HH_2.
+
+- `HochschildHomology.hkrMap_not_surjective_singular`: For nonzero k and A = k[x]/(x²), ε_2 is not surjective: Ω²_{A/k} = 0 while HH_2(A/k) ≠ 0.
+
+The comparison must satisfy these additional checks: ε_1 : Ω¹_{A/k} → HH_1(A/k) is the inverse of
+a_0⊗a_1 ↦ a_0 da_1 (an isomorphism for every commutative A). π_n ε_n = n! shows ε_n is injective
+with a retraction whenever n! is invertible in k.
+
+This interface is used by `RT.1/hkr-theorem` — HKR asserts ε is an isomorphism for smooth A;
+`RT.1/b-equals-d` — B ∘ ε is compared with ε ∘ d; `KTheoryFiniteLocalFields:L.5/log-thh-low-degrees`
+— low-degree comparison of differential forms with THH.
+
+*Needs:* [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Shuffle and external products](#refinedtracemethods-rt-1-external-products), [mathlib:KaehlerDifferential](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Kaehler/Basic.lean#L153), [mathlib:ExteriorAlgebra.exteriorPower](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean#L79).
+
+<a id="refinedtracemethods-rt-1-hkr-theorem"></a>
+
+### The Hochschild–Kostant–Rosenberg theorem
+
+Work under the following hypotheses: A smooth over k (formally smooth and of finite presentation);
+in particular A is k-flat and Ω¹_{A/k} is finite projective.
+
+Let k be a commutative ring and A a smooth commutative k-algebra (Mathlib Algebra.Smooth). Then the
+antisymmetrisation map ε : Ω^*_{A/k} → HH_*(A/k) is an isomorphism of graded-commutative A-algebras,
+so HH_n(A/k) ≅ Ω^n_{A/k} for every n; since π_n ∘ ε_n = n!·id, the inverse is (n!)^{-1}π_n when n!
+is invertible in k; π_n itself is generally not the inverse. For k a perfect field this is HKR's
+theorem for regular affine algebras.
+
+(See [Differential forms on regular affine algebras](#ref-0-hkr-62), Theorem 5.2, p. 395. Theorem
+5.2 of HKR: for a regular affine algebra over a perfect field, Hochschild homology is the module of
+differential forms. [Lectures on noncommutative geometry](#ref-0-ginzburg-05), Theorem 9.1.3 (HKR),
+p. 44; proof §9.3, p. 46. The HKR theorem for smooth algebras in the form ε : Ω^• ≅ HH_•. [Cyclic
+homology and the Lie algebra homology of matrices](#ref-0-loday-quillen-84), §2, antisymmetrization
+and differential-forms comparison, pp. 572–574. The composition π_n ε_n equals n! times the
+identity, explaining the normalization.)
+
+Construction and proof. Use the requested smooth étale-chart comparison to reduce Zariski locally to
+A étale over k[x_1,…,x_d]; transfer the Koszul calculation by RT.1/etale-base-change. The cited
+Algebra.Smooth predicate alone does not prove this chart theorem. Compute HH of k[x_1,…,x_d] by the
+Koszul resolution of A over A^e = A⊗_kA (the diagonal ideal is generated by the regular sequence
+x_i⊗1 − 1⊗x_i), giving HH_n = ⋀^n A^d = Ω^n. Identify the resulting isomorphism with ε (both are
+algebra maps agreeing in degree one, and HH_*(k[x_i]) is generated by degree one); use
+DerivedDeRhamCohomology DD.1/koszul-complex for the regular diagonal resolution. Do not use
+RT.1/hkr-filtration here, since its construction uses this theorem.
+
+The comparison must satisfy these additional checks: HH_*(k[x]/k) = k[x] ⊕ k[x]dx and HH_n(k[x]/k) =
+0 for n ≥ 2. HH_*(k[t,t^{−1}]/k) = k[t^{±1}] ⊕ k[t^{±1}] dt/t. For nonzero k, fails for A =
+k[x]/(x²) (not smooth): HH_2 ≠ 0 = Ω².
+
+*Needs:* [The antisymmetrisation map and the HKR projection](#refinedtracemethods-rt-1-hkr-map), [Étale base change (Weibel–Geller)](#refinedtracemethods-rt-1-etale-base-change), [mathlib:Algebra.Smooth](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Basic.lean#L540), `DerivedDeRhamCohomology:DD.0/smooth-cotangent`, `DerivedDeRhamCohomology:DD.1/koszul-complex`, `DerivedDeRhamCohomology:DD.0`.
+
+<a id="refinedtracemethods-rt-1-b-equals-d"></a>
+
+### Connes' operator is the de Rham differential under HKR
+
+Work under the following hypotheses: A commutative k-algebra; for the formality statement ℚ ⊆ k and
+A smooth over k.
+
+For a commutative k-algebra A, the antisymmetrisation map ε of RT.1/hkr-map satisfies B ∘ ε_n =
+ε_{n+1} ∘ d as maps Ω^n_{A/k} → HH_{n+1}(A/k) (on Hochschild homology) (Loday–Quillen, Proposition
+2.2), where d is the de Rham differential of the algebraic de Rham complex Ω^•_{A/k} (imported from
+DerivedDeRhamCohomology DD.2) and B is Connes' operator; dually π_{n+1} ∘ B = (n+1)·d ∘ π_n. If ℚ ⊆
+k, μ_n := π_n/n! is a map of mixed complexes (C(A/k), b, B) → (Ω^•_{A/k}, 0, d); for A smooth over k
+it is a quasi-isomorphism of mixed complexes (with inverse ε on homology), so C(A/k) is formal as a
+mixed complex. This does not assert that antisymmetrisation is a strict mixed-complex chain map.
+
+(See [Cyclic homology and the Lie algebra homology of matrices](#ref-0-loday-quillen-84),
+Proposition 2.2 and proof, pp. 572-573. Loday–Quillen Proposition 2.2 and (2.7): B∘γ = γ∘d for the
+antisymmetrisation γ, and μ = π/n! intertwines B with d.)
+
+Construction and proof. Apply the normalised formula for B to the shuffle product ε(a_0 da_1⋯da_n) =
+(a_0, a_1)·(1, a_2)⋯(1, a_n) (Loday–Quillen (2.3), Proposition 2.2). Import d with d² = 0 and the
+Leibniz rule from DD.2; check π_{n+1}B = (n+1)dπ_n on generators. For ℚ ⊆ k, μ = π/n! is a chain map
+(C, b) → (Ω, 0) intertwining B with d (Loday–Quillen (2.7)); with RT.1/hkr-theorem it is a
+quasi-isomorphism for smooth A.
+
+The comparison must satisfy these additional checks: For A = k[x] and n = 0: B(ε_0(x^m)) = [1⊗x^m] =
+m[x^{m−1}⊗x] = ε_1(d(x^m)) in HH_1(k[x]). For ℚ ⊆ k and A smooth, the SBI sequence becomes the de
+Rham sequence (RT.1/hkr-cyclic-char0).
+
+*Needs:* [The antisymmetrisation map and the HKR projection](#refinedtracemethods-rt-1-hkr-map), [Connes' operator B](#refinedtracemethods-rt-1-connes-operator), [The Hochschild–Kostant–Rosenberg theorem](#refinedtracemethods-rt-1-hkr-theorem), `DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex`, `DerivedDeRhamCohomology:DD.2/ordinary-differential`.
+
+<a id="refinedtracemethods-rt-1-hkr-cyclic-char0"></a>
+
+### Cyclic homology of smooth algebras in characteristic zero
+
+Work under the following hypotheses: ℚ ⊆ k; A smooth over k (for non-smooth A over a ℚ-algebra, HP
+is the derived/Hartshorne de Rham cohomology (Feigin–Tsygan) and is not recorded here).
+
+Let k be a commutative ℚ-algebra and A a smooth commutative k-algebra. Then HC_n(A/k) ≅
+Ω^n_{A/k}/dΩ^{n−1}_{A/k} ⊕ H^{n−2}_{dR}(A/k) ⊕ H^{n−4}_{dR}(A/k) ⊕ …, HC⁻_n(A/k) ≅ Z^n Ω_{A/k} ×
+Π_{i≥1} H^{n+2i}_{dR}(A/k), and HP_n(A/k) ≅ Π_{i∈ℤ} H^{n+2i}_{dR}(A/k), naturally in A, where
+H^*_{dR} is the cohomology of the algebraic de Rham complex (DD.2) and Z^nΩ the closed forms. Under
+these isomorphisms S, I, B of the SBI sequence become the evident projections, inclusions and d.
+
+(See [Cyclic homology and the Lie algebra homology of matrices](#ref-0-loday-quillen-84), Theorem
+2.9, pp. 574-575. Cyclic and periodic cyclic homology of smooth algebras in characteristic 0 in
+terms of de Rham cohomology.)
+
+Construction and proof. By RT.1/b-equals-d the mixed complex C(A/k) is quasi-isomorphic to (Ω^*, 0,
+d). Compute CC, CC⁻, CP of (Ω^*, 0, d) directly: CC(Ω, 0, d) in degree n is ⊕_{i≥0} Ω^{n−2i} with
+differential u·d, whose homology is as stated (truncation at i = 0 gives Ω^n/dΩ^{n−1}). Apply
+RT.1/cyclic-homology (quasi-isomorphisms of mixed complexes preserve HC, HC⁻, HP).
+
+The comparison must satisfy these additional checks: HC_n(ℚ[x]/ℚ) = HC_n(ℚ/ℚ) for n ≥ 1, HC_0 =
+ℚ[x]; HP_*(ℚ[x]/ℚ) = HP_*(ℚ/ℚ) (homotopy invariance of de Rham cohomology). HP_0(ℚ[t^{±1}]/ℚ) = ℚ
+and HP_1 = ℚ (from H^1_dR spanned by dt/t).
+
+*Needs:* [Connes' operator is the de Rham differential under HKR](#refinedtracemethods-rt-1-b-equals-d), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [Connes' SBI exact sequence](#refinedtracemethods-rt-1-sbi-sequence), `DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex`.
+
+<a id="refinedtracemethods-rt-1-hkr-filtration"></a>
+
+### The derived HKR filtration
+
+Work under the following hypotheses: R → A any map of commutative rings (derived HH); the p-complete
+statement needs p-complete quasismoothness as in BMS2 Remark 4.14.
+
+Let R → A be a map of commutative rings. HH(A/R) carries a natural complete descending
+multiplicative HKR filtration Fil^n (n≥0), with Fil^0=HH(A/R), lim_n Fil^n=0 and
+gr^n=cofib(Fil^{n+1}→Fil^n)≃∧^n L_{A/R}[n]. It is T-equivariant and the action on graded pieces is
+trivial. It is left Kan extended from the connective Postnikov filtration τ_{≥n}HH(P/R) of
+polynomial R-algebras P. For A smooth over R it recovers the HKR graded pieces. For the p-complete
+version assume A has bounded p^∞-torsion and R→A is p-completely quasismooth in the sense of BMS2
+Remark 4.14; then gr^n HH(A/R;ℤ_p)≃(Ω^n_{A/R})^∧_p[n].
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter IV, §IV.4, Proposition
+IV.4.1, Acta p. 356 (the text layer garbles '∧^i_A L_{A/Z}' and splits 'descending'). NS18
+Proposition IV.4.1: the HKR filtration on HH(A/R) for every commutative ring map, with graded pieces
+∧^i L_{A/R}[i]. [Topological Hochschild homology and integral p-adic Hodge theory](#ref-0-bms2-19),
+§2.2, last paragraph, p. 14. BMS2 §2.2: the HKR filtration by left Kan extension of the Postnikov
+filtration, and its p-complete quasismooth form (Remark 4.14).)
+
+Construction and proof. On polynomial P, use τ_{≥n}HH(P/R) and RT.1/hkr-theorem to identify the
+graded pieces. Left Kan extend the filtration from polynomial algebras (EnhancedDerivedSheaves
+E5:animation); identify the derived exterior powers using DerivedDeRhamCohomology DD.0. The
+n-connectivity of Fil^n gives completeness. Use multiplicativity of the connective Postnikov
+filtration and triviality of the action on the graded pieces. Apply BMS2 Remark 4.14 with its
+bounded p^∞-torsion and p-complete quasismooth hypotheses.
+
+The comparison must satisfy these additional checks: For A = 𝔽_p over R = ℤ: L_{𝔽_p/ℤ} ≃ 𝔽_p[1], so
+gr_n = ∧^n(𝔽_p[1])[n] ≃ Γ^n(𝔽_p)[2n] = 𝔽_p[2n] (used in RT.1/hh-of-fp). For smooth A the filtration
+is the Postnikov filtration. Rationally the normalized HKR comparison gives a natural splitting; no
+general canonical functorial integral splitting is asserted. Coordinate-dependent polynomial
+splittings are allowed.
+
+*Needs:* [The Hochschild–Kostant–Rosenberg theorem](#refinedtracemethods-rt-1-hkr-theorem), [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), `DerivedDeRhamCohomology:DD.0/cotangent-complex`, `DerivedDeRhamCohomology:DD.0/derived-exterior-powers`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`.
+
+<a id="refinedtracemethods-rt-1-hh-of-fp"></a>
+
+### Hochschild homology of 𝔽_p over ℤ
+
+Work under the following hypotheses: Derived HH over ℤ (𝔽_p is not ℤ-flat).
+
+HH_*(𝔽_p/ℤ) ≅ 𝔽_p⟨u⟩, the divided power algebra over 𝔽_p on a class u of degree 2 (Mathlib
+DividedPowerAlgebra of 𝔽_p in degree 2): HH_{2n}(𝔽_p/ℤ) = 𝔽_p·u^{[n]}, HH_{odd} = 0. NS18 Lemma
+IV.4.7 concerns a THH homotopy-fixed-point extension; it is not a statement about the first HKR
+quotient of HH(𝔽_p/ℤ).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter IV, §IV.4, Proposition
+IV.4.3, Acta p. 357 (preceded on p. 356 by the computation of ∧^i L_{F_p/Z_p}). NS18 Proposition
+IV.4.3: HH(𝔽_p/ℤ) is a divided power algebra on a degree-two class. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter IV, §IV.4, Lemma IV.4.7, Acta p. 359 (proof p. 359;
+used in Proposition IV.4.6, p. 358). NS18 Lemma IV.4.7 concerns the THH fixed-point p-extension. Its
+proof uses the HH quotient; the actual HH divided-power calculation is Proposition IV.4.3.)
+
+Construction and proof. L_{𝔽_p/ℤ} ≃ 𝔽_p[1] (𝔽_p = ℤ/p is a quotient by a nonzerodivisor; DD.0
+regular quotients). RT.1/hkr-filtration gives gr_n ≃ ∧^n(𝔽_p[1])[n] ≃ Γ^n(𝔽_p)[2n] (décalage:
+∧^n(M[1]) ≃ Γ^n(M)[n]); so HH_{2n} is one-dimensional and HH_odd = 0, and the spectral sequence
+degenerates for degree reasons. Identify the multiplicative structure with the divided power
+algebra: the shuffle product of u with itself is n!·u^{[n]} (NS18 Proposition IV.4.3).
+
+The comparison must satisfy these additional checks: HH_2(𝔽_p/ℤ) = 𝔽_p and u^p = 0 in HH_*(𝔽_p/ℤ)
+(divided powers, not a polynomial algebra). Rationally nothing survives: HH(𝔽_p/ℤ) ⊗ ℚ = 0.
+
+*Needs:* [The derived HKR filtration](#refinedtracemethods-rt-1-hkr-filtration), [Shuffle and external products](#refinedtracemethods-rt-1-external-products), [mathlib:DividedPowerAlgebra](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DividedPowerAlgebra/Init.lean#L100), `DerivedDeRhamCohomology:DD.0/regular-quotient-cotangent`.
+
+### Examples
+
+For k a characteristic-zero field, A=k[x] has HH₀(A/k)=A, HH₁(A/k)=A·dx and HH_n=0 for n≥2. The
+mixed operator sends f(x) to f′(x)dx, so B(x)=dx≠0. Thus forgetting the B-operator loses a
+detectable part of the input even though the underlying Hochschild groups remain correct.
+
+### Dependencies
+
+Use `DerivedDeRhamCohomology:DD.0`, `DerivedDeRhamCohomology:DD.0/cotangent-complex`,
+`DerivedDeRhamCohomology:DD.0/derived-exterior-powers`,
+`DerivedDeRhamCohomology:DD.0/regular-quotient-cotangent`,
+`DerivedDeRhamCohomology:DD.0/smooth-cotangent`, `DerivedDeRhamCohomology:DD.1/koszul-complex`,
+`DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex`,
+`DerivedDeRhamCohomology:DD.2/ordinary-differential`,
+`EnhancedDerivedSheaves:E1/enhanced-derived-category`,
+`EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:abstract`,
+`EnhancedDerivedSheaves:E5:abstract/algebra-objects`,
+`EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`,
+[mathlib:Algebra.Etale](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Basic.lean#L206),
+[mathlib:Algebra.Smooth](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Basic.lean#L540),
+[mathlib:AlgebraicTopology.alternatingFaceMapComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/AlternatingFaceMapComplex.lean#L160),
+[mathlib:AlgebraicTopology.normalizedMooreComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/MooreComplex.lean#L158),
+[mathlib:CategoryTheory.SimplicialObject](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean#L52),
+[mathlib:CategoryTheory.Tor](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Tor.lean#L44),
+[mathlib:DividedPowerAlgebra](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DividedPowerAlgebra/Init.lean#L100),
+[mathlib:ExteriorAlgebra.exteriorPower](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean#L79),
+[mathlib:HomologicalComplex₂.total](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/TotalComplex.lean#L265),
+[mathlib:KaehlerDifferential](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Kaehler/Basic.lean#L153),
+[mathlib:Matrix.trace](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Trace.lean#L45),
+[mathlib:Module.Flat](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean#L113),
+[mathlib:MoritaEquivalence](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Morita/Basic.lean#L59),
+`tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`,
+`tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions`.
+
+## Layer RT.5 foundations: Continuous localizing invariants and rigidity
+
+This layer constructs continuous localizing invariants and rigidity. Each target below includes the
+hypotheses and comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-5-dualizable-categories"></a>
+
+### Dualizable presentable stable categories
+
+Catdual_E has presentable stable left E-modules C that are dualizable as objects of PrL_E. Morphisms
+are E-linear colimit-preserving functors whose right adjoints preserve colimits (strongly continuous
+functors). For E=Sp this is Catdual_st. Object dualizability means specified evaluation and
+coevaluation with coherent triangle identities; it does not mean every object of C is dualizable or
+C is compactly generated.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), §1.5, pp. 18–20. This locator
+supplies dualizable presentable stable categories. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: Ind(A) is dualizable for small
+idempotent-complete stable A.)
+
+Construction and proof. Form the E-linear tensor product in PrL using the imported coherent category
+interface. Select dualizable objects and strongly continuous E-linear morphisms. Construct the dual
+and adjunctions with their coherent triangle identities as in Efimov §1.5.
+
+The API exposes the following operations and characterizations.
+
+
+- `DualizableCategories.ofInd`: For small idempotent-complete stable A, Ind(A) is an object of Catdual_st (E=Sp). An E-linear version additionally requires the compatible E-action supplied by the rigid-base module interface.
+
+- `DualizableCategories.dual`: Return the object dual C∨ with evaluation C∨⊗_E C → E and coevaluation E → C⊗_E C∨ satisfying coherent triangles.
+
+- `DualizableCategories.hom`: Morphisms C → D are E-linear left adjoints with colimit-preserving right adjoint.
+
+- `DualizableCategories.tensor`: For symmetric monoidal rigid E, tensor over E and its unit give Catdual_E a symmetric monoidal structure.
+
+**Checks.**
+
+
+- `DualizableCategories.indPerf`: For A=Perf(R), the supplied spectrum-module comparison identifies Ind(A) with Mod_R.
+
+- `DualizableCategories.zero`: The zero presentable stable category is dualizable, with zero evaluation and coevaluation.
+
+- `DualizableCategories.rightAdjointRequired`: A left adjoint whose right adjoint fails to preserve colimits is not a morphism of Catdual_st.
+
+The comparison must satisfy these additional checks: Ind(A) is dualizable for small
+idempotent-complete stable A. A colimit-preserving functor with non-colimit-preserving right adjoint
+is excluded.
+
+This interface is used by [Continuous extensions of localizing
+invariants](#refinedtracemethods-rt-5-continuous-extension) — Strongly continuous arrows and the
+left Yoneda adjoint make the continuous Calkin construction functorial.; [Nuclear
+E-modules](#refinedtracemethods-rt-5-relative-nuclear-module) — The tensor and internal Hom over E
+classify nuclear module objects..
+
+*Needs:* `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-localizing-invariant"></a>
+
+### Accessible localizing invariants
+
+An accessible localizing invariant F:Catperf → T, with T accessible stable, sends the zero category
+to zero and exact sequences A → B → C (fully faithful first map and idempotent-complete Verdier
+quotient C) to fiber/cofiber sequences, and commutes with κ-filtered colimits for a specified
+regular κ. The relative Catdual_E version uses exact sequences and strongly continuous E-linear
+maps. A finitary invariant has κ=ω.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), §1.6 and Definition 1.2, pp.
+20–21. This locator supplies accessible localizing invariants. The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: A split exact sequence
+yields a direct sum in T.)
+
+Construction and proof. Use the enhanced exact sequence and idempotent completion supplied by E5.
+Specify accessibility and the actual κ-filtered colimits admitted by T. Distinguish the functor’s
+construction from its localizing property: concrete nonconnective K-theory is imported from
+GeneralAlgebraicKTheory.
+
+The API exposes the following operations and characterizations.
+
+
+- `LocalizingInvariant.exactSequence`: F(A) → F(B) → F(C) is a cofiber sequence for each exact sequence.
+
+- `LocalizingInvariant.map`: Exact functors give maps in T with coherent identity and composition.
+
+- `LocalizingInvariant.filteredColimit`: F commutes with the specified κ-filtered colimits.
+
+- `LocalizingInvariant.ofKTheory`: The imported concrete nonconnective K-theory functor satisfies this interface; the universal property is a property, not its definition.
+
+**Checks.**
+
+
+- `LocalizingInvariant.zero`: F(0) ≃ 0.
+
+- `LocalizingInvariant.split`: F(A⊕B) ≃ F(A)⊕F(B) with the two inclusions and projections.
+
+- `LocalizingInvariant.connectiveKNotEnough`: Connective K-theory without additional hypotheses is not substituted for nonconnective K-theory in the arbitrary localization fiber sequence.
+
+The comparison must satisfy these additional checks: A split exact sequence yields a direct sum in
+T. An additive invariant that is not exact-localizing does not satisfy this definition.
+
+This interface is used by [The category of relative localizing
+motives](#refinedtracemethods-rt-5-localizing-motives) — Exact and colimit relations are the
+presheaf localization relations.; [Uniqueness of continuous
+extension](#refinedtracemethods-rt-5-continuous-extension-uniqueness) — These relations establish
+the universal continuous extension..
+
+*Needs:* `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/ind-completion`, [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories).
+
+<a id="refinedtracemethods-rt-5-continuous-calkin"></a>
+
+### The continuous Calkin category
+
+For dualizable presentable stable C and an uncountable regular cardinal κ, the strongly continuous
+fully faithful left adjoint Yoneda functor Ŷ:C → Ind(C^κ) has quotient equivalent to
+ker(colim:Ind(C^κ) → C). Define Calkcont_κ(C) as the compact objects of that quotient. It is small
+stable idempotent-complete and gives an exact sequence 0 → C → Ind(C^κ) → Ind(Calkcont_κ(C)) → 0 in
+Catdual_st. Functoriality is for strongly continuous functors.
+
+(See [K-theory and localizing invariants of large categories](#ref-1-continuous), Definition 2.58,
+pp. 50–51; Propositions 2.59 and 2.61, p. 51. This locator supplies the continuous calkin category.
+The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: For compactly generated C it agrees with the classical κ-Calkin of C^ω.)
+
+Construction and proof. Use ω₁-presentability and the left adjoint Yoneda embedding of a dualizable
+category (Efimov §2). Construct the stable accessible quotient; identify it with the kernel of
+colim. Take compact objects and induced quotient maps. For compactly generated C compare with
+(Ind(C^ω)^κ/C^ω)^Kar.
+
+The API exposes the following operations and characterizations.
+
+
+- `ContinuousCalkin.quotient`: The canonical functor Ind(C^κ) → Ind(Calkcont_κ(C)) has kernel Ŷ(C).
+
+- `ContinuousCalkin.map`: Strongly continuous C → D induces an exact Calkcont_κ(C) → Calkcont_κ(D), with coherent identity and composition laws.
+
+- `ContinuousCalkin.compactlyGenerated`: If C=Ind(A), Calkcont_κ(C) ≃ (Ind(A)^κ/A)^Kar.
+
+- `ContinuousCalkin.exactSequence`: The defining sequence is exact in Catdual_st and is functorial in C.
+
+**Checks.**
+
+
+- `ContinuousCalkin.zero`: Calkcont_κ(0) is the zero small stable category.
+
+- `ContinuousCalkin.perfRing`: For C=Mod_R, Calkcont_κ(C) is the idempotent completion of (Mod_R)^κ/Perf(R).
+
+- `ContinuousCalkin.swindle`: For compactly generated C, the exact sequence C^ω → C^ω₁ → Calkcont_ω₁(C) produces the loop equivalence after an accessible localizing invariant; C^ω₁ has vanishing invariant by the countable swindle.
+
+The comparison must satisfy these additional checks: For compactly generated C it agrees with the
+classical κ-Calkin of C^ω. For a general C it is not defined as the naive quotient C^κ/C^ω.
+
+This interface is used by [Continuous extensions of localizing
+invariants](#refinedtracemethods-rt-5-continuous-extension) — The compact continuous quotient is
+evaluated by F and looped..
+
+*Needs:* [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-continuous-extension"></a>
+
+### Continuous extensions of localizing invariants
+
+For accessible localizing F:Catperf → T define Fcont(C)=Ω F(Calkcont_ω₁(C)) on Catdual_st. It is
+accessible localizing, commutes with the same κ-filtered colimits as F, and Fcont(Ind(A))≃F(A).
+Kcont denotes this construction applied to the concrete nonconnective K-theory functor. This extends
+a supplied functor rather than postulating a new universal K spectrum.
+
+(See [K-theory and localizing invariants of large categories](#ref-1-continuous), Definition 8.5 and
+Propositions 8.6–8.8, pp. 105–106; Theorem 8.10, pp. 106–107. This locator supplies continuous
+extensions of localizing invariants. The statement and proof retain the source hypotheses, maps and
+completion conventions; the acceptance check is: For Mod_R, Kcont(Mod_R)≃K(Perf(R)).)
+
+Construction and proof. Apply F to the functorial Calkin exact sequence. Use exactness of Calkcont,
+the countable Eilenberg swindle on C^ω₁ in the compactly generated case, and Proposition 8.8 for
+κ-filtered colimits. Construct the comparison for Ind(A) and the resulting unique extension.
+
+The API exposes the following operations and characterizations.
+
+
+- `ContinuousExtension.obj`: Fcont(C) is ΩF(Calkcont_ω₁(C)).
+
+- `ContinuousExtension.map`: Strongly continuous C → D induces Fcont(C) → Fcont(D).
+
+- `ContinuousExtension.ofInd`: Fcont(Ind(A)) ≃ F(A) naturally in small idempotent-complete stable A.
+
+- `ContinuousExtension.exact`: Fcont takes exact sequences in Catdual_st to cofiber sequences and preserves the specified κ-filtered colimits.
+
+**Checks.**
+
+
+- `ContinuousExtension.zero`: Fcont(0)≃0.
+
+- `ContinuousExtension.moduleK`: Kcont(Mod_R)≃the supplied K(Perf(R)) with its scalar-extension map.
+
+- `ContinuousExtension.semiorthogonal`: For a strongly continuous semiorthogonal decomposition C=⟨C₁,C₂⟩, Fcont(C)≃Fcont(C₁)⊕Fcont(C₂).
+
+The comparison must satisfy these additional checks: For Mod_R, Kcont(Mod_R)≃K(Perf(R)). Morphisms
+use strong continuity; bare continuous functors are outside the asserted functoriality.
+
+This interface is used by [Rigidity of relative localizing
+motives](#refinedtracemethods-rt-5-motives-rigidity) — Concrete Kcont(D⊗_E C) is the duality
+pairing.; [Continuous K-theory of almost modules](#refinedtracemethods-rt-5-almost-module-k) — The
+exact dualizable sequence of firm almost modules gives the K-fiber..
+
+*Needs:* [Accessible localizing invariants](#refinedtracemethods-rt-5-localizing-invariant), [The continuous Calkin category](#refinedtracemethods-rt-5-continuous-calkin), `GeneralAlgebraicKTheory:K.6`, `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`.
+
+<a id="refinedtracemethods-rt-5-continuous-extension-uniqueness"></a>
+
+### Uniqueness of continuous extension
+
+For regular κ and accessible stable T admitting κ-filtered colimits, precomposition with Ind gives
+an equivalence between accessible κ-finitary localizing functors Catdual_st → T and Catperf → T. Its
+inverse is F ↦ Fcont. The relative E-linear version has the analogous statement for relatively
+compactly generated E-modules and dualizable E-modules with strong-continuity morphisms.
+
+(See [K-theory and localizing invariants of large categories](#ref-1-continuous), Theorem 8.10, pp.
+106–107; relative version in Efimov rigidity §1.6, pp. 20–21. This locator supplies uniqueness of
+continuous extension. The statement and proof retain the source hypotheses, maps and completion
+conventions; the acceptance check is: The equivalence is between categories of functors and natural
+transformations, not only objectwise equalities.)
+
+Construction and proof. The Calkin exact sequence expresses every dualizable C using an Ind-category
+and its continuous Calkin. Both any G and the continuous extension of G∘Ind recover Ω applied to the
+Calkin term; the middle term vanishes by the swindle. Use Proposition 8.8 for the κ-finitary
+restriction and Efimov rigidity §1.6 for the relative version.
+
+The comparison must satisfy these additional checks: The equivalence is between categories of
+functors and natural transformations, not only objectwise equalities.
+
+*Needs:* [Continuous extensions of localizing invariants](#refinedtracemethods-rt-5-continuous-extension), [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories).
+
+<a id="refinedtracemethods-rt-5-trace-class"></a>
+
+### Trace-class morphisms
+
+In a presentable symmetric monoidal stable C, with tensor preserving colimits separately, write
+X∨=internal Hom(X,1), without assuming X dualizable. A map f:X → Y is trace-class when there is η:1
+→ X∨⊗Y such that f equals X≃X⊗1 → X⊗X∨⊗Y → Y by evaluation. The E₁ variant uses distinct left/right
+preduals and the corresponding tensor orders.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Definition 2.1 and Lemma 2.2, pp. 11–12. This
+locator supplies trace-class morphisms. The statement and proof retain the source hypotheses, maps
+and completion conventions; the acceptance check is: Identity is trace-class exactly for dualizable
+objects.)
+
+Construction and proof. Construct internal Hom as the right adjoint of tensor. Evaluate the
+classifier to a map X → Y, and impose equality in the mapping space. Use left/right internal Homs
+for the noncommutative enriched duality theorem.
+
+The API exposes the following operations and characterizations.
+
+
+- `TraceClass.ofClassifier`: An η:1 → X∨⊗Y gives a trace-class map by the evaluation formula.
+
+- `TraceClass.iff_factorization`: Trace-class means that the adjoint of f:1 → Hom(X,Y) factors through X∨⊗Y.
+
+- `TraceClass.map`: A symmetric monoidal functor takes a trace-class f to a trace-class map through F(X∨) → F(X)∨. Supplied by RefinedTraceMethods:RT.5/trace-class-functoriality.
+
+- `TraceClass.predual`: If f:X → Y is trace-class then Y∨ → X∨ is trace-class; for such transitions the comparison F(Y)∨ → F(X∨) supplies the diagonal needed for ind-predual colimits. Supplied by RefinedTraceMethods:RT.5/trace-class-functoriality.
+
+- `TraceClass.comp`: Precomposition and postcomposition preserve trace-class maps: transport the classifier by the predual map on the source and the ordinary map on the target.
+
+- `TraceClass.tensor`: The tensor of two trace-class maps is trace-class, classified by the tensor of their classifiers and the canonical predual comparison.
+
+- `TraceClass.identity_iff_dualizable`: The identity on X is trace-class exactly when X is dualizable; the classifier of the identity supplies coevaluation.
+
+**Checks.**
+
+
+- `TraceClass.unitIdentity`: The identity on the tensor unit is trace-class, classified by its unit constraints.
+
+- `TraceClass.zeroMap`: The zero X → Y is trace-class, classified by the zero map 1 → X∨⊗Y.
+
+- `TraceClass.infiniteVectorSpace`: The identity on the countably infinite direct-sum k-vector space in D(k) is not trace-class, whereas every finite-rank degree-zero map is.
+
+The comparison must satisfy these additional checks: Identity is trace-class exactly for dualizable
+objects. In D(k), maps between degree-zero vector spaces are trace-class exactly when finite rank.
+
+This interface is used by [Rigidification of the target](#refinedtracemethods-rt-5-rigidification) —
+The classifier and composition ideal generate the Q-indexed rigidification systems.; [The refined
+localization cofiber](#refinedtracemethods-rt-5-localization-tower-formula) — Dualizable transition
+bimodules produce trace-class transitions, permitting the localization cofiber..
+
+*Needs:* `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-rigid-category"></a>
+
+### Rigid monoidal categories
+
+A presentable stable E₁-monoidal E is rigid when the unit is compact and multiplication μ:E⊗E → E is
+strongly continuous with E–E-bilinear right adjoint. Equivalently its unit is compact and it is
+generated under colimits by sequential colimits of maps that are both left and right trace-class. In
+the symmetric monoidal case the two trace-class conditions coincide. The equivalence is a theorem of
+Efimov Proposition 1.1; compact generation is not an extra defining hypothesis.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), §1.2 and Proposition 1.1, pp.
+15–16. This locator supplies rigid monoidal categories. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: Sp is rigid with compact
+sphere unit.)
+
+Construction and proof. Use the monoidal multiplication adjunction to define rigidity. Apply the
+trace-class sequential-generation criterion of Efimov Proposition 1.1. For compactly generated E
+identify it with Ind of a small rigid monoidal category; do not extend that presentation to all
+rigid E.
+
+The API exposes the following operations and characterizations.
+
+
+- `RigidCategory.multiplicationRightAdjoint`: Return μ^R preserving colimits and compatible with the left and right E actions.
+
+- `RigidCategory.unitCompact`: The tensor unit is compact.
+
+- `RigidCategory.iff_traceClassGenerators`: Rigidity is equivalent to compact unit and generation by sequential systems whose maps are both left and right trace-class. Supplied by RefinedTraceMethods:RT.5/rigidity-criterion.
+
+- `RigidCategory.compact_iff_dualizable`: For a rigid E, an object is compact exactly when it is left and right dualizable; this does not make all objects compact.
+
+**Checks.**
+
+
+- `RigidCategory.spectra`: Sp is rigid and its compact objects are finite spectra.
+
+- `RigidCategory.indRigid`: Ind(A) is rigid when small stable idempotent-complete monoidal A has every object dualizable.
+
+- `RigidCategory.unitNotCompact`: A presentable monoidal stable category with noncompact unit fails the definition even if multiplication has a continuous right adjoint.
+
+The comparison must satisfy these additional checks: Sp is rigid with compact sphere unit. A rigid
+category can fail to be compactly generated.
+
+This interface is used by [Rigidity of relative localizing
+motives](#refinedtracemethods-rt-5-motives-rigidity) — A bilinear right adjoint to multiplication
+and a compact unit are the rigidity conclusion.; [The refined localizing
+invariant](#refinedtracemethods-rt-5-refined-invariant-universality) — A rigid source presents every
+object by trace-class systems..
+
+*Needs:* [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), `EnhancedDerivedSheaves:E5:presentability/compact-objects`.
+
+<a id="refinedtracemethods-rt-5-localizing-motives"></a>
+
+### The category of relative localizing motives
+
+For rigid E₁-monoidal E and regular κ, construct accessible stable Motloc_(E,κ) with κ-filtered
+colimits and Uloc,κ:Catdual_E → Motloc_(E,κ) such that precomposition identifies exact κ-continuous
+functors out of Motloc_(E,κ) with accessible κ-finitary localizing invariants. Use the small
+relatively compactly generated model, stabilized spectral presheaves, and localization at zero,
+Morita, exact-sequence and κ-colimit relations, then continuous extension. For symmetric monoidal E,
+tensor of E-modules descends to the finitary Motloc_E (κ=ω); for E₂ it supplies the E₁ structure
+used in the rigidity theorem.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), Definition 1.2 and §1.6, pp.
+20–21. This locator supplies the category of relative localizing motives. The statement and proof
+retain the source hypotheses, maps and completion conventions; the acceptance check is: Motloc_Sp
+agrees with BGT’s localizing motives through the universal functor equivalence. [A universal
+characterization of higher algebraic K-theory](#ref-1-bgt), Proposition 8.6 and Theorem 8.7, pp.
+54–56; Theorem 9.8, p. 58. This locator supplies the category of relative localizing motives. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: Motloc_Sp agrees with BGT’s localizing motives through the universal functor equivalence.)
+
+Construction and proof. Choose a universe-small generating category at an explicit accessibility
+cardinal, and form spectral presheaves. Impose the localization relations; tensor preserves those
+relations in each argument, so its Day-type product descends. Compare with the small stable-category
+construction of BGT and extend from relatively compactly generated E-modules using continuous
+invariants. The relative multiplicative construction is a recorded proof input pending a complete
+source-to-E5 tensor audit.
+
+The API exposes the following operations and characterizations.
+
+
+- `LocalizingMotives.universal`: Uloc sends an E-linear category to its motive and an exact sequence to a cofiber sequence.
+
+- `LocalizingMotives.lift`: Every κ-finitary localizing invariant has an exact κ-continuous factor uniquely up to contractible choice.
+
+- `LocalizingMotives.tensor`: For symmetric monoidal rigid E, Uloc(C⊗_E D)≃Uloc(C)⊗Uloc(D) with coherent associativity, units and symmetry.
+
+- `LocalizingMotives.concreteK`: Map(Uloc(E),Uloc(C))≃Kcont(C) in the source’s finitary setting.
+
+**Checks.**
+
+
+- `LocalizingMotives.zero`: Uloc(0)≃0.
+
+- `LocalizingMotives.baseSpectra`: For E=Sp, its compactly generated restriction and universal property agree with BGT Motloc.
+
+- `LocalizingMotives.split`: Uloc(C⊕D)≃Uloc(C)⊕Uloc(D), compatibly with the inclusion maps.
+
+The comparison must satisfy these additional checks: Motloc_Sp agrees with BGT’s localizing motives
+through the universal functor equivalence. The unit motive corepresents the supplied concrete
+nonconnective K-theory, not a new axiom-defined K functor.
+
+This interface is used by [Rigidity of relative localizing
+motives](#refinedtracemethods-rt-5-motives-rigidity) — Unit corepresentability and nuclear motive
+generators give duality and rigidity.; [The refined localizing
+invariant](#refinedtracemethods-rt-5-refined-invariant-universality) — The motive-to-invariant
+colimit-preserving monoidal functor factors through rigidification..
+
+*Needs:* [Accessible localizing invariants](#refinedtracemethods-rt-5-localizing-invariant), [Uniqueness of continuous extension](#refinedtracemethods-rt-5-continuous-extension-uniqueness), [Rigid monoidal categories](#refinedtracemethods-rt-5-rigid-category), `EnhancedDerivedSheaves:E5:presentability`, `GeneralAlgebraicKTheory:K.6`, `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`.
+
+<a id="refinedtracemethods-rt-5-relative-nuclear-module"></a>
+
+### Nuclear E-modules
+
+For rigid E₁-monoidal E, a strongly continuous E-linear morphism C → D of dualizable left E-modules
+is right trace-class over E if represented by a compact object of Homdual_E(C,E)⊗_E D under the
+canonical functor to FunLL_E(C,D). A relatively compactly generated C is nuclear over E if every
+compact morphism from an ω₁-compact relatively compactly generated D to C is right trace-class over
+E; basic nuclear means a sequential colimit of these right trace-class maps. The trace-class
+definition has dualizable-module generality; the nuclear subcategory here has relatively compactly
+generated objects. This categorical notion is distinct from nuclear objects in a monoidal category.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), Definition 3.2, pp. 29–30;
+Proposition 3.6, p. 32. This locator supplies nuclear e-modules. The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: The nuclear length-one
+resolution produces nuclear E-modules.)
+
+Construction and proof. Use the dualizable internal Hom of E-modules, with its canonical map to
+strongly continuous functors. Specify the compact witness before defining nuclear and basic nuclear
+modules. Use the equivalence with sequential trace-class presentations from Efimov Proposition 3.6
+in the proof of motives rigidity.
+
+The API exposes the following operations and characterizations.
+
+
+- `RelativeNuclearModule.traceClassWitness`: A compact object of Homdual_E(C,E)⊗_E D determines a relatively trace-class map C → D.
+
+- `RelativeNuclearModule.ofBasic`: A sequential colimit of relatively trace-class maps is nuclear; ω₁-compact nuclear modules are basic nuclear.
+
+- `RelativeNuclearModule.test`: Every compact map from an ω₁-compact relatively compactly generated E-module is relatively trace-class.
+
+- `RelativeNuclearModule.motive`: Uloc carries these transitions to the left/right trace-class transitions used in Motloc_E rigidity.
+
+**Checks.**
+
+
+- `RelativeNuclearModule.base`: E as a left E-module is nuclear over itself.
+
+- `RelativeNuclearModule.zero`: The zero E-module is basic nuclear.
+
+- `RelativeNuclearModule.orderedResolution`: For the directed repetition category B of Proposition 3.13 with countable objects and ω₁-compact Homs, Fun(B^op,E) and the transition-fiber kernel are basic nuclear.
+
+The comparison must satisfy these additional checks: The nuclear length-one resolution produces
+nuclear E-modules. The witness is compact in the tensor/internal-Hom category, not necessarily a
+compact object in the ordinary functor category.
+
+This interface is used by [The nuclear resolution of length
+one](#refinedtracemethods-rt-5-nuclear-module-resolution) — The h_(x,n) Hom identifications show
+both resolution terms are basic nuclear..
+
+*Needs:* [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), [Rigid monoidal categories](#refinedtracemethods-rt-5-rigid-category), `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-nuclear-module-resolution"></a>
+
+### The nuclear resolution of length one
+
+For a small E-enriched A, define B with objects (x,n)∈Ob(A)×N and Hom_B((x,n),(y,m))=Hom_A(x,y) for
+n<m, 1_E for n=m and x=y, and 0 otherwise. Composition uses A’s composition and units. The strongly
+continuous functor Φ:Fun(B^op,E) → Fun(A^op,E) sends h_(x,n) to h_x. Its kernel C is generated as an
+E-localizing subcategory by fibers h_(x,n) → h_(x,n+1). Both C and Fun(B^op,E) are nuclear. If Ob(A)
+is countable and its Homs are ω₁-compact, both are ω₁-compact and basic nuclear.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), Proposition 3.13 and proof,
+pp. 41–43. This locator supplies the nuclear resolution of length one. The statement and proof
+retain the source hypotheses, maps and completion conventions; the acceptance check is: Every
+ω₁-compact E₁-algebra has its module category as a quotient of this length-one basic nuclear
+resolution.)
+
+Construction and proof. Construct B by the strict order on N and verify enriched composition. The
+right adjoint to Φ is evaluation M(x,n)=M(x), identified on h_x with colim_n h_(x,n), so the counit
+is an equivalence. Identify the kernel by the filtered fibers of transitions. The ordered
+semiorthogonal decomposition proves nuclearity; countable compact generators give the ω₁ bound.
+
+The API exposes the following operations and characterizations.
+
+
+- `NuclearModuleResolution.repetition`: Build B with the three stated Hom cases and enriched composition.
+
+- `NuclearModuleResolution.quotient`: Φ sends h_(x,n) to h_x and admits fully faithful colimit-preserving right adjoint M(x,n)=M(x).
+
+- `NuclearModuleResolution.kernel`: ker Φ is generated by the transition fibers.
+
+- `NuclearModuleResolution.basicNuclear`: Countable Ob(A) and ω₁-compact Homs give an exact resolution by basic nuclear E-modules.
+
+**Checks.**
+
+
+- `NuclearModuleResolution.empty`: For A empty, B and both module categories are zero.
+
+- `NuclearModuleResolution.oneObject`: For A with one object and endomorphism 1_E, B has Hom(n,m)=1_E for n≤m and 0 for n>m; Φ(h_n)=1_E.
+
+- `NuclearModuleResolution.nonzeroKernel`: For the one-object case the fiber h_0 → h_1 is nonzero, although its image under Φ is zero; Φ is a quotient, not an equivalence.
+
+The comparison must satisfy these additional checks: Every ω₁-compact E₁-algebra has its module
+category as a quotient of this length-one basic nuclear resolution.
+
+This interface is used by [Rigidity of relative localizing
+motives](#refinedtracemethods-rt-5-motives-rigidity) — The length-one nuclear resolution produces
+enough trace-class generators for motives..
+
+*Needs:* [Nuclear E-modules](#refinedtracemethods-rt-5-relative-nuclear-module), `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-enriched-duality"></a>
+
+### Enriched trace-class duality
+
+Let A be enriched over PrL_st and X,Y∈A. Assume 1_X is compact in A(X,X), A(X,Y) is generated by
+sequential colimits of right trace-class 2-morphisms, and A(Y,X) by sequential colimits of left
+trace-class 2-morphisms. Then A(X,Y) and A(Y,X) are dualizable, composition A(X,Y)⊗A(Y,X) → A(Y,Y)
+is strongly continuous, and A(Y,X)∨≃A(X,Y). Evaluation is composition to A(X,X) followed by
+Map(1_X,−); coevaluation is 1_Y followed by the right adjoint to composition.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), Theorem 2.1, p. 25; proof, pp.
+27–29. This locator supplies enriched trace-class duality. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: Both left and right generation
+hypotheses are required; one-sided generation alone is not the theorem.)
+
+Construction and proof. Use the trace-class generation to identify the compact-morphism criteria for
+the composition right adjoint. Construct evaluation using compact 1_X and coevaluation using the
+strongly continuous composition right adjoint. Check both triangle identities on the sequential
+trace-class generators, then extend by colimits; these are the hypotheses used in Efimov Theorem
+2.1.
+
+The comparison must satisfy these additional checks: Both left and right generation hypotheses are
+required; one-sided generation alone is not the theorem.
+
+*Needs:* [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-rigidity-criterion"></a>
+
+### Trace-class generation criterion for rigidity
+
+For a presentable stable E₁-monoidal category E, rigidity is equivalent to compactness of its unit
+together with generation under colimits by sequential colimits whose transitions are both left and
+right trace-class. In the symmetric monoidal case the two trace-class conditions coincide.
+Compactness of the unit is a separate hypothesis in both directions.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), §1.2 and Proposition 1.1, pp.
+15–16. The criterion has two conditions, not sequential generation alone; this is the key generation
+theorem used for motives and rigidification.)
+
+Construction and proof. Use the left and right trace-class classifier definitions in Efimov §1.2.
+Apply Proposition 1.1 with both its compact-unit and sequential-generation hypotheses; retain
+left/right order in the E₁ case.
+
+The comparison must satisfy these additional checks: Retain the stated hypotheses and coherent
+comparison maps.
+
+*Needs:* [Rigid monoidal categories](#refinedtracemethods-rt-5-rigid-category), [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-motives-rigidity"></a>
+
+### Rigidity of relative localizing motives
+
+If E is a rigid presentable E₁-monoidal stable category, Motloc_E is dualizable in PrL_st with dual
+Motloc_(E^mop) and pairing (D,C) ↦ Kcont(D ⊗_E C). If E is E₂-monoidal, Motloc_E is rigid
+E₁-monoidal. In the symmetric monoidal case the rigidity is symmetric monoidal. These are finitary
+accessible motives with the specified universe, not the assertion that every motive is a dualizable
+object.
+
+(See [Rigidity of the category of localizing motives](#ref-1-efimov), Theorem 3.1, p. 29; proof of
+Theorem 3.1, pp. 43–44. This locator supplies rigidity of relative localizing motives. The statement
+and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: E
+= Sp gives rigid absolute localizing motives.)
+
+Construction and proof. Use the corepresentability of concrete nonconnective K-theory to make the
+motive of E compact. Resolve small E-enriched categories by the nuclear length-one resolution. Their
+motives generate under colimits and are sequential colimits of trace-class maps. Apply Efimov
+Theorem 2.1 to the left and right composition categories to obtain the stated duality; for E₂
+multiplication the right adjoint is bilinear, giving rigidity.
+
+The comparison must satisfy these additional checks: E = Sp gives rigid absolute localizing motives.
+For merely E₁ base the dual is indexed by E^mop; do not claim a symmetric monoidal structure.
+
+*Needs:* [The category of relative localizing motives](#refinedtracemethods-rt-5-localizing-motives), [The nuclear resolution of length one](#refinedtracemethods-rt-5-nuclear-module-resolution), [Enriched trace-class duality](#refinedtracemethods-rt-5-enriched-duality), [Continuous extensions of localizing invariants](#refinedtracemethods-rt-5-continuous-extension), [Trace-class generation criterion for rigidity](#refinedtracemethods-rt-5-rigidity-criterion).
+
+<a id="refinedtracemethods-rt-5-nuclear-objects"></a>
+
+### Nuclear objects
+
+For compactly generated presentable symmetric monoidal stable C with compact unit, X is nuclear if
+every map P → X from compact P is trace-class. X is basic nuclear if it has a sequential
+presentation X≃colim_n X_n with all transitions trace-class. The full subcategory Nuc(C) is stable
+and closed under colimits and tensor; its ω₁-compact objects are precisely the basic nuclear
+objects.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Definition 2.3, Theorem 2.4 and Remark 2.5, p.
+12. This locator supplies nuclear objects. The statement and proof retain the source hypotheses,
+maps and completion conventions; the acceptance check is: In Ind(Perf(k)), every object is nuclear
+but the basic nuclear size bound is countable.)
+
+Construction and proof. Define the test over all compact P using the mapping spaces. Define
+sequential basic nuclear presentations and apply MW Theorem 2.4. For a large C use κ-compact
+factorization of trace-class maps before taking the Indω₁ envelope of the essentially small basic
+nuclear category.
+
+The API exposes the following operations and characterizations.
+
+
+- `NuclearObject.ofBasic`: A sequential trace-class presentation gives a nuclear object.
+
+- `NuclearObject.mapFromCompact`: Every map P → X from compact P has a trace-class classifier.
+
+- `NuclearObject.colimit`: Nuclear objects are stable and closed under arbitrary colimits and tensor products. Supplied by RefinedTraceMethods:RT.5/nuclear-closure.
+
+- `NuclearObject.map`: Symmetric monoidal colimit-preserving F preserves basic nuclear objects and hence nuclear objects under the source’s generation hypotheses. Supplied by RefinedTraceMethods:RT.5/nuclear-closure.
+
+**Checks.**
+
+
+- `NuclearObject.zero`: The zero object is basic nuclear via the constant zero system.
+
+- `NuclearObject.finiteDimensional`: In D(k), a finite-dimensional degree-zero vector space is basic nuclear via its constant identity system.
+
+- `NuclearObject.countableVsUncountable`: In D(k), a countably generated degree-zero vector space is basic nuclear, while an uncountable-dimensional degree-zero space is nuclear but not ω₁-compact and hence not basic nuclear.
+
+The comparison must satisfy these additional checks: In Ind(Perf(k)), every object is nuclear but
+the basic nuclear size bound is countable. Testing only maps from the tensor unit is insufficient
+unless a generator theorem is supplied.
+
+This interface is used by [Rigidification of the target](#refinedtracemethods-rt-5-rigidification) —
+Basic nuclear sequences and their ω₁-compact presentations generate the rigid target.; [Killing an
+idempotent pro-algebra](#refinedtracemethods-rt-5-algebra-killing) — The dual pro-system gives the
+nuclear ind-idempotent algebra..
+
+*Needs:* [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:presentability/ind-completion`.
+
+<a id="refinedtracemethods-rt-5-trace-class-functoriality"></a>
+
+### Functoriality and preduals of trace-class maps
+
+Let F:C → D be symmetric monoidal between presentable symmetric monoidal categories. There is a
+natural comparison F(X∨) → F(X)∨. A trace-class f:X → Y has trace-class predual Y∨ → X∨ and
+trace-class image F(f). For its chosen classifier, the naturality square on preduals has a diagonal
+F(Y)∨ → F(X∨) whose two triangles commute. This diagonal gives the predual comparison needed on
+trace-class ind-systems; it does not assert that F preserves arbitrary internal Homs.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Lemma 2.2(a)–(c) and proof, pp. 11–12. The
+three parts supply preservation of trace-class maps and the diagonal comparison, rather than
+preservation of arbitrary preduals.)
+
+Construction and proof. Construct the comparison by applying F to evaluation and taking its adjoint.
+Apply F to the classifier and compose with that comparison; dualize the classifier for the predual
+map. Tensor the image classifier with F(Y)∨ and evaluate F(Y); the resulting diagonal satisfies both
+triangle identities.
+
+The comparison must satisfy these additional checks: Retain the stated hypotheses and coherent
+comparison maps.
+
+*Needs:* [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-nuclear-closure"></a>
+
+### Closure and generation of nuclear objects
+
+Let C be compactly generated presentable stable symmetric monoidal with compact unit. Nuc(C) is
+stable and closed under all colimits and tensor products; it is ω₁-compactly generated and its
+ω₁-compact objects are exactly the basic nuclear objects. A symmetric monoidal colimit-preserving
+functor preserves basic nuclear objects and nuclear objects as in MW Theorem 2.4(c). For the
+size-controlled nuclear ind-envelope, a sufficiently large regular κ bounds trace-class
+factorizations and makes basic nuclear systems essentially small.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Theorem 2.4 and Remark 2.5, p. 12. This is the
+closure/generation theorem used by killing and rigidification; its compact-generation and
+compact-unit hypotheses belong to C, not to every higher target.)
+
+Construction and proof. Use MW Theorem 2.4(a),(b) for the stable tensor closure and ω₁-generation.
+Preserve sequential classifiers by trace-class functoriality and extend over the nuclear colimit
+envelope. Apply Remark 2.5’s κ-compact factorization to construct the essentially small basic
+ind-object category before its Indω₁ envelope.
+
+The comparison must satisfy these additional checks: Retain the stated hypotheses and coherent
+comparison maps.
+
+*Needs:* [Nuclear objects](#refinedtracemethods-rt-5-nuclear-objects), [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality), `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:presentability/ind-completion`.
+
+<a id="refinedtracemethods-rt-5-rigidification"></a>
+
+### Rigidification of the target
+
+For presentable symmetric monoidal stable D with colimit-preserving tensor, form D^rig as the full
+subcategory of a size-controlled Ind_κ(D) generated under colimits by Q-indexed ind-objects whose
+transitions x_i → x_j, i<j, are trace-class. Choose a regular κ that bounds trace-class
+factorizations and generators. Realization is induced by colimit. If D is locally rigid and the unit
+is ω₁-compact, D^rig≃Nuc Ind(D), constructed from the essentially small sequential basic nuclear
+objects. The use of Q rather than N is essential without those extra hypotheses.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Construction 1.3, pp. 2–3; Remark 2.5, p. 12
+(Ramzi Construction 4.75 and Efimov Theorem 4.2 are the recorded external proof input). This locator
+supplies rigidification of the target. The statement and proof retain the source hypotheses, maps
+and completion conventions; the acceptance check is: The realized value of a constant dualizable
+object is the original object.)
+
+Construction and proof. Choose κ and the essentially small category of trace-class systems. Take its
+colimit envelope within Ind_κ(D); extend the monoidal product and realization. Use the locally
+rigid, ω₁-compact-unit theorem to replace Q-indexing by sequential nuclear presentations only in
+that case. The general rigidification proof is recorded as a precise external-source gap.
+
+The API exposes the following operations and characterizations.
+
+
+- `Rigidification.ofSystem`: A Q-indexed system with trace-class transitions gives an object in D^rig.
+
+- `Rigidification.realize`: Realization D^rig → D sends a system to its colimit and is symmetric monoidal.
+
+- `Rigidification.map`: Symmetric monoidal colimit-preserving functors induce the rigidification comparison by preservation of trace-class maps.
+
+- `Rigidification.sequential`: For locally rigid D with ω₁-compact unit, the Q-system envelope is equivalent to the sequential nuclear ind-object category.
+
+**Checks.**
+
+
+- `Rigidification.zero`: The zero trace-class system gives the zero object of D^rig.
+
+- `Rigidification.constantDualizable`: The constant system on a dualizable X belongs to D^rig and realizes to X.
+
+- `Rigidification.rationalCoefficients`: The source’s rational-input refined TC⁻ remains the nuclear ind-object A*ku; its ordinary realization does not justify replacing it by ordinary p-completed TC⁻ of the rational input.
+
+The comparison must satisfy these additional checks: The realized value of a constant dualizable
+object is the original object. A nuclear ind-object is not silently identified with its realized
+colimit.
+
+This interface is used by [The refined localizing
+invariant](#refinedtracemethods-rt-5-refined-invariant-universality) — Its universal mapping
+property defines the refined functor and realization comparison..
+
+*Needs:* [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), [Nuclear objects](#refinedtracemethods-rt-5-nuclear-objects), [Rigid monoidal categories](#refinedtracemethods-rt-5-rigid-category), `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability`, [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality), [Closure and generation of nuclear objects](#refinedtracemethods-rt-5-nuclear-closure).
+
+<a id="refinedtracemethods-rt-5-refined-invariant-universality"></a>
+
+### The refined localizing invariant
+
+Let E be rigid symmetric monoidal, and T: Motloc_E → D a colimit-preserving symmetric monoidal
+functor to a presentable symmetric monoidal stable D. The canonical rigidification D^rig ⊂ Ind_κ(D),
+defined by trace-class systems, admits a unique colimit-preserving symmetric monoidal factor Tref:
+Motloc_E → D^rig, up to contractible choice; realization gives T. If D is locally rigid with
+ω₁-compact unit, D^rig is the category of nuclear ind-objects with sequential presentations.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Construction 1.3, pp. 2–3; Lemmas 2.15–2.17,
+pp. 16–17. This locator supplies the refined localizing invariant. The statement and proof retain
+the source hypotheses, maps and completion conventions; the acceptance check is: The ordinary
+comparison is a realization map, not an equivalence for arbitrary rational inputs.)
+
+Construction and proof. A symmetric monoidal functor preserves trace-class maps. Present objects of
+the rigid source by basic nuclear systems; apply T to those systems. The trace-class comparison of
+preduals identifies their colimits, making the factor functorial, monoidal and independent of
+presentation.
+
+The comparison must satisfy these additional checks: The ordinary comparison is a realization map,
+not an equivalence for arbitrary rational inputs. A compact dualizable target value is represented
+by its constant ind-object.
+
+*Needs:* [Rigidity of relative localizing motives](#refinedtracemethods-rt-5-motives-rigidity), [Rigidification of the target](#refinedtracemethods-rt-5-rigidification), [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality), [Trace-class generation criterion for rigidity](#refinedtracemethods-rt-5-rigidity-criterion).
+
+<a id="refinedtracemethods-rt-5-smooth-proper-category"></a>
+
+### Smooth and proper E-linear categories
+
+Let E be rigid symmetric monoidal and X a dualizable E-module with relative dual X∨. Smoothness
+means the relative coevaluation E → X∨⊗_E X is strongly continuous; equivalently the absolute
+coevaluation takes the sphere to a compact object. Properness means the relative evaluation X⊗_E X∨
+→ E is strongly continuous. Both together say that X is dualizable in the monoidal category
+Catdual_E with strongly continuous morphisms. For an algebra model Mod_A over a compactly generated
+rigid base, smoothness is compactness of the diagonal A-bimodule and properness is compactness of A
+as an E-object. Preservation of compact objects alone is not used as a criterion for an arbitrary
+dualizable category.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Lemma 2.18, p. 18; Corollary 2.19, pp. 18–19.
+This locator supplies smooth and proper e-linear categories. The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: A smooth and proper X
+has Tref(X) represented by constant T(X). [Rigidity of the category of localizing
+motives](#ref-1-efimov), §1.5, p. 19. Properness is strong continuity of relative evaluation.
+Smoothness is strong continuity of relative coevaluation, equivalently compactness of its unit
+image. This supplies the general convention used here.)
+
+Construction and proof. Use the relative evaluation and coevaluation from the dualizable-module
+interface. Apply Efimov §1.5: strong continuity is the defining condition; for coevaluation it can
+be tested on the compact tensor unit of rigid E. In compactly generated algebra models, test
+evaluation on the compact diagonal generators and identify the smooth/proper algebra criteria.
+
+The API exposes the following operations and characterizations.
+
+
+- `SmoothProperCategory.evaluation`: The relative evaluation is strongly continuous exactly under properness.
+
+- `SmoothProperCategory.coevaluation`: The relative coevaluation is strongly continuous exactly under smoothness.
+
+- `SmoothProperCategory.algebraCriterion`: For an algebra model, smoothness is compactness of the diagonal as an A-bimodule and properness is compactness of A over E.
+
+- `SmoothProperCategory.refinedValue`: For smooth proper X, Tref(X)≃constant T(X). Supplied by RefinedTraceMethods:RT.5/smooth-proper-normalization.
+
+**Checks.**
+
+
+- `SmoothProperCategory.unit`: The E-linear unit category E is smooth and proper over E.
+
+- `SmoothProperCategory.field`: Perf(k) after Ind is smooth and proper over Mod_k with its diagonal k.
+
+- `SmoothProperCategory.polynomialNotProper`: Mod_(k[x]) is smooth over Mod_k but is not proper, since k[x] is not compact as a k-module.
+
+The comparison must satisfy these additional checks: The unit category E is smooth and proper;
+Mod_(k[x]) is smooth but not proper over Mod_k.
+
+This interface is used by [Base change in the refined
+construction](#refinedtracemethods-rt-5-refined-base-change) — Smooth properness ensures restriction
+preserves trace-class maps and yields the base-change square..
+
+*Needs:* [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), [Rigid monoidal categories](#refinedtracemethods-rt-5-rigid-category), `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-algebra-killing"></a>
+
+### Killing an idempotent pro-algebra
+
+In a presentable symmetric monoidal stable C, a κ-small pro-object A=pro-lim_i A_i with left-unital
+multiplication and unit defines the full subcategory Ind(C)^A of M with extended internal
+Hom(A,M)=ind-colim_(i,k) Hom_C(A_i,M_k)=0. It has a reflector j*. If A is idempotent and eventually
+trace-class, the dual ind-object ind-colim_i A_i∨ is nuclear and idempotent and there is a cofiber
+ind-colim_i A_i∨ → 1 → j*(1). The reflector is then symmetric monoidal, j*(1) an idempotent E∞
+algebra, and j*(M)≃M⊗j*(1). The ordinary-object version uses Hom_C(A,−)=0 and requires stabilization
+or sequential-Hom commutation for its iterative formula.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Constructions 2.6, 2.9 and 2.11, pp. 12–15;
+Proposition 2.14, pp. 15–16. This locator supplies killing an idempotent pro-algebra. The statement
+and proof retain the source hypotheses, maps and completion conventions; the acceptance check is:
+Killing A=0 preserves the unit; killing A=1 gives zero.)
+
+Construction and proof. Apply the reflective localization to the extended Hom-orthogonal
+subcategory. For pro A iterate Hom(fib(1 → A),−); extended Hom commutes with filtered colimits in
+Ind. For idempotent A the iteration stabilizes and gives the dual cofiber. Trace-class comparison of
+preduals makes this construction preserved by symmetric monoidal functors; general pro-algebras lack
+this asserted multiplicativity.
+
+The API exposes the following operations and characterizations.
+
+
+- `KillProAlgebra.unit`: The localization unit 1 → kill(A)=j*(1) fits into the stated cofiber.
+
+- `KillProAlgebra.orthogonal`: Local objects are exactly those with extended internal Hom(A,M)=0.
+
+- `KillProAlgebra.lift`: Maps from j*(M) to a local U identify with maps from M to U.
+
+- `KillProAlgebra.tensor`: For idempotent eventually trace-class pro A, j*(M)≃M⊗kill(A), kill(A)⊗kill(A)≃kill(A).
+
+- `KillProAlgebra.map`: Symmetric monoidal functors preserve the killing construction in the eventual trace-class idempotent setting.
+
+**Checks.**
+
+
+- `KillProAlgebra.killZero`: kill(0)≃1 and j* is the identity.
+
+- `KillProAlgebra.killUnit`: kill(1)≃0 and the local subcategory is zero.
+
+- `KillProAlgebra.ordinaryLocalization`: For C=D(Z), killing the constant dualizable algebra Z/p yields the ordinary derived p-inverted unit Z[1/p]; the iterative construction and map Z → Z[1/p] agree with derived scalar localization.
+
+The comparison must satisfy these additional checks: Killing A=0 preserves the unit; killing A=1
+gives zero. The symmetric monoidal claim has the idempotence hypothesis.
+
+This interface is used by [Refined TC⁻ of rational
+ku](#refinedtracemethods-rt-5-refined-ku-computation) — Killing the torsion q-Hodge pro-algebra
+gives the nuclear ind coefficient algebra and unit cofiber..
+
+*Needs:* [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), [Nuclear objects](#refinedtracemethods-rt-5-nuclear-objects), `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability`, [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality), [Closure and generation of nuclear objects](#refinedtracemethods-rt-5-nuclear-closure).
+
+<a id="refinedtracemethods-rt-5-smooth-proper-normalization"></a>
+
+### Refined invariants of smooth proper categories
+
+For rigid symmetric monoidal E and a dualizable E-module X with strongly continuous relative
+evaluation and coevaluation, X is dualizable in Catdual_E. For the refined symmetric monoidal
+invariant Tref attached to T:Motloc_E → D, its value on X is the constant ind-object T(X). If a
+rigid symmetric monoidal X is smooth and proper over E, forgetting X-linearity preserves trace-class
+morphisms.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Lemmas 2.16 and 2.18, Corollary 2.19, pp.
+17–19. The normalization is a key theorem, with properness read as strong continuity of relative
+evaluation in Efimov §1.5.)
+
+Construction and proof. The relative evaluation and coevaluation are morphisms of Catdual_E by the
+smooth/proper conditions; the PrL_E triangle identities hold there. The identity on this dualizable
+object is trace-class, so its constant system gives the refined value (MW Lemma 2.16). For
+restriction of scalars, use dualizability of X in Catdual_E to transport the trace-class classifier
+as in Corollary 2.19.
+
+The comparison must satisfy these additional checks: Retain the stated hypotheses and coherent
+comparison maps.
+
+*Needs:* [Smooth and proper E-linear categories](#refinedtracemethods-rt-5-smooth-proper-category), [The refined localizing invariant](#refinedtracemethods-rt-5-refined-invariant-universality), [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality).
+
+<a id="refinedtracemethods-rt-5-refined-base-change"></a>
+
+### Base change in the refined construction
+
+Let E → X be strongly continuous symmetric monoidal with E and X rigid and X smooth and proper over
+E. Forgetting X-linearity in Catdual preserves trace-class morphisms, so the refined functors
+computed over X and over E have their comparison induced by this map. For an additional symmetric
+monoidal colimit-preserving X → X′ with X′ rigid, and a dualizable algebra V₀ in X, the kernel V of
+X → X^{V₀} satisfies V⊗_X X′≃V′. The pro-algebra killing comparison is preserved after applying a
+symmetric monoidal functor when its transitions are eventually trace-class.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Corollary 2.19, pp. 18–19; Lemma 2.26, pp.
+22–23; Remark 1.4, p. 3. This locator supplies base change in the refined construction. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: The forgetful Motloc_(O_C) → Motloc does not in general preserve trace-class maps; no
+base-independent refinement is asserted.)
+
+Construction and proof. Use dualizability of X in Catdual_E to make its forgetful functor preserve
+the trace-class classifier. Identify V as the tensor ideal generated by V₀ and use compactly
+generated reduction Ind(X^ω) → X. Use rigidity of X′ to base-change the kernel adjunction as in
+Lemma 2.26; apply the preserved dual-ind cofiber for the multiplicative comparison.
+
+The comparison must satisfy these additional checks: The forgetful Motloc_(O_C) → Motloc does not in
+general preserve trace-class maps; no base-independent refinement is asserted.
+
+*Needs:* [Smooth and proper E-linear categories](#refinedtracemethods-rt-5-smooth-proper-category), [Killing an idempotent pro-algebra](#refinedtracemethods-rt-5-algebra-killing), [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality), [Refined invariants of smooth proper categories](#refinedtracemethods-rt-5-smooth-proper-normalization).
+
+<a id="refinedtracemethods-rt-5-localization-tower-formula"></a>
+
+### The refined localization cofiber
+
+Let E → X be as in the smooth proper base-change theorem, and T:Motloc_E → D symmetric monoidal
+colimit-preserving with D locally rigid and ω₁-compact unit. Let V₀ ← V₁ ← … be E₁-algebras in X,
+each dualizable and in thick⊗(V₀), such that V_(r+1)⊗V_r → V_r⊗V_r factors through multiplication
+V_(r+1)⊗V_r → V_r as a V_(r+1)–V_r bimodule map. For U={M | Hom_X(V₀,M)=0}, pro T(RMod_(V_r)(X)) is
+idempotent and eventually trace-class and Tref(U)≃kill(pro T(RMod_(V_r)(X))) as a T(X)-algebra. Thus
+ind-colim_r T(RMod_(V_r)(X))∨ → T(X) → Tref(U) is a cofiber in Nuc Ind(D).
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Theorem 2.21 and Lemmas 2.22–2.26, pp. 19–23;
+Corollary 2.30, p. 25. This locator supplies the refined localization cofiber. The statement and
+proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A
+Burklund tower for a dualizable v:I → 1 with right-unital quotient meets the factorization after
+passing to sufficiently separated exponents.)
+
+Construction and proof. Identify the localization kernel with colim_r Ind(LMod_(V_r)(X^ω))⊗_(Ind
+X^ω) X using the transition factorization. In the bimodule category the factorization makes V_r a
+retract of V_r⊗V_r; that proves the required compactness and trace-class transition, not compactness
+of V_r merely over V_(r+1). Apply T and the predual colimit comparison, then idempotent pro-algebra
+killing.
+
+The comparison must satisfy these additional checks: A Burklund tower for a dualizable v:I → 1 with
+right-unital quotient meets the factorization after passing to sufficiently separated exponents. The
+cofiber is in nuclear ind-objects with algebra structure, not merely a homotopy-group exact
+sequence.
+
+*Needs:* [The refined localizing invariant](#refinedtracemethods-rt-5-refined-invariant-universality), [Base change in the refined construction](#refinedtracemethods-rt-5-refined-base-change), [Killing an idempotent pro-algebra](#refinedtracemethods-rt-5-algebra-killing), [Smooth and proper E-linear categories](#refinedtracemethods-rt-5-smooth-proper-category), `EnhancedDerivedSheaves:E5:presentability`, [Functoriality and preduals of trace-class maps](#refinedtracemethods-rt-5-trace-class-functoriality).
+
+<a id="refinedtracemethods-rt-5-high-powered"></a>
+
+### High-powered positive integers
+
+HighPowered(m) means m>0, every odd prime p has m.factorization(p)=0 or at least 2, and
+m.factorization(2)=0 or an even integer at least 4. These m form the divisibility poset N used for
+the compatible E₁ Moore tower. For every positive d, d⁴ is high-powered and d divides d⁴, so
+restriction to N is coinitial in the inverse divisibility diagram.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), §3.1, paragraph 3.3, p. 30. This locator
+supplies high-powered positive integers. The statement and proof retain the source hypotheses, maps
+and completion conventions; the acceptance check is: 1,9,16,64 satisfy the predicate; 0,3,8,32 do
+not.)
+
+Construction and proof. Use Mathlib’s prime factorization at the pinned commit, imposing positivity
+separately since factorization(0)=0. Multiply all prime exponents by four to show the fourth-power
+coinitiality witness. Import multiplicative Moore structures from H.6; the arithmetic predicate
+itself supplies no E₁ structure.
+
+The API exposes the following operations and characterizations.
+
+
+- `HighPowered.pos`: HighPowered(m) implies m>0.
+
+- `HighPowered.twoExponent`: The exponent at 2 is zero or is even and at least four.
+
+- `HighPowered.oddExponent`: At each odd prime p, the exponent is zero or at least two.
+
+- `HighPowered.fourthPower`: For every d>0, d⁴ is high-powered and d divides d⁴.
+
+- `HighPowered.factorizationCriterion`: The arithmetic predicate is exactly the given conditions on Mathlib Nat.factorization.
+
+**Checks.**
+
+
+- `HighPowered.one`: HighPowered(1).
+
+- `HighPowered.nineAndSixteen`: HighPowered(9) and HighPowered(16).
+
+- `HighPowered.excludeZeroEightThirtyTwo`: Neither 0 nor 8 nor 32 is high-powered; the last fails the even-exponent condition, though the exponent is ≥4.
+
+The comparison must satisfy these additional checks: 1,9,16,64 satisfy the predicate; 0,3,8,32 do
+not.
+
+This interface is used by [Pro-idempotence of the finite-coefficient q-Hodge
+system](#refinedtracemethods-rt-5-pro-qhodge-idempotence) — The cofinal high-powered m³→m² tower
+supports compatible Moore multiplications.; [Trace-class finite-coefficient
+transitions](#refinedtracemethods-rt-5-graded-trace-class) — The m³→m transition supplies
+bounded-amplitude trace-class maps..
+
+*Needs:* [mathlib:Nat.factorization](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Defs.lean#L50), [mathlib:Nat.factorization_pow](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Defs.lean#L184).
+
+<a id="refinedtracemethods-rt-5-even-derived-hom"></a>
+
+### Filtered derived Hom of even spectra
+
+For an even E₁ ring k and even k-modules M,N, RHom_k(M,N) has the source’s complete exhaustive
+decreasing filtration with gr^n ≃ Σ^(2n) RHom_(π2*k)(π2*M,π2*N)(−n) in graded derived modules. Use
+the double-speed Whitehead filtrations, derived rather than ordinary Hom, and the source’s
+connectivity bounds to prove completeness/exhaustiveness; no degeneration is asserted without the
+subsequent Ext-amplitude calculation.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Lemma 3.9 and proof, p. 33. This locator
+supplies filtered derived hom of even spectra. The statement and proof retain the source hypotheses,
+maps and completion conventions; the acceptance check is: For the even free rank-one module M=k,
+this agrees with N and its Whitehead filtration.)
+
+Construction and proof. Apply filtered internal Hom to the double-speed Whitehead filtrations.
+Compute the associated graded by the graded-module comparison and shearing. The
+connective/coconnective bounds in MW Lemma 3.9 show vanishing at the complete end and stable values
+at the exhaustive end.
+
+The comparison must satisfy these additional checks: For the even free rank-one module M=k, this
+agrees with N and its Whitehead filtration.
+
+*Needs:* `StableHomotopyKTheory:H.6`, `StableHomotopyKTheory:H.5:spectra`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-even-completed-tensor"></a>
+
+### The completed tensor filtration
+
+Let k be an even E∞ ring spectrum and t∈π_(2*)k a homogeneous element. For even k-modules M,N, the
+t-completed tensor M⊗̂_k N admits a complete exhaustive double-speed Whitehead filtration whose
+graded pieces are the double shearing of the derived t-completed graded tensor of π_(2*)M and
+π_(2*)N over π_(2*)k. The construction is functorial and compatible with products under its source
+hypotheses. The proof tracks connectivity and the at-most-one-degree loss in coconnectivity under
+derived completion; tensor is not assumed t-exact or underived.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Lemma 3.11 and proof, pp. 34–35. This locator
+supplies the completed tensor filtration. The statement and proof retain the source hypotheses, maps
+and completion conventions; the acceptance check is: Derived tensor of Z/m with itself has Tor₁; the
+comparison retains that extra degree.)
+
+Construction and proof. Construct the filtered tensor on Whitehead filtrations. Identify associated
+graded and apply derived t-completion with its connectivity estimate. Use those estimates for both
+ends of the filtration before using the comparison on bounded-amplitude torsion inputs.
+
+The comparison must satisfy these additional checks: Derived tensor of Z/m with itself has Tor₁; the
+comparison retains that extra degree.
+
+*Needs:* [Filtered derived Hom of even spectra](#refinedtracemethods-rt-5-even-derived-hom), `StableHomotopyKTheory:H.5:spectra`, `EnhancedDerivedSheaves:E5:presentability`, `StableHomotopyKTheory:H.6`.
+
+<a id="refinedtracemethods-rt-5-almost-module-k"></a>
+
+### Continuous K-theory of almost modules
+
+Let A be a commutative Banach ring with topologically nilpotent unit T and compatible n-th roots for
+an unbounded increasing sequence n_i. Put I=A_<1. For any commutative unitization B in which I is an
+ideal, I is flat and idempotent over B (hence Tor-unital), D(B) → D(B/I) is a strongly continuous
+Verdier localization, and its kernel is the dualizable stable category D(B^a) of almost B-modules
+relative to I. Kcont(D(B^a))≃fib(K(B) → K(B/I)), independently of B, because this kernel identifies
+with the derived category of firm I-modules M with M⊗^L_I I≃M. K denotes the imported concrete
+nonconnective theory.
+
+(See [Berkovich Motives](#ref-1-scholze), §8, almost-module paragraph before Proposition 8.7, pp.
+46–47. This locator supplies continuous k-theory of almost modules. The statement and proof retain
+the source hypotheses, maps and completion conventions; the acceptance check is: For I=0 the kernel
+and Kcont are zero.)
+
+Construction and proof. The roots of T identify I with a filtered colimit of copies of B with
+transitions T^(1/n_i−1/n_(i+1)), proving flatness and idempotence. Thus B/I is an idempotent derived
+B-algebra and the localization kernel is dualizable; identify it with firm I-modules using the same
+colimit. Apply the continuous localizing invariant to the strongly continuous exact sequence. This
+gives both the fiber and unitization independence without redefining K.
+
+The comparison must satisfy these additional checks: For I=0 the kernel and Kcont are zero. The
+theorem requires the specified root and unit hypotheses; a general Banach-ring maximal ideal need
+not be flat idempotent. The fiber is a spectrum equivalence with the inclusion and quotient maps.
+
+*Needs:* [Continuous extensions of localizing invariants](#refinedtracemethods-rt-5-continuous-extension), [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), `GeneralAlgebraicKTheory:K.5/nonunital-rings-and-unitisation`, `GeneralAlgebraicKTheory:K.6`, `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`.
+
+### Examples
+
+In D(k), a finite-dimensional vector space has trace-class identity. A countably infinite direct sum
+is nuclear but its identity is not trace-class: a trace-class map from such a discrete vector space
+has finite rank. This distinguishes the nuclear closure from the dualizable objects used to
+normalize the refined invariant.
+
+### Dependencies
+
+Use `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`,
+`EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`,
+`EnhancedDerivedSheaves:E5:presentability`,
+`EnhancedDerivedSheaves:E5:presentability/compact-objects`,
+`EnhancedDerivedSheaves:E5:presentability/ind-completion`,
+`EnhancedDerivedSheaves:E5:presentability/presentable-categories`,
+`GeneralAlgebraicKTheory:K.5/nonunital-rings-and-unitisation`, `GeneralAlgebraicKTheory:K.6`,
+`GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`,
+`StableHomotopyKTheory:H.5:spectra`, `StableHomotopyKTheory:H.6`,
+[mathlib:Nat.factorization](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Defs.lean#L50),
+[mathlib:Nat.factorization_pow](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Defs.lean#L184).
+
+## Layer RT.2: THH, cyclotomic spectra and Cartier theory
+
+This layer constructs THH, cyclotomic spectra and Cartier theory. Each target below includes the
+hypotheses and comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-2-spectra-with-action"></a>
+
+### Spectra with an action of a group
+
+Work under the following hypotheses: G a topological group; BG its classifying Kan complex; Sp the
+stable ∞-category of spectra.
+
+For a topological group (or E_1-group in spaces) G with classifying space BG, the ∞-category of
+spectra with G-action is Sp^{BG} := Fun(BG, Sp), where Sp is the presentably symmetric monoidal
+stable ∞-category of spectra (the underlying ∞-category of symmetric spectra with the smash product,
+StableHomotopyKTheory H.5:spectra compared with EnhancedDerivedSheaves E5 by E5:spectra-comparison).
+It is presentable, stable and symmetric monoidal pointwise. For a closed normal subgroup H ⊆ G,
+restriction gives Sp^{BG} → Sp^{BH}, and the functors −^{hH}, −_{hH}
+(RT.2/homotopy-orbits-fixed-points) land in Sp^{B(G/H)}. For G = T = S¹ and H = C_n the
+identification T/C_n ≅ T by z ↦ z^n is fixed once and for all and used to regard residual actions as
+T-actions.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.1, Definition
+I.1.13, Acta p. 218 (the displayed formula X ↦ cofib(Nm_G: X_hG → X^hG) is garbled in the text
+layer; the same definition is stated in running text on p. 213: 'we can define the Tate construction
+X tG =cofib(NmG : XhG X hG )'). NS18 §I.1 works in Sp^{BG} = Fun(BG, Sp) and defines the Tate
+construction there.)
+
+Construction and proof. Form the functor ∞-category Fun(BG, Sp) (limits and colimits pointwise,
+EnhancedDerivedSheaves E0). Identify it with homotopy fixed points of the trivial G-action on Sp
+(EnhancedDerivedSheaves E5:presentability/coherent-group-actions); stability and presentability are
+inherited. Construct restriction along H → G and the residual (G/H)-action on fixed points/orbits by
+right/left Kan extension along BG → B(G/H) (EnhancedDerivedSheaves E3).
+
+The API exposes the following operations and characterizations.
+
+
+- `Coherent.SpectraWithAction`: Sp^{BG} = Fun(BG, Sp) for a topological group G.
+
+- `Coherent.SpectraWithAction.res`: Restriction along a group homomorphism H → G, with res_id and res_comp.
+
+- `Coherent.SpectraWithAction.trivial`: The trivial action functor Sp → Sp^{BG}, right adjoint to −_{hG} and left adjoint to −^{hG}, i.e. −_{hG} ⊣ trivial ⊣ −^{hG}.
+
+- `Coherent.SpectraWithAction.instStable`: Sp^{BG} is a presentable stable ∞-category; fibres and cofibres are computed underlying.
+
+- `Coherent.SpectraWithAction.circleQuotient`: The identification T/C_n ≅ T, z ↦ z^n, inducing Sp^{B(T/C_n)} ≃ Sp^{BT}.
+
+**Checks.**
+
+
+- `SpectraWithAction.trivialGroup`: For G = 1, Sp^{BG} ≃ Sp.
+
+- `SpectraWithAction.underlying_conservative`: A map in Sp^{BG} is an equivalence iff its underlying map of spectra is.
+
+- `SpectraWithAction.discrete_vs_continuous`: For G = T, Sp^{BT} is not Sp^{BT^δ} for the discrete circle: T acts trivially up to homotopy on π_* of every object of Sp^{BT} since T is connected, whereas T^δ can act nontrivially.
+
+The comparison must satisfy these additional checks: For G trivial, Sp^{BG} = Sp. For a commutative
+ring k, D(k)^{BT} is computed by mixed complexes (RT.2/mixed-complexes-are-circle-modules). The
+supplying diagram is coherent: maps and universal properties are expressed in mapping spaces, not by
+strict commutative squares of ordinary morphisms.
+
+This interface is used by `RT.2/homotopy-orbits-fixed-points` — orbits and fixed points are colimits
+and limits over BG; `RT.2/thh-e1-ring` — THH(A) ∈ Sp^{BT}; `RT.2/cyclotomic-spectrum` — a cyclotomic
+spectrum is an object of Sp^{BT} with Frobenius maps.
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra`, `EnhancedDerivedSheaves:E5:spectra-comparison`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:presentability/coherent-group-actions`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E0`, [mathlib:SSet.Quasicategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/Quasicategory/Basic.lean#L41).
+
+<a id="refinedtracemethods-rt-2-homotopy-orbits-fixed-points"></a>
+
+### Homotopy orbits and homotopy fixed points
+
+Work under the following hypotheses: G a topological group; X ∈ Sp^{BG}.
+
+For X ∈ Sp^{BG}, the homotopy orbits X_{hG} := colim_{BG} X and homotopy fixed points X^{hG} :=
+lim_{BG} X; −_{hG} and −^{hG} are left and right adjoint to the trivial-action functor Sp → Sp^{BG}.
+For H ⊆ G normal they refine to functors Sp^{BG} → Sp^{B(G/H)}. They are exact, −_{hG} preserves
+colimits and −^{hG} limits; −^{hG} is lax symmetric monoidal. For an abelian group M with G-action,
+π_{−i}(HM^{hG}) = H^i(G, M) and π_i(HM_{hG}) = H_i(G, M). The group-homology and group-cohomology
+dictionary for Eilenberg–Mac Lane objects uses discrete G; for a topological group anima use
+(co)homology of BG with its local coefficient system.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.1, Definition
+I.1.13, Acta p. 218 (the displayed formula X ↦ cofib(Nm_G: X_hG → X^hG) is garbled in the text
+layer; the same definition is stated in running text on p. 213: 'we can define the Tate construction
+X tG =cofib(NmG : XhG X hG )'). NS18 §I.1 uses −_{hG} and −^{hG} as colimit and limit over BG.)
+
+Construction and proof. Define by Kan extension along BG → ∗ (residual versions along BG → B(G/H)).
+Adjunctions and exactness are formal (EnhancedDerivedSheaves E0/E3); lax monoidality of the right
+adjoint of a symmetric monoidal functor. Identify homotopy groups for Eilenberg–Mac Lane spectra
+with group (co)homology via the bar resolution (Mathlib groupCohomology for discrete G).
+
+The API exposes the following operations and characterizations.
+
+
+- `Coherent.homotopyOrbits`: −_{hG} : Sp^{BG} → Sp (and residual Sp^{BG} → Sp^{B(G/H)}).
+
+- `Coherent.homotopyFixedPoints`: −^{hG} : Sp^{BG} → Sp (and residual).
+
+- `Coherent.homotopyOrbits.adj`: −_{hG} ⊣ triv ⊣ −^{hG}.
+
+- `Coherent.homotopyFixedPoints.laxMonoidal`: −^{hG} is lax symmetric monoidal; X^{hG} is an E_∞-ring if X is an E_∞-ring with G-action.
+
+- `Coherent.homotopyFixedPoints.trans`: (X^{hH})^{h(G/H)} ≃ X^{hG} for H normal (transitivity), and dually for orbits.
+
+- `Coherent.homotopyFixedPoints.em`: π_{−i}(HM^{hG}) ≅ H^i(G, M) for a discrete group G and G-module M (Mathlib groupCohomology).
+
+**Checks.**
+
+
+- `homotopyFixedPoints.trivialGroup`: For G trivial, X^{hG} = X_{hG} = X.
+
+- `homotopyFixedPoints.HZ_circle`: π_*((HZ)^{hT}) = ℤ[t] with |t| = −2.
+
+- `homotopyFixedPoints.group_cohomology`: For Hℤ with trivial C₂-action, π_{−2}(Hℤ^{hC₂})≅ℤ/2 and π_{−1}=0. This distinguishes homotopy fixed points from taking the underlying fixed subgroup, without importing the Segal completion theorem.
+
+The comparison must satisfy these additional checks: (HZ)^{hT} has π_* = ℤ[t], |t| = −2; (HZ)_{hT}
+has π_{2i} = ℤ for i ≥ 0. (S)^{hC_2} and (S)_{hC_2} are the stable cohomotopy and homotopy of
+ℝP^∞_+. The supplying diagram is coherent: maps and universal properties are expressed in mapping
+spaces, not by strict commutative squares of ordinary morphisms.
+
+This interface is used by `RT.2/norm-map-tate` — the Tate construction is the cofibre of the norm
+X_{hG} → X^{hG}; `RT.2/tc-minus-and-tp` — TC⁻ = THH^{hT}; `KTheoryFiniteLocalFields:L.1/fpsi` —
+homotopy fixed points of the Adams operation.
+
+*Needs:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum`, `EnhancedDerivedSheaves:E3`.
+
+<a id="refinedtracemethods-rt-2-norm-map-tate"></a>
+
+### The norm map and the Tate construction
+
+Work under the following hypotheses: G finite (for G = T see RT.2/circle-tate).
+
+For a finite group G there is a natural transformation Nm_G : X_{hG} → X^{hG} of functors Sp^{BG} →
+Sp (characterised as the universal colimit-preserving functor over −^{hG}, or by the explicit norm
+on induced objects), and the Tate construction is X^{tG} := cofib(Nm_G : X_{hG} → X^{hG}). This
+gives the natural fibre sequence X_{hG} → X^{hG} → X^{tG}. For H ⊆ G normal there are residual
+versions Sp^{BG} → Sp^{B(G/H)}.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.1: Construction
+I.1.7 and Lemmas I.1.8–I.1.9 (Acta p. 216), Definition I.1.10, Examples I.1.11–I.1.12 (Acta p. 217).
+NS18 §I.1 constructs the norm map for finite groups. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.1, Definition I.1.13, Acta p. 218 (the
+displayed formula X ↦ cofib(Nm_G: X_hG → X^hG) is garbled in the text layer; the same definition is
+stated in running text on p. 213: 'we can define the Tate construction X tG =cofib(NmG : XhG X hG
+)'). NS18 §I.1 defines X^{tG} as the cofibre of the norm.)
+
+Construction and proof. Construct Nm_G as in NS18 §I.1: for X = ⊕_{g∈G} Y induced, X_{hG} ≃ Y ≃
+X^{hG}; extend by the universal property (the colimit-preserving approximation of −^{hG}). Define
+X^{tG} as the cofibre; exactness of −^{tG} follows. Residual versions by the same construction over
+B(G/H).
+
+The API exposes the following operations and characterizations.
+
+
+- `normMap`: Nm_G : X_{hG} → X^{hG}, natural in X ∈ Sp^{BG}.
+
+- `tateConstruction`: X^{tG} := cofib(Nm_G), with the fibre sequence X_{hG} → X^{hG} → X^{tG}.
+
+- `tateConstruction.exact`: −^{tG} : Sp^{BG} → Sp is an exact functor.
+
+- `tateConstruction.residual`: Residual Tate −^{tH} : Sp^{BG} → Sp^{B(G/H)} for H normal finite.
+
+- `normMap.induced`: On induced objects ⊕_{g∈G} Y the norm is an equivalence.
+
+**Checks.**
+
+
+- `tateConstruction.trivialGroup`: For G trivial, Nm is the identity and X^{tG} = 0.
+
+- `tateConstruction.HZ_Cp`: π_*(HZ^{tC_p}) ≅ 𝔽_p[t^{±1}], |t| = −2.
+
+- `tateConstruction.compat_mathlib`: For a finite group G and a ℤ[G]-module M, π_{−i}(HM^{tG}) ≅ Ĥ^i(G, M), Mathlib's tateCohomology.
+
+- `tateConstruction.nonexample_Q`: (HQ)^{tG} = 0 for every finite G although (HQ)^{hG} = HQ ≠ 0: Tate is not fixed points.
+
+The comparison must satisfy these additional checks: For induced X, X^{tG} ≃ 0
+(RT.2/tate-vanishing-induced). π_*(HZ^{tC_p}) = 𝔽_p[t^{±1}] with |t| = −2
+(RT.2/tate-of-eilenberg-maclane).
+
+This interface is used by `RT.2/cyclotomic-spectrum` — the Frobenius maps land in X^{tC_p};
+`KTheoryFiniteLocalFields:L.4/norm-restriction-cofibre-sequence` — the norm–restriction sequence
+maps to the Tate cofibre sequence; `KTheoryFiniteLocalFields:L.1/finite-even-tate-k-groups` —
+C_2-Tate constructions in hermitian K-theory.
+
+*Needs:* [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points).
+
+<a id="refinedtracemethods-rt-2-tate-of-eilenberg-maclane"></a>
+
+### Tate spectra of Eilenberg–Mac Lane spectra are Tate cohomology
+
+Work under the following hypotheses: G finite; M a ℤ[G]-module.
+
+For a finite group G and a G-module M (an abelian group with G-action), π_i(HM^{tG}) ≅ Ĥ^{−i}(G, M)
+naturally in M, where Ĥ is Tate cohomology (Mathlib tateCohomology, built from the norm map). For G
+= C_n cyclic, Ĥ^* is 2-periodic (Tau Ceti Rep.FiniteCyclicGroup.tateCohomologyIsoEven) and
+π_*(HZ^{tC_n}) ≅ ℤ/n[t^{±1}], |t| = −2.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.1, unnumbered
+paragraph immediately after Definition I.1.13, Acta p. 218 (the formula π_i(HM^{tG}) ≅ Ĥ^{−i}(G,M)
+is garbled in the text layer). NS18 §I.1: π_i of HM^{tG} is Tate cohomology Ĥ^{−i}(G, M).)
+
+Construction and proof. Compute HM_{hG} and HM^{hG} by the bar resolution: group homology and
+cohomology. Identify the norm map on homotopy with the norm used to splice the complete resolution;
+the long exact sequence identifies π_*HM^{tG} with the homology of the Tate complex. Compare with
+Mathlib's Tate complex (built from the same norm) and Tau Ceti's periodicity for cyclic groups.
+
+The comparison must satisfy these additional checks: π_*(HZ^{tC_2}) = 𝔽_2[t^{±1}]: π_even = ℤ/2,
+π_odd = 0 (the input requested by the hermitian applications of KTheoryFiniteLocalFields).
+π_0(HM^{tG}) = M^G/Nm(M) = Ĥ^0(G, M).
+
+*Needs:* [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), [mathlib:tateCohomology](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean#L145), [tauceti:Rep.FiniteCyclicGroup.tateCohomologyIsoEven](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean#L149), `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum`.
+
+<a id="refinedtracemethods-rt-2-tate-vanishing-induced"></a>
+
+### Tate constructions vanish on induced objects
+
+Work under the following hypotheses: G finite; R a ring spectrum for the last statement.
+
+Let G be finite and Sp^{BG}_{ind} ⊆ Sp^{BG} the thick subcategory generated by induced spectra using
+finite cofibres, suspensions and retracts (without closure under arbitrary colimits) ⊕_{g∈G} Y. Then
+(i) X^{tG} ≃ 0 for X ∈ Sp^{BG}_{ind}; (ii) Sp^{BG}_{ind} is a ⊗-ideal; (iii) −^{tG} is the universal
+exact functor under −^{hG} killing Sp^{BG}_{ind}, so it factors through the Verdier quotient
+Sp^{BG}/Sp^{BG}_{ind}. For a ring spectrum R and G = C_p, End of R in the Verdier quotient Fun(BC_p,
+Perf(R))/Perf(R[C_p]) is R^{tC_p} (the identification used by Land–Mathew–Meier–Tamme, Remark 3.9).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.3: Theorem I.3.6
+(Acta p. 230), Definition I.3.7 and Lemma I.3.8 (Acta p. 231; proof p. 232-233), and the
+factorization statement in the proof of Theorem I.3.1 (Acta p. 233). NS18 Definition I.3.7 and Lemma
+I.3.8: induced spectra, their Tate vanishing and the description of −^{tG}. [Purity in chromatically
+localized algebraic K-theory](#ref-0-lmmt-24), §3, Remark 3.9, pp. 15-16. LMMT Remark 3.9: the
+Verdier quotient Fun(BC_p, Perf(R))/Perf(R[C_p]) is linear over R^{tC_p}.)
+
+Construction and proof. Norm is an equivalence on induced objects (RT.2/norm-map-tate), so Tate
+vanishes there; ideal property from Y ⊗ (⊕_g Z) ≃ ⊕_g (Y⊗Z) with diagonal action. NS18 Lemma
+I.3.8(iii) computes X^{tG} as the filtered colimit of cofib(Y→X)^{hG} for Y in the finite stable
+closure of induced objects, not only for literal induced sums. Hence −^{tG} inverts maps with
+induced fibre and factors through the Verdier quotient; End of the unit there is computed by (iii).
+
+The comparison must satisfy these additional checks: R[C_p] = R ⊗ Σ^∞_+C_p is induced, so
+(R[C_p])^{tC_p} = 0. For R = HZ: End of HZ in Fun(BC_p, Perf(ℤ))/Perf(ℤ[C_p]) has π_0 = ℤ/p.
+
+*Needs:* [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`.
+
+<a id="refinedtracemethods-rt-2-tate-multiplicativity"></a>
+
+### Multiplicativity of the Tate construction
+
+Work under the following hypotheses: G finite; for the residual statement G ⊴ H closed, H a
+topological group.
+
+For a finite group G, the space of pairs (a lax symmetric monoidal structure on −^{tG} : Sp^{BG} →
+Sp, a lax symmetric monoidal refinement of −^{hG} → −^{tG}) is contractible. For G a finite normal
+subgroup of a topological group H, the residual −^{tG} : Sp^{BH} → Sp^{B(H/G)} is lax symmetric
+monoidal compatibly; in particular −^{tC_p} : Sp^{BT} → Sp^{B(T/C_p)} ≃ Sp^{BT} is lax symmetric
+monoidal, so X^{tC_p} is an E_∞-ring with T-action when X is.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.3, Theorem I.3.1,
+Acta p. 225; proof on p. 233 (text layer drops the arrow in '−hG → −tG'). NS18 Theorem I.3.1: the
+lax symmetric monoidal structure on −^{tG} is unique. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.3, Corollary I.3.9, Acta p. 233; proof p. 234
+(text layer drops arrows). NS18 Corollary I.3.9: the residual Tate construction is lax symmetric
+monoidal.)
+
+Construction and proof. Lax symmetric monoidal functors killing a ⊗-ideal factor uniquely through
+the symmetric monoidal Verdier quotient (RT.2/tate-vanishing-induced; NS18 Theorem I.3.1). −^{hG} is
+lax symmetric monoidal (RT.2/homotopy-orbits-fixed-points); its localisation away from the ideal is
+−^{tG}. Residual version by working in Sp^{BH} (NS18 Corollary I.3.9).
+
+The comparison must satisfy these additional checks: HZ^{tC_p} is an E_∞-ring with π_* = 𝔽_p[t^{±1}]
+as a graded ring. The canonical map X^{hC_p} → X^{tC_p} is a map of E_∞-rings for X an E_∞-ring with
+C_p-action.
+
+*Needs:* [Tate constructions vanish on induced objects](#refinedtracemethods-rt-2-tate-vanishing-induced), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E5:abstract/algebra-objects`.
+
+<a id="refinedtracemethods-rt-2-tate-p-local-properties"></a>
+
+### Tate constructions at C_p: convergence, vanishing and p-completeness
+
+Work under the following hypotheses: G finite; for (iii) X bounded below.
+
+For a finite group G and Y ∈ Sp^{BG}: (i) Y^{hG} → lim_n (τ_{≤n}Y)^{hG}, and likewise for −_{hG} and
+−^{tG}, are equivalences, and colim_n (τ_{≥−n}Y)^{tG} → Y^{tG} is an equivalence (and likewise for
+−^{hG}, −_{hG}); (ii) if p acts invertibly on π_*Y for Y ∈ Sp^{BC_p}, then Y^{tC_p} ≃ 0; (iii) if X
+∈ Sp^{BC_p} is bounded below, X^{tC_p} is p-complete and X^{tC_p} ≃ (X^∧_p)^{tC_p}.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.2, Lemma I.2.6,
+Acta p. 222; part (i) includes Y^{tG} → lim_n(τ_{≤n}Y)^{tG}. NS18 Lemma I.2.6: Postnikov convergence
+for orbits, fixed points and Tate. [On topological cyclic homology](#ref-0-nikolaus-scholze-18),
+Chapter I, §I.2, Lemma I.2.8, Acta p. 223. NS18 Lemma I.2.8: Tate vanishes when p is invertible. [On
+topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.2, Lemma I.2.9, Acta p. 224.
+NS18 Lemma I.2.9: Tate spectra of bounded below spectra are p-complete.)
+
+Construction and proof. (i): NS18 Lemma I.2.6 — Postnikov towers converge and −^{hG}, −_{hG} commute
+with the relevant limits/colimits by connectivity of the homotopy-orbit spectral sequences. (ii): by
+(i) reduce to Eilenberg–Mac Lane spectra HM with p invertible on M; their Tate spectra have π_* =
+Ĥ^{−*}(C_p; M), which is killed by p and on which p is invertible, hence zero (NS18 Lemma I.2.8).
+(iii): reduce to Eilenberg–Mac Lane pieces using (i); each (HM)^{tC_p} is p-torsion by
+RT.2/tate-of-eilenberg-maclane (NS18 Lemma I.2.9); p-completion via StableHomotopyKTheory H.6.
+
+The comparison must satisfy these additional checks: (HQ)^{tC_p} = 0 by (ii). S^{tC_p} ≃ S^∧_p
+(Segal conjecture for C_p; NS18 Example II.1.2(ii)), consistent with (iii).
+
+*Needs:* [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), [Tate spectra of Eilenberg–Mac Lane spectra are Tate cohomology](#refinedtracemethods-rt-2-tate-of-eilenberg-maclane), `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.6/p-completion`.
+
+<a id="refinedtracemethods-rt-2-tate-orbit-lemma"></a>
+
+### The Tate orbit lemma
+
+Work under the following hypotheses: X bounded below; C_p ⊂ C_{p²} the subgroup of order p.
+
+Let X ∈ Sp^{BC_{p²}} be bounded below. Then (X_{hC_p})^{t(C_{p²}/C_p)} ≃ 0.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.2, Lemma I.2.1
+(Tate orbit lemma), Acta p. 218; proof on p. 224. NS18 Lemma I.2.1: (X_{hC_p})^{t(C_{p²}/C_p)} ≃ 0
+for X bounded below.)
+
+Construction and proof. By RT.2/tate-p-local-properties (i) reduce to X bounded (Postnikov), then to
+X = HM an Eilenberg–Mac Lane spectrum with C_{p²}-action. For HM, compute via the lemma that HF_p
+with trivial action has (τ_{[2i,2i+1]}(HF_p)_{hC_p})^{t(C_{p²}/C_p)} ≃ 0, the two-stage Postnikov
+piece being a nonsplit extension whose Tate construction vanishes (NS18 Lemmas I.2.4, I.2.5, I.2.7).
+Conclude by dévissage over Postnikov pieces and filtered colimits (NS18 Lemma I.2.1).
+
+The comparison must satisfy these additional checks: For X = HZ with trivial action the lemma says
+((HZ)_{hC_p})^{tC_p} = 0, although (HZ)^{tC_p} ≠ 0. The hypothesis is needed: KU with trivial
+C_{p²}-action does not satisfy the conclusion (NS18 Example I.2.3(iii)).
+
+*Needs:* [Tate constructions at C_p: convergence, vanishing and p-completeness](#refinedtracemethods-rt-2-tate-p-local-properties), [Tate spectra of Eilenberg–Mac Lane spectra are Tate cohomology](#refinedtracemethods-rt-2-tate-of-eilenberg-maclane), `StableHomotopyKTheory:H.5:spectra/postnikov-sections`.
+
+<a id="refinedtracemethods-rt-2-tate-fixpoint-lemma"></a>
+
+### The Tate fixpoint lemma
+
+Work under the following hypotheses: X bounded above.
+
+Let X ∈ Sp^{BC_{p²}} be bounded above. Then (X^{hC_p})^{t(C_{p²}/C_p)} ≃ 0.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.2, Lemma I.2.2
+(Tate fixpoint lemma), Acta p. 219; proof on p. 224. NS18 Lemma I.2.2: (X^{hC_p})^{t(C_{p²}/C_p)} ≃
+0 for X bounded above.)
+
+Construction and proof. Dual to RT.2/tate-orbit-lemma: reduce by Postnikov convergence (colimit
+form) to Eilenberg–Mac Lane spectra and use the vanishing for the coconnective two-stage pieces
+τ_{[−2i−1,−2i]} (NS18 Lemmas I.2.2, I.2.4).
+
+The comparison must satisfy these additional checks: For X = HF_p with trivial action:
+((HF_p)^{hC_p})^{tC_p} = 0. The hypothesis is needed: for S with trivial action
+(S^{hC_p})^{t(C_{p²}/C_p)} ≃ S^∧_p ≠ 0 (NS18 Example I.2.3(i)).
+
+*Needs:* [Tate constructions at C_p: convergence, vanishing and p-completeness](#refinedtracemethods-rt-2-tate-p-local-properties), [Tate spectra of Eilenberg–Mac Lane spectra are Tate cohomology](#refinedtracemethods-rt-2-tate-of-eilenberg-maclane).
+
+<a id="refinedtracemethods-rt-2-parametrised-tate"></a>
+
+### The Tate construction for a Kan complex and the dualizing spectrum
+
+Work under the following hypotheses: S a Kan complex.
+
+For a Kan complex S with p : S → ∗: (i) Sp^S is compactly generated by the s_!S; (ii) there is an
+initial functor p^T_* under p_* such that p_* → p^T_* vanishes on compact objects; (iii) it is
+unique such that fib(p_* → p^T_*) preserves colimits; (iv) fib(p_* → p^T_*) ≃ p_!(D_S ⊗ −) for a
+unique D_S ∈ Sp^S, the dualizing spectrum (Spivak–Klein), with fibre lim_{t∈S} Σ^∞_+ Map(s, t); (v)
+p_!(D_S ⊗ −) → p_* is the universal colimit-preserving approximation (assembly); (vi) if p^T_*
+vanishes on all s_!X, p^T_* has a unique lax symmetric monoidal structure making p_* → p^T_* lax
+symmetric monoidal. For S = BG with G finite this recovers Nm_G and −^{tG}, with D_{BG} = S with the
+trivial action.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.4, Theorem I.4.1
+and Definition I.4.2, Acta p. 235; proof pp. 237-238. NS18 Theorem I.4.1 and Definition I.4.2: Tate
+construction for Kan complexes and the dualizing spectrum.)
+
+Construction and proof. Compact generation and the universal property of colimit-preserving
+approximations (EnhancedDerivedSheaves E5:presentability). Define p^T_* as the cofibre of the
+assembly map; identify the assembly with p_!(D_S ⊗ −) by evaluating on generators s_!S.
+Multiplicativity as in RT.2/tate-multiplicativity (NS18 Theorem I.4.1).
+
+The comparison must satisfy these additional checks: For S = BG, G finite: D_{BG} ≃ S (trivial
+action) and p^T_* = −^{tG}. For S = BT the dualizing spectrum is a shift of the sphere (Klein),
+which gives the norm Σ(−_{hT}) → −^{hT} of RT.2/circle-tate. The supplying diagram is coherent: maps
+and universal properties are expressed in mapping spaces, not by strict commutative squares of
+ordinary morphisms.
+
+*Needs:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E3`.
+
+<a id="refinedtracemethods-rt-2-circle-tate"></a>
+
+### The circle norm and the T-Tate construction
+
+Work under the following hypotheses: X ∈ Sp^{BT}; the shift Σ comes from the dualizing spectrum of
+BT (one-dimensional circle).
+
+On Sp^{BT} there is a natural transformation Nm_T : Σ(X_{hT}) → X^{hT} exhibiting Σ(−_{hT}) as the
+universal colimit-preserving functor over −^{hT}; its cofibre X^{tT} := cofib(Nm_T) has a unique lax
+symmetric monoidal structure making −^{hT} → −^{tT} lax symmetric monoidal. For n ≥ 1 there is a
+unique lax symmetric monoidal transformation −^{tT} → −^{tC_n} compatible with −^{hT} → −^{hC_n}.
+For HZ with trivial action π_*(HZ^{tT}) = ℤ[t^{±1}], |t| = −2, and π_i(HZ^{tT})/n ≅ π_i(HZ^{tC_n}).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter I, §I.4, Corollary I.4.3,
+Acta p. 238 (text layer drops arrows). NS18 Corollary I.4.3: the circle norm Σ(−_{hT}) → −^{hT} and
+the lax symmetric monoidal −^{tT}. [On topological cyclic homology](#ref-0-nikolaus-scholze-18),
+Chapter I, §I.4, Lemma I.4.4, Acta p. 239. NS18 Lemma I.4.4: (HZ)^{tT}/n ≅ (HZ)^{tC_n}.)
+
+Construction and proof. Apply RT.2/parametrised-tate to S = BT; Klein's computation D_{BT} ≃ ΣS
+(with the sign convention of NS18 Corollary I.4.3) gives the norm Σ(−_{hT}) → −^{hT}.
+Multiplicativity from RT.2/parametrised-tate (vi). Compare with C_n via restriction along C_n ⊂ T;
+compute the HZ case from the Gysin sequence and NS18 Lemma I.4.4.
+
+The API exposes the following operations and characterizations.
+
+
+- `circleNorm`: Nm_T : Σ(X_{hT}) → X^{hT}, natural in X ∈ Sp^{BT}.
+
+- `circleTate`: X^{tT} := cofib(Nm_T) with the fibre sequence Σ X_{hT} → X^{hT} → X^{tT}.
+
+- `circleTate.laxMonoidal`: −^{tT} is lax symmetric monoidal, uniquely compatible with −^{hT} → −^{tT}.
+
+- `circleTate.toCyclic`: −^{tT} → −^{tC_n} compatible with −^{hT} → −^{hC_n}.
+
+- `circleTate.HZ`: π_*(HZ^{tT}) = ℤ[t^{±1}], |t| = −2.
+
+**Checks.**
+
+
+- `circleTate.zero`: 0^{tT} = 0.
+
+- `circleTate.HZ_mod_n`: π_0(HZ^{tT})/n ≅ π_0(HZ^{tC_n}) = ℤ/n.
+
+- `circleTate.not_shift_free`: For X=HZ with trivial action, no map X_{hT}→X^{hT} has cofibre X^{tT} compatibly with can: positive even homotopy of the cofibre of an unshifted map vanishes, while π_2(HZ^{tT})=ℤ. The circle norm has source ΣX_{hT}; a zero natural transformation alone has no norm universal property.
+
+The comparison must satisfy these additional checks: π_*(HZ^{hT}) = ℤ[t], π_*(HZ^{tT}) = ℤ[t^{±1}]
+and π_*(ΣHZ_{hT}) is ℤ in each odd degree ≥ 1; in the long exact sequence of ΣHZ_{hT} → HZ^{hT} →
+HZ^{tT}, π_{2i}(HZ^{tT}) ≅ π_{2i−1}(ΣHZ_{hT}) for i > 0. π_0(HZ^{tT})/p = π_0(HZ^{tC_p}) = 𝔽_p.
+
+This interface is used by `RT.2/tc-minus-and-tp` — TP := THH^{tT}; `RT.1/norm-sequence-hc` — for X =
+HH(A/k), ΣHC → HC⁻ → HP is the circle norm sequence; `RT.3b/beilinson-square-ordinary` — HP(R;ℚ_p)
+is HH(R)^{tT} with ℚ_p-coefficients.
+
+*Needs:* [The Tate construction for a Kan complex and the dualizing spectrum](#refinedtracemethods-rt-2-parametrised-tate), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity).
+
+<a id="refinedtracemethods-rt-2-tate-cpn-via-cp"></a>
+
+### Iterated Tate constructions for bounded below spectra
+
+Work under the following hypotheses: X bounded below.
+
+(i) For bounded below X ∈ Sp^{BC_{p^n}}, the canonical map X^{tC_{p^n}} → (X^{tC_p})^{hC_{p^{n−1}}}
+is an equivalence. (ii) For bounded below X ∈ Sp^{BT}, (X^{tC_p})^{hT} is p-complete and X^{tT} →
+(X^{tC_p})^{hT} is a p-completion; hence ∏_p (X^{tC_p})^{hT} is the profinite completion of X^{tT}.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Lemma II.4.1,
+Acta p. 261 (text layer drops the arrow). NS18 Lemma II.4.1: X^{tC_{p^n}} ≃
+(X^{tC_p})^{hC_{p^{n−1}}} for X bounded below. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Lemma II.4.2 and Remark II.4.3, Acta p.
+262 (text layer drops the arrow 'X tT → (X tCp )hT'). NS18 Lemma II.4.2: X^{tT} → (X^{tC_p})^{hT} is
+a p-completion for X bounded below.)
+
+Construction and proof. (i) by induction on n using the Tate orbit lemma (RT.2/tate-orbit-lemma) to
+kill the norm term (NS18 Lemma II.4.1). (ii) pass to the limit over n along C_{p^n} ⊂ T using (i)
+and RT.2/tate-p-local-properties (iii) (NS18 Lemma II.4.2, Remark II.4.3).
+
+The comparison must satisfy these additional checks: For X = HZ (trivial T-action): (HZ^{tC_p})^{hT}
+has π_* = ℤ_p[t^{±1}], the p-completion of ℤ[t^{±1}] = π_*HZ^{tT}.
+
+*Needs:* [The Tate orbit lemma](#refinedtracemethods-rt-2-tate-orbit-lemma), [Tate constructions at C_p: convergence, vanishing and p-completeness](#refinedtracemethods-rt-2-tate-p-local-properties), [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), `StableHomotopyKTheory:H.6/p-completion`.
+
+<a id="refinedtracemethods-rt-2-cyclic-realisation"></a>
+
+### Geometric realisation of cyclic objects and the circle action
+
+Work under the following hypotheses: C an ∞-category with geometric realisations (colimits over
+Δ^op).
+
+For a cyclic object X : Λ^op → C in an ∞-category C with geometric realisations, the realisation |X|
+:= colim_{Δ^op} X|_{Δ^op} carries a natural T-action, i.e. |−| refines to a functor Fun(Λ^op, C) →
+Fun(BT, C); this comes from the cofinality of Δ^op → Λ_∞^op and the identification of the colimit
+over Λ_∞^op with a BT-indexed functor (Connes: the classifying space of Λ is BT; NS18 Appendix B).
+For cyclic sets the T-action is the classical one on the realisation of the cyclic set.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Appendix B, Proposition B.5 (Acta
+p. 384), Construction B.9 (Acta p. 387), Proposition B.13 (Acta p. 390), with Corollary B.14 (p.
+391). NS18 Proposition B.5: the realisation of a cyclic object carries a T-action. [On topological
+cyclic homology](#ref-0-nikolaus-scholze-18), Appendix B, definitions of Λ_∞, Λ_p, Λ (Acta pp.
+380-381), Proposition B.1 (Acta p. 381), Theorem B.3 (Acta p. 382; proof pp. 382-383), Corollary B.4
+(p. 383). NS18 Appendix B: Λ_∞, Λ_p, Λ and the cofinality Theorem B.3.)
+
+Construction and proof. Define Λ_∞ and Λ_p (NS18 Appendix B) and prove Δ^op → Λ_∞^op cofinal (NS18
+Theorem B.3). Λ_∞ has a free BZ-action with quotient Λ, whose classifying space realises BT; left
+Kan extend along Λ^op → BT to obtain the T-equivariant colimit (NS18 Proposition B.5). Compare with
+the point-set realisation of paracyclic spaces (NS18 Construction B.9, Proposition B.13).
+
+The API exposes the following operations and characterizations.
+
+
+- `CyclicObject.realize`: |X| ∈ Fun(BT, C) for X ∈ Fun(Λ^op, C).
+
+- `CyclicObject.realize_underlying`: The underlying object of |X| is the simplicial colimit of X|_{Δ^op}.
+
+- `CyclicObject.realize_map`: Naturality in maps of cyclic objects and in colimit-preserving functors C → D.
+
+- `ParacyclicCategory.cofinal`: Δ^op → Λ_∞^op is cofinal (NS18 Theorem B.3).
+
+**Checks.**
+
+
+- `CyclicObject.realize_const`: The realisation of a constant cyclic object c is c with trivial T-action.
+
+- `CyclicObject.realize_circle`: The representable cyclic set Λ(−, [0]) has underlying simplicial set the simplicial circle Δ¹/∂Δ¹ (n + 1 simplices in degree n) and realises to T with its translation action.
+
+- `CyclicObject.realize_not_simplicial`: A simplicial structure alone does not determine the circle action supplied by a cyclic enhancement. Trivial actions always exist; the test must distinguish compatible cyclic enhancements, not assert absence of any action.
+
+The comparison must satisfy these additional checks: The cyclic set Λ^1 (the simplicial circle with
+its cyclic structure) realises to T with its translation action. For the cyclic bar construction of
+a discrete group G, |B^{cyc}G| ≃ LBG with the rotation action. The supplying diagram is coherent:
+maps and universal properties are expressed in mapping spaces, not by strict commutative squares of
+ordinary morphisms.
+
+This interface is used by `RT.2/thh-e1-ring` — THH is the realisation of the cyclic bar construction
+with its T-action; `RT.2/thh-spectral-categories` — the cyclic nerve of a spectral category;
+`RT.2/mixed-complexes-are-circle-modules` — for cyclic k-modules the T-action is the one encoded by
+B.
+
+*Needs:* [Connes' cyclic category and cyclic objects](#refinedtracemethods-rt-1-cyclic-category), `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E0`.
+
+<a id="refinedtracemethods-rt-2-edgewise-subdivision"></a>
+
+### Edgewise subdivision and Tate constructions of realisations
+
+Work under the following hypotheses: C has colimits for subdivision and realization; C=Sp and p
+prime for the Tate comparison.
+
+For a cyclic object X in an ∞-category with colimits and r≥1, r-fold edgewise subdivision sd_r X is
+a Λ_r-object and |sd_r X|≃|X| T-equivariantly, realizing the C_r-action levelwise (NS18 Proposition
+B.19, with E1 corrected). NS18 Proposition B.20 supplies a natural T/C_p-equivariant comparison
+|(sd_p X)^{tC_p}|→|X|^{tC_p}, not an equivalence. No commutation of geometric realization with
+finite Tate is asserted, even for uniformly bounded-below levels.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Appendix B, Proposition B.19
+(Acta pp. 394-395) and Proposition B.20 (Acta pp. 395-396); text layer drops the arrow 'sdp : Λp →
+Λ'). NS18 Propositions B.19 and B.20: edgewise subdivision and Tate constructions of realisations.)
+
+Construction and proof. Precompose with the subdivision functor Λ_p→Λ, as in NS18 Appendix B.
+Identify the realizations using Proposition B.19. Use the universal cocone followed by finite Tate
+to obtain the comparison of Proposition B.20. This construction requires a comparison map, not
+preservation of the colimit.
+
+The comparison must satisfy these additional checks: For X the cyclic bar construction of an
+algebra, sd_p X in degree n is A^{⊗p(n+1)} with C_p permuting blocks: this is how the Tate diagonal
+enters the Frobenius.
+
+*Needs:* [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation), [Tate constructions at C_p: convergence, vanishing and p-completeness](#refinedtracemethods-rt-2-tate-p-local-properties).
+
+<a id="refinedtracemethods-rt-2-tate-diagonal"></a>
+
+### The Tate diagonal
+
+Work under the following hypotheses: p a prime; ⊗ the smash product of spectra.
+
+The functor T_p : Sp → Sp, X ↦ (X^{⊗p})^{tC_p} (C_p permuting factors) is exact; every exact functor
+Sp → Sp receives a unique-up-to-contractible-choice natural transformation from the identity
+determined by its value on S (natural transformations id → F correspond to points of F(S)); the Tate
+diagonal Δ_p : X → (X^{⊗p})^{tC_p} is the transformation corresponding to the composite S →
+(S^{⊗p})^{hC_p} → (S^{⊗p})^{tC_p}. It is the unique lax symmetric monoidal transformation id → T_p.
+In D(ℤ) no such transformation exists: there is no natural map M → (M^{⊗p})^{tC_p} of functors D(ℤ)
+→ D(ℤ) refining the diagonal (NS18 Theorem III.1.10).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.1, Definition
+III.1.4, Acta p. 286; see also Theorem III.1.7 (Acta p. 287) and Remark III.1.6. NS18 Definition
+III.1.4: the Tate diagonal X → (X⊗…⊗X)^{tC_p}. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.1, Proposition III.1.1 (Acta p. 285; proof
+pp. 285-286) and Proposition III.1.2 (Acta p. 286), with Corollary III.1.3 (p. 286). NS18
+Propositions III.1.1–III.1.2: T_p is exact and transformations out of the identity. [On topological
+cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.1, Theorem III.1.10, Acta p. 290
+(proof pp. 290-292). NS18 Theorem III.1.10: no Tate diagonal in D(ℤ).)
+
+Construction and proof. Show T_p is exact (the cross terms of (X⊕Y)^{⊗p} are induced, hence
+Tate-acyclic; NS18 Proposition III.1.1). Natural transformations from id to an exact functor F : Sp
+→ Sp are F(S) (Yoneda for exact functors, NS18 Proposition III.1.2); take the image of 1 under S →
+(S^{⊗p})^{tC_p}. Uniqueness of lax symmetric monoidal structure (NS18 Proposition III.3.1) using the
+C_p-equivariant p-fold tensor functor (NS18 Proposition III.3.6, Lemma III.3.7). Non-example in
+D(ℤ): NS18 Theorem III.1.10.
+
+The API exposes the following operations and characterizations.
+
+
+- `tateDiagonal`: Δ_p : X → (X^{⊗p})^{tC_p}, natural in X ∈ Sp.
+
+- `tateDiagonal.exact_target`: X ↦ (X^{⊗p})^{tC_p} is exact.
+
+- `tateDiagonal.unique`: Δ_p is the unique (lax symmetric monoidal) natural transformation id → T_p up to contractible choice.
+
+- `tateDiagonal.sphere`: On S it is the canonical map S → S^{tC_p}, a p-completion.
+
+**Checks.**
+
+
+- `tateDiagonal.zero`: Δ_p on the zero spectrum is the zero map.
+
+- `tateDiagonal.HFp`: π_0 of Δ_p : HF_p → (HF_p^{⊗p})^{tC_p} is the Frobenius of 𝔽_p (identity), nonzero.
+
+- `tateDiagonal.no_DZ`: There is no natural transformation M → (M^{⊗p})^{tC_p} of functors D(ℤ) → D(ℤ) lifting the diagonal (NS18 Theorem III.1.10): the construction needs spectra.
+
+The comparison must satisfy these additional checks: For X = S, Δ_p : S → S^{tC_p} is the
+p-completion map (Segal conjecture; NS18 Example II.1.2(ii)). For X = HF_p, Δ_p : HF_p →
+(HF_p^{⊗p})^{tC_p} gives the Frobenius of THH(F_p) used in KTheoryFiniteLocalFields L.5.
+
+This interface is used by `RT.2/cyclotomic-frobenius-thh` — the Frobenius of THH is induced by the
+Tate diagonal on the edgewise subdivision; `RT.2/thh-symmetric-monoidal` — uniqueness of the lax
+monoidal Tate diagonal gives the E_∞ Frobenius.
+
+*Needs:* [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity), [Tate constructions vanish on induced objects](#refinedtracemethods-rt-2-tate-vanishing-induced), `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
+
+<a id="refinedtracemethods-rt-2-thh-e1-ring"></a>
+
+### Topological Hochschild homology of an E_1-ring
+
+Work under the following hypotheses: A an E_1-algebra in spectra (Alg_{E_1}(Sp) from
+EnhancedDerivedSheaves E5:abstract applied to Sp).
+
+For A ∈ Alg_{E_1}(Sp), THH(A) ∈ Sp^{BT} is the geometric realisation, with its circle action
+(RT.2/cyclic-realisation), of the cyclic bar construction [n] ↦ A^{⊗(n+1)} in Sp (the cyclic object
+built from the E_1-structure, NS18 Definition III.2.3). It is functorial in E_1-maps, THH(S) ≃ S
+with trivial action, and for a discrete ring R, THH(R) := THH(HR). The relative version over an
+E_∞-ring k is RT.2/relative-thh.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.2, Definition
+III.2.3 (Acta p. 293); construction of the Frobenius ϕ_p in §III.2, Acta pp. 294-296, completed by
+Corollary III.3.8 (pp. 302-303). NS18 Definition III.2.3: THH of an E_1-ring as the realisation of
+the cyclic bar construction with its T-action.)
+
+Construction and proof. Construct the cyclic bar construction as a functor Λ^op → Sp using the
+operadic description of Ass^⊗_act and the cyclic category over it (NS18 Proposition B.1). Realise
+with the T-action (RT.2/cyclic-realisation). Check THH(S) ≃ S (the cyclic bar construction of S is
+constant) and compare with HH for HZ-algebras (RT.2/thh-over-thhz).
+
+The API exposes the following operations and characterizations.
+
+
+- `THH`: THH : Alg_{E_1}(Sp) → Sp^{BT}.
+
+- `THH.map`: E_1-maps induce T-equivariant maps, with map_id and map_comp.
+
+- `THH.unit`: The degree-zero cyclic-bar map A→forget_T THH(A) is natural on underlying spectra. It has no general T-equivariant refinement with trivial action on A.
+
+- `THH.ofRing`: THH(R) := THH(HR) for a discrete ring R.
+
+- `THH.pi0`: π_0 THH(R) ≅ R/[R,R] for a connective E_1-ring with π_0 = R.
+
+- `THH.connective`: THH(A) is connective if A is.
+
+- `THH.sphereUnit`: The unit S→THH(A) is T-equivariant when S has trivial circle action; it is distinct from the degree-zero map A→forget_T THH(A).
+
+**Checks.**
+
+
+- `THH.sphere`: THH(S) ≃ S with trivial T-action.
+
+- `THH.Fp_pi2`: π_2 THH(𝔽_p) ≅ 𝔽_p (generated by Bökstedt's σ), while HH_2(𝔽_p/𝔽_p) = 0.
+
+- `THH.not_HH`: THH(𝔽_p) ≠ HH(𝔽_p/𝔽_p) = 𝔽_p: π_2 differs, so THH of a discrete ring is not its Hochschild homology over itself.
+
+- `THH.pi0_compat`: π_0 THH(R) ≅ HH_0(R/ℤ) = R/[R,R], compatible with RT.1/hochschild-homology.
+
+The comparison must satisfy these additional checks: THH(S) ≃ S with trivial T-action. π_0 THH(R) =
+R/[R,R] for a discrete ring R (= HH_0). THH(𝔽_p) has π_* = 𝔽_p[σ], |σ| = 2 (Bökstedt), imported by
+KTheoryFiniteLocalFields L.5/thh-of-perfect-field.
+
+This interface is used by `RT.2/cyclotomic-frobenius-thh` — THH(A) is the underlying T-spectrum of a
+cyclotomic spectrum; `RT.3/cyclotomic-trace` — the trace lands in TC(A) = TC(THH(A));
+`KTheoryFiniteLocalFields:L.5/thh-of-perfect-field` — Bökstedt periodicity for THH(k);
+`RT.4:q-Hodge/thh-over-ku-q-de-rham` — THH relative to ku of spherical lifts.
+
+*Needs:* [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation), [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [The cyclic bar construction of an algebra](#refinedtracemethods-rt-1-cyclic-bar-construction), `EnhancedDerivedSheaves:E5:abstract/algebra-objects`, `EnhancedDerivedSheaves:E5:abstract/infinity-operad`, `StableHomotopyKTheory:H.5:spectra/ring-spectrum`, `StableHomotopyKTheory:H.5:spectra/smash-product`.
+
+<a id="refinedtracemethods-rt-2-cyclotomic-frobenius-thh"></a>
+
+### The cyclotomic Frobenius of THH
+
+Work under the following hypotheses: A an E_1-ring; p prime. The Frobenius construction needs no
+realization/Tate commutation assumption.
+
+For A ∈ Alg_{E_1}(Sp) and each prime p there is a natural T ≅ T/C_p-equivariant map φ_p : THH(A) →
+THH(A)^{tC_p}, obtained by applying the Tate diagonal A → (A^{⊗p})^{tC_p} levelwise to the p-fold
+edgewise subdivision of the cyclic bar construction and realising, using the canonical comparison
+from realization of levelwise Tate to Tate of the realization (NS18 §III.2). This makes THH(A) a
+cyclotomic spectrum (RT.2/cyclotomic-spectrum), naturally in A.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.2, Definition
+III.2.3 (Acta p. 293); construction of the Frobenius ϕ_p in §III.2, Acta pp. 294-296, completed by
+Corollary III.3.8 (pp. 302-303). NS18 §III.2 constructs the Frobenius φ_p : THH(A) → THH(A)^{tC_p}
+from the Tate diagonal.)
+
+Construction and proof. Edgewise subdivide: sd_p of the cyclic bar construction has C_p acting on
+A^{⊗p(n+1)} by block permutation (RT.2/edgewise-subdivision). Apply the Tate diagonal of A^{⊗(n+1)}
+levelwise to get A^{⊗(n+1)} → ((A^{⊗(n+1)})^{⊗p})^{tC_p} (RT.2/tate-diagonal). Realise, then compose
+with |(sd_p X)^{tC_p}|→|X|^{tC_p} from RT.2/edgewise-subdivision (NS18 Proposition B.20 and §III.2).
+Check T ≅ T/C_p-equivariance through the Λ_p-structure.
+
+The API exposes the following operations and characterizations.
+
+
+- `THH.frobenius`: φ_p : THH(A) → THH(A)^{tC_p}, T ≅ T/C_p-equivariant, natural in A.
+
+- `THH.toCyclotomic`: THH(A) with (φ_p)_p as an object of CycSp.
+
+- `THH.frobenius_sphere`: φ_p for A = S is S → S^{tC_p}.
+
+- `THH.frobenius_multiplicative`: For A an E_∞-ring, φ_p is a map of E_∞-rings (RT.2/thh-symmetric-monoidal).
+
+**Checks.**
+
+
+- `THH.frobenius_zero`: For A = 0, φ_p is the zero map 0 → 0.
+
+- `THH.frobenius_sphere_pcomplete`: π_0(φ_p) for A = S is ℤ → ℤ_p, the p-completion.
+
+- `THH.frobenius_not_equivalence`: φ_p is not an equivalence in general: for A = HF_p its target THH(𝔽_p)^{tC_p} has nonzero negative homotopy while THH(𝔽_p) is connective.
+
+The comparison must satisfy these additional checks: For A = S, φ_p : S → S^{tC_p} is the canonical
+map (a p-completion by the Segal conjecture). For A = HF_p, φ_p identifies THH(𝔽_p) with
+τ_{≥0}((HZ_p)^{tC_p}) as E_∞-cyclotomic spectra (NS18 Corollary IV.4.16), the form of Bökstedt
+periodicity used by KTheoryFiniteLocalFields L.5.
+
+This interface is used by `RT.2/topological-cyclic-homology` — TC uses φ_p^{hT} − can;
+`KTheoryFiniteLocalFields:L.5/fp-cyclotomic-frobenius-on-tc-minus` — the Frobenius on TC⁻ of 𝔽_p.
+
+*Needs:* [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The Tate diagonal](#refinedtracemethods-rt-2-tate-diagonal), [Edgewise subdivision and Tate constructions of realisations](#refinedtracemethods-rt-2-edgewise-subdivision), [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity).
+
+<a id="refinedtracemethods-rt-2-lax-equalizer"></a>
+
+### Lax equalizers of ∞-categories
+
+Work under the following hypotheses: D,E coherent infinity categories; presentability requires
+accessibility as well as all small colimits. For stability require exact F,G. For presentability
+require presentable D,E, accessible F,G and colimit-preserving F.
+
+For coherent functors F,G:D→E of infinity categories, LEq(F,G)=D×_{E×E}Fun(Δ¹,E), pulling back
+endpoint evaluation along (F,G). Its objects are (x,α:Fx→Gx), and its mapping space from (x,α) to
+(y,β) is the homotopy equalizer of Map_D(x,y)⇉Map_E(Fx,Gy), with arrows h↦G(h)α and h↦βF(h). A
+morphism includes the path between these composites; equality in an ordinary category is only a
+shadow. For stable categories and exact functors it is stable and its projection is exact. For
+presentable D,E, accessible F,G, with F preserving colimits, it is presentable and the projection
+preserves colimits; limits preserved by G lift. Accessibility is part of the hypothesis.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.1, Definition
+II.1.4 (Acta p. 241) and Proposition II.1.5 (Acta pp. 241-242; proof pp. 242-244). NS18 Definition
+II.1.4 and Proposition II.1.5: lax equalizers and their properties.)
+
+Construction and proof. Form the pullback in Cat_∞ (homotopy cartesian since ev is a categorical
+fibration). Compute mapping spaces from the pullback; stability and presentability by closure
+properties (NS18 Proposition II.1.5).
+
+The API exposes the following operations and characterizations.
+
+
+- `Coherent.LaxEqualizer`: Coherent arrow-category pullback D×_{E×E}Fun(Δ¹,E).
+
+- `Coherent.LaxEqualizer.mapping`: Homotopy equalizer of the two mapping-space maps; includes a chosen path and its higher coherences.
+
+- `Coherent.LaxEqualizer.instStable`: Stable when C, D are stable and F, G exact.
+
+- `Coherent.LaxEqualizer.instPresentable`: With presentable D,E, accessible F,G and colimit-preserving F, LEq is presentable; projection preserves colimits.
+
+- `Coherent.LaxEqualizer.conservative`: The projection LEq(F,G) → C is conservative.
+
+**Checks.**
+
+
+- `LaxEqualizer.identity`: LEq(id_C, id_C) has objects (c, f : c → c).
+
+- `LaxEqualizer.mapping_point`: For C = D = Spaces and F = G = id, maps (∗, id) → (∗, id) form a contractible space.
+
+- `LaxEqualizer.not_equalizer`: LEq(F, G) is not the equalizer {c : F c ≃ G c}: objects carry a map, not an equivalence; genuine cyclotomic spectra (equivalences Φ^{C_p}X ≃ X) form an equalizer instead.
+
+- `Coherent.LaxEqualizer.constant_loop`: The homotopy equalizer of id,id on a Kan K has vertices (x,path from x to x); a strict equality equalizer erases these loop choices.
+
+- `Coherent.LaxEqualizer.stability`: Exact functors between coherent stable inputs give a stable lax equalizer.
+
+- `Coherent.LaxEqualizer.presentability`: The coherent presentability result consumes κ/Ind witnesses and accessibility, not merely a bicomplete ordinary model.
+
+The comparison must satisfy these additional checks: If F = G = id_C, LEq(id, id) is the ∞-category
+of endomorphisms (c, f : c → c). CycSp_p = LEq(id, −^{tC_p}) on Sp^{BC_{p^∞}}.
+
+This interface is used by `RT.2/cyclotomic-spectrum` — CycSp is a lax equalizer;
+`RT.4:q-Hodge/cyclonic-spectrum` — cyclonic spectra use a variant with genuine finite fixed points.
+
+*Needs:* `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:abstract`, [mathlib:SSet.Quasicategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/Quasicategory/Basic.lean#L41).
+
+<a id="refinedtracemethods-rt-2-cyclotomic-spectrum"></a>
+
+### Cyclotomic spectra
+
+Work under the following hypotheses: Primes p range over all primes; T/C_p identified with T by the
+p-th power map.
+
+A cyclotomic spectrum is a spectrum X with T-action together with T ≅ T/C_p-equivariant maps φ_p : X
+→ X^{tC_p} for every prime p (no compatibility between different primes). The ∞-category is CycSp :=
+LEq(Sp^{BT} ⇉ ∏_p Sp^{BT}) for id and (−^{tC_p})_p, using Sp^{B(T/C_p)} ≃ Sp^{BT}. A p-cyclotomic
+spectrum is a spectrum with C_{p^∞}-action and a C_{p^∞} ≅ C_{p^∞}/C_p-equivariant φ_p : X →
+X^{tC_p}; CycSp_p := LEq(Sp^{BC_{p^∞}} ⇉ Sp^{BC_{p^∞}}). Both are presentable stable, and the
+forgetful functors to Sp are exact, conservative and preserve small colimits. The sphere S with
+trivial action and φ_p : S → S^{hC_p} → S^{tC_p} is the unit, equivalent to THH(S).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.1, Definition
+II.1.1, Acta p. 240 (text layer drops the arrows in 'ϕp : X → X tCp'); cf. Definition 1.3 in the
+Introduction, p. 208. NS18 Definition II.1.1: cyclotomic and p-cyclotomic spectra. [On topological
+cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.1, Definition II.1.6, Acta p. 244; the
+Acta layer also drops the arrows and displaces the word 'and'). NS18 Definition II.1.6: CycSp and
+CycSp_p as lax equalizers. [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II,
+§II.1, Corollary II.1.7, Acta p. 244; proof p. 245 (text layer drops the arrows 'Cyc Sp → Sp', 'Cyc
+Spp → Sp'). NS18 Corollary II.1.7: presentable stable, forgetful functor exact and conservative. [On
+topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.1, Example II.1.2 (ii),
+Acta p. 240 (text layer drops the arrows in 'S → StCp' and 'S → ShCp → StCp'). NS18 Example II.1.2:
+the cyclotomic sphere.)
+
+Construction and proof. Define as a lax equalizer (RT.2/lax-equalizer) using
+RT.2/tate-multiplicativity for −^{tC_p}. Presentability/stability: Sp^{BT} presentable stable,
+−^{tC_p} exact and accessible (NS18 Corollary II.1.7). The cyclotomic sphere: trivial action plus
+canonical maps (NS18 Example II.1.2).
+
+The API exposes the following operations and characterizations.
+
+
+- `Coherent.CyclotomicSpectrum`: A T-spectrum X with maps φ_p : X → X^{tC_p}; CycSp = LEq(id, (−^{tC_p})_p).
+
+- `Coherent.CyclotomicSpectrum.pTypical`: p-cyclotomic spectra CycSp_p with C_{p^∞}-action.
+
+- `Coherent.CyclotomicSpectrum.forget`: CycSp → Sp^{BT} → Sp, exact, conservative, colimit-preserving.
+
+- `Coherent.CyclotomicSpectrum.unit`: The cyclotomic sphere S.
+
+- `Coherent.CyclotomicSpectrum.instStable`: CycSp is presentable stable.
+
+- `Coherent.CyclotomicSpectrum.toPTypical`: Restriction CycSp → CycSp_p along C_{p^∞} ⊂ T.
+
+**Checks.**
+
+
+- `CyclotomicSpectrum.zero`: 0 with zero Frobenii is the zero object.
+
+- `CyclotomicSpectrum.sphere_frobenius`: For the cyclotomic sphere, π_0 φ_p : ℤ → π_0S^{tC_p} = ℤ_p is the completion map.
+
+- `CyclotomicSpectrum.trivial_HFp`: HF_p with trivial T-action and φ_p = 0 is a cyclotomic spectrum but is not THH(𝔽_p) (whose φ_p is nonzero and π_2 ≠ 0): a cyclotomic structure is extra data.
+
+The comparison must satisfy these additional checks: THH(A) is cyclotomic for every E_1-ring A
+(RT.2/cyclotomic-frobenius-thh). The cyclotomic sphere has φ_p the p-completion map S → S^{tC_p}.
+The supplying diagram is coherent: maps and universal properties are expressed in mapping spaces,
+not by strict commutative squares of ordinary morphisms.
+
+This interface is used by `RT.2/topological-cyclic-homology` — TC(X) = map_{CycSp}(S, X);
+`KTheoryFiniteLocalFields:L.5/fp-cyclotomic-shift-model` — prime-field THH as a cyclotomic shift of
+trivial HZ_p; `RT.2/bounded-below-cyclotomic-equivalence` — comparison with genuine cyclotomic
+spectra.
+
+*Needs:* [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity), `EnhancedDerivedSheaves:E5:abstract`.
+
+<a id="refinedtracemethods-rt-2-thh-symmetric-monoidal"></a>
+
+### THH is symmetric monoidal; THH of E_∞-rings
+
+Work under the following hypotheses: A an E_1- (resp. E_∞-) ring spectrum.
+
+CycSp has a symmetric monoidal structure, with underlying T-spectrum the smash product and Frobenius
+the composite X⊗Y → X^{tC_p}⊗Y^{tC_p} → (X⊗Y)^{tC_p} (lax structure of −^{tC_p}), such that THH :
+Alg_{E_1}(Sp) → CycSp is symmetric monoidal. Hence for an E_∞-ring A, THH(A) is an E_∞-algebra in
+CycSp; its underlying E_∞-ring with T-action is A ⊗ T (the tensor of A with the space T in CAlg(Sp),
+McClure–Schwänzl–Vogt), and φ_p is the unique T-equivariant E_∞-map A⊗T → (A⊗T)^{tC_p} extending the
+Tate-valued Frobenius A → A^{tC_p} on A.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter IV, §IV.2, Construction
+IV.2.1 (Acta pp. 341-342), Proposition IV.2.2 (Acta p. 342), Corollary IV.2.3 (Acta p. 343). NS18
+Construction IV.2.1, Proposition IV.2.2 and Corollary IV.2.3: monoidal structure on CycSp, THH of
+E_∞-rings as A ⊗ T and their Frobenius.)
+
+Construction and proof. Construct the symmetric monoidal structure on the lax equalizer (NS18
+Construction IV.2.1) from the lax monoidal −^{tC_p} (RT.2/tate-multiplicativity). THH commutes with
+⊗ (realisation of cyclic bar constructions commutes with ⊗ since Δ^op is sifted).
+McClure–Schwänzl–Vogt: for E_∞ A the cyclic bar construction is the simplicial model of A ⊗ T (NS18
+Proposition IV.2.2); Frobenius via the Tate-valued Frobenius (NS18 Corollary IV.2.3, Definition
+IV.1.1).
+
+The comparison must satisfy these additional checks: THH(A⊗B) ≃ THH(A)⊗THH(B) as cyclotomic spectra.
+For a discrete commutative ring R, π_*THH(R) is a graded-commutative ring and the Dennis trace lands
+in a ring (RT.3).
+
+*Needs:* [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity), `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E5:abstract/algebra-objects`.
+
+<a id="refinedtracemethods-rt-2-relative-thh"></a>
+
+### THH relative to an E_∞-ring
+
+Work under the following hypotheses: k an E_∞-ring; A an E_1-k-algebra.
+
+For an E_∞-ring k and an E_1-k-algebra A (an E_1-algebra in Mod_k), THH(A/k) ∈ Mod_k^{BT} is the
+realisation of the cyclic bar construction formed with ⊗_k; equivalently THH(A/k) ≃ THH(A)
+⊗_{THH(k)} k, where k is a THH(k)-algebra through the T-equivariant augmentation THH(k) = k⊗T → k.
+For a commutative ring R and an R-algebra A, THH(HA/HR) ≃ HH(A/R) (the Eilenberg–Mac Lane spectrum
+of derived Hochschild homology, with its T-action). THH(A/k) carries no cyclotomic Frobenius in
+general (k ≠ S); relative versions with Frobenius require a Frobenius lift on k (S[z], ku with its
+ψ-operations: RT.6 and RT.4:q-Hodge).
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-0-bms2-19), Lemma 2.5,
+p. 15. BMS2 Lemma 2.5 identifies THH(A) ⊗_{THH(ℤ)} ℤ with HH(A/ℤ) — the relative THH over HZ. [On
+topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.2, Definition III.2.3
+(Acta p. 293); construction of the Frobenius ϕ_p in §III.2, Acta pp. 294-296, completed by Corollary
+III.3.8 (pp. 302-303). NS18 §III.2: the cyclic bar construction in a symmetric monoidal ∞-category.)
+
+Construction and proof. Construct the cyclic bar construction in Mod_k (symmetric monoidal) and
+realise (RT.2/cyclic-realisation). THH(A/k) ≃ THH(A) ⊗_{THH(k)} k by comparing cyclic bar
+constructions (base change of cyclic objects). For k = HR, identify Mod_{HR} ≃ D(R)
+(EnhancedDerivedSheaves E5:spectra-comparison) and the cyclic bar construction with the Hochschild
+complex of a flat resolution (RT.1/hochschild-homology).
+
+The API exposes the following operations and characterizations.
+
+
+- `THH.relative`: THH(A/k) ∈ Mod_k^{BT}.
+
+- `THH.relative_baseChange`: THH(A/k) ≃ THH(A) ⊗_{THH(k)} k.
+
+- `THH.relative_HZ`: THH(HA/HR) ≃ H(HH(A/R)) T-equivariantly (RT.1/hochschild-homology).
+
+- `THH.relative_map`: Functorial in maps of pairs (k → A).
+
+- `THH.relative_baseChange_k`: For k → k′ of E_∞-rings, THH(A⊗_kk′/k′) ≃ THH(A/k)⊗_kk′.
+
+**Checks.**
+
+
+- `THH.relative_self`: THH(k/k) ≃ k.
+
+- `THH.relative_polynomial`: π_*THH(HZ[x]/HZ) = ℤ[x] ⊕ ℤ[x]dx in degrees 0, 1.
+
+- `THH.relative_vs_absolute`: THH(HF_p/HZ) = HH(𝔽_p/ℤ) has π_* a divided power algebra on a degree-2 class, while THH(HF_p) has polynomial π_* = 𝔽_p[σ]: relative and absolute THH differ.
+
+The comparison must satisfy these additional checks: THH(k/k) = k with trivial action. THH(HZ[x]/HZ)
+= HH(ℤ[x]/ℤ) with π_* = ℤ[x] ⊕ ℤ[x]dx.
+
+This interface is used by `RT.4:q-Hodge/thh-over-ku-q-de-rham` — THH(−/ku) of spherical lifts;
+`RT.2/thh-over-thhz` — HH(A/ℤ) as THH relative to HZ; `RT.6` — THH relative to 𝕊[z] (BMS2 §11).
+
+*Needs:* [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), `EnhancedDerivedSheaves:E5:abstract/module-objects`, `EnhancedDerivedSheaves:E5:spectra-comparison`.
+
+<a id="refinedtracemethods-rt-2-thh-over-thhz"></a>
+
+### THH relative to THH(ℤ) is Hochschild homology
+
+Work under the following hypotheses: A a ring (or connective HZ-algebra).
+
+For every ring A (or HZ-algebra), the T-equivariant map THH(A) → HH(A/ℤ) induces an equivalence
+THH(A) ⊗_{THH(ℤ)} ℤ ≃ HH(A/ℤ), and π_iTHH(ℤ) is finite for i > 0 (π_{2k−1}THH(ℤ) ≅ ℤ/k for k ≥ 1,
+π_{even>0} = 0, Bökstedt). Consequently THH(A) → HH(A/ℤ) is an equivalence rationally and THH(A)/p →
+HH(A/ℤ)/p is controlled by THH(ℤ)/p.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-0-bms2-19), Lemma 2.5,
+p. 15. BMS2 Lemma 2.5: THH(A) ⊗_{THH(ℤ)} ℤ ≃ HH(A/ℤ), with π_*THH(ℤ) finite in positive degrees.)
+
+Construction and proof. Apply RT.2/relative-thh with k = HZ: THH(A/HZ) = THH(A) ⊗_{THH(ℤ)} ℤ (BMS2
+Lemma 2.5). Import π_*THH(ℤ) from Bökstedt's computation as recorded in BMS2 (finite in positive
+degrees).
+
+The comparison must satisfy these additional checks: THH(A) ⊗ ℚ ≃ HH(A⊗ℚ/ℚ). π_1THH(ℤ) = 0 and
+π_3THH(ℤ) = ℤ/2.
+
+*Needs:* [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology).
+
+<a id="refinedtracemethods-rt-2-mixed-complexes-are-circle-modules"></a>
+
+### Mixed complexes model complexes with circle action
+
+Work under the following hypotheses: k commutative ring; product totalisations for −^{hT} and
+−^{tT}.
+
+For a commutative ring k, D(k)^{BT} = Fun(BT, D(k)) is equivalent to the ∞-category of mixed
+complexes over k localised at quasi-isomorphisms (dg-modules over C_*(T; k) ≃ k[ε]/ε², |ε| = 1).
+Under this equivalence, for an algebra A the T-action on HH(A/k) (RT.2/relative-thh,
+RT.1/hochschild-homology) corresponds to the mixed complex (C(A/k), b, B), and HH(A/k)^{hT} ≃
+CC⁻(A/k), HH(A/k)^{tT} ≃ CP(A/k), HH(A/k)_{hT} ≃ CC(A/k) (with the shift conventions of
+RT.1/cyclic-homology), so that the norm sequence Σ HH_{hT} → HH^{hT} → HH^{tT} is ΣHC → HC⁻ → HP.
+
+(See [The homotopy fixed points of the circle action on Hochschild homology](#ref-0-hoyois-15),
+Theorem 2.1, p. 4. Hoyois / BMS2 §2: mixed complexes are complexes with circle action, and HH^{hT},
+HH^{tT}, HH_{hT} are HC⁻, HP, HC.)
+
+Construction and proof. C_*(T; k) is formal, equal to k[ε]/ε² with |ε| = 1 (T is an H-space with H_*
+= Λ[ε]); modules over it in D(k) are Fun(BT, D(k)) (Koszul/Schwede–Shipley; Hoyois). Identify
+homotopy fixed points with RHom_{k[ε]}(k, −), computed by the Koszul resolution: M[[u]] with b + uB
+(product totalisation). Identify the T-action on |C_•(A)| (RT.2/cyclic-realisation) with B on the
+normalised complex (Hoyois's theorem).
+
+The comparison must satisfy these additional checks: k with trivial action ↦ (k, 0, 0); k^{hT} =
+k[u] = k[[u]] as graded ring (degreewise finite). HH(A/k)^{tT} for A smooth over a ℚ-algebra is
+2-periodic de Rham cohomology (RT.1/hkr-cyclic-char0).
+
+*Needs:* [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation), `EnhancedDerivedSheaves:E1/enhanced-derived-category`, [Derived category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex).
+
+<a id="refinedtracemethods-rt-2-norm-sequence-hc"></a>
+
+### The norm sequence for cyclic homology
+
+Work under the following hypotheses: k commutative; derived HH.
+
+For every algebra A over a commutative ring k there is a natural fibre sequence ΣHC(A/k) → HC⁻(A/k)
+→ HP(A/k) in D(k), the circle norm sequence of HH(A/k) ∈ D(k)^{BT}; on homotopy … → HC_{n−1} → HC⁻_n
+→ HP_n → HC_{n−2} → …. The map HC⁻ → HP is the canonical map can : (−)^{hT} → (−)^{tT}.
+
+(See [The homotopy fixed points of the circle action on Hochschild homology](#ref-0-hoyois-15), §2,
+p. 4. The fibre sequence ΣHC → HC⁻ → HP (BMS2 §2 / AMMN §2).)
+
+Construction and proof. Apply RT.2/circle-tate to X = HH(A/k) and translate by
+RT.2/mixed-complexes-are-circle-modules. Check the shift: Σ(X_{hT}) with X_{hT} ≃ CC (direct-sum
+totalisation) by the convention u^{−1} of degree 2.
+
+The comparison must satisfy these additional checks: For A = k: π_*ΣHC(k/k) is k in each odd degree
+≥ 1, HC⁻_*(k/k) = k[u] and HP_*(k/k) = k[u^{±1}]; for i > 0, HP_{2i} ≅ π_{2i−1}ΣHC = HC_{2i−2}. This
+is the bottom row's source of the shift dictionary used by RT.3b/beilinson-fibre-sequence.
+
+*Needs:* [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), [Mixed complexes model complexes with circle action](#refinedtracemethods-rt-2-mixed-complexes-are-circle-modules), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology).
+
+<a id="refinedtracemethods-rt-2-topological-cyclic-homology"></a>
+
+### Topological cyclic homology
+
+Work under the following hypotheses: X ∈ CycSp (resp. CycSp_p).
+
+For a cyclotomic spectrum X, TC(X) := map_{CycSp}(S, X) (mapping spectrum from the cyclotomic
+sphere); for a p-cyclotomic X, TC(X, p) := map_{CycSp_p}(S, X); for an E_1-ring A, TC(A) :=
+TC(THH(A)) and TC(A, p) := TC(THH(A), p). TC is exact, lax symmetric monoidal, and TC(A) is an
+E_∞-ring for E_∞ A.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.1, Definition
+II.1.8, Acta p. 245. NS18 Definition II.1.8: TC(X) = map_{CycSp}(S, X) and TC of an E_1-ring.)
+
+Construction and proof. Mapping spectra exist since CycSp is stable (RT.2/cyclotomic-spectrum).
+Compute by the equalizer formula of RT.2/lax-equalizer, giving RT.2/tc-fibre-sequence.
+
+The API exposes the following operations and characterizations.
+
+
+- `TC`: TC(X) = map_{CycSp}(S, X); TC(A) = TC(THH(A)).
+
+- `TC.pTypical`: TC(X, p) = map_{CycSp_p}(S, X).
+
+- `TC.exact`: TC : CycSp → Sp is exact . Integral TC is not asserted to preserve filtered colimits; CMM Theorem 2.7 gives colimit preservation for TC/p on connective cyclotomic spectra.
+
+- `TC.laxMonoidal`: TC is lax symmetric monoidal.
+
+- `TC.toTCminus`: TC(X) → TC⁻(X) = X^{hT}.
+
+**Checks.**
+
+
+- `TC.zero`: TC(0) = 0.
+
+- `TC.Fp`: π_*TC(𝔽_p)^∧_p = ℤ_p in degrees 0 and −1 (imported from L.5 as an acceptance value).
+
+- `TC.not_TCminus`: TC(𝔽_p) ≠ TC⁻(𝔽_p): π_{−2}TC⁻(𝔽_p) ≠ 0 while π_{−2}TC(𝔽_p) = 0.
+
+The comparison must satisfy these additional checks: TC(S) ≃ S ⊕ ΣCP^∞_{−1}-type answer after
+p-completion (Bökstedt–Hsiang–Madsen), not computed here. TC(𝔽_p)^∧_p ≃ HZ_p ⊕ Σ^{−1}HZ_p
+(KTheoryFiniteLocalFields L.5/tc-of-perfect-field).
+
+This interface is used by `RT.3/cyclotomic-trace` — the trace K → TC; `RT.3/dgm-theorem` — relative
+K agrees with relative TC on nilpotent extensions; `KTheoryFiniteLocalFields:L.4/p-typical-tc` —
+Hesselholt–Madsen's TC(C;p) is compared with this TC.
+
+*Needs:* [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh).
+
+<a id="refinedtracemethods-rt-2-tc-minus-and-tp"></a>
+
+### Negative topological cyclic and periodic topological cyclic homology
+
+Work under the following hypotheses: X ∈ Sp^{BT}; for φ, X cyclotomic and bounded below.
+
+For X ∈ Sp^{BT}: TC⁻(X) := X^{hT} and TP(X) := X^{tT}, with can : TC⁻(X) → TP(X) the canonical map
+and, for X cyclotomic and bounded below, φ := ∏_p φ_p^{hT} : TC⁻(X) → ∏_p (X^{tC_p})^{hT} ≃ TP(X)^∧
+(profinite completion, RT.2/tate-cpn-via-cp). For an E_1-ring A, TC⁻(A) := THH(A)^{hT}, TP(A) :=
+THH(A)^{tT}; for k-algebras HC⁻(A/k) = HH(A/k)^{hT} and HP(A/k) = HH(A/k)^{tT}
+(RT.2/mixed-complexes-are-circle-modules). Both are lax symmetric monoidal in X.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.1, Proposition
+II.1.9, Acta p. 245 (proof p. 246); Corollary 1.5 and Remark 1.6, Introduction, Acta p. 209
+(displayed fibre sequences are garbled in the text layer). NS18 Proposition II.1.9 and Corollary 1.5
+use X^{hT}, X^{tT} with can and φ_p^{hT}. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Lemma II.4.2 and Remark II.4.3, Acta p.
+262 (text layer drops the arrow 'X tT → (X tCp )hT'). NS18 Lemma II.4.2: (X^{tC_p})^{hT} is the
+p-completion of X^{tT}.)
+
+Construction and proof. Define by RT.2/homotopy-orbits-fixed-points and RT.2/circle-tate. Identify
+the target of φ_p^{hT} with TP^∧_p via RT.2/tate-cpn-via-cp (ii). Linearisation THH(A) → HH(A/ℤ)
+induces TC⁻(A) → HC⁻(A/ℤ), TP(A) → HP(A/ℤ).
+
+The API exposes the following operations and characterizations.
+
+
+- `TCminus`: TC⁻(X) = X^{hT}.
+
+- `TP`: TP(X) = X^{tT}.
+
+- `TCminus.can`: can : TC⁻ → TP.
+
+- `TCminus.frobenius`: φ : TC⁻(X) → TP(X)^∧ for bounded below cyclotomic X.
+
+- `TCminus.laxMonoidal`: TC⁻ and TP are lax symmetric monoidal; TC⁻(A), TP(A) are E_∞-rings for E_∞ A.
+
+- `TCminus.toHC`: THH(A) → HH(A/ℤ) induces TC⁻(A) → HC⁻(A/ℤ) and TP(A) → HP(A/ℤ). Rational equivalence of underlying THH and HH does not justify rational equivalence after these infinite limits; only the natural comparison maps are asserted.
+
+**Checks.**
+
+
+- `TCminus.zero`: TC⁻(0) = TP(0) = 0.
+
+- `TP.HZ_trivial`: For HZ with trivial T-action, π_*TP = ℤ[t^{±1}].
+
+- `TP.not_HP`: TP(𝔽_p) ≠ HP(𝔽_p/𝔽_p): π_0TP(𝔽_p) = ℤ_p while HP_0(𝔽_p/𝔽_p) = 𝔽_p.
+
+The comparison must satisfy these additional checks: TC⁻(𝔽_p) and TP(𝔽_p): π_*TP(𝔽_p) = ℤ_p[σ^{±1}]
+(imported calculation in KTheoryFiniteLocalFields L.5). TC⁻(S) = S^{hT}, TP(S) = S^{tT}.
+
+This interface is used by `RT.3b/beilinson-square-spectral` — TC⁻ and TP rationalised are compared
+with HC⁻ and HP; `KTheoryFiniteLocalFields:L.5/fp-negative-topological-cyclic-homology` — TC⁻ of
+𝔽_p; `RT.4:q-Hodge/tc-minus-m` — TC^{−(m)} refines TC⁻ with genuine C_m fixed points.
+
+*Needs:* [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), [Iterated Tate constructions for bounded below spectra](#refinedtracemethods-rt-2-tate-cpn-via-cp), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring).
+
+<a id="refinedtracemethods-rt-2-tc-fibre-sequence"></a>
+
+### The Nikolaus–Scholze formula for TC
+
+Work under the following hypotheses: X cyclotomic; (iii) X bounded below.
+
+(i) For a cyclotomic spectrum X there is a functorial fibre sequence TC(X) → X^{hT} → ∏_p
+(X^{tC_p})^{hT}, the second map having p-th component φ_p^{hT} − can, where can : X^{hT} ≃
+(X^{hC_p})^{h(T/C_p)} → (X^{tC_p})^{h(T/C_p)}. (ii) For a p-cyclotomic X: TC(X, p) → X^{hC_{p^∞}} →
+(X^{tC_p})^{hC_{p^∞}}. (iii) For X bounded below, ∏_p(X^{tC_p})^{hT} ≃ TP(X)^∧ and TC(X) ≃ fib(φ −
+can : TC⁻(X) → TP(X)^∧); for a connective E_1-ring A, TC(A) is the genuine
+(Bökstedt–Hsiang–Madsen–Goodwillie) TC (via RT.2/genuine-tc-agrees).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.1, Proposition
+II.1.9, Acta p. 245 (proof p. 246); Corollary 1.5 and Remark 1.6, Introduction, Acta p. 209
+(displayed fibre sequences are garbled in the text layer). NS18 Proposition II.1.9 and Corollary
+1.5: TC(X) → X^{hT} → ∏_p (X^{tC_p})^{hT} with φ_p^{hT} − can.)
+
+Construction and proof. Mapping spectra in a lax equalizer are equalizers (RT.2/lax-equalizer):
+map(S, X) = Eq(map_{Sp^{BT}}(S, X) ⇉ ∏_p map(S, X^{tC_p})) = fib(X^{hT} → ∏_p (X^{tC_p})^{hT}).
+Identify the two maps with can and φ_p^{hT} (NS18 Proposition II.1.9). For bounded below X apply
+RT.2/tate-cpn-via-cp (NS18 Corollary 1.5).
+
+The comparison must satisfy these additional checks: For X = THH(𝔽_p): TC(𝔽_p) = fib(φ − can :
+TC⁻(𝔽_p) → TP(𝔽_p)) with π_* = ℤ_p in degrees 0, −1 (p-complete). Fails for unbounded X: for X =
+KU-type periodic inputs the profinite-completion identification (iii) is not available.
+
+*Needs:* [Topological cyclic homology](#refinedtracemethods-rt-2-topological-cyclic-homology), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [Iterated Tate constructions for bounded below spectra](#refinedtracemethods-rt-2-tate-cpn-via-cp), [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer).
+
+<a id="refinedtracemethods-rt-2-thh-spherical-group-rings"></a>
+
+### THH and TC of spherical group rings and loop spaces
+
+Work under the following hypotheses: X a connected pointed space (Kan complex); p-completion for the
+TC statement.
+
+For an E_1-monoid M in spaces, THH(S[M]) = Σ^∞_+B^{cyc}M with its T-action, and the cyclotomic
+Frobenius φ_p is Σ^∞_+ψ_p followed by Σ^∞_+((B^{cyc}M)^{hC_p}) → (Σ^∞_+B^{cyc}M)^{hC_p} →
+(Σ^∞_+B^{cyc}M)^{tC_p}, where ψ_p : B^{cyc}M → (B^{cyc}M)^{hC_p} comes from the diagonal (NS18 Lemma
+IV.3.1). For M = ΩY with Y connected, B^{cyc}M ≃ LY = Map(S¹, Y) T-equivariantly and ψ_p is induced
+by the p-fold cover S¹ → S¹, so THH(S[ΩY]) ≃ Σ^∞_+LY (Proposition IV.3.2, Corollary IV.3.3). For a
+bounded-below p-complete p-cyclotomic X with a Frobenius lift φ̃_p : X → X^{hC_p}, TC(X) is the
+pullback of tr : ΣX_{hT} → X and id − φ̃_p (Proposition IV.3.4); hence after p-completion TC(S[ΩY])
+is the Bökstedt–Hsiang–Madsen pullback of Σ(Σ^∞_+LY)_{hT} → Σ^∞_+LY and id − Σ^∞_+ψ_p (Theorem
+IV.3.6).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter IV, §IV.3, Lemma IV.3.1
+(Acta pp. 345-346), Proposition IV.3.2 (Acta p. 347), Corollary IV.3.3 (p. 351), Proposition IV.3.4
+(Acta p. 352), Theorem IV.3.6 (Acta p. 354). NS18 Lemma IV.3.1, Propositions IV.3.2, IV.3.4 and
+Theorem IV.3.6: cyclic bar constructions of loop spaces and TC of spherical group rings.)
+
+Construction and proof. Cyclic bar constructions of E_1-groups in spaces realise to free loop spaces
+(NS18 Lemma IV.3.1, Proposition IV.3.2). Frobenius from the unstable p-th power map and the Segal
+conjecture (NS18 Proposition IV.3.4). TC via the fibre sequence (RT.2/tc-fibre-sequence) and the
+norm sequence for Σ^∞_+LX (NS18 Theorem IV.3.6).
+
+The comparison must satisfy these additional checks: X = ∗: THH(S) = S. X = BG for a discrete group
+G: THH(S[G]) ≃ Σ^∞_+ L BG = ⊕_{conj classes [g]} Σ^∞_+ BC_G(g).
+
+*Needs:* [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), `StableHomotopyKTheory:H.5:spectra/suspension-spectrum`.
+
+<a id="refinedtracemethods-rt-2-thh-spectral-categories"></a>
+
+### THH of spectral and stable ∞-categories
+
+Work under the following hypotheses: C small (a set of objects for the cyclic nerve); for stable
+∞-categories, THH is defined via a spectral category model or directly (Blumberg–Gepner–Tabuada).
+Use derived smash products, or a pointwise cofibrant replacement, in the cyclic nerve. The point-set
+cyclic nerve without replacement is not asserted invariant for arbitrary spectral categories.
+
+For a small spectral category (or small stable ∞-category) C, THH(C) ∈ Sp^{BT} is the realisation of
+the cyclic nerve [n] ↦ ⊕_{c_0,…,c_n} C(c_0,c_1)⊗C(c_1,c_2)⊗…⊗C(c_n,c_0) with its T-action, and it
+carries a cyclotomic structure. THH is Morita invariant: a functor inducing an equivalence of
+idempotent-completed module categories (Morita equivalence; in particular DK-equivalences and C →
+Idem(C)) induces an equivalence on THH; THH(Perf(A)) ≃ THH(A) for an E_1-ring A; THH sends exact
+sequences of small stable ∞-categories to fibre sequences (THH is a localizing invariant).
+
+(See [Localization theorems in topological Hochschild homology and topological cyclic
+homology](#ref-0-blumberg-mandell-12), §3, Definition 3.1, pp. 9-10. Blumberg–Mandell define THH of
+spectral categories by the cyclic nerve and prove Morita invariance and localisation sequences.
+[Localization theorems in topological Hochschild homology and topological cyclic
+homology](#ref-0-blumberg-mandell-12), Proposition 3.5, p. 11; Theorem 4.9, p. 19; Theorems 5.9,
+5.11–5.12, pp. 23–24; Theorem 7.1, pp. 29–30. These supply the derived cyclic-nerve comparison,
+cyclotomic refinement, Morita comparison and localization; Definition 3.1 only defines the cyclic
+nerve.)
+
+Construction and proof. Define the cyclic nerve as a cyclic spectrum and realise
+(RT.2/cyclic-realisation) (Blumberg–Mandell §3). Morita invariance: reduce to DK-equivalences and to
+the inclusion of a full subcategory generating under retracts and finite colimits
+(Blumberg–Mandell's 'dennis-trace / agreement' argument). THH(Perf(A)) ≃ THH(A): A is a one-object
+full subcategory generating Perf(A). Localisation sequences (Blumberg–Mandell's localisation
+theorem) and cyclotomic structure (genuine model: Blumberg–Mandell; Borel model: by the Tate
+diagonal as for E_1-rings).
+
+The API exposes the following operations and characterizations.
+
+
+- `THH.ofCat`: THH(C) ∈ CycSp for a small stable ∞-category C.
+
+- `THH.ofCat_perf`: THH(Perf(A)) ≃ THH(A) as cyclotomic spectra.
+
+- `THH.ofCat_morita`: Morita equivalences induce equivalences on THH.
+
+- `THH.ofCat_localizing`: THH sends Verdier sequences A → B → B/A of small stable ∞-categories to fibre sequences.
+
+- `THH.ofCat_map`: Exact functors induce cyclotomic maps, with map_id and map_comp.
+
+**Checks.**
+
+
+- `THH.ofCat_zero`: THH of the zero category is 0.
+
+- `THH.ofCat_matrix`: THH(Perf(M_n(R))) ≃ THH(R) via the Morita equivalence.
+
+- `THH.ofCat_not_K`: THH is not K-theory: THH(Perf(𝔽_p)) has π_2 = 𝔽_p while K_2(𝔽_p) = 0.
+
+The comparison must satisfy these additional checks: THH(Perf(R)) ≃ THH(R) for a discrete ring R;
+THH(M_n(R)) ≃ THH(R). For the category of Z-linear categories via HZ-enriched Hom-groups, this is
+the THH of a linear category used by KTheoryFiniteLocalFields L.4.
+
+This interface is used by `RT.3/cyclotomic-trace` — the trace K(C) → TC(C) is a natural
+transformation of localizing invariants of small stable ∞-categories;
+`KTheoryFiniteLocalFields:L.4/thh-of-linear-waldhausen-category` — THH of linear Waldhausen
+categories via HZ-enriched Hom spectra; `trace:localizing-invariant` — THH is a localizing
+invariant.
+
+*Needs:* [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation), `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`.
+
+<a id="refinedtracemethods-rt-2-tc-p-completion"></a>
+
+### p-completion of TC
+
+Work under the following hypotheses: X bounded below.
+
+For a bounded below cyclotomic spectrum X: TC(X)^∧_p ≃ TC(X|_{CycSp_p}, p)^∧_p, and TC(X) is the
+pullback of X^{hT} → ∏_p (X^∧_p)^{hT} ← ∏_p TC(X,p)^∧_p (in particular TC(X) ⊗ ℚ is the pullback of
+TC⁻(X)⊗ℚ and (∏_p TC(X,p)^∧_p)⊗ℚ over (∏_p TC⁻(X)^∧_p)⊗ℚ).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Definition
+II.4.4 (Acta p. 263; R and F recalled on p. 262) and the pullback square (1) with footnote 22 (Acta
+p. 266). NS18 §II.4: integral TC^gen is the pullback (1) over primes and its p-completion is
+TC^gen(X, p)^∧_p.)
+
+Construction and proof. Compare the fibre sequences of RT.2/tc-fibre-sequence (i) and (ii) after
+p-completion: (X^{tC_p})^{hT} ≃ (X^{tC_p})^{hC_{p^∞}}-type identifications for bounded below X (NS18
+§II.4, after diagram (1), and §IV.3). Arithmetic fracture square (StableHomotopyKTheory
+H.6/arithmetic-fracture-square).
+
+The comparison must satisfy these additional checks: For X = THH(A) with A connective, TC(A)^∧_p =
+TC(A, p)^∧_p, the object used by KTheoryFiniteLocalFields
+L.4/integral-and-p-typical-tc-agree-after-completion.
+
+*Needs:* [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [Iterated Tate constructions for bounded below spectra](#refinedtracemethods-rt-2-tate-cpn-via-cp), `StableHomotopyKTheory:H.6/p-completion`, `StableHomotopyKTheory:H.6/arithmetic-fracture-square`.
+
+<a id="refinedtracemethods-rt-2-hz-module-circle-tate"></a>
+
+### Circle and finite Tate constructions for HZ-module spectra
+
+Work under the following hypotheses: X ∈ Mod_{HZ}^{BT}; NS18 Lemma IV.4.12 imposes no boundedness or
+finiteness hypothesis.
+
+For X ∈ D(ℤ)^{BT} (T-equivariant HZ-modules, equivalently mixed complexes over ℤ by
+RT.2/mixed-complexes-are-circle-modules), the natural maps X^{hT} ⊗_{ℤ^{hT}} ℤ → X, X^{hT}
+⊗_{ℤ^{hT}} ℤ^{tT} → X^{tT} and X^{tT} ⊗_{ℤ^{tT}} ℤ^{tC_n} → X^{tC_n} (n ≥ 1), induced by the lax
+symmetric monoidal structures, are equivalences (NS18 Lemma IV.4.12). With π_*ℤ^{tT} = ℤ[t^{±1}] and
+π_*ℤ^{tC_n} = ℤ/n[t^{±1}] this computes finite Tate constructions from the circle one.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter IV, §IV.4, Lemma IV.4.12,
+Acta p. 362 (the three displayed maps are garbled in the text layer; checked on the rendered page).
+NS18 Lemma IV.4.12: T-equivariant chain complexes and their Tate constructions.)
+
+Construction and proof. For X∈D(ℤ)^{BT}, compute the fibre of t : X^{hT}→X^{hT}[2] as X, using the
+free circle-module generator and adjunction; this gives X^{hT}⊗_{ℤ^{hT}}ℤ≃X. Invert t and identify
+the resulting cofiber with the circle Tate construction; compare the finite cyclic norm to obtain
+the third equivalence, as in the proof of NS18 Lemma IV.4.12. Do not assert that homotopy fixed
+points commute with arbitrary colimits. For trivial X=ℤ, recover ℤ[t^{±1}]/n.
+
+The comparison must satisfy these additional checks: For X = ℤ with trivial action: ℤ^{tC_p} ≃
+ℤ^{tT} ⊗_{ℤ^{tT}} ℤ^{tC_p} with π_* = 𝔽_p[t^{±1}].
+
+*Needs:* [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), [Mixed complexes model complexes with circle action](#refinedtracemethods-rt-2-mixed-complexes-are-circle-modules), [Tate spectra of Eilenberg–Mac Lane spectra are Tate cohomology](#refinedtracemethods-rt-2-tate-of-eilenberg-maclane).
+
+<a id="refinedtracemethods-rt-2-trivial-cyclotomic-adjunction"></a>
+
+### TC is right adjoint to the trivial cyclotomic structure; Frobenius on connective covers
+
+Work under the following hypotheses: (i) all spectra; (ii) bounded below / connective p-cyclotomic
+spectra as in NS18 §IV.4.
+
+(i) The functor Sp → CycSp sending a spectrum Y to Y^{triv} (trivial T-action, Frobenius Y →
+Y^{hC_p} → Y^{tC_p}) is left adjoint to TC : CycSp → Sp (NS18 Proposition IV.4.14). (ii) For a
+connective cyclotomic X, sh_pX has underlying T-spectrum τ_{≥0}(X^{tC_p}) with residual action, φ_ℓ
+= 0 for ℓ ≠ p and φ_p = τ_{≥0}(φ_p^{tC_p}), with a natural map X → sh_pX (Construction IV.4.15);
+HZ_p^{triv} → THH(𝔽_p) induces THH(𝔽_p) ≃ sh_p(HZ_p^{triv}) as E_∞-cyclotomic spectra (Corollary
+IV.4.16). (iii) For an E_2-ring A with p = 0 in π_0A, THH(A) is a THH(𝔽_p)-module compatibly with
+the cyclotomic structure and TC(A) → THH(A)^{hT} → THH(A)^{tT} (can − φ_p^{hT}) is a fibre sequence
+even if A is not bounded below (final paragraph of NS18 §IV.4).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter IV, §IV.4, Proposition
+IV.4.14 and Construction IV.4.15 (Acta p. 363), Corollary IV.4.16 (Acta p. 364), and the final
+unnumbered paragraph of §IV.4 (Acta pp. 364-365). NS18 Proposition IV.4.14 and the statements
+following it on connective covers and characteristic-p cyclotomic spectra.)
+
+Construction and proof. (i) Map_{CycSp}(triv Y, X) = Eq(Map(Y, X^{hT}) ⇉ ∏ Map(Y, (X^{tC_p})^{hT}))
+= Map(Y, TC(X)) by RT.2/tc-fibre-sequence. (ii) connective-cover and characteristic-p statements:
+NS18 §IV.4, using RT.2/tate-orbit-lemma and RT.2/hz-module-circle-tate.
+
+The comparison must satisfy these additional checks: TC(triv Y) for Y = S is TC(S); the counit triv
+TC(X) → X is the universal map.
+
+*Needs:* [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [The Tate orbit lemma](#refinedtracemethods-rt-2-tate-orbit-lemma), [Circle and finite Tate constructions for HZ-module spectra](#refinedtracemethods-rt-2-hz-module-circle-tate).
+
+<a id="refinedtracemethods-rt-2-orthogonal-spectra"></a>
+
+### Orthogonal spectra
+
+Work under the following hypotheses: Spaces are compactly generated weak Hausdorff; O(n) acts
+continuously.
+
+An orthogonal spectrum X is a sequence of pointed spaces X_n with continuous based O(n)-actions and
+structure maps σ_n : X_n ∧ S¹ → X_{n+1} whose iterates X_n ∧ S^m → X_{n+m} are O(n) ×
+O(m)-equivariant; π_iX := colim_n π_{i+n}X_n; a map is a stable equivalence if it induces
+isomorphisms on all π_i. Orthogonal spectra form a closed symmetric monoidal category (smash
+product), and inverting stable equivalences gives the ∞-category Sp, compatibly with symmetric
+spectra (StableHomotopyKTheory H.5:spectra) via the forgetful functor (Mandell–May–Schwede–Shipley).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Definition
+II.2.1 (citing Schwede [85, Definition 1.1, §1]), Acta pp. 246-247. NS18 Definition II.2.1:
+orthogonal spectra, their homotopy groups and stable equivalences.)
+
+Construction and proof. Define as diagram spectra over the topological category of real inner
+product spaces (Mandell–May–Schwede–Shipley). Stable model structure and comparison with symmetric
+spectra: the forgetful functor from orthogonal to symmetric spectra (of spaces) is a right Quillen
+equivalence; compose with the symmetric-spectra model of StableHomotopyKTheory H.5:spectra and
+EnhancedDerivedSheaves E5:spectra-comparison.
+
+The API exposes the following operations and characterizations.
+
+
+- `OrthogonalSpectrum`: Sequences (X_n, O(n)-action, σ_n) with equivariant iterated structure maps.
+
+- `OrthogonalSpectrum.homotopyGroup`: π_iX = colim_n π_{i+n}X_n.
+
+- `OrthogonalSpectrum.smash`: Closed symmetric monoidal smash product with unit S.
+
+- `OrthogonalSpectrum.toSymmetric`: The forgetful functor to symmetric spectra is a right Quillen equivalence; both present Sp.
+
+- `OrthogonalSpectrum.StableEquiv`: Stable equivalences are the π_*-isomorphisms.
+
+**Checks.**
+
+
+- `OrthogonalSpectrum.sphere_pi0`: π_0 of the orthogonal sphere spectrum is ℤ.
+
+- `OrthogonalSpectrum.zero`: The constant point spectrum is a zero object.
+
+- `OrthogonalSpectrum.not_sequential`: On S¹∧S¹, the symmetric braiding acts by −1 on π₂(S²), so it differs from the identity. This checks the orthogonal symmetric smash structure and its suspension sign.
+
+The comparison must satisfy these additional checks: The orthogonal sphere spectrum has X_n = S^n
+with the standard O(n)-action; π_0 = ℤ. π_i of an orthogonal spectrum agrees with π_i of its
+underlying symmetric spectrum (naive homotopy groups).
+
+This interface is used by `RT.2/genuine-g-spectra` — orthogonal G-spectra model genuine G-spectra;
+`RT.2/bokstedt-construction` — classical THH is an orthogonal spectrum.
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra`, `StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane`, `StableHomotopyKTheory:H.5:spectra/naive-homotopy-groups`, `StableHomotopyKTheory:H.5:spectra/stable-model-structure`, `EnhancedDerivedSheaves:E5:spectra-comparison`.
+
+<a id="refinedtracemethods-rt-2-genuine-g-spectra"></a>
+
+### Genuine G-spectra, genuine and geometric fixed points
+
+Work under the following hypotheses: G a finite group; spaces compactly generated.
+
+For a finite group G, orthogonal G-spectra are Fun(BG, Sp^O) with smash product and diagonal action,
+extended to representations by X(V) = L(ℝ^n, V)_+ ∧_{O(n)} X_n for dim V = n. A map is an
+equivalence if Φ^H f is a stable equivalence for every subgroup H ⊆ G, where the geometric fixed
+points Φ^GX have n-th space X(ℝ^n ⊗ ρ_G)^G (ρ_G the regular representation). The ∞-category GSp of
+genuine G-spectra is N(GSp^O)[equivalences^{−1}], symmetric monoidal via the cofibrant smash; Φ^H :
+GSp → Sp is symmetric monoidal; the genuine fixed points −^H : GSp → Sp come from set-theoretic
+fixed points of orthogonal G-Ω-spectra, with a lax symmetric monoidal transformation −^H → −^{hH}
+through the forgetful functor GSp → Sp^{BG}.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Definition
+II.2.2 (Acta p. 247), Definition II.2.3 and Proposition II.2.4 (Acta p. 248). NS18 Definitions
+II.2.2–II.2.3, Proposition II.2.4: orthogonal G-spectra and geometric fixed points. [On topological
+cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Definition II.2.5, Acta pp.
+248-249. NS18 Definition II.2.5: the ∞-category of genuine G-spectra with −^H and Φ^H.)
+
+Construction and proof. Define orthogonal G-spectra and Φ^G (NS18 Definitions II.2.2–II.2.3); Φ^G is
+lax monoidal and strong on cofibrant objects (NS18 Proposition II.2.4). Localise at the
+Φ^H-equivalences to get GSp (NS18 Definition II.2.5); construct −^H via fibrant replacement
+(G-Ω-spectra). Construct the comparison −^H → −^{hH} from GSp → Sp^{BG}.
+
+The API exposes the following operations and characterizations.
+
+
+- `GenuineSpectrum`: GSp for a finite group G.
+
+- `GenuineSpectrum.fixedPoints`: −^H : GSp → Sp, lax symmetric monoidal.
+
+- `GenuineSpectrum.geometricFixedPoints`: Φ^H : GSp → Sp, symmetric monoidal.
+
+- `GenuineSpectrum.toBorel`: The forgetful functor GSp → Sp^{BG} and the transformation −^H → −^{hH}.
+
+- `GenuineSpectrum.equiv_iff`: A map is an equivalence iff all Φ^H are equivalences (H ⊆ G).
+
+- `GenuineSpectrum.burnside`: π_0((S_G)^G) ≅ A(G), the Burnside ring.
+
+**Checks.**
+
+
+- `GenuineSpectrum.trivialGroup`: For G = 1, GSp ≃ Sp.
+
+- `GenuineSpectrum.burnside_C2`: π_0(S_{C_2})^{C_2} ≅ ℤ², the Burnside ring of C_2.
+
+- `GenuineSpectrum.not_borel`: GSp → Sp^{BG} is not an equivalence: the C_2-sphere and its Borel completion have different genuine fixed points (A(C_2) versus ℤ ⊕ ℤ_2^∧).
+
+The comparison must satisfy these additional checks: For G trivial, GSp = Sp and −^G = Φ^G = id. π_0
+of the genuine fixed points of the G-sphere is the Burnside ring A(G) (tom Dieck), not ℤ.
+
+This interface is used by `RT.2/genuine-cyclotomic-spectrum` — genuine cyclotomic spectra are
+genuine C_{p^∞}- or T-spectra with Φ^{C_p}X ≃ X; `KTheoryFiniteLocalFields:L.4/tr-pro-spectrum` —
+Hesselholt–Madsen's TR^n = T(C)^{C_{p^{n−1}}} uses genuine fixed points;
+`RT.4:q-Hodge/cyclonic-spectrum` — cyclonic spectra use genuine C_m fixed points.
+
+*Needs:* [Orthogonal spectra](#refinedtracemethods-rt-2-orthogonal-spectra), [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
+
+<a id="refinedtracemethods-rt-2-geometric-fixed-points"></a>
+
+### Geometric fixed points via complete universes
+
+Work under the following hypotheses: G finite; H ⊆ H′ normal subgroups; U a complete G-universe.
+
+For a finite group G with complete universe U (a countable sum of all irreducible representations)
+and H ⊆ G normal, Φ^H_U : GSp^O → (G/H)Sp^O has n-th space hocolim_{V ⊂ U, V^H = 0} X(ℝ^n ⊕ V)^H
+(Bousfield–Kan homotopy colimit), for H=G naturally zig-zag equivalent to the derived Φ^G functor on
+G-spectra; for normal H ⊆ H′ ⊆ G, Φ^{H′/H}_{U^H} Φ^H_U X ≃ Φ^{H′}_U X (geometric fixed points
+compose).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Definition
+II.2.9 (Acta p. 251), Definition II.2.10 and Lemma II.2.11 (Acta p. 252), Proposition II.2.12 (Acta
+p. 253). NS18 Definitions II.2.9–II.2.10, Lemma II.2.11 and Proposition II.2.12: point-set geometric
+fixed points and their composition.)
+
+Construction and proof. Define via the homotopy colimit over representations with V^H = 0 (NS18
+Definitions II.2.9–II.2.10). Zig-zag with Φ^G (NS18 Lemma II.2.11, with the correction V^G = 0
+recorded in source issue RefinedTraceMethods/E17). Composition (NS18 Proposition II.2.12).
+
+The API exposes the following operations and characterizations.
+
+
+- `geometricFixedPoints.universe`: Φ^H_U : GSp^O → (G/H)Sp^O.
+
+- `geometricFixedPoints.zigzag`: Φ^G X ≃ Φ^G_U X naturally.
+
+- `geometricFixedPoints.comp`: Φ^{H′/H}Φ^H ≃ Φ^{H′} for normal H ⊆ H′.
+
+- `geometricFixedPoints.suspension`: Φ^G Σ^∞_G Y ≃ Σ^∞ Y^G.
+
+**Checks.**
+
+
+- `geometricFixedPoints.trivial`: Φ^{1} = id.
+
+- `geometricFixedPoints.sphere`: Φ^{C_p} S_{C_p} = S (fixed points of spheres of representations with V^{C_p} = 0 are S^0).
+
+- `geometricFixedPoints.not_fixed`: Φ^{C_p} ≠ −^{C_p}: for the C_p-sphere, π_0Φ^{C_p} = ℤ but π_0(S)^{C_p} = A(C_p) = ℤ².
+
+The comparison must satisfy these additional checks: Φ^G of a suspension spectrum Σ^∞_G Y is Σ^∞
+Y^G. For H′ = H the composition statement is the identity.
+
+This interface is used by `RT.2/genuine-cyclotomic-spectrum` — the cyclotomic structure maps are
+Φ^{C_p}X ≃ X; `RT.2/isotropy-separation` — the cofibre term of isotropy separation is
+(Φ^{C_p}X)^{G/C_p}.
+
+*Needs:* [Genuine G-spectra, genuine and geometric fixed points](#refinedtracemethods-rt-2-genuine-g-spectra).
+
+<a id="refinedtracemethods-rt-2-borel-completion"></a>
+
+### Borel-complete genuine spectra
+
+Work under the following hypotheses: G finite.
+
+For a finite group G, the forgetful functor GSp → Sp^{BG} has a fully faithful right adjoint B_G
+whose essential image consists of the X with X^H → X^{hH} an equivalence for every H ⊆ G
+(Borel-complete genuine spectra); B_G is lax symmetric monoidal and the adjunction unit id_{GSp} →
+B_G ∘ forget is a lax symmetric monoidal transformation.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Theorem II.2.7
+(Acta p. 250; proof pp. 250-251) and Corollary II.2.8 (Acta p. 251) (text layer drops arrows). NS18
+Theorem II.2.7: the fully faithful right adjoint to GSp → Sp^{BG}.)
+
+Construction and proof. Construct B_G by the adjoint functor theorem and compute (B_G Y)^H ≃ Y^{hH}
+using free G-cell objects (NS18 Theorem II.2.7, Corollary II.2.8).
+
+The comparison must satisfy these additional checks: (B_G Y)^G ≃ Y^{hG}. For Y = S with trivial
+action, B_G S has genuine fixed points S^{hG}.
+
+*Needs:* [Genuine G-spectra, genuine and geometric fixed points](#refinedtracemethods-rt-2-genuine-g-spectra), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`.
+
+<a id="refinedtracemethods-rt-2-isotropy-separation"></a>
+
+### Isotropy separation for cyclic p-groups
+
+Work under the following hypotheses: G = C_{p^n}.
+
+For G cyclic of p-power order and X ∈ GSp there is a natural fibre sequence X_{hG} → X^G →
+(Φ^{C_p}X)^{G/C_p}; applied to X → B_G X it maps to the norm sequence X_{hG} → X^{hG} → X^{tG}, the
+right-hand square is lax symmetric monoidal, and this gives a lax symmetric monoidal structure on
+−^{tG} with −^{hG} → −^{tG} lax symmetric monoidal (agreeing with RT.2/tate-multiplicativity).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Proposition
+II.2.13 (attributed to Hesselholt–Madsen [47, Prop. 2.1]), Acta p. 254, with the following
+discussion pp. 254-255. NS18 Proposition II.2.13: X_{hG} → X^G → (Φ^{C_p}X)^{G/C_p} for cyclic
+p-groups.)
+
+Construction and proof. Isotropy separation cofibre sequence EG_+ ∧ X → X → ẼG ∧ X and
+identification of the fixed points of the terms (NS18 Proposition II.2.13).
+
+The comparison must satisfy these additional checks: For n = 1: X_{hC_p} → X^{C_p} → Φ^{C_p}X, the
+fundamental sequence used for TR.
+
+*Needs:* [Geometric fixed points via complete universes](#refinedtracemethods-rt-2-geometric-fixed-points), [Borel-complete genuine spectra](#refinedtracemethods-rt-2-borel-completion), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate).
+
+<a id="refinedtracemethods-rt-2-geometric-fixed-points-localisation"></a>
+
+### Geometric fixed points as a localisation
+
+Work under the following hypotheses: G finite (or C_{p^∞}, T with finite H as in
+RT.2/genuine-cyclic-and-circle-spectra).
+
+For H ⊆ G normal, Φ^H : GSp → (G/H)Sp has a fully faithful right adjoint R_H whose essential image
+is GSp_{≥H}, the X with Φ^N X ≃ 0 (equivalently X^N ≃ 0) for every N not containing H; on GSp_{≥H}
+the map −^H → Φ^H is an equivalence. For the right adjoint R_{C_p} on genuine C_{p^∞}- or F-genuine
+T-spectra, (R_{C_p}X)^H ≃ X^{H/C_p} if C_p ⊆ H and 0 otherwise.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Proposition
+II.2.14 (Acta p. 255; proof pp. 255-256) and Corollary II.2.16 (Acta pp. 256-257) (text layer drops
+arrows). NS18 Proposition II.2.14 and Corollary II.2.16: Φ^H as a smashing localisation, fixed
+points of R_{C_p}.)
+
+Construction and proof. Smashing localisation at ẼF[H] (NS18 Proposition II.2.14). Fixed points of
+R_{C_p} (NS18 Corollary II.2.16).
+
+The comparison must satisfy these additional checks: For G = C_p, H = C_p: GSp_{≥C_p} ≃ Sp via
+Φ^{C_p}.
+
+*Needs:* [Geometric fixed points via complete universes](#refinedtracemethods-rt-2-geometric-fixed-points), [Genuine G-spectra, genuine and geometric fixed points](#refinedtracemethods-rt-2-genuine-g-spectra).
+
+<a id="refinedtracemethods-rt-2-genuine-cyclic-and-circle-spectra"></a>
+
+### Genuine C_{p^∞}-spectra and F-genuine T-spectra
+
+Work under the following hypotheses: Only finite subgroups of T are used (F-genuine, not fully
+genuine).
+
+C_{p^∞}Sp := lim_n C_{p^n}Sp along the forgetful (restriction) functors; TSp^O is orthogonal spectra
+with continuous T-action, an F-equivalence is a map inducing equivalences of orthogonal C_n-spectra
+for every finite C_n ⊂ T, and TSp_F is the localisation at F-equivalences. Genuine fixed points −^H
+and geometric fixed points Φ^H exist for finite H and satisfy RT.2/borel-completion and
+RT.2/geometric-fixed-points-localisation.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.2, Definition
+II.2.15, Acta p. 256 (text layer drops the arrow 'Cpn Sp → Cpn−1 Sp'). NS18 Definition II.2.15:
+genuine C_{p^∞}-spectra and F-genuine T-spectra.)
+
+Construction and proof. Form the limit of ∞-categories and the localisation (NS18 Definition
+II.2.15). Transfer −^H, Φ^H and the two theorems levelwise.
+
+The API exposes the following operations and characterizations.
+
+
+- `GenuineCircleSpectrum`: TSp_F, the F-genuine T-spectra.
+
+- `GenuinePInftySpectrum`: C_{p^∞}Sp = lim_n C_{p^n}Sp.
+
+- `GenuineCircleSpectrum.fixedPoints`: −^{C_n} : TSp_F → Sp^{B(T/C_n)} for finite C_n ⊂ T.
+
+- `GenuineCircleSpectrum.geometricFixedPoints`: Φ^{C_n} : TSp_F → TSp_F via T/C_n ≅ T.
+
+- `GenuineCircleSpectrum.toBorel`: Forget to Sp^{BT}.
+
+**Checks.**
+
+
+- `GenuineCircleSpectrum.zero`: The zero object has all fixed points 0.
+
+- `GenuineCircleSpectrum.fixed_trivial`: −^{C_1} is the underlying spectrum.
+
+- `GenuineCircleSpectrum.not_fully_genuine`: TSp_F does not see fixed points for T itself: X^T is not part of the structure (F-genuine only), unlike fully genuine T-spectra.
+
+The comparison must satisfy these additional checks: Restriction TSp_F → C_{p^∞}Sp → C_{p^n}Sp is
+compatible with −^{C_{p^k}}, k ≤ n.
+
+This interface is used by `RT.2/genuine-cyclotomic-spectrum` — genuine cyclotomic spectra live in
+TSp_F (resp. C_{p^∞}Sp); `RT.4:q-Hodge/cyclonic-spectrum` — cyclonic spectra use genuine finite C_m
+fixed points of T-spectra.
+
+*Needs:* [Genuine G-spectra, genuine and geometric fixed points](#refinedtracemethods-rt-2-genuine-g-spectra), [Borel-complete genuine spectra](#refinedtracemethods-rt-2-borel-completion), [Geometric fixed points as a localisation](#refinedtracemethods-rt-2-geometric-fixed-points-localisation), `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`.
+
+<a id="refinedtracemethods-rt-2-genuine-cyclotomic-spectrum"></a>
+
+### Genuine cyclotomic spectra
+
+Work under the following hypotheses: Finite subgroups only (F-genuine).
+
+A genuine p-cyclotomic spectrum is X ∈ C_{p^∞}Sp with an equivalence Φ_p : Φ^{C_p}X ≃ X (via
+C_{p^∞}/C_p ≅ C_{p^∞}); CycSp_p^{gen} := Eq(C_{p^∞}Sp ⇉ C_{p^∞}Sp) of id and Φ^{C_p}. A genuine
+cyclotomic spectrum is X ∈ TSp_F with coherently commuting equivalences Φ_n : X ≃ Φ^{C_n}X, n ≥ 1:
+CycSp^{gen} := (TSp_F)^{hℕ_{>0}}. Composing Φ_p^{−1} with Φ^{C_p}X → Φ^{C_p}B(X) ≃ X^{tC_p} gives
+forgetful functors CycSp_p^{gen} → CycSp_p and CycSp^{gen} → CycSp (the latter constructed through
+coalgebras, NS18 §II.5–II.6).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.3, Definition
+II.3.1 and Proposition II.3.2, Acta p. 257 (proof pp. 257-258) (in the text layer the '≃' over the
+arrow Φ_p is displaced). NS18 Definition II.3.1: genuine p-cyclotomic spectra. [On topological
+cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.3, Definition II.3.3 and Proposition
+II.3.4, Acta p. 259 (the universe U = ⊕_{k∈Z, i≥1} C_{k,i} and the N_{>0}-action are set up on p.
+258). NS18 Definition II.3.3 and Proposition II.3.4: genuine cyclotomic spectra and the forgetful
+functor.)
+
+Construction and proof. Define as equalizers/homotopy fixed points of ∞-categories (NS18 Definitions
+II.3.1, II.3.3). Construct the forgetful functors via the Borel completion map Φ^{C_p}X →
+Φ^{C_p}B_{C_p}X = X^{tC_p} (RT.2/borel-completion; NS18 Proposition II.3.2 and §II.6).
+
+The API exposes the following operations and characterizations.
+
+
+- `GenuineCyclotomicSpectrum`: X ∈ TSp_F with coherent equivalences Φ_n : X ≃ Φ^{C_n}X.
+
+- `GenuineCyclotomicSpectrum.pTypical`: CycSp_p^{gen} = Eq(id, Φ^{C_p}).
+
+- `GenuineCyclotomicSpectrum.forget`: CycSp^{gen} → CycSp, CycSp_p^{gen} → CycSp_p.
+
+- `GenuineCyclotomicSpectrum.restriction`: The restriction maps R : X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} ≃ X^{C_{p^{n−1}}}.
+
+- `GenuineCyclotomicSpectrum.instStable`: CycSp^{gen} is stable.
+
+**Checks.**
+
+
+- `GenuineCyclotomicSpectrum.sphere`: The genuine cyclotomic sphere has R : S^{C_p} → S equal to the projection A(C_p) → ℤ on π_0 onto the geometric part.
+
+- `GenuineCyclotomicSpectrum.zero`: 0 is genuine cyclotomic.
+
+- `GenuineCyclotomicSpectrum.borel_not_genuine`: The Borel completion B(Hℤ) of the trivial C_{p^∞}-spectrum is not genuine p-cyclotomic: its underlying spectrum is Hℤ, whereas its C_p geometric fixed points are (Hℤ)^{tC_p}, with nonzero negative even homotopy groups. The required geometric-fixed-point equivalence cannot be supplied.
+
+The comparison must satisfy these additional checks: THH(A) in the Bökstedt model is a genuine
+cyclotomic spectrum (RT.2/bokstedt-construction). The genuine cyclotomic sphere has Φ^{C_n}S = S.
+The supplying diagram is coherent: maps and universal properties are expressed in mapping spaces,
+not by strict commutative squares of ordinary morphisms.
+
+This interface is used by `RT.2/tr-and-genuine-tc` — TR and TC^gen are defined on genuine cyclotomic
+spectra; `KTheoryFiniteLocalFields:L.4/hm-conventions-agree-with-nikolaus-scholze` —
+Hesselholt–Madsen's T(C) is a genuine cyclotomic spectrum.
+
+*Needs:* [Genuine C_{p^∞}-spectra and F-genuine T-spectra](#refinedtracemethods-rt-2-genuine-cyclic-and-circle-spectra), [Geometric fixed points via complete universes](#refinedtracemethods-rt-2-geometric-fixed-points), [Borel-complete genuine spectra](#refinedtracemethods-rt-2-borel-completion), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), `EnhancedDerivedSheaves:E5:abstract`, [Tate spectra of Eilenberg–Mac Lane spectra are Tate cohomology](#refinedtracemethods-rt-2-tate-of-eilenberg-maclane).
+
+<a id="refinedtracemethods-rt-2-orthogonal-cyclotomic-spectra"></a>
+
+### Orthogonal cyclotomic spectra model genuine ones
+
+Work under the following hypotheses: Point-set model with a complete T-universe U.
+
+An orthogonal cyclotomic spectrum is X ∈ TSp^O with F-equivalences Φ_n : Φ^{C_n}_U X → X for all n ≥
+1 satisfying Φ_{mn} ∘ (Φ^{C_m}_U Φ^{C_n}_U X ≃ Φ^{C_{mn}}_U X) = Φ_n ∘ Φ^{C_n}_U(Φ_m); the functor
+N(CycSp^O) → CycSp^{gen} is the universal functor inverting the F-equivalences of orthogonal
+cyclotomic spectra (Barwick–Glasman).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.3, Definition
+II.3.6 (Acta p. 259) and Theorem II.3.7 (Acta p. 260). NS18 Definition II.3.6 and Theorem II.3.7:
+orthogonal cyclotomic spectra and the Barwick–Glasman comparison.)
+
+Construction and proof. Define CycSp^O (NS18 Definition II.3.6). Import the Barwick–Glasman
+comparison as stated in NS18 Theorem II.3.7 (cited theorem; its proof is outside NS18).
+
+The comparison must satisfy these additional checks: Bökstedt's THH of an orthogonal ring spectrum
+is an orthogonal cyclotomic spectrum (RT.2/bokstedt-construction).
+
+*Needs:* [Genuine cyclotomic spectra](#refinedtracemethods-rt-2-genuine-cyclotomic-spectrum), [Geometric fixed points via complete universes](#refinedtracemethods-rt-2-geometric-fixed-points), [Orthogonal spectra](#refinedtracemethods-rt-2-orthogonal-spectra).
+
+<a id="refinedtracemethods-rt-2-tr-and-genuine-tc"></a>
+
+### TR and genuine TC
+
+Work under the following hypotheses: X a genuine (p-)cyclotomic spectrum.
+
+For a genuine p-cyclotomic spectrum X with restriction R : X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} ≃
+X^{C_{p^{n−1}}} and inclusion of fixed points F : X^{C_{p^n}} → X^{C_{p^{n−1}}}: TR^{n+1}(X; p) :=
+X^{C_{p^n}}, TR(X, p) := lim_R X^{C_{p^n}}, and TC^{gen}(X, p) := Eq(TR(X, p) ⇉ TR(X, p)) for (id,
+F) ≃ lim_n Eq(X^{C_{p^n}} ⇉ X^{C_{p^{n−1}}}) for (R, F). For a genuine cyclotomic X, TC^{gen}(X) is
+the pullback X^{hT} ×_{∏_p (X^∧_p)^{hT}} ∏_p TC^{gen}(X, p)^∧_p (NS18 diagram (1), Goodwillie's
+corrected definition). The Verschiebung V : X^{C_{p^{n−1}}} → X^{C_{p^n}} is the transfer; R, F, V
+satisfy FV is the residual C_p norm on π_* (equal to p when that residual action is trivial, in
+particular for circle-equivariant inputs), RF = FR, RV = VR, the identification π_0TR^n(A;p)≅W_n(A)
+for commutative A is the downstream Hesselholt–Madsen theorem owned by KTheoryFiniteLocalFields L.4
+and used only as a convention test here, not another planned theorem.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Definition
+II.4.4 (Acta p. 263; R and F recalled on p. 262) and the pullback square (1) with footnote 22 (Acta
+p. 266). NS18 Definition II.4.4 and diagram (1): TR, TC^gen(X, p) and integral TC^gen.)
+
+Construction and proof. Define TR and TC^gen as limits/equalizers in Sp (NS18 Definition II.4.4).
+Integral TC^gen by the pullback (1) (NS18 p. 266 and footnote 22). Define V as the transfer for
+C_{p^{n−1}} ⊂ C_{p^n} and record the relations (the finite-index restriction/transfer formula; the
+p∞-only prototype must retain the residual action). π_0 identification with Witt vectors is
+Hesselholt–Madsen's theorem, applied by KTheoryFiniteLocalFields L.4/pi0-tr-is-witt-vectors; here it
+is recorded as the convention check.
+
+The API exposes the following operations and characterizations.
+
+
+- `TR`: TR^{n+1}(X; p) = X^{C_{p^n}} and TR(X, p) = lim_R TR^n.
+
+- `TR.restriction`: R : TR^{n+1} → TR^n.
+
+- `TR.frobenius`: F : TR^{n+1} → TR^n (inclusion of fixed points).
+
+- `TR.verschiebung`: V : TR^n → TR^{n+1} (transfer).
+
+- `TR.relations`: RF = FR, RV = VR, FV = p on π_* (as a map of spectra: FV = multiplication by the index-p transfer class).
+
+- `TCgen`: TC^gen(X, p) = Eq(id, F on TR(X, p)) and integral TC^gen by the pullback (1).
+
+- `TR.pi0_witt`: For THH(A), A commutative: π_0TR^n(A; p) ≅ W_n(A), with F, V, R matching Mathlib's WittVector.frobenius, WittVector.verschiebung and truncation.
+
+**Checks.**
+
+
+- `TR.level_one`: TR^1(X; p) = X.
+
+- `TR.Fp_pi0`: π_0TR^n(𝔽_p; p) = ℤ/p^n.
+
+- `TR.not_TC`: TR(𝔽_p; p) ≠ TC(𝔽_p; p): π_0TR(𝔽_p; p) = ℤ_p but π_{−1}TR = 0 while π_{−1}TC(𝔽_p) = ℤ_p (TC needs the equalizer with F).
+
+The comparison must satisfy these additional checks: TR^1(X; p) = X (underlying spectrum).
+π_0TR^n(𝔽_p; p) = W_n(𝔽_p) = ℤ/p^n.
+
+This interface is used by `KTheoryFiniteLocalFields:L.4/tr-pro-spectrum` — the pro-spectrum
+TR^•(C;p) with R, F, V uses these conventions; `KTheoryFiniteLocalFields:L.4/p-typical-tc` — TC =
+hofib(R − F) is the Hesselholt–Madsen convention, equal to TC^gen; `RT.2/genuine-tc-agrees` — TC^gen
+≃ TC for bounded below inputs.
+
+*Needs:* [Genuine cyclotomic spectra](#refinedtracemethods-rt-2-genuine-cyclotomic-spectrum), [Isotropy separation for cyclic p-groups](#refinedtracemethods-rt-2-isotropy-separation), [mathlib:WittVector](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Defs.lean#L52), [mathlib:WittVector.frobenius](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Frobenius.lean#L221), [mathlib:WittVector.verschiebung](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Verschiebung.lean#L110).
+
+<a id="refinedtracemethods-rt-2-restriction-pullback"></a>
+
+### The restriction pullback for genuine fixed points
+
+Work under the following hypotheses: X genuine C_{p^n}-spectrum; bounded below for the second
+statement.
+
+For a genuine C_{p^n}-spectrum X (n ≥ 1) there is a natural pullback square with top row X^{C_{p^n}}
+→ (Φ^{C_p}X)^{C_{p^{n−1}}} and bottom row X^{hC_{p^n}} → X^{tC_{p^n}}; if X is bounded below the
+bottom right can be replaced by (X^{tC_p})^{hC_{p^{n−1}}}, and iterating gives X^{C_{p^n}} as an
+iterated pullback of X^{hC_{p^k}}'s over Tate terms.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Lemma II.4.5,
+Proposition II.4.6 (Acta p. 263) and Corollary II.4.7 (Acta pp. 263-264). NS18 Lemma II.4.5,
+Proposition II.4.6 and Corollary II.4.7.)
+
+Construction and proof. Isotropy separation (RT.2/isotropy-separation) mapped to the norm sequence
+(NS18 Lemma II.4.5). Replace X^{tC_{p^n}} by (X^{tC_p})^{hC_{p^{n−1}}} (RT.2/tate-cpn-via-cp; NS18
+Proposition II.4.6), iterate (Corollary II.4.7). Consequence used for the Segal-conjecture-type
+reductions (NS18 Corollary II.4.9): if X and its iterated geometric fixed points are bounded below
+and (Y^{C_p})^∧_p → (Y^{hC_p})^∧_p is an isomorphism on π_i for i ≥ k for each of them, then
+(X^{C_{p^n}})^∧_p → (X^{hC_{p^n}})^∧_p is an isomorphism on π_i for i ≥ k.
+
+The comparison must satisfy these additional checks: For n = 1: X^{C_p} = X^{hC_p} ×_{X^{tC_p}}
+Φ^{C_p}X.
+
+*Needs:* [Isotropy separation for cyclic p-groups](#refinedtracemethods-rt-2-isotropy-separation), [Iterated Tate constructions for bounded below spectra](#refinedtracemethods-rt-2-tate-cpn-via-cp), [Borel-complete genuine spectra](#refinedtracemethods-rt-2-borel-completion).
+
+<a id="refinedtracemethods-rt-2-bokstedt-construction"></a>
+
+### The Bökstedt construction and classical THH
+
+Work under the following hypotheses: The Bökstedt functor of NS18 Theorem III.4.4 is homotopical
+without a convergence assumption. For classical geometric realization, use a levelwise well-pointed
+orthogonal ring spectrum whose unit in level zero is an h-cofibration, or first choose such a
+replacement.
+
+Bökstedt's category I has objects the finite sets n = {1,…,n} (including ∅) and injections; for an
+orthogonal ring spectrum A, the Bökstedt construction is the cyclic orthogonal spectrum [k] ↦
+hocolim_{(i_0,…,i_k) ∈ I^{k+1}} Map(S^{i_0} ∧ … ∧ S^{i_k}, A_{i_0} ∧ … ∧ A_{i_k} ∧ −) (with the
+approximation lemma for hocolims over I, NS18 Lemma III.4.2 and Definition III.4.3); it preserves
+stable equivalences of all inputs in the sense of NS18 Theorem III.4.4 (Shipley), models the smash
+product (NS18 Theorem III.4.5) and has geometric fixed points computed by NS18 Theorem III.4.7.
+Classical THH(A) is its realisation, an orthogonal cyclotomic spectrum (NS18 Definition III.5.1,
+Proposition III.5.4).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.4: Lemma
+III.4.2 (Acta p. 303), Definition III.4.3 (Acta p. 304), Theorem III.4.4 (Acta p. 305), Theorem
+III.4.5 (Acta p. 306), Construction III.4.6 (p. 307), Theorem III.4.7 (Acta p. 308). NS18 Lemma
+III.4.2, Definition III.4.3, Theorems III.4.4, III.4.5, III.4.7: the Bökstedt construction. [On
+topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.5, Definition III.5.1
+(Acta p. 311), Lemma III.5.2 (p. 312), Proposition III.5.4 (Acta p. 314), with the construction of
+Φ_p on pp. 315-316. NS18 Definition III.5.1 and Proposition III.5.4: classical THH as an orthogonal
+cyclotomic spectrum.)
+
+Construction and proof. Define I and prove the approximation lemma (NS18 Lemma III.4.2). Define B(X)
+and import Shipley's invariance (NS18 Theorem III.4.4); prove it models ⊗ (Theorem III.4.5) and
+compute Φ^{C_p} (Theorem III.4.7). Assemble the cyclic structure and the cyclotomic structure maps
+for classical THH (Definition III.5.1, Proposition III.5.4).
+
+The API exposes the following operations and characterizations.
+
+
+- `BokstedtCategory`: Bökstedt's I: finite sets and injections.
+
+- `Bokstedt.construction`: B(X) for an orthogonal spectrum-valued I^{k+1}-diagram.
+
+- `Bokstedt.preserves_equiv`: B preserves stable equivalences (Shipley).
+
+- `Bokstedt.classicalTHH`: Classical THH(A) as an orthogonal cyclotomic spectrum.
+
+- `Bokstedt.geometricFixedPoints`: Φ^{C_p} of the p-fold subdivided Bökstedt construction is the Bökstedt construction of the edgewise piece (NS18 Theorem III.4.7).
+
+**Checks.**
+
+
+- `Bokstedt.sphere`: Classical THH(S) ≃ S.
+
+- `Bokstedt.pi0`: π_0 classical THH(HR) = R/[R,R] for a discrete ring R.
+
+- `Bokstedt.index_automorphisms`: End_I([2]) has exactly two injections, identity and transposition. In particular I is not the linearly ordered poset ℕ; a poset-indexed substitute loses this automorphism.
+
+The comparison must satisfy these additional checks: For A = S (orthogonal sphere), classical THH(S)
+≃ S as orthogonal cyclotomic spectra.
+
+This interface is used by `RT.2/thh-models-agree` — compared with NS18's THH;
+`KTheoryFiniteLocalFields:L.4/thh-of-linear-waldhausen-category` — Hesselholt–Madsen use Bökstedt's
+model T(C).
+
+*Needs:* [Orthogonal spectra](#refinedtracemethods-rt-2-orthogonal-spectra), [Orthogonal cyclotomic spectra model genuine ones](#refinedtracemethods-rt-2-orthogonal-cyclotomic-spectra), [Geometric fixed points via complete universes](#refinedtracemethods-rt-2-geometric-fixed-points), [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation).
+
+<a id="refinedtracemethods-rt-2-endofunctor-coalgebras"></a>
+
+### Coalgebras and fixed points of endofunctors
+
+Work under the following hypotheses: C presentable and F colimit-preserving for NS18 Proposition
+II.5.3; for the explicit formula additionally require F to preserve pullbacks and its right adjoint
+to be fully faithful.
+
+For an endofunctor F of an infinity category C, CoAlg_F(C)=LEq(id_C,F) has objects X→FX and Fix_F(C)
+is the full subcategory where this arrow is an equivalence. If C is presentable and F preserves
+colimits, the inclusion ι has a right adjoint R_ι. Let F̄ be the lifted endofunctor on coalgebras
+and R̄ its right adjoint. NS18 Proposition II.5.3 identifies ιR_ι as the coherent inverse limit of
+id←R̄←R̄²←…, in the coalgebra functor category. When F also preserves pullbacks and its right
+adjoint R is fully faithful, Lemma II.5.4 computes one iterate R̄(X,α) by the pullback X×_{RF X}RX,
+using η_X and Rα, with its induced coalgebra structure. The general limit formula and this special
+one-iterate pullback formula are distinct. Commuting families are treated one prime at a time.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), §II.5, Proposition II.5.3 and
+Lemma II.5.4, Acta pp. 269–271; arXiv v2 pp. 55–56. NS18 Definition II.5.1, Construction II.5.2,
+Proposition II.5.3 and Lemma II.5.4.)
+
+Construction and proof. Define via lax equalizers and equalizers (NS18 Definition II.5.1); construct
+the shifted coalgebra and its right adjoint (Construction II.5.2). Prove the coreflection
+(Proposition II.5.3) and the formula (Lemma II.5.4).
+
+The API exposes the following operations and characterizations.
+
+
+- `Coherent.Endofunctor.CoAlg`: CoAlg_F(C) = LEq(id, F).
+
+- `Coherent.Endofunctor.Fix`: Fix_F(C) = Eq(id, F) ⊆ CoAlg_F(C).
+
+- `Coherent.Endofunctor.coreflection`: The right adjoint R_F̄ to Fix_F → CoAlg_F for C presentable and F colimit-preserving.
+
+- `Coherent.Endofunctor.coreflection_formula`: Identify ιR_ι with the pointwise coherent limit of the full inverse tower id←R̄←R̄²←…; the limit is in coalgebras, not an object sequence in C.
+
+- `Coherent.Endofunctor.barRight`: Right adjoint to the lifted F on coalgebras, built from the coherent adjunction F⊣R.
+
+- `Coherent.Endofunctor.barRight.pullback`: If F preserves pullbacks and R is fully faithful, compute R̄(X,α) by X×_{RFX}RX with its coalgebra structure.
+
+**Checks.**
+
+
+- `Endofunctor.Fix_id`: For F = id_C, CoAlg_F(C) has objects (c, f : c → c) and Fix_F(C) those with f an equivalence, i.e. Fun(Bℤ, C).
+
+- `Endofunctor.CoAlg_zero`: For F = 0 (constant at the zero object), CoAlg_F(C) ≃ C and Fix_F(C) = {0}.
+
+- `Endofunctor.fix_not_coalg`: For F=id on a nonzero stable category, (c,0:c→c) with c≠0 is a coalgebra but not a fixed point. This respects the colimit-preserving hypothesis.
+
+The comparison must satisfy these additional checks: For F = Φ^{C_p} on C_{p^∞}Sp, Fix_F =
+CycSp_p^{gen}. The supplying diagram is coherent: maps and universal properties are expressed in
+mapping spaces, not by strict commutative squares of ordinary morphisms.
+
+This interface is used by `RT.2/genuine-cyclotomic-coreflection` — genuine cyclotomic spectra
+coreflect into coalgebras; `RT.2/bounded-below-cyclotomic-equivalence` — the comparison CycSp^{gen}
+→ CycSp is built through coalgebras.
+
+*Needs:* [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer), `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:abstract`.
+
+<a id="refinedtracemethods-rt-2-genuine-cyclotomic-coreflection"></a>
+
+### Genuine cyclotomic spectra coreflect
+
+Work under the following hypotheses: Presentability; the endofunctors are accessible.
+
+The inclusion of genuine p-cyclotomic spectra into coalgebras for Φ^{C_p} on C_{p^∞}Sp has a right
+adjoint (NS18 Theorem II.5.6); the counit of this coreflection is an equivalence after forgetting to
+the underlying nonequivariant spectrum, and likewise genuine cyclotomic spectra into coalgebras for
+the commuting family (Φ^{C_p})_p on TSp_F (NS18 Theorem II.5.13), using the lemmas on endofunctors
+with terminal composites, commuting endofunctors, one prime at a time, and the commutation of
+geometric fixed points with R_{C_q} (Lemmas II.5.8–II.5.12).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.5, Theorem II.5.6
+(Acta p. 271; proof p. 272) and Theorem II.5.13 (Acta p. 277; proof pp. 277-278) (text layer drops
+the arrow 'ιRι → id'). NS18 Theorems II.5.6 and II.5.13: genuine (p-)cyclotomic spectra coreflect.)
+
+Construction and proof. Apply RT.2/endofunctor-coalgebras to Φ^{C_p} (NS18 Theorem II.5.6). Handle
+all primes via commuting endofunctors and R_{C_q} (NS18 Lemmas II.5.8–II.5.12, Theorem II.5.13).
+
+The comparison must satisfy these additional checks: The coreflection of a genuine cyclotomic
+spectrum is itself. The supplying diagram is coherent: maps and universal properties are expressed
+in mapping spaces, not by strict commutative squares of ordinary morphisms.
+
+*Needs:* [Coalgebras and fixed points of endofunctors](#refinedtracemethods-rt-2-endofunctor-coalgebras), [Genuine cyclotomic spectra](#refinedtracemethods-rt-2-genuine-cyclotomic-spectrum), [Geometric fixed points as a localisation](#refinedtracemethods-rt-2-geometric-fixed-points-localisation), `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:abstract`.
+
+<a id="refinedtracemethods-rt-2-bounded-below-cyclotomic-equivalence"></a>
+
+### Genuine and naive cyclotomic spectra agree on bounded below objects
+
+Work under the following hypotheses: Bounded below underlying spectra.
+
+The forgetful functors CycSp_p^{gen} → CycSp_p and CycSp^{gen} → CycSp restrict to equivalences
+between the full subcategories of objects with bounded below underlying spectrum (NS18 Theorems
+II.6.3 and II.6.9).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.6, Theorem
+II.6.3, Acta p. 280 (key inputs Lemmas II.6.1-II.6.2, p. 279). NS18 Theorem II.6.3: bounded below
+genuine and naive p-cyclotomic spectra agree. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.6, Theorem II.6.9, Acta p. 283 (proof p. 284)
+(text layer drops the arrow 'Cyc Spgen → Cyc Sp'); = Theorem 1.4 of the Introduction (p. 209). NS18
+Theorem II.6.9: bounded below genuine and naive cyclotomic spectra agree.)
+
+Construction and proof. Φ^{C_p} preserves Borel-completeness on bounded below objects (NS18 Lemma
+II.6.1, via the Tate orbit lemma) — RT.2/tate-orbit-lemma. Construct the right adjoint on bounded
+below p-cyclotomic spectra and show unit and counit are equivalences (Lemma II.6.2, Theorem II.6.3).
+Integral version for F-genuine T-spectra (Lemmas II.6.6, II.6.8, Theorem II.6.9).
+
+The comparison must satisfy these additional checks: THH of a connective E_1-ring in the Bökstedt
+model and in the NS model correspond under the equivalence (RT.2/thh-models-agree).
+
+*Needs:* [Genuine cyclotomic spectra coreflect](#refinedtracemethods-rt-2-genuine-cyclotomic-coreflection), [The Tate orbit lemma](#refinedtracemethods-rt-2-tate-orbit-lemma), [Borel-complete genuine spectra](#refinedtracemethods-rt-2-borel-completion), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum).
+
+<a id="refinedtracemethods-rt-2-thh-models-agree"></a>
+
+### The two THH agree as cyclotomic spectra
+
+Work under the following hypotheses: A connective (bounded below for the cyclotomic comparison). The
+point-set model is levelwise well-pointed and its level-zero unit is an h-cofibration (NS18
+Corollary III.6.8). An arbitrary connective orthogonal ring must first be replaced.
+
+For a connective E_1-ring A (modelled by an orthogonal ring spectrum), the underlying T-spectrum of
+classical (Bökstedt) THH(A) is equivalent to THH(A) of RT.2/thh-e1-ring (NS18 Theorem III.6.1), and
+the Frobenius maps agree: under the equivalence of RT.2/bounded-below-cyclotomic-equivalence,
+classical THH(A) ∈ CycSp^{gen} maps to THH(A) ∈ CycSp (NS18 Theorem III.6.7, Corollary III.6.8).
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter III, §III.6, Theorem
+III.6.1 (Acta pp. 316-317), Theorem III.6.7 (Acta p. 322), Corollary III.6.8 (Acta p. 324). NS18
+Theorem III.6.1, Theorem III.6.7, Corollary III.6.8: comparison of the two THH as cyclotomic
+spectra.)
+
+Construction and proof. Compare cyclic objects via RT.2/bokstedt-construction (models ⊗) (NS18
+Theorem III.6.1). Models of geometric fixed points (NS18 Proposition III.6.6) and uniqueness of the
+comparison of Frobenii via the uniqueness of the Tate diagonal (NS18 Theorem III.6.7,
+RT.2/tate-diagonal). Point-set inputs from NS18 Appendix C: the reduced homotopy colimit of
+orthogonal spectra is homotopical and models the ∞-categorical colimit (Proposition C.11), and
+genuine fixed points of orthogonal G-spectra commute with geometric realisations and homotopy
+colimits (Lemmas C.12–C.13, Proposition C.14).
+
+The comparison must satisfy these additional checks: Applied to HF_p: Bökstedt's π_*THH(𝔽_p) =
+𝔽_p[σ] is π_* of NS18's THH(𝔽_p).
+
+*Needs:* [The Bökstedt construction and classical THH](#refinedtracemethods-rt-2-bokstedt-construction), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [The Tate diagonal](#refinedtracemethods-rt-2-tate-diagonal), [Genuine and naive cyclotomic spectra agree on bounded below objects](#refinedtracemethods-rt-2-bounded-below-cyclotomic-equivalence).
+
+<a id="refinedtracemethods-rt-2-genuine-tc-agrees"></a>
+
+### Genuine and Nikolaus–Scholze TC agree on bounded below spectra
+
+Work under the following hypotheses: Bounded below underlying spectrum (connective A). For an
+explicit classical orthogonal-ring THH model, use the levelwise well-pointed/unit h-cofibration
+witness of RT.2/thh-models-agree; otherwise choose a replacement first.
+
+(i) For a genuine p-cyclotomic X with bounded below underlying spectrum, TC^{gen}(X, p) ≃ TC(X, p),
+naturally. (ii) For a genuine cyclotomic X with bounded below underlying spectrum, TC^{gen}(X) ≃
+TC(X). In particular for every connective E_1-ring A, the classical
+(Bökstedt–Hsiang–Madsen–Goodwillie) TC(A) agrees with TC(THH(A)) of
+RT.2/topological-cyclic-homology.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Theorem
+II.4.10, Acta p. 265 (proof pp. 265-266; the displayed fibre sequence is garbled in the text layer).
+NS18 Theorem II.4.10: TC^gen(X, p) ≃ TC(X, p) for bounded below X. [On topological cyclic
+homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.4, Theorem II.4.11, Acta p. 267 (the
+displayed fibre sequence is garbled in the text layer). NS18 Theorem II.4.11: TC^gen(X) ≃ TC(X) for
+bounded below X. [On topological cyclic homology](#ref-0-nikolaus-scholze-18), Chapter II, §II.3,
+Theorem II.3.8, Acta pp. 260-261; Theorem 1.4, Introduction, Acta p. 209 (proved in Theorems
+II.4.10, II.4.11, II.6.3, II.6.9). NS18 Theorem II.3.8 (and Theorem 1.4): the comparison of genuine
+and naive TC.)
+
+Construction and proof. Use RT.2/restriction-pullback to rewrite TR(X, p) as a limit of homotopy
+fixed points and Tate terms; the equalizer with F becomes the fibre of φ^{hT} − can (NS18 Theorem
+II.4.10). Integral version: the pullback (1) and RT.2/tc-p-completion (NS18 Theorem II.4.11). For
+THH of a connective E_1-ring compare the two THH (RT.2/thh-models-agree).
+
+The comparison must satisfy these additional checks: For A = 𝔽_p both sides give π_* = ℤ_p in
+degrees 0 and −1 (p-adically). The bounded below hypothesis is needed: for unbounded X the two TC
+can differ (genuine TC of a periodic object is not computed by the formula).
+
+*Needs:* [TR and genuine TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [The restriction pullback for genuine fixed points](#refinedtracemethods-rt-2-restriction-pullback), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [p-completion of TC](#refinedtracemethods-rt-2-tc-p-completion), [The two THH agree as cyclotomic spectra](#refinedtracemethods-rt-2-thh-models-agree).
+
+<a id="refinedtracemethods-rt-2-thh-bimodule-coefficients"></a>
+
+### THH with bimodule coefficients
+
+Work under the following hypotheses: Tensor products are spectral/derived; the Perf endofunctor
+comparison requires preservation of compact modules.
+
+For an E₁-ring A and an A-bimodule M, THH(A;M) is the realization of the simplicial bar with
+n-simplices M⊗A^⊗n, endpoint faces given by the right and left module actions and inner faces by
+multiplication. It is functorial in bimodules and compatible algebra maps, and equivalent to
+M⊗^L_(A⊗A^op)A. RT.5/dualizable-categories supplies duality for Mod_A ≃ Ind(Perf(A)) in Pr^L_st,
+with dual Mod_(A^op). The trace of the colimit-preserving endofunctor −⊗_A M of Mod_A is this same
+spectrum. If the endofunctor preserves perfect modules, it is the Ind extension of its restriction
+to Perf(A). This does not assert that Perf(A) itself is dualizable in Cat^perf_∞ for arbitrary A.
+M=A recovers THH(A) with its circle action; a general bimodule does not supply a cyclic structure.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §1.10–1.12, Examples
+1.12.1–1.12.2, p. 4; §4.3, p. 20. Presentable stable category duality, the module/bimodule trace
+identification, and cyclic symmetry. Theorems 2.12.1–2.12.2 concern derivatives, not this
+definition.)
+
+Construction and proof. Construct and realize the bimodule bar, keeping its two endpoint actions
+distinct. Identify the bar with the derived tensor over A⊗A^op using the H.5 module tensor
+interface. Use RT.5/dualizable-categories on Ind(Perf(A)). Its evaluation is the pairing of right
+and left A-modules by derived tensor, and its coevaluation is the diagonal bimodule A. Insert the
+bimodule endofunctor and evaluate; the result is M⊗^L_(A⊗A^op)A. This is Raskin §1.12, Examples
+1.12.1–1.12.2, p. 4. If −⊗_A M preserves compacts, identify it with the Ind extension of its Perf
+restriction. Only for the regular bimodule does cyclic rotation supply the circle action.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT3.THHcoeff`: Bimodule bar realization M↦THH(A;M).
+
+- `RT3.THHcoeff.map`: Functoriality for compatible bimodule/ring maps.
+
+- `RT3.THHcoeff.categoricalTrace`: Comparison THH(A;M) ≃ tr_Mod_A(−⊗_A M), with Mod_A ≃ Ind(Perf(A)); compact preservation identifies the endofunctor with the Ind extension of its Perf restriction.
+
+**Checks.**
+
+
+- `RT3.THHcoeff.zero`: THH(A;0)=0.
+
+- `RT3.THHcoeff.sphere`: THH(S;M)≃M.
+
+- `RT3.THHcoeff.regular`: THH(A;A)≃THH(A), with the cyclic regular-bimodule circle action.
+
+- `RT3.THHcoeff.no_general_circle`: The two endpoints act through different bimodule structures; arbitrary M has no canonical cyclic rotation.
+
+The comparison must satisfy these additional checks: THH(A;0)=0. THH(S;M)≃M. THH(A;A)≃THH(A), with
+the cyclic regular-bimodule circle action. The two endpoints act through different bimodule
+structures; arbitrary M has no canonical cyclic rotation.
+
+This interface is used by `RT.3/stable-k-theory-thh` — The derivative is ΣTHH(A;M).;
+`RT.3/stable-tc-thh` — The trace identifies the same derivative..
+
+*Needs:* [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), `StableHomotopyKTheory:H.5:spectra`, [Dualizable presentable stable categories](#refinedtracemethods-rt-5-dualizable-categories), `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `GeneralAlgebraicKTheory:K.4`.
+
+<a id="refinedtracemethods-rt-2-cartier-module"></a>
+
+### Classical p-typical Cartier modules
+
+Work under the following hypotheses: Fix a prime p (the definition makes sense for any natural
+number p). The objects are ordinary abelian groups with additive operators; no higher-categorical
+data enter.
+
+A p-typical Cartier module is an abelian group M with additive endomorphisms F,V satisfying
+F∘V=p·id_M. A morphism is an additive homomorphism commuting with both operators. Write Cart_p for
+this abelian category. Do not impose V∘F=p as a second axiom. Kernels and cokernels are those of
+abelian groups with their induced operators. A map f:M→N is an isogeny precisely when its underlying
+additive homomorphism is: if g:N→M satisfies gf=N₀id_M and fg=N₀id_N for N₀>0, then N₀g commutes
+with F,V and gives inverse composites N₀²id.
+
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), §3.1 and footnote 5, p.
+15; Examples 3.2–3.3, p. 15; §3.4, pp. 27–28. Section 3.1 recalls the classical notion with the
+single relation FV=p, and footnote 5 says VF=p is deliberately not imposed; Examples 3.2–3.3 realise
+Cartier modules as discrete topological Cartier modules and on homotopy groups; §3.4 identifies the
+cyclotomic heart inside them. [On the Beilinson fiber square](#ref-2-ammn-20), Proof of Proposition
+3.1, p. 15. Multiplying an additive approximate inverse removes its two operator defects.)
+
+Construction and proof. Define the operator structures and their commuting additive maps. Kernels
+and cokernels inherit FV=p; the forgetful functor creates these constructions. The defects F_M g−g
+F_N and V_M g−g V_N land in ker f. Since N₀ kills ker f, N₀g commutes with both operators. This is
+the corrected lifting argument of AMMN, not the printed V/F mismatch (source issue E20 of the RT.1
+part; also PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E5).
+
+The API exposes the following operations and characterizations.
+
+
+- `CartierStructure`: For an abelian group M, store F,V:M→M additive and the relation FV=p.
+
+- `CartierStructure.IsMorphism`: An additive map is a Cartier map exactly when it commutes with F and V.
+
+- `CartierModule.kernel_cokernel`: The forgetful functor to abelian groups creates kernels and cokernels.
+
+- `CartierModule.isogeny_iff_underlying`: A Cartier map is an isogeny iff the underlying additive map is; an inverse denominator N₀ can be replaced by N₀².
+
+**Checks.**
+
+
+- `CartierModule.zero`: The zero group has a unique Cartier structure and is both initial and terminal.
+
+- `CartierModule.integer`: On ℤ, V=id and F=p define a Cartier structure; F=V=id does not when p>1.
+
+- `CartierModule.no_vf_axiom`: On M=(ℤ/p)², let F(x,y)=(x,0) and V(x,y)=(0,x). Then FV=0=p·id, but VF(1,0)=(0,1)≠0=p·(1,0). A definition that also imposed VF=p would incorrectly exclude M.
+
+The comparison must satisfy these additional checks: An additive approximate inverse need not
+commute with either operator until multiplied by its denominator.
+
+This interface is used by [Derived V-completeness](#refinedtracemethods-rt-2-cartier-v-completion) —
+Supplies the algebraic carrier and V operator for derived V-completeness.; [TR detects cyclotomic
+quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies) — Allows isogenies of
+cyclotomic homotopy objects to be detected after forgetting operators.; [Topological Cartier
+modules](#refinedtracemethods-rt-2-topological-cartier-module) — Discrete topological Cartier
+modules are exactly classical Cartier modules (AN Example 3.2)..
+
+*Needs:* [mathlib:AddCommGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Defs.lean#L111), [mathlib:AddMonoidHom](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L144).
+
+<a id="refinedtracemethods-rt-2-circle-ptypical-cyclotomic"></a>
+
+### Circle-equivariant p-typical cyclotomic spectra
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+Write CycSp_T,p = LEq(id,(−)^{tC_p}:Sp^{BT} ⇒ Sp^{BT}), using T/C_p ≃ T by the p-th power map. An
+object is a T-spectrum X and a T-equivariant Frobenius X → X^{tC_p}; a morphism includes the
+homotopy intertwining Frobenius. This is Antieau–Nikolaus’s CycSp_p and AMMN’s CycSp. Distinguish it
+from the C_{p^∞}-equivariant category of RT.2/cyclotomic-spectrum. Restricting the action defines a
+functor to that category. Put TC_T,p(X)=map_CycSp_T,p(S^triv,X). Its equalizer is X^{hT} ⇉
+(X^{tC_p})^{hT}; restriction compares it with TC(X|C_{p^∞},p), the equalizer over X^{hC_{p^∞}}, by a
+p-adic equivalence; Antieau–Nikolaus state this for every X, through fib(1−F) on TR. The
+underlying-spectrum functor is exact, conservative and colimit preserving.
+
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), §2.1 and Example 2.2, p.
+8; Remark 2.5, pp. 8–9; Warning 2.6, p. 9. Section 2.1 defines CycSp_p as the lax equalizer of id
+and (−)^{tC_p} on circle spectra with the residual action; Example 2.2 gives the trivial objects and
+the unit; Remark 2.5 defines TC as the equalizer over X^{hS¹}, TR by iterated pullbacks, and a
+p-adic equivalence from TC to fib(1−F) on TR; Warning 2.6 identifies that fiber with the C_{p^∞}
+equalizer. [On the Beilinson fiber square](#ref-2-ammn-20), §3.1, p. 15, footnote 8. AMMN uses the
+circle-action one-prime category, with different notation from NS.)
+
+Construction and proof. Apply the existing lax-equalizer construction with the residual circle
+action; specify a single prime rather than forgetting the group acting on X. Compute mapping spectra
+from the trivial cyclotomic sphere by the mapping-space formula. Compare the T and C_{p^∞} homotopy
+fixed-point equalizers after p-completion, keeping the comparison map.
+
+The API exposes the following operations and characterizations.
+
+
+- `CirclePTypicalCyclotomic`: The coherent lax equalizer with underlying T-spectrum and a single prime-indexed Frobenius.
+
+- `CirclePTypicalCyclotomic.restrict`: Restrict the circle action to C_{p^∞}, preserving the residual Frobenius and all its morphism homotopies.
+
+- `CirclePTypicalCyclotomic.tc`: Mapping from S^triv is the homotopy equalizer of can and Frobenius on T-homotopy fixed points.
+
+- `CirclePTypicalCyclotomic.tc_p_completion`: Restriction induces a p-adic equivalence with C_{p^∞}-equivariant TC, through fib(1−F:TR(X)→TR(X)) (AN Remark 2.5 and Warning 2.6).
+
+- `CirclePTypicalCyclotomic.forget`: CycSp_T,p is stable and presentable; the underlying functor to Sp^{BT} is exact and conservative and preserves and detects colimits (NS Proposition II.1.5, as used in AN Lemma 2.10).
+
+- `CirclePTypicalCyclotomic.trivial`: A spectrum X gives X^triv with trivial T-action and Frobenius X→X^{hC_p}→X^{tC_p}; S^triv is the unit of the symmetric monoidal structure and corepresents TC_T,p (AN Example 2.2 and Remark 2.5).
+
+**Checks.**
+
+
+- `CirclePTypicalCyclotomic.zero`: The zero T-spectrum has one Frobenius and zero TC.
+
+- `CirclePTypicalCyclotomic.sphere`: The unit is the sphere with trivial T-action and Frobenius S → S^{hC_p} → S^{tC_p}, rather than an arbitrarily chosen zero Frobenius.
+
+- `CirclePTypicalCyclotomic.tc_convention`: For X=Hℚ with trivial T-action and its unique Frobenius to the vanishing Tate spectrum, TC_T,p(X)=Hℚ^{hT}, whereas fib(1−F:TR(X)→TR(X))=Hℚ^{hC_{p^∞}}=Hℚ. The former has a nonzero π_−2; equality requires p-completion.
+
+The comparison must satisfy these additional checks: A consumer must specify whether its p-typical
+objects have T or C_{p^∞} actions; no uncompleted TC equivalence follows from restriction alone.
+
+This interface is used by [The cyclotomic
+t-structure](#refinedtracemethods-rt-2-cyclotomic-t-structure) — Fixes the category in which
+connective objects and homotopy objects are computed.; [From R ⊗_S 𝔽_p to R/p: a
+quasi-isogeny](#refinedtracemethods-rt-3b-reduction-quasi-isogeny) — Pins the convention of AMMN’s
+quasi-isogeny theorem before applying TC with p-complete coefficients..
+
+*Needs:* [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer), [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Iterated Tate constructions for bounded below spectra](#refinedtracemethods-rt-2-tate-cpn-via-cp).
+
+<a id="refinedtracemethods-rt-2-topological-cartier-module"></a>
+
+### Topological Cartier modules
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+A p-typical topological Cartier module is a T-spectrum M with T-equivariant maps V:M_{hC_p}→M and
+F:M→M^{hC_p}, together with a specified homotopy F∘V ≃ Nm_{C_p}. The category TCart_p is the
+pullback of the coherent two-simplex category along (M,Nm_M), as in AN Definition 3.6; retaining the
+homotopy is part of the object and of its mapping spaces. A classical Cartier module gives HM with
+these maps via truncations. On π_iM, the induced F,V satisfy FV=p. The cofiber M/V=cofib(V) has
+cyclotomic Frobenius obtained from the square with V, F and the norm, followed by
+M^{tC_p}→(M/V)^{tC_p}. This defines a functor TCart_p→CycSp_T,p.
+
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Definitions 3.1 and 3.6;
+Examples 3.2–3.5; Proposition 3.8, pp. 15–19; Proposition 3.11, p. 21. Definition 3.1 asks for an
+equivariant factorization of the C_p-norm through V and F, and Definition 3.6 makes the factorizing
+homotopy part of the data through a pullback of the 2-simplex category; Example 3.5 gives the
+cyclotomic Frobenius on M/V; Proposition 3.8 computes mapping spectra; Proposition 3.11 gives
+stability, presentability and limits and colimits.)
+
+Construction and proof. Use the arrow and two-simplex pullback of Definition 3.6, not an ordinary
+category of commuting maps. Proposition 3.8 computes its mapping spectra by a fiber sequence. Take
+vertical cofibers of the square MhC_p→MhC_p over M→M^{hC_p}; the chosen norm-factorization homotopy
+induces M/V→M^{tC_p}. Compose with the Tate image of the quotient map. For HM, the norm factors
+through multiplication by p on M, giving the classical case. The norm on general homotopy groups
+gives FV=p. Proposition 3.11 gives stability, presentability and preservation of limits and colimits
+by the forgetful functor; the defect map in the mapping-spectrum formula is gV_M−V_N g_{hC_p}
+(source issue E101 corrects the subscripts printed on pp. 19–20).
+
+The API exposes the following operations and characterizations.
+
+
+- `TopologicalCartierModule`: The coherent pullback category of norm factorizations.
+
+- `TopologicalCartierModule.homotopyCartier`: π_i carries a natural classical Cartier structure for every integer i.
+
+- `TopologicalCartierModule.modV`: Taking cofibers defines the cyclotomic quotient M/V and acts on coherent morphisms.
+
+- `TopologicalCartierModule.mapping_fiber`: Mapping spectra are the fiber described in AN Proposition 3.8, recording compatibility with V as well as with the Frobenius lift.
+
+- `TopologicalCartierModule.ofCartier`: A classical Cartier module (M,F,V) gives the discrete object HM, with V and F factoring through the truncations M_{hC_p}→τ_{≤0}M_{hC_p}≃M and M≃τ_{≥0}M^{hC_p}; this identifies Cart_p with the discrete topological Cartier modules (AN Example 3.2).
+
+- `TopologicalCartierModule.forget`: TCart_p is stable and presentable, and the underlying functor to Sp^{BT} preserves all limits and colimits (AN Proposition 3.11).
+
+**Checks.**
+
+
+- `TopologicalCartierModule.zero`: The zero T-spectrum gives the zero Cartier object and its quotient is zero.
+
+- `TopologicalCartierModule.discrete`: Structures on HM for a discrete abelian group M are exactly Cartier structures with FV=p, through the canonical truncation maps.
+
+- `TopologicalCartierModule.modV_is_derived`: For M=Hℤ_p with V=p and F=id, π_1(M/V)=0 and π_0(M/V)=ℤ/p, but for M=Hℤ/p with V=p=0 and F=id, π_1(M/V) contains ℤ/p. The second quotient cannot be replaced by the ordinary cokernel of V.
+
+The comparison must satisfy these additional checks: The datum includes a norm-factorization
+homotopy and does not reduce to equalities on π_* alone.
+
+This interface is used by [Derived V-completeness](#refinedtracemethods-rt-2-cartier-v-completion) —
+Supplies the iterated V tower and derived quotients.; [TR as V-complete topological Cartier
+modules](#refinedtracemethods-rt-2-tr-cartier-comparison) — Receives TR with its norm factorization
+and supplies its quotient left adjoint..
+
+*Needs:* [Classical p-typical Cartier modules](#refinedtracemethods-rt-2-cartier-module), [Circle-equivariant p-typical cyclotomic spectra](#refinedtracemethods-rt-2-circle-ptypical-cyclotomic), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/coherent-functors`.
+
+<a id="refinedtracemethods-rt-2-cartier-v-completion"></a>
+
+### Derived V-completeness
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+A classical Cartier module M is derived V-complete when Rlim(…→^V M→^V M)=0 in D(ℤ), equivalently
+M≃Rlim_n cofib(V^n:M→M). A bounded-below topological Cartier module M is V-complete when lim_n
+M_{hC_{p^n}}=0 with the iterated V transition maps. Write V^n:M_{hC_{p^n}}→M for their composite and
+M/V^n for its cofiber. Its completion is lim_n M/V^n. For discrete HM the two completeness
+conditions agree. Ordinary separatedness or the ordinary inverse limit of cokernels is insufficient.
+
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Definition 3.20 and
+Proposition 3.22, p. 26; Definition 3.24 and Lemma 3.25, pp. 27–28; Example 3.27, p. 28. These
+distinguish spectral V-completeness from the equivalent derived algebraic condition on discrete
+objects.)
+
+Construction and proof. Define the two inverse towers, retaining derived limits and cofibers. For
+discrete M compare the diagonal homotopy-orbit tower to the double tower with the classical V
+transition. AN Lemma 2.11 commutes uniformly bounded-below orbits and limits; the Milnor lim/lim¹
+description supplies the converse. The spectral completion universal property is supplied by
+tr-cartier-comparison, not assumed as part of the predicate.
+
+The API exposes the following operations and characterizations.
+
+
+- `CartierModule.IsDerivedVComplete`: The V-tower has zero derived inverse limit in D(ℤ).
+
+- `TopologicalCartierModule.IsVComplete`: The iterated homotopy-orbit V-tower has zero inverse limit for bounded-below M.
+
+- `TopologicalCartierModule.vCompletion`: The V-completion is lim_n M/V^n with its universal map; the existence and Cartier structure are the comparison theorem’s conclusion.
+
+- `CartierModule.discrete_v_complete`: For discrete HM, spectral V-completeness iff algebraic derived V-completeness.
+
+**Checks.**
+
+
+- `CartierModule.v_p`: For V=p and F=id, derived V-completeness agrees with derived p-completeness; ℤ_p is complete and ℚ_p is not.
+
+- `CartierModule.v_identity`: M=ℤ/p with V=id and F=0 is not derived V-complete, though it is p-complete; its V-tower has inverse limit M.
+
+- `CartierModule.v_prufer`: For V=p and F=id on ℚ_p/ℤ_p, ordinary V-adic completion is zero while derived completion is ℤ_p[1]. Finite groups ℤ/p^n are complete, so their filtered colimit need not be complete.
+
+The comparison must satisfy these additional checks: A completeness API must retain both lim and
+lim¹; naive V-adic completion loses the heart test.
+
+This interface is used by [TR as V-complete topological Cartier
+modules](#refinedtracemethods-rt-2-tr-cartier-comparison) — Describes the essential image of the
+fully faithful TR functor.; [The derived V-complete Cartier
+heart](#refinedtracemethods-rt-2-cyclotomic-cartier-heart) — Selects precisely the Cartier modules
+occurring as heart objects..
+
+*Needs:* [Topological Cartier modules](#refinedtracemethods-rt-2-topological-cartier-module), [Classical p-typical Cartier modules](#refinedtracemethods-rt-2-cartier-module), `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`.
+
+<a id="refinedtracemethods-rt-2-cyclotomic-t-structure"></a>
+
+### The cyclotomic t-structure
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+CycSp_T,p has an accessible left-complete t-structure whose connective objects have connective
+underlying spectra. It is compatible with the symmetric monoidal structure. The underlying-spectrum
+functor is right t-exact and conservative, but is not left t-exact. Its connective part is the lax
+equalizer of id and τ_{≥0}(−)^{tC_p} on connective T-spectra. Write π_i^cyc for its homotopy
+objects. Products of connective objects are connective. No compatibility with filtered colimits of
+the heart is asserted. TCart_p has the t-structure whose connective and coconnective parts are
+detected on underlying spectra; TR and the heart comparison below relate the two.
+
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Theorem 2.1, Example 2.2
+and the paragraph after Example 2.3, p. 8; Warning 2.9 and Lemma 2.10, p. 9; proof of Theorem 2.1
+and Lemma 2.11, p. 10; Definition 3.14 and Proposition 3.15, pp. 22–23; Example 3.27, p. 28; Theorem
+6.14, p. 60. Theorem 2.1 gives an accessible, left-complete t-structure compatible with the
+symmetric monoidal structure, with connective part detected on underlying spectra; Lemma 2.10
+identifies the connective part with a lax equalizer of connective objects; Lemma 2.11 commutes Tate
+constructions with uniformly bounded-below limits; Warning 2.9 and Example 3.27 show the heart is
+not closed under filtered colimits; Proposition 3.15 gives the t-structure on TCart_p.)
+
+Construction and proof. Apply the presentable connective-subcategory criterion to the connective lax
+equalizer of AN Lemma 2.10; it is closed under extensions and colimits. Use AN Lemma 2.11 to commute
+finite-group Tate with products of uniformly bounded-below T-spectra. The connective part is product
+closed; left separatedness follows from the conservative forgetful functor, so the imported
+completeness criterion proves left completeness. The sphere unit and tensor products are connective.
+Define the TCart t-structure and its truncations using the norm factorization as in AN Definition
+3.14 and Proposition 3.15, before applying TR.
+
+The API exposes the following operations and characterizations.
+
+
+- `CyclotomicTStructure`: An accessible left-complete t-structure with connective part detected by the underlying spectrum.
+
+- `CyclotomicTStructure.homotopy`: π_i^cyc(X) is a heart object, not the Eilenberg–Mac Lane spectrum of π_i of the underlying X.
+
+- `CyclotomicTStructure.connective_products`: Products of connective cyclotomic objects stay connective, with the compatible norm/Tate diagram.
+
+- `TopologicalCartierTStructure`: The underlying spectrum detects both halves of the TCart_p t-structure; its heart is Cart_p.
+
+- `CyclotomicTStructure.forget_rightTExact`: The underlying functor to Sp^{BT} is right t-exact but not left t-exact: THH(F_p) lies in the heart while its underlying spectrum is unbounded above (AN p. 8).
+
+**Checks.**
+
+
+- `CyclotomicTStructure.thh_fp`: THH(ℤ/p) is in the cyclotomic heart, but its underlying π_2 is nonzero. This rejects the underlying-spectrum Postnikov tower as the cyclotomic tower.
+
+- `CyclotomicTStructure.zero`: The zero object has all cyclotomic homotopy objects zero. Conversely a bounded-below X with π_i^cyc X=0 for every i is zero, by finite Postnikov induction and left separatedness; no such conclusion is asserted for unbounded X.
+
+- `CyclotomicTStructure.truncation`: On the Cartier side, the heart has discrete underlying spectrum. Under the TR comparison cyclotomic π_i is the Cartier structure on π_iTR, rather than on π_iX.
+
+The comparison must satisfy these additional checks: For a perfect characteristic-p ring k, THH(k)
+lies in the cyclotomic heart despite its positive even underlying homotopy. Consequently underlying
+spectral truncation cannot define cyclotomic truncation. The heart is not closed under filtered
+colimits: the V=p, F=id Prüfer example has derived completion ℤ_p[1].
+
+This interface is used by [The derived V-complete Cartier
+heart](#refinedtracemethods-rt-2-cyclotomic-cartier-heart) — Defines the heart and π_i^cyc that TR
+identifies.; [TR detects cyclotomic
+quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies) — Makes degreewise isogeny
+bounds and Postnikov convergence precise..
+
+*Needs:* [Circle-equivariant p-typical cyclotomic spectra](#refinedtracemethods-rt-2-circle-ptypical-cyclotomic), [Topological Cartier modules](#refinedtracemethods-rt-2-topological-cartier-module), [Tate constructions at C_p: convergence, vanishing and p-completeness](#refinedtracemethods-rt-2-tate-p-local-properties), `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`.
+
+<a id="refinedtracemethods-rt-2-tr-cartier-comparison"></a>
+
+### TR as V-complete topological Cartier modules
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+For X∈CycSp_T,p let TR^{n+1}(X) be the iterated pullback of X^{hC_{p^n}}, …, X^{hC_p}, X over
+(X^{tC_p})^{hC_{p^{n−1}}}, …, X^{tC_p}, using can and Frobenius. The restriction tower defines
+TR(X). It has a natural topological Cartier structure and is right adjoint to M↦M/V. On
+bounded-below objects the counit TR(X)/V→X is an equivalence, TR is fully faithful and t-exact, and
+its essential image consists exactly of V-complete bounded-below topological Cartier modules. For
+bounded-below M, TR(M/V)≃lim_n M/V^n is its V-completion. On genuine bounded-below models, TR agrees
+with RT.2/tr-and-genuine-tc, including R,F,V.
+
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5, pp. 8–9;
+Proposition 3.17 and Construction 3.18, pp. 24–25; Lemma 3.19, p. 25; Theorem 3.21 and Proposition
+3.22, p. 26. Remark 2.5 defines TR^{n+1} by iterated pullbacks and identifies it with genuine fixed
+points for bounded-below X; Proposition 3.17 and Construction 3.18 give the Cartier structure on TR
+and its adjunction with M↦M/V; Lemma 3.19 proves the counit is an equivalence for bounded-below X;
+Theorem 3.21 and Proposition 3.22 give full faithfulness, t-exactness, the essential image and the
+V-completion formula.)
+
+Construction and proof. Construct the TR norm factorization from the iterated pullback and its
+compatible projections (AN Construction 3.18). Prove the quotient adjunction by the mapping-fiber
+formula, Proposition 3.17. Apply the Tate orbit lemma to the TR^n restriction fibers and commute
+Tate with their uniformly bounded-below limit. This proves the counit for bounded-below X (Lemma
+3.19). Identify TR(M/V) with lim_n M/V^n via the finite restriction fiber sequences; this gives
+completion and the essential image (Theorem 3.21, Proposition 3.22). Compare R,F,V with the genuine
+restriction pullbacks.
+
+The comparison must satisfy these additional checks: TR(X)/V recovers X for bounded-below X with its
+cyclotomic structure, not merely its underlying spectrum. The unbounded category is excluded from
+the essential-image and inverse-limit completion formulas.
+
+*Needs:* [Derived V-completeness](#refinedtracemethods-rt-2-cartier-v-completion), [The cyclotomic t-structure](#refinedtracemethods-rt-2-cyclotomic-t-structure), [The restriction pullback for genuine fixed points](#refinedtracemethods-rt-2-restriction-pullback), [TR and genuine TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [The Tate orbit lemma](#refinedtracemethods-rt-2-tate-orbit-lemma), [Genuine and naive cyclotomic spectra agree on bounded below objects](#refinedtracemethods-rt-2-bounded-below-cyclotomic-equivalence), `EnhancedDerivedSheaves:E3/kan-extensions-along-functors`.
+
+<a id="refinedtracemethods-rt-2-cyclotomic-cartier-heart"></a>
+
+### The derived V-complete Cartier heart
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+TR identifies the heart of CycSp_T,p with the full subcategory of derived V-complete p-typical
+Cartier modules. For every bounded-below X and every integer i, the Cartier module corresponding to
+π_i^cycX is (π_iTR(X),F,V). A bounded-below topological Cartier module is V-complete iff every π_i
+is derived V-complete. The heart equivalence is an equivalence of abelian categories; it is not an
+identification of the underlying spectra of a heart object and its Cartier module.
+
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Introduction to §3, p.
+15; Theorem 3.26, p. 28; Proposition 3.28, pp. 28–29; Theorem 1, p. 2, and the discussion after
+Theorem 2, p. 3; Theorem 6.14, p. 60. Theorem 3.26 identifies the heart, through TR, with the
+derived V-complete Cartier modules, and the introduction to §3 explains that π_i^cyc X corresponds
+to π_iTR(X) with F and V; Proposition 3.28 characterises V-completeness degree by degree; Theorem
+6.14 computes the heart object THH(k) as W(k) for perfect k.)
+
+Construction and proof. Use t-exactness and full faithfulness of TR to embed the heart into discrete
+topological Cartier modules, identified with Cart_p. Apply the discrete completeness criterion and
+the essential-image theorem. For the degreewise completeness criterion, induct on finite Postnikov
+intervals and pass to the left-complete limit (AN Proposition 3.28). Take π_i of the t-exact TR
+functor to obtain the Cartier realization of cyclotomic homotopy.
+
+The comparison must satisfy these additional checks: For a perfect F_p-algebra k, the Cartier
+realization of THH(k) is W(k) with its F,V (AN Theorem 6.14); higher underlying homotopy of THH(k)
+remains visible after forgetting the heart embedding.
+
+*Needs:* [TR as V-complete topological Cartier modules](#refinedtracemethods-rt-2-tr-cartier-comparison), [Derived V-completeness](#refinedtracemethods-rt-2-cartier-v-completion), [The cyclotomic t-structure](#refinedtracemethods-rt-2-cyclotomic-t-structure).
+
+<a id="refinedtracemethods-rt-2-tr-detects-quasi-isogenies"></a>
+
+### TR detects cyclotomic quasi-isogenies
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+For a map f:X→Y of bounded-below objects in CycSp_T,p, the following are equivalent: each π_i^cyc(f)
+is an isogeny in the heart; each bounded-above truncation τ_{≤n}^cyc(f) is an isogeny; and TR(f) is
+a quasi-isogeny of spectra. Isogeny denominators may depend on i or n. For a p-completed
+application, apply the statement in the p-complete setting with its preserved bounded-below
+hypotheses. TC_T,p followed by p-completion preserves these quasi-isogenies. Underlying spectral
+rational equivalence alone does not suffice.
+
+(See [On the Beilinson fiber square](#ref-2-ammn-20), Definition 2.18 and following paragraph, p.
+12; Proposition 3.1 and introductory paragraph of §3.1, p. 15. TR detects quasi-isogenies through
+the Cartier heart, and TC with p-complete coefficients preserves them. [Cartier modules and
+cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5, pp. 8–9; Warning 2.6, p. 9. The fiber
+of 1−F on TR compares with circle-equivariant TC by a p-adic equivalence.)
+
+Construction and proof. Use the heart equivalence to identify π_i^cyc(f) with π_iTR(f) carrying F,V.
+For each degree apply the Cartier approximate-inverse correction: multiplying g by its isogeny
+denominator makes both operator defects vanish. No uniform bound across all degrees is required.
+Left-complete truncation and finite extension arguments identify the homotopy-object and Postnikov
+definitions. After p-completion TC_T,p(X) identifies with fib(1−F:TR(X)→TR(X)) by AN Remark 2.5.
+Fibers preserve degreewise isogenies: a bound in each of two adjacent degrees suffices. On
+bounded-below spectra derived p-completion preserves degreewise quasi-isogenies, by finite Postnikov
+windows. This proves the TC assertion without a false lower connectivity bound for uncompleted
+circle-equivariant TC.
+
+The comparison must satisfy these additional checks: THH(F_p) has underlying spectrum
+quasi-isogenous to zero but is not quasi-isogenous to zero in the cyclotomic category: TC(F_p;ℤ_p)
+has π_0=π_−1=ℤ_p. Degreewise denominators are permitted; a single annihilator for all homotopy
+groups is not required.
+
+*Needs:* [The derived V-complete Cartier heart](#refinedtracemethods-rt-2-cyclotomic-cartier-heart), [Classical p-typical Cartier modules](#refinedtracemethods-rt-2-cartier-module), [Topological cyclic homology](#refinedtracemethods-rt-2-topological-cyclic-homology), [Circle-equivariant p-typical cyclotomic spectra](#refinedtracemethods-rt-2-circle-ptypical-cyclotomic).
+
+<a id="refinedtracemethods-rt-2-graded-cyclotomic-spectrum"></a>
+
+### Positively graded cyclotomic spectra
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+A nonnegatively graded p-typical cyclotomic spectrum is a family of T-spectra (X_i)_{i≥0} with
+equivariant maps φ_i:X_i→(X_{pi})^{tC_p}. Morphisms and their homotopies intertwine these maps. The
+category is the coherent lax equalizer for the endofunctor (X_i)↦((X_{pi})^{tC_p}). Its underlying
+cyclotomic spectrum is ⊕_i X_i, using the canonical comparison from the sum of Tate terms to the
+Tate of the sum. Truncation X_{≤n} sets weights >n to zero and retains the induced Frobenius. For
+i>0, the fiber of X_{≤i}→X_{≤i−1} has null Frobenius because pi>i. The weight-zero fiber has no such
+conclusion.
+
+(See [On the Beilinson fiber square](#ref-2-ammn-20), §3.1, pp. 15–16, the definition before
+Proposition 3.3 and the truncations in its proof, p. 16; Appendix A, Corollary A.9 and Example A.10,
+p. 58, and Example A.16, p. 60. Section 3.1 defines graded cyclotomic spectra with Frobenius maps
+from weight i to weight pi and their underlying direct sum; the proof of Proposition 3.3 builds the
+weight truncations as graded cyclotomic spectra; Appendix A (Corollary A.9, Examples A.10 and A.16)
+gives graded THH its twisted cyclotomic structure and compares weight zero with THH of the
+degree-zero ring.)
+
+Construction and proof. Form Fun(ℕ_discrete,Sp) with graded tensor whose degree is the sum of input
+weights; encode the p-fold tensor-power diagonal by φ_i landing at weight pi. AMMN §3.1, p. 15
+describe the Day convolution as using the multiplication on ℤ_{≥0}; the sum of weights is the
+structure that makes the Frobenius land in weight pi (atlas errata
+PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E6). Form the lax equalizer for its Frobenius endofunctor, then
+the underlying direct-sum functor with its canonical Tate comparison; equivalence of that comparison
+is unnecessary. The truncation maps are compatible because p increases positive weights. On a single
+positive-weight fiber the target pi is absent, giving the nullhomotopy.
+
+The API exposes the following operations and characterizations.
+
+
+- `GradedCyclotomicSpectrum`: A family with φ_i:X_i→(X_pi)^{tC_p} and coherent morphisms.
+
+- `GradedCyclotomicSpectrum.toCyclotomic`: Sum the weights and assemble Frobenius via the canonical map into Tate of the sum.
+
+- `GradedCyclotomicSpectrum.truncate`: Kill weights >n, producing a compatible inverse tower of cyclotomic objects.
+
+- `GradedCyclotomicSpectrum.positive_fiber`: At i>0 the i-th truncation fiber has its specified null Frobenius, as pi>i.
+
+**Checks.**
+
+
+- `GradedCyclotomicSpectrum.weight_zero`: An arbitrary cyclotomic X placed in degree zero retains its original Frobenius. In particular THH(F_p) at weight zero is not forced to be cyclotomically torsion.
+
+- `GradedCyclotomicSpectrum.positive_single`: A T-spectrum placed in weight 1 with all other weights zero has zero Frobenius, since its p-th weight is zero.
+
+- `GradedCyclotomicSpectrum.zero`: The zero graded family has zero sum and every truncation zero.
+
+- `GradedCyclotomicSpectrum.square_zero_weights`: In THH(A⊕M) for a split square-zero graded E₁-algebra with M in positive weight, the Frobenius sends weight i to pi. This agrees with the p-fold subdivision construction, not a weight-preserving map.
+
+The comparison must satisfy these additional checks: A Frobenius preserving each positive weight is
+a different structure and gives the wrong graded THH reduction.
+
+This interface is used by [Graded cyclotomic torsion and connective
+convergence](#refinedtracemethods-rt-2-graded-cyclotomic-quasi-isogeny) — Supplies positive-weight
+truncations and null-Frobenius fibers.; [From R ⊗_S 𝔽_p to R/p: a
+quasi-isogeny](#refinedtracemethods-rt-3b-reduction-quasi-isogeny) — Supplies the graded square-zero
+reduction in AMMN Propositions 3.3–3.5..
+
+*Needs:* [Circle-equivariant p-typical cyclotomic spectra](#refinedtracemethods-rt-2-circle-ptypical-cyclotomic), [Lax equalizers of ∞-categories](#refinedtracemethods-rt-2-lax-equalizer), `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
+
+<a id="refinedtracemethods-rt-2-null-frobenius-tr"></a>
+
+### TR with a null cyclotomic Frobenius
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+If X∈CycSp_T,p is bounded below and a T-equivariant nullhomotopy of its Frobenius X→X^{tC_p} is
+given, the TR pullback tower splits to give TR(X)≃∏_{n≥0}X_{hC_{p^n}}, where C_{p^0} is trivial. If
+the underlying X is quasi-isogenous to zero, then X is quasi-isogenous to zero in CycSp_T,p. The
+product uses homotopy orbits, not homotopy fixed points. Nullhomotopy after forgetting T is not the
+stated hypothesis.
+
+(See [On the Beilinson fiber square](#ref-2-ammn-20), Proposition 3.2 and proof, p. 15. A null
+circle-equivariant Frobenius gives the homotopy-orbit product and the quasi-isogeny consequence.
+[Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5, pp. 8–9;
+Construction 3.18, pp. 24–25. The iterated pullback model fixes the product factors and structure
+maps.)
+
+Construction and proof. The specified equivariant nullhomotopy splits the iterated TR pullbacks. For
+bounded-below X the canonical map X^{hC_{p^n}}→(X^{tC_p})^{hC_{p^{n−1}}} is the map to X^{tC_{p^n}}
+(NS Corollary II.4.7, cited by AMMN), so each new factor is the homotopy-orbit fiber X_{hC_{p^n}} of
+the norm sequence. For a fixed homotopy degree j, bounded-below X permits a finite Postnikov range
+to compute π_j of every X_{hC_{p^n}}. The same annihilator for that range works for all n, since
+homotopy orbits preserve an annihilation map. This uniformity makes the product quasi-isogenous to
+zero. Apply TR detection; do not infer the claim merely by commuting rationalization with an
+infinite product.
+
+The comparison must satisfy these additional checks: A bounded-below spectrum with a single
+annihilation map has a uniform annihilator on all the product factors. Without a null Frobenius
+THH(F_p) is the counterexample, so spectral p-torsion cannot replace the equivariant nullhomotopy.
+
+*Needs:* [TR as V-complete topological Cartier modules](#refinedtracemethods-rt-2-tr-cartier-comparison), [TR detects cyclotomic quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [Iterated Tate constructions for bounded below spectra](#refinedtracemethods-rt-2-tate-cpn-via-cp).
+
+<a id="refinedtracemethods-rt-2-graded-cyclotomic-quasi-isogeny"></a>
+
+### Graded cyclotomic torsion and connective convergence
+
+Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
+coherent infinity-categorical objects.
+
+Let X be a nonnegatively graded cyclotomic spectrum. Suppose X_0=0, the connectivity of X_i tends to
+infinity as i→∞, and ⊕_iX_i is quasi-isogenous to zero as a spectrum. Then ⊕_iX_i is quasi-isogenous
+to zero in CycSp_T,p. In this situation, for every j the maps π_jTR(X)→π_jTR(X_{≤n}) are
+isomorphisms for all sufficiently large n. More generally a tower of bounded-below cyclotomic
+objects with fibers of X→X_n becoming arbitrarily connective has this TR convergence. No assertion
+of strong convergence for arbitrary unbounded filtrations is included.
+
+(See [On the Beilinson fiber square](#ref-2-ammn-20), Proposition 3.3 and its proof, p. 16;
+Proposition 3.5, pp. 16–17. Positive graded truncations with increasing connectivity reduce
+quasi-isogenies to null-Frobenius fibers. [Cartier modules and cyclotomic
+spectra](#ref-2-antieau-nikolaus-21), Theorem 3.21, p. 26; Lemma 2.11, p. 10. The right adjoint and
+its t-exactness provide the needed bounded-below limit control.)
+
+Construction and proof. Use the increasing connectivity to identify X with the inverse limit of
+finite weight truncations. The error fibers become arbitrarily connective in the cyclotomic
+t-structure. The truncation has (X_{≤i})_j=X_j for j≤i and zero above; the proof of AMMN Proposition
+3.3 prints X_i (atlas errata PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E7). TR is t-exact on bounded-below
+objects and preserves limits as a right adjoint. Consequently π_jTR stabilizes in the finite
+truncations, using the same connectivity estimates. Each positive-weight fiber is spectrally
+quasi-isogenous to zero and has null Frobenius. Apply the null-Frobenius theorem inductively to the
+finite tower; then stabilize in each degree and use TR detection.
+
+The comparison must satisfy these additional checks: The zero weight hypothesis is essential:
+THH(F_p) placed in weight zero violates the conclusion. The proof proves stabilization separately
+for each homotopy degree and never exchanges an arbitrary infinite product with rationalization.
+
+*Needs:* [Positively graded cyclotomic spectra](#refinedtracemethods-rt-2-graded-cyclotomic-spectrum), [TR with a null cyclotomic Frobenius](#refinedtracemethods-rt-2-null-frobenius-tr), [The cyclotomic t-structure](#refinedtracemethods-rt-2-cyclotomic-t-structure), [TR as V-complete topological Cartier modules](#refinedtracemethods-rt-2-tr-cartier-comparison).
+
+<a id="refinedtracemethods-rt-2-tr-de-rham-witt-hkr"></a>
+
+### Hesselholt’s de Rham–Witt comparison for TR
+
+Work under the following hypotheses: p prime; R smooth over F_p, or ind-smooth for the stated
+extension; TR^s uses C_{p^{s−1}} fixed points.
+
+For a smooth commutative F_p-algebra R and s≥1, the canonical Witt-complex map
+λ_s:W_sΩ_R^*→π_*TR^s(R;p) extends to a natural graded-ring isomorphism W_sΩ_R^*[σ_s]≅π_*TR^s(R;p),
+|σ_s|=2. Restriction acts on the forms by Witt restriction and sends σ_s to pσ_{s−1} after
+compatible choice of generator (in Hesselholt’s initial choices there is a unit factor). Taking the
+coherent restriction limit gives π_*TR(R;p)≅WΩ_R^*, compatibly with Frobenius and the circle
+differential. The finite-level and limit statements also hold for ind-smooth F_p-algebras, by the
+filtered-colimit argument of CMM. This is the full graded comparison requested by CMM item 033; the
+general de Rham–Witt construction belongs to CR.4 and the π_0 Witt-vector convention remains L.4.
+
+(See [On the p-typical curves in Quillen’s K-theory](#ref-0-hesselholt-96), Theorems B–C, PDF p. 2;
+Proposition 1.5.8, p. 14; §2.1–2.4, pp. 14–24; proof of Theorem B and Corollary 2.4.7, p. 24.
+Universal Witt map, finite-level graded comparison, restriction action and passage to TR. [K-theory
+and topological cyclic homology of henselian pairs](#ref-0-cmm-21), Theorem 2.25, equations
+(10)–(11), pp. 15–16; proof of Proposition 2.26, p. 16; proof of Theorem 5.31, p. 48. States the
+comparison and extends it to ind-smooth inputs.)
+
+Construction and proof. Use the Witt-complex operators on π_*TR^s and CR.4 initiality to construct
+λ_s, with R,F,V and circle differential compatibility (Hesselholt 1.5.8). For F_p-polynomial rings,
+decompose the cyclic bar by monomial weights; compute fixed points of the resulting circle pieces
+and compare their bases and products with basic Witt differentials (§2.1–2.3). Pass to perfect
+coefficient fields and étale polynomial charts by the finite-level étale comparison (2.4.2–2.4.5),
+then glue by the acyclic Witt localization cover of 2.4.6. In each total degree the positive-σ
+summands form a pro-zero tower under restriction; the forms tower is Mittag–Leffler. Apply the
+Milnor sequence to identify the coherent limit (2.4.7). For ind-smooth inputs, finite TR levels and
+finite Witt forms commute with filtered colimits; use CMM’s torsion/restriction argument when
+passing to the inverse limit, rather than commuting a general inverse limit with that colimit.
+
+The comparison must satisfy these additional checks: At s=1 the result is Ω_R^*[σ_1] with σ_1 in
+degree 2. For R=F_p it gives π_{2j}TR^s=Z/p^s and π_{odd}=0; restriction on degree 2 is
+multiplication by p (up to the chosen unit). The positive-degree Bott generators disappear in lim_R
+for R=F_p: TR has π_0=Z_p and no positive homotopy groups, although each finite level has them.
+
+*Needs:* [TR and genuine TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [The two THH agree as cyclotomic spectra](#refinedtracemethods-rt-2-thh-models-agree), `CrystallineCohomology:CR.4`, `StableHomotopyKTheory:H.6`.
+
+<a id="refinedtracemethods-rt-2-tate-verdier-quotient"></a>
+
+### Tate endomorphisms in the finite-action Verdier quotient
+
+Work under the following hypotheses: R an E∞ ring spectrum; p prime; Perf(R[C_p]) means the full
+thick induced subcategory inside Fun(BC_p,Perf(R)).
+
+For a commutative ring spectrum R and a prime p, let Q=Fun(BC_p,Perf(R))/Perf(R[C_p]), where the
+latter is its full stable subcategory of induced perfect modules. The quotient has the tensor
+structure induced by tensoring over R, and its endomorphism ring of the trivial R-object is
+R^{tC_p}. Consequently there is an exact symmetric monoidal functor Perf(R^{tC_p})→Q; its
+nonconnective K-theory is a module over K(R^{tC_p}). General stable Verdier quotients, their Ind
+mapping formula and the symmetric monoidal quotient universal property are imports from EDS E5; this
+target is the finite-action/Tate specialization used in LMMT item 49. The commutative hypothesis
+supplies the symmetric monoidal conclusion; no such structure is asserted for an arbitrary E_1
+coefficient ring.
+
+(See [On topological cyclic homology](#ref-0-nikolaus-scholze-18), arXiv:1707.01799v2, Theorem
+I.3.3(ii), pp. 19–20; Theorem I.3.6, p. 23; Lemma I.3.8(iii), pp. 24–25 (same numbered results in
+Acta version). Filtered-cofiber quotient mapping formula, tensor-ideal quotient and Tate
+computation. [Purity in chromatically localized algebraic K-theory](#ref-0-lmmt-24), Remark 3.9, pp.
+15–16. Uses the R-module analogue to identify End_Q(R), and the resulting K-theory module
+structure.)
+
+Construction and proof. Induced perfect R[C_p]-modules form a thick tensor ideal because C_p is
+finite; identify that ideal with Perf(R[C_p]). Use EDS’s filtered-cofiber formula for mapping
+spectra in the quotient. The finite-action version of the NS induced-object calculation kills the
+orbit term and leaves the Tate term for End_Q(R). Apply the symmetric monoidal quotient universal
+property. The endomorphism ring of its tensor unit determines the exact tensor functor from its
+perfect modules. Apply K.4/K.6 multiplicativity of nonconnective K-theory to obtain the K(R^{tC_p})
+module; no chromatic-localization theorem is replanned here.
+
+The comparison must satisfy these additional checks: For rational R, Tate vanishes and the induced
+ideal is all of Fun(BC_p,Perf(R)); the quotient is zero. For R=HF_p the tensor unit has a nonzero
+Tate endomorphism ring with homotopy F_p[t±1]⊗Λ(e) for odd p, |t|=−2, |e|=−1 (for p=2 it is
+F_2[e±1], |e|=−1). The quotient uses the thick induced ideal; replacing it by all objects perfect
+only over R would incorrectly kill its unit in characteristic p.
+
+*Needs:* [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity), [Tate constructions vanish on induced objects](#refinedtracemethods-rt-2-tate-vanishing-induced), `EnhancedDerivedSheaves:E5:abstract`, `GeneralAlgebraicKTheory:K.4`, `GeneralAlgebraicKTheory:K.6`.
+
+### Examples
+
+For a perfect field k of characteristic p, THH(k) has positive even underlying homotopy, while its
+cyclotomic heart object corresponds to W(k) under TR. In particular THH(F_p) has a nonzero
+degree-two class, TR has degree-zero Cartier module Z_p, and TC(F_p;Z_p) has Z_p in degrees 0 and
+−1. Underlying spectral torsion therefore does not detect cyclotomic quasi-isogenies. The
+null-Frobenius and Cartier conditions are essential.
+
+### Dependencies
+
+Use `CrystallineCohomology:CR.4`, `EnhancedDerivedSheaves:E0`,
+`EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`,
+`EnhancedDerivedSheaves:E0/coherent-functors`,
+`EnhancedDerivedSheaves:E0/limits-colimits-and-slices`,
+`EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`,
+`EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E3`,
+`EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`,
+`EnhancedDerivedSheaves:E3/kan-extensions-along-functors`, `EnhancedDerivedSheaves:E5:abstract`,
+`EnhancedDerivedSheaves:E5:abstract/algebra-objects`,
+`EnhancedDerivedSheaves:E5:abstract/infinity-operad`,
+`EnhancedDerivedSheaves:E5:abstract/module-objects`,
+`EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`,
+`EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`,
+`EnhancedDerivedSheaves:E5:presentability/coherent-group-actions`,
+`EnhancedDerivedSheaves:E5:presentability/compact-objects`,
+`EnhancedDerivedSheaves:E5:presentability/ind-completion`,
+`EnhancedDerivedSheaves:E5:presentability/presentable-categories`,
+`EnhancedDerivedSheaves:E5:spectra-comparison`, `GeneralAlgebraicKTheory:K.4`,
+`GeneralAlgebraicKTheory:K.6`, [The cyclic bar construction of an
+algebra](#refinedtracemethods-rt-1-cyclic-bar-construction), [Connes' cyclic category and cyclic
+objects](#refinedtracemethods-rt-1-cyclic-category), [Cyclic, negative cyclic and periodic cyclic
+homology](#refinedtracemethods-rt-1-cyclic-homology), [Derived category of mixed
+complexes](#refinedtracemethods-rt-1-derived-mixed-complex), [Hochschild homology, derived over the
+base](#refinedtracemethods-rt-1-hochschild-homology), [Mixed
+complexes](#refinedtracemethods-rt-1-mixed-complex), [Dualizable presentable stable
+categories](#refinedtracemethods-rt-5-dualizable-categories), `StableHomotopyKTheory:H.5:spectra`,
+`StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum`,
+`StableHomotopyKTheory:H.5:spectra/naive-homotopy-groups`,
+`StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane`,
+`StableHomotopyKTheory:H.5:spectra/postnikov-sections`,
+`StableHomotopyKTheory:H.5:spectra/ring-spectrum`,
+`StableHomotopyKTheory:H.5:spectra/smash-product`,
+`StableHomotopyKTheory:H.5:spectra/stable-model-structure`,
+`StableHomotopyKTheory:H.5:spectra/suspension-spectrum`, `StableHomotopyKTheory:H.6`,
+`StableHomotopyKTheory:H.6/arithmetic-fracture-square`, `StableHomotopyKTheory:H.6/p-completion`,
+[mathlib:AddCommGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Defs.lean#L111),
+[mathlib:AddMonoidHom](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L144),
+[mathlib:SSet.Quasicategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/Quasicategory/Basic.lean#L41),
+[mathlib:WittVector](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Defs.lean#L52),
+[mathlib:WittVector.frobenius](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Frobenius.lean#L221),
+[mathlib:WittVector.verschiebung](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Verschiebung.lean#L110),
+[mathlib:tateCohomology](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean#L145),
+[tauceti:Rep.FiniteCyclicGroup.tateCohomologyIsoEven](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean#L149).
+
+## Layer RT.3: The trace and relative comparison
+
+This layer constructs the trace and relative comparison. Each target below includes the hypotheses
+and comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-3-localizing-invariants"></a>
+
+### Localizing and truncating invariants
+
+Work under the following hypotheses: Small stable ∞-categories (EnhancedDerivedSheaves E5:abstract);
+for rings, E(A) := E(Perf(A)).
+
+A sequence A → B → C of small idempotent-complete stable ∞-categories is exact if the composite is
+zero, A → B is fully faithful and Idem(B/A) → C is an equivalence. A localizing invariant with
+values in a stable ∞-category T is a functor E : Cat^{perf}_∞ → T sending exact sequences to fibre
+sequences (no filtered-colimit condition, following Land–Tamme; Blumberg–Gepner–Tabuada additionally
+require filtered colimits, and additive invariants only see split-exact sequences). E is truncating
+if E(A) → E(τ_{≤0}A) = E(π_0A) is an equivalence for every connective E_1-ring A (E evaluated on
+Perf). Nonconnective K-theory IK, THH, TC and the TC^n are localizing; connective K is additive but
+not localizing.
+
+(See [A universal characterization of higher algebraic K-theory](#ref-0-bgt-13), §8.3, Definition
+8.1, p. 52. Land–Tamme Definition 1.2 / BGT Definition 8.1: localizing invariants send exact
+sequences of small stable ∞-categories to fibre sequences. [On the K-theory of
+pullbacks](#ref-0-land-tamme-19), §3, Definition 3.1, p. 28. Land–Tamme: truncating invariants.)
+
+Construction and proof. Define exact (Verdier) sequences and localizing invariants as above
+(Land–Tamme Definition 1.2; BGT Definition 8.1). Record the examples: IK (GeneralAlgebraicKTheory
+K.6 nonconnective spectrum, extended to small stable ∞-categories), THH
+(RT.2/thh-spectral-categories), TC (exact functor of THH). Define truncating invariants (Land–Tamme
+Definition 3.1).
+
+The API exposes the following operations and characterizations.
+
+
+- `LocalizingInvariant`: A functor Cat^{perf}_∞ → T sending exact sequences to fibre sequences.
+
+- `LocalizingInvariant.morita`: Localizing invariants invert Morita equivalences (A → B with Idem(A) ≃ Idem(B)).
+
+- `LocalizingInvariant.ofRing`: E(A) := E(Perf(A)) for an E_1-ring A.
+
+- `TruncatingInvariant`: A localizing invariant with E(A) ≃ E(π_0A) for connective A.
+
+- `LocalizingInvariant.fib`: Fibres of natural transformations of localizing invariants are localizing.
+
+**Checks.**
+
+
+- `LocalizingInvariant.zero`: E(0) ≃ 0 for every localizing invariant.
+
+- `LocalizingInvariant.THH_example`: THH is localizing: THH(Perf(A)) ≃ THH(A).
+
+- `LocalizingInvariant.connective_K_nonexample`: Connective K is not localizing: some exact sequence A → B → C of small stable ∞-categories is not sent to a fibre sequence, because K_0(B) → K_0(C) need not be surjective (its cokernel is measured by K_{−1}(A), Thomason–Trobaugh); nonconnective K repairs this (BGT: connective K is additive but not localizing). For regular rings such as Perf(ℤ)_{p-tors} → Perf(ℤ) → Perf(ℤ[1/p]) the sequence happens to be a fibre sequence, so a witness needs negative K-theory.
+
+The comparison must satisfy these additional checks: IK, THH, TC are localizing; K^{inv} = fib(IK →
+TC) is localizing (RT.3/kinv). HP(−⊗ℚ/ℚ) is truncating (Goodwillie; RT.3/goodwillie-rational).
+
+This interface is used by `RT.3/cyclotomic-trace` — the trace is a natural transformation of
+localizing invariants; `RT.3/truncating-excision` — truncating invariants satisfy excision and
+nil-invariance; `RT.5` — localizing motives corepresent localizing invariants.
+
+*Needs:* `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:abstract/idempotent-completion`, `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`, [THH of spectral and stable ∞-categories](#refinedtracemethods-rt-2-thh-spectral-categories), [Topological cyclic homology](#refinedtracemethods-rt-2-topological-cyclic-homology), `GeneralAlgebraicKTheory:K.6`.
+
+<a id="refinedtracemethods-rt-3-finitary-invariant-tensor-units"></a>
+
+### K-theory units of finitary invariants
+
+Work under the following hypotheses: Small idempotent-complete stable ∞-categories with their exact
+tensor product; spectrum-valued functors preserving filtered colimits.
+
+The ∞-categories of spectrum-valued finitary additive and finitary localizing invariants of
+Cat^perf_∞ admit presentably symmetric monoidal Day convolution structures. Their tensor units
+identify respectively with connective K and concrete nonconnective IK. Here finitary means
+preservation of all filtered colimits; additive means split-exact-sequence preservation and
+localizing means exact-sequence preservation. The inclusions into all functors are lax symmetric
+monoidal, so a multiplicative map in the invariant category gives a multiplicative natural
+transformation of the underlying functors. This unit identification is the trace-specific
+specialization of BGT Theorems 5.14–5.15; generic Day convolution and monoidal accessible
+localization belong to EnhancedDerivedSheaves.
+
+(See [Uniqueness of the multiplicative cyclotomic trace](#ref-0-bgt-14), Lemma 5.5 and Propositions
+5.6–5.7, pp. 22–23; Theorems 5.14–5.15, pp. 24–25. Day convolution descends along the exact-sequence
+relations and has the K-theory units; comparison with the universal motive functor. [A universal
+characterization of higher algebraic K-theory](#ref-0-bgt-13), Theorem 7.13, p. 49; Theorem 9.8, p.
+58. The sphere representable corepresents connective and nonconnective K in the respective invariant
+categories.)
+
+Construction and proof. On a suitably small subcategory of κ-compact stable categories, use the
+spectral presheaf Day convolution and extend functors by filtered colimits (BGT Proposition 5.12 and
+Corollary 5.13, p. 24). Localize at zero objects and split-exact, respectively exact, sequences.
+Tensoring with an exact stable category preserves these relations (BGT Lemma 5.5 and Propositions
+5.6–5.7, pp. 22–23), so the EDS monoidal localization criterion applies. This is a source proof
+plan, not an assertion that the EDS generic definition already includes that criterion. Identify the
+localized covariant representable at Perf(S) with K by BGT Theorem 7.13 (p. 49) and with IK using
+the finitary restriction of RT.5/localizing-motives and BGT Theorem 9.8 (p. 58). The unit comparison
+is Theorems 5.14–5.15, pp. 24–25. No relative κ-finitary tensor statement is imported from RT.5.
+
+The comparison must satisfy these additional checks: The unit comparison uses K for split-exact
+invariants and IK for exact invariants, and is natural in small stable categories. TC is excluded
+from both finitary categories; THH and each finite TC^n belong to the localizing category.
+
+*Needs:* [The category of relative localizing motives](#refinedtracemethods-rt-5-localizing-motives), `GeneralAlgebraicKTheory:K.4`, `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`.
+
+<a id="refinedtracemethods-rt-3-dennis-trace"></a>
+
+### The Dennis trace
+
+Work under the following hypotheses: K connective K-theory of small stable ∞-categories
+(GeneralAlgebraicKTheory K.4, K.2:plus for rings).
+
+The topological Dennis trace is the natural transformation of additive invariants K → THH on small
+stable ∞-categories corresponding to 1 ∈ π_0Nat(K, THH) ≅ π_0THH(S) = ℤ; on objects it sends x to
+id_x ∈ C(x,x), a 0-simplex of the cyclic nerve. Composed with linearisation THH(A) → HH(A/ℤ) it
+gives the classical Dennis trace K_n(A) → HH_n(A/ℤ); in degree 0 it is the Hattori–Stallings trace
+K_0(A) → A/[A,A], [P] ↦ trace of an idempotent representing P; in degree 1 the class of a unit u ∈
+A^× ⊂ K_1(A) maps to the class of u^{−1} ⊗ u ∈ HH_1(A) in the convention where the degree-one Dennis
+comparison is positive (for commutative A, d log u ∈ Ω¹_A). Blumberg–Mandell §9 uses the opposite
+generator and writes −t^{−1}σt; transporting that comparison reverses the sign.
+
+(See [A universal characterization of higher algebraic K-theory](#ref-0-bgt-13), §1.4, Corollary
+1.13, p. 7 (proved in §10, Corollary 10.4 and Theorem 10.6). BGT Corollary 1.13 and Theorem 10.6:
+the Dennis trace is the generator of natural transformations K → THH. [Localization theorems in
+topological Hochschild homology and topological cyclic homology](#ref-0-blumberg-mandell-12), §9
+(cyclotomic trace from non-connective K), paragraph before the proof of Theorem 9.1, p. 41. The §9
+calculation uses −t^{−1}σt; use the positive degree-one comparison after changing that generator
+convention.)
+
+Construction and proof. Nat(K, THH) ≃ THH(S) ≃ S (BGT Corollary 10.4, Yoneda for the corepresenting
+additive motive); take the class 1 (BGT Theorem 10.6). Describe it on S_•-constructions: an object
+goes to its identity endomorphism (BGT §10.3). Linearise via RT.2/thh-over-thhz and compute degrees
+0 and 1.
+
+The API exposes the following operations and characterizations.
+
+
+- `dennisTrace`: K → THH as a natural transformation of additive invariants.
+
+- `dennisTrace.toHH`: K_n(A) → HH_n(A/ℤ) after linearisation.
+
+- `dennisTrace.degree_zero`: On K_0: the Hattori–Stallings trace [P] ↦ tr(e).
+
+- `dennisTrace.degree_one`: On a unit u ∈ K_1(A): u ↦ [u^{−1}⊗u] ∈ HH_1(A).
+
+- `dennisTrace.natural`: Natural in exact functors of small stable ∞-categories.
+
+**Checks.**
+
+
+- `dennisTrace.free_module`: [A^n] ↦ n ∈ A/[A,A].
+
+- `dennisTrace.zero_category`: On the zero category the trace is 0 → 0.
+
+- `dennisTrace.not_iso`: The Dennis trace K_1(ℤ) = ℤ/2 → HH_1(ℤ) = 0 is not injective: it is not an isomorphism in general.
+
+The comparison must satisfy these additional checks: Degree 0: K_0(A) → HH_0(A) = A/[A,A] sends
+[A^n] ↦ n. Degree 1, A = ℤ[t^{±1}]: [t] ↦ t^{−1}dt (d log t). In degree 0 the Dennis trace of a
+perfect module agrees with the Chern character of DGAInfinity layer 9 in HH_0 (both are the
+Hattori–Stallings trace of an idempotent), the comparison asked for by RT-AREA-ktheory-2/44.
+
+This interface is used by `RT.3/cyclotomic-trace` — the cyclotomic trace lifts the Dennis trace
+through TC; `RT.3/low-degree-tests` — degree-0 and degree-1 formulas test the trace.
+
+*Needs:* `GeneralAlgebraicKTheory:K.4`, `GeneralAlgebraicKTheory:K.2:plus`, [THH of spectral and stable ∞-categories](#refinedtracemethods-rt-2-thh-spectral-categories), [THH relative to THH(ℤ) is Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [Localizing and truncating invariants](#refinedtracemethods-rt-3-localizing-invariants), `tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions`, [K-theory units of finitary invariants](#refinedtracemethods-rt-3-finitary-invariant-tensor-units).
+
+<a id="refinedtracemethods-rt-3-cyclotomic-trace"></a>
+
+### The cyclotomic trace
+
+Work under the following hypotheses: Small idempotent-complete stable ∞-categories; the BGT finitary
+restriction of the motives supplier, not its arbitrary κ-finitary or no-filtered-colimit variant.
+CycSp is stable and presentable, and its forgetful functor creates colimits and detects equivalences
+(RT.2/cyclotomic-spectrum); THH takes values there.
+
+There is a natural transformation tr : IK → TC of exact-sequence-preserving invariants of small
+idempotent-complete stable ∞-categories. Use the small-category, filtered-colimit-preserving
+restriction of RT.5/localizing-motives: Uloc : Cat^perf_∞ → Mloc and IK(C) ≃ map_Mloc(Uloc(Perf(S)),
+Uloc(C)). Cyclotomic THH is Morita invariant, localizing and filtered-colimit-preserving, so it
+extends to a colimit-preserving functor F : Mloc → CycSp. The induced map on mapping spectra, with
+F(Uloc(Perf(S))) ≃ S^triv, defines tr : IK(C) → map_CycSp(S^triv, THH(C)) = TC(C). The connective
+trace is K → IK → TC; its composite with TC → THH is the Dennis trace. TC need not preserve filtered
+colimits: the universal factorization is applied to cyclotomic THH, never to TC.
+
+(See [A universal characterization of higher algebraic K-theory](#ref-0-bgt-13), Theorem 8.7, pp.
+55–56; Theorem 9.8, p. 58; Theorem 10.6, p. 75; §10.3, Proposition 10.8 and Theorem 10.11, pp.
+76–77. Finitary universal localizing factorization, concrete nonconnective K corepresentability and
+trace normalization; the finite TC tower explains why TC itself is outside the finitary category.
+[Topological cyclic homology (chapter in Handbook of Homotopy
+Theory)](#ref-0-hesselholt-nikolaus-19), §1.1.2, pp. 9–11. Mapping-spectrum construction into CycSp
+and its connective S-construction comparison. Only the finitary factorization of THH is needed
+here.)
+
+Construction and proof. THH localization and Morita invariance are supplied by
+RT.2/thh-spectral-categories. Its spectral bar preserves filtered colimits; because CycSp colimits
+are created on underlying circle spectra and equivalences are detected there, cyclotomic THH also
+preserves them. Specialize the existing RT.5/localizing-motives universal property to the finitary
+small-category construction over Sp. BGT Theorem 8.7 (pp. 55–56) gives the factorization F into
+CycSp, and Theorem 9.8 (p. 58) identifies the source mapping spectrum with the concrete
+nonconnective K-theory of K.6. No comparison to motives without a colimit axiom is needed. The THH
+unit identifies F(Uloc(Perf(S))) with the trivial cyclotomic sphere; applying F to mapping spectra
+defines the natural trace. Mapping out of the sphere is exact, so TC and the trace preserve exact
+sequences despite the absence of filtered-colimit preservation for TC. After restriction to
+connective K, identify the composite into THH by the sphere unit and the Dennis-trace classification
+(BGT Theorem 10.6). Hesselholt–Nikolaus §1.1.2, pp. 9–11, supplies the same mapping-spectrum
+construction and its S-construction interpretation.
+
+The API exposes the following operations and characterizations.
+
+
+- `cyclotomicTrace`: tr : IK → TC, natural transformation of localizing invariants.
+
+- `cyclotomicTrace.ofRing`: tr : K(A) → TC(A) for an E_1-ring A.
+
+- `cyclotomicTrace.lifts_dennis`: TC → THH composed with tr is the Dennis trace.
+
+- `cyclotomicTrace.natural`: Natural in exact functors, with identities and composition.
+
+- `cyclotomicTrace.relative`: Induces K(f) → TC(f) on fibres for every map f (RT.3/relative-trace).
+
+**Checks.**
+
+
+- `cyclotomicTrace.sphere_unit`: On π_0 for A = S: ℤ → π_0TC(S) = ℤ, 1 ↦ 1.
+
+- `cyclotomicTrace.zero`: On the zero ring both sides vanish.
+
+- `cyclotomicTrace.not_equivalence`: tr : K(𝔽_p) → TC(𝔽_p) is not an equivalence: π_{−1}TC(𝔽_p) ≅ ℤ_p (NS18 §IV.4) while K_{−1}(𝔽_p) = 0.
+
+The comparison must satisfy these additional checks: The composite S → K(S) → TC(S) → THH(S) = S is
+the identity. For A=𝔽_p, the trace induces the completion map ℤ→ℤ_p on π_0; it is an isomorphism
+after p-completion, not an integral isomorphism.
+
+This interface is used by `RT.3/dgm-theorem` — relative K and TC agree via tr on nilpotent
+extensions; `KTheoryFiniteLocalFields:L.4/k-tc-localization-square` — the trace from K-theory
+localisation to TC localisation;
+`KTheoryFiniteLocalFields:L.5/trace-equivalence-finite-witt-algebras` — Hesselholt–Madsen Theorem D:
+K(A)^∧_p ≃ τ_{≥0}TC(A;p)^∧_p via tr.
+
+*Needs:* [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace), [Localizing and truncating invariants](#refinedtracemethods-rt-3-localizing-invariants), [Topological cyclic homology](#refinedtracemethods-rt-2-topological-cyclic-homology), [THH of spectral and stable ∞-categories](#refinedtracemethods-rt-2-thh-spectral-categories), `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`, `GeneralAlgebraicKTheory:K.4:construction/S-construction`, `GeneralAlgebraicKTheory:K.4`, `GeneralAlgebraicKTheory:K.6`, [The category of relative localizing motives](#refinedtracemethods-rt-5-localizing-motives), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [TC is right adjoint to the trivial cyclotomic structure; Frobenius on connective covers](#refinedtracemethods-rt-2-trivial-cyclotomic-adjunction).
+
+<a id="refinedtracemethods-rt-3-trace-uniqueness-multiplicative"></a>
+
+### Uniqueness and multiplicativity of the trace
+
+Work under the following hypotheses: Additive or localizing spectrum-valued invariants of small
+idempotent-complete stable ∞-categories, with preservation of all filtered colimits. For the TC
+tower, fix a prime p and use the genuine finite TC^n stages and their coherent restriction
+transitions. The comparison with modern p-typical TC is used for THH of connective rings in the
+proved range.
+
+In the finitary additive invariant category of RT.3/finitary-invariant-tensor-units, THH is an
+E∞-algebra and the space of E∞-maps K → THH is contractible; the Dennis trace represents its
+distinguished homotopy class. For a fixed prime p and each finite stage TC^n(−;p), the
+multiplicative mapping space K → TC^n is also contractible. The coherent compatible finite-stage
+maps determine the unique homotopy class of multiplicative maps K → TC(−;p) arising from that tower
+(BGT Theorem 7.4). The same unit argument gives IK → THH in finitary localizing invariants. TC
+itself need not preserve filtered colimits and is not an E∞-algebra in that finitary invariant
+category; no contractibility assertion for IK → TC there is made. For a connective E∞-ring A, the
+connective trace K(A) → TC(A;p) is a map of E∞-rings, compatible with K.7 products.
+
+(See [Uniqueness of the multiplicative cyclotomic trace](#ref-0-bgt-14), Corollary 3.8, p. 15;
+Corollaries 6.9 and 6.15, pp. 29, 31; Corollary 7.2 and Theorems 7.3–7.4, pp. 32–33 (introduction
+Theorems 1.11–1.12, p. 5). Unit initiality, THH and finite TC multiplicativity, contractible
+finite-stage spaces, and the distinct compatible-tower uniqueness assertion for TC. [A universal
+characterization of higher algebraic K-theory](#ref-0-bgt-13), §10.3, Proposition 10.8, p. 76;
+Lemmas 10.9–10.10 and Theorem 10.11, p. 77. Finite TC preserves filtered colimits; the inverse limit
+TC need not. The trace normalization is the unit class.)
+
+Construction and proof. Apply RT.3/finitary-invariant-tensor-units. Mapping from the tensor unit to
+an E∞-algebra is contractible (BGT Corollary 3.8, p. 15, and Corollary 7.2, p. 32). THH is a
+finitary localizing multiplicative invariant (BGT Corollary 6.9, p. 29). Finite TC^n are likewise
+multiplicative (Corollary 6.15, p. 31) and preserve filtered colimits by the TR induction in BGT
+2013 Proposition 10.8, p. 76. Identify the Dennis trace by its sphere class. For TC use the homotopy
+limit of the coherent finite-stage mapping spaces and restriction maps, not a finitary factorization
+of TC. Theorem 7.4, p. 33, identifies the resulting unique homotopy class as the cyclotomic trace.
+Evaluate the lax symmetric monoidal transformation at the commutative algebra Perf(A), using the
+genuine/modern p-typical comparison for connective A. The result respects the K.7 products.
+
+The comparison must satisfy these additional checks: For commutative connective A, the trace K_*(A)
+→ TC_*(A;p) is a ring homomorphism with the K.7 source products. The suggested statement contains
+the finite-stage contractible mapping spaces and the compatible limiting homotopy class; it does not
+place TC in the finitary Day category.
+
+*Needs:* [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace), [THH is symmetric monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), `GeneralAlgebraicKTheory:K.7/products-from-biexact-functors`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `GeneralAlgebraicKTheory:K.6`, [K-theory units of finitary invariants](#refinedtracemethods-rt-3-finitary-invariant-tensor-units), [TR and genuine TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [Genuine and Nikolaus–Scholze TC agree on bounded below spectra](#refinedtracemethods-rt-2-genuine-tc-agrees).
+
+<a id="refinedtracemethods-rt-3-relative-trace"></a>
+
+### Relative K-theory, relative TC and K^inv
+
+Work under the following hypotheses: f a map of E_1-rings; K connective or nonconnective as stated.
+
+For f:A→B of E₁-rings, form K(f)=fib(K(A)→K(B)) for connective K and IK(f)=fib(IK(A)→IK(B)) for
+nonconnective K, together with TC(f). The trace induces both relative maps. Define
+Fconn(A)=fib(K(A)→TC(A)) and Kinv(A)=fib(IK(A)→TC(A)). Then K(f)→TC(f) is an equivalence iff
+Fconn(A)→Fconn(B) is; IK(f)→TC(f) is an equivalence iff Kinv(A)→Kinv(B) is. Kinv is localizing; no
+localizing assertion is made for Fconn. Passing between the two relative criteria requires a
+comparison of connective and nonconnective relative K, such as the nilpotent case.
+
+(See [K-theory and topological cyclic homology of henselian pairs](#ref-0-cmm-21), §1.1, Theorem 1.2
+and footnote 1, p. 2. Clausen–Mathew–Morrow Definition 1.1 and Theorem 1.2: K^{inv} = fib(K → TC)
+and relative K = relative TC for nilpotent ideals.)
+
+Construction and proof. Take the two relative fibres of the natural trace transformations
+separately. Apply the stable 3×3 fibre lemma to K→TC and to IK→TC; use no comparison between
+connective and nonconnective K without its hypotheses.
+
+The API exposes the following operations and characterizations.
+
+
+- `relativeK`: K(f) = fib(K(A) → K(B)).
+
+- `relativeTC`: TC(f) = fib(TC(A) → TC(B)).
+
+- `relativeTrace`: K(f) → TC(f) induced by tr.
+
+- `Kinv`: K^{inv} = fib(IK → TC), a localizing invariant.
+
+- `Kinv.relative_iff`: IK(f) → TC(f) is an equivalence iff K^{inv}(A) → K^{inv}(B) is. For connective K use Fconn(A) → Fconn(B).
+
+**Checks.**
+
+
+- `relativeK.identity`: For f = id, K(f) = TC(f) = 0.
+
+- `relativeTrace.dual_numbers_pi1`: For f : k[ε] → k (char k = 0), π_1K(f) = (1 + εk)^× ≅ k, and π_1TC(f) ≅ k compatibly (via RT.3/dgm-theorem).
+
+- `relativeK.not_support`: For A=ℤ, s=2, fib(IK(ℤ)→IK(ℤ[1/2])) agrees with K-theory with support at 2 by localization. This localization is not a nilpotent quotient, so DGM nilpotent invariance cannot be applied to it.
+
+The comparison must satisfy these additional checks: For A → A/I with I nilpotent, K(f) ≃ TC(f)
+(RT.3/dgm-theorem). K^{inv}(𝔽_p) = fib(K(𝔽_p) → TC(𝔽_p)) has π_{−1} ≅ ℤ_p/ℤ and π_{−2} ≅ ℤ_p (from
+K_0 = ℤ, K_{<0} = 0, TC_0 = TC_{−1} = ℤ_p).
+
+This interface is used by `RT.3/dgm-theorem` — the theorem is the statement K(f) ≃ TC(f);
+`RT.3/truncating-excision` — K^{inv} is truncating, hence satisfies excision;
+`KTheoryFiniteLocalFields:L.5/relative-k-of-truncated-polynomial-over-perfect-field` — relative K of
+k[x]/(x^e) computed by relative TC.
+
+*Needs:* [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [Localizing and truncating invariants](#refinedtracemethods-rt-3-localizing-invariants), `GeneralAlgebraicKTheory:K.5/relative-K-theory`, `GeneralAlgebraicKTheory:K.4`, `GeneralAlgebraicKTheory:K.6`.
+
+<a id="refinedtracemethods-rt-3-goodwillie-calculus"></a>
+
+### Goodwillie derivatives
+
+Work under the following hypotheses: C,D cocomplete presentable stable infinity categories (with
+universe/accessibility bounds); ψ preserves sifted colimits. In Variant 2.3.2 the source t-structure
+is compatible with filtered colimits. The stable universal property ranges over exact
+filtered-colimit-preserving L; the connective variant over all-colimit-preserving L.
+
+For a sifted-colimit-preserving functor ψ:C→D between cocomplete stable ∞-categories, its reduction
+ψ_red=fib(ψ→ψ(0)) has derivative ∂ψ=colim_n Ω^n ψ_red Σ^n, initial among continuous exact functors
+receiving a transformation from ψ (Raskin §2.3). For the connective half C_{≥0} of a t-structure
+compatible with filtered colimits use Variant 2.3.2 and the additional truncation colimit to extend
+to C. Without the sifted-colimit hypothesis, 1-excisiveness does not imply preservation of all
+colimits. Higher excisiveness and analyticity are Goodwillie notions; Raskin expressly avoids
+constructing the full Taylor tower (Remark 2.1.1).
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §2.3, Remark 2.3.1 and Variant
+2.3.2, p. 6. Raskin’s linearization with its actual source category and continuity hypothesis;
+connective extension in Variant 2.3.2.)
+
+Construction and proof. Define ∂ψ by the sequential colimit under Raskin §2.3’s hypotheses; the
+connective extension uses Variant 2.3.2 and its truncation colimit. Use Raskin §2.3’s initial
+continuous-exact functor characterization. This requires the stated stable/sifted-colimit
+hypotheses, not just finite colimits or reduced excisiveness.
+
+The API exposes the following operations and characterizations.
+
+
+- `Coherent.GoodwillieDerivative`: ∂ψ = colim_n Ω^nψ_redΣ^n.
+
+- `Coherent.GoodwillieDerivative.universal`: For ψ sifted-colimit preserving between presentable stable categories, ∂ψ is continuous exact and precomposition by ψ→∂ψ is an equivalence Map(∂ψ,L)→Map(ψ,L) for every continuous exact L. Continuous means filtered-colimit preserving.
+
+- `Excisive`: n-excisive functors: strongly cocartesian (n+1)-cubes go to cartesian cubes.
+
+- `Coherent.GoodwillieDerivative.exact`: If ψ is exact and reduced, ∂ψ ≃ ψ.
+
+- `Coherent.GoodwillieDerivative.connective`: Variant 2.3.2 uses the filtered-compatible t-structure and the additional truncation colimit to extend a functor on C_{≥0}.
+
+- `Coherent.GoodwillieDerivative.connectiveUniversal`: Initial among all-colimit-preserving functors on C receiving a transformation from ψ on C_{≥0}; mapping-space universal property.
+
+**Checks.**
+
+
+- `GoodwillieDerivative.const`: The derivative of a constant functor is 0.
+
+- `GoodwillieDerivative.linear`: For ψ the identity on connective spectra, ∂ψ is the identity on spectra; its restriction is the inclusion of connective spectra.
+
+- `GoodwillieDerivative.quadratic`: The quadratic functor M ↦ (M⊗M)_{hC_2} has zero derivative although it is not zero: derivatives see only the linear part.
+
+- `Coherent.GoodwillieDerivative.zero`: The derivative of the zero functor is zero.
+
+- `Coherent.GoodwillieDerivative.linear`: A sifted-colimit-preserving exact functor between presentable stable categories is its own derivative.
+
+- `Coherent.GoodwillieDerivative.continuity`: The mapping-space universal property requires the continuous exact witness on L; finite excision alone does not supply it.
+
+The comparison must satisfy these additional checks: For ψ the identity on connective spectra, ∂ψ is
+its colimit-preserving extension, the identity on spectra. For ψ(M)=M⊗M on connective spectra, ∂ψ=0.
+
+This interface is used by `RT.3/stable-k-theory-thh` — the derivative of M ↦ K(A ⊕ M) is ΣTHH(A, M);
+`RT.3/dgm-theorem` — agreement of derivatives plus convergence gives DGM.
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra/sequential-homotopy-colimit`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-3-square-zero-extensions"></a>
+
+### Connective bimodules and square-zero extensions
+
+Work under the following hypotheses: A connective E₁, I connective bimodule; ker is the derived
+fiber of multiplication.
+
+For a connective E₁-ring A, connective A-bimodules are the connective objects of Mod_{A⊗A^op}(Sp).
+The split square-zero algebra A⊕M has multiplication (a,m)(a′,m′)=(aa′,am′+ma′) and projection to A.
+More generally an extension datum is (A,I,δ), with I connective and δ:ker(A⊗A→A)→ΣI a bimodule map.
+Its algebra is the coherent pullback A×_{A⊕ΣI}A of the derivation map and zero section. Morphisms
+include the compatible bimodule/derivation square over a ring map. These form AlgSqZero_conn, the
+domain of infinitesimal sifted-colimit preservation.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §5.3–5.4, pp. 31–32. General
+extension data and their morphisms; the zero derivation gives the split extension.)
+
+Construction and proof. Import coherent E₁ module and derivation interfaces from H.5. Construct the
+split algebra and its augmentation. Use the coherent pullback for arbitrary derivations; keep
+morphisms and their homotopies.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT3.ConnBimod`: Connective A–A bimodules, with restriction/base change under ring maps.
+
+- `RT3.sqZero`: Functor M↦A⊕M and its canonical projection to A.
+
+- `RT3.AlgSqZero`: Coherent category of (A,I,δ) with compatible squares.
+
+- `RT3.AlgSqZero.extension`: Pullback extension algebra and functorial projection.
+
+**Checks.**
+
+
+- `RT3.sqZero.zero`: A⊕0≃A with identity projection.
+
+- `RT3.sqZero.dual_numbers`: For A=Hk and M=Hk, π₀(A⊕M)=k[ε]/ε².
+
+- `RT3.sqZero.not_tensor`: The ideal M has zero product: the degree-two ε term of a free polynomial algebra is absent.
+
+- `RT3.AlgSqZero.zero_derivation`: The pullback attached to δ=0 recovers the split square-zero extension.
+
+The comparison must satisfy these additional checks: A⊕0≃A with identity projection. For A=Hk and
+M=Hk, π₀(A⊕M)=k[ε]/ε². The ideal M has zero product: the degree-two ε term of a free polynomial
+algebra is absent. The pullback attached to δ=0 recovers the split square-zero extension.
+
+This interface is used by `RT.3/stable-k-theory-thh` — Variable of the K derivative.;
+`RT.3/stable-tc-thh` — Variable of the TC derivative.; `RT.3/infinitesimal-sifted-colimits` — The
+actual domain of the relative functor..
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra`, `EnhancedDerivedSheaves:E0`.
+
+<a id="refinedtracemethods-rt-3-stable-k-theory-thh"></a>
+
+### Stable K-theory is THH (Dundas–McCarthy)
+
+Work under the following hypotheses: A connective E_1-ring; M connective A-bimodule; connective
+K-theory.
+
+For a connective E_1-ring A and the functor M ↦ K(A ⊕ M) on connective A-bimodules (A ⊕ M the split
+square-zero extension), the Goodwillie derivative is M ↦ Σ THH(A, M); i.e. stable K-theory K^s(A, M)
+:= colim_n Ω^n fib(K(A ⊕ Σ^nM) → K(A)) ≃ Σ THH(A, M) (with THH(A, M) the topological Hochschild
+homology with coefficients). In particular for A = S, stable K-theory of S with coefficients in M is
+a shift of M.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §2.12, Theorem 2.12.1(2), p. 11
+(proved in §3 via Theorem 3.10.1). Raskin Theorem 2.12.1(2): the derivative of M ↦ K(A ⊕ M) is M ↦
+ΣTHH(A, M). [Relative K-theory and topological cyclic homology](#ref-0-dundas-97), §0 Introduction,
+Theorem (unnumbered), journal p. 225 (PDF p. 3). Dundas 1997: stable K-theory equals THH for ring
+spectra. [Purity in chromatically localized algebraic K-theory](#ref-0-lmmt-24), §3, Remark 3.11, p.
+16. LMMT Remark 3.11: by the equivalence of stable K-theory with THH, the colimit is a shift of M.)
+
+Construction and proof. Categorical form: the derivative of T ↦ K(compact pairs (F, F → T F)) is the
+categorical trace tr_C(T) (Raskin Theorem 3.10.1), via a universal property among additive
+colimit-preserving functors. Specialise to C = Mod_A and T = M[1] ⊗_A − to get ΣTHH(A, M) (Raskin
+Theorem 2.12.1(2)); historically Dundas–McCarthy for simplicial rings and Dundas for ring spectra.
+
+The comparison must satisfy these additional checks: For A = ℤ discrete and M = ℤ: K^s(ℤ, ℤ) ≃
+ΣTHH(ℤ, ℤ), whose π_1 = ℤ = HH_0(ℤ). LMMT Remark 3.11's shift convention: the derivative is ΣM for A
+= S (their printed ΩM is a shift misprint, sourceIssues).
+
+*Needs:* [Goodwillie derivatives](#refinedtracemethods-rt-3-goodwillie-calculus), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace), `GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`, `GeneralAlgebraicKTheory:K.4`, [Connective bimodules and square-zero extensions](#refinedtracemethods-rt-3-square-zero-extensions), [THH with bimodule coefficients](#refinedtracemethods-rt-2-thh-bimodule-coefficients).
+
+<a id="refinedtracemethods-rt-3-stable-tc-thh"></a>
+
+### Stable TC is THH, compatibly with the trace
+
+Work under the following hypotheses: A connective E_1-ring; connective bimodules.
+
+For a connective E_1-ring A, the functor M ↦ TC(A ⊕ M) on connective A-bimodules has Goodwillie
+derivative M ↦ ΣTHH(A, M), and the cyclotomic trace K → TC induces on derivatives the identification
+of RT.3/stable-k-theory-thh; so tr is an equivalence on derivatives.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §2.12, Theorem 2.12.2(3), p. 11
+(proved in §4.11). Raskin Theorem 2.12.2(3): stable TC is ΣTHH and the trace is an equivalence on
+derivatives.)
+
+Construction and proof. Compute TC(A ⊕ M) via the cyclotomic structure of THH(A ⊕ M), whose reduced
+part decomposes by weight (cyclic tensor powers M^{⊗n} with induced C_n-actions); weights n ≥ 2
+contribute nonlinear terms, weight 1 gives ΣTHH(A, M) after the norm/Tate analysis (Raskin Theorem
+2.12.2(3), credited to Hesselholt and Lindenstrauss–McCarthy). Compatibility with the trace: the
+Dennis trace sends (F, η) to tr(id) (Raskin §4.11).
+
+The comparison must satisfy these additional checks: For M = 0 both derivatives vanish.
+
+*Needs:* [Goodwillie derivatives](#refinedtracemethods-rt-3-goodwillie-calculus), [Stable K-theory is THH (Dundas–McCarthy)](#refinedtracemethods-rt-3-stable-k-theory-thh), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [The Tate orbit lemma](#refinedtracemethods-rt-2-tate-orbit-lemma), `GeneralAlgebraicKTheory:K.4`, [Connective bimodules and square-zero extensions](#refinedtracemethods-rt-3-square-zero-extensions), [THH with bimodule coefficients](#refinedtracemethods-rt-2-thh-bimodule-coefficients).
+
+<a id="refinedtracemethods-rt-3-pseudo-extensible"></a>
+
+### Pseudo-extensible functors
+
+Work under the following hypotheses: C,D cocomplete stable; t-structures preserve filtered colimits.
+
+Let C,D be cocomplete stable infinity categories with t-structures compatible with filtered
+colimits. A functor ψ:C_{≥0}→D is pseudo-extensible if it is reduced, preserves sifted colimits, and
+every functor obtained by finitely iterating φ↦Ω B_φ(F,−), for connective F, takes connective inputs
+to connective outputs. Here B_φ(F,G)=cofib(φF⊕φG→φ(F⊕G)); for reduced φ it is equivalently the fiber
+of the split projection to φF⊕φG. This is the complete closure condition, not merely vanishing of a
+first derivative. Raskin uses cohomological D^{≤0}; the present convention is homological D_{≥0}.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §2.7, pp. 7–8; Definition
+2.11.2, pp. 10–11. Bilinear obstruction and its entire iterated closure.)
+
+Construction and proof. Construct the cross-effect with the canonical splitting. Induct over finite
+lists of connective inputs. Require connectivity at every iterate, together with reducedness and
+sifted-colimit preservation.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT3.crossEffect`: Cofiber of φF⊕φG→φ(F⊕G), equivalent to the split projection fiber.
+
+- `RT3.pseudoIterate`: Finite iteration of ΩB(F,−), beginning with ψ.
+
+- `RT3.IsPseudoExtensible`: Reduced, sifted-colimit preserving, and every finite iterate connective-valued.
+
+**Checks.**
+
+
+- `RT3.pseudoExtensible.zero`: The zero functor is pseudo-extensible.
+
+- `RT3.pseudoExtensible.linear`: A connective-valued reduced linear colimit-preserving functor has zero cross-effect and is pseudo-extensible.
+
+- `RT3.pseudoExtensible.quadratic`: Over HZ, ψ(X)=X⊗X on connective modules has B(HZ,HZ)≃HZ⊕HZ in degree zero; ΩB is not connective, so ψ is not pseudo-extensible.
+
+The comparison must satisfy these additional checks: The zero functor is pseudo-extensible. A
+connective-valued reduced linear colimit-preserving functor has zero cross-effect and is
+pseudo-extensible. Over HZ, ψ(X)=X⊗X on connective modules has B(HZ,HZ)≃HZ⊕HZ in degree zero; ΩB is
+not connective, so ψ is not pseudo-extensible.
+
+This interface is used by `RT.3/dgm-convergence` — Corollary 2.11.7 converts translated derivative
+vanishing into split square-zero constancy..
+
+*Needs:* [Goodwillie derivatives](#refinedtracemethods-rt-3-goodwillie-calculus), `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-3-postnikov-convergent"></a>
+
+### Postnikov-convergent algebra functors
+
+Work under the following hypotheses: A connective E₁; homological Postnikov truncation τ_{≤n}.
+
+A coherent functor Ψ:Alg_E₁,conn→Sp is Postnikov convergent if for every connective A the canonical
+map Ψ(A)→lim_{n∈N}Ψ(τ_{≤n}A) is an equivalence. The limit is the coherent inverse Postnikov tower
+with its canonical transition maps, not a product of unrelated values.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), Definition 5.5.1, p. 32.
+Canonical Postnikov convergence condition.)
+
+Construction and proof. Import coherent Postnikov towers and their cones. Apply Ψ to the full tower,
+not just to its object sequence. Define convergence by invertibility of that specific comparison.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT3.postnikovComparison`: Canonical map into the coherent Postnikov value tower.
+
+- `RT3.IsPostnikovConvergent`: The comparison is an equivalence for every connective input.
+
+- `RT3.postnikovConvergent.map`: Preserved by pointwise equivalence of coherent functors.
+
+**Checks.**
+
+
+- `RT3.postnikovConvergent.zero`: The zero functor is convergent.
+
+- `RT3.postnikovConvergent.forget`: The underlying-spectrum functor is convergent because connective spectra are Postnikov complete.
+
+- `RT3.postnikovConvergent.not_product`: For the constant HZ functor the tower limit is HZ, whereas the product of its values has π₀=∏_N Z.
+
+The comparison must satisfy these additional checks: The zero functor is convergent. The
+underlying-spectrum functor is convergent because connective spectra are Postnikov complete. For the
+constant HZ functor the tower limit is HZ, whereas the product of its values has π₀=∏_N Z.
+
+This interface is used by `RT.3/dgm-convergence` — One independent hypothesis of Proposition 5.5.3..
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra`, `EnhancedDerivedSheaves:E0`, `StableHomotopyKTheory:H.6`.
+
+<a id="refinedtracemethods-rt-3-infinitesimal-sifted-colimits"></a>
+
+### Infinitesimal sifted-colimit preservation
+
+Work under the following hypotheses: Connective extension algebras and ideals as in
+square-zero-extensions.
+
+For Ψ:Alg_E₁,conn→Sp define its relative extension functor on AlgSqZero_conn by (B→A)↦fib(ΨB→ΨA). Ψ
+infinitesimally preserves sifted colimits when this relative functor preserves every small sifted
+colimit. This is a condition on the coherent category of derivation data (A,I,δ), including changing
+A, not on all arrows or only on a fixed bimodule category.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), Definitions 5.5.2 and
+Proposition 5.5.3, pp. 32–33. The domain and relative functor used to reduce to split square-zero
+extensions.)
+
+Construction and proof. Use the full coherent extension category. Take functorial homotopy fibers.
+Form canonical comparison maps for each sifted extension diagram and require them to be
+equivalences.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT3.relativeExtension`: (A,I,δ)↦fib(Ψ(extension)→ΨA).
+
+- `RT3.IsInfinitesimallySifted`: All coherent sifted-colimit comparison maps of the relative functor are equivalences.
+
+- `RT3.infinitesimallySifted.map`: Invariant under pointwise equivalence; not a global colimit assertion for Ψ.
+
+**Checks.**
+
+
+- `RT3.infinitesimallySifted.constant`: A constant functor has zero relative functor and satisfies the condition.
+
+- `RT3.infinitesimallySifted.forget`: For the underlying-spectrum functor the relative extension value is I; compatible sifted extension colimits preserve it.
+
+- `RT3.infinitesimallySifted.fixed_base_insufficient`: Checking only δ=0 at a fixed A does not test a diagram where A varies or a nonsplit extension.
+
+The comparison must satisfy these additional checks: A constant functor has zero relative functor
+and satisfies the condition. For the underlying-spectrum functor the relative extension value is I;
+compatible sifted extension colimits preserve it. Checking only δ=0 at a fixed A does not test a
+diagram where A varies or a nonsplit extension.
+
+This interface is used by `RT.3/dgm-convergence` — The other independent hypothesis of Proposition
+5.5.3..
+
+*Needs:* [Connective bimodules and square-zero extensions](#refinedtracemethods-rt-3-square-zero-extensions), `EnhancedDerivedSheaves:E0`.
+
+<a id="refinedtracemethods-rt-3-dgm-convergence"></a>
+
+### Convergence: from derivatives to nilpotent extensions
+
+Work under the following hypotheses: Ψ Postnikov-convergent and infinitesimally preserving sifted
+colimits, and constant on split square-zero extensions (Proposition 5.5.3). To deduce
+split-square-zero constancy from derivatives: use Corollary 2.11.7’s actual reduced-functor
+pseudo-extensibility and connectivity hypotheses.
+
+Raskin Proposition 5.5.3: let Ψ:Alg^{conn}_{E_1}→Sp be Postnikov-convergent (Definition 5.5.1) and
+infinitesimally commute with sifted colimits (Definition 5.5.2: the relative-value functor on
+square-zero extensions has this property). If Ψ is constant on every split square-zero extension
+A⊕M→A with M connective, then Ψ is constant on every π_0-surjection with nilpotent kernel. For
+Ψ=cofib(K→TC), constancy on split extensions follows from Corollary 2.11.7 using
+pseudo-extensibility of the reduced bimodule functors (Definition 2.11.2) and agreement of
+derivatives; Theorem 5.6.1 supplies Postnikov convergence and infinitesimal sifted-colimit
+preservation for K and TC. Agreement of first derivatives plus an undefined “nil-convergent”
+condition is not asserted as a general theorem.
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §2.11, Definition 2.11.2 and
+Corollary 2.11.7, pp. 10–11; §5.5, Definitions 5.5.1–5.5.2 and Proposition 5.5.3, pp. 32–33; Theorem
+5.6.1, p. 33. Proposition 5.5.3, its nilpotent-extension conclusion, and the source’s precise
+split-extension and convergence conditions.)
+
+Construction and proof. Use Ψ=cofib(K→TC), as in Raskin §2.13, p. 12; prove the two convergence
+conditions separately. Do not substitute the desuspended fibre in the connective
+pseudo-extensibility step. Establish pseudo-extensibility of M↦Ψ(A⊕M), plus vanishing of derivatives
+of its translates, to apply Raskin Corollary 2.11.7. This gives constancy on every split square-zero
+extension. Proposition 5.5.3 extends it to all nilpotent π₀-surjections. For K→TC apply Theorems
+2.12.1–2.12.2 and 5.6.1; no general Taylor-tower or first-derivative-only criterion is asserted.
+After cofiber constancy, desuspend its relative value to obtain the cartesian trace square and the
+relative fibre equivalence.
+
+The comparison must satisfy these additional checks: Applied with F = K, G = TC and the trace gives
+RT.3/dgm-theorem.
+
+*Needs:* [Goodwillie derivatives](#refinedtracemethods-rt-3-goodwillie-calculus), [Stable TC is THH, compatibly with the trace](#refinedtracemethods-rt-3-stable-tc-thh), [Stable K-theory is THH (Dundas–McCarthy)](#refinedtracemethods-rt-3-stable-k-theory-thh), `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.6/homotopy-limit-of-tower`, [Pseudo-extensible functors](#refinedtracemethods-rt-3-pseudo-extensible), [Postnikov-convergent algebra functors](#refinedtracemethods-rt-3-postnikov-convergent), [Infinitesimal sifted-colimit preservation](#refinedtracemethods-rt-3-infinitesimal-sifted-colimits).
+
+<a id="refinedtracemethods-rt-3-dgm-theorem"></a>
+
+### The Dundas–Goodwillie–McCarthy theorem
+
+Work under the following hypotheses: A, B connective E_1-rings; π_0A → π_0B surjective with
+nilpotent kernel. No p-completion or rationalisation is needed integrally.
+
+Let f : A → B be a map of connective E_1-ring spectra such that π_0A → π_0B is surjective with
+nilpotent kernel. Then the square K(A) → TC(A) over K(B) → TC(B) (cyclotomic trace, connective K,
+integral TC) is cartesian: K(f) ≃ TC(f). In particular (McCarthy) for a surjection of discrete rings
+with nilpotent kernel the relative trace K(f) → TC(f; p) is an equivalence after p-completion for
+every prime p, and (Dundas) the same for ring spectra after p-completion. Equivalently K^{inv}(A) ≃
+K^{inv}(B).
+
+(See [On the Dundas-Goodwillie-McCarthy theorem](#ref-0-raskin-18), §1.1, Theorem 1.1.1, p. 1.
+Raskin Theorem 1.1.1: the DGM theorem for connective E_1-rings. [Topological cyclic homology
+(chapter in Handbook of Homotopy Theory)](#ref-0-hesselholt-nikolaus-19), Introduction, p. 2.
+Hesselholt–Nikolaus introduction: the DGM theorem with integral TC. [Relative algebraic K-theory and
+topological cyclic homology](#ref-0-mccarthy-97), Introduction, Main Theorem, journal p. 198 (PDF p.
+2). McCarthy's Main Theorem: the p-adic version for discrete rings. [Relative K-theory and
+topological cyclic homology](#ref-0-dundas-97), §0, Main Theorem, journal p. 224 (PDF p. 2). Dundas
+1997: the p-complete version for ring spectra.)
+
+Construction and proof. Apply RT.3/dgm-convergence to tr : K → TC, whose derivatives agree by
+RT.3/stable-tc-thh. Nonconnective variant: relative K_{≤0} vanishes for nilpotent extensions, so IK
+and K give the same relative term (Hesselholt–Nikolaus note). Deduce McCarthy's p-adic statement by
+p-completing and RT.2/tc-p-completion.
+
+The comparison must satisfy these additional checks: For k[ε] → k (k a field of characteristic 0),
+relative K is relative TC; rationally this is Goodwillie's theorem (RT.3/goodwillie-rational). Fails
+without nilpotence: ℤ → ℤ/p is not nilpotent (kernel pℤ), and K(ℤ) → K(𝔽_p) relative is not
+TC-relative (the henselian version needs p-completion and Clausen–Mathew–Morrow).
+
+*Needs:* [Convergence: from derivatives to nilpotent extensions](#refinedtracemethods-rt-3-dgm-convergence), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [Relative K-theory, relative TC and K^inv](#refinedtracemethods-rt-3-relative-trace), [p-completion of TC](#refinedtracemethods-rt-2-tc-p-completion), `StableHomotopyKTheory:H.6/p-completion`, `GeneralAlgebraicKTheory:K.4`, [Pseudo-extensible functors](#refinedtracemethods-rt-3-pseudo-extensible), [Postnikov-convergent algebra functors](#refinedtracemethods-rt-3-postnikov-convergent), [Infinitesimal sifted-colimit preservation](#refinedtracemethods-rt-3-infinitesimal-sifted-colimits).
+
+<a id="refinedtracemethods-rt-3-goodwillie-rational"></a>
+
+### Goodwillie's rational theorem
+
+Work under the following hypotheses: I nilpotent (not merely locally nilpotent); rational
+coefficients.
+
+For a ring R and a nilpotent two-sided ideal I ⊂ R, there are natural isomorphisms K_n(R, I) ⊗ ℚ ≅
+HC_{n−1}(R ⊗ ℚ, I ⊗ ℚ) for all n (relative cyclic homology over ℚ, HC_*(A⊗ℚ) = HC_*(A) ⊗ ℚ), induced
+by the Goodwillie–Jones Chern character K(R, I) ⊗ ℚ → HC⁻(R⊗ℚ, I⊗ℚ), which is an isomorphism,
+together with HP(R⊗ℚ, I⊗ℚ) = 0 and the norm sequence. In Land–Tamme's form, KQinf := fib(K_ℚ → HN_ℚ)
+is truncating; the same holds for maps of simplicial rings (connective E_1-rings via −⊗HZ) that are
+π_0-surjective with nilpotent kernel.
+
+(See [The obstruction to excision in K-theory and in cyclic homology](#ref-0-cortinas-06), §0
+Introduction, display (5), pp. 2-3. Cortiñas, display (5)–(6): Goodwillie's theorem K_n(R, I) ⊗ ℚ ≅
+HC_{n−1}(R, I) ⊗ ℚ for nilpotent I. [On the K-theory of pullbacks](#ref-0-land-tamme-19), §3, p. 30
+(definition of KQinf) and proof of Corollary 3.9, p. 31. Land–Tamme: KQinf is truncating
+(Goodwillie's theorem in truncating form).)
+
+Construction and proof. Import the relative rational Chern-character theorem as stated in Cortiñas
+(2006), Introduction (5)–(6), pp. 2–3, or Land–Tamme §3’s truncating KQinf result; this target-level
+target does not assert a new derivative proof. For a nilpotent ideal of a rational algebra, relative
+HP vanishes (Goodwillie nilinvariance). The norm sequence then identifies relative HC⁻_n with
+HC_{n−1}. Do not rationalize through an infinite fixed-point or Tate limit to identify absolute TC⁻
+or TP with HC⁻ or HP; the relative theorem does not imply those individual equivalences.
+
+The comparison must satisfy these additional checks: K_1(ℚ[ε], (ε)) = 1 + εℚ ≅ ℚ = HC_0(ℚ[ε], (ε)).
+K_2(ℚ[ε], (ε)) ≅ HC_1(ℚ[ε], (ε)) = 0 (consistent with van der Kallen: K_2(k[ε], (ε)) ≅ Ω¹_{k/ℤ},
+which vanishes for k = ℚ) and K_3(ℚ[ε], (ε)) ⊗ ℚ ≅ HC_2(ℚ[ε], (ε)) ≅ ℚ.
+
+*Needs:* [The Dundas–Goodwillie–McCarthy theorem](#refinedtracemethods-rt-3-dgm-theorem), [The norm sequence for cyclic homology](#refinedtracemethods-rt-2-norm-sequence-hc), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), `StableHomotopyKTheory:H.6/rationalisation`.
+
+<a id="refinedtracemethods-rt-3-kinv-truncating"></a>
+
+### K^inv is truncating
+
+Work under the following hypotheses: Connective E_1-rings.
+
+K^{inv} = fib(IK → TC) is a truncating localizing invariant: for every connective E_1-ring A,
+K^{inv}(A) → K^{inv}(π_0A) is an equivalence. Equivalently (by RT.3/dgm-theorem applied to A → π_0A,
+whose π_0-map is the identity) the DGM theorem implies truncation.
+
+(See [On the K-theory of pullbacks](#ref-0-land-tamme-19), §3, proof of Corollary 3.6, p. 29.
+Land–Tamme, proof of Corollary 3.6: DGM implies K^{inv} is truncating. [K-theory and topological
+cyclic homology of henselian pairs](#ref-0-cmm-21), §5.2, 'Variant', p. 42. Clausen–Mathew–Morrow
+§5.2: K^{inv}(R) → K^{inv}(π_0R) is an equivalence for connective R.)
+
+Construction and proof. A → π_0A = τ_{≤0}A is π_0-surjective with zero kernel; apply
+RT.3/dgm-theorem (Clausen–Mathew–Morrow §5.2 Variant; Land–Tamme Corollary 3.6).
+
+The comparison must satisfy these additional checks: K^{inv}(ℤ[x]/x² ⊗ S-type ring spectra) agrees
+with K^{inv} of their π_0.
+
+*Needs:* [The Dundas–Goodwillie–McCarthy theorem](#refinedtracemethods-rt-3-dgm-theorem), [Localizing and truncating invariants](#refinedtracemethods-rt-3-localizing-invariants), [Relative K-theory, relative TC and K^inv](#refinedtracemethods-rt-3-relative-trace), `GeneralAlgebraicKTheory:K.6`.
+
+<a id="refinedtracemethods-rt-3-truncating-excision"></a>
+
+### Truncating invariants: nil-invariance and excision
+
+Work under the following hypotheses: E truncating; Milnor squares of discrete rings (Land–Tamme
+allow general pullbacks with the ⊙-ring correction).
+
+Every truncating invariant E is nil-invariant (E(A) ≃ E(A/I) for a nilpotent ideal I of a discrete
+ring) and satisfies excision: for a Milnor square of rings (a pullback A → B, A/I → B/I with A → B
+mapping I isomorphically onto an ideal of B), E sends it to a pullback square; more generally
+Land–Tamme's ⊙-ring formula holds. Applied to K^{inv}: K^{inv} satisfies excision (Cortiñas;
+Geisser–Hesselholt; Dundas–Kittang; Land–Tamme), so the obstruction to excision for K equals that
+for TC; rationally (Cortiñas, KABI conjecture) the obstruction to excision in K⊗ℚ equals that in
+HC⊗ℚ (shifted by one).
+
+(See [On the K-theory of pullbacks](#ref-0-land-tamme-19), Introduction, Theorem B, p. 3 (= Theorem
+3.3 + Corollary 3.5). Land–Tamme: truncating invariants satisfy excision and nil-invariance.
+[K-theory and topological cyclic homology of henselian pairs](#ref-0-cmm-21), §4.5, Theorem 4.33, p.
+35. Clausen–Mathew–Morrow Theorem 4.33: excision for K^{inv}. [The obstruction to excision in
+K-theory and in cyclic homology](#ref-0-cortinas-06), §0, Main theorem 0.1, p. 1. Cortiñas: the
+obstruction to excision in rational K-theory equals that in rational cyclic homology.)
+
+Construction and proof. For a connective pullback A→B, A′→B′, Land–Tamme’s main theorem supplies the
+correction algebra A′⊙_A^{B′}B and a map from that algebra to B′. When π₀(A′⊗_A B)→π₀B′ is an
+isomorphism, the correction map is a π₀-isomorphism, so truncating E identifies its value with
+E(B′). It does not replace the A′ corner. For nil-invariance reduce the nilpotent ideal by finite
+induction to I²=0, then use Land–Tamme Corollary 3.5, p. 29, and its auxiliary correction-ring
+pullbacks. Truncation alone does not give a direct factorization A→A/I through rings with equal π₀.
+Apply this to Kinv using RT.3/kinv-truncating, and to the rational obstruction using
+RT.3/goodwillie-rational.
+
+The comparison must satisfy these additional checks: GeneralAlgebraicKTheory K.5 records that K
+itself fails excision: the failure is detected by TC (and rationally by HC). For the Milnor square
+of k[x,y]/(xy) → k[x] × k[y] over k, the excision failure of K equals that of TC.
+
+*Needs:* [K^inv is truncating](#refinedtracemethods-rt-3-kinv-truncating), [Localizing and truncating invariants](#refinedtracemethods-rt-3-localizing-invariants), [Goodwillie's rational theorem](#refinedtracemethods-rt-3-goodwillie-rational), `GeneralAlgebraicKTheory:K.5/excision-and-its-failure`, `GeneralAlgebraicKTheory:K.6`.
+
+<a id="refinedtracemethods-rt-3-tower-square"></a>
+
+### The trace square for filtered towers
+
+Work under the following hypotheses: R I-adically complete; each R/I^n → R/I is a nilpotent
+extension.
+
+Let R be a ring with a two-sided ideal I such that R ≅ lim_n R/I^n. The DGM squares for R/I^n → R/I
+assemble into a map of towers, and on limits K(R/I^∞) := lim_n K(R/I^n) and TC(R/I^∞) := lim_n
+TC(R/I^n) the square lim_n K(R/I^n) → lim_n TC(R/I^n) over K(R/I) → TC(R/I) is cartesian; on
+homotopy groups each limit sits in a Milnor sequence 0 → lim¹_n π_{i+1} → π_i lim → lim_n π_i → 0.
+Comparing K(R) itself with lim_n K(R/I^n) (continuity) is a separate input: CMM Theorem F gives a
+p-adic equivalence K(R)→lim_n K(R/I^n) when R is noetherian, I-adically complete and R/p is
+F-finite. The continuity theorem belongs to the henselian Part II and is not proved by this
+limit-square construction; this target exports only the limit square.
+
+(See [K-theory and topological cyclic homology of henselian pairs](#ref-0-cmm-21), §2.1, Remark 2.8,
+p. 9. Clausen–Mathew–Morrow Remark 2.8: inverse limits of towers of connective cyclotomic spectra
+exist and are preserved. [K-theory and topological cyclic homology of henselian
+pairs](#ref-0-cmm-21), §1.2, Theorem F, p. 4 (= Theorem 5.5, p. 39). Clausen–Mathew–Morrow Theorem
+F: the continuity input K(R) → lim K(R/I^n), owned by the henselian Part II.)
+
+Construction and proof. Apply RT.3/dgm-theorem to each R/I^n → R/I, naturally in n. Limits commute
+with pullbacks; Milnor sequences from StableHomotopyKTheory H.6/milnor-sequence. Record the
+continuity input with its source and owner.
+
+The comparison must satisfy these additional checks: For R = k[[t]], I = (t): the limit square for
+k[t]/(t^n) is the input to the calculation of K(k[[t]]) by TC.
+
+*Needs:* [The Dundas–Goodwillie–McCarthy theorem](#refinedtracemethods-rt-3-dgm-theorem), `StableHomotopyKTheory:H.6/homotopy-limit-of-tower`, `StableHomotopyKTheory:H.6/milnor-sequence`, `EnhancedDerivedSheaves:E0`, `GeneralAlgebraicKTheory:K.4`, `GeneralAlgebraicKTheory:K.6`, `StableHomotopyKTheory:H.6`.
+
+<a id="refinedtracemethods-rt-3-hesselholt-nikolaus-assembly"></a>
+
+### The TC assembly map for C_p
+
+Work under the following hypotheses: R connective E_1; p prime; coefficients ℤ_p for the cofiber
+formula. The LMMT extension has its own T(n), n≥2 hypotheses.
+
+Let R be a connective E_1-ring spectrum and p a prime. Hesselholt–Nikolaus Theorem 1.4.1 gives a
+natural cofiber sequence TC(R;ℤ_p)⊗Σ^∞_+BC_p → TC(R[C_p];ℤ_p) → Σ(THH(R;ℤ_p)_{hT_p})⊗C_p, where C_p
+is pointed at 1 (noncanonically p−1 copies of the suspended homotopy-orbit term). Keep p-completed
+coefficients and the circle T_p of the source. The separate extension to arbitrary R used in LMMT
+Corollary 4.30 is a T(n)-localized statement for n≥2, not this integral connective formula.
+
+(See [Topological cyclic homology (chapter in Handbook of Homotopy
+Theory)](#ref-0-hesselholt-nikolaus-19), §1.4 'Group rings', Theorem 1.4.1, p. 34.
+Hesselholt–Nikolaus Theorem 1.4.1: the cofibre sequence TC(R, ℤ_p) ⊗ BC_{p+} → TC(R[C_p], ℤ_p) → …
+for connective R. [Purity in chromatically localized algebraic K-theory](#ref-0-lmmt-24), §3, Remark
+3.9, p. 16 (uses Corollary 4.30, p. 24). LMMT Remark 3.9 uses [HN19, Theorem 1.4.1] for the cofibre
+of the assembly map.)
+
+Construction and proof. THH(R[C_p]) ≃ THH(R) ⊗ Σ^∞_+LBC_p as cyclotomic spectra
+(RT.2/thh-spectral-categories, RT.2/thh-spherical-group-rings), with LBC_p = ⊔_{g ∈ C_p} BC_p.
+Compute TC via RT.2/tc-fibre-sequence; the non-identity components and the Tate terms are modules
+over THH(R)^{tC_p}-type objects, Use the Tate orbit lemma with connective THH(R) for the residual
+circle comparison, together with induced Tate vanishing. The cyclotomic tensor decomposition uses
+symmetric monoidality of THH.
+
+The comparison must satisfy these additional checks: For R=S, the first arrow of the p-completed
+cofiber sequence is the assembly map TC(S;ℤ_p)⊗Σ^∞_+BC_p → TC(S[C_p];ℤ_p); the cofiber formula alone
+asserts no injectivity.
+
+*Needs:* [THH and TC of spherical group rings and loop spaces](#refinedtracemethods-rt-2-thh-spherical-group-rings), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [Tate constructions vanish on induced objects](#refinedtracemethods-rt-2-tate-vanishing-induced), [The Tate orbit lemma](#refinedtracemethods-rt-2-tate-orbit-lemma), [THH is symmetric monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal).
+
+<a id="refinedtracemethods-rt-3-low-degree-tests"></a>
+
+### Low-degree tests: dual numbers and truncated polynomials
+
+Work under the following hypotheses: k commutative; 1/2 ∈ k for van der Kallen's description.
+
+For a commutative ring k and the square-zero extension k[ε] → k: π_1K(k[ε], (ε)) ≅ (1 + εk)^× ≅ k,
+and the Dennis–Stein symbols ⟨aε, b⟩ generate K_2(k[ε], (ε)) (K2SymbolsBrauer T.6); for 1/2 ∈ k van
+der Kallen's isomorphism K_2(k[ε], (ε)) ≅ Ω¹_{k/ℤ} sends ⟨aε, b⟩ to a·db with the Dennis–Stein
+convention of the supplier, and for ℚ ⊆ k this is compatible with K_2(k[ε], (ε)) ≅ HC_1(k[ε], (ε))
+of RT.3/goodwillie-rational and with the Dennis trace to relative HH_2. For k[t]/(t^n) the relative
+K_1 is (1 + tk[t]/t^n)^×, whose image under the Dennis trace is d log. The boundary maps of the
+relative K-theory long exact sequence are compared with those of K2SymbolsBrauer's relative
+Steinberg presentation.
+
+(See [On the K-theory of pullbacks](#ref-0-land-tamme-19), §3, Example 3.8, p. 30. Land–Tamme
+Example 3.8 treats truncated polynomials over perfect fields of characteristic p; its K₂=0 example
+has that hypothesis and is not a general computation over arbitrary k.)
+
+Construction and proof. Compute relative K_1 directly (units). Relative K_2 via Dennis–Stein symbols
+(K2SymbolsBrauer T.6/relative-square-zero). Apply the Dennis trace formulas (RT.3/dennis-trace) and
+RT.3/goodwillie-rational over ℚ.
+
+The comparison must satisfy these additional checks: K_1(ℚ[ε], (ε)) ≅ ℚ ≅ HC_0(ℚ[ε], (ε)). The full
+calculations of K_*(k[t]/t^n, (t)) are owned by KTheoryFiniteLocalFields L.5 and are not repeated.
+
+*Needs:* [The Dennis trace](#refinedtracemethods-rt-3-dennis-trace), [Goodwillie's rational theorem](#refinedtracemethods-rt-3-goodwillie-rational), `K2SymbolsBrauer:T.6/dennis-stein-symbol`, `K2SymbolsBrauer:T.6/relative-square-zero`.
+
+### Examples
+
+For a field k and its dual numbers, the relative K₁ of k[ε]→k is 1+εk, with (1+aε)(1+bε)=1+(a+b)ε.
+Thus it is the additive group of k. In characteristic zero the Goodwillie comparison has cyclic
+degree one lower than K-degree; the K₂ test uses Ω¹_{k/Z} and the precise Dennis–Stein
+normalization.
+
+### Dependencies
+
+Use `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:abstract`,
+`EnhancedDerivedSheaves:E5:abstract/idempotent-completion`,
+`EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`,
+`EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`,
+`EnhancedDerivedSheaves:E5:presentability`,
+`EnhancedDerivedSheaves:E5:presentability/compact-objects`,
+`EnhancedDerivedSheaves:E5:presentability/presentable-categories`,
+`GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`, `GeneralAlgebraicKTheory:K.2:plus`,
+`GeneralAlgebraicKTheory:K.4`, `GeneralAlgebraicKTheory:K.4:construction/S-construction`,
+`GeneralAlgebraicKTheory:K.5/excision-and-its-failure`,
+`GeneralAlgebraicKTheory:K.5/relative-K-theory`, `GeneralAlgebraicKTheory:K.6`,
+`GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`,
+`GeneralAlgebraicKTheory:K.7/products-from-biexact-functors`,
+`K2SymbolsBrauer:T.6/dennis-stein-symbol`, `K2SymbolsBrauer:T.6/relative-square-zero`, [Cyclic,
+negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology),
+[Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Genuine and Nikolaus–Scholze
+TC agree on bounded below spectra](#refinedtracemethods-rt-2-genuine-tc-agrees), [The norm sequence
+for cyclic homology](#refinedtracemethods-rt-2-norm-sequence-hc), [The Tate orbit
+lemma](#refinedtracemethods-rt-2-tate-orbit-lemma), [Tate constructions vanish on induced
+objects](#refinedtracemethods-rt-2-tate-vanishing-induced), [The Nikolaus–Scholze formula for
+TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [Negative topological cyclic and periodic
+topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [p-completion of
+TC](#refinedtracemethods-rt-2-tc-p-completion), [THH with bimodule
+coefficients](#refinedtracemethods-rt-2-thh-bimodule-coefficients), [Topological Hochschild homology
+of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [THH relative to THH(ℤ) is Hochschild
+homology](#refinedtracemethods-rt-2-thh-over-thhz), [THH of spectral and stable
+∞-categories](#refinedtracemethods-rt-2-thh-spectral-categories), [THH and TC of spherical group
+rings and loop spaces](#refinedtracemethods-rt-2-thh-spherical-group-rings), [THH is symmetric
+monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [Topological cyclic
+homology](#refinedtracemethods-rt-2-topological-cyclic-homology), [TR and genuine
+TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [TC is right adjoint to the trivial cyclotomic
+structure; Frobenius on connective covers](#refinedtracemethods-rt-2-trivial-cyclotomic-adjunction),
+[The category of relative localizing motives](#refinedtracemethods-rt-5-localizing-motives),
+`StableHomotopyKTheory:H.5:spectra`, `StableHomotopyKTheory:H.5:spectra/postnikov-sections`,
+`StableHomotopyKTheory:H.5:spectra/sequential-homotopy-colimit`, `StableHomotopyKTheory:H.6`,
+`StableHomotopyKTheory:H.6/homotopy-limit-of-tower`, `StableHomotopyKTheory:H.6/milnor-sequence`,
+`StableHomotopyKTheory:H.6/p-completion`, `StableHomotopyKTheory:H.6/rationalisation`,
+`tauceti:TauCetiRoadmap/DGAInfinity#layer-9-smoothness-properness-serre-and-calabi--yau-structures-and-completions`.
+
+## Layer RT.3b unfiltered: The Beilinson square
+
+This layer constructs the Beilinson square. Each target below includes the hypotheses and comparison
+maps that its consumers require.
+
+<a id="refinedtracemethods-rt-3b-qp-coefficients"></a>
+
+### ℤ_p- and ℚ_p-coefficients: p-complete first, then invert p
+
+Work under the following hypotheses: Spectra; bounded below for quasi-isogenies (left-complete
+t-structure).
+
+For a functor F to spectra and a prime p: F(R; ℤ_p) := F(R)^∧_p (p-completion, StableHomotopyKTheory
+H.6) and F(R; ℚ_p) := F(R; ℤ_p)[1/p] = F(R)^∧_p ⊗ ℚ. This is not F(R) ⊗ ℚ_p and not (F(R) ⊗ ℚ)^∧_p
+(the latter is 0). A map f is an isogeny if there are g and N > 0 with gf = N·id and fg = N·id; a
+map of bounded-below objects is a quasi-isogeny if each τ_{≤n}f is an isogeny (N may depend on n);
+quasi-isogenies become equivalences after −⊗ℚ, hence on (−; ℚ_p) of bounded-below p-complete objects
+degreewise.
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), Introduction, p. 3 (paragraph before Theorem
+A). AMMN introduction: F(R; ℚ_p) means p-complete first, then invert p. [On the Beilinson fiber
+square](#ref-0-ammn-20), Definition 2.18, §2.3, p. 12. AMMN Definition 2.18: isogenies and
+quasi-isogenies.)
+
+Construction and proof. Define via p-completion and rationalisation (StableHomotopyKTheory
+H.6/p-completion, H.6/rationalisation). Define isogeny/quasi-isogeny (AMMN Definition 2.18) and
+record that quasi-isogenies are rational equivalences.
+
+The API exposes the following operations and characterizations.
+
+
+- `pAdicCoeff`: F(R; ℤ_p) := F(R)^∧_p.
+
+- `rationalPAdicCoeff`: F(R; ℚ_p) := F(R)^∧_p[1/p].
+
+- `Isogeny`: f with g, N such that gf = N and fg = N.
+
+- `QuasiIsogeny`: Each τ_{≤n}f is an isogeny; quasi-isogenies are rational equivalences.
+
+- `rationalPAdicCoeff.exact`: F ↦ F(−; ℚ_p) is exact.
+
+**Checks.**
+
+
+- `rationalPAdicCoeff.HZ`: π_0 HZ(−; ℚ_p) = ℚ_p.
+
+- `rationalPAdicCoeff.HQ`: HQ(−; ℚ_p) = 0.
+
+- `rationalPAdicCoeff.not_rationalise_first`: (HZ ⊗ ℚ)^∧_p = 0 ≠ HQ_p = HZ(−; ℚ_p): the order of completion and rationalisation matters.
+
+The comparison must satisfy these additional checks: HZ(−; ℚ_p) = HQ_p; HQ(−; ℚ_p) = 0. For F =
+HH(−/ℤ) and R = 𝔽_p: HH(𝔽_p; ℚ_p) = 0 although HH(𝔽_p) ≠ 0.
+
+This interface is used by `RT.3b/beilinson-square-ordinary` — all four corners carry
+ℚ_p-coefficients in this sense; `PrismaticCohomology:PR.7/tate-twist-analytic-continuation` —
+ℚ_p(n)(−) = ℤ_p(n)(−)[1/p] in the graded Beilinson square.
+
+*Needs:* `StableHomotopyKTheory:H.6/p-completion`, `StableHomotopyKTheory:H.6/rationalisation`.
+
+<a id="refinedtracemethods-rt-3b-trivial-vs-thh-fp"></a>
+
+### THH(𝔽_p) versus ℤ with trivial cyclotomic structure
+
+Work under the following hypotheses: X bounded below cyclotomic; p fixed.
+
+There is a cofibre sequence of cyclotomic spectra ℤ_{hC_p} → ℤ^{triv} → THH(𝔽_p) (from Bökstedt's
+theorem THH(𝔽_p) ≃ τ_{≥0}(ℤ^{tC_p})); consequently, for every bounded-below cyclotomic X, X ⊗
+ℤ^{triv} → X ⊗ THH(𝔽_p) is a p-adic TP-equivalence, and the square TC(X ⊗ ℤ^{triv}; ℤ_p) → TC(X ⊗
+THH(𝔽_p); ℤ_p) over the corresponding TC⁻ terms is cartesian with fibre (Σ(X ⊗ ℤ_{hC_p})_{hT})^∧_p.
+For X = THH(R), THH(R) ⊗ THH(𝔽_p) ≃ THH(R ⊗_S 𝔽_p).
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), Proposition 2.5, p. 8. AMMN Construction 2.6,
+Lemma 2.7, Propositions 2.5, 2.8 and Corollary 2.9.)
+
+Construction and proof. Bökstedt periodicity in the form THH(𝔽_p) ≃ τ_{≥0}ℤ^{tC_p} (NS18 §IV.4; AMMN
+Construction 2.6). ℤ_{hC_p} is a ℤ^{hC_p}-module and (ℤ^{hC_p})^{tT} vanishes p-adically by the Tate
+fixpoint lemma (RT.2/tate-fixpoint-lemma), giving the TP-equivalence (AMMN Lemma 2.7). Cyclotomic X
+with TP(X; ℤ_p) = 0 has TC = TC⁻ (AMMN Proposition 2.5); apply to the fibre (AMMN Proposition 2.8,
+Corollary 2.9).
+
+The comparison must satisfy these additional checks: For X = S: TC(ℤ^{triv}; ℤ_p) → TC(THH(𝔽_p);
+ℤ_p) = TC(𝔽_p; ℤ_p) has fibre (Σℤ_{hC_p,hT})^∧_p.
+
+*Needs:* [The Tate fixpoint lemma](#refinedtracemethods-rt-2-tate-fixpoint-lemma), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [THH is symmetric monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [TC is right adjoint to the trivial cyclotomic structure; Frobenius on connective covers](#refinedtracemethods-rt-2-trivial-cyclotomic-adjunction), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [The Bökstedt construction and classical THH](#refinedtracemethods-rt-2-bokstedt-construction).
+
+<a id="refinedtracemethods-rt-3b-reduction-quasi-isogeny"></a>
+
+### From R ⊗_S 𝔽_p to R/p: a quasi-isogeny
+
+Work under the following hypotheses: A, A′ connective E_1-rings; for the application, R any
+associative ring.
+
+If f : A → A′ is a map of connective E_1-rings that is a quasi-isogeny of spectra and π_0-surjective
+with nilpotent kernel, then THH(f) is a quasi-isogeny of cyclotomic spectra and TC(f; ℤ_p) is a
+quasi-isogeny (AMMN Theorem 3.4 = Theorem C). Applied to the Postnikov truncation R ⊗_S 𝔽_p → π_0 =
+R/p (a quasi-isogeny of ring spectra, with (2p−2)-connective fibre when R is p-torsion-free): TC(R
+⊗_S 𝔽_p; ℤ_p) → TC(R/p; ℤ_p) is a quasi-isogeny, hence TC(R ⊗_S 𝔽_p; ℚ_p) ≃ TC(R/p; ℚ_p).
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), Definition 2.18, §2.3, p. 12. AMMN Theorem 3.4
+and Proposition 2.22: TC(R ⊗_S 𝔽_p; ℤ_p) → TC(R/p; ℤ_p) is a quasi-isogeny. [On the Beilinson fiber
+square](#ref-0-ammn-20), §3.1–3.3, Propositions 3.1–3.3, p. 15–16; Theorem 3.4 and Propositions
+3.5–3.7 with proof, pp. 16–17; application before Corollary 3.9, p. 18. The actual preservation
+theorem, followed by its TC consequence and application to spectral reduction.)
+
+Construction and proof. AMMN Definition 2.18 uses degreewise isogeny bounds. The spectral reduction
+R⊗_S𝔽_p→R/p has such bounds, with the stated improved connectivity when R is p-torsion-free. For the
+general theorem, AMMN Propositions 3.1–3.3 detect cyclotomic quasi-isogenies through TR. A null
+Frobenius gives a product of finite homotopy-orbit terms; a positive graded filtration with
+increasing connectivity reduces to those null-Frobenius pieces. Apply this to graded square-zero
+algebras (Proposition 3.5), then resolve a nonsplit square-zero extension by its Čech nerve (3.6).
+Truncated augmentation ideals are built by finitely many such extensions (3.7); pass up their
+Postnikov towers and use the Čech nerve of A→A′ to obtain Theorem 3.4. Taking TC preserves
+cyclotomic quasi-isogenies in this bounded-below setting, giving the application on p-completed TC
+and equivalence after inverting p (§3.3, p. 18). The cyclotomic t-structure, the TR detection of
+quasi-isogenies and the graded tower interface used by this route are the RT.2 targets listed among
+the inputs below; they are not inferred from ordinary spectral Postnikov sections.
+
+The comparison must satisfy these additional checks: Rationally the spectral and ordinary reductions
+agree; integrally they do not (TC(𝔽_p ⊗_S 𝔽_p) ≠ TC(𝔽_p)).
+
+*Needs:* [ℤ_p- and ℚ_p-coefficients: p-complete first, then invert p](#refinedtracemethods-rt-3b-qp-coefficients), [The Dundas–Goodwillie–McCarthy theorem](#refinedtracemethods-rt-3-dgm-theorem), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, [TR and genuine TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [Connective bimodules and square-zero extensions](#refinedtracemethods-rt-3-square-zero-extensions), [Genuine and naive cyclotomic spectra agree on bounded below objects](#refinedtracemethods-rt-2-bounded-below-cyclotomic-equivalence), [TR detects cyclotomic quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies), [Graded cyclotomic torsion and connective convergence](#refinedtracemethods-rt-2-graded-cyclotomic-quasi-isogeny).
+
+<a id="refinedtracemethods-rt-3b-crystalline-trace-map"></a>
+
+### The comparison map β : TC(R/p; ℚ_p) → HP(R; ℚ_p)
+
+Work under the following hypotheses: R associative ring; ℚ_p-coefficients as in
+RT.3b/qp-coefficients.
+
+For an associative ring R, the right vertical map of the Beilinson square is β : TC(R ⊗_S 𝔽_p; ℤ_p)
+→ HP(R; ℤ_p) (and, after the quasi-isogeny of RT.3b/reduction-quasi-isogeny, TC(R/p; ℚ_p) → HP(R;
+ℚ_p)), built from ℤ^{triv} → THH(𝔽_p): TC(R⊗_S𝔽_p) = TC(THH(R) ⊗ THH(𝔽_p)) → TP(THH(R) ⊗ THH(𝔽_p))
+≃_{ℤ_p} TP(THH(R) ⊗ ℤ^{triv}) = TP(R ⊗ ℤ) → HP(R; ℤ_p) (inverse of the integral p-adic
+TP-equivalence of RT.3b/trivial-vs-thh-fp). Composed with the cyclotomic trace it is AMMN's
+crystalline trace tr_crys = β ∘ tr : K(R/p; ℚ_p) → HP(R; ℚ_p) (AMMN Definition 2.14 prints tr ∘ β;
+the composite is β ∘ tr).
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), Theorem 2.12, §2.2, p. 10, square (15). AMMN
+Theorem 2.12: the right vertical map is built from ℤ^{triv} → THH(𝔽_p). [On the Beilinson fiber
+square](#ref-0-ammn-20), Theorem A, Introduction, p. 3, eqs. (1)-(2). AMMN Theorem A and Definition
+2.14: tr_crys, with the composition order misprinted.)
+
+Construction and proof. Use the TP-equivalence X ⊗ ℤ^{triv} ≃_p X ⊗ THH(𝔽_p)
+(RT.3b/trivial-vs-thh-fp). Compose TC → TP with its inverse and with linearisation TP(R ⊗ ℤ) →
+HP(R/ℤ; ℤ_p) (THH(R) ⊗_S ℤ → HH(R) is a rational equivalence, RT.2/thh-over-thhz). Define tr_crys :=
+β ∘ tr.
+
+The API exposes the following operations and characterizations.
+
+
+- `beilinsonBeta`: β : TC(R ⊗_S 𝔽_p; ℤ_p) → HP(R; ℤ_p) and its ℚ_p-version on TC(R/p; ℚ_p).
+
+- `crystallineTrace`: tr_crys = β ∘ tr : K(R/p; ℚ_p) → HP(R; ℚ_p).
+
+- `beilinsonBeta.natural`: Natural in ring maps R → R′.
+
+- `beilinsonBeta.commutes`: β ∘ (TC(R) → TC(R ⊗_S 𝔽_p)) = can ∘ (TC(R) → HC⁻(R)) on ℤ_p-coefficients (the square of RT.3b/beilinson-square-spectral commutes).
+
+**Checks.**
+
+
+- `beilinsonBeta.zero`: For R = 0 both sides vanish.
+
+- `beilinsonBeta.Zp_pi0`: For R = ℤ_p, π_0β : π_0TC(𝔽_p; ℚ_p) = ℚ_p → HP_0(ℤ_p; ℚ_p) = ℚ_p is an isomorphism.
+
+- `crystallineTrace.order`: tr ∘ β is not defined (β lands in HP, tr starts in K): the composite is β ∘ tr, correcting AMMN Definition 2.14's printed order.
+
+The comparison must satisfy these additional checks: For R=ℤ_p, the ordinary-reduction comparison
+uses ℚ_p coefficients: π_0β is an isomorphism ℚ_p → ℚ_p. For R with R/p perfect, β recovers the
+crystalline comparison A_crys(R/p) → (LΩ_R)[1/p]-type identification
+(RT.3b/graded-beilinson-square).
+
+This interface is used by `RT.3b/beilinson-square-ordinary` — the right vertical map;
+`PrismaticCohomology:PR.7/tate-twist-analytic-continuation` — χ_n on graded pieces.
+
+*Needs:* [THH(𝔽_p) versus ℤ with trivial cyclotomic structure](#refinedtracemethods-rt-3b-trivial-vs-thh-fp), [ℤ_p- and ℚ_p-coefficients: p-complete first, then invert p](#refinedtracemethods-rt-3b-qp-coefficients), [THH relative to THH(ℤ) is Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [From R ⊗_S 𝔽_p to R/p: a quasi-isogeny](#refinedtracemethods-rt-3b-reduction-quasi-isogeny).
+
+<a id="refinedtracemethods-rt-3b-beilinson-square-spectral"></a>
+
+### The Beilinson square with the spectral reduction (AMMN Theorem 2.12)
+
+Work under the following hypotheses: R associative (no commutativity, henselian or completeness
+assumption).
+
+For an associative ring R (or a connective ℤ-linear E_1-algebra), there is a natural commutative
+square with top row TC(R; ℤ_p) → TC(R ⊗_S 𝔽_p) and bottom row HC⁻(R; ℤ_p) → HP(R; ℤ_p), left
+vertical map the canonical one and right vertical map β, which is cartesian after inverting p. Here
+R ⊗_S 𝔽_p is the E_1-ring spectrum (with π_0 = R/p and higher homotopy Tor^S-terms), not the ring
+R/p. τ_{≤2i} of the total cofibre is killed by p^i for i ≤ p − 1.
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), Theorem 2.12, §2.2, p. 10, square (15). AMMN
+Theorem 2.12: the square TC(R; ℤ_p) → TC(R ⊗_S 𝔽_p) over HC⁻(R; ℤ_p) → HP(R; ℤ_p), cartesian after
+inverting p. [On the Beilinson fiber square](#ref-0-ammn-20), Proposition 2.5, p. 8. AMMN Corollary
+2.10 and the proof of Theorem 2.12.)
+
+Construction and proof. Use AMMN Corollary 2.10 for the upper square in the proof of Theorem 2.12,
+including the TP equivalence of RT.3b/trivial-vs-thh-fp. The natural S¹-equivariant map
+THH(R;ℤ_p)⊗_Sℤ→HH(R;ℤ_p) is a rational equivalence. On the horizontal fibres of the lower square it
+induces Σ(THH(R;ℤ_p)⊗_Sℤ)_{hS¹}→ΣHH(R;ℤ_p)_{hS¹}, which is a rational equivalence because homotopy
+orbits preserve it. Paste the two rationally cartesian squares. This does not require the individual
+vertical maps on TC⁻ and TP to be rational equivalences. Use Remark 2.13 for the effective bound.
+
+The comparison must satisfy these additional checks: For R = 𝔽_p-algebra, R ⊗_S 𝔽_p ≠ R/p = R:
+π_*(𝔽_p ⊗_S 𝔽_p) is the dual Steenrod algebra.
+
+*Needs:* [THH(𝔽_p) versus ℤ with trivial cyclotomic structure](#refinedtracemethods-rt-3b-trivial-vs-thh-fp), [The comparison map β : TC(R/p; ℚ_p) → HP(R; ℚ_p)](#refinedtracemethods-rt-3b-crystalline-trace-map), [THH relative to THH(ℤ) is Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [Mixed complexes model complexes with circle action](#refinedtracemethods-rt-2-mixed-complexes-are-circle-modules), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology).
+
+<a id="refinedtracemethods-rt-3b-beilinson-square-ordinary"></a>
+
+### The Beilinson fibre square (AMMN Corollary 3.9)
+
+Work under the following hypotheses: R associative unital; p a prime.
+
+For every associative unital ring R there is a natural cartesian square of spectra with top row
+TC(R; ℚ_p) → TC(R/p; ℚ_p), bottom row HC⁻(R; ℚ_p) → HP(R; ℚ_p), left vertical map the canonical map
+TC → TC⁻ → HC⁻ and right vertical map β (RT.3b/crystalline-trace-map). Here (−; ℚ_p) is p-completion
+followed by inverting p (RT.3b/qp-coefficients) and HC⁻, HP are those of derived HH over ℤ. No
+henselian, commutativity or completeness hypothesis enters; the K-theoretic square K(R; ℚ_p) →
+K(R/p; ℚ_p) over HC⁻ → HP is cartesian when R is commutative and henselian along (p) (AMMN Theorem
+A), via Clausen–Mathew–Morrow's rigidity, which is owned by the henselian Part II and is not part of
+this stage.
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), §3, Corollary 3.9, p. 18, display (19).
+Display (19) has top row TC(R;ℚ_p)→TC(R/p;ℚ_p) and bottom row HC⁻(R;ℚ_p)→HP(R;ℚ_p). The coefficient
+convention alone is not a locator for this theorem.)
+
+Construction and proof. Invert p in RT.3b/beilinson-square-spectral. Replace TC(R ⊗_S 𝔽_p; ℚ_p) by
+TC(R/p; ℚ_p) using RT.3b/reduction-quasi-isogeny. Check that the replaced right vertical map is β
+and the square still commutes (naturality of β).
+
+The comparison must satisfy these additional checks: For R = ℤ_p: TC(ℤ_p; ℚ_p) → TC(𝔽_p; ℚ_p) over
+HC⁻(ℤ_p; ℚ_p) → HP(ℤ_p; ℚ_p) is cartesian; on π_{−1}: TC_{−1}(𝔽_p; ℚ_p) = ℚ_p and HP_{−1}(ℤ_p; ℚ_p)
+= 0. Henselian hypotheses are absent here: the square holds for R = ℤ (not henselian along p).
+
+*Needs:* [The Beilinson square with the spectral reduction (AMMN Theorem 2.12)](#refinedtracemethods-rt-3b-beilinson-square-spectral), [From R ⊗_S 𝔽_p to R/p: a quasi-isogeny](#refinedtracemethods-rt-3b-reduction-quasi-isogeny), [The comparison map β : TC(R/p; ℚ_p) → HP(R; ℚ_p)](#refinedtracemethods-rt-3b-crystalline-trace-map), [ℤ_p- and ℚ_p-coefficients: p-complete first, then invert p](#refinedtracemethods-rt-3b-qp-coefficients).
+
+<a id="refinedtracemethods-rt-3b-beilinson-fibre-sequence"></a>
+
+### The Beilinson fibre sequence and its shift dictionary
+
+Work under the following hypotheses: R associative; HC derived over ℤ and p-completed.
+
+For every associative ring R: fib(TC(R; ℚ_p) → TC(R/p; ℚ_p)) ≃ ΣHC(R; ℚ_p), and cofib(TC(R; ℚ_p) →
+TC(R/p; ℚ_p)) ≃ Σ²HC(R; ℚ_p), with HC = HH_{hT} (direct-sum convention of RT.1/cyclic-homology) and
+Σ the homological shift; integrally, TC(R, (p); ℤ_p) := fib(TC(R; ℤ_p) → TC(R/p; ℤ_p)), ΣHC(R, (p);
+ℤ_p) and ΣHC(R; ℤ_p) are naturally quasi-isogenous, and for p-torsion-free R the first two agree
+after τ_{≤2p−5}. Dictionary: a source writing the Beilinson sequence as K(R, (p); ℚ_p) → HC(R;
+ℚ_p)[1]-type with cohomological shifts must be converted by [1] = Σ (homological) before use.
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), Theorem 2.20, §2.3, p. 12. AMMN Theorem 2.20
+and the proof of Theorem 4.14: fib(TC(R; ℚ_p) → TC(R/p; ℚ_p)) ≃ ΣHC(R; ℚ_p), cofibre Σ²HC.)
+
+Construction and proof. Fibres of the horizontal maps in a cartesian square agree: fib(TC(R) →
+TC(R/p)) ≃ fib(HC⁻ → HP) (RT.3b/beilinson-square-ordinary). fib(HC⁻ → HP) = ΣHC by the norm sequence
+ΣHC → HC⁻ → HP (RT.2/norm-sequence-hc). Integral version: AMMN Theorem 2.20 with Lemma 2.23.
+
+The comparison must satisfy these additional checks: For R = ℤ_p: π_1 fib = HC_0(ℤ_p; ℚ_p) = ℚ_p,
+matching K_1(ℤ_p, (p); ℚ_p) = (1 + pℤ_p) ⊗ ℚ ≅ ℚ_p via log.
+
+*Needs:* [The Beilinson fibre square (AMMN Corollary 3.9)](#refinedtracemethods-rt-3b-beilinson-square-ordinary), [The norm sequence for cyclic homology](#refinedtracemethods-rt-2-norm-sequence-hc), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology).
+
+### Examples
+
+Completing HZ at p and then inverting p gives H Q_p. Rationalizing first and then completing gives
+zero. The coefficient convention is already visible at the unit object, and must be kept in both the
+ordinary and graded Beilinson comparisons.
+
+### Dependencies
+
+Use [Cyclic, negative cyclic and periodic cyclic
+homology](#refinedtracemethods-rt-1-cyclic-homology), [The Bökstedt construction and classical
+THH](#refinedtracemethods-rt-2-bokstedt-construction), [Genuine and naive cyclotomic spectra agree
+on bounded below objects](#refinedtracemethods-rt-2-bounded-below-cyclotomic-equivalence), [Graded
+cyclotomic torsion and connective
+convergence](#refinedtracemethods-rt-2-graded-cyclotomic-quasi-isogeny), [Mixed complexes model
+complexes with circle action](#refinedtracemethods-rt-2-mixed-complexes-are-circle-modules), [The
+norm sequence for cyclic homology](#refinedtracemethods-rt-2-norm-sequence-hc), [The Tate fixpoint
+lemma](#refinedtracemethods-rt-2-tate-fixpoint-lemma), [The Nikolaus–Scholze formula for
+TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [Negative topological cyclic and periodic
+topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [Topological Hochschild
+homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [THH relative to THH(ℤ) is
+Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [THH is symmetric monoidal; THH of
+E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [TR and genuine
+TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [TR detects cyclotomic
+quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies), [TC is right adjoint to the
+trivial cyclotomic structure; Frobenius on connective
+covers](#refinedtracemethods-rt-2-trivial-cyclotomic-adjunction), [The cyclotomic
+trace](#refinedtracemethods-rt-3-cyclotomic-trace), [The Dundas–Goodwillie–McCarthy
+theorem](#refinedtracemethods-rt-3-dgm-theorem), [Connective bimodules and square-zero
+extensions](#refinedtracemethods-rt-3-square-zero-extensions),
+`StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.6/p-completion`,
+`StableHomotopyKTheory:H.6/rationalisation`.
+
+## Layer RT.4:topological: Complex topological K-theory
+
+This layer constructs complex topological K-theory. Each target below includes the hypotheses and
+comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-4-topological-complex-k-theory"></a>
+
+### Complex topological K-theory of a compact space
+
+Work under the following hypotheses: X compact Hausdorff (for the Grothendieck-group definition;
+representability needs X compact or a finite CW complex).
+
+For a compact Hausdorff space X, Vect_ℂ(X) is the commutative semiring of isomorphism classes of
+complex vector bundles of finite rank over X (Mathlib VectorBundle ℂ, of locally constant rank)
+under ⊕ and ⊗, and KU⁰(X) := K(X) is its Grothendieck group (Mathlib Algebra.GrothendieckGroup of
+(Vect_ℂ(X), ⊕)), a commutative ring with unit the trivial line bundle. A continuous map f : Y → X
+induces the ring homomorphism f* : K(X) → K(Y) by pullback of bundles, so K is a contravariant
+functor from compact Hausdorff spaces to commutative rings. These are topological K-groups of
+spaces; they are not the algebraic K-groups K_*(ℂ) of the field ℂ.
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 2, §2.1 'The Functor K(X)', p. 39
+(paragraph after Proposition 2.1) continuing to p. 40. Hatcher §2.1 defines K(X) as the Grothendieck
+group of vector bundles over compact Hausdorff X with ⊗ as product.)
+
+Construction and proof. Construct direct sums, tensor products and pullbacks of complex vector
+bundles from Mathlib's vector bundle API (fibrewise ⊕, ⊗, pullback bundles), and show they respect
+isomorphism. Form the commutative semiring Vect_ℂ(X) (rank may vary over components) and its
+Grothendieck group; the tensor product extends bilinearly (Hatcher §2.1). Every bundle over compact
+X has a complement E ⊕ E′ ≅ ε^N, so every element of K(X) is [E] − [ε^N] (Hatcher Proposition 1.4).
+
+The API exposes the following operations and characterizations.
+
+
+- `TopK`: K(X) for compact Hausdorff X, a commutative ring.
+
+- `TopK.ofBundle`: [E] ∈ K(X) for a complex vector bundle E; [E ⊕ F] = [E] + [F], [E ⊗ F] = [E][F].
+
+- `TopK.pullback`: f* : K(X) → K(Y) for f : Y → X, a ring homomorphism with id* = id and (fg)* = g*f*.
+
+- `TopK.homotopy_invariant`: Homotopic maps induce the same map on K.
+
+- `TopK.rank`: rank : K(X) → H⁰(X; ℤ) (locally constant functions), a ring homomorphism.
+
+- `TopK.exists_complement`: Every element of K(X) is [E] − [ε^N]; [E] = [F] iff E ⊕ ε^n ≅ F ⊕ ε^n for some n.
+
+**Checks.**
+
+
+- `TopK.point`: K(pt) ≅ ℤ via rank.
+
+- `TopK.empty`: K(∅) = 0.
+
+- `TopK.sphere_two`: K(S²) ≅ ℤ[H]/(H − 1)², with H the tautological line bundle on ℂP¹.
+
+- `TopK.not_algebraic`: K(pt) = ℤ is K_0 of ℂ, but K^{−1}(pt) = K̃(S¹) = 0 while K_1(ℂ) = ℂ^× ≠ 0: topological K-theory is not algebraic K-theory of ℂ.
+
+The comparison must satisfy these additional checks: K(point) = ℤ via rank. K(S²) ≅ ℤ[H]/(H − 1)²
+with H the canonical line bundle (Hatcher Corollary 2.3). Homotopic maps induce equal maps K(X) →
+K(Y).
+
+This interface is used by `RT.4:topological/bott-periodicity` — the external product K(X) ⊗ K(S²) →
+K(X × S²); `RT.4:topological/adams-operations` — ψ^k act on K(X);
+`KTheoryFiniteLocalFields:L.1/fpsi` — K̃U⁰ of classifying spaces and Adams operations;
+`BorelRegulators:R.4/universal-borel-class` — universal complex topological K-theory and Bott
+generators.
+
+*Needs:* [mathlib:VectorBundle](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/VectorBundle/Basic.lean#L375), [mathlib:Algebra.GrothendieckGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean#L36).
+
+<a id="refinedtracemethods-rt-4-topological-reduced-and-graded-k"></a>
+
+### Reduced, relative and negative topological K-groups
+
+Work under the following hypotheses: X compact Hausdorff, A ⊆ X closed.
+
+For a pointed compact X, K̃(X) := ker(K(X) → K(pt)); for a compact pair (X, A), K(X, A) := K̃(X/A);
+and K^{−n}(X) := K̃(Σ^n(X_+)) = K̃(S^n ∧ X_+), K^{−n}(X, A) := K̃(Σ^n(X/A)) for n ≥ 0. There are
+natural long exact sequences … → K^{−1}(A) → K(X, A) → K(X) → K(A) for compact pairs, and the
+external product K^{−i}(X) ⊗ K^{−j}(Y) → K^{−i−j}(X × Y).
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 2, §2.1, Proposition 2.1 and the
+sentence following it, p. 39 (splitting K(X) ≈ K̃(X) ⊕ Z on p. 40). Hatcher §2.1/§2.2 (Proposition
+2.9, Lemma 2.10 and Theorem 2.11, pp. 51–55): reduced K-theory, relative groups, K^{−n} and the long
+exact sequence.)
+
+Construction and proof. K̃ is exact on cofibre sequences A → X → X/A (Hatcher §2.2 (Proposition 2.9,
+Lemma 2.10 and Theorem 2.11, pp. 51–55)); extend to the left with suspensions (Puppe sequence).
+External products from ⊗ of pulled-back bundles; reduced version via smash products.
+
+The API exposes the following operations and characterizations.
+
+
+- `TopK.reduced`: K̃(X) for pointed X.
+
+- `TopK.relative`: K(X, A) := K̃(X/A).
+
+- `TopK.negative`: K^{−n}(X) := K̃(S^n ∧ X_+).
+
+- `TopK.les`: The long exact sequence of a compact pair.
+
+- `TopK.externalProduct`: K^{−i}(X) ⊗ K^{−j}(Y) → K^{−i−j}(X × Y), associative and unital.
+
+**Checks.**
+
+
+- `TopK.reduced_point`: K̃(S⁰) = ℤ and K̃(pt) = 0.
+
+- `TopK.reduced_S1`: K̃(S¹) = 0.
+
+- `TopK.relative_not_quotient_naive`: K(X, A) is not ker(K(X) → K(A)) in general: for (D², S¹), K(D², S¹) = K̃(S²) = ℤ while ker(K(D²) → K(S¹)) = 0.
+
+The comparison must satisfy these additional checks: K̃(S¹) = 0 (every bundle on S¹ is trivial up to
+stabilisation). K^{−1}(pt) = 0, K^{−2}(pt) = K̃(S²) = ℤ.
+
+This interface is used by `RT.4:topological/bott-periodicity` — periodicity is stated for K^{−n};
+`RT.4:topological/ku-spectrum` — the groups K^{−n}(X) are represented by KU.
+
+*Needs:* [Complex topological K-theory of a compact space](#refinedtracemethods-rt-4-topological-complex-k-theory).
+
+<a id="refinedtracemethods-rt-4-topological-bott-periodicity"></a>
+
+### Bott periodicity
+
+Work under the following hypotheses: X compact Hausdorff.
+
+For every compact Hausdorff space X the external product μ : K(X) ⊗ K(S²) → K(X × S²) is an
+isomorphism of rings; equivalently, multiplication by the Bott class β = [H] − 1 ∈ K̃(S²) gives
+isomorphisms K̃(X) ≅ K̃(Σ²X) for pointed compact X and K^{−n}(X) ≅ K^{−n−2}(X). Consequently
+K̃(S^{2n}) ≅ ℤ generated by β^n and K̃(S^{2n+1}) = 0.
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 2, §2.1, subsection 'The Fundamental
+Product Theorem', Theorem 2.2 (with Corollary 2.3), p. 41. Hatcher Theorem 2.2 (fundamental product
+theorem) and the periodicity K̃(X) ≅ K̃(Σ²X). [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt),
+Ch. 1, §1.2 'Classifying Vector Bundles', subsection 'Clutching Functions', p. 22. Hatcher §1.2:
+clutching functions describe bundles over suspensions.)
+
+Construction and proof. Describe bundles on X × S² by clutching functions X × S¹ → GL_n(ℂ) (Hatcher
+§1.2, Proposition 1.11). Approximate clutching functions by Laurent polynomials, then linear ones,
+and decompose (Atiyah–Bott; Hatcher proof of Theorem 2.2). Construct the inverse of μ and check both
+composites.
+
+The comparison must satisfy these additional checks: K̃(S²) = ℤβ, K̃(S⁴) = ℤβ², K̃(S³) = 0. β² = 0
+in K(S²): (H − 1)² = 0.
+
+*Needs:* [Complex topological K-theory of a compact space](#refinedtracemethods-rt-4-topological-complex-k-theory), [Reduced, relative and negative topological K-groups](#refinedtracemethods-rt-4-topological-reduced-and-graded-k).
+
+<a id="refinedtracemethods-rt-4-topological-bu-representability"></a>
+
+### Representability by ℤ × BU and the space-level Bott equivalence
+
+Work under the following hypotheses: X paracompact for rank-n classification; nondegenerately based
+compact Hausdorff (in particular based finite CW) for the pointed K-theory statement. For the based
+compact-Hausdorff formulation, the basepoint inclusion is a closed Hurewicz cofibration
+(nondegenerate basepoint); alternatively use derived pointed mapping classes after cofibrant
+replacement. Finite based CW complexes satisfy it.
+
+For paracompact X, isomorphism classes of rank-n complex vector bundles are [X, G_n(ℂ^∞)] (homotopy
+classes into the infinite Grassmannian, via the tautological bundle); with BU := colim_n G_n(ℂ^∞)
+and X compact, K̃(X) ≅ [X, ℤ × BU]_* for a nondegenerately based compact X; if X is connected this
+reduces to [X, BU]_* and K(X) ≅ [X, ℤ × BU]. Bott periodicity in space form gives a homotopy
+equivalence ℤ × BU ≃ Ω²(ℤ × BU) (equivalently ΩU ≃ ℤ × BU), compatible with β.
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 1, §1.2, subsection 'The Universal
+Bundle', Theorem 1.16, p. 29. Hatcher: Vect^n(X) ≅ [X, G_n] and K̃(X) ≅ [X, BU] for compact X. [A
+Concise Course in Algebraic Topology](#ref-0-may-concise), Ch. 24 §1, Corollary at the bottom of p.
+204 continuing to the top of p. 205. May, Concise Course, Ch. 24 §1: K(X) ≅ [X_+, BU × ℤ] for
+compact X. [A Concise Course in Algebraic Topology](#ref-0-may-concise), Ch. 24 §2, paragraph after
+the reduced 'Theorem (Bott periodicity)', p. 207. May, Ch. 24 §2: Bott periodicity in space form via
+the Grassmannian model.)
+
+Construction and proof. Classify rank-n bundles by pullback of the tautological bundle (Hatcher
+Theorem 1.16). Pass to the colimit over n and to stable classes; compactness makes every map to BU
+factor through a finite G_n(ℂ^N). Deduce Ω²(ℤ × BU) ≃ ℤ × BU from RT.4:topological/bott-periodicity
+applied to X ∧ S² for all finite CW X (Yoneda in the homotopy category of spaces).
+
+The comparison must satisfy these additional checks: π_{2n}(BU) ≅ ℤ and π_{2n+1}(BU) = 0 for n ≥ 1
+(consumed by KTheoryFiniteLocalFields L.1). [S², BU]_* = K̃(S²) = ℤ. For S⁰, reduced K is Z and
+[S⁰,Z×BU]_* is Z, while [S⁰,BU]_* is zero. Based mapping conventions must retain this rank
+component.
+
+*Needs:* [Bott periodicity](#refinedtracemethods-rt-4-topological-bott-periodicity), [mathlib:VectorBundle](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/VectorBundle/Basic.lean#L375), `StableHomotopyKTheory:H.1`.
+
+<a id="refinedtracemethods-rt-4-topological-splitting-principle"></a>
+
+### The splitting principle
+
+Work under the following hypotheses: X compact Hausdorff.
+
+For a complex vector bundle E → X over compact Hausdorff X, there is a compact space F(E) (the flag
+bundle) and a map p : F(E) → X such that p*E is a direct sum of line bundles and p* : K(X) → K(F(E))
+is injective (and p* : H^*(X; ℤ) → H^*(F(E); ℤ) is injective).
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 2, §2.4, the Splitting Principle, pp.
+68–71; Theorem 2.25 and Example 2.26 (K-theoretic Leray–Hirsch and projective bundles). For the
+integral cohomology assertion, Proposition 3.3, p. 80.. Hatcher: the splitting principle via flag
+bundles, with injectivity on K-theory.)
+
+Construction and proof. Iterate the projective bundle P(E): K(P(E)) is free over K(X) on 1, L, …,
+L^{n−1} (Leray–Hirsch for K-theory, Hatcher Theorem 2.25 and Example 2.26, pp. 68–70) and p*E splits
+off the tautological line L. Induct on rank.
+
+The comparison must satisfy these additional checks: For E a sum of line bundles, F(E) can be taken
+to be X itself.
+
+*Needs:* [Complex topological K-theory of a compact space](#refinedtracemethods-rt-4-topological-complex-k-theory), [Bott periodicity](#refinedtracemethods-rt-4-topological-bott-periodicity).
+
+<a id="refinedtracemethods-rt-4-topological-ku-spectrum"></a>
+
+### The periodic complex K-theory spectrum KU
+
+Work under the following hypotheses: Spectra from StableHomotopyKTheory H.5:spectra; E_∞-ring
+structures in the operadic model there.
+
+KU is the Ω-spectrum with KU_{2n} = ℤ × BU and KU_{2n+1} = U, structure maps given by the Bott
+equivalences ℤ × BU ≃ ΩU and U ≃ Ω(ℤ × BU) (RT.4:topological/bu-representability); it represents
+K-theory: KU^{−n}(X) ≅ K^{−n}(X) for finite CW X. KU is an E_∞-ring spectrum whose multiplication
+induces the tensor product on KU⁰(X), and it is equivalent as an E_∞-ring to Snaith's
+Σ^∞_+ℂP^∞[β^{−1}], β ∈ π_2Σ^∞_+ℂP^∞ the class of the Bott element; the unit S → KU is the unit of
+Σ^∞_+ℂP^∞.
+
+(See [A Concise Course in Algebraic Topology](#ref-0-may-concise), Ch. 24 §2 'The Bott periodicity
+theorem', Definition, p. 208. May, Concise Course, Ch. 24 §2: the K-theory Ω-prespectrum KU with
+KU_{2i} = BU × ℤ and KU_{2i+1} = U. [Elliptic Cohomology II: Orientations](#ref-0-lurie-ec2), §6.5
+'Application: Snaith's Theorem', Theorem 6.5.1, p. 274 (proof p. 275). Lurie, Elliptic Cohomology
+II, Theorem 6.5.1 (Snaith): Σ^∞_+(ℂP^∞)[β^{−1}] → KU is an equivalence of E_∞-rings. [Elliptic
+Cohomology II: Orientations](#ref-0-lurie-ec2), §0 (Introduction), Example 0.0.5, p. 4. Lurie,
+Elliptic Cohomology II, Example 0.0.5: KU is an E_∞-ring spectrum.)
+
+Construction and proof. Assemble the Ω-spectrum from the Bott equivalences (StableHomotopyKTheory
+H.5:spectra/omega-spectra-and-eilenberg-maclane). Construct the E_∞-structure: ℂP^∞ = BU(1) is an
+E_∞-space (tensor product of line bundles), so Σ^∞_+ℂP^∞ is an E_∞-ring; invert β (a localisation of
+E_∞-rings at an element of π_2) and identify with KU by Snaith's theorem (Gepner–Snaith). Check that
+the induced product on KU⁰(X) = [X, ℤ × BU] is ⊗ (compare on line bundles, use the splitting
+principle RT.4:topological/splitting-principle).
+
+The API exposes the following operations and characterizations.
+
+
+- `KU`: The E_∞-ring spectrum KU.
+
+- `KU.represents`: KU^{−n}(X) ≅ K^{−n}(X) for finite CW X, naturally, compatible with products.
+
+- `KU.bott`: β ∈ π_2KU, the image of [H] − 1 ∈ K̃(S²).
+
+- `KU.snaith`: Σ^∞_+ℂP^∞[β^{−1}] ≃ KU as E_∞-rings.
+
+- `KU.unit`: The unit map S → KU, inducing ℤ = π_0S → π_0KU = ℤ the identity.
+
+**Checks.**
+
+
+- `KU.pi0`: π_0KU = ℤ.
+
+- `KU.pi_odd`: π_1KU = 0.
+
+- `KU.point_K`: KU⁰(pt) = K(pt) = ℤ.
+
+- `KU.not_HZ`: KU is not a generalised Eilenberg–Mac Lane spectrum although π_*KU = π_*(∏_n Σ^{2n}HZ): the first k-invariant of ku (from π_0 to π_2, the integral Bockstein of Sq²) is nonzero.
+
+The comparison must satisfy these additional checks: π_0 KU = ℤ, π_2 KU = ℤβ, π_1 KU = 0. KU⁰(S²) =
+K(S²).
+
+This interface is used by `RT.4:topological/connective-ku` — ku := τ_{≥0}KU;
+`RT.4:q-Hodge/thh-over-ku-q-de-rham` — THH relative to ku and KU;
+`RT.4:Habiro-comparison/habiro-comparison-theorem` — TC^{−(m)}(KU⊗S_R/KU);
+`KTheoryFiniteLocalFields:L.1/fpsi` — the fibre of ψ^q − 1 on (connective) K-theory.
+
+*Needs:* [Representability by ℤ × BU and the space-level Bott equivalence](#refinedtracemethods-rt-4-topological-bu-representability), [Reduced, relative and negative topological K-groups](#refinedtracemethods-rt-4-topological-reduced-and-graded-k), `StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane`, `StableHomotopyKTheory:H.5:spectra/operadic-algebras`, `StableHomotopyKTheory:H.5:spectra/suspension-spectrum`, [The splitting principle](#refinedtracemethods-rt-4-topological-splitting-principle).
+
+<a id="refinedtracemethods-rt-4-topological-connective-ku"></a>
+
+### Connective complex K-theory ku
+
+Work under the following hypotheses: KU as in RT.4:topological/ku-spectrum.
+
+ku := τ_{≥0}KU, the connective cover of KU (StableHomotopyKTheory H.5:spectra/postnikov-sections),
+with its E_∞-ring structure (the connective cover of an E_∞-ring is an E_∞-ring and τ_{≥0}KU → KU is
+an E_∞-map). β ∈ π_2 ku is the Bott class. The space-level description: Ω^∞ku = ℤ × BU.
+
+(See [Elliptic Cohomology II: Orientations](#ref-0-lurie-ec2), §6.5 'Application: Snaith's Theorem',
+second paragraph, p. 273. Lurie, Elliptic Cohomology II §6.5: ku is the connective spectrum whose
+0th space is the group completion of N(Vect^≃_ℂ). [Elliptic Cohomology II:
+Orientations](#ref-0-lurie-ec2), §6.5, top of p. 274. Lurie §6.5: ku inherits an E_∞-ring
+structure.)
+
+Construction and proof. Take the connective cover; τ_{≥0} is lax symmetric monoidal on spectra, so
+preserves E_∞-rings. Lift β to π_2ku.
+
+The API exposes the following operations and characterizations.
+
+
+- `ku`: ku = τ_{≥0}KU as an E_∞-ring.
+
+- `ku.toKU`: The E_∞-map ku → KU, an isomorphism on π_n for n ≥ 0.
+
+- `ku.bott`: β ∈ π_2 ku mapping to β ∈ π_2 KU.
+
+- `ku.infiniteLoopSpace`: Ω^∞ku ≃ ℤ × BU.
+
+**Checks.**
+
+
+- `ku.pi_neg`: π_{−2}ku = 0.
+
+- `ku.pi2`: π_2 ku = ℤβ.
+
+- `ku.not_KU`: ku → KU is not an equivalence: π_{−2}KU = ℤ ≠ 0 = π_{−2}ku.
+
+The comparison must satisfy these additional checks: π_*ku = ℤ[β] (RT.4:topological/homotopy-of-ku).
+
+This interface is used by `RT.4:q-Hodge/ku-circle-actions` — ku with trivial T-action and its Tate
+constructions; `RT.4:q-Hodge/thh-over-ku-q-de-rham` — THH(−/ku);
+`RT.4:q-Hodge/devalapurkar-comparison` — Frobenius twist of ku_p.
+
+*Needs:* [The periodic complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum), `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.5:spectra/operadic-algebras`.
+
+<a id="refinedtracemethods-rt-4-topological-homotopy-of-ku"></a>
+
+### Homotopy rings of ku and KU
+
+Work under the following hypotheses: Products from the E_∞-structures of
+RT.4:topological/ku-spectrum.
+
+π_*ku ≅ ℤ[β] and π_*KU ≅ ℤ[β, β^{−1}] as graded rings, with |β| = 2.
+
+(See [Elliptic Cohomology II: Orientations](#ref-0-lurie-ec2), §6.5, Proof of Theorem 6.5.1, p. 275.
+Lurie, proof of Theorem 6.5.1: by Bott periodicity ℤ[β] → π_*(ku) is an isomorphism, hence ℤ[β^{±1}]
+≅ π_*(ku[β^{−1}]). [Elliptic Cohomology II: Orientations](#ref-0-lurie-ec2), §6.5, Corollary 6.5.3,
+p. 275. Lurie, Corollary 6.5.3: ℤ[β^{±1}] ≅ π_*(Σ^∞_+(ℂP^∞)[β^{−1}]).)
+
+Construction and proof. π_nKU = K̃(S^n) by representability; compute with
+RT.4:topological/bott-periodicity: ℤβ^{n/2} for n even, 0 for n odd. Multiplicativity: the external
+product of Bott classes is the Bott class of S⁴ (β·β = β² generates K̃(S⁴)).
+
+The comparison must satisfy these additional checks: π_4ku = ℤβ². π_{−2}KU = ℤβ^{−1}.
+
+*Needs:* [The periodic complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum), [Connective complex K-theory ku](#refinedtracemethods-rt-4-topological-connective-ku), [Bott periodicity](#refinedtracemethods-rt-4-topological-bott-periodicity).
+
+<a id="refinedtracemethods-rt-4-topological-bott-localisation"></a>
+
+### KU is the Bott localisation of ku
+
+Work under the following hypotheses: Sequential homotopy colimits of spectra (StableHomotopyKTheory
+H.5:spectra).
+
+The E_∞-map ku → KU exhibits KU as ku[β^{−1}] = colim(ku →^{β} Σ^{−2}ku →^{β} Σ^{−4}ku → …), the
+localisation of ku at β, as E_∞-ku-algebras; for every ku-module M, M ⊗_{ku} KU ≃ M[β^{−1}].
+
+(See [Elliptic Cohomology II: Orientations](#ref-0-lurie-ec2), §6.5, p. 274 (paragraph before
+Theorem 6.5.1). Lurie §6.5: the localisation ku[β^{−1}] is KU, periodic complex K-theory.)
+
+Construction and proof. Both sides have π_* = ℤ[β^{±1}] and the map is multiplication-compatible
+(RT.4:topological/homotopy-of-ku). Localisation of E_∞-rings at a homotopy element (telescope) is an
+E_∞-ring with the universal property; check the comparison on π_*.
+
+The comparison must satisfy these additional checks: π_*(ku[β^{−1}]) = ℤ[β^{±1}]. ku/β ≃ HZ while
+KU/β ≃ 0.
+
+*Needs:* [Homotopy rings of ku and KU](#refinedtracemethods-rt-4-topological-homotopy-of-ku), `StableHomotopyKTheory:H.5:spectra/sequential-homotopy-colimit`, `StableHomotopyKTheory:H.5:spectra/operadic-algebras`.
+
+<a id="refinedtracemethods-rt-4-topological-lambda-ring-k"></a>
+
+### Exterior powers make K(X) a special λ-ring
+
+Work under the following hypotheses: X compact Hausdorff.
+
+For compact Hausdorff X, λ^i[E] := [Λ^iE] (fibrewise exterior power) extends, via λ_t(E ⊕ F) =
+λ_t(E)λ_t(F), to operations λ^i : K(X) → K(X) making K(X) a pre-λ-ring in the sense of
+KTheoryLowDegrees Z.3/pre-lambda-ring, and in fact a special λ-ring (Z.3/special-lambda-ring),
+augmented by rank; f* is a λ-ring homomorphism.
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 2, §2.3, subsection 'Adams Operations',
+properties (i)–(iv) listed after Theorem 2.20, p. 62. Hatcher §2.3: λ^i via exterior powers with
+λ_t(E ⊕ F) = λ_t(E)λ_t(F).)
+
+Construction and proof. Exterior powers of bundles and Λ^n(E⊕F) ≅ ⊕_{i+j=n} Λ^iE ⊗ Λ^jF (Hatcher
+§2.3). λ_t is a homomorphism from (Vect, ⊕) to 1 + tK(X)[[t]]; extend to K(X) by the Grothendieck
+group universal property. Pull back finite actual bundles to the geometric splitting space, where
+the K-theory map is injective and the bundles split into line bundles. Verify the universal product
+and composition polynomials there before asserting specialness. Extend to virtual differences using
+λ_t(E−F)=λ_t(E)/λ_t(F); do not invoke an identity principle whose input already assumes a special
+λ-ring.
+
+The API exposes the following operations and characterizations.
+
+
+- `TopK.lambda`: λ^i : K(X) → K(X) with λ^i[E] = [Λ^iE].
+
+- `TopK.instPreLambdaRing`: K(X) is a pre-λ-ring (KTheoryLowDegrees Z.3/pre-lambda-ring).
+
+- `TopK.instSpecialLambdaRing`: K(X) is a special λ-ring.
+
+- `TopK.lambda_pullback`: f* commutes with every λ^i.
+
+- `TopK.lambda_line`: λ_t[L] = 1 + [L]t for a line bundle L.
+
+**Checks.**
+
+
+- `TopK.lambda_point`: On K(pt) = ℤ, λ^i(n) = binomial(n, i).
+
+- `TopK.lambda_zero`: λ^0 = 1 and λ^1 = id.
+
+- `TopK.lambda_not_additive`: λ² is not additive: λ²(2·1) = 1 ≠ 2λ²(1) = 0 in K(pt).
+
+The comparison must satisfy these additional checks: λ^i[L] = 0 for i ≥ 2 and a line bundle L.
+λ^n[ℂ^n] = 1 and λ^{n+1}[ℂ^n] = 0 on the trivial bundle.
+
+This interface is used by `RT.4:topological/adams-operations` — ψ^k is defined from λ^i by the
+Newton formula; `KTheoryFiniteLocalFields:L.1/brauer-lift-lambda-ring` — the λ-ring structure on [X,
+BU] and representation rings.
+
+*Needs:* [Complex topological K-theory of a compact space](#refinedtracemethods-rt-4-topological-complex-k-theory), [The splitting principle](#refinedtracemethods-rt-4-topological-splitting-principle), `KTheoryLowDegrees:Z.3/pre-lambda-ring`, `KTheoryLowDegrees:Z.3/special-lambda-ring`.
+
+<a id="refinedtracemethods-rt-4-topological-adams-operations"></a>
+
+### Adams operations on topological K-theory
+
+Work under the following hypotheses: X compact Hausdorff; k ≥ 1 (and k = −1 via conjugation).
+
+For k ≥ 1 the Adams operation ψ^k : K(X) → K(X) is the operation of KTheoryLowDegrees
+Z.3/adams-operations on the special λ-ring K(X). It is a natural ring homomorphism with ψ^k[L] =
+[L]^k for line bundles L, ψ^kψ^l = ψ^{kl}, ψ^p(x) ≡ x^p mod p for p prime, and ψ^k acts on
+K̃(S^{2n}) ≅ ℤ by multiplication by k^n (so ψ^k(β) = kβ on K̃(S²)). ψ^{−1} is complex conjugation of
+bundles.
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 2, §2.3, subsection 'Adams Operations',
+Theorem 2.20, p. 62 (proof p. 64). Hatcher Theorem 2.20: Adams operations ψ^k with ψ^k(L) = L^k,
+multiplicativity, ψ^kψ^l = ψ^{kl}, ψ^p(x) ≡ x^p mod p and ψ^k = k^n on K̃(S^{2n}).)
+
+Construction and proof. Import the definition and the ring-endomorphism and composition theorems for
+special λ-rings (KTheoryLowDegrees Z.3/adams-operations, /adams-ring-endomorphism,
+/adams-composition). Compute on line bundles: ψ^k(L) = L^k. On K̃(S^{2n}): β^n is a product of n
+Bott classes pulled back from S² factors (external product), and ψ^k(β) = (H^k − 1) = k(H − 1) = kβ
+in K(S²) since (H − 1)² = 0 (Hatcher Theorem 2.20).
+
+The API exposes the following operations and characterizations.
+
+
+- `TopK.adams`: ψ^k : K(X) → K(X).
+
+- `TopK.adams_ringHom`: ψ^k is a ring homomorphism natural in X.
+
+- `TopK.adams_line`: ψ^k[L] = [L]^k for a line bundle L.
+
+- `TopK.adams_comp`: ψ^k ∘ ψ^l = ψ^{kl}.
+
+- `TopK.adams_frobenius`: ψ^p(x) ≡ x^p mod pK(X).
+
+- `TopK.adams_sphere`: ψ^k = k^n on K̃(S^{2n}).
+
+**Checks.**
+
+
+- `TopK.adams_one`: ψ^1 = id.
+
+- `TopK.adams_bott`: ψ²(β) = 2β in K̃(S²).
+
+- `TopK.adams_not_power`: ψ^k(x) ≠ x^k in general: on K̃(S²), β² = 0 but ψ²(β) = 2β ≠ 0.
+
+The comparison must satisfy these additional checks: ψ^k acts on K̃(S^{2n}) by k^n; ψ²(β) = 2β. ψ^k
+= id on K(pt).
+
+This interface is used by `KTheoryFiniteLocalFields:L.1/fpsi` — Quillen's FΨ^q is the homotopy fibre
+of ψ^q − 1 on ℤ × BU; `KTheoryFiniteLocalFields:L.1/frobenius-is-adams` — comparison of Frobenius
+with ψ^q; `BorelRegulators:R.4/regulator-adams-products` — ψ^a(ch_j) = a^j ch_j.
+
+*Needs:* [Exterior powers make K(X) a special λ-ring](#refinedtracemethods-rt-4-topological-lambda-ring-k), [Bott periodicity](#refinedtracemethods-rt-4-topological-bott-periodicity), `KTheoryLowDegrees:Z.3/adams-operations`, `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`, `KTheoryLowDegrees:Z.3/adams-composition`.
+
+<a id="refinedtracemethods-rt-4-topological-snaith-adams-construction"></a>
+
+### Snaith construction of stable Adams operations
+
+Work under the following hypotheses: k≥1; ψ^k is periodic only after k is a unit.
+
+Equip CP∞=K(Z,2) with its E∞ tensor-product multiplication. Snaith gives an E∞ equivalence
+Σ∞_+CP∞[β^{-1}]≃KU. Multiplication by k on K(Z,2) induces an E∞ endomorphism sending β to kβ. After
+inverting k and β, the universal property of E∞ localization therefore gives ψ^k:KU[1/k]→KU[1/k]. It
+agrees with L↦L^k on line bundles and hence with the classical Adams operation by the splitting
+principle. The identity and composition homotopies come from multiplication maps of K(Z,2).
+
+(See [Elliptic Cohomology II: Orientations](#ref-0-lurie-ec2), §6.5, Theorem 6.5.1 and proof, pp.
+273–275. Snaith equivalence as E∞ rings; the operation is derived here from its localization
+universal property.)
+
+Construction and proof. Apply Σ∞_+ to the coherent multiplication map of K(Z,2). Its map on π₂ sends
+the Bott class to k times itself. Invert k, then invert β using the E∞ universal property. Check
+line bundles and use splitting to identify classical Adams operations.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4T.snaithModel`: Σ∞_+CP∞[β^{-1}]≃KU as E∞ rings.
+
+- `RT4T.snaithPower`: The E∞ map induced by multiplication by k on K(Z,2).
+
+- `RT4T.snaithAdams`: Localized E∞ endomorphism with β↦kβ and L↦L^k.
+
+**Checks.**
+
+
+- `RT4T.snaithAdams.one`: ψ¹ is the identity.
+
+- `RT4T.snaithAdams.bott`: For k=2, β maps to 2β in KU[1/2].
+
+- `RT4T.snaithAdams.integral_obstruction`: No integral unital periodic ring map can send invertible β to 2β, since 2β is not a unit.
+
+The comparison must satisfy these additional checks: ψ¹ is the identity. For k=2, β maps to 2β in
+KU[1/2]. No integral unital periodic ring map can send invertible β to 2β, since 2β is not a unit.
+
+This interface is used by `RT.4:topological/adams-operations-spectra` — Provides the stable E∞
+refinement consumed by finite-field K theory..
+
+*Needs:* [The periodic complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum), [KU is the Bott localisation of ku](#refinedtracemethods-rt-4-topological-bott-localisation), [The splitting principle](#refinedtracemethods-rt-4-topological-splitting-principle), `StableHomotopyKTheory:H.5:spectra`.
+
+<a id="refinedtracemethods-rt-4-topological-adams-operations-spectra"></a>
+
+### Adams operations on ℤ × BU and on KU[1/k]
+
+Work under the following hypotheses: k ≥ 1; for the stable maps k is inverted.
+
+The Adams operations of RT.4:topological/adams-operations are represented by H-maps ψ^k : ℤ × BU → ℤ
+× BU (unique up to homotopy since K^1 of finite skeleta of BU vanishes and lim¹ vanishes on the
+Grassmannian tower), with ψ^jψ^k ≃ ψ^{jk}, ψ^jψ^k ≃ ψ^kψ^j and ψ^k = k^i on π_{2i}(BU) ≅ K̃(S^{2i}).
+After inverting k they assemble to a map of E_∞-rings ψ^k : KU[1/k] → KU[1/k] with ψ^k(β) = kβ, and
+to an E_∞-map on ku[1/k] (stable Adams operations).
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 2, §2.3, subsection 'Adams Operations',
+Theorem 2.20, p. 62 (proof p. 64). Hatcher Theorem 2.20 (ψ^k = k^n on K̃(S^{2n})), the input for the
+action on π_{2i}(BU). [On the motivic spectra representing algebraic cobordism and algebraic
+K-theory](#ref-0-gepner-snaith-09), §1 'Introduction', §1.1 'Background and motivation', second
+paragraph, p. 1. Snaith's description of KU used to make ψ^k a map of E_∞-rings after inverting k.)
+
+Construction and proof. Use snaith-adams-construction and its localization universal property. Check
+ψ^k(β)=kβ; define the periodic operation on KU[1/k]. The operation on line bundles is L^k, so the
+splitting principle identifies the degree-zero classical operation. Multiplication maps of K(Z,2)
+provide coherent identity/composition; compare the BU H-map shadow.
+
+The API exposes the following operations and characterizations.
+
+
+- `BU.adams`: ψ^k : ℤ × BU → ℤ × BU, an H-map.
+
+- `BU.adams_homotopy`: π_{2i}(ψ^k) = k^i.
+
+- `BU.adams_comm`: ψ^jψ^k ≃ ψ^{jk} ≃ ψ^kψ^j.
+
+- `KU.adams`: ψ^k : KU[1/k] → KU[1/k] as E_∞-maps with ψ^k(β) = kβ.
+
+**Checks.**
+
+
+- `BU.adams_one`: ψ^1 ≃ id.
+
+- `KU.adams_bott`: ψ^2(β) = 2β in π_2KU[1/2].
+
+- `KU.adams_not_integral`: ψ² does not extend to an E_∞-self-map of KU itself compatible with ψ²(β) = 2β and an inverse of β: on π_{−2}KU it would have to be multiplication by 1/2.
+
+The comparison must satisfy these additional checks: π_{2i}ψ^k = k^i on π_{2i}KU[1/k]. ψ^1 = id.
+
+This interface is used by `KTheoryFiniteLocalFields:L.1/fpsi` — FΨ^q = hofib(ψ^q − 1 : ℤ × BU → BU);
+`RT.4:q-Hodge/ku-circle-actions` — the ℤ_p^× action on ku_p by Adams operations in Devalapurkar's
+comparison.
+
+*Needs:* [Adams operations on topological K-theory](#refinedtracemethods-rt-4-topological-adams-operations), [Representability by ℤ × BU and the space-level Bott equivalence](#refinedtracemethods-rt-4-topological-bu-representability), [The periodic complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum), [Connective complex K-theory ku](#refinedtracemethods-rt-4-topological-connective-ku), [Snaith construction of stable Adams operations](#refinedtracemethods-rt-4-topological-snaith-adams-construction).
+
+<a id="refinedtracemethods-rt-4-topological-chern-classes"></a>
+
+### Chern classes and the cohomology of BU
+
+Work under the following hypotheses: X paracompact; ordinary cohomology with integer or 𝔽_ℓ
+coefficients.
+
+Each complex vector bundle E over a paracompact X has Chern classes c_i(E) ∈ H^{2i}(X; ℤ) (singular
+cohomology, represented by Eilenberg–Mac Lane spectra, StableHomotopyKTheory
+H.5:spectra/eilenberg-maclane-cohomology), characterised by naturality, the Whitney formula c(E ⊕ F)
+= c(E)c(F), c_i(E) = 0 for i > rank E, and c_1 of the tautological line bundle on ℂP^∞ the standard
+generator. H^*(BU(n); ℤ) = ℤ[c_1, …, c_n] and H^*(BU; ℤ) = ℤ[c_1, c_2, …]; the Adams operation ψ^q
+acts on H^{2i}(BU; 𝔽_ℓ) so that ψ^{q*}c_i ≡ q^i c_i on the Chern class generators (c_i for i>1 are
+not primitive under the Whitney coproduct) (the form used by KTheoryFiniteLocalFields L.1).
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 3, §3.1 'Stiefel-Whitney and Chern
+Classes', subsection 'Axioms and Construction', Theorem 3.2 axioms (a)–(d), p. 78. Hatcher §3.1: the
+axioms for Chern classes. [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 3, §3.1,
+subsection 'Cohomology of Grassmannians', Theorem 3.9 (second sentence), p. 84. Hatcher Theorem 3.9:
+H^*(G_n(ℂ^∞); ℤ) ≅ ℤ[c_1, …, c_n]. [A Concise Course in Algebraic Topology](#ref-0-may-concise), Ch.
+24 §2, last lines of p. 207 (H*(BU(n); Z) = Z[c_1, ..., c_n] is the Theorem in Ch. 23 §7, p. 199).
+May, Ch. 24 §2: H^*(BU) ≅ ℤ[c_i | i ≥ 1].)
+
+Construction and proof. Construct c via the Leray–Hirsch theorem for the projective bundle P(E)
+(Grothendieck's definition) or via H^*(G_n) (Hatcher Chapter 3). Compute H^*(BU(n)) by induction
+with the Gysin sequence of BU(n−1) → BU(n) (or by the splitting principle). ψ^q on cohomology:
+compute on the maximal torus (sums of line bundles), where ψ^q is the q-th power and c_1 ↦ qc_1.
+
+The API exposes the following operations and characterizations.
+
+
+- `chernClass`: c_i(E) ∈ H^{2i}(X; ℤ).
+
+- `chernClass.natural`: c_i(f*E) = f*c_i(E).
+
+- `chernClass.whitney`: c(E ⊕ F) = c(E) ∪ c(F).
+
+- `chernClass.line`: c(L) = 1 + c_1(L); c_1(L⊗L′) = c_1(L) + c_1(L′).
+
+- `cohomology_BU`: H^*(BU; ℤ) = ℤ[c_1, c_2, …].
+
+- `RT4T.evenCohomology.mul_component`: For x,y in ∏_{i≥0}H^{2i}(X;A), (xy)_n=Σ_{i+j=n}x_i∪y_j, with unit in H⁰ and zero higher components. Each sum is finite.
+
+**Checks.**
+
+
+- `chernClass.trivial`: c(ε^n) = 1.
+
+- `chernClass.CP1`: c_1(H) generates H²(ℂP¹; ℤ) = ℤ.
+
+- `chernClass.not_K`: The total Chern class is not additive: on ℂP^∞ × ℂP^∞, c(L ⊕ L′) = (1 + x)(1 + y) ≠ 1 + x + y, so c is a homomorphism from (K(X), +) to the multiplicative group of units of H^{ev}(X; ℤ), not to the additive group.
+
+The comparison must satisfy these additional checks: c(H) = 1 + x for the tautological bundle on
+ℂP^n, H^*(ℂP^n) = ℤ[x]/x^{n+1}. c_1 is additive on line bundles: c_1(L ⊗ L′) = c_1(L) + c_1(L′).
+
+This interface is used by `KTheoryFiniteLocalFields:L.1/fpsi-cohomology` — the cohomology of FΨ^q
+uses H^*(BU; 𝔽_ℓ) and ψ^q on c_i; `RT.4:topological/chern-character` — ch is built from Chern
+classes via Newton polynomials.
+
+*Needs:* [The splitting principle](#refinedtracemethods-rt-4-topological-splitting-principle), [Representability by ℤ × BU and the space-level Bott equivalence](#refinedtracemethods-rt-4-topological-bu-representability), `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-cohomology`.
+
+<a id="refinedtracemethods-rt-4-topological-chern-character"></a>
+
+### The Chern character
+
+Work under the following hypotheses: X compact Hausdorff (finite CW for the rational isomorphism).
+
+The Chern character ch : K(X) → H^{ev}(X; ℚ) = Π_{i≥0} H^{2i}(X; ℚ) (product with Cauchy cup
+convolution (xy)_n=Σ_{i+j=n}x_i∪y_j; it agrees with the direct sum for finite CW X) is the unique
+natural ring homomorphism with ch(L) = e^{c_1(L)} for line bundles L (defined on general bundles
+through Newton polynomials in Chern classes, by the splitting principle); ch_j(ψ^k x) = k^j ch_j(x);
+and for a finite CW complex X, ch ⊗ ℚ : K^*(X) ⊗ ℚ ≅ H^{*}(X; ℚ) (even/odd periodised).
+
+(See [Vector Bundles and K-Theory](#ref-0-hatcher-vbkt), Ch. 4 'The J-Homomorphism', §4.1 'Lower
+Bounds on Im J', subsection 'The Chern Character', p. 109. Hatcher: the Chern character as a ring
+homomorphism K(X) → H^{ev}(X; ℚ), rational isomorphism for finite CW complexes.)
+
+Construction and proof. Define ch(E) = rank E + Σ_{j≥1} s_j(c(E))/j! with s_j the Newton
+polynomials; multiplicativity and additivity by the splitting principle. ψ^k scales degree-2j part
+by k^j: check on line bundles. Rational isomorphism for spheres (ch(β) = generator of H²) and
+Mayer–Vietoris / Atiyah–Hirzebruch induction on cells (StableHomotopyKTheory
+H.6/atiyah-hirzebruch-spectral-sequence).
+
+The API exposes the following operations and characterizations.
+
+
+- `chernCharacter`: ch : K(X) → H^{ev}(X; ℚ), a ring homomorphism.
+
+- `chernCharacter.line`: ch(L) = exp(c_1(L)).
+
+- `chernCharacter.adams`: ch_j ∘ ψ^k = k^j ch_j.
+
+- `chernCharacter.rational_iso`: For finite CW X, ch ⊗ ℚ is an isomorphism of ℤ/2-graded rings.
+
+- `chernCharacter.natural`: ch commutes with pullback.
+
+**Checks.**
+
+
+- `chernCharacter.trivial`: ch(ε^n) = n.
+
+- `chernCharacter.sphere`: ch(β) is the generator of H²(S²; ℤ) ⊂ H²(S²; ℚ).
+
+- `chernCharacter.not_integral`: ch is not integral in general: for ℂP², ch(H) = 1 + x + x²/2 has a non-integral coefficient.
+
+The comparison must satisfy these additional checks: ch(β) = x ∈ H²(S²; ℚ), integral. ch is an
+isomorphism K(S^{2n}) ⊗ ℚ ≅ H^{ev}(S^{2n}; ℚ).
+
+This interface is used by `BorelRegulators:R.4/universal-borel-class` — universal Chern character
+and the (j−1)! normalisation; `BorelRegulators:R.4/regulator-adams-products` — ψ^a(ch_j) = a^j ch_j.
+
+*Needs:* [Chern classes and the cohomology of BU](#refinedtracemethods-rt-4-topological-chern-classes), [Adams operations on topological K-theory](#refinedtracemethods-rt-4-topological-adams-operations), [The splitting principle](#refinedtracemethods-rt-4-topological-splitting-principle), `StableHomotopyKTheory:H.6/atiyah-hirzebruch-spectral-sequence`, `StableHomotopyKTheory:H.6/rationalisation`.
+
+<a id="refinedtracemethods-rt-4-topological-graded-laurent-hkr"></a>
+
+### Graded polynomial and Laurent HKR for ku and KU
+
+Work under the following hypotheses: Characteristic zero; graded dg tensors and Koszul signs. Invert
+β only in the Laurent case.
+
+For P=Q[β], |β|=2 and differential zero, the derived Hochschild mixed object is P⊗Λ(σβ), |σβ|=3,
+b=0, B(β^j)=jβ^{j−1}σβ for j≥0 and B(β^jσβ)=0. Its chain groups are Q in nonnegative even degrees
+and odd degrees at least 3, and zero otherwise. For A=Q[β,β^{-1}], localization gives A⊗Λ(δ), |δ|=1,
+δ=β^{-1}σβ, and B(β^j)=jβ^jδ for j∈ℤ. These are the rational ku and KU mixed models; both have Bβ≠0.
+Ordinary degree-zero smooth HKR is insufficient.
+
+(See [Elliptic Cohomology II: Orientations](#ref-0-lurie-ec2), Theorem 6.5.1, pp. 273–275. Rational
+graded algebra model of the periodic Bott localization. [Invariance and localization for cyclic
+homology of DG algebras](#ref-0-keller-cyclic-96), §2.1–2.3, pp. 5–7. Unbounded dg bar and
+mixed-complex formalism used for this derived calculation.)
+
+Construction and proof. Use the requested rational E∞/commutative-dg comparison to identify ku_Q
+with Q[β] and KU_Q with its Bott localization. Resolve the polynomial graded diagonal by the Koszul
+generator for β⊗1−1⊗β. The Hochschild suspension σβ has degree 3, giving the polynomial mixed model
+with b=0 and B=d. Localize the resolution at β and set δ=β^{-1}σβ of degree 1. The graded Leibniz
+rule gives Bβ^j=jβ^jδ also for negative j.
+
+The comparison must satisfy these additional checks: The stated comparison is natural and satisfies
+every displayed hypothesis.
+
+*Needs:* [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [Derived category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex), `DerivedDeRhamCohomology:DD.0`, `DerivedDeRhamCohomology:DD.1`, `tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`, `EnhancedDerivedSheaves:E5:spectra-comparison`.
+
+<a id="refinedtracemethods-rt-4-topological-relative-thh-ku"></a>
+
+### THH relative to ku and KU
+
+Work under the following hypotheses: S_R an E_1-ring; ku and KU with the E_∞-structures of
+RT.4:topological/ku-spectrum and /connective-ku.
+
+For an E_1-ring S_R (for instance a spherical lift, RT.4:q-Hodge/spherical-lift) the base-change
+equivalences of RT.2/relative-thh give THH(ku ⊗ S_R/ku) ≃ ku ⊗ THH(S_R) and THH(KU ⊗ S_R/KU) ≃ KU ⊗
+THH(S_R), T-equivariantly with T acting trivially on ku and KU; in particular THH(ku/ku) ≃ ku and
+THH(KU/KU) ≃ KU with trivial action, so TC⁻(ku/ku) = ku^{hT} with π_* = ℤ[β][[t]]
+(RT.4:topological/ku-circle-actions). Absolute THH(ku) differs: it is not ku ⊗ THH(S) = ku, since
+rationally THH(ku) ⊗ ℚ ≃ HH(ℚ[β]/ℚ) has the class dβ in degree 3, so π_3THH(ku) ⊗ ℚ ≠ 0. Relative
+THH over ku carries no cyclotomic Frobenius unless the ku-structure is twisted (Wagner's cyclonic
+structure, RT.4:q-Hodge/cyclonic-ku).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §3.1
+'Solid THH', p. 25. Wagner §3.1 and 1.12: THH(ku ⊗ S_R/ku) ≃ THH(S_R) ⊗ ku and THH formed in
+ku-modules.)
+
+Construction and proof. Apply THH(A ⊗ k/k) ≃ THH(A) ⊗ k for an E_∞-ring k and an E_1-ring A
+(RT.2/relative-thh, base change of cyclic bar constructions) with k = ku, KU (Wagner 1.12). THH(S) ≃
+S gives THH(ku/ku) ≃ ku; the circle acts trivially on the base change factor. Use the graded
+polynomial half of RT.4:topological/graded-laurent-hkr: ku_Q corresponds to Q[β], |β|=2; its
+Hochschild generator σβ has degree 3 and Bβ=σβ. Thus π₃THH(ku)_Q=Q. The ordinary degree-zero smooth
+theorem does not justify this graded calculation.
+
+The comparison must satisfy these additional checks: THH(ku ⊗ S[x]/ku) ≃ ku ⊗ Σ^∞_+B^{cyc}ℕ-type
+decomposition by weight (Raksit's example, RT.4:q-Hodge/raksit-polynomial-example). THH(ku/ku) ≃ ku
+with trivial T-action.
+
+*Needs:* [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The periodic complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum), [Connective complex K-theory ku](#refinedtracemethods-rt-4-topological-connective-ku), [Graded polynomial and Laurent HKR for ku and KU](#refinedtracemethods-rt-4-topological-graded-laurent-hkr), `EnhancedDerivedSheaves:E5:spectra-comparison`.
+
+<a id="refinedtracemethods-rt-4-topological-ku-circle-actions"></a>
+
+### ku and KU with circle and cyclic-group actions
+
+Work under the following hypotheses: Trivial T-action on ku, KU; complex orientation of ku from
+RT.4:topological/ku-spectrum (Snaith).
+
+For ku with trivial T-action: π_*(ku^{hT}) ≅ ℤ[β][[t]] with |β| = 2, |t| = −2, where q ∈
+π_0(ku^{hT}) ≅ ku^0(BT) is the class of the standard representation and t is the complex orientation
+with q − 1 = βt (q is strict: it comes from an E_∞-map S[q] → ku^{hT}); the formal group law of ku
+is x + y + βxy. Then π_*(ku^{tT}) ≅ ℤ[β]((t)), and p-adically π_*(ku^{tC_p}) ≅ π_*(ku^{tT})/[p]_q
+with [p]_q = (q^p − 1)/(q − 1), so π_0(ku_p^{tC_p}) ≅ ℤ_p[ζ_p] with q ↦ ζ_p; the Tate-valued
+Frobenius of ku_p with trivial cyclotomic structure sends β to (ζ_p − 1)u with u = t^{−1}. After
+inverting β, π_0(KU^{hT}) ≅ ℤ[[q − 1]]. The genuine C_m-fixed points of ku used for cyclonic spectra
+are in RT.4:q-Hodge/cyclonic-ku.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §1.3,
+Notation and conventions 1.16(e) 'Homotopy classes of ku^{hS^1}', p. 9. Wagner 1.16(e):
+π_*(ku^{hS¹}) ≅ ℤ[β][[t]] with q − 1 = βt. [q-de Rham cohomology and topological Hochschild homology
+over ku](#ref-0-wagner-ku-25), §4.2, proof of Theorem 4.16, pp. 43-44. Wagner, proof of Theorem
+4.16: π_*(ku^{tC_p}) ≅ π_*(ku^{tS¹})/[p]_q, π_0 = ℤ_p[ζ_p] p-adically. [THH(Z) and the image of
+J](#ref-0-devalapurkar-raksit-25), §1.2, Proposition 1.2.5 (second part), p. 10. Devalapurkar–Raksit
+Proposition 1.2.5: the Tate-valued Frobenius of ku_p sends the Bott class to (ζ_p − 1)u.)
+
+Construction and proof. Homotopy fixed point spectral sequence H^*(BT; π_*ku) ⇒ π_*ku^{hT}
+degenerates (even); t is the Euler class of the tautological line bundle, and the ku-Euler class of
+the C_m-representation is [m]_{1+βt}·t. Tate constructions: invert t (T) or kill the Euler class
+(C_m) (RT.2/circle-tate, RT.2/norm-map-tate).
+
+The comparison must satisfy these additional checks: Setting β = 0 recovers π_*(HZ^{hT}) = ℤ[t] (ku
+→ HZ). For m = 1, [1]_q = 1.
+
+*Needs:* [Homotopy rings of ku and KU](#refinedtracemethods-rt-4-topological-homotopy-of-ku), [Connective complex K-theory ku](#refinedtracemethods-rt-4-topological-connective-ku), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate).
+
+### Examples
+
+For rational ku, the Hochschild mixed model is Q[β]⊗Λ(σβ), with |β|=2, |σβ|=3 and Bβ=σβ. After Bott
+inversion write δ=β⁻¹σβ; then |δ|=1 and B(β^j)=jβ^jδ for j∈Z. The odd class persists and excludes a
+trivial circle action on the underlying graded polynomial or Laurent ring.
+
+### Dependencies
+
+Use `DerivedDeRhamCohomology:DD.0`, `DerivedDeRhamCohomology:DD.1`,
+`EnhancedDerivedSheaves:E5:spectra-comparison`, `KTheoryLowDegrees:Z.3/adams-composition`,
+`KTheoryLowDegrees:Z.3/adams-operations`, `KTheoryLowDegrees:Z.3/adams-ring-endomorphism`,
+`KTheoryLowDegrees:Z.3/pre-lambda-ring`, `KTheoryLowDegrees:Z.3/special-lambda-ring`, [Derived
+category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex), [Mixed
+complexes](#refinedtracemethods-rt-1-mixed-complex), [The circle norm and the T-Tate
+construction](#refinedtracemethods-rt-2-circle-tate), [Homotopy orbits and homotopy fixed
+points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [The norm map and the Tate
+construction](#refinedtracemethods-rt-2-norm-map-tate), [THH relative to an
+E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Topological Hochschild homology of an
+E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), `StableHomotopyKTheory:H.1`,
+`StableHomotopyKTheory:H.5:spectra`,
+`StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-cohomology`,
+`StableHomotopyKTheory:H.5:spectra/omega-spectra-and-eilenberg-maclane`,
+`StableHomotopyKTheory:H.5:spectra/operadic-algebras`,
+`StableHomotopyKTheory:H.5:spectra/postnikov-sections`,
+`StableHomotopyKTheory:H.5:spectra/sequential-homotopy-colimit`,
+`StableHomotopyKTheory:H.5:spectra/suspension-spectrum`,
+`StableHomotopyKTheory:H.6/atiyah-hirzebruch-spectral-sequence`,
+`StableHomotopyKTheory:H.6/rationalisation`,
+[mathlib:Algebra.GrothendieckGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean#L36),
+[mathlib:VectorBundle](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/VectorBundle/Basic.lean#L375),
+`tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`.
+
+## Layer RT.4:q-Hodge: Even filtrations and q-Hodge comparisons
+
+This layer constructs even filtrations and q-Hodge comparisons. Each target below includes the
+hypotheses and comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-4-q-hodge-spherical-lift"></a>
+
+### Spherical lifts and the base hypotheses
+
+Work under the following hypotheses: p fixed for the p-complete conditions; the global condition
+quantifies over all primes.
+
+Fix a prime p. (Base, Wagner 3.1) A is a p-complete, p-completely perfectly covered δ-ring with a
+p-complete connective E_∞-ring S_A, S_A ⊗_{S_p} ℤ_p ≃ A, whose Tate-valued Frobenius lifts φ on π_0
+and carries an S¹-equivariant E_∞-structure (trivial action on S_A, residual S¹/C_p-action on
+S_A^{tC_p}), making S_A a p-cyclotomic base; ku_A := (ku ⊗ S_A)^∧_p. (Ring, Wagner 3.2) R is a
+p-complete A-algebra with bounded p^∞-torsion, p-quasi-lci over A (L_{R/A} of p-complete
+Tor-amplitude in homological degrees [0,1]), satisfying either (E_2): a p-complete connective
+E_2-algebra S_R in S_A-modules with S_R ⊗_{S_A} A ≃ R, or (E_1): R p-torsion free with a
+p-quasi-syntomic cover R → R_∞, R_∞/p relatively semiperfect over A, and an E_1-lift S_R → S_{R_∞}^•
+of the Čech nerve; ku_R := (ku ⊗ S_R)^∧_p. (Global, Wagner 4.18) A a perfectly covered Λ-ring with
+these lifts at every prime, R quasi-lci over A with bounded p^∞-torsion for all p, a per-prime
+choice of (E_2)/(E_1), and the addendum (R_2): R̂_2 satisfies (E_1) (automatic when 2 ∈ R^×); the
+lifts glue to S_A (E_∞) and S_R (E_1, or E_2 if (E_2) is chosen at every p) with S_R ⊗ ℤ ≃ R. For A
+= ℤ, Theorem 1.2's hypothesis is: R quasi-syntomic with 2 ∈ R^× and a connective E_2-ring S_R with
+S_R ⊗ ℤ ≃ R. A lift merely to an E_1- or E_2-ku-algebra is not a spherical lift.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §3
+preamble, 3.1 'Assumptions on A', condition (tCp), p. 24. Wagner §3, 3.1 (tC_p) and 3.2 (E_2)/(E_1):
+the assumptions on A and R. [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §4.4, 4.18 (after (A),(R)), p. 46. Wagner 4.18: the glued global lifts
+S_A, S_R, and the usages of spherical lifts. [q-de Rham cohomology and topological Hochschild
+homology over ku](#ref-0-wagner-ku-25), §1.1, Theorem 1.2 (see Theorem 4.27), p. 3. Wagner Theorem
+1.2: a connective E_2-ring S_R with S_R ⊗ ℤ ≃ R and 2 ∈ R^×.)
+
+Construction and proof. Record the conditions as data: S_A ∈ CAlg(Sp^∧_p) with the stated Frobenius
+structure, S_R ∈ Alg_{E_2}(Mod_{S_A}) or the E_1-Čech-nerve datum. Glue the per-prime lifts with the
+rational lift by the arithmetic fracture square (Wagner 4.18; the gluing is asserted there without
+proof and is recorded as a step here). Examples: étale-framed smooth algebras have canonical
+E_∞-lifts (Wagner Example 6.7, via Lurie HA 7.5); Burklund's quotients S_{S,□}/(y_i^{α_i}) give
+E_2-lifts of S/(y^α) (Example 6.8).
+
+The API exposes the following operations and characterizations.
+
+
+- `SphericalLift`: S_R with an equivalence S_R ⊗ ℤ ≃ R (E_1 or E_2 recorded as a parameter).
+
+- `CyclotomicBase`: (A, S_A) satisfying Wagner 3.1(tC_p).
+
+- `SphericalLift.kuLift`: ku_R := ku ⊗ S_R, ku_A := ku ⊗ S_A (p-completed in the local case).
+
+- `SphericalLift.ofEtale`: Étale (and étale-framed smooth) A-algebras have canonical E_∞-lifts.
+
+- `SphericalLift.glue`: Per-prime lifts and the rational lift glue to a global S_R (E_1, or E_2 if (E_2) at every p).
+
+**Checks.**
+
+
+- `SphericalLift.polynomial`: S[x] is an E_∞-lift of ℤ[x].
+
+- `SphericalLift.base`: S itself lifts ℤ (A = R = ℤ).
+
+- `SphericalLift.ku_not_enough`: R = ℤ_p{x}_∞/x has an E_1-ku-algebra lift but the resulting filtration is not a q-deformation of the Hodge filtration (Wagner 1.11): a lift to ku is not a spherical lift.
+
+The comparison must satisfy these additional checks: R = ℤ[x] with S_R = S[x] satisfies (E_2) at
+every prime. R = 𝔽_p does not satisfy 3.2(E_1): it is not p-torsion free.
+
+This interface is used by `RT.4:q-Hodge/q-hodge-global` — the hypotheses of Theorem 4.27;
+`HabiroCohomologyFoundations:HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations` —
+HQ.5-trace imports the theorem with these hypotheses; `RT.4:Habiro-comparison/number-field-habiro` —
+R = O_F[1/Δ] with its étale E_∞-lift.
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra/operadic-algebras`, `DerivedDeRhamCohomology:DD.0/quasisyntomic-condition`, `HabiroRings:HR.1/perfectly-covered`, `StableHomotopyKTheory:H.6/arithmetic-fracture-square`, `StableHomotopyKTheory:H.6/p-completion`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-solid-spectra"></a>
+
+### Light condensed and solid spectra
+
+Work under the following hypotheses: Light profinite sets are second-countable compact Hausdorff
+totally disconnected spaces. Wagner’s light solid spectral extension relies on Clausen–Scholze
+lectures rather than a published construction.
+
+Light condensed spectra Cond(Sp) are sheaves of spectra on light profinite sets; the discrete
+embedding X ↦ X̲ is fully faithful and symmetric monoidal. With Null := cofib(S[{∞}] → S[ℕ ∪ {∞}])
+and σ its shift, solid spectra Sp_■ ⊆ Cond(Sp) are the objects M for which 1 − σ* induces an
+equivalence on Hom(Null, M); Sp_■ is closed under limits and colimits, the inclusion has a left
+adjoint (−)^■, the solid tensor product is M ⊗^■ N := (M ⊗ N)^■, and Null^■ ≃ ∏_ℕ S is a compact
+generator. p-completion (−)^∧_p : Sp^∧_p → Sp_■ is fully faithful and symmetric monoidal on
+bounded-below objects. This extends VStackSheavesAndLisseCategories VS2's solid abelian groups
+(Clausen–Scholze) from modules to spectra in the light setting used by Wagner.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §2
+preamble, paragraph 2.1 'Solid condensed recollections', p. 11. Wagner 2.1: light condensed
+recollections and the discrete embedding. [q-de Rham cohomology and topological Hochschild homology
+over ku](#ref-0-wagner-ku-25), §2, paragraph 2.1, p. 11. Wagner 2.1: Null, solid spectra,
+solidification and the solid tensor product. [q-de Rham cohomology and topological Hochschild
+homology over ku](#ref-0-wagner-ku-25), §2, paragraph 2.2 'Solid condensed spectra and
+p-completions', p. 11. Wagner 2.2: p-complete bounded-below spectra embed fully faithfully and
+symmetric monoidally.)
+
+Construction and proof. Define Cond(Sp) as hypercomplete sheaves on light profinite sets with values
+in Sp; import solid abelian groups from VS2 and define Sp_■ by the Null-sequence condition.
+Construct the solidification left adjoint and solid tensor product; show Null^■ ≃ ∏_ℕ S generates.
+Prove the p-complete bounded-below comparison (Wagner 2.2).
+
+The API exposes the following operations and characterizations.
+
+
+- `SolidSpectrum`: Sp_■ ⊆ Cond(Sp).
+
+- `SolidSpectrum.solidify`: (−)^■ : Cond(Sp) → Sp_■ left adjoint to the inclusion.
+
+- `SolidSpectrum.tensor`: M ⊗^■ N := (M ⊗ N)^■, symmetric monoidal.
+
+- `SolidSpectrum.generator`: Null^■ ≃ ∏_ℕ S is a compact generator.
+
+- `SolidSpectrum.ofPComplete`: p-complete bounded-below spectra embed fully faithfully and monoidally.
+
+**Checks.**
+
+
+- `SolidSpectrum.discrete`: Discrete spectra are solid.
+
+- `SolidSpectrum.product`: Null^■ ≃ ∏_ℕ S.
+
+- `SolidSpectrum.not_all_condensed`: The condensed spectrum S[ℕ ∪ {∞}] is not solid (its solidification is S ⊕ ∏_ℕ S-type, not itself).
+
+The comparison must satisfy these additional checks: For discrete X, X̲ is solid. ∏_ℕ S is solid;
+⊕_ℕ S is solid but Hom_S(Null_S, S) ≃ ⊕_ℕ S is not solid perfect even.
+
+This interface is used by `RT.4:q-Hodge/solid-even-filtration` — the solid even filtration lives in
+Sp_■; `RT.4:q-Hodge/solid-thh-even-filtration` — THH_■ is formed in solid ku-modules.
+
+*Needs:* `VStackSheavesAndLisseCategories:VS2/solid-abelian-groups`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `StableHomotopyKTheory:H.6/p-completion`, `VStackSheavesAndLisseCategories:VS2`, [mathlib:LightCondMod](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L42), [mathlib:LightCondAb](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L85).
+
+<a id="refinedtracemethods-rt-4-q-hodge-nuclear-objects"></a>
+
+### Trace-class maps and nuclear modules
+
+Work under the following hypotheses: R an E₁ algebra in the presentably symmetric monoidal light
+solid spectra category; the tensor in the classifier pairs right and left modules. The ambient
+category is stable and compactly generated, with compact tensor unit, as required in Wagner
+2.10–2.11. Internal Homs in this paragraph are ambient solid spectra. Module-monoidal formulations
+require an explicit E₂/commutative refinement. For the internal Hom comparison, every compact left
+R-module tensored with every compact ambient solid spectrum must remain compact as a left R-module
+(Wagner Theorem 2.11(d)).
+
+For an E₁ solid ring R and a left R-module M, its dual Hom_R(M,R) is a right R-module. A trace-class
+map M→N is classified by a map 1_{Sp■}→Hom_R(M,R)⊗^■_R N; evaluation and the ambient symmetric
+braiding yield M→N. Left R-modules are not generally monoidal over R. A basic nuclear module is a
+sequential colimit with trace-class transitions; a nuclear module has every map from each compact
+left module trace-class. Wagner 2.11 identifies the resulting closure and its base-change
+properties. Compactness means preservation of all filtered colimits by the mapping spectrum, not
+merely sequential ones. The comparison Hom_R(P,R)⊗_R M→Hom_R(P,M) holds for nuclear M and compact P
+provided tensoring any compact left R-module with any compact ambient solid spectrum preserves
+compactness (Wagner 2.11(d)). For commutative R this specializes to the monoidal module formulation.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §2.2,
+paragraphs 2.8–2.10 and Theorem 2.11, pp. 15–17; especially 2.11(d). Wagner 2.8–2.11: trace-class
+maps, nuclear objects and their properties.)
+
+Construction and proof. Use the right R action on the dual of a left module. Classify the map by the
+ambient-unit morphism into the right-left relative tensor and compose evaluation. Define nuclearity
+by all maps from compact modules; distinguish basic nuclear sequences. Apply Wagner 2.11 to base
+change and compact Hom comparison.
+
+The API exposes the following operations and characterizations.
+
+
+- `TraceClass`: φ factors through a classifier 1 → Hom(M, R) ⊗ N.
+
+- `BasicNuclear`: Sequential colimits of trace-class maps.
+
+- `Nuclear`: The subcategory generated under colimits by basic nuclear modules.
+
+- `Nuclear.baseChange`: S ⊗_R − preserves nuclear modules.
+
+- `Nuclear.homCompact`: Hom_R(P,R)⊗^■_R M ≃ Hom_R(P,M) for compact P and nuclear M, under the ambient hypothesis that compact left R-modules tensored with compact solid spectra remain compact.
+
+**Checks.**
+
+
+- `Nuclear.dualizable`: Dualizable objects, in particular the unit R, are nuclear: the identity of a dualizable object is trace-class.
+
+- `TraceClass.zero`: For arbitrary solid left R-modules M,N, the zero map M→N is trace-class, classified by zero, even when M is not dualizable.
+
+- `Nuclear.not_all`: Compactness does not make an identity trace-class: for nonzero discrete R the compact generator Null_R ≃ ∏_ℕ R is not dualizable (its dual Hom_R(Null_R, R) ≃ ⊕_ℕ R, Wagner 2.3), so 𝟙_{Null_R} is not trace-class.
+
+The comparison must satisfy these additional checks: Every dualizable object is nuclear, its
+identity being trace-class; compact objects need not be (RT.4:q-Hodge/nuclear-objects test
+Nuclear.not_all).
+
+This interface is used by `RT.4:q-Hodge/solid-even-filtration` — solid faithfully flat descent is
+proved for nuclear inputs (Wagner Theorems 2.19–2.20).
+
+*Needs:* [Light condensed and solid spectra](#refinedtracemethods-rt-4-q-hodge-solid-spectra), `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `VStackSheavesAndLisseCategories:VS2`, [mathlib:CategoryTheory.Limits.PreservesFilteredColimits](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/Preserves/Filtered.lean#L62).
+
+<a id="refinedtracemethods-rt-4-q-hodge-perfect-even-site"></a>
+
+### Perfect even modules and the even site
+
+Work under the following hypotheses: R E₁; light solid spectral framework for the solid version.
+
+Perf_ev(R) is the smallest full coherent subcategory of left R-modules containing every Σ^{2n}R,
+n∈Z, and closed under equivalences, finite extensions and retracts. A morphism P→Q is an even
+epimorphism when its fiber is perfect even; singleton such morphisms generate the even topology. The
+spectral Yoneda sheaf Y_R(M)(P)=Map_R(P,M) takes values in spectra. Its truncations are taken in the
+sheaf category before evaluating at R. The solid site replaces the generators by Σ^{2n}Null_R, where
+Null_R=R⊗■Null■, and mapping spectra by solid mapping objects. Retracts are required in both sites.
+
+(See [Perfect even modules and the even filtration](#ref-0-pstragowski-23), Definitions 2.2 and 2.4;
+Lemma 2.5, pp. 7–8. Perfect evens, covers and the even topology. [q-de Rham cohomology and
+topological Hochschild homology over ku](#ref-0-wagner-ku-25), §2, paragraphs 2.3–2.4, pp. 11–12.
+Solid generators, retracts and sheaf truncation.)
+
+Construction and proof. Generate the full subcategory with the three closure operations. Prove base
+change of even epimorphisms gives the pretopology. Import coherent sheafification/truncation and
+define Yoneda mapping sheaves.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4Q.IsPerfectEven`: Closure of even free shifts under equivalences, extensions and retracts.
+
+- `RT4Q.IsSolidPerfectEven`: The same closure on even Null_R shifts.
+
+- `RT4Q.EvenSite`: Coherent perfect-even site and its singleton even-epimorphism coverage.
+
+- `RT4Q.SolidEvenSite`: Solid variant of the site.
+
+- `RT4Q.evenYoneda`: Spectral/solid sheaf of mapping objects.
+
+**Checks.**
+
+
+- `RT4Q.perfectEven.unit`: R and Σ^{2n}R belong to Perf_ev(R); Null_R and its even shifts belong to the solid variant.
+
+- `RT4Q.perfectEven.retract`: Every retract of a finite extension of even free shifts is perfect even.
+
+- `RT4Q.perfectEven.not_stable`: For R=HZ, ΣHZ is not perfect even; closure under all suspensions would change the site.
+
+- `RT4Q.perfectEven.zero_cover`: An identity cover has zero perfect-even fiber.
+
+The comparison must satisfy these additional checks: R and Σ^{2n}R belong to Perf_ev(R); Null_R and
+its even shifts belong to the solid variant. Every retract of a finite extension of even free shifts
+is perfect even. For R=HZ, ΣHZ is not perfect even; closure under all suspensions would change the
+site. An identity cover has zero perfect-even fiber.
+
+This interface is used by `RT.4:q-Hodge/perfect-even-filtration` — Sheaf truncations and R
+sections.; `RT.4:q-Hodge/solid-even-filtration` — The solid filtration uses Null_R, not just R..
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra`, `EnhancedDerivedSheaves:E0`, [Light condensed and solid spectra](#refinedtracemethods-rt-4-q-hodge-solid-spectra).
+
+<a id="refinedtracemethods-rt-4-q-hodge-even-flat-modules"></a>
+
+### Even flat and solid even flat modules
+
+Work under the following hypotheses: R E₁; tensor pairs right and left modules; filtered diagrams
+are coherent.
+
+A discrete spectral left R-module is even flat when it is a filtered colimit of perfect even
+modules; equivalently E⊗_R M has even homotopy for every homotopy-even right R-module E. For solid
+modules keep two notions distinct: solid ind-perfect even means a filtered colimit of solid perfect
+evens, and solid even flat means that E⊗■_R M has even condensed homotopy sheaves for every right
+module with even condensed homotopy sheaves. Solid ind-perfect even implies solid even flat. The
+converse requires nuclearity and Assumption 2.13(R); it is not asserted unconditionally. Right
+variants are obtained over R^op.
+
+(See [Perfect even modules and the even filtration](#ref-0-pstragowski-23), Proposition 4.3, pp.
+30–31; Definition 4.4, p. 31; Proposition 4.14 (Lazard theorem), pp. 33–34. Even Lazard theorem for
+ordinary spectral modules. [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §2, paragraph 2.6, p. 14; Lemma 2.15, pp. 19–20. Distinct solid notions
+and the conditional converse.)
+
+Construction and proof. Use filtered perfect-even presentations. Invoke the ordinary tensor
+criterion. In the solid case define flatness by condensed-homotopy tensor tests, and retain the
+exact converse hypotheses.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4Q.IsEvenFlat`: Filtered perfect-even presentation, equivalently the right-even tensor test.
+
+- `RT4Q.IsSolidIndPerfectEven`: Coherent filtered presentation by solid perfect evens.
+
+- `RT4Q.IsSolidEvenFlat`: Vanishing of odd condensed homotopy sheaves after tensoring with every even right module.
+
+- `RT4Q.solidIndPerfectEven_to_flat`: Ind-perfect even implies solid even flat.
+
+**Checks.**
+
+
+- `RT4Q.evenFlat.unit`: The free rank-one module is even flat in the spectral setting.
+
+- `RT4Q.evenFlat.zero`: Zero has a perfect-even filtered presentation.
+
+- `RT4Q.evenFlat.torsion`: HZ/p is homologically even over HZ but not even flat: tensoring with HZ/p creates the odd Tor group.
+
+- `RT4Q.solidEvenFlat.no_unconditional_converse`: The solid converse is used only with nuclearity and Assumption 2.13(R); an ordinary even Lazard equivalence does not supply it.
+
+The comparison must satisfy these additional checks: The free rank-one module is even flat in the
+spectral setting. Zero has a perfect-even filtered presentation. HZ/p is homologically even over HZ
+but not even flat: tensoring with HZ/p creates the odd Tor group. The solid converse is used only
+with nuclearity and Assumption 2.13(R); an ordinary even Lazard equivalence does not supply it.
+
+This interface is used by `RT.4:q-Hodge/faithfully-even-flat` — The faithful condition includes the
+cofiber.; `RT.4:q-Hodge/solid-even-filtration` — Descent needs actual flatness, not injectivity on
+point homotopy..
+
+*Needs:* [Perfect even modules and the even site](#refinedtracemethods-rt-4-q-hodge-perfect-even-site), [Light condensed and solid spectra](#refinedtracemethods-rt-4-q-hodge-solid-spectra), `EnhancedDerivedSheaves:E0`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-homological-evenness"></a>
+
+### Homological evenness and even homotopy sheaves
+
+Work under the following hypotheses: Use the appropriate coherent site and its abelian/condensed
+sheaf category.
+
+For a left module M over R, let F_M(q) be the sheafification on the even site of P↦π_{2q}Map_R(P,M),
+q∈(1/2)Z. M is homologically even if F_M(q)=0 for every proper half-integer q. In the solid case use
+sheafification of the condensed homotopy groups of the solid mapping object on the solid even site.
+Homotopy-even means the odd homotopy groups (or odd condensed homotopy sheaves) of M itself vanish.
+It implies homological evenness but is a different condition. Neither evaluating at one point nor
+omitting sheafification defines solid homological evenness.
+
+(See [Perfect even modules and the even filtration](#ref-0-pstragowski-23), Definitions 2.9 and
+2.16; Lemma 2.18, pp. 10–11; Lemma 2.36, pp. 15–16. Even sheaves, homological evenness and its
+relation to even homotopy. [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §2, paragraph 2.4, pp. 12–13. Condensed sheaves in the solid site.)
+
+Construction and proof. Form mapping homotopy presheaves. Sheafify before testing odd vanishing.
+Keep homotopy-even and homologically-even predicates distinct.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4Q.evenHomotopySheaf`: Sheafification of mapping π_j on the ordinary even site.
+
+- `RT4Q.solidEvenHomotopySheaf`: Sheafification of condensed mapping π_j on the solid even site.
+
+- `RT4Q.IsHomologicallyEven`: Vanishing for all odd j after sheafification.
+
+- `RT4Q.IsSolidHomologicallyEven`: Solid variant, with condensed sheaf vanishing.
+
+- `RT4Q.IsCondensedHomotopyEven`: Odd condensed homotopy sheaves of M itself vanish.
+
+**Checks.**
+
+
+- `RT4Q.homologicalEven.unit`: Every perfect-even module, in particular R over itself, is homologically even.
+
+- `RT4Q.homologicalEven.zero`: All even homotopy sheaves of zero vanish.
+
+- `RT4Q.homologicalEven.not_pi_even`: R=S is homologically even as an S-module despite π₁S=Z/2; homological evenness does not force odd homotopy to vanish.
+
+- `RT4Q.homologicalEven.discrete_even`: A discrete spectral module with even homotopy is homologically even, as in Pstrągowski Lemma 2.36.
+
+The comparison must satisfy these additional checks: Every perfect-even module, in particular R over
+itself, is homologically even. All even homotopy sheaves of zero vanish. R=S is homologically even
+as an S-module despite π₁S=Z/2; homological evenness does not force odd homotopy to vanish. A
+discrete spectral module with even homotopy is homologically even, as in Pstrągowski Lemma 2.36.
+
+This interface is used by `RT.4:q-Hodge/solid-even-filtration` — States the correct descent and
+Whitehead hypotheses.; `RT.4:q-Hodge/cyclonic-even-filtrations` — 5.46 tests fixed-point modules
+homologically..
+
+*Needs:* [Perfect even modules and the even site](#refinedtracemethods-rt-4-q-hodge-perfect-even-site), [Light condensed and solid spectra](#refinedtracemethods-rt-4-q-hodge-solid-spectra), `EnhancedDerivedSheaves:E0`, `VStackSheavesAndLisseCategories:VS2`, [mathlib:LightCondMod](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L42), [mathlib:LightCondAb](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L85).
+
+<a id="refinedtracemethods-rt-4-q-hodge-faithfully-even-flat"></a>
+
+### Faithfully even flat ring maps
+
+Work under the following hypotheses: E₁ map; spectral versus solid variants distinguished.
+
+For an E₁ ring map f:R→S, Pstrągowski left faithfully even flat means S and cofib(f) are even flat
+as right R-modules, and cofib(f) is homologically even as a left R-module (Definition 6.15). Its
+opposite gives the right notion. Wagner solid faithfully even flat requires S and cofib(f) solid
+even flat on both sides (Definition 2.18). For commutative E∞ rings the sides identify, but the
+general E₁ definitions retain them. Injectivity of π_* is a consequence in suitable even cases, not
+the definition.
+
+(See [Perfect even modules and the even filtration](#ref-0-pstragowski-23), Definition 6.15, Remarks
+6.16–6.18 and Proposition 6.19, p. 44. The right-flat/left-homologically-even condition for left
+descent. [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25),
+Definition 2.18 and Theorem 2.19, p. 22. Both-sided solid faithful even flatness.)
+
+Construction and proof. Form S and its ring-map cofiber as bimodules. Apply the correct
+side-specific flatness tests. Use the definition, not a substitute injectivity predicate, in the
+descent theorems.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4Q.IsEvenFaithfullyFlat`: Right-flatness of S and cofiber, plus left homological evenness of the cofiber.
+
+- `RT4Q.IsSolidEvenFaithfullyFlat`: Solid tensor-even tests on S and cofiber on both sides.
+
+- `RT4Q.faithfullyEvenFlat.op`: Opposite map gives the right variant.
+
+**Checks.**
+
+
+- `RT4Q.faithfullyEvenFlat.identity`: Identity maps are faithfully even flat.
+
+- `RT4Q.faithfullyEvenFlat.polynomial`: HZ→HZ[x] is faithfully even flat by the free polynomial basis and free cofiber.
+
+- `RT4Q.faithfullyEvenFlat.injection_insufficient`: HZ→HQ is injective on homotopy but its cofiber H(Q/Z) is not even flat over HZ, so injectivity alone fails.
+
+The comparison must satisfy these additional checks: Identity maps are faithfully even flat.
+HZ→HZ[x] is faithfully even flat by the free polynomial basis and free cofiber. HZ→HQ is injective
+on homotopy but its cofiber H(Q/Z) is not even flat over HZ, so injectivity alone fails.
+
+This interface is used by `RT.4:q-Hodge/perfect-even-filtration` — Completed Čech descent.;
+`RT.4:q-Hodge/solid-even-filtration` — Completed solid Čech descent..
+
+*Needs:* [Even flat and solid even flat modules](#refinedtracemethods-rt-4-q-hodge-even-flat-modules), [Homological evenness and even homotopy sheaves](#refinedtracemethods-rt-4-q-hodge-homological-evenness).
+
+<a id="refinedtracemethods-rt-4-q-hodge-perfect-even-filtration"></a>
+
+### Even filtrations (Hahn–Raksit–Wilson and Pstrągowski)
+
+Work under the following hypotheses: R an E_1-ring (Pstrągowski); E an E_∞-ring (HRW).
+
+(HRW) For an E_∞-ring E, fil^⋆_{ev}E := lim_{E → B, B even} τ_{≥2⋆}B, the right Kan extension of the
+double-speed Postnikov filtration from even E_∞-rings (π_* concentrated in even degrees).
+(Pstrągowski) For an E_1-ring R and a left R-module M, the perfect even filtration fil^⋆_{P-ev/R}M
+is obtained from the sheaf Hom_R(−, M) on perfect even R-modules (generated under extensions and
+retracts by shifts Σ^{2n}R) with the even topology, by taking double-speed sheaf truncations and
+evaluating at R; it is exhaustive, satisfies even faithfully flat descent after completion, and for
+E_∞ inputs admitting a faithfully even flat map to an even E_∞-ring agrees with HRW's filtration
+after completion (Pstrągowski Theorem 1.5/7.5). For E with π_*E even, both are τ_{≥2⋆}E. For
+quasisyntomic rings, HRW recovers the BMS2 motivic filtration on THH, TC⁻, TP and TC.
+
+(See [Perfect even modules and the even filtration](#ref-0-pstragowski-23), §2.3, Definition 2.21,
+p. 12. Pstrągowski: the perfect even filtration, its descent and comparison with HRW. [A motivic
+filtration on the topological cyclic homology of commutative ring spectra](#ref-0-hrw-22), §1.1,
+Definition 1.1.1, p. 2 (precise version: Construction 2.1.3, pp. 11-12). Hahn–Raksit–Wilson: the
+even filtration of E_∞-rings and the comparison with BMS2. [q-de Rham cohomology and topological
+Hochschild homology over ku](#ref-0-wagner-ku-25), §1.1, paragraph 1.7 'Even filtrations', p. 4.
+Wagner 1.7: the even filtration used is Pstrągowski's perfect even filtration.)
+
+Construction and proof. Define both filtrations (HRW Definition; Pstrągowski). Prove flat descent
+and the comparison (Pstrągowski). Record the comparison with BMS2 for quasisyntomic rings (HRW).
+
+The API exposes the following operations and characterizations.
+
+
+- `evenFiltration`: fil^⋆_ev E for E_∞-rings (HRW).
+
+- `perfectEvenFiltration`: fil^⋆_{P-ev/R}M for an E_1-ring R and left R-module M.
+
+- `perfectEvenFiltration.even`: If either R or M has homotopy concentrated in even degrees, the perfect even filtration of M is τ_{≥2⋆}M (Pstrągowski §§2.4–2.5); no flatness condition is required for this assertion.
+
+- `perfectEvenFiltration.descent`: For a faithfully even flat map of E₁-rings R→S, compare the completed filtrations of the Čech terms S^{⊗_R(n+1)}⊗_R M as R-modules over the fixed base R (Theorem 6.26). Varying the base ring to S^n needs an E₂ structure and the algebra descent theorem 6.27.
+
+- `perfectEvenFiltration.compare_HRW`: For an E_∞-ring admitting a faithfully even flat map to an even E_∞-ring, the perfect even and HRW filtrations agree after completion (Theorem 1.5/7.5).
+
+- `perfectEvenFiltration.exhaustive`: Pstrągowski's filtration is always exhaustive.
+
+- `perfectEvenFiltration.algebraDescent`: If R→S has the E₂ algebra structure required by Pstrągowski Theorem 6.27, completed fixed-base filtration can be compared with the varying-ring Čech filtration.
+
+**Checks.**
+
+
+- `evenFiltration.even_ring`: fil^⋆_ev ku = τ_{≥2⋆}ku, gr^n = Σ^{2n}H(π_{2n}ku).
+
+- `evenFiltration.zero`: The even filtration of 0 is 0.
+
+- `evenFiltration.not_postnikov`: For E = S the even filtration is not the double-speed Postnikov filtration: by MU-descent fil^⋆_ev S is the (décalé) Adams–Novikov filtration, whose associated graded is the Adams–Novikov E_2-page, not π_*S.
+
+The comparison must satisfy these additional checks: For E = ku (even), fil^⋆_{ev}ku = τ_{≥2⋆}ku.
+For E = HZ^{hT}, fil_ev^q=τ_{≥2q}(HZ^{hT}); this is not the t-adic filtration: τ_{≥0} retains π_0,
+whereas (t) removes its degree-zero generator.
+
+This interface is used by `RT.4:q-Hodge/solid-even-filtration` — the solid version agrees with
+Pstrągowski's on discrete inputs; `RT.4:q-Hodge/cyclonic-even-filtrations` — genuine equivariant
+filtrations are built from Pstrągowski filtrations on geometric fixed points; `RT.6` — the BMS2
+motivic filtration is HRW's even filtration on quasisyntomic inputs.
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.5:spectra/operadic-algebras`, [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [Perfect even modules and the even site](#refinedtracemethods-rt-4-q-hodge-perfect-even-site), [Even flat and solid even flat modules](#refinedtracemethods-rt-4-q-hodge-even-flat-modules), [Homological evenness and even homotopy sheaves](#refinedtracemethods-rt-4-q-hodge-homological-evenness), [Faithfully even flat ring maps](#refinedtracemethods-rt-4-q-hodge-faithfully-even-flat).
+
+<a id="refinedtracemethods-rt-4-q-hodge-solid-assumption-r"></a>
+
+### Solid duality assumption R
+
+Work under the following hypotheses: R E₁ solid; Null_R has its natural bimodule structure.
+
+Wagner Assumption 2.13(R) requires Hom_R(Null_R,R), naturally an R-bimodule, to be nuclear and solid
+ind-perfect even both as a left and as a right R-module. This is witnessed by the four side-specific
+properties. For a discrete E₁ ring, and for its bounded-below p-completion, Wagner Lemma 2.14
+establishes the required properties. In combination with nuclearity it gives the solid even-Lazard
+converse used by descent.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25),
+Assumption 2.13, p. 18; Lemmas 2.14–2.15, pp. 18–20. Both-sided nuclear and ind-perfect conditions.)
+
+Construction and proof. Keep the dual as a bimodule with both structures. Require nuclearity and
+filtered perfect-even presentations on both sides. Use Lemma 2.14 for the stated discrete and
+completed inputs.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4Q.AssumptionR`: Four witnesses on the left and right dual of Null_R.
+
+- `RT4Q.AssumptionR.discrete`: Discrete bounded-below ring inputs satisfy the assumption.
+
+- `RT4Q.AssumptionR.pComplete`: Bounded-below p-complete discrete ring inputs satisfy the assumption.
+
+**Checks.**
+
+
+- `RT4Q.assumptionR.discrete_Z`: The discrete solid HZ satisfies the four conditions.
+
+- `RT4Q.assumptionR.pComplete_Z`: The solid p-completion HZ_p satisfies the four conditions.
+
+- `RT4Q.assumptionR.not_one_sided`: A witness lacking right nuclearity or right ind-perfect evenness cannot be used as Assumption R.
+
+The comparison must satisfy these additional checks: The discrete solid HZ satisfies the four
+conditions. The solid p-completion HZ_p satisfies the four conditions. A witness lacking right
+nuclearity or right ind-perfect evenness cannot be used as Assumption R.
+
+This interface is used by `RT.4:q-Hodge/solid-even-filtration` — Hypothesis of solid descent and
+conditional even Lazard..
+
+*Needs:* [Trace-class maps and nuclear modules](#refinedtracemethods-rt-4-q-hodge-nuclear-objects), [Even flat and solid even flat modules](#refinedtracemethods-rt-4-q-hodge-even-flat-modules).
+
+<a id="refinedtracemethods-rt-4-q-hodge-solid-even-filtration"></a>
+
+### The solid even filtration
+
+Work under the following hypotheses: For the Whitehead comparison require even condensed homotopy
+sheaves of M. For solid descent require Assumption R, nuclear S over R, both-sided solid faithful
+even flatness, and nuclear solid homologically even M; compare completed filtrations. Any module
+tensor monoidal statement has an explicit E₂/commutative refinement; general E₁ duality uses
+right-left pairing.
+
+For an E_1-algebra R in solid spectra Sp_■ and a left R-module M, the solid even filtration
+fil^⋆_{ev/R}M is the value at R of the double-speed sheaf truncations of the Sp_■-valued sheaf
+Hom_R(−, M) on solid perfect even R-modules Perf_ev(R_■) (generated under extensions and retracts by
+Σ^{2n}Null_R, Null_R := R ⊗^■ Null^■), with covers the maps with solid perfect even fibre. It is lax
+monoidal (Wagner 2.5); the Whitehead-tower comparison holds when M has even condensed homotopy
+sheaves (Wagner 2.4); evenness only after evaluating the solid object on a point is not this
+condition; for discrete homologically even inputs it agrees with Pstrągowski's filtration (Wagner
+Corollary 2.17); and it satisfies solid faithfully even flat descent for nuclear S over R up to
+completion (Theorems 2.19, 2.20).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §2.1,
+paragraph 2.4 'The solid even filtration', p. 12. Wagner 2.4: the solid even filtration. [q-de Rham
+cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §2.3, Corollary 2.17,
+p. 21. Wagner Corollary 2.17: agreement with Pstrągowski on discrete inputs. [q-de Rham cohomology
+and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §2.4, Theorem 2.19, p. 22. Wagner
+Theorems 2.19–2.20: solid faithfully even flat descent.)
+
+Construction and proof. Define the site and sheaf (Wagner 2.3–2.4) and the monoidal structure (2.5).
+Compare with Pstrągowski (Corollary 2.17). Prove descent (Theorems 2.19–2.20) using
+RT.4:q-Hodge/nuclear-objects.
+
+The API exposes the following operations and characterizations.
+
+
+- `solidEvenFiltration`: fil^⋆_{ev/R}M in filtered solid spectra.
+
+- `solidEvenFiltration.laxMonoidal`: Lax monoidal in (R, M).
+
+- `solidEvenFiltration.even`: When M has even condensed homotopy sheaves, its solid even filtration is its double-speed Whitehead tower.
+
+- `solidEvenFiltration.compare_pstragowski`: Agrees with Pstrągowski's filtration on discrete homologically even modules.
+
+- `solidEvenFiltration.descent`: Completed Čech descent under Assumption R, both-sided solid faithful even flatness, nuclear S and nuclear solid homologically even M. The Čech terms are filtered as modules over the fixed base R (Wagner Theorem 2.19); a varying-base algebra diagram requires its separate multiplicative refinement.
+
+**Checks.**
+
+
+- `solidEvenFiltration.even_ring`: fil^⋆_{ev}(ku^∧_p) = τ_{≥2⋆}ku^∧_p.
+
+- `solidEvenFiltration.zero`: fil_ev(0) = 0.
+
+- `solidEvenFiltration.not_perfect_dual`: Perf_ev(R_■) is not closed under duals: Hom_S(Null_S, S) ≃ ⊕_ℕ S is not solid perfect even (Wagner 2.3).
+
+The comparison must satisfy these additional checks: For R = ku^∧_p (even, p-complete),
+fil^⋆_{ev/R}R = τ_{≥2⋆}R.
+
+This interface is used by `RT.4:q-Hodge/solid-thh-even-filtration` — even filtration on solid THH;
+`RT.4:q-Hodge/global-even-filtration` — the profinite pieces of the global filtration.
+
+*Needs:* [Light condensed and solid spectra](#refinedtracemethods-rt-4-q-hodge-solid-spectra), [Trace-class maps and nuclear modules](#refinedtracemethods-rt-4-q-hodge-nuclear-objects), [Even filtrations (Hahn–Raksit–Wilson and Pstrągowski)](#refinedtracemethods-rt-4-q-hodge-perfect-even-filtration), [Perfect even modules and the even site](#refinedtracemethods-rt-4-q-hodge-perfect-even-site), [Even flat and solid even flat modules](#refinedtracemethods-rt-4-q-hodge-even-flat-modules), [Homological evenness and even homotopy sheaves](#refinedtracemethods-rt-4-q-hodge-homological-evenness), [Faithfully even flat ring maps](#refinedtracemethods-rt-4-q-hodge-faithfully-even-flat), [Solid duality assumption R](#refinedtracemethods-rt-4-q-hodge-solid-assumption-r).
+
+<a id="refinedtracemethods-rt-4-q-hodge-synthetic-finite-cyclic-tate"></a>
+
+### Synthetic finite cyclic fixed points and Tate
+
+Work under the following hypotheses: n≥1; synthetic T_ev-module with coherent residual action. For
+2.75(iv): every F^{≥i}M→M is i-truncated. For (v): M over B[S¹]_ev with even E∞ B and every such map
+2i-truncated.
+
+In SynSp=Mod_{S_ev}(Fil Sp), set T_ev=fil_ev S[S¹]. For n≥1 the circle power map gives ρ(n)^*T_ev.
+For a synthetic T_ev-module M define M_{C_n}=ρ(n)^*T_ev⊗_{T_ev}M and
+M^{C_n}=Map_{T_ev}(ρ(n)^*T_ev,M), with the residual circle action via ρ(n)^*T_ev≃T_ev as an algebra.
+Antieau–Riggenbach Construction 2.63 uses the relative duality of T_ev and the dual of the power map
+to define a finite cyclic norm M_{C_n}→M^{C_n}; its cofiber is M^{tC_n}. There is no extra
+suspension in this finite norm. Tate is lax monoidal and vanishes on the thick subcategory generated
+by induced T_ev-modules. The underlying orbits agree with ordinary orbits. For underlying
+fixed-point comparisons require the truncation hypotheses of Lemma 2.75(iv), or its even-base
+variant (v); completeness alone is insufficient.
+
+(See [Cyclotomic synthetic spectra](#ref-0-antieau-riggenbach-24), Definition 2.61 and Construction
+2.63, pp. 16–17; Lemma 2.66 and Proposition 2.67, pp. 17–18; Lemma 2.75, pp. 20–21. Finite synthetic
+adjoints, norm, Tate, multiplicativity and precise underlying comparison range.)
+
+Construction and proof. Construct the two adjoints to ρ(n)^* using relative tensor and mapping
+objects. Use relative duality and the dual power map to construct the finite norm. Define its
+cofiber and apply the induced-vanishing/lax-monoidality result. Keep the exact truncation bounds
+when passing to underlying spectra.
+
+The API exposes the following operations and characterizations.
+
+
+- `SyntheticFiniteCyclic.orbits`: ρ(n)^*T_ev⊗_{T_ev}M with residual action.
+
+- `SyntheticFiniteCyclic.fixed`: Map_{T_ev}(ρ(n)^*T_ev,M) with residual action.
+
+- `SyntheticFiniteCyclic.norm`: Duality norm with no circle suspension.
+
+- `SyntheticFiniteCyclic.tate`: Cofiber of the finite norm.
+
+- `SyntheticFiniteCyclic.residual`: Action of the power-pullback circle algebra.
+
+- `SyntheticFiniteCyclic.laxMonoidal`: Coherent lax monoidal Tate structure.
+
+- `SyntheticFiniteCyclic.induced_zero`: Tate vanishes on thick induced modules.
+
+- `SyntheticFiniteCyclic.underlying`: Orbits always compare; fixed points compare under 2.75(iv)/(v) truncation bounds.
+
+**Checks.**
+
+
+- `SyntheticFiniteCyclic.one`: For n=1, norm is an equivalence and Tate is zero.
+
+- `SyntheticFiniteCyclic.induced`: Tate of X⊗T_ev is zero.
+
+- `SyntheticFiniteCyclic.no_shift`: Finite norms are unshifted, whereas the circle norm has the suspension in RT.2/circle-tate.
+
+- `SyntheticFiniteCyclic.whitehead`: Over an even base, a double-speed Whitehead filtration satisfies the underlying comparison range of 2.75(v); the finite Whitehead identification in (vi) also needs even M.
+
+The comparison must satisfy these additional checks: For n=1, norm is an equivalence and Tate is
+zero. Tate of X⊗T_ev is zero. Finite norms are unshifted, whereas the circle norm has the suspension
+in RT.2/circle-tate. Over an even base, a double-speed Whitehead filtration satisfies the underlying
+comparison range of 2.75(v); the finite Whitehead identification in (vi) also needs even M.
+
+This interface is used by `RT.4:q-Hodge/cyclonic-even-filtrations` — Finite cyclic filtered
+constituents in the divisor equalizer.; `RT.4:q-Hodge/tc-minus-m` — Genuine finite fixed points
+before residual circle fixed points..
+
+*Needs:* [Even filtrations (Hahn–Raksit–Wilson and Pstrągowski)](#refinedtracemethods-rt-4-q-hodge-perfect-even-filtration), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), `EnhancedDerivedSheaves:E0`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-even-circle-fixed-points"></a>
+
+### Even-filtered circle fixed points and Tate
+
+Work under the following hypotheses: Even filtrations as in RT.4:q-Hodge/perfect-even-filtration.
+Underlying fixed points require AR24 Lemma 2.75(iv) or (v) truncation bounds, not just
+completeness/exhaustiveness. Double-speed Whitehead identification uses (vi), with even M
+additionally for finite C_n.
+
+With S_ev := fil^⋆_ev S and T_ev := fil^⋆_ev S[S¹] (even filtrations of the sphere and the spherical
+group ring of the circle), for an even-filtered T_ev-module X the filtered homotopy fixed points
+X^{hT_ev} := Hom^⋆_{T_ev}(S_ev, X) and Tate X^{tT_ev} (Antieau–Riggenbach §2.3, due to Raksit);
+define fil^⋆_{ev,hS¹}TC⁻ := (fil^⋆_ev THH)^{hT_ev} and fil^⋆_{ev,tS¹}TP := (fil^⋆_ev THH)^{tT_ev}.
+It does not matter whether HRW, Pstrągowski or solid even filtrations are used for S_ev and T_ev
+(the particular coefficient filtrations agree after completion as in Wagner §3; Pstrągowski's
+construction is exhaustive. General HRW exhaustiveness for connective E_∞-rings is attributed to
+unpublished Burklund–Krause work and is not asserted here).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §1.1,
+paragraph 1.7 'Even filtrations', p. 4. Wagner 1.7: S_ev, T_ev and (−)^{hT_ev} := Hom_{T_ev}(S_ev,
+−). [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §3.2,
+paragraph 3.8 'Even filtrations', p. 26. Wagner 3.8: fil_{ev,hS¹}TC⁻ and fil_{ev,tS¹}TP. [Cyclotomic
+synthetic spectra](#ref-0-antieau-riggenbach-24), §2.3, Definition 2.55 and Construction 2.58, pp.
+15–16; Lemma 2.75, pp. 20–21. The synthetic circle norm has source M_{T_ev}(1)[1]; fixed-point
+underlying comparisons use the truncation hypotheses of Lemma 2.75, not only completeness and
+exhaustiveness.)
+
+Construction and proof. Construct T_ev as an E_∞-algebra in filtered spectra and S_ev as a
+T_ev-module (augmentation). Define Hom over T_ev and the norm/Tate construction in filtered spectra.
+Use AR Lemma 2.75(iv) or (v), with its stage/fiber truncation bounds, for the comparison with
+ordinary (−)^{hT}; use (vi) only with its additional evenness hypotheses.
+
+The API exposes the following operations and characterizations.
+
+
+- `evenCircleFixedPoints`: X ↦ X^{hT_ev} on even-filtered T_ev-modules.
+
+- `evenCircleTate`: X ↦ X^{tT_ev}.
+
+- `evenCircleFixedPoints.underlying`: Under the truncation bounds of AR Lemma 2.75(iv) or (v), the completed filtered fixed-point object is exhaustive for (underlying X)^{hT}. Completeness and exhaustiveness of X alone do not supply this comparison.
+
+- `evenCircleFixedPoints.graded`: Σ^{−2∗}gr^∗ of ku_ev^{hT_ev} is ℤ[β][[t]] ≅ the Rees algebra of (q−1)^⋆ℤ[[q−1]].
+
+**Checks.**
+
+
+- `evenCircleFixedPoints.ku`: π_* of the underlying object for ku with trivial action is ℤ[β][[t]].
+
+- `evenCircleFixedPoints.zero`: 0^{hT_ev} = 0.
+
+- `evenCircleFixedPoints.not_naive`: (fil_ev X)^{hT} formed degreewise in Fun(ℤ^op, Sp) without T_ev is not the same: the circle action shifts filtration (σ in degree 1 of weight 1), so the naive construction gives the wrong graded pieces.
+
+The comparison must satisfy these additional checks: For THH(ku/ku) = ku with trivial action:
+fil_{ev,hS¹}TC⁻ = τ_{≥2⋆}(ku^{hS¹}) with π_* = ℤ[β][[t]] (Wagner 1.16(e)).
+
+This interface is used by `RT.4:q-Hodge/q-hodge-comparison-map` — ψ^0_R lands in gr^0_{ev,hS¹}TC⁻;
+`RT.4:q-Hodge/q-hodge-global` — the theorem identifies Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻.
+
+*Needs:* [Even filtrations (Hahn–Raksit–Wilson and Pstrągowski)](#refinedtracemethods-rt-4-q-hodge-perfect-even-filtration), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), `DerivedDeRhamCohomology:DD.1/filtered-modules`, [Synthetic finite cyclic fixed points and Tate](#refinedtracemethods-rt-4-q-hodge-synthetic-finite-cyclic-tate).
+
+<a id="refinedtracemethods-rt-4-q-hodge-solid-thh-even-filtration"></a>
+
+### Even filtrations on solid relative THH
+
+Work under the following hypotheses: k connective even E_∞ with π_{2∗}k p-torsion free; A, R as in
+Wagner 3.1/3.2. For Lemma 3.7(i), both k and the spherical lift T of R are the p-completions of
+their underlying discrete condensed versions, k=(k°)^∧_p and T=(T°)^∧_p. The solid tensor is not
+asserted to be ordinary p-completed THH for arbitrary condensed inputs. For Corollary 3.17 base
+change, l is a connective even E_∞-ring and multiplication by p is injective on every homotopy group
+of l.
+
+Let k be a connective even E_∞-ring with π_{2∗}k p-torsion free (k = ku, ℤ, ku ⊗ ℚ, …), A and R as
+in RT.4:q-Hodge/spherical-lift, k_A := k ⊗^■ S_A, k_R := k ⊗^■ S_R. Then (i) solid THH_■(k_R/k_A) is
+the p-completed relative THH (Wagner Lemma 3.7); (ii) fil^⋆_ev THH_■(k_R/k_A) (solid even filtration
+in case (E_2), lim_Δ τ_{≥2⋆} over the even resolution in case (E_1)) is given by a cosimplicial
+formula from a polynomial resolution (Proposition 3.11), is exhaustive and complete (Corollary
+3.14), and carries a bifiltration with gr^s ≃ fil^{⋆−s}_{HKR}HH_■(R/A) ⊗ Σ^{2s+1}π_{2s}(k) for the
+positive filtration steps s≥1, with the solid tensor product and the completion prescribed by
+Corollary 3.15 (Corollary 3.15); (iii) it satisfies base change along k → l when l is also
+connective, even and p-torsion free in every homotopy degree (Corollary 3.17), with the specialized
+forms of Corollaries 3.18–3.19; (iv) for k = ℤ it agrees with HRW's filtration (hence HKR/BMS2) on
+HH, HC⁻, HP (Corollary 3.21), and in case (E_2) it is the p-completion of Pstrągowski's perfect even
+filtration (Corollary 3.24).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §3.1,
+Lemma 3.7, p. 25. Wagner Lemma 3.7: solid THH is p-completed THH. [q-de Rham cohomology and
+topological Hochschild homology over ku](#ref-0-wagner-ku-25), §3.2, Proposition 3.11, p. 27. Wagner
+Proposition 3.11 and Corollaries 3.14–3.15. [q-de Rham cohomology and topological Hochschild
+homology over ku](#ref-0-wagner-ku-25), §3.3 'Base change', Corollary 3.17, p. 31. Wagner
+Corollaries 3.17–3.19: base change. [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §3.4, Corollary 3.21, p. 33. Wagner Corollary 3.21: agreement with HRW for
+k = ℤ.)
+
+Construction and proof. Lemma 3.7 via Burklund's E_2-structure on k/p^5. Resolve R by P = ℤ[x_i] ↠ R
+with S_P = S[x_i] (E_2 even cells, Lemma B.1); the Čech resolution is termwise even (Proposition
+3.11). Deduce exhaustiveness/completeness and the bifiltration (Corollaries 3.14–3.15). Base change
+(Corollaries 3.17–3.19) and comparisons (Corollaries 3.21, 3.24).
+
+The comparison must satisfy these additional checks: For k = ℤ: fil_{ev,hS¹}HC⁻_■(R/A) recovers the
+BMS2/Antieau filtration, gr^i = Σ^{2i}(Hodge-filtered derived de Rham)^∧_p.
+
+*Needs:* [The solid even filtration](#refinedtracemethods-rt-4-q-hodge-solid-even-filtration), [Spherical lifts and the base hypotheses](#refinedtracemethods-rt-4-q-hodge-spherical-lift), [Even-filtered circle fixed points and Tate](#refinedtracemethods-rt-4-q-hodge-even-circle-fixed-points), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [The derived HKR filtration](#refinedtracemethods-rt-1-hkr-filtration), [Perfect even modules and the even site](#refinedtracemethods-rt-4-q-hodge-perfect-even-site), [Even flat and solid even flat modules](#refinedtracemethods-rt-4-q-hodge-even-flat-modules), [Homological evenness and even homotopy sheaves](#refinedtracemethods-rt-4-q-hodge-homological-evenness), [Faithfully even flat ring maps](#refinedtracemethods-rt-4-q-hodge-faithfully-even-flat).
+
+<a id="refinedtracemethods-rt-4-q-hodge-image-of-j"></a>
+
+### The connective image-of-J spectrum j
+
+Work under the following hypotheses: p a prime; K(1)-localisation at p (StableHomotopyKTheory H.6
+p-completion and localisation).
+
+For a prime p, define j=τ_{≥0}L_{K(1)}S as the connective E∞ cover of the K(1)-local sphere. At odd
+p, the K(1)-local sphere is modeled by KU_p^{h(𝔽_p^××ℤ)}, where ℤ acts through a principal-unit
+Adams operation; taking the finite fixed points first gives the Adams summand. This avoids a false
+ψ^g−1:ku_p→Σ²ku_p formula: the connective Adams-summand construction has a 2p−2 shift. Separately,
+Devalapurkar’s thesis uses j_{p,0}=τ_{≥0}(KU_p^{hΓ₀}), Γ₀=ℤ as in Lemma 6.2.1 and Notation 6.2.8.
+The variants are distinguished in the THH comparisons.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.1,
+Theorem 4.12 (Devalapurkar–Raksit [DR25]), p. 40. Wagner Theorem 4.12 (Devalapurkar–Raksit): j :=
+τ_{≥0}(S_{K(1)}) and THH(ℤ_p)^∧_p ≃ τ_{≥0}(j^{tC_p}). [Spherochromatism in representation theory and
+arithmetic geometry (Ph.D. thesis, Harvard University, April 2025)](#ref-0-devalapurkar-thesis),
+§6.2, Notation 6.2.8, printed p. 225 (PDF p. 234). Devalapurkar's thesis Notation 6.2.8: j_{p,0}.
+[THH(Z) and the image of J](#ref-0-devalapurkar-raksit-25), Notation 0.1.2 and Remark 0.1.3, p. 2.
+Definition of j and the odd-prime KU homotopy-fixed-point model.)
+
+Construction and proof. Import the K(1)-localization and odd-prime Adams-summand fixed-point model
+at the exact requested H.6 interface, then take the connective E∞ cover. Keep j_{p,0} separate.
+Record the variant j_{p,0} following Devalapurkar's thesis.
+
+The API exposes the following operations and characterizations.
+
+
+- `imageOfJ`: j = τ_{≥0}S_{K(1)} at p, an E_∞-ring.
+
+- `imageOfJ.toKu`: j → ku_p (unit of the Adams summand), an E_∞-map.
+
+- `imageOfJ.pi0`: π_0 j = ℤ_p.
+
+- `imageOfJ.variant`: Devalapurkar's j_{p,0}.
+
+**Checks.**
+
+
+- `imageOfJ.pi0_test`: π_0 j = ℤ_p.
+
+- `imageOfJ.connective`: π_n j = 0 for n < 0.
+
+- `imageOfJ.not_sphere`: j ≠ S^∧_p for p odd: the element β_1 ∈ π_{2p²−2p−2}S^∧_p of the cokernel of J maps to zero in π_*j.
+
+The comparison must satisfy these additional checks: π_0 j = ℤ_p; π_{2(p−1)k−1} j ≅ ℤ/p^{v_p(k)+1}
+for p odd (image of J in the stable stems).
+
+This interface is used by `RT.4:q-Hodge/devalapurkar-raksit-thh` — THH(ℤ_p) ≃ τ_{≥0}(j^{tC_p});
+`RT.4:q-Hodge/devalapurkar-comparison` — the input j_{p,0} of thesis Theorem 6.4.1.
+
+*Needs:* [Adams operations on ℤ × BU and on KU[1/k]](#refinedtracemethods-rt-4-topological-adams-operations-spectra), [Connective complex K-theory ku](#refinedtracemethods-rt-4-topological-connective-ku), `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.6/p-completion`, `StableHomotopyKTheory:H.6`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-devalapurkar-raksit-thh"></a>
+
+### THH(ℤ_p) and the image of J (Devalapurkar–Raksit)
+
+Work under the following hypotheses: p odd.
+
+For p odd: THH(ℤ_p)^∧_p ≃ τ_{≥0}(j^{tC_p}) as S¹-equivariant (cyclotomic) E_∞-rings, compatible with
+j → THH(ℤ_p)^∧_p and ℤ_p → THH(𝔽_p) ≃ τ_{≥0}(ℤ_p^{tC_p}); the analogous statement is false at p = 2
+(Nygaard versus divided-power completion). In Wagner it is used to show TP_■(R/S_A) ≃ HP_■(R/A)
+without a spherical lift and to identify ψ^{hS¹}_R (p > 2).
+
+(See [THH(Z) and the image of J](#ref-0-devalapurkar-raksit-25), §0.1, Remark 0.1.5, p. 2.
+Devalapurkar–Raksit: THH(ℤ_p) (and THH(ℤ_p[ζ_p])) via the image of J. [q-de Rham cohomology and
+topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.1, Theorem 4.12
+(Devalapurkar–Raksit [DR25]), p. 40. Wagner Theorem 4.12 states the Devalapurkar–Raksit
+identification.)
+
+Construction and proof. Import Devalapurkar–Raksit's theorem (arXiv 2505.02218) as stated in Wagner
+Theorem 4.12; its proof (via K(1)-local and Tate-orbit arguments) follows their paper. Record the
+failure at p = 2 (Wagner §4.2).
+
+The comparison must satisfy these additional checks: π_*THH(ℤ_p)^∧_p in low degrees: π_0 = ℤ_p,
+π_{2p−1} = ℤ/p (first nonzero positive group), matching τ_{≥0}(j^{tC_p}).
+
+*Needs:* [The connective image-of-J spectrum j](#refinedtracemethods-rt-4-q-hodge-image-of-j), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate).
+
+<a id="refinedtracemethods-rt-4-q-hodge-devalapurkar-comparison"></a>
+
+### Devalapurkar's comparison of THH(ℤ_p[ζ_p]) with ku
+
+Work under the following hypotheses: p > 2.
+
+For p > 2 there is an equivalence THH(ℤ_p[ζ_p]/S_p[[q − 1]])^∧_p ≃ τ_{≥0}(ku_p^{tC_p}) of S¹ ×
+ℤ_p^×-equivariant E_∞-S_p[[q − 1]]-algebras (ℤ_p[ζ_p] an S_p[[q−1]]-algebra via q ↦ ζ_p; S¹ acting
+on ku^{tC_p} through S¹ ≃ S¹/C_p; ℤ_p^× acting by Adams operations on ku_p), sending q ↦ q,
+compatibly with THH(𝔽_p) ≃ τ_{≥0}(ℤ_p^{tC_p}) (Wagner Theorem 4.1 = Devalapurkar's thesis Theorem
+6.4.1, whose normalisation uses S[[q^{1/p} − 1]] with q^{1/p} ↦ ζ_p and states the identification
+with ku_p^{(−1)} = τ_{≥0}(ku_p^{tℤ/p})). Its inputs are the Devalapurkar–Raksit identification of
+THH(ℤ_p[ζ_p]) (thesis Theorem 6.1.4) and the E_∞-ring j_{p,0}. At p = 2 only Nikolaus's
+S¹-equivariant E_1-equivalence is available (RT.4:q-Hodge/nikolaus-e1-equivalence); the E_∞
+statement is not known there.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §1.1,
+Theorem 1.6 (Devalapurkar [Dev25, Theorem 6.4.1]), p. 4; restated as Theorem 4.1, p. 36. Wagner
+Theorem 1.6 / 4.1 (Devalapurkar [Dev25, Theorem 6.4.1]), used only for p > 2. [Spherochromatism in
+representation theory and arithmetic geometry (Ph.D. thesis, Harvard University, April
+2025)](#ref-0-devalapurkar-thesis), Ch. 6, §6.4 'Application to q-de Rham cohomology', Theorem
+6.4.1, printed p. 232 (PDF p. 241); also stated as Theorem 1.2.2, printed p. 15 (PDF p. 24).
+Devalapurkar's thesis Theorem 6.4.1. [Spherochromatism in representation theory and arithmetic
+geometry (Ph.D. thesis, Harvard University, April 2025)](#ref-0-devalapurkar-thesis), Ch. 6, §6.1,
+Theorem 6.1.4 (Joint with A. Raksit), printed p. 220 (PDF p. 229). Devalapurkar's thesis Theorem
+6.1.4: THH(ℤ_p[ζ_p]).)
+
+Construction and proof. Thesis Lemma 6.4.11 and Theorem 6.1.4 identify the ku base change of
+THH(Z_p[ζ_p]) with ku_p^{(−1)} through the j_{p,0} comparison. Lemma 6.4.10 relates that base change
+to S⊗_{S[S¹]}triv THH. Proposition 6.4.20 factors the circle map through THH(S[q^{±1/p}]); Lemma
+6.4.14 identifies the ensuing tensor with relative THH. Retain Z_p^×-equivariance through these
+comparisons; Remark 6.4.21 addresses it for the factorization step. Proposition 6.2.7 supplies the
+second part of Theorem 6.4.1. Transport the thesis q^{1/p} normalization to Wagner 4.1, retaining
+the S¹×Z_p^× action and the p>2 E∞ range. These proof steps do not introduce auxiliary lemmas.
+
+The comparison must satisfy these additional checks: On π_0: ℤ_p[ζ_p] ≅ π_0(τ_{≥0}ku_p^{tC_p}). An
+E_∞ refinement at p=2 is not known; this does not prove it false, which is why Wagner's Theorem 1.2
+assumes 2 ∈ R^×.
+
+*Needs:* [THH(ℤ_p) and the image of J (Devalapurkar–Raksit)](#refinedtracemethods-rt-4-q-hodge-devalapurkar-raksit-thh), [The connective image-of-J spectrum j](#refinedtracemethods-rt-4-q-hodge-image-of-j), [ku and KU with circle and cyclic-group actions](#refinedtracemethods-rt-4-topological-ku-circle-actions), [Adams operations on ℤ × BU and on KU[1/k]](#refinedtracemethods-rt-4-topological-adams-operations-spectra), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh).
+
+<a id="refinedtracemethods-rt-4-q-hodge-nikolaus-e1-equivalence"></a>
+
+### Nikolaus's E_1 comparison at all primes
+
+Work under the following hypotheses: Any prime p; only E_1-structures.
+
+For every prime p, including p = 2, there is an S¹-equivariant equivalence of E_1-rings
+THH(ℤ_p[ζ_p]/S_p[[q−1]])^∧_p ≃ τ_{≥0}(ku_p^{tC_p}) (only the E_1 refinement is asserted), proved
+from the fact that ℤ_p[ζ_p] is the free (q−1)-complete E_2-S_p[[q−1]]-algebra with [p]_q = 0 (Wagner
+Theorem 4.16, attributed to unpublished work of Nikolaus, with the argument explained by
+Devalapurkar).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.2,
+Theorem 4.16 (Nikolaus, unpublished), p. 43. Wagner Theorem 4.16 (Nikolaus): S¹-equivariant E_1
+equivalence at all primes.)
+
+Construction and proof. Presentation of ℤ_p[ζ_p] as a free (q−1)-complete E_2-algebra with [p]_q =
+0. Compute THH of such a free quotient and compare with ku_p^{tC_p} using π_*(ku_p^{tC_p}) =
+π_*(ku_p^{tS¹})/[p]_q (Wagner proof of Theorem 4.16).
+
+The comparison must satisfy these additional checks: At p = 2 this replaces
+RT.4:q-Hodge/devalapurkar-comparison in case (E_1).
+
+*Needs:* [ku and KU with circle and cyclic-group actions](#refinedtracemethods-rt-4-topological-ku-circle-actions), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Spherical lifts and the base hypotheses](#refinedtracemethods-rt-4-q-hodge-spherical-lift).
+
+<a id="refinedtracemethods-rt-4-q-hodge-q-hodge-comparison-map"></a>
+
+### The comparison map ψ^0_R and the q-Hodge filtration
+
+Work under the following hypotheses: Local case at a prime p; Devalapurkar's comparison for p > 2,
+Nikolaus's in case (E_1) for p = 2.
+
+For p, A, R as in RT.4:q-Hodge/spherical-lift (local case), the cyclotomic Frobenius of THH(S_R/S_A)
+and Devalapurkar's comparison (p > 2; Nikolaus's for p = 2 in case (E_1)) give an S¹-map ψ_R :
+THH(R^{(p)}[ζ_p]/S_A[[q−1]])[1/u] → THH(ku_R/ku_A)^{tC_p} and hence ψ^0_R : q-dR_{R/A} →
+gr^0_{ev,tS¹}TP_■ ≃ gr^0_{ev,hS¹}TC⁻_■(ku_R/ku_A), where q-dR_{R/A} is the (p-completed) derived
+q-de Rham complex (HabiroCohomologyFoundations HQ). The q-Hodge filtration is defined as the
+pullback fil^⋆_{q-Hdg}q-dR_{R/A} := q-dR_{R/A} ×_{gr^0} Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻_■(ku_R/ku_A) along
+ψ^0_R, using Σ^{−2∗}gr^∗(ku_ev^{hT_ev}) ≅ ℤ_p[β][[t]] ≅ the Rees algebra of (q−1)^⋆ℤ_p[[q−1]] (q − 1
+= βt).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.1,
+paragraph 4.7 'The q-Hodge filtration', p. 38. Wagner 4.7: the q-Hodge filtration as a pullback
+along ψ^0_R. [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §4.1, Remark 4.3, p. 36. Wagner Remark 4.3: the coefficient ring and q ↦
+q.)
+
+Construction and proof. Construct ψ_R (Wagner 4.4) from the cyclotomic Frobenius and
+RT.4:q-Hodge/devalapurkar-comparison. Pass to gr^0 of the even filtrations (Wagner 4.6–4.7) and
+define the pullback filtration (4.7). Identify the coefficient ring with the (q−1)-adic filtration
+(Remark 4.3).
+
+The API exposes the following operations and characterizations.
+
+
+- `qHodgeComparison`: ψ^0_R : q-dR_{R/A} → gr^0_{ev,hS¹}TC⁻_■(ku_R/ku_A).
+
+- `qHodgeFiltration`: fil^⋆_{q-Hdg}q-dR_{R/A} as the pullback along ψ^0_R.
+
+- `qHodgeComparison.mod_beta`: Modulo β it is the de Rham comparison for HC⁻ (Hodge filtration).
+
+- `qHodgeComparison.coefficients`: Σ^{−2∗}gr^∗(ku^{hT}) ≅ ℤ_p[β][[t]] with q − 1 = βt.
+
+**Checks.**
+
+
+- `qHodgeFiltration.zero_degree`: fil^0_{q-Hdg} = q-dR_{R/A}.
+
+- `qHodgeFiltration.polynomial`: For R = ℤ_p[x] and i≥1, fil^i = ((q−1)^iℤ_p[x][[q−1]] → (q−1)^{i−1}ℤ_p[x][[q−1]]dx) (Raksit's example, RT.4:q-Hodge/raksit-polynomial-example).
+
+- `qHodgeFiltration.not_qadic`: fil^⋆_{q-Hdg} is not the (q−1)-adic filtration (q−1)^⋆q-dR: on ℤ_p[x] the degree-1 term contains dx in filtration i−1, not i.
+
+The comparison must satisfy these additional checks: Modulo β, ψ^0_R becomes the comparison dR_{R/A}
+→ gr^0 HC⁻ of Antieau/HRW.
+
+This interface is used by `RT.4:q-Hodge/p-complete-comparison-odd` — Theorem 4.8 identifies this
+filtration; `RT.4:q-Hodge/global-comparison-map` — glued globally in 4.25.
+
+*Needs:* [Devalapurkar's comparison of THH(ℤ_p[ζ_p]) with ku](#refinedtracemethods-rt-4-q-hodge-devalapurkar-comparison), [Nikolaus's E_1 comparison at all primes](#refinedtracemethods-rt-4-q-hodge-nikolaus-e1-equivalence), [Even filtrations on solid relative THH](#refinedtracemethods-rt-4-q-hodge-solid-thh-even-filtration), [Even-filtered circle fixed points and Tate](#refinedtracemethods-rt-4-q-hodge-even-circle-fixed-points), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), `HabiroCohomologyFoundations:HQ.3`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-p-complete-comparison-odd"></a>
+
+### The p-complete q-Hodge comparison for p > 2 (Wagner Theorem 4.8)
+
+Work under the following hypotheses: p > 2; A, R as stated; all (q-)de Rham complexes relative to A
+are p-completed. The E_{n−1}-monoidal refinement requires n≥2 and the chosen E_n lift.
+
+Let p > 2, A a p-complete p-completely perfectly covered δ-ring with a 3.1(tC_p)-lift S_A, and R a
+p-complete A-algebra with bounded p^∞-torsion, p-quasi-lci over A, satisfying 3.2(E_2) or 3.2(E_1).
+Then ψ^0_R identifies the completion of fil^⋆_{q-Hdg}q-dR_{R/A} with
+Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻_■(ku_R/ku_A) as graded ℤ_p[β][[t]]-modules; modulo β this is the Hodge
+filtration fil_{Hdg}dR_{R/A}, and after rationalisation the combined (Hodge, q−1)-filtration on
+dR_{R/A}[1/p][[q−1]]. For n≥2, with an E_n-lift the equivalences are E_{n−1}-monoidal (Remark 4.9).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.1
+'The p-complete comparison (case p > 2)', Theorem 4.8, p. 39. Wagner Theorem 4.8: the p-complete
+comparison for p > 2. [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §4.1, Remark 4.9, p. 39. Wagner Remark 4.9: monoidality.)
+
+Construction and proof. Use the polynomial/Čech even resolution and comparison of Wagner Proposition
+3.11 and Corollary 3.16, then the comparison square of Lemma 4.10. Theorem 4.12 supplies the
+Devalapurkar–Raksit coefficient calculation; it is not a quasi-syntomic descent theorem. Check the
+identification modulo β (Antieau/HRW: Hodge filtration via HC⁻) and the ℤ_p^×-equivariance (Lemma
+4.13). Conclude by completeness of both filtrations (RT.4:q-Hodge/solid-thh-even-filtration).
+
+The comparison must satisfy these additional checks: For A = R = ℤ_p: TC⁻(ku_p/ku_p) = ku_p^{hT} and
+q-dR = ℤ_p[[q−1]] with fil^i = (q−1)^i.
+
+*Needs:* [The comparison map ψ^0_R and the q-Hodge filtration](#refinedtracemethods-rt-4-q-hodge-q-hodge-comparison-map), [Even filtrations on solid relative THH](#refinedtracemethods-rt-4-q-hodge-solid-thh-even-filtration), [THH(ℤ_p) and the image of J (Devalapurkar–Raksit)](#refinedtracemethods-rt-4-q-hodge-devalapurkar-raksit-thh), `HabiroCohomologyFoundations:HQ.3`, `DerivedDeRhamCohomology:DD.2/p-completed-derham`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-p-complete-comparison-two"></a>
+
+### The p-complete q-Hodge comparison at p = 2 (Wagner Theorem 4.14)
+
+Work under the following hypotheses: p = 2; case (E_1) only.
+
+For p = 2, A as in 3.1 and R a 2-complete, 2-torsion free A-algebra with bounded 2^∞-torsion,
+2-quasi-lci over A, with a 2-quasi-syntomic cover R → R_∞ (R_∞/2 relatively semiperfect over A) and
+an E_1-lift S_R → S_{R_∞}^• of its Čech nerve (case 3.2(E_1)), the conclusions of Theorem 4.8 hold
+for the ad hoc filtration lim_Δ τ_{≥2⋆}TC⁻_■(ku_{R_∞^•}/ku_A). Case 3.2(E_2) at p = 2 remains open
+(it depends on an E_∞ form of Devalapurkar's theorem at p = 2 and on Theorem 4.12, false at p = 2).
+The resulting fil_{q-Hdg} is a priori a graded E_0-algebra, E_∞ a posteriori by
+RT.4:q-Hodge/quasi-regular-quotients.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.2
+'The p-complete comparison (case p = 2)', Theorem 4.14, p. 43. Wagner Theorem 4.14: the case p = 2
+under 3.2(E_1). [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §4.2, opening paragraph, p. 43. Wagner §4.2: the obstructions at p = 2.)
+
+Construction and proof. Replace Devalapurkar's comparison by Nikolaus's E_1 equivalence
+(RT.4:q-Hodge/nikolaus-e1-equivalence) to construct ψ^0_R. Lemma 4.10 needs no quasi-syntomic
+descent here since R_∞^• is relatively semiperfect; the ℤ_p^×-equivariance argument is replaced by a
+check via A_crys^• after base change to perfect A (Wagner §4.2, a proof sketch).
+
+The comparison must satisfy these additional checks: This is the separate p = 2 target the roadmap
+keeps; it is not Theorem 4.8 with hypotheses removed.
+
+*Needs:* [Nikolaus's E_1 comparison at all primes](#refinedtracemethods-rt-4-q-hodge-nikolaus-e1-equivalence), [The comparison map ψ^0_R and the q-Hodge filtration](#refinedtracemethods-rt-4-q-hodge-q-hodge-comparison-map), [Even filtrations on solid relative THH](#refinedtracemethods-rt-4-q-hodge-solid-thh-even-filtration).
+
+<a id="refinedtracemethods-rt-4-q-hodge-quasi-regular-quotients"></a>
+
+### q-Hodge filtrations of quasi-regular quotients (Wagner Theorem 4.17)
+
+Work under the following hypotheses: As stated; p-torsion-freeness of R is required (the §4.3
+preamble's reformulation omits it).
+
+Fix a prime p (p = 2 allowed), A as in 3.1, and R satisfying 3.2(E_1) for the identity cover: R
+p-complete, p-torsion free, bounded p^∞-torsion, p-quasi-lci over A, R/p relatively semiperfect over
+A, with a p-complete connective E_1-S_A-algebra lift S_R. Then q-dR_{R/A} and dR_{R/A} are static
+and fil^⋆_{q-Hdg}q-dR_{R/A} = q-dR_{R/A} ×_{dR_{R/A}[1/p][[q−1]]}
+fil^⋆_{(Hdg,q−1)}dR_{R/A}[1/p][[q−1]] (pullback of filtered (q−1)^⋆A[[q−1]]-modules in the
+1-category); hence it is independent of the lift S_R and canonically a filtered E_∞-algebra.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.3
+'The case of quasi-regular quotients', Theorem 4.17, p. 45. Wagner Theorem 4.17: the q-Hodge
+filtration of a quasi-regular quotient as a 1-categorical pullback, independent of the lift.)
+
+Construction and proof. Staticness of q-dR and dR for such R. Apply Theorems 4.8/4.14 and identify
+the pullback using the rational comparison and p-torsion-freeness of Σ^{−n}∧^nL_{R/A}.
+
+The comparison must satisfy these additional checks: Lift independence: two E_1-lifts of the same R
+give the same filtration.
+
+*Needs:* [The p-complete q-Hodge comparison for p > 2 (Wagner Theorem 4.8)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-odd), [The p-complete q-Hodge comparison at p = 2 (Wagner Theorem 4.14)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-two), `DerivedDeRhamCohomology:DD.2/p-completed-derham`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts"></a>
+
+### Compatible local and global spherical lifts
+
+Work under the following hypotheses: Wagner 4.18(A),(R); addendum 4.18a(R₂) when used.
+
+The global input consists of a perfectly covered Λ-ring A, a quasi-lci A-algebra R, bounded p-power
+torsion for each p, and for every prime compatible p-complete choices satisfying Wagner 3.1(tC_p)
+and either 3.2(E₂) or 3.2(E₁). An E₂ choice is a connective E₂ lift S_R over S_A reducing to R; an
+E₁ choice includes the p-torsion-free ring, the p-quasisyntomic semiperfect cover and the lifted
+coherent Čech diagram. The local diagrams carry reduction equivalences and rational identifications
+used in the arithmetic gluing. The global result is a connective E₁ lift, with E₂ refinement only
+when all local choices are E₂. The addendum R₂ is an E₁ choice at p=2; it is automatic when 2 is
+invertible. This is a family of compatible structured lifts, not a list of underlying spectra.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25),
+3.1–3.2, pp. 24–25; 4.18, p. 46; 4.18a, p. 48. Per-prime branches and rational/global gluing input.)
+
+Construction and proof. Package each local branch and its Čech data. Keep rational identifications
+and reduction maps. Apply arithmetic gluing; retain the source sketch gap in the construction proof.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4Q.CompatibleSphericalLifts`: Local tC_p bases, E₂/E₁ branches, coherent reductions and rational comparison data.
+
+- `RT4Q.CompatibleSphericalLifts.localChoices`: Project the complete local input for a prime.
+
+- `RT4Q.CompatibleSphericalLifts.glue`: Arithmetic-glued connective lift and its reduction equivalence.
+
+- `RT4Q.CompatibleSphericalLifts.e2`: E₂ refinement when every branch is E₂.
+
+**Checks.**
+
+
+- `RT4Q.CompatibleSphericalLifts.invert_two`: A=R=Z[1/2] has the canonical localization lifts; the p=2 input is trivial.
+
+- `RT4Q.CompatibleSphericalLifts.polynomial`: Polynomial lifts over the toric spherical base satisfy the local reduction conditions.
+
+- `RT4Q.CompatibleSphericalLifts.not_arbitrary`: An E₁ ku-algebra lifting R without the spherical reductions and lifted cover cannot be used as this global input.
+
+The comparison must satisfy these additional checks: A=R=Z[1/2] has the canonical localization
+lifts; the p=2 input is trivial. Polynomial lifts over the toric spherical base satisfy the local
+reduction conditions. An E₁ ku-algebra lifting R without the spherical reductions and lifted cover
+cannot be used as this global input.
+
+This interface is used by `RT.4:q-Hodge/global-even-filtration` — Supplies per-prime filtrations and
+their gluing.; `RT.4:q-Hodge/q-hodge-multiplicativity` — Tracks E₁/E₂ rather than promoting all
+inputs to E∞..
+
+*Needs:* [Spherical lifts and the base hypotheses](#refinedtracemethods-rt-4-q-hodge-spherical-lift), `HabiroRings:HR.1/perfectly-covered`, `DerivedDeRhamCohomology:DD.0/quasisyntomic-condition`, `EnhancedDerivedSheaves:E0`, `StableHomotopyKTheory:H.6/arithmetic-fracture-square`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-global-even-filtration"></a>
+
+### Global even filtrations by profinite and rational gluing
+
+Work under the following hypotheses: Global hypotheses of RT.4:q-Hodge/spherical-lift.
+
+For A, R global (Wagner 4.18), fil^⋆_ev THH(ku_R/ku_A) is defined as the pullback of the profinite
+filtration fil^⋆_ev THH_■(ku_{R̂}/ku_{Â}) (product over primes, with (E_1)- and (E_2)-primes treated
+separately, 4.21) and the rational filtration fil^⋆_ev THH(ku_R ⊗ ℚ/ku_A ⊗ ℚ) ≃ fil^⋆_ev HH(R/A) ⊗
+ℚ[β]_ev over fil^⋆_ev THH_■(ku_{R̂} ⊗^■ ℚ/ku_{Â} ⊗^■ ℚ) (4.23); then fil_{ev,hS¹}TC⁻ := (fil_ev
+THH)^{hT_ev}. The derived q-de Rham complex is glued likewise (4.25), and ψ^0_R is glued from the
+local comparisons, the rational Hodge-completion map and their compatibility (Lemma 4.29, a
+Ẑ^×-Adams-equivariance argument which uses (R_2)).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.4,
+paragraph 4.23 'Global even filtrations', p. 48. Wagner 4.23: global even filtrations by gluing.
+[q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.4,
+paragraph 4.21 'Profinite even filtrations' and Lemma 4.22, pp. 47-48. Wagner 4.21 and Lemma 4.22:
+profinite even filtrations. [q-de Rham cohomology and topological Hochschild homology over
+ku](#ref-0-wagner-ku-25), §4.4, paragraph 4.25 'The global comparison map', p. 49. Wagner 4.25: the
+global comparison map and Lemma 4.29.)
+
+Construction and proof. Profinite completion and solid tensor products of bounded-below profinite
+complete spectra (4.20). Profinite even filtrations (4.21, Lemma 4.22). Glue (4.23) and glue q-dR
+and ψ^0_R (4.25, Lemma 4.29).
+
+The API exposes the following operations and characterizations.
+
+
+- `globalEvenFiltration`: fil^⋆_ev THH(ku_R/ku_A) glued from profinite and rational pieces. The primary input is CompatibleSphericalLifts, including the lifted coherent Čech and arithmetic-gluing data.
+
+- `globalEvenFiltration.profinite`: Restriction to the profinite filtration. The primary input is CompatibleSphericalLifts, including the lifted coherent Čech and arithmetic-gluing data.
+
+- `globalEvenFiltration.rational`: Restriction to fil_ev HH(R/A) ⊗ ℚ[β]_ev. The primary input is CompatibleSphericalLifts, including the lifted coherent Čech and arithmetic-gluing data.
+
+- `globalComparison`: The glued ψ^0_R : q-dR_{R/A} → gr^0_{ev,hS¹}TC⁻(ku_R/ku_A). The primary input is CompatibleSphericalLifts, including the lifted coherent Čech and arithmetic-gluing data.
+
+**Checks.**
+
+
+- `globalEvenFiltration.integers`: For A = R = ℤ: fil_{ev,hS¹}TC⁻(ku/ku) = τ_{≥2⋆}ku^{hS¹}.
+
+- `globalEvenFiltration.rational_part`: After −⊗ℚ the filtration is fil_{HKR}HH(R/A) ⊗ ℚ[β]_ev.
+
+- `globalEvenFiltration.identity_base`: For R=A and the identity spherical lift, relative THH(ku_A/ku_A) is ku_A with trivial circle action. Its compatible global filtration recovers the coefficient even filtration; this checks the identity base independently of rational projection.
+
+The comparison must satisfy these additional checks: If (E_2) holds at every prime, the glued
+filtration is intrinsic (a solid even filtration); otherwise it is the ad hoc gluing.
+
+This interface is used by `RT.4:q-Hodge/q-hodge-global` — the global theorem is stated for this
+filtration.
+
+*Needs:* [Even filtrations on solid relative THH](#refinedtracemethods-rt-4-q-hodge-solid-thh-even-filtration), [The comparison map ψ^0_R and the q-Hodge filtration](#refinedtracemethods-rt-4-q-hodge-q-hodge-comparison-map), [Spherical lifts and the base hypotheses](#refinedtracemethods-rt-4-q-hodge-spherical-lift), `StableHomotopyKTheory:H.6/arithmetic-fracture-square`, [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts).
+
+<a id="refinedtracemethods-rt-4-q-hodge-q-hodge-global"></a>
+
+### q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)
+
+Work under the following hypotheses: As stated; only the completion of fil_{q-Hdg} is identified
+(fil_{q-Hdg} itself is a pullback and need not be complete).
+
+Let A be a perfectly covered Λ-ring whose p-completions satisfy 3.1(tC_p) with lifts S_{Â_p}, and R
+a quasi-lci A-algebra with bounded p^∞-torsion for all p, each R̂_p satisfying 3.2(E_2) or 3.2(E_1),
+with the addendum (R_2) (true if 2 ∈ R^×); let S_A, S_R be the glued lifts and ku_A = ku ⊗ S_A, ku_R
+= ku ⊗ S_R. With the glued even filtration (RT.4:q-Hodge/global-even-filtration) and fil_{q-Hdg}
+defined as the pullback along ψ^0_R, ψ^0_R identifies the completed q-Hodge filtration
+fil^⋆_{q-Hdg}q-dR^∧_{R/A} with Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻(ku_R/ku_A) as graded ℤ[β][[t]]-modules.
+Modulo β the uncompleted filtration becomes the Hodge filtration on dR_{R/A}; after rationalisation
+and (q−1)-completion it becomes the combined Hodge and (q−1)-adic filtration on (dR_{R/A} ⊗
+ℚ)[[q−1]]; so (R, fil_{q-Hdg}q-dR_{R/A}) is an object of AniAlg^{q-Hdg}_A
+(HabiroCohomologyFoundations HQ.3). Theorem 1.2 is the case A = ℤ, R quasi-syntomic with 2 ∈ R^× and
+a connective E_2-lift S_R.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.4
+'The global case', Theorem 4.27, p. 50. Wagner Theorem 4.27: the global q-Hodge comparison. [q-de
+Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §1.1, Theorem 1.2
+(see Theorem 4.27), p. 3. Wagner Theorem 1.2: the case A = ℤ with 2 ∈ R^× and an E_2-lift. [q-de
+Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.4, Theorem
+4.27 (second half), p. 50. Wagner Theorem 4.27, second half: mod β and rational specialisations.)
+
+Construction and proof. Combine the local theorems (RT.4:q-Hodge/p-complete-comparison-odd,
+/p-complete-comparison-two) at each prime with the rational comparison TC⁻(ku_R⊗ℚ/ku_A⊗ℚ) ≃
+HC⁻(R⊗ℚ[β]/A⊗ℚ[β]). Glue (RT.4:q-Hodge/global-even-filtration) and check the identification on the
+pullback (Lemma 4.29). Mod-β and rational statements from the local ones; HQ.3's definition of
+q-Hodge-filtered animated rings.
+
+The comparison must satisfy these additional checks: For R = ℤ[x] with S_R = S[x], the filtration is
+Raksit's coordinate q-Hodge filtration (RT.4:q-Hodge/raksit-polynomial-example). β ↦ 0 recovers
+Antieau/HRW: fil_{Hdg}dR^∧_{R/ℤ} ≃ Σ^{−2∗}gr^∗_{ev,hS¹}HC⁻(R/ℤ).
+
+*Needs:* [Global even filtrations by profinite and rational gluing](#refinedtracemethods-rt-4-q-hodge-global-even-filtration), [The p-complete q-Hodge comparison for p > 2 (Wagner Theorem 4.8)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-odd), [The p-complete q-Hodge comparison at p = 2 (Wagner Theorem 4.14)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-two), [q-Hodge filtrations of quasi-regular quotients (Wagner Theorem 4.17)](#refinedtracemethods-rt-4-q-hodge-quasi-regular-quotients), `HabiroCohomologyFoundations:HQ.3`, [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts).
+
+<a id="refinedtracemethods-rt-4-q-hodge-q-hodge-multiplicativity"></a>
+
+### Completeness, multiplicativity and the graded comparison
+
+Work under the following hypotheses: As in RT.4:q-Hodge/q-hodge-global.
+
+In the situation of RT.4:q-Hodge/q-hodge-global: (i) fil^⋆_ev THH(ku_R/ku_A) and fil^⋆_{ev,hS¹}TC⁻
+are exhaustive and complete (Wagner Corollary 3.14 and its global form); (ii) if the lifts are E_n
+at every prime (n ≥ 2), the comparison equivalences are E_{n−1}-monoidal and (R, fil_{q-Hdg}) is an
+E_{n−1}-algebra in AniAlg^{q-Hdg}_A (Remark 4.28; with only an E_2-lift, E_1-monoidal); at primes
+with 3.2(E_1) the E_∞-structure comes a posteriori from Theorem 4.17; (iii) the graded comparison:
+Σ^{−2i}gr^i_{ev,hS¹}TC⁻ ≃ fil^i_{q-Hdg}q-dR^∧ for every i, compatibly with the derived q-de Rham
+complex and with HQ.3's q-Hodge complex q-Hdg_{R/A} := (colim(fil^0 →^{(q−1)} fil^1 → …))^∧_{(q−1)},
+which is gr^0 of the S¹-even filtration on TC⁻(KU_R/KU_A) (the β-localisation).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §4.4,
+Remark 4.28, p. 50. Wagner Remark 4.28: monoidality of the global comparison. [q-de Rham cohomology
+and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5 introduction (unnumbered), p.
+53; cf. §1.2, p. 6. Wagner §5 introduction: the q-Hodge complex as gr^0 of the KU filtration.)
+
+Construction and proof. Completeness: Corollary 3.14 locally and gluing. Monoidality: Remarks 4.9
+and 4.28 (E_n-lifts give E_{n−1}-monoidal comparisons). q-Hodge complex: invert β
+(RT.4:topological/bott-localisation) and compare with HQ.3's colimit (Wagner §5 introduction; the
+identification there is stated without proof and is recorded as a step).
+
+The comparison must satisfy these additional checks: For S_R = S[x] (E_∞-lift), fil_{q-Hdg} is a
+filtered E_∞-algebra.
+
+*Needs:* [q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [q-Hodge filtrations of quasi-regular quotients (Wagner Theorem 4.17)](#refinedtracemethods-rt-4-q-hodge-quasi-regular-quotients), [KU is the Bott localisation of ku](#refinedtracemethods-rt-4-topological-bott-localisation), `HabiroCohomologyFoundations:HQ.3`, [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts).
+
+<a id="refinedtracemethods-rt-4-q-hodge-raksit-polynomial-example"></a>
+
+### The coordinate q-de Rham complex from THH(ku[x]/ku)
+
+Work under the following hypotheses: S_R = S[x]; framed smooth generalisation as in Wagner §6.
+
+For S_R = S[x] (flat spherical polynomial ring) the S¹-even filtration on TC⁻(ku[x]/ku) computes the
+coordinate q-de Rham complex of ℤ[x] with q-Hodge filtration fil^0 = everything and fil^i =
+((q−1)^iℤ[x][[q−1]] → (q−1)^{i−1}ℤ[x][[q−1]]dx) for i ≥ 1 (Raksit, Wagner Theorem 1.4; generalised
+to framed smooth algebras in Theorem 6.10).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §1.1,
+Theorem 1.4 (Raksit, unpublished; see Theorem 6.10), p. 3. Wagner Theorem 1.4 (Raksit): the
+coordinate q-de Rham complex of ℤ[x] from THH(ku[x]/ku).)
+
+Construction and proof. THH(ku[x]/ku) = ku ⊗ THH(S[x]) with THH(S[x]) ≃ Σ^∞_+(cyclic bar
+construction of ℕ), computed via RT.2/thh-spherical-group-rings-type decompositions. Compute the
+S¹-even filtration weightwise and compare with the q-derivative ∇_q(x^n) = [n]_q x^{n−1}dx.
+
+The comparison must satisfy these additional checks: In weight n the differential is multiplication
+by [n]_q, recovering ∇_q.
+
+*Needs:* [q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [THH and TC of spherical group rings and loop spaces](#refinedtracemethods-rt-2-thh-spherical-group-rings).
+
+<a id="refinedtracemethods-rt-4-q-hodge-cyclonic-spectrum"></a>
+
+### Cyclonic spectra
+
+Work under the following hypotheses: Finite cyclic subgroups only (F-genuine S¹-spectra,
+RT.2/genuine-cyclic-and-circle-spectra).
+
+Cyclonic spectra (Barwick–Glasman) are spectra with an S¹-action that is genuine for every finite
+cyclic subgroup C_m ⊆ S¹: the localising subcategory of genuine S¹-spectra generated by the cells
+S¹/C_m. The families {(−)^{C_m}} and {(−)^{ΦC_m}} are jointly conservative; the inclusion into
+genuine S¹-spectra has a colimit-preserving right adjoint inducing a symmetric monoidal structure.
+Bounded-below cyclonic spectra (all X^{C_m}, equivalently all X^{ΦC_m}, bounded below) are
+equivalent to naive cyclonic spectra (families (Y_m)_m with S¹/C_m-actions and Frobenius-type maps),
+and the genuine fixed points are X^{C_m} ≃ eq(∏_{d|m}(X^{ΦC_d})^{hC_{m/d}} ⇉ ∏_p
+∏_{pd|m}((X^{ΦC_d})^{tC_p})^{hC_{m/pd}}) (can and φ). Unlike genuine cyclotomic spectra
+(RT.2/genuine-cyclotomic-spectrum), cyclonic spectra carry no identifications Φ^{C_p}X ≃ X so the
+cyclonic structure alone supplies no TR cyclotomic restriction maps. Ordinary subgroup restriction
+and inflation maps still exist.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.2,
+paragraph 5.20 'Cyclonic spectra', p. 60. Wagner 5.20–5.22 and Proposition 5.26: cyclonic spectra
+(Barwick–Glasman), their monoidal structure and the bounded-below comparison. [q-de Rham cohomology
+and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.2, Lemma 5.28, p. 63. Wagner
+Lemma 5.28: the formula for genuine C_m-fixed points.)
+
+Construction and proof. Define as the localising subcategory generated by S¹/C_m-cells (Wagner
+5.20). Joint conservativity and the monoidal structure (5.21–5.22). Bounded-below comparison with
+naive cyclonic spectra (Proposition 5.26, the cyclonic analogue of NS18 Theorem II.6.9) and the
+fixed-point formula (Lemma 5.28, generalising NS18 Corollary II.4.7).
+
+The API exposes the following operations and characterizations.
+
+
+- `CyclonicSpectrum`: The ∞-category of cyclonic spectra.
+
+- `CyclonicSpectrum.fixedPoints`: X ↦ X^{C_m} with residual S¹/C_m-action.
+
+- `CyclonicSpectrum.geometricFixedPoints`: X ↦ X^{ΦC_m}.
+
+- `CyclonicSpectrum.conservative`: {(−)^{C_m}} (equivalently {(−)^{ΦC_m}}) are jointly conservative.
+
+- `CyclonicSpectrum.boundedBelow_naive`: Bounded-below cyclonic spectra ≃ bounded-below naive cyclonic spectra.
+
+- `CyclonicSpectrum.fixedPoints_formula`: X^{C_m} as the equalizer of can and φ over divisors of m.
+
+**Checks.**
+
+
+- `CyclonicSpectrum.trivial`: For m = 1, X^{C_1} is the underlying spectrum.
+
+- `CyclonicSpectrum.ku_fixed`: π_*(ku^{C_m}) ≅ ℤ[β, q]/(q^m − 1).
+
+- `CyclonicSpectrum.no_restriction`: A cyclonic spectrum need not have TR-type restriction maps R : X^{C_{pm}} → X^{C_m}, which would come from an identification Φ^{C_p}X ≃ X: for cyclonic ku, Φ^{C_p}ku ≄ ku (q ∈ π_0(ku^{ΦC_p}) satisfies Φ_p(q) = 0). The inclusion-of-fixed-points maps F (restriction of representations, q ↦ q) and the inflations do exist.
+
+The comparison must satisfy these additional checks: THH(S_R) with its genuine cyclotomic structure
+restricts to a cyclonic spectrum. ku_{S¹} (genuine S¹-equivariant ku) restricts to cyclonic ku
+(RT.4:q-Hodge/cyclonic-ku).
+
+This interface is used by `RT.4:q-Hodge/tc-minus-m` — TC^{−(m)} uses the genuine C_m-fixed points of
+a cyclonic spectrum; `RT.4:Habiro-comparison/habiro-comparison-theorem` — lim_m TC^{−(m)}.
+
+*Needs:* [Genuine C_{p^∞}-spectra and F-genuine T-spectra](#refinedtracemethods-rt-2-genuine-cyclic-and-circle-spectra), [Geometric fixed points as a localisation](#refinedtracemethods-rt-2-geometric-fixed-points-localisation), [Isotropy separation for cyclic p-groups](#refinedtracemethods-rt-2-isotropy-separation), [The restriction pullback for genuine fixed points](#refinedtracemethods-rt-2-restriction-pullback), [Genuine and naive cyclotomic spectra agree on bounded below objects](#refinedtracemethods-rt-2-bounded-below-cyclotomic-equivalence).
+
+<a id="refinedtracemethods-rt-4-q-hodge-cyclonic-ku"></a>
+
+### Cyclonic ku and KU
+
+Work under the following hypotheses: Genuine equivariant K-theory of the circle (equivariant Bott
+periodicity, Segal's RU(C_m)).
+
+Genuine S¹-equivariant connective K-theory ku_{S¹} restricts to a cyclonic E_∞-ring; KU_{S¹} :=
+ku_{S¹}[β^{−1}] with the genuine Bott element (equivariant Snaith theorem). Its fixed points:
+π_*(ku^{C_m}) ≅ ℤ[β, q]/(q^m − 1), π_*(KU^{C_m}) ≅ ℤ[β^{±1}, q]/(q^m − 1), ku^{C_m} ≃
+τ_{≥0}(KU^{C_m}) (π_0 = RU(C_m)); geometric fixed points π_*(ku^{ΦC_m}) = the non-negative part of
+ℤ[β, t]/[m]_{ku}(t) with [d]_{ku}(t), d | m proper, inverted; inflations along z ↦ z^n give ku^{C_m}
+⊗_{S[q], ψ^n} S[q] ≃ ku^{C_{mn}} with q ↦ q^n, β ↦ β; residual homotopy fixed points
+π_{2∗}((ku^{C_m})^{h(S¹/C_m)}) ≅ the (q^m − 1)-adic filtration of ℤ[q]^∧_{(q^m−1)}. Each ku^{ΦC_m}
+is bounded below, so the cyclonic fixed-point formula applies to ku and THH(ku_R/ku_A), but not to
+the KU versions, which are obtained by β-localisation.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.3,
+paragraph 5.32 'Cyclonic ku', p. 66. Wagner 5.32: cyclonic ku and KU_{S¹} = ku_{S¹}[β^{−1}]. [q-de
+Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.3, paragraph
+5.33 'Genuine fixed points of ku', p. 66. Wagner 5.33: π_*(ku^{C_m}) ≅ ℤ[β, q]/(q^m − 1). [q-de Rham
+cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.3, Proposition
+5.42, p. 69. Wagner Proposition 5.42: geometric fixed points of ku.)
+
+Construction and proof. Construct ku_{S¹} (Wagner 5.32 and Appendix C, equivariant Snaith Lemma
+C.4). Compute fixed and geometric fixed points (5.33, Proposition 5.42; RU(C_m) = ℤ[q]/(q^m − 1)).
+Inflation maps (Corollary 5.35) and bounded-belowness (5.37).
+
+The API exposes the following operations and characterizations.
+
+
+- `cyclonicKu`: ku_{S¹} as a cyclonic E_∞-ring.
+
+- `cyclonicKU`: KU_{S¹} = ku_{S¹}[β^{−1}].
+
+- `cyclonicKu.fixedPoints`: π_*(ku^{C_m}) ≅ ℤ[β, q]/(q^m − 1).
+
+- `cyclonicKu.inflation`: ku^{C_m} → ku^{C_{mn}}, q ↦ q^n, β ↦ β.
+
+- `cyclonicKu.geometric_boundedBelow`: Each ku^{ΦC_m} is bounded below.
+
+**Checks.**
+
+
+- `cyclonicKu.m_one`: ku^{C_1} = ku.
+
+- `cyclonicKu.pi0_C2`: π_0(ku^{C_2}) = ℤ[q]/(q² − 1) = RU(C_2).
+
+- `cyclonicKU.not_bounded_below`: KU^{ΦC_m} is not bounded below, so the bounded-below cyclonic machinery does not apply to KU directly; KU-filtrations are defined by β-localisation.
+
+The comparison must satisfy these additional checks: m = 1: ku^{C_1} = ku, π_* = ℤ[β].
+
+This interface is used by `RT.4:q-Hodge/tc-minus-m` — TC^{−(m)}(ku_R/ku_A) uses cyclonic ku;
+`RT.4:Habiro-comparison/habiro-comparison-theorem` — KU-versions by β-localisation.
+
+*Needs:* [Cyclonic spectra](#refinedtracemethods-rt-4-q-hodge-cyclonic-spectrum), [The periodic complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum), [Connective complex K-theory ku](#refinedtracemethods-rt-4-topological-connective-ku), [ku and KU with circle and cyclic-group actions](#refinedtracemethods-rt-4-topological-ku-circle-actions), [Genuine G-spectra, genuine and geometric fixed points](#refinedtracemethods-rt-2-genuine-g-spectra).
+
+<a id="refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence"></a>
+
+### Cyclonic Adams lift coherence
+
+Work under the following hypotheses: Global compatible lifts; 2 invertible in R for the 5.51/5.63
+applications.
+
+Wagner Assumption A₂ is a morphism S_A^cyct→S_A^triv of E∞ algebras in the coherent cyclonic
+category, whose underlying S¹-equivariant map is the identity. Geometric fixed points yield
+S¹-equivariant E∞ maps ψ^m:S_A→S_A for m≥1, together with compatible paths in the squares can_p
+ψ^{pm} ≃ (ψ^m)^{tC_p} φ_p for every prime p and m. The full morphism includes the higher coherences;
+these squares are not bare equalities of underlying maps. For commuting Frobenius lifts, ψ¹=id and
+ψ^{pm}=ψ^mψ^p, with coherent commutation yielding composition/divisibility compatibility. The
+corrected relative cyclonic THH is THH(S_R/S_A)^cyct⊗_{S_A^cyct}S_A^triv, tensored with cyclonic ku.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25),
+5.43(A₂), Lemma 5.44, pp. 70–71; Remark 6.5, p. 82. Actual cyclonic algebra map, its geometric
+squares and commuting Frobenius construction.)
+
+Construction and proof. Use a morphism in the coherent cyclonic E∞ algebra category as the primary
+datum. Take geometric fixed points to obtain ψ^m and coherent Tate squares. For commuting Frobenius
+lifts construct multiplication-indexed operations with all composition coherences. Base change
+cyclonic THH through that morphism.
+
+The API exposes the following operations and characterizations.
+
+
+- `RT4Q.CyclonicBaseCoherence`: Cyclonic E∞ morphism over the identity underlying circle algebra.
+
+- `RT4Q.CyclonicBaseCoherence.adams`: Geometric fixed-point ψ^m with reduction to Λ-ring Adams operations.
+
+- `RT4Q.CyclonicBaseCoherence.frobeniusSquare`: Compatible Tate-square paths for every p,m.
+
+- `RT4Q.CyclonicBaseCoherence.fromFrobenius`: Coherently commuting Frobenius lifts construct ψ^{pm}=ψ^mψ^p.
+
+- `RT4Q.CyclonicBaseCoherence.relativeTHH`: Base change along the A₂ morphism, then tensor cyclonic ku.
+
+**Checks.**
+
+
+- `RT4Q.CyclonicBaseCoherence.one`: ψ¹ is the underlying identity in the commuting Frobenius construction.
+
+- `RT4Q.CyclonicBaseCoherence.toric`: For the toric lift S[x^{±1}], ψ^m(x)=x^m, and prime Tate squares are compatible.
+
+- `RT4Q.CyclonicBaseCoherence.list_insufficient`: A family of E∞ endomorphisms without the Tate-square paths and their coherences cannot supply A₂.
+
+- `RT4Q.CyclonicBaseCoherence.invert_two`: The canonical lift of A=Z[1/2] supplies the A₂ input used in the Habiro unit test.
+
+The comparison must satisfy these additional checks: ψ¹ is the underlying identity in the commuting
+Frobenius construction. For the toric lift S[x^{±1}], ψ^m(x)=x^m, and prime Tate squares are
+compatible. A family of E∞ endomorphisms without the Tate-square paths and their coherences cannot
+supply A₂. The canonical lift of A=Z[1/2] supplies the A₂ input used in the Habiro unit test.
+
+This interface is used by `RT.4:q-Hodge/tc-minus-m` — Uses the corrected A-linear cyclonic relative
+THH.; `RT.4:Habiro-comparison/twisted-q-hodge-comparison` — A₂ is a retained input of Theorem 5.63..
+
+*Needs:* [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic spectra](#refinedtracemethods-rt-4-q-hodge-cyclonic-spectrum), [Cyclonic ku and KU](#refinedtracemethods-rt-4-q-hodge-cyclonic-ku), `EnhancedDerivedSheaves:E0`.
+
+<a id="refinedtracemethods-rt-4-q-hodge-tc-minus-m"></a>
+
+### The invariants TC^{−(m)}
+
+Work under the following hypotheses: X cyclonic; for THH(ku_R/ku_A): the hypotheses of
+RT.4:q-Hodge/spherical-lift and (A_2).
+
+For a cyclonic spectrum X and m ≥ 1, TC^{−(m)}(X) := (X^{C_m})^{h(S¹/C_m)}, genuine C_m-fixed points
+followed by homotopy fixed points of the residual circle S¹/C_m ≅ S¹. For A, R as in
+RT.4:q-Hodge/spherical-lift with the additional assumption (A_2) (compatible E_∞-lifts ψ^m of the
+Adams operations, Wagner 5.43), TC^{−(m)}(ku_R/ku_A) and TC^{−(m)}(KU_R/KU_A) are defined using the
+modified cyclonic structure THH(S_R/S_A)^{cyct} ⊗_{S_A^{cyct}} S_A^{triv} tensored with cyclonic ku
+(resp. KU) (Definition 5.45). The TC^{−(m)} for different m are related by maps for n | m (Remark
+5.62) but there are no restriction maps as for TR.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.4,
+Definition 5.45, p. 71. Wagner Definition 5.45: TC^{−(m)} via genuine C_m-fixed points and residual
+homotopy fixed points.)
+
+Construction and proof. Define via RT.4:q-Hodge/cyclonic-spectrum and
+RT.2/homotopy-orbits-fixed-points. Construct the modified cyclonic structure (Wagner 5.43, Lemma
+5.44). Maps for n | m (Remark 5.62).
+
+The API exposes the following operations and characterizations.
+
+
+- `TCminusM`: TC^{−(m)}(X) = (X^{C_m})^{h(S¹/C_m)}.
+
+- `TCminusM.one`: TC^{−(1)} = TC⁻.
+
+- `TCminusM.divisor`: Maps TC^{−(m)} → TC^{−(n)}-type relations for n | m (Remark 5.62).
+
+- `TCminusM.ku`: π_{2∗}TC^{−(m)}(ku/ku) ≅ (q^m − 1)^⋆ℤ[q]^∧_{(q^m−1)}.
+
+**Checks.**
+
+
+- `TCminusM.m_one`: TC^{−(1)}(X) = X^{hS¹}.
+
+- `TCminusM.ku_pi0`: π_0TC^{−(m)}(ku/ku) = ℤ[q]^∧_{(q^m−1)}.
+
+- `TCminusM.not_TR`: There are no TR-type restriction maps TC^{−(pm)} → TC^{−(m)}: they would need (ku^{ΦC_p})^{hS¹} ≃ TC^{−(1)}(ku), which fails; the limit in RT.4:Habiro-comparison is along the maps of Wagner Remark 5.62.
+
+The comparison must satisfy these additional checks: TC^{−(1)}(X) = X^{hS¹} = TC⁻(X). For cyclonic
+ku: π_{2∗}((ku^{C_m})^{h(S¹/C_m)}) ≅ the (q^m − 1)-adic filtration of ℤ[q]^∧_{(q^m−1)} (Wagner 5.33,
+5.50).
+
+This interface is used by `RT.4:Habiro-comparison/habiro-comparison-theorem` — lim_m
+TC^{−(m)}(KU⊗S_R/KU); `RT.4:Habiro-comparison/twisted-q-hodge-comparison` — each
+TC^{−(m)}(ku_R/ku_A) computes a twisted q-Hodge filtration.
+
+*Needs:* [Cyclonic spectra](#refinedtracemethods-rt-4-q-hodge-cyclonic-spectrum), [Cyclonic ku and KU](#refinedtracemethods-rt-4-q-hodge-cyclonic-ku), [Spherical lifts and the base hypotheses](#refinedtracemethods-rt-4-q-hodge-spherical-lift), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Synthetic finite cyclic fixed points and Tate](#refinedtracemethods-rt-4-q-hodge-synthetic-finite-cyclic-tate), [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic Adams lift coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence).
+
+<a id="refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations"></a>
+
+### Cyclonic even filtrations and the KU construction
+
+Work under the following hypotheses: T and M bounded-below cyclonic inputs; every T^{ΦC_m} complex
+orientable; (M^{ΦC_m})^{hC_p} homologically even over (T^{ΦC_m})^{hC_p}, as in Wagner §5.46. For the
+THH(ku_R/ku_A) application: compatible spherical lifts and Assumption (A_2), before Bott
+localization.
+
+For bounded-below cyclonic T and M with every geometric fixed point T^{ΦC_m} complex orientable, and
+under the homological-evenness condition of 5.46: fil^⋆_ev M^{ΦC_m} := fil^⋆_{P-ev/T^{ΦC_m}}M^{ΦC_m}
+(Pstrągowski) and fil^⋆_{ev/T,C_m}M^{C_m} := eq(∏_{d|m}(fil^⋆_ev M^{ΦC_d})^{hC_{m/d},ev} ⇉
+∏_p∏_{pd|m}((fil^⋆_ev M^{ΦC_d})^{tC_p,ev})^{hC_{m/pd},ev}), requiring (M^{ΦC_m})^{hC_p}
+homologically even over (T^{ΦC_m})^{hC_p} (5.46). For THH(ku_R/ku_A) the geometric fixed point
+filtration is defined by base change along inflation (5.47). For KU:
+fil^⋆_{ev,C_m}THH(KU_R/KU_A)^{C_m} := fil^⋆_{ev,C_m}THH(ku_R/ku_A)^{C_m} ⊗_{ku_ev^{C_m}} KU_ev^{C_m}
+(localisation at β in homotopical degree 2 and filtration degree 1), and
+fil^⋆_{ev,S¹}TC^{−(m)}(KU_R/KU_A) := (fil^⋆_{ev,C_m}THH(KU_R/KU_A)^{C_m})^{h(T/C_m)_ev}; these are
+complete and exhaustive (Lemma 5.61). This is the bounded-below (ku) construction followed by Bott
+localisation; a connective fixed-point formula is never applied to the unbounded KU-objects
+directly.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.4,
+paragraph 5.46 'Cyclonic even filtrations in general', p. 71. Wagner 5.46: cyclonic even filtrations
+in general. [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25),
+§5.4, paragraph 5.59 and Lemma 5.61, pp. 78–79. Wagner 5.59 and Lemma 5.61: the KU filtrations by
+β-localisation, complete and exhaustive. [q-de Rham cohomology and topological Hochschild homology
+over ku](#ref-0-wagner-ku-25), §5.2, Proposition 5.26, p. 62. Wagner Proposition 5.26 / 5.37:
+bounded-belowness of ku but not KU.)
+
+Construction and proof. Define the ku filtrations (5.46–5.47) using
+RT.4:q-Hodge/perfect-even-filtration and filtered (−)^{hC, ev}, (−)^{tC_p, ev}. β-localise to get
+the KU filtrations (5.59). Completeness/exhaustiveness (Lemma 5.61).
+
+The API exposes the following operations and characterizations.
+
+
+- `cyclonicEvenFiltration`: fil^⋆_{ev,C_m}M^{C_m} for cyclonic modules. Use compatible G, the actual A₂ morphism C and CyclonicEvenHypotheses; require positive m, and 2 invertible for the arithmetic completeness/comparison application.
+
+- `cyclonicEvenFiltration.KU`: The KU version by β-localisation. Use compatible G, the actual A₂ morphism C and CyclonicEvenHypotheses; require positive m, and 2 invertible for the arithmetic completeness/comparison application.
+
+- `cyclonicEvenFiltration.complete`: Complete and exhaustive (Lemma 5.61). Use compatible G, the actual A₂ morphism C and CyclonicEvenHypotheses; require positive m, and 2 invertible for the arithmetic completeness/comparison application.
+
+- `cyclonicEvenFiltration.m_one`: For m = 1 it is fil_{ev,hS¹}TC⁻. Use compatible G, the actual A₂ morphism C and CyclonicEvenHypotheses; require positive m, and 2 invertible for the arithmetic completeness/comparison application.
+
+**Checks.**
+
+
+- `cyclonicEvenFiltration.ku`: fil_{ev,S¹}TC^{−(m)}(ku/ku) ≃ τ_{≥2⋆}((ku^{C_m})^{h(S¹/C_m)}).
+
+- `cyclonicEvenFiltration.zero`: The filtration of 0 is 0.
+
+- `cyclonicEvenFiltration.no_direct_KU`: Applying the bounded-below formula directly to THH(KU_R/KU_A) (not bounded below) is not justified; the β-localisation of the ku filtration is used instead.
+
+The comparison must satisfy these additional checks: For m = 1 this is the filtration of
+RT.4:q-Hodge/even-circle-fixed-points. The KU filtrations are 2-periodic (β^{±1} shifts weight by
+±1).
+
+This interface is used by `RT.4:Habiro-comparison/habiro-comparison-theorem` — Σ^{−2∗}gr^∗ of
+fil_{ev,S¹}TC^{−(m)}(KU_R/KU_A).
+
+*Needs:* [The invariants TC^{−(m)}](#refinedtracemethods-rt-4-q-hodge-tc-minus-m), [Even filtrations (Hahn–Raksit–Wilson and Pstrągowski)](#refinedtracemethods-rt-4-q-hodge-perfect-even-filtration), [Even-filtered circle fixed points and Tate](#refinedtracemethods-rt-4-q-hodge-even-circle-fixed-points), [Cyclonic ku and KU](#refinedtracemethods-rt-4-q-hodge-cyclonic-ku), [KU is the Bott localisation of ku](#refinedtracemethods-rt-4-topological-bott-localisation), [Synthetic finite cyclic fixed points and Tate](#refinedtracemethods-rt-4-q-hodge-synthetic-finite-cyclic-tate), [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic Adams lift coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence), [Homological evenness and even homotopy sheaves](#refinedtracemethods-rt-4-q-hodge-homological-evenness), `EnhancedDerivedSheaves:E0`.
+
+### Examples
+
+At an odd prime the j-based comparison requires p>2 and distinguishes j from j_{p,0}. It cannot be
+applied at p=2. The separate E₁ equivalence and its even-filtration argument give the prime-2
+comparison with its own lift choices. Passing from these local comparisons to a global q-Hodge
+object requires the coherent lifted Čech and arithmetic gluing data.
+
+### Dependencies
+
+Use `DerivedDeRhamCohomology:DD.0/quasisyntomic-condition`,
+`DerivedDeRhamCohomology:DD.1/filtered-modules`, `DerivedDeRhamCohomology:DD.2/p-completed-derham`,
+`EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`,
+`EnhancedDerivedSheaves:E5:presentability/presentable-categories`,
+`HabiroCohomologyFoundations:HQ.3`, `HabiroRings:HR.1/perfectly-covered`, [The derived HKR
+filtration](#refinedtracemethods-rt-1-hkr-filtration), [Genuine and naive cyclotomic spectra agree
+on bounded below objects](#refinedtracemethods-rt-2-bounded-below-cyclotomic-equivalence), [The
+circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), [The cyclotomic
+Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Genuine C_{p^∞}-spectra and
+F-genuine T-spectra](#refinedtracemethods-rt-2-genuine-cyclic-and-circle-spectra), [Genuine
+G-spectra, genuine and geometric fixed points](#refinedtracemethods-rt-2-genuine-g-spectra),
+[Geometric fixed points as a
+localisation](#refinedtracemethods-rt-2-geometric-fixed-points-localisation), [Homotopy orbits and
+homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [Isotropy separation
+for cyclic p-groups](#refinedtracemethods-rt-2-isotropy-separation), [The norm map and the Tate
+construction](#refinedtracemethods-rt-2-norm-map-tate), [THH relative to an
+E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [The restriction pullback for genuine fixed
+points](#refinedtracemethods-rt-2-restriction-pullback), [Negative topological cyclic and periodic
+topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [Topological Hochschild
+homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [THH and TC of spherical group
+rings and loop spaces](#refinedtracemethods-rt-2-thh-spherical-group-rings), [Adams operations on ℤ
+× BU and on KU[1/k]](#refinedtracemethods-rt-4-topological-adams-operations-spectra), [KU is the
+Bott localisation of ku](#refinedtracemethods-rt-4-topological-bott-localisation), [Connective
+complex K-theory ku](#refinedtracemethods-rt-4-topological-connective-ku), [ku and KU with circle
+and cyclic-group actions](#refinedtracemethods-rt-4-topological-ku-circle-actions), [The periodic
+complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum),
+`StableHomotopyKTheory:H.5:spectra`, `StableHomotopyKTheory:H.5:spectra/operadic-algebras`,
+`StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.6`,
+`StableHomotopyKTheory:H.6/arithmetic-fracture-square`, `StableHomotopyKTheory:H.6/p-completion`,
+`VStackSheavesAndLisseCategories:VS2`, `VStackSheavesAndLisseCategories:VS2/solid-abelian-groups`,
+[mathlib:CategoryTheory.Limits.PreservesFilteredColimits](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/Preserves/Filtered.lean#L62),
+[mathlib:LightCondAb](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L85),
+[mathlib:LightCondMod](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L42).
+
+## Layer RT.4:Habiro-comparison: Cyclonic arithmetic comparison
+
+This layer constructs the cyclonic arithmetic comparison. Each target below includes the hypotheses and
+comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison"></a>
+
+### TC^{−(m)} over ku and twisted q-Hodge filtrations (Wagner Theorem 5.51)
+
+Work under the following hypotheses: As in RT.4:q-Hodge/q-hodge-global, with 2 ∈ R^× and (A_2).
+
+Under the hypotheses of RT.4:q-Hodge/q-hodge-global plus 2 ∈ R^× and (A_2), for each m ≥ 1 the
+completed m-twisted q-Hodge filtration (Wagner 5.50, constructed from fil_{q-Hdg} of Theorem 4.27)
+is identified with Σ^{−2∗}gr^∗ of fil_{ev,S¹}TC^{−(m)}(ku_R/ku_A), as modules over
+π_{2∗}((ku^{C_m})^{h(S¹/C_m)}) ≅ ℤ[β, q][[t_m]]/(βt_m − (q^m − 1)) ≅ the (q^m − 1)-adic filtration
+of ℤ[q]^∧_{(q^m−1)}; and Σ^{−2∗}gr^∗_{ev,C_m}THH(ku_R/ku_A)^{C_m} ≃ q-W_m dR^∗_{R/A} (derived q-de
+Rham–Witt complexes, Corollary 5.58).
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.4,
+Theorem 5.51, p. 73. Wagner Theorem 5.51 and Corollary 5.58. [q-de Rham cohomology and topological
+Hochschild homology over ku](#ref-0-wagner-ku-25), Construction 5.50 and Theorem 5.51, pp. 73–74;
+Corollary 5.58, p. 78. The global m-twist and its completion, then the finite-level q-de Rham–Witt
+comparison.)
+
+Construction and proof. Compute fil_{ev,S¹}TC^{−(m)}(ku/ku) ≃ τ_{≥2⋆}((ku^{C_m})^{h(S¹/C_m)})
+(stated in Wagner as not completely trivial; only sketched there). Use the fixed-point formula over
+divisors d | m and Theorem 4.27 applied to the Frobenius-twisted R^{(d)} (Wagner §5.4). Identify the
+finite C_m-fixed associated graded with q-de Rham–Witt using Corollary 5.58; do not replace these
+categorical fixed points by geometric fixed points. Use the separate HQ.3 request for the global
+twisted filtration and divisor-compatible completion.
+
+The comparison must satisfy these additional checks: m = 1 is RT.4:q-Hodge/q-hodge-global.
+
+*Needs:* [q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [Cyclonic even filtrations and the KU construction](#refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations), [The invariants TC^{−(m)}](#refinedtracemethods-rt-4-q-hodge-tc-minus-m), `HabiroCohomologyFoundations:HQ.3`, [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic Adams lift coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence).
+
+<a id="refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem"></a>
+
+### The Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem 5.63)
+
+Work under the following hypotheses: As stated; 2 ∈ R^× is needed here (stronger than (R_2)), and
+(A_2).
+
+Let A be a perfectly covered Λ-ring with p-adic (tC_p)-lifts, R a quasi-lci A-algebra with bounded
+p^∞-torsion and per-prime 3.2(E_2)/(E_1) choices, with 2 ∈ R^× and (A_2) (compatible E_∞-lifts ψ^m
+of the Adams operations on S_A); KU_A := KU ⊗ S_A, KU_R := KU ⊗ S_R with their cyclonic structures.
+Then the 2-periodified Habiro–Hodge complex q-ℋdg_{R/A}[β^{±1}] (Habiro descent of the q-Hodge
+complex of RT.4:q-Hodge/q-hodge-global, HabiroCohomologyFoundations HQ.3 / HabiroRings HR.2–HR.5,
+Wagner [Wag25, Theorem 3.11]) is equivalent to lim_m Σ^{−2∗}gr^∗_{ev,S¹}TC^{−(m)}(KU_R/KU_A), the
+limit over m along the divisibility maps; the even grading enters through Σ^{−2i} on gr^i and the
+Bott inversion through KU = ku[β^{−1}]. The connective (ku) even-filtration comparison
+(RT.4:Habiro-comparison/twisted-q-hodge-comparison) is performed before Bott inversion.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §5.4,
+Theorem 5.63, p. 79 (intro version: Theorem 1.14, p. 7). Wagner Theorem 5.63: the Habiro–Hodge
+complex as lim_m of TC^{−(m)} over KU.)
+
+Construction and proof. Apply RT.4:Habiro-comparison/twisted-q-hodge-comparison for each m.
+β-localise (RT.4:q-Hodge/cyclonic-even-filtrations, KU version) and pass to the limit over m.
+Identify lim_m of the twisted (q^m − 1)-completed pieces with the Habiro–Hodge complex via Habiro
+descent (HabiroCohomologyFoundations HQ.3's construction; its Theorem 3.11 in [Wag25]).
+
+The comparison must satisfy these additional checks: For the in-scope unit example use R=A=ℤ[1/2]
+and the corresponding localized spherical lift: 2 is a unit. The integral R=A=ℤ calculation is
+outside the hypotheses of Theorem 5.63 and cannot serve as a test of this theorem.
+
+*Needs:* [TC^{−(m)} over ku and twisted q-Hodge filtrations (Wagner Theorem 5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [Cyclonic even filtrations and the KU construction](#refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations), [Completeness, multiplicativity and the graded comparison](#refinedtracemethods-rt-4-q-hodge-q-hodge-multiplicativity), `HabiroCohomologyFoundations:HQ.3`, `HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change`, `HabiroRings:HR.5/the-relative-habiro-ring`, [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic Adams lift coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence).
+
+<a id="refinedtracemethods-rt-4-habiro-comparison-etale-einfty-lift"></a>
+
+### Étale algebras lift uniquely to étale E_∞-algebras
+
+Work under the following hypotheses: A connective E_∞-ring; étale maps in Lurie's sense (flat with
+étale π_0-map).
+
+For a connective E_∞-ring A, the functor B ↦ π_0B from étale E_∞-A-algebras to étale π_0A-algebras
+is an equivalence of ∞-categories (Lurie, Higher Algebra Theorem 7.5.0.6). In particular every étale
+ℤ-algebra R has a unique (up to contractible choice) étale E_∞-S-algebra S_R with π_0S_R = R, S_R ⊗
+ℤ ≃ R; for R = O_F[1/Δ] with disc(F) | Δ (étale over ℤ[1/Δ], HabiroRings
+HR.5-number-field-comparison) this is the spherical lift used in Corollary 6.15.
+
+(See [Higher Algebra](#ref-0-lurie-ha), §7.5 'Étale Morphisms' (introduction), Theorem 7.5.0.6, p.
+1374. Lurie, Higher Algebra Theorem 7.5.0.6: étale E_∞-algebras correspond to étale π_0-algebras.
+[q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §6.1,
+Example 6.7, p. 82. Wagner Example 6.7: étale-framed algebras have canonical E_∞-lifts.)
+
+Construction and proof. Import HA Theorem 7.5.0.6 (deformation theory of étale maps: the cotangent
+complex of an étale map vanishes, so lifts are unique and exist by obstruction theory). Apply to S →
+S[1/Δ] and the étale ℤ[1/Δ]-algebra O_F[1/Δ].
+
+The comparison must satisfy these additional checks: S_{ℤ[1/Δ]} = S[1/Δ]. O_F[1/Δ] lifts uniquely;
+this lift is E_∞, hence satisfies (E_2) at every prime.
+
+*Needs:* `StableHomotopyKTheory:H.5:spectra/operadic-algebras`, `HabiroRings:HR.5-number-field-comparison/the-inverted-discriminant-ring-is-etale`.
+
+<a id="refinedtracemethods-rt-4-habiro-comparison-number-field-habiro"></a>
+
+### The Habiro ring of a number field from KU (Wagner Corollary 6.15)
+
+Work under the following hypotheses: F a number field; 6 | Δ and disc(F) | Δ separately; S_R the
+étale lift.
+
+Let F be a number field, Δ an integer divisible by 6 and by disc(F), R = O_F[1/Δ] (étale over
+ℤ[1/Δ], 2 ∈ R^×), and S_R the unique étale E_∞-S-algebra lifting R
+(RT.4:Habiro-comparison/etale-einfty-lift). Then the Habiro ring of the number field H_{O_F[1/Δ]} of
+Garoufalidis–Scholze–Wheeler–Zagier is isomorphic to π_0 lim_m TC^{−(m)}(KU ⊗ S_R/KU) = π_0 lim_m
+(THH(KU ⊗ S_R/KU)^{C_m})^{h(S¹/C_m)}. The comparison of π_0 is with the relative Habiro ring H_{R/ℤ}
+as constructed by HabiroRings HR.5 and its identification with the GSWZ ring
+(HR.5-number-field-comparison/the-number-field-ring), through HabiroRings HR.6's degree-zero
+identification of the Habiro–Hodge complex of an étale algebra with H_{R/ℤ} (Wagner [Wag25]
+Corollary 3.13, cited as 3.12 in Wagner's proof); no new definition of the ring is made here. The
+discriminant-only ring construction of HR.5 is not replaced: the stronger hypothesis 6 | Δ enters
+only through 2 ∈ R^× (Theorem 5.63) and the source's choice.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25), §6.3
+'The Habiro ring of a number field, homotopically', Corollary 6.15, p. 86 (intro version: Corollary
+1.15, p. 8). Wagner Corollary 6.15: the Habiro ring of a number field as π_0 of lim_m TC^{−(m)}(KU ⊗
+S_R/KU). [q-de Rham cohomology and topological Hochschild homology over ku](#ref-0-wagner-ku-25),
+§6.3, proof of Corollary 6.15, p. 86. Wagner's proof of Corollary 6.15 via the Habiro–Hodge complex
+of an étale algebra. [q-Hodge complexes over the Habiro ring](#ref-0-wagner-habiro-25), §3.2 'The
+main result', Corollary 3.13, p. 27. Wagner, q-Hodge complexes over the Habiro ring, Corollary 3.13:
+the degree-zero identification for étale algebras.)
+
+Construction and proof. The Habiro–Hodge complex of the étale ℤ-algebra R is static and equal to
+H_{R/ℤ} (HabiroRings HR.6/the-degree-zero-identification). Apply
+RT.4:Habiro-comparison/habiro-comparison-theorem with A = ℤ (where (A_2) holds trivially): the limit
+filtration is the double-speed Whitehead filtration since the graded pieces are static, so π_0 of
+the limit is H_{R/ℤ}. Identify H_{R/ℤ} with GSWZ's ring (HabiroRings
+HR.5-number-field-comparison/the-number-field-ring).
+
+The comparison must satisfy these additional checks: F = ℚ, Δ = 6: π_0 lim_m TC^{−(m)}(KU ⊗
+S[1/6]/KU) ≅ H_{ℤ[1/6]}. Why 3 | Δ is required is not explained in the source; the hypothesis is
+kept as stated.
+
+*Needs:* [The Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem 5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem), [Étale algebras lift uniquely to étale E_∞-algebras](#refinedtracemethods-rt-4-habiro-comparison-etale-einfty-lift), `HabiroRings:HR.6/the-degree-zero-identification`, `HabiroRings:HR.5-number-field-comparison/the-number-field-ring`, `HabiroRings:HR.5-number-field-comparison`.
+
+### Examples
+
+For F=Q, take Δ=6 and R=Z[1/6]. The spherical lift is the unique étale E∞ lift over S[1/6]; the
+degree-zero target of the KU comparison is the relative Habiro ring supplied by HR.6. Extracting π₀
+uses that degree-zero identification after the periodic comparison, rather than defining a new
+arithmetic ring from the trace.
+
+### Dependencies
+
+Use `HabiroCohomologyFoundations:HQ.3`,
+`HabiroCohomologyFoundations:HQ.3/finite-projective-habiro-hodge-base-change`,
+`HabiroRings:HR.5-number-field-comparison`,
+`HabiroRings:HR.5-number-field-comparison/the-inverted-discriminant-ring-is-etale`,
+`HabiroRings:HR.5-number-field-comparison/the-number-field-ring`,
+`HabiroRings:HR.5/the-relative-habiro-ring`, `HabiroRings:HR.6/the-degree-zero-identification`,
+[Compatible local and global spherical
+lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic Adams lift
+coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence), [Cyclonic even filtrations
+and the KU construction](#refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations), [q-Hodge
+filtrations from THH over ku (Wagner Theorems 1.2 and
+4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [Completeness, multiplicativity and the
+graded comparison](#refinedtracemethods-rt-4-q-hodge-q-hodge-multiplicativity), [The invariants
+TC^{−(m)}](#refinedtracemethods-rt-4-q-hodge-tc-minus-m),
+`StableHomotopyKTheory:H.5:spectra/operadic-algebras`.
+
+## Layer RT.5 applications: Refined traces over ku and KU
+
+This layer constructs refined traces over ku and KU. Each target below includes the hypotheses and
+comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-5-circle-completion-equivalence"></a>
+
+### Circle fixed points and oriented completion
+
+Let k be a complex orientable E∞ ring spectrum with trivial S¹ action, and choose t∈π_(−2)(k^hS¹)
+representing an orientation. Homotopy S¹ fixed points give a symmetric monoidal equivalence from
+coherent circle k-modules to derived t-complete k^hS¹-modules, whose tensor is t-completed. The left
+adjoint has underlying module reduction modulo t; no bounded-below hypothesis is imposed.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Lemma 3.2 and proof, pp. 29–30. The source
+proves the equivalence and its completed tensor comparison for oriented k; this is not a claim that
+circle fixed points preserve arbitrary uncompleted tensor products.)
+
+Construction and proof. Construct the constant-action and scalar-extension left adjoint; its
+underlying module is reduction modulo t. Check the tensor comparison and adjunction counit modulo t
+using the oriented circle cofiber identification. Use conservativity of reduction modulo t on
+derived t-complete modules; full faithfulness and the conservative left adjoint give the
+equivalence.
+
+The comparison must satisfy these additional checks: Retain the stated hypotheses and coherent
+comparison maps.
+
+*Needs:* [Spectra with an action of a group](#refinedtracemethods-rt-2-spectra-with-action), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), `DerivedDeRhamCohomology:DD.1/derived-completion`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-5-refined-traces"></a>
+
+### Refined THH and TC⁻
+
+For an E∞ ring k, refine the symmetric monoidal localizing relative THH functor Motloc_k →
+Mod_k(Sp)^BS¹, keeping its coherent circle action. The ordinary comparison is realization in that
+target. For complex orientable k and a chosen orientation t∈π_(−2)k^hS¹, refine TC⁻ into nuclear
+ind-objects of derived t-complete k^hS¹-modules with t-completed tensor. MW Lemma 3.2 identifies
+coherent circle k-modules with this completed module category. Finite-coefficient and rational-input
+computations use the induced maps between motives, units and localization cofibers.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Construction 1.7, p. 4; Convention 3.1, p. 29;
+Lemma 3.2, pp. 29–30. This locator supplies refined thh and tc⁻. The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: The ordinary
+p-completed THH of a rational input can vanish while the refined nuclear ind-object retains
+p-complete information.)
+
+Construction and proof. Use RT.2’s actual relative THH with its circle action and multiplicative
+structure as the localizing invariant. Construct the refined functor by target rigidification and
+its realization natural transformation. For oriented k use the homotopy-fixed-point/completion
+equivalence; prove monoidality and equivalence modulo t via Nakayama and the adjunction, as in Lemma
+3.2.
+
+The API exposes the following operations and characterizations.
+
+
+- `RefinedTraces.thh`: THHref takes k-linear motives to the rigidification of coherent S¹ k-modules.
+
+- `RefinedTraces.tcMinus`: For oriented k, TC−,ref is the corresponding nuclear derived t-complete module object.
+
+- `RefinedTraces.ordinary`: Realization gives natural multiplicative maps from refined values to ordinary THH/TC⁻.
+
+- `RefinedTraces.map`: Maps of k-linear motives induce coherent circle maps and the completed TC⁻ maps, with identity and composition.
+
+- `RefinedTraces.fixedPointComparison`: Homotopy S¹ fixed points are symmetric monoidal between coherent k-modules and t-complete k^hS¹-modules under the complex-orientation hypothesis. Supplied by RefinedTraceMethods:RT.5/circle-completion-equivalence.
+
+**Checks.**
+
+
+- `RefinedTraces.zeroMotive`: Both refined invariants of the zero motive are zero.
+
+- `RefinedTraces.unitMotive`: For the smooth proper unit Mod_k, THHref is constant k with trivial circle action and TC−,ref is constant k^hS¹ in its complete module target.
+
+- `RefinedTraces.rationalKu`: TC−,ref((ku⊗Q)/ku) has the nonzero source coefficient ind-algebra A*ku; ordinary p-completed rational THH does not determine it.
+
+The comparison must satisfy these additional checks: The ordinary p-completed THH of a rational
+input can vanish while the refined nuclear ind-object retains p-complete information. The target
+tensor is t-completed; the ordinary module tensor is not substituted.
+
+This interface is used by [Refined TC⁻ of rational
+ku](#refinedtracemethods-rt-5-refined-ku-computation) — The relative refined TC⁻ invariant carries
+the unit, finite-coefficient localization and derived t-completion.; [The coherent trace interface
+for Habiro cohomology](#refinedtracemethods-rt-6-habiro-trace-interface) — Its ordinary realization
+and multiplicative trace maps are exported with the qualified finite-C_m data..
+
+*Needs:* [The refined localizing invariant](#refinedtracemethods-rt-5-refined-invariant-universality), [The refined localization cofiber](#refinedtracemethods-rt-5-localization-tower-formula), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [THH of spectral and stable ∞-categories](#refinedtracemethods-rt-2-thh-spectral-categories), [THH is symmetric monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), `EnhancedDerivedSheaves:E5:presentability`, [Refined invariants of smooth proper categories](#refinedtracemethods-rt-5-smooth-proper-normalization), [Circle fixed points and oriented completion](#refinedtracemethods-rt-5-circle-completion-equivalence).
+
+<a id="refinedtracemethods-rt-5-torsion-qhodge"></a>
+
+### Finite-coefficient TC⁻ and q-Hodge complexes
+
+Choose the compatible E₁ quotient spectra S/m for high-powered m. Then TC⁻((ku⊗S/m)/ku) and
+TC⁻((KU⊗S/m)/KU) are even; their even homotopy identifies with respectively Fil*qHdg(Hodge-completed
+derived qdR(Z/m)/Z) over Z[β][[t]], and qHdg(derived qdR(Z/m)/Z)[β±¹] over Z[[q−1]]. Both carry the
+chosen even filtration, the specified E₁-induced multiplicative data, and quotient transition maps.
+Any p=2 application requires RT.4’s separate E₁ even-resolution input; Wagner’s general theorem with
+2 invertible and a connective spherical E₂ lift alone does not supply it.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Corollary 3.8, p. 32; finite-coefficient
+calculation, pp. 30–32. This locator supplies finite-coefficient tc⁻ and q-hodge complexes. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: For odd p and exponent ≥2, the derived deformation reduces modulo q−1 to the Hodge
+filtration of derived dR(Z/p^a).)
+
+Construction and proof. Use the compatible H.6 Moore-algebra tower, not the bare cofiber definition.
+Apply the source-qualified q-Hodge comparison and the derived Hodge deformation for Z/m. Use the
+periodic comparison theorem for KU, preserving completion and coherent quotient maps. The p=2
+supplier refinement is an explicit request.
+
+The comparison must satisfy these additional checks: For odd p and exponent ≥2, the derived
+deformation reduces modulo q−1 to the Hodge filtration of derived dR(Z/p^a). Do not replace this
+chosen filtration by an asserted universal section on animated algebras.
+
+*Needs:* [High-powered positive integers](#refinedtracemethods-rt-5-high-powered), `StableHomotopyKTheory:H.6`, [Homotopy rings of ku and KU](#refinedtracemethods-rt-4-topological-homotopy-of-ku), [KU is the Bott localisation of ku](#refinedtracemethods-rt-4-topological-bott-localisation), [THH relative to ku and KU](#refinedtracemethods-rt-4-topological-relative-thh-ku), [ku and KU with circle and cyclic-group actions](#refinedtracemethods-rt-4-topological-ku-circle-actions), [q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [The p-complete q-Hodge comparison for p > 2 (Wagner Theorem 4.8)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-odd), [The p-complete q-Hodge comparison at p = 2 (Wagner Theorem 4.14)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-two), [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic even filtrations and the KU construction](#refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations), [TC^{−(m)} over ku and twisted q-Hodge filtrations (Wagner Theorem 5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [The Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem 5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem), `HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations`, `HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex`, `HabiroCohomologyFoundations:HQ.3`, `StableHomotopyKTheory:H.6/burklund-quotient-tower`, `StableHomotopyKTheory:H.6/burklund-moore-multiplicative`.
+
+<a id="refinedtracemethods-rt-5-torsion-duality"></a>
+
+### The dual finite-coefficient TC⁻ spectra
+
+For high-powered m, the k^hS¹-linear duals of TC⁻((k/m)/k), k=ku or KU, have only odd homotopy and
+are computed by Ext¹ of the corresponding even graded q-Hodge module over the derived-complete
+graded coefficient ring; all other Ext groups contributing to the filtration vanish in this
+calculation. The ku coefficient ring is Z[β][[t]] and the KU coefficient ring Z[[q−1]][β±¹].
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Corollary 3.10 and proof, pp. 33–34. This
+locator supplies the dual finite-coefficient tc⁻ spectra. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: The dual of Z/m in D(Z)
+contributes Ext¹=Z/m, not ordinary Hom_Z(Z/m,Z)=0.)
+
+Construction and proof. For ku reduce the RHom computation through the regular parameters β and t to
+RHom_Z(Z/m,Z), which has its torsion contribution in Ext¹. For KU use the ascending qHdg filtration
+with Z/m graded pieces and its complete Hom product. Apply Lemma 3.9 and the Ext-amplitude
+calculation to obtain the odd-degree dual and its transition maps.
+
+The comparison must satisfy these additional checks: The dual of Z/m in D(Z) contributes Ext¹=Z/m,
+not ordinary Hom_Z(Z/m,Z)=0.
+
+*Needs:* [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge), [Filtered derived Hom of even spectra](#refinedtracemethods-rt-5-even-derived-hom).
+
+<a id="refinedtracemethods-rt-5-pro-qhodge-idempotence"></a>
+
+### Pro-idempotence of the finite-coefficient q-Hodge system
+
+The inverse systems of even graded TC⁻ coefficients in the ku and KU finite-coefficient calculations
+are idempotent pro-algebras. Idempotence follows by factoring m³ → m² coefficient transition
+products through multiplication as bimodule maps using the compatible Moore-algebra tower. In the
+derived graded completed setting the resulting tensor comparison has amplitude [0,1] and its
+identification with spectrum homotopy is justified by the even Whitehead filtration.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Corollary 3.12 and proof, p. 35; Corollary
+2.30, p. 25. This locator supplies pro-idempotence of the finite-coefficient q-hodge system. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: The result holds as a pro-algebra equivalence; it is not termwise idempotence of each
+finite coefficient algebra.)
+
+Construction and proof. Import the factorization of the multiplicative Moore transitions. Apply TC⁻
+and the complete filtered tensor comparison. Use the bounded-amplitude double Whitehead
+identification to transfer the factorization to graded homotopy, then check both unit maps into the
+pro tensor.
+
+The comparison must satisfy these additional checks: The result holds as a pro-algebra equivalence;
+it is not termwise idempotence of each finite coefficient algebra.
+
+*Needs:* [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge), [The completed tensor filtration](#refinedtracemethods-rt-5-even-completed-tensor), `StableHomotopyKTheory:H.6`, `StableHomotopyKTheory:H.6/burklund-quotient-tower`.
+
+<a id="refinedtracemethods-rt-5-graded-trace-class"></a>
+
+### Trace-class finite-coefficient transitions
+
+For high-powered m the map from the m³ finite-coefficient graded q-Hodge algebra to the m algebra is
+trace-class over Z[β][[t]] (ku) or Z[[q−1]] (KU), in the derived-complete category. The
+corresponding spectrum classifier passes to the graded classifier because its dual-tensor has
+amplitude [−1,0].
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Corollary 3.13 and proof, p. 36. This locator
+supplies trace-class finite-coefficient transitions. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: The transition is m³ → m;
+termwise identities are not claimed trace-class.)
+
+Construction and proof. Use the trace-class witness for the category-level quotient transition in
+the localization recipe. Calculate the dual-tensor amplitude and identify the classifier through
+double Whitehead filtration. Check that evaluation of the resulting graded classifier equals the
+quotient transition.
+
+The comparison must satisfy these additional checks: The transition is m³ → m; termwise identities
+are not claimed trace-class.
+
+*Needs:* [The dual finite-coefficient TC⁻ spectra](#refinedtracemethods-rt-5-torsion-duality), [The completed tensor filtration](#refinedtracemethods-rt-5-even-completed-tensor), [Pro-idempotence of the finite-coefficient q-Hodge system](#refinedtracemethods-rt-5-pro-qhodge-idempotence), [Trace-class morphisms](#refinedtracemethods-rt-5-trace-class), `StableHomotopyKTheory:H.6`.
+
+<a id="refinedtracemethods-rt-5-refined-ku-computation"></a>
+
+### Refined TC⁻ of rational ku
+
+TC−,ref((ku ⊗ Q)/ku) is even. Its even graded homotopy is the idempotent nuclear ind-graded B =
+Z[β][[t]]-algebra A*ku obtained by killing the idempotent pro-algebra F_m = Fil*qHdg(Hodge-completed
+derived qdR(Z/m)/Z), indexed by high-powered m under divisibility; |β|=2, |t|=−2 and q−1=βt. There
+is a natural exact sequence 0 → B → A*ku → ind-colim_(m∈N^op) Ext¹_B(F_m,B) → 0. Ext and duals are
+in the graded derived t-complete category; no canonical splitting is asserted. The exact sequence
+comes from the cofiber of the duals of the unit maps in TC⁻.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Theorem 3.14(a) and proof, pp. 36–37;
+Convention 3.1, p. 29. This locator supplies refined tc⁻ of rational ku. The statement and proof
+retain the source hypotheses, maps and completion conventions; the acceptance check is: Odd homotopy
+groups vanish in the ind-category.)
+
+Construction and proof. Use the trace-class pro-algebra TC⁻((ku/m)/ku) and the localization cofiber
+from the refined invariant. The double-speed Whitehead filtration and derived Hom calculation
+identify the dual unit cofiber with graded Ext¹. The torsion duals occupy odd degrees; their
+cofibers with the even base are even. Idempotence and nuclearity pass through the source’s
+bounded-amplitude comparison.
+
+The comparison must satisfy these additional checks: Odd homotopy groups vanish in the ind-category.
+The unit B → A*ku is the left arrow of the displayed exact sequence. Apply p-completion in the
+source’s ind-complete category, not rationalization of ordinary THH.
+
+*Needs:* [Refined THH and TC⁻](#refinedtracemethods-rt-5-refined-traces), [High-powered positive integers](#refinedtracemethods-rt-5-high-powered), [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge), [Filtered derived Hom of even spectra](#refinedtracemethods-rt-5-even-derived-hom), [The dual finite-coefficient TC⁻ spectra](#refinedtracemethods-rt-5-torsion-duality), [Pro-idempotence of the finite-coefficient q-Hodge system](#refinedtracemethods-rt-5-pro-qhodge-idempotence), [Trace-class finite-coefficient transitions](#refinedtracemethods-rt-5-graded-trace-class), [Killing an idempotent pro-algebra](#refinedtracemethods-rt-5-algebra-killing), [Closure and generation of nuclear objects](#refinedtracemethods-rt-5-nuclear-closure).
+
+<a id="refinedtracemethods-rt-5-refined-ku-periodic-computation"></a>
+
+### Refined TC⁻ of rational KU
+
+TC−,ref((KU ⊗ Q)/KU) is even with π2* = A_KU[β,β⁻¹], |β|=2. A_KU is the idempotent nuclear ind
+Z[[q−1]]-algebra obtained by killing pro qHdg(derived qdR(Z/m)/Z), and 0 → Z[[q−1]] → A_KU →
+ind-colim_(m∈N^op) Ext¹_(Z[[q−1]])(qHdg(derived qdR(Z/m)/Z),Z[[q−1]]) → 0. Duals and Ext use the
+derived (q−1)-complete category. This is the periodic computation with its own convergence proof,
+not an application of a bounded-below formula to KU.
+
+(See [q-Hodge complexes and refined TC⁻](#ref-1-mw), Theorem 3.14(b) and proof, pp. 36–37; Corollary
+3.8, p. 32; Lemma 3.11, pp. 34–35. This locator supplies refined tc⁻ of rational ku. The statement
+and proof retain the source hypotheses, maps and completion conventions; the acceptance check is:
+The β grading is periodic and the scalar relation q−1=βt agrees after Bott localization.)
+
+Construction and proof. Repeat the localization cofiber and derived Hom argument over KU^hS¹. Use
+Bott-periodic even-filtration comparison from RT.4 and the periodic qHdg identification. Identify
+the resulting idempotent algebra over Z[[q−1]] and keep the ind-colimit rather than replacing it by
+an ordinary ring colimit.
+
+The comparison must satisfy these additional checks: The β grading is periodic and the scalar
+relation q−1=βt agrees after Bott localization. Both the ordinary-to-refined map and the
+finite-coefficient maps occur at spectrum level.
+
+*Needs:* [Refined TC⁻ of rational ku](#refinedtracemethods-rt-5-refined-ku-computation), [The completed tensor filtration](#refinedtracemethods-rt-5-even-completed-tensor), [Homotopy rings of ku and KU](#refinedtracemethods-rt-4-topological-homotopy-of-ku), [KU is the Bott localisation of ku](#refinedtracemethods-rt-4-topological-bott-localisation), [THH relative to ku and KU](#refinedtracemethods-rt-4-topological-relative-thh-ku), [ku and KU with circle and cyclic-group actions](#refinedtracemethods-rt-4-topological-ku-circle-actions), [q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [The p-complete q-Hodge comparison for p > 2 (Wagner Theorem 4.8)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-odd), [The p-complete q-Hodge comparison at p = 2 (Wagner Theorem 4.14)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-two), [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic even filtrations and the KU construction](#refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations), [TC^{−(m)} over ku and twisted q-Hodge filtrations (Wagner Theorem 5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [The Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem 5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem).
+
+### Examples
+
+The indices 9, 16 and 64 are high-powered, while 4, 8 and 32 are not; the 2-adic exponent must be
+even and at least four. The index 1 is admissible and 0 is excluded. For every d>0, d⁴ is admissible
+and divisible by d, giving the cofinal supply used in the refined coefficient system. Finite Moore
+compatibility still has to hold along this system.
+
+### Dependencies
+
+Use `DerivedDeRhamCohomology:DD.1/derived-completion`, `EnhancedDerivedSheaves:E5:presentability`,
+`HabiroCohomologyFoundations:HQ.3`, `HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations`,
+`HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex`, [The circle norm and the T-Tate
+construction](#refinedtracemethods-rt-2-circle-tate), [Homotopy orbits and homotopy fixed
+points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [THH relative to an
+E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Spectra with an action of a
+group](#refinedtracemethods-rt-2-spectra-with-action), [Negative topological cyclic and periodic
+topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [THH of spectral and stable
+∞-categories](#refinedtracemethods-rt-2-thh-spectral-categories), [THH is symmetric monoidal; THH of
+E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [The Habiro–Hodge complex from
+TC^{−(m)} over KU (Wagner Theorem
+5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem), [TC^{−(m)} over ku
+and twisted q-Hodge filtrations (Wagner Theorem
+5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [Compatible local
+and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic
+even filtrations and the KU
+construction](#refinedtracemethods-rt-4-q-hodge-cyclonic-even-filtrations), [The p-complete q-Hodge
+comparison for p > 2 (Wagner Theorem
+4.8)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-odd), [The p-complete q-Hodge
+comparison at p = 2 (Wagner Theorem
+4.14)](#refinedtracemethods-rt-4-q-hodge-p-complete-comparison-two), [q-Hodge filtrations from THH
+over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [KU is
+the Bott localisation of ku](#refinedtracemethods-rt-4-topological-bott-localisation), [Homotopy
+rings of ku and KU](#refinedtracemethods-rt-4-topological-homotopy-of-ku), [ku and KU with circle
+and cyclic-group actions](#refinedtracemethods-rt-4-topological-ku-circle-actions), [THH relative to
+ku and KU](#refinedtracemethods-rt-4-topological-relative-thh-ku), [Killing an idempotent
+pro-algebra](#refinedtracemethods-rt-5-algebra-killing), [The completed tensor
+filtration](#refinedtracemethods-rt-5-even-completed-tensor), [Filtered derived Hom of even
+spectra](#refinedtracemethods-rt-5-even-derived-hom), [High-powered positive
+integers](#refinedtracemethods-rt-5-high-powered), [The refined localization
+cofiber](#refinedtracemethods-rt-5-localization-tower-formula), [Closure and generation of nuclear
+objects](#refinedtracemethods-rt-5-nuclear-closure), [The refined localizing
+invariant](#refinedtracemethods-rt-5-refined-invariant-universality), [Refined invariants of smooth
+proper categories](#refinedtracemethods-rt-5-smooth-proper-normalization), [Trace-class
+morphisms](#refinedtracemethods-rt-5-trace-class), `StableHomotopyKTheory:H.6`,
+`StableHomotopyKTheory:H.6/burklund-moore-multiplicative`,
+`StableHomotopyKTheory:H.6/burklund-quotient-tower`.
+
+## Layer RT.6: Motivic and syntomic trace filtrations
+
+This layer constructs motivic and syntomic trace filtrations. Each target below includes the
+hypotheses and comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-6-perfectoid-thh"></a>
+
+### THH of a perfectoid ring
+
+For perfectoid R, THH(R;Z_p) is even and π_*≃R[u], |u|=2, with π₂ canonically ker θ/(ker θ)². For a
+perfectoid map R → R′ the scalar-extension map π_*THH(R;Z_p)⊗_R R′ → π_*THH(R′;Z_p) is an
+isomorphism. A choice of generator ξ of ker θ determines u up to the specified unit change; the
+canonical line precedes any chosen basis.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem 6.1 and
+proof, pp. 243–244. This locator supplies thh of a perfectoid ring. The statement and proof retain
+the source hypotheses, maps and completion conventions; the acceptance check is: R=F_p gives
+Bökstedt polynomial multiplication, not a divided-power algebra.)
+
+Construction and proof. Use Bökstedt’s THH(F_p)=F_p[u] and the finite/pseudocoherent THH(Z)
+Postnikov comparison. Compute after the characteristic-p perfectoid reduction by derived Nakayama;
+exclude spurious divided-power multiplication using rational HH rank and the generator map. Identify
+π₂ from the cotangent/conormal line and use functoriality for perfectoid base change.
+
+The comparison must satisfy these additional checks: R=F_p gives Bökstedt polynomial multiplication,
+not a divided-power algebra.
+
+*Needs:* `AInfCohomology:AI.0`, `KTheoryFiniteLocalFields:L.5`, [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [THH is symmetric monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), `DerivedDeRhamCohomology:DD.0/cotangent-complex`, `DerivedDeRhamCohomology:DD.1/derived-completion`.
+
+<a id="refinedtracemethods-rt-6-uv-presentation"></a>
+
+### The perfectoid trace coefficient presentation
+
+For a commutative ring A and ξ∈A form P(A,ξ)=A[u,v]/(uv−ξ), with assigned homotopical degrees |u|=2,
+|v|=−2 and coefficients in degree 0. Its underlying ring is Mathlib’s quotient of MvPolynomial(Fin
+2,A) by the principal ideal (X₀X₁−Cξ). There are maps can:P(A,ξ) → A[σ±¹] sending u↦ξσ,v↦σ⁻¹, and,
+for φ:A → A a ring endomorphism, frobenius sending coefficients through φ, u↦σ,v↦φ(ξ)σ⁻¹. The latter
+is φ-semilinear. These concrete maps are the algebraic signatures of the perfectoid TC⁻/TP
+calculation; their spectral realization is a distinct theorem.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proposition 6.2
+and diagram (1), pp. 245–247. This locator supplies the perfectoid trace coefficient presentation.
+The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: The Frobenius map must apply φ to scalar ξ in the relation.)
+
+Construction and proof. Form the quotient by the displayed homogeneous relation using the existing
+polynomial and ideal quotient constructions. Descend the two evaluation ring maps to Laurent
+polynomials because uv maps respectively to ξ and φ(ξ). Assign the source/target grades and compare
+them with the spectral coefficient degrees in Proposition 6.2. The suggested file prototypes the
+underlying rings and maps; grading and spectrum comparison have separate gaps.
+
+The API exposes the following operations and characterizations.
+
+
+- `TracePresentation.coeff`: The scalar map A → P(A,ξ).
+
+- `TracePresentation.u`: The class of X₀ has degree 2.
+
+- `TracePresentation.v`: The class of X₁ has degree −2.
+
+- `TracePresentation.uv`: u·v equals the scalar class of ξ.
+
+- `TracePresentation.lift`: For a ring map f:A → B and a,b∈B with ab=f(ξ), there is a unique ring map P(A,ξ) → B with coefficients f and u↦a,v↦b.
+
+- `TracePresentation.ext`: Ring maps out of P(A,ξ) agree if they agree on all scalars and on u,v.
+
+- `TracePresentation.can`: The A-linear ring map to LaurentPolynomial(A) takes u to C(ξ)T(1) and v to T(−1).
+
+- `TracePresentation.frobenius`: For φ:A → A, the φ-semilinear map to LaurentPolynomial(A) takes scalars a to C(φ(a)), u to T(1), v to C(φ(ξ))T(−1).
+
+- `TracePresentation.map`: For f:A → B and f(ξ)=η, the universal lift gives P(A,ξ) → P(B,η), mapping coefficients by f and preserving u,v. Its identity and composition laws follow from generator extensionality.
+
+**Checks.**
+
+
+- `TracePresentation.canGenerators`: can(u)=C(ξ)T(1), can(v)=T(−1).
+
+- `TracePresentation.frobeniusScalars`: frobenius(φ,coeff(a))=C(φ(a)); its u and v images have product C(φ(ξ)).
+
+- `TracePresentation.zeroParameter`: In P(A,0), u·v=0.
+
+- `TracePresentation.unitParameter`: P(A,1) is isomorphic to LaurentPolynomial(A), taking u to T(1),v to T(−1), and can is that isomorphism.
+
+The comparison must satisfy these additional checks: The Frobenius map must apply φ to scalar ξ in
+the relation. Setting ξ=0 gives uv=0, not the polynomial ring in independent u,v.
+
+This interface is used by [Perfectoid TC⁻ and TP with can and
+Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps) — The uv relation and two scalar-normalized
+maps give the perfectoid coefficient square.; [The relative DVR coefficient
+calculation](#refinedtracemethods-rt-6-relative-dvr-coefficients) — The same quotient API is used
+with the Frobenius-twisted frakS base and Eisenstein parameter..
+
+*Needs:* [mathlib:MvPolynomial](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Basic.lean#L82), [mathlib:Ideal.Quotient.mk](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Defs.lean#L83), [mathlib:Ideal.Quotient.lift](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Defs.lean#L144), [mathlib:LaurentPolynomial](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L84), [mathlib:LaurentPolynomial.C](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L131), [mathlib:LaurentPolynomial.T](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L155).
+
+<a id="refinedtracemethods-rt-6-perfectoid-tc-maps"></a>
+
+### Perfectoid TC⁻ and TP with can and Frobenius
+
+For perfectoid R let A=Ainf(R), θ:A → R, ξ generate ker θ, and θ̃=θ∘φ⁻¹. With compatible generators,
+π_*TC⁻(R;Z_p)=P(A,ξ), π_*TP=A[σ±¹], and π_*THH(R;Z_p)^tC_p=R[σ±¹]. The canonical map TC⁻ → TP is
+A-linear and u↦ξσ,v↦σ⁻¹; the cyclotomic Frobenius is φ-semilinear and u↦σ,v↦φ(ξ)σ⁻¹. The vertical
+maps to THH and THH^tC_p use θ and θ̃ respectively. π₀TC⁻≃Ainf is canonical and
+Frobenius-compatible, although chosen generators depend on ξ.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Propositions
+6.2–6.3, pp. 245–247. This locator supplies perfectoid tc⁻ and tp with can and frobenius. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: At a perfect characteristic-p R, ξ=p; can(u)=pσ and φ(u)=σ remain different maps.)
+
+Construction and proof. Use the degenerate homotopy-fixed-point and Tate spectral sequences with
+their filtrations. Resolve the extension uv=ξ, normalizing a generator by a unit. Use the
+finite-field Frobenius and the Fontaine maps to identify can, φ and both vertical specializations in
+the commutative square.
+
+The comparison must satisfy these additional checks: At a perfect characteristic-p R, ξ=p; can(u)=pσ
+and φ(u)=σ remain different maps. θ and θ̃ are not silently conflated.
+
+*Needs:* [THH of a perfectoid ring](#refinedtracemethods-rt-6-perfectoid-thh), [The perfectoid trace coefficient presentation](#refinedtracemethods-rt-6-uv-presentation), `AInfCohomology:AI.0`, `KTheoryFiniteLocalFields:L.5`, [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence).
+
+<a id="refinedtracemethods-rt-6-thh-hochschild-deformation"></a>
+
+### THH as a deformation of Hochschild homology
+
+For ordinary R-algebra A with R perfectoid, the class u∈π₂TC⁻(R;Z_p) induces coherent S¹-equivariant
+cofiber sequences THH(A;Z_p)[2] →^u THH(A;Z_p) → HH(A/R;Z_p), TC⁻(A;Z_p)[2] →^u TC⁻(A;Z_p) →
+HC⁻(A/R;Z_p), and TP(A;Z_p)[2] →^(ξσ) TP(A;Z_p) → HP(A/R;Z_p). These are maps and cofibers before
+passing to homotopy groups.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem 6.7,
+pp. 251–252. This locator supplies thh as a deformation of hochschild homology. The statement and
+proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For
+A=R the Hochschild cofiber is R in degree zero.)
+
+Construction and proof. Compute the THH(R)-module cofiber for the base and tensor with THH(A). The u
+lift in TC⁻ constructs the equivariance. Apply homotopy fixed points and the Tate construction,
+using the base coefficient maps to identify the multiplication ξσ.
+
+The comparison must satisfy these additional checks: For A=R the Hochschild cofiber is R in degree
+zero.
+
+*Needs:* [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [THH relative to THH(ℤ) is Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [Mixed complexes model complexes with circle action](#refinedtracemethods-rt-2-mixed-complexes-are-circle-modules), [The norm sequence for cyclic homology](#refinedtracemethods-rt-2-norm-sequence-hc), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp).
+
+<a id="refinedtracemethods-rt-6-antisymmetrization"></a>
+
+### Antisymmetrization into THH
+
+For ordinary perfectoid R-algebra A, define the natural graded R-algebra map H⁰((Ω*_(A/R))^∧p) →
+π_*THH(A;Z_p), with Ω^i placed in degree i. It extends the degree-one Hochschild comparison and
+multiplies differential classes by the exterior product. Derived p-completion is applied termwise
+before H⁰; arbitrary ordinary p-completion of Ω does not replace it.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Construction
+6.8, pp. 252–253. This locator supplies antisymmetrization into thh. The statement and proof retain
+the source hypotheses, maps and completion conventions; the acceptance check is: The class dx for a
+polynomial variable maps to its standard Hochschild/THH degree-one class.)
+
+Construction and proof. Use the low-degree THH → HH comparison to obtain degree-one differential
+classes. Use odd-square vanishing from the low-degree τ≤2 comparison to make exterior multiplication
+well-defined, including at p=2. Pass from absolute to relative forms through the p-divisible
+perfectoid-base differentials and termwise derived p-completion.
+
+The API exposes the following operations and characterizations.
+
+
+- `Antisymmetrization.differential`: For a∈A, the completed relative da has its degree-one THH image.
+
+- `Antisymmetrization.wedge`: The image of ω∧η is the product of their images in THH, with graded signs and odd squares zero.
+
+- `Antisymmetrization.map`: For R-algebra maps A → B, the differential and THH maps commute.
+
+- `Antisymmetrization.unit`: The degree-zero map is the canonical A → π₀THH(A;Z_p).
+
+**Checks.**
+
+
+- `Antisymmetrization.polynomialDx`: For A=R[x], dx maps to the degree-one generator identified by τ≤2THH → τ≤2HH.
+
+- `Antisymmetrization.baseRing`: For A=R all positive relative forms and their images are zero.
+
+- `Antisymmetrization.oddSquare`: For A=R[x], the image of dx squares to zero, including for p=2.
+
+The comparison must satisfy these additional checks: The class dx for a polynomial variable maps to
+its standard Hochschild/THH degree-one class.
+
+This interface is used by [The cotangent filtration of
+THH](#refinedtracemethods-rt-6-quasismooth-thh-filtration) — Exterior products of differential
+classes identify the quasismooth THH graded algebra..
+
+*Needs:* [THH as a deformation of Hochschild homology](#refinedtracemethods-rt-6-thh-hochschild-deformation), [The antisymmetrisation map and the HKR projection](#refinedtracemethods-rt-1-hkr-map), [Shuffle and external products](#refinedtracemethods-rt-1-external-products), `DerivedDeRhamCohomology:DD.0/cotangent-complex`, `DerivedDeRhamCohomology:DD.1/derived-completion`.
+
+<a id="refinedtracemethods-rt-6-quasismooth-thh-filtration"></a>
+
+### The cotangent filtration of THH
+
+For a p-completely quasismooth R-algebra A, antisymmetrization induces (Ω*_(A/R))^∧p⊗_R
+π_*THH(R;Z_p) ≃ π_*THH(A;Z_p). For every p-complete R-algebra A, left Kan extension gives the
+complete decreasing cotangent filtration of Corollary 6.10, with n-th graded term the sum of
+(derived ∧^j_A L_(A/R))^∧p[n] for 0≤j≤n and j≡n mod 2. Its n-th filtration term is n-connective.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Corollaries
+6.9–6.10, pp. 253–254. This locator supplies the cotangent filtration of thh. The statement and
+proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For
+R[x] the exterior degree-one class occurs alongside the even u powers.)
+
+Construction and proof. On quasismooth algebras split the THH/HH deformation using differential
+classes. Extend the complete connective filtration from p-completed polynomial algebras in
+p-complete spectra. Use the derived exterior-power description and increasing connectivity to prove
+completeness.
+
+The comparison must satisfy these additional checks: For R[x] the exterior degree-one class occurs
+alongside the even u powers.
+
+*Needs:* [Antisymmetrization into THH](#refinedtracemethods-rt-6-antisymmetrization), [THH of a perfectoid ring](#refinedtracemethods-rt-6-perfectoid-thh), `DerivedDeRhamCohomology:DD.0/cotangent-complex`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`.
+
+<a id="refinedtracemethods-rt-6-qrsp-hochschild"></a>
+
+### Even Hochschild homology on quasiregular covers
+
+For S∈qrsPerfd_R, or for a QRSP algebra over a perfectoid R or over Z_p as in Lemma 5.14, let
+M=(L_(S/R)[−1])^∧p. M is p-completely flat, HH(S/R;Z_p) is even, and π_(2i)HH(S/R;Z_p)≃(Γ^i_S M)^∧p
+for i≥0. The HKR filtration has these terms; divided powers are over S, not over the perfectoid base
+R.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 5.14, p.
+241; use in Theorem 7.1, pp. 254–255. This locator supplies even hochschild homology on quasiregular
+covers. The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: For S=R, only π₀HH(S/R) survives.)
+
+Construction and proof. The QRSP cotangent complex has p-complete Tor amplitude in degree −1. The
+imported integral derived HKR filtration has exterior-power terms; wedge powers of the shifted flat
+module give divided powers in homotopical degree 2i. Connectivity and p-complete flatness identify
+the filtration pieces without odd groups.
+
+The comparison must satisfy these additional checks: For S=R, only π₀HH(S/R) survives. The
+divided-power coefficient ring is S, as corrected in the proof of Theorem 7.1.
+
+*Needs:* `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`, `DerivedDeRhamCohomology:DD.0/cotangent-complex`, `DerivedDeRhamCohomology:DD.0/derived-divided-powers`, [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [The derived HKR filtration](#refinedtracemethods-rt-1-hkr-filtration).
+
+<a id="refinedtracemethods-rt-6-qrsp-even-thh"></a>
+
+### Even THH on quasiregular semiperfectoid covers
+
+For S∈QRSPerfd with perfectoid R → S and M=(L_(S/R)[−1])^∧p, THH(S;Z_p) is even and multiplication
+by u injects π_(2i−2) into π_(2i). Each π_(2i) is p-completely flat and has a finite increasing
+filtration with graded (Γ^j_S M)^∧p for 0≤j≤i. Equivalently the quotient by u identifies its top
+graded term with even HH(S/R). This evenness is a statement on QRSP covers, not on all quasisyntomic
+A.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem 7.1,
+pp. 254–255. This locator supplies even thh on quasiregular semiperfectoid covers. The statement and
+proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For
+S=R, π_(2i)=R·u^i.)
+
+Construction and proof. The cotangent filtration has only even graded terms on QRSP rings. The u
+cofiber is even HH, giving odd vanishing and injectivity by induction. Use the short exact sequences
+with Γ^i_S M to identify the finite filtrations and p-complete flatness.
+
+The comparison must satisfy these additional checks: For S=R, π_(2i)=R·u^i. The divided-power term
+in Theorem 7.1 is over S, correcting PAPER-BMS19/E3.
+
+*Needs:* [The cotangent filtration of THH](#refinedtracemethods-rt-6-quasismooth-thh-filtration), [Even Hochschild homology on quasiregular covers](#refinedtracemethods-rt-6-qrsp-hochschild), [THH as a deformation of Hochschild homology](#refinedtracemethods-rt-6-thh-hochschild-deformation), `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`.
+
+<a id="refinedtracemethods-rt-6-trace-flat-descent"></a>
+
+### Flat and quasisyntomic descent for trace spectra
+
+HH(−/R), HC⁻(−/R), HH(−/R)_hS¹ and HP(−/R) on commutative R-algebras, and THH, TC⁻, THH_hS¹ and TP
+on commutative rings, are fpqc sheaves in spectra. Their derived p-complete variants have descent
+for p-completely faithfully flat covers in QSyn; QRSP basis unfolding recovers them. THH(−)^tC_p has
+the same Čech descent by the finite-group norm sequence. The argument proves this descent with its
+weak Postnikov towers; it does not assert arbitrary fpqc hyperdescent for every cotangent complex.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Corollary 3.4
+and Remark 3.5, pp. 218–219; §4.4, Lemmas 4.28–4.30 and Proposition 4.31, pp. 229–230. This locator
+supplies flat and quasisyntomic descent for trace spectra. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: For a faithfully flat
+polynomial Čech cover the augmentation is an equivalence of trace spectra.)
+
+Construction and proof. Apply the imported cotangent-exterior-power descent to the complete HKR
+filtration. For homotopy orbits use the weak Postnikov-tower connectivity lemma and perfect finite
+truncations of the circle chain complex. Homotopy fixed points preserve limits; the norm cofiber
+then handles periodic/Tate constructions. Reduce THH to HH through THH(Z) → Z and the
+finite/pseudocoherent Postnikov truncations supplied by RT.2. Derived p-completion and the QRSP
+basis comparison supply p-complete descent.
+
+The comparison must satisfy these additional checks: For a faithfully flat polynomial Čech cover the
+augmentation is an equivalence of trace spectra. TP descent is proved through the norm sequence, not
+by assuming Tate preserves arbitrary limits.
+
+*Needs:* [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [The derived HKR filtration](#refinedtracemethods-rt-1-hkr-filtration), [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [THH relative to THH(ℤ) is Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), [The circle norm and the T-Tate construction](#refinedtracemethods-rt-2-circle-tate), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), `DerivedDeRhamCohomology:DD.0/cotangent-complex`, `DerivedDeRhamCohomology:DD.5/completed-cotangent-descent`, `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `DerivedDeRhamCohomology:DD.1/derived-completion`.
+
+<a id="refinedtracemethods-rt-6-cyclic-derham-comparison"></a>
+
+### Negative and periodic cyclic homology from derived de Rham
+
+For quasisyntomic A over a fixed base R in BMS2 §5.2, the unfolded even Postnikov filtrations on
+p-complete HC⁻ and HP are complete exhaustive multiplicative Z-indexed filtrations, with
+gr^iHC⁻(A/R;Z_p)≃Hodge^{≥i}(Hodge-completed derived dR(A/R))^∧p[2i] and gr^iHP≃(Hodge-completed
+derived dR(A/R))^∧p[2i]. On QRSP covers π₀HC⁻ with its abutment filtration identifies with the
+Hodge-and-p-completed derived dR algebra, including the de Rham differential. This compares existing
+cyclic objects and existing derived dR, rather than defining a new dR.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proposition
+5.15; Theorem 1.17 and proof, pp. 241–242. This locator supplies negative and periodic cyclic
+homology from derived de rham. The statement and proof retain the source hypotheses, maps and
+completion conventions; the acceptance check is: For R[x], the differential x ↦ dx agrees with
+Connes B through the imported HKR map.)
+
+Construction and proof. Use the degenerate even HH fixed-point spectral sequence on QRSP rings.
+Identify its Beilinson-heart differential through the polynomial one-variable calculation and left
+Kan extension. Unfold, compare graded pieces and use completeness/conservativity; exhaustiveness
+follows from eventual stabilization in each homotopy degree.
+
+The comparison must satisfy these additional checks: For R[x], the differential x ↦ dx agrees with
+Connes B through the imported HKR map. The HP graded piece uses all Hodge-completed dR, not a Hodge
+truncation.
+
+*Needs:* [Even Hochschild homology on quasiregular covers](#refinedtracemethods-rt-6-qrsp-hochschild), [Flat and quasisyntomic descent for trace spectra](#refinedtracemethods-rt-6-trace-flat-descent), `DerivedDeRhamCohomology:DD.2/hodge-completed-derham`, `DerivedDeRhamCohomology:DD.1/filtered-completion`, [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [The derived HKR filtration](#refinedtracemethods-rt-1-hkr-filtration).
+
+<a id="refinedtracemethods-rt-6-qrsp-tc-nygaard"></a>
+
+### TC⁻, TP and the trace Nygaard filtration on covers
+
+For S as in the preceding QRSP theorem, TC⁻ and TP are even and can:π_*TC⁻ → π_*TP is injective, an
+isomorphism in degrees ≤0. Their π₀ coincide as a (p,ξ)-complete ring C_S with complete descending
+multiplicative N-indexed filtration N^{≥i}C_S = image(v^i·π_(2i)TC⁻ → π₀TP). N^iC_S≃π_(2i)THH;
+Frobenius carries N^{≥i} into φ(ξ)^i C_S, defining divided maps. ξ is regular on C_S and
+C_S/ξ≃Hodge-and-p-completed derived dR(S/R).
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem 7.2 and
+Remark 7.3, pp. 255–256. This locator supplies tc⁻, tp and the trace nygaard filtration on covers.
+The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: For perfectoid S, C_S=Ainf(S) and N^{≥i}=(ker θ_S)^i.)
+
+Construction and proof. Degenerate the even fixed-point and Tate spectral sequences. Identify can
+and its filtration by the coefficient generators v,σ; construct the Frobenius divisibility maps.
+Apply the deformation cofibers to identify the specialization and prove ξ-regularity.
+
+The comparison must satisfy these additional checks: For perfectoid S, C_S=Ainf(S) and N^{≥i}=(ker
+θ_S)^i. The filtration comes from the spectral sequences for S, correcting PAPER-BMS19/E4.
+
+*Needs:* [Even THH on quasiregular semiperfectoid covers](#refinedtracemethods-rt-6-qrsp-even-thh), [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), [Negative and periodic cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), `DerivedDeRhamCohomology:DD.1/filtered-completion`.
+
+<a id="refinedtracemethods-rt-6-motivic-filtrations"></a>
+
+### The BMS2 motivic filtrations
+
+For X=THH,TC⁻,TP and quasisyntomic A, define Fil^nX(A;Z_p) by QRSP-basis unfolding of
+τ_(≥2n)X(−;Z_p), for n∈Z, and define Fil^nTC as the fiber of φ−can on the filtered TC⁻ and TP
+spectra. These are functorial complete exhaustive decreasing multiplicative filtrations in spectra;
+Frobenius/can retain their coherent source maps. The underlying realization is the p-completed trace
+spectrum by descent. THH is locally even on covers but its unfolded graded complexes have nonzero
+cohomological degrees.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Construction
+7.4 and Proposition 7.5, pp. 256–257; Proposition 7.13, pp. 259–260; Theorem 1.12, pp. 206–207. This
+locator supplies the bms2 motivic filtrations. The statement and proof retain the source hypotheses,
+maps and completion conventions; the acceptance check is: On QRSP S the filtration is double-speed
+Postnikov.)
+
+Construction and proof. Use evenness to show τ_(≥2n) is a QRSP sheaf. Unfold in the complete
+filtered category, preserving products and the maps can,φ. Increasing positive connectivity gives
+completeness; homotopy stabilization at the negative end gives exhaustiveness as proved in
+Proposition 7.13. Filtered TC is the stable fiber; finite limits commute with its
+complete/exhaustive realization.
+
+The API exposes the following operations and characterizations.
+
+
+- `MotivicFiltration.piece`: Fil^nX(A) is QRSP unfolding of τ_(≥2n)X with its maps Fil^(n+1) → Fil^n.
+
+- `MotivicFiltration.realize`: colim_(n→−∞)Fil^nX(A)≃X(A;Z_p).
+
+- `MotivicFiltration.complete`: lim_(n→+∞)Fil^nX(A)=0.
+
+- `MotivicFiltration.product`: Fil^iX⊗Fil^jX → Fil^(i+j)X is coherently associative and unital.
+
+- `MotivicFiltration.map`: Algebra maps induce filtered maps that commute with products, can and Frobenius.
+
+**Checks.**
+
+
+- `MotivicFiltration.perfectoidPostnikov`: For perfectoid R, Fil^nTHH(R)=τ_(≥2n)THH(R); for n≤0 it is all THH(R).
+
+- `MotivicFiltration.qrsp`: For QRSP S, Fil^nTC⁻(S) and Fil^nTP(S) agree with double-speed Postnikov truncation.
+
+- `MotivicFiltration.polynomialOdd`: For a smooth one-variable perfectoid-base algebra the differential class has odd homotopical degree; local evenness does not remove it.
+
+The comparison must satisfy these additional checks: On QRSP S the filtration is double-speed
+Postnikov. For smooth R[x], odd differential classes persist after unfolding, preventing a false
+global evenness conclusion.
+
+This interface is used by [The graded BMS2 trace
+comparison](#refinedtracemethods-rt-6-graded-motivic-comparison) — Graded pieces are computed on
+even covers then unfolded.; [The filtered trace interface for the Beilinson
+bridge](#refinedtracemethods-rt-6-ammn-filtered-interface) — The filtered truncation maps identify
+weight-i terms of the Beilinson bridge..
+
+*Needs:* [Even THH on quasiregular semiperfectoid covers](#refinedtracemethods-rt-6-qrsp-even-thh), [TC⁻, TP and the trace Nygaard filtration on covers](#refinedtracemethods-rt-6-qrsp-tc-nygaard), [Flat and quasisyntomic descent for trace spectra](#refinedtracemethods-rt-6-trace-flat-descent), `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`, `DerivedDeRhamCohomology:DD.1/filtered-completion`, [Topological Hochschild homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence).
+
+<a id="refinedtracemethods-rt-6-filtered-invertibility"></a>
+
+### Invertibility in the complete filtered category
+
+Let A be a complete N-filtered E∞ algebra in the complete filtered derived category, and M,N
+complete N-filtered A-modules. Assume the natural maps gr⁰M⊗_(gr⁰A)gr*A → gr*M and gr⁰N⊗_(gr⁰A)gr*A
+→ gr*N are equivalences. If a filtered pairing η:M⊗̂_A N → A induces an equivalence gr⁰M⊗_(gr⁰A)gr⁰N
+→ gr⁰A, then η is an equivalence and M,N are inverse invertible modules in the complete filtered
+category. The tensor is the completed filtered tensor; the base-change equivalences are essential
+hypotheses.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 7.14, pp.
+260–261. BMS Lemma 7.14 requires the natural graded base-change maps to be equivalences and the
+degree-zero pairing to be an equivalence; conservativity on complete N-filtered modules proves
+invertibility.)
+
+Construction and proof. Use the two natural graded base-change equivalences to identify gr*(M⊗̂_A N)
+with (gr⁰M⊗_(gr⁰A)gr⁰N)⊗_(gr⁰A)gr*A. The degree-zero pairing equivalence now makes gr*(η) an
+equivalence. Apply the conservative symmetric monoidal associated-graded functor on complete
+N-filtered modules; the pairing gives inverse invertible modules.
+
+The comparison must satisfy these additional checks: The filtered TP twist and its inverse satisfy
+the natural base-change equivalences by local periodicity and descend to an invertible filtered pair
+without choosing a global basis. Mere generation of gr*M from gr⁰M is insufficient: the actual
+base-change map must be an equivalence before applying the lemma.
+
+*Needs:* `DerivedDeRhamCohomology:DD.1/filtered-completion`, `EnhancedDerivedSheaves:E5:presentability`.
+
+<a id="refinedtracemethods-rt-6-trace-breuil-kisin-twist"></a>
+
+### The trace Breuil–Kisin twist
+
+Let C_A=gr⁰TP(A;Z_p). Define the trace line C_A{1}=gr¹TP(A;Z_p)[−2] with its unfolded Nygaard
+filtration; multiplication and the inverse-degree TP line make it invertible in the completed
+filtered category. Tensor powers define C_A{i} for i∈Z. Under trace-to-prismatic comparison it
+identifies with the imported PR.3 Breuil–Kisin twist. On a perfectoid base, π₂TP is an invertible
+Ainf module and its θ̃-specialization is ker θ/(ker θ)²; its θ-specialization is canonically R. A
+choice of periodic generator trivializes it, rather than producing a global canonical untwisted
+object.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem
+1.12(3), pp. 206–207; Proposition 6.5, pp. 248–250; Lemma 7.14, pp. 260–261. This locator supplies
+the trace breuil–kisin twist. The statement and proof retain the source hypotheses, maps and
+completion conventions; the acceptance check is: Over a ring receiving a perfectoid map the twist
+can be trivialized, but the trivialization depends on generator data.)
+
+Construction and proof. Use TP multiplication to construct positive and negative filtered line
+pairings. Apply Lemma 7.14 on complete filtered modules; each finite Nygaard quotient is an
+invertible ordinary quotient-module. Compute on perfectoid covers and glue the transition units,
+then identify with the imported prismatical twist through the multiplicative comparison.
+
+The API exposes the following operations and characterizations.
+
+
+- `TraceBreuilKisinTwist.line`: The filtered invertible C_A-module gr¹TP(A)[−2].
+
+- `TraceBreuilKisinTwist.power`: Tensor powers and duals yield C_A{i} with coherent C_A{i}⊗C_A{j}≃C_A{i+j}.
+
+- `TraceBreuilKisinTwist.specialize`: Over perfectoid R, the θ specialization of the line is R and θ̃ specialization is ker θ/(ker θ)².
+
+- `TraceBreuilKisinTwist.prismatic`: Through the filtered trace/prismatic equivalence, the trace line agrees with the supplied PR.3 Breuil–Kisin twist.
+
+**Checks.**
+
+
+- `TraceBreuilKisinTwist.weightZero`: C_A{0}≃C_A as a filtered module.
+
+- `TraceBreuilKisinTwist.perfectoidLine`: For R perfectoid, C_R{1} has underlying line π₂TP(R), and θ̃ gives the conormal line.
+
+- `TraceBreuilKisinTwist.noGlobalBasis`: The definition contains the filtered invertible line and descent cocycle, not a freely chosen equality C_A{1}=C_A for every quasisyntomic A.
+
+The comparison must satisfy these additional checks: Over a ring receiving a perfectoid map the
+twist can be trivialized, but the trivialization depends on generator data.
+
+This interface is used by [Syntomic complexes as graded
+TC](#refinedtracemethods-rt-6-syntomic-graded-tc) — The i-th twist normalizes divided Frobenius and
+the syntomic graded fiber.; [The p-adic Adams operations on
+traces](#refinedtracemethods-rt-6-adams-operations) — The conormal comparison calculates the scalar
+weight action..
+
+*Needs:* [The BMS2 motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [Invertibility in the complete filtered category](#refinedtracemethods-rt-6-filtered-invertibility), [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), `PrismaticCohomology:PR.3/breuil-kisin-twist`, `AInfCohomology:AI.0`.
+
+<a id="refinedtracemethods-rt-6-trace-nygaard-complex"></a>
+
+### The trace Nygaard complex
+
+For quasisyntomic A over perfectoid R, let C_A be the symmetric monoidal QRSP-basis unfolding of S ↦
+π₀TC⁻(S;Z_p) with its abutment Nygaard filtration. It is an E∞ Ainf(R)-algebra in the complete
+filtered derived category, (p,ξ)-complete, with φ-semilinear Frobenius and complete descending
+multiplicative N-filtration. N^i C_A is an A-complex with increasing graded (∧^j_A L_(A/R))^∧p[−j],
+0≤j≤i, and C_A/ξ≃Hodge-completed derived dR(A/R)^∧p. Global QSyn construction uses the same
+intrinsic basis sheaf and the trace twists; prismatic identification is a separate comparison
+theorem.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Construction
+7.7 and Propositions 7.8–7.9, pp. 256–257. This locator supplies the trace nygaard complex. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: For perfectoid F over R, C_F=Ainf(F), N^{≥i}=(ker θ_F)^i and Frobenius is Witt Frobenius.)
+
+Construction and proof. Use DD.5’s equivalence of sheaves on QSyn and its QRSP basis. Unfold the
+multiplicative filtered π₀TC⁻ sheaf and its Frobenius, retaining all coherent maps. The graded
+cotangent and specialization computations descend by the same basis equivalence.
+
+The API exposes the following operations and characterizations.
+
+
+- `TraceNygaardComplex.basisValue`: For QRSP S, evaluation recovers π₀TC⁻(S;Z_p) with its Nygaard submodules.
+
+- `TraceNygaardComplex.map`: Quasisyntomic algebra maps give filtered E∞ maps with coherent identity and composition.
+
+- `TraceNygaardComplex.frobenius`: Frobenius is φ-semilinear and N^{≥i} maps into φ(ξ)^i C_A over a perfectoid base.
+
+- `TraceNygaardComplex.specialize`: C_A⊗^L_(Ainf,θ) R≃Hodge-completed derived dR(A/R)^∧p.
+
+- `TraceNygaardComplex.graded`: N^i C_A≃gr^iTHH(A;Z_p)[−2i] with the finite cotangent filtration.
+
+**Checks.**
+
+
+- `TraceNygaardComplex.perfectoid`: For A=R, C_A=Ainf(R) with its Witt Frobenius and ideal-power Nygaard filtration.
+
+- `TraceNygaardComplex.baseRelativeDerham`: For A=R, specialization by θ is R, since relative derived dR(R/R)=R.
+
+- `TraceNygaardComplex.thetaNotThetaTilde`: The de Rham specialization uses θ and ξ; replacing ξ by φ(ξ) without the corresponding Frobenius twist does not give the stated map.
+
+The comparison must satisfy these additional checks: For perfectoid F over R, C_F=Ainf(F),
+N^{≥i}=(ker θ_F)^i and Frobenius is Witt Frobenius.
+
+This interface is used by [The honest trace-to-AΩ
+comparison](#refinedtracemethods-rt-6-aomega-comparison) — The unfolded Frobenius complex supplies
+the primitive comparison and its Lη factorization.; [Trace-to-prismatic Nygaard
+completion](#refinedtracemethods-rt-6-trace-prismatic-comparison) — The trace object is recognized
+as the Nygaard completion of an independent prism..
+
+*Needs:* [TC⁻, TP and the trace Nygaard filtration on covers](#refinedtracemethods-rt-6-qrsp-tc-nygaard), [Flat and quasisyntomic descent for trace spectra](#refinedtracemethods-rt-6-trace-flat-descent), `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`, `DerivedDeRhamCohomology:DD.1/filtered-completion`, `DerivedDeRhamCohomology:DD.2/hodge-completed-derham`, `AInfCohomology:AI.0`.
+
+<a id="refinedtracemethods-rt-6-smooth-trace-frobenius"></a>
+
+### Frobenius factorization for smooth trace complexes
+
+For A the p-adic completion of a smooth perfectoid R-algebra of relative dimension d, N^i C_A lies
+in D^[0,max(i,d)] and N^{≥i} C_A in D^[0,d] for i≥0. H⁰(C_A) has no φ^r(ξ)-torsion for r∈Z.
+Frobenius linearization factors naturally C_A → Lη_ξ φ_* C_A, and iteration gives C_A → Lη_(ξ_r)
+φ_*^r C_A, where ξ_r=ξ·φ⁻¹(ξ)···φ^(−r+1)(ξ). This factorization is not asserted to be an equivalence
+until the smooth O_C comparison.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Corollary 7.10
+and Remark 7.11, p. 258. This locator supplies frobenius factorization for smooth trace complexes.
+The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: The twist φ_* uses restriction of scalars, and ξ_r contains inverse Frobenius
+translates.)
+
+Construction and proof. Use the finite cotangent filtration and smooth exterior-power bounds. Embed
+H⁰ after a perfectoid cover formed by extracting roots of torus coordinates to prove
+torsion-freeness. Apply the imported Beilinson/filter-Lη comparison to the filtered Frobenius
+divisibility; iterate using Lη_f Lη_g≃Lη_(fg).
+
+The comparison must satisfy these additional checks: The twist φ_* uses restriction of scalars, and
+ξ_r contains inverse Frobenius translates.
+
+*Needs:* [The trace Nygaard complex](#refinedtracemethods-rt-6-trace-nygaard-complex), `AInfCohomology:AI.1/derived-decalage`, `AInfCohomology:AI.1/decalage-products`, `AInfCohomology:AI.1/bockstein-reduction`, `AInfCohomology:AI.0`, `AInfCohomology:AI.1/filtered-beilinson-description`.
+
+<a id="refinedtracemethods-rt-6-trace-noncompleted-extension"></a>
+
+### The non-Nygaard-completed trace extension
+
+For p-completed smooth R-algebras, start from C_A and left Kan extend in (p,ξ)-complete
+Ainf(R)-complexes to all p-complete animated commutative R-algebras, using E5’s polynomial/sifted
+resolution. Write Cnc_(A/R) for the resulting E∞ functor. Its θ-specialization is p-completed
+derived dR(A/R) without Hodge completion; it is a quasisyntomic sheaf, discrete on QRSP algebras.
+Its dependence on the chosen perfectoid R is retained until the trace-to-prismatic comparison. Cnc
+is not a second generic prismatic Δ.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Construction
+7.12, p. 259. This locator supplies the non-nygaard-completed trace extension. The statement and
+proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For
+A=R, Cnc=Ainf(R). [Prisms and prismatic cohomology](#ref-1-bs), Theorem 13.1 proof and Lemma 13.2,
+pp. 94–96. The proof uses the animated noncompleted extension and its θ-specialization before
+identifying the Nygaard completion with the trace complex; the independent prismatic object is
+retained.)
+
+Construction and proof. For smooth A the combined Hodge/p completion agrees with the p-completed de
+Rham complex. Apply sifted left Kan extension in the stated complete E∞ derived category. Use the
+specialization and the (p,ξ)-complete Nakayama/sheaf criterion to get descent and the QRSP
+discreteness.
+
+The API exposes the following operations and characterizations.
+
+
+- `TraceNoncompletedExtension.ofSmooth`: For p-completed smooth R-algebra A, Cnc_(A/R)≃C_A.
+
+- `TraceNoncompletedExtension.extend`: It is the sifted left Kan extension from the smooth/polynomial presentation in (p,ξ)-complete E∞ complexes.
+
+- `TraceNoncompletedExtension.map`: Animated R-algebra maps give E∞ maps, coherently.
+
+- `TraceNoncompletedExtension.specialize`: Cnc_(A/R)/ξ≃derived p-completed dR(A/R) without Hodge completion.
+
+**Checks.**
+
+
+- `TraceNoncompletedExtension.base`: Cnc_(R/R)≃Ainf(R) and its θ-specialization is R.
+
+- `TraceNoncompletedExtension.smoothPolynomial`: For the p-completed polynomial algebra R[x], Cnc agrees with C_A and has the ordinary p-completed de Rham specialization.
+
+- `TraceNoncompletedExtension.qrspDiscreteness`: For QRSP S over R, Cnc_(S/R) is concentrated in cohomological degree zero; this does not identify it with C_S before Nygaard completion.
+
+The comparison must satisfy these additional checks: For A=R, Cnc=Ainf(R). Nygaard completion is a
+separate functor and may change the result on nonsmooth A.
+
+This interface is used by [Trace-to-prismatic Nygaard
+completion](#refinedtracemethods-rt-6-trace-prismatic-comparison) — Its uncompleted de Rham
+specialization enters prismatic recognition.; [The honest trace-to-AΩ
+comparison](#refinedtracemethods-rt-6-aomega-comparison) — The smooth comparison extends to the
+projective QRSP basis before Nygaard completion..
+
+*Needs:* [The trace Nygaard complex](#refinedtracemethods-rt-6-trace-nygaard-complex), [Frobenius factorization for smooth trace complexes](#refinedtracemethods-rt-6-smooth-trace-frobenius), `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `DerivedDeRhamCohomology:DD.1/derived-completion`, `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `DerivedDeRhamCohomology:DD.2/hodge-completed-derham`.
+
+<a id="refinedtracemethods-rt-6-almost-root-ideals"></a>
+
+### The root ideals controlling almost comparison
+
+In Notation 9.1, let C/Q_p be a perfectoid field containing all p-power roots of unity, choose ε and
+set μ=[ε]−1 in Ainf=W(O_C^flat). For d≥1 set J_d=union_(r≥0)(φ^(−r)(μ)^d). Then J_d⊂J_1⊂W(m_C^flat),
+p is a nonzerodivisor on Ainf/J_d, and the p-adic completion of every J_d is W(m_C^flat). The almost
+category is the symmetric monoidal quotient by complexes whose cohomology is annihilated by
+W(m_C^flat), imported from AI.0.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Notation 9.1
+and Lemma 9.2, pp. 283–284. This locator supplies the root ideals controlling almost comparison. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: A bounded root ideal is not itself substituted for the completed almost ideal.)
+
+Construction and proof. Use the divisibility φ^(−r−1)(μ) | φ^(−r)(μ) to form the filtered union.
+Frobenius-twist to μ and use the regular sequence (p,μ^d) to prove p-torsion-freeness. Modulo p all
+J_d give the same residue-field quotient; uniqueness of the p-complete p-torsion-free lift W(k)
+gives the completion statement.
+
+The comparison must satisfy these additional checks: A bounded root ideal is not itself substituted
+for the completed almost ideal.
+
+*Needs:* `AInfCohomology:AI.0`, `AInfCohomology:AI.1/derived-decalage`, `AInfCohomology:AI.1/decalage-products`, `AInfCohomology:AI.1/bockstein-reduction`.
+
+<a id="refinedtracemethods-rt-6-almost-decalage-limit"></a>
+
+### The almost décalage limit comparison
+
+For p-complete K∈D^{≥0}(Ainf) with H⁰(K) torsion-free, and ξ_r=μ/φ^(−r)(μ), every cohomology group
+of cofib(Lη_μK → Rlim_r Lη_(ξ_r)K) is killed by W(m_C^flat). The map is an equivalence in the
+imported almost category; an honest equivalence is not asserted.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 9.3, pp.
+284–285. This locator supplies the almost décalage limit comparison. The statement and proof retain
+the source hypotheses, maps and completion conventions; the acceptance check is: K=Ainf in degree
+zero satisfies the hypotheses; the argument must also handle bounded positive cohomological degree.)
+
+Construction and proof. Truncate to bounded amplitude [0,d], retaining torsion-free H⁰, using the
+amplitude preservation of Lη and the one-degree limit bound. The chain relation μ=φ^(−r)(μ)ξ_r makes
+multiplication by φ^(−r)(μ)^d on the two complexes factor through the comparison. Thus J_d
+annihilates the cofiber groups; p-completeness and the preceding lemma upgrade this to annihilation
+by W(m_C^flat).
+
+The comparison must satisfy these additional checks: K=Ainf in degree zero satisfies the hypotheses;
+the argument must also handle bounded positive cohomological degree.
+
+*Needs:* [The root ideals controlling almost comparison](#refinedtracemethods-rt-6-almost-root-ideals), `AInfCohomology:AI.0`, `AInfCohomology:AI.1/derived-decalage`, `AInfCohomology:AI.1/preservation-derived-completeness`.
+
+<a id="refinedtracemethods-rt-6-aomega-almost-map"></a>
+
+### The almost comparison map to AΩ
+
+For p-adically completed smooth O_C-algebra A, the primitive Frobenius-compatible trace map C_A →
+RΓ(Spf(A)_C,Ainf) obtained from perfectoid pro-étale values factors naturally through AΩ_A in the
+almost category of W(m_C^flat). The factorization uses the Frobenius factorization map C_A →
+Lη_ξφ_*C_A and its iterates; compatibility under varying r gives the map to Rlim Lη_(ξ_r) of the
+pro-étale complex.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem 9.6
+proof, primitive and almost comparison steps, pp. 286–288. This locator supplies the almost
+comparison map to aω. The statement and proof retain the source hypotheses, maps and completion
+conventions; the acceptance check is: The output at this step is almost; the next step is needed for
+an honest comparison.)
+
+Construction and proof. Construct the primitive map by restriction to perfectoid pro-étale sections
+and sheaf limits. Iterate the factorization map C_A → F(C_A), F=Lη_ξφ_*. Frobenius is invertible on
+the pro-étale Ainf target, so the primitive map induces compatible C_A → F^r(RΓ(Ainf))≃Lη_(ξ_r)φ_*^r
+RΓ(Ainf) maps. No equivalence on C_A is assumed. Apply Lemma 9.3 to replace the limit with Lη_μ in
+the almost category.
+
+The API exposes the following operations and characterizations.
+
+
+- `AomegaAlmostComparison.primitive`: The map C_A → RΓ of the pro-étale Ainf complex is Frobenius-compatible.
+
+- `AomegaAlmostComparison.rootFactor`: For each r it has a compatible factorization through Lη_(ξ_r).
+
+- `AomegaAlmostComparison.almostFactor`: In the almost quotient, the root-limit comparison gives C_A → AΩ_A.
+
+- `AomegaAlmostComparison.map`: Smooth O_C-algebra maps commute with the almost comparison.
+
+**Checks.**
+
+
+- `AomegaAlmostComparison.base`: On A=O_C the almost map agrees with the identity of Ainf in the almost quotient.
+
+- `AomegaAlmostComparison.frobenius`: Its composite with Frobenius agrees with Frobenius followed by the map.
+
+- `AomegaAlmostComparison.honestRequiresExtraction`: An arbitrary almost equivalence is not declared an honest Ainf equivalence; the completed-free extraction theorem is required.
+
+The comparison must satisfy these additional checks: The output at this step is almost; the next
+step is needed for an honest comparison.
+
+This interface is used by [The honest trace-to-AΩ
+comparison](#refinedtracemethods-rt-6-aomega-comparison) — The primitive and root-factor maps are
+extended and extracted through completed-free covers..
+
+*Needs:* [The trace Nygaard complex](#refinedtracemethods-rt-6-trace-nygaard-complex), [Frobenius factorization for smooth trace complexes](#refinedtracemethods-rt-6-smooth-trace-frobenius), [The almost décalage limit comparison](#refinedtracemethods-rt-6-almost-decalage-limit), `AInfCohomology:AI.4`, `AInfCohomology:AI.0`.
+
+<a id="refinedtracemethods-rt-6-animated-aomega-extension"></a>
+
+### The animated extension of imported AΩ
+
+Starting from the AI.4 geometric E∞ Ainf-algebra AΩ_A=Lη_μRΓ(Spf(A)_C,Ainf) on p-adic completions of
+smooth O_C-algebras, define AΩ^nc on all p-complete animated O_C-algebras by sifted left Kan
+extension in (p,ξ)-complete E∞ complexes. It has AΩ^nc_A/ξ≃derived p-completed dR(A/O_C) without
+Hodge completion, is a quasisyntomic sheaf, and is discrete on QRSP O_C-algebras. The geometric AΩ
+and Lη constructions are imported, not defined anew.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Construction
+9.5, p. 286. This locator supplies the animated extension of imported aω. The statement and proof
+retain the source hypotheses, maps and completion conventions; the acceptance check is: For O_C
+itself the value is Ainf and its ξ-specialization is O_C.)
+
+Construction and proof. Use the imported AΩ on smooth objects and its ξ-specialization. Left Kan
+extend in the complete target category, as in Construction 7.12. Apply the specialization and
+complete Nakayama criterion for descent and QRSP discreteness.
+
+The API exposes the following operations and characterizations.
+
+
+- `AnimatedAomegaExtension.ofSmooth`: On p-completed smooth O_C-algebras the value is the imported geometric AΩ.
+
+- `AnimatedAomegaExtension.extend`: The functor is the sifted left Kan extension in the (p,ξ)-complete E∞ target.
+
+- `AnimatedAomegaExtension.specialize`: Modulo ξ the functor is derived p-completed de Rham cohomology without Hodge completion.
+
+- `AnimatedAomegaExtension.map`: Animated O_C-algebra maps induce coherent E∞ maps.
+
+**Checks.**
+
+
+- `AnimatedAomegaExtension.base`: The base O_C gives Ainf.
+
+- `AnimatedAomegaExtension.polynomial`: On O_C⟨x⟩ the value agrees with the imported geometric AΩ and its ξ-specialization is the p-completed polynomial de Rham complex.
+
+- `AnimatedAomegaExtension.qrsp`: The value on a QRSP O_C-algebra is discrete, while no discreteness is asserted for every animated algebra.
+
+The comparison must satisfy these additional checks: For O_C itself the value is Ainf and its
+ξ-specialization is O_C.
+
+This interface is used by [Completed freeness on projective QRSP
+covers](#refinedtracemethods-rt-6-projective-qrsp-aomega) — The ξ-specialization and animated
+descent identify completed-free values.; [The honest trace-to-AΩ
+comparison](#refinedtracemethods-rt-6-aomega-comparison) — Projective QRSP extraction turns the
+almost comparison into an honest map..
+
+*Needs:* `AInfCohomology:AI.0`, `AInfCohomology:AI.4`, [The non-Nygaard-completed trace extension](#refinedtracemethods-rt-6-trace-noncompleted-extension), `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`, `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`.
+
+<a id="refinedtracemethods-rt-6-almost-free-elements"></a>
+
+### Almost elements of a completed free module
+
+If M is the (p,ξ)-completion of a free Ainf-module, M → Hom_Ainf(W(m_C^flat),M) is an isomorphism.
+Moreover RHom_Ainf(W(m_C^flat),−) kills all almost-zero complexes and defines the right adjoint to
+the almost quotient. This is a statement about this completed-free class, not about every
+Ainf-module.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 9.4 and
+paragraph after its proof, p. 285. This locator supplies almost elements of a completed free module.
+The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: Infinite completed free modules require the restricted-product decay condition;
+replacing them by unrestricted products changes the proof.)
+
+Construction and proof. Reduce modulo ξ using completeness and ξ-torsion-freeness. Describe M/ξ as
+the restricted product of copies of O_C. A sequence representing an almost element is restricted
+because multiplication by p supplies the decay condition. Use W(m_C^flat)⊗^L Ainf/W(m_C^flat)=0 for
+the derived almost-zero assertion.
+
+The comparison must satisfy these additional checks: Infinite completed free modules require the
+restricted-product decay condition; replacing them by unrestricted products changes the proof.
+
+*Needs:* `AInfCohomology:AI.0`, `DerivedDeRhamCohomology:DD.1/derived-completion`, [The root ideals controlling almost comparison](#refinedtracemethods-rt-6-almost-root-ideals).
+
+<a id="refinedtracemethods-rt-6-projective-qrsp-aomega"></a>
+
+### Completed freeness on projective QRSP covers
+
+If S∈QRSPerfd_(O_C) is projective in the sense of the imported projective quasisyntomic basis,
+AΩ^nc_S is the (p,ξ)-completion of a free Ainf-module. Consequently AΩ^nc_S →
+RHom_Ainf(W(m_C^flat),AΩ^nc_S) is an equivalence. Here the special projective basis includes S/p
+free over O_C/p and (L_(S/O_C)[−1])^∧p projective, not merely an arbitrary QRSP S.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 9.8, p.
+289. This locator supplies completed freeness on projective qrsp covers. The statement and proof
+retain the source hypotheses, maps and completion conventions; the acceptance check is: The special
+projectivity hypothesis cannot be dropped by QRSP discreteness alone.)
+
+Construction and proof. Use the derived Cartier description modulo (p,ξ) and the projectivity
+conditions to obtain a free module. Lift a basis successively using (p,ξ)-completeness and derived
+Nakayama. Apply the completed-free almost-elements calculation.
+
+The comparison must satisfy these additional checks: The special projectivity hypothesis cannot be
+dropped by QRSP discreteness alone.
+
+*Needs:* [The animated extension of imported AΩ](#refinedtracemethods-rt-6-animated-aomega-extension), [Almost elements of a completed free module](#refinedtracemethods-rt-6-almost-free-elements), `DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site`, `DerivedDeRhamCohomology:DD.0/cotangent-complex`.
+
+<a id="refinedtracemethods-rt-6-cartier-comparison-test"></a>
+
+### Cartier and Bockstein recognition of the comparison
+
+Let A be the p-adic completion of a smooth O_C-algebra and η an E∞ O_C-algebra endomorphism of its
+p-completed de Rham complex. If H⁰ of its mod-p reduction is the identity, all cohomology maps of
+its mod-p reduction are the identity; hence η is an integral equivalence by derived p-completeness.
+The assertion is not that the integral endomorphism itself is the identity. Cartier and the
+Bockstein on differential generators give this recognition criterion for the AΩ comparison.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 9.9, pp.
+289–290. This locator supplies cartier and bockstein recognition of the comparison. The statement
+and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: A
+map preserving only the abstract dimensions of the graded pieces is not the required identity on
+H⁰.)
+
+Construction and proof. Apply Cartier to express H* of the mod-p de Rham complex in terms of
+Frobenius-twisted differential forms. Use the Bockstein to recover differential generators
+functorially from H⁰. Multiplicativity fixes the mod-p exterior algebra; derived p-completeness then
+proves that the integral map is an equivalence.
+
+The comparison must satisfy these additional checks: A map preserving only the abstract dimensions
+of the graded pieces is not the required identity on H⁰.
+
+*Needs:* `DerivedDeRhamCohomology:DD.3/smooth-cartier`, `DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces`, [The animated extension of imported AΩ](#refinedtracemethods-rt-6-animated-aomega-extension), `AInfCohomology:AI.1/derived-decalage`, `AInfCohomology:AI.1/decalage-products`, `AInfCohomology:AI.1/bockstein-reduction`.
+
+<a id="refinedtracemethods-rt-6-aomega-comparison"></a>
+
+### The honest trace-to-AΩ comparison
+
+If C is complete algebraically closed over Q_p and A is the p-adic completion of a smooth
+O_C-algebra, there is a natural Frobenius-compatible equivalence C_A≃AΩ_A of E∞ Ainf-algebras. Its
+map is obtained by the almost comparison, left Kan extension to projective QRSP covers and
+completed-free extraction. It agrees modulo ξ with the identity on the p-completed de Rham complex.
+For arbitrary quasisyntomic A over O_C, comparison with AΩ^nc is made after the indicated Nygaard
+completion; AΩ^nc_A=C_A is not asserted before completion.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem 9.6 and
+proof, pp. 286–290; Theorem 1.8, p. 204. This locator supplies the honest trace-to-aω comparison.
+The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: On O_C the comparison is the canonical Ainf identification.)
+
+Construction and proof. Extend the almost map to the animated functors, then use projective QRSP
+completed freeness to lift it to an honest map. Unfold from that basis, retaining Frobenius. Modulo
+ξ verify H⁰ modulo p is the identity, use the Cartier/Bockstein criterion, and finish with
+(p,ξ)-complete Nakayama.
+
+The comparison must satisfy these additional checks: On O_C the comparison is the canonical Ainf
+identification. On smooth A the comparison respects Frobenius and the ξ-specialization to
+p-completed de Rham cohomology.
+
+*Needs:* [The almost comparison map to AΩ](#refinedtracemethods-rt-6-aomega-almost-map), [Completed freeness on projective QRSP covers](#refinedtracemethods-rt-6-projective-qrsp-aomega), [Cartier and Bockstein recognition of the comparison](#refinedtracemethods-rt-6-cartier-comparison-test), [The non-Nygaard-completed trace extension](#refinedtracemethods-rt-6-trace-noncompleted-extension), [The animated extension of imported AΩ](#refinedtracemethods-rt-6-animated-aomega-extension), `DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site`.
+
+<a id="refinedtracemethods-rt-6-aomega-nygaard-decalage"></a>
+
+### Nygaard agrees with the AΩ décalage filtration
+
+For p-completed smooth O_C-algebra A, the Frobenius factorization C_A≃Lη_ξφ_*C_A identifies the
+Nygaard filtration with the Lη_ξ filtration on φ_*AΩ_A through the honest comparison. The graded
+description is the source’s truncation of the Hodge–Tate complex, using the AI.4 BMS1 Theorems 8.3
+and 9.4(i) inputs; this is not a new definition of the generic Lη functor.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proposition
+9.10 and Remark 9.11, pp. 289–290. This locator supplies nygaard agrees with the aω décalage
+filtration. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: The Frobenius pullback and ξ are retained in the filtration identity.)
+
+Construction and proof. Use the graded computation from Theorem 7.2 and the imported Hodge–Tate
+specialization. Identify both filtrations on the Frobenius-twisted AΩ through their truncation
+description. Use completeness and the filtered comparison to recover the full filtration.
+
+The comparison must satisfy these additional checks: The Frobenius pullback and ξ are retained in
+the filtration identity.
+
+*Needs:* [The honest trace-to-AΩ comparison](#refinedtracemethods-rt-6-aomega-comparison), [Frobenius factorization for smooth trace complexes](#refinedtracemethods-rt-6-smooth-trace-frobenius), `AInfCohomology:AI.4`, `AInfCohomology:AI.1/derived-decalage`, `AInfCohomology:AI.1/filtered-beilinson-description`.
+
+<a id="refinedtracemethods-rt-6-perfectoid-quotient-comparison"></a>
+
+### TC⁻/v and TP/φ(ξ)
+
+For any connective E∞ R-algebra A over a perfectoid R, the derived quotients TC⁻(A;Z_p)/v ≃
+THH(A;Z_p) and TP(A;Z_p)/φ(ξ) ≃ THH(A;Z_p)^tC_p are equivalences as modules with their induced maps.
+Quotient by v means the cofiber of its degree −2 multiplication map, not an ordinary ideal quotient
+on homotopy groups.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proposition 6.4
+and proof, pp. 247–248. This locator supplies tc⁻/v and tp/φ(ξ). The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: For R itself, the first
+quotient yields R[u] by θ and v=0, while the second uses θ̃ and φ(ξ)=0.)
+
+Construction and proof. Use the relative THH(R)-module structure. The homotopy-fixed-point/Tate
+filtrations and the perfectoid coefficient relations identify the cofibers with the underlying and
+finite-Tate spectra. Use the weak Postnikov comparison to pass from the base to all connective
+R-algebras.
+
+The comparison must satisfy these additional checks: For R itself, the first quotient yields R[u] by
+θ and v=0, while the second uses θ̃ and φ(ξ)=0.
+
+*Needs:* [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp).
+
+<a id="refinedtracemethods-rt-6-segal-oc"></a>
+
+### The Segal comparison over O_C
+
+For a smooth O_C-algebra A of relative dimension d, p-completed if necessary,
+gr^iTHH(A;Z_p)≃τ^{≤i}Ω̃_A{i}[2i] and gr^iTHH(A;Z_p)^tC_p≃Ω̃_A{i}[2i], where Ω̃_A is the imported
+Hodge–Tate complex. On graded pieces cyclotomic Frobenius is the truncation inclusion, and it is an
+isomorphism on π_n for n≥d.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Corollary 9.12,
+pp. 290–291. This locator supplies the segal comparison over o_c. The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: The statement uses the
+Hodge–Tate complex over O_C, not ordinary untwisted de Rham forms.)
+
+Construction and proof. Use the quotient TP/φ(ξ) to identify the finite-Tate graded pieces with
+Hodge–Tate specialization. Apply the Nygaard/Lη comparison to identify the Frobenius map with
+truncation. The relative dimension bound implies the high-degree equivalence.
+
+The comparison must satisfy these additional checks: The statement uses the Hodge–Tate complex over
+O_C, not ordinary untwisted de Rham forms.
+
+*Needs:* [Nygaard agrees with the AΩ décalage filtration](#refinedtracemethods-rt-6-aomega-nygaard-decalage), [TC⁻/v and TP/φ(ξ)](#refinedtracemethods-rt-6-perfectoid-quotient-comparison), `AInfCohomology:AI.4`.
+
+<a id="refinedtracemethods-rt-6-group-algebra-trace-test"></a>
+
+### The root group algebra trace calculation
+
+Let S=F_p[Q_p/Z_p]=F_p[T^(±1/p∞)]/(T−1). The coherent circle-equivariant equivalence
+THH(S)≃HH(Z[Q_p/Z_p])⊗_Z THH(F_p) induces TP(S)≃HP(Z[Q_p/Z_p];Z_p) as E∞ ring spectra. Consequently
+π₀TP(S)≃Nygaard-completed Acrys(S), compatibly with the Hodge/Nygaard filtrations, mod-p reduction
+and Frobenius. For connective circle-equivariant M∈D(Z), (M⊗_Z THH(F_p))^tS¹ is the p-completion of
+M^tS¹.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proof of
+Theorem 8.17, the key case, pp. 277–278. This locator supplies the root group algebra trace
+calculation. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: The index group is Q_p/Z_p, not the perfect polynomial algebra without the
+relation T−1.)
+
+Construction and proof. Use the integral circle-equivariant Z → THH(F_p) and the cyclic bar
+construction of the group algebra. For the Tate-completion assertion, use weak Postnikov towers and
+the finite-C_p Tate comparison supplied by L.5; reduce to M=Z and F_p. Compute HP using the
+Hodge-completed derived de Rham description and the natural Frobenius lift on the integral group
+algebra. Compare the induced filtration modulo p and the Frobenius on the dense Witt subring.
+
+The comparison must satisfy these additional checks: The index group is Q_p/Z_p, not the perfect
+polynomial algebra without the relation T−1.
+
+*Needs:* [Negative and periodic cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), `DerivedDeRhamCohomology:DD.4/derived-de-rham-witt`, `DerivedDeRhamCohomology:DD.4/acrys-structure`, `DerivedDeRhamCohomology:DD.4/qrsp-pd-derham`, `KTheoryFiniteLocalFields:L.5`, [Hochschild homology, derived over the base](#refinedtracemethods-rt-1-hochschild-homology), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [THH and TC of spherical group rings and loop spaces](#refinedtracemethods-rt-2-thh-spherical-group-rings), [THH relative to THH(ℤ) is Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [Circle and finite Tate constructions for HZ-module spectra](#refinedtracemethods-rt-2-hz-module-circle-tate), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp).
+
+<a id="refinedtracemethods-rt-6-crystalline-trace-comparison"></a>
+
+### The crystalline trace comparison
+
+For a quasiregular semiperfect F_p-algebra S, C_S≃Nygaard-completed Acrys(S)≃Nygaard-completed
+derived de Rham–Witt LWΩ_S as filtered Frobenius E∞ algebras. The cyclotomic and algebra Frobenius
+agree; modulo p this is x↦x^p. The comparison uses the independent PD/derived de Rham–Witt
+constructions imported from DD.4. On a smooth algebra over a perfect field k, unfolding identifies
+C_A with the derived de Rham–Witt object and its Nygaard completion; completeness must be retained.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem 8.17
+and proof, pp. 276–279. This locator supplies the crystalline trace comparison. The statement and
+proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For
+S=F_p, C_S=Z_p and the Frobenius is the identity.)
+
+Construction and proof. Prove the group-algebra calculation and compatibility with both filtrations.
+Extend along tensor products, filtered colimits and the root-quotient presentation
+S^flat[X_i^(1/p∞)]/(X_i). Construct Acrys(S) → C_S using the PD ideal in the trace ring; check the
+graded and mod-p comparisons on the presentation, then use Nygaard completeness. Identify the two
+Frobenius maps on the dense Witt subring and pass to completion.
+
+The comparison must satisfy these additional checks: For S=F_p, C_S=Z_p and the Frobenius is the
+identity. For semiperfect nonreduced S, an ordinary uncompleted PD envelope is not the claimed
+output.
+
+*Needs:* [The root group algebra trace calculation](#refinedtracemethods-rt-6-group-algebra-trace-test), [Negative and periodic cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), [TC⁻, TP and the trace Nygaard filtration on covers](#refinedtracemethods-rt-6-qrsp-tc-nygaard), `DerivedDeRhamCohomology:DD.4/derived-de-rham-witt`, `DerivedDeRhamCohomology:DD.4/acrys-structure`, `DerivedDeRhamCohomology:DD.4/qrsp-pd-derham`, `PrismaticCohomology:PR.3/nygaard-completion`.
+
+<a id="refinedtracemethods-rt-6-trace-prismatic-comparison"></a>
+
+### Trace-to-prismatic Nygaard completion
+
+For quasisyntomic A, the trace complex C_A constructed by unfolding π₀TC⁻ on QRSP covers is
+naturally equivalent, as a multiplicative filtered complex with Frobenius, to the Nygaard completion
+of the imported prismatic Δ_A. On QRSP S, π₀TC⁻(S;Z_p) = π₀TP(S;Z_p) has its canonical δ-structure
+and Δ_S → C_S identifies C_S with the Nygaard completion, compatibly with the divided Frobenius
+maps. This is not a definition of Δ and does not identify Δ with its completion in general.
+
+(See [Prisms and prismatic cohomology](#ref-1-bs), Theorem 13.1 and proof, pp. 94–96. This locator
+supplies trace-to-prismatic nygaard completion. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: A perfectoid ring yields Ainf
+with its Nygaard filtration.)
+
+Construction and proof. Use BS Theorem 13.1’s prismatic recognition input from PR.3, not a
+TC-defined prism. After André cover and left Kan extension, compare noncompleted trace cohomology
+with Δ on regular semiperfectoid quotients. Use the characteristic-p crystalline computation for the
+reduction, then derived Nakayama along Ainf → Acrys → Ainf/(p,d). Complete the Nygaard filtration
+and unfold by quasisyntomic descent.
+
+The comparison must satisfy these additional checks: A perfectoid ring yields Ainf with its Nygaard
+filtration. Maps can and divided Frobenius commute with the comparison.
+
+*Needs:* [The trace Nygaard complex](#refinedtracemethods-rt-6-trace-nygaard-complex), [The non-Nygaard-completed trace extension](#refinedtracemethods-rt-6-trace-noncompleted-extension), [The honest trace-to-AΩ comparison](#refinedtracemethods-rt-6-aomega-comparison), [The Segal comparison over O_C](#refinedtracemethods-rt-6-segal-oc), [The crystalline trace comparison](#refinedtracemethods-rt-6-crystalline-trace-comparison), `PrismaticCohomology:PR.2/qrsp-prism`, `PrismaticCohomology:PR.3/nygaard-completion`, `PrismaticCohomology:PR.3/bms2-comparison`.
+
+<a id="refinedtracemethods-rt-6-graded-motivic-comparison"></a>
+
+### The graded BMS2 trace comparison
+
+For quasisyntomic A, gr^iTHH(A;Z_p) ≃ N^i(C_A){i}[2i], gr^iTC⁻(A;Z_p) ≃ N^{≥i}(C_A){i}[2i], and
+gr^iTP(A;Z_p) ≃ C_A{i}[2i]. Here N^i is the cofiber of N^{≥i+1} → N^{≥i}, twists are completed
+filtered Breuil–Kisin modules, and C_A is identified with the imported completed prismatic object.
+The equivalences preserve products, can and Frobenius. N^i(C_A){i} ≃ N^i(C_A) has the source’s
+canonical specialization, not a global chosen basis for every twist.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem
+1.12(4), p. 207; Proposition 7.13, pp. 259–260. This locator supplies the graded bms2 trace
+comparison. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: For perfectoid R, gr^iTHH is R{i}[2i] for i≥0 and zero for i<0.)
+
+Construction and proof. Compute on QRSP where even Postnikov graded pieces equal the even homotopy
+sheaves. Use the complete Nygaard filtration and its graded THH calculation. Unfold the
+multiplicative comparison and twist identifications to all quasisyntomic rings.
+
+The comparison must satisfy these additional checks: For perfectoid R, gr^iTHH is R{i}[2i] for i≥0
+and zero for i<0. For a smooth algebra the cohomological graded pieces may give odd THH homotopy;
+the theorem does not assert global evenness.
+
+*Needs:* [The BMS2 motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [The trace Breuil–Kisin twist](#refinedtracemethods-rt-6-trace-breuil-kisin-twist), [Trace-to-prismatic Nygaard completion](#refinedtracemethods-rt-6-trace-prismatic-comparison).
+
+<a id="refinedtracemethods-rt-6-filtered-frobenius"></a>
+
+### Filtered can, Frobenius and the TC fiber
+
+The cyclotomic Frobenius and canonical comparison of RT.2 induce multiplicative filtered maps
+φ,can:TC⁻(A;Z_p) → TP(A;Z_p) on quasisyntomic A. Under the completed prismatic comparison their i-th
+graded maps are respectively the supplied divided Frobenius and canonical Nygaard inclusion on
+C_A{i}[2i]. Define the filtered TC spectrum by the fiber of φ−can in spectra. Its multiplication is
+the coherent equalizer/fiber multiplication, not subtraction in the category of E∞ algebras.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem
+1.12(5), p. 207; §7.4, pp. 261–262; Theorem 7.2, pp. 255–256. This locator supplies filtered can,
+frobenius and the tc fiber. The statement and proof retain the source hypotheses, maps and
+completion conventions; the acceptance check is: At weight zero over a perfectoid base, can=id and φ
+is Witt Frobenius.)
+
+Construction and proof. Construct both maps as unfolded maps of complete filtered trace spectra.
+Normalize their graded Frobenius by the Breuil–Kisin line, so it agrees with the divided Frobenius
+map. Form the stable fiber and use the multiplicative cyclotomic equalizer construction for its
+products.
+
+The API exposes the following operations and characterizations.
+
+
+- `FilteredFrobenius.can`: The filtered canonical TC⁻ → TP map induces Nygaard inclusion on graded pieces.
+
+- `FilteredFrobenius.frobenius`: The filtered cyclotomic map induces divided Frobenius after twisting.
+
+- `FilteredFrobenius.fiber`: TC filtered pieces are fib(φ−can) in spectra.
+
+- `FilteredFrobenius.product`: The coherent multiplicative equalizer supplies products of weights i,j in weight i+j.
+
+- `FilteredFrobenius.map`: These filtered maps and fibers are natural in quasisyntomic A.
+
+**Checks.**
+
+
+- `FilteredFrobenius.weightZero`: On perfectoid weight zero, φ−can=φ−id on Ainf.
+
+- `FilteredFrobenius.differentMaps`: For R=F_p, can(u)=pσ while φ(u)=σ; the maps cannot be identified.
+
+- `FilteredFrobenius.syntomicSquare`: The i-th graded fiber map agrees with PR.4’s syntomic fiber, including its divided Frobenius and twist.
+
+The comparison must satisfy these additional checks: At weight zero over a perfectoid base, can=id
+and φ is Witt Frobenius.
+
+This interface is used by [Syntomic complexes as graded
+TC](#refinedtracemethods-rt-6-syntomic-graded-tc) — The stable graded fiber is the independent
+syntomic complex.; [The filtered trace interface for the Beilinson
+bridge](#refinedtracemethods-rt-6-ammn-filtered-interface) — The source-normalized Frobenius square
+is supplied to RT.3b..
+
+*Needs:* [The BMS2 motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [The trace Breuil–Kisin twist](#refinedtracemethods-rt-6-trace-breuil-kisin-twist), [TC⁻, TP and the trace Nygaard filtration on covers](#refinedtracemethods-rt-6-qrsp-tc-nygaard), `PrismaticCohomology:PR.3/divided-frobenius`, [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence).
+
+<a id="refinedtracemethods-rt-6-syntomic-graded-tc"></a>
+
+### Syntomic complexes as graded TC
+
+For quasisyntomic A and i≥0, gr^iTC(A;Z_p) ≃ Z_p(i)(A)[2i], where Z_p(i) is the independently
+constructed PR.4 syntomic fiber of divided Frobenius minus can from N^{≥i} completed Δ_A{i} to
+completed Δ_A{i}. The filtered TC construction is fib(φ−can: Fil^iTC⁻ → Fil^iTP); its graded map
+identifies with the imported syntomic map. Finite coefficients are derived tensor with Z/p^n.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem
+1.12(5), p. 207; §7.4, p. 261, corrected weight index. This locator supplies syntomic complexes as
+graded tc. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: Weight zero is the fiber of φ−1 on the trace complex.)
+
+Construction and proof. Take the filtered fiber of the two maps to TP. In the stable complete
+filtered category, taking graded pieces commutes with finite limits. Use the Frobenius-compatible
+trace/prismatic comparison and the imported syntomic definition; the weight equals i in both the
+shift and the filtration.
+
+The comparison must satisfy these additional checks: Weight zero is the fiber of φ−1 on the trace
+complex. Products land in weight i+j through the lax monoidal fiber construction, not by subtracting
+two algebra maps in commutative algebras.
+
+*Needs:* [The graded BMS2 trace comparison](#refinedtracemethods-rt-6-graded-motivic-comparison), [Filtered can, Frobenius and the TC fiber](#refinedtracemethods-rt-6-filtered-frobenius), `PrismaticCohomology:PR.4/syntomic-complex`.
+
+<a id="refinedtracemethods-rt-6-tc-negative-degrees"></a>
+
+### The TC-internal negative-degree calculation
+
+For a connective ring spectrum A, π_iTC(A;Z_p)=0 for i<−1 by the classical TR connective comparison.
+For ordinary A, π_(−1)TC(A;Z_p)=coker(F−1:W(A) → W(A)). On the QRSP site this cokernel vanishes
+locally by the iterated Artin–Schreier covers, so the weight-zero TC fiber is locally in degree zero
+and negative motivic weights vanish. Identifying the resulting weight-zero sheaf with constant Z_p
+by K₀ is owned downstream and is not used here.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), TC-internal
+part of proof of Proposition 7.16, p. 262. This locator supplies the tc-internal negative-degree
+calculation. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: For A=F_p pointwise F−1 on Z_p is zero, so π_(−1)TC(F_p)=Z_p; local
+vanishing must not be mistaken for pointwise vanishing.)
+
+Construction and proof. Use the classical formulation and connectivity of all TR^r from RT.2.
+Compute π₀TR^r=W_r(A), then the F−1 cokernel for π_(−1)TC. Extract the iterated Artin–Schreier
+covers within the QRSP basis. Stop before the K-theoretic rank comparison in Proposition 7.16.
+
+The comparison must satisfy these additional checks: For A=F_p pointwise F−1 on Z_p is zero, so
+π_(−1)TC(F_p)=Z_p; local vanishing must not be mistaken for pointwise vanishing.
+
+*Needs:* [TR and genuine TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [Genuine and Nikolaus–Scholze TC agree on bounded below spectra](#refinedtracemethods-rt-2-genuine-tc-agrees), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [Syntomic complexes as graded TC](#refinedtracemethods-rt-6-syntomic-graded-tc), `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`, `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`.
+
+<a id="refinedtracemethods-rt-6-characteristic-p-tc-sheaf"></a>
+
+### The even TC sheaf in characteristic p
+
+On QRSPerfd_(F_p), for i≥0 there is an exact sequence of sheaves 0 → π_(2i)TC(−;Z_p) →
+π_(2i)TC⁻(−;Z_p) →^(φ−can) π_(2i)TP(−;Z_p) → 0. For i>0 the corresponding
+divided-Frobenius-minus-one operator on a QRSP ring is pointwise surjective; in weight zero
+surjectivity is sheaf-local by Artin–Schreier covers. Thus TC is locally even on this site. This
+stops before identifying its even K-groups, which is downstream GeneralAlgebraicKTheory Part II.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 8.19 and
+TC-sheaf part of Proposition 8.20, pp. 280–281. This locator supplies the even tc sheaf in
+characteristic p. The statement and proof retain the source hypotheses, maps and completion
+conventions; the acceptance check is: TC(F_p;Z_p) still has π_(−1)=Z_p at the point; the sheaf
+statement does not erase this pointwise group.)
+
+Construction and proof. Use Nygaard p-divisibility to prove pointwise surjectivity in positive
+weights modulo p and then lift p-adically. Use Artin–Schreier covers in weight zero. Apply the long
+exact homotopy sequence of the TC fiber as a sequence of sheaves.
+
+The comparison must satisfy these additional checks: TC(F_p;Z_p) still has π_(−1)=Z_p at the point;
+the sheaf statement does not erase this pointwise group.
+
+*Needs:* [The crystalline trace comparison](#refinedtracemethods-rt-6-crystalline-trace-comparison), [The TC-internal negative-degree calculation](#refinedtracemethods-rt-6-tc-negative-degrees), [Syntomic complexes as graded TC](#refinedtracemethods-rt-6-syntomic-graded-tc), `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`.
+
+<a id="refinedtracemethods-rt-6-uncompleted-graded-trace"></a>
+
+### Polynomial extension of the graded trace
+
+Work under the following hypotheses: Fix a prime p and i≥0. R∈qSyn_Zp: R is p-complete, p-torsion
+free and quasisyntomic (AMMN Definition 5.5), as in AMMN Construction 6.16 and Theorem 6.17. Every
+completion is derived.
+
+For i≥0 and a p-torsion-free quasisyntomic ring R (R∈qSyn_Zp), the graded map of
+TC(R;ℤ_p)→HC⁻(R;ℤ_p) factors naturally as ℤ_p(i)(R)→LΩ_R^{≥i}→Hodge-completed LΩ_R^{≥i}. Here LΩ is
+p-completed derived de Rham relative to ℤ_p before Hodge completion. Import polynomial left Kan
+extension of ℤ_p(i) from PR.4/syntomic-connectivity, using only its left Kan extension assertion;
+the construction owns the trace factorization, not a second syntomic complex. For such R, the
+Hodge-completed right-hand map from the TC Beilinson square, after multiplying by p^{N(i)} with N(i)
+independent of R, refines to ℤ_p(i)(R/p)→p^{−N(i)}LΩ_R. Its rationalization is the χ_i used by
+RT.3b/graded-beilinson-square. The construction is an input to that square, not an import of its
+conclusion. On all p-complete animated rings the extension is defined by completed polynomial left
+Kan extension; completeness of the motivic filtration on every such input is not asserted.
+
+(See [On the Beilinson fiber square](#ref-2-ammn-20), Theorem 5.1(2), p. 25; Definition 5.5, p. 26;
+Proposition 5.32, pp. 33–34; proof of 5.1(2) and Construction 5.33, pp. 34–35; Construction 6.16 and
+proof of Theorem 6.17, pp. 44–45. Theorem 5.1(2), proved through Proposition 5.32, makes ℤ_p(i) left
+Kan extended from finitely generated p-complete polynomial ℤ_p-algebras, and Construction 5.33
+extends it to simplicial commutative rings; Construction 6.16 factors the graded trace through
+uncompleted LΩ^{≥i} for R∈qSyn_Zp; the proof of Theorem 6.17 lifts a multiple of the completed χ_i
+through LΩ_R with a denominator depending only on i.)
+
+Construction and proof. On quasiregular semiperfectoid covers, the two-degree Postnikov window of
+TC→HC⁻ gives the map into Hodge-completed LΩ^{≥i}. Descend using trace-flat-descent and the syntomic
+graded comparison. On finite p-complete polynomial algebras the Hodge filtration is finite in each
+fixed polynomial dimension, so the uncompleted-to-Hodge-completed comparison identifies the targets.
+Restrict the trace and extend it using the imported syntomic polynomial left Kan property and DD.2’s
+definition of p-completed uncompleted de Rham. The ordinary TC Beilinson square and its uniform
+quasi-isogeny bounds give an integral multiple of the completed χ_i before rationalization. Apply
+the same polynomial extension to the functor R↦ℤ_p(i)(R/p), obtaining χ_i with denominator depending
+only on i (AMMN proof of 6.17). The PR.4 input is independently prismatic and does not depend on
+RT.3b. Its remaining algebraic proof audit remains at that supplier. Never use
+RT.6/ammn-filtered-interface, which consumes the graded square.
+
+The API exposes the following operations and characterizations.
+
+
+- `TraceGraded.uncompleted`: A natural map ℤ_p(i)(R)→LΩ_R^{≥i} in the derived p-complete category.
+
+- `TraceGraded.completion`: Composing with Hodge completion is the graded TC→HC⁻ map.
+
+- `TraceGraded.polynomial_extension`: The factorization is obtained from finite p-complete polynomial rings through their completed left Kan extension, including resolution independence.
+
+- `TraceGraded.chi_integral_multiple`: For p-torsion-free quasisyntomic R the right map refines with denominator p^{N(i)}, uniformly in R, and rationalizes to the χ_i of the graded square.
+
+**Checks.**
+
+
+- `TraceGraded.polynomial`: For R=ℤ_p⟨x_1,…,x_d⟩, LΩ has finite Hodge amplitude d. The factorization composes to the original graded trace, and LΩ^{≥i}=0 for i>d.
+
+- `TraceGraded.weight_zero`: At i=0, the quotient LΩ/LΩ^{≥0} is zero, so the graded square gives rational invariance of weight-zero syntomic complexes under R→R/p.
+
+- `TraceGraded.zp_weight_one`: For R=ℤ_p and i=1, the rational reduction fiber is ℚ_p[−1] cohomologically. This tests the uncompleted quotient and its shift; the factorization alone is not falsely asserted to be an equivalence.
+
+- `TraceGraded.uncompleted_target`: On arbitrary animated R the target is the completed polynomial left Kan extension LΩ, followed by its derived Hodge filtration. Replacing it by the inverse limit of Hodge quotients changes the functor; the completion comparison must remain explicit.
+
+The comparison must satisfy these additional checks: Completion of the factored trace recovers the
+QRSP Postnikov-window map. The denominator p^{N(i)} is independent of the ring; ring-dependent
+denominators do not give the natural isogeny statement.
+
+This interface is used by [The Beilinson fibre square on graded pieces (AMMN Theorem
+6.17)](#refinedtracemethods-rt-3b-graded-beilinson-square) — Supplies precisely the missing
+uncompleted trace and χ_i factorization without a dependency on the graded square.; [The filtered
+trace interface for the Beilinson bridge](#refinedtracemethods-rt-6-ammn-filtered-interface) —
+Provides the factorization used by the downstream filtered bridge, through the graded square..
+
+*Needs:* [The BMS2 motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [Negative and periodic cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), [Syntomic complexes as graded TC](#refinedtracemethods-rt-6-syntomic-graded-tc), [Flat and quasisyntomic descent for trace spectra](#refinedtracemethods-rt-6-trace-flat-descent), [The Beilinson fibre square (AMMN Corollary 3.9)](#refinedtracemethods-rt-3b-beilinson-square-ordinary), [The Beilinson fibre sequence and its shift dictionary](#refinedtracemethods-rt-3b-beilinson-fibre-sequence), `PrismaticCohomology:PR.4/syntomic-connectivity`, `DerivedDeRhamCohomology:DD.2/p-completed-derham`, `EnhancedDerivedSheaves:E3/kan-extensions-along-functors`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`.
+
+<a id="refinedtracemethods-rt-6-habiro-trace-interface"></a>
+
+### The coherent trace interface for Habiro cohomology
+
+For the supplied RT.4 q-Hodge and Habiro inputs satisfying Wagner 4.18(A),(R), 4.18a(R2), and, in
+Theorem 5.63, 2∈R× and 5.43(A2), export the coherent S¹ and genuine finite-C_m cyclonic maps,
+complete even filtration and graded q-Hodge module comparison diagrams. Retain Σ^(−2i) shearing,
+Bott inversion, and completion. Theorem 4.27 has an E_(n−1) multiplicative enhancement only under
+Remark 4.28’s chosen E_n lift hypotheses (2≤n≤∞); an enhancement of the Habiro comparison must be
+supplied separately by RT.4 and is not inferred from the module equivalence of Theorem 5.63. For
+R=O_F[1/Δ], require 6|Δ, disc(F)|Δ and the specified spherical étale lift. This is the trace input
+for HQ/HR descent, with the periodic reconstruction proof; it does not assert Habiro descent for the
+refined rational TC⁻ ind-algebras.
+
+(See [q-de Rham cohomology and topological Hochschild homology over ku](#ref-1-wagner), Theorem 4.27
+and Remark 4.28, p. 50; 4.18(A),(R), p. 46; 4.18a(R2), p. 49; 5.43(A2), p. 70; Theorem 5.63, pp.
+79–80; Corollary 6.15, p. 86. This locator supplies the coherent trace interface for habiro
+cohomology. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: A periodic nonconnective KU input uses the imported periodic reconstruction
+proof.)
+
+Construction and proof. Take the coherent finite-C_m comparison from RT.4, with genuine fixed points
+before residual-circle homotopy fixed points. Apply the chosen q-Hodge modification and the
+Habiro-complete descent functor to the module comparison. Retain only the multiplicative structure
+separately established under the specified lift hypotheses. Check the Bott localization square and
+Σ^(−2i) shearing before identifying the arithmetic coefficient ring.
+
+The comparison must satisfy these additional checks: A periodic nonconnective KU input uses the
+imported periodic reconstruction proof. At primes 2 or 3 the stated number-field comparison is not
+applied without the required localization. The module comparison of Theorem 5.63 alone supplies no
+E∞ upgrade.
+
+*Needs:* [Refined THH and TC⁻](#refinedtracemethods-rt-5-refined-traces), [q-Hodge filtrations from THH over ku (Wagner Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [Completeness, multiplicativity and the graded comparison](#refinedtracemethods-rt-4-q-hodge-q-hodge-multiplicativity), [Cyclonic ku and KU](#refinedtracemethods-rt-4-q-hodge-cyclonic-ku), [Cyclonic Adams lift coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence), [Compatible local and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [TC^{−(m)} over ku and twisted q-Hodge filtrations (Wagner Theorem 5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [The Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem 5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem), [Étale algebras lift uniquely to étale E_∞-algebras](#refinedtracemethods-rt-4-habiro-comparison-etale-einfty-lift), [The Habiro ring of a number field from KU (Wagner Corollary 6.15)](#refinedtracemethods-rt-4-habiro-comparison-number-field-habiro), `HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations`, `HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex`, `HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent`, `HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade`, `HabiroRings:HR.2/habiro-complete-modules`, `HabiroRings:HR.2/the-monoidal-structure`, `HabiroRings:HR.2/habiro-complete-solid-spectra`, `HabiroRings:HR.5/the-relative-habiro-ring`, `HabiroRings:HR.5/completed-base-change`.
+
+<a id="refinedtracemethods-rt-6-bms1-twist-comparison"></a>
+
+### Agreement with the BMS1 twist
+
+For p-torsion-free perfectoid R, the trace line Ainf(R){1}=π₂TP(R;Z_p) agrees with BMS1’s
+Breuil–Kisin–Fargues twist. The finite θ̃_r specialization is ker θ̃_r/(ker θ̃_r)², and the natural
+transition on the conormal side corresponds to p times the transition on the twist side. The
+inverse-limit comparison uses the canonical Ainf≃lim_F W_r(R), retaining Frobenius and finite TR
+maps.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Remark 6.6, pp.
+250–251. This locator supplies agreement with the bms1 twist. The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: The transition is p
+times the twist transition, not the identity.)
+
+Construction and proof. Use the classical TR connective-cover comparison and its Witt π₀ calculation
+supplied by RT.2. Identify the conormal modules of θ̃_r and their transitions with the trace
+periodic line. Pass to the inverse limit using p-torsion-freeness and the BMS1 twist construction.
+
+The comparison must satisfy these additional checks: The transition is p times the twist transition,
+not the identity.
+
+*Needs:* [The trace Breuil–Kisin twist](#refinedtracemethods-rt-6-trace-breuil-kisin-twist), `AInfCohomology:AI.0`, `AInfCohomology:AI.4`, [TR and genuine TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [Genuine and Nikolaus–Scholze TC agree on bounded below spectra](#refinedtracemethods-rt-2-genuine-tc-agrees), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp).
+
+<a id="refinedtracemethods-rt-6-motivic-convergence"></a>
+
+### Derived convergence of the trace spectral sequences
+
+The complete exhaustive filtered spectra give the BMS2 derived convergent spectral sequences
+E₂^(a,b)=H^(a−b)(N^(−b)C_A) ⇒ π_(−a−b)THH, E₂^(a,b)=H^(a−b)(N^{≥−b}C_A{−b}) ⇒ π_(−a−b)TC⁻,
+E₂^(a,b)=H^(a−b)(C_A{−b}) ⇒ π_(−a−b)TP, and E₂^(a,b)=H^(a−b)(Z_p(−b)(A)) ⇒ π_(−a−b)TC in their
+defined weight range. The unbounded cases mean convergence to the supplied derived complete
+filtration; no unconditional strong convergence after forgetting derived limits is claimed. On
+p-completed smooth finite-dimensional perfectoid-base algebras, the stated cohomological bounds give
+degreewise control of the inverse-limit terms.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Theorem
+1.12(4)–(5), p. 207; Proposition 7.13, pp. 259–260. This locator supplies derived convergence of the
+trace spectral sequences. The statement and proof retain the source hypotheses, maps and completion
+conventions; the acceptance check is: The signs of weight −b, cohomological degree a−b and
+homotopical abutment −a−b agree.)
+
+Construction and proof. Build the exact couple from the filtered spectrum rather than postulating an
+E₂ page. Use the complete and exhaustive identifications for the derived abutment. Apply smooth
+cohomological bounds for the explicit degreewise convergence specialization; retain limit
+corrections outside that class.
+
+The comparison must satisfy these additional checks: The signs of weight −b, cohomological degree
+a−b and homotopical abutment −a−b agree.
+
+*Needs:* [The graded BMS2 trace comparison](#refinedtracemethods-rt-6-graded-motivic-comparison), [Syntomic complexes as graded TC](#refinedtracemethods-rt-6-syntomic-graded-tc), [Frobenius factorization for smooth trace complexes](#refinedtracemethods-rt-6-smooth-trace-frobenius), `StableHomotopyKTheory:H.6`.
+
+<a id="refinedtracemethods-rt-6-segal-char-p"></a>
+
+### The Segal comparison in characteristic p
+
+For a smooth k-algebra A of dimension d over a perfect field k of characteristic p,
+gr^iTHH(A;Z_p)≃τ^{≤i}Ω*_A/k[2i] and gr^iTHH(A;Z_p)^tC_p≃Ω*_A/k[2i]. Cyclotomic Frobenius is the
+natural truncation inclusion on these graded pieces, and THH(A;Z_p) → THH(A;Z_p)^tC_p induces
+isomorphisms on π_n for n≥d. The finite-Tate filtration is obtained by quasisyntomic unfolding.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Corollary 8.18,
+pp. 279–280. This locator supplies the segal comparison in characteristic p. The statement and proof
+retain the source hypotheses, maps and completion conventions; the acceptance check is: For A=k and
+d=0, Frobenius gives the nonnegative-degree equivalence.)
+
+Construction and proof. Identify THH^tC_p with TP/p using the perfectoid quotient comparison. Use
+the crystalline Nygaard/Lη comparison and Cartier to identify its graded map with truncation. Bound
+the cohomological degrees of differential forms by d to obtain the high-degree equivalence.
+
+The comparison must satisfy these additional checks: For A=k and d=0, Frobenius gives the
+nonnegative-degree equivalence.
+
+*Needs:* [The crystalline trace comparison](#refinedtracemethods-rt-6-crystalline-trace-comparison), [TC⁻/v and TP/φ(ξ)](#refinedtracemethods-rt-6-perfectoid-quotient-comparison), `DerivedDeRhamCohomology:DD.3/smooth-cartier`.
+
+<a id="refinedtracemethods-rt-6-adams-operations"></a>
+
+### The p-adic Adams operations on traces
+
+The action of Z_p^× on the p-completed circle K(Z_p,1) gives functorial coherent E∞ cyclotomic Adams
+operations on THH(A;Z_p), and hence on the filtered THH, TC⁻, TP and TC. On C_A and each Nygaard
+step the action is trivial; on C_A{1} it is scalar multiplication, so γ acts by γ^i on each i-th
+graded piece, for i∈Z in its defined range.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Construction
+9.13 and Proposition 9.14, pp. 291–292. This locator supplies the p-adic adams operations on traces.
+The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: γ acts trivially in weight zero and by γ in weight one.)
+
+Construction and proof. Identify p-completed THH with the p-completion of the E∞ tensor by K(Z_p,1).
+Transport the automorphism action through the cyclotomic structure and complete filtered functors.
+Use universality of Ainf, finite conormal/twist identifications and the equivariant AΩ comparison to
+compute the action; extend by QRSP descent and left Kan extension.
+
+The API exposes the following operations and characterizations.
+
+
+- `AdamsOperations.action`: There is a coherent Z_p^× action on the p-completed trace functors.
+
+- `AdamsOperations.map`: Ring maps commute with every operation ψ_γ.
+
+- `AdamsOperations.coefficient`: ψ_γ acts trivially on C_A and its Nygaard ideals.
+
+- `AdamsOperations.twist`: On C_A{i}, ψ_γ is multiplication by γ^i.
+
+- `AdamsOperations.filtered`: The operations preserve motivic filtrations and commute with can and cyclotomic Frobenius.
+
+**Checks.**
+
+
+- `AdamsOperations.identity`: ψ_1 is the identity operation.
+
+- `AdamsOperations.weightOne`: On gr¹TP the operation ψ_γ is multiplication by γ.
+
+- `AdamsOperations.weightMinusOne`: On gr^(−1)TP the operation is γ^(−1), excluding the wrong uniform γ action.
+
+The comparison must satisfy these additional checks: γ acts trivially in weight zero and by γ in
+weight one.
+
+This interface is used by [The graded BMS2 trace
+comparison](#refinedtracemethods-rt-6-graded-motivic-comparison) — The γ^i formula verifies the
+twist and graded weight normalization..
+
+*Needs:* [The honest trace-to-AΩ comparison](#refinedtracemethods-rt-6-aomega-comparison), [The trace Breuil–Kisin twist](#refinedtracemethods-rt-6-trace-breuil-kisin-twist), [Agreement with the BMS1 twist](#refinedtracemethods-rt-6-bms1-twist-comparison), `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/coherent-group-actions`, [Geometric realisation of cyclic objects and the circle action](#refinedtracemethods-rt-2-cyclic-realisation), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Cyclotomic spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [The Nikolaus–Scholze formula for TC](#refinedtracemethods-rt-2-tc-fibre-sequence).
+
+<a id="refinedtracemethods-rt-6-sphere-polynomial-thh"></a>
+
+### THH of the sphere polynomial ring
+
+For S[z]=S[N], THH(S[z])≃S[Bcy N] as coherent S¹-equivariant E∞ ring spectra. Bcy N={0}∪(S¹×N_{>0});
+t∈S¹ acts on (s,n) by (t^n s,n). The augmentation sends (s,n)↦n, and cyclotomic Frobenius is induced
+by (s,n)↦(s^p,pn) into C_p homotopy fixed points. The resulting augmentation square commutes with
+z↦z^p on S[z].
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proposition
+11.3, pp. 299–300. This locator supplies thh of the sphere polynomial ring. The statement and proof
+retain the source hypotheses, maps and completion conventions; the acceptance check is: The n=0
+component is a point with trivial circle action; positive components have degree-n action.)
+
+Construction and proof. Apply THH’s cyclic bar construction to the free commutative monoid N.
+Identify cyclic bar components with circle components and their degree-n action. Apply the
+cyclotomic diagonal and augmentation to get the explicit Frobenius square.
+
+The comparison must satisfy these additional checks: The n=0 component is a point with trivial
+circle action; positive components have degree-n action.
+
+*Needs:* `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, [THH and TC of spherical group rings and loop spaces](#refinedtracemethods-rt-2-thh-spherical-group-rings), [THH is symmetric monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), `StableHomotopyKTheory:H.5:spectra/operadic-algebras`, `StableHomotopyKTheory:H.5:spectra/ring-spectrum`.
+
+<a id="refinedtracemethods-rt-6-relative-sphere-thh"></a>
+
+### Relative cyclotomic THH over S[z]
+
+For a connective E∞ S[z]-algebra A, define THH(A/S[z])=THH(A)⊗_(THH(S[z]))S[z] with its coherent
+circle action. Its cyclotomic Frobenius is the composite formed from the absolute Frobenius, the
+z↦z^p augmentation square and the lax symmetric monoidal finite-Tate functor. It is semilinear over
+the cyclotomic base S[z] with trivial circle action and Frobenius z↦z^p. Define relative TC⁻ and TP
+by circle homotopy fixed points and Tate, respectively, with the p-completion convention of the
+source.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), §11.1
+definition and Construction 11.5, pp. 299–300. This locator supplies relative cyclotomic thh over
+s[z]. The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: This is relative THH; the base S[z] itself has relative THH equal to S[z] with
+trivial circle action.)
+
+Construction and proof. Form the relative E∞ tensor product and descend the circle action. Construct
+the Frobenius via the commuting augmentation square and lax monoidal Tate map. Keep its semilinear
+base action and residual S¹/C_p identification; apply homotopy fixed points and Tate.
+
+The API exposes the following operations and characterizations.
+
+
+- `RelativeSphereThh.tensor`: Relative THH is the indicated tensor product of E∞ ring spectra.
+
+- `RelativeSphereThh.circle`: Its coherent circle action is induced before homotopy fixed points.
+
+- `RelativeSphereThh.frobenius`: Its C_p-Tate Frobenius is semilinear for z↦z^p.
+
+- `RelativeSphereThh.map`: S[z]-algebra maps induce cyclotomic relative trace maps.
+
+- `RelativeSphereThh.tcMinus`: Relative TC⁻ is p-completed homotopy fixed points and TP is p-completed circle Tate.
+
+**Checks.**
+
+
+- `RelativeSphereThh.base`: THH(S[z]/S[z])≃S[z] with trivial circle action and Frobenius z↦z^p.
+
+- `RelativeSphereThh.specializeZero`: For O_K-algebra A with z↦π, specialization z↦0 gives absolute THH(A⊗^L_(O_K)k).
+
+- `RelativeSphereThh.perfectRootBase`: After adjoining all p-power roots of z and p-completing, relative THH agrees with absolute THH on the corresponding base-changed algebra.
+
+The comparison must satisfy these additional checks: This is relative THH; the base S[z] itself has
+relative THH equal to S[z] with trivial circle action.
+
+This interface is used by [The two base changes of relative
+THH](#refinedtracemethods-rt-6-relative-thh-base-change) — The relative tensor formula and
+semilinear Frobenius supply both base changes.; [Relative evenness and acyclicity on QRSP
+covers](#refinedtracemethods-rt-6-relative-qrsp-evenness) — Relative TC⁻/TP unfold to the
+Frobenius-twisted Breuil–Kisin trace complex..
+
+*Needs:* [THH of the sphere polynomial ring](#refinedtracemethods-rt-6-sphere-polynomial-thh), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Multiplicativity of the Tate construction](#refinedtracemethods-rt-2-tate-multiplicativity), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Negative topological cyclic and periodic topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
+
+<a id="refinedtracemethods-rt-6-relative-thh-base-change"></a>
+
+### The two base changes of relative THH
+
+Let O_K be a complete mixed-characteristic DVR with perfect residue field k, π a uniformizer and
+O_K∞ the p-adic completion after adjoining all p-power roots of π. For an O_K-algebra A viewed over
+S[z] by z↦π, THH(A/S[z])⊗_(S[z])S≃THH(A⊗^L_(O_K)k), compatibly with circle and Frobenius. The
+p-completion of THH(S[z^(1/p∞)])→S[z^(1/p∞)] is an equivalence, and after this base extension the
+p-completed relative THH of A equals THH(A⊗^L_(O_K)O_K∞;Z_p).
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Lemma 11.6;
+Proposition 11.7; Corollary 11.8, p. 301. This locator supplies the two base changes of relative
+thh. The statement and proof retain the source hypotheses, maps and completion conventions; the
+acceptance check is: All base changes are derived; ordinary tensor is used only when its flatness
+hypothesis has been supplied.)
+
+Construction and proof. Use the regular-uniformizer base-change squares of E∞ rings for z=0. The
+p-completed cotangent complex of Z[z^(1/p∞)] vanishes; the imported integral HKR and THH-to-HH
+comparisons give the perfect-root-base equivalence. Apply relative THH tensor base change and the
+perfect-root-base equivalence to obtain the second comparison, including Frobenius.
+
+The comparison must satisfy these additional checks: All base changes are derived; ordinary tensor
+is used only when its flatness hypothesis has been supplied.
+
+*Needs:* [Relative cyclotomic THH over S[z]](#refinedtracemethods-rt-6-relative-sphere-thh), `DerivedDeRhamCohomology:DD.0/cotangent-complex`, [Base change and flat base change for Hochschild homology](#refinedtracemethods-rt-1-base-change), [THH relative to an E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [THH is symmetric monoidal; THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [THH relative to THH(ℤ) is Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [The cyclotomic Frobenius of THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), `AInfCohomology:AI.0`.
+
+<a id="refinedtracemethods-rt-6-relative-dvr-coefficients"></a>
+
+### The relative DVR coefficient calculation
+
+In the preceding setup put frakS=W(k)[[z]], φ(z)=z^p, and frakS^(−1)=frakS with its frakS-algebra
+structure through φ. Let E be the Eisenstein polynomial of π. Then π_*THH(O_K/S[z];Z_p)=O_K[u],
+π_*TC⁻=P(frakS^(−1),E), π_*TP=frakS^(−1)[σ±¹], and π_*THH^tC_p=O_K[π^(1/p)][σ±¹]. Here |u|=|σ|=2 and
+|v|=−2. can sends u↦Eσ,v↦σ⁻¹; Frobenius acts on coefficients by φ and sends u↦σ,v↦φ(E)σ⁻¹. The
+vertical specializations use θ^(−1):z↦π and θ̃^(−1):z↦π^(1/p).
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proposition
+11.10 and its preceding notation, pp. 302–303. This locator supplies the relative dvr coefficient
+calculation. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: The coefficient ring is frakS^(−1), not an untwisted identification of
+frakS-algebras.)
+
+Construction and proof. Use the Frobenius-twisted embedding frakS^(−1)→Ainf(O_K∞), z↦[π^flat]. Apply
+the perfectoid coefficient computation and the two relative base changes. Retain the two Fontaine
+specializations and the Frobenius-twisted scalar ring in the comparison square.
+
+The comparison must satisfy these additional checks: The coefficient ring is frakS^(−1), not an
+untwisted identification of frakS-algebras.
+
+*Needs:* [The perfectoid trace coefficient presentation](#refinedtracemethods-rt-6-uv-presentation), [The two base changes of relative THH](#refinedtracemethods-rt-6-relative-thh-base-change), [Perfectoid TC⁻ and TP with can and Frobenius](#refinedtracemethods-rt-6-perfectoid-tc-maps), `AInfCohomology:AI.0`.
+
+<a id="refinedtracemethods-rt-6-relative-qrsp-evenness"></a>
+
+### Relative evenness and acyclicity on QRSP covers
+
+For S∈QRSPerfd_(O_K), the p-completed relative THH(S/S[z]), TC⁻ and TP are even, and their even
+homotopy groups are sheaves on the relative QRSP basis with vanishing higher cohomology on every S
+in that basis. The unfolded gr⁰TC⁻≃gr⁰TP is an E∞ frakS^(−1)-algebra with semilinear Frobenius,
+(p,z)-complete. Through BS Proposition 15.7 this trace complex is the Nygaard completion of
+φ^*Δ_(A/frakS), where the relative prism and generic Nygaard completion are supplied by PR.2–3.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Proposition
+11.11 and Corollary 11.12, pp. 303–305. This locator supplies relative evenness and acyclicity on
+qrsp covers. The statement and proof retain the source hypotheses, maps and completion conventions;
+the acceptance check is: The relative trace complex corresponds to φ^*Δ before completing; omitting
+φ^* changes the statement. [Prisms and prismatic cohomology](#ref-1-bs), Proposition 15.7 and proof,
+p. 105. This locator supplies relative evenness and acyclicity on qrsp covers. The statement and
+proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The
+relative trace complex corresponds to φ^*Δ before completing; omitting φ^* changes the statement.)
+
+Construction and proof. Base change to O_K∞, apply perfectoid-base evenness and descent, and descend
+using the relative coefficient calculation. Unfold π₀ in the complete target category. Compare with
+the Frobenius pullback of the independent relative prism by BS Proposition 15.7: extend z^(1/p∞),
+use Theorem 13.1, then recognize the divided-power filtration and apply derived (p,z)-Nakayama.
+
+The comparison must satisfy these additional checks: The relative trace complex corresponds to φ^*Δ
+before completing; omitting φ^* changes the statement.
+
+*Needs:* [The relative DVR coefficient calculation](#refinedtracemethods-rt-6-relative-dvr-coefficients), [The two base changes of relative THH](#refinedtracemethods-rt-6-relative-thh-base-change), [TC⁻, TP and the trace Nygaard filtration on covers](#refinedtracemethods-rt-6-qrsp-tc-nygaard), [Trace-to-prismatic Nygaard completion](#refinedtracemethods-rt-6-trace-prismatic-comparison), `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`, `PrismaticCohomology:PR.2/derived-prismatic-cohomology`, `PrismaticCohomology:PR.2/regular-quotient-prismatic-envelope`, `PrismaticCohomology:PR.3/nygaard-completion`.
+
+<a id="refinedtracemethods-rt-6-syntomic-k-sheaf"></a>
+
+### Syntomic complexes from sheafified even K-groups
+
+For a p-quasisyntomic scheme X, n≥1 and i≥0, the finite syntomic complex Z/p^n(i)_X in D(X_et,Z/p^n)
+is the derived pushforward from the syntomic site of X to its étale site of the sheafification of
+the presheaf K_(2i)(−;Z/p^n). Here p-quasisyntomic means bounded p-power torsion and L_(R/Z)⊗^L_R
+R/p of Tor-amplitude [−1,0] on affine opens. This is Bhatt–Mathew’s announced Example 1.6, not an
+identification of the un-sheafified K-group presheaf or of the two sites.
+
+(See [Syntomic complexes and p-adic étale Tate twists](#ref-1-bm), Example 1.6, p. 2. This locator
+supplies syntomic complexes from sheafified even k-groups. The statement and proof retain the source
+hypotheses, maps and completion conventions; the acceptance check is: The sheafification precedes
+derived pushforward; replacing it by pointwise K_(2i) gives a different statement.)
+
+Construction and proof. Supply the cyclotomic-trace rigidity comparison from RT.3 and the
+finite-coefficient K-spectrum from K.4. Identify even TC sheaves and the independently supplied
+finite syntomic complexes in their stated site. Prove the passage from the quasisyntomic computation
+to the syntomic-to-étale derived pushforward and its descent. Bhatt–Mathew states this result
+without proof; the exact site-comparison input is a recorded gap.
+
+The comparison must satisfy these additional checks: The sheafification precedes derived
+pushforward; replacing it by pointwise K_(2i) gives a different statement. Weights i=0 and i=1 must
+agree with the imported constant and Kummer syntomic sheaves.
+
+*Needs:* [Syntomic complexes as graded TC](#refinedtracemethods-rt-6-syntomic-graded-tc), [The even TC sheaf in characteristic p](#refinedtracemethods-rt-6-characteristic-p-tc-sheaf), [The cyclotomic trace](#refinedtracemethods-rt-3-cyclotomic-trace), [The Dundas–Goodwillie–McCarthy theorem](#refinedtracemethods-rt-3-dgm-theorem), [K^inv is truncating](#refinedtracemethods-rt-3-kinv-truncating), `GeneralAlgebraicKTheory:K.4`, `PrismaticCohomology:PR.4`, `DerivedDeRhamCohomology:DD.5/quasisyntomic-site`, `GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`, `PrismaticCohomology:PR.4/syntomic-complex`.
+
+<a id="refinedtracemethods-rt-6-mixed-complex-map-compatibility"></a>
+
+### The mixed-complex comparison compatibility
+
+For R-linear homological mixed complexes (C,b_C,B_C),(D,b_D,B_D) with |b|=−1 and |B|=1, let f be a
+chain map commuting with B. For every n and c∈C_n,
+(f_(n−1)(b_Cc),f_(n+1)(B_Cc))=(b_D(f_nc),B_D(f_nc)). Therefore coefficientwise f commutes with b+uB
+on the direct-sum, product and Laurent totalizations supplied by RT.1, with |u|=−2. The suggested
+signature prototypes the actual chain map and degree-one maps in Mathlib; the higher
+circle-equivariant comparison requires RT.1–2.
+
+(See [Topological Hochschild homology and integral p-adic Hodge theory](#ref-1-bms), Corollary 3.4
+proof, pp. 218–219; Proposition 5.15 proof, pp. 241–242; ordinary chain-level compatibility from the
+pinned Hom.comm statement. This locator supplies the mixed-complex comparison compatibility. The
+statement and proof retain the source hypotheses, maps and completion conventions; the acceptance
+check is: Identity maps satisfy the compatibility.)
+
+Construction and proof. Use the existing chain-map commutation equality for b. Use the supplied
+B-commutation for the second component. Apply the equalities coefficientwise in the mixed-complex
+totalizations, retaining products for negative cyclic homology.
+
+The comparison must satisfy these additional checks: Identity maps satisfy the compatibility.
+Setting B=0 gives the ordinary chain-map compatibility. A chain map failing to commute with B does
+not induce this negative-cyclic comparison.
+
+*Needs:* [mathlib:ChainComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L151), [mathlib:HomologicalComplex.Hom.comm](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L222), [Mixed complexes](#refinedtracemethods-rt-1-mixed-complex), [Cyclic, negative cyclic and periodic cyclic homology](#refinedtracemethods-rt-1-cyclic-homology), [Derived category of mixed complexes](#refinedtracemethods-rt-1-derived-mixed-complex).
+
+### Examples
+
+For the perfectoid input F_p, choose ξ=p in Ainf=Z_p. The coefficient algebra for TC⁻ is
+Z_p[u,v]/(uv−p), while TP has Z_p[σ,σ⁻¹]. The canonical map sends u to pσ and v to σ⁻¹; Frobenius
+sends u to σ and v to pσ⁻¹. Inverting p before this comparison would hide their difference. On a
+one-variable smooth perfectoid-base algebra the differential class is odd, so QRSP-local evenness is
+not pointwise evenness on every input.
+
+### Dependencies
+
+Use `AInfCohomology:AI.0`, `AInfCohomology:AI.1/bockstein-reduction`,
+`AInfCohomology:AI.1/decalage-products`, `AInfCohomology:AI.1/derived-decalage`,
+`AInfCohomology:AI.1/filtered-beilinson-description`,
+`AInfCohomology:AI.1/preservation-derived-completeness`, `AInfCohomology:AI.4`,
+`DerivedDeRhamCohomology:DD.0/cotangent-complex`,
+`DerivedDeRhamCohomology:DD.0/derived-divided-powers`,
+`DerivedDeRhamCohomology:DD.1/derived-completion`,
+`DerivedDeRhamCohomology:DD.1/filtered-completion`,
+`DerivedDeRhamCohomology:DD.2/hodge-completed-derham`,
+`DerivedDeRhamCohomology:DD.2/p-completed-derham`,
+`DerivedDeRhamCohomology:DD.3/derived-cartier-graded-pieces`,
+`DerivedDeRhamCohomology:DD.3/smooth-cartier`, `DerivedDeRhamCohomology:DD.4/acrys-structure`,
+`DerivedDeRhamCohomology:DD.4/derived-de-rham-witt`, `DerivedDeRhamCohomology:DD.4/qrsp-pd-derham`,
+`DerivedDeRhamCohomology:DD.5/completed-cotangent-descent`,
+`DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site`,
+`DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings`,
+`DerivedDeRhamCohomology:DD.5/quasisyntomic-site`,
+`EnhancedDerivedSheaves:E3/kan-extensions-along-functors`,
+`EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`,
+`EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`,
+`EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`,
+`EnhancedDerivedSheaves:E5:presentability`,
+`EnhancedDerivedSheaves:E5:presentability/coherent-group-actions`,
+`EnhancedDerivedSheaves:E5:presentability/ind-completion`,
+`GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`, `GeneralAlgebraicKTheory:K.4`,
+`HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations`,
+`HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex`,
+`HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade`,
+`HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent`,
+`HabiroRings:HR.2/habiro-complete-modules`, `HabiroRings:HR.2/habiro-complete-solid-spectra`,
+`HabiroRings:HR.2/the-monoidal-structure`, `HabiroRings:HR.5/completed-base-change`,
+`HabiroRings:HR.5/the-relative-habiro-ring`, `KTheoryFiniteLocalFields:L.5`,
+`PrismaticCohomology:PR.2/derived-prismatic-cohomology`, `PrismaticCohomology:PR.2/qrsp-prism`,
+`PrismaticCohomology:PR.2/regular-quotient-prismatic-envelope`,
+`PrismaticCohomology:PR.3/bms2-comparison`, `PrismaticCohomology:PR.3/breuil-kisin-twist`,
+`PrismaticCohomology:PR.3/divided-frobenius`, `PrismaticCohomology:PR.3/nygaard-completion`,
+`PrismaticCohomology:PR.4`, `PrismaticCohomology:PR.4/syntomic-complex`,
+`PrismaticCohomology:PR.4/syntomic-connectivity`, [Base change and flat base change for Hochschild
+homology](#refinedtracemethods-rt-1-base-change), [Cyclic, negative cyclic and periodic cyclic
+homology](#refinedtracemethods-rt-1-cyclic-homology), [Derived category of mixed
+complexes](#refinedtracemethods-rt-1-derived-mixed-complex), [Shuffle and external
+products](#refinedtracemethods-rt-1-external-products), [The derived HKR
+filtration](#refinedtracemethods-rt-1-hkr-filtration), [The antisymmetrisation map and the HKR
+projection](#refinedtracemethods-rt-1-hkr-map), [Hochschild homology, derived over the
+base](#refinedtracemethods-rt-1-hochschild-homology), [Mixed
+complexes](#refinedtracemethods-rt-1-mixed-complex), [The circle norm and the T-Tate
+construction](#refinedtracemethods-rt-2-circle-tate), [Geometric realisation of cyclic objects and
+the circle action](#refinedtracemethods-rt-2-cyclic-realisation), [The cyclotomic Frobenius of
+THH](#refinedtracemethods-rt-2-cyclotomic-frobenius-thh), [Cyclotomic
+spectra](#refinedtracemethods-rt-2-cyclotomic-spectrum), [Genuine and Nikolaus–Scholze TC agree on
+bounded below spectra](#refinedtracemethods-rt-2-genuine-tc-agrees), [Homotopy orbits and homotopy
+fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [Circle and finite Tate
+constructions for HZ-module spectra](#refinedtracemethods-rt-2-hz-module-circle-tate), [Mixed
+complexes model complexes with circle
+action](#refinedtracemethods-rt-2-mixed-complexes-are-circle-modules), [The norm map and the Tate
+construction](#refinedtracemethods-rt-2-norm-map-tate), [The norm sequence for cyclic
+homology](#refinedtracemethods-rt-2-norm-sequence-hc), [THH relative to an
+E_∞-ring](#refinedtracemethods-rt-2-relative-thh), [Multiplicativity of the Tate
+construction](#refinedtracemethods-rt-2-tate-multiplicativity), [The Nikolaus–Scholze formula for
+TC](#refinedtracemethods-rt-2-tc-fibre-sequence), [Negative topological cyclic and periodic
+topological cyclic homology](#refinedtracemethods-rt-2-tc-minus-and-tp), [Topological Hochschild
+homology of an E_1-ring](#refinedtracemethods-rt-2-thh-e1-ring), [THH relative to THH(ℤ) is
+Hochschild homology](#refinedtracemethods-rt-2-thh-over-thhz), [THH and TC of spherical group rings
+and loop spaces](#refinedtracemethods-rt-2-thh-spherical-group-rings), [THH is symmetric monoidal;
+THH of E_∞-rings](#refinedtracemethods-rt-2-thh-symmetric-monoidal), [TR and genuine
+TC](#refinedtracemethods-rt-2-tr-and-genuine-tc), [The cyclotomic
+trace](#refinedtracemethods-rt-3-cyclotomic-trace), [The Dundas–Goodwillie–McCarthy
+theorem](#refinedtracemethods-rt-3-dgm-theorem), [K^inv is
+truncating](#refinedtracemethods-rt-3-kinv-truncating), [The Beilinson fibre sequence and its shift
+dictionary](#refinedtracemethods-rt-3b-beilinson-fibre-sequence), [The Beilinson fibre square (AMMN
+Corollary 3.9)](#refinedtracemethods-rt-3b-beilinson-square-ordinary), [Étale algebras lift uniquely
+to étale E_∞-algebras](#refinedtracemethods-rt-4-habiro-comparison-etale-einfty-lift), [The
+Habiro–Hodge complex from TC^{−(m)} over KU (Wagner Theorem
+5.63)](#refinedtracemethods-rt-4-habiro-comparison-habiro-comparison-theorem), [The Habiro ring of a
+number field from KU (Wagner Corollary
+6.15)](#refinedtracemethods-rt-4-habiro-comparison-number-field-habiro), [TC^{−(m)} over ku and
+twisted q-Hodge filtrations (Wagner Theorem
+5.51)](#refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison), [Compatible local
+and global spherical lifts](#refinedtracemethods-rt-4-q-hodge-compatible-spherical-lifts), [Cyclonic
+Adams lift coherence](#refinedtracemethods-rt-4-q-hodge-cyclonic-base-coherence), [Cyclonic ku and
+KU](#refinedtracemethods-rt-4-q-hodge-cyclonic-ku), [q-Hodge filtrations from THH over ku (Wagner
+Theorems 1.2 and 4.27)](#refinedtracemethods-rt-4-q-hodge-q-hodge-global), [Completeness,
+multiplicativity and the graded
+comparison](#refinedtracemethods-rt-4-q-hodge-q-hodge-multiplicativity), [Refined THH and
+TC⁻](#refinedtracemethods-rt-5-refined-traces),
+`StableHomotopyKTheory:H.5:spectra/operadic-algebras`,
+`StableHomotopyKTheory:H.5:spectra/ring-spectrum`, `StableHomotopyKTheory:H.6`,
+[mathlib:ChainComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L151),
+[mathlib:HomologicalComplex.Hom.comm](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L222),
+[mathlib:Ideal.Quotient.lift](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Defs.lean#L144),
+[mathlib:Ideal.Quotient.mk](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Defs.lean#L83),
+[mathlib:LaurentPolynomial](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L84),
+[mathlib:LaurentPolynomial.C](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L131),
+[mathlib:LaurentPolynomial.T](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Laurent.lean#L155),
+[mathlib:MvPolynomial](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Basic.lean#L82).
+
+## Layer RT.3b graded: The graded Beilinson comparison
+
+This layer constructs the graded Beilinson comparison. Each target below includes the hypotheses and
+comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-3b-graded-beilinson-square"></a>
+
+### The Beilinson fibre square on graded pieces (AMMN Theorem 6.17)
+
+Work under the following hypotheses: R p-torsion-free quasisyntomic; n ≥ 0; ℚ_p-coefficients as in
+RT.3b/qp-coefficients. R is p-complete, p-torsion free and quasisyntomic: L_{R/Z_p} has p-complete
+Tor-amplitude [0,1] homologically, and bounded p-power torsion in the general qSyn site. The RT.6
+supplier is the general site, not descent relative to one prism.
+
+Let R be a p-torsion-free quasisyntomic ring (p-complete, bounded p-power torsion, L_{R/ℤ_p} of
+p-complete Tor-amplitude in [−1, 0]; DerivedDeRhamCohomology DD.0/quasisyntomic-condition). For each
+n ≥ 0 there is a natural cartesian square in D(ℚ_p): ℚ_p(n)(R) → ℚ_p(n)(R/p) over (LΩ^{≥n}_R)_{ℚ_p}
+→ (LΩ_R)_{ℚ_p}, where ℚ_p(n) = ℤ_p(n)[1/p] is the weight-n syntomic complex (the BMS2 graded piece
+of TC, PrismaticCohomology PR.4/syntomic-complex via RefinedTraceMethods RT.6), LΩ_R is p-completed
+derived de Rham cohomology with its derived (not Hodge-completed) Hodge filtration
+(DerivedDeRhamCohomology DD.2), and the right vertical map χ_n comes from a natural ℤ_p(n)(R/p) →
+p^{−N}LΩ_R with N depending only on n. Equivalently fib(ℚ_p(n)(R) → ℚ_p(n)(R/p)) ≃
+(LΩ_R/LΩ^{≥n}_R)_{ℚ_p}[−1] (cohomological shift). Integrally cofib(ℤ_p(n)(R) → ℤ_p(n)(R/p)) is
+naturally isogenous to LΩ_R/LΩ^{≥n}_R, while for n≤p−2 the exact formula is
+fib(ℤ_p(n)(R)→ℤ_p(n)(R/p))≃fib(LΩ_R/LΩ_R^{≥n}→LΩ_{R/p}/LΩ_{R/p}^{≥n})[−1] (AMMN (56)). For R
+quasiregular semiperfectoid and n > 0, χ_n identifies ℚ_p(n)(R/p) with A_crys(R/p)^{φ = p^n}_{ℚ_p}
+(AMMN Proposition 6.18), and Proposition 6.21 classifies natural endomorphisms of ℤ_p(n) by scalar
+powers; it is not an unrestricted uniqueness theorem for maps χ_n. This is the p-torsion-free
+p-complete filtered refinement exported to PrismaticCohomology PR.7.
+
+(See [On the Beilinson fiber square](#ref-0-ammn-20), Theorem 6.17 (The Beilinson fiber square on
+graded terms), §6.3, p. 44, square (55). AMMN Theorem 6.17 with Propositions 6.18–6.21: the
+Beilinson fibre square on graded pieces for p-torsion-free quasisyntomic rings. [On the Beilinson
+fiber square](#ref-0-ammn-20), Theorem 5.1(2), §5, p. 25; proof and Construction 5.33, pp. 34–35;
+Construction 6.16 and proof of Theorem 6.17, pp. 44–45. Polynomial left Kan extension of the
+syntomic and TC filtration functors supplies the uncompleted derived de Rham factorization of the
+graded trace.)
+
+Construction and proof. On QRSP covers use the spectral reduction square and the existing RT.6
+motivic, cyclic and syntomic graded comparisons. Taking the two-degree window gives the
+Hodge-completed weight-n square. Use general quasisyntomic sheaf descent from the existing RT.6
+trace-flat-descent comparison. Factor the graded trace through uncompleted p-derived de Rham by the
+requested left Kan extension of the syntomic functor from p-completed polynomial algebras (AMMN
+Construction 6.16, Theorem 5.1 and proof of 6.17, pp. 44–45). The RT.6/ammn-filtered-interface target
+itself depends on RT.3b and cannot be an input. Use the uniform isogeny and the low-degree
+comparison of RT.3b/beilinson-fibre-sequence. Refine to w-strictly local QRSP covers so that π₋₁TC
+vanishes by the Witt Artin–Schreier calculation; the characteristic-p even-TC supplier identifies
+the window. This gives the integral reduction-fiber formula for n≤p−2. For the image of χ_n, apply
+AMMN Lemma 6.19 and Corollary 6.20 to descend the map to the characteristic-p functor. Proposition
+6.21 makes the resulting graded endomorphism a scalar power, and the weight-one nonzero check proves
+Proposition 6.18. It is not uniqueness of arbitrary maps χ_n.
+
+The comparison must satisfy these additional checks: n = 0: ℚ_p(0)(R) → ℚ_p(0)(R/p) is an
+equivalence and LΩ/LΩ^{≥0} = 0, consistent. n = 1 and R = ℤ_p: fib(ℚ_p(1)(ℤ_p) → ℚ_p(1)(𝔽_p)) ≃
+(LΩ_{ℤ_p}/LΩ^{≥1})_{ℚ_p}[−1] = ℚ_p[−1], matching H^1(ℚ_p(1)(ℤ_p)) = (ℤ_p^×)^∧_p ⊗ ℚ ≅ ℚ_p while
+ℚ_p(1)(𝔽_p) = 0.
+
+*Needs:* [The Beilinson fibre square (AMMN Corollary 3.9)](#refinedtracemethods-rt-3b-beilinson-square-ordinary), [The Beilinson fibre sequence and its shift dictionary](#refinedtracemethods-rt-3b-beilinson-fibre-sequence), `PrismaticCohomology:PR.4/syntomic-complex`, `DerivedDeRhamCohomology:DD.2/p-completed-derham`, `DerivedDeRhamCohomology:DD.0/quasisyntomic-condition`, `PrismaticCohomology:PR.2/quasisyntomic-descent`, [The BMS2 motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [Negative and periodic cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), [Syntomic complexes as graded TC](#refinedtracemethods-rt-6-syntomic-graded-tc), [The even TC sheaf in characteristic p](#refinedtracemethods-rt-6-characteristic-p-tc-sheaf), [Flat and quasisyntomic descent for trace spectra](#refinedtracemethods-rt-6-trace-flat-descent), [Polynomial extension of the graded trace](#refinedtracemethods-rt-6-uncompleted-graded-trace).
+
+### Examples
+
+For R=Z_p and n=1, LΩ_R/LΩ_R^{≥1}=Z_p. The rational reduction fiber is therefore Q_p[−1] with
+cohomological shifts. At n=0 the quotient is zero and the reduction map is a rational equivalence.
+Both cases test the uncompleted Hodge quotient and the fiber/cofiber shift.
+
+### Dependencies
+
+Use `DerivedDeRhamCohomology:DD.0/quasisyntomic-condition`,
+`DerivedDeRhamCohomology:DD.2/p-completed-derham`, `PrismaticCohomology:PR.2/quasisyntomic-descent`,
+`PrismaticCohomology:PR.4/syntomic-complex`, [The Beilinson fibre sequence and its shift
+dictionary](#refinedtracemethods-rt-3b-beilinson-fibre-sequence), [The Beilinson fibre square (AMMN
+Corollary 3.9)](#refinedtracemethods-rt-3b-beilinson-square-ordinary), [The even TC sheaf in
+characteristic p](#refinedtracemethods-rt-6-characteristic-p-tc-sheaf), [Negative and periodic
+cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), [The BMS2
+motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [Syntomic complexes as graded
+TC](#refinedtracemethods-rt-6-syntomic-graded-tc), [Flat and quasisyntomic descent for trace
+spectra](#refinedtracemethods-rt-6-trace-flat-descent), [Polynomial extension of the graded
+trace](#refinedtracemethods-rt-6-uncompleted-graded-trace).
+
+## Layer RT.6 filtered interface: Exporting the graded trace comparison
+
+This layer exports the graded trace comparison. Each target below includes the
+hypotheses and comparison maps that its consumers require.
+
+<a id="refinedtracemethods-rt-6-ammn-filtered-interface"></a>
+
+### The filtered trace interface for the Beilinson bridge
+
+For R∈qSyn_(Z_p), in particular p-completely flat over Z_p with the quasisyntomic bounds, the RT.6
+motivic filtrations, the cyclic Hodge filtration and the trace maps provide the graded natural
+comparison used by RT.3b in AMMN Theorem 6.17. On relative QRSP covers, τ_[2i−1,2i] of the
+rational-after-p-completion TC/HC⁻/HP square is its weight-i square. Unfolding and left Kan
+extension from p-completed polynomial algebras factor the Hodge-completed comparison through
+uncompleted LΩ_R and LΩ_R^{≥i}. The pullback theorem and its integral range i≤p−2 are imported from
+RT.3b; RT.6 supplies its filtration and map-level compatibility, not a second Beilinson theorem.
+
+(See [On the Beilinson fiber square](#ref-1-ammn), Theorem 6.17 and proof, pp. 44–45. This locator
+supplies the filtered trace interface for the beilinson bridge. The statement and proof retain the
+source hypotheses, maps and completion conventions; the acceptance check is: No square for arbitrary
+rings with uncontrolled p-torsion is asserted.)
+
+Construction and proof. Use QRSP evenness of HC⁻ and HP to identify the two-degree truncation with
+the stated graded terms, after p-completion and then inverting p. Use quasisyntomic unfolding and
+the finite-filtration map compatibility. Use the source’s left Kan extension of Z_p(i) from
+p-completed polynomial algebras to remove Hodge completion in the target; provide this natural
+factorization to RT.3b.
+
+The comparison must satisfy these additional checks: No square for arbitrary rings with uncontrolled
+p-torsion is asserted. The bridge is independent of PR.7 and feeds its F-crystal application.
+
+*Needs:* [Negative and periodic cyclic homology from derived de Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), [Syntomic complexes as graded TC](#refinedtracemethods-rt-6-syntomic-graded-tc), [The BMS2 motivic filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [The even TC sheaf in characteristic p](#refinedtracemethods-rt-6-characteristic-p-tc-sheaf), [ℤ_p- and ℚ_p-coefficients: p-complete first, then invert p](#refinedtracemethods-rt-3b-qp-coefficients), [The Beilinson fibre sequence and its shift dictionary](#refinedtracemethods-rt-3b-beilinson-fibre-sequence), [The Beilinson fibre square on graded pieces (AMMN Theorem 6.17)](#refinedtracemethods-rt-3b-graded-beilinson-square), `DerivedDeRhamCohomology:DD.2/p-completed-derham`, `DerivedDeRhamCohomology:DD.2/hodge-completed-derham`, `DerivedDeRhamCohomology:DD.2/hodge-graded-pieces`.
+
+### Examples
+
+On a relative QRSP cover, the two-degree Postnikov window in degrees 2i−1 and 2i yields the weight-i
+trace comparison. Descending it and applying the polynomial extension recovers the uncompleted map
+used by the graded square. The square is an output of those inputs; it is used here only to export
+the finished filtered comparison.
+
+### Dependencies
+
+Use `DerivedDeRhamCohomology:DD.2/hodge-completed-derham`,
+`DerivedDeRhamCohomology:DD.2/hodge-graded-pieces`,
+`DerivedDeRhamCohomology:DD.2/p-completed-derham`, [The Beilinson fibre sequence and its shift
+dictionary](#refinedtracemethods-rt-3b-beilinson-fibre-sequence), [The Beilinson fibre square on
+graded pieces (AMMN Theorem 6.17)](#refinedtracemethods-rt-3b-graded-beilinson-square), [ℤ_p- and
+ℚ_p-coefficients: p-complete first, then invert p](#refinedtracemethods-rt-3b-qp-coefficients), [The
+even TC sheaf in characteristic p](#refinedtracemethods-rt-6-characteristic-p-tc-sheaf), [Negative
+and periodic cyclic homology from derived de
+Rham](#refinedtracemethods-rt-6-cyclic-derham-comparison), [The BMS2 motivic
+filtrations](#refinedtracemethods-rt-6-motivic-filtrations), [Syntomic complexes as graded
+TC](#refinedtracemethods-rt-6-syntomic-graded-tc).
+
+## Downstream consumers
+
+The relative K-theory and finite-local-field roadmaps use the trace, classical TR and de Rham–Witt
+interfaces. PrismaticCohomology PR.7 consumes the p-torsion-free graded Beilinson square and its
+uniform denominator bounds. The trace comparison with AΩ uses AI.4 as input and feeds the geometric
+applications. HabiroCohomologyFoundations and HabiroRings supply the arithmetic targets, while the
+periodic comparison and refined localizing invariant computations provide their spectral
+interpretation. None of those consumers is an input to its own comparison theorem.
+
+## Reference conventions and corrections
+
+The following corrections specify the formulas used above. Edition and page locators distinguish
+published text from preprints. They are safeguards for the mathematical statements and do not change
+the division of ownership of the constructions.
+
+
+### On topological cyclic homology: Proposition B.19(i), Appendix B, printed p. 394 (Acta Math. 221; also arXiv v2)
+
+C^{BT}: the realisation of a cyclic object (via Proposition B.5 and Lemma B.18) carries a T-action,
+so the targets are C^{BT}; in (ii) 'paracyclic' should be 'cyclic'. Proposition B.5 constructs the
+T-action on realisations of cyclic objects; BZ-actions arise for paracyclic objects, and the proof
+of B.19 passes through Lemma B.18 to T.
+
+### On topological cyclic homology: Proof of Lemma IV.4.12, printed p. 362 (Acta Math. 221; also arXiv v2)
+
+HZ^{hT}; the canonical base-change map has direction X^{hT} → X^{hT} ⊗_{HZ^{hT}} HZ^{tT}, with
+source and target exchanged relative to the printed display. The lemma concerns T-equivariant
+HZ-modules; the homotopy fixed points in the argument are for the circle T.
+
+### On topological cyclic homology: Proof of Proposition II.2.12, printed p. 253 (Acta Math. 221; also arXiv v2)
+
+H′/H, and L(R^{d_V}, V). The proposition composes Φ^{H′/H} with Φ^H for H ⊆ H′; the linear-isometry
+space needs its target representation V.
+
+### On the Beilinson fiber square: Definition 2.14, p. 11 (arXiv 2003.12541v2)
+
+tr_crys = β ∘ tr. The map tr has source K and target TC; β has source TC and target HP. The typed
+composite is β∘tr.
+
+### On the Beilinson fiber square: Theorem F, p. 6, against Theorem 6.22, p. 46 (arXiv 2003.12541v2)
+
+Theorem F should assume R ∈ qSyn_{Z_p} p-torsion-free (as Theorem 6.22, which proves it, does).
+Theorem 6.22 has narrower hypotheses than the introductory assertion. This observation supplies
+neither a counterexample nor a proof of the proposed restriction. Corollary 6.23 concerns rational
+left Kan extension.
+
+### On the Beilinson fiber square: Theorem E and the preceding paragraph, p. 5 (arXiv 2003.12541v2)
+
+K^cts_j(X; Q). The degree of the class does not change under lifting; Theorem 4.14, which proves it,
+uses one index consistently.
+
+### Topological Hochschild homology and integral p-adic Hodge theory: Remark 4.14, p. 21 (arXiv 1802.03261v2)
+
+(∧^i L_{B/A}[i])^∧_p. The graded pieces of the HKR filtration of HH(B/A) are exterior powers of
+L_{B/A}.
+
+### Purity in chromatically localized algebraic K-theory: Remark 3.11, p. 16 (arXiv 2001.10425v5)
+
+ΣM (the stable K-theory of S with coefficients in M is ΣTHH(S; M) ≃ ΣM). The Goodwillie derivative
+of M ↦ K(A ⊕ M) is ΣTHH(A, M) (Raskin Theorem 2.12.1(2)); in degree one K_1(A ⊕ M, M) contains 1 +
+M, matching THH_0. The shift does not affect the T(n)-acyclicity argument.
+
+### K-theory and topological cyclic homology of henselian pairs: Theorem 4.33, p. 35 (arXiv 1803.10897v2)
+
+Cortiñas, 'The obstruction to excision in K-theory and in cyclic homology', Invent. Math. 164
+(2006). The KABI theorem (rational excision obstruction equals that of HC) is the 2006 paper; [19]
+proves a different result.
+
+### Uniqueness of the multiplicative cyclotomic trace: Introduction, p. 2 (arXiv 1103.3923v3)
+
+see Theorem 1.12 (Corollary 1.15 concerns K(Perf(C))). Theorem 1.12 is the uniqueness statement for
+E_∞-maps K → TC^n.
+
+### A universal characterization of higher algebraic K-theory: Lemma 10.5, p. 74 (arXiv 1001.2282v4)
+
+of additive invariants (K here is connective K-theory, additive but not localizing, as BGT state on
+p. 4). BGT p. 4: connective K-theory is additive but not localizing.
+
+### q-de Rham cohomology and topological Hochschild homology over ku: Proof of Corollary 6.15, p. 86 (arXiv 2510.06057v1)
+
+[Wag25, Corollary 3.13] (arXiv 2510.04782, both v1 and v2; 3.12 is an Example). Checked in both
+versions of the cited paper.
+
+### q-de Rham cohomology and topological Hochschild homology over ku: Theorem 4.8, p. 39 (arXiv 2510.06057v1); same slip in Lemmas 4.10, 4.13 and 4.25(a)
+
+ψ^0_R from 4.7 (4.6 is 'The comparison map II'). ψ^0_R is introduced in paragraph 4.7.
+
+### q-de Rham cohomology and topological Hochschild homology over ku: Theorem 2.20, p. 22 (arXiv 2510.06057v1)
+
+Define the stated “solid homologically flat” condition and justify the solid-even-flat step used in
+the proof. A sufficient corrected hypothesis is the appropriate solid even flatness of 2.6; this
+replacement does not establish equivalence of the undefined condition with that replacement.
+'homologically flat' is not defined in the paper; the proof uses solid even flatness.
+
+### Vector Bundles and K-Theory: Proof of Proposition 4.2, p. 110 (Version 2.2, November 2017)
+
+Proposition 3.3 (p. 80). There is no Proposition 2.3 in version 2.2 (2.3 is Corollary 2.3 on K(S²));
+the cohomological splitting principle is Proposition 3.3.
+
+### Cyclotomic synthetic spectra: arXiv:2411.19929v1, Proposition 2.67, p. 18; compare Construction 2.63, p. 17
+
+The claimed structure is lax symmetric monoidal, as constructed in its proof. For n=1 the norm is
+the identity (Construction 2.63), so the Tate cofiber is zero. A strong symmetric monoidal
+endofunctor would preserve the nonzero synthetic unit; the zero Tate functor does not. The proof
+constructs a lax structure.
+
+### On topological cyclic homology: Published Acta Math. 221 (2018), proof of Lemma II.2.11, p. 252
+
+Use the G-fixed subspace V^G; it is zero for the reduced regular representations used there. The
+lemma concerns Φ^G, and the argument tests representation spheres with zero G-fixed subspace. The
+undefined H is an index slip, not a new hypothesis on the geometric fixed-point functor.
+
+### On the Dundas-Goodwillie-McCarthy theorem: arXiv:1807.06709v1, Theorem 2.12.2(1), p. 11, against Definition 2.11.2, p. 10, and §4.11, p. 30; same wording in current author PDF
+
+Apply pseudo-extensibility to M ↦ fib(TC(A⊕M)→TC(A)), the reduced functor used in §4.11. Definition
+2.11.2 applies only to reduced functors. At M=0 the printed functor is TC(A), which is nonzero for
+A=F_p (π₀ is ℤ_p). The proof in §4.11 explicitly proves the property for TC_red, so its intended
+scope is clear.
+
+### On the p-typical curves in Quillen’s K-theory: Author manuscript dated 23 February 1996, proof of Theorem B, p. 24 (not journal pagination)
+
+Its target is the Y-indexed Čech complex associated to the morphism X_r→Y_r introduced immediately
+before the display. The preceding maps have source X_r and target Y_r. The proof then compares their
+two acyclic Čech complexes. Repeating X on the right of the displayed chain map is a label slip.
+
+### On the Beilinson fiber square: arXiv:2003.12541v2, proof of Proposition 3.1, p. 15, Cartier-module lifting argument
+
+The Verschiebung commutator is Vg(z)−g(Vz). The term must map into the kernel of a V-compatible
+quotient map. With identity lift/quotient on W(F_p)=ℤ_p and z=1, the printed term is p−1, while the
+kernel is zero; the V-commutator vanishes as required.
+
+### q-de Rham cohomology and topological Hochschild homology over ku: arXiv:2510.06057v1, Lemma 3.13, p. 28; current author version dated 4 February 2026, same lemma, p. 29
+
+With the displayed E₂^{r,s} convention the target degree is r+2s. For A=R=ℤ_p and k=ku_p, HH(R/A) is
+concentrated in degree zero. Its r=0,s=1 coefficient is the nonzero Bott class in π₂ku_p, whereas
+π₁ku_p vanishes. The proof’s shearing construction places that coefficient in degree 2s.
+
+### q-de Rham cohomology and topological Hochschild homology over ku: arXiv:2510.06057v1, proof of Corollary 3.17, p. 31; current author version, p. 32
+
+The first case is 3.2(E₁); the second is 3.2(E₂), treated using Proposition 3.11. The first argument
+uses the supplied R_∞^• even resolution of (E₁). The alternative constructs the polynomial
+resolution through Proposition 3.11, as needed for (E₂). The duplicated case label obscures this
+distinction.
+
+### q-de Rham cohomology and topological Hochschild homology over ku: arXiv:2510.06057v1, proof of Theorem 5.51(c), p. 78; current author version, p. 79; compare Lemmas 5.56–5.57
+
+The required comparison is Lemma 5.57; Lemma 5.56 computes the geometric fixed-point term used
+inside its proof. The product at this step consists of genuine TC^{−(p^α)} factors. Lemma 5.57 has
+exactly that source and the twisted q-Hodge target; Lemma 5.56 addresses a different corner of the
+pullback.
+
+### Spherochromatism in representation theory and arithmetic geometry (Ph.D. thesis, Harvard University, April 2025): Current thesis PDF, Remark 6.4.21, printed p. 243 (PDF p. 252), preceding long exact sequence
+
+The injection lands in π₁G_m, following the vanishing π₂G_m term in the displayed long exact
+sequence. The displayed sequence has consecutive terms π₂G_m→π₁μ_p→π₁G_m, and the proof says
+π₂G_m=0. Exactness therefore gives injectivity of the second arrow. It cannot give the stated
+injection into the vanishing preceding group.
+
+### Topological Hochschild homology and integral p-adic Hodge theory: Proof of Theorem 7.1, p. 255
+
+(Γ^i_S M)^∧_p M = π_1(L_{S/R})^∧_p is an S-module and the identification just before uses Γ^i_S M
+(Lemma 5.14); the statement of Theorem 7.1(3) and the next paragraph also use Γ^i_S.
+
+### Topological Hochschild homology and integral p-adic Hodge theory: Theorem 7.2(2), p. 255
+
+Use the homotopy fixed point and Tate spectral sequences of S to filter C_S; replace the base-ring
+label R by S in both trace arguments. The filtration on π_0 of TC^-(S; Z_p) and TP(S; Z_p) comes
+from their own spectral sequences, whose degeneration is part (1); the spectral sequences for the
+perfectoid base R filter π_0TC^-(R; Z_p) = A_inf(R), not Δ̂_S.
+
+### Topological Hochschild homology and integral p-adic Hodge theory: §7.4, first paragraph, p. 261
+
+Z_p(i)(A) := gr^i TC(A; Z_p)[−2i] The weight must match the shift [−2i] and the right-hand side;
+Theorem 1.12(5) defines Z_p(n) = gr^n TC[−2n].
+
+### Topological Hochschild homology and integral p-adic Hodge theory: Proof of Theorem 9.6, 'Lifting the almost comparison map', p. 288
+
+an honest map d_S : Δ_S → AΩ_S The map is indexed by S ∈ qrsPerfd^proj_{O_C}, and the next sentence
+and the unfolding d_A call it d_S; no R occurs in this step.
+
+### Topological Hochschild homology and integral p-adic Hodge theory: §11.2, paragraph before Proposition 11.10, p. 302
+
+the inclusion 𝔖 ↪ A_inf(O_{K_∞}) fixed earlier Notation 11.1 embeds 𝔖 in A_inf(O_{K_∞}) (or A_inf);
+O_K is not perfectoid, and A_inf(O_K) is not the ring used anywhere in §11.
+
+### Topological Hochschild homology and integral p-adic Hodge theory: Published DOI PDF, proof of Lemma 9.4, p. 285; text and page image checked 9 October 2026
+
+The sequences lie in ∏_(i∈I) O_C. The preceding line defines N=∏ O_C and M/ξ is a completed free
+O_C-module. The mixed-characteristic valuative argument uses p in O_C. The page image of the
+published DOI PDF still prints the flat superscript.
+
+### q-Hodge complexes and refined TC⁻: arXiv:2410.23115v4, Definition 1.1(b), p. 2
+
+The classifier is 1 → X_n^∨ ⊗ X_(n+1). The forward transition has source X_n and target X_(n+1).
+Evaluation of the printed classifier induces X_(n+1) → X_n, the reverse direction. Definition 2.1 in
+the same paper gives the correctly ordered classifier for f:X→Y. Use the body definition.
+
+### q-Hodge complexes and refined TC⁻: arXiv:2410.23115v4, proof of Corollary 3.13, p. 36, sentence after the displayed trace-class classifier; text and page image checked 9 October 2026
+
+Use the filtered Hodge-completed derived q-de Rham source for Z/m³ relative to Z, with the same
+global base as the target. The corollary and preceding displayed classifier use the global
+Z[β][[t]]-algebra and both finite complexes relative to Z. Here m is any high-powered integer, with
+no fixed prime p. The Z_p base label introduces an unspecified prime and changes the source of the
+transition.
+
+### Cartier modules and cyclotomic spectra: arXiv:1809.01714v2, construction of the map ϑ before Proposition 3.8, p. 19, and Remark 3.9, p. 20 (the same text in v1)
+
+Both places mean the defect map gV_M−V_N g_{hC_p}:M_{hC_p}→N, as displayed just before on p. 19. N
+is the target topological Cartier module and g:M→N the map under consideration; no object n or map f
+occurs in the construction, and only V_N:N_{hC_p}→N and g_{hC_p} make the composite typecheck.
+
+## References
+
+<a id="ref-0-ammn-20"></a>
+
+- [On the Beilinson fiber square](https://arxiv.org/pdf/2003.12541v2). Benjamin Antieau, Akhil Mathew, Matthew Morrow, Thomas Nikolaus. arXiv:2003.12541v2 (29 Sep 2021); numbering checked against v1 (Corollary 3.9 exists only in v2)
+
+<a id="ref-0-bgt-13"></a>
+
+- [A universal characterization of higher algebraic K-theory](https://arxiv.org/abs/1001.2282v4). Andrew J. Blumberg, David Gepner, Gonçalo Tabuada. arXiv:1001.2282v4 (5 Feb 2013); published Geom. Topol. 17 (2013) 733–838
+
+<a id="ref-0-bgt-14"></a>
+
+- [Uniqueness of the multiplicative cyclotomic trace](https://arxiv.org/abs/1103.3923v3). Andrew J. Blumberg, David Gepner, Gonçalo Tabuada. arXiv:1103.3923v3 (1 Jul 2015)
+
+<a id="ref-0-blumberg-mandell-12"></a>
+
+- [Localization theorems in topological Hochschild homology and topological cyclic homology](https://arxiv.org/abs/0802.3938v4). Andrew J. Blumberg, Michael A. Mandell. arXiv:0802.3938v4 (24 May 2012); published Geom. Topol. 16 (2012) 1053–1120
+
+<a id="ref-0-bms2-19"></a>
+
+- [Topological Hochschild homology and integral p-adic Hodge theory](https://arxiv.org/pdf/1802.03261). Bhargav Bhatt, Matthew Morrow, Peter Scholze. arXiv:1802.03261v2 (9 Apr 2019); published Publ. Math. IHÉS 129 (2019) 199–310; arXiv pagination used
+
+<a id="ref-0-cmm-21"></a>
+
+- [K-theory and topological cyclic homology of henselian pairs](https://arxiv.org/abs/1803.10897v2). Dustin Clausen, Akhil Mathew, Matthew Morrow. arXiv:1803.10897v2 (20 Jul 2020); published J. Amer. Math. Soc. 34 (2021) 411–473
+
+<a id="ref-0-cortinas-06"></a>
+
+- [The obstruction to excision in K-theory and in cyclic homology](https://arxiv.org/abs/math/0111096v5). Guillermo Cortiñas. arXiv:math/0111096v5 (3 Oct 2005); published Invent. Math. 164 (2006) 143–173
+
+<a id="ref-0-devalapurkar-raksit-25"></a>
+
+- [THH(Z) and the image of J](https://arxiv.org/abs/2505.02218). Sanath K. Devalapurkar, Arpon Raksit. arXiv:2505.02218v2 (20 Jul 2026)
+
+<a id="ref-0-devalapurkar-thesis"></a>
+
+- [Spherochromatism in representation theory and arithmetic geometry (Ph.D. thesis, Harvard University, April 2025)](https://sanathdevalapurkar.github.io/files/thesis.pdf). Sanath Devalapurkar. PhD thesis, Harvard University (PDF from the author's page, version of 4 Sep 2026); printed page numbers
+
+<a id="ref-0-dundas-97"></a>
+
+- [Relative K-theory and topological cyclic homology](https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6553-11511_2006_Article_BF02392744.pdf). Bjørn Ian Dundas. Acta Math. 179 (1997) 223–242 (published scan)
+
+<a id="ref-0-gepner-snaith-09"></a>
+
+- [On the motivic spectra representing algebraic cobordism and algebraic K-theory](https://arxiv.org/pdf/0712.2817). David Gepner, Victor Snaith. arXiv:0712.2817v3 (27 May 2010); published Doc. Math. 14 (2009) 359–396
+
+<a id="ref-0-ginzburg-05"></a>
+
+- [Lectures on noncommutative geometry](https://arxiv.org/pdf/math/0506603). Victor Ginzburg. arXiv:math/0506603v1 (29 Jun 2005)
+
+<a id="ref-0-hatcher-vbkt"></a>
+
+- [Vector Bundles and K-Theory](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf). Allen Hatcher. Version 2.2 (November 2017); printed page numbers
+
+<a id="ref-0-hesselholt-nikolaus-19"></a>
+
+- [Topological cyclic homology (chapter in Handbook of Homotopy Theory)](https://arxiv.org/abs/1905.08984v1). Lars Hesselholt, Thomas Nikolaus. arXiv:1905.08984v1 (22 May 2019); Handbook of Homotopy Theory (2020)
+
+<a id="ref-0-hkr-62"></a>
+
+- [Differential forms on regular affine algebras](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/HKR62.pdf). G. Hochschild, Bertram Kostant, Alex Rosenberg. Trans. Amer. Math. Soc. 102 (1962) 383–408 (published scan)
+
+<a id="ref-0-hoyois-15"></a>
+
+- [The homotopy fixed points of the circle action on Hochschild homology](https://arxiv.org/pdf/1506.07123). Marc Hoyois. arXiv:1506.07123v2 (21 Apr 2018)
+
+<a id="ref-0-hrw-22"></a>
+
+- [A motivic filtration on the topological cyclic homology of commutative ring spectra](https://arxiv.org/abs/2206.11208). Jeremy Hahn, Arpon Raksit, Dylan Wilson. arXiv:2206.11208v3 (19 Oct 2025)
+
+<a id="ref-0-land-tamme-19"></a>
+
+- [On the K-theory of pullbacks](https://arxiv.org/abs/1808.05559v3). Markus Land, Georg Tamme. arXiv:1808.05559v3 (8 Nov 2019); published Ann. of Math. 190 (2019) 877–930
+
+<a id="ref-0-lmmt-24"></a>
+
+- [Purity in chromatically localized algebraic K-theory](https://arxiv.org/abs/2001.10425v5). Markus Land, Akhil Mathew, Lennart Meier, Georg Tamme. arXiv:2001.10425v5 (18 Dec 2023); published J. Amer. Math. Soc. (2024)
+
+<a id="ref-0-loday-quillen-84"></a>
+
+- [Cyclic homology and the Lie algebra homology of matrices](https://gdz.sub.uni-goettingen.de/download/pdf/PPN358147735_0059/LOG_0035.pdf). Jean-Louis Loday, Daniel Quillen. Comment. Math. Helv. 59 (1984) 565–591 (published scan)
+
+<a id="ref-0-lurie-ec2"></a>
+
+- [Elliptic Cohomology II: Orientations](https://www.math.ias.edu/~lurie/papers/Elliptic-II.pdf). Jacob Lurie. Version of 26 April 2018 (author's page)
+
+<a id="ref-0-lurie-ha"></a>
+
+- [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf). Jacob Lurie. Version of 18 September 2017 (author's page)
+
+<a id="ref-0-may-concise"></a>
+
+- [A Concise Course in Algebraic Topology](https://www.math.uchicago.edu/~may/CONCISE/ConciseRevised.pdf). J. P. May. Revised author's PDF of the 1999 University of Chicago Press edition
+
+<a id="ref-0-mccarthy-97"></a>
+
+- [Relative algebraic K-theory and topological cyclic homology](https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6552-11511_2006_Article_BF02392743.pdf). Randy McCarthy. Acta Math. 179 (1997) 197–222 (published scan)
+
+<a id="ref-0-nikolaus-scholze-18"></a>
+
+- [On topological cyclic homology](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf). Thomas Nikolaus, Peter Scholze. Acta Math. 221 (2018) 203–409 (published version; printed pages), compared with arXiv:1707.01799v2
+
+<a id="ref-0-pstragowski-23"></a>
+
+- [Perfect even modules and the even filtration](https://arxiv.org/abs/2304.04685). Piotr Pstrągowski. arXiv:2304.04685v2 (24 Oct 2024)
+
+<a id="ref-0-raskin-18"></a>
+
+- [On the Dundas-Goodwillie-McCarthy theorem](https://arxiv.org/abs/1807.06709v1). Sam Raskin. arXiv:1807.06709v1 (17 Jul 2018)
+
+<a id="ref-0-wagner-habiro-25"></a>
+
+- [q-Hodge complexes over the Habiro ring](https://arxiv.org/abs/2510.04782). Ferdinand Wagner. arXiv:2510.04782v2 (8 Oct 2025); Corollary 3.13 numbering identical in v1
+
+<a id="ref-0-wagner-ku-25"></a>
+
+- [q-de Rham cohomology and topological Hochschild homology over ku](https://arxiv.org/abs/2510.06057). Ferdinand Wagner. arXiv:2510.06057v1 (7 Oct 2025)
+
+<a id="ref-0-weibel-geller-91"></a>
+
+- [Étale descent for Hochschild and cyclic homology](https://gdz.sub.uni-goettingen.de/download/pdf/PPN358147735_0066/LOG_0026.pdf). Charles A. Weibel, Susan C. Geller. Comment. Math. Helv. 66 (1991) 368–388 (published scan)
+
+<a id="ref-0-antieau-riggenbach-24"></a>
+
+- [Cyclotomic synthetic spectra](https://arxiv.org/pdf/2411.19929v1). Benjamin Antieau and Noah Riggenbach. arXiv:2411.19929v1 (29 November 2024)
+
+<a id="ref-0-keller-cyclic-96"></a>
+
+- [Invariance and localization for cyclic homology of DG algebras](https://webusers.imj-prg.fr/~bernhard.keller/publ/ilc.pdf). Bernhard Keller. Author manuscript dated 13 May 1996
+
+<a id="ref-0-bauval-cyclic-16"></a>
+
+- [Théorème de Eilenberg–Zilber en homologie cyclique entière](https://arxiv.org/pdf/1611.08437v1). Anne Bauval. arXiv:1611.08437v1 (25 November 2016; 1998 manuscript)
+
+<a id="ref-0-hesselholt-96"></a>
+
+- [On the p-typical curves in Quillen’s K-theory](https://math.mit.edu/~larsh/papers/005/acta.pdf). Lars Hesselholt. Author’s manuscript, 23 February 1996; published Acta Math. 177 (1996), 1–53
+
+<a id="ref-1-mw"></a>
+
+- [q-Hodge complexes and refined TC⁻](https://arxiv.org/pdf/2410.23115v4). Samuel Meyer and Ferdinand Wagner. arXiv:2410.23115v4, 8 October 2025
+
+<a id="ref-1-efimov"></a>
+
+- [Rigidity of the category of localizing motives](https://arxiv.org/pdf/2510.17010v1). Alexander I. Efimov. arXiv:2510.17010v1, 19 October 2025
+
+<a id="ref-1-bms"></a>
+
+- [Topological Hochschild homology and integral p-adic Hodge theory](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf). Bhargav Bhatt, Matthew Morrow and Peter Scholze. Published version, Publ. Math. IHÉS 129 (2019), 199–310, DOI 10.1007/s10240-019-00106-9
+
+<a id="ref-1-bm"></a>
+
+- [Syntomic complexes and p-adic étale Tate twists](https://arxiv.org/pdf/2202.04818v2). Bhargav Bhatt and Akhil Mathew. arXiv:2202.04818v2, 1 December 2022; Forum Math. Pi 11 (2023), e1
+
+<a id="ref-1-bgt"></a>
+
+- [A universal characterization of higher algebraic K-theory](https://arxiv.org/pdf/1001.2282v4). Andrew J. Blumberg, David Gepner and Gonçalo Tabuada. arXiv:1001.2282v4, 5 February 2013
+
+<a id="ref-1-wagner"></a>
+
+- [q-de Rham cohomology and topological Hochschild homology over ku](https://arxiv.org/pdf/2510.06057v1). Ferdinand Wagner. arXiv:2510.06057v1, 7 October 2025
+
+<a id="ref-1-scholze"></a>
+
+- [Berkovich Motives](https://arxiv.org/pdf/2412.03382v3). Peter Scholze. arXiv:2412.03382v3, 22 January 2026; J. Amer. Math. Soc. 39 (2026), 697–764
+
+<a id="ref-1-continuous"></a>
+
+- [K-theory and localizing invariants of large categories](https://arxiv.org/pdf/2405.12169v4). Alexander I. Efimov. arXiv:2405.12169v4, 5 October 2026
+
+<a id="ref-1-bs"></a>
+
+- [Prisms and prismatic cohomology](https://arxiv.org/pdf/1905.08229v4). Bhargav Bhatt and Peter Scholze. arXiv:1905.08229v4, 12 January 2022
+
+<a id="ref-1-ammn"></a>
+
+- [On the Beilinson fiber square](https://arxiv.org/pdf/2003.12541v2). Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus. arXiv:2003.12541v2, 29 September 2021
+
+<a id="ref-2-ammn-20"></a>
+
+- [On the Beilinson fiber square](https://arxiv.org/pdf/2003.12541v2). Benjamin Antieau, Akhil Mathew, Matthew Morrow, Thomas Nikolaus. arXiv:2003.12541v2 (29 Sep 2021); numbering checked against v1 (Corollary 3.9 exists only in v2)
+
+<a id="ref-2-antieau-nikolaus-21"></a>
+
+- [Cartier modules and cyclotomic spectra](https://arxiv.org/pdf/1809.01714v2). Benjamin Antieau and Thomas Nikolaus. arXiv:1809.01714v2, 12 January 2020; final journal version JAMS 34 (2021), 1–78. Locators here use the arXiv v2 printed pages.

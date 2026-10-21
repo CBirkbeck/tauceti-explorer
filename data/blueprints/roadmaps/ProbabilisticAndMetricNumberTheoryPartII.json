@@ -1,0 +1,193 @@
+{
+  "id": "ProbabilisticAndMetricNumberTheoryPartII",
+  "title": "Probabilistic, metric and ergodic number theory, Part II",
+  "area": "analytic",
+  "parent": "ProbabilisticAndMetricNumberTheory",
+  "summary": "This continuation starts after PM.4. It plans countable-branch transfer operators, their spectral data and uniform renewal counting on the ordered projective simplex. The end result is a positive C¹ leading function B and a unique exponent β with N(w,r)∼B(w)e^{βr} uniformly in w, together with its conformal-measure characterization. All nodes are planning targets, not implementation claims.",
+  "readme": "This continuation starts after PM.4. It plans countable-branch transfer operators, their spectral data and uniform renewal counting on the ordered projective simplex. The end result is a positive C¹ leading function B and a unique exponent β with N(w,r)∼B(w)e^{βr} uniformly in w, together with its conformal-measure characterization. All nodes are planning targets, not implementation claims.\n\nConventions: n≥3; coordinate subscripts in the mathematical statements start at 1. Δ has affine dimension n−2 and w_n=1 is a homogeneous placeholder. Norms of derivatives are real Fréchet operator norms. C¹ is built in the affine span with the sum of value and derivative sup norms. Complex weights always mean exp(−s log q) with real q>0. Chronological finite words and outer-prefix infinite codes have their orders stated separately. Counts include the empty word and distinguish semigroup elements, even at a boundary point with coinciding orbit images. Time is a real variable; N vanishes at negative times.\n\nThe exponent is obtained from pressure without arithmetic counting. Markoff-Hurwitz nonlinear comparison, Baragar identification and exceptional integral orbits belong to ArithmeticDynamicsPartII. No Hausdorff-dimension conclusion is made. Generic scalar Delange theory is imported from ArithmeticDirichletSeriesPartII, while this roadmap owns the uniform parameter adapter. PM.4 supplies base Gauss dynamics and its density, not the complex parameter family or its C¹ spectral theorem.",
+  "prerequisites": [
+    "ProbabilisticAndMetricNumberTheory",
+    "ArithmeticDirichletSeriesPartII",
+    "tauceti:TauCetiRoadmap/OptimalTransport",
+    "tauceti:TauCetiRoadmap/DifferentialGeometry"
+  ],
+  "stages": [
+    {
+      "key": "TO.0",
+      "title": "Affine carriers and branch counting",
+      "description": "**Ordered projective simplex**. For an integer n≥3 let H_n be the nonzero nonnegative ordered tuples y₁≤⋯≤y_n with Σ_{i<n}y_i=y_n. Its positive-ray quotient is identified with Δ_n={0≤w₁≤⋯≤w_{n−1}, Σw_i=1} by w_i=y_i/y_n. The affine ambient space has dimension n−2; write w_n=1 only as a homogeneous placeholder. H_n is not itself a vector space. The vectors e_i+e_n form a basis of its linear span.\n\n**Accelerated projective branches**. For 1≤i≤n−1 put γ_i(y)=(y₁,…,ŷ_i,…,y_n,Σ_{k≠i}y_k), where the sum includes k=n. For a=(A,j)∈ℕ×{1,…,n−2}, define q_a(w)=1+(A+1)(1−w_j) and F_a(w)=(w₁,…,ŵ_j,…,w_{n−1},1+A(1−w_j))/q_a(w). This is the normalized action of γ_{n−1}^Aγ_j. Put τ_a=log q_a and exp(−sτ_a) for its complex weight. Every denominator is positive.\n\n**Words, delays and renewal count**. Use the free monoid on the alphabet a=(A,j). For a list u=[a₁,…,a_m], act chronologically: F_u=F_{a_m}∘⋯∘F_{a₁}; set T_u(w)=Σ_{k=1}^m τ_{a_k}(F_{a_{k−1}}⋯F_{a₁}w). The empty word has F=id,T=0. Define N(w,r)=#{u:T_u(w)≤r} for real r, including the empty word. Put N=0 for r<0. This counts words or semigroup elements, with multiplicity when several elements send w to the same point; it does not count distinct orbit points.\n\n**C¹ on a compact convex body**. Let E be a finite-dimensional real normed space, K⊂E nonempty compact convex with nonempty interior, and V a real Banach space (also a complex Banach space when complex scalars are needed). Define C¹(K;V) as continuous pairs (f,D) with f:K→V, D:K→(E→L[ℝ]V), satisfying f(y)−f(x)=∫₀¹ D(x+t(y−x))(y−x)dt for all x,y∈K. Use ‖f‖∞+‖D‖∞. D is the unique continuous extension of the derivative on the interior; the resulting closed subspace of the product of continuous-map Banach spaces is complete. For an affine K translate to its affine span before applying this construction.\n\n**C¹ calculus and compact inclusion**. For compact convex bodies K⊂E, J⊂F as above and a C¹ map Φ:K→J with a jet extending the interior derivative, pullback Φ*:C¹(J;V)→C¹(K;V) is bounded, with ‖f∘Φ‖C¹≤max(1,‖DΦ‖∞)‖f‖C¹ and D(f∘Φ)=Df(Φ)∘DΦ. Pullback preserves identity and reverses composition. For scalar V=ℂ the value inclusion C¹(K)→C(K) is compact; products obey the Leibniz rule and ‖fg‖C¹≤‖f‖C¹‖g‖C¹.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheory:PM.4"
+      ]
+    },
+    {
+      "key": "TO.1",
+      "title": "Explicit contraction and the coding attractor",
+      "description": "**Core and cusp**. For n≥4 write b=Σ_{i≤n−2}w_i, w_{n−1}=1−b. Define Δ₀={b≤1/2}, core={0≤1−2b≤w_{n−2}}, cusp={1−2b≥w_{n−2}}, all as subsets of Δ. Thus Δ₀=core∪cusp, with a shared boundary. The unaccelerated projective γ_i sends Δ to core for i≤n−2 and γ_{n−1} sends Δ to cusp.\n\n**Ten derivative bounds**. For n≥4 all norms below are induced ℓ¹ norms in the first n−2 coordinates, on Δ₀ unless a region is specified. Put b=Σ_{k≤n−2}w_k. The ten bounds are:\n(5.1) ‖dγ_i‖≤2/(2−w_i), i≤n−2, bounded by 6/5 on cusp and 4/3 on core.\n(5.2) ‖dγ_{n−1}‖=(1+2b−2w₁)/(1+b)²≤1.\n(5.3) ‖d(γ_i∘γ_j)‖≤2/(4−2w_j−w_i)≤4/5 for i<j≤n−2.\n(5.4) ‖d(γ_i∘γ_j)‖≤2/(4−2w_j−w_{i+1})≤4/5 for j≤i<n−2.\n(5.5) ‖d(γ_{n−2}∘γ_j)‖≤(4+2b−2w₁−3w_j)/(3+b−2w_j)²≤4/5 for j≤n−2.\n(5.6) ‖d(γ_{n−1}∘γ_i)‖≤2/(3−2w_i), i≤n−3, bounded by 10/13 on cusp and 4/5 on core.\n(5.7) ‖d(γ_{n−1}∘γ_{n−2})‖≤2/(3−2w_{n−2}), bounded by 6/7 on cusp and 1 on core.\n(5.8) ‖d(γ_i∘γ_{n−1}∘γ_{n−2})‖≤2/(6−4w_{n−2}−w_i)≤4/7 for i≤n−3.\n(5.9) ‖d(γ_{n−2}∘γ_{n−1}∘γ_{n−2})‖≤(7+2b−2w₁−6w_{n−2})/(5+b−4w_{n−2})²≤32/49.\n(5.10) ‖d(γ_{n−1}²∘γ_{n−2})‖≤2/(4−3w_{n−2}), bounded by 2/3 on cusp and 4/5 on core.\n\n**Uniform contraction**. For every n≥3 there are D≥1 and 0<ρ<1 such that every m-letter branch composition satisfies sup_{w∈Δ}‖dF_u(w)‖₂≤Dρ^m. For n≥4, two accelerated branches on Δ₀ have ℓ¹ derivative norm≤24/25. Constants depend on n and the chosen equivalent affine norm, not on letters, exponents or w.\n\n**Closed coding attractor**. For an infinite sequence a₁,a₂,… define π(a)=lim_m F_{a₁}∘⋯∘F_{a_m}(w₀), with the outermost letters fixed as m increases; this ordering is the reverse of chronological word evaluation. The limit exists independently of w₀. Define K to be the closure in Δ of the image of π. Then K is nonempty compact, F_aK⊂K, and K=closure(⋃_a F_aK). Every branch fixed point lies in K, and dist(F_u(w),K)≤Cρ^{length u}.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.0"
+      ]
+    },
+    {
+      "key": "TO.2",
+      "title": "Transfer operators and convergent transforms",
+      "description": "**Countable transfer operator**. For Re s>1 define L_s f(w)=Σ_{j=1}^{n−2}Σ_{A≥0} exp(−sτ_{A,j}(w)) f(F_{A,j}(w)). Construct it as a bounded complex-linear operator on C(Δ;ℂ), and on C¹(Δ;ℂ) after the derivative estimates below. For real s its real restriction is positive. The two operators commute with the value inclusion; their mth powers are the absolutely convergent word sums of length m.\n\n**Summability, tails and spectral bounds**. For σ>1, (n−2)Σ_{A≥0}(A+2)^(−σ)≤inf_w L_σ1(w)≤sup_w L_σ1(w)≤2^σ(n−2)Σ_{A≥0}(A+3)^(−σ). The C⁰ operator norm equals sup L_σ1. For complex s, ‖L_s‖C⁰≤sup L_{Re s}1. Truncating A at B leaves a C⁰ tail≤2^σ(n−2)Σ_{A>B}(A+3)^(−σ), bounded by 2^σ(n−2)(B+2)^(1−σ)/(σ−1). Any eigenprobability eigenvalue lies between these real bounds.\n\n**Ionescu–Tulcea–Marinescu inequality**. With σ=Re s>1 and m≥0, there is C independent of m,s,w such that |D(L_s^m f)(w)|≤C|s|L_σ^m|f|(w)+Dρ^m L_σ^m|Df|(w). Also |L_s^m f|≤L_σ^m|f|. On each compact subset of Re s>1 all coefficient constants can be chosen uniformly. Here |Df| is the norm of the real derivative, and L_σ on the right acts on nonnegative continuous functions.\n\n**Holomorphic operator family**. The map s↦L_s is holomorphic from {Re s>1} into the complex Banach algebra of bounded operators on C¹(Δ). Its kth derivative is the operator sum Σ_a (−τ_a)^k exp(−sτ_a) f∘F_a. For every compact s-set the sums and their C¹ derivatives converge uniformly in operator norm.\n\n**Bilateral Laplace adapters**. For a complex Banach space V define HasBilateralLaplace f s z to mean that exp(−st)•f(t) is Bochner integrable on ℝ and has integral z. Reuse the one-sided HasLaplace predicate of HP.0. For an a.e. strongly measurable f, a strip a<Re s<b supports a holomorphic bilateral transform if for each compact [c,d]⊂(a,b), t↦sup_{σ∈[c,d]}e^{−σt}‖f(t)‖ is integrable. With g(u)=f(log u) on u>0, integrability is equivalent to MellinConvergent g (−s), and the values agree.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.0",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.1",
+        "ArithmeticDirichletSeriesPartII:HP.0"
+      ]
+    },
+    {
+      "key": "TO.3",
+      "title": "Fixed points, cones and spectral decomposition",
+      "description": "**Schauder–Tychonoff fixed point theorem**. Let V be a Hausdorff locally convex real topological vector space, C⊂V nonempty compact convex and f:C→C continuous. Then some x∈C satisfies f(x)=x. This general compact-convex theorem is new here; finite-dimensional Brouwer is imported from current upstream DifferentialGeometry Layer 10.5, not re-planned.\n\n**Positive eigenprobability**. For every real σ>1 there exist a Borel probability ν on Δ and λ>0 with ∫L_σf dν=λ∫f dν for every continuous complex f. Construct ν as a fixed point of μ↦L_σ*μ/(∫L_σ1 dμ) on probability measures, and put λ=∫L_σ1 dν. This stage asserts existence, not uniqueness.\n\n**Cone order and Hilbert distance**. For a closed proper convex cone C in a real Banach space define α(f,g)=sup{a>0:g−af∈C}, β(f,g)=inf{b>0:bf−g∈C} and d_C(f,g)=log(β/α) whenever 0<α≤β<∞. Functions in the same positive ray have distance zero; quotient by rays gives the Hilbert metric on each comparable component. For a>0 on C¹(Δ;ℝ), use C_a={f≥0:|Df|≤af}. Every nonzero element is strictly positive, by the segment identity and Grönwall. For 0<κ<1, C_{κa}\\{0} has finite projective diameter inside C_a, at most 2log((1+κ)/(1−κ))+2κa diam Δ.\n\n**Measure of noncompactness**. For a bounded subset A of a complex Banach space let χ(A) be the infimum of radii r>0 of finite covers by norm balls of radius r with centers in the ambient space. For a bounded operator T let χ(T)=χ(T(B₁)) for the closed unit ball B₁, and r_χ(T)=lim_m χ(T^m)^(1/m), with the zero convention. The limit equals the infimum, by submultiplicativity. In finite dimension these quantities vanish.\n\n**Two-norm spectral criterion**. Let B be a complex Banach space with auxiliary continuous norm |·|_w≤C‖·‖. Let T:B→B be bounded for both norms, and assume T maps the strong unit ball to a set relatively compact for the weak norm. If for some k≥1, R≥0,r>0 one has ‖T^k f‖≤R|f|_w+r^k‖f‖, then r_χ(T)≤r. For every t>r the part of spectrum with |z|≥t is finite and consists of isolated eigenvalues with finite-dimensional generalized eigenspaces; invariant finite-dimensional/complementary decompositions exist after choosing a circle avoiding the spectrum. If additionally sup_m|T^m|_w<∞ and r<1, then either spectralRadius(T)<1 or spectralRadius(T)=1 with all unit-circle spectral points of this finite-eigenvalue form.\n\n**Countable-branch cone convergence**. For each real σ>1 choose Q≥1,a>0 and 0<κ<1 so that L_σ^Q maps C_a\\{0} into C_{κa}\\{0}. With the eigenprobability ν and λ from TO.3/eigenprobability, there is h∈C¹(Δ;ℝ), h>0, νh=1 and constants M<∞,0<θ<1 with ‖λ^{−m}L_σ^m f−hνf‖C¹≤Mθ^m‖f‖C¹ for every complex f and m≥0. This proof includes the infinitely many branches and the boundary of Δ.\n\n**Ruelle–Perron–Frobenius theorem**. For real σ>1, L_σ on C¹(Δ;ℂ) has a positive algebraically simple eigenvalue λ_σ>0, a strictly positive real eigenfunction h_σ, and a unique eigenprobability ν_σ, normalized by ν_σ1=ν_σh_σ=1. Its spectral projection is P_σ f=h_σν_σf; write R_σ=L_σ−λ_σP_σ, with PR=RP=0 and spectralRadius(R_σ)<λ_σ. The probability h_σν_σ is invariant for the normalized Markov operator f↦L_σ(h_σ f)/(λ_σh_σ). The support of ν_σ is exactly K.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.0",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.1",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.2",
+        "tauceti:TauCetiRoadmap/OptimalTransport#13b-iterative-proportional-fitting-and-finite-sinkhorn"
+      ]
+    },
+    {
+      "key": "TO.4",
+      "title": "Analytic perturbation and uniform gaps",
+      "description": "**Simple isolated eigendata**. For a complex Banach space B and bounded T:B→B, simple isolated eigendata consist of λ∈ℂ, h∈B, φ∈B*, with φh=1, Th=λh, φT=λφ, and a bounded inverse of (T−λ) restricted to ker φ. Define P(f)=φ(f)h and R=T−λP. Then P²=P, PR=RP=0; T−λ+P is invertible. The complement condition encodes algebraic simplicity and isolation, rather than only a one-dimensional eigenspace.\n\n**Analytic simple-eigenvalue perturbation**. Let U⊂ℂ be open, T:U→(B→L[ℂ]B) holomorphic, z₀∈U, with simple isolated eigendata at z₀. On some neighborhood of z₀ there are holomorphic λ(z),h(z),φ(z),P(z) and reduced inverses, extending the data and satisfying φ(z)h(z)=1. The perturbed λ stays simple isolated, and λ′(z)=φ(z)(T′(z)h(z)). Normalizing φ(z)1=1 is possible in the transfer application since that scalar is nonzero at a real basepoint. If R(z₀) has radius<|λ(z₀)|, this strict gap persists locally.\n\n**Spectral gap on compact parameter intervals**. For each compact real I⊂(1,∞) there are M_I<∞, θ_I<1 and ε_I>0 such that for σ∈I and m≥0, ‖λ_σ^{−m}L_σ^m−P_σ‖C¹≤M_I θ_I^m, and every spectral point other than λ_σ has modulus≤λ_σ−ε_I. Locally around each real σ, λ,h,ν and P have holomorphic continuations, with ν1=νh=1; away from real parameters ν denotes a continuous complex-linear functional, not a probability measure.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.2",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.3"
+      ]
+    },
+    {
+      "key": "TO.5",
+      "title": "Non-lattice separation and pressure",
+      "description": "**Non-lattice delay cocycle**. The delay cocycle is non-lattice on K if, for each t∈ℝ\\{0}, there do not exist a bounded function G:K→ℝ and r∈ℝ such that −tτ_a(w)−G(F_aw)+G(w)−r∈2πℤ for all a,w∈K. No continuity of G is required. Equivalently there is no circle-valued phase u(w) with exp(−itτ_a(w))u(F_aw)=exp(ir)u(w); a bounded principal argument converts a phase to G.\n\n**Fixed-point non-lattice test**. The GMR delay cocycle on K is non-lattice. For the branches a_A=(A,n−2), a fixed ray has homogeneous multiplier t_A=((A+1)+sqrt((A+1)²+4))/2, and delay log t_A. These delays are strictly increasing, and log t_{A+1}−log t_A→0.\n\n**Wielandt spectral separation**. For s=σ+it, σ>1 and t≠0, the complex operator satisfies spectralRadius(L_s)<λ_σ. For t=0 its radius is λ_σ. Consequently 1−L_s is invertible at every s with Re s=β and Im s≠0 once λ_β=1.\n\n**Pressure and the unique exponent**. For real σ>1, λ_σ is real analytic and satisfies λ′_σ=ν_σ((d/dσ)L_σ h_σ)≤−log(3/2)λ_σ<0. Moreover λ_σ→∞ as σ↓1 and λ_σ→0 as σ→∞. There is a unique β(n)>1 with λ_β=1. This establishes existence intrinsically, with no use of Baragar’s arithmetic counting theorem.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.1",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.2",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.3",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.4"
+      ]
+    },
+    {
+      "key": "TO.6",
+      "title": "Uniform renewal and conformal measures",
+      "description": "**Uniform exponential renewal bound**. With β from TO.5, there is C<∞ such that 0≤N(w,r)≤Ce^{βr} for every w∈Δ,r≥0. The bound is uniform in w. Extend N by zero at negative times; N(w,·) is measurable and nondecreasing. No continuity of w↦N(w,r) is asserted.\n\n**Renewal resolvent and Mellin identity**. For Re s>β, the ordinary one-sided and zero-extended bilateral Laplace transforms of r↦N(w,r) converge absolutely, uniformly in w on compact parameter sets, and equal F(s)(w)=s⁻¹((1−L_s)⁻¹1)(w). The right side is holomorphic with values in C¹(Δ). For g_w(u)=0 at u<1 and g_w(u)=N(w,log u) at u≥1, the same value is mellin g_w (−s).\n\n**Simple pole and counting residue**. Near β choose holomorphic λ_s,P_s and R_s=L_s−λ_sP_s. Then (1−L_s)⁻¹=[λ_s/(1−λ_s)]P_s+(1−R_s)⁻¹. Equivalently it is (1−λ_s)⁻¹P_s+(1−R_s)⁻¹(1−P_s). The transform F(s)=s⁻¹(1−L_s)⁻¹1 has simple-pole coefficient B=h_β/(β|λ′_β|), a strictly positive C¹ function. F(s)−B/(s−β) extends holomorphically near every point on Re s=β.\n\n**Uniform band-limited smoothing**. Let X be compact, a>0, α_x:ℝ→[0,∞) measurable, zero for t<0, with 0≤α_x(t)≤Ce^{at} uniformly for t≥0. Suppose its Laplace transform F is C(X;ℂ)-valued holomorphic on Re s>a and F(s)−B/(s−a) has a C(X)-valued holomorphic germ at every point of Re s=a, with B∈C(X;ℝ). For every even nonnegative Schwartz probability density k whose angular Fourier transform is smooth and compactly supported, ∫k(r−t)e^{−at}α_x(t)dt→B(x) uniformly in x as r→∞.\n\n**Uniform renewal Tauberian adapter**. Under TO.6/smoothing, if each α_x is nondecreasing then sup_x|e^{−ar}α_x(r)−B(x)|→0 as r→∞. In the positive-B case this is a uniform relative asymptotic since min B>0. This is a uniform extension of the imported scalar simple-pole Laplace theorem, not a second scalar Tauberian theory.\n\n**Uniform linear-semigroup counting theorem**. For n≥3 and β=β(n), let B=h_β/(β|λ′_β|) with ν_β1=ν_βh_β=1. Then sup_{w∈Δ}|N(w,r)/(B(w)e^{βr})−1|→0 as r→∞. B is positive C¹ and satisfies L_βB=B. Pullback by y↦y/y_n gives a bounded positive degree-zero C¹ function on H_n with the same uniform asymptotic and Σ_a((γ_a y)_n/y_n)^{−β}B(γ_a y)=B(y).\n\n**Conformal measure characterization**. For the projective action of every γ∈Γ, |Jac_wγ|=((γy)_n/y_n)^{−(n−1)}. Consequently β is the unique s>1 for which a Borel probability ν on Δ satisfies ∫f dν=Σ_a∫f(F_aw)|Jac_wF_a|^{s/(n−1)}dν for every continuous f. At β this probability is ν_β, uniquely. Its support is K. The exponent β is not asserted to be a Hausdorff dimension.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.0",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.2",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.4",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.5",
+        "ArithmeticDirichletSeriesPartII:HP.3"
+      ]
+    },
+    {
+      "key": "TO.7",
+      "title": "Gauss, Rauzy and dimensional comparisons",
+      "description": "**Parameter-dependent Gauss conjugacy**. For n=3 use x=w₁/w₂∈[0,1], so w=(x/(1+x),1/(1+x)). Then F_A(x)=1/(x+A+1), q_A(x)=(x+A+2)/(x+1). For complex Re s>1 let M_s f(x)=exp(s log(1+x))f(x). It and its inverse are bounded on C¹([0,1]), and M_s⁻¹ L_s M_s=G_s, where G_sf(x)=Σ_{A≥0}(x+A+1)^{−s}f(1/(x+A+1)). The coordinate pullback is understood in this identity.\n\n**Gauss normalization and C¹ spectral theorem**. For real s>1 the Gauss operator G_s on C¹([0,1]) has a simple positive leading eigenvalue and compact-parameter uniform spectral gap, transported from the general RPF theorem. At s=2, G₂(1/(1+x))=1/(1+x), so λ₂=1 and β(3)=2. The invariant Gauss probability density is 1/((1+x)log 2). The corresponding unnormalized GMR eigenfunction is (1+x)²/(1+x)=1+x=1/w₂; it is not necessarily ν₂-normalized.\n\n**Rauzy gasket comparison**. For n=4, in the basis e_i+e₄ of the homogeneous span, γ₁,γ₂,γ₃ have matrices [[0,1,0],[0,0,1],[1,1,1]], [[1,0,0],[0,0,1],[1,1,1]], [[1,0,0],[0,1,0],[1,1,1]]. After multiplying on the left by the permutations moving the final coordinate back to slot i, these are the three usual fully subtractive inverse matrices A_i, with row i all ones and other rows those of identity. Their normalized action on the full positive 2-simplex gives the Rauzy gasket IFS. Sorting coordinates gives precisely the ordered γ dynamics; the full gasket is the permutation-saturation of the ordered closed attractor, with the parabolic boundary points included through closure under acceleration.\n\n**Numerical n=4 diagnostic**. Use piecewise affine collocation on Δ₄ with vertices (0,0,1),(0,1/2,1/2),(1/3,1/3,1/3), both branch indices and A=0,…,B. Power iteration estimates the Perron eigenvalue of the resulting finite nonnegative matrix. A fresh diagnostic gives, for mesh m=16,B=100: λ(2.42)≈1.02201312, λ(2.44)≈1.00155870, λ(2.46)≈0.98166645; for m=32,B=300: 1.02398743,1.00333699,0.98326670 respectively. These support a crossing near 2.44, but are not certified enclosures of β or λ.\n\n**Monotonicity of the renewal exponent**. For n≥4, β(n)≥β(n−1), and therefore β(n)≥2 for all n≥3. The embedding Δ_{n−1}→Δ_n prepends a zero, and sends a=(A,j) to (A,j+1); it intertwines branches and preserves q and every word delay.",
+      "requires": [
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.0",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.1",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.4",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.5",
+        "ProbabilisticAndMetricNumberTheoryPartII:TO.6",
+        "ProbabilisticAndMetricNumberTheory:PM.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "GMR19",
+      "title": "An asymptotic formula for integer points on Markoff–Hurwitz varieties",
+      "authors": "Alex Gamburd, Michael Magee and Ryan Ronan",
+      "edition": "Annals of Mathematics 190(3) (2019), 751–809",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p02-s.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§1, pp.751–761, definitions, examples and targets",
+        "§§4.1–4.5, pp.790–800, renewal and spectral arguments",
+        "§§5.1–5.2, pp.800–804, core/cusp and ten bounds"
+      ],
+      "sha256": "c5e7ebb5322cdfd455735f13c2b420dba318089b382a3f78f40628efc838215a"
+    },
+    {
+      "id": "GMRv3",
+      "title": "An asymptotic formula for integer points on Markoff–Hurwitz varieties, arXiv version 3",
+      "authors": "Alex Gamburd, Michael Magee and Ryan Ronan",
+      "edition": "arXiv:1603.06267v3 (2018); numbering differs from journal",
+      "url": "https://arxiv.org/pdf/1603.06267v3",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§5.3, pp.46–53, derivative computations (5.2)–(5.10)"
+      ],
+      "sha256": "965e264e260ca42bbaa5a65f789e5cc6eb6117d70d7219603a3b855d29ba997a"
+    },
+    {
+      "id": "LAL89",
+      "title": "Renewal theorems in symbolic dynamics, with applications to geodesic flows, non-Euclidean tessellations and their fractal limits",
+      "authors": "Steven P. Lalley",
+      "edition": "Acta Mathematica 163 (1989), 1–55",
+      "url": "https://www.stat.uchicago.edu/~lalley/Papers/acta.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§7, pp.23–27, resolvents and the pole",
+        "§8, pp.27–32, uniform growth, smoothing and monotonicity"
+      ],
+      "sha256": "f6f04148aa28d43c1684a49b746fb6ecd6393835de35ce9d487e6df952a83f55"
+    },
+    {
+      "id": "LIV95",
+      "title": "Decay of correlations",
+      "authors": "Carlangelo Liverani",
+      "edition": "Annals of Mathematics 142 (1995), 239–301; author preprint dated 1993; locators use preprint pages",
+      "url": "https://carlangelo-liverani.github.io/Lavori/live9502.ps.gz",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§1, Theorem 1.1 and Lemma 1.3, preprint pp.3–6",
+        "§2, Lemmas 2.1–2.3 and Theorem 2.5, preprint pp.7–12"
+      ],
+      "sha256": "8df257369551b64632adaa3c55e53f0d484931bd5b17d1b952a8223c0535ac18"
+    },
+    {
+      "id": "MN75",
+      "title": "The Schauder–Tychonoff fixed point theorem and applications",
+      "authors": "Sidney A. Morris and E. S. Noussair",
+      "edition": "Matematický časopis 25(2) (1975), 165–172; author-hosted copy; locators use printed page numbers",
+      "url": "https://www.sidneymorris.net/Morris34.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§§1–2, pp.165–168, compact-image fixed point theorem and finite-dimensional approximation"
+      ],
+      "sha256": "81ca799d39a2eeb7a9cbb41df1d7c0ebe77999f922db5cbb16768ca01bc45e35"
+    },
+    {
+      "id": "KLO19",
+      "title": "Effective perturbation theory for simple isolated eigenvalues of linear operators",
+      "authors": "Benoît R. Kloeckner",
+      "edition": "Journal of Operator Theory 81(1) (2019), 175–194",
+      "url": "https://jot.theta.ro/jot/archive/2019-081-001/2019-081-001-008.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Introduction and Definition 1.1, pp.175–178",
+        "Corollary 1.13 p.182; §2.2 pp.183–184",
+        "§3.1–3.4, pp.185–189, persistence and derivatives"
+      ],
+      "sha256": "c21ab145cd98ca11a01dc4c700bc203a055917fdd1ff700406df27a996ba3788"
+    },
+    {
+      "id": "HEN95",
+      "title": "Quasi-compacité. Cas des noyaux lipschitziens et des noyaux markoviens",
+      "authors": "Hubert Hennion",
+      "edition": "Publications mathématiques et informatiques de Rennes (1995), fascicule 2, pp.1–50",
+      "url": "https://www.numdam.org/item/PSMIR_1995___2_A6_0.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§§1,3, pp.2–3,11–13, spectral splitting and two-norm criterion",
+        "§5 pp.19–22, ball-cover measure and finite-cover proof",
+        "Appendix A pp.43–46, spectral decomposition proof"
+      ],
+      "sha256": "a574a1be8a917c8290ca34444e22a0b5fecf4f98f0071b034203ef494a002490"
+    }
+  ],
+  "status": "draft"
+}

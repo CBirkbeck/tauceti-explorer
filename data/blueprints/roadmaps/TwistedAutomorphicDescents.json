@@ -1,0 +1,146 @@
+{
+  "id": "TwistedAutomorphicDescents",
+  "title": "Twisted automorphic descents and cuspidal automorphic modules",
+  "area": "automorphic",
+  "parent": null,
+  "summary": "A target-level plan for Jiang–Zhang twisted automorphic descent: rational Bessel Fourier images, unfolded zeta integrals, leading Eisenstein residues, reciprocal periods and concrete cuspidal modules. Generic Summand, local GGP and weak Fourier support are explicit propositions or hypotheses. Pairing conventions, inner-form classification scope and unavailable proof inputs remain visible contracts.",
+  "readme": "The roadmap constructs explicit Fourier modules from leading Eisenstein residues and compares their Bessel periods with periods on a prescribed relevant pair. It separates a generic Arthur parameter from Whittaker genericity and keeps the actual automorphic realization, rational orbit and inner form. The final module is one copy of each distinct permitted outer conjugate.\n\nThe eight layers give a target-level route from shared group, representation and automorphic interfaces to conditional module recovery. The full reader states the convention dictionary, all hypotheses, API tests and proof obligations. Explicit dual transports are essential for unitary groups. Unpublished or unavailable inputs and the all-member residual assertion are precise gaps; complete planning does not mean proof closure or implementation.",
+  "prerequisites": [
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "GanGrossPrasadConjecturesForClassicalGroups",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "LieHighestWeightPartII",
+    "ModularityAndLanglandsExtensions",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "TAD.0",
+      "title": "Rational Bessel coordinates",
+      "description": "Compare actual classical spaces, rational Bessel characters and stabilizers; construct an ambient datum returning a prescribed relevant inclusion.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "LieHighestWeightPartII:N0",
+        "LieHighestWeightPartII:N2"
+      ]
+    },
+    {
+      "key": "TAD.1",
+      "title": "Fourier modules and first occurrence",
+      "description": "Define the actual image and its first occurrence, prove cuspidality and multiplicity freeness, and formulate Generic Summand without asserting it.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.3",
+        "TwistedAutomorphicDescents:TAD.0"
+      ]
+    },
+    {
+      "key": "TAD.2",
+      "title": "The unfolded global integral",
+      "description": "Define the global zeta integral, isolate its open relative Bruhat cell and identify the induced Whittaker transform and inner Bessel period.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicSpectralTheory:AS.0",
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "TwistedAutomorphicDescents:TAD.0"
+      ]
+    },
+    {
+      "key": "TAD.3",
+      "title": "Local factors and nonvanishing",
+      "description": "Define both local integrals and the (4.47) parameter quotient, distinguish the different (5.13) numerator, and establish the Euler identity, spherical calculation and prescribed-vector local nonvanishing.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "TwistedAutomorphicDescents:TAD.2"
+      ]
+    },
+    {
+      "key": "TAD.4",
+      "title": "Residues and reciprocal periods",
+      "description": "Keep dual conventions explicit, take leading Laurent coefficients, compare pole orders and prove scoped reciprocal nonvanishing and the central-value implication.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "AutomorphicSpectralTheory:AS.0",
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.3",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "TwistedAutomorphicDescents:TAD.0",
+        "TwistedAutomorphicDescents:TAD.2",
+        "TwistedAutomorphicDescents:TAD.3"
+      ]
+    },
+    {
+      "key": "TAD.5",
+      "title": "The critical twisted descent",
+      "description": "Form the residual parameter and critical Fourier image; establish higher vanishing, cuspidality, outer stability and the good-place parameter comparison.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicSpectralTheory:AS.4",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "TwistedAutomorphicDescents:TAD.0",
+        "TwistedAutomorphicDescents:TAD.1",
+        "TwistedAutomorphicDescents:TAD.4"
+      ]
+    },
+    {
+      "key": "TAD.6",
+      "title": "Fourier support and period existence",
+      "description": "Formulate the precise weak Fourier-support proposition, import its verified special cases and obtain coherent-packet period existence from a central value.",
+      "requires": [
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "LieHighestWeightPartII:N2",
+        "TwistedAutomorphicDescents:TAD.0",
+        "TwistedAutomorphicDescents:TAD.1",
+        "TwistedAutomorphicDescents:TAD.4",
+        "TwistedAutomorphicDescents:TAD.5"
+      ]
+    },
+    {
+      "key": "TAD.7",
+      "title": "Recovery of cuspidal modules",
+      "description": "Formulate concrete module recovery and prove it under Generic Summand and exact local GGP; treat regular and subregular support with their actual smaller groups.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.2",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.3",
+        "LieHighestWeightPartII:N2",
+        "TwistedAutomorphicDescents:TAD.0",
+        "TwistedAutomorphicDescents:TAD.1",
+        "TwistedAutomorphicDescents:TAD.4",
+        "TwistedAutomorphicDescents:TAD.5",
+        "TwistedAutomorphicDescents:TAD.6"
+      ]
+    }
+  ]
+}

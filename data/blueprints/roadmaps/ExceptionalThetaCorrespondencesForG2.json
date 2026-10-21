@@ -1,0 +1,343 @@
+{
+  "id": "ExceptionalThetaCorrespondencesForG2",
+  "title": "Exceptional theta correspondences for G₂: minimal representations, Howe duality and theta dichotomy",
+  "area": "representations",
+  "parent": null,
+  "summary": "This target-level plan constructs the exceptional local theta correspondences from concrete octonion and minimal-representation models, proves the independent finiteness and period inputs in an acyclic order, and accounts for all 112 routed items from the two Gan–Savin extractions. It also supplies quaternion relative models and the exceptional global lifting inputs used by the sequel. All eleven stages are planned; explicit proof and source obligations prevent any closure or implementation claim.",
+  "prerequisites": [
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "MetaplecticAutomorphicForms",
+    "ModularityAndLanglandsExtensions",
+    "ReductiveGroupsPartII",
+    "SmoothRepresentationsOfLocalGroups",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  ],
+  "stages": [
+    {
+      "key": "EX.0",
+      "title": "Octonion geometry and complex parameters",
+      "description": "Identify the existing split octonion carrier with the pinned G₂ group; construct null-space parabolics, cubic Fourier data, the PGSp₆ Jordan coordinates and complex local parameters with raw versus fixed-split component groups. Targets: The octonion model of G₂; Null subspaces of the imaginary octonions; The two G₂ parabolics and their radicals; Cubic étale Fourier data; Long-root SL₃ and unitary stabilizers; Exceptional inclusions of complex dual groups; Complex local parameters; Raw and fixed-split component groups; The 15-dimensional PGSp₆ Jordan model; The PGSp₆ Weyl chamber. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "MetaplecticAutomorphicForms:MP.3",
+        "ReductiveGroupsPartII:RG2.5",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.5",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈"
+      ]
+    },
+    {
+      "key": "EX.1",
+      "title": "The local inducing data and reducibility tables",
+      "description": "Establish the complete rank-one G₂ and PGSp₆ reducibility tables, dominant nontempered normal forms, the specific parameter labels and finite cubic-model theorem used by the theta proofs. Targets: P-series with supercuspidal inducing data; P-series with Steinberg inducing data; P-series with one-dimensional inducing data; Q-series with supercuspidal inducing data; Q-series with Steinberg or character data; Borel series and opposite embeddings; Nontempered G₂ normal forms; Unipotent depth-zero supercuspidals; The parameter labels needed by theta; Finite cubic models for nongeneric G₂; PGSp₆ P₂ and P₁₃ series; Siegel induction on PGSp₆; P₁ reducibility including the nongeneric SK case. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
+      ]
+    },
+    {
+      "key": "EX.2",
+      "title": "Exceptional ambient groups and minimal models",
+      "description": "Specialize existing exceptional algebraic constructions to the cubic Jordan family, integrate and descend the three dual pairs and triality square, construct the minimal representations and fix the outer extension and theta dual conventions. Targets: Freudenthal–Jordan exceptional data; The three exceptional group dual pairs; Cubic triality and the exceptional see-saw; Local minimal representations; Exceptional big and small theta modules; The spherical extension across the E₆ involution. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "MetaplecticAutomorphicForms:MP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈"
+      ]
+    },
+    {
+      "key": "EX.3",
+      "title": "Raw exceptional Jacquet modules and positive exponents",
+      "description": "Compute every raw E₆/E₇ maximal-parabolic filtration by orbit stabilizers and density characters; determine forward and all seven reverse nontempered chamber cases before using any Howe theorem. Targets: Ambient E₆/E₇ gradings; Rank-one and rank-two octonion orbit kernels; Raw E₆ Jacquet input and noncuspidal finiteness; The G₂-P Jacquet filtration; The G₂-Q Jacquet filtration; The PGSp₆-P₃ Jacquet filtration; The PGSp₆-P₁ Jacquet filtration; The PGSp₆-P₂ Jacquet filtration; Forward positive-exponent lift control; All reverse Langlands-chamber cases; Temperedness and the positive-exponent correspondence. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.1",
+        "ExceptionalThetaCorrespondencesForG2:EX.2",
+        "MetaplecticAutomorphicForms:MP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2a",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations"
+      ]
+    },
+    {
+      "key": "EX.4",
+      "title": "Triality periods and preliminary uniqueness",
+      "description": "Construct the trialitarian degenerate series and both exact sequences; prove the smooth-category Ext vanishing and Mackey restriction; obtain finite cubic period chains, weak existence and preliminary uniqueness without assuming full theta finite length. Targets: Trialitarian degenerate principal series; The triality exact sequences; The division-period Ext obstruction; The G₂ restriction of I_E(s); Restriction to the open cubic orbit; Cubic coefficients of exceptional minimal models; The finite cubic period chain; Preliminary nongeneric uniqueness; Existence before exclusion. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.1",
+        "ExceptionalThetaCorrespondencesForG2:EX.2",
+        "ExceptionalThetaCorrespondencesForG2:EX.3",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2a",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "EX.5",
+      "title": "The two E₆ correspondences",
+      "description": "Prove division and disconnected split-E₆ Howe duality, retaining the prime-to-three nonvanishing bound, outer signs, all explicit E₆ constituents and the opposite-division/Jacquet–Langlands compatibility. Targets: Howe duality for the cubic division pair; The residue-characteristic bound for division nonvanishing; Opposite division algebras and contragredients; PGL₃ outer extensions and their signs; E₆ Whittaker, cubic and oscillator fibers; The generic supercuspidal precursor; Nonzero minus lift for selfdual supercuspidals; The split-E₆ lift table; Howe duality for split E₆. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.1",
+        "ExceptionalThetaCorrespondencesForG2:EX.2",
+        "ExceptionalThetaCorrespondencesForG2:EX.3",
+        "ExceptionalThetaCorrespondencesForG2:EX.4",
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "EX.6",
+      "title": "Auxiliary restrictions, finiteness and dichotomy",
+      "description": "Import the orthogonal-minimal lift and the restricted Mp₂ × G₂ oscillator owned by MetaplecticAutomorphicForms (§§3.38a–3.39); identify their exceptional comparison and the supercuspidal lifts through that oscillator, prove noncuspidal finiteness in both E₇ directions and establish the division/PGSp₆ dichotomy. Targets: Supercuspidal lifts through the restricted Mp₂ × G₂ oscillator; Comparison with the owned orthogonal theta input; The A₅ minimal restriction to Sp₆; Noncuspidal finiteness in both E₇ directions; Finite length for nongeneric inputs; The exceptional theta dichotomy; The two E₇ Whittaker fibers. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.2",
+        "ExceptionalThetaCorrespondencesForG2:EX.3",
+        "ExceptionalThetaCorrespondencesForG2:EX.4",
+        "ExceptionalThetaCorrespondencesForG2:EX.5",
+        "MetaplecticAutomorphicForms:MP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2a",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "EX.7",
+      "title": "Fourier–Jacobi and Shalika multiplicity one",
+      "description": "Define the Fourier–Jacobi and Shalika modules, prove root exchange and enhanced multiplicity one, compute the actual minimal fibers and close the one-dimensional generic period chain and tempered Howe theorem. Targets: The enhanced Fourier–Jacobi period; The PGSp₆ Shalika period; Root exchange with compact integration; Enhanced Fourier–Jacobi multiplicity one; The Shalika fiber of the minimal representation; The one-dimensional generic period chain; Uniqueness for generic tempered quotients; Tempered Howe duality in E₇. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.1",
+        "ExceptionalThetaCorrespondencesForG2:EX.2",
+        "ExceptionalThetaCorrespondencesForG2:EX.3",
+        "ExceptionalThetaCorrespondencesForG2:EX.4",
+        "ExceptionalThetaCorrespondencesForG2:EX.5",
+        "ExceptionalThetaCorrespondencesForG2:EX.6",
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2a",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.5"
+      ]
+    },
+    {
+      "key": "EX.8",
+      "title": "Full Howe duality and explicit lift tables",
+      "description": "Identify the nontempered quotients and every tempered lift-table entry, including πρ and nongeneric SK cases; combine them into the three full Howe theorems, discrete-series trichotomy and generic supercuspidal spin-pole criterion. Targets: Explicit nontempered lifts; Howe duality for all three exceptional pairs; The E₆-to-E₇ tempered Siegel table; The remaining tempered non-supercuspidal lifts; The nongeneric πρ family; The πρ lift to the D₆ factor; The remaining PGSp₆ supercuspidal-input table; The discrete-series trichotomy; The supercuspidal spin-pole criterion; A generic depth-zero lift example. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.1",
+        "ExceptionalThetaCorrespondencesForG2:EX.3",
+        "ExceptionalThetaCorrespondencesForG2:EX.5",
+        "ExceptionalThetaCorrespondencesForG2:EX.6",
+        "ExceptionalThetaCorrespondencesForG2:EX.7",
+        "MetaplecticAutomorphicForms:MP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
+      ]
+    },
+    {
+      "key": "EX.9",
+      "title": "Quaternion relative models",
+      "description": "Construct pointwise quaternion stabilizers and full-rank Siegel coefficients; deduce relative quotients, supercuspidal embeddings, the Steinberg relative discrete summand and compact-real SU₂ fixed vectors. Targets: Quaternion pointwise stabilizers; Siegel character orbits and quaternion coefficients; Tempered lifts have quaternion relative models; Supercuspidal relative embeddings; The Steinberg relative discrete summand; Every compact real G₂ representation has an SU₂ period. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.2",
+        "ExceptionalThetaCorrespondencesForG2:EX.8",
+        "MetaplecticAutomorphicForms:MP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly"
+      ]
+    },
+    {
+      "key": "EX.10",
+      "title": "Global exceptional lifts and real matching",
+      "description": "Construct the exceptional global pair and minimal Eisenstein residue, define the convergent global kernel, prove period and generic nonvanishing with the stated cuspidality conditions, and specify the real central-character matching needed downstream. Targets: The global Albert E₇ pair; The global minimal residual representation; The global exceptional theta lift; A quaternion period forces global nonvanishing; Cuspidality from Steinberg or regular compact weight; Generic global nonvanishing; Real infinitesimal-character matching. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "ExceptionalThetaCorrespondencesForG2:EX.0",
+        "ExceptionalThetaCorrespondencesForG2:EX.2",
+        "ExceptionalThetaCorrespondencesForG2:EX.6",
+        "ExceptionalThetaCorrespondencesForG2:EX.8",
+        "ExceptionalThetaCorrespondencesForG2:EX.9",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "GS",
+      "title": "Howe duality and dichotomy for exceptional theta correspondences",
+      "authors": "Wee Teck Gan; Gordan Savin",
+      "edition": "arXiv:2102.00372v1 (2021), 56 pages; published Invent. Math. 232 (2023), 1–78 not served by publisher",
+      "url": "https://arxiv.org/pdf/2102.00372v1",
+      "sha256": "8b3b6702909a6a936e5984f46a3c2fbfe629b63db4ba0ae9bd4356286508c6e5",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1–15, pp. 1–55; references p. 56; all local target statements and their proofs"
+      ]
+    },
+    {
+      "id": "LL",
+      "title": "The local Langlands conjecture for G₂",
+      "authors": "Wee Teck Gan; Gordan Savin",
+      "edition": "Forum Math. Pi 11 (2023), e28, published PDF",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2479D805B0F248C91A33671F3A03752E/S2050508623000276a.pdf/the-local-langlands-conjecture-for-dollarg2dollar.pdf",
+      "sha256": "6fc3979d78510fb094e50de9bdd162dfaad43f51fe9b6b8a82ab3d84e0c93389",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1–2 pp. 1–8; §3.5 p. 15; §§5–6 pp. 20–22; §8.4 p. 25; §10 pp. 27–30"
+      ]
+    },
+    {
+      "id": "HKT",
+      "title": "A local Langlands parameterization for generic supercuspidal representations of p-adic G₂: Appendix A",
+      "authors": "Gordan Savin (appendix to Michael Harris; Chandrashekhar Khare; Jack Thorne)",
+      "edition": "arXiv:1909.05933, Appendix A, PDF pp. 22–30",
+      "url": "https://arxiv.org/pdf/1909.05933",
+      "sha256": "07b08d6673e3011222c1994034ee34806bf581cc2a63c889277b1dc1a65695a3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Appendix A.1–A.10, pp. 22–30"
+      ]
+    },
+    {
+      "id": "GrS",
+      "title": "Motives with Galois group of type G₂: an exceptional theta correspondence",
+      "authors": "Benedict Gross; Gordan Savin",
+      "edition": "Compositio Math. 114 (1998), 153–217",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E242459F743917A019C0726055551FF5/S0010437X98000645a.pdf/div-class-title-motives-with-galois-group-of-type-g-2-an-exceptional-theta-correspondence-div.pdf",
+      "sha256": "2b23947ca82319f80d94098f1510c3d884e9a5dae4462408584612c9cd8931b3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Chapter 5, introduction (0.1)–(0.2), pp. 193–194; §3, Lemma 3.4, pp. 197–198; §4, Proposition 4.5, p. 200, and Corollary 4.9, pp. 203–204",
+        "Chapter 6, §2, Lemma 2.9, p. 213"
+      ]
+    },
+    {
+      "id": "HS",
+      "title": "Eisenstein series arising from Jordan algebras",
+      "authors": "Marcela Hanzer; Gordan Savin",
+      "edition": "Canad. J. Math. 72 (2020), 183–201",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AE032F11A3717F7175A486BBE537549F/S0008414X18000615a.pdf/eisenstein_series_arising_from_jordan_algebras.pdf",
+      "sha256": "dff45355ce0fdaad7562ab6fb854bd8f36cb41cbe348f144368732de90ffe46d",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1–2 pp. 183–186; §4.1 (Lemma 4.1, Corollary 4.2, Proposition 4.3) pp. 189–191; §4.2, the remark after Corollary 4.6, p. 192; Proposition 6.3 and proof p. 197; §6.2 Theorem 6.4 and proof pp. 198–200"
+      ]
+    },
+    {
+      "id": "SW",
+      "title": "Dichotomy for generic supercuspidal representations of G₂",
+      "authors": "Gordan Savin; Martin Weissman",
+      "edition": "arXiv:0908.3340v2, 48-page preprint",
+      "url": "https://arxiv.org/pdf/0908.3340v2",
+      "sha256": "142564ec5842860f4c638ec9ae7ebaaa802dc8a81910dd1d52cb261c14aced1b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction pp. 1–3; §3 (the dichotomy map) pp. 16–27; Proposition 4.6 p. 37; Theorem 5.3 pp. 37–38"
+      ]
+    },
+    {
+      "id": "Sav",
+      "title": "A class of supercuspidal representations of G₂(k)",
+      "authors": "Gordan Savin",
+      "edition": "Canad. Math. Bull. 42 (1999), 393–400",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/CE9F949BF8D96C551E8C40D7EA71DC42/S0008439500010699a.pdf/a-class-of-supercuspidal-representations-of-g2k.pdf",
+      "sha256": "1a8aa3b7a1598d93b98b78fa2e8b36ef9ac74742c488a9b946138dca37a8329a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3 (Theorem 3.4), pp. 396–397; §§5–6, pp. 398–400"
+      ]
+    },
+    {
+      "id": "MS",
+      "title": "Exceptional Θ-correspondences I",
+      "authors": "Kay Magaard; Gordan Savin",
+      "edition": "arXiv:math/9505209 preprint",
+      "url": "https://arxiv.org/pdf/math/9505209",
+      "sha256": "8c1017b36e7571d4bd3a633734c9971f87b55eb744b7609f8f83d9881c06dd33",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 1.1 pp. 3–4; §4 Theorem 4.3 p. 10; §5 Theorem 5.3 pp. 14–15"
+      ]
+    },
+    {
+      "id": "GS04",
+      "title": "Endoscopic lifts from PGL₃ to G₂",
+      "authors": "Wee Teck Gan; Gordan Savin",
+      "edition": "Compositio Math. 140 (2004), 793–808",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2CE451D8C1AC7635396F547CB323BE65/S0010437X03000678a.pdf/endoscopic_lifts_from_pgl3_to_g2.pdf",
+      "sha256": "34fd299d743b285a0ca1130613450e02fc934db1eb1dd0ca93a96c4e9df89a4c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1–11 pp. 793–806; §12 p. 807 (depth-zero example has p≥5)"
+      ]
+    },
+    {
+      "id": "GG",
+      "title": "Non-tempered A-packets of G₂: liftings from SL₂",
+      "authors": "Wee Teck Gan; Nadya Gurevich",
+      "edition": "author preprint, 81 PDF pages; published Amer. J. Math. 128 (2006), 1105–1185",
+      "url": "https://math.bgu.ac.il/~ngur/Publications/sl2g2.pdf",
+      "sha256": "03fc2d55c66195a409a841440c904483f635c8074ac18fdc929dbf2591f39619",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§8 Propositions 8.1, 8.3, 8.4 pp. 27–28; §9 Theorem 9.1 and its proof, including §9.5, pp. 33–37; Lemma 9.4 pp. 34–36"
+      ]
+    },
+    {
+      "id": "Pra",
+      "title": "On the decomposition of a representation of GL(3) restricted to GL(2) over a p-adic field",
+      "authors": "Dipendra Prasad",
+      "edition": "Duke Math. J. 69 (1993), 167–177, author-hosted published PDF",
+      "url": "https://www.math.iitb.ac.in/~dprasad/1077293429.pdf",
+      "sha256": "bf541c4b2eeb455d267c81fe8f4b820f6e7824ef173f22c3236f3c2610f1edcb",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1 pp. 167–169; §3 Theorem 3 and proof p. 174"
+      ],
+      "note": "The independent review could not fetch this file (the author page did not respond); the node citing it gives the statement as GS cite it in the proof of Proposition 8.4."
+    }
+  ],
+  "status": "draft",
+  "readme": "This roadmap builds the exceptional local theta correspondences for G₂ from octonion geometry, minimal representations, raw Jacquet filtrations and independent period comparisons. Its eleven layers culminate in Howe duality, dichotomy and explicit lift tables, followed by quaternion relative models and global nonvanishing inputs. All statements use smooth complex representations over characteristic-zero local fields unless a real or number-field setting is specified. The complete statements, API, tests and source locators are in research/blueprint/readmes/ExceptionalThetaCorrespondencesForG2.md."
+}

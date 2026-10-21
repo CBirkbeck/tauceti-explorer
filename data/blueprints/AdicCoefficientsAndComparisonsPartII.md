@@ -1,0 +1,1405 @@
+# Roadmap: adic coefficients and comparison with schemes, Part II: prime-to-degree alterations
+
+**Summary.** De Jong's theorem resolves every variety by an alteration, a proper generically finite cover, but gives no control on its degree. Cohomology with coefficients in which a prime ℓ is not inverted can only be pulled back injectively along alterations of degree prime to ℓ, and integral p-adic questions need alterations whose degree involves only the residue characteristics. This roadmap builds both: Gabber's prime-to-ℓ alterations (Illusie–Laszlo–Orgogozo, *Travaux de Gabber*, Exposé X) and Temkin's char(X)-alterations (*Tame distillation and desingularization by p-alterations*, Ann. of Math. 2017), for schemes of finite type over quasi-excellent bases of dimension at most three and for morphisms. The end theorems are Temkin's Theorems 1.2.5, 1.2.9 and 4.3.1, Gabber's Theorems X 2.1 and X 2.4, and the two forms used downstream: the prime-to-ℓ alteration of varieties with snc boundary quoted by Jannsen (Hasse principles, Theorem 2.11) and the odd-degree regular alteration of a model over a henselian non-dyadic DVR used by Dittmann–Pop (Proposition 3.4).
+
+The proof has three new ingredients beyond de Jong's method, each a layer here: tame distillation, which splits an enlarged alteration into a tame Galois covering over a P-alteration (Layers PA.1–PA.3, resting on Temkin's theorem that p-closed valued fields are tame); Gabber's modification theorem, which resolves the quotient of a regular log smooth scheme by a tame group action (Layer PA.4); and Temkin's stable modification of non-proper relative curves (Layer PA.5). Layer PA.6 assembles them by induction on the relative dimension.
+
+## Scope and ownership
+
+This roadmap starts where *Adic coefficients and comparison with schemes* (AdicCoefficientsAndComparisons) stops: its Layer L5 consumes alterations of unrestricted degree. It owns:
+
+- degree-controlled alterations of noetherian schemes, pseudo-projective morphisms, snc supports and universal (separable) P-resolvability, with the resolvability of quasi-excellent schemes of dimension at most three as the base case (PA.0);
+- Riemann–Zariski spaces of pointed (not necessarily dominant) schemes, their valuative points and the openness of restriction maps (PA.1);
+- tame, wild and unramified loci, S- and P-tameness and tame distillation for fields (PA.2) and for alterations (PA.3), including the finite-group-action vocabulary (inertia, tame, admissible, inertia specializing actions) and Galois coverings;
+- log regular pairs, very tame actions, log blow-ups, monoidal desingularization, Gabber's preparation lemma and Gabber's modification theorems (PA.4);
+- multipointed curves, Temkin's stable modification theorem and the resolution of relative curves by P-alterations (PA.5);
+- the desingularization theorems, Gabber's prime-to-ℓ theorems and their consequences, and de Jong's Galois and arithmetic alteration theorems (PA.6).
+
+It leaves to other roadmaps, and imports:
+
+- schemes and morphisms, limits, Japanese, Nagata, quasi-excellent and excellent rings and schemes with finite normalization (Tau Ceti roadmap SchemeAndStackFoundations, Layer 0, §§0.9, 0.16–0.21); quotients of projective schemes by finite groups (§1.17); modifications and strict transforms, generic flatness, flattening of proper morphisms and Chow's lemma, regular schemes and resolution of curves, Bertini, alterations, strict normal crossings divisors, de Jong's alteration theorems 4.1 and 6.5 (§§4.11–4.20);
+- affine invariant quotients (Tau Ceti `AffineInvariantQuotient`, in Tau Ceti main after the pinned commit; ModularCurves 0C) and proper prestable, semistable and stable pointed curves (StableReduction Layer 3);
+- arbitrary-rank ramification theory of valued fields: P-numbers, P-extensions, P-closed and separably P-closed fields, maximal P-extensions, unramified and tame extensions with their tower laws and the étale criterion, the tame tower under perfection, and Temkin's tameness theorem for p-closed valued fields (LocalFieldsRamificationPartII, GF.0–GF.6);
+- log structures, fine and saturated monoids, characteristic monoids, charts, Kummer morphisms, fs fibre products, log smoothness and Kato's chart criterion, divisorial log structures, log regularity, Kato's theorem that a log smooth scheme over a log regular base is log regular, and the logarithmic Abhyankar lemma (CrystallineCohomology CR.5:log-algebra); the log structure of a general closed subset is requested from the same layer;
+- the Zariski–Riemann space of a field over a ring as a limit of projective integral models (ClassicalAdicEtaleCohomology H1:henselian), and Tau Ceti's `ValuationSpectrum` with its patch compactness;
+- Nagata compactification and noetherian approximation of qcqs schemes (AdicCoefficientsAndComparisons L2).
+
+Its consumers are HigherLocalFieldsAndHigherClassFieldTheory HL.6 (Jannsen's Hasse principles, which need Gabber's prime-to-ℓ theorem over a field) and LogicAndDefinabilityInNumberTheoryPartII FG.2 (Dittmann–Pop's detection of nice forms, which needs the odd-degree alteration of a model).
+
+## Conventions
+
+- Schemes in the theorems are noetherian unless a statement says otherwise; Riemann–Zariski spaces allow quasi-compact quasi-separated schemes.
+- char(X) is the set of primes occurring as residue characteristics of points of X; char(X) = ∅ exactly for Q-schemes.
+- A *maximal point* is the generic point of an irreducible component. An *alteration* is a proper, surjective, maximally dominating, generically finite morphism; for integral schemes it is the alteration of SchemeAndStackFoundations §4.16.
+- For a set of primes P, a *P-number* is a positive integer whose prime divisors lie in P; a *P-alteration* has P-number degree [κ(x) : κ(f(x))] at every maximal point x. {ℓ}′ denotes the primes different from ℓ; ℓ′-alterations are {ℓ}′-alterations. P = ∅ means modifications (for integral schemes).
+- "Z is snc" for a closed subset Z of a regular scheme means that Z is empty or the support of a strict normal crossings divisor (SchemeAndStackFoundations §4.17), following ILO Exposé X §3.3.3.
+- Universal P-resolvability always asks for *projective* resolving P-alterations, as in ILO Exposé X §3.3.3; Temkin's §4.1.4 omits projectivity (source issue E5).
+- Valuations are Krull valuations, identified with valuation rings; Val_K is the set of all valuation rings of a field K, identified with Tau Ceti's valuation spectrum of K. Tame, unramified and P-closed are the notions of LocalFieldsRamificationPartII.
+- Log structures are étale log structures as in CR.5:log-algebra; (X, Z) denotes X with the log structure O_X ∩ j_*O_U^× of the closed subset Z.
+- Page numbers of *Travaux de Gabber* refer to arXiv:1207.3648v1 (whose internal numbering starts Exposé VI at p. 69, VIII at p. 85 and X at p. 135); Temkin 2010 is cited by the statement numbers and pages of arXiv:0707.3953v3; Temkin 2017 by the pages of the Annals article.
+
+## How to read the build
+
+PA.0 fixes the vocabulary of degree-controlled alterations and proves the base cases of universal resolvability. PA.1 builds the Riemann–Zariski spaces whose compactness drives every globalisation. PA.2 distils field extensions: after a P-extension of the base field, a finite extension becomes tame on a compact set of valuations. PA.3 globalises this to alterations: after enlarging, every alteration is a tame Galois covering over a P-alteration. PA.4 supplies Gabber's modification theorem, which turns the quotient of a regular log smooth scheme by a tame group into a log smooth regular one. PA.5 combines stable modification of relative curves, distillation and Gabber's theorem into the resolution of relative curves by P-alterations. PA.6 runs the induction on relative dimension and derives the end theorems.
+
+## Layer PA.0: Degree-controlled alterations and universal resolvability
+
+Define the residue characteristics char(X) of a scheme, maximally dominating morphisms of noetherian schemes, alterations of noetherian (possibly non-integral) schemes compared with Scheme and stack foundations' integral alterations, generic degrees, P-alterations, ℓ′-alterations and separable alterations, pseudo-projective morphisms with the non-separated Chow lemma, snc supports, and universal (separable) P-resolvability with projective resolving alterations. Prove flattening of finite-type morphisms by admissible blow-ups (Stacks 081R), universal resolvability of quasi-excellent schemes of dimension at most one, of excellent schemes of dimension at most two (Cossart–Jannsen–Saito) and of quasi-excellent threefolds (Cossart–Piltant), recording the projectivity gap of the last.
+
+### PA.0.1 Residue characteristics of a scheme
+
+**Definition.** For a scheme X, char(X) is the set of prime numbers p for which some point x ∈ X has residue field κ(x) of characteristic p. Equivalently p ∈ char(X) exactly when p is not a unit of Γ(X, O_X), that is when p is not invertible on X. Residue characteristic zero contributes nothing, so char(X) = ∅ exactly when X is a Q-scheme.
+
+Standing hypotheses: X is an arbitrary scheme; no noetherian hypothesis is needed for the definition.
+
+*Proof sketch.* Define char(X) := {p prime : ∃ x ∈ X, ringChar κ(x) = p}, with κ(x) Mathlib's residue field of the scheme at x. For the unit characterisation: p maps to zero in κ(x) exactly when p lies in the maximal ideal of O_{X,x}; a global section is a unit exactly when it is a unit in every stalk. For the finiteness statement: if f : X → S is dominant of finite type with S noetherian, its image is constructible (Chevalley) and contains the generic points, hence a dense open U. A prime p with S_p ⊆ S ∖ U is detected by a codimension-one point of an irreducible component T of S of characteristic zero (Krull's principal ideal theorem applied to p on T), or p is the characteristic of a component; S ∖ U has finitely many such points, so char(S) ∖ char(X) is finite (Temkin §4.3.2).
+
+*Sources.* Temkin 2017, §1.2.1, p. 98; §2.1.1, p. 103: Defines char(X) as the set of primes occurring as residue characteristics of points of X and gives the examples char(Spec Q) = ∅ and char(Spec Z_(2)) = {2}; Temkin 2017, §4.3.2, p. 124: Uses that for a dominant finite-type X → S the set char(S) ∖ char(X) is finite, to shrink S so that char(S) = char(X)
+
+*Used in:* Temkin, Theorem 1.2.5 and §4.3.2 (the degree of the resolving alteration is a char(X)-number; S is shrunk to an open with char(S) = char(X)); Temkin, Theorem 4.3.1 and Theorem 4.2.1 (the hypothesis char(S) ⊆ P on the set of primes P); ILO Exposé X, §3.3.3 (a prime ℓ is invertible on X exactly when ℓ ∉ char(X), the standing hypothesis of universal ℓ′-resolvability).
+
+The API:
+- `residueChars` (data): char(X) ⊆ ℕ, the set of primes p with ringChar κ(x) = p for some x ∈ X.
+- `mem_residueChars_iff_not_isUnit` (characterisation): For p prime: p ∈ char(X) ⇔ the image of p in Γ(X, O_X) is not a unit.
+- `residueChars_eq_empty_iff` (characterisation): char(X) = ∅ ⇔ every prime is a unit of Γ(X, O_X), that is, X is a Q-scheme.
+- `residueChars_mono` (functoriality): For any morphism f : X → Y, char(X) ⊆ char(Y), since κ(f(x)) → κ(x) is a field extension.
+- `residueChars_eq_of_surjective` (functoriality): If f : X → Y is surjective then char(X) = char(Y).
+- `residueChars_open_le` (simp): For an open U ⊆ X, char(U) ⊆ char(X).
+- `residueChars_spec_field` (simp): char(Spec k) = {char k} when char k > 0 and ∅ when char k = 0.
+- `residueChars_diff_finite_of_dominant` (other): For f : X → S dominant of finite type with S noetherian, char(S) ∖ char(X) is finite.
+
+**Checks.**
+- `residueChars_rat` (computation): char(Spec Q) = ∅.
+- `residueChars_localization_two` (computation): char(Spec Z_(2)) = {2}.
+- `residueChars_int` (computation): char(Spec Z) is the set of all primes.
+- `residueChars_int_inv_six` (non-example): char(Spec Z[1/6]) is the set of primes p ≥ 5; in particular it is not determined by the characteristic of the generic point, which is 0.
+- `residueChars_empty` (degenerate): char(∅) = ∅.
+- `residueChars_fp_poly` (computation): char(Spec F_p[t]) = {p}.
+
+*Acceptance.* char(Spec Q) = ∅ and char(Spec Z_(2)) = {2} (the two examples printed in Temkin §2.1.1), and char(Spec Z) is the set of all primes. For f : X → Y, char(X) ⊆ char(Y); equality holds when f is surjective.
+
+*Needs:* Mathlib `AlgebraicGeometry.Scheme.residueField`, Mathlib `ringChar`, Mathlib `Nat.primeFactors`, Mathlib `AlgebraicGeometry.Scheme.Hom.isConstructible_image`.
+
+### PA.0.2 Maximal points and maximally dominating morphisms
+
+**Definition.** Let S be a noetherian scheme with maximal points (generic points of irreducible components) η_1, …, η_n. The scheme of generic points is η_S := ⊔_i Spec κ(η_i). A morphism f : X → S of noetherian schemes is maximally dominating if it maps every maximal point of X to a maximal point of S; equivalently, the generic fibre X ×_S η_S is dense in X.
+
+Standing hypotheses: S and X noetherian (so that they have finitely many maximal points).
+
+*Proof sketch.* Define maximal points as generic points of irreducible components (Mathlib's irreducible components and generic points of irreducible closed subsets). Equivalence with density of X ×_S η_S: the maximal points of X lying over maximal points of S are exactly the maximal points of the generic fibre. The generic fibre is stable under generization in X, and a generization-stable subset of a noetherian space is dense exactly when it contains every maximal point (an arbitrary dense subset, such as the set of closed points of A^1_k, need not contain one).
+
+*Sources.* Temkin 2017, §4.1.1, pp. 120–121: Defines the scheme of generic points η_S of a noetherian S and maximally dominating morphisms as those taking η_X to η_S, equivalently with X ×_S η_S dense in X; ILO, Exposé X, §2 opening paragraph, arXiv v1 p. 148 (citing Exposé II 1.1.2): Uses maximally dominating morphisms (each maximal point to a maximal point) in the definition of ℓ′-alterations
+
+*Used in:* Temkin, Theorems 4.2.1 and 4.3.1 (the morphism f : X → S to be desingularized is maximally dominating); ILO Exposé X, Theorem 3.5 (maximally dominating finite-type morphisms inherit universal ℓ′-resolvability); this roadmap, §PA.0.3 (Alterations of noetherian schemes) (alterations are required to be maximally dominating).
+
+The API:
+- `IsMaximalPoint` (data): x is a maximal point: the closure of {x} is an irreducible component of X.
+- `IsMaximallyDominating` (data): ∀ x : X, x is a maximal point of X → f(x) is a maximal point of S.
+- `isMaximallyDominating_iff_dense_genericFiber` (characterisation): For noetherian X, S: f is maximally dominating ⇔ X ×_S η_S is dense in X.
+- `IsMaximallyDominating.comp` (functoriality): Composites of maximally dominating morphisms are maximally dominating.
+- `IsMaximallyDominating.of_isOpenImmersion_dense` (constructor): A dense open immersion is maximally dominating.
+- `IsMaximallyDominating.isDominant` (compatibility): If X and S are irreducible, f is maximally dominating ⇔ f is dominant (Mathlib IsDominant); for reducible S a morphism from an irreducible X is never dominant, though it can be maximally dominating.
+- `IsMaximallyDominating.restrict` (functoriality): The restriction to an open subscheme of X is maximally dominating.
+
+**Checks.**
+- `maxdom_dense_open` (characterisation): 𝔾_m → A^1_k is maximally dominating.
+- `maxdom_closed_point_fails` (non-example): Spec k → A^1_k at the origin is not maximally dominating.
+- `maxdom_dominant_not_maxdom` (non-example): A^1_k ⊔ Spec k → A^1_k (extra point to the origin) is surjective and dominant but not maximally dominating.
+- `maxdom_id` (degenerate): The identity of a noetherian scheme is maximally dominating, and so is ∅ → S.
+
+*Acceptance.* The inclusion of a dense open subscheme is maximally dominating. X = A^1_k ⊔ Spec k → A^1_k, mapping the extra point to the origin, is dominant and surjective but not maximally dominating.
+
+*Needs:* Mathlib `AlgebraicGeometry.IsDominant`, Mathlib `AlgebraicGeometry.IsNoetherian`.
+
+### PA.0.3 Alterations of noetherian schemes
+
+**Definition.** A morphism f : X → S of noetherian schemes is an alteration if it is proper, surjective, maximally dominating and generically finite, the last meaning that X ×_S η_S → η_S is finite. For X and S integral this is the alteration of Scheme and stack foundations §4.16 (proper, dominant, finite over a nonempty open).
+
+Standing hypotheses: X, S noetherian.
+
+*Proof sketch.* Define IsAlteration' f := IsProper f ∧ surjective ∧ IsMaximallyDominating f ∧ (X ×_S η_S → η_S finite). Comparison with the integral case: for X, S integral, a proper dominant morphism is surjective; finiteness of the generic fibre spreads out to finiteness over a nonempty open (limits, Scheme and stack foundations §0.9), and conversely. Normalization example: if S is quasi-excellent, it is Nagata (Scheme and stack foundations §0.20, `Excellence.IsQuasiExcellentRing.isNagata`), so the normalization of S_red is finite, hence proper and surjective, and it is an isomorphism over the generic points.
+
+*Sources.* Temkin 2017, §4.1.2, p. 121: Defines an alteration of noetherian schemes as a proper, surjective, maximally dominating, generically finite morphism, and observes that the normalization of the reduction of a quasi-excellent S is one; ILO, Exposé X, §3.3.1, arXiv v1 p. 158: The same definition for reduced schemes with finitely many maximal points, with ℓ′- and separable variants
+
+*Used in:* Temkin, §4.1.4 (universal P-resolvability quantifies over all alterations Y → X); Temkin, Theorem 3.3.6 (tame distillation of an alteration of a noetherian universally Japanese integral scheme); ILO Exposé X, Theorems 2.1, 2.4, 3.4, 3.5 (the resolving morphisms are projective ℓ′-alterations).
+
+The API:
+- `IsAlteration'` (data): Proper, surjective, maximally dominating and finite over the scheme of generic points.
+- `isAlteration'_iff_isAlteration` (compatibility): For X, S integral noetherian: IsAlteration' f ⇔ Scheme and stack foundations' IsAlteration f.
+- `IsAlteration'.comp` (functoriality): A composite of alterations is an alteration.
+- `isAlteration'_normalization` (constructor): For S quasi-excellent noetherian, Nor(S_red) → S is an alteration.
+- `IsAlteration'.reduction` (constructor): X_red → X is an alteration.
+- `IsAlteration'.of_isModification` (constructor): A modification of integral noetherian schemes is an alteration.
+
+**Checks.**
+- `alteration_cusp_normalization` (computation): Spec k[t] → Spec k[t², t³] is an alteration of generic degree 1.
+- `alteration_frobenius` (computation): The absolute Frobenius of A^1_{F_p} is an alteration of generic degree p.
+- `not_alteration_projective_line` (non-example): P^1_k → Spec k is not an alteration (its generic fibre is not finite).
+- `not_alteration_extra_point` (non-example): A^1_k ⊔ Spec k → A^1_k is proper on each piece and surjective but not an alteration: it is not maximally dominating.
+- `alteration_id` (degenerate): The identity of a noetherian scheme is an alteration.
+
+*Acceptance.* For a quasi-excellent noetherian S, the normalization of S_red is an alteration (Temkin §4.1.2). P^1_k → Spec k is proper and surjective but not an alteration.
+
+*Needs:* Mathlib `AlgebraicGeometry.IsProper`, Mathlib `AlgebraicGeometry.IsFinite`, §PA.0.2, SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21), SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.0.4 P-alterations, ℓ′-alterations and separable alterations
+
+**Definition.** Let f : X → S be an alteration and P a set of primes. For a maximal point x of X the generic degree is deg_x f := [κ(x) : κ(f(x))]. Then f is a P-alteration if every deg_x f is a P-number (every prime divisor lies in P; LocalFieldsRamificationPartII GF.0), an ℓ′-alteration if it is a P-alteration for P = {ℓ}′ (all degrees prime to ℓ), and separable if every κ(x)/κ(f(x)) is separable. For X and S integral there is one degree, [k(X) : k(S)].
+
+Standing hypotheses: f is an alteration of noetherian schemes; P is any set of prime numbers (possibly empty or all primes).
+
+*Proof sketch.* Define the generic degrees from the finite residue extensions at maximal points (finiteness: the generic fibre is finite). Composition: maximal points map to maximal points and residue degrees multiply in towers, so a composite of P-alterations is a P-alteration (P-numbers are closed under products, GF.0). Degree one at every maximal point, for integral X and S, is Scheme and stack foundations' criterion for a modification.
+
+*Sources.* Temkin 2017, §1.2.1, p. 98: Defines P-numbers and P-alterations as alterations whose degree is a P-number; ILO, Exposé X, §2 opening paragraph, arXiv v1 p. 148; §3.3.1, p. 158: Defines ℓ′-alterations by the degrees [k(x) : k(f(x))] at maximal points, and separable alterations by separability of the generic fibre
+
+*Used in:* Temkin, Theorem 1.2.5 (the resolving alteration is a char(X)-alteration); Temkin, Theorem 3.3.6 (the bottom factor X′ → X of a tame distillation is a P-alteration with P the wild primes set); Jannsen, Theorem 2.11; Dittmann–Pop, Proposition 3.4 (prime-to-ℓ and odd-degree alterations keep restriction maps in ℓ-primary cohomology injective); ILO Exposé X, Theorem 3.5(iii) (separable alterations over a perfect field).
+
+The API:
+- `genericDegree` (data): For a maximal point x of X, deg_x f = finrank κ(f(x)) κ(x) ∈ ℕ_{>0}.
+- `IsPAlteration` (data): IsAlteration' f ∧ ∀ maximal x, every prime factor of deg_x f lies in P.
+- `IsPAlteration.comp` (functoriality): If f : X → Y and g : Y → S are P-alterations, so is g ∘ f.
+- `IsPAlteration.mono` (other): P ⊆ P′ and f a P-alteration ⇒ f a P′-alteration.
+- `isPAlteration_empty_iff` (characterisation): For integral X, S: f is a ∅-alteration ⇔ f is a modification.
+- `IsSeparableAlteration` (data): Every residue extension κ(x)/κ(f(x)) at a maximal point is separable.
+- `IsSeparableAlteration.comp` (functoriality): Composites of separable alterations are separable.
+- `isPAlteration_compl_singleton` (characterisation): f is an ℓ′-alteration ⇔ ℓ does not divide any deg_x f.
+- `isPAlteration_univ` (constructor): Every alteration is a P-alteration for P the set of all primes.
+
+**Checks.**
+- `palteration_frobenius` (computation): Frobenius of A^1_{F_p} is a {p}-alteration, not separable, and not a p′-alteration.
+- `palteration_gaussian` (computation): Spec Z[i] → Spec Z is a separable {2}-alteration and a 3′-alteration.
+- `palteration_empty` (degenerate): The identity of a noetherian scheme is a ∅-alteration (degree 1 has no prime factors); conversely a ∅-alteration of integral schemes has generic degree 1.
+- `palteration_gaussian_not_empty` (non-example): Spec Z[i] → Spec Z is not a ∅-alteration: its degree is 2.
+- `palteration_square_map_charzero` (non-example): t ↦ t² on A^1_Q is an alteration of degree 2 that is not a char(A^1_Q)-alteration, since char(A^1_Q) = ∅.
+- `palteration_all_primes` (degenerate): Every alteration is a P-alteration when P is the set of all primes.
+
+*Acceptance.* The absolute Frobenius of A^1_{F_p} is a {p}-alteration that is not separable. For P = ∅ a P-alteration of integral schemes is a modification. For X a Q-scheme, char(X) = ∅, so a char(X)-alteration of an integral X has degree 1.
+
+*Needs:* §PA.0.3, LocalFieldsRamificationPartII GF.0 `prime-supported-degree`, Mathlib `Algebra.IsSeparable`, Mathlib `Nat.primeFactors`.
+
+### PA.0.5 Pseudo-projective morphisms
+
+**Definition.** A finite-type morphism f : X → S is pseudo-projective if it factors as X → X̄ → S where X̄ → S is projective and X → X̄ is a local isomorphism (X has an open cover on whose members X → X̄ restricts to open immersions). For separated f this is quasi-projectivity, and for proper f projectivity.
+
+Standing hypotheses: f of finite type; S quasi-compact and quasi-separated.
+
+*Proof sketch.* Define the property by the existence of the factorisation. If f = g ∘ h is separated, then h : X → X̄ is separated, of finite type and étale (a local isomorphism), hence quasi-finite. By Zariski's main theorem (Stacks 05K0) h factors as a quasi-compact open immersion into a scheme T finite over X̄; T → X̄ → S is projective over the qcqs S, so f is quasi-projective. A separated local isomorphism need not be an open immersion (two disjoint copies of an open subscheme of X̄ map to X̄), so this step cannot use the open-immersion criterion of ILO X 3.1.9, which needs an open embedding on a dense open. If f is moreover proper, the image of X in T is also closed, so X is open and closed in a scheme projective over S and f is projective (ILO X Remark 3.1.7(ii)).
+
+*Sources.* ILO, Exposé X, §3.1.6 and Remark 3.1.7, arXiv v1 p. 157: Defines pseudo-projective morphisms as local isomorphisms followed by projective morphisms; shows they are stable under base change, not under composition, and agree with quasi-projective (projective) morphisms in the separated (proper) case; Temkin 2017, §4.2, p. 121: Recalls the notion from [IT14b, 3.1.6] for the non-separated case of Theorem 4.2.1
+
+*Used in:* Temkin, Theorems 4.2.1 and 4.3.1(ii) (the resolved morphism f′ : X′ → S′ is pseudo-projective); ILO Exposé X, Theorem 3.4 Step 1 (reduction to quasi-projective f through the non-separated Chow lemma).
+
+The API:
+- `IsPseudoProjective` (data): ∃ X̄, h : X → X̄ a local isomorphism, g : X̄ → S projective, f = g ∘ h.
+- `IsPseudoProjective.of_isQuasiProjective` (constructor): Quasi-projective morphisms are pseudo-projective.
+- `isPseudoProjective_iff_quasiProjective_of_separated` (characterisation): For separated f: pseudo-projective ⇔ quasi-projective; for proper f: ⇔ projective.
+- `IsPseudoProjective.baseChange` (functoriality): Pseudo-projectivity is stable under base change.
+- `IsPseudoProjective.not_comp` (other): Composition does not preserve pseudo-projectivity: the blow-up example of ILO X 3.1.7(i).
+
+**Checks.**
+- `pseudoProjective_quasiProjective` (compatibility): An open subscheme of P^n_S is pseudo-projective over S.
+- `pseudoProjective_doubled_origin` (computation): The affine plane with doubled origin over k, mapped by its two charts into P^2_k, is pseudo-projective over k.
+- `not_pseudoProjective_blowup_doubled_origin` (non-example): Blowing up one origin of the doubled-origin plane gives a scheme that is not pseudo-projective over k: two k-maps from the spectrum of the DVR at the exceptional curve's generic point agree generically but differ at the closed point.
+- `pseudoProjective_id` (degenerate): The identity S → S is pseudo-projective.
+
+*Acceptance.* The affine plane with doubled origin is pseudo-projective over k, but its blow-up at one of the origins is not (ILO X 3.1.7(i)). A separated pseudo-projective morphism is quasi-projective.
+
+*Needs:* Mathlib `AlgebraicGeometry.IsOpenImmersion`, Mathlib `AlgebraicGeometry.IsSeparated`, SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21).
+
+### PA.0.6 Flattening of finite-type morphisms by admissible blow-ups
+
+**Theorem.** Let S be quasi-compact and quasi-separated and U ⊆ S a quasi-compact open. (i) If f : X → S is of finite type and quasi-separated and X_U → U is flat and locally of finite presentation, there is a U-admissible blow-up S′ → S (centre disjoint from U, cut out by a finite-type ideal) such that the strict transform of X is flat and of finite presentation over S′ (Stacks 081R). (ii) If X is quasi-compact and locally of finite presentation over S and F is a quasi-coherent O_X-module of finite type with F_U of finite presentation and flat over U, there is a U-admissible blow-up S′ → S such that the strict transform of F is of finite presentation and flat over S′ (Stacks 0815). For noetherian integral S and dense U, (i) extends Scheme and stack foundations' `flattening_by_blowup` from proper to arbitrary finite-type f.
+
+Standing hypotheses: S qcqs; U ⊆ S quasi-compact open; in (i) f of finite type and quasi-separated with X_U → U flat and locally of finite presentation; in (ii) X quasi-compact and locally of finite presentation over S, F of finite type with F_U flat and of finite presentation.
+
+*Proof sketch.* (ii) is Raynaud–Gruson's flattening theorem (RG Theorem 5.2.2 locally, globalised in §5.7) in the form of Stacks 0815. For separated f, (i) reduces to (ii) through a closed immersion of X into a separated finitely presented S-scheme and noetherian approximation (AdicCoefficientsAndComparisons L2); Stacks 081R treats quasi-separated finite-type f directly. The blow-ups are U-admissible and are descended from the local constructions; no finite presentation of f itself is needed in (i), only over U. Strict transforms along modifications are those of Scheme and stack foundations §4.11; generic flatness (§4.12) gives the dense U when S is integral (Stacks 052A).
+
+*Sources.* Stacks, Tag 081R (Lemma 38.31.1) and Tag 0815 (Theorem 38.30.7): Tag 081R flattens a quasi-separated finite-type morphism by a U-admissible blow-up when it is flat and locally of finite presentation over U; Tag 0815 is the module version for a quasi-compact X locally of finite presentation over the base; Temkin 2017, proof of Lemma 3.1.6, p. 115; proof of Theorem 3.3.6, p. 120: Uses flattening of finite-type morphisms (citing Stacks 081R and RG 5.7.9) to make a morphism of modifications flat and of finite presentation, and to make an alteration finite after blowing up the base; ILO, Exposé X, proof of Theorem 3.4, Steps 2 and 7, arXiv v1 pp. 160–161: Flattens the quasi-projective f and the base alteration by Raynaud–Gruson before passing to semistable curves
+
+*Acceptance.* For f proper, S noetherian integral and U dense, this is Scheme and stack foundations' `flattening_by_blowup`. Bl_0 A^2 → A^2 is flattened by the blow-up of the origin itself, with strict transform an isomorphism.
+
+*Needs:* SchemeAndStackFoundations Layer 4 (§§4.11–4.20), SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21), AdicCoefficientsAndComparisons L2, noetherian approximation, AdicCoefficientsAndComparisons L2, finite-type factorisation through finite presentation.
+
+### PA.0.7 Chow's lemma for non-separated morphisms
+
+**Theorem.** Let f : X → S be a finite-type morphism of quasi-compact quasi-separated schemes with X having finitely many maximal points. Then there is a projective modification g : X′ → X, which may be taken to be a blow-up along a finitely generated ideal with nowhere dense support, such that X′ → S is pseudo-projective.
+
+Standing hypotheses: X, S qcqs; f of finite type; X has finitely many maximal points.
+
+*Proof sketch.* By Raynaud–Gruson 5.7.13 (a consequence of flattening) there is a modification X′ → X with X′ → S factoring as an étale X′ → X̄, an isomorphism on dense opens, followed by a projective X̄ → S. An étale morphism which is an open embedding on a dense open is a local isomorphism (ILO X 3.1.9: on separated pieces the diagonal is open and closed, so the morphism is an étale monomorphism, hence an open immersion). For separated f this recovers Scheme and stack foundations' `chow_lemma`.
+
+*Sources.* ILO, Exposé X, Proposition 3.1.8 and Lemma 3.1.9, arXiv v1 pp. 157–158: States and proves the non-separated Chow lemma from Raynaud–Gruson 5.7.13 and the local-isomorphism criterion for étale maps that are open embeddings on a dense open
+
+*Acceptance.* For separated f, X′ → S is quasi-projective (Scheme and stack foundations §4.12).
+
+*Needs:* §PA.0.6, §PA.0.5, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.0.8 Strict normal crossings supports
+
+**Definition.** Let X be a regular noetherian scheme. A closed subset Z ⊆ X is an snc support ("Z is an snc divisor" in the convention of ILO X §3.3.3) if Z = ∅ or Z is the support of a divisor D on X satisfying Scheme and stack foundations' `IsStrictNormalCrossings` (§4.17): D is the reduced sum of components D_i with every nonempty partial intersection D_J regular of codimension |J|.
+
+Standing hypotheses: X regular and noetherian (Scheme and stack foundations §4.13 `IsRegular`).
+
+*Proof sketch.* Define IsSNCSupport Z :⇔ ∃ D, IsStrictNormalCrossings D ∧ |D| = Z, the empty divisor allowed. Sub-divisors: a union of irreducible components of an snc support is an snc support (`.of_subset` of §4.17). Cartier sub-supports: if Z′ is an snc support and Z ⊆ Z′ is the support of an effective Cartier divisor, every irreducible component of Z has codimension one (Krull's principal ideal theorem in the regular, hence normal, local rings) and is contained in Z′, so it is a component of Z′; hence Z is an snc support.
+
+*Sources.* ILO, Exposé X, §3.3.3, arXiv v1 p. 159: Fixes the convention that saying a closed subset is an snc divisor means it is the support of one; Temkin 2017, Theorems 1.2.5, 1.2.9, 4.2.1, 4.3.1, pp. 99–124: Every resolution conclusion asks that an inverse image be an snc divisor in this support sense
+
+*Used in:* Temkin, §4.1.4 (universal P-resolvability asks that f⁻¹(Z) be an snc support); Temkin, Theorem 4.3.1(i), repair of E5 (a Cartier sub-support of an snc support is an snc support); ILO Exposé X, Lemma 3.5.2 (intermediate sub-divisors between f⁻¹(W) and Z).
+
+The API:
+- `IsSNCSupport` (data): Z = ∅ or Z is the support of a strict normal crossings divisor of Scheme and stack foundations §4.17.
+- `IsSNCSupport.empty` (simp): ∅ is an snc support of every regular noetherian X.
+- `IsSNCSupport.union_components` (constructor): A union of irreducible components of an snc support is an snc support.
+- `IsSNCSupport.of_cartier_subset` (other): If Z′ is an snc support and Z ⊆ Z′ is the support of an effective Cartier divisor, then Z is an snc support.
+- `IsSNCSupport.codim_one` (projection): Every irreducible component of a nonempty snc support has codimension one.
+- `IsSNCSupport.restrict` (functoriality): Restriction to an open subscheme preserves snc supports.
+- `IsSNCSupport.preimage_smooth` (functoriality): The preimage of an snc support under a smooth morphism of regular schemes is an snc support.
+
+**Checks.**
+- `snc_axes` (computation): V(xy) ⊆ A^2_k is an snc support with two components.
+- `snc_empty` (degenerate): ∅ ⊆ X is an snc support.
+- `not_snc_point` (non-example): The origin of A^2_k is not an snc support: it has codimension two.
+- `not_snc_nodal_cubic` (non-example): For char k ≠ 2, V(y² − x²(x+1)) ⊆ A^2_k is not an snc support: its only component is singular at the node.
+- `not_snc_three_lines` (non-example): V(xy(x − y)) ⊆ A^2_k is not an snc support.
+
+*Acceptance.* V(xy) ⊆ A^2_k is an snc support; the origin of A^2_k is not. The nodal cubic V(y² − x²(x+1)) ⊆ A^2_k (char k ≠ 2) is not an snc support.
+
+*Needs:* SchemeAndStackFoundations Layer 4 (§§4.11–4.20), Mathlib `IsRegularLocalRing`.
+
+### PA.0.9 Universal P-resolvability
+
+**Definition.** Let X be a noetherian scheme and P a set of primes. X is universally P-resolvable if for every alteration Y → X and every nowhere dense closed Z ⊆ Y there is a projective P-alteration f : Y′ → Y with Y′ regular and f⁻¹(Z) an snc support; universally separably P-resolvable if f can moreover be chosen separable. Universally resolvable means P = ∅ (f a projective modification). The projectivity follows ILO Exposé X §3.3.3; Temkin §4.1.4 omits it (source issue E5).
+
+Standing hypotheses: X noetherian; P a set of primes.
+
+*Proof sketch.* Quantify over all alterations Y → X of §PA.0.3 (Alterations of noetherian schemes) and nowhere dense closed Z. Monotonicity: a P-alteration is a P′-alteration for P ⊆ P′. Universal ℓ′-resolvability of ILO X §3.3.3 is the case P = {ℓ}′ for ℓ invertible on X.
+
+*Sources.* Temkin 2017, §4.1.4, p. 121: Defines universally (separably) P-resolvable noetherian schemes through P-alterations of all alterations with snc inverse images of nowhere dense closed subsets; ILO, Exposé X, §3.3.3 and Remark 3.3.4, arXiv v1 p. 159: Defines universal (separable) ℓ′-resolvability with projective resolving morphisms, and records that universally Q-resolvable schemes are quasi-excellent and that a regular non-qe DVR is not universally Q-resolvable
+
+*Used in:* Temkin, Theorem 4.3.1 (hypothesis on S and conclusion (i) for X); Temkin, Theorem 4.2.1 Step 9 (resolving the altered base with its snc boundary); Temkin, §4.3.2 (qe schemes of dimension at most three are universally resolvable).
+
+The API:
+- `IsUniversallyPResolvable` (data): ∀ alteration Y → X, ∀ nowhere dense closed Z ⊆ Y, ∃ projective P-alteration f : Y′ → Y with Y′ regular and f⁻¹(Z) an snc support.
+- `IsUniversallySeparablyPResolvable` (data): The same with f separable.
+- `IsUniversallyPResolvable.mono` (other): P ⊆ P′ ⇒ universally P-resolvable implies universally P′-resolvable.
+- `IsUniversallyPResolvable.of_alteration` (functoriality): If X is universally P-resolvable, so is every alteration of X (alterations compose).
+- `IsUniversallyPResolvable.of_resolvable` (constructor): Universally resolvable (P = ∅) implies universally P-resolvable for every P.
+- `isUniversallyPResolvable_spec_field` (example): Spec k is universally resolvable: an alteration of Spec k is finite, its reduction is regular and every nowhere dense closed subset is empty.
+
+**Checks.**
+- `upr_field` (computation): Spec k is universally resolvable for every field k.
+- `upr_mono` (characterisation): Universally {2}-resolvable implies universally {2,3}-resolvable.
+- `upr_nonqe_dvr_fails` (non-example): The regular DVR A of K = k(x, y^p) ⊆ k((x)) (y transcendental) is not universally P-resolvable: the finite purely inseparable K′ = k(x, y) gives an alteration with non-finite normalization (ILO X 3.3.4(iv)).
+- `upr_empty` (degenerate): The empty scheme is universally P-resolvable for every P.
+
+*Acceptance.* Spec of a field is universally resolvable. A regular but non-quasi-excellent DVR (ILO X 3.3.4(iv)) is not universally P-resolvable for any P.
+
+*Needs:* §PA.0.3, §PA.0.4, §PA.0.8, Mathlib `AlgebraicGeometry.IsProper`.
+
+### PA.0.10 Universal resolvability in dimension at most one
+
+**Theorem.** Every noetherian quasi-excellent scheme S of dimension at most one is universally resolvable, hence universally P-resolvable for every P.
+
+Standing hypotheses: S noetherian, quasi-excellent, dim S ≤ 1.
+
+*Proof sketch.* An alteration Y → S is proper over S, so Y is noetherian quasi-excellent of dimension ≤ 1 (finite type over qe; dimension does not grow under generically finite proper maps). Y qe ⇒ Nagata (Scheme and stack foundations §0.20), so the normalization Y′ of Y_red is finite; by `resolution_of_curves` (§4.13) Y′ is regular and Y′ → Y is a finite (hence projective) modification of each component. A nowhere dense closed Z ⊆ Y is a finite set of closed points; its preimage in the regular one-dimensional Y′ is a finite set of closed points, a reduced divisor whose components are disjoint regular points, hence an snc support (or empty).
+
+*Sources.* ILO, Exposé X, Remark 3.3.4(ii), arXiv v1 p. 159: Notes that resolution of singularities is known for qe schemes of small dimension, so they are universally resolvable; Stacks, Tag 0C45 (Lemma 33.41.1) and Tag 0BI4 (Lemma 54.15.1): Normalization of a noetherian one-dimensional scheme with finite normalization is regular and resolves it
+
+*Acceptance.* Spec of an excellent Dedekind domain and every curve over a field are universally resolvable.
+
+*Needs:* §PA.0.9, SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21), SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.0.11 Universal resolvability of excellent surfaces
+
+**Theorem.** Every noetherian excellent scheme S of dimension at most two is universally resolvable: for every alteration Y → S and nowhere dense closed Z ⊆ Y there is a projective modification Y′ → Y with Y′ regular and the preimage of Z an snc support.
+
+Standing hypotheses: S noetherian, excellent, dim S ≤ 2.
+
+*Proof sketch.* Y is excellent of dimension ≤ 2, being of finite type and generically finite over S. By Cossart–Jannsen–Saito Theorem 0.1, Y_red has a canonical resolution by a finite sequence of blow-ups in permissible centres inside the singular locus, so Y₁ → Y is a projective modification with Y₁ regular. Let D ⊆ Y₁ be the reduced preimage of Z, nowhere dense because Y₁ → Y is an isomorphism over a dense open. Cossart–Jannsen–Saito Corollary 0.4, applied to the regular excellent Y₁ and the reduced closed subscheme D of dimension ≤ 1, gives a projective surjective π : Y′ → Y₁, an isomorphism off D, with Y′ regular and π⁻¹(D)_red a strict normal crossings divisor (its proof applies Theorem 0.3 with empty boundary and then blows up the regular strict transform). The composite Y′ → Y is a projective modification with Y′ regular, and the preimage of Z is π⁻¹(D), an snc support (§PA.0.8 (Strict normal crossings supports)).
+
+*Sources.* Cossart–Jannsen–Saito, Theorems 0.1–0.3 and Corollary 0.4, arXiv v2 pp. 3–4: Canonical resolution of reduced excellent noetherian schemes of dimension at most two by permissible blow-ups, embedded resolution with boundary, and, for a reduced closed subscheme of dimension at most two of a regular excellent scheme, a projective modification, an isomorphism off it, after which its reduced preimage is a strict normal crossings divisor; ILO, Exposé X, Remark 3.3.4(ii), arXiv v1 p. 159: Records universal resolvability of two-dimensional schemes, citing Cossart–Jannsen–Saito
+
+*Acceptance.* For S = Spec of a two-dimensional excellent regular local ring and Z its closed point, the blow-up of the closed point is a resolution with Z′ the exceptional curve.
+
+*Needs:* §PA.0.9, §PA.0.8, SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21), SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.0.12 Universal resolvability of quasi-excellent threefolds
+
+**Theorem.** Every noetherian quasi-excellent scheme S of dimension at most three is universally resolvable: for every alteration Y → S and nowhere dense closed Z ⊆ Y there is a projective modification Y′ → Y with Y′ regular and the preimage of Z an snc support. For separated S the proper version is established here; the global projectivity of Y′ → Y is established when Y is affine and is open gap G1 otherwise.
+
+Standing hypotheses: S noetherian, quasi-excellent, dim S ≤ 3.
+
+*Proof sketch.* Y is quasi-excellent of dimension ≤ 3. By Cossart–Piltant Theorem 1.1 the reduced separated pieces of Y admit a proper birational π : Y₁ → Y_red with Y₁ regular, π an isomorphism over the regular locus and π⁻¹(Sing Y) snc; π is projective over each member of a chosen finite affine cover. Let D ⊆ Y₁ be the reduced preimage of Z, nowhere dense of dimension ≤ 2. A regular quasi-excellent scheme is Cohen–Macaulay, hence universally catenary, hence excellent (Scheme and stack foundations §§0.16–0.21), so Cossart–Jannsen–Saito Corollary 0.4 gives a projective π : Y′ → Y₁, an isomorphism off D, with Y′ regular and π⁻¹(D)_red a strict normal crossings divisor, as in §PA.0.11 (Universal resolvability of excellent surfaces). Global projectivity of the composite: the Cossart–Piltant step is projective over each member of a chosen finite affine cover, hence globally projective when Y is affine (it is then the blow-up of an ideal, Cossart–Piltant Remark 1.4); the Corollary 0.4 step is projective. Global projectivity of the first step for non-affine Y is recorded as gap G1.
+
+*Sources.* Cossart–Piltant, Theorem 1.1, arXiv v2 pp. 3–4; Corollary 1.2 and Remark 1.4, p. 4: Resolution of reduced separated noetherian quasi-excellent schemes of dimension at most three by a proper birational morphism that is an isomorphism over the regular locus with snc preimage of the singular locus, projective over a specified finite affine cover; projective in the complete local case, and the blow-up of an ideal when the scheme is affine; Temkin 2017, Remark 1.2.3, p. 99; §4.3.2, p. 124: Invokes Cossart–Piltant for universal resolvability of qe threefolds and notes the published status of the surface and finite-imperfection threefold cases; Cossart–Jannsen–Saito, Corollary 0.4 (with Theorem 0.3), arXiv v2 p. 4: For a reduced closed subscheme of dimension at most two of a regular excellent scheme, a projective modification, an isomorphism off it, after which its reduced preimage is a strict normal crossings divisor
+
+*Acceptance.* For S = Spec of a reduced complete noetherian local ring of dimension three, Cossart–Piltant Corollary 1.2 gives a projective good resolution.
+
+*Needs:* §PA.0.9, §PA.0.11, SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21), SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### Dependencies of Layer PA.0
+
+Earlier layers: none. Other roadmaps and libraries: AdicCoefficientsAndComparisons L2, finite-type factorisation through finite presentation; AdicCoefficientsAndComparisons L2, noetherian approximation; LocalFieldsRamificationPartII GF.0 `prime-supported-degree`; SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21); SchemeAndStackFoundations Layer 4 (§§4.11–4.20); Mathlib `Algebra.IsSeparable`; Mathlib `AlgebraicGeometry.IsDominant`; Mathlib `AlgebraicGeometry.IsFinite`; Mathlib `AlgebraicGeometry.IsNoetherian`; Mathlib `AlgebraicGeometry.IsOpenImmersion`; Mathlib `AlgebraicGeometry.IsProper`; Mathlib `AlgebraicGeometry.IsSeparated`; Mathlib `AlgebraicGeometry.Scheme.Hom.isConstructible_image`; Mathlib `AlgebraicGeometry.Scheme.residueField`; Mathlib `IsRegularLocalRing`; Mathlib `Nat.primeFactors`; Mathlib `ringChar`.
+
+## Layer PA.1: Riemann–Zariski spaces of pointed schemes
+
+For a pointed scheme Spec K → X (X qcqs, the point not necessarily dominant) define modifications and tight modifications, the Riemann–Zariski space RZ_K(X) as a limit of locally ringed spaces and its valuative points Val_K(X). Prove constructible compactness and the bijection RZ_K(X) ≅ Val_K(X) with valuation-ring stalks (Temkin Lemma 3.1.3), construct the functorial restriction maps and prove their openness for finite-type morphisms (Lemma 3.1.6). Define the absolute space Val_K, the centred subsets Val_K(X)′ and ψ_{L/K} on Tau Ceti's valuation spectrum, and compare with the affine Zariski–Riemann limit of ClassicalAdicEtaleCohomology H1:henselian.
+
+### PA.1.1 Pointed schemes and their modifications
+
+**Definition.** A pointed scheme is a morphism ε : Spec K → X with K a field and X quasi-compact and quasi-separated. A morphism (Spec K′ → X′) → (Spec K → X) is a compatible pair j : Spec K′ → Spec K, f : X′ → X; it is a modification if j is an isomorphism and f is proper (not necessarily surjective), and a modification is tight if Spec K → X′ is schematically dominant. The point need not be dominant: char K may differ from the generic characteristic of X.
+
+Standing hypotheses: X quasi-compact and quasi-separated; K any field.
+
+*Proof sketch.* Define the category of pointed schemes and the full subcategory of modifications of a fixed ε. Filteredness: two modifications X_1, X_2 of ε are dominated by the schematic image of Spec K in X_1 ×_X X_2, which is again proper over X. Tight modifications are cofinal: any modification is dominated by the schematic image of Spec K in it (a closed subscheme, hence proper over X).
+
+*Sources.* Temkin 2017, §3.1.1, pp. 112–113; §3.1.5, p. 114: Defines pointed schemes Spec K → X with X qcqs, their morphisms and modifications (j an isomorphism, f proper), notes that the modifications form a filtered family, and introduces tight modifications, which are cofinal; Temkin 2010, §3.2, arXiv v3: The dominant-point version of Riemann–Zariski spaces of pointed schemes that Temkin 2017 extends
+
+*Used in:* Temkin, §3.1.1 (RZ_K(X) is the limit over all modifications of a pointed scheme); Temkin, Lemma 3.1.6 (tight modifications have integral total spaces, used to reduce to K = k(X_i)); Temkin, §3.2.3 (X-tameness is invariant under modifications of pointed schemes).
+
+The API:
+- `PointedScheme` (structure): A field K, a qcqs scheme X and ε : Spec K ⟶ X.
+- `PointedScheme.Hom` (structure): Pairs (j, f) with ε ∘ j = f ∘ ε′.
+- `PointedScheme.IsModification` (data): j is an isomorphism and f is proper.
+- `PointedScheme.IsTight` (data): Spec K → X′ is schematically dominant.
+- `PointedScheme.modifications_isFiltered` (structure): Modifications of a fixed pointed scheme form a cofiltered category.
+- `PointedScheme.exists_tight_le` (other): Every modification is dominated by a tight one (the schematic image of the point).
+
+**Checks.**
+- `pointed_id_modification` (degenerate): The identity of ε is a tight modification when ε is schematically dominant.
+- `pointed_open_immersion_not_modification` (non-example): 𝔾_m → A^1_k with the generic point is not a modification (not proper).
+- `pointed_closed_point_tight` (computation): For ε : Spec F_p → Spec Z at (p), the closed immersion Spec F_p → Spec Z is a tight modification.
+- `pointed_blowup_modification` (computation): Bl_0 A^2_k → A^2_k with the generic point is a tight modification.
+
+*Acceptance.* For X integral and ε the generic point, tight modifications are exactly the modifications of Scheme and stack foundations §4.11 that are birational onto their image.
+
+*Needs:* Mathlib `AlgebraicGeometry.IsProper`, Mathlib `AlgebraicGeometry.QuasiCompact`, Mathlib `AlgebraicGeometry.QuasiSeparated`, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.1.2 Riemann–Zariski space of a pointed scheme
+
+**Construction.** For a pointed scheme ε : Spec K → X, RZ_K(X) := lim_i X_i, the limit in locally ringed spaces over all modifications X_i → X of ε. Its underlying space is lim |X_i| with projections π_i, its structure sheaf is colim π_i⁻¹ O_{X_i}, so O_{RZ,x} = colim O_{X_i,π_i(x)}. Constructible subsets are the preimages π_i⁻¹(C) of constructible C ⊆ X_i, and they generate the constructible topology.
+
+Standing hypotheses: ε a pointed scheme.
+
+*Proof sketch.* Index by the cofiltered category of modifications (or the cofinal tight ones). Form the limit of underlying spaces and the colimit of pulled-back structure sheaves; each stalk is a filtered colimit of local rings along local homomorphisms, hence local. Define the constructible topology from constructible subsets of the X_i (Mathlib's constructible topology on spectral spaces).
+
+*Sources.* Temkin 2017, §3.1.1, pp. 112–113: Defines RZ_K(X) as the limit of all modifications in locally ringed spaces, with underlying space the limit of the spaces, structure sheaf the colimit of pulled-back sheaves and constructible sets pulled back from the X_i
+
+*Used in:* Temkin, Lemma 3.1.3 (compactness and the valuative description of points); Temkin, Lemma 3.3.4 (quasi-compactness of RZ_L(Y) produces a point lying in every non-tame locus); Temkin, Lemma 3.1.6 (functoriality and openness of ψ).
+
+The API:
+- `RZSpace` (data): The locally ringed space lim_i X_i over modifications of ε.
+- `RZSpace.proj` (projection): π_i : RZ_K(X) → X_i, compatible with transition maps.
+- `RZSpace.stalk_eq_colim` (characterisation): O_{RZ,x} ≅ colim_i O_{X_i, π_i(x)}.
+- `RZSpace.isConstructible_iff` (characterisation): U ⊆ RZ_K(X) is constructible ⇔ U = π_i⁻¹(C) for some i and constructible C ⊆ X_i.
+- `RZSpace.map` (functoriality): A morphism of pointed schemes induces RZ_L(Y) → RZ_K(X) (§PA.1.5 (Functoriality of Riemann–Zariski spaces)).
+
+**Checks.**
+- `rz_proper_trivial` (degenerate): If X is a point Spec K with ε the identity, RZ_K(X) is a single point with stalk K.
+- `rz_dvr` (computation): For X = Spec R, R a DVR with fraction field K and ε generic, RZ_K(X) = Spec R as a locally ringed space (every modification of Spec R is an isomorphism).
+- `rz_affine_line_points` (computation): For X = A^1_k and ε generic, the points of RZ_{k(t)}(X) are the valuation rings of k(t) containing k[t]: the trivial one and the local rings at closed points.
+- `rz_not_noetherian` (non-example): For X = A^2_k and ε generic, RZ_{k(x,y)}(X) has a point whose stalk is a valuation ring of rank two (value group Z² ordered lexicographically), which is not noetherian; so RZ_K(X) is not a noetherian scheme, unlike every X_i.
+
+*Acceptance.* For ε dominant with X = Spec A, RZ_K(Spec A) is the Riemann–Zariski space of K over A (comparison node of this layer).
+
+*Needs:* §PA.1.1, Mathlib `WithConstructibleTopology`.
+
+### PA.1.3 Valuative points of a pointed scheme
+
+**Definition.** For a pointed scheme ε : Spec K → X, Val_K(X) is the set of isomorphism classes of morphisms Spec O → X extending ε, where O ⊆ K is a valuation ring of K (with Spec K → Spec O the generic point). By the valuative criterion of separatedness the morphism is determined by O when X is separated.
+
+Standing hypotheses: ε a pointed scheme.
+
+*Proof sketch.* Define Val_K(X) as pairs (O, g) with O a valuation subring of K and g : Spec O → X with g restricted to Spec K equal to ε, modulo isomorphism (O is a subring of K, so isomorphisms are identities). Topologies on Val_K(X) are transported from RZ_K(X) along the bijection of §PA.1.4 (Compactness and the valuative description of RZ spaces).
+
+*Sources.* Temkin 2017, §3.1.2, p. 113: Defines Val_K(X) as isomorphism classes of morphisms from spectra of valuation rings of K extending the point; Temkin 2010, §3.2, arXiv v3: The dominant case
+
+*Used in:* Temkin, Lemma 3.1.3(ii) (points of RZ_K(X) correspond to elements of Val_K(X)); Temkin, §3.1.7 (Val_K(X)′, the valuations of K with a centre on X); Temkin, §3.2 (tame loci are subsets of Val_L).
+
+The API:
+- `ValPoints` (data): Pairs (O : ValuationSubring K, g : Spec O ⟶ X) extending ε.
+- `ValPoints.toValuationSubring` (projection): Forget the centre: Val_K(X) → Val_K.
+- `ValPoints.toValuationSubring_injective` (other): Injective when X is separated (valuative criterion of separatedness); see E8 for the false converse.
+- `ValPoints.exists_of_proper` (constructor): If X is proper over Spec A and A ⊆ O, the point extends (valuative criterion of properness).
+- `ValPoints.centre` (projection): The centre g(closed point) ∈ X.
+
+**Checks.**
+- `valpoints_dvr` (computation): For X = Spec Z_(p) and K = Q, Val_Q(X) has two elements: Q and Z_(p).
+- `valpoints_proper` (characterisation): For X = P^1_k and K = k(t) with ε generic, Val_K(X) is the set of all valuation rings of k(t) containing k.
+- `valpoints_finite_field` (degenerate): For K = F_p every valuation ring of K is F_p itself, so Val_K(X) is the set of F_p-points of X lying under ε, a single element.
+- `valpoints_doubled_origin` (non-example): For the doubled-origin line over k with ε generic, the valuation k[t]_(t) has two centres, so Val_K(X) → Val_K is not injective.
+
+*Acceptance.* For X proper over Spec Z (or separated), Val_K(X) is the set of valuation rings O of K for which ε extends to Spec O.
+
+*Needs:* Mathlib `ValuationSubring`, Mathlib `AlgebraicGeometry.IsSeparated.valuativeCriterion`, §PA.1.1.
+
+### PA.1.4 Compactness and the valuative description of RZ spaces
+
+**Theorem.** Let ε : Spec K → X be a pointed scheme and 𝔛 = RZ_K(X). (i) 𝔛 is compact in the constructible topology and quasi-compact in the Zariski topology. (ii) Every stalk O_{𝔛,x} is a valuation ring of K, and x ↦ (Spec O_{𝔛,x} → X) is a bijection 𝔛 → Val_K(X).
+
+Standing hypotheses: ε a pointed scheme (X qcqs).
+
+*Proof sketch.* (i) Each X_i is a qcqs scheme, hence a spectral space, compact in its constructible topology (Mathlib `compactSpace_withConstructibleTopology`); a cofiltered limit of compact Hausdorff spaces along continuous maps is compact; the Zariski topology is coarser. (ii) For f, g ∈ O_{𝔛,x}, blowing up the ideal (f, g) on some X_i shows one divides the other in a further modification, so the stalk is a valuation ring (Temkin 2010, Cors. 3.2.4–3.2.5). Bijectivity: given (O, Spec O → X), the valuative criterion of properness (Mathlib `IsProper.eq_valuativeCriterion`) lifts the centre uniquely to every proper X_i, giving a compatible family of points; injectivity because the stalk determines O.
+
+*Sources.* Temkin 2017, Lemma 3.1.3 and proof, p. 113: States constructible compactness and Zariski quasi-compactness of RZ_K(X), that the stalks are valuation rings and that they give a bijection with Val_K(X), deducing the last from the valuative criterion of properness; Temkin 2010, Corollaries 3.2.4–3.2.5, arXiv v3: The detailed proof of the valuative description in the dominant case
+
+*Acceptance.* For X = Spec A and ε dominant this recovers the classical compactness of the Zariski–Riemann space.
+
+*Needs:* §PA.1.2, §PA.1.3, Mathlib `compactSpace_withConstructibleTopology`, Mathlib `AlgebraicGeometry.IsProper.eq_valuativeCriterion`, Mathlib `LocalSubring.exists_le_valuationSubring`.
+
+### PA.1.5 Functoriality of Riemann–Zariski spaces
+
+**Construction.** A morphism of pointed schemes (j : Spec L → Spec K, f : Y → X) induces ψ : Val_L(Y) → Val_K(X), sending Spec O → Y to the factorisation of Spec O → Y → X through Spec(O ∩ K), and a compatible morphism of locally ringed spaces RZ_L(Y) → RZ_K(X).
+
+Standing hypotheses: (j, f) a morphism of pointed schemes.
+
+*Proof sketch.* Restriction: the generic point of Spec O maps into Spec K, so Spec O → X factors through Spec(O ∩ K) by the valuative property of O ∩ K ⊆ K. Limit map: for every modification X_i → X of ε_K there is a tight modification Y_j → Y of ε_L through which Y_j → Y → X factors via Y_j → X_i, uniquely because ε_L is schematically dominant in Y_j and X_i → X is separated; these assemble to RZ_L(Y) → RZ_K(X). Compatibility of the two maps with the bijections of §PA.1.4 (Compactness and the valuative description of RZ spaces) follows from the valuative criterion of properness.
+
+*Sources.* Temkin 2017, §3.1.5, pp. 113–114: Constructs the restriction map Val_L(Y) → Val_K(X) and the limit map of Riemann–Zariski spaces through tight modifications, and checks their compatibility by the valuative criterion
+
+*Used in:* Temkin, Lemma 3.1.6 (openness of ψ for finite-type Y → X); Temkin, §3.1.7 (ψ_{L/K} : Val_L → Val_K for field extensions); Temkin, Lemma 3.2.8 and Theorem 3.2.12 (pulling tame loci back along ψ).
+
+The API:
+- `RZSpace.restrict` (data): ψ : Val_L(Y) → Val_K(X), (O, g) ↦ (O ∩ K, induced centre).
+- `RZSpace.restrict_comp` (functoriality): ψ is functorial: ψ_{(j,f)∘(j′,f′)} = ψ_{(j,f)} ∘ ψ_{(j′,f′)}.
+- `RZSpace.restrict_id` (functoriality): ψ of the identity is the identity.
+- `RZSpace.map_compatible` (compatibility): The limit map RZ_L(Y) → RZ_K(X) corresponds to ψ under the bijections of Lemma 3.1.3.
+
+**Checks.**
+- `restrict_rat_gaussian` (computation): For L = Q(i), K = Q: the valuation ring Z[i]_(1+i) restricts to Z_(2).
+- `restrict_trivial` (degenerate): The trivial valuation ring L restricts to K.
+- `restrict_not_injective` (non-example): For L = Q(i), K = Q, the two valuation rings of L over 5 restrict to the same Z_(5): ψ need not be injective.
+- `restrict_tower` (characterisation): For M/L/K, (O ∩ L) ∩ K = O ∩ K.
+
+*Acceptance.* For L/K a field extension and X = Y = Spec Z, ψ is restriction of valuation rings O ↦ O ∩ K.
+
+*Needs:* §PA.1.2, §PA.1.3, §PA.1.4.
+
+### PA.1.6 Openness of the restriction map
+
+**Theorem.** Let (Spec L → Y) → (Spec K → X) be a morphism of pointed schemes with Y → X of finite type. Then ψ : Val_L(Y) → Val_K(X) is open and continuous for both the Zariski and the constructible topologies; in particular it takes constructible sets to constructible sets.
+
+Standing hypotheses: Y → X of finite type; X, Y qcqs.
+
+*Proof sketch.* Continuity: basic opens (constructibles) pulled back from X_i have preimage pulled back from a tight Y_j mapping to X_i. Openness: reduce to K = k(X_i) by writing K as the union of finitely generated subextensions of K/k(X_i) and choosing modifications with function field K_l; RZ_K(X) = lim_l RZ_{K_l}(X). Flatten Y_j → X_i by a blow-up of X_i (§PA.0.6 (Flattening of finite-type morphisms by admissible blow-ups), using generic flatness, Stacks 052A, over the integral X_i); then f is flat of finite presentation, hence open in both topologies (Mathlib `Flat.generalizingMap`, `isOpenMap_of_generalizingMap`, and Chevalley `isConstructible_image`). Flatness lifts valuations: for O centred at x ∈ X_i and y over x, O ⊗ O_{Y_j,y} is a domain with fraction field k(Y_j), and a valuation ring dominating a preimage of y extends O (Mathlib `LocalSubring.exists_le_valuationSubring`). Hence ψ(V) = π_i⁻¹(f(V_j)).
+
+*Sources.* Temkin 2017, Lemma 3.1.6 and proof, pp. 114–115: States that ψ is open and continuous in both topologies for finite-type Y → X, and proves it by reducing to K = k(X_i), flattening with Raynaud–Gruson (via Stacks 081R and 052A) and lifting valuations along flat maps
+
+*Acceptance.* For L/K finite and X = Y = Spec Z, ψ_{L/K} : Val_L → Val_K is open and continuous (Temkin §3.1.7).
+
+*Needs:* §PA.1.5, §PA.1.4, §PA.0.6, Mathlib `AlgebraicGeometry.Flat.generalizingMap`, Mathlib `AlgebraicGeometry.isOpenMap_of_generalizingMap`, Mathlib `AlgebraicGeometry.Scheme.Hom.isConstructible_image`, Mathlib `LocalSubring.exists_le_valuationSubring`.
+
+### PA.1.7 Absolute Riemann–Zariski spaces and centres
+
+**Construction.** For a field K, Val_K := Val_K(Spec Z) is the set of all valuation rings of K, identified with Tau Ceti's valuation spectrum of K (equivalence classes of valuations). For a pointed scheme ε : Spec K → X let Val_K(X)′ ⊆ Val_K be the image of Val_K(X) → Val_K: the valuation rings of K with a centre on X extending ε. For a field extension L/K, ψ_{L/K} : Val_L → Val_K is O ↦ O ∩ K. If X is separated, Val_K(X) → Val_K is injective (the converse fails, source issue E8).
+
+Standing hypotheses: K a field; ε a pointed scheme for Val_K(X)′.
+
+*Proof sketch.* Identify Val_K with the points of Tau Ceti's `ValuationSpectrum K` of the field (a valuation up to equivalence is determined by its valuation ring), and transport its spectral topology; its patch topology is compact (`ValuationSpectrum.compactSpace_patchTopology`). Val_K(X)′ is the image of the constructibly compact Val_K(X) (Lemma 3.1.3) under a continuous map, hence constructibly compact and Zariski quasi-compact. ψ_{L/K} is the restriction map of §PA.1.5 (Functoriality of Riemann–Zariski spaces) for X = Y = Spec Z, so it is continuous and open by §PA.1.6 (Openness of the restriction map); it agrees with Tau Ceti's `ValuationSpectrum.comap` along K → L. Injectivity for separated X is the valuative criterion of separatedness.
+
+*Sources.* Temkin 2017, §3.1.7, p. 115: Defines Val_K as the set of all valuation rings of K, the projection Val_K(X) → Val_K with image Val_K(X)′ (the valuations with a centre on X), its compactness, and ψ_{L/K}, open and continuous by Lemma 3.1.6
+
+*Used in:* Temkin, §3.2.1 (the tame locus Val^t_{L/K} ⊆ Val_L); Temkin, §3.2.3 and §3.3.5 (X-tameness is S-tameness for S = Val_L(X)′; the wild primes set of an alteration); Temkin, Theorem 3.2.12 (compactness of ψ_{L̄/L}⁻¹(S)).
+
+The API:
+- `absVal` (data): Val_K, the type of valuation subrings of K (Mathlib `ValuationSubring K`).
+- `absValEquivSpv` (equivalence): Val_K ≃ the points of Tau Ceti's ValuationSpectrum K.
+- `centred` (data): Val_K(X)′ := {O | ∃ g : Spec O ⟶ X extending ε}.
+- `restrictField` (data): ψ_{L/K}(O) = O ∩ K, i.e. ValuationSubring.comap along K → L.
+- `restrictField_comp` (functoriality): ψ_{M/K} = ψ_{L/K} ∘ ψ_{M/L}.
+- `isCompact_centred` (other): Val_K(X)′ is compact in the constructible topology.
+- `restrictField_isOpenMap` (other): ψ_{L/K} is open and continuous (Lemma 3.1.6).
+- `restrictField_surjective_of_algebraic` (other): For L/K algebraic, ψ_{L/K} is surjective (Chevalley extension of valuations).
+
+**Checks.**
+- `absval_rat` (computation): Val_Q = {Q} ∪ {Z_(p) : p prime}.
+- `absval_finite_field` (degenerate): Val_{F_q} = {F_q}.
+- `centred_spec_int` (compatibility): Val_K(Spec Z)′ = Val_K: every valuation ring contains the image of Z.
+- `centred_inv_p` (computation): For X = Spec Z[1/p] and K = Q, Val_Q(X)′ = Val_Q ∖ {Z_(p)}.
+- `restrict_gaussian_fibre` (non-example): ψ_{Q(i)/Q} is not injective: Z_(5) has two preimages.
+
+*Acceptance.* Val_Q consists of Q and the Z_(p); ψ_{Q(i)/Q} is surjective with fibres of size 1 or 2.
+
+*Needs:* §PA.1.3, §PA.1.4, §PA.1.6, Tau Ceti `TauCeti.ValuationSpectrum`, Tau Ceti `TauCeti.ValuationSpectrum.continuous_comap`, Tau Ceti `TauCeti.ValuationSpectrum.compactSpace_patchTopology`, Mathlib `ValuationSubring`.
+
+### PA.1.8 Comparison with the affine Zariski–Riemann limit
+
+**Comparison.** For a ring A, a field K and a dominant point ε : Spec K → Spec A (s : A → K with schematically dominant image), the Riemann–Zariski space RZ_K(Spec A) of §PA.1.2 (Riemann–Zariski space of a pointed scheme) is homeomorphic, compatibly with centres, to the subspace {V ∈ Spv K : s(A) ⊆ V} of the Zariski–Riemann space, presented as the limit of projective integral models (ClassicalAdicEtaleCohomology H1:henselian). Both are built on Tau Ceti's ValuationSpectrum carrier; no second Zariski–Riemann carrier is introduced.
+
+Standing hypotheses: A a ring; K a field; ε dominant (schematically dominant point).
+
+*Proof sketch.* Projective integral models (X, f, g) with f projective and g dominant are tight modifications of ε and are cofinal among all modifications (Chow's lemma for the proper, separated modifications of the affine scheme, Scheme and stack foundations §4.12 `chow_lemma`). Hence the two limits agree on underlying spaces; under the bijection of Lemma 3.1.3 both correspond to the valuation rings V of K containing s(A).
+
+*Sources.* Temkin 2017, §3.1.1, pp. 112–113: Notes that dominantly pointed schemes are cofinal and that the definition agrees with the Riemann–Zariski space of Temkin 2010 in the dominant case; Temkin 2010, §3.2, arXiv v3: Riemann–Zariski spaces of dominantly pointed schemes as limits of modifications
+
+*Acceptance.* For A = Z and K = Q both sides are Val_Q.
+
+*Needs:* §PA.1.2, §PA.1.4, §PA.1.7, ClassicalAdicEtaleCohomology H1:henselian, the Zariski–Riemann space as a limit of projective models, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### Dependencies of Layer PA.1
+
+Earlier layers: Layer PA.0. Other roadmaps and libraries: ClassicalAdicEtaleCohomology H1:henselian, the Zariski–Riemann space as a limit of projective models; SchemeAndStackFoundations Layer 4 (§§4.11–4.20); Mathlib `AlgebraicGeometry.Flat.generalizingMap`; Mathlib `AlgebraicGeometry.IsProper`; Mathlib `AlgebraicGeometry.IsProper.eq_valuativeCriterion`; Mathlib `AlgebraicGeometry.IsSeparated.valuativeCriterion`; Mathlib `AlgebraicGeometry.QuasiCompact`; Mathlib `AlgebraicGeometry.QuasiSeparated`; Mathlib `AlgebraicGeometry.Scheme.Hom.isConstructible_image`; Mathlib `AlgebraicGeometry.isOpenMap_of_generalizingMap`; Mathlib `LocalSubring.exists_le_valuationSubring`; Mathlib `ValuationSubring`; Mathlib `WithConstructibleTopology`; Mathlib `compactSpace_withConstructibleTopology`; Tau Ceti `TauCeti.ValuationSpectrum`; Tau Ceti `TauCeti.ValuationSpectrum.compactSpace_patchTopology`; Tau Ceti `TauCeti.ValuationSpectrum.continuous_comap`.
+
+## Layer PA.2: Tame distillation for field extensions
+
+Define the tame, wild and unramified loci of an algebraic extension in Val_L, S-tameness, X-tameness, the characteristic of a set of valuations and P-tameness. Prove that P-closed fields are P-tame (from the tameness theorem of LocalFieldsRamificationPartII GF.6), the tower and compositum laws for the loci, openness of the loci for finite extensions (with the minimal-polynomial repair E7), Temkin's tame distillation for finite extensions and a constructibly compact S (Theorem 3.2.12), and its separable variant inside a maximal separable P-extension (repair E6).
+
+### PA.2.1 Tame, wild and unramified loci
+
+**Definition.** Let L/K be an algebraic extension of fields. For x ∈ Val_L, L/K is x-tame if it is tame (LocalFieldsRamificationPartII GF.2) for the valuation of L given by x and the valuation ψ_{L/K}(x) of K. The tame locus is Val^t_{L/K} := {x ∈ Val_L : L/K is x-tame}, the wild locus Val^w_{L/K} := Val_L ∖ Val^t_{L/K}, and the unramified locus Val^u_{L/K} is defined in the same way with 'unramified' (GF.2) in place of 'tame'.
+
+Standing hypotheses: L/K algebraic; tameness and unramifiedness in the sense of LocalFieldsRamificationPartII GF.2 (after henselization).
+
+*Proof sketch.* Pull back the valued-field notions of GF.2 pointwise along x ↦ (O_x, O_x ∩ K). Val^u_{L/K} ⊆ Val^t_{L/K}, since unramified extensions are tame.
+
+*Sources.* Temkin 2017, §3.2.1, p. 115; §3.2.7, p. 116: Defines x-tameness of an algebraic L/K at x ∈ Val_L, the tame locus, the wild locus, and the unramified locus by the same recipe
+
+*Used in:* Temkin, Lemma 3.2.10 (openness of Val^t_{L/K} and Val^u_{L/K} for finite L/K); Temkin, Theorem 3.2.12 (the wild locus restricted to S determines the primes to distil); Temkin, Lemma 3.3.4 (y-tameness of L/k(X) at every point of RZ_L(Y)).
+
+The API:
+- `tameLocus` (data): Val^t_{L/K} ⊆ Val_L.
+- `wildLocus` (data): Val^w_{L/K} = (tameLocus)ᶜ.
+- `unramifiedLocus` (data): Val^u_{L/K} ⊆ Val_L.
+- `unramifiedLocus_subset_tameLocus` (relation): Val^u_{L/K} ⊆ Val^t_{L/K}.
+- `mem_tameLocus_iff` (characterisation): x ∈ Val^t_{L/K} ⇔ (L, O_x)/(K, O_x ∩ K) is tame in the sense of GF.2.
+- `tameLocus_self` (simp): Val^t_{K/K} = Val_K.
+
+**Checks.**
+- `tameLocus_gaussian_two` (computation): For L = Q(i), K = Q: Z[i]_(1+i) ∈ Val^w_{L/K} and Z[i]_(2+i) ∈ Val^u_{L/K}.
+- `tameLocus_trivial_valuation` (degenerate): The trivial valuation of L lies in Val^t_{L/K} exactly when L/K is separable.
+- `tameLocus_artin_schreier` (non-example): For K = F_p(t) and L = K(u) with u^p − u = t⁻¹, the point of Val_L over the t-adic valuation is wild although L/K is separable.
+- `tameLocus_self_all` (degenerate): Val^t_{K/K} = Val_K.
+
+*Acceptance.* If char K = 0 then the residue characteristic of the trivial valuation is 0 and the trivial valuation lies in Val^t_{L/K}. For K = Q, L = Q(i), the point Z[i]_(1+i) lies in Val^w_{L/K}.
+
+*Needs:* §PA.1.7, LocalFieldsRamificationPartII GF.2 `tame-extension`, LocalFieldsRamificationPartII GF.2 `unramified-extension`.
+
+### PA.2.2 S-tameness and P-tameness
+
+**Definition.** Let L/K be algebraic and S ⊆ Val_L. L/K is S-tame if S ⊆ Val^t_{L/K}; X-tame for a pointed scheme Spec L → X if it is Val_L(X)′-tame; absolutely tame if Val^t_{L/K} = Val_L. For S ⊆ Val_L, char(S) is the set of nonzero residue characteristics of the elements of S. For a set of primes P, L/K is P-tame if char(Val^w_{L/K}) ∩ P = ∅, and a field K is P-tame if K^a/K is. Separable P-tameness of K asks this for K^s/K.
+
+Standing hypotheses: L/K algebraic; S ⊆ Val_L; P a set of primes.
+
+*Proof sketch.* Define the predicates from §PA.2.1 (Tame, wild and unramified loci). P-tameness equals Spec(Z_{P′})-tameness, where Z_{P′} inverts the primes outside P: the valuations centred on Spec Z_{P′} are those of residue characteristic 0 or in P. X-tameness is invariant under modifications of the pointed scheme: modifications do not change Val_L(X)′ (valuative criterion of properness).
+
+*Sources.* Temkin 2017, §3.2.2–3.2.4, p. 116: Defines absolute tameness, S-tameness, X-tameness (invariant under modification), the characteristic char(S) of a set of valuations, and P-tameness of extensions and fields, equivalent to Spec(Z_{P′})-tameness
+
+*Used in:* Temkin, Lemma 3.2.5 (P-closed fields are P-tame); Temkin, Theorem 3.2.12 (the conclusion L′/K′ is S′-tame); Temkin, Lemma 3.3.4 and Theorem 3.3.6 (X-tame Galois extensions give tame Galois coverings after modification).
+
+The API:
+- `IsSTame` (data): S ⊆ tameLocus L K.
+- `IsXTame` (data): IsSTame for S = Val_L(X)′.
+- `chars` (data): char(S) ⊆ ℕ, the nonzero residue characteristics occurring in S.
+- `IsPTame` (data): chars (wildLocus L K) ∩ P = ∅.
+- `isPTame_iff_spec_localization` (characterisation): L/K is P-tame ⇔ L/K is X-tame for X = Spec Z_{P′}.
+- `IsXTame.of_modification` (other): X-tameness depends only on the modification class of the pointed scheme.
+- `IsSTame.mono` (other): S ⊆ S′ and S′-tame ⇒ S-tame.
+- `IsSTame.subextension` (other): If L/K is S-tame and K ⊆ M ⊆ L then M/K is ψ_{L/M}(S)-tame (subextensions of tame extensions are tame).
+
+**Checks.**
+- `ptame_empty_P` (degenerate): Every algebraic extension is ∅-tame.
+- `ptame_gaussian` (computation): Q(i)/Q is 3-tame and not 2-tame.
+- `stame_empty` (degenerate): Every L/K is ∅-tame (S = ∅).
+- `chars_val_rat` (computation): char(Val_Q) is the set of all primes.
+- `not_ptame_artin_schreier` (non-example): F_p(t)(u)/F_p(t), u^p − u = t⁻¹, is not p-tame.
+
+*Acceptance.* Every algebraic extension of a field of characteristic zero whose valuations have residue characteristic zero is absolutely tame. Q^a/Q is not 2-tame.
+
+*Needs:* §PA.2.1, §PA.1.7, §PA.1.1.
+
+### PA.2.3 P-closed fields are P-tame
+
+**Theorem.** If K is P-closed (no nontrivial finite P-extension; GF.0), then K is P-tame: every algebraic extension of K, and every algebraic extension of every algebraic extension of K, is tame at all valuations of residue characteristic in P. If K is only separably P-closed, every finite separable extension of K is tame at all valuations whose residue characteristic lies in P (the separable variant needed by source issue E6).
+
+Standing hypotheses: K a field; P a set of primes.
+
+*Proof sketch.* For x ∈ Val_{K^a} with residue characteristic p ∈ P, the valued field (K, ψ(x)) has residue characteristic exponent p and is p-closed (a p-extension is a P-extension), so it is tame by Temkin's tameness theorem 2.6.6 (LocalFieldsRamificationPartII GF.6/general-tameness); hence K^a/K is x-tame. Subextensions of tame extensions are tame (GF.2), which gives the statement for algebraic extensions of K that need not be P-closed (Temkin Remark 3.2.6). The separable variant is GF.6/separable-p-closed-tameness.
+
+*Sources.* Temkin 2017, Lemma 3.2.5 and Remark 3.2.6, p. 116: Deduces from Theorem 2.6.6 that P-closed fields are P-tame, and remarks that algebraic extensions of a P-closed field are P-tame though not P-closed; Temkin 2017, §3.2.2, p. 116: Observes that a p-closed field of characteristic p is absolutely tame
+
+*Acceptance.* Every field of characteristic p with no nontrivial p-extension is absolutely tame (Temkin §3.2.2).
+
+*Needs:* §PA.2.2, LocalFieldsRamificationPartII GF.0 `p-closed`, LocalFieldsRamificationPartII GF.0 `separably-p-closed`, LocalFieldsRamificationPartII GF.6 `general-tameness`, LocalFieldsRamificationPartII GF.6 `separable-p-closed-tameness`.
+
+### PA.2.4 Tame and unramified loci in towers and composita
+
+**Theorem.** (i) For a tower of algebraic extensions L/l/k: Val^t_{L/k} = Val^t_{L/l} ∩ ψ_{L/l}⁻¹(Val^t_{l/k}), and the same for unramified loci. (ii) If l/k and K/k are subextensions of L/k with L = Kl, then ψ_{L/l}⁻¹(Val^t_{l/k}) ⊆ Val^t_{L/K} and ψ_{L/l}⁻¹(Val^u_{l/k}) ⊆ Val^u_{L/K}.
+
+Standing hypotheses: All fields inside one algebraic extension.
+
+*Proof sketch.* (i) A valued extension L/k is tame (unramified) iff L/l and l/k are (GF.2/tower-laws). (ii) Tameness and unramifiedness are preserved by base change: if l/k is tame then lK/K is tame (GF.2 `IsTame.baseChange`).
+
+*Sources.* Temkin 2017, Lemma 3.2.8 and proof, p. 116: States the tower formula and the base-change inclusion for tame and unramified loci and deduces them from the tower and base-change behaviour of tame and unramified valued extensions
+
+*Acceptance.* For k = Q, l = Q(i), L = Q(i, √3): the point over 3 lies in Val^t_{L/k}, and the point over 2 does not.
+
+*Needs:* §PA.2.1, LocalFieldsRamificationPartII GF.2 `tower-laws`, LocalFieldsRamificationPartII GF.2 `tame-extension`.
+
+### PA.2.5 Openness of the tame and unramified loci
+
+**Theorem.** For a finite extension L/K, the tame locus Val^t_{L/K} and the unramified locus Val^u_{L/K} are open subsets of Val_L.
+
+Standing hypotheses: L/K finite.
+
+*Proof sketch.* Unramified locus: for y ∈ Val^u with x = ψ(y), O_y/O_x is essentially étale (GF.2/unramified-etale-criterion), so by Chevalley's local structure theorem (Mathlib `Algebra.IsEtaleAt.exists_isStandardEtale`) O_y is a localization of O_x[t]/(f) with f monic and f′(a) a unit at the image a of t. Repair E7: replace f by the minimal polynomial g of a over K; since O_x is integrally closed, g ∈ O_x[t] and f = gh in O_x[t], and f′(a) = g′(a)h(a) makes g′(a) a unit. The set V of valuation rings O of L containing the coefficients of g, containing a and with g′(a) ∈ O^× is an open neighbourhood of y. For y′ ∈ V with x′ = ψ(y′): A = O_{x′}[t, g′(t)⁻¹]/(g) is étale over O_{x′} and embeds in L (g is the minimal polynomial), A is integrally closed and its localizations are valuation rings (Prüfer, GF.1), so O_{y′} is a localization of A and O_{y′}/O_{x′} is essentially étale. Tame locus: after finite unramified L′/L and K′/K, L′ = K′(x_1^{1/n_1}, …, x_r^{1/n_r}) with n_i invertible in the residue field; Val^t_{L′/K′} contains all valuations of residue characteristic prime to the n_i, an open set; combine with the openness of Val^u_{K′/K} (first part of the lemma, E9) via Lemma 3.2.8(i), and push down along the open map ψ_{L′/L} (§PA.1.6 (Openness of the restriction map)).
+
+*Sources.* Temkin 2017, Lemma 3.2.10 and proof, p. 117: Proves openness of the unramified locus by Chevalley's local structure of essentially étale extensions (EGA IV 18.4.6(ii)) and of the tame locus by passing to unramified extensions where the extension is generated by roots of order prime to the residue characteristic
+
+*Acceptance.* For L = Q(i), K = Q the tame locus is Val_L minus the single point over 2, which is open.
+
+*Needs:* §PA.2.1, §PA.2.4, §PA.1.6, LocalFieldsRamificationPartII GF.2 `unramified-etale-criterion`, LocalFieldsRamificationPartII GF.1 `normalization-and-prolongations`, Mathlib `Algebra.IsEtaleAt.exists_isStandardEtale`.
+
+### PA.2.6 Tame distillation for finite field extensions
+
+**Theorem.** Let L/K be a finite field extension, S ⊆ Val_L compact in the constructible topology, and P := char(S ∩ Val^w_{L/K}) the wild primes set of S. Then there are a finite extension L′/L and a tower L′/K′/K with K′/K a P-extension and L′/K′ S′-tame, where S′ := ψ_{L′/L}⁻¹(S). Moreover for any maximal P-extension K̄/K one can take K′ ⊆ K̄ and L′ = LK′.
+
+Standing hypotheses: L/K finite; S ⊆ Val_L constructibly compact.
+
+*Proof sketch.* Fix a maximal P-extension K̄/K (GF.0/maximal-p-extension) and a composite L̄ = LK̄; S̄ := ψ_{L̄/L}⁻¹(S) is constructibly compact. L̄/K̄ is S̄-tame: by Lemma 3.2.8(ii) the wild part of S̄ maps into the wild part of S, so its residue characteristics lie in P; but K̄ is P-closed, hence P-tame (§PA.2.3 (P-closed fields are P-tame)), so the wild part of S̄ is empty. For each x ∈ S̄ there is a finite K_x/K inside K̄ with LK_x/K_x tame at x; the tame locus of LK_x/K_x is open (§PA.2.5 (Openness of the tame and unramified loci)), so its preimage is an open neighbourhood of x in Val_{L̄}. By quasi-compactness of S̄ finitely many K_{x_1}, …, K_{x_n} suffice; let K′ be their composite and L′ = LK′. Lemma 3.2.8(ii) gives S′ ⊆ Val^t_{L′/K′}.
+
+*Sources.* Temkin 2017, Theorem 3.2.12 and proof, pp. 117–118: States tame distillation for a finite L/K and a constructibly compact S ⊆ Val_L with wild primes set P, with K′ inside any maximal P-extension, and proves it from Lemma 3.2.5, Lemma 3.2.8(ii), Lemma 3.2.10 and compactness
+
+*Acceptance.* If S ⊆ Val^t_{L/K} then P = ∅ and one may take K′ = K, L′ = L. For L = Q(i), K = Q and S = Val_L, P = {2}: K′ = Q(i) itself (a 2-extension) and L′ = K′ give L′/K′ trivially tame.
+
+*Needs:* §PA.2.5, §PA.2.4, §PA.2.3, §PA.1.7, LocalFieldsRamificationPartII GF.0 `maximal-p-extension`, LocalFieldsRamificationPartII GF.0 `p-extensions`.
+
+### PA.2.7 Separable tame distillation for finite separable extensions
+
+**Theorem.** Let L/K be finite separable, S ⊆ Val_L constructibly compact and P = char(S ∩ Val^w_{L/K}). For any maximal separable P-extension K̄^s/K there is a finite separable P-extension K′/K with K′ ⊆ K̄^s such that L′ = LK′ is S′-tame over K′, S′ = ψ_{L′/L}⁻¹(S). In particular L′/K is separable.
+
+Standing hypotheses: L/K finite separable; S constructibly compact.
+
+*Proof sketch.* Repair E6: a maximal unrestricted P-extension may contain purely inseparable subextensions when char K ∈ P, so Theorem 3.2.12 does not give a separable K′. A maximal separable P-extension K̄^s of K exists by Zorn's lemma inside K^s, as for maximal P-extensions (GF.0/maximal-p-extension), and it is separably P-closed (GF.0/separably-p-closed): a finite separable P-extension of it is a separable P-extension of K. Separable P-closedness of K̄^s is P-closedness of its perfection (GF.2/perfection-tame-tower), and the separable tame tower is unchanged by the purely inseparable base change to the perfection, so L K̄^s/K̄^s is S̄-tame at all points of residue characteristic in P (§PA.2.3 (P-closed fields are P-tame), separable part). Repeat the compactness argument of Theorem 3.2.12 with finite separable K_x ⊆ K̄^s.
+
+*Sources.* Temkin 2017, Theorem 3.2.12, pp. 117–118; Theorem 4.2.1 Step 4, p. 122: The unrestricted distillation theorem and the step of the relative-curve theorem whose separable alternative requires a separable distillation; the separable variant is the repair recorded as source issue E6
+
+*Acceptance.* If char K = 0 the statement coincides with Theorem 3.2.12.
+
+*Needs:* §PA.2.6, §PA.2.3, LocalFieldsRamificationPartII GF.0 `separably-p-closed`, LocalFieldsRamificationPartII GF.2 `perfection-tame-tower`, LocalFieldsRamificationPartII GF.0 `maximal-p-extension`.
+
+### Dependencies of Layer PA.2
+
+Earlier layers: Layer PA.1. Other roadmaps and libraries: LocalFieldsRamificationPartII GF.0 `maximal-p-extension`; LocalFieldsRamificationPartII GF.0 `p-closed`; LocalFieldsRamificationPartII GF.0 `p-extensions`; LocalFieldsRamificationPartII GF.0 `separably-p-closed`; LocalFieldsRamificationPartII GF.1 `normalization-and-prolongations`; LocalFieldsRamificationPartII GF.2 `perfection-tame-tower`; LocalFieldsRamificationPartII GF.2 `tame-extension`; LocalFieldsRamificationPartII GF.2 `tower-laws`; LocalFieldsRamificationPartII GF.2 `unramified-etale-criterion`; LocalFieldsRamificationPartII GF.2 `unramified-extension`; LocalFieldsRamificationPartII GF.6 `general-tameness`; LocalFieldsRamificationPartII GF.6 `separable-p-closed-tameness`; Mathlib `Algebra.IsEtaleAt.exists_isStandardEtale`.
+
+## Layer PA.3: Tame distillation for alterations
+
+Define decomposition and inertia groups of finite group actions on schemes, tame, admissible and inertia specializing actions with fixed-point subschemes and quotients, Galois alterations, separable G-alterations, Galois coverings and tame Galois coverings, normalization in a finite extension of the function field, and the wild primes set of an alteration. Prove that an X-tame Galois extension becomes a tame Galois covering after a modification (Lemma 3.3.4), that Galois closures preserve S-tameness (Lemma 3.3.7, corrected proof E2), Temkin's tame distillation of alterations (Theorem 3.3.6) and its separable variant.
+
+### PA.3.1 Inertia, tame actions and inertia specialization
+
+**Definition.** Let a finite group G act on a scheme X by automorphisms. For x ∈ X the decomposition group D_x is the stabilizer of the point x, and the inertia group G_x ⊆ D_x consists of the g ∈ D_x acting trivially on κ(x). The action is tame if |G_x| is invertible in κ(x) for every x, inertia specializing if G_x ⊆ G_y whenever y specializes x, and admissible if every orbit lies in a G-stable affine open (so that X/G exists by gluing the affine invariant quotients). For H ⊆ G the fixed-point subscheme X^H is the intersection of the graphs of the h ∈ H.
+
+Standing hypotheses: G finite acting on X by automorphisms (over a base where relevant).
+
+*Proof sketch.* Define D_x via Mathlib's `MulAction.stabilizer` for the action on points and G_x as the kernel of D_x → Aut κ(x). Inertia specializing ⇔ every X^H is closed (ILO X 3.1.3); separated X, or X covered by G-stable separated opens, gives an inertia specializing action (X 3.1.4(i)). Admissible actions have quotients: glue the affine invariant quotients (ModularCurves 0C; Tau Ceti `AffineInvariantQuotient`, present in Tau Ceti main but not at the pinned f790474); for Y projective over a noetherian S this is Scheme and stack foundations §1.17 `finiteGroupQuotient_projective`.
+
+*Sources.* Temkin 2017, §3.3.2, p. 118: Defines the stabilizer G_x as the elements preserving x and acting trivially on k(x), and tame actions by invertibility of |G_x| in k(x); ILO, Exposé X, Example 3.1.1, §3.1.2, Lemma 3.1.3 and Remark 3.1.4, arXiv v1 p. 156: Inertia specializing actions, their characterisation by closed fixed-point subschemes and the doubled-origin plane where it fails; ILO, Exposé VI, §3.1, arXiv v1 p. 73: Tame actions at geometric points through the inertia group, and admissible actions (SGA 1 V 1)
+
+*Used in:* Temkin, Lemma 3.3.4 (the non-tame locus T_i is a finite union of X^H ∩ X(p), closed); Temkin, Theorem 4.2.1 Steps 5–10 (the lifted G-action on the semistable curve is tame and inertia specializing, so Gabber's theorem applies); ILO Exposé VIII, Theorem 1.1 (tame, generically free actions on log regular schemes).
+
+The API:
+- `decompositionGroup` (data): D_x := stabilizer of x in G.
+- `inertiaGroup` (data): G_x := {g ∈ D_x | g acts trivially on κ(x)}.
+- `IsTameAction` (data): ∀ x, (|G_x| : κ(x)) ≠ 0.
+- `IsInertiaSpecializing` (data): ∀ x y, y ∈ closure {x} → G_x ≤ G_y.
+- `isInertiaSpecializing_iff_isClosed_fixedPoints` (characterisation): Inertia specializing ⇔ X^H closed for every H ≤ G.
+- `IsAdmissibleAction` (data): Every orbit lies in a G-stable affine open.
+- `quotient` (data): For admissible actions, X/G glued from affine invariant quotients, with q : X → X/G finite surjective and O_{X/G} = (q_* O_X)^G.
+- `IsTameAction.of_order_invertible` (constructor): If |G| is invertible on X the action is tame.
+
+**Checks.**
+- `inertia_sign_plane` (computation): For ±1 on A^2_k, char k ≠ 2: the inertia group at the origin is {±1} and is trivial at every other point.
+- `not_tame_gaussian_conjugation` (non-example): Complex conjugation on Spec Z[i] has inertia of order 2 at the prime (1+i) with residue field F_2: the action is not tame.
+- `tame_trivial_group` (degenerate): The trivial group acts tamely, admissibly and inertia specializingly on every scheme.
+- `not_inertia_specializing_doubled_origin` (non-example): For char k ≠ 2, Z/2 acting on the plane with doubled origin by y ↦ −y and swapping the origins is not inertia specializing: X^G is not closed (ILO X 3.1.1).
+- `decompositionGroup_one` (degenerate): The identity element lies in the decomposition group of every point.
+- `decomposition_ne_inertia` (computation): Gal(F_{p²}/F_p) acting on Spec F_{p²}: the decomposition group of the unique point is the whole group, the inertia group is trivial.
+
+*Acceptance.* ±1 acting on A^2_k (char k ≠ 2) has inertia G at the origin and trivial inertia elsewhere; the action is tame. Z/p acting on A^1_{F_p} by t ↦ t + 1 has trivial inertia everywhere although the closed points cut out by t^p − t − a have decomposition group Z/p; Z/2 acting on Spec Z[i] by conjugation has inertia of order 2 at (1+i), so it is not tame.
+
+*Needs:* Mathlib `MulAction.stabilizer`, Mathlib `AlgebraicGeometry.Scheme.residueField`, SchemeAndStackFoundations §1.17, ModularCurves 0C (affine invariant quotients).
+
+### PA.3.2 Galois alterations and tame Galois coverings
+
+**Definition.** Let f : Y → X be an alteration of integral schemes and G = Aut_X(Y). f is Galois (de Jong) if Y/G → X is generically radicial, equivalently k(Y)/k(X) is a purely inseparable K/k(X) followed by a Galois k(Y)/K with Aut_X(Y) = Gal(k(Y)/K); separable Galois if moreover f is generically étale. A Galois covering is a finite separable Galois alteration, and it is tame if the action of Aut_X(Y) on Y is tame. ILO X 3.3.1 calls a G-equivariant alteration with trivial action on X, free action on the generic points and η_Y/G ≅ η_X a separable G-alteration.
+
+Standing hypotheses: X, Y integral noetherian; f an alteration.
+
+*Proof sketch.* Define via the function-field factorisation: Mathlib `IsPurelyInseparable` for K/k(X) and `IsGalois` for k(Y)/K, with Aut_X(Y) → Gal(k(Y)/K) an isomorphism. For Galois coverings use finiteness and generic étaleness; the quotient Y/G exists (finite morphisms are affine) and Y/G → X is a finite birational map, an isomorphism when X is normal.
+
+*Sources.* Temkin 2017, §3.3.1, p. 118; §3.3.3, p. 119: Defines Galois alterations following de Jong, separable Galois alterations, Galois coverings as finite separable Galois alterations, and tame Galois coverings; ILO, Exposé X, §3.3.1 and Remark 3.3.2, arXiv v1 p. 158: Defines separable G-alterations and distinguishes them from Galois alterations in the sense of de Jong and Gabber–Vidal, which allow a purely inseparable bottom part; de Jong 1996, §7, p. 88: Galois alterations in the sense of the original alteration paper
+
+*Used in:* Temkin, Theorem 3.3.6 (the top factor Y′ → X′ of a distillation is a tame Galois covering); Temkin, Theorem 4.2.1 Step 4 (the base alteration S̄ → S′ is made a tame Galois covering); de Jong 1996, Theorem 7.3 (equivariant (Galois) version of the alteration theorem).
+
+The API:
+- `IsGaloisAlteration` (data): k(Y)/k(X) = purely inseparable followed by Galois with group Aut_X(Y).
+- `IsSeparableGaloisAlteration` (data): Galois and generically étale.
+- `IsGaloisCovering` (data): Finite, separable, Galois.
+- `IsTameGaloisCovering` (data): A Galois covering on which Aut_X(Y) acts tamely.
+- `IsGaloisCovering.quotient_isIso` (other): For X normal, Y/Aut_X(Y) → X is an isomorphism.
+- `isGaloisCovering_normalization` (constructor): For X normal integral noetherian with finite normalizations and L/k(X) finite Galois, Nor_L(X) → X is a Galois covering with group Gal(L/k(X)).
+- `IsTameGaloisCovering.of_order_invertible` (constructor): A Galois covering whose group order is invertible on X is tame.
+
+**Checks.**
+- `galois_covering_gaussian` (computation): Spec Z[i] → Spec Z is a Galois covering with group Z/2 that is not tame (inertia of order 2 at (1+i)).
+- `tame_galois_covering_inv2` (computation): Spec Z[1/2, i] → Spec Z[1/2] is a tame Galois covering.
+- `galois_alteration_frobenius` (computation): The Frobenius of A^1_{F_p} is a Galois alteration (purely inseparable, trivial Galois part) but not a separable Galois alteration.
+- `galois_identity` (degenerate): The identity of X is a tame Galois covering with trivial group.
+- `not_galois_cubic` (non-example): Spec Z[∛2] → Spec Z is a finite separable alteration with Aut = 1 ≠ Gal of a Galois closure; it is not Galois.
+
+*Acceptance.* Nor_L(X) → X is a Galois covering for X normal integral and L/k(X) finite Galois (G = Gal(L/k(X))).
+
+*Needs:* §PA.0.3, §PA.3.1, Mathlib `IsGalois`, Mathlib `IsPurelyInseparable`, Mathlib `Algebra.IsSeparable`.
+
+### PA.3.3 Normalization in a finite extension of the function field
+
+**Construction.** For an integral noetherian scheme X and a finite field extension L/k(X), Nor_L(X) is the normalization of X in L: glued from Spec of the integral closures of A in L over affine opens Spec A ⊆ X. It is Mathlib's `Scheme.Hom.normalization` of Spec L → X. If X is universally Japanese (Nagata), Nor_L(X) → X is finite (Scheme and stack foundations §0.20 `nagata_normalization_finite`).
+
+Standing hypotheses: X integral noetherian; L/k(X) finite.
+
+*Proof sketch.* Construct as Mathlib's relative normalization of Spec L → X, whose affine pieces are integral closures. Finiteness from the Nagata property (Scheme and stack foundations §0.20). Functoriality: for L ⊆ L′, Nor_{L′}(X) → Nor_L(X); for a modification X₁ → X, Nor_L(X₁) → Nor_L(X).
+
+*Sources.* Temkin 2017, §3.3.3, p. 119; proof of Theorem 3.3.6, p. 120: Defines Nor_K(X) as the normalization of X in K and uses that for a fine enough modification X₁ → X, Nor_L(X₁) is a modification of a given alteration; Stacks, Tag 0AVK (Lemma 29.54.14): Normalization of a Nagata integral scheme in a finite extension of its function field is finite
+
+*Used in:* Temkin, Lemma 3.3.4 (Y_i = Nor_L(X_i) for the modifications X_i of X); Temkin, Theorem 3.3.6 (reduce to Y = Nor_L(X) after flattening); ILO Exposé X, Theorem 3.4 Step 7 (S̄ is replaced by its normalization).
+
+The API:
+- `normalizationIn` (data): Nor_L(X) with its structure morphism to X.
+- `normalizationIn_isFinite` (other): Finite over X when X is Nagata.
+- `normalizationIn_functionField` (characterisation): k(Nor_L(X)) ≅ L.
+- `normalizationIn_isNormal` (other): Nor_L(X) is normal.
+- `normalizationIn_map` (functoriality): Maps along inclusions L ⊆ L′ and along morphisms of integral schemes compatible with the fields.
+- `normalizationIn_self_of_normal` (simp): For X normal, Nor_{k(X)}(X) ≅ X.
+
+**Checks.**
+- `normalizationIn_gaussian` (computation): Nor_{Q(i)}(Spec Z) = Spec Z[i].
+- `normalizationIn_cusp` (computation): For X = Spec k[t², t³], Nor_{k(t)}(X) = Spec k[t].
+- `normalizationIn_inseparable` (computation): For X = Spec F_p[t] and L = F_p(t^{1/p}), Nor_L(X) = Spec F_p[t^{1/p}], finite of degree p.
+- `normalizationIn_not_finite` (non-example): For the non-Japanese DVR of Scheme and stack foundations §0.22 and a suitable purely inseparable L, Nor_L(X) → X is not finite.
+
+*Acceptance.* Nor_{k(X)}(X) is the normalization of X; for X normal it is X.
+
+*Needs:* Mathlib `AlgebraicGeometry.Scheme.Hom.normalization`, SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21).
+
+### PA.3.4 Wild primes set of an alteration
+
+**Definition.** For an alteration f : Y → X of integral noetherian schemes, P^w_{Y/X} := char(Val_{k(Y)}(X)′ ∩ Val^w_{k(Y)/k(X)}), the residue characteristics of the valuations of k(Y) centred on X at which k(Y)/k(X) is wild. It is contained in char(X), and every element is at most deg f.
+
+Standing hypotheses: f an alteration of integral noetherian schemes (so k(Y)/k(X) is finite).
+
+*Proof sketch.* Define from §PA.1.7 (Absolute Riemann–Zariski spaces and centres) and §PA.2.1 (Tame, wild and unramified loci). Bound: if k(Y)/k(X) is wild at a point of residue characteristic p, the corresponding factor L_x^h/K^h of k(Y) ⊗ K^h is a henselian extension that is not tame, so its degree is divisible by p (a henselian extension of degree prime to the residue characteristic is tame); as [L_x^h : K^h] ≤ [k(Y) : k(X)], p ≤ deg f. The degree [k(Y) : k(X)] itself need not be divisible by p. And p is a residue characteristic of a valuation centred on X, hence of a point of X.
+
+*Sources.* Temkin 2017, §3.3.5, p. 120: Defines P^w_{Y/X} as the wild primes set of Val_{k(Y)}(X)′ with respect to k(X), noting it lies in char(X) with elements bounded by deg f; Temkin 2017, §3.2.11, p. 117: The wild primes set of a subset S ⊆ Val_L with respect to K
+
+*Used in:* Temkin, Theorem 3.3.6 (the bottom factor of the distillation is a P^w_{Y/X}-alteration); Temkin, Theorem 4.2.1 Step 4 and source issue E1 (P^w_{S̄/S} ⊆ char(S), which lies in P only under char(S) ⊆ P).
+
+The API:
+- `wildPrimes` (data): P^w_{Y/X} ⊆ ℕ.
+- `wildPrimes_subset_residueChars` (other): P^w_{Y/X} ⊆ char(X).
+- `wildPrimes_le_degree` (other): p ∈ P^w_{Y/X} ⇒ p ≤ deg f.
+- `wildPrimes_eq_empty_of_tame` (characterisation): P^w_{Y/X} = ∅ ⇔ k(Y)/k(X) is X-tame.
+- `wildPrimes_modification` (simp): P^w is unchanged by modifications of Y and of X.
+
+**Checks.**
+- `wildPrimes_gaussian` (computation): For Spec Z[i] → Spec Z, P^w = {2}.
+- `wildPrimes_tame` (degenerate): For a modification, P^w = ∅.
+- `wildPrimes_frobenius` (computation): For the Frobenius of A^1_{F_p}, P^w = {p} (purely inseparable extensions are wild at the trivial valuation).
+- `wildPrimes_charzero` (non-example): For t ↦ t² on A^1_Q, P^w = ∅ even though the degree is 2: char(A^1_Q) = ∅.
+
+*Acceptance.* Spec Z[i] → Spec Z has P^w = {2}.
+
+*Needs:* §PA.1.7, §PA.2.1, §PA.2.2, §PA.0.3, §PA.0.1.
+
+### PA.3.5 Tame Galois coverings after modification
+
+**Theorem.** Let X be a noetherian universally Japanese integral scheme and L/k(X) a finite Galois extension that is X-tame. Then there is a modification X′ → X such that Nor_L(X′) → X′ is a tame Galois covering.
+
+Standing hypotheses: X noetherian, universally Japanese, integral; L/k(X) finite Galois and X-tame.
+
+*Proof sketch.* For every modification X_i of X, Y_i := Nor_L(X_i) → X_i is a G-Galois covering, G = Gal(L/k(X)) (§PA.3.3 (Normalization in a finite extension of the function field)). Let T_i ⊆ Y_i be the non-tame locus. T_i is closed: covering Y_i by G-stable affines, T_i = ⋃_{(H,p)} Y_i^H ∩ Y_i(p) over subgroups H and primes p dividing |H|, a finite union of closed subschemes (§PA.3.1 (Inertia, tame actions and inertia specialization)). If every T_j were nonempty, their preimages in RZ_L(Y), Y = Nor_L(X), would be nonempty closed and directed, so by quasi-compactness (§PA.1.4 (Compactness and the valuative description of RZ spaces)) some y lies over every T_j; the inertia groups at its centres stabilize to G′ with p | |G′|. But L/k(X) is y-tame, so the inertia of Spec O_y has order invertible in k(y) = colim k(y_j), contradicting p | |G′| = |G_y|.
+
+*Sources.* Temkin 2017, Lemma 3.3.4 and proof, p. 119: States that an X-tame Galois extension of the function field of a noetherian universally Japanese integral X becomes a tame Galois covering after a modification, and proves it by the closedness of the non-tame loci and quasi-compactness of the Riemann–Zariski space
+
+*Acceptance.* If L/k(X) has degree invertible on X, X′ = X works.
+
+*Needs:* §PA.3.3, §PA.3.1, §PA.3.2, §PA.1.4, §PA.2.2.
+
+### PA.3.6 Galois closures preserve S-tameness
+
+**Theorem.** Let L/K be a finite separable extension with Galois closure L′/K, T ⊆ Val_K, S := ψ_{L/K}⁻¹(T) and S′ := ψ_{L′/K}⁻¹(T). Then L/K is S-tame if and only if L′/K is S′-tame.
+
+Standing hypotheses: L/K finite separable; L′ a Galois closure.
+
+*Proof sketch.* S′-tame ⇒ S-tame: subextensions of tame extensions are tame. S-tame ⇒ S′-tame (corrected proof, source issue E2): let L_1, …, L_n ⊆ L′ be the K-conjugates of L. For a valuation of L′ in S′, the induced valuation of K lies in T, so for every K-isomorphism L_i ≅ L the induced valuation of L_i corresponds to a point of S; hence each L_i/K is tame there. The composite of tame extensions is tame, and L′ is the composite of the L_i, so L′/K is tame.
+
+*Sources.* Temkin 2017, Lemma 3.3.7 and proof, p. 120: States the equivalence and proves it through the conjugates of L; the printed proof swaps the two directions and writes L for the composite L′ and S′ for S (source issue E2)
+
+*Acceptance.* For K = Q, L = Q(∛2), T = Val_Q ∖ {Z_(2), Z_(3)}: L/K is S-tame and so is its Galois closure Q(∛2, ω).
+
+*Needs:* §PA.2.2, §PA.2.4, Mathlib `IsGalois`.
+
+### PA.3.7 Tame distillation of alterations
+
+**Theorem.** Let X be a noetherian universally Japanese integral scheme, Y → X an alteration and P = P^w_{Y/X} its wild primes set. Then there is an alteration Y′ → Y such that the composite Y′ → X factors as a tame Galois covering Y′ → X′ followed by a P-alteration X′ → X.
+
+Standing hypotheses: X noetherian, universally Japanese, integral; Y → X an alteration (Y integral).
+
+*Proof sketch.* Put K = k(X), L = k(Y). Flatten Y → X by a blow-up X₁ → X (Scheme and stack foundations `flattening_by_blowup`); the strict transform is a flat alteration of X₁, hence finite, so Nor_L(X₁) is a modification of Y. Replace X, Y by X₁, Nor_L(X₁): Y = Nor_L(X). Apply tame distillation for fields (§PA.2.6 (Tame distillation for finite field extensions)) to L/K and the constructibly compact S = Val_L(X)′ (§PA.1.7 (Absolute Riemann–Zariski spaces and centres)): get L′/L and L′/K′/K with K′/K a P-extension and L′/K′ X-tame. X-tameness includes the trivial valuation, so L′/K′ is separable; replace L′ by its Galois closure over K′, still X-tame (§PA.3.6 (Galois closures preserve S-tameness)). L′/K′ is Nor_{K′}(X)-tame, so §PA.3.5 (Tame Galois coverings after modification) gives a modification X′ → Nor_{K′}(X) with Y′ = Nor_{L′}(X′) → X′ a tame Galois covering; X′ → X has degree [K′ : K], a P-number; Y′ → X factors through Y = Nor_L(X).
+
+*Sources.* Temkin 2017, Theorem 3.3.6 and proof, p. 120: States tame distillation of alterations with P the wild primes set, and proves it by flattening, field distillation, Galois closure and Lemma 3.3.4; Temkin 2017, §1.3.4, p. 102: Describes the theorem as splitting an enlarged alteration into a tame Galois alteration and a char(X)-alteration
+
+*Acceptance.* If Y → X is tame (P = ∅) then X′ → X is a modification.
+
+*Needs:* §PA.3.5, §PA.3.6, §PA.3.3, §PA.3.4, §PA.2.6, §PA.1.7, §PA.0.4, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.3.8 Separable tame distillation of alterations
+
+**Theorem.** Let X be a noetherian universally Japanese integral scheme, Y → X a separable alteration and P = P^w_{Y/X}. Then there is a separable alteration Y′ → Y such that Y′ → X factors as a tame Galois covering Y′ → X′ followed by a separable P-alteration X′ → X.
+
+Standing hypotheses: X noetherian, universally Japanese, integral; Y → X a separable alteration.
+
+*Proof sketch.* As in Theorem 3.3.6, but distil with §PA.2.7 (Separable tame distillation for finite separable extensions) inside a maximal separable P-extension, so K′/K is separable; then X′ → X is a separable P-alteration and Y′ → X is separable (repair E6). The flattening, Galois-closure and Lemma 3.3.4 steps preserve separability.
+
+*Sources.* Temkin 2017, Theorem 3.3.6, p. 120; Theorem 4.2.1 Step 4, p. 122: The unrestricted distillation and its use in the separable alternative of Theorem 4.2.1; the separable variant is the repair recorded as source issue E6
+
+*Acceptance.* For X over a field of characteristic zero this is Theorem 3.3.6.
+
+*Needs:* §PA.3.7, §PA.2.7, §PA.0.4.
+
+### Dependencies of Layer PA.3
+
+Earlier layers: Layer PA.0, Layer PA.1, Layer PA.2. Other roadmaps and libraries: SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21); SchemeAndStackFoundations §1.17; SchemeAndStackFoundations Layer 4 (§§4.11–4.20); Mathlib `Algebra.IsSeparable`; Mathlib `AlgebraicGeometry.Scheme.Hom.normalization`; Mathlib `AlgebraicGeometry.Scheme.residueField`; Mathlib `IsGalois`; Mathlib `IsPurelyInseparable`; Mathlib `MulAction.stabilizer`; ModularCurves 0C (affine invariant quotients).
+
+## Layer PA.4: Log regular pairs, very tame actions and Gabber's modification theorems
+
+On the log algebra of CrystallineCohomology CR.5:log-algebra, define log regular pairs (X, Z) through the log structure of a closed subset, very tame actions, and log blow-ups and saturated log blow-ups with their comparison to normalized blow-ups. Prove log regularity of quotients by very tame actions (ILO VI 3.2), the existence and functoriality of monoidal desingularization (ILO VIII 3.3.15, 3.4.9), Gabber's modification theorem in the absolute case (ILO VIII 1.1) and for equivariant log smooth morphisms (ILO X 1.1, 3.1.5), Gabber's preparation lemma (X 1.2), log smoothness for intermediate boundaries (X 3.5.2) and the local forms of log smooth maps to fields and one-dimensional regular bases.
+
+### PA.4.1 Log regular pairs
+
+**Definition.** A pair (X, Z), X a locally noetherian scheme and Z ⊆ X closed with complement j : U → X, is log regular if the log structure M_{(X,Z)} := O_X ∩ j_*O_U^× associated with Z (the log structure of a closed subset, supplied by CrystallineCohomology CR.5:log-algebra) is fine and saturated, the fs log scheme (X, M_{(X,Z)}) is log regular (CR.5 `log-regularity`), and Z is exactly the complement of the triviality locus of M_{(X,Z)}. Conversely every log regular fs log scheme is of this form, with U its triviality locus (Niziol; ILO VI 1.4).
+
+Standing hypotheses: X locally noetherian; Z closed.
+
+*Proof sketch.* Build M_{(X,Z)} from CR.5's log structures; for X regular and Z an snc support it is CR.5's `divisorial-log` structure, with étale-local charts N^s. Log regularity is CR.5's definition at geometric points: O_x/I_x regular and dim O_x = dim O_x/I_x + rank M̄_x^gp. If X is regular and Z an snc support, (X, Z) is log regular; if (X, ∅) is log regular then X is regular (CR.5 `IsLogRegular.trivial_iff`).
+
+*Sources.* ILO, Exposé VI, §§1.2–1.4, arXiv v1 p. 69: Defines log regularity at geometric points, notes that a log regular log structure equals O_X ∩ j_*O_U^× for its triviality locus U, and defines log regular pairs (X, Z); ILO, Exposé X, §3.2.1, arXiv v1 p. 158: The log structure associated with a closed nowhere dense subset of a reduced scheme, and the fact that every log regular log scheme is of the form (S, W); Temkin 2017, §1.2.7, pp. 99–100: The log structure O_X ∩ i_*O_U^× of a closed subset, the cuspidal example where it is not fine, and fs log regularity for X regular and Z snc
+
+*Used in:* ILO Exposé VIII, Theorem 1.1 (the input and output of Gabber's modification theorem are log regular); ILO Exposé X, Theorem 1.1 and Theorem 3.4 Step 10 ((X̄, T̄) → (S̄, W̄) → (S, W) with (S, W) log regular); Temkin, Theorems 4.2.1 and 4.3.1 (the conclusion (X′, Z′) → (S′, W′) is a log smooth map of log regular pairs).
+
+The API:
+- `IsLogRegularPair` (data): M_{(X,Z)} is fs, (X, M_{(X,Z)}) is log regular and Z is the non-triviality locus.
+- `IsLogRegularPair.of_snc` (constructor): X regular and Z an snc support ⇒ (X, Z) log regular.
+- `IsLogRegularPair.empty_iff` (characterisation): (X, ∅) is log regular ⇔ X is regular.
+- `IsLogRegularPair.dense_triviality` (other): If (X, Z) is log regular then X ∖ Z is dense and X is normal.
+- `IsLogRegularPair.of_logRegular` (equivalence): A log regular fs log scheme (X, M) is (X, M_{(X,Z)}) for Z the non-triviality locus of M.
+- `IsLogRegularPair.strata` (projection): The rank stratification X(i) by rank M̄^gp consists of regular locally closed subschemes of codimension i.
+
+**Checks.**
+- `logRegularPair_axes` (computation): (A^2_k, V(xy)) is log regular, with M̄ ≅ N² at the origin.
+- `logRegularPair_empty_regular` (degenerate): (X, ∅) is log regular for X regular, e.g. (Spec Z, ∅).
+- `not_logRegularPair_cusp` (non-example): (Spec k[x², x³], {x = 0}) is not log regular: the associated log structure is not fine.
+- `logRegularPair_toric_quotient` (computation): For Y = Spec k[u, v, w]/(uw − v²), the quotient of A^2_k by ±1 with u = x², v = xy, w = y² (char k ≠ 2), the pair (Y, V(v)) is log regular although Y is singular at the vertex; V(v) is the image of the axes V(xy).
+- `not_logRegularPair_point` (non-example): (A^2_k, {0}) is not log regular: the non-triviality locus of a log regular structure has pure codimension one.
+
+*Acceptance.* The cuspidal curve Spec k[x², x³] with Z = {x = 0}: M_{(X,Z)} is not fine (the elements x² + a x³, a ∈ k, are independent), so (X, Z) is not log regular (Temkin §1.2.7).
+
+*Needs:* CR.5:log-algebra `log-structure`, CR.5:log-algebra `divisorial-log`, CR.5:log-algebra `log-regularity`, CR.5:log-algebra `saturated-monoid`, CR.5:log-algebra `fine-monoid`, CrystallineCohomology CR.5:log-algebra (log structure of a closed subset), §PA.0.8.
+
+### PA.4.2 Very tame actions
+
+**Definition.** Let a finite group G act on an fs log scheme X. G acts very tamely at a geometric point x if (i) the inertia group G_x has order invertible in k(x) (tameness), (ii) G_x acts trivially on the characteristic monoid M̄_{X,x}, and (iii) G_x acts trivially on the log stratum C_{X,x} through x (the closed subscheme of the strict localization cut out by the ideal generated by M_x ∖ O_x^×). G acts very tamely if this holds at every geometric point.
+
+Standing hypotheses: G finite; X an fs log scheme (locally noetherian).
+
+*Proof sketch.* Define the three conditions using §PA.3.1 (Inertia, tame actions and inertia specialization) for inertia and CR.5 for M̄ and the boundary ideal I_x. Very tameness is open: if X is log regular and G acts very tamely at x it does so in an étale neighbourhood (ILO VI 3.6).
+
+*Sources.* ILO, Exposé VI, §3.1, arXiv v1 p. 73: Defines tame and very tame actions (conditions (i)–(iii)), due to Gabber; ILO, Exposé VIII, §1.2(a)–(b), arXiv v1 p. 86: The ±1 action on the plane: tame but not very tame for the trivial log structure, very tame for the log structure of two crossing lines
+
+*Used in:* ILO Exposé VI, Theorem 3.2 (very tame, generically free, admissible actions on log regular schemes have log regular quotients); ILO Exposé VIII, Theorem 1.1(iii); Exposé X, Theorem 1.1 (the output of Gabber's modification theorem carries a very tame action).
+
+The API:
+- `IsVeryTameAt` (data): Conditions (i)–(iii) at a geometric point.
+- `IsVeryTame` (data): IsVeryTameAt at every geometric point.
+- `IsVeryTame.isTame` (projection): Very tame actions are tame.
+- `IsVeryTame.isOpen` (other): For X log regular, the very tame locus is open (ILO VI 3.6).
+- `IsVeryTame.inertia_abelian` (other): Under the hypotheses of ILO VI 3.2, every inertia group is abelian of order prime to the residue characteristic (VI 3.3).
+
+**Checks.**
+- `not_veryTame_sign_trivial_log` (non-example): ±1 on A^2_k (char k ≠ 2) with trivial log structure is tame and not very tame.
+- `veryTame_sign_axes` (computation): ±1 on (A^2_k, V(xy)) is very tame: inertia ±1 at the origin acts trivially on M̄ = N² and on the stratum {0}.
+- `veryTame_trivial_group` (degenerate): The trivial group acts very tamely on every fs log scheme.
+- `not_veryTame_wild` (non-example): Z/2 acting on Spec Z_2[i] by conjugation, with the log structure of its closed point, is not very tame: inertia of order 2 at a point of residue characteristic 2.
+
+*Acceptance.* ±1 acting on A^2_k with the trivial log structure is tame but not very tame: the inertia at the origin does not act trivially on the stratum A^2 (ILO VIII 1.2(a)). With the log structure of the divisor V(xy), the same action is very tame (VIII 1.2(b)).
+
+*Needs:* §PA.3.1, CR.5:log-algebra `characteristic-monoid`, CR.5:log-algebra `log-regularity`, §PA.4.1.
+
+### PA.4.3 Quotients by very tame actions
+
+**Theorem.** Let X be a log regular fs log scheme with an action of a finite group G that is admissible on the underlying scheme, free on a dense open and very tame. Then Y = X/G exists as a log scheme with M_Y = (q_*M_X)^G, it is fs and log regular, and q : X → Y is a Kummer étale covering with group G. At a geometric point x the inertia G_x is abelian of order invertible in k(x), and the strict localization X_(x) is a standard Kummer étale covering of Y_(y) with group G_x.
+
+Standing hypotheses: X log regular fs; G finite, admissible, generically free and very tame.
+
+*Proof sketch.* Étale-locally at x, choose a G_x-equivariant chart modelled on Q = M̄_x and a pairing χ : G_x^ab ⊗ Q^gp → μ_n (ILO VI 3.5(a), using tameness and triviality on M̄_x). Very tameness on the stratum identifies X near x with a strict closed log subscheme of a standard Kummer étale cover of Y = X/G_x (VI 3.5(b)); log regularity passes to Y_(y) and X_(x) is a standard Kummer cover (VI 3.5(c)). Globalise with the admissible quotient (§PA.3.1 (Inertia, tame actions and inertia specialization)) and generic freeness.
+
+*Sources.* ILO, Exposé VI, Theorem 3.2, Corollary 3.3, Proposition 3.5 and Corollary 3.6, arXiv v1 pp. 73–75: Existence and log regularity of quotients of log regular schemes by admissible, generically free, very tame actions, with the quotient map a Kummer étale cover and inertia abelian of invertible order
+
+*Acceptance.* The quotient of (A^2_k, V(xy)) by ±1 (char k ≠ 2) is the log regular pair (Spec k[u, v, w]/(uw − v²), V(v)), and A^2 → quotient is a Kummer étale cover of group Z/2.
+
+*Needs:* §PA.4.2, §PA.4.1, §PA.3.1, CR.5:log-algebra `kummer-morphism`, CR.5:log-algebra `log-chart`.
+
+### PA.4.4 Log blow-ups and saturated log blow-ups
+
+**Construction.** For a fine log scheme (X, M) and a coherent log ideal I ⊆ M, the log blow-up LogBl_I(X, M) is the universal fine log scheme over (X, M) on which I becomes invertible; the saturated log blow-up is its saturation. For log regular fs (X, M), log ideals correspond bijectively to monoidal ideals I O_X, and the saturated log blow-up of I is the normalized blow-up of X along I O_X, compatibly with strict morphisms (Niziol). Towers of (saturated) log blow-ups are finite sequences of such.
+
+Standing hypotheses: (X, M) fine (fs and log regular for the comparison with normalized blow-ups).
+
+*Proof sketch.* Construct locally on charts: for X → Spec Z[P] and an ideal I₀ ⊆ P, X ×_{Spec Z[P]} Proj(⊕ I₀^n) with its induced log structure, and glue (Niziol 2006, 4.2). Compare with ordinary blow-ups: Kato's Tor-independence for log regular schemes gives X′ ≅ Bl_{I O_X}(X) and X″ ≅ Bl_{I O_X}(X)^{nor} (ILO VIII 3.4.6). Underlying morphisms of saturated log blow-up towers of log regular schemes are projective modifications.
+
+*Sources.* ILO, Exposé VIII, §§3.3.7–3.3.11, arXiv v1 pp. 107–108: Log ideals, log blow-ups (existence due to Niziol), saturated log blow-ups and their basic properties; ILO, Exposé VIII, Lemma 3.4.3, §3.4.5 and Lemma 3.4.6, arXiv v1 pp. 110–111: For log regular fs log schemes, the bijection between log ideals and monoidal ideals and the identification of (saturated) log blow-ups with (normalized) blow-ups, compatible with strict morphisms
+
+*Used in:* ILO Exposé VIII, Theorem 3.4.9 (monoidal desingularization is a saturated log blow-up tower); ILO Exposé X, proof of Theorem 1.1, §1.3 (preliminary reductions by G-equivariant saturated log blow-up towers).
+
+The API:
+- `logBlowup` (data): LogBl_I(X, M) → (X, M) for a coherent log ideal I.
+- `satLogBlowup` (data): The saturation of logBlowup.
+- `satLogBlowup_eq_normalizedBlowup` (compatibility): For (X, M) log regular fs: the underlying scheme of satLogBlowup I is Bl_{I O_X}(X)^{nor}.
+- `logBlowup_baseChange_strict` (functoriality): For strict f, the (saturated) log blow-up of f⁻¹I is the pullback of that of I.
+- `satLogBlowup_logRegular` (other): Saturated log blow-ups of log regular fs log schemes are log regular and log étale over the base.
+- `satLogBlowup_projective` (other): The underlying morphism is a projective modification.
+
+**Checks.**
+- `logBlowup_axes_origin` (computation): For (A^2_k, V(xy)) and the ideal (x, y) of N², the log blow-up is Bl_0 A^2 with the divisorial log structure of the total transform.
+- `logBlowup_unit_ideal` (degenerate): The log blow-up of the unit ideal M is the identity.
+- `logBlowup_invertible` (degenerate): The log blow-up of an invertible log ideal is the identity.
+- `satLogBlowup_differs` (non-example): For the A_1 monoid P ⊂ Z² generated by (2,0), (1,1), (0,2) (Spec k[P] = Spec k[u, v, w]/(uw − v²)) and the ideal of P generated by (2,0) and (0,2), the unsaturated log blow-up, which is the ordinary blow-up along (u, w), has the non-normal chart Spec k[u, v, s]/(v² − u²s) with s = w/u; its saturation adjoins v/u and is the normalized blow-up, with regular chart Spec k[u, v/u].
+
+*Acceptance.* For (A^2_k, V(xy)) and I the maximal ideal of N², the log blow-up is the blow-up of the origin with its divisorial log structure.
+
+*Needs:* §PA.4.1, CR.5:log-algebra `log-chart`, CR.5:log-algebra `saturated-monoid`, CR.5:log-algebra `integral-log-fiber-product`, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.4.5 Monoidal desingularization of log regular schemes
+
+**Theorem.** There is a saturated monoidal desingularization functor F̃^log: to every log regular fs log scheme (X, M) (more generally every monoidally torsion-free fine log scheme) it assigns a finite tower of saturated log blow-ups X′ → X after which every stalk of M̄ is a free monoid, so X′ is regular and its non-triviality locus is a normal crossings divisor (snc when the log structure is Zariski). It is functorial for monoidally smooth morphisms: for monoidally smooth φ : Y → X, F̃^log(Y) is the contraction of the strict transform of F̃^log(X), and for strict φ it is the pullback. The underlying morphism X′ → X is a projective modification.
+
+Standing hypotheses: (X, M) log regular fs (or monoidally torsion free fine).
+
+*Proof sketch.* Resolve fans: a functorial saturated desingularization of fine torsion-free fans (ILO VIII §3.1–3.2, toric resolution through characteristic-zero functorial resolution of toric varieties, VIII §2). Descend to log schemes with fan charts by pullback, uniquely and functorially for monoidally smooth morphisms (VIII 3.3.15). For log regular log schemes the tower is a normalized blow-up tower of X (§PA.4.4 (Log blow-ups and saturated log blow-ups)), giving the desingularization F̃ with the stated functoriality (VIII 3.4.9); M̄ free means X regular with normal crossings boundary (VIII 3.4.4, VI 1.7).
+
+*Sources.* ILO, Exposé VIII, Theorem 3.3.15, arXiv v1 p. 109: Existence and uniqueness of a saturated monoidal desingularization of monoidally torsion-free fine log schemes, functorial for monoidally smooth morphisms, from a functorial desingularization of fans; ILO, Exposé VIII, §3.4.8 and Theorem 3.4.9, arXiv v1 p. 111: The induced normalized desingularization of log regular log schemes and its functoriality; Temkin 2017, proof of Theorem 4.2.1, Step 10, p. 123; Remark 4.3.4, p. 124: Applies the monoidal desingularization functor F̃^log of [IT14a, 3.4.9] to make the source regular with snc boundary
+
+*Acceptance.* For X regular with snc boundary, F̃^log(X) is the identity. For the log regular pair (Spec k[u, v, w]/(uw − v²), V(v)), F̃^log is the toric resolution given by subdividing the cone of the A_1 singularity, whose underlying morphism is the blow-up of the vertex. (ILO VIII 1.2(b) identifies the log blow-up of the vertex with the canonical resolution of this toric singularity.)
+
+*Needs:* §PA.4.4, §PA.4.1, CR.5:log-algebra `log-chart`, CR.5:log-algebra `saturated-monoid`.
+
+### PA.4.6 Gabber's modification theorem, absolute case
+
+**Theorem.** Let X be a noetherian, quasi-excellent, separated, log regular fs log scheme with an action of a finite group G that is tame and generically free. Let Z be the non-triviality locus of the log structure and T the complement of the largest G-stable open on which G acts freely. Then there is a G-equivariant morphism of log schemes f = f(G, X, Z) : X′ → X such that (i) f is a projective modification of the underlying schemes, (ii) X′ is log regular with non-triviality locus f⁻¹(Z ∪ T), and (iii) G acts very tamely on X′. Separatedness of X may be weakened to the action being inertia specializing (ILO X 3.1.5(i)).
+
+Standing hypotheses: X noetherian, qe, separated (or the G-action inertia specializing), log regular fs; G finite, tame and generically free.
+
+*Proof sketch.* Reduce to X regular with Z a G-strict snc divisor by G-equivariant saturated log blow-up towers (§PA.4.5 (Monoidal desingularization of log regular schemes); ILO VIII 4.1). Make the inertia abelian by blowing up fixed-point loci of subgroups (regular, by VI 4.2) in a permissible tower, and then use the toric structure of the quotient by the abelian inertia: the very tame quotient (§PA.4.3 (Quotients by very tame actions)) and its canonical toric resolution, normalized in the G-cover (VIII §§4–5; the model computation VIII 1.2(b)). Glue the local constructions f(G_x, X_x, Z_x) along specializations, which uses G_x ⊆ G_y (inertia specializing), and bound the normalization threshold by the log-inertia combinatorics (ILO X 3.1.5 proof).
+
+*Sources.* ILO, Exposé VIII, Theorem 1.1, arXiv v1 p. 85; proof §§4–5, pp. 116–130: Gabber's modification theorem: a G-equivariant projective modification of a noetherian qe separated log regular fs log scheme with tame generically free action, with log regular source, boundary the preimage of Z ∪ T and very tame action; ILO, Exposé X, Theorem 3.1.5(i), arXiv v1 p. 156: Separatedness replaced by inertia specialization; ILO, Exposé VIII, §1.2, arXiv v1 p. 86: The ±1 example and the toric explanation of the modification
+
+*Acceptance.* For ±1 on (A^2_k, ∅), k algebraically closed of characteristic ≠ 2: the blow-up f : X′ → A^2_k of the origin satisfies all the conclusions, with (X′, Z′) log regular for Z′ the exceptional line and the action very tame. The morphism f is not log smooth (its fibre over the origin is Z′ with the log structure of N sending 1 to 0), although (X′, Z′) is log smooth over k (ILO VIII 1.2(a)).
+
+*Needs:* §PA.4.5, §PA.4.3, §PA.4.2, §PA.4.1, §PA.3.1, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.4.7 Gabber's preparation lemma for equivariant log smooth maps
+
+**Theorem.** Let f : X → Y be a G-equivariant log smooth map of fine log schemes, x a geometric point with image y, G the inertia group at x of order invertible on Y, acting trivially on M̄_x and M̄_y, and a : Y → Spec Λ[Q] an equivariant chart at y modelled on χ : G^ab ⊗ Q^gp → μ_N, with Q fine and Λ = Z[1/N, μ_N]. Then, étale-locally at x, a extends to an equivariant chart b : X → Spec Λ[P] with Q^gp → P^gp injective, torsion of the cokernel annihilated by an integer invertible on X, X → Y ×_{Spec Λ[Q]} Spec Λ[P] smooth, and after shrinking an equivariant étale map X → (Y ×_{Λ[Q]} Λ[P]) ×_Λ Spec Sym_Λ(V) for a finitely generated projective Λ[G]-module V. If X, Y and Q are fs with Q sharp, P may be chosen fs with P^× torsion free.
+
+Standing hypotheses: G finite of order invertible on Y; f equivariant log smooth between fine log schemes; equivariant chart at y.
+
+*Proof sketch.* Decompose k(x) ⊗ Ω¹_{X/Y,x} = V₀ ⊕ (k(x) ⊗ M̄^gp_{X/Y,x}) G-equivariantly (tameness), lift a basis of the second summand to elements t_i of M_x^gp with characters ψ_i. Build F as the push-out making the m-th powers of generators of M̄_x^gp land in Z ⊕ Q^gp (m invertible), set P := v⁻¹(M_x); Kato's chart extension gives b, and the Jacobian criterion (Kato 3.12) shows smoothness of the strict map b′. Lift V₀ to a projective Λ[G]-module (Serre) to get the étale map to the polynomial factor; saturate and split off the torsion of P^× for the fs refinement.
+
+*Sources.* ILO, Exposé X, Proposition 1.2 and proof, arXiv v1 pp. 136–139: Gabber's preparation lemma: equivariant charts and smooth/étale local models for equivariant log smooth maps with tame inertia acting trivially on the characteristic monoids, adapted from Kato's chart theorem
+
+*Acceptance.* For G = 1, Y a field with trivial log structure and X log smooth with X regular: X is smooth over Y and the boundary is a relative snc divisor (used in ILO X 2.3 Step 3).
+
+*Needs:* CR.5:log-algebra `log-smooth`, CR.5:log-algebra `log-smooth-chart-criterion`, CR.5:log-algebra `log-chart`, CR.5:log-algebra `saturated-monoid`, §PA.4.2.
+
+### PA.4.8 Gabber's modification theorem, log smooth case
+
+**Theorem.** Let f : X → S be a G-equivariant log smooth morphism of fs log schemes with a finite group G such that G acts trivially on S; X and S are noetherian, quasi-excellent and log regular, f is a map of log regular pairs (X, Z) → (S, W); and G acts tamely and generically freely on X. Let T be the complement of the largest open over which G acts freely. Then there is a G-equivariant projective modification h : X′ → X such that, with Z′ = h⁻¹(Z ∪ T), (X′, Z′) is log regular, G acts very tamely on X′, (X′, Z′) is log smooth over (S, W), and so is the quotient (X′/G, Z′/G) when G acts admissibly on X. Separatedness of X and S, required in the source statement, may be replaced by the action of G on X being inertia specializing.
+
+Standing hypotheses: G finite, trivial on S; X, S noetherian, qe, log regular; f log smooth; G tame and generically free on X; G-action separated or inertia specializing.
+
+*Proof sketch.* Take h = f(G, X, Z) from the absolute theorem (§PA.4.6 (Gabber's modification theorem, absolute case)) and check log smoothness over S at each step of its construction: log blow-up steps are log étale; for blow-ups of fixed-point loci X^H use the local picture of Gabber's preparation lemma (§PA.4.7 (Gabber's preparation lemma for equivariant log smooth maps)) and Tor-independence of the charts (ILO X 1.4–1.7). At the end, log smoothness of the quotient: the quotient map is Kummer étale (§PA.4.3 (Quotients by very tame actions)), and log smoothness descends along Kummer étale covers (Kato–Nakayama, ILO X 1.11). The checks are local on X, so they hold for inertia specializing actions (ILO X 3.1.5(ii)).
+
+*Sources.* ILO, Exposé X, Theorem 1.1, arXiv v1 pp. 135–136; proof §§1.3–1.8, pp. 139–148: Gabber's modification theorem for equivariant log smooth maps with trivial action on the base, deduced from the absolute case by checking log smoothness along the construction; ILO, Exposé X, Theorem 1.11, p. 148; Theorem 3.1.5(ii), p. 156: Descent of log smoothness along Kummer étale covers, and removal of separatedness in favour of inertia specialization; Temkin 2017, §1.3.5, p. 102; proof of Theorem 4.2.1, Step 10, p. 123: Uses Gabber's modification theorem [IT14b, Th. 3.1.5] on the tame action of the distilled group
+
+*Acceptance.* For S = Spec k with trivial log structure and X smooth over k with snc Z, the conclusion gives a very tame model whose quotient is log smooth over k, the input to Gabber's ℓ′ theorem over a field.
+
+*Needs:* §PA.4.6, §PA.4.7, §PA.4.3, CR.5:log-algebra `log-smooth`, CR.5:log-algebra `kummer-morphism`, CR.5:log-algebra `log-smooth-over-log-regular`.
+
+### PA.4.9 Log smoothness for intermediate boundaries
+
+**Theorem.** Let X and S be regular, W ⊆ S and Z ⊆ X snc supports, and f : X → S with f⁻¹(W) ⊆ Z such that (X, Z) → (S, W) is log smooth. Then for every snc support Z′ with f⁻¹(W) ⊆ Z′ ⊆ Z that is a union of components of Z, (X, Z′) → (S, W) is log smooth.
+
+Standing hypotheses: X, S regular; Z, W snc supports; f⁻¹(W) ⊆ Z′ ⊆ Z, Z′ a union of components of Z.
+
+*Proof sketch.* Work étale-locally at a geometric point; take the chart N^r of (S, W) and by Gabber's preparation lemma (G = 1) an fs chart Q → P of f with X → S ×_{Z[Q]} Z[P] smooth, P^× torsion free, torsion of Coker φ^gp killed by n invertible. Localize P so that P ≅ N^t ⊕ Z^u with the N^t factor given by the branches of Z; the image of Q lands in the factor P′ of the branches of Z′ (since f⁻¹(W) ⊆ Z′). Spec Z[P] → Spec Z[P′ ⊕ P^×] is smooth, so the chart φ′ : Q → P′ ⊕ P^× satisfies Kato's criterion (CR.5 `log-smooth-chart-criterion`).
+
+*Sources.* ILO, Exposé X, Lemma 3.5.2 and proof, arXiv v1 p. 165: Proves that shrinking the boundary to any intermediate divisor between f⁻¹(W) and Z preserves log smoothness, from the preparation lemma and Kato's chart criterion
+
+*Acceptance.* Taking Z′ = Z recovers the hypothesis; Z′ = f⁻¹(W) gives the minimal boundary.
+
+*Needs:* §PA.4.7, CR.5:log-algebra `log-smooth-chart-criterion`, §PA.0.8.
+
+### PA.4.10 Local forms of log smooth maps to points and traits
+
+**Theorem.** Let f : (X̃, Ẽ) → (S′, W′) be log smooth with X̃ regular and Ẽ an snc support. (i) If S′ = Spec k′ is a field with W′ = ∅, then X̃ is smooth over k′ and Ẽ is a relative strict normal crossings divisor. (ii) If S′ is a regular one-dimensional scheme and W′ = Σ a finite set of closed points with Ẽ ⊇ f⁻¹(Σ), then outside Σ, X̃ → S′ is smooth with Ẽ a relative normal crossings divisor, and étale-locally at a point over s′ ∈ Σ the pair (X̃, Ẽ) is (S′[u_1^{±1}, …, u_s^{±1}, t_1, …, t_n]/(u^b t^a − π), V(t_{r+1} ⋯ t_m)), 1 ≤ r ≤ m ≤ n, with gcd(p, a_1, …, a_r, b_1, …, b_s) = 1 for p the characteristic exponent of k(s′) and π a uniformizer.
+
+Standing hypotheses: f log smooth; X̃ regular; Ẽ snc; base a field or a regular one-dimensional scheme.
+
+*Proof sketch.* Apply Gabber's preparation lemma with G = 1: (i) Q = {1}, P^× torsion free, gives X̃ étale over an affine space times Spec Λ[P] with P free on the branches, i.e. smooth with relative snc boundary. (ii) Q = N with 1 ↦ π, and P = P^× ⊕ P₁ with P^× free abelian and P₁ ≅ N^m (the branches of Ẽ through the point); the image of 1 in P gives the exponents (b_j) on the unit coordinates and (a_i) on the branches, the invertibility of the torsion of Coker(Z → P^gp) gives gcd(p, a, b) = 1, and the horizontal part of Ẽ is cut out by further coordinates t_j. ILO prints the two ranks inconsistently (source issue E13).
+
+*Sources.* ILO, Exposé X, Step 3 of §2.3, arXiv v1 p. 152; end of §2.6, pp. 154–155; §3.5.3, pp. 165–166: Derives smoothness and relative snc over a field, and the explicit local form over a one-dimensional base, from the preparation lemma applied to the resolved log smooth morphism
+
+*Acceptance.* For X̃ = Spec Z_p[x, y]/(xy − p) over Spec Z_p with Ẽ the special fibre, the local form has a_1 = a_2 = 1.
+
+*Needs:* §PA.4.7, CR.5:log-algebra `log-smooth-chart-criterion`.
+
+### Dependencies of Layer PA.4
+
+Earlier layers: Layer PA.0, Layer PA.3. Other roadmaps and libraries: CrystallineCohomology CR.5:log-algebra (log structure of a closed subset); CR.5:log-algebra `characteristic-monoid`; CR.5:log-algebra `divisorial-log`; CR.5:log-algebra `fine-monoid`; CR.5:log-algebra `integral-log-fiber-product`; CR.5:log-algebra `kummer-morphism`; CR.5:log-algebra `log-chart`; CR.5:log-algebra `log-regularity`; CR.5:log-algebra `log-smooth`; CR.5:log-algebra `log-smooth-chart-criterion`; CR.5:log-algebra `log-smooth-over-log-regular`; CR.5:log-algebra `log-structure`; CR.5:log-algebra `saturated-monoid`; SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+## Layer PA.5: Stable modification and resolution of relative curves
+
+Define multipointed S-curves, semistable and stable modifications and η-modifications (Temkin 2010). Prove the stable modification theorem: projectivity (Theorem 1.1), uniqueness and existence after a generically étale alteration (Theorems 1.2, 1.5) and equivariance (Corollary 1.6); log smoothness of semistable multipointed curves over log regular pairs (ILO X 3.2.3); and Temkin's resolution of relative curves by projective P-alterations (Theorem 4.2.1, in the scope char(S) ⊆ P of source issue E1, generalising ILO X 3.4).
+
+### PA.5.1 Multipointed curves and their stable modifications
+
+**Definition.** Let S be a scheme. A multipointed S-curve (C, D) is a pair of flat finitely presented morphisms C → S and D → S of pure relative dimensions one and zero with a closed immersion D → C over S; C need not be proper or separated over S. It is semistable if C → S is flat with geometric fibres having at most ordinary double points, D → S is étale and D misses the non-smooth locus of C → S. A modification (C′, D′) → (C, D) is a pair of modifications (proper, isomorphisms on schematically dense opens); it is semistable if (C′, D′) is, and stable if moreover no geometric fibre C′_s has an exceptional component (a P^1 meeting D′_s ∪ (C′_s)^{sing} in at most two points and contracted to a point of C_s). For S integral with generic point η, an η-modification is one that is an isomorphism over η.
+
+Standing hypotheses: S a scheme (integral, quasi-compact and quasi-separated for η-modifications).
+
+*Proof sketch.* Define the predicates fibrewise; semistability is a property of geometric fibres by the fibre criterion of étaleness for D. For proper C with geometrically connected fibres and D of degree n these are the prestable, semistable and stable pointed curves of Tau Ceti StableReduction Layer 3; the general notion drops properness and separatedness. The sheaf ω_{(C,D)/S} = ω_{C/S}(D) is defined locally (C → S is a relative local complete intersection), compatible with base change.
+
+*Sources.* Temkin 2010, §1.2, arXiv v3 pp. 2–3: Defines multipointed S-curves (not necessarily proper or separated), their modifications, semistable and stable modifications (no exceptional components in geometric fibres), η-modifications and the sheaf ω_{(C,D)/S}; ILO, Exposé X, §3.2.2, arXiv v1 p. 158: Semistable multipointed relative curves, following Temkin 2010, without properness or separatedness
+
+*Used in:* Temkin 2010, Theorems 1.1, 1.2, 1.5 and Corollary 1.6 (stable modification of multipointed curves); ILO Exposé X, Theorem 3.4 Step 3; Temkin 2017, Theorem 4.2.1 Step 3 (after a separable alteration of the base, the relative curve becomes a semistable multipointed curve); ILO Exposé X, Proposition 3.2.3 (semistable multipointed curves are log smooth over log regular bases).
+
+The API:
+- `MultipointedCurve` (structure): (C → S, D → S, D ↪ C) flat finitely presented of relative dimensions 1 and 0.
+- `MultipointedCurve.IsSemistable` (data): Fibres nodal, D étale and disjoint from the non-smooth locus.
+- `MultipointedCurve.Modification` (structure): Pairs of modifications compatible with D ↪ C.
+- `MultipointedCurve.IsStableModification` (data): Semistable with no exceptional components in geometric fibres.
+- `MultipointedCurve.IsSemistable.baseChange` (functoriality): Semistability is stable under arbitrary base change S′ → S.
+- `MultipointedCurve.isSemistable_iff_fibres` (characterisation): (C, D) is semistable ⇔ all geometric fibres are semistable multipointed curves.
+- `MultipointedCurve.toPointedCurve` (compatibility): For C → S proper with geometrically connected fibres, semistable (C, D) is a semistable pointed curve of StableReduction Layer 3 with the points of D.
+
+**Checks.**
+- `mpc_affine_line` (degenerate): (A^1_S, ∅) is a semistable multipointed S-curve and the identity is a stable modification.
+- `mpc_node_dvr` (computation): Over a DVR R with uniformizer π, (Spec R[u, v]/(uv − π), ∅) is semistable, with a node in the special fibre.
+- `not_mpc_cusp` (non-example): (Spec k[x, y]/(y² − x³), ∅) over k is not semistable: the cusp is not an ordinary double point.
+- `not_stable_blowup` (non-example): Blowing up a smooth point of the special fibre of A^1_R over a DVR gives a semistable modification that is not stable: the exceptional P^1 meets the rest of the fibre in one point and is contracted.
+- `not_semistable_marking_on_node` (non-example): A marking D through the node of Spec R[u, v]/(uv − π) is not allowed.
+
+*Acceptance.* (A^1_S, ∅) with A^1 → S is a semistable multipointed curve; (Spec O_S[u, v]/(uv − π), ∅) over a DVR is semistable but not smooth.
+
+*Needs:* StableReduction Layer 3, Mathlib `AlgebraicGeometry.Flat`, Mathlib `AlgebraicGeometry.Etale`, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.5.2 Stable modification theorem: projectivity
+
+**Theorem.** For a multipointed S-curve (C, D) with a semistable modification (C′, D′), the sheaf ω_{(C′,D′)/S} is C-ample if and only if the modification is stable. In particular every stable modification C^st → C is projective.
+
+Standing hypotheses: (C, D) a multipointed S-curve; (C′, D′) → (C, D) a semistable modification.
+
+*Proof sketch.* Relative ampleness is checked on fibres C′_x over points x ∈ C closed in their S-fibre (EGA IV 9.6.5); pass to a geometric point and use base change of ω. The reduced fibre Z over x is a proper connected semistable curve; with E the points smooth in Z but singular in C′_s, non-exceptionality of its components is classical stability of (Z, D ⊔ E), so ω restricted to Z, which is ω_{(Z, D ⊔ E)}, is ample. If the modification is not stable, ω has degree ≤ 0 on an exceptional component, so it is not C-ample.
+
+*Sources.* Temkin 2010, Theorem 1.1 and proof, arXiv v3 p. 3: Characterises stable modifications by C-ampleness of ω_{(C′,D′)/S} and deduces their projectivity, by the classical ampleness computation on fibres
+
+*Acceptance.* For a semistable (C, D) the identity is a stable modification, and ω_{(C,D)/S} is C-ample relative to the identity.
+
+*Needs:* §PA.5.1, StableReduction Layer 3.
+
+### PA.5.3 Stable modification theorem: existence and uniqueness
+
+**Theorem.** Let S be integral, quasi-compact and quasi-separated with generic point η. (Uniqueness) If S is normal and (C, D) admits a stable η-modification (C^st, D^st), it is minimal: every semistable modification of (C, D) factors uniquely through it; so it is unique up to unique isomorphism and an isomorphism over the semistable locus. (Existence) For every multipointed S-curve (C, D) whose generic fibre (C_η, D_η) is semistable there are a generically étale alteration S′ → S and a stable η-modification (C′^st, D′^st) → (C, D) ×_S S′.
+
+Standing hypotheses: S integral qcqs (normal for uniqueness); (C, D) a multipointed S-curve with semistable generic fibre.
+
+*Proof sketch.* Uniformization of one-dimensional extensions of valued fields (Temkin 2010 Theorems 2.1.8, 6.3.1) gives stable modification over spectra of finite-height valuation rings with separably closed fraction field (§4), glued from non-proper pieces using uniqueness. Globalize over an integral base by the Riemann–Zariski space of S (quasi-compactness, §PA.1.4 (Compactness and the valuative description of RZ spaces)): finitely many generically étale alterations S′_i → S with opens U_i centring the valuations, glued by uniqueness of stable modifications over a common generically étale alteration (Temkin 2010 §5).
+
+*Sources.* Temkin 2010, Theorem 1.2, Corollary 1.3 and Theorem 1.5, arXiv v3 pp. 3–4; proofs §§4–5: Uniqueness and minimality of stable η-modifications over a normal integral base, and existence after a generically étale alteration for multipointed curves with semistable generic fibre, proved through uniformization of valued fields and Riemann–Zariski spaces
+
+*Acceptance.* For S the spectrum of a DVR and C proper smooth over η of genus ≥ 2 this is the Deligne–Mumford stable reduction theorem after a finite separable extension.
+
+*Needs:* §PA.5.1, §PA.5.2, §PA.1.4, §PA.0.3.
+
+### PA.5.4 Equivariance of stable modification
+
+**Theorem.** In the existence theorem, if S′ is normal, the natural action of Aut_S(C, D) × Aut_S(S′) on (C, D) ×_S S′ lifts equivariantly to the stable modification (C′^st, D′^st).
+
+Standing hypotheses: As in §PA.5.3 (Stable modification theorem: existence and uniqueness), with S′ normal.
+
+*Proof sketch.* Each automorphism carries the stable η-modification to a stable η-modification of the same curve; by uniqueness over the normal base S′ it is the unique isomorphism, and the cocycle condition follows from uniqueness.
+
+*Sources.* Temkin 2010, Corollary 1.6, arXiv v3 p. 4: States that for normal S′ the natural actions of automorphism groups on (C, D) ×_S S′, in particular of Aut_S((C, D)) × Aut_S(S′), lift equivariantly to the stable modification
+
+*Acceptance.* For a G-Galois generically étale S′ → S the G-action on (C, D) ×_S S′ lifts to the stable model; used in ILO X 3.4 Step 5.
+
+*Needs:* §PA.5.3.
+
+### PA.5.5 Semistable multipointed curves are log smooth
+
+**Theorem.** Let (S, W) be a log regular pair and (C, D) a semistable multipointed S-curve with f : C → S smooth over S ∖ W. Then (C, D ∪ f⁻¹(W)) is a log regular pair and (C, D ∪ f⁻¹(W)) → (S, W) is log smooth.
+
+Standing hypotheses: (S, W) log regular; (C, D) semistable; f smooth over S ∖ W.
+
+*Proof sketch.* The question is local on C and trivial on the smooth locus and over S ∖ W. At a non-smooth geometric point x over y, the strict henselization of O_{C,x} is O_{S,y}{u, v}/(uv − h) with h invertible on S ∖ W, hence h ∈ M_{S,y} (log regularity); write h = εa with a in the characteristic monoid P. The push-out Q of N² ← N → Z × P (1 ↦ (1,1), 1 ↦ (1, a)) gives a chart of f; the map Z × P → Q is injective with cokernel Z, so Kato's criterion (CR.5 `log-smooth-chart-criterion`) gives log smoothness, and log regularity of C follows from Kato 8.2 (CR.5 `log-smooth-over-log-regular`). The boundary is the boundary over a non-trivially logged base: a nodal curve over a trivially logged field is not log smooth with its marking alone.
+
+*Sources.* ILO, Exposé X, §3.2.1 and Proposition 3.2.3, arXiv v1 p. 158: Log smoothness of non-proper semistable multipointed curves over log regular pairs, by the local argument of VI 1.9; ILO, Exposé VI, Proposition 1.9 and proof, arXiv v1 p. 70: The proper nodal case, with the explicit chart at a node
+
+*Acceptance.* (Spec Z_p[u, v]/(uv − p), V(p)) → (Spec Z_p, V(p)) is log smooth.
+
+*Needs:* §PA.5.1, §PA.4.1, CR.5:log-algebra `log-smooth-chart-criterion`, CR.5:log-algebra `log-smooth-over-log-regular`.
+
+### PA.5.6 Resolution of relative curves by P-alterations
+
+**Theorem.** Let S be a noetherian quasi-excellent scheme with scheme of generic points η, f : X → S a maximally dominating morphism of finite type and Z ⊆ X nowhere dense closed, with X_η a smooth curve over η and Z_η étale over η. Let P be a set of primes with char(S) ⊆ P, and assume S universally P-resolvable (resp. universally separably P-resolvable). Then there are a projective P-alteration (resp. separable projective P-alteration) a : S′ → S, a projective modification b : X′ → (X ×_S S′)^{pr} of the proper transform, and snc supports W′ ⊆ S′, Z′ ⊆ X′ with S′, X′ regular, f′ : X′ → S′ pseudo-projective, (X′, Z′) → (S′, W′) log smooth and Z′ = c⁻¹(Z) ∪ f′⁻¹(W′), c : X′ → X. (Temkin states the theorem under char(X) ⊆ P; the proof as written needs char(S) ⊆ P, the case used in Theorem 4.3.1 — source issue E1.)
+
+Standing hypotheses: S noetherian qe; f maximally dominating of finite type; X_η smooth curve, Z_η étale; char(S) ⊆ P; S universally (separably) P-resolvable.
+
+*Proof sketch.* Step 0–2: reduce to S integral normal, f flat quasi-projective (§PA.0.7 (Chow's lemma for non-separated morphisms), §PA.0.6 (Flattening of finite-type morphisms by admissible blow-ups)), Z = Z^h ∪ Z^v with Z^h flat. Step 3: stable modification (§PA.5.3 (Stable modification theorem: existence and uniqueness), §PA.5.2 (Stable modification theorem: projectivity)) after a separable alteration S̄ → S makes (X̄, Z̄^h) a semistable multipointed S̄-curve, X̄ → X ×_S S̄ projective. Step 4: enlarge S̄ (semistability is preserved by base change) and apply tame distillation of alterations (§PA.3.7 (Tame distillation of alterations); separable variant §PA.3.8 (Separable tame distillation of alterations) in the separable case) so that S̄ → S′ is a tame Galois covering and S′ → S a P-alteration — here P^w_{S̄/S} ⊆ char(S) ⊆ P; replace S by S′. Steps 5–9: lift the Galois group G to X̄ (§PA.5.4 (Equivariance of stable modification)); the action is inertia specializing (G-stable separated covers, §PA.3.1 (Inertia, tame actions and inertia specialization)); flatten S̄ → S to make it finite and normalize; choose W ⊊ S with S̄ → S étale off W, f(Z^v) ⊆ W and f smooth off W; resolve (S, W) by universal P-resolvability. Step 10: (S̄, W̄) → (S, W) is Kummer étale (CR.5 `log-abhyankar`); with T̄ = Z̄ ∪ f̄⁻¹(W̄), (X̄, T̄) → (S̄, W̄) is log smooth (§PA.5.5 (Semistable multipointed curves are log smooth)), so (X̄, T̄) → (S, W) is log smooth and (X̄, T̄) log regular (CR.5; corrected reading of Step 10, source issue E10); apply Gabber's log smooth modification theorem (§PA.4.8 (Gabber's modification theorem, log smooth case)) to the tame inertia-specializing G-action and take the quotient, then monoidal desingularization (§PA.4.5 (Monoidal desingularization of log regular schemes)).
+
+*Sources.* Temkin 2017, Theorem 4.2.1 and proof, pp. 121–123: Resolution of relative curves by P-alterations: the proof of [IT14b, Th. 3.4] with Step 4 replaced by tame distillation, followed by Gabber's modification theorem and monoidal desingularization; ILO, Exposé X, Theorem 3.4 and proof, arXiv v1 pp. 159–162: The ℓ′ case, with all ten steps written out: Chow, flattening, stable modification, Sylow quotient, equivariance, inertia specialization, finiteness, choice of W, resolution of the base, Kummer étaleness and Gabber's theorem
+
+*Acceptance.* For P = {ℓ}′ with ℓ invertible on S this is ILO X Theorem 3.4. For S = Spec k, X a smooth curve over k and Z ⊆ X finite étale over k, one may take a = id, X′ = X, W′ = ∅ and Z′ = Z: (X, Z) → (Spec k, ∅) is already log smooth.
+
+*Needs:* §PA.0.9, §PA.0.4, §PA.0.5, §PA.0.7, §PA.0.6, §PA.0.8, §PA.3.7, §PA.3.8, §PA.3.1, §PA.3.3, §PA.5.3, §PA.5.2, §PA.5.4, §PA.5.5, §PA.4.8, §PA.4.5, §PA.4.1, CR.5:log-algebra `log-abhyankar`, CR.5:log-algebra `log-smooth-over-log-regular`, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### Dependencies of Layer PA.5
+
+Earlier layers: Layer PA.0, Layer PA.1, Layer PA.3, Layer PA.4. Other roadmaps and libraries: CR.5:log-algebra `log-abhyankar`; CR.5:log-algebra `log-smooth-chart-criterion`; CR.5:log-algebra `log-smooth-over-log-regular`; SchemeAndStackFoundations Layer 4 (§§4.11–4.20); Mathlib `AlgebraicGeometry.Etale`; Mathlib `AlgebraicGeometry.Flat`; StableReduction Layer 3.
+
+## Layer PA.6: Prime-to-degree desingularization theorems
+
+Prove P-altered desingularization of maximally dominating finite-type morphisms over universally P-resolvable bases with char(S) ⊆ P (Temkin Theorem 4.3.1(ii), with the Cartier-boundary repair of E5/E12), inheritance of universal P-resolvability (4.3.1(i)) and the separable statement over perfect fields (4.3.1(iii)); Temkin's char(X)-altered desingularization over qe threefolds (Theorem 1.2.5), desingularization of morphisms (Theorem 1.2.9) and Remark 4.3.4; Gabber's prime-to-ℓ alteration theorems over a field and over a one-dimensional excellent regular base (ILO X 2.1, 2.4); the prime-to-ℓ alteration of varieties quoted by Jannsen (Theorem 2.11) and the odd-degree regular alteration of models over a henselian non-dyadic DVR used by Dittmann–Pop (Proposition 3.4); and de Jong's Galois alteration theorem (7.3) and alteration theorem over a Dedekind base (8.2).
+
+### PA.6.1 P-altered desingularization of morphisms
+
+**Theorem.** Let f : X → S be a maximally dominating morphism of finite type between noetherian quasi-excellent schemes, Z ⊆ X nowhere dense closed, and P a set of primes with char(S) ⊆ P such that S is universally P-resolvable. Then there are projective P-alterations a : S′ → S and b : X′ → X with regular sources, a pseudo-projective f′ : X′ → S′ with f ∘ b = a ∘ f′, and snc supports W′ ⊆ S′, Z′ ⊆ X′ with Z′ = b⁻¹(Z) ∪ f′⁻¹(W′) and (X′, Z′) → (S′, W′) log smooth.
+
+Standing hypotheses: f maximally dominating of finite type; X, S noetherian qe; char(S) ⊆ P; S universally P-resolvable.
+
+*Proof sketch.* Step 1–2: replace X, S by the normalizations of their reductions and work componentwise (X, S integral normal); make f projective by the non-separated Chow lemma (§PA.0.7 (Chow's lemma for non-separated morphisms)), replacing X by an S-projective X̄ with a local isomorphism. Step 3: it suffices to get Z′ ⊇ b⁻¹(Z) ∪ f′⁻¹(W′); then Z″ := b⁻¹(Z) ∪ f′⁻¹(W′) — after first replacing Z by the support of the Cartier divisor obtained by blowing up X along Z, so that b⁻¹(Z) is a Cartier support — is a union of components of Z′ (§PA.0.8 (Strict normal crossings supports)), and (X′, Z″) → (S′, W′) is log smooth by §PA.4.9 (Log smoothness for intermediate boundaries). Step 4 (only for (iii)): if S = Spec k with k finite, pass to an infinite P-extension k̄/k (P ∋ char k is nonempty) and descend from k̄ by limits (EGA IV 8.8.2, 8.10.5, 17.7.8; AdicCoefficientsAndComparisons L2 noetherian approximation). Induction on d = trdeg(k(X)/k(S)), d = 0 trivial. Step 5: after a projective modification factor X → Y → S with Y → S projective, X → Y maximally dominating of relative dimension one; make X_η, Z_η smooth (étale) over η = generic point of Y, by a Bertini argument over an infinite perfect k (Scheme and stack foundations §4.13 `bertini_smoothness`, §4.18 `generic_projection`) or in general by a purely inseparable alteration of Y. Step 6: Y is universally P-resolvable by the induction hypothesis (statement (i) in relative dimension d − 1, §PA.6.2 (Inheritance of universal P-resolvability) argument); apply resolution of relative curves (§PA.5.6 (Resolution of relative curves by P-alterations)) to X → Y, then the induction hypothesis to Y″ → S, and take the fs fibre product (CR.5 `integral-log-fiber-product`) of (X″, Z″) → (Y″, V″) with (Y′, V′) → (Y″, V″): it is log smooth over (Y′, V′), hence log regular (CR.5 `log-smooth-over-log-regular`), and its saturation is finite over X″. Apply monoidal desingularization (§PA.4.5 (Monoidal desingularization of log regular schemes)) to get X′ regular with snc Z′ (Zariski log structure); X′ → X is a projective P-alteration (generically a base change of the P-alteration Y′ → Y″).
+
+*Sources.* Temkin 2017, Theorem 4.3.1(ii) and proof, pp. 123–124: States P-altered desingularization of morphisms under char(S) ⊆ P and universal P-resolvability of S, proved by the proof of [IT14b, Th. 3.5] with Theorem 4.2.1 in Step 6 and an infinite P-extension of a finite field in Step 4; ILO, Exposé X, Theorem 3.5 and proof, arXiv v1 pp. 162–165: The ℓ′ case with Steps 1–6: normalization, non-separated Chow, weakened boundary formula via Lemma 3.5.2, infinite base field, factorisation through a relative curve and induction with fs fibre products and monoidal desingularization
+
+*Acceptance.* For P = {ℓ}′ and ℓ invertible on S this is ILO X Theorem 3.5(ii). For S = Spec Q (char(S) = ∅, P = ∅) the alterations are projective modifications: Hironaka-type desingularization of morphisms of Q-varieties. For f = id_S with S regular and Z an snc support, a = b = id, W′ = Z′ = Z.
+
+*Needs:* §PA.0.9, §PA.0.4, §PA.0.7, §PA.0.8, §PA.0.5, §PA.5.6, §PA.4.9, §PA.4.5, CR.5:log-algebra `integral-log-fiber-product`, CR.5:log-algebra `log-smooth-over-log-regular`, AdicCoefficientsAndComparisons L2, noetherian approximation, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.6.2 Inheritance of universal P-resolvability
+
+**Theorem.** Let f : X → S be a maximally dominating morphism of finite type between noetherian quasi-excellent schemes and P a set of primes with char(S) ⊆ P. If S is universally P-resolvable, then X is universally P-resolvable.
+
+Standing hypotheses: As in §PA.6.1 (P-altered desingularization of morphisms).
+
+*Proof sketch.* Let Y → X be an alteration and Z ⊆ Y nowhere dense closed. Y → S is maximally dominating of finite type (an alteration is proper and maximally dominating). Repair of E5: blow up Y along Z; Bl_Z Y → Y is a projective modification and the preimage of Z is the support D of an effective Cartier divisor. Apply §PA.6.1 (P-altered desingularization of morphisms) to Bl_Z Y → S and D: b : Y′ → Bl_Z Y is a projective P-alteration with Y′ regular and b⁻¹(D) ⊆ Z′ snc. b⁻¹(D) is the support of an effective Cartier divisor on the regular Y′ (b is maximally dominating, so local equations stay nonzerodivisors), contained in the snc support Z′; by §PA.0.8 (Strict normal crossings supports) it is an snc support. The composite Y′ → Y is a projective P-alteration (composites of projective morphisms over a noetherian base; degrees multiply).
+
+*Sources.* Temkin 2017, Theorem 4.3.1(i), p. 123: States that X inherits universal P-resolvability from S; ILO, Exposé X, proof of Theorem 3.5, first paragraph, arXiv v1 p. 162: Deduces (i) from (ii) by applying (ii) to alterations of X; the exact inverse-image condition needs the Cartier-divisor reduction recorded in source issue E5
+
+*Acceptance.* Spec of a field is universally P-resolvable for every P, so every scheme of finite type over a field k is universally P-resolvable for every P ∋ char k. Without the blow-up the argument fails: for S = X = Y = Spec of a regular two-dimensional excellent local ring, Z the closed point, the identity with W′ = Z′ = V(xy) satisfies the conclusion of Theorem 4.3.1(ii), but b⁻¹(Z) is a point, not an snc support (source issue E5).
+
+*Needs:* §PA.6.1, §PA.0.9, §PA.0.8, §PA.0.3, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.6.3 Separable desingularization over a perfect field
+
+**Theorem.** In §PA.6.1 (P-altered desingularization of morphisms) assume S = Spec k with k perfect (so char(S) ⊆ P means P ∋ char k when char k > 0). Then one can take a to be an isomorphism and b separable. In particular every scheme of finite type over k is universally separably P-resolvable.
+
+Standing hypotheses: S = Spec k, k perfect; P ∋ char k (any P when char k = 0).
+
+*Proof sketch.* In the proof of §PA.6.1 (P-altered desingularization of morphisms), Step 5 needs no inseparable alteration over an infinite perfect field (Bertini, Scheme and stack foundations §4.13 `bertini_smoothness`), and Step 4 passes from a finite field to an infinite P-extension, still perfect. In the relative-curve step use the separable alternative of §PA.5.6 (Resolution of relative curves by P-alterations), whose Step 4 uses separable tame distillation (§PA.3.8 (Separable tame distillation of alterations); repair E6); the base Y is universally separably P-resolvable by induction. Over S = Spec k the statement is proved inside the same induction on relative dimension: the base alterations produced at each stage are those of the perfect-field statement in lower relative dimension, hence isomorphisms, and the relative-curve step uses its separable alternative, so a = id and b is separable.
+
+*Sources.* Temkin 2017, Theorem 4.3.1(iii), p. 123: States that over a perfect field one can take a an isomorphism and b separable, so X is universally separably P-resolvable; the separable alternative relies on the separable distillation repair E6; ILO, Exposé X, Theorem 3.5(iii) and Remark 3.5.1, arXiv v1 pp. 162–165: The ℓ′ case; the only inseparable step is Step 5, avoided over a perfect infinite field
+
+*Acceptance.* For k = F_p and P = {p}: every F_p-variety has a separable projective p-power-degree alteration by a smooth F_p-variety with snc boundary.
+
+*Needs:* §PA.6.1, §PA.3.8, §PA.5.6, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.6.4 Desingularization by char(X)-alterations
+
+**Theorem.** Let X be a scheme with a nowhere dense closed subset Z, admitting a morphism of finite type to a noetherian quasi-excellent scheme S with dim S ≤ 3. Then there is a projective char(X)-alteration b : X′ → X with X′ regular and b⁻¹(Z) an snc support. If S = Spec k with k perfect, b can be chosen separable. When S is handled through the Cossart–Piltant input (dimension three, or dimension two and not excellent), the projectivity of b rests on gap G1.
+
+Standing hypotheses: X → S of finite type; S noetherian, quasi-excellent, dim S ≤ 3; Z ⊆ X nowhere dense closed. Through Cossart–Piltant the proof uses S separated; gap G1 covers the non-separated case and global projectivity.
+
+*Proof sketch.* Replace X by the disjoint union of its irreducible components with reduced structure (an alteration of X, so resolving it suffices) and treat each separately; each maps dominantly, hence maximally dominantly, to the closure of its image in S, which is again noetherian, quasi-excellent and of dimension ≤ 3. Then replace S by an open subscheme containing the image of X with char(S) = char(X): char(S) ∖ char(X) is finite for a dominant finite-type map (§PA.0.1 (Residue characteristics of a scheme)), and the fibres over those primes are removed. S is universally resolvable (§PA.0.12 (Universal resolvability of quasi-excellent threefolds); for dim S ≤ 2 excellent, §PA.0.11 (Universal resolvability of excellent surfaces); dim ≤ 1, §PA.0.10 (Universal resolvability in dimension at most one)), hence universally char(S)-resolvable. By §PA.6.2 (Inheritance of universal P-resolvability) with P = char(S) = char(X), X is universally char(X)-resolvable; apply it to the alteration id_X. Over a perfect field use §PA.6.3 (Separable desingularization over a perfect field).
+
+*Sources.* Temkin 2017, Theorem 1.2.5, p. 99; proof §4.3.2, p. 124: States char(X)-altered desingularization for schemes of finite type over a qe scheme of dimension at most three, separable over a perfect field, and proves it by shrinking S so that char(S) = char(X), universal resolvability of S (Cossart–Piltant) and Theorem 4.3.1(i),(iii); Temkin 2017, Remark 1.2.6(i), p. 99: Notes that the published cases are dim S ≤ 2 and threefolds over fields of finite imperfection rank
+
+*Acceptance.* For X of finite type over Q, char(X) = ∅ and b is a projective modification (resolution of singularities). For X regular and Z an snc support, b = id works; for X a surface over F_p, b has p-power degree.
+
+*Needs:* §PA.6.2, §PA.6.3, §PA.0.1, §PA.0.10, §PA.0.11, §PA.0.12, §PA.0.9.
+
+### PA.6.5 Desingularization of morphisms by char(S)-alterations
+
+**Theorem.** Let f : X → S be a maximally dominating morphism of finite type, Z ⊆ X nowhere dense closed, X separated and S of finite type over a noetherian quasi-excellent scheme of dimension at most three. (i) There are char(S)-alterations a : S′ → S and b : X′ → X with regular sources, both projective, a quasi-projective f′ : X′ → S′ compatible with f, and snc supports W′ ⊆ S′, Z′ ⊆ X′ with Z′ = b⁻¹(Z) ∪ f′⁻¹(W′) and (X′, Z′) → (S′, W′) log smooth. (ii) If S = Spec k with k perfect, a can be taken an isomorphism and b separable. Without separatedness of X the same holds with f′ pseudo-projective.
+
+Standing hypotheses: f maximally dominating of finite type; X separated; S of finite type over a noetherian quasi-excellent scheme T of dimension ≤ 3. When T is handled through Cossart–Piltant (dimension three, or dimension two and not excellent), T is taken separated and the projectivity of a and b rests on gap G1.
+
+*Proof sketch.* S is universally char(S)-resolvable by the argument of §PA.6.4 (Desingularization by char(X)-alterations) (Temkin §4.3.2): work componentwise, replace T by the closure of the image of S and then by an open subscheme containing it with char(T) = char(S); T is universally resolvable (§PA.0.12 (Universal resolvability of quasi-excellent threefolds), or §PA.0.10 (Universal resolvability in dimension at most one) and §PA.0.11 (Universal resolvability of excellent surfaces) in low dimension), and §PA.6.2 (Inheritance of universal P-resolvability) applies to S → T with P = char(T). Apply §PA.6.1 (P-altered desingularization of morphisms) with P = char(S); f′ is pseudo-projective, and quasi-projective because X′ is separated (§PA.0.5 (Pseudo-projective morphisms)). (ii) is §PA.6.3 (Separable desingularization over a perfect field).
+
+*Sources.* Temkin 2017, Theorem 1.2.9, p. 100; §4.3.3, p. 124: States char(S)-altered desingularization of morphisms over bases of finite type over a qe threefold, with the perfect-field refinement, and deduces it from Theorem 4.3.1(ii)
+
+*Acceptance.* For S = Spec k and X a variety, (i) gives a regular X′ with an snc boundary that is log smooth over k, i.e. X′ smooth with relative snc boundary after the local forms of PA.4.
+
+*Needs:* §PA.6.1, §PA.6.2, §PA.6.3, §PA.0.12, §PA.0.5, §PA.6.4.
+
+### PA.6.6 Refinement: char(X)-alterations of the source
+
+**Theorem.** In the situation of §PA.6.5 (Desingularization of morphisms by char(S)-alterations), one may in addition require X′ to be a char(X)-alteration of a closed subscheme of X ×_S S′ (rather than only a char(S)-alteration of X).
+
+Standing hypotheses: As in §PA.6.5 (Desingularization of morphisms by char(S)-alterations).
+
+*Proof sketch.* Factor f through an open S₀ ⊆ S with char(S₀) = char(X) (§PA.0.1 (Residue characteristics of a scheme)) and resolve X → S₀ by X″ → S″₀ using only char(X)-alterations (§PA.6.5 (Desingularization of morphisms by char(S)-alterations) over S₀). Using universal char(S)-resolvability of S, choose a char(S)-alteration S′₀ → S₀ factoring through S″₀ that embeds in an alteration S′ → S with S′ regular; replace X′ by X″ ×_{S″₀} S′₀ and apply monoidal desingularization (§PA.4.5 (Monoidal desingularization of log regular schemes)). Divisors are handled as in the main theorem.
+
+*Sources.* Temkin 2017, Remark 4.3.4, p. 124: Outlines the strengthening of Theorem 1.2.9 in which X′ is a char(X)-alteration of a subscheme of X ×_S S′, ignoring divisors
+
+*Acceptance.* If char(X) = char(S) the refinement is the theorem itself.
+
+*Needs:* §PA.6.5, §PA.6.2, §PA.0.1, §PA.4.5.
+
+### PA.6.7 Gabber's prime-to-ℓ alteration theorem over a field
+
+**Theorem.** Let k be a field, ℓ a prime different from char k, X a separated scheme of finite type over k and Z ⊆ X nowhere dense closed. Then there are a finite extension k′/k of degree prime to ℓ and a projective ℓ′-alteration h : X̃ → X over Spec k′ → Spec k, with X̃ smooth and quasi-projective over k′ and h⁻¹(Z) the support of a relative strict normal crossings divisor over k′.
+
+Standing hypotheses: k a field; ℓ ≠ char k; X separated of finite type over k; Z nowhere dense closed.
+
+*Proof sketch.* Work componentwise and replace X by the closures of its irreducible components with reduced structure, so that X is integral (ILO X 2.3, Step 1). Spec k is universally resolvable (§PA.0.9 (Universal P-resolvability)) and char(Spec k) ⊆ {ℓ}′ since ℓ ≠ char k. Apply §PA.6.1 (P-altered desingularization of morphisms) with S = Spec k, P = {ℓ}′: a : S′ → Spec k is a projective ℓ′-alteration with S′ regular of dimension 0, a finite disjoint union of spectra of fields; restrict to a component Spec k′ whose degree [k′ : k] is prime to ℓ, so W′ = ∅. The log smooth (X̃, Z′) → (Spec k′, ∅) with X̃ regular and Z′ snc is smooth with relative snc boundary (§PA.4.10 (Local forms of log smooth maps to points and traits) (i)); h⁻¹(Z) ⊆ Z′ is a union of components after the Cartier reduction of §PA.6.2 (Inheritance of universal P-resolvability), hence a relative snc support. X separated gives X̃ quasi-projective over k′. ILO X §2 also gives a direct proof by Gabber–Vidal's equivariant pluri-nodal fibrations, an ℓ-Sylow quotient and Gabber's log smooth modification theorem (X 2.2–2.3).
+
+*Sources.* ILO, Exposé X, Theorem 2.1 and proof §2.3, arXiv v1 pp. 149–152: Gabber's ℓ′-alteration theorem over a field, with a finite extension of degree prime to ℓ and a smooth quasi-projective source with relative snc preimage of Z, proved through Lemma 2.2 (Gabber–Vidal) and Theorem 1.1; ILO, Exposé X, §3.5.3, arXiv v1 pp. 165–166: Theorems 2.1 and 2.4 follow from Theorem 3.5(ii) together with Proposition 1.2
+
+*Acceptance.* Taking ℓ = 2 and k = F_3, every F_3-variety has an odd-degree alteration by a smooth variety over an odd-degree extension of F_3. If char k = 0 one may instead take P = ∅ in §PA.6.1 (P-altered desingularization of morphisms) (char(Spec k) = ∅ and Spec k is universally resolvable), which gives k′ = k and h a projective modification, stronger than the ℓ′ statement for every ℓ.
+
+*Needs:* §PA.6.1, §PA.6.2, §PA.0.9, §PA.4.10, §PA.0.4.
+
+### PA.6.8 Gabber's prime-to-ℓ alteration theorem over a one-dimensional base
+
+**Theorem.** Let S be a separated integral noetherian excellent regular scheme of dimension one with generic point η, X a separated flat S-scheme of finite type, ℓ a prime invertible on S and Z ⊆ X nowhere dense closed. Then there are a finite extension η′/η of degree prime to ℓ, with S′ the normalization of S in η′, a projective ℓ′-alteration h : X̃ → X over S′ → S with X̃ regular and quasi-projective over S′, an snc divisor T̃ on X̃ and a finite set Σ of closed points of S′ such that: (i) outside Σ, X̃ → S′ is smooth and T̃ is a relative normal crossings divisor; (ii) étale-locally at every geometric point of a fibre over s′ ∈ Σ, (X̃, T̃) is (S′[u^{±1}, t]/(u^b t^a − π), V(t_{r+1} ⋯ t_m)) with gcd(p, a, b) = 1 (§PA.4.10 (Local forms of log smooth maps to points and traits)); (iii) h⁻¹(Z)_red is a sub-divisor of ⋃_{s′ ∈ Σ} (X̃_{s′})_red ∪ T̃.
+
+Standing hypotheses: S separated integral noetherian excellent regular, dim S = 1; X separated flat of finite type over S; ℓ invertible on S.
+
+*Proof sketch.* Reduce to X integral, as in ILO X 2.6 Step 1 (schematic closures of the components of the generic fibre). S is universally resolvable (§PA.0.10 (Universal resolvability in dimension at most one)) and char(S) ⊆ {ℓ}′. Apply §PA.6.1 (P-altered desingularization of morphisms) with P = {ℓ}′: a : S′ → S is a projective ℓ′-alteration with S′ regular of dimension one, hence quasi-finite and proper, hence finite, so S′ is the normalization of S in η′ with [η′ : η] prime to ℓ (restrict to a component); W′ = Σ is a finite set of closed points. The local forms (i)–(ii) are §PA.4.10 (Local forms of log smooth maps to points and traits) (ii); (iii) is the inclusion h⁻¹(Z) ⊆ Z′ = T̃ ∪ f′⁻¹(Σ) with the Cartier reduction of §PA.6.2 (Inheritance of universal P-resolvability).
+
+*Sources.* ILO, Exposé X, Theorem 2.4 and proof §2.6, arXiv v1 pp. 152–155: Gabber's ℓ′-alteration theorem over a one-dimensional excellent regular base, with the explicit local form at the bad fibres, proved through Lemma 2.5 and Theorem 1.1; ILO, Exposé X, §3.5.3, arXiv v1 pp. 165–166: Derivation from Theorem 3.5(ii) and Proposition 1.2
+
+*Acceptance.* For S = Spec Z_p and ℓ ≠ p, a semistable curve over Z_p is already in the required form with Σ = {(p)}.
+
+*Needs:* §PA.6.1, §PA.0.10, §PA.4.10, §PA.0.4.
+
+### PA.6.9 Prime-to-ℓ alterations of varieties with snc boundary
+
+**Application.** Let X be separated and integral of finite type over a field L, ℓ a prime invertible in L and Y ⊂ X a proper closed subscheme. Then there are a finite extension L′/L of degree prime to ℓ, a connected smooth quasi-projective variety X′ over L′ and a proper surjective L-morphism π : X′ → X with L′(X′)/L(X) finite of degree prime to ℓ, such that π⁻¹(Y)_red is a strict normal crossings divisor on X′.
+
+Standing hypotheses: X separated integral of finite type over L; ℓ invertible in L; Y ⊊ X closed.
+
+*Proof sketch.* Apply §PA.6.7 (Gabber's prime-to-ℓ alteration theorem over a field) to X and Z = Y (nowhere dense since X is integral) and take a connected component X′ of X̃; it dominates X (h is maximally dominating) with degree prime to ℓ, π = h|_{X′} is proper and surjective, and π⁻¹(Y)_red is a union of components of the relative snc divisor. L′ := k′ has degree prime to ℓ; X′ is smooth and quasi-projective over L′.
+
+*Sources.* Jannsen 2016, Theorem 2.11, p. 24: States Gabber's refinement of de Jong's theorem: an alteration of degree prime to ℓ over an extension of degree prime to ℓ by a connected smooth quasi-projective variety with snc reduced inverse image of Y, quoted from [ILO14]; ILO, Exposé X, Theorem 2.1, arXiv v1 p. 149: The theorem it is quoted from
+
+*Acceptance.* For Y = ∅ the statement gives a smooth quasi-projective X′ of degree prime to ℓ over X. Jannsen's Hasse-principle proof restricts cohomology classes along π; injectivity of restriction on ℓ-primary coefficients is the reason for the degree condition (HigherLocalFieldsAndHigherClassFieldTheory HL.6).
+
+*Needs:* §PA.6.7.
+
+### PA.6.10 Odd-degree regular alterations of models over a henselian DVR
+
+**Application.** Let R be an excellent henselian discrete valuation ring with residue characteristic different from 2, S = Spec R, and X an integral projective flat S-scheme with nonempty generic fibre. Then there are a finite extension η′/Frac(R) of odd degree, with S′ the normalization of S in η′, and a projective alteration h : Y → X of odd degree with Y regular, integral and projective over S′ (and over S). No separability of η′/Frac(R) or of k(Y)/k(X) is asserted.
+
+Standing hypotheses: R excellent henselian DVR, residue characteristic ≠ 2; X integral projective flat over R with X_η ≠ ∅.
+
+*Proof sketch.* 2 is invertible on S (it is a unit of R since the residue characteristic is not 2). Apply §PA.6.8 (Gabber's prime-to-ℓ alteration theorem over a one-dimensional base) with ℓ = 2 and Z = ∅: η′/η of odd degree, S′ the normalization of S in η′ (a DVR: R is henselian), h : X̃ → X a projective 2′-alteration with X̃ regular and quasi-projective over S′. Take an integral component Y of X̃ (degree odd); Y is projective over S as h and X are, hence proper over the separated S′, and quasi-projective over S′, hence projective over S′.
+
+*Sources.* Dittmann–Pop, Proposition 3.4 and its proof, arXiv v2 p. 8: Uses a regular alteration of odd degree of a projective flat model over a henselian non-dyadic DVR, obtained from Gabber's theorem, to detect anisotropy of Pfister forms at prime divisors; ILO, Exposé X, Theorem 2.4 and proof 2.6, arXiv v1 pp. 152–155: The ℓ = 2 case of Gabber's theorem over a one-dimensional base that supplies it
+
+*Acceptance.* For X already regular, h = id and η′ = Frac(R). An alteration of even degree, such as the base change to a ramified quadratic extension, does not satisfy the conclusion: the odd-degree condition is what keeps mod-2 restriction maps injective.
+
+*Needs:* §PA.6.8.
+
+### PA.6.11 de Jong's equivariant (Galois) alteration theorem
+
+**Theorem.** Let k be an algebraically closed field, X a variety over k, G ⊆ Aut_k(X) a finite subgroup and Z ⊊ X a G-stable closed subset. There are an alteration φ₁ : X₁ → X, an open immersion j₁ : X₁ → X̄₁ and a finite subgroup G₁ ⊆ Aut X̄₁ such that: (i) G₁ preserves X₁, there is a surjection G₁ → G for which φ₁ is equivariant, and k(X)^G ⊆ k(X₁)^{G₁} is purely inseparable; (ii) X̄₁ is a projective nonsingular variety over k; (iii) j₁(φ₁⁻¹(Z)) ∪ (X̄₁ ∖ j₁(X₁)) is a G₁-strict normal crossings divisor. For G = 1 this makes φ₁ a Galois alteration in the sense of §PA.3.2 (Galois alterations and tame Galois coverings).
+
+Standing hypotheses: k algebraically closed; X a variety over k; G finite; Z ⊊ X G-stable closed.
+
+*Proof sketch.* Follow the proof of de Jong's Theorem 4.1 (Scheme and stack foundations §4.19) equivariantly: reduce to X projective, Z a divisor and X normal (dJ96 7.7–7.9). Apply the fibration lemma 4.11 to X/G and the branch locus, take the G-equivariant fibration of X, use Lemma 4.13 for the three-point divisor, and the equivariant stable curve and nodal resolution steps (dJ96 7.10–7.16, Scheme and stack foundations §4.18), with G-strict normal crossings (dJ96 7.1–7.2).
+
+*Sources.* de Jong 1996, Theorem 7.3, p. 88; proof 7.5–7.16, pp. 88–90: The equivariant alteration theorem over an algebraically closed field, with G-strict normal crossings boundary and purely inseparable extension of invariant function fields; Temkin 2017, §1.1.1, p. 98: Recalls that de Jong's alteration can be chosen G-Galois
+
+*Acceptance.* For G = 1 this is de Jong's Theorem 4.1 over an algebraically closed field with a Galois alteration.
+
+*Needs:* §PA.3.2, §PA.3.1, SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+### PA.6.12 de Jong's alteration theorem over a Dedekind base
+
+**Theorem.** Let K be a global field, R ⊆ K a Dedekind ring with fraction field K and S = Spec R; let X be an S-variety (integral, separated, flat and of finite type over S) and Z ⊊ X closed. There are a finite extension of Dedekind schemes S₁ → S (S₁ = Spec of the integral closure of R in a finite K₁/K), an alteration φ₁ : X₁ → X over S₁ → S and an open immersion j₁ : X₁ → X̄₁ with X̄₁ projective over S₁ such that X̄₁ is regular, j₁(φ₁⁻¹(Z)) ∪ (X̄₁ ∖ j₁(X₁)) is a strict normal crossings divisor, over a nonempty open U₁ ⊆ S₁ the scheme X̄₁ is smooth and this boundary is a relative normal crossings divisor, and for s₁ ∉ U₁ the pair (X̄₁, boundary ∪ X̄₁,s₁) is strict semistable over the completion of S₁ at s₁.
+
+Standing hypotheses: K a global field; R ⊆ K Dedekind with fraction field K; X an S-variety; Z ⊊ X closed.
+
+*Proof sketch.* Reduce to X projective over S with Z the support of a divisor by Chow's lemma and blowing up Z, then make the generic fibre geometrically reduced and irreducible by a finite extension of K (dJ96 8.3–8.4). At the finitely many bad points choose finite extensions of the completed DVRs making the normalized special fibres generically reduced, and realise them all by one finite extension K′/K, which exists because K is a global field (dJ96 8.5). Use Rumely's existence theorem for sections and integral points to choose disjoint smooth sections and a projection from a linear subspace defined over S, so that X is finite over a projective space over S, and continue as in the trait case of the semistable alteration theorem (dJ96 8.6 onwards; Scheme and stack foundations §§4.18–4.20).
+
+*Sources.* de Jong 1996, §8.1 and Theorem 8.2, p. 91; proof 8.3–8.8, pp. 91–92: Altered semistable reduction for varieties over a Dedekind scheme with global fraction field: regular projective compactification with snc boundary, relative normal crossings over an open and strict semistable pairs at the remaining points after a finite extension of Dedekind schemes; Temkin 2017, §1.1.1, p. 98: Recalls de Jong's altered semistable reduction over an excellent curve
+
+*Acceptance.* For X smooth projective over S with Z = ∅, S₁ = S and φ₁ = id work.
+
+*Needs:* SchemeAndStackFoundations Layer 4 (§§4.11–4.20), §PA.0.3.
+
+### Dependencies of Layer PA.6
+
+Earlier layers: Layer PA.0, Layer PA.3, Layer PA.4, Layer PA.5. Other roadmaps and libraries: AdicCoefficientsAndComparisons L2, noetherian approximation; CR.5:log-algebra `integral-log-fiber-product`; CR.5:log-algebra `log-smooth-over-log-regular`; SchemeAndStackFoundations Layer 4 (§§4.11–4.20).
+
+## Exact supplier contracts
+
+- **SchemeAndStackFoundations Layer 0 (§§0.9, 0.16–0.21).** Consume, from the merged Tau Ceti roadmap SchemeAndStackFoundations (TauCetiRoadmap main 69bd802), Layer 0: §0.9 limits of schemes and spreading out; §§0.16–0.18 catenary, depth and Cohen–Macaulay (regular ⇒ CM ⇒ universally catenary); §0.20 `Ring.IsJapanese`, `Ring.IsUniversallyJapanese`, `Ring.IsNagata` and `nagata_normalization_finite` (normalization of a Nagata integral scheme in a finite extension of its function field is finite); §0.21 `Excellence.IsQuasiExcellentRing`, `IsExcellentRing`, `IsQuasiExcellentScheme`, `IsExcellentScheme` and `Excellence.IsQuasiExcellentRing.isNagata`. Used in §PA.0.3, §PA.0.6, §PA.0.10, §PA.0.11, §PA.0.12, §PA.0.5, §PA.3.3.
+- **SchemeAndStackFoundations §1.17.** Consume SchemeAndStackFoundations §1.17 `finiteGroupQuotient_projective` (quotients of projective schemes over a noetherian base by finite groups, glued from affine invariant quotients, with the quotient projective) and the categorical/geometric quotient predicates of the same section. Used in §PA.3.1.
+- **SchemeAndStackFoundations Layer 4 (§§4.11–4.20).** Consume SchemeAndStackFoundations Layer 4: §4.11 `IsModification`, strict transforms with witness and `strictTransform_eq_blowup`; §4.12 `generic_flatness`, `flattening_by_blowup` (proper f over a noetherian integral base), `modification_domination`, `chow_lemma`; §4.13 `IsRegular`, `resolution_of_curves`, `bertini_smoothness`; §4.16 `IsAlteration`, `genericDegree`, `IsGenericallyEtale`; §4.17 `SNCData`, `IsStrictNormalCrossings` with `.of_subset`; §§4.18–4.20 de Jong's curve-family alteration, `alteration_theorem` (de Jong 4.1) and `semistable_alteration_theorem` (de Jong 6.5). Used in §PA.0.3, §PA.0.6, §PA.0.7, §PA.0.8, §PA.0.10, §PA.0.11, §PA.0.12, §PA.1.1, §PA.1.8, §PA.3.7, §PA.4.4, §PA.4.6, §PA.5.1, §PA.5.6, §PA.6.1, §PA.6.2, §PA.6.3, §PA.6.11, §PA.6.12.
+- **CrystallineCohomology CR.5:log-algebra (log structure of a closed subset).** The log structure associated with a closed subset, beyond the regular-snc case of `divisorial-log`: for a reduced locally noetherian scheme X and a closed nowhere dense Z with complement j : U → X, the étale sheaf of monoids M_{(X,Z)} := O_X ∩ j_*O_U^× with its inclusion into O_X is a log structure; it need not be fine (Spec k[x², x³] with Z = {x = 0}); it equals `divisorial-log` for X regular and Z an snc support; and for every log regular fs log scheme (X, M) with triviality locus U one has M = O_X ∩ j_*O_U^× and α injective (Niziol 2006, 2.6; ILO VI 1.4; ILO X 3.2.1; Temkin 2017 §1.2.7). Used in §PA.4.1.
+- **ModularCurves 0C (affine invariant quotients).** Consume the affine invariant quotient of a finite group action (Tau Ceti `AffineInvariantQuotient`, present in Tau Ceti main but not at the pinned f790474): Spec A → Spec A^G finite, surjective, with orbit fibres. No new statement is requested. Used in §PA.3.1.
+- **StableReduction Layer 3.** Consume the proper prestable, semistable and stable pointed curves and their ampleness of ω(D) for comparison with the non-proper multipointed curves of PA.5. Used in §PA.5.1, §PA.5.2.
+
+The results of LocalFieldsRamificationPartII, CR.5:log-algebra, ClassicalAdicEtaleCohomology H1:henselian and AdicCoefficientsAndComparisons L2 named in the *Needs* lines above are consumed with their stated hypotheses; none is restated here.
+
+## Open gaps
+
+- **Global projectivity of the Cossart–Piltant resolution.** Universal P-resolvability is used with projective resolving alterations (ILO Exposé X §3.3.3; source issue E5). Cossart–Piltant Theorem 1.1 resolves a reduced separated noetherian quasi-excellent scheme Y of dimension at most three by a proper birational morphism that is projective only over the members of a specified finite affine cover (projective when Y = Spec of a complete local ring, Corollary 1.2). Neither Temkin §4.3.2 nor ILO X Remark 3.3.4 derives a globally projective resolution of an arbitrary (possibly non-affine, possibly non-separated) alteration Y of a qe threefold with snc preimage of a given nowhere dense Z. The embedded part is supplied by Cossart–Jannsen–Saito Corollary 0.4 (from their Theorem 0.3) in the regular (hence excellent) ambient, and the first step is projective when Y is affine (Cossart–Piltant Remark 1.4); global projectivity of the first step, and the non-separated case, are not established here. This affects the projectivity of a and b in Temkin Theorems 1.2.5 and 1.2.9 whenever the base is handled through the Cossart–Piltant input (dimension three, or dimension two and not excellent); the dimension ≤ 2 excellent and dimension ≤ 1 cases, and every statement over fields and one-dimensional bases (ILO X 2.1, 2.4, Jannsen 2.11, Dittmann–Pop 3.4), do not depend on it. Affects §PA.0.12, §PA.6.4, §PA.6.5.
+
+## Mistakes and gaps in the sources
+
+Each item is stated in our own words at its locator; the statements above use the corrected forms. The independent review (REV-DESIGN-AdicCoefficientsAndComparisonsPartII) confirmed E1–E12 at their locators and added E13.
+
+- **E1** (gap; Temkin 2017, Ann. of Math. 186 (2017), Theorem 4.2.1 and Step 4 of its proof, pp. 121–122; page image checked). The source assumes universal P-resolvability of S for primes P satisfying char(X) ⊆ P. In Step 4 it invokes Theorem 3.3.6 to enlarge a so that its factorization consists of S̄ → S′, a tame Galois covering, followed by a : S′ → S, a P-alteration. *Correction:* Either assume char(S) ⊆ P, which is how Theorem 4.3.1 uses the theorem, or keep char(X) ⊆ P and run Step 4 over S₀ := S minus the fibres over char(S) ∖ char(X) (finitely many, as in §4.3.2), which contains f(X) and has char(S₀) = char(X). Apply Theorem 3.3.6 to S̄ ×_S S₀ → S₀, obtaining a P-alteration and a Galois covering that is tame over S₀. Extend to S by normalization and closure of the modification, and resolve with the P-resolvability of S. Tameness is needed only over f(X), since X̄ lies over S₀ and Step 10 uses tameness of the action on X̄. *Reason:* Theorem 3.3.6 yields a P^w_{S̄/S}-alteration, where P^w_{S̄/S} is the wild primes set of S̄ → S, a subset of char(S). With only char(X) ⊆ P it may contain primes outside P, at which S̄ → S can be wildly ramified although X is empty there. Then 'a P-alteration' does not follow as written. The paper's main results apply the theorem only through Theorem 4.3.1, where char(S) ⊆ P. Exposé X §3.3.3 defines universal ℓ′-resolvability only for ℓ invertible on the scheme, so its Theorem 3.4 assumes char(S) ⊆ {ℓ}′. Temkin's printed char(X) hypothesis is more general; the identification with that source holds only under the base hypothesis. (Affects the proof.)
+- **E2** (misprint; Temkin 2017, Ann. of Math. 186 (2017), proof of Lemma 3.3.7, p. 120; page image checked). The source calls the direct implication immediate and proves the inverse. It places the induced valuations on L_i in S′ for every K-isomorphism L_i = L, concludes that each L_i/K is tame, and identifies L with the composite of L₁, …, L_n to deduce tameness of L/K. *Correction:* Exchange the two directions: the implication from S′-tameness of L′/K to S-tameness of L/K is the immediate one (subextensions of tame extensions are tame), and the argument that follows proves the converse. In that argument the valuations induced on the conjugates L_i lie in S, not S′, and the composite of the L_i is the Galois closure L′, so the conclusion is that L′/K is tame. *Reason:* 'L′/K is S′-tame ⇒ L/K is S-tame' is the obvious direction, since subextensions of tame extensions are tame. The argument shows 'L/K S-tame ⇒ L′/K S′-tame', and the composite of the conjugates L_i is the Galois closure L′, not L. The same text is in arXiv v2. (Affects nothing.)
+- **E3** (misprint; Temkin 2017, Ann. of Math. 186 (2017), proof of Theorem 2.6.6, p. 112; page image checked). The source cites Corollary 2.5.6(ii) for d = 1 and then restricts attention to d > 1. *Correction:* Cite Corollary 2.5.6 itself for height one; it has a single assertion and no part (ii). *Reason:* Corollary 2.5.6 has a single assertion, that p-closed valued fields of height one are tame; there is no part (ii). Also in arXiv v2. (Affects nothing.)
+- **E4** (misprint; Temkin 2017, Proof of Lemma 2.6.3(ii), last paragraph, p. 112 (published version; page image checked); same in arXiv:1508.06255v2, p. 13). The source ends the argument if p|eLi/Ki; otherwise it asserts p|fLi/Ki. It then says p = char(K̃i) divides [L̃i : K̃i] and uses K̃i = (K̃i)u to conclude that L̃i/K̃i is not tame. *Correction:* 'p, the residual characteristic exponent of the valued field K̃_i (that is, exp.char of the residue field of K), divides [L̃_i : K̃_i]'. The field K̃_i itself has characteristic p_i, which is 1 when i < n. *Reason:* In §2.6.2, p_i = exp.char(k̃_i) equals 1 for i < n and p for i ≥ n. When p_i = 1 the reduction to this case is reachable: L_i/K_i is then automatically tame and defectless, so [L : K] = e_{L_i/K_i}·f_{L_i/K_i}, and p can divide f with p ∤ e. For example, take K̃_i strictly henselian of mixed characteristic (0, p) and L̃_i a degree-p extension of it. Then char(K̃_i) = 0 ≠ p. The argument survives with the corrected reading: K̃_i = (K̃_i)^u has separably closed residue field of characteristic p, so an extension of degree divisible by p cannot be tame. (Affects nothing.)
+- **E5** (gap; Temkin 2017, Ann. of Math. 186 (2017), §4.1.4, p. 121, and §4.3.2, p. 124 (arXiv v2, pp. 21, 23)). Section 4.1.4 defines universal P-resolvability through P-alterations that are only required to be proper, while Theorems 1.2.5 and 4.3.1(ii) conclude that the resolving alterations are projective, and the proof of 4.3.1 obtains (i) from (ii) by the argument of [IT14b, Th. 3.5]. *Correction:* Use a projective P-alteration in universal P-resolvability, as in Exposé X §3.3.3. Prove from the construction behind 4.3.1(ii) that the inverse image b⁻¹(Z) itself is snc when establishing (i); projectivity plus an snc enlargement is insufficient. The repair used here (PA.6/universal-p-resolvability-inheritance) first blows up the alteration along Z, so that the preimage of Z is the support of an effective Cartier divisor and hence a union of components of the snc divisor produced by (ii). *Reason:* Temkin's alteration definition is proper, not projective. Exposé X includes projectivity, but its proof of Theorem 3.5 also infers (i) from (ii) without explaining the exact inverse-image condition. For S=X=Spec of a regular excellent two-dimensional local ring, f=a=b=f′=id, Z the closed point and W′=Z′=V(xy), all boundary/log-smooth conclusions of (ii) hold but b⁻¹(Z) is a point, not a divisor. Thus neither the old extraction note nor (ii) alone supplies the needed claim. The blueprint must track the stronger construction. (Affects the proof.)
+- **E6** (gap; Temkin 2017, Ann. of Math. 186 (2017), Theorem 4.2.1 Step 4, p. 122; Theorems 3.2.12 and 3.3.6, pp. 118, 120 (arXiv v2, pp. 18, 20, 22)). The source invokes Theorem 3.3.6. *Correction:* For separable input, prove the separately stated separable variants of 3.2.12 and 3.3.6 using a maximal separable P-extension. Supply separably P-closed implies separably P-tame through perfection; then Step 4 has a separable P-alteration. *Reason:* The unrestricted maximal P-extension can contain a purely inseparable closure when char K belongs to P; its selected finite K_x need not be separable. Therefore the unrestricted theorem does not establish the separable alternative in 4.2.1, used by 4.3.1(iii). For a separably P-closed K, its perfection is P-closed by Frobenius descent of finite separable extensions. The separable tame tower is unchanged by this purely inseparable base change. Apply 3.2.5 there and repeat the compactness proof with finite separable K_x. Require L/K separable in the field variant and Y→X generically separable in the alteration variant. (Affects the proof.)
+- **E7** (gap; Temkin 2017, Ann. of Math. 186 (2017), proof of Lemma 3.2.10, first paragraph, p. 117 (arXiv v2, p. 17)). The source calls the polynomial minimal. *Correction:* Choose the minimal polynomial g of a over K. Since O_x is integrally closed, g lies in O_x[t] and f=gh with h in O_x[t]. The equality f′(a)=g′(a)h(a) and the unit hypothesis give g′(a),h(a) units. Use the localized g-presentation; then A=O_x′[t,g′(t)⁻¹]/(g) embeds in L. *Reason:* The étale presentation gives a monic f with invertible derivative, not necessarily the minimal polynomial. Take K=L=Q, O_x=O_y=Z_(p), a=0 and f=t(t−1). Then f′(0)=−1, but the standard étale algebra is Z_(p)×Z_(p); evaluation at 0 kills the nonzero idempotent t. Replacing f by g=t repairs injectivity and leaves the lemma true. (Affects nothing.)
+- **E8** (error; Temkin 2017, Ann. of Math. 186 (2017), §3.1.7, p. 115 (arXiv v2, p. 16)). The source asserts injectivity exactly when the stated condition holds. *Correction:* The projection Val_K(X) → Val_K is injective if X is separated. Do not assert the converse for a fixed possibly non-dominant pointed scheme. *Reason:* For the affine line with doubled origin over F_p and the K=F_p point t=1, Val_K(X) consists only of that point, because the finite field has only its trivial valuation. The projection is injective but X is not separated. The forward implication is the valuative criterion of separatedness, and is all the argument needs. (Affects nothing.)
+- **E9** (misprint; Temkin 2017, Ann. of Math. 186 (2017), proof of Lemma 3.2.10, p. 117 (arXiv v2, p. 18)). The source refers to the theorem's first part. *Correction:* Refer to the first part of the lemma. *Reason:* The preceding argument in this same lemma establishes openness of the unramified locus; the next argument uses it for the tame locus. (Affects nothing.)
+- **E10** (misprint; Temkin 2017, Ann. of Math. 186 (2017), Theorem 4.2.1 Step 10, p. 123 (arXiv v2, p. 22); published page image checked). The source describes the morphism as log regular and gives (X,S) as the target pair. *Correction:* Define T̄=Z̄ ∪ f̄⁻¹(W̄). The composite (X̄,T̄) → (S,W) is log smooth, so its source is log regular; after modification the target of (X′,T′) is (S,W). *Reason:* The source uses a scheme property for a morphism, gives the wrong target pair, and uses T̄ without defining it. Kummer étaleness plus semistable log smoothness gives a log-smooth composite; Kato's theorem gives log regularity of its source. These corrections leave the construction unchanged. (Affects nothing.)
+- **E11** (gap; Temkin 2017, Temkin, Remark 1.2.3 and §4.3.2, pp. 99 and 124; with ILO Exposé X, Remark 3.3.4(ii), arXiv v1 p. 159, and Cossart–Piltant Theorem 1.1, arXiv v2 pp. 3–4). Temkin takes qe threefolds to be universally resolvable by Cossart–Piltant and deduces projective char(X)-alterations; ILO X 3.3.3 requires the resolving morphisms to be projective. *Correction:* Universal resolvability with projective resolutions and snc preimages of arbitrary nowhere dense closed subsets must be derived: the embedded part follows from Cossart–Jannsen–Saito Corollary 0.4 (from their Theorem 0.3) in the regular (hence excellent) resolved scheme, but Cossart–Piltant's Theorem 1.1 gives projectivity only over a chosen affine cover of a separated Y, so the global projectivity of the resolution of a non-affine alteration remains to be proved (see the open gap on projectivity above). *Reason:* Cossart–Piltant Theorem 1.1 states (i) X′ regular, (ii) isomorphism over the regular locus, (iii) snc preimage of the singular locus, and projectivity of π⁻¹(U_i) → U_i for a specified affine cover; global projectivity and the embedded statement for an arbitrary Z are not stated. (Affects a stated result.)
+- **E12** (gap; ILO, ILO Exposé X, proof of Theorem 3.5, Step 3, arXiv v1 p. 163). The proof reduces (ii) to finding f′ with b⁻¹(Z) ∪ f′⁻¹(W′) contained in the snc divisor Z′, asserting that this union is then a sub-divisor of Z′ and hence snc. *Correction:* First replace X by its blow-up along Z, so that Z becomes the support of an effective Cartier divisor; then b⁻¹(Z) and f′⁻¹(W′) are supports of effective Cartier divisors in the regular X′, hence unions of components of Z′, and the reduction holds. The same blow-up gives (i) from (ii) (source issue E5). *Reason:* If Z has a component of codimension at least two, so may b⁻¹(Z). For S = Spec k, X = A^2_k, Z the origin, a = b = id, W′ = ∅ and Z′ = V(xy): (A^2_k, V(xy)) → (Spec k, ∅) is log smooth and Z′ ⊇ b⁻¹(Z) ∪ f′⁻¹(W′), but this union is the origin, which is not an snc divisor. (Affects the proof.)
+- **E13** (misprint; ILO, ILO Exposé X, proof of Theorem 2.4 (§2.6), Step 3, arXiv v1 p. 155). The ranks of the unit part P* and of the sharp part P1 of the chart monoid are introduced as μ and ν, and the same sentence then decomposes P as a free abelian group of rank ν times N^μ; the later decomposition of P follows the second convention. *Correction:* Take P* free abelian of rank ν and P1 ≅ N^μ (equivalently, swap the two letters in the first clause); the argument is unchanged. *Reason:* The two clauses of one sentence assign the ranks μ and ν to opposite factors; the subsequent splitting of P into unit coordinates and branches uses ν for the units and μ for the branches. (Affects nothing.)
+
+## Downstream consumers
+
+- HigherLocalFieldsAndHigherClassFieldTheory HL.6: Jannsen's Hasse principle for varieties over global fields of positive characteristic restricts cohomology along the prime-to-ℓ alteration of §PA.6.9.
+- LogicAndDefinabilityInNumberTheoryPartII FG.2: Dittmann–Pop's Proposition 3.4 uses the odd-degree regular alteration of §PA.6.10.
+- AdicCoefficientsAndComparisons L5–L6 and every ℓ-adic or p-adic cohomological argument that needs injective pull-back along alterations with ℓ-torsion or p-torsion coefficients.
+
+## References
+
+- Michael Temkin, *Tame distillation and desingularization by p-alterations*, Annals of Mathematics 186 (2017), no. 1, 97–126; doi:10.4007/annals.2017.186.1.3 (free from the journal); arXiv:1508.06255v2 compared. https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf
+- L. Illusie, Y. Laszlo, F. Orgogozo (eds.), with L. Illusie and M. Temkin (Exposés VIII and X), *Travaux de Gabber sur l'uniformisation locale et la cohomologie étale des schémas quasi-excellents*, Astérisque 363–364 (2014); read as arXiv:1207.3648v1 (418 pp.), whose internal page numbers are cited (Exposé VI from p. 69, VIII from p. 85, X from p. 135; the Astérisque pagination differs, e.g. Exposé X is pp. 167–212 there). https://arxiv.org/abs/1207.3648
+- Michael Temkin, *Stable modification of relative curves*, J. Algebraic Geom. 19 (2010), 603–677; read as arXiv:0707.3953v3 (14 April 2010), whose page numbers and statement numbers are cited. https://arxiv.org/abs/0707.3953
+- A. J. de Jong, *Smoothness, semi-stability and alterations*, Publ. Math. IHÉS 83 (1996), 51–93 (Numdam; journal page = PDF page + 49). http://www.numdam.org/item?id=PMIHES_1996__83__51_0
+- Vincent Cossart and Olivier Piltant, *Resolution of singularities of arithmetical threefolds*, J. Algebra 529 (2019), 268–535; read as arXiv:1412.0868v2 (8 January 2019). https://arxiv.org/abs/1412.0868
+- Vincent Cossart, Uwe Jannsen and Shuji Saito, *Canonical embedded and non-embedded resolution of singularities for excellent two-dimensional schemes*, arXiv:0905.2191v2 (18 February 2013); published as Desingularization: invariants and strategy, Lecture Notes in Math. 2270, Springer, 2020. https://arxiv.org/abs/0905.2191
+- Philip Dittmann and Florian Pop, *Characterizing finitely generated fields by a single field axiom*, Annals of Mathematics 198 (2023), 1203–1227; read as arXiv:2012.01307v2. https://arxiv.org/abs/2012.01307
+- Uwe Jannsen, *Hasse principles for higher-dimensional fields*, Annals of Mathematics 183 (2016), 1–71 (free from the journal). https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p01-p.pdf
+- The Stacks project authors, *The Stacks project*, online, accessed 2026-10-19. https://stacks.math.columbia.edu
