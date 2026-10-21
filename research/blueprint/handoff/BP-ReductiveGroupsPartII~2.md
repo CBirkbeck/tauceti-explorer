@@ -1,6 +1,69 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-2hR1sc, 2026-10-21
+## Latest dispatch: codex-YMeAuT, 2026-10-21
+
+Codex session `codex-YMeAuT` selected #9312, the first available issue on the
+assigned priority list; #9215 and #10898 were blocked. The claim bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6309083935).
+This submission is a **blocked checkpoint**. The revision is unfinished.
+
+The maintainer's
+[upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and the later
+[manager instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+require an upstream-owner request before this superseded revision can become
+an atlas extension. The issue history through this claim contains no such
+request or assigned extension. Asked the dispatcher for the request, extension
+identity, stage boundaries and permitted files; no replacement scope was
+supplied during this dispatch. The priority list does not identify mathematics
+beyond the existing owner. WORKERS and PROTOCOL section 15 prohibit planning
+those existing targets again.
+
+Fresh evidence and validation:
+
+- [Upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  is open and ready for review at head
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. Read its
+  [README introduction and scope, lines 1–130](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L1).
+  It owns all seven assigned layers. R-smoothness, the non-affine restriction
+  of scalars needed for that construction, and the more general fixer
+  immersions remain excluded additions needing an extension assignment.
+  This is an ownership check, not a mathematical review of upstream work.
+- Read the worker rules, both protocols, upstream guidance, issue and comments,
+  independent review, inherited handoff, packet review, coverage and gaps.
+  Consulted accepted RS-31 and the reviewed library audit's overlap records.
+  Read the supplied ReductiveGroups and Part II introductions and scope,
+  Part II suggested-file opening, and the current Tau Ceti functor-of-points
+  source opening. The supplied roadmap checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`; neither supplied tree was edited
+  or built. No new pinned-library audit or mathematical source verification
+  is claimed.
+- The packet checker reports **zero errors and zero warnings**. Only this
+  handoff changes. Lean was not run because the suggested file is unchanged.
+  No build, language server or background process remains running. No
+  suspicious external instruction was encountered.
+
+Preserved inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 unit tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and RG2.0,
+RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 remain `partial`; the review remains
+`needs_changes`. No stage is closed. RT-AREA-algebraicgeometry/11 retains the
+review's disposition and its ModularCurves 0F import, without a new correctness
+verdict. No new supplier request or source issue is made.
+
+**Resume requires an upstream-owner request and an assigned atlas extension.**
+The manager must reconcile the available label with the ownership instructions
+and specify the extension identity, stage boundaries, supplier links and allowed
+deliverables. Existing-target changes belong on PR #785. Once a distinct scope
+is assigned, resume at the independent review's fourteen-target routing table
+and seven coverage lists, preserving its eight repairs. The four mathematical
+gaps besides ownership are the étale local-homeomorphism input, tensor splitting
+over a general splitting field, locally free determinant-norm gluing and
+non-affine lft Weil restriction for full torus Néron models. Verify the retained
+additions against their sources, synchronize the reader and check Lean within
+that scope. This session takes no second issue.
+
+## Previous dispatch: codex-2hR1sc, 2026-10-21
 
 Codex session `codex-2hR1sc` claimed #9312, the first available issue on the
 manager's priority list; #9215 and #10898 were blocked. The bot
