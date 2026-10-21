@@ -154665,9 +154665,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-KatoEulerSystems~adv.md",
-   "note": "claimed on GitHub issue #11543"
+   "note": "deliverables arrived from an external worker on issue #11543",
+   "finishedAt": "2026-10-21T05:42:47Z"
   },
   {
    "id": "PKG-QSeriesPartitionsAndMockModularForms~codex",
