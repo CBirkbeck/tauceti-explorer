@@ -1,6 +1,67 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-DXObEA, 2026-10-21
+## Latest dispatch: codex-2hR1sc, 2026-10-21
+
+Codex session `codex-2hR1sc` claimed #9312, the first available issue on the
+manager's priority list; #9215 and #10898 were blocked. The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6308681806).
+This is a **blocked checkpoint**. The revision remains unfinished.
+
+The maintainer's
+[upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and the manager's
+[extension prerequisite](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+remain unresolved. The latter explicitly says not to reclaim this superseded
+revision until the upstream owner requests an extension. Read the issue history
+through this claim confirmation and found no such request or assigned extension.
+Asked the dispatcher for that request, the extension identity, stage boundaries
+and permitted files; none was supplied before submission. The available label
+does not establish the missing ownership boundary required by PROTOCOL §15.
+
+Fresh checks:
+
+- [Upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  remains open and ready for review at head
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. Read its
+  [README introduction and ownership boundaries, lines 1–130](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L1).
+  All seven assigned layers are already owned there. R-smoothness and
+  non-affine restriction of scalars remain outside that scope. This checks
+  ownership without reviewing the upstream mathematics.
+- Re-read the claimed issue and worker rules, both protocols, upstream guidance,
+  independent review, inherited handoff, packet coverage and gaps. Consulted
+  accepted RS-31 and the reviewed audit's overlap records. Read the supplied
+  ReductiveGroups and Part II introductions, Part II scope and suggested-file
+  opening, and current Tau Ceti functor-of-points source opening. The supplied
+  roadmap checkout remains at `0d144d044dacebca17b654695b6f1ad58f159b27`.
+  Neither supplied tree was edited or built. No new pinned-library audit or
+  mathematical source verification is claimed.
+- The packet checker reports **zero errors and zero warnings**. Only this
+  handoff changes. Lean was not run because the suggested file is unchanged.
+  No background process or language server was started, and no suspicious
+  external instruction was encountered.
+
+Preserved inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 unit tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and all seven
+stages RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 remain `partial`;
+the review remains `needs_changes`. No stage is closed. The existing
+ModularCurves 0F import and prior disposition of RT-AREA-algebraicgeometry/11
+are preserved without a new correctness verdict.
+
+**Resume requires an upstream-owner request and an assigned atlas extension.**
+The manager must reconcile this dispatch with upstream ownership and provide
+its identity, stage boundaries, supplier links and permitted deliverables.
+Changes to existing targets belong on PR #785. Once that scope is assigned,
+resume from the independent review's fourteen-target table and seven coverage
+lists, preserving its eight repairs. The four mathematical gaps besides
+ownership are the étale local-homeomorphism input, general splitting-field
+tensor decomposition, locally free determinant-norm gluing and non-affine lft
+Weil restriction for full torus Néron models. Verify the retained additions
+against their sources, synchronize the reader and check Lean within that scope.
+Another dispatch of the unchanged revision cannot supply the missing extension.
+This session takes no second issue.
+
+## Previous dispatch: codex-DXObEA, 2026-10-21
 
 Codex session `codex-DXObEA` selected #9312, the first available issue on the
 manager's priority list; #9215 and #10898 were blocked. The bot
