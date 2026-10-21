@@ -12,7 +12,7 @@
     "QSeriesPartitionsAndMockModularForms:QM.6"
   ],
   "status": "complete",
-  "summary": "Revision4 complete at target-planning depth:537 inherited nodes retained, none added. Replacement arguments address all43 contracts flagged by the preceding independent review;44 existing nodes receive mathematical edits; 47 node records change in total, including upstream and status bookkeeping. Two explicit Eulerian-identification gaps remain,30 supplier requests are reconciled, and no stage is closed. The arbitrary-ring Lie quotient is corrected with a characteristic2 counterexample. Current/open upstream contracts are separate from the historical pins. The reader reproduces the full contract ledger. The independent review REV-QSeriesPartitionsAndMockModularForms~4 accepted the plan with in-place corrections and confirmed the four new source findings. The compact native file remains a statement-only selection on existing carriers.",
+  "summary": "Revision 5 at target-planning depth: 537 inherited nodes retained, none added, eight node records revised. The seventh-order gap is closed: F₀, F₁, F₂ are Ramanujan's Eulerian series, and Hickerson's double sums are proved from Andrews' Bailey pairs (Trans. AMS 1986, §7) with two misprints corrected as Hickerson does. The fifth-order Eulerian identification is the one remaining gap; it now names its three missing q-hypergeometric inputs. Open upstream pull requests are consumed where they own a target: AffineLieAlgebras C7 for lattice vertex algebras (comparison stated), ZerosOfLFunctions Layer 1 for the vertical-strip Stirling estimate, HabiroCyclotomicCompletions for the Habiro requests. Thirty supplier requests stand, no stage is closed, and the compact native file gains the seventh-order Hecke identity as a milestone. The review object of REV-QSeriesPartitionsAndMockModularForms~4 is left for the next reviewer.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -12051,36 +12051,11 @@
         ]
       },
       {
-        "ref": "mathlib:Complex.GammaSeq_tendsto_Gamma",
-        "kind": "lemma",
+        "ref": "mathlib:Complex.Gamma_ne_zero",
+        "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
-        "provides": "Euler limit of GammaSeq s for every complex s. On the open right half-plane its logarithmic finite-product form supplies the starting limit for two-term Euler summation.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-20: Beta.lean lines335–343; Stirling.lean lines237–252. This is a baseline input, not the missing complex asymptotic itself.",
-        "review": {
-          "verdict": "confirmed",
-          "by": "REV-QSeriesPartitionsAndMockModularForms~3",
-          "date": "2026-10-20",
-          "consumers": [
-            "QSeriesPartitionsAndMockModularForms:QM.5/gamma-vertical-decay"
-          ],
-          "note": "Fresh source/statement and ambient hypotheses read at the recorded pin in Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean, declaration near line 271. Compared against each direct consumer’s stated use, including generated/namespace names. Confirmation is limited to the actual provides contract; extensions in the gap register are not attributed to this declaration."
-        }
-      },
-      {
-        "ref": "mathlib:Stirling.factorial_isEquivalent_stirling",
-        "kind": "lemma",
-        "module": "Mathlib/Analysis/SpecialFunctions/Stirling.lean",
-        "provides": "The real sequence n! is asymptotically equivalent atTop to sqrt(2*n*pi)*(n/exp 1)^n; fixes the constant in the complex log-Gamma remainder derived from Euler summation.",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-20: Beta.lean lines335–343; Stirling.lean lines237–252. This is a baseline input, not the missing complex asymptotic itself.",
-        "review": {
-          "verdict": "confirmed",
-          "by": "REV-QSeriesPartitionsAndMockModularForms~3",
-          "date": "2026-10-20",
-          "consumers": [
-            "QSeriesPartitionsAndMockModularForms:QM.5/gamma-vertical-decay"
-          ],
-          "note": "Fresh source/statement and ambient hypotheses read at the recorded pin in Mathlib/Analysis/SpecialFunctions/Stirling.lean, declaration near line 245. Compared against each direct consumer’s stated use, including generated/namespace names. Confirmation is limited to the actual provides contract; extensions in the gap register are not attributed to this declaration."
-        }
+        "provides": "Γ(s) ≠ 0 for every complex s that is not a nonpositive integer.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Beta.lean line 427 (namespace Complex), 2026-10-21, BP-QSeriesPartitionsAndMockModularForms~5."
       }
     ]
   },
@@ -14216,6 +14191,58 @@
       "accessed": "2026-10-20",
       "readSections": [
         "§§4–6, pp.5–16: code-module induction, Hamming restriction, code words and the proofs of Lemma6.9 and Theorem6.10. Theorem6.8 is read as the intertwining-operator uniqueness input; the module-field generation proof is the usual Jacobi commutator induction."
+      ]
+    },
+    {
+      "id": "andrews-mock-1986",
+      "title": "The fifth and seventh order mock theta functions",
+      "authors": "George E. Andrews",
+      "edition": "Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
+      "url": "https://www.ams.org/journals/tran/1986-293-01/S0002-9947-1986-0814916-2/S0002-9947-1986-0814916-2.pdf",
+      "sha256": "5d91d479a67b8a5e1c10121e8619111592bf5bad238c9f8b736e120c71388998",
+      "readSections": [
+        "§2 (pp. 114–116): Bailey's lemma (2.3)–(2.6), the inversion (2.7) and the backward chain (2.8)–(2.15)",
+        "§3 (pp. 116–117): (3.1)–(3.5)",
+        "§4 (pp. 117–119): Lemmas 1–2, Theorems 3–4 and their proofs",
+        "§5 (pp. 120–124): Theorem 5, Lemmas 6–8, (5.1)–(5.17)",
+        "§6 (pp. 124–127): Theorem 9, (6.1)–(6.8), and its proof",
+        "§7 (pp. 127–133): (7.1)–(7.3), Lemmas 10–12, Theorem 13 (7.22)–(7.24) and its proof",
+        "Formulas read on the page images; the text layer garbles them"
+      ]
+    },
+    {
+      "id": "hickerson-seventh-1988",
+      "title": "On the seventh order mock theta functions",
+      "authors": "Dean Hickerson",
+      "edition": "Invent. Math. 94 (1988), 661–677; scanned journal pages served free by the Göttingen digitisation centre (GDZ), volume record PPN356556735_0094, read 2026-10-21",
+      "url": "https://gdz.sub.uni-goettingen.de/id/PPN356556735_0094",
+      "sha256": "001481ddb8ffad65b1314ea9c785b6799e034bc7c1e747e073c00cbca18fac17",
+      "readSections": [
+        "§0 (pp. 661–662): the notation (0.0)–(0.4) and the definitions (0.5)–(0.7) of the three seventh-order functions",
+        "§1 (p. 665): the sign-function summation conventions (1.16)–(1.22)",
+        "§2 (p. 666): Theorem 2.0 and its proof, including the corrected forms (2.3)–(2.5) of Andrews' (7.22)–(7.24)"
+      ],
+      "pageFiles": [
+        {
+          "page": 661,
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000667/full/1000,/0/default.jpg",
+          "sha256": "75d8e282bd3d860507293315628ca4f2994245af860f5fd2187e6239873d0f67"
+        },
+        {
+          "page": 662,
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000668/full/1000,/0/default.jpg",
+          "sha256": "0e3abf6a6c5653b54bc8c8b143775d27ea27a0d03025899095ffa4b2a6eea6e8"
+        },
+        {
+          "page": 665,
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000671/full/1000,/0/default.jpg",
+          "sha256": "2047c79f3bfe2e0814fdf926c098dbdfc8a56a4f7e1712abbf0bfa41071902ae"
+        },
+        {
+          "page": 666,
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000672/full/1000,/0/default.jpg",
+          "sha256": "001481ddb8ffad65b1314ea9c785b6799e034bc7c1e747e073c00cbca18fac17"
+        }
       ]
     }
   ],
@@ -33027,31 +33054,43 @@
       ],
       "title": "The seventh-order mock theta functions F₀, F₁, F₂ and the vector F₇",
       "kind": "definition",
-      "statement": "Following Zwegers §4.3 (Hickerson's identities used as definitions): (q)_∞F₀(q) := (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+r/2+s/2}, (q)_∞F₁(q) := (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+5r/2+5s/2+1}, (q)_∞F₂(q) := (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+3r/2+3s/2}, with (q)_∞ = ∏(1 − q^n) and q = e(τ); and F₇(τ) := (q^{−1/168}F₀(q), q^{47/168}F₂(q), q^{−25/168}F₁(q)) (fractional powers e(sτ)).",
+      "statement": "Ramanujan's seventh-order mock theta functions are the formal power series F₀ = Σ_{n≥0} q^{n²}/(q^{n+1};q)_n, F₁ = Σ_{n≥1} q^{n²}/(q^n;q)_n and F₂ = Σ_{n≥0} q^{n²+n}/(q^{n+1};q)_{n+1} in ℤ⟦q⟧, where (x;q)_m = ∏_{i<m}(1 − xq^i). Every denominator is a product of factors 1 − q^c with c ≥ 1, hence a unit, and the n-th summand has order at least n², so the sums converge coefficientwise; their images in R⟦q⟧ for any commutative ring R are the same series. For |q| < 1 the series converge absolutely and locally uniformly, their sums are the evaluations of the formal series, and with q = e(τ) they are holomorphic on ℍ. Set F₇(τ) := (q^{−1/168}F₀(q), q^{47/168}F₂(q), q^{−25/168}F₁(q)) (fractional powers e(sτ)). Hickerson's double sums for (q;q)_∞F_j, which Zwegers takes as the definition, are proved equal to these series in QM.4/seventh-order-indefinite-theta-identities.",
       "hypotheses": [
-        "The identification with Ramanujan's Eulerian series (e.g. F₀(q) = Σ_{n≥0}q^{n²}/(q^{n+1}; q)_n) is Hickerson's theorem, which Zwegers takes as the definition; it is recorded as a gap, not used."
+        "The Eulerian series are the definition, as in Ramanujan's letter, Andrews (7.22)–(7.24) and Hickerson (0.5)–(0.7). Zwegers §4.3 starts from Hickerson's double sums instead; QM.4/seventh-order-indefinite-theta-identities proves that the two readings define the same functions, so every later node may use either.",
+        "Coefficients in ℤ; the analytic functions are evaluations on the open unit disc."
       ],
       "proofSteps": [
-        "The double series converge absolutely for |q| < 1 (the exponent 3r²/2 + 4rs + 3s²/2 is positive on the summation cones r, s ≥ 0 and r, s < 0); (q)_∞ ≠ 0 on the unit disc (Mathlib ModularForm.eta_ne_zero), so F_j are holomorphic functions of τ ∈ ℍ."
+        "Each denominator (q^c;q)_m with c ≥ 1 has constant coefficient 1, so it is a unit of ℤ⟦q⟧ (mathlib:PowerSeries.isUnit_iff_constantCoeff; QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer). The n-th summand has order at least n² (n² + n for F₂), so each sum converges in the coefficientwise topology (mathlib:PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top), and mapping coefficients along ℤ → R commutes with the sums.",
+        "For 0 ≤ r < 1 every coefficient of the n-th summand is nonnegative and its value at r is at most r^{n²}/∏_{i≥1}(1 − r^i). The weighted coefficient norms are therefore summable over n, so the evaluation at |q| ≤ r of the formal sum equals the sum of the evaluated summands (coefficientwise dominated convergence, mathlib:tendsto_tsum_of_dominated_convergence, as in QSeriesPartitionsAndMockModularForms:QM.0/evaluation-of-formal-products). Locally uniform convergence of holomorphic summands gives holomorphy in τ.",
+        "F₇ is a vector of holomorphic functions on ℍ; since each F_j has integral q-exponents, F₇(τ + 1) is F₇(τ) times the diagonal matrix of e(−1/168), e(47/168), e(−25/168)."
       ],
       "acceptance": [
-        "F₀(q) = 1 + q + q³ + q⁴ + q⁵ + 2q⁷ + q⁸ + 2q⁹ + O(q^{10}), equal to Ramanujan's Σq^{n²}/(q^{n+1}; q)_n to this order (numerically checked).",
+        "F₀ = 1 + q + q³ + q⁴ + q⁵ + 2q⁷ + q⁸ + 2q⁹ + O(q^{10}), F₁ = q + q² + q³ + 2q⁴ + q⁵ + O(q⁶) and F₂ = 1 + q + 2q² + q³ + 2q⁴ + 2q⁵ + O(q⁶), computed from the Eulerian series.",
+        "(q;q)_∞F_j agrees with Hickerson's double sum to O(q^{219}) for j = 0, 1, 2 (exact integer computation by the author; a diagnostic, not the proof, which is QM.4/seventh-order-indefinite-theta-identities).",
         "F₇ is holomorphic on ℍ and 1-periodic up to the diagonal multiplier."
       ],
       "prerequisites": [
-        "mathlib:ModularForm.eta",
-        "mathlib:ModularForm.eta_ne_zero"
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "QSeriesPartitionsAndMockModularForms:QM.0/evaluation-of-formal-products",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "mathlib:PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top",
+        "mathlib:tendsto_tsum_of_dominated_convergence"
       ],
       "sources": [
         {
-          "sourceId": "zwegers-thesis",
-          "locator": "§4.3, p. 67",
-          "match": "The first identity; the others are displayed alongside."
+          "sourceId": "hickerson-seventh-1988",
+          "locator": "§0, (0.5)–(0.7), p. 662",
+          "match": "The three Eulerian series are Ramanujan's definitions of the seventh-order functions."
+        },
+        {
+          "sourceId": "andrews-mock-1986",
+          "locator": "§7, Theorem 13, (7.22)–(7.24), pp. 132–133",
+          "match": "The same three series, each followed by its Hecke-type expansion."
         },
         {
           "sourceId": "zwegers-thesis",
           "locator": "§4.3, p. 67",
-          "match": "The definitional choice (gap for the Eulerian forms)."
+          "match": "Zwegers takes Hickerson's double sums as the definitions and forms the vector F₇ with the prefactors q^{−1/168}, q^{47/168}, q^{−25/168}."
         }
       ],
       "library": {
@@ -33060,6 +33099,10 @@
       },
       "implementationStatus": "unchecked",
       "uses": [
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-indefinite-theta-identities",
+          "how": "the Bailey-chain proof of the double-sum identities starts from the Eulerian series"
+        },
         {
           "where": "Zwegers Prop. 4.5, Cor. 4.6",
           "how": "F₇ = H₇ + G₇ and its non-modularity"
@@ -33074,6 +33117,16 @@
           "name": "seventhOrder_F0_coeff_test",
           "kind": "computation",
           "statement": "The q-expansion of F₀ begins 1 + q + q³ + q⁴ + q⁵ + 2q⁷ + q⁸ + 2q⁹."
+        },
+        {
+          "name": "seventhOrder_F1_F2_coeff_test",
+          "kind": "computation",
+          "statement": "F₁ = q + q² + q³ + 2q⁴ + q⁵ + O(q⁶) and F₂ = 1 + q + 2q² + q³ + 2q⁴ + 2q⁵ + O(q⁶); a denominator (q;q)_n in place of (q^{n+1};q)_n would already change the q² coefficient of F₀."
+        },
+        {
+          "name": "seventhOrder_hickerson_test",
+          "kind": "compatibility",
+          "statement": "(q;q)_∞F₀ = 1 − 2q² − q⁶ + 2q⁷ + q⁸ + O(q⁹), the truncation of Hickerson's double sum (terms (r,s) = (0,0), (1,0), (0,1), (−1,−1), (2,0), (0,2), (1,1))."
         },
         {
           "name": "seventhOrder_T_test",
@@ -33095,17 +33148,22 @@
         {
           "name": "seventhOrderF0",
           "role": "data",
-          "statement": "F₀ via the Hickerson double sum."
+          "statement": "F₀ := Σ_{n≥0} q^{n²}/(q^{n+1};q)_n in ℤ⟦q⟧, the Eulerian series."
         },
         {
           "name": "seventhOrderF1",
           "role": "data",
-          "statement": "F₁."
+          "statement": "F₁ := Σ_{n≥1} q^{n²}/(q^n;q)_n in ℤ⟦q⟧."
         },
         {
           "name": "seventhOrderF2",
           "role": "data",
-          "statement": "F₂."
+          "statement": "F₂ := Σ_{n≥0} q^{n²+n}/(q^{n+1};q)_{n+1} in ℤ⟦q⟧."
+        },
+        {
+          "name": "seventhOrderF_eval",
+          "role": "compatibility",
+          "statement": "For |q| < 1 the evaluation of each formal F_j equals the absolutely convergent analytic series, and it is holomorphic in τ."
         },
         {
           "name": "seventhOrderVector",
@@ -33125,27 +33183,65 @@
       "realises": [
         "QSeriesPartitionsAndMockModularForms:QM.4"
       ],
-      "title": "F₀, F₁, F₂ as sign-difference sums (Zwegers §4.3)",
-      "kind": "lemma",
-      "statement": "With A = (3 4; 4 3), c₁ = (−3, 4), c₂ = (−4, 3), e = (1, 1) (B(c₁,c₂) = −28, Q(c₁) = Q(c₂) = −21/2): 2η(τ)ζ₁₄q^{−1/168}F₀(q) = Σ_{ν∈e/14+ℤ²}{sgn B(ν,c₁) − sgn B(ν,c₂)}e^{2πiQ(ν)τ+2πiB(ν,e/14)}; 2ηζ₁₄q^{47/168}F₂(q) = the same with ν ∈ 3e/14 + ℤ² and B(ν, 5e/14); 2ηζ₁₄q^{−25/168}F₁(q) = the same with ν ∈ 5e/14 + ℤ² and B(ν, 3e/14).",
+      "title": "Hickerson's double sums and the sign-difference sums for F₀, F₁, F₂ (Andrews, Hickerson, Zwegers §4.3)",
+      "kind": "theorem",
+      "statement": "(1) Bailey pairs (Andrews Lemmas 10–12). Let U_n = Σ_{j=1}^{n} [n+j−1, 2j−1](q;q)_{j−1}(−1)^{n−j}q^{(n−j)(n−j−1)/2} (U₀ = 0), with [·,·] the Gaussian polynomial. Then U_{2m} = −2q^{3m²−2m}Σ_{j=0}^{m−1}q^{−j²−j} and U_{2m+1} = q^{3m²+m}Σ_{|j|≤m}q^{−j²}. Relative to a = 1, the sequence β_n = 1/(q^{n+1};q)_n forms a Bailey pair with α_{2m} = q^{3m²+m}Σ_{|j|≤m}q^{−j²} − q^{3m²−m}Σ_{|j|<m}q^{−j²}, α_{2m+1} = −2q^{3m²+4m+1}Σ_{j=0}^{m}q^{−j²−j} + 2q^{3m²+2m}Σ_{j=0}^{m−1}q^{−j²−j}; the sequence β₀ = 0, β_n = 1/(q^n;q)_n (n ≥ 1) forms one with α_n = (1 − q^{2n})U_n; and, relative to a = q, β_n = 1/(q^{n+1};q)_{n+1} forms one with α_n = (U_{n+1} − q^{2n}U_n)/(1 − q). (2) Andrews' Theorem 13, in corrected form: (q;q)_∞F₀ = Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{12n+6}) − 2q²Σ_{n≥0}Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{12n+12}); (q;q)_∞F₁ = Σ_{n≥0,|j|≤n} q^{7n²+5n+1−j²}(1 − q^{4n+2}) − 2Σ_{n≥0}Σ_{j=0}^{n−1} q^{7n²−2n−j²−j}(1 − q^{4n}); (q;q)_∞F₂ = Σ_{n≥0,|j|≤n} q^{7n²+3n−j²}(1 − q^{8n+4}) − 2q³Σ_{n≥0}Σ_{j=0}^{n} q^{7n²+10n−j²−j}(1 − q^{8n+8}). (3) Hickerson's Theorem 2.0: with sg(r) = 1 for r ≥ 0 and −1 for r < 0, (q;q)_∞F_j = Σ_{sg(r)=sg(s)} sg(r)(−1)^{r+s}q^{rs+3(r+s)²/2+c_j(r+s)+d_j} with (c₀,d₀) = (1/2, 0), (c₁,d₁) = (5/2, 1), (c₂,d₂) = (3/2, 0); equivalently (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+c_j(r+s)+d_j}. All identities hold in ℤ⟦q⟧ and, for |q| < 1, between absolutely convergent series. (4) Zwegers' sign-difference form. With A = (3 4; 4 3), c₁ = (−3, 4), c₂ = (−4, 3), e = (1, 1) (B(c₁,c₂) = −28, Q(c₁) = Q(c₂) = −21/2): 2η(τ)ζ₁₄q^{−1/168}F₀(q) = Σ_{ν∈e/14+ℤ²}{sgn B(ν,c₁) − sgn B(ν,c₂)}e^{2πiQ(ν)τ+2πiB(ν,e/14)}; 2ηζ₁₄q^{47/168}F₂(q) = the same with ν ∈ 3e/14 + ℤ² and B(ν, 5e/14); 2ηζ₁₄q^{−25/168}F₁(q) = the same with ν ∈ 5e/14 + ℤ² and B(ν, 3e/14).",
       "hypotheses": [
-        "ζ_n = e^{2πi/n}; η = q^{1/24}(q)_∞."
+        "ζ_n = e^{2πi/n}; η = q^{1/24}(q;q)_∞; F_j are the Eulerian series of QM.4/seventh-order-mock-theta-functions.",
+        "Andrews prints (7.22) and (7.24) with misprints (E633, E634); the statement uses the corrected forms, which are Hickerson's (2.3) and (2.5)."
       ],
       "proofSteps": [
-        "Substitute ν = (r + 1/14, s + 1/14) etc.; sgn B(ν,c₁) − sgn B(ν,c₂) = 2 on {r, s ≥ 0}, −2 on {r, s < 0}, 0 otherwise; compare exponents and the phase e^{2πiB(ν, e/14)} = ζ₁₄(−1)^{r+s}."
+        "Gaussian polynomials [n, m] (QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient) satisfy [n, m] = [n−1, m−1] + q^m[n−1, m] = [n−1, m] + q^{n−m}[n−1, m−1] (Andrews (7.2)–(7.3)).",
+        "Andrews Lemma 10 (pp. 128–130): put V_n = (1 − q^{2n})Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}/(1 − q^{n+j}) and W_n = Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}. Splitting 1 − q^{2n} = (1 − q^{n+j}) + q^{n+j}(1 − q^{n−j}) and 1 + q^n = (1 − q^{n−j}) + q^{n−j}(1 + q^j), applying one Pascal recurrence and shifting j by one give V_n = W_n − q^{2n−1}W_{n−1}, V_n = −(1 − q^n)q^{2n−2}U_{n−1} + 2(−1)^n q^{n(n+1)/2} and W_n = −q^nU_n − q^{2n−2}U_{n−1}. These are finite identities in ℤ[q, q⁻¹].",
+        "Andrews Lemma 11 (p. 130): eliminating V and W gives U_n − q^{3n−5}U_{n−2} = −2(−1)^n q^{n(n−1)/2} for n ≥ 3; with U₀ = 0, U₁ = 1, U₂ = −2q, induction on n gives the closed forms of U_{2m} and U_{2m+1}.",
+        "Bailey inversion (Andrews (2.7), p. 115): for any β, the sequence α₀ = β₀, α_n = (1 − aq^{2n})Σ_{j=0}^{n}(aq;q)_{n+j−1}(−1)^{n−j}q^{(n−j)(n−j−1)/2}β_j/(q;q)_{n−j} (n ≥ 1) forms a Bailey pair with β relative to a (QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair). In the defining relation the coefficient of β_j becomes, after r = j + s and b = aq^{2j}, the sum Σ_{s≤n−j}(1 − bq^{2s})(b;q)_s(−1)^s q^{s(s−1)/2}/((q;q)_s(q;q)_{n−j−s}(bq;q)_{n−j+s}), which is (1 − b)δ_{n,j} by the unit Bailey pair relative to b (QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs, proved there for a general parameter over ℤ[a][q, q⁻¹]); the factor 1 − b = 1 − aq^{2j} cancels the prefactor (aq;q)_{2j−1}/(aq;q)_{2j}.",
+        "Andrews Lemma 12 (pp. 130–132): apply the inversion with a = 1 to β_n = 1/(q^{n+1};q)_n. Since (q;q)_{n+j−1}/((q;q)_{n−j}(q^{j+1};q)_j) = [n+j, n−j](q;q)_j/(1 − q^{n+j}), the result is V_n, and the second identity of step 2 with step 3 gives the stated α. With a = 1 and β_n = 1/(q^n;q)_n the factor is [n+j−1, n−j](q;q)_{j−1}, so α_n = (1 − q^{2n})U_n. With a = q and β_n = 1/(q^{n+1};q)_{n+1}, splitting 1 − q^{2n+1} = (1 − q^{n+j+1}) + q^{n+j+1}(1 − q^{n−j}) gives α_n = (U_{n+1} − q^{2n}U_n)/(1 − q).",
+        "Apply QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit with k = 1. For a = 1 it gives Σ q^{n²}β_n = (1/(q;q)_∞)Σ q^{n²}α_n, and for a = q it gives Σ q^{n²+n}β_n = (1/(q²;q)_∞)Σ q^{n²+n}α_n. The left sides are F₀, F₁ and F₂. Insert the closed forms of step 5, separate even and odd n, shift n ↦ n + 1 in the subtracted sums and use (q²;q)_∞ = (q;q)_∞/(1 − q): this is (2). Andrews prints (7.22) and (7.24) with misprints (E633, E634); Hickerson's (2.3) and (2.5) are the corrected forms.",
+        "Hickerson's reindexing (proof of Theorem 2.0, p. 666): in the theta parts put r = n + j, s = n − j, so that rs + 3(r+s)²/2 = 7n² − j²; in the cross parts use 2Σ_{j=0}^{n}q^{−j²−j} = Σ_{j=−n−1}^{n}q^{−j²−j} and put r = n − j, s = n + j + 1. The subtracted terms of (2) become the cone r, s < 0, and (−1)^{r+s} and sg(r) supply the signs. This gives (3).",
+        "Zwegers' form (4): substitute ν = (r + 1/14, s + 1/14) etc.; sgn B(ν,c₁) − sgn B(ν,c₂) = 2 on {r, s ≥ 0}, −2 on {r, s < 0}, 0 otherwise; compare exponents and the phase e^{2πiB(ν, e/14)} = ζ₁₄(−1)^{r+s}.",
+        "Every identity above is an identity in ℤ⟦q⟧ whose terms have orders tending to infinity; for |q| < 1 the series converge absolutely (the quadratic form rs + 3(r+s)²/2 is positive on both cones away from the origin), so the identities hold analytically by the evaluation argument of QM.4/seventh-order-mock-theta-functions."
       ],
       "acceptance": [
-        "Numerically checked for the first identity up to q^{6}."
+        "U₁ = 1, U₂ = −2q, U₃ = q⁴(q⁻¹ + 1 + q⁻¹) = 2q³ + q⁴ from the definition and from the closed form.",
+        "The Bailey relations of (1) hold for n ≤ 8 to O(q^{60}), and (2) and (3) agree with the Eulerian series to O(q^{219}) (exact integer computations by the author). The printed (7.22) and (7.24) fail at q¹ and q² respectively.",
+        "Low terms of (3) for F₀: (r,s) = (0,0) gives 1, (1,0) and (0,1) give −2q², (−1,−1) gives −q⁶."
       ],
       "prerequisites": [
         "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-mock-theta-functions",
-        "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-form-of-type-r-minus-one-one"
+        "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-form-of-type-r-minus-one-one",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient",
+        "QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer",
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair",
+        "QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs",
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit",
+        "mathlib:ModularForm.eta",
+        "mathlib:LaurentPolynomial"
       ],
       "sources": [
         {
+          "sourceId": "andrews-mock-1986",
+          "locator": "§2, (2.7), p. 115",
+          "match": "The inversion of the Bailey relation, giving α from β."
+        },
+        {
+          "sourceId": "andrews-mock-1986",
+          "locator": "§7, (7.1)–(7.3), Lemmas 10–12, pp. 128–132",
+          "match": "The polynomials U_n, V_n, W_n, their relations and closed forms, and the three Bailey pairs."
+        },
+        {
+          "sourceId": "andrews-mock-1986",
+          "locator": "§7, Theorem 13 and its proof, pp. 132–133",
+          "match": "The Hecke-type expansions of the three Eulerian series through the limiting Bailey lemma; (7.22) and (7.24) contain misprints (E633, E634)."
+        },
+        {
+          "sourceId": "hickerson-seventh-1988",
+          "locator": "Theorem 2.0 and its proof, p. 666",
+          "match": "The double sums over sg(r) = sg(s) and their derivation from Andrews' identities, with the misprints corrected in (2.3)–(2.5)."
+        },
+        {
           "sourceId": "zwegers-thesis",
           "locator": "§4.3, p. 67",
-          "match": "The first identity; the other two follow on p. 67."
+          "match": "The sign-difference forms with A = (3 4; 4 3), c₁, c₂ and the three characteristics."
         }
       ],
       "library": {
@@ -34829,26 +34925,22 @@
       "kind": "lemma",
       "statement": "For every compact interval [x₁, x₂] ⊂ ℝ there is C such that |Γ(x + iy)| ≤ C|y|^{x−1/2}e^{−π|y|/2} for x ∈ [x₁, x₂] and |y| ≥ 1; more precisely |Γ(x + iy)| = √(2π)|y|^{x−1/2}e^{−π|y|/2}(1 + O(1/|y|)) uniformly for x in compact sets.",
       "hypotheses": [
-        "x in a fixed compact interval; |y| ≥ 1 (away from the poles on the real axis)."
+        "x in a fixed compact interval; |y| ≥ 1 (away from the poles on the real axis).",
+        "The Stirling asymptotic of log Γ in vertical strips is ZerosOfLFunctions Layer 1 item 3 (an open upstream roadmap); this node is its exponentiated corollary. Brent's explicit remainder bound gives an admissible constant C₀."
       ],
       "proofSteps": [
-        "For Re z>0 derive a logarithm G(z) of Gamma from the finite products in Complex.GammaSeq_tendsto_Gamma. Apply Euler summation twice to the finite sum of Log(z+j): integrate by parts on each unit interval, with the continuous periodic Bernoulli polynomial B_2({u})={u}²−{u}+1/6. The endpoint terms telescope. Stirling.factorial_isEquivalent_stirling fixes the limiting constant as log(2π)/2. Local uniform convergence on compact subsets of Re z>0 justifies this analytic logarithm, without identifying it with the generally different principal logarithm of Gamma(z).",
-        "The resulting identity is G(z)=(z−1/2)Log z−z+log(2π)/2+R_1(z), with R_1(z)=1/(12z)−(1/2)∫₀∞ B_2({u})/(u+z)² du. This is Brent §2 (5)–(8), p.4, with the above finite-sum derivation replacing its external book reference. The integral is absolutely convergent; |B_2(t)|≤1/6 for 0≤t≤1.",
-        "For Re z≥0 and z≠0, |u+z|²≥u²+|z|². Hence the absolute integral error after 1/(12z) is at most π/(24|z|); therefore |R_1(z)|≤(2+π)/(24|z|), the k=1 case of Brent Theorem1, (10), p.5. The estimate extends to the imaginary boundary away from zero by continuity.",
-        "For x in a fixed positive compact interval, Re((x+iy−1/2)Log(x+iy)−(x+iy))=(x−1/2)log|y|−π|y|/2+O(1/|y|), uniformly as |y|→∞: use arg(x+iy)=sgn(y)π/2−arctan(x/y) and log|x+iy|=log|y|+O(|y|⁻²). Taking the real part of G and exponentiating the bounded remainder gives the stated relative error and leading constant.",
-        "For an arbitrary compact [x₁,x₂], choose one integer M with x₁+M>0 and use Gamma(z+M)=Gamma(z)∏_{j<M}(z+j). Uniformly on that strip the product of moduli is |y|^M(1+O(|y|⁻²)). This transfers the two-sided estimate, including an eventual positive lower bound for the normalized modulus. Enlarge the upper-bound constant on the compact region 1≤|y|≤Y. No Phragmén–Lindelöf interpolation is used to infer an asymptotic or lower bound."
+        "Import ZerosOfLFunctions Layer 1, items 1–3 (open upstream PR #253; the Gamma supplier that AnalyticNumberTheoryPartI, open PR #1126, cites for its Layers 1.2–1.4): for every compact [x₁, x₂], log|Γ(x + iy)| = (x − 1/2)log|y| − π|y|/2 + log(2π)/2 + E(x, y) with |E(x, y)| ≤ C₀/|y| for x ∈ [x₁, x₂] and |y| ≥ Y₀. The Stirling remainder, the branch of log Γ on |arg s| < π − δ and the uniformity in x are that layer's targets and are not planned again here.",
+        "Exponentiate: for |E| ≤ 1, |e^E − 1| ≤ 2|E|, so |Γ(x + iy)| = √(2π)|y|^{x−1/2}e^{−π|y|/2}(1 + O(1/|y|)) uniformly for x ∈ [x₁, x₂] and |y| ≥ max(Y₀, C₀); in particular the normalized modulus lies in [1/2, 3/2] for all large |y|.",
+        "On the compact set x ∈ [x₁, x₂], 1 ≤ |y| ≤ max(Y₀, C₀), Γ is continuous and nonzero (mathlib:Complex.Gamma_ne_zero away from the nonpositive integers, which have y = 0), so the normalized modulus is bounded above and below there; enlarge the constant. AnalyticNumberTheoryPartII §4.3b (open PR #1167) states the resulting two-sided bound and balanced quotients from the same input; this node keeps the stronger relative error, which its consumers use."
       ],
       "acceptance": [
         "|Γ(1/2 + iy)| = √(π/cosh(πy)) ~ √(2π)e^{−π|y|/2}.",
-        "The pinned Mathlib has Complex.Gamma, its recurrence and reflection formula but no Stirling estimate in vertical strips.",
+        "The pinned Mathlib has Complex.Gamma, its recurrence and reflection formula but no Stirling estimate in vertical strips; the additive estimate is the upstream ZerosOfLFunctions target, and only its exponentiation is planned here.",
         "After normalization by sqrt(2π)|y|^(x−1/2)exp(−π|y|/2), the modulus lies between 1/2 and 3/2 for all sufficiently large |y|, uniformly on the fixed strip; this is the lower bound required for gamma quotients."
       ],
       "prerequisites": [
         "mathlib:Complex.Gamma",
-        "mathlib:Complex.Gamma_add_one",
-        "mathlib:Complex.GammaSeq_tendsto_Gamma",
-        "mathlib:Stirling.factorial_isEquivalent_stirling",
-        "mathlib:Polynomial.bernoulli"
+        "mathlib:Complex.Gamma_ne_zero"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/QSeries/EichlerIntegral",
@@ -34866,7 +34958,10 @@
           "match": "An integral remainder yields a uniform absolute O(1/|z|) error for log-Gamma throughout the right half-plane, which supplies both sides of the vertical-strip estimate after exponentiating and shifting."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/ZerosOfLFunctions#layer-1-gamma-factor-asymptotics-and-the-continued-l-function"
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.5/twisted-l-function-vertical-growth",
@@ -38342,7 +38437,8 @@
       "proofSteps": [
         "Package the data as a structure whose field Y has type V →ₗ[R] VertexOperator R V and whose field vac is the vacuum; the two creation equations and the Borcherds identity are Prop fields stated with VertexOperator.ncoeff and Ring.choose.",
         "Truncation: HVertexOperator.coeff_isPWOsupport gives that the support of the Laurent series Y(u,z)v is partially well ordered, hence bounded below in ℤ; since VertexOperator.ncoeff A n = HVertexOperator.coeff A (−n−1) (VertexOperator.ncoeff_apply), u_n v = 0 for n large.",
-        "Finiteness of the sums: the i-th term on the left vanishes once q+i exceeds the truncation bound of (u,v); on the right once n+i and m+i exceed the bounds of (v,w) and (u,w). State the identity with finite sums over ℕ (finsum) and record the finiteness as an API lemma."
+        "Finiteness of the sums: the i-th term on the left vanishes once q+i exceeds the truncation bound of (u,v); on the right once n+i and m+i exceed the bounds of (v,w) and (u,w). State the identity with finite sums over ℕ (finsum) and record the finiteness as an API lemma.",
+        "Comparison with AffineLieAlgebras C7 (open upstream PR #1201) over ℂ: the vacuum, creation and translation axioms of C7's `FormalVertexAxioms` follow from the Borcherds identity with T(u) = u_{−2}1 (Matsuo–Nagatomo §§1–2), locality is the case m ≥ N of the identity, and conversely C7's `formalVertex_borcherds` derives the Borcherds identity from its axioms; the coefficient conventions coincide."
       ],
       "acceptance": [
         "For a commutative ℚ-algebra A with derivation ∂, u_n v := (∂^{−n−1}u/(−n−1)!)·v for n ≤ −1 and u_n v := 0 for n ≥ 0 is a vertex algebra with vacuum 1 (Borcherds 1992 §3; Matsuo–Nagatomo Note 3.1.3).",
@@ -38412,6 +38508,11 @@
           "name": "VertexAlgebra.ofDerivation",
           "role": "constructor",
           "statement": "For a commutative ℚ-algebra A and a derivation ∂ of A, the vertex algebra with u_n v = (∂^{−n−1}u/(−n−1)!)v for n ≤ −1 and 0 for n ≥ 0, vacuum 1."
+        },
+        {
+          "name": "VertexAlgebra.toFormalVertexAxioms",
+          "role": "compatibility",
+          "statement": "Over ℂ, a vertex algebra in this sense with translation T(u) := u_{−2}1 gives an instance of AffineLieAlgebras C7's `FormalVertexAxioms` on the same space with the same field (u_n = coefficient of z^{−n−1} in both conventions), and C7's `formalVertex_borcherds` gives the converse; the two notions agree over ℂ. The definition here is the general one (any commutative ring), needed for the integral Lie quotient of QM.6/vertex-algebra-lie-algebra and the real moonshine model."
         }
       ],
       "tests": [
@@ -38434,6 +38535,11 @@
           "name": "VertexAlgebra.ofDerivation_nprod_nonneg",
           "kind": "characterisation",
           "statement": "In VertexAlgebra.ofDerivation every product u_n v with n ≥ 0 vanishes and u_{−1}v = uv, so the commutative algebra is recovered from the (−1)-product."
+        },
+        {
+          "name": "VertexAlgebra.toFormalVertexAxioms_ofDerivation",
+          "kind": "compatibility",
+          "statement": "Over ℂ, for VertexAlgebra.ofDerivation on ℂ[X] with ∂ = d/dX, the associated C7 FormalVertexAxioms has translation d/dX, and the coefficients of z⁰, z¹, z² in the field of X applied to 1 are X, 1 and 0, as its creation axiom (1/n!)Tⁿ requires."
         }
       ],
       "uses": [
@@ -38453,6 +38559,9 @@
           "where": "Borcherds 1992, §6, proof of Theorem 6.1",
           "how": "the tensor product V ⊗ V_{II_{1,1}} and its physical Lie algebra"
         }
+      ],
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one"
       ]
     },
     {
@@ -38851,7 +38960,8 @@
         "Let O be the space of creative fields; the residual products A(z)_{(m)}B(z) of local fields are local (Dong's lemma, Matsuo–Nagatomo Proposition 1.5.5) and creative (Lemma 4.1.2).",
         "The space ⟨S⟩ of fields generated by S under residual products is pairwise local and contains the identity field; by Li's theorem (Matsuo–Nagatomo Theorem 3.3.1, via the Borcherds identity for local fields, Corollary 2.2.2 and Theorem 2.4.1) it is a vertex algebra.",
         "Translation covariance and (S2) make the state map A(z) ↦ A_{−1}1 bijective from ⟨S⟩ onto V (Theorem 5.3.3); transport the structure along it.",
-        "Uniqueness: a vertex algebra structure is determined by the fields of a generating set, by the associativity formula (node vertex-algebra-commutator-formula)."
+        "Uniqueness: a vertex algebra structure is determined by the fields of a generating set, by the associativity formula (node vertex-algebra-commutator-formula).",
+        "Over k = ℂ this is the reconstruction phase (i) of AffineLieAlgebras C7 (open upstream PR #1201), transported through the comparison of QM.6/vertex-algebra; the statement here, over every field of characteristic 0, is the generality the real framed moonshine model of QM.6/monster-head-characters needs, and it agrees with C7's after extension of scalars to ℂ."
       ],
       "acceptance": [
         "The vertex algebra structure of VertexAlgebra.ofDerivation is recovered from S = {Y(a, z) : a ∈ A} with T = ∂.",
@@ -38879,7 +38989,10 @@
         "module": "TauCeti/Algebra/Vertex/Existence",
         "namespace": "TauCeti.QSeries"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one"
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-tensor-product",
@@ -39795,7 +39908,8 @@
         "Bimultiplicativity makes ε a 2-cocycle, so k_ε[L] is associative (build it on AddMonoidAlgebra k L with the twisted product).",
         "ε(α,β)ε(β,α) = (−1)^{⟨α,β⟩}: expand ε(α+β, α+β) = (−1)^{⟨α+β,α+β⟩/2} using bimultiplicativity.",
         "Existence: the displayed values on a basis define a bimultiplicative map with ε(e_i,e_i) = (−1)^{⟨e_i,e_i⟩/2}; the diagonal condition for general α follows from the commutator identity and evenness.",
-        "Uniqueness: two cocycles with the same diagonal differ by a symmetric bimultiplicative map η with η(α,α) = 1, which is a coboundary η(α,β) = f(α+β)f(α)^{−1}f(β)^{−1}; rescaling e^α ↦ f(α)e^α gives the isomorphism."
+        "Uniqueness: two cocycles with the same diagonal differ by a symmetric bimultiplicative map η with η(α,α) = 1, which is a coboundary η(α,β) = f(α+β)f(α)^{−1}f(β)^{−1}; rescaling e^α ↦ f(α)e^α gives the isomorphism.",
+        "Comparison with C7: η = ε/ε′ is symmetric and bimultiplicative, η(α,β) = (−1)^{⟨α,β⟩ + Σ_i (⟨b_i,b_i⟩/2)α_iβ_i}, and Q′(α) = ⟨α,α⟩/2 + Σ_i (⟨b_i,b_i⟩/2)α_i(α_i−1)/2 satisfies Q′(α+β) − Q′(α) − Q′(β) = ⟨α,β⟩ + Σ_i (⟨b_i,b_i⟩/2)α_iβ_i; so f = (−1)^{Q′} is the required coboundary (checked by the author on random Gram matrices of rank ≤ 4)."
       ],
       "acceptance": [
         "For L = ℤα with ⟨α,α⟩ = 2, ε(α,α) = −1 and (e^α)² = −e^{2α}.",
@@ -39853,6 +39967,11 @@
           "name": "EvenLattice.TwistedGroupAlgebra.equivOfCocycle",
           "role": "equivalence",
           "statement": "Two cocycles give isomorphic twisted group algebras (by rescaling basis vectors). The cocycle comparison uses sign-valued coboundaries; no square roots of arbitrary field elements are assumed."
+        },
+        {
+          "name": "EvenLattice.Cocycle.orderedSign_comparison",
+          "role": "equivalence",
+          "statement": "For an ordered ℤ-basis (b_i) of L, AffineLieAlgebras C7's ordered sign cocycle ε′(α,β) = (−1)^{Σ_{i>j}⟨b_i,b_j⟩α_iβ_j} has the same commutator (−1)^{⟨α,β⟩} but in general ε′(α,α) ≠ (−1)^{⟨α,α⟩/2}. With f(α) = (−1)^{⟨α,α⟩/2 + Σ_i (⟨b_i,b_i⟩/2)·α_i(α_i−1)/2}, the basis cocycle ε of this node satisfies ε(α,β) = ε′(α,β)f(α)f(β)f(α+β), so e^α ↦ f(α)e^α is an algebra isomorphism k_{ε′}[L] ≅ k_ε[L]."
         }
       ],
       "tests": [
@@ -39875,6 +39994,11 @@
           "name": "EvenLattice.TwistedGroupAlgebra.commute_iff",
           "kind": "characterisation",
           "statement": "e^α e^β = e^β e^α if and only if ⟨α,β⟩ is even. Assume char(k)≠2; in characteristic2 all cocycle signs coincide and the twisted algebra is commutative regardless of parity."
+        },
+        {
+          "name": "EvenLattice.Cocycle.orderedSign_A1",
+          "kind": "compatibility",
+          "statement": "For L = ℤα with ⟨α,α⟩ = 2 and the one-element ordered basis: ε′(α,α) = 1, ε(α,α) = −1, f(mα) = (−1)^{m² + m(m−1)/2}, so f(α) = f(2α) = −1 and ε(α,α) = ε′(α,α)f(α)²f(2α). The identity map on basis vectors is not multiplicative between the two twisted algebras."
         }
       ],
       "uses": [
@@ -39886,6 +40010,9 @@
           "where": "Borcherds 1992, §12",
           "how": "Aut(Λ̂) = 2^{24}.Co₀ acts on the Leech lattice vertex algebra"
         }
+      ],
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one"
       ]
     },
     {
@@ -39896,7 +40023,7 @@
       ],
       "title": "The vertex algebra of an even lattice",
       "kind": "construction",
-      "statement": "Let L be an even lattice with cocycle ε, k a field of characteristic 0, h := L ⊗_ℤ k with the k-bilinear extension of ⟨·,·⟩. Put V_L := S(ĥ⁻) ⊗_k k_ε[L], where S(ĥ⁻) is the symmetric algebra of ⊕_{n≥1} h ⊗ t^{−n} (write α(−n) := α ⊗ t^{−n}). For α ∈ h, n ∈ ℤ define α(n) ∈ End(V_L): multiplication by α(n) for n < 0; α(0)(s ⊗ e^γ) = ⟨α,γ⟩ s ⊗ e^γ; for n > 0 the derivation of S(ĥ⁻) with α(n)β(−m) = n⟨α,β⟩δ_{n,m}; so [α(m), β(n)] = m⟨α,β⟩δ_{m+n,0}. Then there is a unique vertex algebra structure on V_L with vacuum 1 := 1 ⊗ e^0 such that Y(α(−1)1, z) = Σ_n α(n) z^{−n−1} and Y(1 ⊗ e^β, z) = exp(Σ_{n≥1} β(−n)z^n/n) exp(−Σ_{n≥1} β(n)z^{−n}/n) e^β z^{β(0)}, where e^β acts by left multiplication in k_ε[L] and z^{β(0)}(s ⊗ e^γ) = z^{⟨β,γ⟩} s ⊗ e^γ. It is L-graded (V_{L,γ} := S(ĥ⁻) ⊗ e^γ, u_n v ∈ V_{L,α+β} for u ∈ V_{L,α}, v ∈ V_{L,β}). If ⟨·,·⟩ is nondegenerate with dual bases (h_i), (h^i) of h, then ω := ½ Σ_i h_i(−1)h^i(−1)1 is a conformal vector of central charge d = rank L, and L_0(α_1(−n_1)⋯α_k(−n_k) ⊗ e^γ) = (Σ n_i + ⟨γ,γ⟩/2)·(same vector). The Cartan involution θ(α(n)) = −α(n), θ(e^γ) = e^{−γ} for the normalized bimultiplicative cocycle here. Equivalently, on a lift a in L̂ it is θ(ι(a)) = (−1)^{⟨γ,γ⟩/2}ι(a⁻¹); the inverse lift satisfies ι(a⁻¹) = (−1)^{⟨γ,γ⟩/2}e^{−γ} is an automorphism fixing ω. If L is positive definite, V_L is a vertex operator algebra of CFT type.",
+      "statement": "Let L be an even lattice with cocycle ε, k a field of characteristic 0, h := L ⊗_ℤ k with the k-bilinear extension of ⟨·,·⟩. Put V_L := S(ĥ⁻) ⊗_k k_ε[L], where S(ĥ⁻) is the symmetric algebra of ⊕_{n≥1} h ⊗ t^{−n} (write α(−n) := α ⊗ t^{−n}). For α ∈ h, n ∈ ℤ define α(n) ∈ End(V_L): multiplication by α(n) for n < 0; α(0)(s ⊗ e^γ) = ⟨α,γ⟩ s ⊗ e^γ; for n > 0 the derivation of S(ĥ⁻) with α(n)β(−m) = n⟨α,β⟩δ_{n,m}; so [α(m), β(n)] = m⟨α,β⟩δ_{m+n,0}. Then there is a unique vertex algebra structure on V_L with vacuum 1 := 1 ⊗ e^0 such that Y(α(−1)1, z) = Σ_n α(n) z^{−n−1} and Y(1 ⊗ e^β, z) = exp(Σ_{n≥1} β(−n)z^n/n) exp(−Σ_{n≥1} β(n)z^{−n}/n) e^β z^{β(0)}, where e^β acts by left multiplication in k_ε[L] and z^{β(0)}(s ⊗ e^γ) = z^{⟨β,γ⟩} s ⊗ e^γ. It is L-graded (V_{L,γ} := S(ĥ⁻) ⊗ e^γ, u_n v ∈ V_{L,α+β} for u ∈ V_{L,α}, v ∈ V_{L,β}). If ⟨·,·⟩ is nondegenerate with dual bases (h_i), (h^i) of h, then ω := ½ Σ_i h_i(−1)h^i(−1)1 is a conformal vector of central charge d = rank L, and L_0(α_1(−n_1)⋯α_k(−n_k) ⊗ e^γ) = (Σ n_i + ⟨γ,γ⟩/2)·(same vector). The Cartan involution θ(α(n)) = −α(n), θ(e^γ) = e^{−γ} for the normalized bimultiplicative cocycle here. Equivalently, on a lift a in L̂ it is θ(ι(a)) = (−1)^{⟨γ,γ⟩/2}ι(a⁻¹); the inverse lift satisfies ι(a⁻¹) = (−1)^{⟨γ,γ⟩/2}e^{−γ} is an automorphism fixing ω. If L is positive definite, V_L is a vertex operator algebra of CFT type. For k = ℂ and positive-definite L this is the lattice vertex operator algebra of AffineLieAlgebras C7 (open upstream PR #1201): with f the sign function of QM.6/even-lattice-double-cover, s ⊗ e^α ↦ f(α)s ⊗ e^α is an isomorphism of vertex algebras from C7's V_L to V_L here, preserving vacuum, translation, the Heisenberg fields, ω and the grading. The construction here covers even lattices of every signature, as the Monster Lie algebra needs for II_{1,1}.",
       "hypotheses": [
         "L even lattice, ε a lattice cocycle",
         "k field of characteristic 0",
@@ -39909,7 +40036,8 @@
         "The vectors α_1(−n_1)⋯α_k(−n_k) ⊗ e^γ are obtained from 1 by the modes of these fields, so the existence theorem gives the vertex algebra; the grading statement is read off the fields.",
         "Conformal vector: compute ω_{n+1} = ½Σ_i Σ_m :h_i(m)h^i(n−m): (Sugawara/Segal operators) and check the six conditions; the central charge equals the trace of the identity of h, i.e. d.",
         "The normalized bimultiplicative cocycle satisfies ε(−α,−β)=ε(α,β), so θ(e^γ)=e^{−γ} preserves the twisted product. Together with θ(α(n))=−α(n), conjugation preserves the defining fields, hence θ is an automorphism fixing ω. Jurisich1998 p.31 defines θ using the inverse lift a⁻¹, not the chosen lift e^{−γ}; their difference supplies the second sign.",
-        "Positive definite L: weights Σn_i + ⟨γ,γ⟩/2 ≥ 0 with finitely many vectors of each weight, and weight 0 only for 1."
+        "Positive definite L: weights Σn_i + ⟨γ,γ⟩/2 ≥ 0 with finitely many vectors of each weight, and weight 0 only for 1.",
+        "Comparison with C7: the map φ(s ⊗ e^α) = f(α)s ⊗ e^α commutes with every Heisenberg mode and with T, and φ ∘ e′_α = f(α)e_α ∘ φ by the cocycle relation of QM.6/even-lattice-double-cover; hence φY′(e^α, z)φ⁻¹ = Y(φe^α, z) and φ carries generating fields to generating fields, so it is a vertex algebra isomorphism by the uniqueness clause of QM.6/vertex-algebra-existence-theorem. C7's proofs of locality and of the Borcherds identity for charge fields use evenness and not positive definiteness; positivity enters only through the ℕ-grading and the finite dimension of weight spaces, which is why the indefinite case is stated here."
       ],
       "acceptance": [
         "For L = ℤα with ⟨α,α⟩ = 2, (e^α)_0 e^{−α} = ε(α,−α) α(−1)1 and V_1 (with bracket u_0 v) is isomorphic to sl₂ (Borcherds 1986 §5).",
@@ -39991,6 +40119,11 @@
           "name": "latticeVertexAlgebra.toVOA",
           "role": "coercion",
           "statement": "For positive definite L, the vertex operator algebra of CFT type (V_L, ω)."
+        },
+        {
+          "name": "latticeVertexAlgebra.equivAffineC7",
+          "role": "compatibility",
+          "statement": "For positive-definite even L over ℂ with an ordered basis, s ⊗ e^α ↦ f(α)s ⊗ e^α is an isomorphism of vertex operator algebras from AffineLieAlgebras C7's lattice VOA to (latticeVertexAlgebra, ω)."
         }
       ],
       "tests": [
@@ -40013,6 +40146,11 @@
           "name": "latticeVertexAlgebra.gradedDimension_posDef",
           "kind": "compatibility",
           "statement": "For positive definite L of rank d, gradedDimension (toVOA) = (Σ_{γ∈L} q^{⟨γ,γ⟩/2}) · Π_{n≥1}(1 − q^n)^{−d}."
+        },
+        {
+          "name": "latticeVertexAlgebra.equivAffineC7_A1",
+          "kind": "compatibility",
+          "statement": "For L = ℤα with ⟨α,α⟩ = 2 over ℂ: in C7's V_L, (e^α)_{−3}e^α = e^{2α}, here (e^α)_{−3}e^α = −e^{2α}; the comparison sends e^α ↦ −e^α and e^{2α} ↦ −e^{2α}, intertwines these products and fixes α(−1)1 and ω."
         }
       ],
       "uses": [
@@ -40032,6 +40170,9 @@
           "where": "Borcherds 1992, §12",
           "how": "the Leech lattice vertex algebra V_Λ and the fake monster Lie algebra"
         }
+      ],
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one"
       ]
     },
     {
@@ -43376,16 +43517,16 @@
       ],
       "title": "The eight fifth-order mock theta functions, through Andrews' double-sum identities",
       "kind": "definition",
-      "statement": "For |q|<1, set A=(q;q)∞, B=(q²;q²)∞, C=(-q;q)∞ and D=(-q;q²)∞. The eight definitions are: f0=A⁻¹ Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+n)/2-j²)(1-q^(4n+2)); F0=B⁻¹ Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+2n-(j²+j)/2)(1+q^(6n+3)); ψ0=((C/A)[1+2Σ_{n≥1}(-1)^n q^(n²+n)-2Σ_{n≥1,|j|<n}(-1)^j q^((5n²-n-3j²-j)/2)(1-q^n)]-1)/2; φ0=(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+2n-3j²-j)(1-q^(6n+3)); f1=A⁻¹Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n)/2-j²)(1-q^(2n+1)); F1=B⁻¹Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+4n-(j²+j)/2)(1+q^(2n+1)); ψ1=(C/A)Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n-3j²-j)/2)(1-q^(2n+1)); φ1=q(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+4n-3j²-j)(1-q^(2n+1)). These are Zwegers’ corrected identities used as definitions, covering eight of ten fifth-order functions. Identifying them with Ramanujan’s Eulerian series still needs Andrews’ theorem and is not an established import in this packet.",
+      "statement": "For |q|<1, set A=(q;q)∞, B=(q²;q²)∞, C=(-q;q)∞ and D=(-q;q²)∞. The eight definitions are: f0=A⁻¹ Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+n)/2-j²)(1-q^(4n+2)); F0=B⁻¹ Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+2n-(j²+j)/2)(1+q^(6n+3)); ψ0=((C/A)[1+2Σ_{n≥1}(-1)^n q^(n²+n)-2Σ_{n≥1,|j|<n}(-1)^j q^((5n²-n-3j²-j)/2)(1-q^n)]-1)/2; φ0=(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+2n-3j²-j)(1-q^(6n+3)); f1=A⁻¹Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n)/2-j²)(1-q^(2n+1)); F1=B⁻¹Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+4n-(j²+j)/2)(1+q^(2n+1)); ψ1=(C/A)Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n-3j²-j)/2)(1-q^(2n+1)); φ1=q(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+4n-3j²-j)(1-q^(2n+1)). These are Zwegers’ corrected identities used as definitions, covering eight of ten fifth-order functions. Identifying them with Ramanujan’s Eulerian series is Andrews’ Theorem 9, whose proof needs the inputs recorded in the fifth-order gap.",
       "hypotheses": [
-        "The corrected double sums are definitions. Andrews’ Eulerian identification is an unresolved source-dependent obligation; no external import or proof has been supplied.",
+        "The corrected double sums are the definitions here. Their identification with Ramanujan's Eulerian series is Andrews' Theorem 9 (Trans. Amer. Math. Soc. 293 (1986), §6), read for this plan; its printed third and eighth identities contain misprints (E636, E637), and the eight corrected forms agree with the Eulerian series to O(q^{217}) in an exact computation. The proof of Theorem 9 uses inputs that no node or supplier here provides, recorded in the gap 'Fifth-order Eulerian-series identification'; no node relies on the identification.",
         "Two of Andrews' printed identities contain errors, which Zwegers corrects; the corrected forms are the definitions.",
         "Only eight of the ten fifth-order functions are covered."
       ],
       "proofSteps": [
         "Write down the eight double sums with their exact exponents, ranges and prefactors, in the corrected form.",
         "Record which two of Andrews' printed identities are wrong and in what way Zwegers' versions differ.",
-        "Keep the Eulerian identification as an unresolved coverage obligation; an attribution to Andrews is not a closed prerequisite.",
+        "The Eulerian identification is Andrews' Theorem 9 and is the recorded gap. Its route, read in the source: the Bailey pair of Theorem 4, (A'_n, 1/(bq;q)_n), inserted in the limiting Bailey lemma (3.1) (QM.0/bailey-chain-limit, k = 1) gives f₀, F₀, f₁, F₁; the one-parameter Bailey lemma ((2.4)–(2.6) with ρ₁ → ∞ and ρ₂ = −1, or ρ₂ = −q in base q²) gives ψ₀, φ₀, ψ₁, φ₁; the specialisations (5.6), (5.8) and (5.10) of Lemma 7 make the α explicit. Theorem 4 rests on Theorem 3, which combines Lemma 1 (a limiting case of a Sears transformation) with Lemma 2 (a limiting case of Watson's q-analogue of Whipple's theorem), and on the q-Chu–Vandermonde sum (QM.0/q-vandermonde-identity).",
         "Collect the first six into the vector F_{5,1} with the q-power prefactors q^{-1/60}, q^{11/60}, q^{-1/240}, q^{71/240} and the two half-argument variants, which is the object the later nodes transform.",
         "Record that the other two functions of Ramanujan's fifth-order list are outside this plan."
       ],
@@ -43394,7 +43535,8 @@
         "The correction to Andrews' third and eighth identities is recorded, with the attribution to Zwegers.",
         "The vector F_{5,1} is assembled with its six prefactors.",
         "The scope, eight of ten, is stated.",
-        "The two fifth-order functions outside this eight-function scope are excluded from this contract. This is documentation, not a mathematical non-example. The corrections record andrews_corrections is documentary metadata; the actual corrected formulas and normalization test above are the mathematical contracts."
+        "The two fifth-order functions outside this eight-function scope are excluded from this contract. This is documentation, not a mathematical non-example. The corrections record andrews_corrections is documentary metadata; the actual corrected formulas and normalization test above are the mathematical contracts.",
+        "The eight corrected identities agree with Ramanujan's Eulerian series to O(q^{217}), and the printed (6.3) and (6.8) do not (exact integer computation by the author; a diagnostic of the gap, not its proof)."
       ],
       "prerequisites": [
         "mathlib:ModularForm.eta",
@@ -43410,6 +43552,11 @@
           "sourceId": "zwegers-thesis",
           "locator": "§4.4, the display defining F_{5,1} (printed p. 74)",
           "match": "The vector and its six prefactors, which are what the transformation laws are stated for."
+        },
+        {
+          "sourceId": "andrews-mock-1986",
+          "locator": "§6, Theorem 9 and its proof, pp. 124–127",
+          "match": "The eight Hecke-type identities with the Eulerian series as definitions, and the Bailey-pair proof through Theorem 4 and Lemma 7; the third and eighth contain misprints (E636, E637)."
         }
       ],
       "library": {
@@ -46672,7 +46819,8 @@
       "need": "The Habiro ring ℤ[q]^ = lim_n ℤ[q]/((q;q)_n) as a complete topological ring, with the convergence criterion that Σ_n a_n(q)(q;q)_n converges for arbitrary a_n ∈ ℤ[q] (more generally Σ b_n with b_n ∈ ((q;q)_{m_n}), m_n → ∞). QM.5 defines Kontsevich's F = Σ (q;q)_n as an element of this ring.",
       "neededBy": [
         "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-strange-series"
-      ]
+      ],
+      "upstreamContract": "HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §§1.4 and 2.1, read 2026-10-21; see upstreamImports."
     },
     {
       "supplier": "HabiroCyclotomicCompletions:HC.3",
@@ -46680,14 +46828,16 @@
       "neededBy": [
         "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-strange-series",
         "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit"
-      ]
+      ],
+      "upstreamContract": "HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §3.1, read 2026-10-21; see upstreamImports."
     },
     {
       "supplier": "HabiroCyclotomicCompletions:HC.4",
       "need": "Evaluation rigidity for ℤ[q]^ (Habiro, Cyclotomic completions, Theorem 6.1 in its infinite-set form): an element whose evaluations ev_ξ vanish at all roots of unity is zero. QM.5 uses it to say that a Habiro element is determined by the radial limits it is compared with.",
       "neededBy": [
         "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit"
-      ]
+      ],
+      "upstreamContract": "HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §4.4, read 2026-10-21; see upstreamImports."
     },
     {
       "supplier": "ArithmeticQuantumTopology:QT.4",
@@ -46890,12 +47040,13 @@
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.0",
       "status": "partial",
-      "note": "The existing partition, q-product, Gaussian-polynomial, Bailey-chain and selected Rogers–Ramanujan contracts are retained. Their library services remain baseline imports. The finite convolution and q-Gauss route used in QM.5/choi-identity now uses the earlier q-series identities; the Yu and Liu extensions below still have no additional target nodes in this over-budget pass.",
+      "note": "The existing partition, q-product, Gaussian-polynomial, Bailey-chain and selected Rogers–Ramanujan contracts are retained. Their library services remain baseline imports. The finite convolution and q-Gauss route used in QM.5/choi-identity now uses the earlier q-series identities; the Yu and Liu extensions below still have no additional target nodes in this over-budget pass. Revision 5: the Bailey-pair nodes now also carry the seventh-order identities of QM.4; three Andrews 1986 inputs for the fifth-order identification are listed below.",
       "remaining": [
         "PAPER-YU-23/044, /086, /087 and /090: supply plethystic Adams operations (raising every variable, including the series variable, to its k-th power), the Möbius-weighted plethystic logarithm, restricted cycle partitions and the cycle-index/generalized-binomial composition identities. Work coefficientwise over characteristic-zero coefficient rings with the necessary rational scalars and integral-subring comparison; no analytic convergence assumption. A cycle-type permutation count is distinct from an unordered partition count and needs the fixed-point adapter to the existing Mathlib cycleType convention.",
         "PAPER-YU-23/094, /102, /106 and /107: reconcile the finite Möbius selector, independent-monomial coefficient/sign formula and valuation/integrality inputs with their foundational arithmetic owner. Preserve the reviewed correction that the sign in /102 is the unweighted sum of all exponents, the nonzero hypotheses of /106, and evenness plus zero/negative reductions in /107. Read the corrected exact source passages and source findings before creating declaration-sized leaves; the existing partition/q-binomial nodes do not establish these inputs.",
         "PAPER-LIU-ETAL-22/notation-1-3-1 and /B01: reuse QM.0/q-binomial-coefficient as a polynomial, with denominator-free specialization at roots of unity and the signed-index zero adapter. The printed q-integer value at zero is a misprint: QM.0/q-integer has value zero, while the zero q-factorial is one. The additional d_{r,q} and d•_{r,q} are not target nodes here; preserve d₀=1, d•₀=0, d₁=1−q−2q² and d•₁=−q as exact interface tests.",
-        "PAPER-LIU-ETAL-22/gauss-polynomial-identity, /B02, /B04 and /B03: the Gauss alternating Gaussian-polynomial identity and Lemmas B.2.7, B.2.8 and B.3.3 need distinct target contracts or an exact existing supplier match. The finite q-binomial theorem alone is not a recorded proof of every specialization; retain polynomial reciprocity, signed summation ranges and k=0 cases, without rational evaluation before cancellation."
+        "PAPER-LIU-ETAL-22/gauss-polynomial-identity, /B02, /B04 and /B03: the Gauss alternating Gaussian-polynomial identity and Lemmas B.2.7, B.2.8 and B.3.3 need distinct target contracts or an exact existing supplier match. The finite q-binomial theorem alone is not a recorded proof of every specialization; retain polynomial reciprocity, signed summation ranges and k=0 cases, without rational evaluation before cancellation.",
+        "Andrews 1986 inputs for the fifth-order gap of QM.4: the one-parameter Bailey lemma (Andrews (2.4)–(2.6) with ρ₁ → ∞, ρ₂ finite, from the q-Pfaff–Saalschütz sum), Watson's q-analogue of Whipple's transformation in the terminating limiting form of Andrews' Lemma 2 (from the two-parameter Bailey lemma and the unit pair), and the limiting Sears transformation of Andrews' Lemma 1, each as a formal identity over ℤ[a, b][q, q⁻¹] with its own node."
       ]
     },
     {
@@ -46932,17 +47083,16 @@
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.4",
       "status": "planned",
-      "note": "The represented indefinite theta, Appell and mock-completion targets have routes to their stated suppliers and the two explicit Eulerian-identification gaps. Shifted real Poisson and finite-Weil rank-one conventions are now compared with current upstream contracts. Planned means target-level coverage, not mathematical closure or proof of the two remaining identities.",
+      "note": "The represented indefinite theta, Appell and mock-completion targets have routes to their stated suppliers. The seventh-order Eulerian identification is now proved (Andrews' Bailey pairs, corrected by Hickerson); the fifth-order identification remains the one explicit gap of this layer. Shifted real Poisson and finite-Weil rank-one conventions are compared with current upstream contracts. Planned means target-level coverage, not mathematical closure.",
       "remaining": [
-        "The selected seventh-order completion nodes use indefinite double sums; the recorded Hickerson gap is still required to identify them with Ramanujan’s Eulerian series. Do not infer that identity from the bounded coefficient check.",
-        "Fifth-order: prove the Andrews Eulerian/double-sum identifications with convergence, denominator nonvanishing and interchange. The coordinates of H₁,G₁,H₂,G₂,F₂ and the S/T matrices are now specified in the existing nodes and the reader. No congruence kernel or classical Eulerian identity follows merely from those formulas. QM.4 is planned with the stated proof gaps, not closed.",
-        "The current MP.6 generic service and the local rank-one dictionary now support the represented Jacobi uses. Broader matrix-index and multiplier extensions remain with their owner. The shifted real Poisson and finite-Weil/scalar trace comparisons are supplied here and are no longer unresolved adapters."
+        "Fifth order: the Eulerian identification (Andrews' Theorem 9) needs the one-parameter Bailey lemma, the limiting Watson q-Whipple transformation (Andrews Lemma 2) and the limiting Sears transformation (Andrews Lemma 1) as QM.0 targets, then Theorems 3–4, Lemma 7 and Theorem 9 as stated in the gap register. The S/T data of H₁, G₁, H₂, G₂, F₂ are specified in the existing nodes; no congruence kernel or Eulerian identity follows from those formulas alone.",
+        "The current MP.6 generic service and the local rank-one dictionary support the represented Jacobi uses. Broader matrix-index and multiplier extensions remain with their owner. The shifted real Poisson and finite-Weil/scalar trace comparisons are supplied here and are no longer unresolved adapters."
       ]
     },
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.5",
       "status": "partial",
-      "note": "The scalar quantum period, Mellin/Eichler, Kontsevich and Poincaré-sphere contracts are retained. The reviewed scalar half-weight cusp, multiplier boundary, finite-image, WRT/Ohtsuki, rank/crank, Choi/R and scalar trace comparisons now have explicit local routes. QM.5 owns these scalar examples; QT.7 owns the knot statements, with its absent matrix interface assigned to QSeries Part II. Broader extensions below remain unplanned.",
+      "note": "The scalar quantum period, Mellin/Eichler, Kontsevich and Poincaré-sphere contracts are retained. The reviewed scalar half-weight cusp, multiplier boundary, finite-image, WRT/Ohtsuki, rank/crank, Choi/R and scalar trace comparisons now have explicit local routes. QM.5 owns these scalar examples; QT.7 owns the knot statements, with its absent matrix interface assigned to QSeries Part II. Broader extensions below remain unplanned. Revision 5: the vertical-strip Stirling estimate of QM.5/gamma-vertical-decay is imported from ZerosOfLFunctions Layer 1 (open upstream PR #253) and only exponentiated here; the Habiro requests HC.1, HC.3 and HC.4 are met by HabiroCyclotomicCompletions §§1.4, 2.1, 3.1 and 4.4 (open upstream PR #1314).",
       "remaining": [
         "Zagier, Quantum modular forms, Example 1: Andrews' identity (8) relating the terminating expressions to the q-series σ(q), σ*(q), and the Proposition (quantum modularity of q^{1/24}σ(q) on Γ₀(2) of weight 1), which needs Cohen's Maass form and the Lewis–Zagier period theory.",
         "Strong quantum modular forms (Zagier, Quantum modular forms, p. 2) as a definition attaching a formal power series to each rational point; the nodes express the same content through radial-asymptotic-expansion.",
@@ -46959,7 +47109,7 @@
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.6",
       "status": "partial",
-      "note": "The existing vertex, no-ghost, generalized Lie and moonshine target contracts are retained. The arbitrary-ring quotient is corrected to the universal alternating quotient, with its characteristic-zero comparison. The general Serre/radical proof uses the Casimir/free-resolution route before any restricted free-subalgebra theorem. The concrete framed module, Griess/presented-Monster comparison, finite character certificate and Conway–Norton route now have target-level proof plans. These are proposed mathematics, not completed implementations or executed171-row certificates. The accepted structural-link integration below remains separate.",
+      "note": "The existing vertex, no-ghost, generalized Lie and moonshine target contracts are retained. The arbitrary-ring quotient is corrected to the universal alternating quotient, with its characteristic-zero comparison. The general Serre/radical proof uses the Casimir/free-resolution route before any restricted free-subalgebra theorem. The concrete framed module, Griess/presented-Monster comparison, finite character certificate and Conway–Norton route now have target-level proof plans. These are proposed mathematics, not completed implementations or executed171-row certificates. The accepted structural-link integration below remains separate. Revision 5: the vertex-algebra definition, existence theorem, lattice double cover and lattice vertex algebra now state their comparison with AffineLieAlgebras C7 (open upstream PR #1201), which owns the positive-definite lattice VOA over ℂ; QM.6 keeps the general ring, field and signature it needs.",
       "remaining": [
         "The accepted RS-06 links into QM.6 remain binding, including their restricted comparison/application contracts. The inherited proposal suggesting different analytic inputs is unaccepted and cannot by itself remove the accepted R12.3/R13.3/R13.4a/ModularCurves links. Establish exact input sufficiency/non-use and obtain reviewed restructuring before changing those edges. Accepted RS-10 retains QT.4 and HC.3/HC.4 exports into QM.5; no completion or theorem-existence claim follows from those structural links.",
         "Granularity refinement: monster-head-characters and monstrous-moonshine-theorem carry several key constructions inside their proof sketches. When the node budget allows, give each its own target node: the framed code algebra M_D♮ and its simple-current extension V, the C₂-cofiniteness and holomorphic self-duality of V, the Leech-sector and Griess-algebra comparison, the restriction isomorphism Aut(V)→Aut(V₂), the Breuer–Magaard–Wilson character certificate for χ₁,…,χ₇, and the per-row Conway–Norton Hauptmodul certificates. The proof routes are already stated; this is a split, not a missing argument."
@@ -46967,13 +47117,6 @@
     }
   ],
   "gaps": [
-    {
-      "title": "Hickerson's identities for the seventh-order mock theta functions",
-      "neededBy": [
-        "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-mock-theta-functions"
-      ],
-      "detail": "Zwegers takes the indefinite double sums (Hickerson, Invent. Math. 94 (1988), p. 666) as the definitions of F₀, F₁, F₂. Their equality with Ramanujan's Eulerian series (F₀ = Σq^{n²}/(q^{n+1};q)_n, etc.) is Hickerson's theorem, not public and not planned (it is a formal q-series identity, naturally in QM.0's scope). The definitions and all QM.4 theorems stand without it; only the identification with Ramanujan's functions needs it. Checked numerically to q^{14} for F₀."
-    },
     {
       "title": "Fifth-order Eulerian-series identification",
       "neededBy": [
@@ -46984,7 +47127,7 @@
         "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-indefinite-theta-identities-last-four",
         "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-completion-and-transformation-last-four"
       ],
-      "detail": "The eight corrected double sums and both six-component completions, unary corrections and S/T matrices are explicit. Identifying these definitions with Ramanujan’s classical Eulerian fifth-order series requires the Andrews identities cited by Zwegers §4.4 pp.71–73, together with absolute convergence, denominator nonvanishing and the justified double-sum interchanges. The Andrews primary proof has not been collated or decomposed here; source identities with the third/eighth corrections are not certified by small coefficients. No congruence kernel is inferred from the generator matrices alone."
+      "detail": "The eight corrected double sums, both six-component completions, the unary corrections and the S/T matrices are explicit, and no node depends on the Eulerian form. Identifying the definitions with Ramanujan's Eulerian series is Andrews' Theorem 9 (Trans. Amer. Math. Soc. 293 (1986), §6, pp. 124–127), now read; the corrected identities agree with the Eulerian series to O(q^{217}). The proof needs three inputs that neither this packet nor a supplier plans: (i) the one-parameter Bailey lemma, Andrews (2.4)–(2.6) with ρ₁ → ∞ and ρ₂ finite (QM.0/bailey-lemma has only ρ₁, ρ₂ → ∞), used with ρ₂ = −1 and ρ₂ = −q for ψ₀, φ₀, ψ₁, φ₁; (ii) Lemma 2, a limiting case of Watson's q-analogue of Whipple's transformation; (iii) Lemma 1, a limiting case of a Sears transformation (Sears 1951, (10.2)). All three are terminating formal identities in QM.0's scope: (i) follows from the q-Pfaff–Saalschütz sum, and (ii) from the two-parameter Bailey lemma applied to the unit pair (Andrews 1984, §2). Each is a key theorem and needs its own node, which the node budget of this pass does not allow. With them, Theorems 3 and 4, Lemma 7 and Theorem 9 follow as written by Andrews (§§4–6), using QM.0/bailey-chain-limit and QM.0/q-vandermonde-identity."
     }
   ],
   "sourceIssues": [
@@ -49964,6 +50107,85 @@
         "by": "REV-QSeriesPartitionsAndMockModularForms~4",
         "date": "2026-10-21"
       }
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E633",
+      "source": "andrews-mock-1986",
+      "kind": "misprint",
+      "locator": "Theorem 13, (7.22), p. 132 (publisher scan)",
+      "printed": "The second double sum in the Hecke-type expression for (q)_∞𝓕₀(q) has the prefactor −2q and the factor (1 − q^{12n+13}).",
+      "correction": "The prefactor is −2q² and the factor is (1 − q^{12n+12}): (q)_∞𝓕₀(q) = Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{12n+6}) − 2q² Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{12n+12}).",
+      "reason": "Inserting the odd-index values (7.17) of the Bailey pair into Σ q^{n²}𝓐_n(0) gives the terms −2q^{7m²+8m+2−j²−j} (0 ≤ j ≤ m) and +2q^{7m²+6m+1−j²−j} (0 ≤ j < m); the substitution m ↦ n + 1 in the second gives the corrected display. As printed the right side begins 1 − 2q, while 𝓕₀ = 1 + q + q³ + ⋯ and (q)_∞ = 1 − q − q² + ⋯ give (q)_∞𝓕₀ = 1 − 2q² + ⋯. The corrected identity agrees with the Eulerian series to O(q^{219}) in an exact integer computation by the author.",
+      "affects": "a stated result",
+      "known": "Hickerson, Invent. Math. 94 (1988), proof of Theorem 2.0, p. 666, display (2.3), which multiplies Andrews' (7.22)–(7.24) by J₁ after correcting their typographical errors.",
+      "searched": [
+        "Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21",
+        "AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected"
+      ],
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E634",
+      "source": "andrews-mock-1986",
+      "kind": "misprint",
+      "locator": "Theorem 13, (7.24), p. 133, and the last sentence of its proof (publisher scan)",
+      "printed": "The expression for (q)_∞𝓕₂(q) is printed as Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{8n+3}) − 2q² Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{8n+7}), and the proof says it follows from (7.21) and (7.22).",
+      "correction": "(q)_∞𝓕₂(q) = Σ_{n≥0,|j|≤n} q^{7n²+3n−j²}(1 − q^{8n+4}) − 2q³ Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+10n−j²−j}(1 − q^{8n+8}); it follows from (7.20) and (7.21).",
+      "reason": "The proof's own identity 𝓕₂ = (1/(q²;q)_∞) Σ q^{n²+n}𝓐_n(2), with (q²;q)_∞ = (q)_∞/(1 − q) and the even- and odd-index values (7.20)–(7.21), gives the corrected display after the shift n ↦ n + 1 in the subtracted sums. As printed the right side begins 1 − 2q² − q³, while (q)_∞𝓕₂ = 1 − 2q³ − q⁴ + ⋯. The corrected identity agrees with the Eulerian series to O(q^{219}) in an exact integer computation by the author.",
+      "affects": "a stated result",
+      "known": "Hickerson, Invent. Math. 94 (1988), proof of Theorem 2.0, p. 666, display (2.5).",
+      "searched": [
+        "Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21",
+        "AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected"
+      ],
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E635",
+      "source": "andrews-mock-1986",
+      "kind": "misprint",
+      "locator": "§3, (3.1), p. 116 (publisher scan)",
+      "printed": "The limiting form of Bailey's lemma for a = 1 is displayed with the factor (q)_∞ multiplying Σ q^{n²}α_n.",
+      "correction": "Σ_{n≥0} q^{n²}β_n = (1/(q)_∞) Σ_{n≥0} q^{n²}α_n.",
+      "reason": "Letting n → ∞ in (2.4) with a = 1 and ρ₁, ρ₂ → ∞ divides by (q)_∞(aq)_∞ on one side and by (q)_∞ on the other, leaving 1/(q)_∞. With the pair (3.3) and the α_n found on p. 116, only the corrected form reproduces Watson's identity (1.2); the proofs of Theorems 9 and 13 (pp. 126 and 133) use the correct factor 1/(q)_∞.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Hickerson, Invent. Math. 94 (1988), pp. 661–666 (it corrects only §7 of the paper)",
+        "Zwegers, Mock theta functions (arXiv:0807.4834v1), §4.4, pp. 72–73 (it corrects only Theorem 9)",
+        "AMS article page; see E633"
+      ],
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E636",
+      "source": "andrews-mock-1986",
+      "kind": "misprint",
+      "locator": "Theorem 9, (6.3), p. 125 (publisher scan)",
+      "printed": "In the Hecke-type expression for 1 + 2ψ₀(q) the single sum is printed as 2Σ_{n≥1}(−1)^n q^{2n²+n}.",
+      "correction": "The single sum is 2Σ_{n≥1}(−1)^n q^{n²+n}; the double sum and the prefactor (−q)_∞/(q)_∞ are as printed.",
+      "reason": "With the printed exponent the identity fails against the Eulerian series 1 + 2ψ₀ = Σ_{n≥0}(−1;q)_n q^{n(n+1)/2}; with n² + n it agrees to O(q^{217}) in an exact integer computation by the author. The slip enters in the proof on p. 127, where the part of A_n(1, 0, q) coming from j = ±n is written (−1)^n q^{n(n+1)/2}(1 + q^n); (5.10) and its derivation on p. 123 give (−1)^n q^{−n(n−1)/2}(1 + q^n), and multiplying by q^{n(3n+1)/2} then gives q^{n²+n}.",
+      "affects": "a stated result",
+      "known": "Zwegers, Mock theta functions (thesis, Utrecht 2002; arXiv:0807.4834v1), §4.4, pp. 72–73, which states that the third and eighth identities of Theorem 9 contain mistakes and displays the corrected ones.",
+      "searched": [
+        "Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21"
+      ],
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E637",
+      "source": "andrews-mock-1986",
+      "kind": "misprint",
+      "locator": "Theorem 9, (6.8), p. 125 (publisher scan)",
+      "printed": "The Hecke-type expression for φ₁(q) = Σ_{n≥0}(−q;q²)_n q^{(n+1)²} is printed without an overall factor q and with the factor (1 + q^{2n+1}).",
+      "correction": "φ₁(q) = q ((−q;q²)_∞/(q²;q²)_∞) Σ_{n≥0,|j|≤n} (−1)^j q^{5n²+4n−3j²−j}(1 − q^{2n+1}).",
+      "reason": "φ₁ has no constant term (its n = 0 summand is q), while the printed right side has constant term 1. Of the four variants with or without the factor q and with ±q^{2n+1}, only the corrected one agrees with the Eulerian series, to O(q^{217}) in an exact integer computation by the author.",
+      "affects": "a stated result",
+      "known": "Zwegers, Mock theta functions (thesis, Utrecht 2002; arXiv:0807.4834v1), §4.4, pp. 72–73 (the eighth identity).",
+      "searched": [
+        "Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21"
+      ],
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
     }
   ],
   "restructure": [
@@ -50522,840 +50744,921 @@
     },
     {
       "sourceId": "fischer-1951-pjm",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf",
       "read": "2026-10-10",
       "sha256": "4d76729e008aed5801867d0f4a2be2d26f976ee1e8b83049a8ad01f43bf0dec9",
       "bytes": 778365,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "stanley-ec1",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://math.mit.edu/~rstan/ec/ec1.pdf",
       "read": "2026-10-10",
       "sha256": "f669d7b0d78730b7c812794a437fb6a78e0c182c10dfd520bc26d627cf45a1d5",
       "bytes": 4628311,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "stanley-ec1-errata",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://math.mit.edu/~rstan/ec/errata_2ed.pdf",
       "read": "2026-10-10",
       "sha256": "24acc2e500fc91c315360f6de7628f0310d82659f22899938d0ed196e156daa7",
       "bytes": 172237,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "gasper-minicourse-1995",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/9509223",
       "read": "2026-10-10",
       "sha256": "ea5f3d8fe15dc47902f4bdf8ad630c7044e495d5c0934d247aa1a81f1be819bb",
       "bytes": 269243,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "andrews-jtp-1965",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://www.ams.org/journals/proc/1965-016-02/S0002-9939-1965-0171725-X/S0002-9939-1965-0171725-X.pdf",
       "read": "2026-10-10",
       "sha256": "b029d0effa2e6aa0c31ca75235f4f654d8c1e6f35afee9bb848801d11e753aad",
       "bytes": 112993,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "ramanujan-pn-1919",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://ramanujan.sirinudi.org/%56olumes/published/ram25.pdf",
       "read": "2026-10-10",
       "sha256": "cf08d1693b4f3979d55d767e947ee62e8e8fcd0b6d5d51afacd4dbc881a54182",
       "bytes": 68513,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "alladi-berkovich-2002",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0203094",
       "read": "2026-10-10",
       "sha256": "9897e0c1ac96d4bf9038cc97b28f86ddacd5e51c4b7cd68dba4de42c04e8a820",
       "bytes": 246440,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "cigler-bressoud-2007",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0701802",
       "read": "2026-10-10",
       "sha256": "577b07bb643713cd080d060a5191a0d2654bd6718ea6069644d79353b20467ec",
       "bytes": 56506,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "zhu-semifinite-2021",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2106.16156",
       "read": "2026-10-10",
       "sha256": "0185024f457ac5d691b1b7366672205df0a83e90014730084e10c0b1ac8d9f5d",
       "bytes": 43227,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "rosengren-rr-2024",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2212.02355",
       "read": "2026-10-10",
       "sha256": "106b2ee4db8527e0bb2308842c05c2b3c41cce93f4cf66a29d17a29e05f166e7",
       "bytes": 335693,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "zwegers-thesis",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0807.4834",
       "read": "2026-10-10",
       "sha256": "ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d",
       "bytes": 695440,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "dmz-quantum-black-holes",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1208.4074",
       "read": "2026-10-10",
       "sha256": "7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213",
       "bytes": 1449398,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "kong-teo-eta",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2302.03280",
       "read": "2026-10-10",
       "sha256": "36407e362a6b734c93a0f006544e1cf6cb2103787a5c72f5e0dcf0d2b9e87f69",
       "bytes": 176774,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "savitt-newman",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2507.16225",
       "read": "2026-10-10",
       "sha256": "9a6143851f3affac369e07632fe557aa74a6696beebbfe58129d32cbb95055e0",
       "bytes": 425499,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "matsuda-theta-group",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2602.22471",
       "read": "2026-10-10",
       "sha256": "a52cecc7dafc56fd798caee1299285397890d742ecac823685a5577e1b4ccd97",
       "bytes": 265967,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "andersen-anderson-woodall",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2309.08528",
       "read": "2026-10-10",
       "sha256": "dc5498f3a64701b8a059a59e5b0ba971f23a566379090bd67c02717e5829aebe",
       "bytes": 286504,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "kong-teo-rademacher-2023",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2302.03835",
       "read": "2026-10-10",
       "sha256": "609b0d87cda458f2bc32116a0e47e935f02a63f413c3ffef82c38aa5c1751fac",
       "bytes": 587510,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "hardy-ramanujan-1918",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://ramanujan.sirinudi.org/%56olumes/published/ram36.pdf",
       "read": "2026-10-10",
       "sha256": "f6cba2b0da5c58ad3c784f717d98dbf68a4a8df9f26eeb7097a334328eca7df3",
       "bytes": 313271,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "rademacher-1940-bams",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://www.ams.org/journals/bull/1940-46-02/S0002-9904-1940-07129-0/S0002-9904-1940-07129-0.pdf",
       "read": "2026-10-10",
       "sha256": "4cee9a60907e547bdaae4129d74afa21e41be07b9ba21670839b8eea9bf09226",
       "bytes": 1256439,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "lehmer-1938-tams",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://www.ams.org/journals/tran/1938-043-02/S0002-9947-1938-1501943-5/S0002-9947-1938-1501943-5.pdf",
       "read": "2026-10-10",
       "sha256": "622434b2d3b75b1e3c2388203ad4fd1a6969902b414efbfef10a5bd2eebb2726",
       "bytes": 1422484,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "lehmer-1939-tams",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://www.ams.org/journals/tran/1939-046-00/S0002-9947-1939-0000410-9/S0002-9947-1939-0000410-9.pdf",
       "read": "2026-10-10",
       "sha256": "273787759f715323ddff15bb501130b348af5e319c295cfd6ba888a3d4b9ba5a",
       "bytes": 785009,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "whiteman-1956-pjm",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://msp.org/pjm/1956/6-1/pjm-v6-n1-p18-s.pdf",
       "read": "2026-10-10",
       "sha256": "63e5dcb988fbdef2e9fa486395f202fc75923df0d4551f1faff751018ba4b391",
       "bytes": 1855791,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "pribitkin-williams-2019",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1801.06244",
       "read": "2026-10-10",
       "sha256": "5fe84bfad0ecbf218262e820b496c7b3e602cbde7985a447d772d32798a739fb",
       "bytes": 321311,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10",
       "read": "2026-10-10",
       "sha256": "00cbd09d323b4171d51408418cae35ea100305f214952ca22b3047842100084c",
       "bytes": 55265,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "borcherds-gkz-1999",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/alg-geom/9710002v3",
       "read": "2026-10-10",
       "sha256": "0a7a76a69aa2532534b72d97a1bb9fad89cab8167f1449dad0363510feb2fc5d",
       "bytes": 159793,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "bruinier-funke-2004",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0212286v4",
       "read": "2026-10-10",
       "sha256": "9094db44c13fde548a576dfcb4bd04cd25b4563153ea1457afd45961fd1c67a8",
       "bytes": 446331,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "bruinier-ono-rhoades-2008",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0802.0963v3",
       "read": "2026-10-10",
       "sha256": "1fdf717bcf80c8eb24d9fb6fe64c970fef114facadc172c92c73b44d704b79cd",
       "bytes": 265702,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.2",
       "read": "2026-10-10",
       "sha256": "f843610676ed09ee89146565dd51d9f7e44c92c796c2bac5a0b7b5a838e63750",
       "bytes": 133125,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "lewis-zagier-2001",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0101270v1",
       "read": "2026-10-10",
       "sha256": "2e21de5883d6498753d905c074b3897aa0f931d1c51b916d6a37c868ea9a5efa",
       "bytes": 533629,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "zagier-qmf",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf",
       "read": "2026-10-10",
       "sha256": "2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf",
       "bytes": 470902,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "zagier-strange",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383(00)00005-7/fulltext.pdf",
       "read": "2026-10-10",
       "sha256": "b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e",
       "bytes": 168854,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "lawrence-zagier",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf",
       "read": "2026-10-10",
       "sha256": "10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543",
       "bytes": 246820,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "zagier-traces",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/tex/TracesSingModuli/fulltext.pdf",
       "read": "2026-10-10",
       "sha256": "50b78d2c73116fa8c3cd2e01913dc552ccaf2c956c38a5cec1c28141570f29a6",
       "bytes": 291161,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "bringmann-rolen-eichler",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1409.3781v4",
       "read": "2026-10-10",
       "sha256": "c3042500a66dedbe45b80b7117ac4ee230a730eb6d66a9c949a7b89e037fcc5d",
       "bytes": 213540,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "bringmann-rolen-radial",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1409.3782v4",
       "read": "2026-10-10",
       "sha256": "983a6eef3207fc48d5d34941547d028b31dc100b3e0ea75e76ebf708f228f914",
       "bytes": 290348,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "folsom-ono-rhoades",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E5B26EC3C0DC7D16CD0D6C2AEB53C063/S2050508613000036a.pdf/mock-theta-functions-and-quantum-modular-forms.pdf",
       "read": "2026-10-10",
       "sha256": "1562f6cacc72f03fa4be82656ff6e73bbcac6b677db49058a01941e9055b68cf",
       "bytes": 450952,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "andrews-garvan-1988",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://qseries.org/fgarvan/papers/dysoncrank/",
       "read": "2026-10-10",
       "sha256": "32ba7138ee7ef8628379801a8b73594b2c186496497c32cb2f1842c13949e9dc",
       "bytes": 1166,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "garvan-urbana",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://qseries.org/fgarvan/papers/urbana.pdf",
       "read": "2026-10-10",
       "sha256": "56b256e38f1615840ef33289ad20ae09bd4dc08098c9be81c588e1f0269056a6",
       "bytes": 218977,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "zagier-mellin",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/tex/MellinTransform/fulltext.pdf",
       "read": "2026-10-10",
       "sha256": "c6b15cb06bd22d740febd77c1627701b55658edf4e9dfdc74fe7980b8696d622",
       "bytes": 190424,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "borcherds1992",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~reb/papers/monster/monster.pdf",
       "read": "2026-10-10",
       "sha256": "dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501",
       "bytes": 297549,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "borcherds1986",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~reb/papers/va/va.pdf",
       "read": "2026-10-10",
       "sha256": "822e39a2ec7bd33ad81193b06b7a66ae89abcec43c4cb7974d4bc513c3fce5b5",
       "bytes": 115355,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "borcherds1988",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~reb/papers/gkma/gkma.pdf",
       "read": "2026-10-10",
       "sha256": "8f971b40fae841bb90b02b751f819561c6661f12177c2e2153ddaae86ae45f82",
       "bytes": 138560,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "jurisich1998",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1311.3258",
       "read": "2026-10-10",
       "sha256": "a806776d30416d6f8ec6e95746ca82e592472c25a4086165ea3cce8e2aca9aa1",
       "bytes": 294563,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "jurisich2009",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0903.4456",
       "read": "2026-10-10",
       "sha256": "f765c47c0f8949338a41e1dc07888f12c76b0a20daefa729e46b877bfe896ac0",
       "bytes": 213304,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "jurisichlepowskywilson1995",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/hep-th/9408037",
       "read": "2026-10-10",
       "sha256": "8d8c5e84ffd40b7ae58f486a7fbceb8e0ac9c14237995a032381a7eba2fd17a8",
       "bytes": 289046,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "gannon2004",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0402345",
       "read": "2026-10-10",
       "sha256": "c416209187b2c911c8ef23bde01c7ce4388371f83029239aa4495ac09fe989e8",
       "bytes": 343250,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "matsuonagatomo1997",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/hep-th/9706118",
       "read": "2026-10-10",
       "sha256": "2e1dabebeffe511c8bd14c0a4e6449afefcf508a02135d96df2042a0ccca07ea",
       "bytes": 333554,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "bakalovkac2006",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0602072",
       "read": "2026-10-10",
       "sha256": "f1fc0738a7877fb16ad0d3aefb51fcd112f9dce9d54f40453a3b981e72a54ad4",
       "bytes": 203196,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "milne2017",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://www.jmilne.org/math/CourseNotes/MF.pdf",
       "read": "2026-10-10",
       "sha256": "977f06a4e838c43c77a7c9398c090789e60d67f64e013e1dcd9bcce0e0c27b8d",
       "bytes": 1010364,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "warnaar-bailey-2009",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0910.2062v2",
       "read": "2026-10-10",
       "sha256": "619da622c1c77f0ac85133ff92aeabe110e7622eb5e79900b2031b9943113242",
       "bytes": 229188,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "andrews-bailey-chain-1984",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://msp.org/pjm/1984/114-2/pjm-v114-n2-p02-s.pdf",
       "read": "2026-10-10",
       "sha256": "8974edd88da5b059f1e04ece77fd850575fce906d131df4f6e98ba74bc7efd2c",
       "bytes": 1397241,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "johansson-2012-lms",
-      "kind": "independent-review-copy",
+      "kind": "published",
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/80A6F53DCB85A4270641920D989A2E8F/S1461157012001088a.pdf/efficient_implementation_of_the_hardyramanujanrademacher_formula.pdf",
       "read": "2026-10-10",
       "sha256": "888c6cc2023b6cfbc93a0eade802a40acca2e30bbd5b20fb82c8c50ca98f2d8c",
       "bytes": 474766,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "johansson-hrr-errata",
-      "kind": "independent-review-copy",
+      "kind": "author copy",
       "url": "https://fredrikj.net/math/hrr.html",
       "read": "2026-10-10",
       "sha256": "46acd84eec459ee673ff51c8d387ec9bb91f6f25b42785ac5db867ea7568f0ea",
       "bytes": 4566,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": false,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "skoruppa-critical-weight",
-      "kind": "independent-review-copy",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0707.0718",
       "read": "2026-10-10",
       "sha256": "a4cc378e16a7dfb361e3914bbaa5e02b10567ced8802267c09fcfa4b368407a0",
       "bytes": 278592,
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
       "matchesPredecessorAcquisition": true,
-      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition."
+      "citation": "Public copy acquired in round 2. The cited passages were checked; acquisition does not claim an end-to-end reading of this source. Historical/version-specific findings use the separately recorded version when the URL now serves a different edition.",
+      "role": "independent-review-copy"
     },
     {
       "sourceId": "andrews-garvan-1988",
-      "kind": "published-scan",
+      "kind": "published",
       "url": "https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p1.pdf",
       "read": "2026-10-10",
       "sha256": "f3a0e42b723efe949d80a4a564c638a57d0267e023816b6e2eb31e8dd751cceb",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Author-hosted scanned page 1, printed page 167; all five pages visually read independently."
+      "citation": "Author-hosted scanned page 1, printed page 167; all five pages visually read independently.",
+      "role": "published-scan"
     },
     {
       "sourceId": "andrews-garvan-1988",
-      "kind": "published-scan",
+      "kind": "published",
       "url": "https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p2.pdf",
       "read": "2026-10-10",
       "sha256": "50da54cdbb18028384af43999b6e504550fcc7b5dc0847fc0733b432b336b783",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Author-hosted scanned page 2, printed page 168; all five pages visually read independently."
+      "citation": "Author-hosted scanned page 2, printed page 168; all five pages visually read independently.",
+      "role": "published-scan"
     },
     {
       "sourceId": "andrews-garvan-1988",
-      "kind": "published-scan",
+      "kind": "published",
       "url": "https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p3.pdf",
       "read": "2026-10-10",
       "sha256": "3da839be268b7aa92edd44034bedf521d86fc25313fd927d9a0e51cc5e103ec3",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Author-hosted scanned page 3, printed page 169; all five pages visually read independently."
+      "citation": "Author-hosted scanned page 3, printed page 169; all five pages visually read independently.",
+      "role": "published-scan"
     },
     {
       "sourceId": "andrews-garvan-1988",
-      "kind": "published-scan",
+      "kind": "published",
       "url": "https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p4.pdf",
       "read": "2026-10-10",
       "sha256": "1009bc30edfc558c690e8163f975b7a7cd1ce4842e9d57be2426647c06256c1b",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Author-hosted scanned page 4, printed page 170; all five pages visually read independently."
+      "citation": "Author-hosted scanned page 4, printed page 170; all five pages visually read independently.",
+      "role": "published-scan"
     },
     {
       "sourceId": "andrews-garvan-1988",
-      "kind": "published-scan",
+      "kind": "published",
       "url": "https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p5.pdf",
       "read": "2026-10-10",
       "sha256": "b97eb994054d731ac1e866f17a623d9a5dd03997806b992fb378b08317feec3d",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Author-hosted scanned page 5, printed page 171; all five pages visually read independently."
+      "citation": "Author-hosted scanned page 5, printed page 171; all five pages visually read independently.",
+      "role": "published-scan"
     },
     {
       "sourceId": "matsuda-theta-group",
-      "kind": "preprint-v1",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2602.22471v1",
       "read": "2026-10-10",
       "sha256": "a52cecc7dafc56fd798caee1299285397890d742ecac823685a5577e1b4ccd97",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Historical v1 independently read alongside the current unversioned PDF; findings remain scoped to the v1 locator."
+      "citation": "Historical v1 independently read alongside the current unversioned PDF; findings remain scoped to the v1 locator.",
+      "role": "preprint-v1"
     },
     {
       "sourceId": "andersen-anderson-woodall",
-      "kind": "preprint-v1",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2309.08528v1",
       "read": "2026-10-10",
       "sha256": "dc5498f3a64701b8a059a59e5b0ba971f23a566379090bd67c02717e5829aebe",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Historical v1 independently read alongside the current unversioned PDF; findings remain scoped to the v1 locator."
+      "citation": "Historical v1 independently read alongside the current unversioned PDF; findings remain scoped to the v1 locator.",
+      "role": "preprint-v1"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/5.11",
       "sha256": "764716cc36401bdfe8b83d7e7e17e1b7b821fcb5e6474493748509c588b9b312",
       "read": "2026-10-10",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline."
+      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.14",
       "sha256": "8ebf08f45a74d2258e675517ea2fbad7caa4f759c20bc79530fb1de23a1e0068",
       "read": "2026-10-10",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline."
+      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.17",
       "sha256": "a14f4fecaec76309709d79ff051b1e1edc61d5b876e4a149b81d7bacca60861f",
       "read": "2026-10-10",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline."
+      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/15.8",
       "sha256": "36b5c16e785c301d182cb7c8fe5d6cd04f0b629cda260ea8ae7ca2d95dd573cb",
       "read": "2026-10-10",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline."
+      "citation": "Cited Mellin, incomplete-beta, Pfaff or Stirling formula and its parameter/branch scope; these formula tables do not constitute the missing proof at the pinned baseline.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.16",
       "read": "2026-10-10",
       "sha256": "990ece9ce13eca9f3104561d3d86b407f9e7d06da1af90e71c45db89bef53232",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.2",
       "read": "2026-10-10",
       "sha256": "a9107b785e9cb0a494f79fcfaf5fdae3d03bf4ca8b269fdbc5167bb12a3e165c",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.25",
       "read": "2026-10-10",
       "sha256": "63fac28bb64ca0578e36f35ce70ac30f0e00f6c25117ff86d040cd8dca696db2",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.27",
       "read": "2026-10-10",
       "sha256": "1c1596f8b599642d5cb9046e8d376c9a3f033452528b906dc650b6e7c8fffeb7",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.29",
       "read": "2026-10-10",
       "sha256": "438ae59892291bb7f8eedfa22a5f1147bdd42aefff7151a4e81c488c61e78d92",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.32",
       "read": "2026-10-10",
       "sha256": "612f835b37ea0e0090a36f761b7c338a4bf9da246cb569af86fd58c20a8d5727",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.39",
       "read": "2026-10-10",
       "sha256": "de865303e04710c5eaf1126e1941b892f0ca10fe9403583b10a02c627ef58079",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.40",
       "read": "2026-10-10",
       "sha256": "4764b99d77145764b439abbfe72a709622c082e4fdde2c1e05799b61069454ff",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.6",
       "read": "2026-10-10",
       "sha256": "ce00ace94c3ee8bfcc0bef400f35159a0ae5ab00e3e3d9680fc873da7ac4e659",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-chapter-10",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/10.9",
       "read": "2026-10-10",
       "sha256": "85b2eb61b9d8de53c7d99cf08c0f61df40ac9e3bddf0c2be32b993b9b7bac483",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/13.14",
       "read": "2026-10-10",
       "sha256": "922c684be9a6c091fa2efc31e0ad893fd8ebc1afa632f1ce9286c2b3786dd0b7",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.11",
       "read": "2026-10-10",
       "sha256": "7aa33c6badcd992d5aca3fdeb0d0c377cc4be69eb1d11f2cd7e73cdb650c31fe",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.2",
       "read": "2026-10-10",
       "sha256": "32929f9e30afc3a7419393d1103497b7785a6c74521c2e43922e0541c9a5529e",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.4",
       "read": "2026-10-10",
       "sha256": "91c54f784e1dad580997893553fcfa84474a35969c5ef91cd4a139a343b2a0b9",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.5",
       "read": "2026-10-10",
       "sha256": "e2629c05328f5cff94cecf4746b8c3d0477e8be7e1da78c4a3bc1a54c90f120a",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "dlmf-incomplete-gamma",
-      "kind": "online-formula-comparator",
+      "kind": "published",
       "url": "https://dlmf.nist.gov/8.8",
       "read": "2026-10-10",
       "sha256": "4f78a9b9dc3a556ced20b0f4e32d7d62a4b423db6db4dffcea3613911da95e72",
       "by": "REV-QSeriesPartitionsAndMockModularForms~2",
-      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section."
+      "citation": "The node-cited formula/parameter conventions were inspected; no blanket proof certification for this section.",
+      "role": "online-formula-comparator"
     },
     {
       "sourceId": "brent-complex-stirling",
@@ -51383,107 +51686,120 @@
     },
     {
       "sourceId": "zwegers-thesis",
-      "kind": "target-specific recheck",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0807.4834",
       "read": "2026-10-20",
       "sha256": "ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d",
-      "citation": "Revision-3 target comparisons: Proposition3.11 and proof p.60 (with a direct growth-free proof supplied in the node); Proposition3.12 and displayed data pp.60–62; Lemma4.8 and Remark4.9 pp.72–73; F5,2/H5,2 data and Proposition4.13–4.14 displays pp.79–83. This is not a fresh full-thesis or full-proof collation."
+      "citation": "Revision-3 target comparisons: Proposition3.11 and proof p.60 (with a direct growth-free proof supplied in the node); Proposition3.12 and displayed data pp.60–62; Lemma4.8 and Remark4.9 pp.72–73; F5,2/H5,2 data and Proposition4.13–4.14 displays pp.79–83. This is not a fresh full-thesis or full-proof collation.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "savitt-newman",
-      "kind": "target-specific recheck",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/2507.16225",
       "read": "2026-10-20",
       "sha256": "9a6143851f3affac369e07632fe557aa74a6696beebbfe58129d32cbb95055e0",
-      "citation": "AppendixA, DefinitionA.1 and its immediate conventions, printed p.11: negative odd denominator and the exceptional (0/−1) value."
+      "citation": "AppendixA, DefinitionA.1 and its immediate conventions, printed p.11: negative odd denominator and the exceptional (0/−1) value.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "bruinier-ono-rhoades-2008",
-      "kind": "target-specific recheck",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0802.0963v3",
       "read": "2026-10-20",
       "sha256": "1fdf717bcf80c8eb24d9fb6fe64c970fef114facadc172c92c73b44d704b79cd",
-      "citation": "Lemma2.1 and proof of Theorem1.1 pp.7–8; §6, (6.7), Proposition6.2 and Remark12 pp.15–16: positive index and corrected seed normalization. No new complete-source verification is claimed."
+      "citation": "Lemma2.1 and proof of Theorem1.1 pp.7–8; §6, (6.7), Proposition6.2 and Remark12 pp.15–16: positive index and corrected seed normalization. No new complete-source verification is claimed.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "zagier-qmf",
-      "kind": "target-specific recheck",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf",
       "read": "2026-10-20",
       "sha256": "2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf",
-      "citation": "Definition discussion p.1 and Examples3–4 pp.10–11: scalar quantum discrepancy, strange-series and WRT ownership. The page-10 sequential asymptotic is not treated as a proof of smoothness."
+      "citation": "Definition discussion p.1 and Examples3–4 pp.10–11: scalar quantum discrepancy, strange-series and WRT ownership. The page-10 sequential asymptotic is not treated as a proof of smoothness.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "zagier-strange",
-      "kind": "target-specific recheck",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383(00)00005-7/fulltext.pdf",
       "read": "2026-10-20",
       "sha256": "b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e",
-      "citation": "§2 pp.950–952 and §6 pp.958–959 target displays and stated proof boundary; OCR is unreliable for this scan. Branch consistency is calculated explicitly in the packet; no new full equation collation is claimed."
+      "citation": "§2 pp.950–952 and §6 pp.958–959 target displays and stated proof boundary; OCR is unreliable for this scan. Branch consistency is calculated explicitly in the packet; no new full equation collation is claimed.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "lawrence-zagier",
-      "kind": "target-specific recheck",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf",
       "read": "2026-10-20",
       "sha256": "10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543",
-      "citation": "§4, (15)–(17) and properties(i)–(ii), printed pp.102–104: exact theta data, Eichler normalization, Fourier-phase correction and the limits of the sketched proof."
+      "citation": "§4, (15)–(17) and properties(i)–(ii), printed pp.102–104: exact theta data, Eichler normalization, Fourier-phase correction and the limits of the sketched proof.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "borcherds1992",
-      "kind": "target-specific recheck",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~reb/papers/monster/monster.pdf",
       "read": "2026-10-20",
       "sha256": "dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501",
-      "citation": "§1 pp.2–3 and §3 p.13: the conformal-degree shift, normalized Hauptmodul product, and invariant-form/Cartan-involution conventions. No full moonshine proof read in this revision."
+      "citation": "§1 pp.2–3 and §3 p.13: the conformal-degree shift, normalized Hauptmodul product, and invariant-form/Cartan-involution conventions. No full moonshine proof read in this revision.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "jurisich2009",
-      "kind": "target-specific recheck",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/0903.4456",
       "read": "2026-10-20",
       "sha256": "f765c47c0f8949338a41e1dc07888f12c76b0a20daefa729e46b877bfe896ac0",
-      "citation": "Theorem6, printed p.9: free-subalgebra result assumes strictly negative pairings between distinct imaginary simple roots; it does not prove the general presentation target."
+      "citation": "Theorem6, printed p.9: free-subalgebra result assumes strictly negative pairings between distinct imaginary simple roots; it does not prove the general presentation target.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "matsuonagatomo1997",
-      "kind": "target-specific recheck",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/hep-th/9706118",
       "read": "2026-10-20",
       "sha256": "2e1dabebeffe511c8bd14c0a4e6449afefcf508a02135d96df2042a0ccca07ea",
-      "citation": "Theorem5.4.1, printed p.35: the exact generating-field existence theorem and its hypotheses."
+      "citation": "Theorem5.4.1, printed p.35: the exact generating-field existence theorem and its hypotheses.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "jurisich1998",
-      "kind": "target-specific recheck",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1311.3258",
       "read": "2026-10-20",
       "sha256": "a806776d30416d6f8ec6e95746ca82e592472c25a4086165ea3cce8e2aca9aa1",
-      "citation": "§6, Lemma6.1 pp.28–29, Definition8 p.31, no-ghost sign calculation p.33 and AppendixA.3 p.36. The generation argument is replaced by the explicit PBW nondegeneracy route in this revision."
+      "citation": "§6, Lemma6.1 pp.28–29, Definition8 p.31, no-ghost sign calculation p.33 and AppendixA.3 p.36. The generation argument is replaced by the explicit PBW nondegeneracy route in this revision.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "borcherds1986",
-      "kind": "target-specific recheck",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~reb/papers/va/va.pdf",
       "read": "2026-10-20",
       "sha256": "822e39a2ec7bd33ad81193b06b7a66ae89abcec43c4cb7974d4bc513c3fce5b5",
-      "citation": "§4, pp.3–4: zero-mode quotient and the absence of an arbitrary-ring 2-torsion alternation proof. The general target remains a gap."
+      "citation": "§4, pp.3–4: zero-mode quotient and the absence of an arbitrary-ring 2-torsion alternation proof. The general target remains a gap.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "borcherds1988",
-      "kind": "target-specific recheck",
+      "kind": "author copy",
       "url": "https://math.berkeley.edu/~reb/papers/gkma/gkma.pdf",
       "read": "2026-10-20",
       "sha256": "8f971b40fae841bb90b02b751f819561c6661f12177c2e2153ddaae86ae45f82",
-      "citation": "§2, pp.1–3, including Corollary2.5 and its proof footnote. The general Serre/root-pairing proof is not supplied by the restricted Jurisich theorem and remains a gap."
+      "citation": "§2, pp.1–3, including Corollary2.5 and its proof footnote. The general Serre/root-pairing proof is not supplied by the restricted Jurisich theorem and remains a gap.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "bringmann-rolen-eichler",
-      "kind": "target-specific recheck",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1409.3781v4",
       "read": "2026-10-20",
       "sha256": "c3042500a66dedbe45b80b7117ac4ee230a730eb6d66a9c949a7b89e037fcc5d",
-      "citation": "§3, Lemma3.2 and (3.6)–(3.18), pp.8–10: the Mellin integral and residue target. The packet now gives direct incomplete-beta continuation and Euler-integral comparison proofs, without an ordinary-hypergeometric boundary evaluation."
+      "citation": "§3, Lemma3.2 and (3.6)–(3.18), pp.8–10: the Mellin integral and residue target. The packet now gives direct incomplete-beta continuation and Euler-integral comparison proofs, without an ordinary-hypergeometric boundary evaluation.",
+      "role": "target-specific recheck"
     },
     {
       "sourceId": "fischer-1951-pjm",
@@ -52084,33 +52400,12 @@
       "accessURL": "https://gwern.net/doc/math/1979-conway.pdf"
     },
     {
-      "sourceId": "miyamoto-moonshine-2004",
-      "kind": "errata search",
-      "url": "https://annals.math.princeton.edu/2004/159-2/p02",
-      "read": "2026-10-20",
-      "citation": "Publisher article page and public title/erratum searches inspected; no linked correction located. arXiv:q-alg/9701012 version history inspected: last listed revision predates the2004 journal article. No claim that no correction exists elsewhere."
-    },
-    {
       "sourceId": "borcherds1992",
       "kind": "author copy",
       "url": "https://math.berkeley.edu/~reb/papers/monster/monster.pdf",
       "read": "2026-10-20",
       "sha256": "dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501",
       "citation": "§9 p.29,15D group sentence visually checked. E631 is scoped to this author copy, not an unacquired publisher PDF."
-    },
-    {
-      "sourceId": "borcherds1992",
-      "kind": "acquisition failure",
-      "url": "https://link.springer.com/article/10.1007/BF01232032",
-      "read": "2026-10-20",
-      "citation": "Publisher landing page did not supply an accessible full PDF in this acquisition. No publisher-copy collation of E631 is asserted."
-    },
-    {
-      "sourceId": "borcherds1992",
-      "kind": "errata search",
-      "url": "https://math.berkeley.edu/~reb/papers/index.html",
-      "read": "2026-10-20",
-      "citation": "Author publication index item13 and public Borcherds15D/correction searches inspected. No correction to this group sentence located in the inspected results."
     },
     {
       "sourceId": "abe-buhl-dong-2004",
@@ -52130,11 +52425,36 @@
     },
     {
       "sourceId": "gasper-minicourse-1995",
-      "kind": "arXiv preprint",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/9509223v1",
       "read": "2026-10-20",
       "sha256": "ea5f3d8fe15dc47902f4bdf8ad630c7044e495d5c0934d247aa1a81f1be819bb",
-      "citation": "Target-specific reading of §§3.4–3.5, pp.18–20: q-Pfaff–Saalschütz and q-Gauss identities with their denominator and convergence conditions. These supply the finite convolution and analytic seed of QM.5/choi-identity, not a fresh full-source collation."
+      "citation": "Target-specific reading of §§3.4–3.5, pp.18–20: q-Pfaff–Saalschütz and q-Gauss identities with their denominator and convergence conditions. These supply the finite convolution and analytic seed of QM.5/choi-identity, not a fresh full-source collation.",
+      "role": "arXiv preprint"
+    },
+    {
+      "sourceId": "andrews-mock-1986",
+      "kind": "published",
+      "url": "https://www.ams.org/journals/tran/1986-293-01/S0002-9947-1986-0814916-2/S0002-9947-1986-0814916-2.pdf",
+      "read": "2026-10-21",
+      "sha256": "5d91d479a67b8a5e1c10121e8619111592bf5bad238c9f8b736e120c71388998",
+      "citation": "Publisher scan of the journal article, 22 pages; §§2–7 read on the page images. The identities of Theorem 9 and Theorem 13 were also compared with Ramanujan's Eulerian series by an exact integer power-series computation."
+    },
+    {
+      "sourceId": "hickerson-seventh-1988",
+      "kind": "published",
+      "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000672/full/1000,/0/default.jpg",
+      "read": "2026-10-21",
+      "sha256": "001481ddb8ffad65b1314ea9c785b6799e034bc7c1e747e073c00cbca18fac17",
+      "citation": "GDZ scan of the journal pages 661, 662, 665 and 666 (IIIF images 00000667, 00000668, 00000671 and 00000672 of the volume). The hash is of p. 666; the other page hashes are in the source record."
+    },
+    {
+      "sourceId": "zwegers-thesis",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0807.4834v1",
+      "read": "2026-10-21",
+      "sha256": "ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d",
+      "citation": "§4.3 (pp. 67–68) and §4.4 (pp. 72–73) reread for the seventh- and fifth-order definitions and for the remark that the third and eighth identities of Andrews' Theorem 9 contain mistakes."
     }
   ],
   "continuationAudit": {
@@ -52457,20 +52777,20 @@
     }
   },
   "planningPass": {
-    "by": "Codex — codex-VN3yOq",
-    "date": "2026-10-20",
-    "issue": 11492,
+    "by": "Claude — claude-NX1bCW",
+    "date": "2026-10-21",
+    "issue": 11524,
     "protocolSection": "0",
     "status": "complete",
     "incomingNodes": 537,
     "nodeBudget": 300,
     "newNodes": 0,
     "mathematicalClosure": false,
-    "reason": "Finish the inherited over-budget revision without adding nodes. Supply replacement routes for all 43-node independent-review obligation, preserve accepted corrections and ownership boundaries, and reconcile the full reader, gaps, requests and native file.",
-    "readingScope": "Target-specific additions and supplier comparisons only. No blanket new verification of all inherited nodes, sources or baseline statements is asserted.",
-    "baselineAudit": "All420 inherited independently reviewed declaration records retained unchanged. Current library/roadmap and open upstream contracts read separately and recorded in upstreamImports; no current declaration is relabelled as a historical-pin baseline.",
-    "LeanCheck": "lean-check completed with exit0 on2026-10-20 at the shared pinned Mathlib build; nine warnings for admitted theorem proofs and no other warnings or errors. Seven light definitions, nine theorem signatures and thirteen proved examples; all data definitions have real bodies.",
-    "linkAudit": "RT-AREA-automorphic-1/20, RT-AREA-topology/13, the bounded topology correction and accepted RS-06/RS-10 links retained. No live atlas/link edits. Generic Jacobi remains MP.6; scalar quantum theory and examples QM.5; knot laws QT.7; absent matrix interface QSeries Part II."
+    "reason": "Finish the maintainer-directed round 5 without adding nodes: resolve the findings REV~4 left open, apply the generality rule and consume open upstream pull requests.",
+    "readingScope": "Andrews 1986 §§2–7 and Hickerson 1988 pp. 661–666 read on page images; Zwegers §§4.3–4.4 reread; upstream READMEs of AffineLieAlgebras (#1201), ZerosOfLFunctions (#253), AnalyticNumberTheoryPartI (#1126), AnalyticNumberTheoryPartII (#1167) and HabiroCyclotomicCompletions (#1314) read at their PR heads; the accepted explorer packages of every roadmap at stage pr screened for QM targets.",
+    "baselineAudit": "One declaration added (mathlib:Complex.Gamma_ne_zero, read at the pin); two records no longer cited by any node removed. All other records unchanged.",
+    "LeanCheck": "See the handoff note BP-QSeriesPartitionsAndMockModularForms~5.",
+    "linkAudit": "No live atlas or link edits. Ownership boundaries of revision 4 retained; upstream consumption recorded in upstreamImports."
   },
   "review": {
     "status": "accepted",
@@ -61455,12 +61775,16 @@
       "supplier": "tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one",
       "commit": "1b96abb516967c63e48631d99d70876e1bdce2f1",
       "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1201",
-      "locator": "AffineLieAlgebras README C7; positive even-lattice vertex algebra and its conformal/Fock grading",
-      "need": "Positive even E₈/Leech lattice VOA construction for the concrete code model. The generic lattice fields already targeted here agree on this specialization; no new positive-lattice VOA target is planned.",
+      "locator": "AffineLieAlgebras README C7 (phases (i)–(vii)), and Suggested.lean `FormalVertexAxioms`, `formalVertex_borcherds`, `PositiveEvenLattice`, `NormalizedSignCocycle`, `orderedSignCocycle`, `twistedGroupAlgebraMul`, `latticeStateField`, `latticeConformalVector`",
+      "need": "AffineLieAlgebras C7 constructs, over ℂ, the vertex operator algebra of a positive-definite even lattice from its generic phases: the Hahn-field vertex axioms `FormalVertexAxioms` (vacuum, translation, creation, truncation, locality) with reconstruction, the abelian Heisenberg/Fock representation for an arbitrary symmetric form, the ordered sign cocycle and twisted group algebra, the charge fields and their locality and Borcherds identities, and the conformal vector with Virasoro relations of central charge rank L. QM.6 plans the same objects in the generality its consumers need (vertex algebras over any commutative ring, existence over any field of characteristic 0, even lattices of any signature, including II_{1,1}) and states its comparison with C7 where both are defined: QM.6/vertex-algebra ↔ FormalVertexAxioms over ℂ; QM.6/even-lattice-double-cover ↔ C7's ordered sign cocycle by an explicit sign coboundary; QM.6/lattice-vertex-algebra ↔ C7's lattice VOA for positive-definite L over ℂ. The concrete code model of QM.6/monster-head-characters uses the positive E₈ and Leech lattice VOAs through this comparison. No positive-lattice VOA target is planned again here.",
       "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-existence-theorem",
+        "QSeriesPartitionsAndMockModularForms:QM.6/even-lattice-double-cover",
+        "QSeriesPartitionsAndMockModularForms:QM.6/lattice-vertex-algebra",
         "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters"
       ],
-      "checked": "2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins."
+      "checked": "2026-10-21; README C7 and the cited Suggested.lean declarations read at the PR head. C7 keeps its positive even-lattice restriction (README references, Bakalov–Kac entry); it is a current open upstream contract, separate from the historical library pins."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/CFSGBasicProperties#p2-lp2-r-conway-monster-and-baby-monster",
@@ -61495,6 +61819,29 @@
         "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem"
       ],
       "checked": "2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ZerosOfLFunctions#layer-1-gamma-factor-asymptotics-and-the-continued-l-function",
+      "commit": "cce2e04188a559be9a16037d0d65e00a815fcecc",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/253",
+      "locator": "ZerosOfLFunctions README Layer 1, items 1–3: the holomorphic branch `logGamma δ` on |arg s| < π − δ, `Complex.logGamma_asymptotic` and `Complex.norm_Gamma_asymptotic` (head of the PR branch in the roed-math fork, which AnalyticNumberTheoryPartI, open PR #1126, cites as its Gamma supplier for its Layers 1.2–1.4)",
+      "need": "log‖Γ(σ + it)‖ = (σ − 1/2)log|t| − π|t|/2 + log(2π)/2 + O(1/|t|) uniformly for σ in a compact interval as |t| → ∞. QM.5/gamma-vertical-decay only exponentiates this additive form into its relative-error form and handles the bounded range of |t|; it no longer plans the Stirling remainder itself. AnalyticNumberTheoryPartII §4.3b (open PR #1167) supplies the two-sided strip bound and balanced Gamma quotients from the same input.",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.5/gamma-vertical-decay"
+      ],
+      "checked": "2026-10-21; Layer 1 items 1–6 of the ZerosOfLFunctions README read at the cited commit, together with AnalyticNumberTheoryPartI README line 70 (supplier table) and AnalyticNumberTheoryPartII §4.3b at their PR heads 23d3de1c and abee65e6. A current open upstream contract, separate from the historical library pins."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/HabiroCyclotomicCompletions#layer-3-values-taylor-expansions-and-p-adic-translation",
+      "commit": "bf8812fbc41f0e74dca5b0ed5ae5a87c936707b4",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1314",
+      "locator": "HabiroCyclotomicCompletions README §1.4 (the full factorial completion), §2.1 (factorial series converge for arbitrary polynomial coefficients; the Kontsevich element F = Σ P_n is the standing example), §3.1 (`evalAt`: evaluation at a root of order d is the finite sum over n < d) and §4.4 (evaluation uniqueness: for R = ℤ, values at infinitely many roots of prime-power order determine an element)",
+      "need": "The three atlas requests to HabiroCyclotomicCompletions HC.1, HC.3 and HC.4 (completion with its convergence criterion, root evaluation, evaluation rigidity) are the cited sections of this open upstream pull request, ported from the accepted atlas package. The request statements are unchanged; their exact upstream contracts are these sections.",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-strange-series",
+        "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit"
+      ],
+      "checked": "2026-10-21; README §§1.4, 2.1, 3.1, 4.4 and the downstream-consumer section read at the PR head. A current open upstream contract, separate from the historical library pins."
     }
   ],
   "closedReviewGaps": {
@@ -61660,6 +62007,22 @@
       "baselineAudit": "418 independently reviewed baseline records retained; two new pinned inputs read in full for the complex Stirling derivation. Current upstream imports remain separate from the earlier library pins.",
       "LeanCheck": "The compact file elaborated at Mathlib082e2d3/TauCeti f790474 on 2026-10-20: seven real-bodied light definitions, nine admitted theorem signatures, thirteen proved examples; only admitted-target warnings. The full API/test ledger is in the reader.",
       "linkAudit": "All links/*.json entries naming this roadmap read. ACT-R06 is an inherited unowned-Leech request superseded for this consumer by current IntegralLattices Layer6E; no link-map edits are made in this job. The exact rational-to-real carrier comparison remains within the FLM gap."
+    },
+    {
+      "by": "Codex — codex-VN3yOq",
+      "date": "2026-10-20",
+      "issue": 11492,
+      "protocolSection": "0",
+      "status": "complete",
+      "incomingNodes": 537,
+      "nodeBudget": 300,
+      "newNodes": 0,
+      "mathematicalClosure": false,
+      "reason": "Finish the inherited over-budget revision without adding nodes. Supply replacement routes for all 43-node independent-review obligation, preserve accepted corrections and ownership boundaries, and reconcile the full reader, gaps, requests and native file.",
+      "readingScope": "Target-specific additions and supplier comparisons only. No blanket new verification of all inherited nodes, sources or baseline statements is asserted.",
+      "baselineAudit": "All420 inherited independently reviewed declaration records retained unchanged. Current library/roadmap and open upstream contracts read separately and recorded in upstreamImports; no current declaration is relabelled as a historical-pin baseline.",
+      "LeanCheck": "lean-check completed with exit0 on2026-10-20 at the shared pinned Mathlib build; nine warnings for admitted theorem proofs and no other warnings or errors. Seven light definitions, nine theorem signatures and thirteen proved examples; all data definitions have real bodies.",
+      "linkAudit": "RT-AREA-automorphic-1/20, RT-AREA-topology/13, the bounded topology correction and accepted RS-06/RS-10 links retained. No live atlas/link edits. Generic Jacobi remains MP.6; scalar quantum theory and examples QM.5; knot laws QT.7; absent matrix interface QSeries Part II."
     }
   ],
   "revision3Disposition": {
@@ -62645,5 +63008,116 @@
         }
       ]
     }
-  ]
+  ],
+  "closedGaps": [
+    {
+      "title": "Hickerson's identities for the seventh-order mock theta functions",
+      "closedBy": "BP-QSeriesPartitionsAndMockModularForms~5",
+      "date": "2026-10-21",
+      "resolution": "Proved in QM.4/seventh-order-indefinite-theta-identities from Andrews' Lemmas 10–12 and Theorem 13 (corrected by Hickerson, Theorem 2.0, p. 666), through QM.0/bailey-pair, QM.0/unit-bailey-pairs and QM.0/bailey-chain-limit; the definitions in QM.4/seventh-order-mock-theta-functions are now Ramanujan's Eulerian series.",
+      "formerDetail": "Zwegers takes the indefinite double sums (Hickerson, Invent. Math. 94 (1988), p. 666) as the definitions of F₀, F₁, F₂. Their equality with Ramanujan's Eulerian series (F₀ = Σq^{n²}/(q^{n+1};q)_n, etc.) is Hickerson's theorem, not public and not planned (it is a formal q-series identity, naturally in QM.0's scope). The definitions and all QM.4 theorems stand without it; only the identification with Ramanujan's functions needs it. Checked numerically to q^{14} for F₀."
+    }
+  ],
+  "sourceSearchRecords": [
+    {
+      "sourceId": "miyamoto-moonshine-2004",
+      "kind": "errata search",
+      "url": "https://annals.math.princeton.edu/2004/159-2/p02",
+      "read": "2026-10-20",
+      "citation": "Publisher article page and public title/erratum searches inspected; no linked correction located. arXiv:q-alg/9701012 version history inspected: last listed revision predates the2004 journal article. No claim that no correction exists elsewhere."
+    },
+    {
+      "sourceId": "borcherds1992",
+      "kind": "acquisition failure",
+      "url": "https://link.springer.com/article/10.1007/BF01232032",
+      "read": "2026-10-20",
+      "citation": "Publisher landing page did not supply an accessible full PDF in this acquisition. No publisher-copy collation of E631 is asserted."
+    },
+    {
+      "sourceId": "borcherds1992",
+      "kind": "errata search",
+      "url": "https://math.berkeley.edu/~reb/papers/index.html",
+      "read": "2026-10-20",
+      "citation": "Author publication index item13 and public Borcherds15D/correction searches inspected. No correction to this group sentence located in the inspected results."
+    }
+  ],
+  "revision5Disposition": {
+    "issue": 11524,
+    "by": "Claude — claude-NX1bCW",
+    "date": "2026-10-21",
+    "retainedNodes": 537,
+    "newNodes": 0,
+    "status": "complete",
+    "context": "Round 5 was opened by the stall detector on 2026-10-20 while REV-QSeriesPartitionsAndMockModularForms~4 was pending; that review then accepted revision 4 with in-place corrections. This round resolves the findings that review left open and applies the maintainer's generality and upstream-consumption rule. The review object is left in place for the next reviewer.",
+    "findingDispositions": [
+      {
+        "finding": "REV~4 remaining work: the seventh-order (Hickerson) gap",
+        "disposition": "Closed. Andrews 1986 (Trans. AMS, free) and Hickerson 1988 (Invent. Math., free on GDZ) were read. The definitions of F₀, F₁, F₂ are now Ramanujan's Eulerian series, and QM.4/seventh-order-indefinite-theta-identities proves Hickerson's double sums from Andrews' Lemmas 10–12 and Theorem 13 through QM.0/bailey-pair, QM.0/unit-bailey-pairs and QM.0/bailey-chain-limit. Andrews' (7.22) and (7.24) are misprinted (E633, E634; corrected in Hickerson's (2.3), (2.5))."
+      },
+      {
+        "finding": "REV~4 remaining work: the fifth-order Eulerian gap",
+        "disposition": "Sharpened, not closed. Andrews' Theorem 9 and its proof were read; the eight corrected identities agree with the Eulerian series to O(q^{217}). The gap now names the three missing QM.0 inputs (one-parameter Bailey lemma, limiting Watson q-Whipple, limiting Sears transformation), each a key theorem needing its own node, which the over-budget packet cannot add. E636 and E637 record the misprints in (6.3) and (6.8), which Zwegers corrects."
+      },
+      {
+        "finding": "REV~4 note: lattice vertex algebras and AffineLieAlgebras C7 (open PR #1201)",
+        "disposition": "Consumed now rather than on merge. QM.6/vertex-algebra, vertex-algebra-existence-theorem, even-lattice-double-cover and lattice-vertex-algebra state their comparison with C7 (FormalVertexAxioms over ℂ; ordered sign cocycle by an explicit sign coboundary, checked; the lattice VOA for positive-definite L over ℂ). QM.6 keeps its more general ring, field and signature, which its consumers need."
+      },
+      {
+        "finding": "REV~4 note: check_errata.py reported 99 errors on sourceVersions kinds",
+        "disposition": "Fixed. Kinds normalised to published, preprint or author copy by the URL actually opened, with the former descriptor kept as role; the errata-search and acquisition-failure records moved to sourceSearchRecords. check_errata reports no errors."
+      },
+      {
+        "finding": "REV~4 note: Conway–Norton read through a third-party mirror",
+        "disposition": "Unchanged: the publisher DOI remains the citation of record."
+      },
+      {
+        "finding": "Maintainer rule: consume roadmaps that are open upstream pull requests",
+        "disposition": "ZerosOfLFunctions Layer 1 (open PR #253) owns the vertical-strip Stirling estimate; QM.5/gamma-vertical-decay now imports it and keeps only the exponentiation. HabiroCyclotomicCompletions (open PR #1314) meets requests HC.1/HC.3/HC.4; the exact sections are recorded. All 131 roadmaps at stage pr in upstream/tauceti_status.json were screened through their accepted explorer packages for QM targets; no further overlap was found."
+      },
+      {
+        "finding": "REV~3 obligations",
+        "disposition": "All 43 were given replacement routes in revision 4 and accepted by REV~4; none reopened."
+      }
+    ],
+    "revisedNodes": [
+      "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-mock-theta-functions",
+      "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-indefinite-theta-identities",
+      "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-mock-theta-functions",
+      "QSeriesPartitionsAndMockModularForms:QM.5/gamma-vertical-decay",
+      "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra",
+      "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-existence-theorem",
+      "QSeriesPartitionsAndMockModularForms:QM.6/even-lattice-double-cover",
+      "QSeriesPartitionsAndMockModularForms:QM.6/lattice-vertex-algebra"
+    ],
+    "kindChanges": [
+      {
+        "node": "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-indefinite-theta-identities",
+        "from": "lemma",
+        "to": "theorem",
+        "reason": "It now carries Hickerson's Theorem 2.0 and Andrews' Theorem 13 with their proof."
+      }
+    ],
+    "newSources": [
+      "andrews-mock-1986",
+      "hickerson-seventh-1988"
+    ],
+    "newSourceFindings": [
+      "E633",
+      "E634",
+      "E635",
+      "E636",
+      "E637"
+    ],
+    "numericalDiagnostics": "Exact integer power-series computations (author's scratch scripts, not in the repository): Hickerson's double sums against the Eulerian F₀, F₁, F₂ to O(q^{219}); Andrews' Lemma 11 for n < 16 and the Bailey relations of Lemma 12 for n ≤ 8 to O(q^{60}); the eight corrected fifth-order identities to O(q^{217}); the C7 cocycle comparison on random Gram matrices of rank ≤ 4. These are diagnostics, not proofs.",
+    "notChanged": "QM.3 remains scalar and integral-weight where its remaining list says so: the vector-valued (Weil-representation) harmonic Maass forms of AGHMP §4.7 and SSTT §3.1, and the Gross–Zagier weight-two Hecke-trick families, need new nodes, which the node budget excludes; they stay first in QM.3's remaining list. The QM.6 granularity split of monster-head-characters and monstrous-moonshine-theorem likewise waits for budget.",
+    "baselineChanges": {
+      "added": [
+        "mathlib:Complex.Gamma_ne_zero"
+      ],
+      "removedUnused": [
+        "mathlib:Complex.GammaSeq_tendsto_Gamma",
+        "mathlib:Stirling.factorial_isEquivalent_stirling"
+      ]
+    }
+  }
 }
