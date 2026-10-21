@@ -289267,9 +289267,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~5",
+   "reviewReason": "Confirmed in the publisher scan, Theorem 13 (7.22), p.132. The printed right side has coefficient −2 at q, whereas the Eulerian product has coefficient 0. Substitution of (7.17) in the limiting Bailey identity gives the proposed correction; Hickerson (2.3), p.666, independently prints that corrected form. My exact coefficient check agrees through degree 219."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E634",
@@ -289287,9 +289287,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~5",
+   "reviewReason": "Confirmed in the publisher scan, Theorem 13 (7.24) and proof, p.133. The printed right side has coefficient −2 at q² instead of 0. The a=q Bailey pair (7.20)–(7.21) gives the proposed exponents and factors, also printed by Hickerson (2.5), p.666. The proof cross-reference must name (7.20)–(7.21). My exact coefficient check agrees through degree 219."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E635",
@@ -289308,9 +289308,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~5",
+   "reviewReason": "Confirmed at (3.1), p.116 of the publisher scan. The limiting Bailey relation divides by (q;q)_∞. For the unit pair β=δ₀, the left side is 1 and Σq^{n²}α_n=(q;q)_∞ by Euler’s pentagonal identity: the printed product would give (q;q)_∞², whose q coefficient is −2. The proofs on pp.126 and 133 use the reciprocal correctly. No claim of an exhaustive literature search is added."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E636",
@@ -289327,9 +289327,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~5",
+   "reviewReason": "Confirmed at Theorem 9 (6.3), p.125. The corrected Eulerian identity has q² coefficient 0; the printed formula gives 1. The boundary term on p.127 must carry q^{−n(n−1)/2}, as the derivation of (5.10) on p.123 shows. Zwegers §4.4, pp.72–73, supplies the corrected third identity. My independent exact check agrees through degree 219."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E637",
@@ -289346,9 +289346,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~5",
+   "reviewReason": "Confirmed at Theorem 9 (6.8), p.125. The Eulerian φ₁ has constant coefficient 0, but the printed expression has 1. Multiplication by q and replacement of the factor by 1−q^{2n+1} give Zwegers §4.4’s corrected eighth identity, pp.72–73. My independent exact check agrees through degree 219."
   },
   {
    "id": "QuadraticFormInvariantsPartII/E1",
