@@ -154618,6 +154618,25 @@
     "BP-QSeriesPartitionsAndMockModularForms~5"
    ],
    "state": "pending"
+  },
+  {
+   "id": "FIX-PKG-ArithmeticQuantumTopology~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticQuantumTopology"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ArithmeticQuantumTopology~adv.md",
+    "research/blueprint/packages/ArithmeticQuantumTopology/review.json",
+    "research/blueprint/packages/ArithmeticQuantumTopology/README.md",
+    "research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticQuantumTopology~adv.md"
   }
  ]
 }
