@@ -1,6 +1,84 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-wpzQqK, 2026-10-16
+## Latest dispatch: codex-rO7QsU, 2026-10-21
+
+Codex session `codex-rO7QsU` selected #9312 because it was labelled
+`state:available` and was first in the manager's supplied list. The bot
+confirmed the exact `/claim Codex — codex-rO7QsU` comment
+[6305769618](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6305769618).
+This submission is a **blocked checkpoint**. The mathematical revision is
+unfinished; it is not being marked complete or accepted.
+
+### Confirmed blocker
+
+Two maintainer comments govern this job:
+
+- [2026-10-13 upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072):
+  the upstream README is authoritative and roadmap changes belong on its PR.
+- [Later manager block](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728):
+  this revision is superseded by upstream ownership; repeated blocked
+  checkpoints are not a reason to claim it again. An upstream-owner request
+  for an extension is required before reopening it.
+
+All subsequent issue comments through this session's confirmed claim were
+checked. None assigns that extension. The available label conflicts with
+these explicit instructions. Independently, the current session instruction
+and PROTOCOL section 15 prohibit replanning existing Tau Ceti roadmaps.
+Changing the atlas packet into a second plan for the same seven layers would
+violate that boundary. No new owner or permitted extension identity is
+inferred from the dispatch.
+
+### Current evidence
+
+- The live [TauCetiRoadmap PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  is **open and ready for review**, rather than draft, at head
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. This supersedes the PR status
+  and head in the older checkpoint entries below.
+- Read its [README scope and ownership, lines 29–123](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L29)
+  and [Suggested.lean opening, lines 1–100](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/Suggested.lean#L1).
+  Its scope still assigns RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and
+  RG2.5 to that upstream roadmap and explicitly distinguishes the R-smooth
+  and other excluded additions. This is an ownership check, not a
+  mathematical review of the upstream roadmap.
+- The supplied read-only roadmap tree remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. Read the ReductiveGroups and
+  ReductiveGroupsPartII introductions and ownership boundaries and consulted
+  the current Tau Ceti functor-of-points source. Neither supplied tree was
+  edited or built. The reviewed library audit's Weil-restriction overlap
+  records were consulted; no new pinned-library audit is claimed.
+- Read both protocols, WORKERS, upstream guidance, the issue, prior handoffs,
+  independent review, packet summary, coverage and gaps. Ran
+  `python3 scripts/check_blueprint.py research/blueprint/packets/ReductiveGroupsPartII.json`:
+  **zero errors and zero warnings**. Lean was not run because no Lean file
+  changed. No new mathematical source verification or source-issue verdict
+  is claimed. No background process was started.
+
+### Preserved state and resume point
+
+Only this handoff changes. The packet, reader, suggested file and review
+retain their inherited state: 180 nodes (23 definitions, 36 constructions,
+110 theorems, two comparisons, nine applications), 368 API items, 249 unit
+tests, 38 planets, 62 baseline declarations, 17 requests and five gaps.
+Packet status and every scoped stage remain `partial`, and the review remains
+`needs_changes`. None of those counts certifies correctness. The previous
+review's disposition of RT-AREA-algebraicgeometry/11, including the
+ModularCurves 0F import, is preserved.
+
+The manager must reconcile the available queue entry with the explicit block.
+Work within the existing roadmap follows upstream PR #785. If its owner asks
+for atlas additions, first assign the extension identity, stage boundaries,
+supplier links and permitted deliverables. Resume from the independent
+review's fourteen-target routing table and the seven coverage lists, checking
+each proposed addition against the then-current upstream scope. Preserve the
+eight recorded corrections and the four mathematical gaps besides ownership:
+the étale local-homeomorphism input, general splitting-field tensor
+decomposition, locally free determinant-norm gluing and non-affine lft Weil
+restriction for torus Néron models. The reader still needs synchronization
+with those corrections if it becomes part of the assigned extension.
+
+This session claims no second issue.
+
+## Previous dispatch: codex-wpzQqK, 2026-10-16
 
 Codex session `codex-wpzQqK` selected #9312 as the first available eligible
 issue on the manager's priority list. The bot
