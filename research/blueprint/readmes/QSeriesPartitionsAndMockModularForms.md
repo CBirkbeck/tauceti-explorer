@@ -16,7 +16,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 The compact suggested file retains seven light definitions, nine theorem signatures and thirteen proved examples on existing Mathlib carriers. The full target, proof, API and test contracts are stated below, including objects whose native carriers are not yet available. Implementation status remains unchecked.
 
-The preceding independent revision-3 review checked all 537 target contracts: 483 verified, 11 corrected and 43 unverifiable. Its verdicts, twelve contract corrections and source reviews are retained unchanged. This revision supplies replacement arguments for all 43 flagged contracts, with mathematical edits in 44 existing nodes, including the arbitrary-ring Lie-quotient correction. Upstream and status bookkeeping brings the total to 47 changed node records. Seventeen inherited proof obligations have replacement routes at target-planning depth, pending independent review; two Eulerian-series identifications remain explicit gaps. There are 30 exact supplier requests. The source register retains the earlier 89 findings (86 confirmed and 3 rejected) and adds four findings awaiting independent review. Reading receipts below describe only the additional passages actually read. See the [preceding independent review](../reviews/REV-QSeriesPartitionsAndMockModularForms~3.md) for the original obligations; this revision does not replace its verdict with a self-review.
+This plan was reviewed independently in four rounds. The revision-3 review checked all 537 target contracts and flagged 43; the fourth revision supplied proof routes for each of them, and the independent review REV-QSeriesPartitionsAndMockModularForms~4 checked those routes, the 47 changed node records, the 30 supplier requests and the four new source findings, and accepted the plan with in-place corrections. Two Eulerian-series identifications remain explicit gaps, and every layer keeps a precise list of the targets it does not yet plan. The source register has 93 findings: 90 confirmed and 3 rejected. See the [review report](../reviews/REV-QSeriesPartitionsAndMockModularForms~4.md) and the [revision-3 review](../reviews/REV-QSeriesPartitionsAndMockModularForms~3.md).
 
 | Layer | Coverage | Objects | Planets |
 | --- | --- | ---: | ---: |
@@ -12593,7 +12593,7 @@ Construction or proof route:
 Uses that determine the API:
 
 - Zwegers Prop. 4.10: F_{5,1} = H_{5,1} + G_{5,1}, with H real-analytic modular and G bounded towards the rationals
-- QM.4/fifth-order-shadow: the shadow of H_{5,1} is read off from the tau-bar derivative of G_{5,1}
+- QM.4, the shadow of the fifth-order completion (no separate node): the shadow of H_{5,1} is read off from the tau-bar derivative of G_{5,1}
 
 Named declarations and API:
 
@@ -14108,7 +14108,7 @@ Acceptance checks:
 - Zagier's 2010 account (Quantum modular forms, eq. (26)) prints this law with |x|^{3/2} and ∓i^{1/2}; the correct form is the one here (see the source issues).
 - At gamma = -I the lower-boundary factor of weight 3/2 is i. The corrected multiplier epsilon(-I) = -i gives total slash factor 1. Using the unmodified inverse eta multiplier i would instead give -1, so it fails this central-element check.
 
-Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer.
+Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer. Checked by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 <a id="QM-5-cohen-sigma-values"></a>
 
@@ -14347,7 +14347,7 @@ Acceptance checks:
 - ξ = 1: W(1) = 0, consistent with 1 − ½A(q) → 1 − ½·2 = 0 as q ↗ 1 (the renormalised sum of χ₊ is Σ_{n≤30}(1 − n/30)χ₊(n) = 2).
 - The theorem compares an analytic limit of a q-series with a quantum invariant; it is not a statement about formal evaluation.
 
-Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer.
+Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer. Checked by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 <a id="QM-5-lawrence-zagier-ohtsuki-expansion"></a>
 
@@ -14386,7 +14386,7 @@ Acceptance checks:
 - W_∞(h) = h − 5h² + 39h³ − 419h⁴ + ⋯, so Z_∞(h) = W_∞/(h(1 + h)) = 1 − 6h + 45h² − 464h³ + ⋯ .
 - The coefficients a_r are 1, 119, 129361, … (from cos 5x cos 9x/cos 15x = 1 + (119/2)x² + ⋯).
 
-Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer.
+Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer. Checked by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 <a id="QM-5-poincare-sphere-unified-invariant-radial-limit"></a>
 
@@ -14421,7 +14421,7 @@ Acceptance checks:
 - At ξ = −1: ev_{−1}(U) = W(−1) = 2, and 1 − ½A(q) → 2 as q → −1 radially.
 - Uniqueness from a restricted family of root-of-unity evaluations requires its own injectivity criterion from HC.4; this comparison uses the full family, for which that criterion is supplied.
 
-Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer.
+Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer. Checked by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 <a id="QM-5-lawrence-zagier-theta-transformation"></a>
 
@@ -14452,7 +14452,7 @@ Acceptance checks:
 - M_S² = I (a² + b² = 1), consistent with S² = −1 acting trivially in weight 3/2 up to the branch.
 - Only the pair (Θ₊, Θ₋) is invariant: Θ₊ alone is not a modular form on SL₂(ℤ).
 
-Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer.
+Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer. Checked by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 <a id="QM-5-poincare-sphere-quantum-modular"></a>
 
@@ -14488,7 +14488,7 @@ Acceptance checks:
 - The asymptotic formula W(e^{2πi/K}) ∼ √(K/i)e^{−πi/60K}(ae^{−πiK/60} + be^{−49πiK/60}) + W_∞(e^{2πi/K} − 1) as K → ∞ is the case γ = S at x = 0 (Lawrence–Zagier (18)).
 - The three terms of that formula match the three flat connections of Σ(2, 3, 5).
 
-Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer.
+Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer. Checked by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 <a id="QM-5-partition-crank"></a>
 
@@ -15494,6 +15494,7 @@ The existing vertex, no-ghost, generalized Lie and moonshine target contracts ar
 Open targets and comparisons:
 
 - The accepted RS-06 links into QM.6 remain binding, including their restricted comparison/application contracts. The inherited proposal suggesting different analytic inputs is unaccepted and cannot by itself remove the accepted R12.3/R13.3/R13.4a/ModularCurves links. Establish exact input sufficiency/non-use and obtain reviewed restructuring before changing those edges. Accepted RS-10 retains QT.4 and HC.3/HC.4 exports into QM.5; no completion or theorem-existence claim follows from those structural links.
+- Granularity refinement: monster-head-characters and monstrous-moonshine-theorem carry several key constructions inside their proof sketches. When the node budget allows, give each its own target node: the framed code algebra M_D♮ and its simple-current extension V, the C₂-cofiniteness and holomorphic self-duality of V, the Leech-sector and Griess-algebra comparison, the restriction isomorphism Aut(V)→Aut(V₂), the Breuer–Magaard–Wilson character certificate for χ₁,…,χ₇, and the per-row Conway–Norton Hauptmodul certificates. The proof routes are already stated; this is a split, not a missing argument.
 
 Atlas planets:
 
@@ -15647,7 +15648,7 @@ Acceptance checks:
 
 ### The universal Lie quotient of a vertex algebra
 
-**Construction** (`QM.6/vertex-algebra-lie-algebra`). Let V be a vertex algebra over an arbitrary commutative ring R and let DV be the R-span of D^{(i)}w for i≥1. The zero product descends to an anticommutative Leibniz bracket on Q=V/DV. Its square submodule A=span_R{[x,x]:x∈Q} is central and annihilated by2. Consequently LieQuotient(V):=Q/A, equivalently V/(DV+span_R{u₀u}), is a Lie algebra over R, universal among R-linear bracket-preserving maps from Q to Lie algebras. Zero modes make V a module over this Lie quotient and act by derivations of every vertex product. If2 is invertible in R, A=0 and the canonical map Q→LieQuotient(V) is an isomorphism, recovering V/DV for every moonshine consumer here. The inherited assertion that Q is always alternating is false in characteristic2; the explicit free-fermion comparison below is part of this corrected arbitrary-ring contract.
+**Construction** (`QM.6/vertex-algebra-lie-algebra`). Let V be a vertex algebra over an arbitrary commutative ring R and let DV be the R-span of D^{(i)}w for i≥1. The zero product descends to an anticommutative Leibniz bracket on Q=V/DV. Its square submodule A=span_R{[x,x]:x∈Q} is central and annihilated by2. Consequently LieQuotient(V):=Q/A, equivalently V/(DV+span_R{u₀u}), is a Lie algebra over R, universal among R-linear bracket-preserving maps from Q to Lie algebras. Zero modes make V a module over this Lie quotient and act by derivations of every vertex product. If2 is invertible in R, A=0 and the canonical map Q→LieQuotient(V) is an isomorphism, recovering V/DV for every moonshine consumer here. When2 is not invertible, Q itself need not be alternating: the integral neutral fermion reduced modulo2, described below, has a nonzero self-bracket in Q.
 
 Hypotheses and conventions:
 
@@ -15689,7 +15690,7 @@ Unit tests:
 
 - `VertexAlgebra.LieQuotient.ofDerivation_abelian` (degenerate): For a commutative differential vertex algebra all zero products vanish, so A=0 and LieQuotient is the abelian module V/DV.
 - `VertexAlgebra.LieQuotient.bracket_self` (characterisation): The bracket of every element with itself vanishes in the universal Lie quotient over every R, even when2=0.
-- `VertexAlgebra.LieQuotient.charZero_comparison` (comparison): Over ℝ the natural quotient map V/DV→LieQuotient is an isomorphism intertwining zero-mode actions; this is the carrier used by physical-state and Monster-Lie constructions.
+- `VertexAlgebra.LieQuotient.charZero_comparison` (compatibility): Over ℝ the natural quotient map V/DV→LieQuotient is an isomorphism intertwining zero-mode actions; this is the carrier used by physical-state and Monster-Lie constructions.
 - `VertexAlgebra.LieQuotient.fermion_mod_two` (non-example): For the reduced integral neutral fermion over𝔽₂, a₀a=1 and1∉DV. Hence V/DV has a nonzero self-bracket, while the image of1 in LieQuotient is zero.
 
 Acceptance checks:
@@ -17944,7 +17945,7 @@ Acceptance checks:
 
 ### Head characters of the moonshine module
 
-**Theorem** (`QM.6/monster-head-characters`). Let V♮ be the Frenkel–Lepowsky–Meurman moonshine module with its Monster 𝕄 ≤ Aut(V♮, ω, (·,·)), and χ_1, …, χ_7 the irreducible characters of 𝕄 of degrees 1, 196883, 21296876, 842609326, 18538750076, 19360062527, 293553734298. Then as 𝕄-modules V♮_2 ≅ χ_1 + χ_2, V♮_3 ≅ χ_1 + χ_2 + χ_3, V♮_4 ≅ 2χ_1 + 2χ_2 + χ_3 + χ_4, V♮_6 ≅ 4χ_1 + 5χ_2 + 3χ_3 + 2χ_4 + χ_5 + χ_6 + χ_7 (Borcherds' V_1, V_2, V_3, V_5). Consequently, for every g ∈ 𝕄 the coefficients c_g(n), n ∈ {1, 2, 3, 5}, of T_g equal the corresponding coefficients of the Conway–Norton function of the class of g.
+**Theorem** (`QM.6/monster-head-characters`). Let V♮ be the real moonshine module realized by Miyamoto's framed code construction in the proof below (a model of the Frenkel–Lepowsky–Meurman module; no comparison with the FLM orbifold construction is used), with the faithful action of the presented Monster 𝕄 = TauCeti.SporadicName.Group M on (V♮, ω, (·,·)) constructed there, and χ_1, …, χ_7 the irreducible characters of 𝕄 of degrees 1, 196883, 21296876, 842609326, 18538750076, 19360062527, 293553734298. Then as 𝕄-modules V♮_2 ≅ χ_1 + χ_2, V♮_3 ≅ χ_1 + χ_2 + χ_3, V♮_4 ≅ 2χ_1 + 2χ_2 + χ_3 + χ_4, V♮_6 ≅ 4χ_1 + 5χ_2 + 3χ_3 + 2χ_4 + χ_5 + χ_6 + χ_7 (Borcherds' V_1, V_2, V_3, V_5). Consequently, for every g ∈ 𝕄 the coefficients c_g(n), n ∈ {1, 2, 3, 5}, of T_g equal the corresponding coefficients of the Conway–Norton function of the class of g.
 
 Hypotheses and conventions:
 
@@ -17992,7 +17993,7 @@ Acceptance checks:
 
 ### The monstrous moonshine theorem (Borcherds)
 
-**Theorem** (`QM.6/monstrous-moonshine-theorem`). Let 𝕄 be the Monster group, presented as TauCeti.SporadicName.Group M (the Y₄₄₃ presentation with Ivanov's central relator). There exist a moonshine module V (Borcherds' axioms: a real vertex operator algebra of central charge 24 with positive definite invariant form and graded dimension J — the Frenkel–Lepowsky–Meurman module V♮) and an injective group homomorphism ρ : 𝕄 →* Aut(V, ω, (·,·)) such that for every g ∈ 𝕄 there are a moonshine-type group Γ_g ≤ SL₂(ℝ) containing Γ₀(N) with N = o(g)·h for some h | gcd(24, o(g)), and a normalized Hauptmodul f_g for Γ_g, whose Laurent q-expansion is the McKay–Thompson series T_{ρ(g)} = Σ_n tr(ρ(g)|V_{n+1}) qⁿ. In particular every Γ_g has genus 0, and T_{ρ(g)} is the function t_g attached to the class of g in Conway–Norton's Table 2.
+**Theorem** (`QM.6/monstrous-moonshine-theorem`). Let 𝕄 be the Monster group, presented as TauCeti.SporadicName.Group M (the Y₄₄₃ presentation with Ivanov's central relator). There exist a moonshine module V (Borcherds' axioms: a real vertex operator algebra of central charge 24 with positive definite invariant form and graded dimension J, realized by the framed code model of monster-head-characters, a model of the Frenkel–Lepowsky–Meurman module V♮ whose comparison with the FLM construction is not used) and an injective group homomorphism ρ : 𝕄 →* Aut(V, ω, (·,·)) such that for every g ∈ 𝕄 there are a moonshine-type group Γ_g ≤ SL₂(ℝ) containing Γ₀(N) with N = o(g)·h for some h | gcd(24, o(g)), and a normalized Hauptmodul f_g for Γ_g, whose Laurent q-expansion is the McKay–Thompson series T_{ρ(g)} = Σ_n tr(ρ(g)|V_{n+1}) qⁿ. In particular every Γ_g has genus 0, and T_{ρ(g)} is the function t_g attached to the class of g in Conway–Norton's Table 2.
 
 Hypotheses and conventions:
 
@@ -18092,7 +18093,7 @@ The genuine unitary finite Weil representation of Mp₂(ℤ) attached to an even
 
 Needed by: [QM.1/theta-decomposition-weil-representation](#QM-1-theta-decomposition-weil-representation).
 
-Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 4: `tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve`
 
@@ -18132,19 +18133,19 @@ Needed by: [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-
 
 ### Request 10: `ArithmeticQuantumTopology:QT.4`
 
-The sl₂ WRT invariant of a specified oriented framed surgery link, its Kirby/signature normalization with Z(S³)=1, cyclotomic field and Galois covariance, and its Ohtsuki/prime Taylor compatibility. The exact Poincaré-sphere finite sum, modified-Euler coefficients and orientation comparison are proved locally in QM.5/poincare-sphere-wrt, poincare-sphere-bernoulli and poincare-sphere-ohtsuki; no unprovided specialized Lawrence–Rozansky formula is imported.
+The sl₂ WRT invariant of a specified oriented framed surgery link, its Kirby/signature normalization with Z(S³)=1, cyclotomic field and Galois covariance, and its Ohtsuki/prime Taylor compatibility. The exact Poincaré-sphere finite sum, modified-Euler coefficients and orientation comparison are proved locally in QM.5/lawrence-zagier-radial-limit, QM.5/lawrence-zagier-ohtsuki-expansion and QM.5/poincare-sphere-unified-invariant-radial-limit; no unprovided specialized Lawrence–Rozansky formula is imported.
 
 Needed by: [QM.5/lawrence-zagier-radial-limit](#QM-5-lawrence-zagier-radial-limit), [QM.5/lawrence-zagier-ohtsuki-expansion](#QM-5-lawrence-zagier-ohtsuki-expansion), [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
 
-Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 11: `MetaplecticAutomorphicForms:MP.7`
 
-Classical half-weight automorphy factors and cusp forms with unitary multiplier on finite-index subgroups, with exponential decay of every transformed cusp expansion. The rational-cusp scalar Mellin comparison is proved locally at twisted-l-function-entire, and the particular rank-one scalar U₄/Rankin–Cohen comparison at the trace targets. A generic Fricke-nebentypus or Kohnen-plus theorem is not an unstated input.
+Classical half-weight automorphy factors and cusp forms with unitary multiplier on finite-index subgroups, with exponential decay of every transformed cusp expansion. The rational-cusp scalar Mellin comparison is proved locally at QM.5/twisted-cusp-form-l-function, and the particular rank-one scalar U₄/Rankin–Cohen comparison at the trace targets. A generic Fricke-nebentypus or Kohnen-plus theorem is not an unstated input.
 
 Needed by: [QM.5/nonholomorphic-eichler-integral](#QM-5-nonholomorphic-eichler-integral), [QM.5/nonholomorphic-eichler-transformation](#QM-5-nonholomorphic-eichler-transformation), [QM.5/nonholomorphic-eichler-nontangential-limit](#QM-5-nonholomorphic-eichler-nontangential-limit), [QM.5/twisted-cusp-form-l-function](#QM-5-twisted-cusp-form-l-function), [QM.5/zagier-trace-form](#QM-5-zagier-trace-form), [QM.5/zagier-trace-form-recursions](#QM-5-zagier-trace-form-recursions).
 
-Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 12: `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`
 
@@ -18170,7 +18171,7 @@ Current JInputs supplies analytic j, invariance, holomorphy, bounded qj, its con
 
 Needed by: [QM.6/hecke-transform-of-j](#QM-6-hecke-transform-of-j), [QM.6/j-laurent-series](#QM-6-j-laurent-series), [QM.6/j-normalized-hauptmodul](#QM-6-j-normalized-hauptmodul), [QM.6/modular-function-polynomial-in-j](#QM-6-modular-function-polynomial-in-j).
 
-Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 16: `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`
 
@@ -18178,7 +18179,7 @@ The generic integral Hecke/coset framework. The local QM.6 proof treats every in
 
 Needed by: [QM.6/weakly-holomorphic-hecke-operator](#QM-6-weakly-holomorphic-hecke-operator).
 
-Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 17: `tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve`
 
@@ -18222,7 +18223,7 @@ Current §§6.17–6.20 supply H(W)⋊Mp(W), its Schrödinger–Weil action, Jac
 
 Needed by: [QM.1/jacobi-modular-slash](#QM-1-jacobi-modular-slash), [QM.1/jacobi-elliptic-slash](#QM-1-jacobi-elliptic-slash), [QM.1/jacobi-group-law](#QM-1-jacobi-group-law), [QM.1/jacobi-form](#QM-1-jacobi-form), [QM.1/jacobi-cusp-form](#QM-1-jacobi-cusp-form), [QM.1/jacobi-theta-index](#QM-1-jacobi-theta-index), [QM.1/theta-decomposition](#QM-1-theta-decomposition), [QM.1/jacobi-rank-one-specialisation](#QM-1-jacobi-rank-one-specialisation).
 
-Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 24: `tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem`
 
@@ -18236,7 +18237,7 @@ For D=ℤ/60ℤ, Q(r)=r²/120, use the genuine finite Weil representation, Fouri
 
 Needed by: [QM.5/lawrence-zagier-theta-transformation](#QM-5-lawrence-zagier-theta-transformation), [QM.5/poincare-sphere-quantum-modular](#QM-5-poincare-sphere-quantum-modular).
 
-Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 26: `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing`
 
@@ -18244,7 +18245,7 @@ Finite-group character scalar product, norm-one criterion for integer virtual ch
 
 Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
 
-Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 27: `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality`
 
@@ -18252,7 +18253,7 @@ Semisimple irreducible decomposition, orthogonality and degree-square completene
 
 Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
 
-Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 28: `tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing`
 
@@ -18260,7 +18261,7 @@ The full ordered N-torsion basis moduli problem over characteristic zero, its GL
 
 Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
 
-Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 29: `tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients`
 
@@ -18268,7 +18269,7 @@ Finite quotient/coarse moduli for the full-level curve and its finite GL₂ acti
 
 Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
 
-Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ### Request 30: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`
 
@@ -18276,7 +18277,7 @@ Finite positive covolume of Γ₀(N) and positive area of an embedded quotient b
 
 Needed by: [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group).
 
-Revision-4 comparison: Narrowed to the actual Layer2 geometry; no specialized arithmetic containment is attributed to that older layer.
+Revision-4 comparison: Narrowed to the actual Layer2 geometry; no specialized arithmetic containment is attributed to that older layer. Supplier statement compared again by the independent review REV-QSeriesPartitionsAndMockModularForms~4.
 
 ## Current upstream imports
 
@@ -18959,7 +18960,7 @@ The following 420 declaration records were checked by the preceding independent 
 
 ## Source findings
 
-The preceding independent review checked 89 findings: 86 confirmed and 3 rejected. Those verdicts and their histories are retained. Four additional findings from this revision await independent review. A confirmed source omission may have a local repair; it does not by itself make a planned theorem false.
+The preceding independent review checked 89 findings: 86 confirmed and 3 rejected. Those verdicts and their histories are retained. Four further findings, E629–E632, are confirmed by REV-QSeriesPartitionsAndMockModularForms~4. A confirmed source omission may have a local repair; it does not by itself make a planned theorem false.
 
 ### E101: misprint
 
@@ -20819,7 +20820,7 @@ Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3
 
 **Reason.** The odd-pairing sign involution fixes the oscillator term and negates both exponential states; it therefore exchanges e⁺ and e⁻. With the repeated plus sign the two vectors coincide and that exchange argument cannot give the asserted frame.
 
-**Published correction or search result.** No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.
+**Published correction or search result.** new; no published correction found in the bounded publisher/author search.
 
 Affected targets: the proof.
 
@@ -20828,7 +20829,7 @@ Checked versions or searches:
 - Publisher/author source and the version records in sourceVersions, checked2026-10-20.
 - Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results.
 
-Independent review: **pending**.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~4`. Confirmed on the rendered publisher page 573: both displayed conformal vectors carry the same plus sign in front of the exponential pair, so they coincide, while Lemma 5.3 needs the sign involution to exchange them. The corrected e⁻(a) has the minus sign.
 
 ### E630: misprint
 
@@ -20840,7 +20841,7 @@ Independent review: **pending**.
 
 **Reason.** The proof says the involution acts identically on the Heisenberg oscillator space; commuting with every oscillator mode means commutator0. Substituting the zero mode on the vacuum also rules out the identity endomorphism.
 
-**Published correction or search result.** No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.
+**Published correction or search result.** new; no published correction found in the bounded publisher/author search.
 
 Affected targets: the proof.
 
@@ -20849,19 +20850,19 @@ Checked versions or searches:
 - Publisher/author source and the version records in sourceVersions, checked2026-10-20.
 - Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results.
 
-Independent review: **pending**.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~4`. Confirmed on the rendered publisher page 573: the lemma asserts a vanishing commutator with the oscillator modes, while its proof writes the commutator as 1. Read as endomorphisms the intended value is 0; the slip affects only the proof's notation.
 
 ### E631: error
 
 [borcherds1992](#reference-borcherds1992), Author-hosted PDF, §9,15D paragraph, p.29.
 
-**Source claim.** The full conjugate of Γ₀(5) by diag(3,1) is identified as the modular group fixing the15D function.
+**Source claim.** Borcherds lists the full conjugate of Γ₀(5) by diag(3,1) as the modular group corresponding to the 15D element, alongside the groups Γ₀(n) attached to the other six classes; read as the group fixing T_15D, this is too large.
 
 **Corrected contract.** Use the order3 multiplier kernel inside that conjugate eigengroup. It has index3 and contains Γ₀(45). The full conjugate acts by cube-root scalars.
 
 **Reason.** The displayed eta quotient f=(η(3τ)/η(15τ))² has f(τ+1/3)=e(−1/3)f(τ), and f³=T_{5B}(3τ)−6. Translation by1/3 belongs to the displayed conjugate group and fails to fix its q^{−1} leading term. Thus the eigengroup and fixing group differ. Conway–Norton §5’s n|h notation makes precisely this kernel distinction.
 
-**Published correction or search result.** No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.
+**Published correction or search result.** new; no published correction found in the bounded publisher/author search.
 
 Affected targets: a stated result.
 
@@ -20870,7 +20871,7 @@ Checked versions or searches:
 - Publisher/author source and the version records in sourceVersions, checked2026-10-20.
 - Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results.
 
-Independent review: **pending**.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~4`. Confirmed in the author copy, p.29: Borcherds lists the full conjugate diag(3,1)⁻¹Γ₀(5)diag(3,1) as the modular group of the 15D element. That conjugate contains translation by 1/3, and (η(3τ)/η(15τ))² is multiplied by e(−1/3) under it (η(3τ+1)/η(15τ+5) = e(−1/6)η(3τ)/η(15τ)), so the group fixing T_15D is the index-3 kernel, which contains Γ₀(45). The printed paraphrase is narrowed to what the source says.
 
 ### E632: misprint
 
@@ -20882,7 +20883,7 @@ Independent review: **pending**.
 
 **Reason.** The next line defines m_γ as a fusion coefficient of M(β₁,0) with M(β₂,0), and the following associativity computation retains these distinct supports. Fusion adds the 1/16-support labels; the repeated β₁ would instead give zero support and contradict the stated output when β₁≠β₂.
 
-**Published correction or search result.** The misprint is present in the visually checked v1 page. No separate correction was located in the inspected arXiv record and public title/lemma/erratum searches. The published2007 text was not collated; no claim about its typography is made. Awaiting independent review.
+**Published correction or search result.** The misprint is present in the visually checked v1 page. No separate correction was located in the inspected arXiv record and public title/lemma/erratum searches. The published2007 text was not collated; no claim about its typography is made.
 
 Affected targets: the proof.
 
@@ -20891,7 +20892,7 @@ Checked versions or searches:
 - arXiv:math/0506321 abstract/version record, checked2026-10-20; v1 PDF p.10 visually inspected.
 - Public searches for both paper titles, erratum and Lemma5.11; author publication listing identifies the2007 journal article but no correction was located in the inspected results.
 
-Independent review: **pending**.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~4`. Confirmed in arXiv v1, p.10: the lemma and the definition of m_γ use M(β₁,0) twice, while the next displayed fusion product is M(β₁,0) × M(β₂,0) and the output support is β₁+β₂.
 
 ## References and reading scope
 
@@ -21932,7 +21933,7 @@ Revision-4 target-specific receipts (20 October 2026):
 
 ### bringmann-folsom-2013
 
-Kathrin Bringmann and Amanda Folsom, [The asymptotic behavior of Kac–Wakimoto characters](https://afolsom.people.amherst.edu/BF-PAMS13.pdf). Author-hosted published copy, Proc. Amer. Math. Soc. 141 (2013), 1569–1576.
+Kathrin Bringmann and Amanda Folsom, [On the asymptotic behavior of Kac–Wakimoto characters](https://afolsom.people.amherst.edu/BF-PAMS13.pdf). Author-hosted published copy, Proc. Amer. Math. Soc. 141 (2013), 1567–1576.
 
 Acquisition SHA-256: `c7f89e58b60af49992631c0c5990e76f9733cc8b51f5a853318fa8fc7de307f1`. Accessed 2026-10-20.
 
@@ -21942,7 +21943,7 @@ Reading scope:
 
 Revision-4 target-specific receipts (20 October 2026):
 
-- **author copy.** [version or search](https://afolsom.people.amherst.edu/BF-PAMS13.pdf). Author-hosted published copy, Proc. Amer. Math. Soc. 141 (2013), 1569–1576. Target-specific reading only: §2, equations(2.4)–(2.5), Proposition2.2 and Proposition2.3, printed pp.1570–1571. SHA-256 `c7f89e58b60af49992631c0c5990e76f9733cc8b51f5a853318fa8fc7de307f1`.
+- **author copy.** [version or search](https://afolsom.people.amherst.edu/BF-PAMS13.pdf). Author-hosted published copy, Proc. Amer. Math. Soc. 141 (2013), 1567–1576. Target-specific reading only: §2, equations(2.4)–(2.5), Proposition2.2 and Proposition2.3, printed pp.1570–1571. SHA-256 `c7f89e58b60af49992631c0c5990e76f9733cc8b51f5a853318fa8fc7de307f1`.
 
 <a id="reference-jurisich-exposition-1996"></a>
 
