@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-21T05:26:13Z",
- "exported_at": "2026-10-21T05:26:13Z",
+ "cutoff": "2026-10-21T12:32:50Z",
+ "exported_at": "2026-10-21T12:32:50Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 458,
-  "recent": 10723,
-  "total": 17716,
+  "open": 465,
+  "recent": 10822,
+  "total": 17874,
   "unattributed": {
-   "no_label": 1601,
+   "no_label": 1608,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    2267,
    2827,
    3120,
-   910
+   1068
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "0e8b058a97cc4f9401d2679313e0e937761c1024",
+ "roadmap_head": "a79cbaac2acd5a6ebaacaec489dbde6450ba3bad",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-20T18:04:21Z",
+    "last": "2026-10-21T08:00:41Z",
     "open": 3,
-    "recent": 3,
+    "recent": 4,
     "since_report": null,
-    "total": 3,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0,
      0,
-     3
+     4
     ]
    },
    "arxiv": "math.AG",
@@ -113,11 +113,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T02:45:23Z",
+    "last": "2026-10-21T10:57:03Z",
     "open": 5,
-    "recent": 286,
-    "since_report": 87,
-    "total": 601,
+    "recent": 282,
+    "since_report": 88,
+    "total": 602,
     "weekly": [
      0,
      0,
@@ -134,7 +134,7 @@
      61,
      83,
      99,
-     6
+     7
     ]
    },
    "arxiv": "math.AG",
@@ -222,11 +222,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T02:55:17Z",
-    "open": 3,
-    "recent": 16,
-    "since_report": null,
-    "total": 16,
+    "last": "2026-10-21T10:57:04Z",
+    "open": 4,
+    "recent": 18,
+    "since_report": 3,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -243,7 +243,7 @@
      0,
      0,
      9,
-     7
+     9
     ]
    },
    "arxiv": "math.AG",
@@ -251,9 +251,11 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer R0": "sheafiness for noetherian rings of definition, completed tensor products, fibre products and all morphism classes (R0.2 onward)"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/AdicSpacesPartII",
@@ -277,10 +279,40 @@
    "readme_sha": "63ef7252bd74856f163f4262b99fc0f390076b24f6270414d27ecedc707f7698",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed"
+    "partial",
+    "untouched"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Ascent of noetherian type",
+      "text": "— show that a complete ring topologically of finite type over a ring of noetherian type is again of noetherian type. This is the last R0.1 statement the sheafiness proof needs."
+     },
+     {
+      "name": "Huber's sheafiness theorem, noetherian ring of definition",
+      "text": "— combine the Čech exactness, strictness and completion results with the Artin–Rees blow-up `Proj(⊕ Jⁿ)` to make the completed Čech complex exact on rational coverings. The blow-up step is the main missing piece."
+     },
+     {
+      "name": "Completed tensor products of Huber pairs (R0.3)",
+      "text": "— the construction with its topology, plus ring and universal property. Fibre products and every morphism class after R0.6 depend on it."
+     },
+     {
+      "name": "Adic morphisms and finiteness classes (R0.6)",
+      "text": "— affinoid charts and the adic, weakly finite type and finite presentation predicates on adic spaces, now that the ring-level adic homomorphisms exist."
+     },
+     {
+      "name": "The constructible topology is profinite (R0.19.1)",
+      "text": "— Hausdorffness and total disconnectedness of a spectral space in its constructible topology. This is self-contained and can be done in parallel with the rest."
+     }
+    ],
+    "glance": "Layer R0 has begun at its ring-level base. The definitions and algebra behind Huber's sheafiness theorem for noetherian rings of definition (R0.0–R0.1b, plus several inputs for R0.2) are largely in place, but the sheafiness theorem itself is not. Nothing from completed tensor products onward (R0.3–R0.20) has landed, and Layer R1, analytification and the rigid–adic comparison, is untouched.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/AdicSpacesPartII/STATUS.md",
+    "progress_path": "TauCetiRoadmap/AdicSpacesPartII/PROGRESS.md",
+    "report_sha": "0f7d0cfcee4c7130fc4c8e8469d67a088978a4efcb259719bd9c6833e3988634",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "foundations of adic spaces, part II — morphisms and analytification",
    "topic": "Algebraic Geometry"
   },
@@ -355,7 +387,7 @@
   {
    "activity": {
     "last": "2026-10-21T02:49:51Z",
-    "open": 1,
+    "open": 2,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -422,11 +454,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:31:20Z",
+    "last": "2026-10-21T10:21:16Z",
     "open": 0,
-    "recent": 7,
+    "recent": 9,
     "since_report": null,
-    "total": 7,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -443,7 +475,7 @@
      0,
      0,
      0,
-     7
+     9
     ]
    },
    "arxiv": "math.RT",
@@ -474,11 +506,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T02:49:52Z",
+    "last": "2026-10-21T07:58:45Z",
     "open": 5,
-    "recent": 11,
-    "since_report": null,
-    "total": 11,
+    "recent": 12,
+    "since_report": 2,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -495,7 +527,7 @@
      0,
      0,
      7,
-     4
+     5
     ]
    },
    "arxiv": "math.CV",
@@ -520,17 +552,47 @@
    "readme_sha": "a7446d13dc5f25b58dfdd6bedd58525964357e8f0c48ff939188d84f74687bfc",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Maximum principle on compact submanifolds (A1)",
+      "text": "— show that a strictly plurisubharmonic function has no compact positive-dimensional complex submanifold in its domain. A3's dimension bound and A5's argument that A meets every component both need it."
+     },
+     {
+      "name": "Shape operators and paired focal distances (A2)",
+      "text": "— derive S_νJ=−JS_ν and S_(Jν)=JS_ν from the existing B identities, then apply the anticommuting-spectrum theorem to get symmetric focal distances on each normal line. The input is the RiemannianGeometry R6 shape operator."
+     },
+     {
+      "name": "Affine CW dimension ≤ n (A2)",
+      "text": "— move the squared-distance identities onto the GT Layer1 normal carrier, then combine properness, almost-every-point Morse genericity and MorseTheory M1–M2 to get a CW model with cells of index ≤ n."
+     },
+     {
+      "name": "Projective zero-locus carrier (A0)",
+      "text": "— `complexProjectiveZeroLocus`, its incidence variety and the cone Jacobian, on K7.1's projective space. A5 and A6 cannot be stated without it."
+     },
+     {
+      "name": "Pseudoconvex exhaustion topology (A3)",
+      "text": "— Morse-approximate a strongly q-pseudoconvex exhaustion with the fine-openness result above, then read off a CW dimension ≤ n+q and homology vanishing. MorseTheory M3–M4 has to supply this."
+     }
+    ],
+    "glance": "A1, the Levi calculus and the real index bounds, is essentially done. The one gap is the maximum principle on compact complex submanifolds. A2 has its pointwise identities in flat coordinates and nothing global yet. The projective carriers (A0), pseudoconvex exhaustions (A3), Borel–Moore duality and triangulation (A4), the Lefschetz theorems (A5) and the examples (A6) have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/AffineMorseLefschetz/STATUS.md",
+    "progress_path": "TauCetiRoadmap/AffineMorseLefschetz/PROGRESS.md",
+    "report_sha": "4c1434bc89ac0c5e4e6c429775e2698518c07fa174e36ccabfecdb6bbe70b488",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "Complex Morse theory, affine topology and weak Lefschetz",
    "topic": "Complex Variables"
   },
   {
    "activity": {
-    "last": "2026-10-21T04:31:34Z",
-    "open": 11,
-    "recent": 234,
-    "since_report": 82,
-    "total": 323,
+    "last": "2026-10-21T07:56:50Z",
+    "open": 10,
+    "recent": 233,
+    "since_report": 83,
+    "total": 324,
     "weekly": [
      0,
      0,
@@ -547,7 +609,7 @@
      48,
      70,
      77,
-     16
+     17
     ]
    },
    "arxiv": "math.AG",
@@ -794,11 +856,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T13:52:48Z",
-    "open": 4,
-    "recent": 110,
-    "since_report": 2,
-    "total": 118,
+    "last": "2026-10-21T12:06:24Z",
+    "open": 2,
+    "recent": 113,
+    "since_report": 5,
+    "total": 121,
     "weekly": [
      0,
      0,
@@ -815,7 +877,7 @@
      28,
      26,
      33,
-     7
+     10
     ]
    },
    "arxiv": "math.AG",
@@ -914,11 +976,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T00:58:43Z",
-    "open": 4,
-    "recent": 2,
+    "last": "2026-10-21T09:19:04Z",
+    "open": 5,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -935,7 +997,7 @@
      0,
      0,
      0,
-     2
+     3
     ]
    },
    "arxiv": "math.GR",
@@ -1003,8 +1065,8 @@
   {
    "activity": {
     "last": "2026-10-20T09:27:44Z",
-    "open": 2,
-    "recent": 106,
+    "open": 1,
+    "recent": 105,
     "since_report": 49,
     "total": 132,
     "weekly": [
@@ -1177,11 +1239,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:33:33Z",
+    "last": "2026-10-21T09:18:32Z",
     "open": 4,
-    "recent": 39,
-    "since_report": 4,
-    "total": 39,
+    "recent": 41,
+    "since_report": 6,
+    "total": 41,
     "weekly": [
      0,
      0,
@@ -1198,7 +1260,7 @@
      0,
      0,
      31,
-     8
+     10
     ]
    },
    "arxiv": "math.FA",
@@ -1259,11 +1321,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T14:58:45Z",
+    "last": "2026-10-21T10:20:09Z",
     "open": 4,
-    "recent": 130,
-    "since_report": 2,
-    "total": 160,
+    "recent": 133,
+    "since_report": 5,
+    "total": 163,
     "weekly": [
      0,
      0,
@@ -1280,7 +1342,7 @@
      47,
      31,
      30,
-     5
+     8
     ]
    },
    "arxiv": "math.AG",
@@ -1409,11 +1471,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:30:58Z",
+    "last": "2026-10-21T12:06:23Z",
     "open": 6,
-    "recent": 5,
+    "recent": 7,
     "since_report": null,
-    "total": 5,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -1430,7 +1492,7 @@
      0,
      0,
      1,
-     4
+     6
     ]
    },
    "arxiv": "math.AT",
@@ -1463,7 +1525,7 @@
    "activity": {
     "last": "2026-10-19T20:53:25Z",
     "open": 2,
-    "recent": 65,
+    "recent": 64,
     "since_report": 4,
     "total": 192,
     "weekly": [
@@ -1579,7 +1641,7 @@
    "activity": {
     "last": "2026-10-18T22:16:15Z",
     "open": 0,
-    "recent": 49,
+    "recent": 47,
     "since_report": 7,
     "total": 105,
     "weekly": [
@@ -1713,7 +1775,7 @@
    "activity": {
     "last": "2026-10-20T20:49:05Z",
     "open": 2,
-    "recent": 427,
+    "recent": 425,
     "since_report": 148,
     "total": 464,
     "weekly": [
@@ -1864,11 +1926,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:31:35Z",
-    "open": 2,
-    "recent": 7,
+    "last": "2026-10-21T07:27:01Z",
+    "open": 1,
+    "recent": 8,
     "since_report": null,
-    "total": 7,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -1885,7 +1947,7 @@
      0,
      0,
      1,
-     6
+     7
     ]
    },
    "arxiv": "math.NT",
@@ -1953,7 +2015,7 @@
   {
    "activity": {
     "last": "2026-10-21T03:59:21Z",
-    "open": 1,
+    "open": 3,
     "recent": 28,
     "since_report": 3,
     "total": 28,
@@ -2059,7 +2121,7 @@
   {
    "activity": {
     "last": "2026-10-21T04:30:57Z",
-    "open": 2,
+    "open": 5,
     "recent": 170,
     "since_report": 41,
     "total": 288,
@@ -2170,11 +2232,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T00:39:37Z",
-    "open": 5,
-    "recent": 16,
-    "since_report": null,
-    "total": 16,
+    "last": "2026-10-21T08:32:46Z",
+    "open": 3,
+    "recent": 21,
+    "since_report": 6,
+    "total": 21,
     "weekly": [
      0,
      0,
@@ -2191,7 +2253,7 @@
      0,
      0,
      8,
-     8
+     13
     ]
    },
    "arxiv": "math.FA",
@@ -2199,9 +2261,14 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "lattice-gauge comparison with Huber complete continuity, kernels and radius improvement, (Pr) modules, compactoid sets and IsCompactOperator",
+     "Layer 1": "determinants on (Pr) modules, idempotent splitting on Banach modules, completed-tensor base change",
+     "Layer 2": "fredholmDet and its multiplicativity, good zeros, invertibility of 1 - au and nonzero spectrum",
+     "Layer 4": "everything but the two-sided matrix minor estimates: slopes, finite-slope projectors, Hodge and exact polygons"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/CompactOperators",
@@ -2234,23 +2301,53 @@
    "readme_sha": "6da9096f90a31cc99819c0e5c8cc02c8de7e54fcb42b7704fecff91700019924",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "partial",
+    "partial",
+    "untouched",
+    "partial"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Invertibility and nonzero spectrum (§2.5)",
+      "text": "— the resolvent identity is in hand. What remains is `fredholmDet u = H_u(1)` with its multiplicativity, evaluation of `V` at a scalar, and `1 − au` invertible iff `H_u(a)` is a unit."
+     },
+     {
+      "name": "Good zeros (§2.3)",
+      "text": "— orders, the factorisation `F = (T − a)^h G` and the unit-root lemma. These need the Hasse-derivative and division interfaces from RestrictedPowerSeries."
+     },
+     {
+      "name": "The Riesz projector at a good zero (§3.1)",
+      "text": "— the first Layer 3 target. It needs both items above and §0.4's finite projective range for row-compact idempotents."
+     },
+     {
+      "name": "(Pr) modules (§§0.4, 1.5)",
+      "text": "— transport of row compactness and the determinant along retracts, with independence of the presentation. Cyclicity already supplies the key identity."
+     },
+     {
+      "name": "Coleman's transform (§3.3)",
+      "text": "— the bounded resultant `colemanDBounded`, majorants and Gauss-norm convergence. This is mostly finite polynomial algebra and could proceed in parallel with Layer 2."
+     }
+    ],
+    "glance": "The model-space core is in place. Row compactness and complete continuity agree on `c₀`, and the Fredholm determinant of a row-compact operator is entire, continuous and cyclic, with its resolvent identity. Layers 0–2 are partial, Layer 4 has only its two-sided matrix estimates, and Riesz–Coleman spectral theory (Layer 3) has not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/CompactOperators/STATUS.md",
+    "progress_path": "TauCetiRoadmap/CompactOperators/PROGRESS.md",
+    "report_sha": "2f2133b9afab3e92c5e3559967e9d61f5349d1063779495f245759511c4a2f74",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "Compact operators and nonarchimedean Fredholm theory",
    "topic": "Functional Analysis"
   },
   {
    "activity": {
-    "last": "2026-10-20T10:33:37Z",
-    "open": 5,
-    "recent": 3,
+    "last": "2026-10-21T08:07:29Z",
+    "open": 6,
+    "recent": 5,
     "since_report": null,
-    "total": 3,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -2267,7 +2364,7 @@
      0,
      0,
      0,
-     3
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -2350,11 +2447,11 @@
   },
   {
    "activity": {
-    "last": null,
+    "last": "2026-10-21T11:29:17Z",
     "open": 1,
-    "recent": 0,
+    "recent": 2,
     "since_report": null,
-    "total": 0,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -2371,7 +2468,7 @@
      0,
      0,
      0,
-     0
+     2
     ]
    },
    "arxiv": "math.CV",
@@ -2434,11 +2531,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T18:04:22Z",
+    "last": "2026-10-21T10:24:03Z",
     "open": 2,
-    "recent": 2,
+    "recent": 4,
     "since_report": null,
-    "total": 2,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -2455,7 +2552,7 @@
      0,
      0,
      0,
-     2
+     4
     ]
    },
    "arxiv": "math.AG",
@@ -2514,11 +2611,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:00:11Z",
-    "open": 5,
-    "recent": 113,
-    "since_report": 2,
-    "total": 322,
+    "last": "2026-10-21T09:41:21Z",
+    "open": 7,
+    "recent": 112,
+    "since_report": 5,
+    "total": 325,
     "weekly": [
      8,
      5,
@@ -2535,7 +2632,7 @@
      27,
      27,
      24,
-     5
+     8
     ]
    },
    "arxiv": "math.CV",
@@ -2631,11 +2728,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T09:42:43Z",
-    "open": 3,
+    "last": "2026-10-21T07:11:24Z",
+    "open": 2,
     "recent": 126,
-    "since_report": 40,
-    "total": 176,
+    "since_report": 41,
+    "total": 177,
     "weekly": [
      0,
      0,
@@ -2652,7 +2749,7 @@
      32,
      20,
      42,
-     9
+     10
     ]
    },
    "arxiv": "math.CT",
@@ -2771,11 +2868,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:30:24Z",
-    "open": 5,
-    "recent": 125,
-    "since_report": 11,
-    "total": 125,
+    "last": "2026-10-21T08:02:50Z",
+    "open": 4,
+    "recent": 126,
+    "since_report": 12,
+    "total": 126,
     "weekly": [
      0,
      0,
@@ -2792,7 +2889,7 @@
      0,
      52,
      59,
-     14
+     15
     ]
    },
    "arxiv": "math.SG",
@@ -2914,7 +3011,7 @@
    "activity": {
     "last": "2026-10-20T00:42:45Z",
     "open": 1,
-    "recent": 77,
+    "recent": 76,
     "since_report": 16,
     "total": 138,
     "weekly": [
@@ -3046,11 +3143,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T02:45:25Z",
-    "open": 2,
-    "recent": 5,
+    "last": "2026-10-21T11:28:35Z",
+    "open": 3,
+    "recent": 7,
     "since_report": null,
-    "total": 5,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -3067,7 +3164,7 @@
      0,
      0,
      0,
-     5
+     7
     ]
    },
    "arxiv": "math.AC",
@@ -3098,11 +3195,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:32:47Z",
-    "open": 11,
-    "recent": 136,
-    "since_report": 16,
-    "total": 136,
+    "last": "2026-10-21T10:57:06Z",
+    "open": 9,
+    "recent": 139,
+    "since_report": 19,
+    "total": 139,
     "weekly": [
      0,
      0,
@@ -3119,7 +3216,7 @@
      0,
      18,
      90,
-     28
+     31
     ]
    },
    "arxiv": "math.DG",
@@ -3250,11 +3347,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:59:22Z",
-    "open": 8,
-    "recent": 75,
-    "since_report": 5,
-    "total": 75,
+    "last": "2026-10-21T09:41:37Z",
+    "open": 11,
+    "recent": 76,
+    "since_report": 6,
+    "total": 76,
     "weekly": [
      0,
      0,
@@ -3271,7 +3368,7 @@
      0,
      0,
      61,
-     14
+     15
     ]
    },
    "arxiv": "math.NT",
@@ -3365,11 +3462,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:34:06Z",
-    "open": 8,
-    "recent": 269,
-    "since_report": 72,
-    "total": 635,
+    "last": "2026-10-21T08:06:25Z",
+    "open": 5,
+    "recent": 272,
+    "since_report": 77,
+    "total": 640,
     "weekly": [
      0,
      0,
@@ -3386,7 +3483,7 @@
      48,
      78,
      93,
-     16
+     21
     ]
    },
    "arxiv": "math.NT",
@@ -3506,11 +3603,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:28:01Z",
-    "open": 1,
-    "recent": 1,
+    "last": "2026-10-21T08:32:45Z",
+    "open": 2,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -3527,7 +3624,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -3590,11 +3687,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 1,
-    "recent": 0,
+    "last": "2026-10-21T09:50:34Z",
+    "open": 3,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -3611,7 +3708,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -3642,11 +3739,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:00:12Z",
+    "last": "2026-10-21T09:18:33Z",
     "open": 1,
-    "recent": 119,
-    "since_report": 45,
-    "total": 357,
+    "recent": 120,
+    "since_report": 46,
+    "total": 358,
     "weekly": [
      19,
      2,
@@ -3663,7 +3760,7 @@
      23,
      13,
      41,
-     6
+     7
     ]
    },
    "arxiv": "math.PR",
@@ -3804,11 +3901,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:00:00Z",
-    "open": 8,
-    "recent": 31,
-    "since_report": 5,
-    "total": 31,
+    "last": "2026-10-21T10:20:06Z",
+    "open": 7,
+    "recent": 34,
+    "since_report": 8,
+    "total": 34,
     "weekly": [
      0,
      0,
@@ -3825,7 +3922,7 @@
      0,
      0,
      17,
-     14
+     17
     ]
    },
    "arxiv": "math.AC",
@@ -3886,11 +3983,11 @@
   },
   {
    "activity": {
-    "last": null,
+    "last": "2026-10-21T10:58:08Z",
     "open": 9,
-    "recent": 0,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -3907,7 +4004,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.GR",
@@ -3986,11 +4083,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:30:56Z",
+    "last": "2026-10-21T09:41:23Z",
     "open": 2,
-    "recent": 7,
+    "recent": 9,
     "since_report": null,
-    "total": 7,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -4007,7 +4104,7 @@
      0,
      0,
      1,
-     6
+     8
     ]
    },
    "arxiv": "math.OA",
@@ -4038,11 +4135,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:14:03Z",
+    "last": "2026-10-21T09:41:31Z",
     "open": 2,
-    "recent": 123,
-    "since_report": 16,
-    "total": 143,
+    "recent": 124,
+    "since_report": 18,
+    "total": 145,
     "weekly": [
      0,
      0,
@@ -4059,7 +4156,7 @@
      46,
      27,
      25,
-     3
+     5
     ]
    },
    "arxiv": "math.CV",
@@ -4157,11 +4254,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T11:23:51Z",
-    "open": 1,
-    "recent": 15,
-    "since_report": null,
-    "total": 15,
+    "last": "2026-10-21T08:32:08Z",
+    "open": 2,
+    "recent": 16,
+    "since_report": 1,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -4178,7 +4275,7 @@
      0,
      0,
      10,
-     5
+     6
     ]
    },
    "arxiv": "math.AT",
@@ -4203,17 +4300,47 @@
    "readme_sha": "95217a136695f8c1f85f04f4ac6cb62252b0d640f9e0c36405c0b6dd7d818086",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "The Kan–Quillen model structure",
+      "text": "— build it on simplicial sets and then on pointed ones, and prove realization ⊣ Sing is a Quillen equivalence. This closes G2.1 and is the base for the level and stable model structures."
+     },
+     {
+      "name": "Symmetric sequences and Day convolution",
+      "text": "— define functors from the finite-bijection groupoid to pointed simplicial sets, prove the induction/wedge formula, and build the sphere sequence as a commutative monoid. Its modules are the symmetric spectra."
+     },
+     {
+      "name": "The fibre of a Hurewicz fibration and the loop space of its base",
+      "text": "— this is G2.10's square-lifting construction, valid on all loop components. Fibre transport along a supplied path is the next step after it."
+     },
+     {
+      "name": "Convenient-category and long exact sequence comparisons for path fibrations",
+      "text": "— k-ify the raw mapping-path carriers and compare them with the derived homotopy fibre. This waits on DGFloer's fibration exact sequence."
+     },
+     {
+      "name": "G1 axiomatic theories",
+      "text": "— reduced and unreduced integer-graded theories and their equivalence can start now. They depend only on the pointed CW suppliers, not on the spectral model."
+     }
+    ],
+    "glance": "Work so far is all foundations for G2. Most of the pointed simplicial category is in place: smash product, closed structure, tensors, circle, suspension and loops. The raw mapping-path fibration is largely built. Nothing in the library is yet a spectrum or a cohomology theory, and G1 and G3–G5 have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/GeneralizedCohomology/STATUS.md",
+    "progress_path": "TauCetiRoadmap/GeneralizedCohomology/PROGRESS.md",
+    "report_sha": "42c31524b86bce694c901170df1a619025b0073cd2d48f73b04574b6ede3fe7f",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "Generalized cohomology, spectra and orientations",
    "topic": "Algebraic Topology"
   },
   {
    "activity": {
-    "last": "2026-10-21T04:31:36Z",
-    "open": 3,
-    "recent": 32,
-    "since_report": 6,
-    "total": 32,
+    "last": "2026-10-21T08:32:24Z",
+    "open": 5,
+    "recent": 33,
+    "since_report": 7,
+    "total": 33,
     "weekly": [
      0,
      0,
@@ -4230,7 +4357,7 @@
      0,
      0,
      20,
-     12
+     13
     ]
    },
    "arxiv": "math.MG",
@@ -4378,7 +4505,7 @@
   {
    "activity": {
     "last": "2026-10-20T23:39:09Z",
-    "open": 2,
+    "open": 1,
     "recent": 385,
     "since_report": 7,
     "total": 507,
@@ -4524,7 +4651,7 @@
    "activity": {
     "last": "2026-10-20T20:12:45Z",
     "open": 2,
-    "recent": 128,
+    "recent": 127,
     "since_report": 19,
     "total": 152,
     "weekly": [
@@ -4780,11 +4907,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:31:21Z",
-    "open": 16,
-    "recent": 22,
-    "since_report": 1,
-    "total": 22,
+    "last": "2026-10-21T11:29:16Z",
+    "open": 10,
+    "recent": 29,
+    "since_report": 8,
+    "total": 29,
     "weekly": [
      0,
      0,
@@ -4801,7 +4928,7 @@
      0,
      0,
      4,
-     18
+     25
     ]
    },
    "arxiv": "math.CO",
@@ -4862,11 +4989,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:32:11Z",
+    "last": "2026-10-21T08:32:05Z",
     "open": 2,
-    "recent": 131,
-    "since_report": 11,
-    "total": 191,
+    "recent": 132,
+    "since_report": 13,
+    "total": 193,
     "weekly": [
      0,
      0,
@@ -4883,7 +5010,7 @@
      32,
      34,
      41,
-     5
+     7
     ]
    },
    "arxiv": "math.RT",
@@ -5037,11 +5164,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:14:26Z",
-    "open": 2,
-    "recent": 192,
-    "since_report": 34,
-    "total": 330,
+    "last": "2026-10-21T09:41:20Z",
+    "open": 3,
+    "recent": 196,
+    "since_report": 39,
+    "total": 335,
     "weekly": [
      4,
      2,
@@ -5058,7 +5185,7 @@
      31,
      56,
      62,
-     10
+     15
     ]
    },
    "arxiv": "math.SG",
@@ -5158,11 +5285,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T20:12:46Z",
-    "open": 3,
-    "recent": 35,
-    "since_report": 4,
-    "total": 35,
+    "last": "2026-10-21T05:23:27Z",
+    "open": 1,
+    "recent": 36,
+    "since_report": 5,
+    "total": 36,
     "weekly": [
      0,
      0,
@@ -5179,7 +5306,7 @@
      0,
      0,
      22,
-     13
+     14
     ]
    },
    "arxiv": "math.NT",
@@ -5267,11 +5394,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:00:14Z",
-    "open": 4,
-    "recent": 69,
-    "since_report": 3,
-    "total": 116,
+    "last": "2026-10-21T10:21:12Z",
+    "open": 5,
+    "recent": 70,
+    "since_report": 4,
+    "total": 117,
     "weekly": [
      0,
      0,
@@ -5288,7 +5415,7 @@
      19,
      3,
      7,
-     10
+     11
     ]
    },
    "arxiv": "math.DG",
@@ -5375,11 +5502,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T02:49:53Z",
-    "open": 2,
-    "recent": 3,
+    "last": "2026-10-21T09:41:27Z",
+    "open": 3,
+    "recent": 4,
     "since_report": null,
-    "total": 3,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -5396,7 +5523,7 @@
      0,
      0,
      0,
-     3
+     4
     ]
    },
    "arxiv": "math.CV",
@@ -5427,11 +5554,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T19:02:30Z",
-    "open": 0,
-    "recent": 1,
+    "last": "2026-10-21T10:57:02Z",
+    "open": 2,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -5448,7 +5575,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -5479,11 +5606,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:32:07Z",
-    "open": 2,
-    "recent": 33,
-    "since_report": 4,
-    "total": 33,
+    "last": "2026-10-21T10:58:10Z",
+    "open": 3,
+    "recent": 34,
+    "since_report": 5,
+    "total": 34,
     "weekly": [
      0,
      0,
@@ -5500,7 +5627,7 @@
      0,
      0,
      21,
-     12
+     13
     ]
    },
    "arxiv": "math.LO",
@@ -5582,7 +5709,7 @@
   {
    "activity": {
     "last": "2026-10-21T04:14:00Z",
-    "open": 8,
+    "open": 10,
     "recent": 166,
     "since_report": 22,
     "total": 229,
@@ -5720,11 +5847,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T14:42:40Z",
-    "open": 4,
-    "recent": 26,
-    "since_report": 2,
-    "total": 26,
+    "last": "2026-10-21T09:50:35Z",
+    "open": 3,
+    "recent": 28,
+    "since_report": 4,
+    "total": 28,
     "weekly": [
      0,
      0,
@@ -5741,7 +5868,7 @@
      0,
      0,
      21,
-     5
+     7
     ]
    },
    "arxiv": "math.MG",
@@ -5836,11 +5963,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:32:49Z",
-    "open": 2,
-    "recent": 123,
-    "since_report": 2,
-    "total": 228,
+    "last": "2026-10-21T10:23:06Z",
+    "open": 1,
+    "recent": 124,
+    "since_report": 3,
+    "total": 229,
     "weekly": [
      8,
      3,
@@ -5857,7 +5984,7 @@
      31,
      21,
      40,
-     5
+     6
     ]
    },
    "arxiv": "math.AG",
@@ -5952,11 +6079,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:32:08Z",
-    "open": 5,
-    "recent": 3,
+    "last": "2026-10-21T10:57:31Z",
+    "open": 4,
+    "recent": 5,
     "since_report": null,
-    "total": 3,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -5973,7 +6100,7 @@
      0,
      0,
      0,
-     3
+     5
     ]
    },
    "arxiv": "math.GT",
@@ -6004,11 +6131,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T13:06:23Z",
-    "open": 1,
+    "last": "2026-10-21T11:47:22Z",
+    "open": 0,
     "recent": 134,
-    "since_report": 16,
-    "total": 161,
+    "since_report": 2,
+    "total": 163,
     "weekly": [
      0,
      0,
@@ -6025,7 +6152,7 @@
      60,
      24,
      15,
-     4
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -6065,7 +6192,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/LocalFieldsRamification/README.md",
-   "readme_sha": "73fc2b922ad92bcb8abf1b01e791077d3c48100e7e6dceec2f96bdc1febee3b8",
+   "readme_sha": "ba0b46beb1899d5dce1c0f105ee85e2f7829db055da9c381f1c356a0750e6a66",
    "retired": null,
    "states": [
     "done",
@@ -6078,20 +6205,24 @@
     "frontier": [
      {
       "name": "No milestone remains open.",
-      "text": "The four items the previous report listed as open have all been proved. This roadmap is ready to be marked complete."
+      "text": "Every layer's milestones are proved, so this roadmap can be marked complete."
+     },
+     {
+      "name": "README bookkeeping",
+      "text": ": several per-milestone notes still list items as remaining that the library now proves. They should be updated to match."
      },
      {
       "name": "Downstream consumers",
-      "text": ": the counting of totally ramified extensions, which the README names as a consumer contract, can now build on the Eisenstein generator, integral monogenicity, the different and discriminant exponents, and the integral power basis."
+      "text": ": the counting of totally ramified extensions, which the README names as a consumer contract, can build on the Eisenstein generator, the integral power basis, and the different and discriminant exponents. Class field theory can build on the maximal abelian extension and its Galois group."
      }
     ],
-    "glance": "Every layer is now done. The summit, Iwasawa's presentation of the tame quotient, was already proved. The general Hasse–Arf theorem, the ℚ₂(ζ₈) witnesses, the integral power basis of a totally ramified extension and the functoriality of inertia along a finite extension, which were the last open milestones, are now in the library.",
+    "glance": "All five layers are done. The summit, Iwasawa's presentation of the tame quotient, is proved, as is the general Hasse–Arf theorem. Recent work extends the valuation theory from finite to arbitrary algebraic extensions and makes tame inertia a named procyclic subgroup.",
     "inherited": false,
     "path": "TauCetiRoadmap/LocalFieldsRamification/STATUS.md",
     "progress_path": "TauCetiRoadmap/LocalFieldsRamification/PROGRESS.md",
-    "report_sha": "9952f42d4cce21875c9e25a2465bce2e9f2d1c8f9a4d7085d69b9e1d45c34cfd",
-    "to_sha": "c7ae9d762d2bc9436e7c2ed5006e64ac24822b2d",
-    "ts": "2026-10-12T22:39:50Z"
+    "report_sha": "0342081eec623b0be2e97ae2fa333a1f23cdf606ce1e92e6573de2b990516aa5",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "local fields and ramification",
    "topic": "Number Theory"
@@ -6210,11 +6341,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T19:23:55Z",
+    "last": "2026-10-21T08:19:08Z",
     "open": 2,
-    "recent": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -6231,7 +6362,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -6278,11 +6409,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:00:01Z",
+    "last": "2026-10-21T08:06:26Z",
     "open": 4,
-    "recent": 13,
-    "since_report": null,
-    "total": 13,
+    "recent": 14,
+    "since_report": 3,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -6299,7 +6430,7 @@
      0,
      0,
      9,
-     4
+     5
     ]
    },
    "arxiv": "math.NT",
@@ -6307,9 +6438,12 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 3": "a.e. separability of Eisenstein polynomials, a.e. measurability of rootCount, the local fibre count, and the root-count integral",
+     "Layer 4": "Theorem 1, Theorem 2, convergence, the finite direction of the dichotomy, and the tame count"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/MassFormula",
@@ -6342,13 +6476,43 @@
    "readme_sha": "98690c28bb00a2385f452542cd3a140fb9aaab877515aa81e07eda4347cb51c0",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "done",
+    "done",
+    "done",
+    "partial",
+    "partial"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Almost every Eisenstein polynomial is separable",
+      "text": "— show that the non-separable locus in the Eisenstein region is Haar-null, so that the pointwise root-count identity holds almost everywhere."
+     },
+     {
+      "name": "Measurability of the root count",
+      "text": "— derive AEMeasurable of each rootCount on the region from the local constancy already proved and the null non-separable locus."
+     },
+     {
+      "name": "The local fibre count",
+      "text": "— Serre's Lemma 1: for ρ with d + n ≤ nρ, a monic g has exactly one root in the cube ξ + π^ρ𝒪_L iff ord g(ξ) ≥ nρ + d. The Hensel estimate and the box description of balls are its inputs; it also needs ord f′(ξ) = d for an Eisenstein generator."
+     },
+     {
+      "name": "The integral of the root count",
+      "text": "— ∫ rootCount L = q^{−(d L + 1)}(1 − q^{−1}) over the region, by change of variables through the scaling law; needs the fibre count."
+     },
+     {
+      "name": "Theorem 1 and its corollaries",
+      "text": "— interchange sum and integral to get ∑ q^{−c(L)} = n. Theorem 2 then follows from the orbit count and invariance of c, and the finite half of the dichotomy, convergence and the tame count come after it."
+     }
+    ],
+    "glance": "The counting invariants (Layer 0), quantitative Newton lifting (Layer 1) and the lattice-index and Haar scaling layer (Layer 2) are done. Layer 3 is about half built: the Eisenstein region, its volume, countability and the pointwise root-count identity are in, but the fibre count and the integral are not. Of Layer 4, the orbit count and the infinite half of the finiteness dichotomy are proved; neither mass formula is.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/MassFormula/STATUS.md",
+    "progress_path": "TauCetiRoadmap/MassFormula/PROGRESS.md",
+    "report_sha": "ba2d3514daec7e3181c625cb72a7bad07062764e5e8c9257102ae035218e9a3f",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "counting totally ramified extensions of a local field, and Serre's mass formula",
    "topic": "Number Theory"
   },
@@ -6494,11 +6658,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:35:49Z",
-    "open": 5,
-    "recent": 160,
-    "since_report": 17,
-    "total": 583,
+    "last": "2026-10-21T07:59:48Z",
+    "open": 4,
+    "recent": 159,
+    "since_report": 18,
+    "total": 584,
     "weekly": [
      0,
      0,
@@ -6515,7 +6679,7 @@
      37,
      34,
      34,
-     8
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -6644,11 +6808,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T23:38:58Z",
+    "last": "2026-10-21T10:57:33Z",
     "open": 3,
-    "recent": 2,
+    "recent": 4,
     "since_report": null,
-    "total": 2,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -6665,7 +6829,7 @@
      0,
      0,
      0,
-     2
+     4
     ]
    },
    "arxiv": "math.GT",
@@ -6696,11 +6860,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T00:24:19Z",
+    "last": "2026-10-21T08:32:47Z",
     "open": 2,
-    "recent": 21,
-    "since_report": 2,
-    "total": 21,
+    "recent": 22,
+    "since_report": 3,
+    "total": 22,
     "weekly": [
      0,
      0,
@@ -6717,7 +6881,7 @@
      0,
      0,
      12,
-     9
+     10
     ]
    },
    "arxiv": "math.DG",
@@ -6778,11 +6942,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T01:20:18Z",
-    "open": 3,
-    "recent": 20,
+    "last": "2026-10-21T08:06:27Z",
+    "open": 1,
+    "recent": 22,
     "since_report": null,
-    "total": 20,
+    "total": 22,
     "weekly": [
      0,
      0,
@@ -6799,7 +6963,7 @@
      0,
      0,
      14,
-     6
+     8
     ]
    },
    "arxiv": "math.NT",
@@ -6814,13 +6978,13 @@
    "completed": false,
    "id": "TauCetiRoadmap/NewtonPolygons",
    "layer_ids": [
-    "Layer 0 Discrete convexity and supporting geometry",
-    "Layer 1 Additive valuations and normalisation",
-    "Layer 2 Coefficients",
-    "Layer 3 Products",
-    "Layer 4 Disc factors",
-    "Layer 5 Convergence and entire products",
-    "Layer 6 Discrete valuations and formal preparation"
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6"
    ],
    "layer_lines": [
     209,
@@ -6832,20 +6996,20 @@
     868
    ],
    "layers": [
-    "Layer 0 Discrete convexity and supporting geometry",
-    "Layer 1 Additive valuations and normalisation",
-    "Layer 2 Coefficients, Gauss values and active indices",
-    "Layer 3 Products, polynomial roots and stability",
-    "Layer 4 Disc factors, slope factors and analytic zeros",
-    "Layer 5 Convergence and entire products",
-    "Layer 6 Discrete valuations and formal preparation"
+    "Layer 0: Discrete convexity and supporting geometry",
+    "Layer 1: Additive valuations and normalisation",
+    "Layer 2: Coefficients, Gauss values and active indices",
+    "Layer 3: Products, polynomial roots and stability",
+    "Layer 4: Disc factors, slope factors and analytic zeros",
+    "Layer 5: Convergence and entire products",
+    "Layer 6: Discrete valuations and formal preparation"
    ],
    "links": [],
    "name": "NewtonPolygons",
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/NewtonPolygons/README.md",
-   "readme_sha": "0cb9068ec4a80e208a0182f52c894bab22c519095d9a6c7bbbfce1d2a3a2d3a9",
+   "readme_sha": "b6b7fdfa1c23db30bf7e714dfe3c3ed22a3f883b63804ddc2fe7fdb5340ba845",
    "retired": null,
    "states": [
     "unassessed",
@@ -6862,11 +7026,11 @@
   },
   {
    "activity": {
-    "last": null,
+    "last": "2026-10-21T09:18:31Z",
     "open": 2,
-    "recent": 0,
+    "recent": 3,
     "since_report": null,
-    "total": 0,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -6883,7 +7047,7 @@
      0,
      0,
      0,
-     0
+     3
     ]
    },
    "arxiv": "math.RT",
@@ -6996,119 +7160,9 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:34:24Z",
-    "open": 0,
-    "recent": 100,
-    "since_report": 33,
-    "total": 165,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     1,
-     8,
-     13,
-     40,
-     42,
-     28,
-     10,
-     18,
-     5
-    ]
-   },
-   "arxiv": "math.NT",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/NumberFieldArithmetic",
-   "layer_ids": [
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 7",
-    "Layer 8"
-   ],
-   "layer_lines": [
-    486,
-    614,
-    833,
-    1085,
-    1281,
-    1717,
-    1890,
-    2128
-   ],
-   "layers": [
-    "Layer 1: the splitting dictionary",
-    "Layer 2: Frobenius elements and the Artin symbol",
-    "Layer 3: the index, Dedekind–Kummer, and Dedekind's theorem",
-    "Layer 4: the relative discriminant",
-    "Layer 5: the global-local dictionary at finite places",
-    "Layer 6: global ramification consequences",
-    "Layer 7: subfields, integral bases, monogenicity, and explicit units",
-    "Layer 8: the intrinsic label prefix and the invariant suite"
-   ],
-   "links": [],
-   "name": "NumberFieldArithmetic",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/NumberFieldArithmetic/README.md",
-   "readme_sha": "780a031c02c365a0e96a31ca71b6d7064f95cdfc99e41132f7328a3fad8fa0ed",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Rank-one quartic fields",
-      "text": ": the polynomial certificate needs prime degree, so a field such as `ℚ(ζ₈)` is outside it. The README excludes this case from scope. Extending the certificate is new work, not a missing milestone."
-     },
-     {
-      "name": "The class number of Dedekind's field",
-      "text": ": the README deliberately claims no value. Claiming one would need a full Minkowski certificate with explicit generators for every prime below the bound."
-     },
-     {
-      "name": "Downstream consumers",
-      "text": ": the Artin map, the relative discriminant and Dedekind's theorem are now stable inputs for the class field theory and Chebotarev roadmaps. The density of split primes belongs to Chebotarev, not here."
-     }
-    ],
-    "glance": "Every layer's milestones are proved, from the splitting dictionary to the worked invariant suite. The last open example, the dyadic filtration of `ℚ(i)`, has now landed. What remains lies at the boundaries the README itself draws: higher-rank units, rank-one quartic fields, and anything that belongs to class field theory or Chebotarev.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/NumberFieldArithmetic/STATUS.md",
-    "progress_path": "TauCetiRoadmap/NumberFieldArithmetic/PROGRESS.md",
-    "report_sha": "1b172c444c2bb2760e7ced3a149696c251ed864c0c52c3d814050782b00b32b9",
-    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
-    "ts": "2026-10-05T01:07:53Z"
-   },
-   "title": "number fields, ramification, Frobenius, and the LMFDB invariants",
-   "topic": "Number Theory"
-  },
-  {
-   "activity": {
     "last": "2026-10-19T07:36:24Z",
     "open": 0,
-    "recent": 60,
+    "recent": 57,
     "since_report": 19,
     "total": 207,
     "weekly": [
@@ -7194,11 +7248,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:59:23Z",
-    "open": 1,
-    "recent": 14,
-    "since_report": null,
-    "total": 14,
+    "last": "2026-10-21T10:24:05Z",
+    "open": 0,
+    "recent": 16,
+    "since_report": 5,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -7215,7 +7269,7 @@
      0,
      0,
      5,
-     9
+     11
     ]
    },
    "arxiv": "math.OA",
@@ -7240,17 +7294,47 @@
    "readme_sha": "a9aa88c88a66d931516067e58b47948cdbb9e8895c57126f9ce9a74d5b4c9fd8",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Integrated form as a *-representation",
+      "text": "— prove multiplicativity and the star law for the integrated form of a covariant pair. The README prescribes doing this first for compact-support integrands, then by L¹ approximation."
+     },
+     {
+      "name": "The twisted L¹ algebra",
+      "text": "— prove ‖f*‖₁ = ‖f‖₁ and that the involution is anti-multiplicative for convolution, complete to the Banach *-algebra, and build approximate units. This is the input to the full norm."
+     },
+     {
+      "name": "Density of entire analytic elements",
+      "text": "— Gaussian smearing gives a norm-dense invariant subalgebra. With it, the KMS characterization can be upgraded from the all-entire special case to checking on a dense invariant algebra."
+     },
+     {
+      "name": "Invariance of β-KMS states for β ≠ 0",
+      "text": "and the finite-dimensional Gibbs state — both are self-contained D7 milestones on top of the existing KMS API."
+     },
+     {
+      "name": "Regular covariant representation and the full crossed product",
+      "text": "— the regular representation on L²(G,H), then the full norm via a bounded family of cyclic representations, `A⋊αG`, and its universal property into multiplier algebras."
+     }
+    ],
+    "glance": "Only the foundations of D1 (actions, multipliers, twisted convolution, integrated forms) and D7 (generators, entire analytic elements, the definition of KMS states) have landed. No crossed product, groupoid algebra, modular-theory comparison or spin-system result exists yet, and D2–D6 and D8–D9 are untouched.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/OperatorAlgebraDynamics/STATUS.md",
+    "progress_path": "TauCetiRoadmap/OperatorAlgebraDynamics/PROGRESS.md",
+    "report_sha": "74b95a9c5bc178e23fd73b8199179746d497d6bbfc4d78a12d21ae4e7b46ca19",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "Operator-algebra dynamics, crossed products, and equilibrium",
    "topic": "Operator Algebras"
   },
   {
    "activity": {
-    "last": "2026-10-21T03:33:32Z",
-    "open": 13,
-    "recent": 170,
-    "since_report": 24,
-    "total": 170,
+    "last": "2026-10-21T10:23:09Z",
+    "open": 12,
+    "recent": 172,
+    "since_report": 26,
+    "total": 172,
     "weekly": [
      0,
      0,
@@ -7267,7 +7351,7 @@
      0,
      39,
      103,
-     28
+     30
     ]
    },
    "arxiv": "math.FA",
@@ -7984,11 +8068,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:34:02Z",
-    "open": 5,
-    "recent": 219,
-    "since_report": 65,
-    "total": 276,
+    "last": "2026-10-21T09:41:25Z",
+    "open": 6,
+    "recent": 220,
+    "since_report": 66,
+    "total": 277,
     "weekly": [
      0,
      0,
@@ -8005,7 +8089,7 @@
      29,
      64,
      94,
-     14
+     15
     ]
    },
    "arxiv": "math.OC",
@@ -8146,11 +8230,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T04:11:55Z",
+    "last": "2026-10-21T10:58:09Z",
     "open": 5,
-    "recent": 5,
+    "recent": 9,
     "since_report": null,
-    "total": 5,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -8167,7 +8251,7 @@
      0,
      0,
      0,
-     5
+     9
     ]
    },
    "arxiv": "math.DG",
@@ -8198,11 +8282,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T09:12:47Z",
-    "open": 1,
-    "recent": 160,
-    "since_report": 63,
-    "total": 160,
+    "last": "2026-10-21T05:24:19Z",
+    "open": 0,
+    "recent": 161,
+    "since_report": 64,
+    "total": 161,
     "weekly": [
      0,
      0,
@@ -8219,7 +8303,7 @@
      41,
      57,
      26,
-     3
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -8304,8 +8388,8 @@
   {
    "activity": {
     "last": "2026-10-21T04:00:52Z",
-    "open": 6,
-    "recent": 285,
+    "open": 7,
+    "recent": 284,
     "since_report": 8,
     "total": 409,
     "weekly": [
@@ -8417,11 +8501,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:30:23Z",
-    "open": 3,
-    "recent": 21,
+    "last": "2026-10-21T10:58:30Z",
+    "open": 5,
+    "recent": 23,
     "since_report": null,
-    "total": 21,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -8438,7 +8522,7 @@
      0,
      0,
      10,
-     11
+     13
     ]
    },
    "arxiv": "math.NT",
@@ -8453,12 +8537,12 @@
    "completed": false,
    "id": "TauCetiRoadmap/PadicFunctionalAnalysis",
    "layer_ids": [
-    "Layer 0 Ultrametric Banach modules and Tate gauges",
-    "Layer 1 Bounded operators and finite modules",
-    "Layer 2 Model spaces and bases",
-    "Layer 3 Continuous functions",
-    "Layer 4 Analytic stages and distributions on `ℤ_p`",
-    "Layer 5 Characters"
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5"
    ],
    "layer_lines": [
     190,
@@ -8469,19 +8553,19 @@
     835
    ],
    "layers": [
-    "Layer 0 Ultrametric Banach modules and Tate gauges",
-    "Layer 1 Bounded operators and finite modules",
-    "Layer 2 Model spaces and bases",
-    "Layer 3 Continuous functions, Mahler coordinates and bounded measures",
-    "Layer 4 Analytic stages and distributions on `ℤ_p`",
-    "Layer 5 Characters, specialisation and coefficient rings"
+    "Layer 0: Ultrametric Banach modules and Tate gauges",
+    "Layer 1: Bounded operators and finite modules",
+    "Layer 2: Model spaces and bases",
+    "Layer 3: Continuous functions, Mahler coordinates and bounded measures",
+    "Layer 4: Analytic stages and distributions on `ℤ_p`",
+    "Layer 5: Characters, specialisation and coefficient rings"
    ],
    "links": [],
    "name": "PadicFunctionalAnalysis",
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/PadicFunctionalAnalysis/README.md",
-   "readme_sha": "0ec0e8ef10543b83e5ce752af6b5aa79d306bd355fca4979676cfec2ca8c9aaf",
+   "readme_sha": "25034d7df4c77b5b6a301186aac79e1740adcc642a8042befdba23e1bb91017f",
    "retired": null,
    "states": [
     "unassessed",
@@ -8497,11 +8581,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:00:13Z",
-    "open": 7,
-    "recent": 27,
-    "since_report": 2,
-    "total": 27,
+    "last": "2026-10-21T07:58:48Z",
+    "open": 6,
+    "recent": 28,
+    "since_report": 3,
+    "total": 28,
     "weekly": [
      0,
      0,
@@ -8518,7 +8602,7 @@
      0,
      0,
      19,
-     8
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -8621,7 +8705,7 @@
   {
    "activity": {
     "last": null,
-    "open": 2,
+    "open": 5,
     "recent": 0,
     "since_report": null,
     "total": 0,
@@ -8812,11 +8896,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T19:23:56Z",
-    "open": 3,
-    "recent": 24,
-    "since_report": 1,
-    "total": 24,
+    "last": "2026-10-21T10:21:14Z",
+    "open": 2,
+    "recent": 27,
+    "since_report": 4,
+    "total": 27,
     "weekly": [
      0,
      0,
@@ -8833,7 +8917,7 @@
      0,
      0,
      18,
-     6
+     9
     ]
    },
    "arxiv": "math.QA",
@@ -8976,9 +9060,9 @@
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -9020,7 +9104,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/PolynomialGaloisGroups/README.md",
-   "readme_sha": "05deec1f27d2d39e56aff32b5963e3d67a4901f2a3a59d37e8664a847fe9a4ec",
+   "readme_sha": "5dcb80b0bb4846e52dac8669db54cb6206b81c314cfa66e07041170f631ace57",
    "retired": null,
    "states": [
     "done",
@@ -9060,11 +9144,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T23:39:06Z",
+    "last": "2026-10-21T08:32:09Z",
     "open": 0,
-    "recent": 10,
-    "since_report": null,
-    "total": 10,
+    "recent": 11,
+    "since_report": 1,
+    "total": 11,
     "weekly": [
      0,
      0,
@@ -9081,7 +9165,7 @@
      0,
      0,
      0,
-     10
+     11
     ]
    },
    "arxiv": "math.DG",
@@ -9106,14 +9190,44 @@
    "readme_sha": "a4987903f2969ecc35ae2d4daeb4e298e9ac0daff5a5ec45c8ca10a5e32bb922",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Projective examples",
+      "text": "— Scal(CP^d)=4d(d+1) and Scal(HP^d)=16d(d+2) on R1's normalized projective metrics. The product, scaling and sphere laws are in place, so this depends only on those supplied carriers."
+     },
+     {
+      "name": "Concordances over M×[0,1]",
+      "text": "— The conversion between concordances with product tails on M×ℝ and PSC metrics on M×[0,1] with product collars, via the fixed reparametrisation ψ. The reparametrisation and gluing machinery already exists; what is missing is the half-space boundary model."
+     },
+     {
+      "name": "Topology on metrics and openness of PSC",
+      "text": "— Build Sym²(T*M) as a subbundle, put the C² and C∞ section topologies on metrics, and prove PSC is open on compact M. Then extend the uniform lower bound to compact families. This consumes K5a's smooth-section topology."
+     },
+     {
+      "name": "Isotopy implies concordance",
+      "text": "— Smoothing a compact path of PSC metrics and slowing its parameter. This needs the family bounds above."
+     },
+     {
+      "name": "Bundle metrics and Gromov–Lawson surgery (P2, P3)",
+      "text": "— The O'Neill-type formula for shrinking positive fibres, and the torpedo/bending construction. Both follow P1, and neither has started."
+     }
+    ],
+    "glance": "Only the first layer has begun. P1 has the definition of positive scalar curvature, its basic laws under pullback, scaling, products and disjoint unions, the round sphere, and concordance as an equivalence relation. It still lacks topologies on the space of metrics, family versions, the projective examples and collared bordisms. Nothing from P2 (bundle metrics) through P6 (exotic spheres) has landed, and in particular the surgery theorem, the α-obstruction and the classification have not.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/PositiveScalarCurvature/STATUS.md",
+    "progress_path": "TauCetiRoadmap/PositiveScalarCurvature/PROGRESS.md",
+    "report_sha": "42a8318aba25f47d604cdd9e3ff54a36ad6643ae300c5749261c7e2ddf984216",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "Positive scalar curvature, surgery and bordism",
    "topic": "Differential Geometry"
   },
   {
    "activity": {
     "last": "2026-10-19T08:37:12Z",
-    "open": 0,
+    "open": 1,
     "recent": 40,
     "since_report": 8,
     "total": 40,
@@ -9204,7 +9318,7 @@
    "activity": {
     "last": "2026-10-20T03:34:02Z",
     "open": 1,
-    "recent": 248,
+    "recent": 246,
     "since_report": 49,
     "total": 307,
     "weekly": [
@@ -9357,7 +9471,7 @@
    "activity": {
     "last": "2026-10-20T16:39:45Z",
     "open": 0,
-    "recent": 267,
+    "recent": 265,
     "since_report": 12,
     "total": 302,
     "weekly": [
@@ -9481,11 +9595,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T12:51:04Z",
+    "last": "2026-10-21T09:18:29Z",
     "open": 3,
-    "recent": 171,
-    "since_report": 1,
-    "total": 198,
+    "recent": 172,
+    "since_report": 3,
+    "total": 200,
     "weekly": [
      0,
      0,
@@ -9502,7 +9616,7 @@
      50,
      43,
      32,
-     6
+     8
     ]
    },
    "arxiv": "math.NT",
@@ -9597,11 +9711,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:31:37Z",
+    "last": "2026-10-21T12:06:22Z",
     "open": 2,
-    "recent": 21,
-    "since_report": 3,
-    "total": 21,
+    "recent": 23,
+    "since_report": 5,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -9618,7 +9732,7 @@
      0,
      0,
      12,
-     9
+     11
     ]
    },
    "arxiv": "math.OA",
@@ -9676,6 +9790,62 @@
    },
    "title": "Quantum groups: compact reconstruction and generic rank-one representations",
    "topic": "Operator Algebras"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/Rank24LatticeConstructions",
+   "layer_ids": [
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6"
+   ],
+   "layer_lines": [
+    108,
+    159,
+    223,
+    251,
+    293,
+    312
+   ],
+   "layers": [
+    "Layer 1: component glue coordinates and coset minima",
+    "Layer 2: the checked Conway--Sloane data table",
+    "Layer 3: constructing the 23 rootful lattices",
+    "Layer 4: code identifications and mixed-component acceptance tests",
+    "Layer 5: functoriality and the actions used by the table",
+    "Layer 6: the Leech lattice by Construction B and an odd shift"
+   ],
+   "links": [],
+   "name": "Rank24LatticeConstructions",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/Rank24LatticeConstructions/README.md",
+   "readme_sha": "66b4daa7fdabdca4e330c60acf57b1d74271d0c92d2984cb2b47ce6fbadcf2a4",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Niemeier glue data and explicit Leech constructions",
+   "topic": "Number Theory"
   },
   {
    "activity": {
@@ -9787,11 +9957,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:31:19Z",
-    "open": 25,
-    "recent": 784,
-    "since_report": 8,
-    "total": 1658,
+    "last": "2026-10-21T11:29:19Z",
+    "open": 27,
+    "recent": 789,
+    "since_report": 14,
+    "total": 1664,
     "weekly": [
      9,
      4,
@@ -9808,7 +9978,7 @@
      132,
      273,
      256,
-     54
+     60
     ]
    },
    "arxiv": "math.AG",
@@ -9980,11 +10150,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 3,
-    "recent": 0,
+    "last": "2026-10-21T07:11:05Z",
+    "open": 5,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -10001,7 +10171,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.RT",
@@ -10032,11 +10202,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T16:39:47Z",
-    "open": 2,
-    "recent": 21,
-    "since_report": 3,
-    "total": 21,
+    "last": "2026-10-21T11:28:39Z",
+    "open": 3,
+    "recent": 23,
+    "since_report": 5,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -10053,7 +10223,7 @@
      0,
      0,
      10,
-     11
+     13
     ]
    },
    "arxiv": "math.CO",
@@ -10167,11 +10337,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:35:48Z",
-    "open": 21,
-    "recent": 868,
-    "since_report": 23,
-    "total": 1741,
+    "last": "2026-10-21T10:20:07Z",
+    "open": 23,
+    "recent": 866,
+    "since_report": 4,
+    "total": 1743,
     "weekly": [
      0,
      0,
@@ -10188,7 +10358,7 @@
      247,
      293,
      158,
-     26
+     28
     ]
    },
    "arxiv": "math.RT",
@@ -10217,32 +10387,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "Representation theory",
    "topic": "Representation Theory"
@@ -10319,32 +10489,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
    "topic": "Representation Theory"
@@ -10421,32 +10591,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "character theory of finite groups, and computing character tables",
    "topic": "Representation Theory"
@@ -10514,32 +10684,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "finite-dimensional representations of the classical groups",
    "topic": "Representation Theory"
@@ -10604,32 +10774,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "representations of compact groups and the Peter-Weyl theorem",
    "topic": "Representation Theory"
@@ -10643,7 +10813,7 @@
     "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 2.1": "almost-conjugate subgroups and their equivalent permutation representations",
+     "Layer 2.1": "the Gassmann adapters: the orbit-sum invariant basis and the full-cycle charpoly identity used by number-field arithmetic",
      "Layer 2.2": "a nonconjugate almost-conjugate pair in S16"
     },
     "source": "marker"
@@ -10703,7 +10873,7 @@
     "done",
     "done",
     "done",
-    "untouched",
+    "partial",
     "untouched",
     "done",
     "done",
@@ -10717,32 +10887,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "induction, restriction, and Mackey theory for finite groups",
    "topic": "Representation Theory"
@@ -10824,32 +10994,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "Lie groups and the Lie algebra correspondence",
    "topic": "Representation Theory"
@@ -10939,32 +11109,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
    "topic": "Representation Theory"
@@ -11021,32 +11191,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "induction theorems in Grothendieck groups of modular representations",
    "topic": "Representation Theory"
@@ -11113,32 +11283,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "quiver representations, path algebras, and Gabriel's theorem",
    "topic": "Representation Theory"
@@ -11199,32 +11369,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "root systems, Weyl groups, and the Cartan-Killing classification",
    "topic": "Representation Theory"
@@ -11233,13 +11403,13 @@
    "activity": null,
    "arxiv": "math.RT",
    "assessment": {
-    "detail": "the README changed after this report, so these states assess it as it was then",
+    "detail": null,
     "notes": {},
-    "readme_changed": true,
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
      "Layer 7": "RSK symmetry under inversion, the Cauchy identity, dual Jacobi-Trudi and the Hall inner product",
-     "Layer 9": "the Brauer algebra acting on tensor powers, its commutant theorem and the orthogonal and symplectic decompositions"
+     "Layer 9": "the symplectic Brauer action, the commutant theorems for O(V) and Sp(V), harmonic tensors and semisimplicity of the Brauer algebra"
     },
     "source": "marker"
    },
@@ -11304,32 +11474,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "representations of the symmetric group, Specht modules, and Schur-Weyl duality",
    "topic": "Representation Theory"
@@ -11398,32 +11568,32 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "semisimple algebras, Artin-Wedderburn, and the structure of their modules",
    "topic": "Representation Theory"
@@ -11514,43 +11684,43 @@
     "frontier": [
      {
       "name": "Almost-split sequences",
-      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable. After that, build the AR quiver of `kQ/I`."
+      "text": ": make the left almost-split map left minimal. Then [the cokernel completion](https://taucetiproject.org/docs/TauCeti/CategoryTheory/AlmostSplit/Completion.html#TauCeti.IsLeftAlmostSplit.isAlmostSplit_cokernelSequence) gives an almost-split sequence ending at every non-projective indecomposable, and the irreducible-morphism quiver becomes a translation quiver."
+     },
+     {
+      "name": "Brauer–Schur–Weyl duality",
+      "text": ": show that the orthogonal Brauer action commutes with `O(n)` and fills its commutant. Then build the symplectic action, whose cap and cup conventions are sign-sensitive."
      },
      {
       "name": "The Harish-Chandra isomorphism",
       "text": ": show that the projection hits all dot-invariants. With orbit separation already proved, this also gives the converse that equal central characters force one dot orbit."
      },
      {
+      "name": "The Gassmann pair in `S₁₆`",
+      "text": ": realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions and use the new cycle-type criterion to show that they are almost conjugate but not conjugate."
+     },
+     {
       "name": "Triality for `Spin₈`",
-      "text": ": the cyclic intertwiners and the octonion trilinear form exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
-     },
-     {
-      "name": "`Der 𝕆 ≅ g₂`",
-      "text": ": the map from split `g₂` is surjective and its target is simple of rank 14. What remains is injectivity, and then `f₄` from the Albert algebra."
-     },
-     {
-      "name": "Lie's third theorem",
-      "text": ": give integral leaves their immersed Lie structure, match subalgebras with connected subgroups, and integrate an arbitrary real Lie algebra using the Ado embedding."
+      "text": ": the cyclic intertwiners exist only on Lie-algebra generators over `ℚ`. Still missing are an order-three automorphism of the group and the proof that it is outer."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete except for two layers the roadmap has just added. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are all partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction is complete apart from its Gassmann layers, the first of which is now mostly built. Schur–Weyl duality, the classical groups, highest weight, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "4347f8163cd2c09bdcaa3d55b1a5ccc21f3840ddd552c3c630e9475fccf488b6",
-    "to_sha": "e29d6d25f6ba043928c95fb29195f7bfd83641b4",
-    "ts": "2026-10-19T05:07:02Z"
+    "report_sha": "980e6d254ca47b8ecf8ac0fe6dd47a9808f6ff73d4bfcd8aa5a36a5f4d37b909",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
    "topic": "Representation Theory"
   },
   {
    "activity": {
-    "last": "2026-10-20T08:20:58Z",
+    "last": "2026-10-21T08:01:36Z",
     "open": 6,
-    "recent": 13,
+    "recent": 14,
     "since_report": null,
-    "total": 13,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -11567,7 +11737,7 @@
      0,
      0,
      6,
-     7
+     8
     ]
    },
    "arxiv": "math.AG",
@@ -11582,14 +11752,14 @@
    "completed": false,
    "id": "TauCetiRoadmap/RestrictedPowerSeries",
    "layer_ids": [
-    "Layer 0 Coefficients and series algebras",
-    "Layer 1 Gauss norms and radius calculus",
-    "Layer 2 Evaluation",
-    "Layer 3 Multiplicative units and reduction",
-    "Layer 4 Weierstrass theory over Banach rings",
-    "Layer 5 Algebraic structure of Tate algebras",
-    "Layer 6 Topological and adic series comparisons",
-    "Layer 7 Open-disc"
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7"
    ],
    "layer_lines": [
     191,
@@ -11602,21 +11772,21 @@
     702
    ],
    "layers": [
-    "Layer 0 Coefficients and series algebras",
-    "Layer 1 Gauss norms and radius calculus",
-    "Layer 2 Evaluation, substitution and functions",
-    "Layer 3 Multiplicative units and reduction",
-    "Layer 4 Weierstrass theory over Banach rings",
-    "Layer 5 Algebraic structure of Tate algebras",
-    "Layer 6 Topological and adic series comparisons",
-    "Layer 7 Open-disc, entire and overconvergent series"
+    "Layer 0: Coefficients and series algebras",
+    "Layer 1: Gauss norms and radius calculus",
+    "Layer 2: Evaluation, substitution and functions",
+    "Layer 3: Multiplicative units and reduction",
+    "Layer 4: Weierstrass theory over Banach rings",
+    "Layer 5: Algebraic structure of Tate algebras",
+    "Layer 6: Topological and adic series comparisons",
+    "Layer 7: Open-disc, entire and overconvergent series"
    ],
    "links": [],
    "name": "RestrictedPowerSeries",
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/RestrictedPowerSeries/README.md",
-   "readme_sha": "2096d5869c4f140d9c1c0a8a92b09e197998487ca94ae96d58ca33b6e8ee6d42",
+   "readme_sha": "fb7ebaa755523b8c246a9ed4e2b3b75d6af71d7ed68191679fdcfa3057a3f6b2",
    "retired": null,
    "states": [
     "unassessed",
@@ -11686,11 +11856,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T15:26:16Z",
+    "last": "2026-10-21T10:57:35Z",
     "open": 2,
-    "recent": 9,
-    "since_report": null,
-    "total": 9,
+    "recent": 11,
+    "since_report": 2,
+    "total": 11,
     "weekly": [
      0,
      0,
@@ -11707,7 +11877,7 @@
      0,
      0,
      6,
-     3
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -11715,9 +11885,13 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "weak stability of the Gauss fraction field and finiteness of normalisation of Tate algebras",
+     "Layer 1": "relative series algebra, Japanese and height results, excellence, tensor products, fraction algebras, strict polyradii",
+     "Layer 2": "maximum modulus, power-bounded elements via the sup norm, Banach function algebras, reduction functor"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/RigidAnalyticGeometry",
@@ -11756,25 +11930,55 @@
    "readme_sha": "b01a4bce31ac0b696201efcc2397dbdbc1739c3607d5433f39af4107caedc77b",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "untouched",
+    "partial",
+    "partial",
+    "untouched",
+    "untouched",
+    "untouched",
+    "untouched"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Maximum modulus",
+      "text": "— show that `|f|sup` is attained at a classical point, and prove the uniform value-group statement. The tools are normalisation and the minimal-prime reduction, both already present."
+     },
+     {
+      "name": "Power-bounded elements and the spectral radius",
+      "text": "— prove `A° = {|f|sup ≤ 1}`, `A°° = {|f|sup < 1}` and `|f|sup = inf ‖fⁿ‖^(1/n)`. All of these depend on maximum modulus."
+     },
+     {
+      "name": "Weak stability (Layer 0.2)",
+      "text": "— prove that the Gauss fraction field is weakly stable and that normalisation is finite. This is needed for the Japanese property in §1.2 and for the Banach function algebra theorem in §2.2."
+     },
+     {
+      "name": "Fraction algebras (§1.4)",
+      "text": "— construct Weierstrass, Laurent and rational fractions with their universal properties. These are the entry point to affinoid subdomains and to every geometric layer."
+     },
+     {
+      "name": "Affinoid tensor products (§1.3)",
+      "text": "— construct the pushout `A⟨X,Y⟩/(I,J)`, which also requires the relative algebra `A⟨X⟩` still missing from §1.1."
+     }
+    ],
+    "glance": "The basic algebra of affinoid algebras is in place: presentations, noetherianity, maximal spectra, Noether normalisation and independence of the topology from the presentation. The theory of the supremum seminorm is about half done. Weak stability, the later sections of Layer 1, and all of the geometry from affinoid spaces onwards have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/RigidAnalyticGeometry/STATUS.md",
+    "progress_path": "TauCetiRoadmap/RigidAnalyticGeometry/PROGRESS.md",
+    "report_sha": "b746f87fe73679902f9728d838ebac6b91f2738656d3481c5c0b693ad07af675",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "Rigid analytic geometry",
    "topic": "Algebraic Geometry"
   },
   {
    "activity": {
-    "last": "2026-10-21T02:45:21Z",
-    "open": 7,
-    "recent": 40,
-    "since_report": 10,
-    "total": 40,
+    "last": "2026-10-21T09:41:29Z",
+    "open": 4,
+    "recent": 43,
+    "since_report": 13,
+    "total": 43,
     "weekly": [
      0,
      0,
@@ -11791,14 +11995,14 @@
      0,
      0,
      22,
-     18
+     21
     ]
    },
    "arxiv": "math.AG",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "henselization universal property and ind-etale package; excellent, Nagata and Japanese rings; pseudo-coherence; perfect schemes; rest of Frobenius",
@@ -11822,11 +12026,11 @@
    ],
    "layer_lines": [
     463,
-    2020,
-    3198,
-    4580,
-    4973,
-    6475
+    2044,
+    3232,
+    4614,
+    5033,
+    6535
    ],
    "layers": [
     "Layer 0: schemes and morphisms",
@@ -11841,7 +12045,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/SchemeAndStackFoundations/README.md",
-   "readme_sha": "c1d86d70a4c88de33a4097a5466c4dac5f903eb2d1b5c761ae3d7f191dbe430c",
+   "readme_sha": "07240fe176c74a5b17b3b608c93a846720d78ef82598c700d81cfcf1d0c31aef",
    "retired": null,
    "states": [
     "partial",
@@ -11887,11 +12091,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T01:20:17Z",
-    "open": 2,
-    "recent": 2,
+    "last": "2026-10-21T07:11:25Z",
+    "open": 3,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -11908,7 +12112,7 @@
      0,
      0,
      0,
-     2
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -11939,11 +12143,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T20:12:48Z",
-    "open": 1,
-    "recent": 1,
+    "last": "2026-10-21T09:41:38Z",
+    "open": 0,
+    "recent": 3,
     "since_report": null,
-    "total": 1,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -11960,7 +12164,7 @@
      0,
      0,
      0,
-     1
+     3
     ]
    },
    "arxiv": "math.DG",
@@ -11992,7 +12196,7 @@
   {
    "activity": {
     "last": "2026-10-20T06:50:53Z",
-    "open": 0,
+    "open": 2,
     "recent": 6,
     "since_report": null,
     "total": 6,
@@ -12043,11 +12247,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:14:02Z",
-    "open": 4,
+    "last": "2026-10-21T07:59:51Z",
+    "open": 5,
     "recent": 121,
-    "since_report": 40,
-    "total": 142,
+    "since_report": 41,
+    "total": 143,
     "weekly": [
      0,
      0,
@@ -12064,7 +12268,7 @@
      30,
      22,
      47,
-     2
+     3
     ]
    },
    "arxiv": "math.RT",
@@ -12173,11 +12377,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T04:58:34Z",
-    "open": 5,
-    "recent": 110,
-    "since_report": 51,
-    "total": 138,
+    "last": "2026-10-21T10:20:10Z",
+    "open": 7,
+    "recent": 112,
+    "since_report": 53,
+    "total": 140,
     "weekly": [
      0,
      0,
@@ -12194,7 +12398,7 @@
      23,
      27,
      31,
-     5
+     7
     ]
    },
    "arxiv": "math.AG",
@@ -12314,11 +12518,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:32:50Z",
+    "last": "2026-10-21T12:06:21Z",
     "open": 20,
-    "recent": 224,
-    "since_report": 51,
-    "total": 367,
+    "recent": 222,
+    "since_report": 56,
+    "total": 372,
     "weekly": [
      0,
      0,
@@ -12335,7 +12539,7 @@
      2,
      3,
      98,
-     86
+     91
     ]
    },
    "arxiv": "math.PR",
@@ -12471,11 +12675,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:59:59Z",
-    "open": 0,
-    "recent": 2,
+    "last": "2026-10-21T09:41:36Z",
+    "open": 1,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -12492,7 +12696,7 @@
      0,
      0,
      0,
-     2
+     3
     ]
    },
    "arxiv": "math.SG",
@@ -12662,7 +12866,31 @@
    "topic": "Symplectic Geometry"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-10-21T11:28:38Z",
+    "open": 0,
+    "recent": 1,
+    "since_report": null,
+    "total": 1,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
    "arxiv": "math.CA",
    "assessment": {
     "detail": null,
@@ -12691,11 +12919,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T03:59:57Z",
-    "open": 5,
-    "recent": 5,
+    "last": "2026-10-21T10:21:15Z",
+    "open": 4,
+    "recent": 7,
     "since_report": null,
-    "total": 5,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -12712,7 +12940,7 @@
      0,
      0,
      0,
-     5
+     7
     ]
    },
    "arxiv": "math.SG",
@@ -12886,7 +13114,7 @@
     "last": "2026-10-20T04:11:55Z",
     "open": 3,
     "recent": 15,
-    "since_report": null,
+    "since_report": 0,
     "total": 15,
     "weekly": [
      0,
@@ -12929,17 +13157,47 @@
    "readme_sha": "df9f99bd20c20655b37d092035f78304c3e8cc25ab3d235fe00548a909b67cbc",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "The scalar-curvature transformation law",
+      "text": "— specialize the conformal curvature formula to Ricci and scalar curvature for ĝ = u^(4/(n−2))g, and prove Scal_ĝ = u^(−(n+2)/(n−2))L_g u together with the operator identity for L_ĝ. Both inputs (the connection change and the conformal Laplacian) are now present."
+     },
+     {
+      "name": "Conformal invariance of the Yamabe quotient",
+      "text": "— define Q_g and Y(M,[g]), and prove Q_ĝ(v) = Q_g(uv), first for smooth functions and then on the H¹ domain. The weak-domain half waits on Y1's Sobolev carrier."
+     },
+     {
+      "name": "Cotton and the Weyl–Schouten theorem",
+      "text": "— define Cotton, prove the conformal laws and div W = (n−3)C, then use the first-jet Frobenius argument to show that W = 0 (n ≥ 4) or C = 0 (n = 3) characterizes local conformal flatness."
+     },
+     {
+      "name": "The sharp Euclidean Sobolev inequality",
+      "text": "— with the extremals' energy already computed, what remains is the inequality a_n∫|du|² ≥ Y(Sⁿ)‖u‖²_{p_n} on D¹,² and the classification of its equality cases (Y2.1–Y2.2)."
+     },
+     {
+      "name": "Closed-manifold Sobolev interfaces",
+      "text": "— Y1's H¹/Lᵖ adapters, compact embeddings and the first eigenvalue of L_g, which depend on the PDE and K5a supplier lanes."
+     }
+    ],
+    "glance": "Only the foundations have started. Parts of Y0 (conformal tensors) and Y2 (the bubbles of sharp Euclidean Sobolev theory) are in place. The analytic interfaces, the variational and blow-up theory, and every existence theorem (Y1, Y3–Y10) have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/Yamabe/STATUS.md",
+    "progress_path": "TauCetiRoadmap/Yamabe/PROGRESS.md",
+    "report_sha": "cc80ad7be8fc062f0721c5aa3dd38dc43d371a1b8f1ca9c0d9ba43dec033a32a",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
    "title": "The Yamabe problem and conformal scalar curvature",
    "topic": "Differential Geometry"
   },
   {
    "activity": {
-    "last": "2026-10-21T03:34:25Z",
+    "last": "2026-10-21T08:03:53Z",
     "open": 3,
     "recent": 194,
-    "since_report": 15,
-    "total": 251,
+    "since_report": 16,
+    "total": 252,
     "weekly": [
      0,
      0,
@@ -12956,7 +13214,7 @@
      33,
      72,
      62,
-     7
+     8
     ]
    },
    "arxiv": "math.RT",
@@ -13067,7 +13325,7 @@
     "last": "2026-10-19T09:34:18Z",
     "open": 0,
     "recent": 56,
-    "since_report": 2,
+    "since_report": 0,
     "total": 89,
     "weekly": [
      0,
@@ -13090,9 +13348,9 @@
    },
    "arxiv": "math.IT",
    "assessment": {
-    "detail": "the README changed after this report, so these states assess it as it was then",
+    "detail": null,
     "notes": {},
-    "readme_changed": true,
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -13153,13 +13411,13 @@
       "text": "— the Golay lattice and the `A₂` and `D₄` Lagrangians are packaged as input for explicit lattice constructions. Whether another roadmap uses them is outside this one."
      }
     ],
-    "glance": "All seven layers have their milestones proved, including the end-to-end acceptance test. The extended binary Golay code is built from its displayed matrix and verified. Its even unimodular lattice comes out both as Construction A and as the gluing of `2ℤ²⁴` along the code, through the general discriminant API. Recent work mostly deepens the general API: additive codes get the operations linear codes already had, and equivalences now act compatibly on duals and lattices.",
+    "glance": "All seven layers have their milestones proved, including the end-to-end acceptance test. The extended binary Golay code is built from its displayed matrix and verified, and its even unimodular lattice arises both as Construction A and as the gluing of `2ℤ²⁴` along the code, through the general discriminant API. What remains is polish of the general API, not open targets.",
     "inherited": false,
     "path": "Completed/AlgebraicCodingTheory/STATUS.md",
     "progress_path": "Completed/AlgebraicCodingTheory/PROGRESS.md",
-    "report_sha": "e85da8a7422bb78db74cec4055fc174ce6734257311e323b67fdeaeb4e9f3c01",
-    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
-    "ts": "2026-10-05T01:07:53Z"
+    "report_sha": "fdedea6076e2c0dc99f329eaa0286ff68388ede54cb76f7046b5e7f9d6cd941e",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "algebraic codes and code-lattice constructions",
    "topic": "Information Theory"
@@ -13168,8 +13426,8 @@
    "activity": {
     "last": "2026-10-14T01:13:31Z",
     "open": 0,
-    "recent": 54,
-    "since_report": 4,
+    "recent": 53,
+    "since_report": 0,
     "total": 136,
     "weekly": [
      0,
@@ -13192,9 +13450,9 @@
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": "the README changed after this report, so these states assess it as it was then",
+    "detail": null,
     "notes": {},
-    "readme_changed": true,
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -13275,13 +13533,13 @@
       "text": "— the ordered variant covers finite-dimensional spaces with a closed positive cone, which includes finite-dimensional ordered algebras. The README asks for this only \"when the proof permits it\", and finite dimensionality is what the proof uses."
      }
     ],
-    "glance": "Every layer is done. The summit is in place, from Wiener–Ikehara through the generic prime-number-theorem transfer, and the prime ideal theorem is stated unconditionally. What remains is a few edge cases that the README marks as downstream or optional, plus polishing of the weight carriers.",
+    "glance": "Every layer is done. The summit is in place, from Wiener–Ikehara through the generic prime-number-theorem transfer, and the prime ideal theorem is stated unconditionally. What remains is a few edge cases that the README marks as downstream or optional, plus filling out the operations on the carriers.",
     "inherited": false,
     "path": "Completed/ArithmeticDirichletSeries/STATUS.md",
     "progress_path": "Completed/ArithmeticDirichletSeries/PROGRESS.md",
-    "report_sha": "c9fb88a2c14662e84ff6fbe8973a471f1c622bd36f7b9144535be29c9629628e",
-    "to_sha": "c7ae9d762d2bc9436e7c2ed5006e64ac24822b2d",
-    "ts": "2026-10-12T22:39:50Z"
+    "report_sha": "42db335b9e3b9e8ba71973eecb5d312e56e2bdfe9e9229cea863584c887801ed",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "arithmetic Dirichlet series and Tauberian methods",
    "topic": "Number Theory"
@@ -13492,8 +13750,8 @@
    "activity": {
     "last": "2026-10-13T09:53:42Z",
     "open": 0,
-    "recent": 24,
-    "since_report": 6,
+    "recent": 23,
+    "since_report": 0,
     "total": 75,
     "weekly": [
      0,
@@ -13516,9 +13774,9 @@
    },
    "arxiv": "math.AG",
    "assessment": {
-    "detail": "the README changed after this report, so these states assess it as it was then",
+    "detail": null,
     "notes": {},
-    "readme_changed": true,
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -13575,13 +13833,13 @@
       "text": "— the README's hook for `opposed`, `gradedF` and `gradedComplexEquiv` applies only if that in-progress Mathlib work lands."
      }
     ],
-    "glance": "All four milestones are proved, and on the evidence here no target the README sets remains open. The latest work extends the pure theory beyond the README: polarizability now passes to duals and internal Homs, and the standard weight-one example is a point of its period domain. The mixed theory still has no tensor products or duals, and the successor roadmap on variations has not begun.",
+    "glance": "All four milestones are proved, and on the evidence here no target the README sets remains open. The pure theory now also has polarizations in the form the README prescribes, a fixed integral form with its complex form derived, and polarizability passes to duals and internal Homs. The mixed theory still has no tensor products or duals, and the successor roadmap on variations has not begun.",
     "inherited": false,
     "path": "Completed/HodgeStructures/STATUS.md",
     "progress_path": "Completed/HodgeStructures/PROGRESS.md",
-    "report_sha": "43fa63a179577dc25aa6bc8fcdfe1a78f6104e638e2d0aadc80ed9d8d52a6765",
-    "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
-    "ts": "2026-10-05T01:07:53Z"
+    "report_sha": "b0261f17f653822da20a22da5b3ffc74b38d0e447e0d1ec02fbb7cc998bc4ad8",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
    },
    "title": "Hodge structures (pure, mixed, and polarized)",
    "topic": "Algebraic Geometry"
@@ -13589,9 +13847,9 @@
   {
    "activity": {
     "last": "2026-10-21T04:14:00Z",
-    "open": 8,
+    "open": 10,
     "recent": 166,
-    "since_report": 142,
+    "since_report": 1,
     "total": 229,
     "weekly": [
      0,
@@ -13618,9 +13876,7 @@
     "notes": {},
     "readme_changed": false,
     "reason": "ok",
-    "remaining": {
-     "Layer 4": "the bilinear comparison A_{L_H} = H-perp/H for integral but odd overlattices, and its componentwise form over orthogonal sums"
-    },
+    "remaining": {},
     "source": "marker"
    },
    "completed": true,
@@ -13657,35 +13913,27 @@
     "done",
     "done",
     "done",
-    "partial",
+    "done",
     "done"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Bilinear `H⊥/H` for odd overlattices",
-      "text": ": the isometry `A_{L_H} ≅ H⊥/H` of discriminant bilinear modules for an integral overlattice that need not be even. The supplied evidence does not show that it has landed."
+      "name": "General dyadic decomposition",
+      "text": "— extend the cyclic and rank-two block results to arbitrary nondegenerate 2-primary quadratic modules; the supplied results do not establish a complete normal form or isometry decision procedure."
      },
      {
-      "name": "Orthogonal-sum form of the comparison",
-      "text": ": the README's componentwise statement for `A_{L_H} ≅ H⊥/H`. The equivalence `A_{L⊥M} ≃ A_L × A_M` already exists."
-     },
-     {
-      "name": "Lattices from Tau Ceti's root data",
-      "text": ": turn a pinned root datum into an `IntegralLattice` whose Gram matrix is its Cartan matrix. Positive definiteness of the simply-laced Cartan matrices is now proved ([`TauCeti.DynkinType.posDef_map_intCast_cartanMatrix_of_isSimplyLaced`](https://taucetiproject.github.io/TauCeti/docs/TauCeti/LinearAlgebra/RootSystem/FiniteType/SimplyLaced.html#TauCeti.DynkinType.posDef_map_intCast_cartanMatrix_of_isSimplyLaced))."
-     },
-     {
-      "name": "`IsZLattice` comparison",
-      "text": ": optional per the README, and nothing has landed."
+      "name": "Pinned root-data bridge",
+      "text": "— construct integral lattices directly from Tau Ceti's pinned root data with the Cartan Gram matrices; the completed roadmap permits coordinate constructions for its ADE examples."
      }
     ],
-    "glance": "The roadmap's completion criterion is met. The general APIs of Layers 1 to 3, every row of the Layer 5 table, and the `D₈⁺ ≅ E₈` isometry are formalized, and the Layer 2 invariant factors now cover every nondegenerate lattice. Layer 4 is done except for two secondary clauses: the bilinear `H⊥/H` comparison for odd overlattices and its orthogonal-sum form. The evidence here does not establish either one.",
+    "glance": "The five-layer roadmap is complete: the lattice and finite-form APIs support the overlattice correspondence, the ADE discriminant calculations, and the `D₈⁺ ≅ E₈` glue isometry. The broader finite-form classification has partial dyadic results, but no required layer of this roadmap remains partial or untouched.",
     "inherited": false,
     "path": "Completed/IntegralLattices/STATUS.md",
     "progress_path": "Completed/IntegralLattices/PROGRESS.md",
-    "report_sha": "a26e5fb5388371a73f56d31181fe3844637e2a02935c0c704b7af22016786cf0",
-    "to_sha": "06fa4daa78e94b5a6f0eaae58742a89e37958e12",
-    "ts": "2026-10-01T01:25:56Z"
+    "report_sha": "aae4fae29da63c22fb42267131b3782c6c0adde75ac94242b2addbc12a929634",
+    "to_sha": "d9aa9a97a4bbac408801d24d6faf32e5f3994f62",
+    "ts": "2026-10-20T03:37:01Z"
    },
    "title": "integral lattices, discriminant forms, and overlattices",
    "topic": "Number Theory"
@@ -13695,7 +13943,7 @@
     "last": "2026-10-13T10:45:34Z",
     "open": 0,
     "recent": 31,
-    "since_report": 5,
+    "since_report": 0,
     "total": 215,
     "weekly": [
      6,
@@ -13718,9 +13966,9 @@
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": "the README changed after this report, so these states assess it as it was then",
+    "detail": null,
     "notes": {},
-    "readme_changed": true,
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -13769,15 +14017,125 @@
       "text": "— untouched. Both rest on the existence theorem of class field theory, which the ClassFieldTheory roadmap plans to supply."
      }
     ],
-    "glance": "All four layers are done. That covers the degree and Galois theory of multiquadratic fields, the decomposition law at every prime including a ramified 2, the genus field and the 2-rank theorem for real and imaginary quadratic fields, and every worked example the roadmap lists. Only the long horizon is open. Multiquadratic fields, the genus field and its totally real part are described inside cyclotomic fields. Kronecker–Weber for abelian fields of higher exponent and the Hilbert and ring class fields have not begun.",
+    "glance": "All four layers are done. That covers the degree and Galois theory of multiquadratic fields, the decomposition law at every prime including a ramified 2, the genus field and the 2-rank theorem for real and imaginary quadratic fields, and every worked example the roadmap lists. Only the long horizon is open. Multiquadratic fields, the genus field and its totally real part are placed inside cyclotomic fields, but Kronecker–Weber for abelian fields of higher exponent and the Hilbert and ring class fields have not begun.",
     "inherited": false,
     "path": "Completed/Multiquadratic/STATUS.md",
     "progress_path": "Completed/Multiquadratic/PROGRESS.md",
-    "report_sha": "19b953585829388c19def48880e4a38308b88afb1ef19a1b3147a2bb37b446df",
+    "report_sha": "53a5d5520205d8efc0e211fba9ec51d82b185f5293393b31ecec164aa3ffd6f3",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
+   "title": "multiquadratic fields and genus theory",
+   "topic": "Number Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-21T03:34:24Z",
+    "open": 1,
+    "recent": 98,
+    "since_report": 33,
+    "total": 165,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     8,
+     13,
+     40,
+     42,
+     28,
+     10,
+     18,
+     5
+    ]
+   },
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/NumberFieldArithmetic",
+   "layer_ids": [
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8"
+   ],
+   "layer_lines": [
+    487,
+    615,
+    834,
+    1086,
+    1290,
+    1727,
+    1900,
+    2138
+   ],
+   "layers": [
+    "Layer 1: the splitting dictionary",
+    "Layer 2: Frobenius elements and the Artin symbol",
+    "Layer 3: the index, Dedekind–Kummer, and Dedekind's theorem",
+    "Layer 4: the relative discriminant",
+    "Layer 5: the global-local dictionary at finite places",
+    "Layer 6: global ramification consequences",
+    "Layer 7: subfields, integral bases, monogenicity, and explicit units",
+    "Layer 8: the intrinsic label prefix and the invariant suite"
+   ],
+   "links": [],
+   "name": "NumberFieldArithmetic",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/NumberFieldArithmetic/README.md",
+   "readme_sha": "7e1a4c7d55b53e2d7ebb1091bfc1ec07f8e5a59ab65f1c213ca58377056b5be5",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Rank-one quartic fields",
+      "text": ": the polynomial certificate needs prime degree, so a field such as `ℚ(ζ₈)` is outside it. The README excludes this case from scope. Extending the certificate is new work, not a missing milestone."
+     },
+     {
+      "name": "The class number of Dedekind's field",
+      "text": ": the README deliberately claims no value. Claiming one would need a full Minkowski certificate with explicit generators for every prime below the bound."
+     },
+     {
+      "name": "Downstream consumers",
+      "text": ": the Artin map, the relative discriminant and Dedekind's theorem are now stable inputs for the class field theory and Chebotarev roadmaps. The density of split primes belongs to Chebotarev, not here."
+     }
+    ],
+    "glance": "Every layer's milestones are proved, from the splitting dictionary to the worked invariant suite. The last open example, the dyadic filtration of `ℚ(i)`, has now landed. What remains lies at the boundaries the README itself draws: higher-rank units, rank-one quartic fields, and anything that belongs to class field theory or Chebotarev.",
+    "inherited": false,
+    "path": "Completed/NumberFieldArithmetic/STATUS.md",
+    "progress_path": "Completed/NumberFieldArithmetic/PROGRESS.md",
+    "report_sha": "1b172c444c2bb2760e7ced3a149696c251ed864c0c52c3d814050782b00b32b9",
     "to_sha": "1d095894ac25298eb2a23398826c0f867b6d3164",
     "ts": "2026-10-05T01:07:53Z"
    },
-   "title": "multiquadratic fields and genus theory",
+   "title": "number fields, ramification, Frobenius, and the LMFDB invariants",
    "topic": "Number Theory"
   },
   {
@@ -13975,8 +14333,8 @@
   {
    "activity": {
     "last": "2026-10-15T12:14:18Z",
-    "open": 3,
-    "recent": 20,
+    "open": 0,
+    "recent": 19,
     "since_report": 7,
     "total": 128,
     "weekly": [
