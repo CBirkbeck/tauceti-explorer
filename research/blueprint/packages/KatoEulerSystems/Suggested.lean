@@ -1,763 +1,291 @@
 import Mathlib
 
-/-! # KatoEulerSystems: representative target signatures
+/-!
+# KatoEulerSystems: representative target signatures
 
-The roadmap is README.md. This file records definitions and theorem signatures
-statable against the pinned APIs and is not exhaustive. Geometric existence,
-arithmetic cohomology and comparison theorems require the suppliers specified
-there. The algebraic constructions below make their inputs explicit: normalized
-units, ordered bilinear symbols, literal duals, linear composites and basis
-realizations. Their elementary instances fix signs, twists and denominators.
+`README.md` is normative. This file records the light definitions and the milestones of the
+roadmap that can be stated against the pinned Mathlib and Tau Ceti, with proved checks that fix
+their conventions; it is not exhaustive.
+
+Design choices made explicit here:
+
+* The finite-level modular zeta classes, their reciprocity law and the cyclotomic bound belong
+  to `PadicFamilies` §4.0; Iwasawa cohomology, open modular curves and scheme `K₂` are not
+  available at the pins, so the theorems about them are README targets only.
+* Torsion indices act on row vectors (`Matrix.vecMul`), which fixes the full-level convention of
+  Layer 0.
+* The Euler polynomial of Layer 2 is written in the variable `X = σ_ℓ⁻¹`, after evaluation at
+  `t = ℓ⁻¹ σ_ℓ⁻¹` of the arithmetic-Frobenius characteristic polynomial.
+* Kato's hypothesis 13.4(v) is the predicate `HasOneDimFixedSpace`; a unipotent element is one
+  way to satisfy it, a semisimple element with eigenvalues `1, ζ` is another.
+* The finite-support statement of Layer 4 is stated for noetherian rings of dimension at most
+  two, so that it covers the non-domain `O[{±1}][[T]]` at `p = 2`.
 -/
 
 namespace TauCetiRoadmap.KatoEulerSystems
 
-noncomputable section
-open scoped BigOperators
+open Polynomial
 
-/-! ## Layer 0: normalized theta and Siegel units -/
-
-section Theta
-variable {R D : Type*} [CommRing R] [AddCommGroup D]
-
-/-- A unit has the prescribed divisor and is fixed by prime-to-c norms. -/
-def thetaCondition (c : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
-    (wanted : D) (u : Rˣ) : Prop :=
-  divisor u = wanted ∧ ∀ a : ℕ, Nat.Coprime a c → norm a u = u
-
-/-- Select the normalized unit when its existence and uniqueness are supplied.
-The elliptic-curve existence theorem is a separate geometric target. -/
-def cTheta (c : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ) (wanted : D)
-    (h : ∃! u, thetaCondition c divisor norm wanted u) : Rˣ :=
-  Classical.choose h.exists
-
-/-- The selected unit has the required divisor. -/
-theorem cTheta_divisor (c : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
-    (wanted : D) (h : ∃! u, thetaCondition c divisor norm wanted u) :
-    divisor (cTheta c divisor norm wanted h) = wanted := by sorry
-
-/-- Prime-to-c norms fix the normalized unit. -/
-theorem cTheta_norm (c : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
-    (wanted : D) (h : ∃! u, thetaCondition c divisor norm wanted u)
-    (a : ℕ) (ha : Nat.Coprime a c) :
-    norm a (cTheta c divisor norm wanted h) = cTheta c divisor norm wanted h := by sorry
-
-/-- The normalization characterizes the unit uniquely. -/
-theorem cTheta_unique (c : ℕ) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
-    (wanted : D) (h : ∃! u, thetaCondition c divisor norm wanted u)
-    (u : Rˣ) (hu : thetaCondition c divisor norm wanted u) :
-    u = cTheta c divisor norm wanted h := by sorry
-
-/-- The c=5 divisor has coefficient 25 at the zero section before subtracting E[5]. -/
-example (zero torsion : D) (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ)
-    (h : ∃! u, thetaCondition 5 divisor norm (25 • zero - torsion) u) :
-    divisor (cTheta 5 divisor norm (25 • zero - torsion) h) =
-      25 • zero - torsion := by sorry
-
-/-- Multiplication by two is prime to five. -/
-example (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ) (wanted : D)
-    (h : ∃! u, thetaCondition 5 divisor norm wanted u) :
-    norm 2 (cTheta 5 divisor norm wanted h) = cTheta 5 divisor norm wanted h := by sorry
-
-/-- At a nonzero two-torsion point, the original and pulled-back divisor
-coefficients are respectively zero and 24. -/
-example : (0 : ℤ) ≠ 25 - 1 := by sorry
-
-/-- Identity norms and the specified divisor admit the unit one. -/
-example : thetaCondition 5 (fun u : ℚˣ => (u : ℚ)) (fun _ u => u) 1 1 := by sorry
-
-/-- A wrong divisor is rejected even when every norm is identity. -/
-example : ¬ thetaCondition 5 (fun u : ℚˣ => (u : ℚ))
-    (fun _ u => u) 1 (-1) := by sorry
-
-/-- The divisor alone is insufficient: a norm sending one to minus one fails. -/
-example : ¬ thetaCondition 5 (fun u : ℚˣ => (u : ℚ))
-    (fun _ _ => (-1 : ℚˣ)) 1 1 := by sorry
-
-/-- Selection preserves a uniquely prescribed unit other than one. -/
-example (h : ∃! u : ℚˣ, thetaCondition 5 (fun v => (v : ℚ))
-    (fun _ v => v) (-1) u) :
-    cTheta 5 (fun v : ℚˣ => (v : ℚ)) (fun _ v => v) (-1) h = -1 := by sorry
-
-end Theta
+/-! ## Layer 0: Siegel units beyond the normalized theta function -/
 
 section Siegel
-variable {R S S' U : Type*} [CommRing R] [CommRing S] [CommRing S']
-variable [AddCommGroup U] [Module ℚ U]
 
-/-- Pull an already normalized unit along a torsion-section ring map. -/
-def siegelUnit (pull : R →+* S) (theta : Rˣ) : Sˣ := Units.map pull theta
+variable {U : Type*} [AddCommGroup U] [Module ℚ U]
 
-/-- Evaluation along the torsion section is the unit functor on its ring map. -/
-theorem siegelUnit_pullback (pull : R →+* S) (theta : Rˣ) :
-    siegelUnit pull theta = Units.map pull theta := by sorry
+/-- The smoothing operation `c²g − g_c` of target 0.1, on a rationalized unit group `U`: the
+right-hand side of `[c-g_(α,β)] = c²[g_(α,β)] − [g_(cα,cβ)]`. -/
+def rationalSmoothing (c : ℤ) (g gc : U) : U :=
+  ((c : ℚ) ^ 2) • g - gc
 
-/-- Additive rational smoothing, with both original and multiplied torsion indices. -/
-def rationalSmoothing (c : ℤ) (g gc : U) : U := (c : ℚ)^2 • g - gc
+/-- When multiplication by five fixes the torsion index, smoothing multiplies by `24`. -/
+example (g : U) : rationalSmoothing 5 g g = (24 : ℚ) • g := by
+  unfold rationalSmoothing
+  rw [show ((5 : ℤ) : ℚ) ^ 2 = 24 + 1 by norm_num, add_smul, one_smul, add_sub_cancel_right]
 
-/-- The smoothing has the c-squared coefficient and a negative translated term. -/
-theorem siegelUnit_smoothing (c : ℤ) (g gc : U) :
-    rationalSmoothing c g gc = (c : ℚ)^2 • g - gc := by sorry
-
-/-- Fixed-index smoothings for two auxiliary integers give the same rational unit. -/
-theorem siegelUnit_auxiliary (c d : ℤ) (g : U) :
-    ((d : ℚ)^2 - 1) • rationalSmoothing c g g =
-      ((c : ℚ)^2 - 1) • rationalSmoothing d g g := by sorry
-
-/-- Level pullback composes with torsion-section evaluation. -/
-theorem siegelUnit_level (pull : R →+* S) (level : S →+* S') (theta : Rˣ) :
-    Units.map level (siegelUnit pull theta) = siegelUnit (level.comp pull) theta := by sorry
-
-/-- A nontrivial smoothing at five has coefficient 24. -/
-example (g : U) : rationalSmoothing 5 g g = (24 : ℚ) • g := by sorry
-
-/-- Auxiliary seven gives coefficient 48; cross-multiplication compares rational units. -/
-example (g : U) : (48 : ℚ) • rationalSmoothing 5 g g =
-    (24 : ℚ) • rationalSmoothing 7 g g := by sorry
-
-/-- Integral smoothings are not independent of the auxiliary integer. -/
-example : rationalSmoothing 5 (1 : ℚ) 1 ≠ rationalSmoothing 7 (1 : ℚ) 1 := by sorry
-
-/-- Identity pullback preserves a possibly nonconstant unit. -/
-example (theta : Rˣ) : siegelUnit (RingHom.id R) theta = theta := by sorry
-
-/-- Pullback of the unit one is one. -/
-example (pull : R →+* S) : siegelUnit pull 1 = 1 := by sorry
-
-/-- Pullback respects inversion of the supplied unit. -/
-example (pull : R →+* S) (theta : Rˣ) :
-    siegelUnit pull theta⁻¹ = (siegelUnit pull theta)⁻¹ := by sorry
+/-- Only the rationalized unit is independent of the auxiliary integer: the integral smoothings
+at `c = 5` and `c = 7` differ. -/
+example : rationalSmoothing 5 (1 : ℚ) 1 ≠ rationalSmoothing 7 (1 : ℚ) 1 := by
+  norm_num [rationalSmoothing]
 
 end Siegel
 
-/-- Row-vector torsion indices for a column convention on the universal basis. -/
-def torsionIndexAction (sigma : Matrix (Fin 2) (Fin 2) ℚ) (v : Fin 2 → ℚ) : Fin 2 → ℚ :=
-  Matrix.vecMul v sigma
+/-- The action of `σ ∈ GL₂(ℤ/N)` on torsion indices, written on row vectors as in target 0.2:
+`(α, β) ↦ (aα + cβ, bα + dβ)` for `σ = [[a, b], [c, d]]`. -/
+def torsionIndexAction (σ : Matrix (Fin 2) (Fin 2) ℚ) (v : Fin 2 → ℚ) : Fin 2 → ℚ :=
+  Matrix.vecMul v σ
 
-/-- The upper shear sends (alpha,0) to (alpha,alpha), fixing the side of the action. -/
-example : torsionIndexAction !![1, 1; 0, 1] ![(1/5 : ℚ), 0] = ![1/5, 1/5] := by sorry
+/-- The upper shear moves `(1/5, 0)` to `(1/5, 1/5)`. -/
+example : torsionIndexAction !![1, 1; 0, 1] ![1 / 5, 0] = ![1 / 5, 1 / 5] := by
+  ext i
+  fin_cases i <;> simp [torsionIndexAction, Matrix.vecMul, dotProduct, Fin.sum_univ_two]
 
-/-- A lower shear has a different effect; transposing the convention changes the answer. -/
-example : torsionIndexAction !![1, 0; 1, 1] ![(1/5 : ℚ), 0] = ![1/5, 0] := by sorry
+/-- The lower shear fixes `(1/5, 0)`: transposing the action changes the previous value. -/
+example : torsionIndexAction !![1, 0; 1, 1] ![1 / 5, 0] = ![1 / 5, 0] := by
+  ext i
+  fin_cases i <;> simp [torsionIndexAction, Matrix.vecMul, dotProduct, Fin.sum_univ_two]
 
-/-- Identity basis action fixes a nonzero torsion-index representative. -/
-example : torsionIndexAction (1 : Matrix (Fin 2) (Fin 2) ℚ)
-    ![(1/5 : ℚ), (2/5 : ℚ)] = ![1/5, 2/5] := by sorry
+/-- The leading q-exponent `B₂(x)/2` of the Siegel product of target 0.3, with the square on
+`x` that Kato's 1.9 omits. -/
+def siegelLeadingExponent (x : ℚ) : ℚ :=
+  (x ^ 2 - x + 1 / 6) / 2
 
-/-- Determinant two is the nontrivial exponent in the action on level roots. -/
-example : Matrix.det !![(2 : ℚ), 0; 0, 1] = 2 := by sorry
+/-- At `a = 2, N = 5` the exponent is `−11/300`; the formula without the square gives
+`−23/300`. -/
+example : siegelLeadingExponent (2 / 5) = -11 / 300 := by
+  norm_num [siegelLeadingExponent]
 
-/-- The rational q-exponent is half the second Bernoulli polynomial. -/
-def siegelLeadingExponent (x : ℚ) : ℚ := (x^2 - x + 1/6) / 2
+/-- The exponent is symmetric under `x ↦ 1 − x`. -/
+example (x : ℚ) : siegelLeadingExponent (1 - x) = siegelLeadingExponent x := by
+  unfold siegelLeadingExponent
+  ring
 
-/-- The zero first index has exponent 1/12, although the pair must be nonzero. -/
-example : siegelLeadingExponent 0 = 1/12 := by sorry
+/-- Target 0.3: the leading exponent is half the second Bernoulli polynomial, which is the
+constant term `−ζ(x, −1)` of Kato's 3.10. -/
+theorem siegelLeadingExponent_eq_bernoulli (x : ℚ) :
+    siegelLeadingExponent x = (Polynomial.bernoulli 2).eval x / 2 := by
+  sorry
 
-/-- A half-index has exponent -1/24, distinguishing the missing-square error. -/
-example : siegelLeadingExponent (1/2) = -1/24 := by sorry
+/-! ## Layer 2: the Euler system of a newform and full-level classes -/
 
-/-- A two-fifths index detects the squared term in the Bernoulli polynomial. -/
-example : siegelLeadingExponent (2/5) = -11/300 ∧
-    siegelLeadingExponent (2/5) ≠ (-23/300 : ℚ) := by sorry
+/-- The evaluated Euler factor of target 2.1 in the variable `X = σ_ℓ⁻¹`:
+`1 − a ℓ^(−r) X + ε ℓ^(k−1−2r) X²`, for coefficients `a = conj(a_ℓ)` and `ε = conj(ε(ℓ))`. -/
+noncomputable def katoEulerPolynomial (ell a eps : ℚ) (k r : ℤ) : ℚ[X] :=
+  1 - C (a * ell ^ (-r)) * X + C (eps * ell ^ (k - 1 - 2 * r)) * X ^ 2
 
-/-- Reflection of the first index leaves the Bernoulli exponent unchanged. -/
-example (x : ℚ) : siegelLeadingExponent (1-x) = siegelLeadingExponent x := by sorry
+/-- At `k = 2, r = 1, ℓ = 3, a = 2` the linear coefficient is `−2/3`. -/
+example : (katoEulerPolynomial 3 2 1 2 1).coeff 1 = -2 / 3 := by
+  simp [katoEulerPolynomial, coeff_one, coeff_C]
+  norm_num
 
-/-- The rationalizing denominator is nonzero only under an auxiliary-size condition. -/
-example (c : ℤ) (hc : 2 ≤ c) : (c : ℚ)^2 - 1 ≠ 0 := by sorry
-
-/-! ## Layer 1: ordered symbols and Chern moments -/
-
-section Symbols
-variable {U K : Type*} [AddCommGroup U] [AddCommGroup K] [Module ℚ U] [Module ℚ K]
-
-/-- Evaluate an ordered symbol on the two indexed units, written additively here. -/
-def beilinsonElement (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K) (first second : U) : K :=
-  symbol first second
-
-/-- The first slot precedes the second slot. -/
-theorem beilinsonElement_symbol (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K) (u v : U) :
-    beilinsonElement symbol u v = symbol u v := by sorry
-
-/-- Bilinearity expands two products of units into four ordered terms. -/
-theorem beilinsonElement_bilinear (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K) (u u' v v' : U) :
-    beilinsonElement symbol (u+u') (v+v') =
-      symbol u v + symbol u v' + symbol u' v + symbol u' v' := by sorry
-
-/-- Smoothing each slot gives all four terms with the two negative cross terms. -/
-theorem beilinsonElement_smoothing (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K)
-    (c d : ℤ) (u uc v vd : U) :
-    beilinsonElement symbol (rationalSmoothing c u uc) (rationalSmoothing d v vd) =
-      ((c : ℚ)^2 * (d : ℚ)^2) • symbol u v -
-      (c : ℚ)^2 • symbol u vd - (d : ℚ)^2 • symbol uc v + symbol uc vd := by sorry
-
-/-- Ordered degree-one products are witnessed by the determinant bilinear form. -/
-example : Matrix.det !![(1 : ℚ), 0; 0, 1] = 1 ∧
-    Matrix.det !![(0 : ℚ), 1; 1, 0] = -1 := by sorry
-
-/-- The identity unit becomes zero in additive rationalized units. -/
-example (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K) (v : U) :
-    beilinsonElement symbol 0 v = 0 ∧ beilinsonElement symbol v 0 = 0 := by sorry
-
-/-- Changing the first slot additively splits the symbol. -/
-example (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K) (u u' v : U) :
-    beilinsonElement symbol (u+u') v =
-      beilinsonElement symbol u v + beilinsonElement symbol u' v := by sorry
-
-/-- Scalar multiplication supplies a nonzero bilinear evaluation. -/
-example : beilinsonElement (LinearMap.lsmul ℚ ℚ) 2 3 = 6 := by sorry
-
-/-- A zero second entry gives zero under the same nonzero bilinear map. -/
-example : beilinsonElement (LinearMap.lsmul ℚ ℚ) 2 0 = 0 := by sorry
-
-/-- A nonzero sum in the first slot is evaluated, rather than discarded. -/
-example : beilinsonElement (LinearMap.lsmul ℚ ℚ) (2+3) 7 = 35 := by sorry
-
-end Symbols
-
-section Moment
-variable {F A B C D E : Type*} [Field F]
-variable [AddCommGroup A] [AddCommGroup B] [AddCommGroup C] [AddCommGroup D] [AddCommGroup E]
-variable [Module F A] [Module F B] [Module F C] [Module F D] [Module F E]
-
-/-- Chern character, moment insertion, trace, then the Hochschild--Serre edge. -/
-def chernMoment (chern : A →ₗ[F] B) (moment : B →ₗ[F] C)
-    (trace : C →ₗ[F] D) (edge : D →ₗ[F] E) : A →ₗ[F] E :=
-  edge.comp (trace.comp (moment.comp chern))
-
-/-- The composite fixes the order of the four constituent operations. -/
-theorem chernMoment_factorization (chern : A →ₗ[F] B) (moment : B →ₗ[F] C)
-    (trace : C →ₗ[F] D) (edge : D →ₗ[F] E) :
-    chernMoment chern moment trace edge = edge.comp (trace.comp (moment.comp chern)) := by sorry
-
-/-- Tate twists from K2, roots and the symmetric power sum to k-r. -/
-theorem chernMoment_twist (k r : ℤ) : 2-r+(k-2) = k-r := by sorry
-
-/-- Equality of all values identifies the moment morphism. -/
-theorem chernMoment_ext (f g : A →ₗ[F] E) (h : ∀ x, f x = g x) : f = g := by sorry
-
-/-- The weight-two r=1 target has twist one. -/
-example : (2 : ℤ)-1+(2-2) = 1 := by sorry
-
-/-- Weight four r=1 has twist three, not minus one. -/
-example : (2 : ℤ)-1+(4-2) = 3 := by sorry
-
-/-- Both moment exponents are nonnegative in the critical range. -/
-example (k j : ℤ) (hlo : 1 ≤ j) (hhi : j ≤ k-1) :
-    0 ≤ j-1 ∧ 0 ≤ k-j-1 ∧ (j-1)+(k-j-1) = k-2 := by sorry
-
-/-- Identity constituent maps give the identity composite on a nonzero vector. -/
-example : chernMoment (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
-    LinearMap.id LinearMap.id LinearMap.id 1 = 1 := by sorry
-
-/-- A zero trace kills the constructed moment. -/
-example : chernMoment (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
-    LinearMap.id (0 : ℚ →ₗ[ℚ] ℚ) LinearMap.id 1 = 0 := by sorry
-
-/-- Four nontrivial constituent scalings contribute to the composite. -/
-example : chernMoment ((2 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ))
-    (3 • LinearMap.id) (5 • LinearMap.id) (7 • LinearMap.id) 1 = 210 := by sorry
-
-end Moment
-
-/-- Equality of combined level-prime sets does not preserve each index:
-the change (2,3) to (6,9) requires the ramified new-prime norm relation. -/
-example : (2 * 3 : ℕ).primeFactors = (6 * 9 : ℕ).primeFactors ∧
-    (2 : ℕ).primeFactors ≠ (6 : ℕ).primeFactors ∧
-    (3 : ℕ).primeFactors = (9 : ℕ).primeFactors := by sorry
-
-/-! ## Layer 2: integral towers and full-level conductor relations -/
-
-section Zeta
-variable {F K H : Type*} [Field F] [AddCommGroup K] [AddCommGroup H]
-variable [Module F K] [Module F H]
-
-/-- Apply the Chern-moment morphism to an already coherent symbol tower. -/
-def padicZeta (Ch : (ℕ → K) →ₗ[F] H) (symbols : ℕ → K) : H := Ch symbols
-
-/-- The zeta value is the moment of the symbol tower. -/
-theorem padicZeta_def (Ch : (ℕ → K) →ₗ[F] H) (symbols : ℕ → K) :
-    padicZeta Ch symbols = Ch symbols := by sorry
-
-/-- A commuting transfer square carries a coherent tower to coherent cohomology. -/
-theorem padicZeta_pDirection (ChHigh ChLow : (ℕ → K) →ₗ[F] H)
-    (cor : H →ₗ[F] H) (transfer : (ℕ → K) →ₗ[F] (ℕ → K))
-    (hcor : cor.comp ChHigh = ChLow.comp transfer) (high low : ℕ → K)
-    (h : transfer high = low) :
-    cor (padicZeta ChHigh high) = padicZeta ChLow low := by sorry
-
-/-- Scalar change in the tower commutes with its moment. -/
-theorem padicZeta_coefficients (Ch : (ℕ → K) →ₗ[F] H) (a : F) (symbols : ℕ → K) :
-    padicZeta Ch (a • symbols) = a • padicZeta Ch symbols := by sorry
-
-/-- A repeated-prime identity is transported through the constituent maps. -/
-example (ChHigh ChLow : (ℕ → K) →ₗ[F] H)
-    (cor : H →ₗ[F] H) (transfer : (ℕ → K) →ₗ[F] (ℕ → K))
-    (hcor : cor.comp ChHigh = ChLow.comp transfer) (high low : ℕ → K)
-    (h : transfer high = low) :
-    cor (padicZeta ChHigh high) = padicZeta ChLow low := by sorry
-
-/-- An identity moment applied to a nonzero tower remains nonzero. -/
-example : padicZeta (LinearMap.id : (ℕ → ℚ) →ₗ[ℚ] (ℕ → ℚ))
-    (fun _ => 1) 0 = 1 := by sorry
-
-/-- A zero source tower has zero moment. -/
-example : padicZeta (LinearMap.id : (ℕ → ℚ) →ₗ[ℚ] (ℕ → ℚ))
-    (fun _ => 0) 0 = 0 := by sorry
-
-/-- A nonidentity moment acts on the actual tower values. -/
-example : padicZeta ((2 : ℚ) • (LinearMap.id : (ℕ → ℚ) →ₗ[ℚ] (ℕ → ℚ)))
-    (fun _ => 3) 0 = 6 := by sorry
-
-end Zeta
-
-/-- The modular Euler factor after evaluation at ell-inverse times inverse Frobenius. -/
-def katoEulerPolynomial (ell a epsilon : ℚ) (k r : ℤ) : Polynomial ℚ :=
-  1 - Polynomial.C (a * ell^(-r)) * Polynomial.X +
-    Polynomial.C (epsilon * ell^(k-1-2*r)) * Polynomial.X^2
-
-/-- The evaluated coefficients contain the two distinct Tate powers. -/
-theorem katoEulerPolynomial_def (ell a epsilon : ℚ) (k r : ℤ) :
-    katoEulerPolynomial ell a epsilon k r =
-      1 - Polynomial.C (a * ell^(-r)) * Polynomial.X +
-        Polynomial.C (epsilon * ell^(k-1-2*r)) * Polynomial.X^2 := by sorry
-
-/-- Weight two and r=1 give ell-inverse in both nonconstant coefficients. -/
-example : katoEulerPolynomial 3 2 1 2 1 =
-    1 - Polynomial.C (2/3 : ℚ) * Polynomial.X +
-      Polynomial.C (1/3 : ℚ) * Polynomial.X^2 := by sorry
-
-/-- The ramified two-term relation drops precisely the quadratic term. -/
-example : katoEulerPolynomial 3 2 0 2 1 =
-    1 - Polynomial.C (2/3 : ℚ) * Polynomial.X := by sorry
-
-/-- Constant coefficient one excludes a zero Euler factor. -/
-example (ell a epsilon : ℚ) (k r : ℤ) :
-    (katoEulerPolynomial ell a epsilon k r).eval 0 = 1 := by sorry
-
-/-- A new-prime full-level operator before eigenform specialization. -/
-def fullLevelEulerOperator {R H : Type*} [CommRing R] [AddCommGroup H] [Module R H]
-    (ell : R) (Tprime Sprime u : H →ₗ[R] H) : H →ₗ[R] H :=
-  LinearMap.id - Tprime.comp u + ell • (Sprime.comp (u.comp u))
-
-/-- With identity actions and ell zero, the algebraic operator vanishes.
-The geometric norm relation still requires ell to be a prime. -/
-example : fullLevelEulerOperator (0 : ℚ) (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id LinearMap.id = 0 := by sorry
-
-/-- Zero inverse-Frobenius action leaves the identity term of the algebraic operator. -/
-example : fullLevelEulerOperator (3 : ℚ) (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id 0 = LinearMap.id := by sorry
+/-- Target 2.1: every Euler factor has constant term one. -/
+theorem katoEulerPolynomial_eval_zero (ell a eps : ℚ) (k r : ℤ) :
+    (katoEulerPolynomial ell a eps k r).eval 0 = 1 := by
+  sorry
 
 section FullLevel
-variable {R V K H : Type*} [CommRing R]
-variable [AddCommGroup V] [AddCommGroup K] [AddCommGroup H]
-variable [Module R V] [Module R K] [Module R H]
 
-/-- A moment on the literal dual, followed by the cohomological Chern morphism. -/
-def fullLevelZeta (moment : Module.Dual R V →ₗ[R] K) (Ch : K →ₗ[R] H) :
-    Module.Dual R V →ₗ[R] H := Ch.comp moment
+variable {R M : Type*} [CommRing R] [AddCommGroup M] [Module R M]
 
-/-- Evaluation first forms the dual moment, then its Chern image. -/
-theorem fullLevelZeta_moment (moment : Module.Dual R V →ₗ[R] K)
-    (Ch : K →ₗ[R] H) (v : Module.Dual R V) :
-    fullLevelZeta moment Ch v = Ch (moment v) := by sorry
+/-- The full-level Euler operator `1 − T′σ + ℓ S′σ²` of target 2.3, on a module with the dual
+Hecke operators `T′`, `S′` and the inverse Frobenius `σ` as endomorphisms. -/
+def fullLevelEulerOperator (ell : R) (T S σ : Module.End R M) : Module.End R M :=
+  1 - T * σ + ell • (S * σ ^ 2)
 
-/-- A transfer square for the Chern maps and a source moment norm relation
-transport the full-level Euler operator to the constructed cohomology classes. -/
-theorem fullLevelZeta_transfer (momentHigh momentLow : Module.Dual R V →ₗ[R] K)
-    (ChHigh ChLow : K →ₗ[R] H) (transfer : K →ₗ[R] K) (cor : H →ₗ[R] H)
-    (sourceEuler : K →ₗ[R] K) (targetEuler : H →ₗ[R] H)
-    (chernTransfer : cor.comp ChHigh = ChLow.comp transfer)
-    (momentTransfer : transfer.comp momentHigh = sourceEuler.comp momentLow)
-    (chernEuler : ChLow.comp sourceEuler = targetEuler.comp ChLow)
-    (v : Module.Dual R V) :
-    cor (fullLevelZeta momentHigh ChHigh v) =
-      targetEuler (fullLevelZeta momentLow ChLow v) := by sorry
+/-- With all three operators the identity, the operator is multiplication by `ℓ`. -/
+example (ell : R) : fullLevelEulerOperator ell (1 : Module.End R M) 1 1 = ell • 1 := by
+  simp [fullLevelEulerOperator]
 
-/-- Linear morphisms are determined by their values on every dual moment. -/
-theorem fullLevelZeta_ext (f g : Module.Dual R V →ₗ[R] H)
-    (h : ∀ v, f v = g v) : f = g := by sorry
+/-- With `σ = 0` both nonconstant terms vanish. -/
+example (ell : R) (T S : Module.End R M) : fullLevelEulerOperator ell T S 0 = 1 := by
+  simp [fullLevelEulerOperator]
 
-/-- Zero dual moment gives zero cohomology. -/
-example (moment : Module.Dual R V →ₗ[R] K) (Ch : K →ₗ[R] H) :
-    fullLevelZeta moment Ch 0 = 0 := by sorry
-
-/-- Additivity is required on the integral dual. -/
-example (moment : Module.Dual R V →ₗ[R] K) (Ch : K →ₗ[R] H)
-    (v w : Module.Dual R V) :
-    fullLevelZeta moment Ch (v+w) = fullLevelZeta moment Ch v + fullLevelZeta moment Ch w := by sorry
-
-/-- The new-prime operator with all actions identity and ell=3 is multiplication by three. -/
-example : fullLevelEulerOperator (3 : ℚ) LinearMap.id LinearMap.id LinearMap.id (1 : ℚ) = 3 := by sorry
-
-/-- The new-prime factor is tested on both constructed moments through
-separate Chern and source norm squares, rather than on an unconnected scalar. -/
-example (momentHigh momentLow : Module.Dual R V →ₗ[R] K)
-    (ChHigh ChLow : K →ₗ[R] H) (transfer : K →ₗ[R] K) (cor : H →ₗ[R] H)
-    (sourceEuler : K →ₗ[R] K) (ell : R) (Tprime Sprime u : H →ₗ[R] H)
-    (chernTransfer : cor.comp ChHigh = ChLow.comp transfer)
-    (momentTransfer : transfer.comp momentHigh = sourceEuler.comp momentLow)
-    (chernEuler : ChLow.comp sourceEuler =
-      (fullLevelEulerOperator ell Tprime Sprime u).comp ChLow)
-    (v : Module.Dual R V) :
-    cor (fullLevelZeta momentHigh ChHigh v) =
-      fullLevelEulerOperator ell Tprime Sprime u (fullLevelZeta momentLow ChLow v) := by sorry
-
-/-- Evaluation at one and identity Chern map preserve a nonzero literal-dual moment. -/
-example (ev : Module.Dual ℚ ℚ →ₗ[ℚ] ℚ) (hev : ∀ v, ev v = v 1) :
-    fullLevelZeta ev LinearMap.id (LinearMap.id : ℚ →ₗ[ℚ] ℚ) = 1 := by sorry
 end FullLevel
 
-/-- An integral symmetric pairing in degree two has a nonunit middle coefficient at p=2. -/
-example : ¬ IsUnit (2 : ℤ) := by sorry
-
-/-- The normalized degree-two pairing has determinant minus four,
-so rational perfectness does not imply integral perfectness at two. -/
-example : Matrix.det !![(0 : ℤ), 0, -2; 0, 1, 0; -2, 0, 0] = -4 := by sorry
-
-/-! ## Layer 3: modular filtration and period reciprocity -/
+/-! ## Layer 3: modular filtration, Eisenstein series, periods and the real regulator -/
 
 section Filtration
-variable {F D H : Type*} [Field F] [AddCommGroup D] [AddCommGroup H]
-variable [Module F D] [Module F H]
 
-/-- The modular filtration retains a whole modular-form step in every critical degree. -/
+variable {F D : Type*} [Field F] [AddCommGroup D] [Module F D]
+
+/-- The Hodge filtration of target 3.1: everything in degrees `≤ 0`, the modular-form step `M`
+in degrees `1, …, k − 1`, and zero from degree `k` on. -/
 def modularFiltration (k : ℤ) (M : Submodule F D) (i : ℤ) : Submodule F D :=
-  if i ≤ 0 then ⊤ else if i < k then M else ⊥
+  if i ≤ 0 then ⊤ else if i ≤ k - 1 then M else ⊥
 
-/-- Nonpositive degrees give the whole de Rham realization. -/
-theorem modularFiltration_nonpositive (k : ℤ) (M : Submodule F D) (i : ℤ)
-    (hi : i ≤ 0) : modularFiltration k M i = ⊤ := by sorry
+/-- At weight four the interior steps are the modular-form step, although `gr¹ = 0`. -/
+example (M : Submodule F D) : modularFiltration 4 M 2 = M := by
+  simp [modularFiltration]
 
-/-- Every critical degree has the modular-form step. -/
-theorem modularFiltration_critical (k : ℤ) (M : Submodule F D) (i : ℤ)
-    (hlo : 1 ≤ i) (hhi : i < k) : modularFiltration k M i = M := by sorry
+/-- At weight four the step in degree four is zero. -/
+example (M : Submodule F D) : modularFiltration 4 M 4 = ⊥ := by
+  simp [modularFiltration]
 
-/-- The upper endpoint is zero for the stated weight range. -/
-theorem modularFiltration_endpoint (k : ℤ) (M : Submodule F D) (i : ℤ)
-    (hk : 2 ≤ k) (hi : k ≤ i) : modularFiltration k M i = ⊥ := by sorry
+/-- Target 3.1: in degrees `≤ 0` the filtration is everything. -/
+theorem modularFiltration_nonpositive (k : ℤ) (M : Submodule F D) (i : ℤ) (hi : i ≤ 0) :
+    modularFiltration k M i = ⊤ := by
+  simp [modularFiltration, hi]
 
-/-- Restrict the imported exponential to its proved modular-form range. -/
-def modularDualExp (expStar : H →ₗ[F] D) (M : Submodule F D)
-    (lands : ∀ x, expStar x ∈ M) : H →ₗ[F] M := expStar.codRestrict M lands
+/-- Target 3.1: in the critical degrees `1, …, k − 1` the filtration is the modular-form step. -/
+theorem modularFiltration_critical (k : ℤ) (M : Submodule F D) (i : ℤ) (h1 : 1 ≤ i)
+    (h2 : i ≤ k - 1) : modularFiltration k M i = M := by
+  unfold modularFiltration
+  split_ifs <;> first | rfl | (exfalso; omega)
 
-/-- Forgetting the range restriction recovers the imported exponential. -/
-theorem modularDualExp_coe (expStar : H →ₗ[F] D) (M : Submodule F D)
-    (lands : ∀ x, expStar x ∈ M) (x : H) :
-    (modularDualExp expStar M lands x : D) = expStar x := by sorry
+/-- Target 3.1: from degree `k` on the filtration is zero. -/
+theorem modularFiltration_endpoint (k : ℤ) (M : Submodule F D) (i : ℤ) (hk : 1 ≤ k)
+    (hi : k ≤ i) : modularFiltration k M i = ⊥ := by
+  unfold modularFiltration
+  split_ifs <;> first | rfl | (exfalso; omega)
 
-/-- Equal successive steps can be nonzero while their associated graded is zero. -/
-example (M : Submodule F D) :
-    modularFiltration 4 M 1 = M ∧ modularFiltration 4 M 2 = M ∧
-    Subsingleton ((modularFiltration 4 M 1) ⧸
-      ((modularFiltration 4 M 2).comap (modularFiltration 4 M 1).subtype)) := by sorry
-
-/-- Degree four is the zero endpoint at weight four. -/
-example (M : Submodule F D) : modularFiltration 4 M 4 = ⊥ := by sorry
-
-/-- Weight two still has its modular-form step at degree one. -/
-example (M : Submodule F D) : modularFiltration 2 M 1 = M := by sorry
-
-/-- The range restriction does not change a possibly nonzero exponential value. -/
-example (expStar : H →ₗ[F] D) (M : Submodule F D)
-    (lands : ∀ x, expStar x ∈ M) (x : H) :
-    (modularDualExp expStar M lands x : D) = expStar x := by sorry
-
-/-- Restricting the identity to the whole space preserves one. -/
-example : (modularDualExp (LinearMap.id : ℚ →ₗ[ℚ] ℚ) ⊤
-    (fun _ => Submodule.mem_top) 1 : ℚ) = 1 := by sorry
-
-/-- A zero exponential has zero value in the whole-space range. -/
-example : (modularDualExp (0 : ℚ →ₗ[ℚ] ℚ) ⊤
-    (fun _ => Submodule.mem_top) 1 : ℚ) = 0 := by sorry
-
-/-- The range restriction retains a nonidentity exponential value. -/
-example : (modularDualExp ((2 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ)) ⊤
-    (fun _ => Submodule.mem_top) 3 : ℚ) = 6 := by sorry
+/-- Target 3.1: the filtration is decreasing. -/
+theorem modularFiltration_antitone (k : ℤ) (hk : 2 ≤ k) (M : Submodule F D) :
+    Antitone (modularFiltration k M) := by
+  sorry
 
 end Filtration
 
-/-- Before the modular comparison, generalized reciprocity has sign
-minus for Tate-module rank two and plus for rank one (height when Λ=ℤₚ).
-At p=2,m=1,r=0 the
-conductor and factorial factors give respectively minus one quarter and one half. -/
-example : ((-1 : ℚ)^(2-1 : ℕ) * (2 : ℚ)^(-2 : ℤ) /
-    (Nat.factorial 0 : ℚ) = -1/4) ∧
-    ((-1 : ℚ)^(1-1 : ℕ) * (2 : ℚ)^(-1 : ℤ) /
-    (Nat.factorial 0 : ℚ) = 1/2) := by sorry
+/-- The sign `(−1)^(k−r−1) χ(−1)` selecting the period component in targets 3.3 and 5.3. -/
+def criticalSign (k r : ℤ) (parity : ℤ) : ℤ :=
+  (-1) ^ (k - r - 1).natAbs * parity
 
-/-- The critical period sign includes both weight parity and character parity. -/
-def criticalSign (k r : ℤ) (characterParity : ℤ) : ℤ :=
-  (-1)^(k-r-1).natAbs * characterParity
+/-- At `k = 2, r = 1` an even character selects plus. -/
+example : criticalSign 2 1 1 = 1 := by decide
 
-/-- At weight two and r=1 an even character chooses the plus period. -/
-example : criticalSign 2 1 1 = 1 := by sorry
+/-- At `k = 4, r = 2` an even character selects minus. -/
+example : criticalSign 4 2 1 = -1 := by decide
 
-/-- The same critical value with an odd character chooses the minus period. -/
-example : criticalSign 2 1 (-1) = -1 := by sorry
+/-! ## Layer 4: image, nonvanishing and Iwasawa inputs before the canonical map -/
 
-/-- At weight four and r=2 an even character chooses the minus period. -/
-example : criticalSign 4 2 1 = -1 := by sorry
+section Image
 
-/-! ## Layer 4: image hypotheses and Iwasawa structure before the canonical map -/
+variable {K : Type*} [Field K]
 
-/-- Upper unipotents act on column vectors; the parameter is not forced to be a unit. -/
-def upperUnipotent {R : Type*} [CommRing R] (x : R) : (Fin 2 → R) →ₗ[R] (Fin 2 → R) where
-  toFun v := ![v 0 + x*v 1, v 1]
-  map_add' := by sorry
-  map_smul' := by sorry
+/-- The upper unipotent `(v₀, v₁) ↦ (v₀ + x v₁, v₁)` of target 4.1. -/
+def upperUnipotent {R : Type*} [CommRing R] (x : R) : (Fin 2 → R) →ₗ[R] (Fin 2 → R) :=
+  Matrix.mulVecLin !![1, x; 0, 1]
 
-/-- Over a field, a nonzero parameter makes the difference range the first coordinate line. -/
-theorem nonCmRationalUnipotentRange {F : Type*} [Field F] (x : F) (hx : x ≠ 0) :
-    LinearMap.range (upperUnipotent x - LinearMap.id) =
-      Submodule.span F {(![1, 0] : Fin 2 → F)} := by sorry
+/-- `upperUnipotent 2` sends `e₂` to `e₂ + 2e₁`. -/
+example : upperUnipotent (2 : ℚ) ![0, 1] = ![2, 1] := by
+  ext i
+  fin_cases i <;> simp [upperUnipotent, Matrix.mulVec, dotProduct, Fin.sum_univ_two]
 
-/-- A unit parameter gives a free rank-one quotient over the integral coefficient ring. -/
-theorem nonCmIntegralUnipotentQuotient {R : Type*} [CommRing R] (x : R)
-    (hx : IsUnit x) :
-    Nonempty (((Fin 2 → R) ⧸ LinearMap.range
-      (upperUnipotent x - LinearMap.id)) ≃ₗ[R] R) := by sorry
+/-- Kato's hypothesis 13.4(v): the fixed space of `σ` is one-dimensional. -/
+def HasOneDimFixedSpace {V : Type*} [AddCommGroup V] [Module K V] (σ : V →ₗ[K] V) : Prop :=
+  Module.finrank K (LinearMap.ker (σ - LinearMap.id)) = 1
 
-/-- The upper unipotent with parameter two changes the second basis vector by twice the first. -/
-example : upperUnipotent (2 : ℤ) ![0, 1] - ![0, 1] = ![2, 0] := by sorry
+/-- The identity has a two-dimensional fixed space, so it does not satisfy the hypothesis. -/
+example : ¬ HasOneDimFixedSpace (LinearMap.id : (Fin 2 → ℚ) →ₗ[ℚ] (Fin 2 → ℚ)) := by
+  unfold HasOneDimFixedSpace
+  rw [sub_self, LinearMap.ker_zero, finrank_top, Module.finrank_fin_fun]
+  norm_num
 
-/-- A nonzero nonunit parameter does not integrally generate the first basis vector. -/
-example : ¬ ∃ a : ℤ, 2*a = 1 := by sorry
+/-- Target 4.1: over a field, `upperUnipotent x` satisfies Kato's hypothesis exactly when
+`x ≠ 0`. -/
+theorem upperUnipotent_hasOneDimFixedSpace_iff (x : K) :
+    HasOneDimFixedSpace (upperUnipotent x) ↔ x ≠ 0 := by
+  sorry
 
-/-- Parameter zero gives no rank-one difference range. -/
-example : upperUnipotent (0 : ℚ) = LinearMap.id := by sorry
+/-- Target 4.1: a semisimple element with eigenvalues `1` and `ζ ≠ 1` also satisfies Kato's
+hypothesis, so admissibility does not require a unipotent element. -/
+theorem diag_hasOneDimFixedSpace (ζ : K) (hζ : ζ ≠ 1) :
+    HasOneDimFixedSpace (Matrix.mulVecLin !![(1 : K), 0; 0, ζ]) := by
+  sorry
 
-/-- Nonzero zero divisors in a free rank-one product-ring module reject
-injectivity by every nonzero scalar, a stronger condition than Mathlib torsion-freeness. -/
-example : ((1, 0) : ℚ × ℚ) ≠ 0 ∧ ((0, 1) : ℚ × ℚ) ≠ 0 ∧
-    ((1, 0) : ℚ × ℚ) * ((0, 1) : ℚ × ℚ) = 0 := by sorry
+/-- Target 4.1, the obstruction at a quaternion-division coefficient place: if the image lies
+in the units of a division algebra `B` acting on `V`, no element other than `1` fixes a nonzero
+vector. -/
+theorem ker_sub_one_eq_bot_of_division {B V : Type*} [DivisionRing B] [Algebra K B]
+    [AddCommGroup V] [Module K V] (ι : B →ₐ[K] Module.End K V) (d : B) (hd : d ≠ 1) :
+    LinearMap.ker (ι d - 1) = ⊥ := by
+  sorry
 
-/-- Mathlib torsion-freeness tests regular scalars, so the free rank-one
-module over a product ring satisfies the predicate despite its zero divisors. -/
-example : Module.IsTorsionFree (ℚ × ℚ) (ℚ × ℚ) := by sorry
+end Image
 
-/-! ## Layer 5: rational zeta morphisms and twist-one transport -/
+section FiniteSupport
 
-section RationalMap
-variable {I F Λ V H : Type*} [Field F] [CommRing Λ]
-variable [AddCommGroup V] [AddCommGroup H] [Module F V] [Module F H] [Module Λ H]
+variable {R : Type*} [CommRing R] [IsNoetherianRing R]
 
-/-- A linear realization of prescribed values on a basis. The geometric generator
-relations and their rational membership must be established before choosing such a basis. -/
-def katoZetaMap (basis : Module.Basis I F V) (values : I → H) : V →ₗ[F] H :=
-  basis.constr F values
+/-- Target 4.5: over a noetherian ring of dimension at most two with finite residue fields, a
+finitely generated module vanishing at every prime of height at most one is finite. -/
+theorem finite_of_pseudoNull (hdim : ringKrullDim R ≤ 2)
+    (hres : ∀ m : Ideal R, m.IsMaximal → Finite (R ⧸ m))
+    (M : Type*) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    (h : ∀ (P : Ideal R) [P.IsPrime], P.height ≤ 1 →
+      Subsingleton (LocalizedModule P.primeCompl M)) :
+    Finite M := by
+  sorry
 
-/-- Each basis generator receives its prescribed value. -/
-theorem katoZetaMap_generator (basis : Module.Basis I F V) (values : I → H) (i : I) :
-    katoZetaMap basis values (basis i) = values i := by sorry
+/-- Target 4.5, Kato's finite-support step in 13.12: a finitely generated module killed by a
+non-zero-divisor `μ` with `R/μR` free of `p`-torsion, and vanishing at every height-one prime not
+containing `p`, is finite. -/
+theorem finite_of_regular_annihilator (p : ℕ) (hdim : ringKrullDim R ≤ 2)
+    (hres : ∀ m : Ideal R, m.IsMaximal → Finite (R ⧸ m))
+    (M : Type*) [AddCommGroup M] [Module R M] [Module.Finite R M]
+    (μ : R) (hμ : μ ∈ nonZeroDivisors R) (hμM : ∀ m : M, μ • m = 0)
+    (hp : IsSMulRegular (R ⧸ Ideal.span {μ}) (p : R))
+    (h : ∀ (P : Ideal R) [P.IsPrime], P.height = 1 → (p : R) ∉ P →
+      Subsingleton (LocalizedModule P.primeCompl M)) :
+    Finite M := by
+  sorry
 
-/-- Basis values characterize the linear realization. -/
-theorem katoZetaMap_unique (basis : Module.Basis I F V) (values : I → H)
-    (other : V →ₗ[F] H) (h : ∀ i, other (basis i) = values i) :
-    other = katoZetaMap basis values := by sorry
-
-/-- A conjugation relation on basis generators extends to the whole source. -/
-theorem katoZetaMap_conjugation (basis : Module.Basis I F V) (values : I → H)
-    (involution : V →ₗ[F] V) (sigma : H →ₗ[F] H)
-    (h : ∀ i, katoZetaMap basis values (involution (basis i)) = -sigma (values i))
-    (v : V) : katoZetaMap basis values (involution v) =
-      -sigma (katoZetaMap basis values v) := by sorry
-
-/-- The zeta span is taken over the Iwasawa algebra, not merely over the coefficient field. -/
-def katoZetaSubmodule (z : V →ₗ[F] H) : Submodule Λ H :=
-  Submodule.span Λ (Set.range z)
-
-/-- Every zeta value belongs to its Iwasawa span. -/
-theorem katoZetaSubmodule_mem (z : V →ₗ[F] H) (v : V) :
-    z v ∈ katoZetaSubmodule (Λ := Λ) z := by sorry
-
-/-- The span construction specifies its generator set exactly. -/
-theorem katoZetaSubmodule_eq_span (z : V →ₗ[F] H) :
-    katoZetaSubmodule (Λ := Λ) z = Submodule.span Λ (Set.range z) := by sorry
-
-/-- Zero Betti vector gives zero zeta value. -/
-example (basis : Module.Basis I F V) (values : I → H) : katoZetaMap basis values 0 = 0 := by sorry
-
-/-- Additivity holds in the Betti input. -/
-example (basis : Module.Basis I F V) (values : I → H) (v w : V) :
-    katoZetaMap basis values (v+w) = katoZetaMap basis values v + katoZetaMap basis values w := by sorry
-
-/-- A minus relation on a nonzero rational value differs from the plus relation. -/
-example {I' V' H' : Type*} [AddCommGroup V'] [AddCommGroup H']
-    [Module ℚ V'] [Module ℚ H'] (basis : Module.Basis I' ℚ V') (values : I' → H')
-    (v : V') (hn : katoZetaMap basis values v ≠ 0) :
-    katoZetaMap basis values (-v) ≠ katoZetaMap basis values v := by sorry
-
-/-- Prescribing one as the value of a basis vector forces a nonzero morphism. -/
-example (basis : Module.Basis Unit ℚ ℚ) :
-    katoZetaMap basis (fun _ => (1 : ℚ)) (basis ()) = 1 := by sorry
-end RationalMap
-
-/-- A zero realization has zero Iwasawa span. -/
-example : katoZetaSubmodule (Λ := ℚ) (0 : ℚ →ₗ[ℚ] ℚ) = ⊥ := by sorry
-
-/-- The identity realization has the whole coefficient module as its span. -/
-example : katoZetaSubmodule (Λ := ℚ) (LinearMap.id : ℚ →ₗ[ℚ] ℚ) = ⊤ := by sorry
-
-/-- The span contains a nonzero value of the identity realization. -/
-example : (1 : ℚ) ∈ katoZetaSubmodule (Λ := ℚ) (LinearMap.id : ℚ →ₗ[ℚ] ℚ) := by sorry
-
-section Twisted
-variable {F A B C D : Type*} [Field F]
-variable [AddCommGroup A] [AddCommGroup B] [AddCommGroup C] [AddCommGroup D]
-variable [Module F A] [Module F B] [Module F C] [Module F D]
-
-/-- Input Poincare twist, the dual-form zeta map, then the output Tate twist. -/
-def twistedKatoZeta (sourceTwist : A →ₗ[F] B) (z : B →ₗ[F] C)
-    (outputTwist : C →ₗ[F] D) : A →ₗ[F] D := outputTwist.comp (z.comp sourceTwist)
-
-/-- Evaluation follows the three maps in their mathematical order. -/
-theorem twistedKatoZeta_def (sourceTwist : A →ₗ[F] B) (z : B →ₗ[F] C)
-    (outputTwist : C →ₗ[F] D) (x : A) :
-    twistedKatoZeta sourceTwist z outputTwist x = outputTwist (z (sourceTwist x)) := by sorry
-
-/-- Equality on inputs identifies the twist-one morphisms. -/
-theorem twistedKatoZeta_ext (f g : A →ₗ[F] D) (h : ∀ x, f x = g x) : f = g := by sorry
-
-/-- The two Tate degrees sum to one. -/
-example (k : ℤ) : (1-k)+k = 1 := by sorry
-
-/-- The transported morphism remains linear and sends zero to zero. -/
-example (sourceTwist : A →ₗ[F] B) (z : B →ₗ[F] C) (outputTwist : C →ₗ[F] D) :
-    twistedKatoZeta sourceTwist z outputTwist 0 = 0 := by sorry
-
-/-- Two minus signs cancel in the actual three-map construction. -/
-example {V H : Type*} [AddCommGroup V] [AddCommGroup H] [Module F V] [Module F H]
-    (z : V →ₗ[F] H) (v : V) :
-    twistedKatoZeta (-LinearMap.id) z (-LinearMap.id) v = z v := by sorry
-
-/-- Three identity maps preserve one. -/
-example : twistedKatoZeta (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id LinearMap.id 1 = 1 := by sorry
-end Twisted
+end FiniteSupport
 
 /-! ## Layer 6: scalar regulators and elliptic periods -/
 
-section Scalar
-variable {F H D Dist : Type*} [Field F]
-variable [AddCommGroup H] [AddCommGroup D] [AddCommGroup Dist]
-variable [Module F H] [Module F D] [Module F Dist]
+/-- The two unramified Euler factors `(1 − p^(r−1)α⁻¹)(1 − ε p^(k−r−1)α⁻¹)` of target 6.4. -/
+def ordinaryEulerFactor (p : ℚ) (k r : ℤ) (α eps : ℚ) : ℚ :=
+  (1 - p ^ (r - 1) / α) * (1 - eps * p ^ (k - r - 1) / α)
 
-/-- Project the vector regulator using the period-normalized eigenvector pairing. -/
-def katoScalarRegulator (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) :
-    H →ₗ[F] Dist := projection.comp regulator
+/-- A split multiplicative refinement `α = 1` at weight two has a trivial zero. -/
+example (p : ℚ) : ordinaryEulerFactor p 2 1 1 0 = 0 := by
+  norm_num [ordinaryEulerFactor]
 
-/-- The scalar value is the projection of the vector value. -/
-theorem katoScalarRegulator_def (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) (x : H) :
-    katoScalarRegulator regulator projection x = projection (regulator x) := by sorry
+/-- A nonsplit refinement `α = −1` at weight two gives `2`, a nonunit at `p = 2`. -/
+example (p : ℚ) : ordinaryEulerFactor p 2 1 (-1) 0 = 2 := by
+  norm_num [ordinaryEulerFactor]
 
-/-- The scalar construction is linear in its cohomology input. -/
-theorem katoScalarRegulator_linear (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist)
-    (a : F) (x y : H) :
-    katoScalarRegulator regulator projection (a • x+y) =
-      a • katoScalarRegulator regulator projection x + katoScalarRegulator regulator projection y := by sorry
+/-!
+## Targets without carriers at the pins
 
-/-- Renormalizing a nonzero period and scaling the Betti vector changes the value by a-inverse b. -/
-theorem katoScalarRegulator_scale (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist)
-    (a b : F) (ha : a ≠ 0) (x : H) :
-    katoScalarRegulator regulator (a⁻¹ • projection) (b • x) =
-      (a⁻¹*b) • katoScalarRegulator regulator projection x := by sorry
-
-/-- Projection is additive in the chosen eigenvector pairing. -/
-theorem katoScalarRegulator_projection_add (regulator : H →ₗ[F] D)
-    (p q : D →ₗ[F] Dist) (x : H) :
-    katoScalarRegulator regulator (p+q) x =
-      katoScalarRegulator regulator p x + katoScalarRegulator regulator q x := by sorry
-
-/-- Zero cohomology gives zero distribution. -/
-example (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) :
-    katoScalarRegulator regulator projection 0 = 0 := by sorry
-
-/-- Additivity excludes an affine shift in the scalar normalization. -/
-example (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) (x y : H) :
-    katoScalarRegulator regulator projection (x+y) =
-      katoScalarRegulator regulator projection x + katoScalarRegulator regulator projection y := by sorry
-
-/-- Doubling the period and tripling the class multiplies the scalar by three halves. -/
-example : katoScalarRegulator (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
-    ((2 : ℚ)⁻¹ • LinearMap.id) (3 • (1 : ℚ)) = 3/2 := by sorry
-
-/-- Identity projection and regulator preserve a nonzero class. -/
-example : katoScalarRegulator (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id 1 = 1 := by sorry
-end Scalar
-
-/-- The ordinary trivial-character interpolation factor keeps both Euler operators. -/
-def ordinaryEulerFactor (p alpha epsilon : ℚ) (k r : ℤ) : ℚ :=
-  (1-p^(r-1)*alpha⁻¹) * (1-epsilon*p^(k-r-1)*alpha⁻¹)
-
-/-- A split multiplicative unit root gives a zero factor, rather than an invertible correction. -/
-example : ordinaryEulerFactor 3 1 0 2 1 = 0 := by sorry
-
-/-- A nonsplit multiplicative unit root gives the first factor two. -/
-example : ordinaryEulerFactor 3 (-1) 0 2 1 = 2 := by sorry
-
-/-- Good ordinary weight-two coefficients retain both factors. -/
-example : ordinaryEulerFactor 3 2 1 2 1 = 1/4 := by sorry
-
-/-! ## Layer 7: divisibility and elliptic applications -/
-
-section Lengths
-
-/-- A length-one local correction repairs this particular inequality. -/
-example : (2 : ℕ) ≤ 1+1 := by sorry
-
-/-- With zero local correction the same global and zeta lengths violate the bound. -/
-example : ¬ ((2 : ℕ) ≤ 1+0) := by sorry
-
-/-- Zero modules satisfy the numerical bound without proving arithmetic nonvanishing. -/
-example : (0 : ℕ) ≤ 0+0 := by sorry
-
-/-- The localized exact sequence adds the local H2 correction to the strict length. -/
-theorem lengthBoundWithLocalTerm (global strict localIndex zetaIndex : ℕ)
-    (bound : strict ≤ zetaIndex) (exactSequence : global = strict+localIndex) :
-    global ≤ zetaIndex+localIndex := by sorry
-
-/-- A nonzero exceptional local term cannot be discarded from the bound. -/
-example : ¬ ((3 : ℕ) ≤ 2) ∧ 3 ≤ 2+1 := by sorry
-
-/-- Equal ordinary control factors cancel only after adding them on both sides. -/
-theorem cancelOrdinaryControlLength (shaIndex eulerIndex LIndex : ℕ)
-    (controlBound : shaIndex+eulerIndex ≤ LIndex+eulerIndex) : shaIndex ≤ LIndex := by sorry
-
-/-- The inequality direction is an upper bound; it does not force equality. -/
-example : (1 : ℕ) ≤ 2 ∧ (1 : ℕ) ≠ 2 := by sorry
-end Lengths
-
-section Span
-variable {Λ H : Type*} [CommRing Λ] [AddCommGroup H] [Module Λ H]
-
-/-- A nonzero class gives a nonzero span, without asserting that the arithmetic class is nonzero. -/
-theorem nonzeroZetaSpan (z : H) (hz : z ≠ 0) : Submodule.span Λ {z} ≠ ⊥ := by sorry
-
-/-- The zero class is a necessary negative control for height-zero detection. -/
-example : Submodule.span Λ ({0} : Set H) = ⊥ := by sorry
-end Span
-
-/-
-The following geometric and arithmetic targets require the README supplier APIs:
-cTheta_existsOnEllipticCurve, cTheta_isogeny, cTheta_auxiliary, cTheta_baseChange;
-siegelGaloisDistribution, siegelDegeneracyProduct, siegelAnalyticProduct,
-siegelCuspOrder, siegelIntegralDescent; schemeBeilinsonElement,
-beilinsonElement_pullback, k2NormProjection, k2AuxiliaryEulerFactor,
-chernSymbolNormalization, chernMoment_coefficients, chernHeckeDiamond;
-cyclotomicLimitIntegral, cyclotomicDualLimitVanishes, padicZeta_norm,
-katoEulerAdapter, katoEulerAdapter_component, katoEulerAdapter_norm,
-katoEulerAdapter_ext, fullLevelZeta_hecke, fullLevelZeta_corestriction,
-heckeDualTwistDictionary; archimedeanEisensteinZeta, periodMap,
-archimedeanCriticalValues, beilinsonArchimedeanRegulator,
-generalizedExplicitReciprocity, parabolicFullLevelCharacterisation;
-nonCmLargeImage, nonCmIntegralRankOne, analyticTwistNonvanishing,
-modularEulerSystemBound, rationalIwasawaStructure, geometricKatoZetaMap,
-integralZetaFiniteIndex, zetaCriticalInterpolation, twistedKatoZeta_conjugation,
-twistedKatoZeta_norm; noncriticalAnalyticArithmeticComparison,
-criticalBadReductionComparison, ellipticLocalLattice;
-zetaSubmoduleNonvanishing, cohomologicalDivisibility, ordinarySelmerDivisibility,
-ellipticCyclotomicFiniteGeneration, ellipticOrdinaryMultiplicativeDivisibility,
-ellipticNoFiniteSubmodule, ellipticRankZeroPPartUpperBound.
+The following targets of the README are not stated here, because their carriers (open modular
+curves and their étale cohomology, scheme `K₂`, Iwasawa cohomology, `D_dR`, Kato's Eisenstein
+series and the analytic p-adic L-function) are not available at the pins:
+`rationalSiegelUnit`, `siegelGaloisDistribution`, `siegelAnalyticProduct`,
+`siegelDegeneracyProduct`, `k2NormProjection`, `k2ProjectionFormulaNorm`,
+`k2AuxiliaryEulerFactor`, `katoEulerAdapter`, `heckeDualTwistDictionary`, `fullLevelZeta`,
+`modularFiltration_identify`, `modularDualExp`, `katoEisensteinE`, `katoEisensteinF`,
+`siegelUnit_dlog`, `periodMap`, `archimedeanEisensteinZeta`, `archimedeanCriticalValues`,
+`operatorZeta`, `realRegulatorUnits`, `beilinsonArchimedeanRegulator`, `admissible_of_split`,
+`integralImage_almostAll`, `irreducible_cyclotomic`, `analyticTwistNonvanishing`,
+`katoHypotheses_to_rubin`, `modularEulerSystemBound`, `rationalIwasawaStructure`,
+`twist_loc_comm`, `twist_specialize`, `serre_openImage`, `strictKernel_eq_dualSelmer`,
+`katoZetaMap`, `katoZetaSubmodule`, `integralZetaFiniteIndex`, `zetaCriticalInterpolation`,
+`twistedKatoZeta`, `parabolicIwasawa_torsionFree`, `parabolicExpStar_injective`,
+`parabolicFullLevelCharacterisation`, `perrinRiouMap`, `katoScalarRegulator`,
+`katoPeriodDictionary`, `noncriticalAnalyticArithmeticComparison`,
+`criticalBadReductionComparison`, `ellipticLocalLattice`, `katoZeta_nonTorsion`,
+`katoCohomologicalBound`, `ellipticCyclotomicFiniteGeneration`, `formalGroupUniversalNorms`,
+`ellipticOrdinaryControl`.
 -/
 
-end
 end TauCetiRoadmap.KatoEulerSystems
