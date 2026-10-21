@@ -14220,7 +14220,7 @@
       "readSections": [
         "§0 (pp. 661–662): the notation (0.0)–(0.4) and the definitions (0.5)–(0.7) of the three seventh-order functions",
         "§1 (p. 665): the sign-function summation conventions (1.16)–(1.22)",
-        "§2 (p. 666): Theorem 2.0 and its proof, including the corrected forms (2.3)–(2.5) of Andrews' (7.22)–(7.24)"
+        "§2 (pp. 666–667): Theorem 2.0 and its proof, including the corrected forms (2.3)–(2.5) of Andrews' (7.22)–(7.24)"
       ],
       "pageFiles": [
         {
@@ -14242,6 +14242,11 @@
           "page": 666,
           "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000672/full/1000,/0/default.jpg",
           "sha256": "001481ddb8ffad65b1314ea9c785b6799e034bc7c1e747e073c00cbca18fac17"
+        },
+        {
+          "page": 667,
+          "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000673/full/1000,/0/default.jpg",
+          "sha256": "9f670eeba1523fffdea6dde78e284717c60fbbd8241d45eb7b954b450fa342b3"
         }
       ]
     }
@@ -33192,12 +33197,12 @@
       ],
       "proofSteps": [
         "Gaussian polynomials [n, m] (QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient) satisfy [n, m] = [n−1, m−1] + q^m[n−1, m] = [n−1, m] + q^{n−m}[n−1, m−1] (Andrews (7.2)–(7.3)).",
-        "Andrews Lemma 10 (pp. 128–130): put V_n = (1 − q^{2n})Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}/(1 − q^{n+j}) and W_n = Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}. Splitting 1 − q^{2n} = (1 − q^{n+j}) + q^{n+j}(1 − q^{n−j}) and 1 + q^n = (1 − q^{n−j}) + q^{n−j}(1 + q^j), applying one Pascal recurrence and shifting j by one give V_n = W_n − q^{2n−1}W_{n−1}, V_n = −(1 − q^n)q^{2n−2}U_{n−1} + 2(−1)^n q^{n(n+1)/2} and W_n = −q^nU_n − q^{2n−2}U_{n−1}. These are finite identities in ℤ[q, q⁻¹].",
+        "Andrews Lemma 10 (pp. 128–130): for n ≥ 1 put V_n = (1 − q^{2n})Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}/(1 − q^{n+j}); for n ≥ 0 put W_n = Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}, so W₀ = 1. Splitting 1 − q^{2n} = (1 − q^{n+j}) + q^{n+j}(1 − q^{n−j}) and 1 + q^n = (1 − q^{n−j}) + q^{n−j}(1 + q^j), applying one Pascal recurrence and shifting j by one give V_n = W_n − q^{2n−1}W_{n−1}, V_n = −(1 − q^n)q^{2n−2}U_{n−1} + 2(−1)^n q^{n(n+1)/2} and W_n = −q^nU_n − q^{2n−2}U_{n−1}, all for n ≥ 1. After the Gaussian-polynomial cancellations these are finite identities in ℤ[q, q⁻¹]; V₀ is neither defined nor used.",
         "Andrews Lemma 11 (p. 130): eliminating V and W gives U_n − q^{3n−5}U_{n−2} = −2(−1)^n q^{n(n−1)/2} for n ≥ 3; with U₀ = 0, U₁ = 1, U₂ = −2q, induction on n gives the closed forms of U_{2m} and U_{2m+1}.",
-        "Bailey inversion (Andrews (2.7), p. 115): for any β, the sequence α₀ = β₀, α_n = (1 − aq^{2n})Σ_{j=0}^{n}(aq;q)_{n+j−1}(−1)^{n−j}q^{(n−j)(n−j−1)/2}β_j/(q;q)_{n−j} (n ≥ 1) forms a Bailey pair with β relative to a (QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair). In the defining relation the coefficient of β_j becomes, after r = j + s and b = aq^{2j}, the sum Σ_{s≤n−j}(1 − bq^{2s})(b;q)_s(−1)^s q^{s(s−1)/2}/((q;q)_s(q;q)_{n−j−s}(bq;q)_{n−j+s}), which is (1 − b)δ_{n,j} by the unit Bailey pair relative to b (QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs, proved there for a general parameter over ℤ[a][q, q⁻¹]); the factor 1 − b = 1 − aq^{2j} cancels the prefactor (aq;q)_{2j−1}/(aq;q)_{2j}.",
+        "Bailey inversion (Andrews (2.7), p. 115): for any β, the sequence α₀ = β₀, α_n = (1 − aq^{2n})Σ_{j=0}^{n}(aq;q)_{n+j−1}(−1)^{n−j}q^{(n−j)(n−j−1)/2}β_j/(q;q)_{n−j} (n ≥ 1) forms a Bailey pair with β relative to a (QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair). Prove the lower-triangular matrix identity first over ℤ[A]⟦q⟧ with an indeterminate A. The coefficient of β₀ in the defining relation is the unit Bailey relation: its r = 0 term uses α₀ = β₀ separately, and for r ≥ 1 cancel (A;q)_r/(1 − A) to (Aq;q)_{r−1} before any specialization. For j ≥ 1, set r = j + s and b = Aq^{2j}. The coefficient of β_j is (Aq;q)_{2j−1}/(Aq;q)_{2j} times Σ_{s≤n−j}(1 − bq^{2s})(b;q)_s(−1)^s q^{s(s−1)/2}/((q;q)_s(q;q)_{n−j−s}(bq;q)_{n−j+s}). The general-parameter unit Bailey pair (QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs) makes this sum (1 − b)δ_{n,j}; here 1 − b is a q-adic unit because j ≥ 1, and the prefactor is its inverse. All remaining denominators have constant coefficient 1. Continuous substitution A ↦ a ∈ R⟦q⟧ gives the formula over every commutative R, including a = 1. No factor 1 − a is cancelled after specializing a = 1, and no negative-index Pochhammer symbol occurs.",
         "Andrews Lemma 12 (pp. 130–132): apply the inversion with a = 1 to β_n = 1/(q^{n+1};q)_n. Since (q;q)_{n+j−1}/((q;q)_{n−j}(q^{j+1};q)_j) = [n+j, n−j](q;q)_j/(1 − q^{n+j}), the result is V_n, and the second identity of step 2 with step 3 gives the stated α. With a = 1 and β_n = 1/(q^n;q)_n the factor is [n+j−1, n−j](q;q)_{j−1}, so α_n = (1 − q^{2n})U_n. With a = q and β_n = 1/(q^{n+1};q)_{n+1}, splitting 1 − q^{2n+1} = (1 − q^{n+j+1}) + q^{n+j+1}(1 − q^{n−j}) gives α_n = (U_{n+1} − q^{2n}U_n)/(1 − q).",
         "Apply QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit with k = 1. For a = 1 it gives Σ q^{n²}β_n = (1/(q;q)_∞)Σ q^{n²}α_n, and for a = q it gives Σ q^{n²+n}β_n = (1/(q²;q)_∞)Σ q^{n²+n}α_n. The left sides are F₀, F₁ and F₂. Insert the closed forms of step 5, separate even and odd n, shift n ↦ n + 1 in the subtracted sums and use (q²;q)_∞ = (q;q)_∞/(1 − q): this is (2). Andrews prints (7.22) and (7.24) with misprints (E633, E634); Hickerson's (2.3) and (2.5) are the corrected forms.",
-        "Hickerson's reindexing (proof of Theorem 2.0, p. 666): in the theta parts put r = n + j, s = n − j, so that rs + 3(r+s)²/2 = 7n² − j²; in the cross parts use 2Σ_{j=0}^{n}q^{−j²−j} = Σ_{j=−n−1}^{n}q^{−j²−j} and put r = n − j, s = n + j + 1. The subtracted terms of (2) become the cone r, s < 0, and (−1)^{r+s} and sg(r) supply the signs. This gives (3).",
+        "Hickerson's reindexing (proof of Theorem 2.0, pp. 666–667): in the theta parts put r = n + j, s = n − j, so that rs + 3(r+s)²/2 = 7n² − j²; in the cross parts use 2Σ_{j=0}^{n}q^{−j²−j} = Σ_{j=−n−1}^{n}q^{−j²−j} and put r = n − j, s = n + j + 1. The subtracted terms of (2) become the cone r, s < 0, and (−1)^{r+s} and sg(r) supply the signs. This gives (3).",
         "Zwegers' form (4): substitute ν = (r + 1/14, s + 1/14) etc.; sgn B(ν,c₁) − sgn B(ν,c₂) = 2 on {r, s ≥ 0}, −2 on {r, s < 0}, 0 otherwise; compare exponents and the phase e^{2πiB(ν, e/14)} = ζ₁₄(−1)^{r+s}.",
         "Every identity above is an identity in ℤ⟦q⟧ whose terms have orders tending to infinity; for |q| < 1 the series converge absolutely (the quadratic form rs + 3(r+s)²/2 is positive on both cones away from the origin), so the identities hold analytically by the evaluation argument of QM.4/seventh-order-mock-theta-functions."
       ],
@@ -33235,7 +33240,7 @@
         },
         {
           "sourceId": "hickerson-seventh-1988",
-          "locator": "Theorem 2.0 and its proof, p. 666",
+          "locator": "Theorem 2.0 and its proof, pp. 666–667",
           "match": "The double sums over sg(r) = sg(s) and their derivation from Andrews' identities, with the misprints corrected in (2.3)–(2.5)."
         },
         {
@@ -43545,7 +43550,7 @@
       "sources": [
         {
           "sourceId": "zwegers-thesis",
-          "locator": "§4.4, the eight displayed identities and the sentence after them (printed pp. 71-72)",
+          "locator": "§4.4, the eight displayed identities and the sentence after them (printed pp. 72–73)",
           "match": "The eight identities, the record of the two errors in the printed source, and the decision to use the corrected identities as definitions."
         },
         {
@@ -46829,7 +46834,7 @@
         "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-strange-series",
         "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit"
       ],
-      "upstreamContract": "HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §3.1, read 2026-10-21; see upstreamImports."
+      "upstreamContract": "HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §§3.1–3.2 (Taylor/evaluation maps and coefficient/root-algebra naturality), read 2026-10-21; see upstreamImports."
     },
     {
       "supplier": "HabiroCyclotomicCompletions:HC.4",
@@ -47046,7 +47051,7 @@
         "PAPER-YU-23/094, /102, /106 and /107: reconcile the finite Möbius selector, independent-monomial coefficient/sign formula and valuation/integrality inputs with their foundational arithmetic owner. Preserve the reviewed correction that the sign in /102 is the unweighted sum of all exponents, the nonzero hypotheses of /106, and evenness plus zero/negative reductions in /107. Read the corrected exact source passages and source findings before creating declaration-sized leaves; the existing partition/q-binomial nodes do not establish these inputs.",
         "PAPER-LIU-ETAL-22/notation-1-3-1 and /B01: reuse QM.0/q-binomial-coefficient as a polynomial, with denominator-free specialization at roots of unity and the signed-index zero adapter. The printed q-integer value at zero is a misprint: QM.0/q-integer has value zero, while the zero q-factorial is one. The additional d_{r,q} and d•_{r,q} are not target nodes here; preserve d₀=1, d•₀=0, d₁=1−q−2q² and d•₁=−q as exact interface tests.",
         "PAPER-LIU-ETAL-22/gauss-polynomial-identity, /B02, /B04 and /B03: the Gauss alternating Gaussian-polynomial identity and Lemmas B.2.7, B.2.8 and B.3.3 need distinct target contracts or an exact existing supplier match. The finite q-binomial theorem alone is not a recorded proof of every specialization; retain polynomial reciprocity, signed summation ranges and k=0 cases, without rational evaluation before cancellation.",
-        "Andrews 1986 inputs for the fifth-order gap of QM.4: the one-parameter Bailey lemma (Andrews (2.4)–(2.6) with ρ₁ → ∞, ρ₂ finite, from the q-Pfaff–Saalschütz sum), Watson's q-analogue of Whipple's transformation in the terminating limiting form of Andrews' Lemma 2 (from the two-parameter Bailey lemma and the unit pair), and the limiting Sears transformation of Andrews' Lemma 1, each as a formal identity over ℤ[a, b][q, q⁻¹] with its own node."
+        "Andrews 1986 inputs for the fifth-order gap of QM.4: the one-parameter Bailey lemma (Andrews (2.4)–(2.6) with ρ₁ → ∞, ρ₂ finite, from the q-Pfaff–Saalschütz sum), Watson's q-analogue of Whipple's transformation in the terminating limiting form of Andrews' Lemma 2 (from the two-parameter Bailey lemma and the unit pair), and the limiting Sears transformation of Andrews' Lemma 1, each with its own node. State the generic identities in the required localization of the parameter rational-function ring, with every denominator and invertibility hypothesis explicit; clear denominators before singular specializations, then justify the q-adic specializations and limits needed by the consumers. In particular, rational factors in a and b are not elements of ℤ[a, b][q, q⁻¹]."
       ]
     },
     {
@@ -47086,13 +47091,14 @@
       "note": "The represented indefinite theta, Appell and mock-completion targets have routes to their stated suppliers. The seventh-order Eulerian identification is now proved (Andrews' Bailey pairs, corrected by Hickerson); the fifth-order identification remains the one explicit gap of this layer. Shifted real Poisson and finite-Weil rank-one conventions are compared with current upstream contracts. Planned means target-level coverage, not mathematical closure.",
       "remaining": [
         "Fifth order: the Eulerian identification (Andrews' Theorem 9) needs the one-parameter Bailey lemma, the limiting Watson q-Whipple transformation (Andrews Lemma 2) and the limiting Sears transformation (Andrews Lemma 1) as QM.0 targets, then Theorems 3–4, Lemma 7 and Theorem 9 as stated in the gap register. The S/T data of H₁, G₁, H₂, G₂, F₂ are specified in the existing nodes; no congruence kernel or Eulerian identity follows from those formulas alone.",
-        "The current MP.6 generic service and the local rank-one dictionary support the represented Jacobi uses. Broader matrix-index and multiplier extensions remain with their owner. The shifted real Poisson and finite-Weil/scalar trace comparisons are supplied here and are no longer unresolved adapters."
+        "The current MP.6 generic service and the local rank-one dictionary support the represented Jacobi uses. Broader matrix-index and multiplier extensions remain with their owner. The shifted real Poisson and finite-Weil/scalar trace comparisons are supplied here and are no longer unresolved adapters.",
+        "Granularity refinement: seventh-order-indefinite-theta-identities contains Bailey inversion, the auxiliary-polynomial recurrences, the three Bailey pairs, the corrected Hecke-type expansions and the cone/sign comparison as distinct key inputs. Their statements and proof routes are recorded, but a later pass with node budget should split them into target nodes. This mathematical identification is established at planning depth; the target split remains open."
       ]
     },
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.5",
       "status": "partial",
-      "note": "The scalar quantum period, Mellin/Eichler, Kontsevich and Poincaré-sphere contracts are retained. The reviewed scalar half-weight cusp, multiplier boundary, finite-image, WRT/Ohtsuki, rank/crank, Choi/R and scalar trace comparisons now have explicit local routes. QM.5 owns these scalar examples; QT.7 owns the knot statements, with its absent matrix interface assigned to QSeries Part II. Broader extensions below remain unplanned. Revision 5: the vertical-strip Stirling estimate of QM.5/gamma-vertical-decay is imported from ZerosOfLFunctions Layer 1 (open upstream PR #253) and only exponentiated here; the Habiro requests HC.1, HC.3 and HC.4 are met by HabiroCyclotomicCompletions §§1.4, 2.1, 3.1 and 4.4 (open upstream PR #1314).",
+      "note": "The scalar quantum period, Mellin/Eichler, Kontsevich and Poincaré-sphere contracts are retained. The reviewed scalar half-weight cusp, multiplier boundary, finite-image, WRT/Ohtsuki, rank/crank, Choi/R and scalar trace comparisons now have explicit local routes. QM.5 owns these scalar examples; QT.7 owns the knot statements, with its absent matrix interface assigned to QSeries Part II. Broader extensions below remain unplanned. Revision 5: the vertical-strip Stirling estimate of QM.5/gamma-vertical-decay is imported from ZerosOfLFunctions Layer 1 (open upstream PR #253) and only exponentiated here; the Habiro requests HC.1, HC.3 and HC.4 are met by HabiroCyclotomicCompletions §§1.4, 2.1, 3.1–3.2 and 4.4 (open upstream PR #1314).",
       "remaining": [
         "Zagier, Quantum modular forms, Example 1: Andrews' identity (8) relating the terminating expressions to the q-series σ(q), σ*(q), and the Proposition (quantum modularity of q^{1/24}σ(q) on Γ₀(2) of weight 1), which needs Cohen's Maass form and the Lewis–Zagier period theory.",
         "Strong quantum modular forms (Zagier, Quantum modular forms, p. 2) as a definition attaching a formal power series to each rational point; the nodes express the same content through radial-asymptotic-expansion.",
@@ -50122,7 +50128,13 @@
         "Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21",
         "AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected"
       ],
-      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the publisher scan, Theorem 13 (7.22), p.132. The printed right side has coefficient −2 at q, whereas the Eulerian product has coefficient 0. Substitution of (7.17) in the limiting Bailey identity gives the proposed correction; Hickerson (2.3), p.666, independently prints that corrected form. My exact coefficient check agrees through degree 219.",
+        "by": "REV-QSeriesPartitionsAndMockModularForms~5",
+        "date": "2026-10-21"
+      }
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms/E634",
@@ -50138,7 +50150,13 @@
         "Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21",
         "AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected"
       ],
-      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the publisher scan, Theorem 13 (7.24) and proof, p.133. The printed right side has coefficient −2 at q² instead of 0. The a=q Bailey pair (7.20)–(7.21) gives the proposed exponents and factors, also printed by Hickerson (2.5), p.666. The proof cross-reference must name (7.20)–(7.21). My exact coefficient check agrees through degree 219.",
+        "by": "REV-QSeriesPartitionsAndMockModularForms~5",
+        "date": "2026-10-21"
+      }
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms/E635",
@@ -50155,7 +50173,13 @@
         "Zwegers, Mock theta functions (arXiv:0807.4834v1), §4.4, pp. 72–73 (it corrects only Theorem 9)",
         "AMS article page; see E633"
       ],
-      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at (3.1), p.116 of the publisher scan. The limiting Bailey relation divides by (q;q)_∞. For the unit pair β=δ₀, the left side is 1 and Σq^{n²}α_n=(q;q)_∞ by Euler’s pentagonal identity: the printed product would give (q;q)_∞², whose q coefficient is −2. The proofs on pp.126 and 133 use the reciprocal correctly. No claim of an exhaustive literature search is added.",
+        "by": "REV-QSeriesPartitionsAndMockModularForms~5",
+        "date": "2026-10-21"
+      }
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms/E636",
@@ -50170,7 +50194,13 @@
       "searched": [
         "Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21"
       ],
-      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Theorem 9 (6.3), p.125. The corrected Eulerian identity has q² coefficient 0; the printed formula gives 1. The boundary term on p.127 must carry q^{−n(n−1)/2}, as the derivation of (5.10) on p.123 shows. Zwegers §4.4, pp.72–73, supplies the corrected third identity. My independent exact check agrees through degree 219.",
+        "by": "REV-QSeriesPartitionsAndMockModularForms~5",
+        "date": "2026-10-21"
+      }
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms/E637",
@@ -50185,7 +50215,13 @@
       "searched": [
         "Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21"
       ],
-      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5"
+      "discoveredBy": "Claude — claude-NX1bCW, BP-QSeriesPartitionsAndMockModularForms~5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Theorem 9 (6.8), p.125. The Eulerian φ₁ has constant coefficient 0, but the printed expression has 1. Multiplication by q and replacement of the factor by 1−q^{2n+1} give Zwegers §4.4’s corrected eighth identity, pp.72–73. My independent exact check agrees through degree 219.",
+        "by": "REV-QSeriesPartitionsAndMockModularForms~5",
+        "date": "2026-10-21"
+      }
     }
   ],
   "restructure": [
@@ -52794,259 +52830,61 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-QSeriesPartitionsAndMockModularForms~4",
+    "reviewer": "independent-review-REV-QSeriesPartitionsAndMockModularForms~5",
     "date": "2026-10-21",
-    "notes": "Independent review by Claude, session claude-Lp3n9X (issue #11495), of revision 4 (BP-QSeriesPartitionsAndMockModularForms~4 by Codex, codex-VN3yOq). All 47 changed node records and all 43 contracts the revision-3 review flagged were checked; the 490 unchanged contracts keep the revision-3 verdicts (verified or corrected there). Every revised formula that admits a finite check was checked by an independent exact or numerical calculation. Thirty supplier requests compared; the four new source findings confirmed at their locators. In-place corrections: two requests named nonexistent nodes; an invalid unit-test kind; the moonshine statements named FLM's module while the proof builds Miyamoto's model; an inherited use citing a nonexistent node; the E631 paraphrase; Bringmann–Folsom bibliographic data; a granularity refinement added to QM.6 remaining. check_blueprint 0 errors 0 warnings; suggested file elaborates with only the nine expected admitted-proof warnings. No layer is closed; two Eulerian-identification gaps remain.",
-    "inputCommit": "1b33e3189",
-    "inputSha256": "09b52f9d707e8197aad2cefb883e53e4be23d0c5bec11a7ba3a1e60ba2b91ded",
+    "notes": "Independent delta review by Codex, codex-dLlf3q, issue #11526, of revision5 by Claude, claude-NX1bCW. All eight changed node records checked against sources, consumers, API/tests and upstream contracts; 529 unchanged records retain prior accepted verdicts. Corrected zero-index and specialization details in Bailey inversion, two source locators, the generic coefficient-domain description and Habiro naturality locator; recorded the seventh-order target split. All five new source findings confirmed. No nodes added and no layer closed. The fifth-order identification remains the one explicit mathematical gap. Indexed packet check and source-issue/version checks pass; suggested Lean elaborates with exactly ten admitted-proof warnings.",
+    "inputCommit": "7328be79fe1fedf2cbbcd0fad34f98a8adba3fd4",
+    "revisionCommit": "d040d951145c8d4729cadcb19b4bfcd2f5934cd9",
+    "inputSha256": "6b85b0b650efe63bdd05efa396b92b1dd6f99eb9bc16586cc96f3d99e3374e97",
+    "comparisonBase": "1ebf966d4 (accepted revision-4 review)",
     "checked": [
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-mock-theta-functions",
         "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        "note": "The three Eulerian definitions, n=0/n=1 conventions, formal coefficient finiteness, nonnegative-product majorants on compact subdiscs and fractional q-power convention agree with Hickerson (0.5)–(0.7), pp.661–662, and Zwegers §4.3 p.67. All six API contracts and six tests read; exact Eulerian expansions independently checked."
       },
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition-weil-representation",
-        "verdict": "verified",
-        "note": "T and S dual-Weil matrices rederived from the index-m theta S-law: h_μ(−1/τ)=τ^k(−iτ)^{−1/2}(2m)^{−1/2}Σe(μν/2m)h_ν, and τ^{k−1/2}e(1/8)=τ^k(−iτ)^{−1/2}. MP.4 §4.7 and MP.6 §§6.17–6.20 exist in the Metaplectic package with the cited contracts."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-jacobi-form",
-        "verdict": "verified",
-        "note": "Exact check for all k<60, |h|≤2k and three inverse lifts: exp(πis(h,k)) equals the stated Jacobi forms; the Meyer identity 12ks=(k−1)(k−2)−4I, (−1)^I=(h|k) for odd k and the sawtooth identity for 12khs hold for k<60."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-form",
-        "verdict": "verified",
-        "note": "Lehmer's f_n,g_n sums agree with the Dedekind definition of A_k(n) for k<50, 0≤n≤5."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-congruences",
-        "verdict": "verified",
-        "note": "All three odd and three even congruences checked for k<60, n≤4, every reduced residue, with inverse lifts modulo each modulus."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-odd",
-        "verdict": "verified",
-        "note": "Product formula checked for odd coprime k₁,k₂≤15, k₁k₂≤120, all residues."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-two-power",
-        "verdict": "verified",
-        "note": "Checked for odd k≤11, 2≤λ≤4, 2^λk≤100, including the sign −1 at λ=2."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-double-odd",
-        "verdict": "verified",
-        "note": "Checked for odd k<40 and all n; A₃(0)=A₆(1)=2cos(π/18)."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-s-transformation",
-        "verdict": "verified",
-        "note": "ThetaSeries Layer 1A–1F on TauCetiRoadmap main (c4d22422) supplies shifted lattice Poisson with the positive phase e(⟪v,m⟫) and separate summability; the B-pairing transport w=A⁻¹m is correct."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-characteristics-s",
-        "verdict": "verified",
-        "note": "Follows from the preceding theorem by the stated substitution."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/twisted-cusp-form-l-function",
-        "verdict": "verified",
-        "note": "Rederived γ⁻¹(x+iy)=−a/c+i/(c²y), f(x+iy)=e^{πik/2}(cy)^{−k}h_x(1/(c²y)) and F_x(s)=e^{πik/2}c^{k−2s}H_x(k−s)."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/twisted-l-function-vertical-growth",
-        "verdict": "verified",
-        "note": "Functional equation with c^{k−2s}(2π)^{2s−k}Γ(k−s)/Γ(s) rederived; Phragmén–Lindelöf application has admissible growth."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-quantum-modular",
-        "verdict": "verified",
-        "note": "Constant C=(−2πi)^{−1/2}/Γ(−1/2) gives coefficients λ^{1/2}Γ(−1/2,4πλy)/Γ(−1/2), matching the holomorphic Eichler series; the S-kernel ratio −y^{3/2} at w=it, z=−iy rederived."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-radial-limit",
-        "verdict": "verified",
-        "note": "Both finite formulas evaluated numerically for K=2,…,7: they agree with each other and with the Lawrence–Zagier values W(−1)=2, W(e^{2πi/3})=−2ξ−1, W(i)=1+i. s(−1,2)=0, s(1,3)=1/18, s(1,5)=1/5, φ=181/30, H=1 checked."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-ohtsuki-expansion",
-        "verdict": "verified",
-        "note": "F(y)=∏2sinh(y/2P_j)/2sinh(y/2)=[cosh(4y/15)−cosh(y/15)]/cosh(y/4), the umbral c_r, c₀=0 and the acceptance series checked."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit",
-        "verdict": "verified",
-        "note": "Consumes the two preceding theorems and QT.4/HC.3/HC.4 as stated."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-theta-transformation",
-        "verdict": "verified",
-        "note": "Fχ₊=−i(aχ₊+bχ₋), Fχ₋=−i(bχ₊−aχ₋) checked on all 60 residues; FXF⁻¹=Z⁻¹, FZF⁻¹=X, TXT⁻¹=e(1/120)XZ verified, so S,T normalize the finite Heisenberg group and the image is finite."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-quantum-modular",
-        "verdict": "verified",
-        "note": "Vector law and cuspidality at every rational follow from the verified matrix law; scalar subgroup of finite index."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-eleven",
-        "verdict": "verified",
-        "note": "Sarma Theorems 3.1, 3.3, 4.5 and §5A read: orders ≥0 at 0, >0 at 1/m, ≥5/11 at m/11; Γ₁(11) has projective index 60, valence degree 5; the eleven partitions of 6 have distinct cranks mod 11, so ORD≥6."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/atkin-swinnerton-dyer-theorem",
-        "verdict": "verified",
-        "note": "Garvan v2 Theorem 6.11 and §6.3 read: ORD(K₅,₀)≥2>1 and ORD(K₇,₀)≥3>2; cusp sets of Γ₁(5), Γ₁(7) checked."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/choi-identity",
-        "verdict": "verified",
-        "note": "The generic identity checked numerically to 1e−15 at three generic (u,v,τ); McLaughlin Proposition 3.1 (3.5) and Chen–Fu Proposition 3.1 (3.3) located."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/rank-mixed-mock-asymptotic",
-        "verdict": "verified",
-        "note": "The R-dissection R(v;τ)=Σ_l(−1)^l i^{k−1}e(−δ_l²τ/2−δ_lv)R(V;k²τ) checked numerically for k=2,…,5."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/zagier-trace-form",
-        "verdict": "verified",
-        "note": "H(τ+1)=diag(1,−i)H and H(−1/τ)=τ^{3/2}e(1/8)FH rederived from the theta, eta and E₄ laws."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/zagier-trace-form-recursions",
-        "verdict": "verified",
-        "note": "Σ_μH_μΘ_μ=0 identically; the contraction constant is −8."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/modular-diagonal-log-derivative",
-        "verdict": "verified",
-        "note": "Square-index correction Λ₄+2Λ₃ consistent at n=1; all-matrix coset convention correct."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/weight-two-trace-proposition",
-        "verdict": "verified",
-        "note": "Square-index right side +nΛ₄ checked against actual traces at n=4."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/trace-second-recursion",
-        "verdict": "verified",
-        "note": "Checked at n=4 with t(16)=287244, t(15)=−192513, t(12)=53008, t(7)=−4119: both sides equal 16560, and Σr²t=−17552=−240σ₃(4)−32."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/zagier-traces-theorem",
-        "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-lie-algebra",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-indefinite-theta-identities",
         "verdict": "corrected",
-        "note": "Test kind 'comparison' is not an allowed unit-test kind; set to 'compatibility'. A statement sentence describing the earlier draft was replaced by a timeless one. Mathematics checked: the anticommutative Leibniz quotient, the central square submodule killed by 2, the zero-mode action and the reduced neutral fermion with a₀a=1∉DV (degree argument) are correct."
+        "note": "All three Bailey pairs, auxiliary closed forms, corrected Andrews expansions, cone reindexings and Zwegers characteristics checked. V_n and its identities now require n≥1 with W₀=1 separately; the inversion proof handles β₀ separately and cancels the generic parameter before a=1 specialization. Hickerson proof locator extended to p.667. Exact series checked through degree219; rational Bailey and polynomial checks are diagnostics, not proofs. The remaining target split is recorded in QM.4 coverage."
       },
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-axioms",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/gamma-vertical-decay",
         "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        "note": "ZerosOfLFunctions Layer1 items1–3 at cce2e041 supply the uniform additive log-norm estimate. Exponentiating the real O(1/|t|) error gives the stated relative estimate; Gamma nonvanishing and compactness handle bounded heights. Gamma_ne_zero read at pinned Beta.lean427. No Stirling remainder is replanned."
       },
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-triangular-decomposition",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra",
         "verdict": "verified",
-        "note": "Jurisich exposition §1.4 (Theorem 1.11, Lemmas 1.12–1.14, pp.13–14) and §§3.2–3.3 read; the minimal-radical-degree argument is correct and treats kα_i with a_ii=0, k>1 more carefully than the source."
+        "note": "Read all eight API contracts and five tests. Mathlib VertexOperator/ncoeff uses the stated −n−1 index. The complex comparison transports the full Borcherds, creative and translation structure to C7 FormalVertexAxioms. Arbitrary commutative-ring generality remains distinct from the complex supplier."
       },
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-characterisation-theorem",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-existence-theorem",
         "verdict": "verified",
-        "note": "Kernel-central argument follows from the nondegenerate opposite-root pairing."
+        "note": "The creative, translation-covariant, pairwise-local spanning-family reconstruction retains its characteristic-zero field hypotheses and uniqueness. C7 reconstruction is the complex specialization; the general field target is needed by the real framed model. No replacement of a missing general theorem by a positive-lattice-only contract."
       },
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-is-borcherds-algebra",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/even-lattice-double-cover",
         "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        "note": "The ordered upper-triangular cocycle and C7 lower-triangular cocycle differ by the stated coboundary. Expanding Q(α+β)−Qα−Qβ and binomial(α_i+β_i,2) proves the formula for signed integral coordinates. A₁ normalization and 2500 independent seeded exact random tests agree. All seven API contracts and five tests read."
       },
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-simple-roots",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/lattice-vertex-algebra",
         "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        "note": "The basis rescaling by f intertwines twisted multiplication, charge fields, Heisenberg modes, translation and the nondegenerate conformal structure. Positive-definite complex specialization consumes C7; arbitrary signature and characteristic-zero field targets are retained for II_{1,1} and the real model. All API/test and prerequisite changes checked."
       },
       {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-free-decomposition",
-        "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/twisted-denominator-identity",
-        "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-complete-replicability",
-        "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/j-laurent-series",
-        "verdict": "verified",
-        "note": "TauCeti.ModularForm.j and the qExpansion identity read at the current library a91d3aa (JInputs.lean lines 81–319); not at the pin, as the node says."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/modular-function-polynomial-in-j",
-        "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/weakly-holomorphic-hecke-operator",
-        "verdict": "verified",
-        "note": "Hermite representatives and the coefficient formula Σ_{a|(m,N)}a⁻¹f_{mN/a²} correct for every m."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/hecke-transform-of-j",
-        "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-type-modular-group",
-        "verdict": "verified",
-        "note": "Finite-index ball argument, parabolic powers and width-one translation predicate correct; FuchsianOrbifolds Layer 8 is in open TauCetiRoadmap PR #1168 (README line 1186), and the local argument does not depend on it."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters",
+        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-mock-theta-functions",
         "verdict": "corrected",
-        "note": "Statement named the FLM module while the proof constructs Miyamoto's framed code model; the statement now names the constructed model and the presented Monster action. Finite data checked exactly: the 7×7 matrix has determinant 35672555520; the four trace vectors equal χ-combinations V₂=χ₁+χ₂, V₃=χ₁+χ₂+χ₃, V₄=2χ₁+2χ₂+χ₃+χ₄, V₆=4χ₁+5χ₂+3χ₃+2χ₄+χ₅+χ₆+χ₇ and the degrees give 196884, 21493760, 864299970, 333202640600; the odd columns agree with the q¹,q²,q³,q⁵ coefficients of 1/η_g for frame shapes 3¹²/1¹², 5⁶/1⁶, 7⁴/1⁴, 9³/1³, 13²/1², 15²/3². Höhn–Seysen Theorem 2.16 and Proposition 2.18, pp.13–15, read: their frame/simple-current proof applies to the framed model."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem",
-        "verdict": "corrected",
-        "note": "Statement's parenthetical identified V with FLM's V♮; now names the framed code model, whose comparison with FLM's construction is not used. Cummins–Norton Theorem 1.3 (p.1203), Lemma A.4 and Proposition A.5 (pp.1216–1217) read in the publisher PDF: ordinary replicability plus agreement at the twelve indices 1,2,3,4,5,7,8,9,11,17,19,23 gives equality, so the route avoids Koike's unpublished assertion."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-completion-first-six",
-        "verdict": "corrected",
-        "note": "A use cited the nonexistent node QM.4/fifth-order-shadow; reworded to a place without a node id (inherited, unchanged in revision 4)."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
-        "verdict": "verified",
-        "note": "A_k(n)=(3|k)√k Σ_{r²≡1−24n} e_k(r/12) checked for gcd(k,6)=1, k<120; A₂₅(24)=0, A₁₂₅(99)=0, A₅(4)=−√5."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-prime-power-singular-vanishing",
-        "verdict": "verified",
-        "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
-      },
-      {
-        "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula",
-        "verdict": "verified",
-        "note": "The Fourier coefficient identity exp(πis(h,k))=ε_k(−2h|k)e_k(24⁻¹(h+h̄)) checked for gcd(k,6)=1, k<120; nonunit frequencies vanish by the k/d translation. IntegralLattices 1G/1H at TauCetiRoadmap c4d22422 gives sign k²(1−p)+4kη, consistent with G(a,p^j)=ε(a|p)^j√p^j for a=(2θ)⁻¹."
+        "note": "All eight double-sum definitions checked against the corrected identities in Zwegers §4.4 pp.72–73 and Andrews Theorem9 pp.124–127; corrected the locator from pp.71–72. Independent exact Eulerian comparisons through degree219 agree. The Eulerian identification remains a gap: the missing transformations are not inferred from numerical agreement."
       }
     ],
-    "unchangedNodes": "The 490 node records unchanged since the revision-3 review keep the per-node verdicts in reviewHistory (REV-QSeriesPartitionsAndMockModularForms~3).",
-    "baseline": "The 420 baseline declaration records are unchanged since the revision-3 review, which read all of them at the pins; the current-library JInputs declarations cited by QM.6/j-laurent-series were read at Tau Ceti a91d3aa.",
-    "requests": "All 30 requests read; requests 2, 9, 10, 14, 15, 22, 24 and 29 (changed) and 25–28 (new) compared with their suppliers at TauCetiRoadmap c4d22422 or the named open pull requests (#1063 Metaplectic, #1168 FuchsianOrbifolds, #1201 AffineLieAlgebras, #446 CFSGBasicProperties). Requests 9 and 10 corrected.",
+    "unchangedNodes": "529 node records are unchanged since the accepted revision-4 review. Their prior verdicts are retained in reviewHistory; this pass does not claim to have re-read their sources or baseline statements.",
+    "baseline": "Added Complex.Gamma_ne_zero read at Mathlib082e2d37, Analysis/SpecialFunctions/Gamma/Beta.lean427, including its nonpositive-integer exclusion. Removed GammaSeq and Stirling.factorial records have no remaining consumers. The other 418 records are unchanged and retain prior review evidence; VertexOperator, PowerSeries unit/topology and Tannery service statements used by the changed routes were also read at the pin.",
+    "requests": "All30 request statements are unchanged. Changed Habiro HC.1/HC.3/HC.4 supplier locators compared at bf8812fb; HC.3 locator extended to §3.2 for naturality. C7 and Gamma upstream import records compared at 1b96abb5 and cce2e041 respectively, with their Suggested.lean or README boundary. No open upstream contract is called implemented.",
     "upstreamNotes": [
-      "QM.6/lattice-vertex-algebra plans general (also indefinite) even-lattice vertex algebras; AffineLieAlgebras C7 in open TauCetiRoadmap PR #1201 plans the positive-definite case. Once that lands, QM.6 should cite C7 for positive lattices and prove compatibility rather than construct them again.",
-      "Conway–Norton (1979) was read through a third-party mirror (gwern.net), not the publisher; the publisher DOI is the citation of record."
+      "C7 deliberately supplies positive-definite complex lattice VOAs. The arbitrary-ring/field and indefinite-lattice targets remain local extensions with comparisons, and should become imports if that supplier generalizes.",
+      "The fifth-order identification and QM.0/QM.4 target splits remain explicit; acceptance is of the represented partial plan, not of mathematical closure or implementation."
     ]
   },
   "reviewHistory": [
@@ -61402,6 +61240,263 @@
           "note": "Checked principal phases, S/T and elliptic conventions, positive-level/cusp guards and the rank-one supplier boundary at the cited passages."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-QSeriesPartitionsAndMockModularForms~4",
+      "date": "2026-10-21",
+      "notes": "Independent review by Claude, session claude-Lp3n9X (issue #11495), of revision 4 (BP-QSeriesPartitionsAndMockModularForms~4 by Codex, codex-VN3yOq). All 47 changed node records and all 43 contracts the revision-3 review flagged were checked; the 490 unchanged contracts keep the revision-3 verdicts (verified or corrected there). Every revised formula that admits a finite check was checked by an independent exact or numerical calculation. Thirty supplier requests compared; the four new source findings confirmed at their locators. In-place corrections: two requests named nonexistent nodes; an invalid unit-test kind; the moonshine statements named FLM's module while the proof builds Miyamoto's model; an inherited use citing a nonexistent node; the E631 paraphrase; Bringmann–Folsom bibliographic data; a granularity refinement added to QM.6 remaining. check_blueprint 0 errors 0 warnings; suggested file elaborates with only the nine expected admitted-proof warnings. No layer is closed; two Eulerian-identification gaps remain.",
+      "inputCommit": "1b33e3189",
+      "inputSha256": "09b52f9d707e8197aad2cefb883e53e4be23d0c5bec11a7ba3a1e60ba2b91ded",
+      "checked": [
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition-weil-representation",
+          "verdict": "verified",
+          "note": "T and S dual-Weil matrices rederived from the index-m theta S-law: h_μ(−1/τ)=τ^k(−iτ)^{−1/2}(2m)^{−1/2}Σe(μν/2m)h_ν, and τ^{k−1/2}e(1/8)=τ^k(−iτ)^{−1/2}. MP.4 §4.7 and MP.6 §§6.17–6.20 exist in the Metaplectic package with the cited contracts."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-jacobi-form",
+          "verdict": "verified",
+          "note": "Exact check for all k<60, |h|≤2k and three inverse lifts: exp(πis(h,k)) equals the stated Jacobi forms; the Meyer identity 12ks=(k−1)(k−2)−4I, (−1)^I=(h|k) for odd k and the sawtooth identity for 12khs hold for k<60."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-form",
+          "verdict": "verified",
+          "note": "Lehmer's f_n,g_n sums agree with the Dedekind definition of A_k(n) for k<50, 0≤n≤5."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-congruences",
+          "verdict": "verified",
+          "note": "All three odd and three even congruences checked for k<60, n≤4, every reduced residue, with inverse lifts modulo each modulus."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-odd",
+          "verdict": "verified",
+          "note": "Product formula checked for odd coprime k₁,k₂≤15, k₁k₂≤120, all residues."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-two-power",
+          "verdict": "verified",
+          "note": "Checked for odd k≤11, 2≤λ≤4, 2^λk≤100, including the sign −1 at λ=2."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-double-odd",
+          "verdict": "verified",
+          "note": "Checked for odd k<40 and all n; A₃(0)=A₆(1)=2cos(π/18)."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-s-transformation",
+          "verdict": "verified",
+          "note": "ThetaSeries Layer 1A–1F on TauCetiRoadmap main (c4d22422) supplies shifted lattice Poisson with the positive phase e(⟪v,m⟫) and separate summability; the B-pairing transport w=A⁻¹m is correct."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-characteristics-s",
+          "verdict": "verified",
+          "note": "Follows from the preceding theorem by the stated substitution."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/twisted-cusp-form-l-function",
+          "verdict": "verified",
+          "note": "Rederived γ⁻¹(x+iy)=−a/c+i/(c²y), f(x+iy)=e^{πik/2}(cy)^{−k}h_x(1/(c²y)) and F_x(s)=e^{πik/2}c^{k−2s}H_x(k−s)."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/twisted-l-function-vertical-growth",
+          "verdict": "verified",
+          "note": "Functional equation with c^{k−2s}(2π)^{2s−k}Γ(k−s)/Γ(s) rederived; Phragmén–Lindelöf application has admissible growth."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-quantum-modular",
+          "verdict": "verified",
+          "note": "Constant C=(−2πi)^{−1/2}/Γ(−1/2) gives coefficients λ^{1/2}Γ(−1/2,4πλy)/Γ(−1/2), matching the holomorphic Eichler series; the S-kernel ratio −y^{3/2} at w=it, z=−iy rederived."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-radial-limit",
+          "verdict": "verified",
+          "note": "Both finite formulas evaluated numerically for K=2,…,7: they agree with each other and with the Lawrence–Zagier values W(−1)=2, W(e^{2πi/3})=−2ξ−1, W(i)=1+i. s(−1,2)=0, s(1,3)=1/18, s(1,5)=1/5, φ=181/30, H=1 checked."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-ohtsuki-expansion",
+          "verdict": "verified",
+          "note": "F(y)=∏2sinh(y/2P_j)/2sinh(y/2)=[cosh(4y/15)−cosh(y/15)]/cosh(y/4), the umbral c_r, c₀=0 and the acceptance series checked."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit",
+          "verdict": "verified",
+          "note": "Consumes the two preceding theorems and QT.4/HC.3/HC.4 as stated."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-theta-transformation",
+          "verdict": "verified",
+          "note": "Fχ₊=−i(aχ₊+bχ₋), Fχ₋=−i(bχ₊−aχ₋) checked on all 60 residues; FXF⁻¹=Z⁻¹, FZF⁻¹=X, TXT⁻¹=e(1/120)XZ verified, so S,T normalize the finite Heisenberg group and the image is finite."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-quantum-modular",
+          "verdict": "verified",
+          "note": "Vector law and cuspidality at every rational follow from the verified matrix law; scalar subgroup of finite index."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-eleven",
+          "verdict": "verified",
+          "note": "Sarma Theorems 3.1, 3.3, 4.5 and §5A read: orders ≥0 at 0, >0 at 1/m, ≥5/11 at m/11; Γ₁(11) has projective index 60, valence degree 5; the eleven partitions of 6 have distinct cranks mod 11, so ORD≥6."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/atkin-swinnerton-dyer-theorem",
+          "verdict": "verified",
+          "note": "Garvan v2 Theorem 6.11 and §6.3 read: ORD(K₅,₀)≥2>1 and ORD(K₇,₀)≥3>2; cusp sets of Γ₁(5), Γ₁(7) checked."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/choi-identity",
+          "verdict": "verified",
+          "note": "The generic identity checked numerically to 1e−15 at three generic (u,v,τ); McLaughlin Proposition 3.1 (3.5) and Chen–Fu Proposition 3.1 (3.3) located."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/rank-mixed-mock-asymptotic",
+          "verdict": "verified",
+          "note": "The R-dissection R(v;τ)=Σ_l(−1)^l i^{k−1}e(−δ_l²τ/2−δ_lv)R(V;k²τ) checked numerically for k=2,…,5."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/zagier-trace-form",
+          "verdict": "verified",
+          "note": "H(τ+1)=diag(1,−i)H and H(−1/τ)=τ^{3/2}e(1/8)FH rederived from the theta, eta and E₄ laws."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/zagier-trace-form-recursions",
+          "verdict": "verified",
+          "note": "Σ_μH_μΘ_μ=0 identically; the contraction constant is −8."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/modular-diagonal-log-derivative",
+          "verdict": "verified",
+          "note": "Square-index correction Λ₄+2Λ₃ consistent at n=1; all-matrix coset convention correct."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/weight-two-trace-proposition",
+          "verdict": "verified",
+          "note": "Square-index right side +nΛ₄ checked against actual traces at n=4."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/trace-second-recursion",
+          "verdict": "verified",
+          "note": "Checked at n=4 with t(16)=287244, t(15)=−192513, t(12)=53008, t(7)=−4119: both sides equal 16560, and Σr²t=−17552=−240σ₃(4)−32."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.5/zagier-traces-theorem",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-lie-algebra",
+          "verdict": "corrected",
+          "note": "Test kind 'comparison' is not an allowed unit-test kind; set to 'compatibility'. A statement sentence describing the earlier draft was replaced by a timeless one. Mathematics checked: the anticommutative Leibniz quotient, the central square submodule killed by 2, the zero-mode action and the reduced neutral fermion with a₀a=1∉DV (degree argument) are correct."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-axioms",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-triangular-decomposition",
+          "verdict": "verified",
+          "note": "Jurisich exposition §1.4 (Theorem 1.11, Lemmas 1.12–1.14, pp.13–14) and §§3.2–3.3 read; the minimal-radical-degree argument is correct and treats kα_i with a_ii=0, k>1 more carefully than the source."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-characterisation-theorem",
+          "verdict": "verified",
+          "note": "Kernel-central argument follows from the nondegenerate opposite-root pairing."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-is-borcherds-algebra",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-simple-roots",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-free-decomposition",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/twisted-denominator-identity",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-complete-replicability",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/j-laurent-series",
+          "verdict": "verified",
+          "note": "TauCeti.ModularForm.j and the qExpansion identity read at the current library a91d3aa (JInputs.lean lines 81–319); not at the pin, as the node says."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/modular-function-polynomial-in-j",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/weakly-holomorphic-hecke-operator",
+          "verdict": "verified",
+          "note": "Hermite representatives and the coefficient formula Σ_{a|(m,N)}a⁻¹f_{mN/a²} correct for every m."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/hecke-transform-of-j",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-type-modular-group",
+          "verdict": "verified",
+          "note": "Finite-index ball argument, parabolic powers and width-one translation predicate correct; FuchsianOrbifolds Layer 8 is in open TauCetiRoadmap PR #1168 (README line 1186), and the local argument does not depend on it."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters",
+          "verdict": "corrected",
+          "note": "Statement named the FLM module while the proof constructs Miyamoto's framed code model; the statement now names the constructed model and the presented Monster action. Finite data checked exactly: the 7×7 matrix has determinant 35672555520; the four trace vectors equal χ-combinations V₂=χ₁+χ₂, V₃=χ₁+χ₂+χ₃, V₄=2χ₁+2χ₂+χ₃+χ₄, V₆=4χ₁+5χ₂+3χ₃+2χ₄+χ₅+χ₆+χ₇ and the degrees give 196884, 21493760, 864299970, 333202640600; the odd columns agree with the q¹,q²,q³,q⁵ coefficients of 1/η_g for frame shapes 3¹²/1¹², 5⁶/1⁶, 7⁴/1⁴, 9³/1³, 13²/1², 15²/3². Höhn–Seysen Theorem 2.16 and Proposition 2.18, pp.13–15, read: their frame/simple-current proof applies to the framed model."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem",
+          "verdict": "corrected",
+          "note": "Statement's parenthetical identified V with FLM's V♮; now names the framed code model, whose comparison with FLM's construction is not used. Cummins–Norton Theorem 1.3 (p.1203), Lemma A.4 and Proposition A.5 (pp.1216–1217) read in the publisher PDF: ordinary replicability plus agreement at the twelve indices 1,2,3,4,5,7,8,9,11,17,19,23 gives equality, so the route avoids Koike's unpublished assertion."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-completion-first-six",
+          "verdict": "corrected",
+          "note": "A use cited the nonexistent node QM.4/fifth-order-shadow; reworded to a place without a node id (inherited, unchanged in revision 4)."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+          "verdict": "verified",
+          "note": "A_k(n)=(3|k)√k Σ_{r²≡1−24n} e_k(r/12) checked for gcd(k,6)=1, k<120; A₂₅(24)=0, A₁₂₅(99)=0, A₅(4)=−√5."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-prime-power-singular-vanishing",
+          "verdict": "verified",
+          "note": "Change checked against the cited source, its consumers and the revised supplier contract; bookkeeping or acceptance-only edit."
+        },
+        {
+          "nodeId": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula",
+          "verdict": "verified",
+          "note": "The Fourier coefficient identity exp(πis(h,k))=ε_k(−2h|k)e_k(24⁻¹(h+h̄)) checked for gcd(k,6)=1, k<120; nonunit frequencies vanish by the k/d translation. IntegralLattices 1G/1H at TauCetiRoadmap c4d22422 gives sign k²(1−p)+4kη, consistent with G(a,p^j)=ε(a|p)^j√p^j for a=(2θ)⁻¹."
+        }
+      ],
+      "unchangedNodes": "The 490 node records unchanged since the revision-3 review keep the per-node verdicts in reviewHistory (REV-QSeriesPartitionsAndMockModularForms~3).",
+      "baseline": "The 420 baseline declaration records are unchanged since the revision-3 review, which read all of them at the pins; the current-library JInputs declarations cited by QM.6/j-laurent-series were read at Tau Ceti a91d3aa.",
+      "requests": "All 30 requests read; requests 2, 9, 10, 14, 15, 22, 24 and 29 (changed) and 25–28 (new) compared with their suppliers at TauCetiRoadmap c4d22422 or the named open pull requests (#1063 Metaplectic, #1168 FuchsianOrbifolds, #1201 AffineLieAlgebras, #446 CFSGBasicProperties). Requests 9 and 10 corrected.",
+      "upstreamNotes": [
+        "QM.6/lattice-vertex-algebra plans general (also indefinite) even-lattice vertex algebras; AffineLieAlgebras C7 in open TauCetiRoadmap PR #1201 plans the positive-definite case. Once that lands, QM.6 should cite C7 for positive lattices and prove compatibility rather than construct them again.",
+        "Conway–Norton (1979) was read through a third-party mirror (gwern.net), not the publisher; the publisher DOI is the citation of record."
+      ]
     }
   ],
   "revisionDisposition": {
@@ -61835,13 +61930,13 @@
       "supplier": "tauceti:TauCetiRoadmap/HabiroCyclotomicCompletions#layer-3-values-taylor-expansions-and-p-adic-translation",
       "commit": "bf8812fbc41f0e74dca5b0ed5ae5a87c936707b4",
       "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1314",
-      "locator": "HabiroCyclotomicCompletions README §1.4 (the full factorial completion), §2.1 (factorial series converge for arbitrary polynomial coefficients; the Kontsevich element F = Σ P_n is the standing example), §3.1 (`evalAt`: evaluation at a root of order d is the finite sum over n < d) and §4.4 (evaluation uniqueness: for R = ℤ, values at infinitely many roots of prime-power order determine an element)",
+      "locator": "HabiroCyclotomicCompletions README §1.4 (the full factorial completion), §2.1 (factorial series converge for arbitrary polynomial coefficients; the Kontsevich element F = Σ P_n is the standing example), §3.1 (`evalAt`: evaluation at a root of order d is the finite sum over n < d), §3.2 (naturality under maps of coefficients and root algebras, giving the requested Galois compatibility) and §4.4 (evaluation uniqueness: for R = ℤ, values at infinitely many roots of prime-power order determine an element)",
       "need": "The three atlas requests to HabiroCyclotomicCompletions HC.1, HC.3 and HC.4 (completion with its convergence criterion, root evaluation, evaluation rigidity) are the cited sections of this open upstream pull request, ported from the accepted atlas package. The request statements are unchanged; their exact upstream contracts are these sections.",
       "neededBy": [
         "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-strange-series",
         "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit"
       ],
-      "checked": "2026-10-21; README §§1.4, 2.1, 3.1, 4.4 and the downstream-consumer section read at the PR head. A current open upstream contract, separate from the historical library pins."
+      "checked": "2026-10-21; README §§1.4, 2.1, 3.1–3.2, 4.4 and the downstream-consumer section read at the PR head. A current open upstream contract, separate from the historical library pins."
     }
   ],
   "closedReviewGaps": {
