@@ -116,41 +116,11 @@ example : TauCeti.MarkovEquiv (oneStrand 0).forgetFraming (oneStrand 1).forgetFr
 
 end FramingCheck
 
-/-! ## Layer 1: ribbon Hopf algebras, quantum groups and universal invariants -/
+/-! ## Layer 1: continuous ribbon-Hopf modules and formal quantum groups
 
-section RibbonCategories
-
-universe u v
-
-open CategoryTheory MonoidalCategory
-
-variable (C : Type u) [Category.{v} C] [MonoidalCategory C] [BraidedCategory C] [RigidCategory C]
-
-/-- A ribbon structure on a braided rigid monoidal category: a natural automorphism of the identity
-that is trivial on the unit, is the double braiding composed with the tensor of twists on a tensor
-product, and commutes with right duals. No symmetry of the braiding is assumed. README 1.1. -/
-structure RibbonCategory where
-  /-- The twist `θ`. -/
-  twist : 𝟭 C ≅ 𝟭 C
-  twist_unit : twist.hom.app (𝟙_ C) = 𝟙 (𝟙_ C)
-  twist_tensor : ∀ X Y : C,
-    twist.hom.app (X ⊗ Y) =
-      (twist.hom.app X ⊗ₘ twist.hom.app Y) ≫ (β_ X Y).hom ≫ (β_ Y X).hom
-  twist_dual : ∀ X : C, twist.hom.app (Xᘁ) = (twist.hom.app X)ᘁ
-
-variable {C}
-
-/-- The ribbon (graphical) trace of an endomorphism: close the strand with the twist, the braiding
-and the right evaluation and coevaluation. -/
-def ribbonTrace (r : RibbonCategory C) {X : C} (f : X ⟶ X) : 𝟙_ C ⟶ 𝟙_ C :=
-  η_ X (Xᘁ) ≫ ((f ≫ r.twist.hom.app X) ⊗ₘ 𝟙 (Xᘁ)) ≫ (β_ X (Xᘁ)).hom ≫ ε_ X (Xᘁ)
-
-/-- The ribbon trace is multiplicative under tensor products of endomorphisms. -/
-theorem ribbonTrace_tensor (r : RibbonCategory C) {X Y : C} (f : X ⟶ X) (g : Y ⟶ Y) :
-    ribbonTrace r (f ⊗ₘ g) = ribbonTrace r f ≫ ribbonTrace r g := by
-  sorry
-
-end RibbonCategories
+The general ribbon category and trace are supplied by PivotalSpherical. The new continuous
+module comparison and formal/integral quantum-group comparisons require carriers absent at the pins.
+-/
 
 /-! ## Layer 2: coloured Jones polynomials and the cyclotomic expansion -/
 
@@ -586,11 +556,14 @@ Statements not typed at the pins (their carriers are absent; the README states t
   completions, `universalR`, `ribbonElement`, the module categories, `BottomTangle`, `closure`,
   `RibbonTangle`, `RibbonGraph`, `IsRibbonTangleMove`, `RTFunctor`, `J` and `universalInvariant`,
   `CoreSubalgebra`, `claspForm`, `twistForm`, `CoreSubalgebra.twistForm`,
-  `DrinfeldJimboDatum`, `DrinfeldJimboAlgebra`, `quantumPBWBasis`, `weightedPBWCore`,
+  `continuousModule_ribbon`, `continuousModule_twist_tensor`, `continuousModule_twist_dual`,
+  `continuousModule_trace_eq`, `continuousModule_trace_tensor`,
+  `DrinfeldJimboDatum`, `DrinfeldJimboAlgebra`, `formalQuantumPBWBasis`,
+  `genericQuantum_formalComparison`, `semisimpleIntegral_formalComparison`, `weightedPBWCore`,
   `integralQuantumCore`, `TiltingModule`, `IsNegligibleMorphism`, `TiltingSemisimplification`
   and `bottomTangleAction`
   (no completed tensor products over `ℂ⟦h⟧` and no quantum group at the pins).
-* Layer 2: `sl2Color`, `sl2RepRing`, `quantumTrace`, `colouredJones`, `reducedJones`,
+* Layer 2: `sl2Color`, `sl2Color_complexComparison`, `sl2Color_formalTensor`, `sl2RepRing`, `quantumTrace`, `colouredJones`, `reducedJones`,
   `P`, `P_prime`, `P_doublePrime`,
   `P_tildePrime`, `quantumCasimir`, `sigma`, `evenCenterExpansion`, `algebraP`, `filtration`
   and its completion,
