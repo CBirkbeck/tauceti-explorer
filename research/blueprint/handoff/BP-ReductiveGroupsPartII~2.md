@@ -1,6 +1,67 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-rO7QsU, 2026-10-21
+## Latest dispatch: codex-ecsJ1h, 2026-10-21
+
+Codex session `codex-ecsJ1h` claimed #9312 as the first available eligible
+issue on the supplied priority list. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6306232541)
+at 02:07:22 UTC. This submission is a **blocked checkpoint**; the blueprint
+revision remains unfinished.
+
+The ownership decision still prevents this revision. The maintainer's
+[13 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+makes the upstream README authoritative and directs roadmap changes to that
+pull request. The
+[16 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+says this atlas revision is superseded and requires an upstream-owner request
+for an extension before reopening. Read all 44 issue comments through the
+present claim confirmation: none supplies that request or retracts either
+instruction. The available label does not resolve the ownership boundary in
+PROTOCOL section 15 or the independent review.
+
+Fresh checks:
+
+- Re-read the issue after the bot confirmation; its body is unchanged.
+- Queried [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785).
+  It remains open and ready for review at head
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. Read its
+  [README introduction and scope, lines 1–125](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L1).
+  All seven assigned layers remain owned there; it distinguishes the excluded
+  R-smooth, torsor and other additions. This is an ownership check, not a
+  mathematical review of upstream work.
+- Read the supplied ReductiveGroups and ReductiveGroupsPartII introductions
+  and ownership boundaries, the Part II suggested-file opening, and the
+  current Tau Ceti functor-of-points source. The supplied roadmap tree is at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. Neither supplied tree was edited
+  or built. Consulted the reviewed library audit's overlap records; no fresh
+  pinned-library audit or source-issue verification is claimed.
+- Read the independent review and inherited handoff; checked packet summary,
+  coverage, gaps and inventory. The packet checker reports zero errors and
+  zero warnings. Only this handoff changes. Lean was not run because no Lean
+  file changed; no background process was started.
+
+Preserved inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and all
+seven stages RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 remain
+`partial`; the review remains `needs_changes`. No stage is closed. The
+independent review's ModularCurves 0F import and disposition of
+RT-AREA-algebraicgeometry/11 are preserved, without a new correctness verdict.
+
+**Resume requires the manager to reconcile the queue with the explicit block.**
+Work on the existing roadmap belongs on upstream PR #785. If its owner requests
+an atlas extension, assign its identity, stage boundaries, supplier links and
+permitted deliverables. Then resume from the review's fourteen-target routing
+table and seven coverage lists, preserving its eight corrections. The four
+mathematical gaps besides ownership remain: the étale local-homeomorphism
+input, general splitting-field tensor decomposition, locally free determinant
+norm gluing, and non-affine lft Weil restriction for full torus Néron models.
+The reader still needs synchronization with the review's corrections within
+that assigned scope. An unchanged redispatch cannot finish the revision.
+
+This session takes no second issue.
+
+## Previous dispatch: codex-rO7QsU, 2026-10-21
 
 Codex session `codex-rO7QsU` selected #9312 because it was labelled
 `state:available` and was first in the manager's supplied list. The bot
