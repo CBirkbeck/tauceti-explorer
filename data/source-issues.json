@@ -289179,7 +289179,7 @@
    "correction": "Use e⁻(a)=(1/16)a(−1)²1−(1/4)(i(a)+i(−a)), with the same oscillator term as e⁺(a).",
    "reason": "The odd-pairing sign involution fixes the oscillator term and negates both exponential states; it therefore exchanges e⁺ and e⁻. With the repeated plus sign the two vectors coincide and that exchange argument cannot give the asserted frame.",
    "affects": "the proof",
-   "known": "No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.",
+   "known": "new; no published correction found in the bounded publisher/author search.",
    "searched": [
     "Publisher/author source and the version records in sourceVersions, checked2026-10-20.",
     "Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results."
@@ -289187,9 +289187,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Masahiko Miyamoto, A new construction of the moonshine vertex operator algebra over the real number field, Annals of Mathematics 159 (2004), 535–596, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~4",
+   "reviewReason": "Confirmed on the rendered publisher page 573: both displayed conformal vectors carry the same plus sign in front of the exponential pair, so they coincide, while Lemma 5.3 needs the sign involution to exchange them. The corrected e⁻(a) has the minus sign."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E630",
@@ -289199,7 +289199,7 @@
    "correction": "The endomorphism commutator is0.",
    "reason": "The proof says the involution acts identically on the Heisenberg oscillator space; commuting with every oscillator mode means commutator0. Substituting the zero mode on the vacuum also rules out the identity endomorphism.",
    "affects": "the proof",
-   "known": "No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.",
+   "known": "new; no published correction found in the bounded publisher/author search.",
    "searched": [
     "Publisher/author source and the version records in sourceVersions, checked2026-10-20.",
     "Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results."
@@ -289207,19 +289207,19 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Masahiko Miyamoto, A new construction of the moonshine vertex operator algebra over the real number field, Annals of Mathematics 159 (2004), 535–596, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~4",
+   "reviewReason": "Confirmed on the rendered publisher page 573: the lemma asserts a vanishing commutator with the oscillator modes, while its proof writes the commutator as 1. Read as endomorphisms the intended value is 0; the slip affects only the proof's notation."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E631",
    "kind": "error",
    "locator": "Author-hosted PDF, §9,15D paragraph, p.29",
-   "printed": "The full conjugate of Γ₀(5) by diag(3,1) is identified as the modular group fixing the15D function.",
+   "printed": "Borcherds lists the full conjugate of Γ₀(5) by diag(3,1) as the modular group corresponding to the 15D element, alongside the groups Γ₀(n) attached to the other six classes; read as the group fixing T_15D, this is too large.",
    "correction": "Use the order3 multiplier kernel inside that conjugate eigengroup. It has index3 and contains Γ₀(45). The full conjugate acts by cube-root scalars.",
    "reason": "The displayed eta quotient f=(η(3τ)/η(15τ))² has f(τ+1/3)=e(−1/3)f(τ), and f³=T_{5B}(3τ)−6. Translation by1/3 belongs to the displayed conjugate group and fails to fix its q^{−1} leading term. Thus the eigengroup and fixing group differ. Conway–Norton §5’s n|h notation makes precisely this kernel distinction.",
    "affects": "a stated result",
-   "known": "No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.",
+   "known": "new; no published correction found in the bounded publisher/author search.",
    "searched": [
     "Publisher/author source and the version records in sourceVersions, checked2026-10-20.",
     "Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results."
@@ -289227,9 +289227,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~4",
+   "reviewReason": "Confirmed in the author copy, p.29: Borcherds lists the full conjugate diag(3,1)⁻¹Γ₀(5)diag(3,1) as the modular group of the 15D element. That conjugate contains translation by 1/3, and (η(3τ)/η(15τ))² is multiplied by e(−1/3) under it (η(3τ+1)/η(15τ+5) = e(−1/6)η(3τ)/η(15τ)), so the group fixing T_15D is the index-3 kernel, which contains Γ₀(45). The printed paraphrase is narrowed to what the source says."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E632",
@@ -289239,7 +289239,7 @@
    "correction": "Use M(β₂,0) as the second input on the left and in m_γ, and M(β₂,α₂) as the second input on the right. The output has β₁+β₂ in all three places.",
    "reason": "The next line defines m_γ as a fusion coefficient of M(β₁,0) with M(β₂,0), and the following associativity computation retains these distinct supports. Fusion adds the 1/16-support labels; the repeated β₁ would instead give zero support and contradict the stated output when β₁≠β₂.",
    "affects": "the proof",
-   "known": "The misprint is present in the visually checked v1 page. No separate correction was located in the inspected arXiv record and public title/lemma/erratum searches. The published2007 text was not collated; no claim about its typography is made. Awaiting independent review.",
+   "known": "The misprint is present in the visually checked v1 page. No separate correction was located in the inspected arXiv record and public title/lemma/erratum searches. The published2007 text was not collated; no claim about its typography is made.",
    "searched": [
     "arXiv:math/0506321 abstract/version record, checked2026-10-20; v1 PDF p.10 visually inspected.",
     "Public searches for both paper titles, erratum and Lemma5.11; author publication listing identifies the2007 journal article but no correction was located in the inspected results."
@@ -289247,9 +289247,9 @@
    "owner": "QSeriesPartitionsAndMockModularForms",
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Chongying Dong, Robert L. Griess Jr. and Ching Hung Lam, On the Uniqueness of the Moonshine Vertex Operator Algebra, arXiv:math/0506321v1, 2005; preprint pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~4",
+   "reviewReason": "Confirmed in arXiv v1, p.10: the lemma and the definition of m_γ use M(β₁,0) twice, while the next displayed fusion product is M(β₁,0) × M(β₂,0) and the output support is β₁+β₂."
   },
   {
    "id": "QuadraticFormInvariantsPartII/E1",
