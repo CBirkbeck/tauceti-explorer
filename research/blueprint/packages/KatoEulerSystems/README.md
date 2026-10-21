@@ -7,8 +7,10 @@ morphism `V(f) → H¹_Iw(V(f))`, its full-level and twist-one versions, the
 period-normalized scalar regulator and its comparison with the analytic p-adic
 L-function, and the arithmetic applications to elliptic curves: finite
 generation of `E(ℚ_∞)`, the ordinary and multiplicative cyclotomic divisibility,
-the absence of finite submodules and the rank-zero upper bound for the p-primary
-Tate–Shafarevich group. On the way it states the inputs those constructions use
+the absence of finite submodules, the rank-zero upper bound for the p-primary
+Tate–Shafarevich group, and Kato's finiteness theorems for Bloch–Kato Selmer groups of
+newforms and for Selmer and Mordell–Weil groups of modular abelian varieties over abelian
+fields. On the way it states the inputs those constructions use
 and no other roadmap states: the remaining identities of Siegel units and
 Beilinson elements, Kato's Eisenstein series, Beilinson's real regulator formula,
 the coefficient places at which Kato's image hypothesis holds, the passage from
@@ -53,8 +55,10 @@ This roadmap owns:
   regulator of the canonical class, the period dictionary with modular symbols,
   the noncritical analytic–arithmetic equality, the conditional critical
   comparison and the elliptic local lattice with Kato's period (Layer 6);
-- the non-torsion and cohomological bound for the canonical zeta module, and the
-  elliptic applications with their formal-group and control inputs (Layer 7).
+- the non-torsion and cohomological bound for the canonical zeta module, the
+  elliptic applications with their formal-group and control inputs, Kato's finiteness of
+  Bloch–Kato Selmer groups over abelian fields with its consequences for modular abelian
+  varieties, and his bound for the order of `H²` (Layer 7).
 
 `PadicFamilies` §4.0 is the owner of the finite-level geometric construction
 and its first consequences, and this roadmap does not construct them again:
@@ -98,10 +102,11 @@ and global fields from `EllipticCurves`.
 
 Not in this roadmap: a generic Euler-system or Kolyvagin-system machine, generic
 regulators, the construction of the analytic p-adic L-function, reverse
-divisibility or any main-conjecture equality, the BSD p-part equality, the
-finiteness of Bloch–Kato Selmer groups of Kato's §14, two-variable and family
-classes (owned by `PadicFamilies`), and the CM main conjecture beyond the
-elliptic-unit input that `PadicFamilies` §4.0.3 uses.
+divisibility or any main-conjecture equality, the BSD p-part equality, the Tamagawa
+number conjecture itself, two-variable and family classes (owned by `PadicFamilies`),
+and the CM main conjecture beyond the elliptic-unit input that `PadicFamilies` §4.0.3
+uses; in particular the vanishing for almost all λ of the Selmer groups of 7.9 for CM
+forms, which rests on it, is not claimed.
 
 ## Conventions
 
@@ -114,6 +119,16 @@ it is kept distinct from f, even when they coincide in an example. Arithmetic
 Frobenius is written `Fr_ℓ`. Inverses of `σ_ℓ` refer to the action on the named
 cyclotomic coefficient algebra, never to a replacement of arithmetic Frobenius
 by geometric Frobenius.
+
+For `ℓ ∤ p` the inertia invariants of `V(f)` satisfy
+`det(1 − Fr_ℓ^(−1) u | V(f)^(I_ℓ)) = 1 − a_ℓ u + ε(ℓ) ℓ^(k−1) u²`, with `ε(ℓ) = 0` for `ℓ | N`
+(Kato (14.10.3), p. 240), and `V(f*) ≅ Hom_E(V(f),E)(1−k)` ((14.10.1)). Hence for `ℓ ∤ Np` the
+arithmetic Frobenius has
+`det(1 − Fr_ℓ t | V(f)) = 1 − conj(a_ℓ) ℓ^(1−k) t + conj(ε(ℓ)) ℓ^(1−k) t²`, which after the
+twist by `k − r` is the polynomial of 2.1. At `k = 2`, `ℓ = 3`, `a_3 = 2`, `ε(3) = 1` the
+geometric polynomial is `1 − 2u + 3u²` and the arithmetic one `1 − (2/3)t + (1/3)t²`; reading
+the first as the second would turn the evaluated factor `1 − (2/3)X + (1/3)X²` of 2.1 into
+`1 − 2X + 3X²`.
 
 Write `G_∞ = Gal(ℚ(ζ_(p^∞))/ℚ)`, `Λ = O[[G_∞]]` and `Λ_ℚ = Λ[1/p]`; `Λ_ℚ` is not
 a field. On odd-prime tame character components one may use the power-series
@@ -202,7 +217,9 @@ normalization only; they say nothing about the open modular curve.
   submodule is non-torsion, and the height-one length inequality with the local
   degree-two term holds away from p; the CM case is included through elliptic
   units; for p odd and an integral `SL₂(ℤ_p)` image the integral inequality holds;
-  `classicalOrdinarySelmer_torsion` and the ordinary bound with good periods.
+  `classicalOrdinarySelmer_torsion` and the rational height-one bound of the ordinary
+  Selmer dual by the ordinary p-adic L-function with good periods, for every p, with the
+  integral form for odd p.
   This roadmap uses the non-CM rational clauses only for admissible pairs: at a
   coefficient place over a ramified place of Momose's algebra Kato's 12.8.2,
   on which their proof rests, is not available (see 4.1).
@@ -223,7 +240,8 @@ determinant descent and the fixed-pairing model over `ℚ(ζ_N)` (§§5.12,
 8.1–8.5); degeneracy correspondences and diamond operators (§§9.1–9.2) with their
 étale traces (§9.12); and the open-curve étale local systems `Sym^(k−2)` with the
 Artin comparison, the parabolic and boundary sequences, Hecke traces and the
-graph retraction of the open curve (§§14.1–14.4, 14.8, 14.9a, 14.12). Vanishing of
+graph retraction of the open curve (§§14.1–14.4, 14.8, 14.9a, 14.12); and the modular
+abelian variety `A_f` of a weight-two newform as a quotient of `J₁(N)` (§16.2). Vanishing of
 degree-two étale cohomology of the affine curve with these coefficients follows
 from §14.4 with §14.9a.
 
@@ -259,7 +277,9 @@ absolute irreducibility (§4.8); the ordinary filtration and `D_cris` at
 `p ∤ N` (§§5.1–5.2); purity and strict compatibility of the eigenform system
 (§§7.2–7.3); and the Ribet–Momose theorem that for non-CM f the Zariski closure of
 the image contains `SL₂` at every λ, with residual largeness outside a finite set
-(§7.5). The local structure of the image at a given λ, in terms of the inner-twist
+(§7.5); and the decomposition of the Tate module of the modular abelian variety `A_f` of
+a weight-two newform along the places above ℓ (§6.1). The local structure of the image at a
+given λ, in terms of the inner-twist
 field `F⁰` and Momose's algebra, is target 4.1 here.
 
 ### From SelmerIwasawaCohomology and ArithmeticGaloisDuality
@@ -274,8 +294,10 @@ finite against unramified classes (§2.15), Poitou–Tate for Selmer groups
 control (§§3.2–3.3), universal norms unramified away from p (§3.5), semilocal
 descent (§3.6), the twist isomorphism `φ_k` with `φ_k(σx) = κ(σ)^(−k)σφ_k(x)` and
 augmentation specialization (§3.7), the rank formula (§3.13), the étale/Galois
-comparison for Kato's `j_*` convention (§3.15) and Greenberg's criterion for the
-absence of finite submodules (§§3.18–3.21). From `ArithmeticGaloisDuality`:
+comparison for Kato's `j_*` convention (§3.15), Greenberg's criterion for the
+absence of finite submodules (§§3.18–3.21), the Bloch–Kato local condition (§4.9) with its
+identification with the Kummer conditions for elliptic curves at every place (§4.26), and the
+abelian Kummer and Selmer carriers (§2.12a). From `ArithmeticGaloisDuality`:
 Tate's inverse-limit theorem (§R02.1.2), the Hochschild–Serre sequence and
 finite-index restriction/corestriction (§§R02.2.1–R02.2.3), the local Tate
 pairing with exact unramified annihilators (§R02.4.2), the nine-term Poitou–Tate
@@ -343,6 +365,11 @@ containing ℚ (Layer 1); reduction types, the filtration `E₀ ⊃ E₁ ≅ Ê(
 local minimal discriminant and Tamagawa numbers as indices (Layer 4); and the
 Mordell–Weil theorem over number fields (Layer 6).
 
+### From HeightsRationalPointsAndObstructions
+
+The Mordell–Weil theorem for abelian varieties over number fields: `A(K)` is finitely
+generated (§1.7).
+
 ## How to read the build
 
 Layer 0 and Layer 1 refine the units and K₂ elements of `PadicFamilies` §4.0.1.
@@ -353,7 +380,7 @@ values and the real regulator. Layer 4 proves the image, nonvanishing and
 Iwasawa-theoretic inputs that precede the canonical map. Layer 5 constructs the
 canonical rational morphism and its twist-one and parabolic forms; Layer 6
 compares its regulator with the analytic p-adic L-function; Layer 7 applies the
-bounds. This order separates nonvanishing of the geometric classes from
+bounds and ends with Kato's finiteness theorems over abelian fields. This order separates nonvanishing of the geometric classes from
 nonvanishing of the subsequently constructed canonical map.
 
 ## Layer 0: Siegel units beyond the normalized theta function
@@ -1118,14 +1145,15 @@ using the purity of `AutomorphicGaloisRepresentations` §7.2, and only the line
 primes, the set of characters χ of conductor supported in S with
 `L_S(f,χ,k/2) = 0` is finite (Rohrlich, Math. Ann. 281 (1988)).
 
-These give, for every sign and every character component, infinitely many
-finite-order characters χ and a critical `r` with `L_({p})(f*,χ,r) ≠ 0`: for
-`k ≥ 3` use `r = k−1` with (1); for `k = 2` use (2) at `r = 1`; the other noncritical
-values follow by the functional equation of `ModularForms` Layer 7. This is the
-analytic half of Kato's Proposition 13.7; the conclusion that the geometric zeta
-submodule is non-torsion is `PadicFamilies` §4.0.3, and its canonical form is 7.1.
-The trivial twist at weight two is not asserted to be nonzero, and the total
-`LSeries` outside its half-plane of convergence does not give these values.
+These give, for every sign and every character component, infinitely many finite-order
+characters χ and a critical `r` with `L_({p})(f*,χ,r) ≠ 0`: for `k ≥ 3` use `r = k−1` with (1),
+and for `k = 2` use (2) at `r = 1`. For `k ≥ 3` and χ ramified at p the value at `r = 1` is then
+nonzero as well, by the functional equation of `ModularForms` Layer 7, which relates `L(f*,χ,1)`
+to `L(f,χ^(−1),k−1)` through nonvanishing gamma factors and root numbers. This is the analytic
+half of Kato's Proposition 13.7; the conclusion that the geometric zeta submodule is non-torsion
+is `PadicFamilies` §4.0.3, and its canonical form is 7.1. The trivial twist at weight two is not
+asserted to be nonzero, and the total `LSeries` outside its half-plane of convergence does not
+give these values.
 
 **Checks.**
 
@@ -1164,8 +1192,11 @@ Iwasawa Poitou–Tate sequence of `EulerSystemsAndKolyvaginSystems` §8.16.
   class groups of `ℚ(ζ_(p^n))` (Kato 12.9, p. 223). There is one place above p and
   `Br(ℤ[ζ_(p^n), 1/p]) = 0`, so the map to the local `H²` is zero and the strict kernel is the
   whole class-group limit.
-- If T has no `G_(ℚ_v)`-invariants for the dual at every `v ∈ Σ`, the local `H²` terms
-  vanish and the kernel is all of `H²_Iw`.
+- By local duality `H²_Iw(ℚ_v, T)` is the Pontryagin dual of the invariants of `T^∨(1)` under
+  `G_(ℚ_v(μ_(p^∞)))`, so the kernel is all of `H²_Iw` when those invariants vanish at every
+  `v ∈ Σ`. Invariants under `G_(ℚ_v)` alone do not suffice: for p odd and `T = ℤ_p(2)`,
+  `T^∨(1) = (ℚ_p/ℤ_p)(−1)` has no `G_(ℚ_p)`-invariants, but κ is trivial on
+  `G_(ℚ_p(μ_(p^∞)))`, so `H²_Iw(ℚ_p, ℤ_p(2)) ≅ ℤ_p` is not zero.
 
 *Needs:* `ArithmeticGaloisDuality` §§R02.1.2, R02.4.2–R02.4.3;
 `EulerSystemsAndKolyvaginSystems` §§8.3, 8.16; `SelmerIwasawaCohomology` §§3.1, 3.5, 3.15.
@@ -1835,11 +1866,15 @@ For admissible `(f,λ)` and every height-one prime 𝔭 of Λ not containing p, 
 length_𝔭 H²(V(f)) ≤ length_𝔭(H¹(V(f))/Z(f)) + length_𝔭 H²_loc(V(f)),
 ```
 
-with `H²_loc` the sum of local Iwasawa cohomology at p. The last term vanishes except
-when `k = 2`, f is not potentially good at p and 𝔭 is the kernel of `κ^(−2)χ` for a
-finite-order χ; there it has length one (Kato Theorem 12.5(3), pp. 221–222). The proof
-combines 4.3 with 4.2a, which relates `H²(T)₀` to `H²(T)` through the local term, and
-5.2, which relates the smoothed span to `Z(f)` at primes away from p.
+with `H²_loc` the sum of local Iwasawa cohomology at p. The last term is nonzero only when
+`k = 2`, f is not potentially of good reduction at p and 𝔭 is the kernel of `κ^(−2)χ` for a
+finite-order χ, and it then has length one (Kato Theorem 12.5(3), p. 222, with the proof in
+13.13, pp. 233–234). The condition is necessary, not sufficient: for an elliptic curve with
+nonsplit multiplicative reduction at p, the unramified quadratic character of its Tate
+parametrization is nontrivial on `G_(ℚ_p(μ_(p^∞)))`, so the invariants dual to the local term
+vanish and the term is zero at every 𝔭. The proof combines 4.3 with 4.2a, which relates `H²(T)₀`
+to `H²(T)` through the local term, and 5.2, which relates the smoothed span to `Z(f)` at primes
+away from p.
 
 For a stable T, assume p odd and (12.5.2): the image of `G_(ℚ(μ_(p^∞)))` contains
 `SL₂(ℤ_p)` in some basis of T (4.1 gives this for almost all λ). Then `Z(f,T) ⊂ H¹(T)` and
@@ -1886,7 +1921,10 @@ Complete the descent: choose one finite layer containing `T₀` and generators o
 `σ ↦ σP − P` is a continuous homomorphism `Γ → T₀`, killed on `eΓ` for an exponent e of
 `T₀`, uniformly in P. So every point lies in one finite layer, whose Mordell–Weil group is
 finitely generated (`EllipticCurves` Layer 6). Bounded rank and finite torsion alone would
-not give finite generation of an abstract abelian group.
+not give finite generation of an abstract abelian group. For E over ℚ, with or without
+complex multiplication, the statement is also the case `m = p` of
+`modularAbelianVariety_cyclotomicFG` in 7.9, since `ℚ_∞ ⊂ ℚ(ζ_(p^∞))` and a subgroup of a
+finitely generated abelian group is finitely generated.
 
 If `L(E,1) ≠ 0`, the same argument gives finite `E(ℚ)` and finite `Ш(E/ℚ)[p^∞]` for each p;
 global finiteness of Ш also uses 7.8.
@@ -1915,17 +1953,26 @@ good ordinary or nonsplit multiplicative reduction, `Z_∞` is finitely generate
 char(Z_∞) divides p^t L_(E,N) Λ  for some integer t,
 ```
 
-and under `ρ_(E,p)` surjective and `p ∤ r_E ∏_(q|N, q≠p) ℓ_q(q^(−1))`, `char(Z_∞)`
-divides `L_E Λ` (Rubin draft III.5.14–5.16, pp. 52–53; `EulerSystemsAndKolyvaginSystems` §8.39 with 4.7).
-Rubin states these results without a parity condition; the hypothesis that p is odd is
-that of the Coleman map of `PadicHodgeRegulators` §§8.22 and 9.36, which is constructed for
-odd p, and a dyadic Coleman map is not supplied. The integer t may be negative: this is fractional-ideal divisibility. For
-split multiplicative reduction, the Coleman image lies in the augmentation ideal J
-(`PadicHodgeRegulators` §9.36), and the bound is `J char(Z_∞) | p^t L_(E,N) Λ`, or
-`| L_E Λ` under the stronger hypotheses. With `α = 1` (split), `α = −1` (nonsplit) or the
-unit root (ordinary) and `β = p/α`, the trivial-character value of Col contains
-`(1 − α^(−1))/(1 − β^(−1))` and the value at χ of conductor `p^n` contains `α^(−n)τ(χ)` and the inverse-character sum of 6.6; never invert
-`1 − α^(−1)`. In the nonsplit case `1 − α^(−1) = 2`, a unit for odd p.
+and under `ρ_(E,p)` surjective and `p ∤ r_E ∏_(q|N, q≠p) ℓ_q(q^(−1))`, `char(Z_∞)` divides
+`L_E Λ` (Rubin draft III.5.14–5.16, pp. 52–53; `EulerSystemsAndKolyvaginSystems` §8.39 with
+4.7). Rubin states these results without a parity condition; the hypothesis that p is odd is
+that of the Coleman map of `PadicHodgeRegulators` §§8.22 and 9.36, which is constructed for odd
+p, and a dyadic Coleman map is not supplied. At `p = 2` with good ordinary reduction, the
+torsion of `Z_∞` and `char(Z_∞) | 2^t L_E Λ` for some integer t still hold: they are the
+weight-two case of `PadicFamilies` §4.0.3, which follows Kato Theorem 17.4(1)–(2), p. 273, and
+has no parity condition. Kato's lattice is `T_2E(−1)`; restriction identifies `Sel(E/ℚ_∞)` with
+the Δ-invariants of his Selmer group over `ℚ(μ_(2^∞))` (17.2–17.3, pp. 272–273, at `r = 1`, with
+`SelmerIwasawaCohomology` §4.26 for the local conditions) up to kernels and cokernels killed by
+`|Δ| = 2`, which do not change lengths at height-one primes not containing 2; and his
+`L_(p-adic,α,ω_E,γ)(f)` is `L_E` up to the nonzero constant of 6.3. At `p = 2` the
+multiplicative cases and the exact divisibility have no supplier. The integer t may be negative:
+this is fractional-ideal divisibility. For split multiplicative reduction, the Coleman image
+lies in the augmentation ideal J (`PadicHodgeRegulators` §9.36), and the bound is
+`J char(Z_∞) | p^t L_(E,N) Λ`, or `| L_E Λ` under the stronger hypotheses. With `α = 1` (split),
+`α = −1` (nonsplit) or the unit root (ordinary) and `β = p/α`, the trivial-character value of
+Col contains `(1 − α^(−1))/(1 − β^(−1))` and the value at χ of conductor `p^n` contains
+`α^(−n)τ(χ)` and the inverse-character sum of 6.6; never invert `1 − α^(−1)`. In the nonsplit
+case `1 − α^(−1) = 2`, a unit for odd p.
 
 **Checks.**
 
@@ -1933,9 +1980,9 @@ unit root (ordinary) and `β = p/α`, the trivial-character value of Col contain
 - Rational open image (4.7) gives the first divisibility only; the exact one needs
   surjectivity.
 
-*Needs:* 2.1, 4.6–4.7, 5.3, 6.6; `PadicHodgeRegulators` §§8.22, 9.36;
-`ModularSymbolsPadicLFunctions` §2.5; `EulerSystemsAndKolyvaginSystems` §§8.16, 8.39;
-`PadicMeasuresIwasawaAlgebras` §4.6.
+*Needs:* 2.1, 4.6–4.7, 5.3, 6.3, 6.6; `PadicFamilies` §4.0.3; `PadicHodgeRegulators`
+§§8.22, 9.36; `ModularSymbolsPadicLFunctions` §2.5; `EulerSystemsAndKolyvaginSystems` §§8.16,
+8.39; `SelmerIwasawaCohomology` §4.26; `PadicMeasuresIwasawaAlgebras` §4.6.
 
 ### 7.5 Universal norms of the formal group
 
@@ -2037,29 +2084,203 @@ p-part equality nor a lower bound is claimed.
 *Needs:* 4.7, 6.6, 7.3–7.4, 7.6–7.7; `EulerSystemsAndKolyvaginSystems` §4.17;
 `SelmerIwasawaCohomology` §2.12.
 
+### 7.9 Finiteness of Selmer groups over abelian fields
+
+Let K be a finite abelian extension of ℚ with `G = Gal(K/ℚ)`. For a stable lattice T of a p-adic
+representation of `G_ℚ`, Kato's Selmer group `Sel(K,T) ⊂ H¹(K, T ⊗ ℚ/ℤ)` consists of the classes
+whose restriction at every place v of K lies in the image of `H¹_f(K_v, T ⊗ ℚ)`: zero at the
+archimedean places, the unramified classes at finite `v ∤ p` and the crystalline classes at
+`v | p`. These are the Bloch–Kato conditions of `SelmerIwasawaCohomology` §4.9 at the finite
+places (Kato 14.1, pp. 234–235). For a character `χ : G → ℂ^×` let `I_χ ⊂ ℤ[G]` be the kernel of
+the ring map `ℤ[G] → ℂ` induced by χ and `M^(χ) = {x ∈ M : I_χ x = 0}`; `L(f,χ,s)` means
+`L_S(f,χ,s)`, with χ read as a character of `(ℤ/m)^×` for the least m such that `K ⊂ ℚ(ζ_m)`,
+and `S = prime(m)` (Kato, after Theorem 14.2, p. 235).
+
+Call `(f,λ)` *admissible over K* when f has complex multiplication, or some element of
+`G_(K(μ_(p^∞)))` has one-dimensional fixed space on `V_λ(f)`; over ℚ this is admissibility.
+Every λ of `admissible_of_split` (4.1) is admissible over every abelian K: the image of
+`G_(K(μ_(p^∞)))` has finite index in that of `G_(ℚ(μ_(p^∞)))`, so it still contains an open
+subgroup of `SL₂(ℤ_p)`, hence a unipotent `[[1,x],[0,1]]` with `x ≠ 0`. In particular every λ is
+admissible over K when f has no nontrivial inner twist, and every p when f comes from an
+elliptic curve over ℚ (with or without complex multiplication). Admissibility over K passes to
+every twist `f_ψ` by a character ψ of G (the newform with `L_S(f_ψ,s) = L_S(f,ψ,s)`), at the
+places over λ: an element of `G_(K(μ_(p^∞)))` acts on `V_λ(f) ⊗ ψ` as on `V_λ(f)`.
+
+Prove `blochKatoSelmer_finite` (Kato Theorem 14.2, p. 235). Let `(f,λ)` be admissible over K
+and T a stable lattice of `V_λ(f)(r)`.
+
+1. If `1 ≤ r ≤ k−1` and `r ≠ k/2`, then `Sel(K,T)` is finite.
+2. If k is even, `r = k/2`, χ is a character of G and `L(f,χ,k/2) ≠ 0`, then `Sel(K,T)^(χ)` is
+   finite.
+
+If moreover f has no complex multiplication, the groups in (1) and (2) are zero for all but
+finitely many λ and every stable lattice T (Kato 14.22, pp. 249–250). For CM forms that
+vanishing is Kato's 15.23, p. 267, deduced from Rubin's main conjecture for imaginary
+quadratic fields, which this roadmap does not plan; it is not claimed here.
+
+The proof reduces to `K = ℚ` (Kato 14.6, p. 237). `Sel(K,T) = Sel(ℚ, T ⊗ ℤ[G])`, where σ acts on
+`ℤ[G]` by multiplication by the image of `σ^(−1)`; the normalization of `O_F[G]` splits this, up
+to kernels and cokernels killed by one nonzero integer c, into Selmer groups of lattices in the
+twists `V(f_ψ)(r)`, and vanishing descends when λ does not divide c; in (2) only the twist `f_χ`
+enters, whose central value is `L(f,χ,k/2)`. For almost all λ all stable lattices are homothetic
+(Kato Lemma 14.7, p. 238, through `integralImage_almostAll` for forms without CM), so vanishing
+for one lattice gives it for all. It suffices to treat the group `S(T) ⊃ Sel(T)` with Bloch–Kato
+conditions only at the places above p, whose quotient by `Sel(T)` is finite (Kato 14.8, pp.
+238–239). For `K = ℚ` and `r ≤ k/2` (Kato 14.13, pp. 242–243), take γ with `γ^± ≠ 0`,
+`± = (−1)^(r−1)`, and let z be the image of `z^Ka_γ` (5.1) in `H¹(ℤ[1/p], V(f)(r))` after the
+twist by r. By 5.3 at `n = 0` with the twist r in place of `k − r`, the period of the dual
+exponential of z is `(2πi)^(r−1) L_({p})(f*,k−r) γ^±`; it is nonzero, since for `r < k/2` the
+point `k − r` lies in the region `Re(s) ≥ (k+1)/2` of 4.2(1), for `r = k/2` the value is the
+hypothesis, and the removed Euler factor at p is nonzero by purity (Kato (14.10.5), p. 241). Let
+𝔭 be the kernel of `Λ → O`, `σ_c ↦ c^(−r)`, a height-one prime not containing p. Then `Z(f)`
+generates `H¹(V(f))_𝔭`, the local term of 7.2 vanishes at 𝔭 (it can be nonzero only when
+`k = 2`, and then `r = 1` and 𝔭 is the kernel of `κ^(−1)`, which is not of the form `κ^(−2)χ`),
+and 7.2 gives `H²(V(f))_𝔭 = 0`. Specialization at 𝔭 gives `H²(ℤ[1/p], V(f)(r)) = 0`, so
+`H²(ℤ[1/p],T)` is finite and `H¹(ℤ[1/p],T)` has rank one, its `H⁰` being zero. Locally,
+`H¹(ℚ_p, V(f)(r))` has dimension two, `H¹_f` has dimension one, and `H⁰` and `H²` vanish (Kato
+Proposition 14.12, pp. 241–242, from the local computation in the proof of 12.5(3)); the dual
+exponential kills `H¹_f`, so z is nonzero in the one-dimensional quotient. The Poitou–Tate
+sequences with Bloch–Kato conditions at p (`SelmerIwasawaCohomology` §§2.19–2.20 with §4.9; Kato
+(14.9.3)–(14.9.4), pp. 239–240, exact for p odd and exact up to multiplication by 2 for `p = 2`,
+which does not affect finiteness) then make `S(T*(1))` and `S(T)` finite. For `r ≥ k/2` use the
+duality `V(f*) ≅ Hom_E(V(f),E)(1−k)` of Kato (14.10.1), which exchanges r with `k − r` and f
+with `f*`. Vanishing for almost all λ combines the integral bound `katoTamagawaBound` below, the
+strongly divisible lattices of Fontaine and Messing for `p > k` and `p ∤ N′` (`N′ ≥ 3` a
+multiple of N), the vanishing of `H⁰` of `T ⊗ ℚ/ℤ` and of its dual for almost all λ (Kato
+Proposition 14.11(2), p. 241), and the fact that the period-normalized critical value, a nonzero
+element of F, is a λ-adic unit for almost all λ (Kato 14.16–14.22, pp. 244–250); (12.5.2) holds
+for almost all λ by `integralImage_almostAll`.
+
+Prove `abelianBlochKatoComparison`: for an abelian variety A over a number field K, a prime p and
+every finite place v of K, `H¹_f(K_v, V_pA)` is the image of `A(K_v) ⊗ ℚ_p` under the Kummer map,
+and it is zero when `v ∤ p`; hence the Selmer group of `T_pA` defined above is the classical
+`Sel_(p^∞)(A/K)`, the direct limit of the `[p^m]`-Selmer groups `abelianSelmerGroup` of
+`SelmerIwasawaCohomology` §2.12a (Bloch–Kato, Example 3.11, pp. 359–361;
+Kato p. 235, after 14.1). `SelmerIwasawaCohomology` §4.26 proves this for elliptic curves. Its
+proof (the Raynaud uniformization over a semistable extension, the logarithm of Bloch–Kato's
+Example 3.10.1, and descent through finite Galois extensions, with the suppliers it names) uses
+no property special to dimension one, and is the proof here. Away from p both conditions are
+zero: `H¹_f(K_v, V_pA) = H¹_ur(K_v, V_pA)` has the dimension of `H⁰(K_v, V_pA)`, which is zero
+because Frobenius has no eigenvalue one on the inertia invariants (weights one and two), and
+`A(K_v) ⊗ ℚ_p/ℤ_p = 0` because `A(K_v)` has a pro-ℓ subgroup of finite index, ℓ the residue
+characteristic.
+
+Prove `modularAbelianVariety_selmer_finite` (Kato Corollary 14.3, pp. 235–236). Let A be an
+abelian variety over ℚ isogenous to a product of the abelian varieties `A_f` of weight-two
+newforms f (`ModularCurvesPartII` §16.2). Kato states the corollary for quotients of `J₁(N)`,
+and these are of this kind: `J₁(N)` is isogenous to a product of the `A_f` of the newforms of
+level dividing N (Diamond–Shurman, *A First Course in Modular Forms*, Theorem 6.6.6), each `A_f`
+is simple over ℚ because its endomorphism algebra over ℚ is the field `K_f` (Ribet, Math. Ann.
+253 (1980)), and by Poincaré reducibility a quotient is isogenous to a product of simple
+factors. Let K and χ be as above with `L(A,χ,1) ≠ 0`, where `L(A,χ,s)` is the product of the
+`L(f^σ,χ,s)` over the newform constituents and their Galois conjugates. Then `A(K)^(χ)` is
+finite. For every prime p such that each constituent is admissible over K at every place above
+p, `Sel_(p^∞)(A/K)^(χ)` is finite; this holds for all but finitely many p, and for every p when
+A is an elliptic curve. If no constituent has complex multiplication, `Sel_(p^∞)(A/K)^(χ)` is
+zero for all but finitely many p. Proof: finiteness of Selmer groups and of Mordell–Weil χ-parts
+is invariant under isogeny; `V_p(A_f)` is the sum over `λ | p` of the `V_λ(f)(1)`
+(`AutomorphicGaloisRepresentations` §6.1, written in Kato's normalization, in which
+`T_pE = T(1)` for a lattice T of `V_λ(f)` when `A_f = E`); `abelianBlochKatoComparison`
+identifies the Selmer groups; part (2) of `blochKatoSelmer_finite` at `k = 2`, `r = 1` applies
+to each constituent at each place above p; and the χ-part of `A(K) ⊗ ℚ_p/ℤ_p` lies in the χ-part
+of the Selmer group, so one admissible p bounds the rank of `A(K)^(χ)` by zero, while `A(K)` is
+finitely generated (`HeightsRationalPointsAndObstructions` §1.7). The χ-part and the χ-quotient
+`M/I_χM` differ by groups killed by a nonzero integer (Kato, p. 236), so either may be used. For
+an elliptic curve E over ℚ with `L(E,1) ≠ 0` this gives finite `Sel_(p^∞)(E/ℚ)` for every p,
+including CM curves and `p = 2`, and zero for all but finitely many p when E has no CM.
+
+Prove `modularAbelianVariety_cyclotomicFG` (Kato Theorem 14.4, p. 236, a deduction Kato
+attributes to Coates, following Rohrlich, Invent. Math. 75 (1984), §3). For A as in the
+corollary and every `m ≥ 1`, the group `⋃_n A(ℚ(ζ_(m^n)))` is finitely generated. Proof: the
+torsion of A over `ℚ(μ_∞)` is finite (Ribet's appendix to Katz–Lang, 1981). For the rank,
+decompose `A(ℚ(ζ_(m^n))) ⊗ ℂ` into χ-components for the characters χ of conductor dividing
+`m^n`. By Rohrlich's theorem (4.2(2) at `k = 2`, for each constituent and the finite set
+`prime(m)`), `L(A,χ,1) ≠ 0` for all but finitely many such χ, and the corollary kills those
+components. The finitely many remaining characters factor through one layer `ℚ(ζ_(m^(n₀)))`,
+so their components lie in `A(ℚ(ζ_(m^(n₀)))) ⊗ ℂ`, which is finite-dimensional by Mordell–Weil.
+The descent of 7.3 then applies: choose a layer L containing the torsion `T₀` and generators of
+the rational span; for every point P some `nP` lies in `A(L)`, so `σ ↦ σP − P` is a
+homomorphism from `Gal(ℚ(ζ_(m^∞))/L)` to `T₀`, killed by the exponent e of `T₀`. That group is
+topologically finitely generated abelian, so its subgroup of e-th powers is open, and every
+point lies in one finite layer.
+
+Prove `katoTamagawaBound` (Kato Theorem 14.5, pp. 236–237). Let `1 ≤ r ≤ k−1`, `(f,λ)` admissible
+and T a stable lattice of `V_λ(f)(r)`; if `r = k/2` assume `L(f,k/2) ≠ 0`.
+
+1. `H²(ℤ[1/p],T)` is finite and `H¹(ℤ[1/p],T)` has O-rank one.
+2. If `r > k/2` assume also `L_({p})(f,k−r) ≠ 0`. For γ with `γ^± ≠ 0`, `± = (−1)^(r−1)`, the image
+   z of `z^Ka_γ` in `H¹(ℤ[1/p], V_λ(f)(r))` is a basis of this one-dimensional E-space.
+3. Assume moreover p odd, `k ≥ 3` or f potentially of good reduction at p, the image condition
+   (12.5.2) of 7.2, and `γ^±` an O-basis of `T(−r)^±`. Then
+   `#H²(ℤ[1/p],T) ≤ [H¹(ℤ[1/p],T) : z]`.
+
+Here, for a finitely generated O-module M of rank one and `z ∈ M ⊗ ℚ` nonzero, write
+`z = c^(−1)y` with `y ∈ M` and c a nonzero integer, and put
+`[M : z] = [M : O y] · [O : cO]^(−1)`, which does not depend on the choices (Kato, p. 237). The
+Tamagawa number conjecture of Bloch–Kato, in the form of Fontaine–Perrin-Riou and Kato, predicts
+equality in (3); equality is not claimed. Parts (1) and (2) are proved with
+`blochKatoSelmer_finite` (Kato 14.13). Part (3) applies the integral bound of 7.2 at the
+augmentation prime: since Λ is a finite product of regular local rings, that prime is principal,
+and the descent sequence of Kato (14.14.1) compares `H¹(T)/a H¹(T)` and `H²(T)` with the
+cohomology over `ℤ[1/p]` (Kato 14.14, p. 243). In the printed 14.5(3) the condition "(12.5.1) in
+Thm. 12.5 (4)" is the image condition (12.5.2) of 12.5(4), on which 14.14 rests; the
+exceptional case (12.5.1) is already excluded by `k ≥ 3` or potentially good reduction. In
+14.13, p. 242, the period of z is written `L_({p})(f,k−r)·γ^±`; 12.5(1) gives
+`(2πi)^(r−1) L_({p})(f*,k−r)·γ^±`, which has the same vanishing, since `L(f*,s)` is the complex
+conjugate of `L(f,s)` at real s.
+
+**Checks.**
+
+- At `k = 2` the only critical twist is `r = 1 = k/2`, so part (1) is empty and part (2) needs
+  the L-value: an elliptic curve with `L(E,1) = 0` and a point of infinite order has
+  `Sel_(p^∞)(E/ℚ)` of positive corank, so the hypothesis cannot be dropped.
+- At `k = 3` both critical twists `r = 1, 2` differ from `k/2`, and finiteness holds with no
+  L-value hypothesis: `L(f,2)` is on the line `Re(s) = (k+1)/2` of 4.2(1), and `L(f*,2)` is its
+  conjugate.
+- The conclusion is componentwise: if `L(E,1) ≠ 0` and `L(E,χ,1) = 0` for the quadratic
+  character χ of K, the trivial-character part of `Sel(K,E)` is finite while the χ-part may have
+  positive corank.
+- Under the hypotheses of (3) the residual representation is irreducible, so `H¹(ℤ[1/p],T)` is
+  torsion-free of rank one, say `≅ O`. For `z = p^(−1)` in it, `[O : z] = [O : pO]^(−1) < 1`, so
+  the bound of `katoTamagawaBound` (3) forces z into `H¹(ℤ[1/p],T)`, the integrality of 7.2; a
+  normalization without the factor `[O : cO]^(−1)` would not see this.
+- For `m = 1` the union in `modularAbelianVariety_cyclotomicFG` is `A(ℚ)`, and the statement is
+  Mordell–Weil.
+
+*Needs:* 4.1–4.2, 5.1, 5.3, 7.2–7.3; `PadicFamilies` §4.0.3; `SelmerIwasawaCohomology` §§2.12a,
+2.19–2.20, 4.9, 4.26; `AutomorphicGaloisRepresentations` §6.1;
+`ModularCurvesPartII` §16.2; `HeightsRationalPointsAndObstructions` §1.7; `ModularForms` Layers 7
+and 9.
+
 ### Examples
 
 The localized lengths `(2,1,1)` need a local correction and `(2,1,0)` violate the bound. A
 zero zeta map is compatible with a rank-one ambient module, so 7.1 needs nonvanishing. A split
 multiplicative refinement `α = 1` has zero trivial-character Coleman value and keeps J. In good
-ordinary reduction a nonunit `(1 − α^(−1))²` cancels against the control factor.
+ordinary reduction a nonunit `(1 − α^(−1))²` cancels against the control factor. Off the
+central point Kato's Selmer finiteness needs no L-value hypothesis (weight three), while at
+weight two the central value is the whole hypothesis.
 
 ### Dependencies
 
 Layers 2–6; `PadicFamilies` §4.0.3; `EulerSystemsAndKolyvaginSystems` §§4.17, 8.16,
-8.37–8.39; `SelmerIwasawaCohomology` §§2.12, 2.15, 2.19, 3.9–3.11, 3.18–3.20;
+8.37–8.39; `SelmerIwasawaCohomology` §§2.12, 2.12a, 2.15, 2.19–2.20, 3.9–3.11, 3.18–3.20, 4.9,
+4.26; `AutomorphicGaloisRepresentations` §6.1;
+`ModularCurvesPartII` §16.2; `HeightsRationalPointsAndObstructions` §1.7;
 `PadicHodgeRegulators` §§8.22, 9.36; `ModularSymbolsPadicLFunctions` §§0.2, 2.5;
-`PadicMeasuresIwasawaAlgebras` §§4.2–4.6; `EllipticCurves` Layers 1, 4 and 6.
+`PadicMeasuresIwasawaAlgebras` §§4.2–4.6; `ModularForms` Layers 7 and 9; `EllipticCurves`
+Layers 1, 4 and 6.
 
 ## Downstream consumers
 
-`ModularIwasawaMainConjectures` and `AutomorphicCongruences` use the dictionary of 2.2, the canonical and twist-one morphisms of
-Layer 5, the regulator comparison of 6.2–6.4 and the bounds of 4.3 and 7.2, with the integral
-hypotheses as stated there: 4.3 needs a free rank-one τ-quotient and residual irreducibility, 7.2
-needs the `SL₂(ℤ_p)` image, and 7.4 and 7.8 need surjectivity. `RankZeroOneBSD` uses the
-reciprocity and interpolation statements through 5.3 and 7.1–7.2 and the elliptic bounds of 7.4
-and 7.8. `EllipticRegulators` uses the Siegel-unit identities of Layer 0 and the K₂ relations of
-Layer 1.
+`ModularIwasawaMainConjectures` and `AutomorphicCongruences` use the dictionary of 2.2, the
+canonical and twist-one morphisms of Layer 5, the regulator comparison of 6.2–6.4 and the bounds
+of 4.3 and 7.2, with the integral hypotheses as stated there: 4.3 needs a free rank-one
+τ-quotient and residual irreducibility, 7.2 needs the `SL₂(ℤ_p)` image, and 7.4 and 7.8 need
+surjectivity. `RankZeroOneBSD` uses the reciprocity and interpolation statements through 5.3 and
+7.1–7.2, the elliptic bounds of 7.4 and 7.8, and the finiteness of `Sel_(p^∞)(E/ℚ)` at every p
+when `L(E,1) ≠ 0` from 7.9. `EllipticRegulators` uses the Siegel-unit identities of Layer 0 and
+the K₂ relations of Layer 1.
 
 `PadicFamilies` and `EulerSystemsAndKolyvaginSystems` are suppliers of this roadmap and import
 nothing from it: the Hida-family classes of `PadicFamilies` §4.5 interpolate the geometric
@@ -2077,9 +2298,11 @@ All statements here are paraphrases. Page numbers refer to the stated edition.
   Locators used: 1.3–1.10 (pp. 121–125), 2.3–2.13 (pp. 126–133), 3.1–3.11 (pp. 134–142),
   4.2 (pp. 142–143), 5.2 (pp. 153–154), 6.3–6.6 (pp. 161–163), 8.9 (p. 185), 9.2–9.4
   (pp. 186–188), 11.3–11.4 (pp. 204–207), 12.4–12.9 (pp. 221–223), 13.1–13.14 (pp. 224–234),
-  15.12–15.17 (pp. 263–265), 16.2–16.6 (pp. 269–271). Corrections used here: the square on
-  `a` in 1.9 (0.3), the space of `η′` in 16.4(ii) (6.1), the integral modules in 12.5(4) (7.2),
-  and the scope of 12.8.2 (4.1).
+  14.1–14.14 (pp. 234–243), 14.16–14.22 (pp. 244–250),
+  15.12–15.17 (pp. 263–265), 16.2–16.6 (pp. 269–271), 17.3–17.4 (p. 273). Corrections used
+  here: the square on `a` in 1.9 (0.3), the space of `η′` in 16.4(ii) (6.1), the integral
+  modules in 12.5(4) (7.2), the scope of 12.8.2 (4.1), the condition (12.5.2) printed as
+  (12.5.1) in 14.5(3), and the period of z in 14.13 (7.9).
 - Kentaro Nakamura, *Zeta morphisms for rank two universal deformations*, Invent. Math. **234**
   (2023), 171–290. [arXiv:2006.13647](https://arxiv.org/abs/2006.13647). §§3.1.2–3.1.4
   (pp. 205–214), Lemma 2.10 (pp. 200–202), Lemma 3.4, Remark 3.5, Corollary 3.6
@@ -2117,7 +2340,19 @@ All statements here are paraphrases. Page numbers refer to the stated edition.
   elliptiques*, Invent. Math. **15** (1972), 259–331, Théorèmes 2–3.
 - Hervé Jacquet and Joseph Shalika, *A non-vanishing theorem for zeta functions of `GL_n`*,
   Invent. Math. **38** (1976), 1–16; David E. Rohrlich, *L-functions and division towers*,
-  Math. Ann. **281** (1988), 611–632.
+  Math. Ann. **281** (1988), 611–632, and *On L-functions of elliptic curves and cyclotomic
+  towers*, Invent. Math. **75** (1984), 409–423, §3.
+- Spencer Bloch and Kazuya Kato, *L-functions and Tamagawa numbers of motives*, in The
+  Grothendieck Festschrift I, Progr. Math. **86** (1990), 333–400, §3 and Examples 3.10.1 and
+  3.11 (pp. 359–361).
+- Jean-Marc Fontaine and William Messing, *p-adic periods and p-adic étale cohomology*,
+  Contemp. Math. **67** (1987), 179–207.
+- Kenneth A. Ribet, *Torsion points of abelian varieties in cyclotomic extensions*, appendix to
+  N. Katz and S. Lang, *Finiteness theorems in geometric classfield theory*, Enseign. Math.
+  **27** (1981), 285–319.
+- Fred Diamond and Jerry Shurman, *A First Course in Modular Forms*, Graduate Texts in Math.
+  **228** (2005), Theorem 6.6.6; Kenneth A. Ribet, *Twists of modular forms and endomorphisms of
+  abelian varieties*, Math. Ann. **253** (1980), 43–62.
 - Charles A. Weibel, *The K-book*, Graduate Studies in Math. **145** (2013), Chapter III,
   Corollary 1.7.1 (p. 8) and Exercise 5.6 (p. 46);
   [author's site](https://sites.math.rutgers.edu/~weibel/Kbook.html).
