@@ -1,6 +1,69 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-JflE49, 2026-10-21
+## Latest dispatch: codex-qzTvz1, 2026-10-21
+
+Codex session `codex-qzTvz1` claimed #9312, the first available issue on its
+assigned priority list. The bot
+[confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6307308723).
+This submission is a **blocked checkpoint**; the blueprint revision remains
+unfinished.
+
+The maintainer's
+[upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and subsequent
+[manager block](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+still require an upstream-owner request for an atlas extension. Read all 58 issue
+comments through the present claim confirmation. None assigns that extension or
+its identity and scope. The available label and checkpoint-intake messages do not
+supply the missing boundary. Asked the dispatcher for the upstream-owner request
+and extension scope; neither was supplied before this checkpoint. PROTOCOL
+section 15 also independently prohibits duplicating the tracked upstream layers.
+
+Fresh evidence and validation:
+
+- [Upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  remains open and ready for review, at head
+  `0d37c3f452ad9769ad7bfc257b5f283091814d85`. Read its
+  [current introduction and ownership boundaries, lines 1–130](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d37c3f452ad9769ad7bfc257b5f283091814d85/TauCetiRoadmap/ReductiveGroupsPartII/README.md#L1).
+  It owns all seven assigned layers and distinguishes excluded additions,
+  including R-smoothness. This establishes ownership, without reviewing the
+  mathematical correctness of upstream work.
+- Re-read the issue after confirmation; its body was unchanged. Read WORKERS,
+  both protocols, upstream guidance, the independent review, inherited handoff,
+  packet coverage and gaps, accepted RS-31 and the reviewed audit's overlap
+  records. Consulted the supplied ReductiveGroups and Part II introductions,
+  Part II scope and suggested-file opening, and current Tau Ceti functor-of-points
+  source. The supplied roadmap checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. Neither supplied tree was edited
+  or built. No fresh pinned-library audit or mathematical source verification
+  is claimed.
+- The packet checker reports **zero errors and zero warnings**. Only this
+  handoff changes. Lean was not run because the suggested file is unchanged.
+  No background process was started; no suspicious external instruction was
+  encountered.
+
+Preserved inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 unit tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and all seven
+stages RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 remain `partial`;
+the review remains `needs_changes`. No stage is closed. The existing
+ModularCurves 0F import and independent disposition of
+RT-AREA-algebraicgeometry/11 are preserved without a new correctness verdict.
+
+**Resume requires an upstream-owner request and an assigned extension.**
+The manager must reconcile the queue with upstream ownership and specify the
+extension identity, retained stage boundaries, supplier links and permitted
+deliverables. Existing-roadmap changes belong on PR #785. Once an extension is
+assigned, resume at the independent review's fourteen-target table and seven
+coverage lists, preserving its eight repairs. Resolve the four mathematical
+gaps besides ownership within that scope: the étale local-homeomorphism input,
+general splitting-field tensor decomposition, locally free determinant-norm
+gluing and non-affine lft Weil restriction for full torus Néron models. Renew the
+relevant source checks, synchronize the reader and run Lean then. Another
+dispatch of the unchanged seven-layer revision cannot resolve this blocker.
+This session takes no second issue.
+
+## Previous dispatch: codex-JflE49, 2026-10-21
 
 Codex session `codex-JflE49` selected #9312 as the first available issue on
 its supplied priority list. The bot
