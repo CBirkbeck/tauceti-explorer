@@ -35,8 +35,9 @@ This roadmap owns:
   surgery calculus it rests on, which no upstream roadmap plans: linking numbers and linking
   matrices, the homology of a surgery, Kirby and Fenn–Rourke moves and the theorems of
   Lickorish–Wallace and Kirby;
-- topological ribbon Hopf algebras, the h-adic quantum groups U_h(g), their integral forms and
-  cores, the Reshetikhin–Turaev functor, universal invariants of bottom tangles and tilting
+- topological ribbon Hopf algebras, the h-adic quantum groups U_h(g), their comparisons with
+  generic quantum groups, Habiro's integral forms and the Habiro–Lê cores, the
+  Reshetikhin–Turaev functor, universal invariants of bottom tangles and tilting
   semisimplification at roots of unity (Layer 1);
 - coloured Jones polynomials, Habiro's cyclotomic colours and the cyclotomic expansion, the unified
   Kashaev invariant and the Kashaev function on the rationals (Layer 2);
@@ -91,13 +92,30 @@ It leaves to other roadmaps:
   (6A), used for the existence of admissible presentations.
 - **TauCetiRoadmap RepresentationTheory.** LieHighestWeight (Cartan subalgebras and root
   decomposition, Layer 1; enveloping algebra, PBW, Verma modules and L(λ), Layer 3; Weyl character
-  and dimension formulas, Layer 6) and RootSystems (root and weight lattices). Quantum groups are
-  not planned there and are planned here.
+  and dimension formulas, Layer 6) and RootSystems (root and weight lattices).
+- **TauCetiRoadmap PivotalSpherical.** Layers 0–2 supply pivotal structures, categorical traces
+  and their tensor law; Layer 10 supplies balanced and ribbon categories and the induced pivotal
+  structure. These are the interfaces of merged [PR #57](https://github.com/TauCetiProject/TauCetiRoadmap/pull/57).
+  Here only their realization on continuous quantum-group modules and the comparison with the
+  pivotal element and ribbon element are new.
+- **TauCetiRoadmap QuantumGroups.** Q8 of merged
+  [PR #891](https://github.com/TauCetiProject/TauCetiRoadmap/pull/891) supplies the generic rank-one
+  quantum quotient, PBW basis, signed simple modules, type-1 tensor rules and the K⁻¹ pivot.
+  Its parameter q is v here. Formal h-adic realization and Habiro's even integral form are
+  separate targets here; no classification of all generic modules is repeated.
+- **TauCetiRoadmap QuantumEnvelopingAlgebras.** QEA0–QEA4 of
+  [PR #1125](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1125) supply the full root datum,
+  generic quantum Serre quotient and Hopf structure, finite-type root vectors, full-torus integral
+  PBW form and highest-weight lattices. The formal Cartan extension, the comparison with the
+  particular semisimple integral forms of [HL], their weighted cores and ribbon structure are
+  new here. This supplier is an open upstream roadmap, not an implemented library theorem.
 - **TauCetiRoadmap OperatorTheory/SelfAdjointSpectralTheory.** Closed and self-adjoint unbounded
   operators, resolvents and the spectral measure of an unbounded self-adjoint operator (Parts C–E),
   and bounded Borel calculus of the Cayley transform (Part B).
   The Schrödinger pair and its Schwartz core are not planned there and are planned here.
-- **HabiroCyclotomicCompletions.** Elementary q-calculus: q-integers, finite q-Pochhammer products
+- **HabiroCyclotomicCompletions**, supplied by open
+  [PR #1314](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1314).
+  Elementary q-calculus: q-integers, finite q-Pochhammer products
   (x;q)_n with their inverse-parameter identity, and the formal infinite product (t;q)_∞ (§1.1);
   the cyclotomic completions R[q]^S and the Habiro ring `HabiroRing` (§§1.2–1.4); factorial series
   (Layer 2); root evaluation `evalAt`, the Taylor map `taylorAt` and convergent p-adic re-expansion
@@ -116,7 +134,9 @@ It leaves to other roadmaps:
 - **K3BlochGroups.** The pre-Bloch group and its boundary (§§3.4–3.5), the exterior-square kernel
   (§3.8), the older and the published Calegari–Garoufalidis–Zagier conventions with the exact maps
   between them (§§3.13–3.16), Suslin's exact sequence (§4.20) and its lift fibres (§6.5).
-- **PolylogarithmFunctions.** The principal dilogarithm Li₂ with its lower boundary value on the
+- **PolylogarithmFunctions**, supplied by open
+  [PR #1320](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1320).
+  The principal dilogarithm Li₂ with its lower boundary value on the
   cut, its conjugation and its jump (§§1.1, 1.5–1.6, 2.4), the rational nonpositive-weight
   polylogarithms (§1.4), the Bloch–Wigner
   function D with its symmetries, positivity and five-term relation (§§5.1, 5.3, 5.6–5.8).
@@ -181,7 +201,8 @@ At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`:
 - `HopfAlgebra`, `CategoryTheory.MonoidalCategory`, `CategoryTheory.BraidedCategory`,
   `CategoryTheory.RigidCategory`, `CategoryTheory.ExactPairing`: the algebraic shadows of the ribbon
   structures. Mathlib has no ribbon category, no completed tensor product of topological modules
-  over ℂ[[h]] and no quantum group; these are planned here.
+  over ℂ[[h]] and no quantum group at this pin. The categorical and generic quantum-group
+  suppliers below own those general notions; the completed module realization is new here.
 - `AdicCompletion`, `UniformSpace.Completion`: h-adic completions of modules.
 - `Complex.log`, `Complex.exp`, `MeasureTheory.integral` (a total integral, so every contour
   integral here is accompanied by an integrability theorem),
@@ -220,6 +241,25 @@ framed link type.
 
 ### From TauCetiRoadmap
 
+- **PivotalSpherical.** Layers 0–2: double dual, `PivotalCategory`, `leftTrace`, `rightTrace`,
+  `trace` and the tensor trace law. Layer 10: `BalancedCategory.twist` and its double-braiding
+  axiom, `RibbonCategory.twist_rightDual`, and the balanced-rigid/pivotal correspondence.
+  Consume the ribbon-induced pivotal structure; an arbitrary pivotal structure or arbitrary
+  balanced twist need not give the same trace. No fusion or characteristic-zero assumption is
+  needed for the ribbon-to-spherical direction used here.
+- **QuantumGroups.** Q8, items 1–5: the generic complex sl₂ presentation and ordered PBW basis, Hopf maps
+  ΔE=E⊗1+K⊗E, ΔF=F⊗K⁻¹+1⊗F, signed simple modules L_n^ε, their tensor maps and the K⁻¹
+  pivotal trace. Compare the ε=+1 type-1 family with the complex generic fibres of the colour
+  lattice. Its parameter is v here; q here is v². Q8 fixes a complex nonroot parameter, so its
+  classification is not itself a theorem over ℚ((h)); use QEA1 and QEA4 for that base change.
+- **QuantumEnvelopingAlgebras.** QEA0–QEA2: the full root datum (X,Y_cochar), toral symbols K_μ,
+  generic algebra, Hopf formulas, finite-type braid operators and PBW root vectors. QEA3 supplies
+  its full-Y_cochar divided-power form over A=ℤ[v±1] and arbitrary A-algebra base change; QEA4
+  supplies the finite free highest-weight lattice V_A(λ). Its Y_cochar is not the root lattice Y
+  of [HL]. In the semisimple comparison K_i=K_(d_i h_i) maps to exp(hH_i/2), with H_i the
+  short-root-normalized Cartan generator. Restrict to the specified toral subalgebra before
+  comparing [HL]'s smaller integral form; QEA3's extra full-lattice binomials are not discarded
+  by an asserted equality of integral forms.
 - **GeometricTopology.** Layer 1: oriented manifolds, connected sum, orientation reversal. Layer 4:
   framed oriented link presentations with the Seifert framing as canonical longitude, framed
   Reidemeister and Markov equivalence, the Jones polynomial from the Kauffman bracket. Layer 5:
@@ -252,7 +292,8 @@ require a separation between q-series foundations and their topological applicat
   (x;q)_n with `pochhammer_inverse_parameter`, (q⁻¹;q⁻¹)_n = (−1)ⁿq^(−n(n+1)/2)(q;q)_n for a unit q,
   and the formal infinite product (t;q)_∞ over ℚ(q). §§1.2–1.4: the completions R[q]^S and the
   integral Habiro ring `HabiroRing` = lim ℤ[q]/((q;q)_n), with its projections. Layer 2:
-  convergence and uniqueness of factorial series Σ a_n (q;q)_n (`factorialSeries`, §2.1) and the
+  convergence of factorial series Σ a_n (q;q)_n (`factorialSeries`, §2.1), with uniqueness only
+  for normalized polynomial digits deg a_n≤n (`factorialCoeff`, §2.1), and the
   invertibility of q (§2.3). Layer 3: evaluation `evalAt` at a root of unity, which on a factorial
   series of a root of order d keeps only the terms n < d, the Taylor map `taylorAt` (§3.1), and
   convergent p-adic re-expansion between close roots (§3.3). Layer 4: the adjacency relation of
@@ -284,6 +325,8 @@ require a separation between q-series foundations and their topological applicat
   (§3.8), `indexedLine_effectiveDescent` with the finitely presented projective rank-one module M_ξ
   (§3.10), `indexedLine_tensor` (§3.11) and `indexedLine_scalarEquiv` for a number-field embedding
   (§3.16).
+  These contracts are stated for number fields. The additional finite-product extension needed
+  over B=R[T]/(δT²−1) is specified below; it is not an instance of §3.16 with B treated as a field.
 - **K3BlochGroups.** §3.4: `preBloch` P(F) for every field F. §3.5: `blochBoundary` [x] ↦ x∧(1−x)
   into the antisymmetric tensor quotient, whose kernel `blochGroup` is the Bloch group B(F) in
   Suslin's convention. §3.8: `extBloch`, the kernel B̃(F) of the exterior-square boundary, with the exact
@@ -311,6 +354,65 @@ require a separation between q-series foundations and their topological applicat
   (v₀,v₁,v₂,v₃) is r(v₁,v₀,v₂,v₃): the two conventions differ by exchanging the first two vertices.
   Thus a tetrahedron of §5.1 with shape z has volume |D(z)|, and volume D(z) when Im z > 0.
 
+**Finite étale coefficient contract.** The full-algebra version required from
+HabiroNumberFields Layer 3 is `indexedLine_quadraticEtaleComparison`, including
+`finiteEtaleIndexedLine_productComparison`. For
+R=𝒪_K[1/Δ], 6|Δ and δ∈Rˣ, it must identify the cyclotomic coefficient algebras, p-adic
+coefficient completions, Frobenius gluing rings and indexed families over B=R[T]/(δT²−1)
+with the products of their counterparts over every connected factor S_a of B. Enlarge the
+common Δ to include every field discriminant and exceptional integer used by the component
+contracts, and base change B to that same localization. The module index on S_a is the
+restriction of the fixed K₃ index ξ, including its chosen lift and Chern data. Required maps are
+
+```text
+H_B ≃ ∏_a H_(S_a),        M_(B,ξ) ≃ ∏_a M_(S_a,res_a ξ),
+H_B ⊗_(H_R) M_(R,ξ) ≃ M_(B,ξ).
+```
+
+The last map sends u⊗m to u times the coefficientwise pullback of m. It is an equivalence of
+H_B-modules, not B⊗_R M_(R,ξ). Membership in M_(B,ξ) must be equivalent in both directions to
+membership of every projected family, using the same linear first-jet condition, Kummer roots
+and gluing equations as the field definition. Export `finiteEtaleIndexedLine_mem_iff`,
+`finiteEtaleIndexedLine_projective_rankOne`, `finiteEtaleIndexedLine_scalarEquiv` and
+`finiteEtaleIndexedLine_detectIso`, with their actual local and rational chart base changes.
+The tensor, unit and inverse equivalences must commute with the product comparison, and
+coefficient pullback must commute with identity maps, towers and T↦−T.
+
+*Proof route for the supplier extension.* The monic presentation T²−δ⁻¹ is finite free of rank
+two and its derivative 2T is a unit, so B is étale and normal. Its connected factors are normal
+domains S_a with fraction fields E_a finite over K. Each S_a is the integral closure of R in E_a:
+it is integral over R, and anything in E_a integral over R is integral over S_a and hence lies
+in S_a. Thus S_a=𝒪_(E_a)[1/Δ]. The normality and finite-product steps use [Stacks] Proposition
+41.19.7, Tag 025P, and Lemma 10.37.16, Tag 030C. Finite products commute with the coefficient
+quotients, p-adic inverse limits and rootwise gluing equalizers. The Frobenius lift preserves
+each global idempotent: it fixes its reduction, whose idempotent lift is unique in the complete
+p-adic algebra. Prove the indexed-family comparison directly from the componentwise defining
+conditions, before using module addition. Apply §3.10 in every number-field factor, then use
+the orthogonal idempotents to reconstruct a finitely presented projective rank-one H_B-module.
+Tensor base change decomposes by those same idempotents; §3.16 supplies each component map.
+The product of the component chart families detects isomorphisms. This supplies a route to
+the missing extension, not a claim that the field theorem already exports it.
+
+**Checks.**
+
+- If δ=a² in Rˣ, evaluation at T=±a⁻¹ identifies B with R×R. The element
+  (1−aT)/2 has images (0,1); projection onto the positive root loses a nonzero component.
+- For K=ℚ, R=ℤ[1/6] and δ=2, the generic algebra is the single field ℚ(√2), and
+  B=ℤ[1/6][√2]. Both the field and product cases must use the same defining-family contract.
+- At p=2 with δ=1 over 𝔽₂, T²−1=(T−1)² is not étale. Inverting 2 is essential;
+  this is not a result over arbitrary coefficient rings or ramified DVRs.
+- For ξ=0 the module comparison is the ring comparison with its unit generator. For a
+  nonzero ξ, projective rank one does not supply a distinguished global generator.
+
+The geometric supplier prefix is PolylogarithmFunctions Layers 1–5, then Polylogarithms §2.4,
+then Layer 5 here. The arithmetic prefix is HabiroCyclotomicCompletions, K3BlochGroups and
+HabiroNumberFields through the finite étale contract above, then HabiroNahmSeries, then §6.8
+here. The field-only exports of HabiroNumberFields §§3.10 and 3.16 leave the finite étale
+extension outstanding; the membership comparison is conditional on that supplier contract.
+QSeriesPartitionsAndMockModularForms QM.0–QM.1 supplies foundations used transitively by
+HabiroNumberFields and HabiroNahmSeries; its QM.5 topological applications instead consume
+Layers 3–4 here. The upstream order must separate those foundational and application layers.
+
 ## How to read the build
 
 Layers 0–4 are the integral theory of quantum invariants: Layer 0 is the topology of surgery
@@ -324,7 +426,7 @@ Kashaev invariant (Layer 2), which is both an evaluation of the unified knot inv
 object whose asymptotics Layers 6 and 7 describe.
 
 `Suggested.lean` states what can be typed at the pinned Mathlib and Tau Ceti: linking matrices,
-admissibility and handle slides (Layer 0), ribbon categories (Layer 1), the representation ring of
+admissibility and handle slides (Layer 0), the representation ring of
 sl₂ with its colours, cyclotomic colours, quantum dimension and colour truncations, and the
 figure-eight Kashaev sums (Layer 2), the first divisor of J_M − 1 (Layer 3), the sl₂ Kirby colour
 (Layer 4), shapes, flattenings and the logarithmic wedge on the free abelian group of the cover
@@ -687,43 +789,43 @@ and ribbon element produce, by reading beads along a bottom tangle, a universal 
 completed tensor power, from which every coloured Reshetikhin–Turaev invariant is a trace. The
 integral theory needs integral forms and their completions: Habiro's even form U_q^ev of U_h(sl₂),
 in which the universal invariant of an algebraically split 0-framed bottom tangle lies, and the
-Habiro–Lê integral cores for general g. This layer constructs these objects, with ribbon categories
-and the Reshetikhin–Turaev functor, and the semisimplification of tilting modules at a root of unity
-that defines the conventional invariants.
+Habiro–Lê integral cores for general g. This layer constructs these objects, their continuous
+module ribbon structures and the Reshetikhin–Turaev functor, and the semisimplification of
+tilting modules at a root of unity that defines the conventional invariants.
 
-### 1.1 Ribbon category
+### 1.1 Ribbon trace on continuous quantum-group modules
 
-A ribbon category is a braided rigid monoidal category with a natural automorphism θ of the identity
-satisfying θ₁=id, θ_(X⊗Y)=(θ_X⊗θ_Y) followed by the double braiding, and θ_(X∗)=(θ_X)∗ for the
-chosen rigid duality. All associators/unitors and the dual comparison are retained; no
-symmetric-braiding axiom is imposed. Its pivotal trace is the ribbon graphical closure of an
-endomorphism.
+For the finite-rank topologically free continuous modules of §1.2, construct the ribbon structure
+and compare its induced pivotal trace of a module endomorphism f with Tr(ρ(κ)f). This realizes
+the categorical supplier in Scope and ownership. Prove that its twist is the action of r⁻¹,
+and that the graphical trace of every module endomorphism agrees with the continuous finite-free matrix trace
+weighted by κ. For U_h(sl₂), κ=K⁻¹. Retain the chosen duals and every unit and tensor comparison.
+For an arbitrary algebra element x, Tr(ρ(κx)) is the weighted trace functional; it is a
+categorical trace of ρ(x) only when that action is a module endomorphism.
 
-*Construction.* Extend the existing braided and rigid structures by the balanced natural twist. Use
-the compatibility with duals to make the left and right graphical traces agree. Compare the module
-instance with κ=K⁻¹ and θ=r⁻¹. ([Hab08] §3.1, pp. 11–12; §5.2, pp. 19–20; [RT] §§2.1–2.2, pp. 2–4;
-§§3.1–3.3, pp. 4–7; Theorem 5.1, pp. 12–13.)
+*Construction.* Use the continuous R-matrix and antipode to supply braiding and duality, then
+apply the balanced-rigid/pivotal correspondence to this specific twist. Compute the resulting
+closure in a finite free basis. ([Hab08] §3.1, pp. 11–12; §5.2, pp. 19–20; [RT] §§2.1–2.2,
+pp. 2–4; §§3.1–3.3, pp. 4–7; Theorem 5.1, pp. 12–13.)
 
-*Needs:* Mathlib `CategoryTheory.MonoidalCategory`, Mathlib `CategoryTheory.BraidedCategory`,
-Mathlib `CategoryTheory.RigidCategory`, Mathlib `CategoryTheory.ExactPairing`.
-
-*Lean:* `RibbonCategory`, `ribbonTrace`, `ribbonTrace_tensor`.
+*Needs:* §1.2's completed Hopf and finite-free duality data; PivotalSpherical Layers 0–2 and 10.
+Construct the completed Hopf data before this comparison.
 
 The API:
 
-- `RibbonCategory`: a braided rigid monoidal category (Mathlib) together with the natural twist and
-  the three equations above.
-- `ribbonTwist_tensor`: The twist of a tensor product is the double braiding composed with the
-  tensor of twists.
-- `ribbonTwist_dual`: Dualizing θ_X gives θ_(X∗).
-- `ribbonTrace`: Graphical closure gives an endomorphism of the tensor unit; compare with the
-  pivotal quantum trace.
+- `continuousModule_ribbon`: the continuous module instance with twist acting by r⁻¹.
+- `continuousModule_twist_tensor` and `continuousModule_twist_dual`: the instance realizes the
+  supplied balancing and dual-twist axioms in the completed module tensor product.
+- `continuousModule_trace_eq`: its categorical trace of f is Tr(ρ(κ)f).
+- `continuousModule_trace_tensor`: the supplied tensor law transports to weighted finite-free
+  traces; no general categorical tensor trace law is proved again.
 
 **Checks.**
 
-- `ribbonTwist_unit`: The twist on the tensor unit is the identity.
-- `ribbonTrace_vectorSpace`: For finite-dimensional vector spaces with flip braiding and trivial
-  twist the ribbon trace is the ordinary trace.
+- `ribbonTwist_unit`: On the trivial rank-one module the twist acts by 1.
+- `ribbonTrace_vectorSpace`: For the trivial ribbon Hopf algebra, finite free modules have flip
+  braiding and trivial twist and the comparison is the ordinary matrix trace; after scalar
+  extension to ℂ this is the ordinary finite-dimensional vector-space trace.
 - `ribbonTwist_sl2_V1`: In the generic sl₂ instance a positive twist on V₁ acts as q^(3/4), so θ is
   not the identity.
 
@@ -745,7 +847,9 @@ product. State each ribbon identity in the completed tensor square or cube. Use 
 justify continuous sums in the clasp and twist forms. ([HL] §§2.1–2.3, pp. 12–16; ribbon axioms in
 §2.2, pp. 14–15.)
 
-*Needs:* Mathlib `HopfAlgebra`, §1.1, Mathlib `AdicCompletion`, Mathlib `UniformSpace.Completion`.
+*Needs:* Mathlib `HopfAlgebra`, PivotalSpherical Layers 0–2 and 10, Mathlib `AdicCompletion`,
+Mathlib `UniformSpace.Completion`. Construct the completed Hopf data before the module instance;
+§1.1 records its trace comparison, so there is no prerequisite cycle.
 
 The API:
 
@@ -792,12 +896,18 @@ K±1,e,F̃^(n); U_q^ev uses K±2. Their PBW bases are F̃^(i)K^je^k and F̃^(i)K
 U_q^ev. For F_p=U_q e^p U_q take the image of lim U_q/F_p in U_h and the induced tensor-power
 completion; injectivity of the map from the inverse limit is not asserted.
 
-*Construction.* Use the classical sl₂ data of LieHighestWeight Layer 3 and division of h-adic power
-series. Establish the ordered PBW basis using the commutation rules of [Hab08] §2.1. Identify the
-even direct summand and the ad-stable e-power filtration; form the image in U_h as in [Hab08] §2.2.
+*Construction.* Use the rank-one specialization of QEA1–QEA3 over ℚ(v), and compare its complex
+nonroot fibres with QuantumGroups Q8, item 1. Construct the h-adic Cartan extension. The rational
+function field maps to ℚ((h)), not ℚ[[h]]; compare the resulting generic algebra inside
+U_h[h⁻¹]. Prove the displayed integral generators land in U_h, then combine the generic PBW
+independence with the integral straightening rules of [Hab08] §2.1 to obtain the stated
+ℤ[q±1]-basis. This form uses e and F̃^(n), rather than simply being the Lusztig divided-power
+form. Identify the even summand and ad-stable e-power filtration; form the image in U_h.
 ([Hab08] §§2.1–2.6, pp. 7–11, quantum algebra, integral forms and completions.)
 
-*Needs:* Mathlib `HopfAlgebra`, LieHighestWeight Layer 3, Mathlib `AdicCompletion`, Mathlib
+*Needs:* Mathlib `HopfAlgebra`, QuantumEnvelopingAlgebras QEA1–QEA3,
+QuantumGroups Q8, item 1, for the complex-fibre comparison,
+LieHighestWeight Layer 3, Mathlib `AdicCompletion`, Mathlib
 `UniformSpace.Completion`.
 
 The API:
@@ -1090,28 +1200,38 @@ For a finite-dimensional simple complex Lie algebra with normalized short-root l
 d_i=(α_i,α_i)/2∈{1,2,3}, v_i=v^d_i, q=v², and use root lattice Y⊂weight lattice X with D=|X/Y|.
 U_h(g) has Cartan-root commutators, [E_i,F_j]=δ_ij(K_i−K_i⁻¹)/(v_i−v_i⁻¹), and quantum Serre
 relations of degree 1−a_ij, with K_i=exp(hH_i/2) in the convention of [HL]. The generic U_q(g) over
-ℂ(v) embeds in U_h(g); its PBW root-vector and Lusztig divided-power integral forms are
-distinguished. Classical root data and the ordinary PBW theorem come from LieHighestWeight.
+ℂ(v) embeds in U_h(g)[h⁻¹], with v↦exp(h/2); there is no such coefficient-field map into
+ℂ[[h]]. The generic root-vector and divided-power inputs come from the quantum-group suppliers;
+the formal Cartan extension and its integral-form comparison are the targets here.
 Concretely, a_ij=⟨α_j,α_i∨⟩ is the transpose of Mathlib's `RootPairing.Base.cartanMatrix`, so
 B_ij=d_i a_ij is symmetric; over ℂ(q) adjoin a central v^(±1) with v²=q, impose
 K_iE_jK_i⁻¹=v^(B_ij)E_j and K_iF_jK_i⁻¹=v^(−B_ij)F_j, and both Serre relations Σ_s(−1)^s[r choose
 s]_i X_i^(r−s)X_jX_i^s=0 for X=E,F and r=1−a_ij, where [n choose k]_i=v^(−d_i k(n−k)) times the
 Gaussian binomial in q^(d_i).
 
-*Construction.* Take the simple root datum and an ordering of the positive roots from
-LieHighestWeight Layer 1. Construct the quantum Serre quotient and its topological Hopf maps, using
-the corrected relation for K_β and F_α (correction 3 under Corrections to the sources). Use quantum
-root vectors for the PBW basis and define the distinct Lusztig and dual integral lattices. ([HL]
-§§3.1–3.4, pp. 36–40, quantum presentations, gradings and triangular forms.)
+*Construction.* Realize QEA1's generic generators in the localization of the h-adic Cartan
+presentation, matching its torus as in the supplier contract. Prove h-adic straightening and
+topological PBW, with the classical PBW monomials at h=0; use QEA2's root vectors to compare
+the generic E,F monomials and K_i↦exp(hH_i/2). Compare the selected semisimple integral subalgebra
+of QEA3 with [HL]'s lattice by generators and basis, without identifying the full-torus
+extension with that smaller form. ([HL] §§3.1.2–3.1.5, pp. 36–38, coefficients and localization;
+§§3.2–3.4, pp. 38–40, automorphisms and triangular forms.)
 
-*Needs:* Mathlib `HopfAlgebra`, LieHighestWeight Layer 3, §1.2, LieHighestWeight Layer 1.
+*Needs:* Mathlib `HopfAlgebra`, QuantumEnvelopingAlgebras QEA0–QEA3, §1.2,
+LieHighestWeight Layer 1.
 
 The API:
 
-- `DrinfeldJimboDatum`: Root/weight lattices, d_i,D and the chosen root ordering.
+- `DrinfeldJimboDatum`: QEA0's root datum, with the specified complex Cartan realization,
+  short-root normalization, d_i,D and chosen finite-type root ordering; no second root datum.
 - `DrinfeldJimboAlgebra`: The topological quantum Serre algebra for that datum.
-- `quantumPBWBasis`: Ordered root-vector divided powers and Cartan factors form the specified PBW
-  basis.
+- `formalQuantumPBWBasis`: the h-adic ordered root-vector and Cartan monomials form a
+  topological basis reducing to classical PBW. The generic comparison matches E,F root vectors
+  and exponential toral elements; it is not a basis equivalence between Laurent K and polynomial H.
+- `genericQuantum_formalComparison`: the generic algebra embeds into U_h(g)[h⁻¹], with the
+  specified E_i,F_i,K_i images and matching Hopf maps.
+- `semisimpleIntegral_formalComparison`: the selected integral generators land in U_h(g),
+  with the specified basis and coefficient map A→ℂ[[h]].
 
 **Checks.**
 
@@ -1120,6 +1240,9 @@ The API:
 - `DJ_serre_commuting_roots`: For a_ij=0 the quantum Serre relation is E_iE_j=E_jE_i.
 - `DJ_root_lengths_G2`: In G₂ the long-root d_i is 3; replacing every v_i by v loses the Serre
   coefficients.
+- `DJ_coefficient_pole`: (v−1)⁻¹ has image 2h⁻¹−1/2+O(h), outside ℂ[[h]]. An alleged
+  unlocalized ℂ(v)-algebra map fails already on this scalar; integral generators must be
+  checked separately.
 
 ### 1.13 Integral core subalgebra
 
@@ -1198,7 +1321,8 @@ for sl₂ keeps V₀ and V₁ and kills V₂.
 
 Layer 0; Mathlib `HopfAlgebra`, `BraidedCategory`, `RigidCategory`, `ExactPairing`,
 `AdicCompletion`, `UniformSpace.Completion`, `Polynomial.cyclotomic`; GeometricTopology Layer 4;
-LieHighestWeight Layers 1 and 3.
+LieHighestWeight Layers 1 and 3; PivotalSpherical Layers 0–2 and 10; QuantumGroups Q8;
+QuantumEnvelopingAlgebras QEA0–QEA3.
 
 ## Layer 2: coloured Jones polynomials and the cyclotomic expansion
 
@@ -1219,17 +1343,29 @@ tr_q^V(x)=Tr(ρ_V(K⁻¹x)). The representation algebra R_A=A[V₁] has V_m V_n=
 V_(m+n−2j); equivalently V_n=S_n(V₁) with Mathlib’s second-kind Chebyshev
 S₀=1,S₁=X,S_(n+2)=XS_(n+1)−S_n. Quantum dimension is [n+1], with [n]=(v^n−v⁻n)/(v−v⁻¹).
 
-*Construction.* Construct the highest-weight action in the ordered basis and check the algebra
-relations. Use the pivotal closure to identify the quantum trace. Prove the Clebsch–Gordan rule and
-compare the resulting monic recursion with Chebyshev.S. ([Hab08] §5.1, p. 18; §§5.3–5.4, pp. 19–20.)
+*Construction.* Base change the rank-one lattice of QEA4 along A→ℚ[[h]], compare its basis with
+F̃^(i)v₀, and extend the Cartan action by the integer weights. Before this formal base change,
+compare the underlying A-lattice's complex nonroot fibres with the ε=+1 modules of
+QuantumGroups Q8, item 2. No specialization of arbitrary formal series at a nonzero h is used.
+For tensor products, transport the explicit Clebsch–Gordan formulas of Q8, item 5: prove their
+rational-function identities and show the coefficients and inverse matrices are regular at h=0,
+where their quantum-integer denominators
+have nonzero integer limits. Thus they preserve the formal lattices, not just their fraction
+spaces. Identify the trace using §1.1 and compare the tensor rule with Chebyshev.S. The ε=−1
+simples are not in this colour family. ([Hab08] §5.1, p. 18; §§5.3–5.4, pp. 19–20.)
 
-*Needs:* §1.3, §1.4, Mathlib `Polynomial.Chebyshev.S`.
+*Needs:* §1.3, §1.4, QuantumEnvelopingAlgebras QEA4, QuantumGroups Q8, items 2 and 5,
+Mathlib `Polynomial.Chebyshev.S`.
 
 *Lean:* `qInt`, `color`, `qdim`, `qdim_color`.
 
 The API:
 
 - `sl2Color`: V_n with rank n+1 and the fixed highest-weight basis.
+- `sl2Color_complexComparison`: the underlying A-lattice's complex nonroot fibre is L_n^+
+  in the parameter v.
+- `sl2Color_formalTensor`: the generic Clebsch–Gordan maps extend to inverse maps on the
+  finite free ℚ[[h]] lattices.
 - `quantumTrace`: Tr(ρ(K⁻¹x)) on a finite free color.
 - `sl2RepRing`: R_A=A[X], X representing V₁.
 - `qInt`: The balanced Laurent quantum integer [n].
@@ -1563,6 +1699,9 @@ generic completion element to a knot. ([Hab08] §6.2, pp. 21–22; §8.2, p. 29.
   that fact alone.
 - For the 0-framed Hopf link no knot cyclotomic expansion applies; the link is not algebraically
   split, so even the link divisibility theorem does not apply.
+- Unrestricted factorial coefficients are not unique: (1−q,−1,0,…) gives
+  (1−q)(q;q)₀−(q;q)₁=0. The central coefficients a_i(K) are determined before the scalar
+  specialization, so this relation does not contradict their uniqueness.
 
 ### 2.14 Unified Kashaev invariant
 
@@ -1654,7 +1793,8 @@ quantum dimension 0, as every P_n with n ≥ 1 has.
 
 ### Dependencies
 
-Layers 0–1; HabiroCyclotomicCompletions Layers 1–3; Mathlib `Polynomial.Chebyshev.S`;
+Layers 0–1; HabiroCyclotomicCompletions Layers 1–3; QuantumEnvelopingAlgebras QEA4;
+QuantumGroups Q8, items 2 and 5; Mathlib `Polynomial.Chebyshev.S`;
 GeometricTopology Layer 4 for the Jones polynomial comparison.
 
 ## Layer 3: the unified invariant of integral homology spheres
@@ -2165,14 +2305,17 @@ with [n]_t = (tⁿ − t⁻ⁿ)/(t − t⁻¹). The tensor product of colours de
 case, so the colours span a ring, the representation ring of U_h(g), isomorphic to the classical
 one.
 
-*Construction.* Construct V_λ as a quotient of the quantum Verma module and show it is a deformation
-of L(λ); compute the trace of the pivotal element weight space by weight space and apply the Weyl
+*Construction.* Base change QEA4's finite free highest-weight lattice along A→ℂ[[h]], using
+§1.12's integral comparison. Extend the action to H_i by its weight-space eigenvalues and
+prove continuity, the formal relations and the classical reduction to L(λ). This is a comparison
+for these deformed colours, not another classification of generic modules. Compute the trace
+of the pivotal element weight space by weight space and apply the Weyl
 denominator identity. The denominator does not vanish at a root of unity ξ with ord ξ > d(h∨ − 1),
 the bound used in §4.13. ([HL] §3.1, pp. 36–37, for U_h(g); §8.2, pp. 90–91, for finite-rank modules
 and their Grothendieck ring; §8.3.1, equation (177), p. 91, for the quantum dimension, written there
 as q^(−(λ,ρ)) ∏_(α>0) (q^((λ+ρ,α)) − 1)/(q^((ρ,α)) − 1), which is the balanced form above.)
 
-*Needs:* §1.12, §1.2, LieHighestWeight Layer 3, LieHighestWeight Layer 6.
+*Needs:* §1.12, §1.2, QuantumEnvelopingAlgebras QEA4, LieHighestWeight Layers 3 and 6.
 
 The API:
 
@@ -2295,7 +2438,7 @@ cyclotomic polynomials is nonzero and has value 0 at all of them.
 ### Dependencies
 
 Layers 0–3; HabiroCyclotomicCompletions Layers 1, 3 and 4; Mathlib `IsPrimitiveRoot`;
-LieHighestWeight Layers 3 and 6.
+LieHighestWeight Layers 3 and 6; QuantumEnvelopingAlgebras QEA4.
 
 ## Layer 5: ideal triangulations, flattenings and the extended Bloch class
 
@@ -3046,7 +3189,8 @@ coprime auxiliary root-order condition of §5.5), `fullCoefficientDivisibilityTr
 (HabiroNahmSeries §6.1), `nahmConstant_kummerOrientation` (§6.4 there),
 `unpoweredProduct_integralGluing` (§6.5 there), and a full finite étale extension of the K₃-indexed
 module of HabiroNumberFields Layer 3. The required supplier extension
-`indexedLine_quadraticEtaleComparison` must construct H_(B,ξ|B) for every B above, identify its
+`indexedLine_quadraticEtaleComparison`, specified in the finite étale coefficient contract,
+must construct H_(B,ξ|B) for every B above, identify its
 arithmetic Taylor and rational root-line charts on every factor, and prove effective global
 rank-one descent, tensor compatibility and scalar comparison. For B≅R×R it must identify the ring
 and indexed line with H_R×H_R and M_ξ×M_ξ, with both projection maps and the factor-exchange action;
@@ -3951,8 +4095,9 @@ Three precise interfaces connect this roadmap to the Habiro roadmaps: integral k
 unified invariants of integral homology spheres use HabiroCyclotomicCompletions Layers 1–4; the
 explicit figure-eight descendant H_m supplies new elements of the ordinary Habiro ring via
 HabiroCyclotomicCompletions Layer 2; and integral Nahm data obtained from Neumann–Zagier data (§6.4)
-use HabiroNahmSeries §§5.5–5.6 and 6.4 and HabiroNumberFields Layers 2–3 for a K₃-indexed module. The
-knot-specific constructions and topological comparisons are made here. Neither formal asymptotics
+use HabiroNahmSeries §§5.5–5.6 and 6.4 and HabiroNumberFields Layers 2–3, extended by the
+finite étale coefficient contract, for a K₃-indexed module. The knot-specific constructions
+and topological comparisons are made here. Neither formal asymptotics
 nor root values alone prove completion membership. Wheeler’s two-variable relative-Habiro theorem
 [Whe] is outside this roadmap; a roadmap for it would build on Layer 2 here, on the relative Habiro
 ring of HabiroRings and on the Alexander polynomial of GeometricTopology.
@@ -3969,7 +4114,7 @@ functions.)
 
 - H₀ of §7.15 is an element of the integral Habiro ring, while Q₂ = ½(qH₁ − q⁻¹H₋₁) is not.
 - The formal series of §6.2 is not by itself an element of any Habiro module; membership is the
-  content of §6.8.
+  content of §6.8, conditional on the full-algebra supplier and its topological identification.
 
 ### 7.18 Worked example: the figure-eight knot and the knot 5₂
 
@@ -4130,7 +4275,12 @@ The following misprints and errors in the sources are corrected where the target
 - [Kir78] R. Kirby, *A calculus for framed links in S³*, Invent. Math. 45 (1978), 35–56.
 - [FR79] R. Fenn and C. Rourke, *On Kirby's calculus of links*, Topology 18 (1979), 1–15.
 - [Thu] W. P. Thurston, *The geometry and topology of three-manifolds*, lecture notes, Princeton
-  (1980), Chapter 4.
+  (1980), Chapter 4; Chapter 7 by J. W. Milnor, Theorem 7.2.1 and Lemma 7.2.2, pp. 160–164,
+  [public chapter](https://library.slmath.org/books/gt3m/PDF/7.pdf), for the geometric supplier.
+- [Stacks] The Stacks Project, Proposition 41.19.7,
+  [Tag 025P](https://stacks.math.columbia.edu/tag/025P), and Lemma 10.37.16,
+  [Tag 030C](https://stacks.math.columbia.edu/tag/030C), for normality and connected factors in
+  the finite étale coefficient contract.
 - [Pra73] G. Prasad, *Strong rigidity of Q-rank 1 lattices*, Invent. Math. 21 (1973), 255–286.
 - [EP88] D. B. A. Epstein and R. C. Penner, *Euclidean decompositions of noncompact hyperbolic
   manifolds*, J. Differential Geom. 27 (1988), 67–80.
