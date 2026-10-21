@@ -50,6 +50,26 @@
    "galaxy": "iwasawa",
    "decided": "2026-10-14",
    "reason": "p-adic measures, completed group algebras (Iwasawa algebras) and their characteristic ideals: the algebraic side of Iwasawa theory. Its arXiv category, math.NT, allows the area, but its title names none, so the category's default (number fields) would otherwise apply."
+  },
+  "TauCetiRoadmap/SymplecticGeometry/ContactGeometry": {
+   "galaxy": "diffgeom",
+   "decided": "2026-10-21",
+   "reason": "contact hyperplane fields, Reeb dynamics, Darboux and Gray stability and Legendrian neighbourhoods. Its README names three topology roadmaps (GeometricTopology, for tubular neighbourhoods; DGFloer and HeegaardFloer, which keep the Floer theory), which put it in topology; it is one of Tau Ceti's SymplecticGeometry roadmaps, whose README describes the family as the smooth geometry of phase spaces, symmetry and reduction, integrable systems and contact structures, and which its arXiv category (math.SG) places in differential geometry, with ConvexityToric."
+  },
+  "TauCetiRoadmap/SymplecticGeometry/CotangentLagrangian": {
+   "galaxy": "diffgeom",
+   "decided": "2026-10-21",
+   "reason": "cotangent phase spaces, Lagrangian submanifolds, generating functions and symplectic neighbourhood theorems. Its README names only ContactGeometry, so it followed that into topology; it is one of Tau Ceti's SymplecticGeometry roadmaps, whose README describes the family as the smooth geometry of phase spaces, symmetry and reduction, integrable systems and contact structures, and which its arXiv category (math.SG) places in differential geometry, with ConvexityToric."
+  },
+  "TauCetiRoadmap/SymplecticGeometry/HamiltonianReduction": {
+   "galaxy": "diffgeom",
+   "decided": "2026-10-21",
+   "reason": "moment maps, coadjoint orbits and symplectic reduction. Its README names only CotangentLagrangian, so it followed that into topology; it is one of Tau Ceti's SymplecticGeometry roadmaps, whose README describes the family as the smooth geometry of phase spaces, symmetry and reduction, integrable systems and contact structures, and which its arXiv category (math.SG) places in differential geometry, with ConvexityToric."
+  },
+  "TauCetiRoadmap/SymplecticGeometry/IntegrableSystems": {
+   "galaxy": "diffgeom",
+   "decided": "2026-10-21",
+   "reason": "commuting integrals, Liouville tori, action-angle coordinates and classical mechanics. Its README names three siblings, two of them placed in topology through the same chain; it is one of Tau Ceti's SymplecticGeometry roadmaps, whose README describes the family as the smooth geometry of phase spaces, symmetry and reduction, integrable systems and contact structures, and which its arXiv category (math.SG) places in differential geometry, with ConvexityToric."
   }
  }
 }
