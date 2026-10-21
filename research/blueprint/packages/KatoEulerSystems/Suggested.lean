@@ -255,7 +255,9 @@ end FiniteSupport
 /-! ## Layer 6: scalar regulators and elliptic periods -/
 
 /-- The two unramified Euler factors `(1 − p^(r−1)α⁻¹)(1 − ε p^(k−r−1)α⁻¹)` of target 6.4, for a
-root `α` and the value `ε = ε(p)` in a coefficient field `K`. -/
+root `α ≠ 0` and the value `ε = ε(p)` in a coefficient field `K`. At `α = 0`, where target 6.2 has
+no scalar projection, the convention `x / 0 = 0` gives the value `1`, which the roadmap never
+uses. -/
 def ordinaryEulerFactor {K : Type*} [Field K] (p : ℕ) (k r : ℤ) (α eps : K) : K :=
   (1 - (p : K) ^ (r - 1) / α) * (1 - eps * (p : K) ^ (k - r - 1) / α)
 
@@ -272,7 +274,8 @@ example (p : ℕ) : ordinaryEulerFactor (K := ℚ) p 2 1 (-1) 0 = 2 := by
 
 The following targets of the README are not stated here, because their carriers (open modular
 curves and their étale cohomology, scheme `K₂`, Iwasawa cohomology, `D_dR`, Kato's Eisenstein
-series and the analytic p-adic L-function) are not available at the pins:
+series, the analytic p-adic L-function and Bloch–Kato Selmer groups) are not available at the
+pins:
 `rationalSiegelUnit` (with `rationalSiegelUnit_auxiliary` and `rationalSiegelUnit_smoothing`),
 `siegelGaloisDistribution`, `siegelAnalyticProduct`,
 `siegelDegeneracyProduct`, `k2NormProjection`, `k2ProjectionFormulaNorm`,
@@ -289,7 +292,8 @@ series and the analytic p-adic L-function) are not available at the pins:
 `katoPeriodDictionary`, `noncriticalAnalyticArithmeticComparison`,
 `criticalBadReductionComparison`, `ellipticLocalLattice`, `katoZeta_nonTorsion`,
 `katoCohomologicalBound`, `ellipticCyclotomicFiniteGeneration`, `formalGroupUniversalNorms`,
-`ellipticOrdinaryControl`.
+`ellipticOrdinaryControl`, `blochKatoSelmer_finite`, `abelianBlochKatoComparison`,
+`modularAbelianVariety_selmer_finite`, `modularAbelianVariety_cyclotomicFG`, `katoTamagawaBound`.
 -/
 
 end TauCetiRoadmap.KatoEulerSystems
