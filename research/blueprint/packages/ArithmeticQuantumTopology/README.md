@@ -242,8 +242,11 @@ framed link type.
 
 ### From the atlas roadmaps
 
-Every roadmap cited below precedes this one: none of them uses a target of this roadmap. They
-are consumed with the hypotheses stated there, by section.
+The following are the direct mathematical suppliers, consumed with the hypotheses stated there,
+by section. Their q-series prerequisites are the foundational layers QM.0–QM.1 of
+QSeriesPartitionsAndMockModularForms. Those foundations must precede the arithmetic suppliers;
+the Lawrence–Zagier applications in QM.5 instead follow Layers 3–4 here. Thus these dependencies
+require a separation between q-series foundations and their topological applications.
 
 - **HabiroCyclotomicCompletions.** §1.1: `qInteger`, the finite q-Pochhammer product `pochhammer`
   (x;q)_n with `pochhammer_inverse_parameter`, (q⁻¹;q⁻¹)_n = (−1)ⁿq^(−n(n+1)/2)(q;q)_n for a unit q,
@@ -270,8 +273,9 @@ are consumed with the hypotheses stated there, by section.
   `nahmConstant_kummerOrientation` and `nondegenerateNahm_habiroMembership`: for a symmetric
   integral A and a nondegenerate signed solution over a number field K, R = 𝒪_K[1/Δ], the Gaussian
   collection lies in H_(B,ξ|B) on orders prime to Δ, where B = R[T]/(δT² − 1) is the full quadratic
-  étale algebra, split components included. That theorem's proof carries every comparison it
-  lists, including the extension of the K₃-indexed module to B and its effective descent. §6.5:
+  étale algebra, split components included. Its proof requires every comparison it lists,
+  including a full finite étale extension of the K₃-indexed module and effective descent; the
+  number-field scalar equivalence alone does not supply that extension. §6.5:
   `unpoweredProduct_integralGluing`. §7.4: the matrix dictionary A = I − ℬ⁻¹𝒜 from a
   Neumann–Zagier pair with ℬ invertible over ℚ and ℬ⁻¹𝒜 integral, and the figure-eight Nahm data.
 - **HabiroNumberFields.** Layer 2: `ArithmeticHabiroRing K Δ`, the arithmetic Habiro ring H_R of
@@ -615,9 +619,9 @@ but its intermediate links need not be admissible, and the point of this theorem
 kept admissible.
 
 *Proof sketch.* By §0.6 the two links are related by stabilisations, band slides and isotopies. A
-stabilisation is a Hoste move. For a band slide of L_i over L_j, first unknot the sliding component
-by Hoste moves, then realise the band slide by two local twists, that is, two Hoste moves along a
-small auxiliary unknot, and remove the auxiliary components. ([HabK] Corollary 5.1, §5, pp.
+stabilisation is a Hoste move. For a band slide of L_i over L_j, first unknot the component L_j
+over which L_i slides by auxiliary Hoste moves, realise the band slide by two Hoste moves using
+that unknotted component, and undo the auxiliary moves. ([HabK] Corollary 5.1, §5, pp.
 1309–1310 (PDF pp. 25–26).)
 
 *Needs:* §0.5, §0.6.
@@ -1046,9 +1050,12 @@ proof in §4.3, pp. 16–17.)
 
 A core subalgebra X of a topological ribbon Hopf algebra is topologically free with continuous
 Δ(X)⊂completed X⊗X, S±1(X)⊂X, adjoint stability, and R in the ambient h-adic closure of X⊗X and the
-pivotal element g in X itself. For the clasp c=Σ c′_i⊗c″_i, both families are zero-convergent
-topological bases of X. If x=Σ x″_ic″_i lies in its ambient closure and y=Σ y′_ic′_i lies in X,
-define ⟨x,y⟩=Σ x″_iy′_i; its convergence follows from these basis conditions. Twist forms are
+pivotal element g in X itself. For the clasp c=Σ c′_i⊗c″_i, both families tend to zero in the
+ambient h-adic topology of H and are topological bases for the intrinsic h-adic topology of X.
+These topologies need not agree: X need not be closed in H. If x=Σ x″_ic″_i lies in its ambient
+closure and y=Σ y′_ic′_i lies in X, the coordinates x″_i are arbitrary elements of ℂ[[h]], while
+the coordinates y′_i tend to zero h-adically. Define ⟨x,y⟩=Σ x″_iy′_i; it converges because of the
+latter condition. Twist forms are
 T±(y)=⟨r±1,y⟩. Their normalization is T±(1)=1. Construction of an integral invariant also needs the
 integral K_n stability conditions of §4.11. No arbitrary scalar Gauss denominator is inserted.
 
@@ -1073,6 +1080,9 @@ The API:
 - `coreInvariant_empty`: The empty surgery presentation gives 1, without a denominator.
 - `core_pairing_no_arbitrary_dual`: A one-sided basis without the other topological basis does not
   satisfy CoreSubalgebra; it cannot define the coordinate pairing.
+- For an infinite intrinsic topological basis, each basis vector has a unit coordinate and hence
+  does not lie in hX. Requiring the basis itself to tend to zero in X would exclude the intended
+  infinite-rank cores; the zero-convergence condition is in H.
 
 ### 1.12 Drinfeld–Jimbo algebra
 
@@ -2302,13 +2312,15 @@ depend on Layers 0–4.
 
 An ordered ideal tetrahedron in the upper half-space model H³ of Polylogarithms §2.4 (identified
 there with the hyperbolic metric of GeometricTopology Layer 7) has four distinct vertices on the
-ideal boundary ℙ¹(ℂ) = ℂ ∪ {∞}, not all on one circle; its region is `idealRegion` of the same
+ideal boundary ℙ¹(ℂ) = ℂ ∪ {∞}. It is nonflat when the four vertices do not lie on one generalized
+circle (a circle or a line together with ∞); in that case its region is `idealRegion` of the same
 section. Its shape is the cross-ratio z ∈ ℂ ∖ {0,1} of the ordered vertices (v₀,v₁,v₂,v₃),
 z = (v₃ − v₀)(v₂ − v₁)/((v₃ − v₁)(v₂ − v₀)), normalised so that the vertices (0, ∞, 1, z) have
 shape z. In the cross-ratio r of Polylogarithms §2.4 this is z = r(v₁,v₀,v₂,v₃). Its companions are
 z′=1/(1−z), z″=1−1/z and zz′z″=−1. Im z>0 is positive orientation, and then the volume of the
-region is D(z) by `idealTetrahedron_volume`; real nondegenerate shapes are flat and may occur in
-refinement arguments, where the region degenerates and the volume is zero. Four complex numbers and
+region is D(z) by `idealTetrahedron_volume`. Real shapes distinct from 0 and 1 are flat and remain
+in this definition for refinement arguments; extend the volume to them by zero, consistently with
+the continuity and real-axis vanishing of D. Four complex numbers and
 their cross-ratio alone are not a tetrahedron: the region, its finite volume and its invariance
 under SL₂(ℂ) are those of Polylogarithms §2.4.
 
@@ -2348,8 +2360,10 @@ The API:
   convention giving a different value is a different cross-ratio ordering.
 - `shape_product`: The product of the three edge parameters is minus 1, not 1; this pins the
   convention.
-- `shape_excludes_degenerate`: Shapes 0 and 1 are excluded, so a degenerate configuration is not an
-  ideal tetrahedron.
+- `shape_flat`: The vertices (0, ∞, 1, 2) are distinct and have shape 2, with companions −1 and
+  1/2 and product −1. This flat simplex is retained and has volume D(2)=0; shape 1 remains excluded.
+- `shape_excludes_degenerate`: Shapes 0 and 1 are excluded, so a configuration with coincident
+  vertices is not an ideal tetrahedron.
 - An even permutation of the vertices permutes the three parameters cyclically, and an odd one
   inverts them.
 
@@ -3030,10 +3044,17 @@ It is consumed with every comparison its proof carries: `gaussianGlobalNormalisa
 `gaussianMixedRegularity` and `formalGaussian_identification` (HabiroNahmSeries §5.6, with the
 coprime auxiliary root-order condition of §5.5), `fullCoefficientDivisibilityTransfer`
 (HabiroNahmSeries §6.1), `nahmConstant_kummerOrientation` (§6.4 there),
-`unpoweredProduct_integralGluing` (§6.5 there), and the extension of the K₃-indexed module of
-HabiroNumberFields Layer 3 to B with its effective global descent `indexedLine_effectiveDescent`
-(HabiroNumberFields §3.10) and scalar equivalence `indexedLine_scalarEquiv` (§3.16 there). A
-selected number-field component of B does not prove membership on all components.
+`unpoweredProduct_integralGluing` (§6.5 there), and a full finite étale extension of the K₃-indexed
+module of HabiroNumberFields Layer 3. The required supplier extension
+`indexedLine_quadraticEtaleComparison` must construct H_(B,ξ|B) for every B above, identify its
+arithmetic Taylor and rational root-line charts on every factor, and prove effective global
+rank-one descent, tensor compatibility and scalar comparison. For B≅R×R it must identify the ring
+and indexed line with H_R×H_R and M_ξ×M_ξ, with both projection maps and the factor-exchange action;
+for a field extension it must recover `indexedLine_scalarEquiv`. HabiroNumberFields §3.10 supplies
+effective descent over localized number fields, and §3.16 supplies scalar equivalence along a
+number-field embedding. Neither statement has the full finite étale domain required here. This is
+a required supplier gap in the membership theorem, also passed through HabiroNahmSeries §6.4.
+A selected number-field component of B does not prove membership on all components.
 
 The identification is a separate target of this roadmap. At primitive order k prime to Δ, the
 geometric input is the root-refined series φ_(Ξ,ζ) of §6.6, with the finite cyclic average and
@@ -3045,13 +3066,14 @@ not mere evaluation of the k=1 series, and not an assertion that every formal NZ
 module.
 
 *Route.* Verify symmetry and integrality of N, nondegeneracy and the coefficient localization.
-Apply the supplier's membership theorem over the full B, with the exact module index ξ|B and the
-restricted root orders. Compare the geometric normalization with the supplied collection; an
-unmatched phase is a failure of the comparison, not a convention. ([GSWZ] Theorem 5, §1.7, p. 14;
+Establish the full finite étale supplier comparison and apply the membership theorem over B, with
+the exact module index ξ|B and the restricted root orders. Compare the geometric normalization with
+the supplied collection; an unmatched phase is a failure of the comparison, not a convention.
+([GSWZ] Theorem 5, §1.7, p. 14;
 §1.8, pp. 15–17.)
 
 *Needs:* §6.4, §6.7, HabiroNahmSeries §§5.5–5.6, 6.1, 6.4 and 6.5, HabiroNumberFields §§3.10 and
-3.16, K3BlochGroups §§3.14–3.16.
+3.16 together with `indexedLine_quadraticEtaleComparison`, K3BlochGroups §§3.14–3.16.
 
 **Checks.**
 
@@ -3311,9 +3333,9 @@ For the local operations take Ω=ℝⁿ in Mathlib's 𝓓′. Construct `testToS
 ℝ-linear inclusion of 𝓓(ℝⁿ, ℝ) into 𝓢(ℝⁿ, ℂ), and the restriction `restrictTempered` from
 𝓢′(ℝⁿ, ℂ) to 𝓓′(ℝⁿ, ℂ) that it induces, before defining the wavefront operations. The wavefront seminorms are the localized Fourier seminorms of [BDH] §1, pp. 2–3;
 the normal topology adds the strong-dual seminorms sup_(φ∈B)|u(φ)| for bounded test sets B
-([BDH] §3, Definition 3.1, p. 5). The full cotangent cone recovers the strong local-distribution
-topology; the empty cone recovers C∞, and excludes δ₀. These distinguish this construction from
-unrestricted distributions or an unqualified weak topology.
+([BDH] §3, p. 5, the definition preceding Definition 3.1). The full cotangent cone recovers the
+strong local-distribution topology; the empty cone recovers C∞, and excludes δ₀. These distinguish
+this construction from unrestricted distributions or an unqualified weak topology.
 
 - `schwartz_kernel_theorem`: continuous linear maps S(ℝⁿ) → S′(ℝᵐ) correspond bijectively to
   tempered distributions on ℝⁿ⁺ᵐ, their kernels.
@@ -3854,7 +3876,8 @@ matrix-valued cocycle notion is §7.13.
 *Route.* Specify the exceptional point and the cut of [GZ] for each transformation. Prove continuity
 and analyticity for the selected knot kernels if available; otherwise retain the conjecture. Only
 after extension transport the rational composition identity by continuity. ([GZ] §5.2, Conjecture
-5.1 and conditional Proposition 5.2, pp. 34–37; §5.4, pp. 40–42; both cut planes specified on p. 7.)
+5.1 and conditional Proposition 5.2, pp. 34–37; §5.4, Conjecture 5.4, pp. 40–42; both cut planes
+specified on p. 7.)
 
 *Needs:* §7.13, §7.12, Mathlib `MeasureTheory.integral`,
 Mathlib `Complex.integral_boundary_rect_eq_zero_of_differentiableOn`.
@@ -4014,9 +4037,10 @@ Layers 2, 5 and 6; HabiroCyclotomicCompletions Layers 1–3; HabiroNahmSeries §
   theorem, the determination by WRT values and the Ohtsuki series, for the Lawrence–Zagier
   comparison of the Poincaré homology sphere with radial limits of Eichler integrals.
 
-The supplier roadmaps of the Exact supplier contracts do not consume this roadmap. Their
-knot-named examples, such as the figure-eight Nahm data of HabiroNahmSeries §7.4, are algebraic
-data whose topological meaning is established here, in Layers 5–6.
+The direct suppliers' knot-named examples, such as the figure-eight Nahm data of
+HabiroNahmSeries §7.4, are algebraic data whose topological meaning is established here, in
+Layers 5–6. Their q-series foundations precede this roadmap, while the Poincaré-sphere
+applications of those foundations consume it.
 
 ## Corrections to the sources
 
