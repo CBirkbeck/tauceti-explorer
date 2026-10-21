@@ -4,8 +4,9 @@ import TauCeti.Algebra.Group.ElementaryTwoQuotient.Basic
 /-!
 # Fixed fibers, parity obstructions and finite reduced-multiplier calculations: representative target signatures
 
-`README.md` is the roadmap. This file states the targets that can be expressed using the pinned
-libraries and gives light definitions over their native carriers. The supplied reduced covers,
+`README.md` is definitive. These signatures are representative and do not exhaust any layer.
+This file states the targets that can be expressed using the pinned libraries and gives light
+definitions over their native carriers. The supplied reduced covers,
 marked extensions and unit actions are prerequisites from InverseGaloisAndArithmeticFundamentalGroups
 IG.3.4–IG.3.5; they are not redeclared here. Targets requiring those missing carriers are listed
 at the end and stated fully in the README.
@@ -18,7 +19,7 @@ elementary-2 quotient. The marked finite models use the native swap semidirect p
 noncomputable section
 
 open CategoryTheory
-open scoped commutatorElement
+open scoped commutatorElement TensorProduct
 
 namespace TauCetiRoadmap.InductionRestrictionPartII
 
@@ -42,15 +43,16 @@ theorem abelianization_exact_of_extension (S : GroupExtension A E G) :
     (Abelianization.map S.rightHom).ker = (Abelianization.of.comp S.inl).range := by
   sorry
 
-/-- **Stem extensions do not change the abelianization** (RS.0.1): `Eᵃᵇ → Gᵃᵇ` is bijective. -/
-theorem abelianization_map_bijective_of_stem (S : GroupExtension A E G) (hcentral : S.inl.range ≤ Subgroup.center E)
+/-- **Derived-kernel extensions preserve abelianization** (RS.0.1): `Eᵃᵇ → Gᵃᵇ` is bijective.
+Centrality is unnecessary for this tail consequence; stem central extensions are a specialization. -/
+theorem abelianization_map_bijective_of_stem (S : GroupExtension A E G)
     (hstem : S.inl.range ≤ commutator E) :
     Function.Bijective (Abelianization.map S.rightHom) := by
   sorry
 
 /-- `extensionFiveTerm_test_4`: centrality is not needed for the tail; for `S₃ → C₂` the kernel
 `A₃` dies in the abelianization. -/
-example : (Abelianization.of.comp (alternatingGroup (Fin 3)).subtype).range = ⊥ := by
+theorem extensionFiveTerm_test_4 : (Abelianization.of.comp (alternatingGroup (Fin 3)).subtype).range = ⊥ := by
   sorry
 
 /-- **Positive-degree integral homology of a finite group is killed by its order** (RS.0.2). -/
@@ -64,7 +66,7 @@ theorem integralHomology_finite (G : Type) [Group G] [Finite G] (n : ℕ) :
   sorry
 
 /-- `integralHomology_test_3`: degree zero is excluded; `H₀(C₂, ℤ) ≅ ℤ` is infinite. -/
-example : Infinite (groupHomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ) 0) := by
+theorem integralHomology_test_3 : Infinite (groupHomology (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ) 0) := by
   sorry
 
 end RS0
@@ -76,6 +78,14 @@ section RS1
 /-- **Commuting-pair power law**, at the chain level (RS.1.1). This states the new theorem
 without redeclaring IG's oriented homological commutator. -/
 theorem commutator_order_boundary {G : Type} [Group G] {x y : G} (h : Commute x y) (n : ℕ) :
+    n • (Finsupp.single (x, y) (1 : ℤ) - Finsupp.single (y, x) 1) -
+      (Finsupp.single (x ^ n, y) 1 - Finsupp.single (y, x ^ n) 1) ∈
+        groupHomology.boundaries₂ (Rep.trivial ℤ G ℤ) := by
+  sorry
+
+/-- **Integer powers in commuting-pair classes** (RS.1.1). Negative powers give negatives
+of the oriented class; no finiteness or order hypothesis is needed. -/
+theorem commutator_zpow_boundary {G : Type} [Group G] {x y : G} (h : Commute x y) (n : ℤ) :
     n • (Finsupp.single (x, y) (1 : ℤ) - Finsupp.single (y, x) 1) -
       (Finsupp.single (x ^ n, y) 1 - Finsupp.single (y, x ^ n) 1) ∈
         groupHomology.boundaries₂ (Rep.trivial ℤ G ℤ) := by
@@ -103,11 +113,31 @@ def boundedDegreeSlice (D : Type) [Fintype D] (n M : ℤ) : Set (D → ℤ) :=
 /-- `boundedDegreeSlice_test_2`: for two classes, `n = 3` and `M = 1`, the slice is
 `{(1, 2), (2, 1)}`. -/
 example : boundedDegreeSlice (Fin 2) 3 1 = {![1, 2], ![2, 1]} := by
-  sorry
+  ext m
+  simp only [boundedDegreeSlice, Set.mem_ofPred_eq, Fin.sum_univ_two, Set.mem_insert_iff,
+    Set.mem_singleton_iff]
+  constructor
+  · rintro ⟨hm, hsum⟩
+    have h0 := hm 0
+    have h1 := hm 1
+    have hcases : (m 0 = 1 ∧ m 1 = 2) ∨ (m 0 = 2 ∧ m 1 = 1) := by omega
+    rcases hcases with ⟨h0, h1⟩ | ⟨h0, h1⟩
+    · left; ext i; fin_cases i <;> simpa using (by assumption)
+    · right; ext i; fin_cases i <;> simpa using (by assumption)
+  · rintro (rfl | rfl) <;> constructor
+    · intro i; fin_cases i <;> norm_num
+    · norm_num
+    · intro i; fin_cases i <;> norm_num
+    · norm_num
 
 /-- `boundedDegreeSlice_test_3`: for nonempty `D`, `n = 0` and `M = 1` the slice is empty. -/
 example : boundedDegreeSlice (Fin 1) 0 1 = ∅ := by
-  sorry
+  ext m
+  simp only [boundedDegreeSlice, Set.mem_ofPred_eq, Fin.sum_univ_one, Set.mem_empty_iff_false,
+    iff_false, not_and]
+  intro hm
+  have h0 := hm 0
+  omega
 
 /-- **The power-fixed degree lattice** `L_{≡ q}` (RS.3.4): degree vectors fixed by the class
 permutation of `q`. -/
@@ -116,11 +146,19 @@ def powerFixedDegree {D : Type} (σ : D ≃ D) : AddSubgroup (D →₀ ℤ) :=
 
 /-- `powerFixedDegree_test_2`: for the swap of two classes the fixed vectors are `(a, a)`. -/
 example (m : Fin 2 →₀ ℤ) : m ∈ powerFixedDegree (Equiv.swap (0 : Fin 2) 1) ↔ m 0 = m 1 := by
-  sorry
+  change Finsupp.domCongr (Equiv.swap (0 : Fin 2) 1) m = m ↔ _
+  constructor
+  · intro h
+    simpa [eq_comm] using congrArg (fun v => v 0) h
+  · intro h
+    ext i
+    fin_cases i <;> simpa [eq_comm] using h
 
 /-- `powerFixedDegree_test_1`: the identity permutation fixes every integer degree vector. -/
 example (D : Type) : powerFixedDegree (Equiv.refl D) = ⊤ := by
-  sorry
+  ext m
+  change Finsupp.domCongr (Equiv.refl D) m = m ↔ True
+  simp
 
 end RS3
 
@@ -129,6 +167,14 @@ end RS3
 section RS4
 
 open TauCeti
+
+/-- **Squares above involutions are central** (RS.4.1): any central extension suffices,
+without a chosen Schur cover, marking, generation or finiteness hypothesis. -/
+theorem involution_square_central {A E G : Type} [Group A] [Group E] [Group G]
+    (S : GroupExtension A E G) (hcentral : S.inl.range ≤ Subgroup.center E)
+    (X : E) (hX : (S.rightHom X) ^ 2 = 1) :
+    X ^ 2 ∈ S.inl.range ∧ X ^ 2 ∈ Subgroup.center E := by
+  sorry
 
 /-- **Square-times-torsion solvability** (RS.4.4): in a commutative group, `b ^ r` is a
 `2r`-th power exactly when `b` is a square times an `r`-torsion element. -/
@@ -141,6 +187,15 @@ theorem square_torsion_solvability {A : Type} [CommGroup A] (b : A) (r : ℕ) :
 def torsionImageFiltration (A : Type) [CommGroup A] (t : ℕ) :
     Submodule (ZMod 2) (ElementaryTwoQuotient A) :=
   Submodule.span (ZMod 2) (elementaryTwoQuotientMk '' {a : A | a ^ (2 ^ t) = 1})
+
+/-- At `t = 0` only the identity is allowed, and its square class is zero. -/
+example (A : Type) [CommGroup A] : torsionImageFiltration A 0 = ⊥ := by
+  simp [torsionImageFiltration]
+
+/-- In `C₂` the generator's nonzero square class already lies in `B₁`. -/
+example : elementaryTwoQuotientMk (Multiplicative.ofAdd (1 : ZMod 2)) ∈
+    torsionImageFiltration (Multiplicative (ZMod 2)) 1 := by
+  exact Submodule.subset_span ⟨Multiplicative.ofAdd 1, by decide, rfl⟩
 
 /-- `torsionImageFiltration_mono`. -/
 theorem torsionImageFiltration_mono (A : Type) [CommGroup A] {t u : ℕ} (htu : t ≤ u) :
@@ -155,7 +210,7 @@ theorem torsionImageFiltration_exhaustive (A : Type) [CommGroup A] [Finite A] :
 
 /-- `torsionImageFiltration_test_2`: for `A = C₈` the filtration vanishes at `t = 2`; a
 definition by the torsion subgroup itself (without passing to `A / A²`) would not. -/
-example : torsionImageFiltration (Multiplicative (ZMod 8)) 2 = ⊥ := by
+theorem torsionImageFiltration_test_2 : torsionImageFiltration (Multiplicative (ZMod 8)) 2 = ⊥ := by
   sorry
 
 /-- **The two-primary obstruction threshold** `t_A(b)` (RS.4.9): the least `t` with the square
@@ -163,13 +218,33 @@ class of `b` in `B_t`. -/
 def obstructionThreshold {A : Type} [CommGroup A] [Finite A] (b : A) : ℕ :=
   sInf {t : ℕ | elementaryTwoQuotientMk b ∈ torsionImageFiltration A t}
 
+/-- The identity has threshold zero: its square class is already in the first step. -/
+example (A : Type) [CommGroup A] [Finite A] : obstructionThreshold (1 : A) = 0 := by
+  apply Nat.sInf_eq_zero.mpr
+  exact Or.inl (by simp [torsionImageFiltration])
+
+/-- The generator of `C₂` first appears at step one, rather than at step zero. -/
+example : obstructionThreshold (Multiplicative.ofAdd (1 : ZMod 2)) = 1 := by
+  have h1 : elementaryTwoQuotientMk (Multiplicative.ofAdd (1 : ZMod 2)) ∈
+      torsionImageFiltration (Multiplicative (ZMod 2)) 1 :=
+    Submodule.subset_span ⟨Multiplicative.ofAdd 1, by decide, rfl⟩
+  apply (csInf_eq_iff ⟨1, h1⟩ 1).2
+  refine ⟨h1, ?_⟩
+  intro n hn
+  by_contra h
+  have hn0 : n = 0 := by omega
+  subst n
+  have hs : IsSquare (Multiplicative.ofAdd (1 : ZMod 2)) := by
+    simpa [torsionImageFiltration] using hn
+  exact (by decide : ¬ IsSquare (Multiplicative.ofAdd (1 : ZMod 2))) hs
+
 /-- `obstructionThreshold_zero`: `t_A(b) = 0` iff `b` is a square (for finite `A`). -/
 theorem obstructionThreshold_zero {A : Type} [CommGroup A] [Finite A] (b : A) :
     obstructionThreshold b = 0 ↔ IsSquare b := by
   sorry
 
 /-- `obstructionThreshold_test_3`: a generator of `C₈` has threshold `3`. -/
-example : obstructionThreshold (Multiplicative.ofAdd (1 : ZMod 8)) = 3 := by
+theorem obstructionThreshold_test_3 : obstructionThreshold (Multiplicative.ofAdd (1 : ZMod 8)) = 3 := by
   sorry
 
 /-- **The two-adic survival criterion** (RS.4.10), in the form used fiber by fiber: for finite
@@ -183,13 +258,13 @@ theorem two_adic_survival {A : Type} [CommGroup A] [Finite A] (b : A) (q : ℕ) 
 
 /-- `allFixedFibers_test`, a negative control for the count: in `C₄` with `b` a generator and
 `q = 3`, the equation `h ^ 2 = b` has no solution although `A[2]` has two elements. -/
-example : ¬ ∃ h : Multiplicative (ZMod 4), h ^ 2 = Multiplicative.ofAdd 1 := by
-  sorry
+theorem allFixedFibers_test : ¬ ∃ h : Multiplicative (ZMod 4), h ^ 2 = Multiplicative.ofAdd 1 := by
+  decide
 
 /-- At `q = 1`, every element solves the fixed-fiber equation. The valuation criterion
 requires `q > 1`, since `padicValNat 2 0 = 0`. -/
-example {A : Type} [CommGroup A] (b : A) (h : A) : h ^ (1 - 1 : ℕ) = b ^ ((1 - 1) / 2 : ℕ) := by
-  sorry
+theorem fixed_fiber_at_one {A : Type} [CommGroup A] (b : A) (h : A) : h ^ (1 - 1 : ℕ) = b ^ ((1 - 1) / 2 : ℕ) := by
+  simp
 
 /-- **Involution classes span an elementary abelian abelianization** (RS.4.11). -/
 theorem involution_abelianization {G : Type} [Group G] (c : Set G) (hgen : Subgroup.closure c = ⊤)
@@ -213,7 +288,8 @@ theorem jointParityMap_kernel {V U B : Type} [AddCommGroup V] [Module (ZMod 2) V
 /-- `jointParityMap_test_2`: with `a = 0` and `s = id` on `F₂`, the kernel is `0` for `W = 0`;
 using `a` alone would give all of `F₂`. -/
 example : LinearMap.ker (jointParityMap (0 : ZMod 2 →ₗ[ZMod 2] ZMod 2) LinearMap.id ⊥) = ⊥ := by
-  sorry
+  ext v
+  simp [jointParityMap]
 
 /-- **Ranks count surviving parities** (RS.4.17): a translate of the kernel of a linear map on a
 finite `F₂`-space has `2 ^ (dim V - rank L)` elements. -/
@@ -225,12 +301,12 @@ theorem rank_parity_count {V W : Type} [AddCommGroup V] [Module (ZMod 2) V] [Fin
 
 /-- The fixed-fiber sign (RS.4.3), in the central marked model `C₁₄ → C₂`:
 `b = a⁻²` in the kernel `C₇` gives `h² = a²`, solved by `a`, not `a⁻¹`. -/
-example :
+theorem fixed_fiber_sign_test :
     (Multiplicative.ofAdd (1 : ZMod 7)) ^ 2 =
         (Multiplicative.ofAdd (-2 : ZMod 7))⁻¹ ∧
       (Multiplicative.ofAdd (-1 : ZMod 7)) ^ 2 ≠
         (Multiplicative.ofAdd (-2 : ZMod 7))⁻¹ := by
-  sorry
+  decide
 
 end RS4
 
@@ -275,7 +351,7 @@ example : swapAction (Multiplicative (ZMod 3)) (Multiplicative.ofAdd 1)
     swapAction (Multiplicative (ZMod 3)) 1
       (Multiplicative.ofAdd 1, Multiplicative.ofAdd 2) =
         (Multiplicative.ofAdd 1, Multiplicative.ofAdd 2) := by
-  sorry
+  decide
 
 /-- The **swap wreath product** `W(G) = (G × G) ⋊ C₂`. -/
 abbrev SwapWreath (G : Type) [Group G] : Type :=
@@ -284,6 +360,18 @@ abbrev SwapWreath (G : Type) [Group G] : Type :=
 /-- The product map `G × G → Gᵃᵇ`, `(a, b) ↦ [a][b]`. -/
 def abelianizedSum (G : Type) [Group G] : G × G →* Abelianization G :=
   Abelianization.of.comp (MonoidHom.fst G G) * Abelianization.of.comp (MonoidHom.snd G G)
+
+/-- The sum map on `C₃²` kills `(1,2)` and preserves the nonzero sum of `(1,1)`. -/
+example :
+    abelianizedSum (Multiplicative (ZMod 3)) (Multiplicative.ofAdd 1, Multiplicative.ofAdd 2) = 1 ∧
+    abelianizedSum (Multiplicative (ZMod 3)) (Multiplicative.ofAdd 1, Multiplicative.ofAdd 1) ≠ 1 := by
+  change Abelianization.of ((Multiplicative.ofAdd (1 : ZMod 3)) * Multiplicative.ofAdd 2) = 1 ∧
+    Abelianization.of ((Multiplicative.ofAdd (1 : ZMod 3)) * Multiplicative.ofAdd 1) ≠ 1
+  constructor
+  · exact map_one _
+  · intro h
+    have h' := Abelianization.equivOfComm.injective (h.trans (map_one _).symm)
+    exact (by decide : (Multiplicative.ofAdd (1 : ZMod 3)) * Multiplicative.ofAdd 1 ≠ 1) h'
 
 set_option backward.isDefEq.respectTransparency false in
 /-- The **sum-kernel model** (RS.6.9): the kernel of `W(G) → Gᵃᵇ`, `((a, b), t) ↦ [a][b]`. For
@@ -305,7 +393,17 @@ def outsideInvolutions (F : Subgroup (SwapWreath G)) : Set F :=
 /-- The identity squares to one but is excluded from the outside marking. -/
 example : (1 : (⊤ : Subgroup (SwapWreath C₂))) ∉
     outsideInvolutions (⊤ : Subgroup (SwapWreath C₂)) := by
-  sorry
+  simp [outsideInvolutions]
+
+/-- The pure swap is an outside involution; the marking is nonempty. -/
+example : (⟨⟨(1, 1), Multiplicative.ofAdd 1⟩, Subgroup.mem_top _⟩ :
+    (⊤ : Subgroup (SwapWreath C₂))) ∈
+      outsideInvolutions (⊤ : Subgroup (SwapWreath C₂)) := by
+  change Multiplicative.ofAdd (1 : ZMod 2) ≠ 1 ∧ _
+  constructor
+  · decide
+  · apply Subtype.ext
+    rfl
 
 /-- `sumKernelModel_card`: `|sumKernelModel G| = 2 |G| |[G, G]|`. -/
 theorem sumKernelModel_card [Finite G] :
@@ -319,7 +417,7 @@ theorem sumKernelModel_eq_top_of_perfect (h : commutator G = ⊤) : sumKernelMod
 
 /-- `sumKernelModel_test_2`: the sum-kernel model of `A₄` has order `96` (the order-96 type of
 RS.6.6, Table 2 row 8). -/
-example : Nat.card (sumKernelModel (alternatingGroup (Fin 4))) = 96 := by
+theorem sumKernelModel_test_2 : Nat.card (sumKernelModel (alternatingGroup (Fin 4))) = 96 := by
   sorry
 
 /-- `sumKernelModel_test_1`, sum not difference: in `W(C₃)` the pair `((1, 2), 1)` (additive
@@ -329,7 +427,19 @@ example :
         SwapWreath (Multiplicative (ZMod 3))) ∈ sumKernelModel _ ∧
       (⟨(Multiplicative.ofAdd (1 : ZMod 3), Multiplicative.ofAdd 1), 1⟩ :
         SwapWreath (Multiplicative (ZMod 3))) ∉ sumKernelModel _ := by
-  sorry
+  change Abelianization.of (Multiplicative.ofAdd (1 : ZMod 3)) *
+      Abelianization.of (Multiplicative.ofAdd (2 : ZMod 3)) = 1 ∧
+    Abelianization.of (Multiplicative.ofAdd (1 : ZMod 3)) *
+      Abelianization.of (Multiplicative.ofAdd (1 : ZMod 3)) ≠ 1
+  rw [← (Abelianization.of : Multiplicative (ZMod 3) →* _).map_mul,
+    ← (Abelianization.of : Multiplicative (ZMod 3) →* _).map_mul]
+  constructor
+  · change Abelianization.of (1 : Multiplicative (ZMod 3)) = 1
+    exact map_one _
+  · intro h
+    have h' := Abelianization.equivOfComm.injective (h.trans (map_one _).symm)
+    have : (Multiplicative.ofAdd (1 : ZMod 3)) * Multiplicative.ofAdd 1 ≠ 1 := by decide
+    exact this h'
 
 /-- **The anti-diagonal marking** (RS.6.8): for every abelian `G` the outside involutions generate
 `F(G)`, and for finite `G` of odd order they form one conjugacy class. -/
@@ -338,6 +448,20 @@ theorem antidiagonal_marking (G : Type) [CommGroup G] :
       (Finite G → Odd (Nat.card G) →
         ∀ x ∈ outsideInvolutions (sumKernelModel G), ∀ y ∈ outsideInvolutions (sumKernelModel G),
           IsConj x y) := by
+  sorry
+
+/-- **Degree-two Künneth for arbitrary groups** (RS.6.8): the cross summand tensors their
+abelianizations, with no commutativity or finiteness assumption on the factors. -/
+theorem multiplier_prod (G H : Type) [Group G] [Group H] :
+    Nonempty (Multiplier (G × H) ≃+
+      ((Multiplier G × Multiplier H) ×
+        (Additive (Abelianization G) ⊗[ℤ] Additive (Abelianization H)))) := by
+  sorry
+
+/-- **Finite abelian multipliers are exterior squares** (RS.6.8), on Mathlib's existing
+exterior-power carrier. The comparison sends `a ∧ b` to the oriented commuting-pair class. -/
+theorem abelian_multiplier_exteriorSquare (G : Type) [CommGroup G] [Finite G] :
+    Nonempty ((⋀[ℤ]^2 (Additive G)) ≃+ Multiplier G) := by
   sorry
 
 /-- **The ordinary multiplier of the anti-diagonal model** (RS.6.8). The README identifies
@@ -357,13 +481,13 @@ end RS6
 * RS.1: `localClassNormalization` with its API and `homology_image` for the supplied reduced cover.
 * RS.3: `kernel_action_aut`, `finite_level_action`, `DegreeOrbitSet`, the actual marked-kernel
   and twisted restrictions of `boundedDegreeSlice` and `powerFixedDegree`.
-* RS.4: `squareObstruction`, `involution_square_central`, `fixed_fiber_equation`,
+* RS.4: `squareObstruction`, `fixed_fiber_equation`,
   `all_fixed_fibers`, `odd_parity_fiber`, `even_parity_fiber`, `lift_square_columns`,
   `paritySquareMap`, `affine_compatible_parities`, `surviving_parities`, `independent_classes`.
   The lower-bound adapter `parity_lowerBound_translation` and `parity_degree_generatingSeries`
   consume the current library's weight polynomial, which is absent at the pins.
 * RS.6: `ReductionCertificate`, `finiteParityAlgorithm`, `centralizer_generator_relations`,
-  the graph models, `multiplier_prod_abelian`, `abelian_multiplier_exteriorSquare`,
+  the graph models,
   `antidiagonal_reduced_multiplier`, `order96_reduced_multiplier`, and all
   thirty-one `table_row_k` statements. The light `sumKernelModel` specializes to `order96Type`
   at `A₄` and to `antidiagonalModel` for abelian groups; `outsideInvolutions` retains their marking.

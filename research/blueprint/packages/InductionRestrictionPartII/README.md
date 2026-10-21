@@ -10,6 +10,10 @@ positive-degree finiteness and a Hall-coinvariant comparison. The final layer gi
 certificates and the thirty-one values in Wood's Table 2, with nineteen abelian rows following
 from an exterior-square formula.
 
+`README.md` is definitive. `Suggested.lean` gives representative milestone signatures on
+existing library carriers and proved checks of the light definitions; it does not exhaust a layer.
+Boundary checks needing further theory are named theorem targets rather than admitted examples.
+
 The end results are `all_fixed_fibers`, `two_adic_survival`, `surviving_parities` and
 `rank_parity_count` in Layer RS.4, and `antidiagonal_reduced_multiplier`,
 `order96_reduced_multiplier` and `table_row_k` in Layer RS.6. Layers RS.0, RS.1 and RS.3 supply
@@ -258,6 +262,9 @@ Two corollaries for **stem** extensions (`S.inl.range ≤ commutator E`):
 
 - `extensionClassMap_surjective_of_stem`: `τ_S` is onto;
 - `abelianization_map_bijective_of_stem`: `(π)ᵃᵇ` is an isomorphism `Eᵃᵇ ≃ Gᵃᵇ`.
+  This tail consequence only needs `S.inl.range ≤ commutator E`, even for a noncentral
+  extension; its Lean statement uses that generality. Centrality remains necessary for the
+  preceding class-map corollary.
 
 *Proof sketch.* Build the low-degree resolution argument for this theorem; neither a spectral-sequence
 API nor Hopf’s formula is assumed to be in the library. Mathematically, the Hochschild–Serre
@@ -392,8 +399,9 @@ a reduced cover of a finite Schur cover.
 ### RS.1.1 Commuting-pair classes respect orders
 
 Prove `commutator_order`: For commuting x,y, the homological commutator is additive in each
-commuting cyclic variable: ⟨x^n,y⟩=n⟨x,y⟩ for every natural number n. In particular if x is an
-involution then 2⟨x,y⟩=0. The native chain-level statement is `commutator_order_boundary`.
+commuting cyclic variable: ⟨x^n,y⟩=n⟨x,y⟩ for every integer n, in an arbitrary group.
+In particular if x is an involution then 2⟨x,y⟩=0. The native chain-level statements are
+`commutator_order_boundary` for natural powers and `commutator_zpow_boundary` for integer powers.
 
 *Proof sketch.* Work directly in Mathlib's integral inhomogeneous bar chains. Write
 z(a,y)=[a|y]−[y|a] and put
@@ -418,7 +426,10 @@ d₃Bₙ(x,y)=n z(x,y)−z(xⁿ,y).
 
 By `groupHomology.boundaries₂`, this difference lies in the image of the native differential. Apply
 `groupHomology.H2π_eq_iff` to the two cycles, using linearity of H2π, to obtain the stated power
-law. If x²=1, specialize to n=2 and use the unit-cycle boundary. Swapping the variables and negating
+law. For negative powers use the same boundary identity with a=x and b=x⁻¹, obtaining
+z(x⁻¹,y) ≡ −z(x,y) modulo boundaries, since z(1,y) is a boundary. Apply the natural-power
+identity to x⁻¹ to obtain every integer exponent. If x²=1, specialize to n=2 and use the
+unit-cycle boundary. Swapping the variables and negating
 z gives the power law in the second variable. This proof uses no finiteness hypothesis, chosen
 cover, universal coefficient sequence or calculation of the homology of a torus.
 
@@ -439,6 +450,9 @@ than an additional result attributed to Wood.
   displayed boundary is zero. At n=2 with x²=1 it shows that 2⟨x,y⟩ vanishes; ⟨x,y⟩ itself can
   remain nonzero. Reversing the ordered pair changes the sign of its cycle. No class is asserted for
   a pair that fails the commuting hypothesis.
+- At n=−1 the identity is ⟨x⁻¹,y⟩=−⟨x,y⟩. In G=ℤ² with ordered generators x,y, both
+  ⟨x⁻¹,y⟩ and ⟨y,x⟩ are the negative generator, whereas ⟨x,y⟩ is positive. A rule using
+  |n| fails this check.
 
 ### RS.1.2 Local class normalization
 
@@ -690,13 +704,16 @@ below are algebraic consequences developed here, with their deductions given exp
 
 ### RS.4.1 Lift squares are central
 
-Prove `involution_square_central`: for any reduced cover S_c→G and any x∈G with x²=1, every
-lift X∈S_c has X²∈A=M(G,c), hence X² commutes with S_c. This elementary statement requires
-neither x∈c nor generation by c; the later fiber theorems retain the layer's standing hypotheses.
+Prove `involution_square_central`: in any central extension `S : GroupExtension A E G`,
+if the image of X∈E squares to one, then X² lies in `S.inl.range` and in `Subgroup.center E`.
+In particular for a reduced cover S_c→G and x²=1, every lift X has X²∈A=M(G,c).
+This elementary statement requires neither finiteness, a marking nor generation; the later
+fiber theorems retain the layer's standing hypotheses.
 
 *Proof sketch.* Project X² to x²=1; apply centrality of the kernel.
 
-*Needs:* IG.3.4 (reduced cover).
+*Needs:* Mathlib `GroupExtension`, `GroupExtension.range_inl_eq_ker_rightHom`, `map_pow` and
+`Subgroup.center`; IG.3.4 supplies the reduced-cover specialization.
 
 *Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
 Remark 4.2, printed pp.400–401 (PDF pp.24–25).
@@ -767,8 +784,8 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 - For q = 3 (r = 1) and an involution class with X² = a, the correction is W_3(e_i) = X_i^{−2} =
   a⁻¹, so the equation reads h² = b⁻¹; the sign matters for the solutions h, though not for
   solvability.
-- In the marked central model C₁₄→C₂, write X for a generator of C₁₄ and a=X² for the kernel
-  generator of order seven. For g the nonidentity element and m=3, choose Y=X. Then b=a⁻²
+- `fixed_fiber_sign_test`: in the marked central model C₁₄→C₂, write X for a generator of C₁₄ and a=X²
+  for the kernel generator of order seven. For g the nonidentity element and m=3, choose Y=X. Then b=a⁻²
   and q=3 gives h²=a², whose unique solution is h=a. Reversing the sign gives h=a⁻¹ instead.
   Indeed (Xa)³a⁻³=Xa, whereas (Xa⁻¹)³a⁻³≠Xa⁻¹. This tests the coordinate action on a
   marked central extension; C₁₄→C₂ is not asserted to be a reduced Schur cover.
@@ -793,9 +810,11 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
 ### RS.4.5 All fixed fibers and their torsion count
 
-Prove `all_fixed_fibers`: For odd q≥1 prime to |G|, the fiber over (g,m) has |A[q−1]| fixed points
-if δ(m)=[g] and b(g,m)^r∈A^{2r}, and zero otherwise. The q and q⁻¹ actions have the same fixed
-points. No nonnegativity of m is needed for this group-theoretic statement.
+Prove `all_fixed_fibers`: for odd q≥1 prime to |G| and g∈c∪{1}, the fiber over (g,m) is empty
+if δ(m)≠[g]. When δ(m)=[g], form b(g,m) as in RS.4.2: the number of fixed points is
+|A[q−1]| if b(g,m)^r∈A^{2r}, and zero otherwise. Thus the obstruction is evaluated only
+on its compatible domain. The q and q⁻¹ actions have the same fixed points. No nonnegativity
+of m is needed for this group-theoretic statement.
 
 *Proof sketch.* Apply the existing nonempty power-fiber equivalence to its kernel; a permutation and
 its inverse have the same fixed set. For an arbitrary finite central marked model, retain the
@@ -809,10 +828,11 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
 **Checks.**
 
-- Take A = C₄ (written additively), b = 1 and q = 3 (r = 1): b is not in 2A + A[1] = 2A, so the
-  fiber has no fixed point, although |A[q−1]| = |A[2]| = 2; an incompatible or obstructed fiber must
+- `allFixedFibers_test`: take A = C₄ (written additively), b = 1 and q = 3 (r = 1): b is not in 2A + A[1] = 2A,
+  so the fiber has no fixed point, although |A[q−1]| = |A[2]| = 2; an incompatible or obstructed fiber must
   not be given the torsion count.
-- At q=1 the action is the identity, so every compatible fiber has |A| fixed points and
+- `fixed_fiber_at_one`: at q=1, h⁰=b⁰ for every b,h, and the action is the identity, so
+  every compatible fiber has |A| fixed points and
   every incompatible fiber is empty. The positive-valuation criterion below requires q>1.
 
 ### RS.4.6 Odd-parity fixed-point fiber
@@ -876,6 +896,8 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 **Checks.**
 
 - `torsionImageFiltration_test_1` (degenerate): For A of odd order, B_t=0=B for every t.
+  For every abelian A, B_0=0; in C₂ the generator has nonzero class already in B_1.
+  These distinguish the initial step from the first nontrivial torsion image.
 - `torsionImageFiltration_test_2` (computation): For A=C₈, the filtration is zero at t=0,1,2 and all
   C₂ at t=3.
 - `torsionImageFiltration_test_3` (non-example): In C₈, the nontrivial 2-torsion element is a
@@ -905,7 +927,8 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
 **Checks.**
 
-- `obstructionThreshold_test_1` (degenerate): t_A(1)=0.
+- `obstructionThreshold_test_1` (degenerate): t_A(1)=0. In C₂, the generator has threshold
+  one: it lies in B_1 and is not a square. These pin the zero and first positive thresholds.
 - `obstructionThreshold_test_2` (computation): For b = (generator, identity) in C₄ × C₈, the
   threshold is 2; for b = (identity, generator) it is 3.
 - `obstructionThreshold_test_3` (non-example): For a generator in C₈ the threshold is 3, not 1
@@ -1512,23 +1535,48 @@ is the exterior square of the ℤ-module G. Concretely, for G = ⊕ᵢ C_{nᵢ} 
 ⊕_{i<j} C_{gcd(nᵢ,nⱼ)}.
 
 *Proof sketch.* The kernel of ρ is G, of odd order, so RS.6.1 gives M(F,c) = M(F) ≅ M(G)_{C₂}, where
-C₂ acts through inversion on G. Prove the degree-two Künneth comparison
-`multiplier_prod_abelian`: M(A × B) ≅ M(A) ⊕ M(B) ⊕ (A ⊗ B) for abelian A, B, with the
-tensor summand carried by the cross-factor commuting-pair cycles. The map
+C₂ acts through inversion on G. Prove `multiplier_prod`, the natural degree-two Künneth
+comparison for arbitrary groups A,B:
+
+```text
+M(A × B) ≅ M(A) ⊕ M(B) ⊕ (Aᵃᵇ ⊗_ℤ Bᵃᵇ).
+```
+
+The two first summands are induced by the factor inclusions; the tensor generator [a]⊗[b]
+maps to the oriented commuting-pair class ⟨(a,1),(1,b)⟩. The inverse's first two components
+are induced by the factor projections. This comparison is natural under any pair of group
+homomorphisms, with no finiteness or commutativity hypothesis on A or B. Build it from the
+bar-resolution product comparison in Löh, Corollary 3.2.23: the degree-two Tor terms vanish
+because H₀(−,ℤ)=ℤ is free, and H₁(−,ℤ) is the abelianization. Thus the degree-two cross
+product itself is an isomorphism; no arbitrary splitting is chosen. The specialization
+`multiplier_prod_abelian` replaces Aᵃᵇ and Bᵃᵇ by A and B when the groups are abelian.
+The general theorem has a native signature in Suggested.lean, using `Additive (Abelianization A)`
+for the tensor's ℤ-module carrier. The map
 `abelian_multiplier_exteriorSquare` sends a∧b to ⟨a,b⟩. The boundary calculation of RS.1.1
-makes it bilinear, and ⟨a,a⟩=0 makes it alternating. A finite cyclic decomposition, the
+makes it bilinear, and ⟨a,a⟩=0 makes it alternating. Its Lean signature uses Mathlib's
+`⋀[ℤ]^2 (Additive G)` and is restricted to finite abelian G, as is the following proof.
+A finite cyclic decomposition, the
 Künneth comparison and M(C_n)=0 show that this map is an isomorphism for finite abelian G.
 Naturality follows from the supplied naturality of commuting-pair classes, independently of
 the chosen decomposition. Inversion therefore acts on Λ²G by (−1)·(−1)=1, so the coinvariants
 are all of M(G). *Needs:* RS.6.1; RS.0.3; RS.1.1; Mathlib
 `Rep.FiniteCyclicGroup.groupHomologyIsoEven` (M(C_n) = 0); the degree-two Künneth formula M(A × B) ≅
-M(A) ⊕ M(B) ⊕ (A ⊗ B), which Mathlib lacks at the pin and which is proved as part of this target.
+M(A) ⊕ M(B) ⊕ (Aᵃᵇ ⊗_ℤ Bᵃᵇ), which Mathlib lacks at the pin and which is proved as part of this target.
 
 *Source.* Löh, *Group Cohomology*, Corollary 3.2.23 (Künneth theorem for group homology), p. 136,
 and Corollary 1.6.13 (homology of finite cyclic groups), p. 49; Ellenberg–Venkatesh–Westerland,
 Example 9.3.2 (arXiv v1, p. 57), for the index-two reduction in this setting.
 
 **Checks.**
+
+- `multiplier_prod_test_1` (trivial factor): M(1×B) ≅ M(B) and the tensor term is zero,
+  including infinite B.
+- `multiplier_prod_test_2` (cyclic factors): M(C_m×C_n) ≅ C_gcd(m,n) for positive m,n;
+  in particular M(C₃²)=C₃. Omitting the cross summand would give zero.
+- `multiplier_prod_test_3` (nonabelian factors): M(S₃×S₃) ≅ C₂, since M(S₃)=0 and
+  S₃ᵃᵇ=C₂. An abelian-only statement cannot be applied to this case.
+- `multiplier_prod_test_4` (infinite factors and orientation): for A=B=ℤ, both individual
+  multipliers vanish and the displayed cross generator is the positive generator of M(ℤ²)=ℤ.
 
 - `antidiagonal_reduced_multiplier_test_1` (cyclic): for G = C_n with n odd, M(F,c) = 0; this is
   rows 1–4, 6, 9–12, 14–15, 18, 20 and 26–27 of Wood's Table 2.
