@@ -10034,8 +10034,8 @@
    "avoidAccountOf": "DESIGN-BCGP18",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-BCGP18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #907"
+   "state": "pending",
+   "note": "released on GitHub issue #907"
   },
   {
    "id": "DESIGN-BCGP25",
@@ -10081,8 +10081,8 @@
    "avoidAccountOf": "DESIGN-BCGP25",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-BCGP25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #908"
+   "state": "pending",
+   "note": "released on GitHub issue #908"
   },
   {
    "id": "DESIGN-PAN",
@@ -12632,8 +12632,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-RefinedTraceMethodsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3387"
+   "state": "pending",
+   "note": "released on GitHub issue #3387"
   },
   {
    "id": "REV-DESIGN-RefinedTraceMethodsPartII",
@@ -13825,8 +13825,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ProetaleCohomologyOfPAdicCurvesAndTowers.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3410"
+   "state": "pending",
+   "note": "released on GitHub issue #3410"
   },
   {
    "id": "REV-DESIGN-ProetaleCohomologyOfPAdicCurvesAndTowers",
@@ -16978,8 +16978,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AnabelianGeometryAndNonabelianChabautyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3475"
+   "state": "pending",
+   "note": "released on GitHub issue #3475"
   },
   {
    "id": "REV-DESIGN-AnabelianGeometryAndNonabelianChabautyPartII",
@@ -43517,8 +43517,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9312"
+   "state": "pending",
+   "note": "released on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -45306,8 +45306,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.4",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9299"
+   "state": "pending",
+   "note": "released on GitHub issue #9299"
   },
   {
    "priority": 2,
@@ -49861,8 +49861,8 @@
    ],
    "revisionOf": "PKG-ArithmeticQuantumTopology",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10757"
+   "state": "pending",
+   "note": "released on GitHub issue #10757"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology~2",
@@ -55121,8 +55121,8 @@
    ],
    "revisionOf": "PKG-GeneralizedHeegnerCycles",
    "prompt": "research/blueprint/prompts/PKG-GeneralizedHeegnerCycles~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9171"
+   "state": "pending",
+   "note": "released on GitHub issue #9171"
   },
   {
    "id": "REV-PKG-GeneralizedHeegnerCycles~2",
@@ -57579,8 +57579,8 @@
    ],
    "revisionOf": "PKG-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/PKG-KatoEulerSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9178"
+   "state": "pending",
+   "note": "released on GitHub issue #9178"
   },
   {
    "id": "REV-PKG-KatoEulerSystems~2",
@@ -109607,8 +109607,8 @@
     "FIX-RT-AREA-analytic"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-analytic~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6210"
+   "state": "pending",
+   "note": "released on GitHub issue #6210"
   },
   {
    "id": "REV-FIX-RT-AREA-analytic~2",
@@ -111455,8 +111455,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -111939,8 +111939,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "FIX-RT-AREA-iwasawa-3~4",
@@ -113582,8 +113582,8 @@
     "REV-FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8927"
+   "state": "pending",
+   "note": "released on GitHub issue #8927"
   },
   {
    "id": "REV-FIX-RT-AREA-algebraicgeometry~3",
@@ -115826,8 +115826,8 @@
     "FIX-RT-AREA-ktheory-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5159"
+   "state": "pending",
+   "note": "released on GitHub issue #5159"
   },
   {
    "id": "RT-AREA-geomlanglands",
@@ -116095,8 +116095,8 @@
     "FIX-RT-AREA-geomlanglands~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-geomlanglands~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5161"
+   "state": "pending",
+   "note": "released on GitHub issue #5161"
   },
   {
    "id": "RT-AREA-commutative",
@@ -150109,9 +150109,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-InductionRestrictionPartII~adv.md",
-   "note": "claimed on GitHub issue #10389"
+   "note": "released on GitHub issue #10389"
   },
   {
    "id": "REV-PKG-EffectiveClassNumbers~adv",
