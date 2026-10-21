@@ -1,5 +1,5 @@
 {
- "openPulls": 310,
+ "openPulls": 311,
  "pulls": [
   {
    "author": "kim-em",
@@ -503,9 +503,9 @@
     "awaiting-review"
    ],
    "number": 850,
-   "sha": "ee4bec5fc35c570ebea14c757c3ddf2c62dc9219",
+   "sha": "913d39b07344bd18e803c2b78c544f2d86b1d035",
    "title": "Inverse Galois theory and arithmetic fundamental groups",
-   "updatedAt": "2026-10-20T19:37:40Z",
+   "updatedAt": "2026-10-21T23:23:21Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/850"
   },
   {
@@ -514,13 +514,13 @@
    "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
-    "awaiting-dependencies"
+    "awaiting-dependencies",
+    "awaiting-review"
    ],
    "number": 851,
    "sha": "01c64f0cc5f154a3d190697951ead2fffc2af693",
    "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic",
-   "updatedAt": "2026-10-20T19:38:22Z",
+   "updatedAt": "2026-10-21T22:57:38Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/851"
   },
   {
@@ -578,9 +578,9 @@
     "awaiting-review"
    ],
    "number": 856,
-   "sha": "81f6496983d9028bdfe5905c3aa8270c6c14ba99",
+   "sha": "76d989bb35632159a858adf4da7f7f86f3676275",
    "title": "Arithmetic Galois representations and conductors",
-   "updatedAt": "2026-10-20T13:22:30Z",
+   "updatedAt": "2026-10-21T22:57:52Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/856"
   },
   {
@@ -840,9 +840,9 @@
     "awaiting-review"
    ],
    "number": 879,
-   "sha": "90b00865f5d77f8c660d74391a311e8811e6ec73",
+   "sha": "7782dede70afa35d3d529b987e100ca7cb41f62a",
    "title": "Roadmap: finite flat group schemes and integral p-adic Hodge theory",
-   "updatedAt": "2026-10-20T20:10:03Z",
+   "updatedAt": "2026-10-21T23:16:05Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/879"
   },
   {
@@ -1149,9 +1149,9 @@
     "awaiting-review"
    ],
    "number": 940,
-   "sha": "e37c9fb3ff76bd2b8fb3e48a5dcb421dfba2899e",
+   "sha": "704695f005449a12113f028e2c1d927b5f74fa4b",
    "title": "PadicPeriodRings: p-adic period rings foundation roadmap",
-   "updatedAt": "2026-10-20T13:21:57Z",
+   "updatedAt": "2026-10-21T23:09:26Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/940"
   },
   {
@@ -1466,9 +1466,9 @@
     "awaiting-review"
    ],
    "number": 1002,
-   "sha": "c01dad49213cd0dd3c7b72b6023a0ce912a5e315",
+   "sha": "0211366823d855cfb6838637fca25a4e1e76e7e1",
    "title": "Roadmap: p-adic differential equations, rigid cohomology and p-adic weights",
-   "updatedAt": "2026-10-20T19:39:32Z",
+   "updatedAt": "2026-10-21T23:21:05Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1002"
   },
   {
