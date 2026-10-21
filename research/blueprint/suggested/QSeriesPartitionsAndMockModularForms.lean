@@ -132,10 +132,25 @@ Indefinite theta series, admissible Appell domains, removable pole extensions an
 mock Jacobi spaces remain README targets. No substitute structure is introduced here.
 -/
 
+/-- Hickerson's double-sum identity for Ramanujan's seventh-order function
+`F₀(q) = ∑ q^(n²) / (q^(n+1); q)_n`, analytic form
+(QM.4/seventh-order-indefinite-theta-identities). The right side sums over the two
+cones `r, s ≥ 0` (sign `+`) and `r, s < 0` (sign `-`); the exponent
+`(3r² + 8rs + 3s² + r + s)/2` is a nonnegative integer there. The formal identity in
+`ℤ⟦q⟧`, its Bailey-pair proof and the companions for `F₁`, `F₂` are README targets. -/
+theorem seventh_order_F0_hickerson {q : ℂ} (hq : ‖q‖ < 1) :
+    (∏' n : ℕ, (1 - q ^ (n + 1))) * ∑' n : ℕ, q ^ (n * n) / qPochhammer (q ^ (n + 1)) q n =
+      ∑' rs : ℤ × ℤ, if (0 ≤ rs.1 ↔ 0 ≤ rs.2) then
+        (if 0 ≤ rs.1 then (1 : ℂ) else -1) * (-1 : ℂ) ^ (rs.1 + rs.2) *
+          q ^ ((3 * rs.1 ^ 2 + 8 * rs.1 * rs.2 + 3 * rs.2 ^ 2 + rs.1 + rs.2) / 2).toNat
+      else 0 := sorry
+
 /-! ## QM.5: quantitative analysis and root evaluation -/
 
 /-- Quantitative two-sided vertical Stirling estimate (QM.5/gamma-vertical-decay).
-A relative error bound also supplies reciprocal-gamma control for twisted L-functions. -/
+A relative error bound also supplies reciprocal-gamma control for twisted L-functions.
+It is the exponentiated form of the additive estimate `Complex.norm_Gamma_asymptotic`
+that the upstream ZerosOfLFunctions roadmap (Layer 1) plans. -/
 theorem gamma_vertical_relative_error (a b : ℝ) (hab : a ≤ b) :
     ∃ C : ℝ, 0 < C ∧ ∀ x ∈ Set.Icc a b, ∀ y : ℝ, 1 ≤ |y| →
       |‖Complex.Gamma ((x : ℂ) + y * Complex.I)‖ /

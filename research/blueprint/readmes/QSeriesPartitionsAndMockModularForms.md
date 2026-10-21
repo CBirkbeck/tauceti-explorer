@@ -2,21 +2,21 @@
 
 **Summary.** This roadmap connects formal partition identities with modular and mock modular functions, then uses their Fourier and radial behavior in quantum topology and moonshine. Its reusable services are denominator-free q-series identities, classical scalar-index Jacobi comparisons, Rademacher expansions, harmonic Maass operators, mock theta completions and scalar quantum period cocycles. The moonshine layer constructs the physical-state Lie algebra and states the exact representation and modular-function comparisons required for the genus-zero conclusion.
 
-The seven layers retain 537 targets and supporting objects; this over-budget revision adds none. Their prerequisite routes use the pinned libraries, the exact supplier contracts below, or one of two stated series-identification gaps. QM.4 is planned with those gaps; the other six layers retain precise open targets in their coverage records. No layer is mathematically closed. A suggested signature expresses a proposed declaration; it does not establish its proof.
+The seven layers retain 537 targets and supporting objects; this over-budget revision adds none. Their prerequisite routes use the pinned libraries, the exact supplier contracts below, or the one stated series-identification gap. QM.4 is planned with that gap; the other six layers retain precise open targets in their coverage records. No layer is mathematically closed. A suggested signature expresses a proposed declaration; it does not establish its proof.
 
 ## Conventions and ownership
 
 Write e(z)=exp(2πiz) and q=e(τ), with τ in the upper half-plane. Fractional q-powers mean e(rτ), never an unspecified root of q. Complex powers use the principal logarithm. The quantum slash uses the explicitly stated lower-half-plane boundary value; radial q-series limits inside the unit disc are distinct analytic statements. Gaussian binomial coefficients are polynomials before specialization, so roots of unity introduce no uncancelled denominator. Formal infinite products use coefficientwise finiteness and a Hausdorff coefficient topology; analytic substitutions carry their convergence hypotheses.
 
-Classical Jacobi theory has one owner, MetaplecticAutomorphicForms MP.6. The QM.1 formulas give the rank-one scalar-index dictionary and its applications; they require the exact requested lattice-index and multiplier contracts. MP.4 supplies the finite Weil representation and MP.7 its classical half-weight comparison. QM.1 theta identities do not depend back on MP.7 applications that consume them. ArithmeticQuantumTopology QT.4 supplies the actual WRT invariant; HabiroCyclotomicCompletions HC.1/HC.3/HC.4 supplies its completion, root evaluation and rigidity. QM.5 supplies the scalar analytic period theory and its q-series examples to QT.7. Matrix-valued knot cocycles belong to the separate requested Part II interface.
+Classical Jacobi theory has one owner, MetaplecticAutomorphicForms MP.6. The QM.1 formulas give the rank-one scalar-index dictionary and its applications; they require the exact requested lattice-index and multiplier contracts. MP.4 supplies the finite Weil representation and MP.7 its classical half-weight comparison. QM.1 theta identities do not depend back on MP.7 applications that consume them. ArithmeticQuantumTopology QT.4 supplies the actual WRT invariant; HabiroCyclotomicCompletions HC.1/HC.3/HC.4 (open upstream PR #1314, §§1.4, 2.1, 3.1 and 4.4) supplies its completion, root evaluation and rigidity. QM.5 supplies the scalar analytic period theory and its q-series examples to QT.7. Matrix-valued knot cocycles belong to the separate requested Part II interface.
 
-TauCetiRoadmap IntegralLattices owns the rational ambient carrier and its integral-lattice arithmetic. Its Layer 6E supplies the explicit rootless rank-24 even unimodular Leech lattice; QM.6 consumes this lattice in the VOA construction. FuchsianOrbifolds owns quotient surfaces, cusp charts and compact-surface degree theory. ModularForms owns j, modular-form sections and Hecke operators. LieHighestWeight owns the sl₂ and PBW inputs. The source and supplier gaps below give the exact comparisons these services must support.
+TauCetiRoadmap IntegralLattices owns the rational ambient carrier and its integral-lattice arithmetic. Its Layer 6E supplies the explicit rootless rank-24 even unimodular Leech lattice; QM.6 consumes this lattice in the VOA construction. FuchsianOrbifolds owns quotient surfaces, cusp charts and compact-surface degree theory. ModularForms owns j, modular-form sections and Hecke operators. LieHighestWeight owns the sl₂ and PBW inputs. AffineLieAlgebras C7 (open upstream PR #1201) owns the positive-definite lattice vertex operator algebra over ℂ; QM.6 plans vertex algebras over any commutative ring and lattice vertex algebras of every signature, and states its comparison with C7. ZerosOfLFunctions Layer 1 (open upstream PR #253) owns the vertical-strip Stirling estimate that QM.5/gamma-vertical-decay exponentiates. The source and supplier gaps below give the exact comparisons these services must support.
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The declarations cited from that baseline are listed after the layer contracts. The current IntegralLattices service is an upstream dependency, not an assertion that its expansion was present at that earlier pin.
 
-The compact suggested file retains seven light definitions, nine theorem signatures and thirteen proved examples on existing Mathlib carriers. The full target, proof, API and test contracts are stated below, including objects whose native carriers are not yet available. Implementation status remains unchecked.
+The compact suggested file retains seven light definitions, ten theorem signatures and thirteen proved examples on existing Mathlib carriers. The full target, proof, API and test contracts are stated below, including objects whose native carriers are not yet available. Implementation status remains unchecked.
 
-This plan was reviewed independently in four rounds. The revision-3 review checked all 537 target contracts and flagged 43; the fourth revision supplied proof routes for each of them, and the independent review REV-QSeriesPartitionsAndMockModularForms~4 checked those routes, the 47 changed node records, the 30 supplier requests and the four new source findings, and accepted the plan with in-place corrections. Two Eulerian-series identifications remain explicit gaps, and every layer keeps a precise list of the targets it does not yet plan. The source register has 93 findings: 90 confirmed and 3 rejected. See the [review report](../reviews/REV-QSeriesPartitionsAndMockModularForms~4.md) and the [revision-3 review](../reviews/REV-QSeriesPartitionsAndMockModularForms~3.md).
+This plan was reviewed independently in four rounds. The revision-3 review checked all 537 target contracts and flagged 43; the fourth revision supplied proof routes for each of them, and the independent review REV-QSeriesPartitionsAndMockModularForms~4 checked those routes, the 47 changed node records, the 30 supplier requests and the four new source findings, and accepted the plan with in-place corrections. A fifth revision then closed the seventh-order identification with Andrews' Bailey pairs (Trans. AMS 1986), as corrected by Hickerson, sharpened the fifth-order gap to three named q-hypergeometric inputs, and consumed the open upstream roadmaps that own targets here (AffineLieAlgebras C7, ZerosOfLFunctions Layer 1, HabiroCyclotomicCompletions); it adds no node. One Eulerian-series identification remains an explicit gap, and every layer keeps a precise list of the targets it does not yet plan. The source register has 98 findings: 90 confirmed, 3 rejected and 5 awaiting review. See the [review report](../reviews/REV-QSeriesPartitionsAndMockModularForms~4.md) and the [revision-3 review](../reviews/REV-QSeriesPartitionsAndMockModularForms~3.md).
 
 | Layer | Coverage | Objects | Planets |
 | --- | --- | ---: | ---: |
@@ -38,6 +38,7 @@ The suggested file uses the following names for its end-theorem signatures. The 
 | `rogers_ramanujan_first` | [QM.0/rogers-ramanujan-first](#QM-0-rogers-ramanujan-first) |
 | `jacobi_triple_product_analytic` | [QM.1/jacobi-triple-product-analytic](#QM-1-jacobi-triple-product-analytic) |
 | `hardy_ramanujan_asymptotic` | [QM.2/hardy-ramanujan-asymptotic](#QM-2-hardy-ramanujan-asymptotic) |
+| `seventh_order_F0_hickerson` | [QM.4/seventh-order-indefinite-theta-identities](#QM-4-seventh-order-indefinite-theta-identities) |
 | `gamma_vertical_relative_error` | [QM.5/gamma-vertical-decay](#QM-5-gamma-vertical-decay) |
 | `kontsevichValue_eq_sum_range` | [QM.5/kontsevich-strange-series](#QM-5-kontsevich-strange-series) |
 | `ramanujan_congruence_mod_five` | [QM.0/ramanujan-congruence-mod-five](#QM-0-ramanujan-congruence-mod-five) |
@@ -52,7 +53,7 @@ Partition generating products lead to q-Pochhammer symbols and Gaussian polynomi
 
 **Coverage: partial.**
 
-The existing partition, q-product, Gaussian-polynomial, Bailey-chain and selected Rogers–Ramanujan contracts are retained. Their library services remain baseline imports. The finite convolution and q-Gauss route used in QM.5/choi-identity now uses the earlier q-series identities; the Yu and Liu extensions below still have no additional target nodes in this over-budget pass.
+The existing partition, q-product, Gaussian-polynomial, Bailey-chain and selected Rogers–Ramanujan contracts are retained. Their library services remain baseline imports. The finite convolution and q-Gauss route used in QM.5/choi-identity now uses the earlier q-series identities; the Yu and Liu extensions below still have no additional target nodes in this over-budget pass. Revision 5: the Bailey-pair nodes now also carry the seventh-order identities of QM.4; three Andrews 1986 inputs for the fifth-order identification are listed below.
 
 Open targets and comparisons:
 
@@ -60,6 +61,7 @@ Open targets and comparisons:
 - PAPER-YU-23/094, /102, /106 and /107: reconcile the finite Möbius selector, independent-monomial coefficient/sign formula and valuation/integrality inputs with their foundational arithmetic owner. Preserve the reviewed correction that the sign in /102 is the unweighted sum of all exponents, the nonzero hypotheses of /106, and evenness plus zero/negative reductions in /107. Read the corrected exact source passages and source findings before creating declaration-sized leaves; the existing partition/q-binomial nodes do not establish these inputs.
 - PAPER-LIU-ETAL-22/notation-1-3-1 and /B01: reuse QM.0/q-binomial-coefficient as a polynomial, with denominator-free specialization at roots of unity and the signed-index zero adapter. The printed q-integer value at zero is a misprint: QM.0/q-integer has value zero, while the zero q-factorial is one. The additional d_{r,q} and d•_{r,q} are not target nodes here; preserve d₀=1, d•₀=0, d₁=1−q−2q² and d•₁=−q as exact interface tests.
 - PAPER-LIU-ETAL-22/gauss-polynomial-identity, /B02, /B04 and /B03: the Gauss alternating Gaussian-polynomial identity and Lemmas B.2.7, B.2.8 and B.3.3 need distinct target contracts or an exact existing supplier match. The finite q-binomial theorem alone is not a recorded proof of every specialization; retain polynomial reciprocity, signed summation ranges and k=0 cases, without rational evaluation before cancellation.
+- Andrews 1986 inputs for the fifth-order gap of QM.4: the one-parameter Bailey lemma (Andrews (2.4)–(2.6) with ρ₁ → ∞, ρ₂ finite, from the q-Pfaff–Saalschütz sum), Watson's q-analogue of Whipple's transformation in the terminating limiting form of Andrews' Lemma 2 (from the two-parameter Bailey lemma and the unit pair), and the limiting Sears transformation of Andrews' Lemma 1, each as a formal identity over ℤ[a, b][q, q⁻¹] with its own node.
 
 Atlas planets:
 
@@ -9457,17 +9459,16 @@ Acceptance checks:
 
 ## QM.4 Mock modular completions
 
-The error-function correction to Appell–Lerch sums gives explicit elliptic and modular laws. Indefinite theta functions separate holomorphic sign terms from nonholomorphic beta terms, with convergence on their admissible domains. Seventh- and fifth-order vectors apply this machinery with exact characteristics and roots of unity. Eulerian identifications retain their exact proof gaps. Rational-torsion modularity follows directly from the two Jacobi laws on an explicit principal congruence subgroup, without a growth assumption.
+The error-function correction to Appell–Lerch sums gives explicit elliptic and modular laws. Indefinite theta functions separate holomorphic sign terms from nonholomorphic beta terms, with convergence on their admissible domains. Seventh- and fifth-order vectors apply this machinery with exact characteristics and roots of unity. The seventh-order Eulerian series are identified with Hickerson's double sums through Andrews' Bailey pairs; the fifth-order identification retains its exact proof gap. Rational-torsion modularity follows directly from the two Jacobi laws on an explicit principal congruence subgroup, without a growth assumption.
 
 **Coverage: planned.**
 
-The represented indefinite theta, Appell and mock-completion targets have routes to their stated suppliers and the two explicit Eulerian-identification gaps. Shifted real Poisson and finite-Weil rank-one conventions are now compared with current upstream contracts. Planned means target-level coverage, not mathematical closure or proof of the two remaining identities.
+The represented indefinite theta, Appell and mock-completion targets have routes to their stated suppliers. The seventh-order Eulerian identification is now proved (Andrews' Bailey pairs, corrected by Hickerson); the fifth-order identification remains the one explicit gap of this layer. Shifted real Poisson and finite-Weil rank-one conventions are compared with current upstream contracts. Planned means target-level coverage, not mathematical closure.
 
 Open targets and comparisons:
 
-- The selected seventh-order completion nodes use indefinite double sums; the recorded Hickerson gap is still required to identify them with Ramanujan’s Eulerian series. Do not infer that identity from the bounded coefficient check.
-- Fifth-order: prove the Andrews Eulerian/double-sum identifications with convergence, denominator nonvanishing and interchange. The coordinates of H₁,G₁,H₂,G₂,F₂ and the S/T matrices are now specified in the existing nodes and the reader. No congruence kernel or classical Eulerian identity follows merely from those formulas. QM.4 is planned with the stated proof gaps, not closed.
-- The current MP.6 generic service and the local rank-one dictionary now support the represented Jacobi uses. Broader matrix-index and multiplier extensions remain with their owner. The shifted real Poisson and finite-Weil/scalar trace comparisons are supplied here and are no longer unresolved adapters.
+- Fifth order: the Eulerian identification (Andrews' Theorem 9) needs the one-parameter Bailey lemma, the limiting Watson q-Whipple transformation (Andrews Lemma 2) and the limiting Sears transformation (Andrews Lemma 1) as QM.0 targets, then Theorems 3–4, Lemma 7 and Theorem 9 as stated in the gap register. The S/T data of H₁, G₁, H₂, G₂, F₂ are specified in the existing nodes; no congruence kernel or Eulerian identity follows from those formulas alone.
+- The current MP.6 generic service and the local rank-one dictionary support the represented Jacobi uses. Broader matrix-index and multiplier extensions remain with their owner. The shifted real Poisson and finite-Weil/scalar trace comparisons are supplied here and are no longer unresolved adapters.
 
 Atlas planets:
 
@@ -12183,71 +12184,95 @@ Acceptance checks:
 
 ### The seventh-order mock theta functions F₀, F₁, F₂ and the vector F₇
 
-**Definition** (`QM.4/seventh-order-mock-theta-functions`). Following Zwegers §4.3 (Hickerson's identities used as definitions): (q)_∞F₀(q) := (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+r/2+s/2}, (q)_∞F₁(q) := (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+5r/2+5s/2+1}, (q)_∞F₂(q) := (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+3r/2+3s/2}, with (q)_∞ = ∏(1 − q^n) and q = e(τ); and F₇(τ) := (q^{−1/168}F₀(q), q^{47/168}F₂(q), q^{−25/168}F₁(q)) (fractional powers e(sτ)).
+**Definition** (`QM.4/seventh-order-mock-theta-functions`). Ramanujan's seventh-order mock theta functions are the formal power series F₀ = Σ_{n≥0} q^{n²}/(q^{n+1};q)_n, F₁ = Σ_{n≥1} q^{n²}/(q^n;q)_n and F₂ = Σ_{n≥0} q^{n²+n}/(q^{n+1};q)_{n+1} in ℤ⟦q⟧, where (x;q)_m = ∏_{i<m}(1 − xq^i). Every denominator is a product of factors 1 − q^c with c ≥ 1, hence a unit, and the n-th summand has order at least n², so the sums converge coefficientwise; their images in R⟦q⟧ for any commutative ring R are the same series. For |q| < 1 the series converge absolutely and locally uniformly, their sums are the evaluations of the formal series, and with q = e(τ) they are holomorphic on ℍ. Set F₇(τ) := (q^{−1/168}F₀(q), q^{47/168}F₂(q), q^{−25/168}F₁(q)) (fractional powers e(sτ)). Hickerson's double sums for (q;q)_∞F_j, which Zwegers takes as the definition, are proved equal to these series in QM.4/seventh-order-indefinite-theta-identities.
 
 Hypotheses and conventions:
 
-- The identification with Ramanujan's Eulerian series (e.g. F₀(q) = Σ_{n≥0}q^{n²}/(q^{n+1}; q)_n) is Hickerson's theorem, which Zwegers takes as the definition; it is recorded as a gap, not used.
+- The Eulerian series are the definition, as in Ramanujan's letter, Andrews (7.22)–(7.24) and Hickerson (0.5)–(0.7). Zwegers §4.3 starts from Hickerson's double sums instead; QM.4/seventh-order-indefinite-theta-identities proves that the two readings define the same functions, so every later node may use either.
+- Coefficients in ℤ; the analytic functions are evaluations on the open unit disc.
 
 Source support:
 
-- [zwegers-thesis](#reference-zwegers-thesis), §4.3, p. 67. The first identity; the others are displayed alongside.
-- [zwegers-thesis](#reference-zwegers-thesis), §4.3, p. 67. The definitional choice (gap for the Eulerian forms).
+- [hickerson-seventh-1988](#reference-hickerson-seventh-1988), §0, (0.5)–(0.7), p. 662. The three Eulerian series are Ramanujan's definitions of the seventh-order functions.
+- [andrews-mock-1986](#reference-andrews-mock-1986), §7, Theorem 13, (7.22)–(7.24), pp. 132–133. The same three series, each followed by its Hecke-type expansion.
+- [zwegers-thesis](#reference-zwegers-thesis), §4.3, p. 67. Zwegers takes Hickerson's double sums as the definitions and forms the vector F₇ with the prefactors q^{−1/168}, q^{47/168}, q^{−25/168}.
 
-Direct prerequisites: `mathlib:ModularForm.eta`, `mathlib:ModularForm.eta_ne_zero`.
+Direct prerequisites: [QM.0/q-pochhammer](#QM-0-q-pochhammer), [QM.0/evaluation-of-formal-products](#QM-0-evaluation-of-formal-products), `mathlib:PowerSeries.isUnit_iff_constantCoeff`, `mathlib:PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top`, `mathlib:tendsto_tsum_of_dominated_convergence`.
 
 Construction or proof route:
 
-1. The double series converge absolutely for |q| < 1 (the exponent 3r²/2 + 4rs + 3s²/2 is positive on the summation cones r, s ≥ 0 and r, s < 0); (q)_∞ ≠ 0 on the unit disc (Mathlib ModularForm.eta_ne_zero), so F_j are holomorphic functions of τ ∈ ℍ.
+1. Each denominator (q^c;q)_m with c ≥ 1 has constant coefficient 1, so it is a unit of ℤ⟦q⟧ (mathlib:PowerSeries.isUnit_iff_constantCoeff; QSeriesPartitionsAndMockModularForms:QM.0/q-pochhammer). The n-th summand has order at least n² (n² + n for F₂), so each sum converges in the coefficientwise topology (mathlib:PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top), and mapping coefficients along ℤ → R commutes with the sums.
+2. For 0 ≤ r < 1 every coefficient of the n-th summand is nonnegative and its value at r is at most r^{n²}/∏_{i≥1}(1 − r^i). The weighted coefficient norms are therefore summable over n, so the evaluation at |q| ≤ r of the formal sum equals the sum of the evaluated summands (coefficientwise dominated convergence, mathlib:tendsto_tsum_of_dominated_convergence, as in QSeriesPartitionsAndMockModularForms:QM.0/evaluation-of-formal-products). Locally uniform convergence of holomorphic summands gives holomorphy in τ.
+3. F₇ is a vector of holomorphic functions on ℍ; since each F_j has integral q-exponents, F₇(τ + 1) is F₇(τ) times the diagonal matrix of e(−1/168), e(47/168), e(−25/168).
 
 Uses that determine the API:
 
+- QSeriesPartitionsAndMockModularForms:QM.4/seventh-order-indefinite-theta-identities: the Bailey-chain proof of the double-sum identities starts from the Eulerian series
 - Zwegers Prop. 4.5, Cor. 4.6: F₇ = H₇ + G₇ and its non-modularity
 - QM.5: radial limits of F_j at roots of unity (Ramanujan's defining property of mock theta functions)
 
 Named declarations and API:
 
-- `seventhOrderF0` (data): F₀ via the Hickerson double sum.
-- `seventhOrderF1` (data): F₁.
-- `seventhOrderF2` (data): F₂.
+- `seventhOrderF0` (data): F₀ := Σ_{n≥0} q^{n²}/(q^{n+1};q)_n in ℤ⟦q⟧, the Eulerian series.
+- `seventhOrderF1` (data): F₁ := Σ_{n≥1} q^{n²}/(q^n;q)_n in ℤ⟦q⟧.
+- `seventhOrderF2` (data): F₂ := Σ_{n≥0} q^{n²+n}/(q^{n+1};q)_{n+1} in ℤ⟦q⟧.
+- `seventhOrderF_eval` (compatibility): For |q| < 1 the evaluation of each formal F_j equals the absolutely convergent analytic series, and it is holomorphic in τ.
 - `seventhOrderVector` (data): F₇(τ) = (q^{−1/168}F₀, q^{47/168}F₂, q^{−25/168}F₁).
 - `differentiable_seventhOrderVector` (other): F₇ is holomorphic on ℍ.
 
 Unit tests:
 
 - `seventhOrder_F0_coeff_test` (computation): The q-expansion of F₀ begins 1 + q + q³ + q⁴ + q⁵ + 2q⁷ + q⁸ + 2q⁹.
+- `seventhOrder_F1_F2_coeff_test` (computation): F₁ = q + q² + q³ + 2q⁴ + q⁵ + O(q⁶) and F₂ = 1 + q + 2q² + q³ + 2q⁴ + 2q⁵ + O(q⁶); a denominator (q;q)_n in place of (q^{n+1};q)_n would already change the q² coefficient of F₀.
+- `seventhOrder_hickerson_test` (compatibility): (q;q)_∞F₀ = 1 − 2q² − q⁶ + 2q⁷ + q⁸ + O(q⁹), the truncation of Hickerson's double sum (terms (r,s) = (0,0), (1,0), (0,1), (−1,−1), (2,0), (0,2), (1,1)).
 - `seventhOrder_T_test` (characterisation): F₇(τ + 1) = diag(ζ₁₆₈^{−1}, ζ₁₆₈^{47}, ζ₁₆₈^{−25})F₇(τ).
 - `seventhOrder_not_modular_test` (non-example): F₇(−1/τ) ≠ √(−iτ)M₇F₇(τ): the defect is the non-zero period integral of Cor. 4.6.
 - `seventhOrder_F_holo_test` (degenerate): Each component of F₇ is holomorphic on ℍ (ξ_{1/2}F₇ = 0).
 
 Acceptance checks:
 
-- F₀(q) = 1 + q + q³ + q⁴ + q⁵ + 2q⁷ + q⁸ + 2q⁹ + O(q^{10}), equal to Ramanujan's Σq^{n²}/(q^{n+1}; q)_n to this order (numerically checked).
+- F₀ = 1 + q + q³ + q⁴ + q⁵ + 2q⁷ + q⁸ + 2q⁹ + O(q^{10}), F₁ = q + q² + q³ + 2q⁴ + q⁵ + O(q⁶) and F₂ = 1 + q + 2q² + q³ + 2q⁴ + 2q⁵ + O(q⁶), computed from the Eulerian series.
+- (q;q)_∞F_j agrees with Hickerson's double sum to O(q^{219}) for j = 0, 1, 2 (exact integer computation by the author; a diagnostic, not the proof, which is QM.4/seventh-order-indefinite-theta-identities).
 - F₇ is holomorphic on ℍ and 1-periodic up to the diagonal multiplier.
 
 <a id="QM-4-seventh-order-indefinite-theta-identities"></a>
 
-### F₀, F₁, F₂ as sign-difference sums (Zwegers §4.3)
+### Hickerson's double sums and the sign-difference sums for F₀, F₁, F₂ (Andrews, Hickerson, Zwegers §4.3)
 
-**Lemma** (`QM.4/seventh-order-indefinite-theta-identities`). With A = (3 4; 4 3), c₁ = (−3, 4), c₂ = (−4, 3), e = (1, 1) (B(c₁,c₂) = −28, Q(c₁) = Q(c₂) = −21/2): 2η(τ)ζ₁₄q^{−1/168}F₀(q) = Σ_{ν∈e/14+ℤ²}{sgn B(ν,c₁) − sgn B(ν,c₂)}e^{2πiQ(ν)τ+2πiB(ν,e/14)}; 2ηζ₁₄q^{47/168}F₂(q) = the same with ν ∈ 3e/14 + ℤ² and B(ν, 5e/14); 2ηζ₁₄q^{−25/168}F₁(q) = the same with ν ∈ 5e/14 + ℤ² and B(ν, 3e/14).
+**Theorem** (`QM.4/seventh-order-indefinite-theta-identities`). (1) Bailey pairs (Andrews Lemmas 10–12). Let U_n = Σ_{j=1}^{n} [n+j−1, 2j−1](q;q)_{j−1}(−1)^{n−j}q^{(n−j)(n−j−1)/2} (U₀ = 0), with [·,·] the Gaussian polynomial. Then U_{2m} = −2q^{3m²−2m}Σ_{j=0}^{m−1}q^{−j²−j} and U_{2m+1} = q^{3m²+m}Σ_{|j|≤m}q^{−j²}. Relative to a = 1, the sequence β_n = 1/(q^{n+1};q)_n forms a Bailey pair with α_{2m} = q^{3m²+m}Σ_{|j|≤m}q^{−j²} − q^{3m²−m}Σ_{|j|<m}q^{−j²}, α_{2m+1} = −2q^{3m²+4m+1}Σ_{j=0}^{m}q^{−j²−j} + 2q^{3m²+2m}Σ_{j=0}^{m−1}q^{−j²−j}; the sequence β₀ = 0, β_n = 1/(q^n;q)_n (n ≥ 1) forms one with α_n = (1 − q^{2n})U_n; and, relative to a = q, β_n = 1/(q^{n+1};q)_{n+1} forms one with α_n = (U_{n+1} − q^{2n}U_n)/(1 − q). (2) Andrews' Theorem 13, in corrected form: (q;q)_∞F₀ = Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{12n+6}) − 2q²Σ_{n≥0}Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{12n+12}); (q;q)_∞F₁ = Σ_{n≥0,|j|≤n} q^{7n²+5n+1−j²}(1 − q^{4n+2}) − 2Σ_{n≥0}Σ_{j=0}^{n−1} q^{7n²−2n−j²−j}(1 − q^{4n}); (q;q)_∞F₂ = Σ_{n≥0,|j|≤n} q^{7n²+3n−j²}(1 − q^{8n+4}) − 2q³Σ_{n≥0}Σ_{j=0}^{n} q^{7n²+10n−j²−j}(1 − q^{8n+8}). (3) Hickerson's Theorem 2.0: with sg(r) = 1 for r ≥ 0 and −1 for r < 0, (q;q)_∞F_j = Σ_{sg(r)=sg(s)} sg(r)(−1)^{r+s}q^{rs+3(r+s)²/2+c_j(r+s)+d_j} with (c₀,d₀) = (1/2, 0), (c₁,d₁) = (5/2, 1), (c₂,d₂) = (3/2, 0); equivalently (Σ_{r,s≥0} − Σ_{r,s<0})(−1)^{r+s}q^{3r²/2+4rs+3s²/2+c_j(r+s)+d_j}. All identities hold in ℤ⟦q⟧ and, for |q| < 1, between absolutely convergent series. (4) Zwegers' sign-difference form. With A = (3 4; 4 3), c₁ = (−3, 4), c₂ = (−4, 3), e = (1, 1) (B(c₁,c₂) = −28, Q(c₁) = Q(c₂) = −21/2): 2η(τ)ζ₁₄q^{−1/168}F₀(q) = Σ_{ν∈e/14+ℤ²}{sgn B(ν,c₁) − sgn B(ν,c₂)}e^{2πiQ(ν)τ+2πiB(ν,e/14)}; 2ηζ₁₄q^{47/168}F₂(q) = the same with ν ∈ 3e/14 + ℤ² and B(ν, 5e/14); 2ηζ₁₄q^{−25/168}F₁(q) = the same with ν ∈ 5e/14 + ℤ² and B(ν, 3e/14).
 
 Hypotheses and conventions:
 
-- ζ_n = e^{2πi/n}; η = q^{1/24}(q)_∞.
+- ζ_n = e^{2πi/n}; η = q^{1/24}(q;q)_∞; F_j are the Eulerian series of QM.4/seventh-order-mock-theta-functions.
+- Andrews prints (7.22) and (7.24) with misprints (E633, E634); the statement uses the corrected forms, which are Hickerson's (2.3) and (2.5).
 
 Source support:
 
-- [zwegers-thesis](#reference-zwegers-thesis), §4.3, p. 67. The first identity; the other two follow on p. 67.
+- [andrews-mock-1986](#reference-andrews-mock-1986), §2, (2.7), p. 115. The inversion of the Bailey relation, giving α from β.
+- [andrews-mock-1986](#reference-andrews-mock-1986), §7, (7.1)–(7.3), Lemmas 10–12, pp. 128–132. The polynomials U_n, V_n, W_n, their relations and closed forms, and the three Bailey pairs.
+- [andrews-mock-1986](#reference-andrews-mock-1986), §7, Theorem 13 and its proof, pp. 132–133. The Hecke-type expansions of the three Eulerian series through the limiting Bailey lemma; (7.22) and (7.24) contain misprints (E633, E634).
+- [hickerson-seventh-1988](#reference-hickerson-seventh-1988), Theorem 2.0 and its proof, p. 666. The double sums over sg(r) = sg(s) and their derivation from Andrews' identities, with the misprints corrected in (2.3)–(2.5).
+- [zwegers-thesis](#reference-zwegers-thesis), §4.3, p. 67. The sign-difference forms with A = (3 4; 4 3), c₁, c₂ and the three characteristics.
 
-Direct prerequisites: [QM.4/seventh-order-mock-theta-functions](#QM-4-seventh-order-mock-theta-functions), [QM.4/indefinite-form-of-type-r-minus-one-one](#QM-4-indefinite-form-of-type-r-minus-one-one).
+Direct prerequisites: [QM.4/seventh-order-mock-theta-functions](#QM-4-seventh-order-mock-theta-functions), [QM.4/indefinite-form-of-type-r-minus-one-one](#QM-4-indefinite-form-of-type-r-minus-one-one), [QM.0/q-binomial-coefficient](#QM-0-q-binomial-coefficient), [QM.0/q-pochhammer](#QM-0-q-pochhammer), [QM.0/bailey-pair](#QM-0-bailey-pair), [QM.0/unit-bailey-pairs](#QM-0-unit-bailey-pairs), [QM.0/bailey-chain-limit](#QM-0-bailey-chain-limit), `mathlib:ModularForm.eta`, `mathlib:LaurentPolynomial`.
 
 Construction or proof route:
 
-1. Substitute ν = (r + 1/14, s + 1/14) etc.; sgn B(ν,c₁) − sgn B(ν,c₂) = 2 on {r, s ≥ 0}, −2 on {r, s < 0}, 0 otherwise; compare exponents and the phase e^{2πiB(ν, e/14)} = ζ₁₄(−1)^{r+s}.
+1. Gaussian polynomials [n, m] (QSeriesPartitionsAndMockModularForms:QM.0/q-binomial-coefficient) satisfy [n, m] = [n−1, m−1] + q^m[n−1, m] = [n−1, m] + q^{n−m}[n−1, m−1] (Andrews (7.2)–(7.3)).
+2. Andrews Lemma 10 (pp. 128–130): put V_n = (1 − q^{2n})Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}/(1 − q^{n+j}) and W_n = Σ_{j=0}^{n}[n+j, n−j](q;q)_j(−1)^{n−j}q^{(n−j)(n−j−1)/2}. Splitting 1 − q^{2n} = (1 − q^{n+j}) + q^{n+j}(1 − q^{n−j}) and 1 + q^n = (1 − q^{n−j}) + q^{n−j}(1 + q^j), applying one Pascal recurrence and shifting j by one give V_n = W_n − q^{2n−1}W_{n−1}, V_n = −(1 − q^n)q^{2n−2}U_{n−1} + 2(−1)^n q^{n(n+1)/2} and W_n = −q^nU_n − q^{2n−2}U_{n−1}. These are finite identities in ℤ[q, q⁻¹].
+3. Andrews Lemma 11 (p. 130): eliminating V and W gives U_n − q^{3n−5}U_{n−2} = −2(−1)^n q^{n(n−1)/2} for n ≥ 3; with U₀ = 0, U₁ = 1, U₂ = −2q, induction on n gives the closed forms of U_{2m} and U_{2m+1}.
+4. Bailey inversion (Andrews (2.7), p. 115): for any β, the sequence α₀ = β₀, α_n = (1 − aq^{2n})Σ_{j=0}^{n}(aq;q)_{n+j−1}(−1)^{n−j}q^{(n−j)(n−j−1)/2}β_j/(q;q)_{n−j} (n ≥ 1) forms a Bailey pair with β relative to a (QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair). In the defining relation the coefficient of β_j becomes, after r = j + s and b = aq^{2j}, the sum Σ_{s≤n−j}(1 − bq^{2s})(b;q)_s(−1)^s q^{s(s−1)/2}/((q;q)_s(q;q)_{n−j−s}(bq;q)_{n−j+s}), which is (1 − b)δ_{n,j} by the unit Bailey pair relative to b (QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs, proved there for a general parameter over ℤ[a][q, q⁻¹]); the factor 1 − b = 1 − aq^{2j} cancels the prefactor (aq;q)_{2j−1}/(aq;q)_{2j}.
+5. Andrews Lemma 12 (pp. 130–132): apply the inversion with a = 1 to β_n = 1/(q^{n+1};q)_n. Since (q;q)_{n+j−1}/((q;q)_{n−j}(q^{j+1};q)_j) = [n+j, n−j](q;q)_j/(1 − q^{n+j}), the result is V_n, and the second identity of step 2 with step 3 gives the stated α. With a = 1 and β_n = 1/(q^n;q)_n the factor is [n+j−1, n−j](q;q)_{j−1}, so α_n = (1 − q^{2n})U_n. With a = q and β_n = 1/(q^{n+1};q)_{n+1}, splitting 1 − q^{2n+1} = (1 − q^{n+j+1}) + q^{n+j+1}(1 − q^{n−j}) gives α_n = (U_{n+1} − q^{2n}U_n)/(1 − q).
+6. Apply QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit with k = 1. For a = 1 it gives Σ q^{n²}β_n = (1/(q;q)_∞)Σ q^{n²}α_n, and for a = q it gives Σ q^{n²+n}β_n = (1/(q²;q)_∞)Σ q^{n²+n}α_n. The left sides are F₀, F₁ and F₂. Insert the closed forms of step 5, separate even and odd n, shift n ↦ n + 1 in the subtracted sums and use (q²;q)_∞ = (q;q)_∞/(1 − q): this is (2). Andrews prints (7.22) and (7.24) with misprints (E633, E634); Hickerson's (2.3) and (2.5) are the corrected forms.
+7. Hickerson's reindexing (proof of Theorem 2.0, p. 666): in the theta parts put r = n + j, s = n − j, so that rs + 3(r+s)²/2 = 7n² − j²; in the cross parts use 2Σ_{j=0}^{n}q^{−j²−j} = Σ_{j=−n−1}^{n}q^{−j²−j} and put r = n − j, s = n + j + 1. The subtracted terms of (2) become the cone r, s < 0, and (−1)^{r+s} and sg(r) supply the signs. This gives (3).
+8. Zwegers' form (4): substitute ν = (r + 1/14, s + 1/14) etc.; sgn B(ν,c₁) − sgn B(ν,c₂) = 2 on {r, s ≥ 0}, −2 on {r, s < 0}, 0 otherwise; compare exponents and the phase e^{2πiB(ν, e/14)} = ζ₁₄(−1)^{r+s}.
+9. Every identity above is an identity in ℤ⟦q⟧ whose terms have orders tending to infinity; for |q| < 1 the series converge absolutely (the quadratic form rs + 3(r+s)²/2 is positive on both cones away from the origin), so the identities hold analytically by the evaluation argument of QM.4/seventh-order-mock-theta-functions.
 
 Acceptance checks:
 
-- Numerically checked for the first identity up to q^{6}.
+- U₁ = 1, U₂ = −2q, U₃ = q⁴(q⁻¹ + 1 + q⁻¹) = 2q³ + q⁴ from the definition and from the closed form.
+- The Bailey relations of (1) hold for n ≤ 8 to O(q^{60}), and (2) and (3) agree with the Eulerian series to O(q^{219}) (exact integer computations by the author). The printed (7.22) and (7.24) fail at q¹ and q² respectively.
+- Low terms of (3) for F₀: (r,s) = (0,0) gives 1, (1,0) and (0,1) give −2q², (−1,−1) gives −q⁶.
 
 <a id="QM-4-seventh-order-completion"></a>
 
@@ -12472,11 +12497,11 @@ Acceptance checks:
 
 ### The eight fifth-order mock theta functions, through Andrews' double-sum identities
 
-**Definition** (`QM.4/fifth-order-mock-theta-functions`). For |q|<1, set A=(q;q)∞, B=(q²;q²)∞, C=(-q;q)∞ and D=(-q;q²)∞. The eight definitions are: f0=A⁻¹ Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+n)/2-j²)(1-q^(4n+2)); F0=B⁻¹ Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+2n-(j²+j)/2)(1+q^(6n+3)); ψ0=((C/A)[1+2Σ_{n≥1}(-1)^n q^(n²+n)-2Σ_{n≥1,|j|<n}(-1)^j q^((5n²-n-3j²-j)/2)(1-q^n)]-1)/2; φ0=(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+2n-3j²-j)(1-q^(6n+3)); f1=A⁻¹Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n)/2-j²)(1-q^(2n+1)); F1=B⁻¹Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+4n-(j²+j)/2)(1+q^(2n+1)); ψ1=(C/A)Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n-3j²-j)/2)(1-q^(2n+1)); φ1=q(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+4n-3j²-j)(1-q^(2n+1)). These are Zwegers’ corrected identities used as definitions, covering eight of ten fifth-order functions. Identifying them with Ramanujan’s Eulerian series still needs Andrews’ theorem and is not an established import in this packet.
+**Definition** (`QM.4/fifth-order-mock-theta-functions`). For |q|<1, set A=(q;q)∞, B=(q²;q²)∞, C=(-q;q)∞ and D=(-q;q²)∞. The eight definitions are: f0=A⁻¹ Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+n)/2-j²)(1-q^(4n+2)); F0=B⁻¹ Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+2n-(j²+j)/2)(1+q^(6n+3)); ψ0=((C/A)[1+2Σ_{n≥1}(-1)^n q^(n²+n)-2Σ_{n≥1,|j|<n}(-1)^j q^((5n²-n-3j²-j)/2)(1-q^n)]-1)/2; φ0=(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+2n-3j²-j)(1-q^(6n+3)); f1=A⁻¹Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n)/2-j²)(1-q^(2n+1)); F1=B⁻¹Σ_{n≥0,0≤j≤2n}(-1)^n q^(5n²+4n-(j²+j)/2)(1+q^(2n+1)); ψ1=(C/A)Σ_{n≥0,|j|≤n}(-1)^j q^((5n²+3n-3j²-j)/2)(1-q^(2n+1)); φ1=q(D/B)Σ_{n≥0,|j|≤n}(-1)^j q^(5n²+4n-3j²-j)(1-q^(2n+1)). These are Zwegers’ corrected identities used as definitions, covering eight of ten fifth-order functions. Identifying them with Ramanujan’s Eulerian series is Andrews’ Theorem 9, whose proof needs the inputs recorded in the fifth-order gap.
 
 Hypotheses and conventions:
 
-- The corrected double sums are definitions. Andrews’ Eulerian identification is an unresolved source-dependent obligation; no external import or proof has been supplied.
+- The corrected double sums are the definitions here. Their identification with Ramanujan's Eulerian series is Andrews' Theorem 9 (Trans. Amer. Math. Soc. 293 (1986), §6), read for this plan; its printed third and eighth identities contain misprints (E636, E637), and the eight corrected forms agree with the Eulerian series to O(q^{217}) in an exact computation. The proof of Theorem 9 uses inputs that no node or supplier here provides, recorded in the gap 'Fifth-order Eulerian-series identification'; no node relies on the identification.
 - Two of Andrews' printed identities contain errors, which Zwegers corrects; the corrected forms are the definitions.
 - Only eight of the ten fifth-order functions are covered.
 
@@ -12484,6 +12509,7 @@ Source support:
 
 - [zwegers-thesis](#reference-zwegers-thesis), §4.4, the eight displayed identities and the sentence after them (printed pp. 71-72). The eight identities, the record of the two errors in the printed source, and the decision to use the corrected identities as definitions.
 - [zwegers-thesis](#reference-zwegers-thesis), §4.4, the display defining F_{5,1} (printed p. 74). The vector and its six prefactors, which are what the transformation laws are stated for.
+- [andrews-mock-1986](#reference-andrews-mock-1986), §6, Theorem 9 and its proof, pp. 124–127. The eight Hecke-type identities with the Eulerian series as definitions, and the Bailey-pair proof through Theorem 4 and Lemma 7; the third and eighth contain misprints (E636, E637).
 
 Direct prerequisites: `mathlib:ModularForm.eta`, `mathlib:ModularForm.eta_ne_zero`.
 
@@ -12491,7 +12517,7 @@ Construction or proof route:
 
 1. Write down the eight double sums with their exact exponents, ranges and prefactors, in the corrected form.
 2. Record which two of Andrews' printed identities are wrong and in what way Zwegers' versions differ.
-3. Keep the Eulerian identification as an unresolved coverage obligation; an attribution to Andrews is not a closed prerequisite.
+3. The Eulerian identification is Andrews' Theorem 9 and is the recorded gap. Its route, read in the source: the Bailey pair of Theorem 4, (A'_n, 1/(bq;q)_n), inserted in the limiting Bailey lemma (3.1) (QM.0/bailey-chain-limit, k = 1) gives f₀, F₀, f₁, F₁; the one-parameter Bailey lemma ((2.4)–(2.6) with ρ₁ → ∞ and ρ₂ = −1, or ρ₂ = −q in base q²) gives ψ₀, φ₀, ψ₁, φ₁; the specialisations (5.6), (5.8) and (5.10) of Lemma 7 make the α explicit. Theorem 4 rests on Theorem 3, which combines Lemma 1 (a limiting case of a Sears transformation) with Lemma 2 (a limiting case of Watson's q-analogue of Whipple's theorem), and on the q-Chu–Vandermonde sum (QM.0/q-vandermonde-identity).
 4. Collect the first six into the vector F_{5,1} with the q-power prefactors q^{-1/60}, q^{11/60}, q^{-1/240}, q^{71/240} and the two half-argument variants, which is the object the later nodes transform.
 5. Record that the other two functions of Ramanujan's fifth-order list are outside this plan.
 
@@ -12526,6 +12552,7 @@ Acceptance checks:
 - The vector F_{5,1} is assembled with its six prefactors.
 - The scope, eight of ten, is stated.
 - The two fifth-order functions outside this eight-function scope are excluded from this contract. This is documentation, not a mathematical non-example. The corrections record andrews_corrections is documentary metadata; the actual corrected formulas and normalization test above are the mathematical contracts.
+- The eight corrected identities agree with Ramanujan's Eulerian series to O(q^{217}), and the printed (6.3) and (6.8) do not (exact integer computation by the author; a diagnostic of the gap, not its proof).
 
 <a id="QM-4-fifth-order-indefinite-theta-identities-first-six"></a>
 
@@ -12862,7 +12889,7 @@ Periodic L-values and Euler–Maclaurin expansions control radial asymptotics. Q
 
 **Coverage: partial.**
 
-The scalar quantum period, Mellin/Eichler, Kontsevich and Poincaré-sphere contracts are retained. The reviewed scalar half-weight cusp, multiplier boundary, finite-image, WRT/Ohtsuki, rank/crank, Choi/R and scalar trace comparisons now have explicit local routes. QM.5 owns these scalar examples; QT.7 owns the knot statements, with its absent matrix interface assigned to QSeries Part II. Broader extensions below remain unplanned.
+The scalar quantum period, Mellin/Eichler, Kontsevich and Poincaré-sphere contracts are retained. The reviewed scalar half-weight cusp, multiplier boundary, finite-image, WRT/Ohtsuki, rank/crank, Choi/R and scalar trace comparisons now have explicit local routes. QM.5 owns these scalar examples; QT.7 owns the knot statements, with its absent matrix interface assigned to QSeries Part II. Broader extensions below remain unplanned. Revision 5: the vertical-strip Stirling estimate of QM.5/gamma-vertical-decay is imported from ZerosOfLFunctions Layer 1 (open upstream PR #253) and only exponentiated here; the Habiro requests HC.1, HC.3 and HC.4 are met by HabiroCyclotomicCompletions §§1.4, 2.1, 3.1 and 4.4 (open upstream PR #1314).
 
 Open targets and comparisons:
 
@@ -13533,26 +13560,27 @@ Acceptance checks:
 Hypotheses and conventions:
 
 - x in a fixed compact interval; |y| ≥ 1 (away from the poles on the real axis).
+- The Stirling asymptotic of log Γ in vertical strips is ZerosOfLFunctions Layer 1 item 3 (an open upstream roadmap); this node is its exponentiated corollary. Brent's explicit remainder bound gives an admissible constant C₀.
 
 Source support:
 
 - [bringmann-rolen-eichler](#reference-bringmann-rolen-eichler), §3, eq. (3.2), printed p. 8. The estimate (3.2), quoted from DLMF 5.11.9.
 - [brent-complex-stirling](#reference-brent-complex-stirling), §2, (5)–(12), Theorem1, printed pp.3–5. An integral remainder yields a uniform absolute O(1/|z|) error for log-Gamma throughout the right half-plane, which supplies both sides of the vertical-strip estimate after exponentiating and shifting.
 
-Direct prerequisites: `mathlib:Complex.Gamma`, `mathlib:Complex.Gamma_add_one`, `mathlib:Complex.GammaSeq_tendsto_Gamma`, `mathlib:Stirling.factorial_isEquivalent_stirling`, `mathlib:Polynomial.bernoulli`.
+Direct prerequisites: `mathlib:Complex.Gamma`, `mathlib:Complex.Gamma_ne_zero`.
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ZerosOfLFunctions#layer-1-gamma-factor-asymptotics-and-the-continued-l-function`.
 
 Construction or proof route:
 
-1. For Re z>0 derive a logarithm G(z) of Gamma from the finite products in Complex.GammaSeq_tendsto_Gamma. Apply Euler summation twice to the finite sum of Log(z+j): integrate by parts on each unit interval, with the continuous periodic Bernoulli polynomial B_2({u})={u}²−{u}+1/6. The endpoint terms telescope. Stirling.factorial_isEquivalent_stirling fixes the limiting constant as log(2π)/2. Local uniform convergence on compact subsets of Re z>0 justifies this analytic logarithm, without identifying it with the generally different principal logarithm of Gamma(z).
-2. The resulting identity is G(z)=(z−1/2)Log z−z+log(2π)/2+R_1(z), with R_1(z)=1/(12z)−(1/2)∫₀∞ B_2({u})/(u+z)² du. This is Brent §2 (5)–(8), p.4, with the above finite-sum derivation replacing its external book reference. The integral is absolutely convergent; |B_2(t)|≤1/6 for 0≤t≤1.
-3. For Re z≥0 and z≠0, |u+z|²≥u²+|z|². Hence the absolute integral error after 1/(12z) is at most π/(24|z|); therefore |R_1(z)|≤(2+π)/(24|z|), the k=1 case of Brent Theorem1, (10), p.5. The estimate extends to the imaginary boundary away from zero by continuity.
-4. For x in a fixed positive compact interval, Re((x+iy−1/2)Log(x+iy)−(x+iy))=(x−1/2)log|y|−π|y|/2+O(1/|y|), uniformly as |y|→∞: use arg(x+iy)=sgn(y)π/2−arctan(x/y) and log|x+iy|=log|y|+O(|y|⁻²). Taking the real part of G and exponentiating the bounded remainder gives the stated relative error and leading constant.
-5. For an arbitrary compact [x₁,x₂], choose one integer M with x₁+M>0 and use Gamma(z+M)=Gamma(z)∏_{j<M}(z+j). Uniformly on that strip the product of moduli is |y|^M(1+O(|y|⁻²)). This transfers the two-sided estimate, including an eventual positive lower bound for the normalized modulus. Enlarge the upper-bound constant on the compact region 1≤|y|≤Y. No Phragmén–Lindelöf interpolation is used to infer an asymptotic or lower bound.
+1. Import ZerosOfLFunctions Layer 1, items 1–3 (open upstream PR #253; the Gamma supplier that AnalyticNumberTheoryPartI, open PR #1126, cites for its Layers 1.2–1.4): for every compact [x₁, x₂], log|Γ(x + iy)| = (x − 1/2)log|y| − π|y|/2 + log(2π)/2 + E(x, y) with |E(x, y)| ≤ C₀/|y| for x ∈ [x₁, x₂] and |y| ≥ Y₀. The Stirling remainder, the branch of log Γ on |arg s| < π − δ and the uniformity in x are that layer's targets and are not planned again here.
+2. Exponentiate: for |E| ≤ 1, |e^E − 1| ≤ 2|E|, so |Γ(x + iy)| = √(2π)|y|^{x−1/2}e^{−π|y|/2}(1 + O(1/|y|)) uniformly for x ∈ [x₁, x₂] and |y| ≥ max(Y₀, C₀); in particular the normalized modulus lies in [1/2, 3/2] for all large |y|.
+3. On the compact set x ∈ [x₁, x₂], 1 ≤ |y| ≤ max(Y₀, C₀), Γ is continuous and nonzero (mathlib:Complex.Gamma_ne_zero away from the nonpositive integers, which have y = 0), so the normalized modulus is bounded above and below there; enlarge the constant. AnalyticNumberTheoryPartII §4.3b (open PR #1167) states the resulting two-sided bound and balanced quotients from the same input; this node keeps the stronger relative error, which its consumers use.
 
 Acceptance checks:
 
 - |Γ(1/2 + iy)| = √(π/cosh(πy)) ~ √(2π)e^{−π|y|/2}.
-- The pinned Mathlib has Complex.Gamma, its recurrence and reflection formula but no Stirling estimate in vertical strips.
+- The pinned Mathlib has Complex.Gamma, its recurrence and reflection formula but no Stirling estimate in vertical strips; the additive estimate is the upstream ZerosOfLFunctions target, and only its exponentiation is planned here.
 - After normalization by sqrt(2π)|y|^(x−1/2)exp(−π|y|/2), the modulus lies between 1/2 and 3/2 for all sufficiently large |y|, uniformly on the fixed strip; this is the lower bound required for gamma quotients.
 
 <a id="QM-5-twisted-l-function-vertical-growth"></a>
@@ -15489,7 +15517,7 @@ Vertex algebras, conformal vectors and invariant forms feed the physical-state q
 
 **Coverage: partial.**
 
-The existing vertex, no-ghost, generalized Lie and moonshine target contracts are retained. The arbitrary-ring quotient is corrected to the universal alternating quotient, with its characteristic-zero comparison. The general Serre/radical proof uses the Casimir/free-resolution route before any restricted free-subalgebra theorem. The concrete framed module, Griess/presented-Monster comparison, finite character certificate and Conway–Norton route now have target-level proof plans. These are proposed mathematics, not completed implementations or executed171-row certificates. The accepted structural-link integration below remains separate.
+The existing vertex, no-ghost, generalized Lie and moonshine target contracts are retained. The arbitrary-ring quotient is corrected to the universal alternating quotient, with its characteristic-zero comparison. The general Serre/radical proof uses the Casimir/free-resolution route before any restricted free-subalgebra theorem. The concrete framed module, Griess/presented-Monster comparison, finite character certificate and Conway–Norton route now have target-level proof plans. These are proposed mathematics, not completed implementations or executed171-row certificates. The accepted structural-link integration below remains separate. Revision 5: the vertex-algebra definition, existence theorem, lattice double cover and lattice vertex algebra now state their comparison with AffineLieAlgebras C7 (open upstream PR #1201), which owns the positive-definite lattice VOA over ℂ; QM.6 keeps the general ring, field and signature it needs.
 
 Open targets and comparisons:
 
@@ -15524,11 +15552,14 @@ Source support:
 
 Direct prerequisites: `mathlib:VertexOperator`, `mathlib:VertexOperator.ncoeff`, `mathlib:HVertexOperator.coeff`, `mathlib:Ring.choose`, `mathlib:BinomialRing`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one`.
+
 Construction or proof route:
 
 1. Package the data as a structure whose field Y has type V →ₗ[R] VertexOperator R V and whose field vac is the vacuum; the two creation equations and the Borcherds identity are Prop fields stated with VertexOperator.ncoeff and Ring.choose.
 2. Truncation: HVertexOperator.coeff_isPWOsupport gives that the support of the Laurent series Y(u,z)v is partially well ordered, hence bounded below in ℤ; since VertexOperator.ncoeff A n = HVertexOperator.coeff A (−n−1) (VertexOperator.ncoeff_apply), u_n v = 0 for n large.
 3. Finiteness of the sums: the i-th term on the left vanishes once q+i exceeds the truncation bound of (u,v); on the right once n+i and m+i exceed the bounds of (v,w) and (u,w). State the identity with finite sums over ℕ (finsum) and record the finiteness as an API lemma.
+4. Comparison with AffineLieAlgebras C7 (open upstream PR #1201) over ℂ: the vacuum, creation and translation axioms of C7's `FormalVertexAxioms` follow from the Borcherds identity with T(u) = u_{−2}1 (Matsuo–Nagatomo §§1–2), locality is the case m ≥ N of the identity, and conversely C7's `formalVertex_borcherds` derives the Borcherds identity from its axioms; the coefficient conventions coincide.
 
 Uses that determine the API:
 
@@ -15546,6 +15577,7 @@ Named declarations and API:
 - `VertexAlgebra.borcherds_identity` (relation): The Borcherds identity in the form above, with both sides finite sums over ℕ.
 - `VertexAlgebra.ext` (extensionality): Two vertex algebra structures on V with equal Y and equal vacuum are equal.
 - `VertexAlgebra.ofDerivation` (constructor): For a commutative ℚ-algebra A and a derivation ∂ of A, the vertex algebra with u_n v = (∂^{−n−1}u/(−n−1)!)v for n ≤ −1 and 0 for n ≥ 0, vacuum 1.
+- `VertexAlgebra.toFormalVertexAxioms` (compatibility): Over ℂ, a vertex algebra in this sense with translation T(u) := u_{−2}1 gives an instance of AffineLieAlgebras C7's `FormalVertexAxioms` on the same space with the same field (u_n = coefficient of z^{−n−1} in both conventions), and C7's `formalVertex_borcherds` gives the converse; the two notions agree over ℂ. The definition here is the general one (any commutative ring), needed for the integral Lie quotient of QM.6/vertex-algebra-lie-algebra and the real moonshine model.
 
 Unit tests:
 
@@ -15553,6 +15585,7 @@ Unit tests:
 - `VertexAlgebra.subsingleton_of_zero_module` (degenerate): On the zero module there is exactly one vertex algebra structure (Y = 0, vacuum 0).
 - `VertexAlgebra.not_matrix_ring_vertexAlgebra` (non-example): For the non-commutative ring M₂(ℚ), the rule u_n v := δ_{n,−1}uv with vacuum 1 violates the Borcherds identity (with m = −1, n = 0, q = −1 and w = 1 it forces uv = vu for the matrix units u = E₁₂, v = E₂₁).
 - `VertexAlgebra.ofDerivation_nprod_nonneg` (characterisation): In VertexAlgebra.ofDerivation every product u_n v with n ≥ 0 vanishes and u_{−1}v = uv, so the commutative algebra is recovered from the (−1)-product.
+- `VertexAlgebra.toFormalVertexAxioms_ofDerivation` (compatibility): Over ℂ, for VertexAlgebra.ofDerivation on ℂ[X] with ∂ = d/dX, the associated C7 FormalVertexAxioms has translation d/dX, and the coefficients of z⁰, z¹, z² in the field of X applied to 1 are X, 1 and 0, as its creation axiom (1/n!)Tⁿ requires.
 
 Acceptance checks:
 
@@ -15774,12 +15807,15 @@ Source support:
 
 Direct prerequisites: [QM.6/vertex-algebra](#QM-6-vertex-algebra), [QM.6/vertex-algebra-vacuum-translation](#QM-6-vertex-algebra-vacuum-translation), [QM.6/vertex-algebra-commutator-formula](#QM-6-vertex-algebra-commutator-formula), `mathlib:VertexOperator`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one`.
+
 Construction or proof route:
 
 1. Let O be the space of creative fields; the residual products A(z)_{(m)}B(z) of local fields are local (Dong's lemma, Matsuo–Nagatomo Proposition 1.5.5) and creative (Lemma 4.1.2).
 2. The space ⟨S⟩ of fields generated by S under residual products is pairwise local and contains the identity field; by Li's theorem (Matsuo–Nagatomo Theorem 3.3.1, via the Borcherds identity for local fields, Corollary 2.2.2 and Theorem 2.4.1) it is a vertex algebra.
 3. Translation covariance and (S2) make the state map A(z) ↦ A_{−1}1 bijective from ⟨S⟩ onto V (Theorem 5.3.3); transport the structure along it.
 4. Uniqueness: a vertex algebra structure is determined by the fields of a generating set, by the associativity formula (node vertex-algebra-commutator-formula).
+5. Over k = ℂ this is the reconstruction phase (i) of AffineLieAlgebras C7 (open upstream PR #1201), transported through the comparison of QM.6/vertex-algebra; the statement here, over every field of characteristic 0, is the generality the real framed moonshine model of QM.6/monster-head-characters needs, and it agrees with C7's after extension of scalars to ℂ.
 
 Acceptance checks:
 
@@ -16213,12 +16249,15 @@ Source support:
 
 Direct prerequisites: `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCeti.IntegralLattice.IsEven`, `mathlib:AddMonoidAlgebra`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one`.
+
 Construction or proof route:
 
 1. Bimultiplicativity makes ε a 2-cocycle, so k_ε[L] is associative (build it on AddMonoidAlgebra k L with the twisted product).
 2. ε(α,β)ε(β,α) = (−1)^{⟨α,β⟩}: expand ε(α+β, α+β) = (−1)^{⟨α+β,α+β⟩/2} using bimultiplicativity.
 3. Existence: the displayed values on a basis define a bimultiplicative map with ε(e_i,e_i) = (−1)^{⟨e_i,e_i⟩/2}; the diagonal condition for general α follows from the commutator identity and evenness.
 4. Uniqueness: two cocycles with the same diagonal differ by a symmetric bimultiplicative map η with η(α,α) = 1, which is a coboundary η(α,β) = f(α+β)f(α)^{−1}f(β)^{−1}; rescaling e^α ↦ f(α)e^α gives the isomorphism.
+5. Comparison with C7: η = ε/ε′ is symmetric and bimultiplicative, η(α,β) = (−1)^{⟨α,β⟩ + Σ_i (⟨b_i,b_i⟩/2)α_iβ_i}, and Q′(α) = ⟨α,α⟩/2 + Σ_i (⟨b_i,b_i⟩/2)α_i(α_i−1)/2 satisfies Q′(α+β) − Q′(α) − Q′(β) = ⟨α,β⟩ + Σ_i (⟨b_i,b_i⟩/2)α_iβ_i; so f = (−1)^{Q′} is the required coboundary (checked by the author on random Gram matrices of rank ≤ 4).
 
 Uses that determine the API:
 
@@ -16233,6 +16272,7 @@ Named declarations and API:
 - `EvenLattice.TwistedGroupAlgebra` (data): k_ε[L] is a cocycle-indexed type whose coefficients are finitely supported on L, with e^αe^β=ε(α,β)e^(α+β). The type retains ε: different cocycles cannot silently select the same untwisted multiplication instance.
 - `EvenLattice.TwistedGroupAlgebra.single_mul_single` (simp): e^α * e^β = ε α β • e^{α+β}.
 - `EvenLattice.TwistedGroupAlgebra.equivOfCocycle` (equivalence): Two cocycles give isomorphic twisted group algebras (by rescaling basis vectors). The cocycle comparison uses sign-valued coboundaries; no square roots of arbitrary field elements are assumed.
+- `EvenLattice.Cocycle.orderedSign_comparison` (equivalence): For an ordered ℤ-basis (b_i) of L, AffineLieAlgebras C7's ordered sign cocycle ε′(α,β) = (−1)^{Σ_{i>j}⟨b_i,b_j⟩α_iβ_j} has the same commutator (−1)^{⟨α,β⟩} but in general ε′(α,α) ≠ (−1)^{⟨α,α⟩/2}. With f(α) = (−1)^{⟨α,α⟩/2 + Σ_i (⟨b_i,b_i⟩/2)·α_i(α_i−1)/2}, the basis cocycle ε of this node satisfies ε(α,β) = ε′(α,β)f(α)f(β)f(α+β), so e^α ↦ f(α)e^α is an algebra isomorphism k_{ε′}[L] ≅ k_ε[L].
 
 Unit tests:
 
@@ -16240,6 +16280,7 @@ Unit tests:
 - `EvenLattice.TwistedGroupAlgebra.zero_lattice` (degenerate): For L = 0, k_ε[L] ≃ k.
 - `EvenLattice.Cocycle.one_not_cocycle` (non-example): The constant map ε = 1 is not a cocycle for L = ℤα with ⟨α,α⟩ = 2, since ε(α,α) must be −1.
 - `EvenLattice.TwistedGroupAlgebra.commute_iff` (characterisation): e^α e^β = e^β e^α if and only if ⟨α,β⟩ is even. Assume char(k)≠2; in characteristic2 all cocycle signs coincide and the twisted algebra is commutative regardless of parity.
+- `EvenLattice.Cocycle.orderedSign_A1` (compatibility): For L = ℤα with ⟨α,α⟩ = 2 and the one-element ordered basis: ε′(α,α) = 1, ε(α,α) = −1, f(mα) = (−1)^{m² + m(m−1)/2}, so f(α) = f(2α) = −1 and ε(α,α) = ε′(α,α)f(α)²f(2α). The identity map on basis vectors is not multiplicative between the two twisted algebras.
 
 Acceptance checks:
 
@@ -16250,7 +16291,7 @@ Acceptance checks:
 
 ### The vertex algebra of an even lattice
 
-**Construction** (`QM.6/lattice-vertex-algebra`). Let L be an even lattice with cocycle ε, k a field of characteristic 0, h := L ⊗_ℤ k with the k-bilinear extension of ⟨·,·⟩. Put V_L := S(ĥ⁻) ⊗_k k_ε[L], where S(ĥ⁻) is the symmetric algebra of ⊕_{n≥1} h ⊗ t^{−n} (write α(−n) := α ⊗ t^{−n}). For α ∈ h, n ∈ ℤ define α(n) ∈ End(V_L): multiplication by α(n) for n < 0; α(0)(s ⊗ e^γ) = ⟨α,γ⟩ s ⊗ e^γ; for n > 0 the derivation of S(ĥ⁻) with α(n)β(−m) = n⟨α,β⟩δ_{n,m}; so [α(m), β(n)] = m⟨α,β⟩δ_{m+n,0}. Then there is a unique vertex algebra structure on V_L with vacuum 1 := 1 ⊗ e^0 such that Y(α(−1)1, z) = Σ_n α(n) z^{−n−1} and Y(1 ⊗ e^β, z) = exp(Σ_{n≥1} β(−n)z^n/n) exp(−Σ_{n≥1} β(n)z^{−n}/n) e^β z^{β(0)}, where e^β acts by left multiplication in k_ε[L] and z^{β(0)}(s ⊗ e^γ) = z^{⟨β,γ⟩} s ⊗ e^γ. It is L-graded (V_{L,γ} := S(ĥ⁻) ⊗ e^γ, u_n v ∈ V_{L,α+β} for u ∈ V_{L,α}, v ∈ V_{L,β}). If ⟨·,·⟩ is nondegenerate with dual bases (h_i), (h^i) of h, then ω := ½ Σ_i h_i(−1)h^i(−1)1 is a conformal vector of central charge d = rank L, and L_0(α_1(−n_1)⋯α_k(−n_k) ⊗ e^γ) = (Σ n_i + ⟨γ,γ⟩/2)·(same vector). The Cartan involution θ(α(n)) = −α(n), θ(e^γ) = e^{−γ} for the normalized bimultiplicative cocycle here. Equivalently, on a lift a in L̂ it is θ(ι(a)) = (−1)^{⟨γ,γ⟩/2}ι(a⁻¹); the inverse lift satisfies ι(a⁻¹) = (−1)^{⟨γ,γ⟩/2}e^{−γ} is an automorphism fixing ω. If L is positive definite, V_L is a vertex operator algebra of CFT type.
+**Construction** (`QM.6/lattice-vertex-algebra`). Let L be an even lattice with cocycle ε, k a field of characteristic 0, h := L ⊗_ℤ k with the k-bilinear extension of ⟨·,·⟩. Put V_L := S(ĥ⁻) ⊗_k k_ε[L], where S(ĥ⁻) is the symmetric algebra of ⊕_{n≥1} h ⊗ t^{−n} (write α(−n) := α ⊗ t^{−n}). For α ∈ h, n ∈ ℤ define α(n) ∈ End(V_L): multiplication by α(n) for n < 0; α(0)(s ⊗ e^γ) = ⟨α,γ⟩ s ⊗ e^γ; for n > 0 the derivation of S(ĥ⁻) with α(n)β(−m) = n⟨α,β⟩δ_{n,m}; so [α(m), β(n)] = m⟨α,β⟩δ_{m+n,0}. Then there is a unique vertex algebra structure on V_L with vacuum 1 := 1 ⊗ e^0 such that Y(α(−1)1, z) = Σ_n α(n) z^{−n−1} and Y(1 ⊗ e^β, z) = exp(Σ_{n≥1} β(−n)z^n/n) exp(−Σ_{n≥1} β(n)z^{−n}/n) e^β z^{β(0)}, where e^β acts by left multiplication in k_ε[L] and z^{β(0)}(s ⊗ e^γ) = z^{⟨β,γ⟩} s ⊗ e^γ. It is L-graded (V_{L,γ} := S(ĥ⁻) ⊗ e^γ, u_n v ∈ V_{L,α+β} for u ∈ V_{L,α}, v ∈ V_{L,β}). If ⟨·,·⟩ is nondegenerate with dual bases (h_i), (h^i) of h, then ω := ½ Σ_i h_i(−1)h^i(−1)1 is a conformal vector of central charge d = rank L, and L_0(α_1(−n_1)⋯α_k(−n_k) ⊗ e^γ) = (Σ n_i + ⟨γ,γ⟩/2)·(same vector). The Cartan involution θ(α(n)) = −α(n), θ(e^γ) = e^{−γ} for the normalized bimultiplicative cocycle here. Equivalently, on a lift a in L̂ it is θ(ι(a)) = (−1)^{⟨γ,γ⟩/2}ι(a⁻¹); the inverse lift satisfies ι(a⁻¹) = (−1)^{⟨γ,γ⟩/2}e^{−γ} is an automorphism fixing ω. If L is positive definite, V_L is a vertex operator algebra of CFT type. For k = ℂ and positive-definite L this is the lattice vertex operator algebra of AffineLieAlgebras C7 (open upstream PR #1201): with f the sign function of QM.6/even-lattice-double-cover, s ⊗ e^α ↦ f(α)s ⊗ e^α is an isomorphism of vertex algebras from C7's V_L to V_L here, preserving vacuum, translation, the Heisenberg fields, ω and the grading. The construction here covers even lattices of every signature, as the Monster Lie algebra needs for II_{1,1}.
 
 Hypotheses and conventions:
 
@@ -16267,6 +16308,8 @@ Source support:
 
 Direct prerequisites: [QM.6/even-lattice-double-cover](#QM-6-even-lattice-double-cover), [QM.6/vertex-algebra-existence-theorem](#QM-6-vertex-algebra-existence-theorem), [QM.6/conformal-vector](#QM-6-conformal-vector), [QM.6/vertex-operator-algebra](#QM-6-vertex-operator-algebra), `mathlib:SymmetricAlgebra`, `mathlib:TensorProduct`, `tauceti:TauCeti.IntegralLattice.IsNondegenerate`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one`.
+
 Construction or proof route:
 
 1. The operators α(n) form a representation of the Heisenberg Lie algebra ĥ on V_L; α(n)1 = 0 for n ≥ 0.
@@ -16276,6 +16319,7 @@ Construction or proof route:
 5. Conformal vector: compute ω_{n+1} = ½Σ_i Σ_m :h_i(m)h^i(n−m): (Sugawara/Segal operators) and check the six conditions; the central charge equals the trace of the identity of h, i.e. d.
 6. The normalized bimultiplicative cocycle satisfies ε(−α,−β)=ε(α,β), so θ(e^γ)=e^{−γ} preserves the twisted product. Together with θ(α(n))=−α(n), conjugation preserves the defining fields, hence θ is an automorphism fixing ω. Jurisich1998 p.31 defines θ using the inverse lift a⁻¹, not the chosen lift e^{−γ}; their difference supplies the second sign.
 7. Positive definite L: weights Σn_i + ⟨γ,γ⟩/2 ≥ 0 with finitely many vectors of each weight, and weight 0 only for 1.
+8. Comparison with C7: the map φ(s ⊗ e^α) = f(α)s ⊗ e^α commutes with every Heisenberg mode and with T, and φ ∘ e′_α = f(α)e_α ∘ φ by the cocycle relation of QM.6/even-lattice-double-cover; hence φY′(e^α, z)φ⁻¹ = Y(φe^α, z) and φ carries generating fields to generating fields, so it is a vertex algebra isomorphism by the uniqueness clause of QM.6/vertex-algebra-existence-theorem. C7's proofs of locality and of the Borcherds identity for charge fields use evenness and not positive definiteness; positivity enters only through the ℕ-grading and the finite dimension of weight spaces, which is why the indefinite case is stated here.
 
 Uses that determine the API:
 
@@ -16294,6 +16338,7 @@ Named declarations and API:
 - `latticeVertexAlgebra.L_zero_apply` (simp): L_0(α_1(−n_1)⋯α_k(−n_k) ⊗ e^γ) = (Σn_i + ⟨γ,γ⟩/2)·(same).
 - `latticeVertexAlgebra.cartanInvolution` (data): The involution θ with θ(α(n))=−α(n) and θ(e^γ)=e^{−γ} for the normalized bimultiplicative cocycle. On arbitrary double-cover lifts θ(ι(a))=(−1)^{⟨γ,γ⟩/2}ι(a⁻¹).
 - `latticeVertexAlgebra.toVOA` (coercion): For positive definite L, the vertex operator algebra of CFT type (V_L, ω).
+- `latticeVertexAlgebra.equivAffineC7` (compatibility): For positive-definite even L over ℂ with an ordered basis, s ⊗ e^α ↦ f(α)s ⊗ e^α is an isomorphism of vertex operator algebras from AffineLieAlgebras C7's lattice VOA to (latticeVertexAlgebra, ω).
 
 Unit tests:
 
@@ -16301,6 +16346,7 @@ Unit tests:
 - `latticeVertexAlgebra.zero_lattice` (degenerate): For L = 0 the vertex algebra V_L is one-dimensional, spanned by 1.
 - `latticeVertexAlgebra.odd_not_local` (non-example): For the odd lattice ℤα with ⟨α,α⟩ = 1 the fields Y(e^α,z) and Y(e^α,w) are mutually anti-local ((z−w)^N{Y(e^α,z),Y(e^α,w)} = 0), so the construction produces a vertex superalgebra, not a vertex algebra; evenness is necessary.
 - `latticeVertexAlgebra.gradedDimension_posDef` (compatibility): For positive definite L of rank d, gradedDimension (toVOA) = (Σ_{γ∈L} q^{⟨γ,γ⟩/2}) · Π_{n≥1}(1 − q^n)^{−d}.
+- `latticeVertexAlgebra.equivAffineC7_A1` (compatibility): For L = ℤα with ⟨α,α⟩ = 2 over ℂ: in C7's V_L, (e^α)_{−3}e^α = e^{2α}, here (e^α)_{−3}e^α = −e^{2α}; the comparison sends e^α ↦ −e^α and e^{2α} ↦ −e^{2α}, intertwines these products and fixes α(−1)1 and ω.
 
 Acceptance checks:
 
@@ -18033,19 +18079,17 @@ Acceptance checks:
 
 ## Gaps and supplier boundaries
 
-These two series-identification obligations remain open. Supplier services are planning dependencies, not implementation claims. No layer is closed.
+One series-identification obligation remains open. Supplier services are planning dependencies, not implementation claims. No layer is closed.
 
-### Gap 1: Hickerson's identities for the seventh-order mock theta functions
+### Gap 1: Fifth-order Eulerian-series identification
 
-Zwegers takes the indefinite double sums (Hickerson, Invent. Math. 94 (1988), p. 666) as the definitions of F₀, F₁, F₂. Their equality with Ramanujan's Eulerian series (F₀ = Σq^{n²}/(q^{n+1};q)_n, etc.) is Hickerson's theorem, not public and not planned (it is a formal q-series identity, naturally in QM.0's scope). The definitions and all QM.4 theorems stand without it; only the identification with Ramanujan's functions needs it. Checked numerically to q^{14} for F₀.
-
-Needed by: [QM.4/seventh-order-mock-theta-functions](#QM-4-seventh-order-mock-theta-functions).
-
-### Gap 2: Fifth-order Eulerian-series identification
-
-The eight corrected double sums and both six-component completions, unary corrections and S/T matrices are explicit. Identifying these definitions with Ramanujan’s classical Eulerian fifth-order series requires the Andrews identities cited by Zwegers §4.4 pp.71–73, together with absolute convergence, denominator nonvanishing and the justified double-sum interchanges. The Andrews primary proof has not been collated or decomposed here; source identities with the third/eighth corrections are not certified by small coefficients. No congruence kernel is inferred from the generator matrices alone.
+The eight corrected double sums, both six-component completions, the unary corrections and the S/T matrices are explicit, and no node depends on the Eulerian form. Identifying the definitions with Ramanujan's Eulerian series is Andrews' Theorem 9 (Trans. Amer. Math. Soc. 293 (1986), §6, pp. 124–127), now read; the corrected identities agree with the Eulerian series to O(q^{217}). The proof needs three inputs that neither this packet nor a supplier plans: (i) the one-parameter Bailey lemma, Andrews (2.4)–(2.6) with ρ₁ → ∞ and ρ₂ finite (QM.0/bailey-lemma has only ρ₁, ρ₂ → ∞), used with ρ₂ = −1 and ρ₂ = −q for ψ₀, φ₀, ψ₁, φ₁; (ii) Lemma 2, a limiting case of Watson's q-analogue of Whipple's transformation; (iii) Lemma 1, a limiting case of a Sears transformation (Sears 1951, (10.2)). All three are terminating formal identities in QM.0's scope: (i) follows from the q-Pfaff–Saalschütz sum, and (ii) from the two-parameter Bailey lemma applied to the unit pair (Andrews 1984, §2). Each is a key theorem and needs its own node, which the node budget of this pass does not allow. With them, Theorems 3 and 4, Lemma 7 and Theorem 9 follow as written by Andrews (§§4–6), using QM.0/bailey-chain-limit and QM.0/q-vandermonde-identity.
 
 Needed by: [QM.4/fifth-order-mock-theta-functions](#QM-4-fifth-order-mock-theta-functions), [QM.4/fifth-order-indefinite-theta-identities-first-six](#QM-4-fifth-order-indefinite-theta-identities-first-six), [QM.4/fifth-order-completion-first-six](#QM-4-fifth-order-completion-first-six), [QM.4/fifth-order-decomposition-and-transformation-first-six](#QM-4-fifth-order-decomposition-and-transformation-first-six), [QM.4/fifth-order-indefinite-theta-identities-last-four](#QM-4-fifth-order-indefinite-theta-identities-last-four), [QM.4/fifth-order-completion-and-transformation-last-four](#QM-4-fifth-order-completion-and-transformation-last-four).
+
+### Closed in revision 5: Hickerson's identities for the seventh-order mock theta functions
+
+Proved in [QM.4/seventh-order-indefinite-theta-identities](#QM-4-seventh-order-indefinite-theta-identities) from Andrews' Lemmas 10–12 and Theorem 13 (corrected by Hickerson, Theorem 2.0, p. 666), through QM.0/bailey-pair, QM.0/unit-bailey-pairs and QM.0/bailey-chain-limit; the definitions in QM.4/seventh-order-mock-theta-functions are now Ramanujan's Eulerian series. Andrews' printed (7.22) and (7.24) contain misprints, recorded as E633 and E634.
 
 ### Replacement routes for inherited proof obligations
 
@@ -18119,17 +18163,23 @@ The Habiro ring ℤ[q]^ = lim_n ℤ[q]/((q;q)_n) as a complete topological ring,
 
 Needed by: [QM.5/kontsevich-strange-series](#QM-5-kontsevich-strange-series).
 
+**Upstream contract.** HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §§1.4 and 2.1, read 2026-10-21; see upstreamImports.
+
 ### Request 8: `HabiroCyclotomicCompletions:HC.3`
 
 For every root of unity ξ: the evaluation ring homomorphism ev_ξ : ℤ[q]^ → ℤ[ξ] with ev_ξ(Σ a_n(q;q)_n) = Σ_{n<ord ξ} a_n(ξ)(ξ;ξ)_n, independent of the truncation; the Taylor map T_ξ : ℤ[q]^ → ℤ[ξ][[q − ξ]] whose constant term is ev_ξ, and its composite with the substitution q = ξe^{−t} into ℂ[[t]]; compatibility with field automorphisms, σ(ev_ξ F) = ev_{σ(ξ)} F.
 
 Needed by: [QM.5/kontsevich-strange-series](#QM-5-kontsevich-strange-series), [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
 
+**Upstream contract.** HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §3.1, read 2026-10-21; see upstreamImports.
+
 ### Request 9: `HabiroCyclotomicCompletions:HC.4`
 
 Evaluation rigidity for ℤ[q]^ (Habiro, Cyclotomic completions, Theorem 6.1 in its infinite-set form): an element whose evaluations ev_ξ vanish at all roots of unity is zero. QM.5 uses it to say that a Habiro element is determined by the radial limits it is compared with.
 
 Needed by: [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
+
+**Upstream contract.** HabiroCyclotomicCompletions is open upstream PR #1314 (head bf8812fb); this request is met by its README §4.4, read 2026-10-21; see upstreamImports.
 
 ### Request 10: `ArithmeticQuantumTopology:QT.4`
 
@@ -18393,17 +18443,17 @@ Needed by: [QM.2/rademacher-selberg-formula](#QM-2-rademacher-selberg-formula).
 
 ### Import 8: `tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one`
 
-Positive even E₈/Leech lattice VOA construction for the concrete code model. The generic lattice fields already targeted here agree on this specialization; no new positive-lattice VOA target is planned.
+AffineLieAlgebras C7 constructs, over ℂ, the vertex operator algebra of a positive-definite even lattice from its generic phases: the Hahn-field vertex axioms `FormalVertexAxioms` (vacuum, translation, creation, truncation, locality) with reconstruction, the abelian Heisenberg/Fock representation for an arbitrary symmetric form, the ordered sign cocycle and twisted group algebra, the charge fields and their locality and Borcherds identities, and the conformal vector with Virasoro relations of central charge rank L. QM.6 plans the same objects in the generality its consumers need (vertex algebras over any commutative ring, existence over any field of characteristic 0, even lattices of any signature, including II_{1,1}) and states its comparison with C7 where both are defined: QM.6/vertex-algebra ↔ FormalVertexAxioms over ℂ; QM.6/even-lattice-double-cover ↔ C7's ordered sign cocycle by an explicit sign coboundary; QM.6/lattice-vertex-algebra ↔ C7's lattice VOA for positive-definite L over ℂ. The concrete code model of QM.6/monster-head-characters uses the positive E₈ and Leech lattice VOAs through this comparison. No positive-lattice VOA target is planned again here.
 
-Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
+Needed by: [QM.6/vertex-algebra](#QM-6-vertex-algebra), [QM.6/vertex-algebra-existence-theorem](#QM-6-vertex-algebra-existence-theorem), [QM.6/even-lattice-double-cover](#QM-6-even-lattice-double-cover), [QM.6/lattice-vertex-algebra](#QM-6-lattice-vertex-algebra), [QM.6/monster-head-characters](#QM-6-monster-head-characters).
 
 **Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1201)
 
 **Read contract commit.** `1b96abb516967c63e48631d99d70876e1bdce2f1`
 
-**Locator.** AffineLieAlgebras README C7; positive even-lattice vertex algebra and its conformal/Fock grading
+**Locator.** AffineLieAlgebras README C7 (phases (i)–(vii)), and Suggested.lean `FormalVertexAxioms`, `formalVertex_borcherds`, `PositiveEvenLattice`, `NormalizedSignCocycle`, `orderedSignCocycle`, `twistedGroupAlgebraMul`, `latticeStateField`, `latticeConformalVector`
 
-**Reading scope.** 2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins.
+**Reading scope.** 2026-10-21; README C7 and the cited Suggested.lean declarations read at the PR head. C7 keeps its positive even-lattice restriction (README references, Bakalov–Kac entry); it is a current open upstream contract, separate from the historical library pins.
 
 ### Import 9: `tauceti:TauCetiRoadmap/CFSGBasicProperties#p2-lp2-r-conway-monster-and-baby-monster`
 
@@ -18446,6 +18496,34 @@ Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem)
 **Locator.** ModularCurves README5B lines1236–1278 and9D lines1872–1930; Suggested.lean level structures and finite quotients
 
 **Reading scope.** 2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins.
+
+### Import 12: `tauceti:TauCetiRoadmap/ZerosOfLFunctions#layer-1-gamma-factor-asymptotics-and-the-continued-l-function`
+
+log‖Γ(σ + it)‖ = (σ − 1/2)log|t| − π|t|/2 + log(2π)/2 + O(1/|t|) uniformly for σ in a compact interval as |t| → ∞. QM.5/gamma-vertical-decay only exponentiates this additive form into its relative-error form and handles the bounded range of |t|; it no longer plans the Stirling remainder itself. AnalyticNumberTheoryPartII §4.3b (open PR #1167) supplies the two-sided strip bound and balanced Gamma quotients from the same input.
+
+Needed by: [QM.5/gamma-vertical-decay](#QM-5-gamma-vertical-decay).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/253)
+
+**Read contract commit.** `cce2e04188a559be9a16037d0d65e00a815fcecc`
+
+**Locator.** ZerosOfLFunctions README Layer 1, items 1–3: the holomorphic branch `logGamma δ` on |arg s| < π − δ, `Complex.logGamma_asymptotic` and `Complex.norm_Gamma_asymptotic` (head of the PR branch in the roed-math fork, which AnalyticNumberTheoryPartI, open PR #1126, cites as its Gamma supplier for its Layers 1.2–1.4)
+
+**Reading scope.** 2026-10-21; Layer 1 items 1–6 of the ZerosOfLFunctions README read at the cited commit, together with AnalyticNumberTheoryPartI README line 70 (supplier table) and AnalyticNumberTheoryPartII §4.3b at their PR heads 23d3de1c and abee65e6. A current open upstream contract, separate from the historical library pins.
+
+### Import 13: `tauceti:TauCetiRoadmap/HabiroCyclotomicCompletions#layer-3-values-taylor-expansions-and-p-adic-translation`
+
+The three atlas requests to HabiroCyclotomicCompletions HC.1, HC.3 and HC.4 (completion with its convergence criterion, root evaluation, evaluation rigidity) are the cited sections of this open upstream pull request, ported from the accepted atlas package. The request statements are unchanged; their exact upstream contracts are these sections.
+
+Needed by: [QM.5/kontsevich-strange-series](#QM-5-kontsevich-strange-series), [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1314)
+
+**Read contract commit.** `bf8812fbc41f0e74dca5b0ed5ae5a87c936707b4`
+
+**Locator.** HabiroCyclotomicCompletions README §1.4 (the full factorial completion), §2.1 (factorial series converge for arbitrary polynomial coefficients; the Kontsevich element F = Σ P_n is the standing example), §3.1 (`evalAt`: evaluation at a root of order d is the finite sum over n < d) and §4.4 (evaluation uniqueness: for R = ℤ, values at infinitely many roots of prime-power order determine an element)
+
+**Reading scope.** 2026-10-21; README §§1.4, 2.1, 3.1, 4.4 and the downstream-consumer section read at the PR head. A current open upstream contract, separate from the historical library pins.
 
 ## Ownership and restructuring proposals
 
@@ -18535,7 +18613,7 @@ Retain all accepted RS-06/RS-10 links. Record the precise new Fuchsian8.1 and Mo
 
 ## Pinned baseline declarations
 
-The following 420 declaration records were checked by the preceding independent review and are retained unchanged. This revision reads the current library and supplier contracts separately; it does not assert a fresh audit of every historical-pin declaration.
+The following 419 declaration records were checked by the preceding independent review and are retained unchanged, except that revision 5 adds `mathlib:Complex.Gamma_ne_zero` (read at the pin) and drops two records no node cites any longer. This revision reads the current library and supplier contracts separately; it does not assert a fresh audit of every historical-pin declaration.
 
 - `mathlib:Fintype.prod_equiv` — `Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean`: Reindexes a product through an equivalence of finite types. The explicitly generated additive declaration Fintype.sum_equiv reindexes the native finite complex sums used here.
 - `mathlib:AddMonoidAlgebra` — `Mathlib/Algebra/MonoidAlgebra/Defs.lean`: Group algebra k[L] underlying the twisted group algebra k_ε[L].
@@ -18548,6 +18626,7 @@ The following 420 declaration records were checked by the preceding independent 
 - `mathlib:Asymptotics.IsEquivalent` — `Mathlib/Analysis/Asymptotics/AsymptoticEquivalent.lean`: Asymptotic equivalence u ~ v along a filter
 - `mathlib:BinomialRing` — `Mathlib/RingTheory/Binomial.lean`: Binomial rings; ℤ is an instance.
 - `mathlib:Complex.Gamma` — `Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean`: The complex Gamma function
+- `mathlib:Complex.Gamma_ne_zero` — `Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean`: Γ(s) ≠ 0 for every complex s that is not a nonpositive integer.
 - `mathlib:Complex.Gamma_add_one` — `Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean`: Γ(s + 1) = sΓ(s) for s ≠ 0
 - `mathlib:Complex.Gamma_mul_Gamma_one_sub` — `Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean`: Euler's reflection formula Γ(z)Γ(1 − z) = π/sin(πz).
 - `mathlib:Complex.betaIntegral` — `Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean`: The complete beta integral B(u, v) for complex parameters.
@@ -18955,12 +19034,10 @@ The following 420 declaration records were checked by the preceding independent 
 - `mathlib:intervalIntegral.integral_const_mul` — `Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`: A constant scalar in a real normed division algebra factors out of its interval integral.
 - `mathlib:iteratedDeriv_succ` — `Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean`: The (n+1)-st total derivative is the derivative of the n-th total derivative.
 - `mathlib:Subgroup.widthInfty` — `Mathlib/NumberTheory/ModularForms/Cusps.lean`: Geometric width of ∞, defined as strictWidthInfty after adjoining −I; differs from the strict Fourier period at irregular cusps.
-- `mathlib:Complex.GammaSeq_tendsto_Gamma` — `Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean`: Euler limit of GammaSeq s for every complex s. On the open right half-plane its logarithmic finite-product form supplies the starting limit for two-term Euler summation.
-- `mathlib:Stirling.factorial_isEquivalent_stirling` — `Mathlib/Analysis/SpecialFunctions/Stirling.lean`: The real sequence n! is asymptotically equivalent atTop to sqrt(2*n*pi)*(n/exp 1)^n; fixes the constant in the complex log-Gamma remainder derived from Euler summation.
 
 ## Source findings
 
-The preceding independent review checked 89 findings: 86 confirmed and 3 rejected. Those verdicts and their histories are retained. Four further findings, E629–E632, are confirmed by REV-QSeriesPartitionsAndMockModularForms~4. A confirmed source omission may have a local repair; it does not by itself make a planned theorem false.
+The preceding independent review checked 89 findings: 86 confirmed and 3 rejected. Those verdicts and their histories are retained. Four further findings, E629–E632, are confirmed by REV-QSeriesPartitionsAndMockModularForms~4. Revision 5 adds E633–E637 on Andrews 1986, which await independent review; E633, E634, E636 and E637 are already corrected in print (Hickerson 1988; Zwegers 2002). A confirmed source omission may have a local repair; it does not by itself make a planned theorem false.
 
 ### E101: misprint
 
@@ -20894,6 +20971,110 @@ Checked versions or searches:
 
 Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~4`. Confirmed in arXiv v1, p.10: the lemma and the definition of m_γ use M(β₁,0) twice, while the next displayed fusion product is M(β₁,0) × M(β₂,0) and the output support is β₁+β₂.
 
+### E633: misprint
+
+[andrews-mock-1986](#reference-andrews-mock-1986), Theorem 13, (7.22), p. 132 (publisher scan).
+
+**Source claim.** The second double sum in the Hecke-type expression for (q)_∞𝓕₀(q) has the prefactor −2q and the factor (1 − q^{12n+13}).
+
+**Corrected contract.** The prefactor is −2q² and the factor is (1 − q^{12n+12}): (q)_∞𝓕₀(q) = Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{12n+6}) − 2q² Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{12n+12}).
+
+**Reason.** Inserting the odd-index values (7.17) of the Bailey pair into Σ q^{n²}𝓐_n(0) gives the terms −2q^{7m²+8m+2−j²−j} (0 ≤ j ≤ m) and +2q^{7m²+6m+1−j²−j} (0 ≤ j < m); the substitution m ↦ n + 1 in the second gives the corrected display. As printed the right side begins 1 − 2q, while 𝓕₀ = 1 + q + q³ + ⋯ and (q)_∞ = 1 − q − q² + ⋯ give (q)_∞𝓕₀ = 1 − 2q² + ⋯. The corrected identity agrees with the Eulerian series to O(q^{219}) in an exact integer computation by the author.
+
+**Published correction or search result.** Hickerson, Invent. Math. 94 (1988), proof of Theorem 2.0, p. 666, display (2.3), which multiplies Andrews' (7.22)–(7.24) by J₁ after correcting their typographical errors.
+
+Affected targets: a stated result.
+
+Checked versions or searches:
+
+- Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21
+- AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected
+
+Independent review: awaiting the next independent review.
+
+### E634: misprint
+
+[andrews-mock-1986](#reference-andrews-mock-1986), Theorem 13, (7.24), p. 133, and the last sentence of its proof (publisher scan).
+
+**Source claim.** The expression for (q)_∞𝓕₂(q) is printed as Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{8n+3}) − 2q² Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{8n+7}), and the proof says it follows from (7.21) and (7.22).
+
+**Corrected contract.** (q)_∞𝓕₂(q) = Σ_{n≥0,|j|≤n} q^{7n²+3n−j²}(1 − q^{8n+4}) − 2q³ Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+10n−j²−j}(1 − q^{8n+8}); it follows from (7.20) and (7.21).
+
+**Reason.** The proof's own identity 𝓕₂ = (1/(q²;q)_∞) Σ q^{n²+n}𝓐_n(2), with (q²;q)_∞ = (q)_∞/(1 − q) and the even- and odd-index values (7.20)–(7.21), gives the corrected display after the shift n ↦ n + 1 in the subtracted sums. As printed the right side begins 1 − 2q² − q³, while (q)_∞𝓕₂ = 1 − 2q³ − q⁴ + ⋯. The corrected identity agrees with the Eulerian series to O(q^{219}) in an exact integer computation by the author.
+
+**Published correction or search result.** Hickerson, Invent. Math. 94 (1988), proof of Theorem 2.0, p. 666, display (2.5).
+
+Affected targets: a stated result.
+
+Checked versions or searches:
+
+- Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21
+- AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected
+
+Independent review: awaiting the next independent review.
+
+### E635: misprint
+
+[andrews-mock-1986](#reference-andrews-mock-1986), §3, (3.1), p. 116 (publisher scan).
+
+**Source claim.** The limiting form of Bailey's lemma for a = 1 is displayed with the factor (q)_∞ multiplying Σ q^{n²}α_n.
+
+**Corrected contract.** Σ_{n≥0} q^{n²}β_n = (1/(q)_∞) Σ_{n≥0} q^{n²}α_n.
+
+**Reason.** Letting n → ∞ in (2.4) with a = 1 and ρ₁, ρ₂ → ∞ divides by (q)_∞(aq)_∞ on one side and by (q)_∞ on the other, leaving 1/(q)_∞. With the pair (3.3) and the α_n found on p. 116, only the corrected form reproduces Watson's identity (1.2); the proofs of Theorems 9 and 13 (pp. 126 and 133) use the correct factor 1/(q)_∞.
+
+**Published correction or search result.** new
+
+Affected targets: nothing.
+
+Checked versions or searches:
+
+- Hickerson, Invent. Math. 94 (1988), pp. 661–666 (it corrects only §7 of the paper)
+- Zwegers, Mock theta functions (arXiv:0807.4834v1), §4.4, pp. 72–73 (it corrects only Theorem 9)
+- AMS article page; see E633
+
+Independent review: awaiting the next independent review.
+
+### E636: misprint
+
+[andrews-mock-1986](#reference-andrews-mock-1986), Theorem 9, (6.3), p. 125 (publisher scan).
+
+**Source claim.** In the Hecke-type expression for 1 + 2ψ₀(q) the single sum is printed as 2Σ_{n≥1}(−1)^n q^{2n²+n}.
+
+**Corrected contract.** The single sum is 2Σ_{n≥1}(−1)^n q^{n²+n}; the double sum and the prefactor (−q)_∞/(q)_∞ are as printed.
+
+**Reason.** With the printed exponent the identity fails against the Eulerian series 1 + 2ψ₀ = Σ_{n≥0}(−1;q)_n q^{n(n+1)/2}; with n² + n it agrees to O(q^{217}) in an exact integer computation by the author. The slip enters in the proof on p. 127, where the part of A_n(1, 0, q) coming from j = ±n is written (−1)^n q^{n(n+1)/2}(1 + q^n); (5.10) and its derivation on p. 123 give (−1)^n q^{−n(n−1)/2}(1 + q^n), and multiplying by q^{n(3n+1)/2} then gives q^{n²+n}.
+
+**Published correction or search result.** Zwegers, Mock theta functions (thesis, Utrecht 2002; arXiv:0807.4834v1), §4.4, pp. 72–73, which states that the third and eighth identities of Theorem 9 contain mistakes and displays the corrected ones.
+
+Affected targets: a stated result.
+
+Checked versions or searches:
+
+- Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21
+
+Independent review: awaiting the next independent review.
+
+### E637: misprint
+
+[andrews-mock-1986](#reference-andrews-mock-1986), Theorem 9, (6.8), p. 125 (publisher scan).
+
+**Source claim.** The Hecke-type expression for φ₁(q) = Σ_{n≥0}(−q;q²)_n q^{(n+1)²} is printed without an overall factor q and with the factor (1 + q^{2n+1}).
+
+**Corrected contract.** φ₁(q) = q ((−q;q²)_∞/(q²;q²)_∞) Σ_{n≥0,|j|≤n} (−1)^j q^{5n²+4n−3j²−j}(1 − q^{2n+1}).
+
+**Reason.** φ₁ has no constant term (its n = 0 summand is q), while the printed right side has constant term 1. Of the four variants with or without the factor q and with ±q^{2n+1}, only the corrected one agrees with the Eulerian series, to O(q^{217}) in an exact integer computation by the author.
+
+**Published correction or search result.** Zwegers, Mock theta functions (thesis, Utrecht 2002; arXiv:0807.4834v1), §4.4, pp. 72–73 (the eighth identity).
+
+Affected targets: a stated result.
+
+Checked versions or searches:
+
+- Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21
+
+Independent review: awaiting the next independent review.
+
 ## References and reading scope
 
 Source identities, public URLs and byte hashes identify the versions used. Reading inventories inherited from earlier passes retain their original scope. The new receipts are limited to the passages listed, and do not claim a new collation of an entire paper. Books lacking a cleared or public proof remain explicit gaps.
@@ -22108,3 +22289,42 @@ Reading scope:
 Revision-4 target-specific receipts (20 October 2026):
 
 - **preprint.** [version or search](https://arxiv.org/pdf/math/0506321v1). arXiv:math/0506321v1, 2005; preprint pagination. Target-specific reading: §§4–6, pp.5–16: code-module induction, Hamming restriction, code words and the proofs of Lemma6.9 and Theorem6.10. Theorem6.8 is read as the intertwining-operator uniqueness input; the module-field generation proof is the usual Jacobi commutator induction. SHA-256 `b4045cf4be9aa25b9b7c0973f58508fc129f461af1c58b93852ac00f40b61de6`.
+
+<a id="reference-andrews-mock-1986"></a>
+
+### andrews-mock-1986
+
+George E. Andrews, [The fifth and seventh order mock theta functions](https://www.ams.org/journals/tran/1986-293-01/S0002-9947-1986-0814916-2/S0002-9947-1986-0814916-2.pdf). Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21.
+
+Acquisition SHA-256: `5d91d479a67b8a5e1c10121e8619111592bf5bad238c9f8b736e120c71388998`.
+
+Reading scope:
+
+- §2 (pp. 114–116): Bailey's lemma (2.3)–(2.6), the inversion (2.7) and the backward chain (2.8)–(2.15)
+- §3 (pp. 116–117): (3.1)–(3.5)
+- §4 (pp. 117–119): Lemmas 1–2, Theorems 3–4 and their proofs
+- §5 (pp. 120–124): Theorem 5, Lemmas 6–8, (5.1)–(5.17)
+- §6 (pp. 124–127): Theorem 9, (6.1)–(6.8), and its proof
+- §7 (pp. 127–133): (7.1)–(7.3), Lemmas 10–12, Theorem 13 (7.22)–(7.24) and its proof
+- Formulas read on the page images; the text layer garbles them
+
+<a id="reference-hickerson-seventh-1988"></a>
+
+### hickerson-seventh-1988
+
+Dean Hickerson, [On the seventh order mock theta functions](https://gdz.sub.uni-goettingen.de/id/PPN356556735_0094). Invent. Math. 94 (1988), 661–677; scanned journal pages served free by the Göttingen digitisation centre (GDZ), volume record PPN356556735_0094, read 2026-10-21.
+
+Acquisition SHA-256: `001481ddb8ffad65b1314ea9c785b6799e034bc7c1e747e073c00cbca18fac17`.
+
+Reading scope:
+
+- §0 (pp. 661–662): the notation (0.0)–(0.4) and the definitions (0.5)–(0.7) of the three seventh-order functions
+- §1 (p. 665): the sign-function summation conventions (1.16)–(1.22)
+- §2 (p. 666): Theorem 2.0 and its proof, including the corrected forms (2.3)–(2.5) of Andrews' (7.22)–(7.24)
+
+Page images read (SHA-256):
+
+- p. 661: [image](https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000667/full/1000,/0/default.jpg) `75d8e282bd3d860507293315628ca4f2994245af860f5fd2187e6239873d0f67`
+- p. 662: [image](https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000668/full/1000,/0/default.jpg) `0e3abf6a6c5653b54bc8c8b143775d27ea27a0d03025899095ffa4b2a6eea6e8`
+- p. 665: [image](https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000671/full/1000,/0/default.jpg) `2047c79f3bfe2e0814fdf926c098dbdfc8a56a4f7e1712abbf0bfa41071902ae`
+- p. 666: [image](https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN356556735_0094:00000672/full/1000,/0/default.jpg) `001481ddb8ffad65b1314ea9c785b6799e034bc7c1e747e073c00cbca18fac17`
