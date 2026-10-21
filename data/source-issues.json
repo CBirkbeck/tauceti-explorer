@@ -289252,6 +289252,105 @@
    "reviewReason": "Confirmed in arXiv v1, p.10: the lemma and the definition of m_γ use M(β₁,0) twice, while the next displayed fusion product is M(β₁,0) × M(β₂,0) and the output support is β₁+β₂."
   },
   {
+   "id": "QSeriesPartitionsAndMockModularForms/E633",
+   "kind": "misprint",
+   "locator": "Theorem 13, (7.22), p. 132 (publisher scan)",
+   "printed": "The second double sum in the Hecke-type expression for (q)_∞𝓕₀(q) has the prefactor −2q and the factor (1 − q^{12n+13}).",
+   "correction": "The prefactor is −2q² and the factor is (1 − q^{12n+12}): (q)_∞𝓕₀(q) = Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{12n+6}) − 2q² Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{12n+12}).",
+   "reason": "Inserting the odd-index values (7.17) of the Bailey pair into Σ q^{n²}𝓐_n(0) gives the terms −2q^{7m²+8m+2−j²−j} (0 ≤ j ≤ m) and +2q^{7m²+6m+1−j²−j} (0 ≤ j < m); the substitution m ↦ n + 1 in the second gives the corrected display. As printed the right side begins 1 − 2q, while 𝓕₀ = 1 + q + q³ + ⋯ and (q)_∞ = 1 − q − q² + ⋯ give (q)_∞𝓕₀ = 1 − 2q² + ⋯. The corrected identity agrees with the Eulerian series to O(q^{219}) in an exact integer computation by the author.",
+   "affects": "a stated result",
+   "known": "Hickerson, Invent. Math. 94 (1988), proof of Theorem 2.0, p. 666, display (2.3), which multiplies Andrews' (7.22)–(7.24) by J₁ after correcting their typographical errors.",
+   "searched": [
+    "Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21",
+    "AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E634",
+   "kind": "misprint",
+   "locator": "Theorem 13, (7.24), p. 133, and the last sentence of its proof (publisher scan)",
+   "printed": "The expression for (q)_∞𝓕₂(q) is printed as Σ_{n≥0,|j|≤n} q^{7n²+n−j²}(1 − q^{8n+3}) − 2q² Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+8n−j²−j}(1 − q^{8n+7}), and the proof says it follows from (7.21) and (7.22).",
+   "correction": "(q)_∞𝓕₂(q) = Σ_{n≥0,|j|≤n} q^{7n²+3n−j²}(1 − q^{8n+4}) − 2q³ Σ_{n≥0} Σ_{j=0}^{n} q^{7n²+10n−j²−j}(1 − q^{8n+8}); it follows from (7.20) and (7.21).",
+   "reason": "The proof's own identity 𝓕₂ = (1/(q²;q)_∞) Σ q^{n²+n}𝓐_n(2), with (q²;q)_∞ = (q)_∞/(1 − q) and the even- and odd-index values (7.20)–(7.21), gives the corrected display after the shift n ↦ n + 1 in the subtracted sums. As printed the right side begins 1 − 2q² − q³, while (q)_∞𝓕₂ = 1 − 2q³ − q⁴ + ⋯. The corrected identity agrees with the Eulerian series to O(q^{219}) in an exact integer computation by the author.",
+   "affects": "a stated result",
+   "known": "Hickerson, Invent. Math. 94 (1988), proof of Theorem 2.0, p. 666, display (2.5).",
+   "searched": [
+    "Hickerson, Invent. Math. 94 (1988), pp. 661–666, GDZ scan, read 2026-10-21",
+    "AMS article page of the 1986 paper; the landing page is served only behind a browser check, so the PDF itself was read and no linked erratum could be inspected"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E635",
+   "kind": "misprint",
+   "locator": "§3, (3.1), p. 116 (publisher scan)",
+   "printed": "The limiting form of Bailey's lemma for a = 1 is displayed with the factor (q)_∞ multiplying Σ q^{n²}α_n.",
+   "correction": "Σ_{n≥0} q^{n²}β_n = (1/(q)_∞) Σ_{n≥0} q^{n²}α_n.",
+   "reason": "Letting n → ∞ in (2.4) with a = 1 and ρ₁, ρ₂ → ∞ divides by (q)_∞(aq)_∞ on one side and by (q)_∞ on the other, leaving 1/(q)_∞. With the pair (3.3) and the α_n found on p. 116, only the corrected form reproduces Watson's identity (1.2); the proofs of Theorems 9 and 13 (pp. 126 and 133) use the correct factor 1/(q)_∞.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Hickerson, Invent. Math. 94 (1988), pp. 661–666 (it corrects only §7 of the paper)",
+    "Zwegers, Mock theta functions (arXiv:0807.4834v1), §4.4, pp. 72–73 (it corrects only Theorem 9)",
+    "AMS article page; see E633"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E636",
+   "kind": "misprint",
+   "locator": "Theorem 9, (6.3), p. 125 (publisher scan)",
+   "printed": "In the Hecke-type expression for 1 + 2ψ₀(q) the single sum is printed as 2Σ_{n≥1}(−1)^n q^{2n²+n}.",
+   "correction": "The single sum is 2Σ_{n≥1}(−1)^n q^{n²+n}; the double sum and the prefactor (−q)_∞/(q)_∞ are as printed.",
+   "reason": "With the printed exponent the identity fails against the Eulerian series 1 + 2ψ₀ = Σ_{n≥0}(−1;q)_n q^{n(n+1)/2}; with n² + n it agrees to O(q^{217}) in an exact integer computation by the author. The slip enters in the proof on p. 127, where the part of A_n(1, 0, q) coming from j = ±n is written (−1)^n q^{n(n+1)/2}(1 + q^n); (5.10) and its derivation on p. 123 give (−1)^n q^{−n(n−1)/2}(1 + q^n), and multiplying by q^{n(3n+1)/2} then gives q^{n²+n}.",
+   "affects": "a stated result",
+   "known": "Zwegers, Mock theta functions (thesis, Utrecht 2002; arXiv:0807.4834v1), §4.4, pp. 72–73, which states that the third and eighth identities of Theorem 9 contain mistakes and displays the corrected ones.",
+   "searched": [
+    "Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E637",
+   "kind": "misprint",
+   "locator": "Theorem 9, (6.8), p. 125 (publisher scan)",
+   "printed": "The Hecke-type expression for φ₁(q) = Σ_{n≥0}(−q;q²)_n q^{(n+1)²} is printed without an overall factor q and with the factor (1 + q^{2n+1}).",
+   "correction": "φ₁(q) = q ((−q;q²)_∞/(q²;q²)_∞) Σ_{n≥0,|j|≤n} (−1)^j q^{5n²+4n−3j²−j}(1 − q^{2n+1}).",
+   "reason": "φ₁ has no constant term (its n = 0 summand is q), while the printed right side has constant term 1. Of the four variants with or without the factor q and with ±q^{2n+1}, only the corrected one agrees with the Eulerian series, to O(q^{217}) in an exact integer computation by the author.",
+   "affects": "a stated result",
+   "known": "Zwegers, Mock theta functions (thesis, Utrecht 2002; arXiv:0807.4834v1), §4.4, pp. 72–73 (the eighth identity).",
+   "searched": [
+    "Zwegers, arXiv:0807.4834v1, §4.4, read 2026-10-21"
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "George E. Andrews, The fifth and seventh order mock theta functions, Trans. Amer. Math. Soc. 293 (1986), no. 1, 113–134 (doi 10.1090/S0002-9947-1986-0814916-2); publisher scan, free on the AMS site, read 2026-10-21",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QuadraticFormInvariantsPartII/E1",
    "kind": "misprint",
    "locator": "§3 definition of characteristic-two Pfister forms, p.6 (arXiv v2 only; journal text not collated)",
