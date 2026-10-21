@@ -43517,8 +43517,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9312"
+   "state": "pending",
+   "note": "released on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -57610,7 +57610,9 @@
     "PKG-KatoEulerSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-KatoEulerSystems~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9222",
+   "finishedAt": "2026-10-21T04:23:12Z"
   },
   {
    "id": "PKG-KloostermanMomentsAndPotentialAutomorphy",
@@ -154622,7 +154624,9 @@
     "BP-QSeriesPartitionsAndMockModularForms~4",
     "BP-QSeriesPartitionsAndMockModularForms~5"
    ],
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11526",
+   "finishedAt": "2026-10-21T04:23:16Z"
   },
   {
    "id": "FIX-PKG-ArithmeticQuantumTopology~adv",
@@ -154661,8 +154665,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-KatoEulerSystems~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-KatoEulerSystems~adv.md",
+   "note": "claimed on GitHub issue #11543"
   },
   {
    "id": "PKG-QSeriesPartitionsAndMockModularForms~codex",
@@ -154680,8 +154685,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-QSeriesPartitionsAndMockModularForms~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-QSeriesPartitionsAndMockModularForms~codex.md",
+   "note": "claimed on GitHub issue #11544"
   }
  ]
 }
