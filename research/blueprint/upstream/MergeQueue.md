@@ -1,11 +1,11 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-22T19:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-22T19:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #914 FreeGroupsAndLimitGroups — draft
 - #1314 HabiroCyclotomicCompletions — ready (approved at an earlier head)
-- #1320 PolylogarithmFunctions — draft
+- #1320 PolylogarithmFunctions — ready
 - #1335 ArithmeticDynamics — draft
 - #1336 ErdosProgressionPowers — draft
 - #1351 QWittVectors — draft
