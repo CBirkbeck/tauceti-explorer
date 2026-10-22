@@ -3538,25 +3538,25 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 41982894,
-  "htmlSha256": "34e55a9b2e8649afb2fd77ab663f60a2e9aa3e5aaafba9b7b24a3636a1bc0c46",
+  "htmlBytes": 41990232,
+  "htmlSha256": "51fcc64bbba54d2f97dc2623b8203bbcd30688e816a5eaebfacdab09eb83e9d9",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
-    "src/shell.html": "78259855290f56884cf12d307790e807fc014f8af5c044c1d2170159a9bac45c",
-    "src/style.css": "77dba22ab056c916bf6b2ceba01ceb9cd6fc53ea45063676c3a6152a6b26e2ba",
+    "src/shell.html": "fbeab54e1afc52cfe399bb457a4e8fbc30db8680aac68b66985f83ebbf92fbf1",
+    "src/style.css": "95dbecb3a99d2166cc7f6b51a66887427e91c94b6b38acbac68b491187818ea7",
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
     "src/universe.js": "787445f9dd50d74187c43bdb4cab36aeb8c7af5f2548b15d172b5d67384f65f4",
-    "src/graph.js": "e1b99919c22b82f482bd160cf406e9eb6351f261a6629104e86f4b70bb706943",
+    "src/graph.js": "fbab026292fe6f8a301214943ada7c19cd0447b01c4ed83f3f02712bea0f50bb",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "ce2bcb7443a4bb483c4fc6cc08a4c0638e0453e085c8d4856e066773468f5c33",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
     "src/live.js": "56a9e4f288ea8bc49668095bf5463fdcb8dc5f827a09e80c000f193b8c94949c",
-    "src/app.js": "e15c427488a119bfd80e394282e0776398f893dffd4cb42efded640e144d74cb",
+    "src/app.js": "480fa8daa421854b6265d98fbf91b71d9f601e9d71aa680f19a963cbfff06899",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/tauceti-progress.json": "b8c34e08966b0850026317fb6c4b2b423e4dd0756b0093a3eeeec4a445e18e6f",
@@ -5203,7 +5203,7 @@
     "unplaced": [
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-22T15:22:13Z",
+    "updatedAt": "2026-10-22T15:53:55Z",
     "roadmaps": 253
   },
   "variant": "atlas"

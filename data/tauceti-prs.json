@@ -413,7 +413,7 @@
     "awaiting-review"
    ],
    "number": 785,
-   "sha": "f0ef582728c153e1211c3e1524922a10cef35194",
+   "sha": "fed9686051ae2be62e04253ab8cbf9e045584790",
    "stated": {
     "before": [
      446,
@@ -425,7 +425,7 @@
     ]
    },
    "title": "Roadmap: reductive groups, part II",
-   "updatedAt": "2026-10-22T15:22:13Z",
+   "updatedAt": "2026-10-22T15:53:34Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/785"
   },
   {
@@ -1326,7 +1326,7 @@
     "awaiting-review"
    ],
    "number": 879,
-   "sha": "7782dede70afa35d3d529b987e100ca7cb41f62a",
+   "sha": "ef32031f64a968faac4f0cc26048ad044763d421",
    "stated": {
     "before": [
      785,
@@ -1355,7 +1355,7 @@
     ]
    },
    "title": "Roadmap: finite flat group schemes and integral p-adic Hodge theory",
-   "updatedAt": "2026-10-21T23:16:05Z",
+   "updatedAt": "2026-10-22T15:40:21Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/879"
   },
   {
@@ -1438,7 +1438,7 @@
     "awaiting-review"
    ],
    "number": 913,
-   "sha": "27ac927ca0300d6bb9e77d892efc9af96d46027f",
+   "sha": "35be0c8db3c83156e8ad7098274b8ad10a2dde22",
    "stated": {
     "before": [
      785,
@@ -1483,7 +1483,7 @@
     ]
    },
    "title": "Roadmap: modular curves, part II — uniformization, integral boundary and Hecke cohomology",
-   "updatedAt": "2026-10-20T19:38:32Z",
+   "updatedAt": "2026-10-22T15:34:50Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/913"
   },
   {
@@ -1510,7 +1510,7 @@
     "awaiting-review"
    ],
    "number": 920,
-   "sha": "29e415cbfb93a10cff4f4686155133983c005cc1",
+   "sha": "b0adf32f2c4a0fee7127766ad4b5d858c44c9078",
    "stated": {
     "before": [
      785,
@@ -1551,7 +1551,7 @@
     ]
    },
    "title": "Roadmap: global Galois deformation rings",
-   "updatedAt": "2026-10-20T19:38:37Z",
+   "updatedAt": "2026-10-22T15:53:55Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/920"
   },
   {
@@ -10784,11 +10784,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1405,
-   "sha": "926aa5b25dda2304a38fc14d7a7a97b5f4d2b8b0",
+   "sha": "55aa646e180f4a864bef6058f37f8afb9fbc8593",
    "stated": {
     "before": [
      785,
@@ -10876,7 +10876,7 @@
     ]
    },
    "title": "AbelianSchemesAndArithmeticModuliPartII: roadmap",
-   "updatedAt": "2026-10-22T13:14:45Z",
+   "updatedAt": "2026-10-22T15:48:49Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1405"
   },
   {
@@ -10885,11 +10885,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1406,
-   "sha": "177f6852e873043370a4cd8f50410dfe8c376eb9",
+   "sha": "323dd362f7dc42a9e7254a6f17f9531a8adfb199",
    "stated": {
     "before": [
      785,
@@ -11047,7 +11047,7 @@
     ]
    },
    "title": "EffectiveClassNumbers: roadmap",
-   "updatedAt": "2026-10-22T13:14:39Z",
+   "updatedAt": "2026-10-22T15:50:45Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1406"
   },
   {
@@ -11075,11 +11075,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1408,
-   "sha": "f972a3f30f25c266dbe862158662fda93f077f27",
+   "sha": "84449319958d257352de115f2eeecf0aee359b5f",
    "stated": {
     "before": [
      253,
@@ -11195,7 +11195,7 @@
     ]
    },
    "title": "ComputationalNumberTheory: roadmap",
-   "updatedAt": "2026-10-22T13:14:25Z",
+   "updatedAt": "2026-10-22T15:29:04Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1408"
   }
  ],
