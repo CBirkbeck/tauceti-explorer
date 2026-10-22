@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-22T14:40Z",
+ "updated": "2026-10-22T14:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -377,7 +377,7 @@
   "SelmerIwasawaCohomology": {
    "stage": "pr",
    "pr": 869,
-   "head": "17f6056",
+   "head": "1fa1c7d",
    "depends_on": [
     858,
     779,
@@ -395,7 +395,7 @@
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
    "stage": "pr",
    "pr": 870,
-   "head": "00b3781",
+   "head": "e974688",
    "depends_on": [
     852,
     779,
