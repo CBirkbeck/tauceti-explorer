@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-22T17:40Z",
+ "updated": "2026-10-22T17:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -802,7 +802,7 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "76ea63c",
+   "head": "bf09cb8",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
     "recommendation": "changes",
@@ -826,7 +826,7 @@
   "AutomorphicGaloisRepresentationsPartII": {
    "stage": "pr",
    "pr": 1006,
-   "head": "c4cc6a1",
+   "head": "fb0a94c",
    "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
