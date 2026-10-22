@@ -1799,13 +1799,14 @@
     "HabiroCyclotomicCompletions": {
       "stage": "pr",
       "pr": 1314,
-      "head": "e610f04",
+      "head": "3caf5c7",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 3caf5c7; confirmation pass pending"
       }
     },
     "PolylogarithmFunctions": {
