@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-22T17:20Z",
+ "updated": "2026-10-22T17:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -754,7 +754,7 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "f8f8c2b",
+   "head": "40d60b6",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1)",
    "review": {
     "recommendation": "changes",
@@ -766,7 +766,7 @@
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "pr",
    "pr": 1000,
-   "head": "bc30593",
+   "head": "f2895a4",
    "note": "ported 2026-10-16 (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "approve",
