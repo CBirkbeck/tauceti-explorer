@@ -1,10 +1,10 @@
 {
   "roadmaps": 406,
-  "stages": 3280,
-  "originalStages": 3280,
+  "stages": 3281,
+  "originalStages": 3281,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3248,
+  "terminalTargets": 3249,
   "groups": 39,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -22,14 +22,14 @@
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 3280,
+  "mathematicalStars": 3281,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 12,
   "bibliographicSources": 46,
-  "roadmapEdges": 4522,
-  "stageEdges": 2605,
+  "roadmapEdges": 4528,
+  "stageEdges": 2606,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 42221095,
-  "htmlSha256": "ad2a18df9e5ebf3f4c917216830b5ea585272f66a6b70e64e0956702b36ed3a1",
+  "htmlBytes": 42236112,
+  "htmlSha256": "6f2ea7f2b760f3be966a0ecd98acc4d37dbde94344114d70f96187707fa162f5",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -5052,8 +5052,8 @@
       "partial": 274,
       "untouched": 114,
       "unassessed": 462,
-      "total": 3172,
-      "proposed": 1942
+      "total": 3173,
+      "proposed": 1943
     },
     "added": [
       "tauceti:TauCetiRoadmap/AdicEtaleGeometry",
@@ -5203,11 +5203,11 @@
   "proposals": {
     "openPulls": 320,
     "pulls": 243,
-    "layers": 1942,
+    "layers": 1943,
     "unplaced": [
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-22T20:01:52Z",
+    "updatedAt": "2026-10-22T22:23:09Z",
     "roadmaps": 252
   },
   "variant": "atlas"
