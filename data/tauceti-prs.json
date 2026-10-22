@@ -1,5 +1,5 @@
 {
- "openPulls": 311,
+ "openPulls": 314,
  "pulls": [
   {
    "author": "kim-em",
@@ -10,9 +10,9 @@
     "awaiting-review"
    ],
    "number": 58,
-   "sha": "110f22101820bdfdff847580a6e52d9bda4252f8",
+   "sha": "f3fd37106c46aca1ae7f7a1e698632236009eee3",
    "title": "feat: add roadmap for Temperley-Lieb diagrams, categories, and algebras",
-   "updatedAt": "2026-10-19T11:16:51Z",
+   "updatedAt": "2026-10-22T00:25:12Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/58"
   },
   {
@@ -249,9 +249,9 @@
     "awaiting-review"
    ],
    "number": 397,
-   "sha": "16ba1de8af55eb7a24db3970cc3f39a561c87e1e",
+   "sha": "a62a9afba967aff8ebf0af7628534c46f733affb",
    "title": "Random matrix theory: reusable foundations, spectral laws, and applications",
-   "updatedAt": "2026-10-19T11:16:57Z",
+   "updatedAt": "2026-10-22T00:18:40Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/397"
   },
   {
@@ -533,9 +533,9 @@
     "awaiting-review"
    ],
    "number": 852,
-   "sha": "13fb74d63f54d55c1b8873803fb1ce3dbcaadaec",
+   "sha": "9d58065ebd69f91ce5884b50345c9909c039e799",
    "title": "Néron models and semistable abelian varieties",
-   "updatedAt": "2026-10-20T19:37:46Z",
+   "updatedAt": "2026-10-21T23:26:02Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/852"
   },
   {
@@ -586,7 +586,7 @@
   {
    "author": "CBirkbeck",
    "createdAt": "2026-10-13T11:45:35Z",
-   "draft": true,
+   "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
     "awaiting-dependencies",
@@ -595,7 +595,7 @@
    "number": 857,
    "sha": "2c8b22a1737d1660f1baf397926b41e90139a80d",
    "title": "Crystalline cohomology, de Rham–Witt complexes and logarithmic structures",
-   "updatedAt": "2026-10-20T19:37:21Z",
+   "updatedAt": "2026-10-21T23:27:57Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/857"
   },
   {
@@ -1015,7 +1015,7 @@
    "number": 924,
    "sha": "691b4b3310d33d5ad6b2b5224005a407eff9a1f8",
    "title": "Roadmap: automorphic L-functions and local factors",
-   "updatedAt": "2026-10-20T19:38:45Z",
+   "updatedAt": "2026-10-22T00:08:10Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/924"
   },
   {
@@ -1406,9 +1406,9 @@
     "awaiting-author"
    ],
    "number": 992,
-   "sha": "f37db7e84cfcba10b179223c153d86338fc21543",
+   "sha": "ffb25b53b2357f8f7f6b92e39a98651e416a9ac7",
    "title": "Add global holomorphic-function theory for plane domains",
-   "updatedAt": "2026-10-20T09:33:46Z",
+   "updatedAt": "2026-10-22T03:05:05Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/992"
   },
   {
@@ -1761,9 +1761,9 @@
     "awaiting-review"
    ],
    "number": 1037,
-   "sha": "bc8af0cee90d91cf9c2345e2b65630749b64609c",
+   "sha": "472d469cbfefba2088ae57463773283c643d2033",
    "title": "Automorphic forms on reductive groups",
-   "updatedAt": "2026-10-20T19:13:32Z",
+   "updatedAt": "2026-10-22T00:17:44Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1037"
   },
   {
@@ -2521,9 +2521,9 @@
     "awaiting-author"
    ],
    "number": 1169,
-   "sha": "84e3d8187b3d3616d8267d01027093f37124800c",
+   "sha": "7deb50512c28ce66348b0342be5902afd68ac8db",
    "title": "Teichmüller geometry: marked surfaces, finite actions and generic lattices",
-   "updatedAt": "2026-10-19T04:27:51Z",
+   "updatedAt": "2026-10-22T00:21:16Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169"
   },
   {
@@ -2982,15 +2982,15 @@
     "awaiting-review"
    ],
    "number": 1260,
-   "sha": "38d8e47140347d4ef88723c3069de995e32c52ac",
+   "sha": "6966ae7311dda1b71ecea07fc6677d9980b10497",
    "title": "Roadmap: cyclotomic class groups, Stickelberger and Herbrand–Ribet",
-   "updatedAt": "2026-10-20T19:37:28Z",
+   "updatedAt": "2026-10-22T00:39:00Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1260"
   },
   {
    "author": "CBirkbeck",
    "createdAt": "2026-10-20T01:30:29Z",
-   "draft": true,
+   "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
     "awaiting-dependencies",
@@ -2999,7 +2999,7 @@
    "number": 1264,
    "sha": "20b7a867a203b09bc9ddbcdbbb07349c471c90f3",
    "title": "Roadmap: the Eisenstein ideal and rational torsion",
-   "updatedAt": "2026-10-20T19:39:58Z",
+   "updatedAt": "2026-10-22T00:49:25Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1264"
   },
   {
@@ -3014,7 +3014,7 @@
    "number": 1266,
    "sha": "cb2a639ac81dd3c7f7d3a3f6efd97332fdb61d40",
    "title": "Roadmap: hermitian K-theory of Poincaré categories",
-   "updatedAt": "2026-10-20T19:38:24Z",
+   "updatedAt": "2026-10-22T06:08:16Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1266"
   },
   {
@@ -3344,7 +3344,7 @@
    "number": 1335,
    "sha": "85e78c07dcc361ead6505c970a1181deee483819",
    "title": "ArithmeticDynamics: roadmap",
-   "updatedAt": "2026-10-21T05:13:46Z",
+   "updatedAt": "2026-10-22T03:05:38Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1335"
   },
   {
@@ -3448,6 +3448,20 @@
    "title": "QSeriesPartitionsAndMockModularForms: roadmap",
    "updatedAt": "2026-10-21T19:55:57Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1391"
+  },
+  {
+   "author": "haruhisa-enomoto",
+   "createdAt": "2026-10-22T03:51:49Z",
+   "draft": false,
+   "head": "haruhisa-enomoto/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review"
+   ],
+   "number": 1397,
+   "sha": "7602f0d0f54e61eb151c8bbff52d4bc932845ab5",
+   "title": "roadmap: Krull-Schmidt categories and Auslander-Reiten theory of Artin algebras",
+   "updatedAt": "2026-10-22T06:05:32Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1397"
   }
  ],
  "repository": "TauCetiProject/TauCetiRoadmap",
@@ -4275,6 +4289,10 @@
   "TauCetiRoadmap/RelativeJacobiansAndIntegralCurveModels": {
    "arxiv": "math.NT",
    "pull": 1232
+  },
+  "TauCetiRoadmap/RepresentationTheory/ArtinAlgebras": {
+   "arxiv": null,
+   "pull": 1397
   },
   "TauCetiRoadmap/RepresentationTheory/SmoothBanachRepresentations": {
    "arxiv": null,
