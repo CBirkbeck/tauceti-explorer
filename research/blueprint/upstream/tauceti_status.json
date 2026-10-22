@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-22T19:20Z",
+ "updated": "2026-10-22T19:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1042,7 +1042,7 @@
   "EffectiveDiophantineMethods": {
    "stage": "pr",
    "pr": 1046,
-   "head": "076ace7",
+   "head": "5499fdb",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
    "review": {
     "recommendation": null,
@@ -1054,11 +1054,11 @@
   "EllipticCurveModularityImaginaryQuadratic": {
    "stage": "pr",
    "pr": 1048,
-   "head": "b859dc9",
+   "head": "8242cc0",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 73); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1066,7 +1066,7 @@
   "ShimuraCompactifications": {
    "stage": "pr",
    "pr": 1053,
-   "head": "b5675ac",
+   "head": "63e3f03",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
    "review": {
     "recommendation": "changes",
