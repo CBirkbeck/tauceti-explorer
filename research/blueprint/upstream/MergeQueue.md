@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-22T19:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-22T19:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #914 FreeGroupsAndLimitGroups — draft
@@ -26,7 +26,6 @@ Generated 2026-10-22T19:40Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
-- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #973 TopologicalSheafCohomology (kim-em, other author)
@@ -49,6 +48,7 @@ Generated 2026-10-22T19:40Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #934
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — draft; waits on #785, #248, #451
+- #896 CharacteristicClasses (kim-em, other author)
 - #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 4
@@ -89,7 +89,7 @@ Generated 2026-10-22T19:40Z from the README supplier graph of every open pull re
 
 ## Wave 11
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
-- #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #849, #248, #446
+- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #849, #248, #446
 - #1302 K2SymbolsBrauer — draft; waits on #1212, #1227, #1248
 - #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1310, #785, #940
 
@@ -129,7 +129,7 @@ Generated 2026-10-22T19:40Z from the README supplier graph of every open pull re
 - #1044 AInfCohomology — ready (approved at an earlier head); waits on #1042, #857, #858, #868, #875, #879, #940, #942
 
 ## Wave 18
-- #924 AutomorphicLFunctionsAndLocalFactors — draft; waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #248, #253
+- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #248, #253
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #785, #816, #820, #875, #922
 - #1057 PrismaticCohomology — ready (approved at an earlier head); waits on #1042, #1044, #857, #868
 - #1281 KTheoryFiniteLocalFields — draft; waits on #1044, #1212, #1227, #1229, #1266, #1302, #851, #857, #858, #1142
