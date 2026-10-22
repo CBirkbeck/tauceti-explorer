@@ -1,10 +1,10 @@
 {
-  "roadmaps": 152,
-  "stages": 1325,
-  "originalStages": 1325,
+  "roadmaps": 154,
+  "stages": 1338,
+  "originalStages": 1338,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 1293,
+  "terminalTargets": 1306,
   "groups": 34,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -12,24 +12,24 @@
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "dependencies": 152
+    "dependencies": 154
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
   "areasWithRoadmaps": 34,
   "additionalRegions": 0,
-  "mathematicalSummaries": 152,
+  "mathematicalSummaries": 154,
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 1325,
+  "mathematicalStars": 1338,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
-  "libraryAuditStatuses": 13,
+  "libraryAuditStatuses": 12,
   "bibliographicSources": 46,
-  "roadmapEdges": 586,
-  "stageEdges": 904,
+  "roadmapEdges": 606,
+  "stageEdges": 915,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 28032832,
-  "htmlSha256": "c083891e3e397a60558e50c1ecc93f63d7d8e96130eec18611ef6cdd82817e72",
+  "htmlBytes": 28286728,
+  "htmlSha256": "54ce2bf07eca8814413ca5684395987d3a4a6ed43008cfc585b508f0dcaffd91",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3549,7 +3549,7 @@
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
     "src/universe.js": "787445f9dd50d74187c43bdb4cab36aeb8c7af5f2548b15d172b5d67384f65f4",
-    "src/graph.js": "c4e49018c6d80970bcfca56aa6ce58548e33f062451468fba7524c36a927db6b",
+    "src/graph.js": "849d0c3e02e41ffe478dd488af48008567ee0baf8e1d74d10c94253bf8b29277",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "ce2bcb7443a4bb483c4fc6cc08a4c0638e0453e085c8d4856e066773468f5c33",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
@@ -3559,8 +3559,8 @@
     "src/app.js": "480fa8daa421854b6265d98fbf91b71d9f601e9d71aa680f19a963cbfff06899",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "b8c34e08966b0850026317fb6c4b2b423e4dd0756b0093a3eeeec4a445e18e6f",
-    "data/tauceti-new-roadmaps.json": "ba997ef2de5d56516741d7f83e143eb1e41cb8773c07e0ed80d250012e71278a",
+    "data/tauceti-progress.json": "35f2ecb7bb82f6cfef29888310e91bc723d6190d98289d7b81294dccde32e196",
+    "data/tauceti-new-roadmaps.json": "19158b78ab1926d41492868dd03494aa78bb5c3703274181be31a96ee6d2081b",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -5044,15 +5044,15 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-22T05:31:12Z",
-    "roadmaps": 152,
+    "exportedAt": "2026-10-22T18:20:44Z",
+    "roadmaps": 154,
     "unplaced": 1,
     "layers": {
-      "done": 376,
+      "done": 380,
       "partial": 274,
-      "untouched": 118,
-      "unassessed": 449,
-      "total": 1217
+      "untouched": 114,
+      "unassessed": 462,
+      "total": 1230
     },
     "added": [
       "tauceti:TauCetiRoadmap/AdicEtaleGeometry",
@@ -5084,6 +5084,7 @@
       "tauceti:TauCetiRoadmap/FreeGroupsAndLimitGroups",
       "tauceti:TauCetiRoadmap/FreeProbability",
       "tauceti:TauCetiRoadmap/GeneralizedCohomology",
+      "tauceti:TauCetiRoadmap/GeometricCurrents",
       "tauceti:TauCetiRoadmap/GeometricMeasureTheory",
       "tauceti:TauCetiRoadmap/GeometricRepresentationCategories",
       "tauceti:TauCetiRoadmap/GraphConnectivityAndFlows",
@@ -5125,6 +5126,7 @@
       "tauceti:TauCetiRoadmap/QuantumGroups",
       "tauceti:TauCetiRoadmap/Rank24LatticeConstructions",
       "tauceti:TauCetiRoadmap/RealAlgebraicGeometry",
+      "tauceti:TauCetiRoadmap/RealAnalyticGeometry",
       "tauceti:TauCetiRoadmap/ReflectionInvariantTheory",
       "tauceti:TauCetiRoadmap/Regularity",
       "tauceti:TauCetiRoadmap/RepresentationTheory/ModularInduction",
@@ -5162,6 +5164,7 @@
       "tauceti:TauCetiRoadmap/FormalLaurentPuiseux",
       "tauceti:TauCetiRoadmap/FreeProbability",
       "tauceti:TauCetiRoadmap/GeneralizedCohomology",
+      "tauceti:TauCetiRoadmap/GeometricCurrents",
       "tauceti:TauCetiRoadmap/GeometricRepresentationCategories",
       "tauceti:TauCetiRoadmap/GraphConnectivityAndFlows",
       "tauceti:TauCetiRoadmap/HamiltonianFloerOperations",
@@ -5178,6 +5181,7 @@
       "tauceti:TauCetiRoadmap/Orbifolds",
       "tauceti:TauCetiRoadmap/PositiveScalarCurvature",
       "tauceti:TauCetiRoadmap/QuantumGroups",
+      "tauceti:TauCetiRoadmap/RealAnalyticGeometry",
       "tauceti:TauCetiRoadmap/ReflectionInvariantTheory",
       "tauceti:TauCetiRoadmap/RiemannianGeometry",
       "tauceti:TauCetiRoadmap/SchubertGeometry",
