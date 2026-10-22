@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-22T15:50Z",
+ "updated": "2026-10-22T16:00Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -44,7 +44,7 @@
    "stage": "pr",
    "pr": 785,
    "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR)",
-   "head": "f0ef582",
+   "head": "fed9686",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -546,7 +546,7 @@
   "GlobalGaloisDeformations": {
    "stage": "pr",
    "pr": 920,
-   "head": "29e415c",
+   "head": "b0adf32",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next)",
    "review": {
     "recommendation": "approve",
@@ -562,7 +562,7 @@
   "DiamondEtaleCohomology": {
    "stage": "pr",
    "pr": 922,
-   "head": "e07a1fd",
+   "head": "3c67283",
    "note": "companion: C4.1 consumes DiamondsAndVStacks D4.11 10-16",
    "review": {
     "recommendation": "approve",
