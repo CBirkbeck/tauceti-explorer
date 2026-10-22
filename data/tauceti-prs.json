@@ -1,5 +1,5 @@
 {
- "openPulls": 314,
+ "openPulls": 321,
  "pulls": [
   {
    "author": "kim-em",
@@ -361,7 +361,7 @@
    "number": 480,
    "sha": "ef23c040f46db294dfdad30ebe2608f8b42bdb10",
    "title": "Add roadmap: Hamiltonian systems and moment maps",
-   "updatedAt": "2026-10-21T17:59:21Z",
+   "updatedAt": "2026-10-22T07:34:17Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/480"
   },
   {
@@ -3014,7 +3014,7 @@
    "number": 1266,
    "sha": "cb2a639ac81dd3c7f7d3a3f6efd97332fdb61d40",
    "title": "Roadmap: hermitian K-theory of Poincaré categories",
-   "updatedAt": "2026-10-22T06:08:16Z",
+   "updatedAt": "2026-10-22T06:15:56Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1266"
   },
   {
@@ -3057,9 +3057,9 @@
     "awaiting-review"
    ],
    "number": 1281,
-   "sha": "fb3a9c0be1f750f85762a27dad74fde5a219bb94",
+   "sha": "932c57cce55a525b4fdfe836a71f24241703d37b",
    "title": "Roadmap: K-theory of finite and local fields",
-   "updatedAt": "2026-10-20T19:38:26Z",
+   "updatedAt": "2026-10-22T10:28:07Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1281"
   },
   {
@@ -3462,6 +3462,110 @@
    "title": "roadmap: Krull-Schmidt categories and Auslander-Reiten theory of Artin algebras",
    "updatedAt": "2026-10-22T06:05:32Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1397"
+  },
+  {
+   "author": "isabeldahlgren",
+   "createdAt": "2026-10-22T06:41:27Z",
+   "draft": false,
+   "head": "isabeldahlgren/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review"
+   ],
+   "number": 1402,
+   "sha": "4f0d09c0a0ebf36a9d43a91345aa9f7a8e0ad7b2",
+   "title": "feat: roadmap for Markov chains and renewal processes",
+   "updatedAt": "2026-10-22T06:46:25Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1402"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-22T07:40:05Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1403,
+   "sha": "835984cdf7f29025c81ba64aea58bef0f609e110",
+   "title": "SelmerIwasawaCohomologyPartII: roadmap",
+   "updatedAt": "2026-10-22T07:40:09Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1403"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-22T08:57:26Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1404,
+   "sha": "46235615693521cca4005011d18e549b390a93b4",
+   "title": "GanGrossPrasadUnitaryGroups: roadmap",
+   "updatedAt": "2026-10-22T08:57:30Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1404"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-22T10:08:41Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1405,
+   "sha": "926aa5b25dda2304a38fc14d7a7a97b5f4d2b8b0",
+   "title": "AbelianSchemesAndArithmeticModuliPartII: roadmap",
+   "updatedAt": "2026-10-22T10:08:44Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1405"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-22T10:35:59Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1406,
+   "sha": "177f6852e873043370a4cd8f50410dfe8c376eb9",
+   "title": "EffectiveClassNumbers: roadmap",
+   "updatedAt": "2026-10-22T10:36:02Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1406"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-22T10:40:23Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1407,
+   "sha": "c94888cd5b20bce1df7fd9eebcdaf15649e96c42",
+   "title": "ConformalMappingPartII: roadmap",
+   "updatedAt": "2026-10-22T10:40:26Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1407"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-22T11:29:23Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1408,
+   "sha": "f972a3f30f25c266dbe862158662fda93f077f27",
+   "title": "ComputationalNumberTheory: roadmap",
+   "updatedAt": "2026-10-22T11:29:27Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1408"
   }
  ],
  "repository": "TauCetiProject/TauCetiRoadmap",
@@ -3473,6 +3577,10 @@
   "TauCetiRoadmap/AbelianSchemesAndArithmeticModuli": {
    "arxiv": "math.AG",
    "pull": 849
+  },
+  "TauCetiRoadmap/AbelianSchemesAndArithmeticModuliPartII": {
+   "arxiv": "math.NT",
+   "pull": 1405
   },
   "TauCetiRoadmap/AbhyankarLemma": {
    "arxiv": "math.AG",
@@ -3722,6 +3830,14 @@
    "arxiv": "math.LO",
    "pull": 1386
   },
+  "TauCetiRoadmap/ComputationalNumberTheory": {
+   "arxiv": "math.NT",
+   "pull": 1408
+  },
+  "TauCetiRoadmap/ConformalMappingPartII": {
+   "arxiv": "math.CV",
+   "pull": 1407
+  },
   "TauCetiRoadmap/CountableModelCounting": {
    "arxiv": "math.LO",
    "pull": 1318
@@ -3785,6 +3901,10 @@
   "TauCetiRoadmap/ECM": {
    "arxiv": "math.NT",
    "pull": 419
+  },
+  "TauCetiRoadmap/EffectiveClassNumbers": {
+   "arxiv": "math.NT",
+   "pull": 1406
   },
   "TauCetiRoadmap/EffectiveDiophantineMethods": {
    "arxiv": "math.NT",
@@ -3877,6 +3997,10 @@
   "TauCetiRoadmap/GL2ModularityLifting": {
    "arxiv": "math.NT",
    "pull": 1071
+  },
+  "TauCetiRoadmap/GanGrossPrasadUnitaryGroups": {
+   "arxiv": "math.NT",
+   "pull": 1404
   },
   "TauCetiRoadmap/GaugeQuiltFieldTheory": {
    "arxiv": "math.SG",
@@ -4089,6 +4213,10 @@
   "TauCetiRoadmap/LocallyAnalyticDistributions": {
    "arxiv": "math.NT",
    "pull": 854
+  },
+  "TauCetiRoadmap/MarkovChainsAndRenewal": {
+   "arxiv": "math.PR",
+   "pull": 1402
   },
   "TauCetiRoadmap/McKaySkewGroup": {
    "arxiv": "math.RT",
@@ -4321,6 +4449,10 @@
   "TauCetiRoadmap/SelmerIwasawaCohomology": {
    "arxiv": "math.NT",
    "pull": 869
+  },
+  "TauCetiRoadmap/SelmerIwasawaCohomologyPartII": {
+   "arxiv": "math.NT",
+   "pull": 1403
   },
   "TauCetiRoadmap/SerreWeightAndLevelOptimisation": {
    "arxiv": "math.NT",
