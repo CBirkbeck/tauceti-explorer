@@ -26,7 +26,6 @@ Generated 2026-10-22T12:17Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
-- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
@@ -49,23 +48,24 @@ Generated 2026-10-22T12:17Z from the README supplier graph of every open pull re
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — draft; waits on #785, #248, #451
 - #1313 MotivesAndAlgebraicCycles — draft; waits on #1199
-- #942 TangentialBordism (kim-em, other author)
+- #284 HomotopySpheres (Paul-Lez, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #1212, #785, #792, #858, #1142, #248, #284, #417, #894
 - #1309 ColemanPowerSeries — draft; waits on #1306
-- #284 HomotopySpheres (Paul-Lez, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
-- #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #1212, #785, #792, #858, #1142, #248, #284, #417, #894
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #1306, #785, #940
-- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 7
 - #857 CrystallineCohomology — ready; waits on #820, #868, #940, #1103, #1104
