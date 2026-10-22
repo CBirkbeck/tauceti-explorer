@@ -1727,13 +1727,14 @@
     "NoncommutativeAndEquivariantIwasawa": {
       "stage": "pr",
       "pr": 1307,
-      "head": "b5bbd0c",
+      "head": "ed2fb4a",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at ed2fb4a; confirmation pass pending"
       }
     },
     "ColemanPowerSeries": {
