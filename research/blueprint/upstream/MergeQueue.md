@@ -26,7 +26,6 @@ Generated 2026-10-22T11:30Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
-- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
@@ -50,6 +49,7 @@ Generated 2026-10-22T11:30Z from the README supplier graph of every open pull re
 - #1306 IntegralIwasawaTheory — draft; waits on #785, #248, #451
 - #1313 MotivesAndAlgebraicCycles — draft; waits on #1199
 - #284 HomotopySpheres (Paul-Lez, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 
 ## Wave 4
@@ -60,12 +60,12 @@ Generated 2026-10-22T11:30Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #940 PadicPeriodRings — draft; waits on #816
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — draft; waits on #940
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #1306, #785, #940
-- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 7
 - #857 CrystallineCohomology — draft; waits on #820, #868, #940, #1103, #1104
