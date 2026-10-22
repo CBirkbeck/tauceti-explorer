@@ -43,7 +43,7 @@
   "ReductiveGroupsPartII": {
    "stage": "pr",
    "pr": 785,
-   "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR); draft",
+   "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR)",
    "head": "0d37c3f",
    "review": {
     "recommendation": "approve",
@@ -169,7 +169,7 @@
     779,
     853
    ],
-   "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918; draft",
+   "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -254,7 +254,7 @@
     817,
     813
    ],
-   "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
+   "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -271,7 +271,7 @@
     813,
     785
    ],
-   "note": "N1 CHANGES answered 10-16; draft",
+   "note": "N1 CHANGES answered 10-16",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -328,7 +328,7 @@
     854,
     868
    ],
-   "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running; draft",
+   "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running",
    "review": {
     "recommendation": "approve",
     "current": true,
@@ -366,7 +366,7 @@
     779,
     789
    ],
-   "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
+   "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -419,7 +419,7 @@
     793,
     785
    ],
-   "note": "N3 CHANGES answered 10-16; draft",
+   "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -506,7 +506,7 @@
     856,
     793
    ],
-   "note": "N2 CHANGES answered 10-16; draft",
+   "note": "N2 CHANGES answered 10-16",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -522,7 +522,7 @@
    "stage": "pr",
    "pr": 913,
    "head": "27ac927",
-   "note": "N3 CHANGES answered 10-16; draft",
+   "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -547,7 +547,7 @@
    "stage": "pr",
    "pr": 920,
    "head": "29e415c",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next)",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -576,7 +576,7 @@
    "stage": "pr",
    "pr": 923,
    "head": "e189846",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 15bab3b",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -600,7 +600,7 @@
    "stage": "pr",
    "pr": 925,
    "head": "7d326fd",
-   "note": "N3 CHANGES answered 10-16; draft",
+   "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -613,7 +613,7 @@
    "stage": "pr",
    "pr": 927,
    "head": "3582e67",
-   "note": "N4 CHANGES answered 10-16; draft",
+   "note": "N4 CHANGES answered 10-16",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -626,7 +626,7 @@
    "stage": "pr",
    "pr": 928,
    "head": "256555e",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -639,7 +639,7 @@
    "stage": "pr",
    "pr": 929,
    "head": "e9585a0",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex)",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -651,7 +651,7 @@
    "stage": "pr",
    "pr": 931,
    "head": "b4365ef",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 7035f1c; draft awaiting re-review",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -663,7 +663,7 @@
    "stage": "pr",
    "pr": 933,
    "head": "ce10821",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 6cc4f59; draft awaiting re-review",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 6cc4f59",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -679,7 +679,7 @@
    "stage": "pr",
    "pr": 940,
    "head": "704695f",
-   "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 3ed1fc3; draft awaiting re-review",
+   "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 3ed1fc3",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -695,7 +695,7 @@
    "stage": "pr",
    "pr": 964,
    "head": "3462f9c",
-   "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at cd66f9e; draft awaiting re-review",
+   "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at cd66f9e",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -707,7 +707,7 @@
    "stage": "pr",
    "pr": 965,
    "head": "726658c",
-   "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 4a7b4d8; draft awaiting re-review",
+   "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 4a7b4d8",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -719,7 +719,7 @@
    "stage": "pr",
    "pr": 966,
    "head": "2d82d07",
-   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
+   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired) awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 0f4df97",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -731,7 +731,7 @@
    "stage": "pr",
    "pr": 968,
    "head": "4310d40",
-   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at bf4b921; draft awaiting re-review",
+   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at bf4b921",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -743,7 +743,7 @@
    "stage": "pr",
    "pr": 970,
    "head": "68c3063",
-   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
+   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -755,7 +755,7 @@
    "stage": "pr",
    "pr": 999,
    "head": "f8f8c2b",
-   "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
+   "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1)",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -767,7 +767,7 @@
    "stage": "pr",
    "pr": 1000,
    "head": "bc30593",
-   "note": "ported 2026-10-16 (tier 16); both red-team passes applied; draft awaiting ChatGPT Pro",
+   "note": "ported 2026-10-16 (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -779,7 +779,7 @@
    "stage": "pr",
    "pr": 1001,
    "head": "bc6e0cd",
-   "note": "ported 2026-10-16 (tier 12); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
+   "note": "ported 2026-10-16 (tier 12); both author-side red-team passes applied",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -791,7 +791,7 @@
    "stage": "pr",
    "pr": 1002,
    "head": "0211366",
-   "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft",
+   "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -803,7 +803,7 @@
    "stage": "pr",
    "pr": 1004,
    "head": "76ea63c",
-   "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro",
+   "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -815,7 +815,7 @@
    "stage": "pr",
    "pr": 1005,
    "head": "5db7b73",
-   "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
+   "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -827,7 +827,7 @@
    "stage": "pr",
    "pr": 1006,
    "head": "c4cc6a1",
-   "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered; draft",
+   "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -839,7 +839,7 @@
    "stage": "pr",
    "pr": 1007,
    "head": "2648a49",
-   "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
+   "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -851,7 +851,7 @@
    "stage": "pr",
    "pr": 1013,
    "head": "763a749",
-   "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received; draft",
+   "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -863,7 +863,7 @@
    "stage": "pr",
    "pr": 1017,
    "head": "cec11c9",
-   "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round; draft",
+   "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -887,7 +887,7 @@
    "stage": "pr",
    "pr": 1018,
    "head": "a3f3834",
-   "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied; draft",
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -899,7 +899,7 @@
    "stage": "pr",
    "pr": 1019,
    "head": "f9ad8cc",
-   "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -911,7 +911,7 @@
    "stage": "pr",
    "pr": 1021,
    "head": "59d989d",
-   "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "changes",
     "current": false,
