@@ -12,9 +12,7 @@
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "built": 13,
-    "judged": 52,
-    "measured": 87
+    "dependencies": 152
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
@@ -30,7 +28,7 @@
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 13,
   "bibliographicSources": 46,
-  "roadmapEdges": 275,
+  "roadmapEdges": 626,
   "stageEdges": 904,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
@@ -3540,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 27833110,
-  "htmlSha256": "731a48c14eb6a84bb0ce2e31d01841e2ee04c2060e36734b19cd5c3a78010c3a",
+  "htmlBytes": 28048043,
+  "htmlSha256": "b5c113f9671caa40c291319ecde2551241e3cfafd4184d059a7958584dadee4f",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3550,15 +3548,15 @@
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
-    "src/universe.js": "e874cac58f7a657b6c95596a91ac2740c0f708156c62ab61c281d8084ea93edc",
-    "src/graph.js": "21ede3d94d35c3e7ce1e9494380dd1f57ccb9de4e32f84649c22f346884933d3",
+    "src/universe.js": "787445f9dd50d74187c43bdb4cab36aeb8c7af5f2548b15d172b5d67384f65f4",
+    "src/graph.js": "e1b99919c22b82f482bd160cf406e9eb6351f261a6629104e86f4b70bb706943",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "ce2bcb7443a4bb483c4fc6cc08a4c0638e0453e085c8d4856e066773468f5c33",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
     "src/live.js": "56a9e4f288ea8bc49668095bf5463fdcb8dc5f827a09e80c000f193b8c94949c",
-    "src/app.js": "4d125e13d3034cd504eed898fdbb5599a765ab0a86bbc5ebd1a751e791dc6a2c",
+    "src/app.js": "e15c427488a119bfd80e394282e0776398f893dffd4cb42efded640e144d74cb",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/tauceti-progress.json": "b8c34e08966b0850026317fb6c4b2b423e4dd0756b0093a3eeeec4a445e18e6f",
