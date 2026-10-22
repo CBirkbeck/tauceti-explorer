@@ -1,0 +1,511 @@
+{
+ "purpose": "Finer areas inside the largest arXiv categories, for the published map (scripts/arxiv_groups.py). A roadmap's title is matched first against `first` (phrases that decide an area outright), then against each area's phrases in the order listed; a title that names none is matched the same way on the opening of the roadmap's summary; one that neither places goes to the category's last area, its catch-all. Matching ignores accents and case, treats a hyphen and a space alike and takes whole words; a phrase ending in * matches any ending. An area left with fewer roadmaps than `least` joins the catch-all, and a category left with one area is not divided. Edit the phrases to move roadmaps. `order` gives the order of a category's areas round the map, so that each lies next to related subjects: number theory's automorphic area beside representation theory, its p-adic area beside algebraic geometry's adic one.",
+ "least": 2,
+ "order": {
+  "math.NT": [
+   "automorphic",
+   "iwasawa",
+   "analytic",
+   "algebraic",
+   "curves",
+   "padic",
+   "other"
+  ],
+  "math.AG": [
+   "adic",
+   "etale",
+   "motives",
+   "hodge",
+   "birational",
+   "moduli",
+   "foundations",
+   "other"
+  ],
+  "math.RT": [
+   "finite",
+   "algebras",
+   "lie",
+   "padic",
+   "other"
+  ]
+ },
+ "first": {
+  "math.NT": {
+   "arithmetic statistics": "analytic",
+   "hecke character*": "algebraic",
+   "periods of elliptic": "curves",
+   "modular curve*": "curves"
+  },
+  "math.AG": {
+   "intersection foundations": "foundations",
+   "standard conjecture*": "motives"
+  },
+  "math.RT": {
+   "symmetric group*": "finite",
+   "specht": "finite",
+   "artin-wedderburn": "algebras",
+   "semisimple algebra*": "algebras",
+   "mckay": "algebras"
+  }
+ },
+ "categories": {
+  "math.NT": [
+   {
+    "id": "iwasawa",
+    "label": "Iwasawa theory and special values",
+    "short": "Iwasawa & special values",
+    "phrases": [
+     "iwasawa",
+     "p-adic l-function*",
+     "euler system*",
+     "kolyvagin",
+     "main conjecture*",
+     "birch",
+     "bloch-kato",
+     "heegner",
+     "gross-zagier",
+     "special value*",
+     "selmer",
+     "p-adic measure*",
+     "eisenstein measure*"
+    ]
+   },
+   {
+    "id": "padic",
+    "label": "p-adic Hodge theory and p-adic geometry",
+    "short": "p-adic Hodge & geometry",
+    "phrases": [
+     "p-adic hodge",
+     "hodge-tate",
+     "perfectoid",
+     "adic space*",
+     "diamond*",
+     "fargues-fontaine",
+     "prismatic",
+     "crystalline",
+     "coleman",
+     "rigid analytic",
+     "rigid cohomology",
+     "isocrystal*",
+     "banach-colmez",
+     "a_inf",
+     "p-adic period*",
+     "p-adic cohomology",
+     "p-adic differential",
+     "breuil-kisin",
+     "completed cohomology",
+     "p-adic famil*",
+     "hida",
+     "eigenvariet*",
+     "overconvergent",
+     "p-adic functional",
+     "locally analytic",
+     "period ring*",
+     "witt vector*",
+     "newton strat*"
+    ]
+   },
+   {
+    "id": "automorphic",
+    "label": "Automorphic forms, Galois representations and modularity",
+    "short": "Automorphic & Galois reps",
+    "phrases": [
+     "modular form*",
+     "automorphic",
+     "shimura",
+     "modularity",
+     "langlands",
+     "galois representation*",
+     "trace formula*",
+     "theta series",
+     "theta lift*",
+     "eisenstein",
+     "maass",
+     "hilbert modular",
+     "siegel modular",
+     "mock modular",
+     "q-series",
+     "serre weight*",
+     "potential automorphy",
+     "deformation*",
+     "level raising",
+     "gan-gross-prasad",
+     "bessel model*",
+     "rankin-selberg",
+     "jacquet",
+     "endoscop*",
+     "satake",
+     "shtuka*",
+     "local langlands",
+     "parameter stack*",
+     "hecke theory",
+     "hecke operator*",
+     "hecke algebra*",
+     "hecke stack*",
+     "hecke action*",
+     "hecke eigen*",
+     "modular representation*",
+     "level optimi*",
+     "serre's conjecture",
+     "arithmetic quotient*",
+     "adelic algebraic group*",
+     "locally symmetric"
+    ]
+   },
+   {
+    "id": "analytic",
+    "label": "Analytic number theory and arithmetic statistics",
+    "short": "Analytic NT & statistics",
+    "phrases": [
+     "analytic number theory",
+     "l-function*",
+     "zeta",
+     "prime*",
+     "sieve*",
+     "dirichlet series",
+     "tauberian",
+     "exponential sum*",
+     "circle method",
+     "transcenden*",
+     "arithmetic statistics",
+     "equidistribution",
+     "chebotarev",
+     "partition*",
+     "additive",
+     "perfect power*",
+     "arithmetic progression*",
+     "lattice point*",
+     "geometry of numbers",
+     "diophantine approximation",
+     "effective arithmetic bound*",
+     "effective lower bound*",
+     "roth",
+     "subspace theorem",
+     "linear forms in logarithm*",
+     "baker",
+     "minkowski",
+     "successive minima",
+     "quantitative"
+    ]
+   },
+   {
+    "id": "curves",
+    "label": "Elliptic curves, abelian varieties and Diophantine geometry",
+    "short": "Curves & abelian varieties",
+    "phrases": [
+     "elliptic curve*",
+     "abelian variet*",
+     "abelian scheme*",
+     "jacobian*",
+     "neron",
+     "height*",
+     "rational point*",
+     "faltings",
+     "mordell",
+     "modular curve*",
+     "arakelov",
+     "torsion",
+     "isogen*",
+     "chabauty",
+     "anabelian",
+     "q-curve*",
+     "integral point*",
+     "arithmetic dynamics",
+     "diophantine geometry",
+     "diophantine equation*",
+     "diophantine method*",
+     "periods of elliptic"
+    ]
+   },
+   {
+    "id": "algebraic",
+    "label": "Number fields, local fields and class field theory",
+    "short": "Number fields & CFT",
+    "phrases": [
+     "class field",
+     "number field*",
+     "local field*",
+     "ramification",
+     "adele*",
+     "idele*",
+     "quadratic form*",
+     "lattice*",
+     "galois group*",
+     "cyclotomic",
+     "unit*",
+     "discriminant*",
+     "class group*",
+     "reciprocity",
+     "brauer",
+     "galois cohomology",
+     "duality",
+     "restricted product*",
+     "kummer",
+     "orthogonal and spin",
+     "multiquadratic",
+     "genus theory",
+     "function field*",
+     "hecke character*",
+     "class number*",
+     "inverse galois",
+     "fundamental group*",
+     "profinite",
+     "newton polygon*"
+    ]
+   },
+   {
+    "id": "other",
+    "label": "Other number theory",
+    "short": "Other number theory",
+    "phrases": []
+   }
+  ],
+  "math.AG": [
+   {
+    "id": "adic",
+    "label": "Adic, rigid and perfectoid geometry",
+    "short": "Adic & rigid geometry",
+    "phrases": [
+     "adic space*",
+     "adic geometry",
+     "rigid analytic",
+     "rigid geometry",
+     "perfectoid",
+     "diamond*",
+     "v-stack*",
+     "tate algebra*",
+     "restricted power series",
+     "formal model*",
+     "formal geometry",
+     "berkovich",
+     "a_inf",
+     "prismatic",
+     "fargues-fontaine",
+     "solid",
+     "condensed",
+     "analytic stack*",
+     "syntomic"
+    ]
+   },
+   {
+    "id": "etale",
+    "label": "Étale and ℓ-adic cohomology",
+    "short": "Étale cohomology",
+    "phrases": [
+     "etale",
+     "l-adic",
+     "weil conjecture*",
+     "lefschetz",
+     "constructible",
+     "six operation*",
+     "perverse",
+     "vanishing cycle*",
+     "weights",
+     "purity",
+     "base change",
+     "point counting",
+     "cohomological l-function*",
+     "cohomological zeta",
+     "trace formula",
+     "frobenius"
+    ]
+   },
+   {
+    "id": "hodge",
+    "label": "Hodge theory and complex algebraic geometry",
+    "short": "Hodge & complex geometry",
+    "phrases": [
+     "hodge",
+     "complex",
+     "kahler",
+     "period*",
+     "k3",
+     "calabi-yau",
+     "mirror",
+     "scattering diagram*",
+     "wall crossing",
+     "gromov-witten",
+     "enriques",
+     "toroidal",
+     "analytic famil*",
+     "de rham",
+     "derived de rham",
+     "connection*",
+     "opers"
+    ]
+   },
+   {
+    "id": "moduli",
+    "label": "Curves, moduli and stacks",
+    "short": "Curves, moduli & stacks",
+    "phrases": [
+     "curve*",
+     "moduli",
+     "stack*",
+     "jacobian*",
+     "stable reduction",
+     "stable map*",
+     "riemann-roch",
+     "belyi",
+     "dessins",
+     "hurwitz",
+     "neron",
+     "abelian variet*",
+     "picard",
+     "torsor*"
+    ]
+   },
+   {
+    "id": "birational",
+    "label": "Birational, toric and real algebraic geometry",
+    "short": "Birational, toric & real",
+    "phrases": [
+     "abundance",
+     "minimal model*",
+     "klt",
+     "fano",
+     "birational",
+     "toric",
+     "real algebraic",
+     "semialgebraic",
+     "semianalytic",
+     "real-analytic",
+     "resolution of singularit*",
+     "schubert",
+     "flag variet*",
+     "demazure"
+    ]
+   },
+   {
+    "id": "motives",
+    "label": "Motives and algebraic cycles",
+    "short": "Motives & cycles",
+    "phrases": [
+     "motive*",
+     "motivic",
+     "algebraic cycle*",
+     "chow"
+    ]
+   },
+   {
+    "id": "foundations",
+    "label": "Schemes, sheaves and foundations",
+    "short": "Schemes & foundations",
+    "phrases": [
+     "scheme*",
+     "sheaf",
+     "sheaves",
+     "derived categor*",
+     "vector bundle*",
+     "coherent",
+     "cohomology",
+     "reductive",
+     "algebraic group*",
+     "grothendieck",
+     "descent",
+     "commutative algebra"
+    ]
+   },
+   {
+    "id": "other",
+    "label": "Other algebraic geometry",
+    "short": "Other algebraic geometry",
+    "phrases": []
+   }
+  ],
+  "math.RT": [
+   {
+    "id": "lie",
+    "label": "Lie theory and algebraic groups",
+    "short": "Lie theory",
+    "phrases": [
+     "lie",
+     "root system*",
+     "reductive",
+     "weyl",
+     "chevalley",
+     "semisimple",
+     "kac-moody",
+     "algebraic group*",
+     "coxeter",
+     "flag",
+     "nilpotent orbit*",
+     "springer",
+     "tensor product*",
+     "clifford",
+     "spin",
+     "quantum enveloping",
+     "quantum group*"
+    ]
+   },
+   {
+    "id": "padic",
+    "label": "Representations of p-adic and adelic groups",
+    "short": "p-adic & automorphic reps",
+    "phrases": [
+     "p-adic group*",
+     "smooth representation*",
+     "admissible",
+     "automorphic",
+     "langlands",
+     "hecke algebra*",
+     "bessel",
+     "jacquet",
+     "whittaker",
+     "unitary",
+     "banach representation*",
+     "tempered",
+     "theta correspondence",
+     "gl_n",
+     "gl(n)",
+     "local group*"
+    ]
+   },
+   {
+    "id": "finite",
+    "label": "Representations of finite groups",
+    "short": "Finite group reps",
+    "phrases": [
+     "finite group*",
+     "character*",
+     "symmetric group*",
+     "modular representation*",
+     "brauer",
+     "block*",
+     "group algebra*",
+     "mckay"
+    ]
+   },
+   {
+    "id": "algebras",
+    "label": "Quivers, associative algebras and categorification",
+    "short": "Quivers & algebras",
+    "phrases": [
+     "quiver*",
+     "artin algebra*",
+     "tilting",
+     "cluster",
+     "associative algebra*",
+     "categorif*",
+     "module categor*",
+     "skew group",
+     "dg",
+     "a-infinity",
+     "hall algebra*",
+     "homological algebra",
+     "grothendieck group*",
+     "semisimple algebra*",
+     "artin-wedderburn",
+     "preprojective",
+     "ginzburg"
+    ]
+   },
+   {
+    "id": "other",
+    "label": "Other representation theory",
+    "short": "Other representation theory",
+    "phrases": []
+   }
+  ]
+ }
+}
