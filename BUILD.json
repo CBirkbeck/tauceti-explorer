@@ -1,38 +1,37 @@
 {
-  "roadmaps": 407,
-  "stages": 3288,
-  "originalStages": 3288,
+  "roadmaps": 405,
+  "stages": 3275,
+  "originalStages": 3275,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3256,
-  "groups": 25,
+  "terminalTargets": 3243,
+  "groups": 39,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
   ],
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "judged": 203,
-    "measured": 154,
-    "built": 7,
-    "children": 1
+    "built": 13,
+    "judged": 52,
+    "measured": 340
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
-  "areasWithRoadmaps": 25,
+  "areasWithRoadmaps": 39,
   "additionalRegions": 0,
-  "mathematicalSummaries": 407,
+  "mathematicalSummaries": 405,
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 3288,
+  "mathematicalStars": 3275,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 13,
   "bibliographicSources": 46,
-  "roadmapEdges": 602,
-  "stageEdges": 2612,
+  "roadmapEdges": 599,
+  "stageEdges": 2601,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3541,25 +3540,25 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 39036722,
-  "htmlSha256": "e2e29110943b151bcc41595903a8489831cfc0fcf8c5d7f382faf047c1e25332",
+  "htmlBytes": 39086340,
+  "htmlSha256": "07b1feeab0ad9d33a276f745d8a1289aa2b6085ece0652d04c4259d916437342",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
     "src/shell.html": "78259855290f56884cf12d307790e807fc014f8af5c044c1d2170159a9bac45c",
-    "src/style.css": "1914308e7b8e0fce682b612e1527573fae663130cf9faad8ced7574827e4c54b",
+    "src/style.css": "77dba22ab056c916bf6b2ceba01ceb9cd6fc53ea45063676c3a6152a6b26e2ba",
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
-    "src/universe.js": "4724fa6641a9f85d1a832a3978b0ff3b80033eb13bdcf476e0ac44b75bceb1be",
-    "src/graph.js": "f373ecedb318fd7d422bb1900c77795f89be47e9c5606e9f1121b1e0f6a8180c",
+    "src/universe.js": "e874cac58f7a657b6c95596a91ac2740c0f708156c62ab61c281d8084ea93edc",
+    "src/graph.js": "21ede3d94d35c3e7ce1e9494380dd1f57ccb9de4e32f84649c22f346884933d3",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "ce2bcb7443a4bb483c4fc6cc08a4c0638e0453e085c8d4856e066773468f5c33",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
     "src/live.js": "56a9e4f288ea8bc49668095bf5463fdcb8dc5f827a09e80c000f193b8c94949c",
-    "src/app.js": "fc059ef9b67a055f67a400e2f67b799186b2b6eb3621dbdabe5a937485b9b404",
+    "src/app.js": "4d125e13d3034cd504eed898fdbb5599a765ab0a86bbc5ebd1a751e791dc6a2c",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/tauceti-progress.json": "b8c34e08966b0850026317fb6c4b2b423e4dd0756b0093a3eeeec4a445e18e6f",
@@ -5055,8 +5054,8 @@
       "partial": 274,
       "untouched": 118,
       "unassessed": 449,
-      "total": 3180,
-      "proposed": 1963
+      "total": 3167,
+      "proposed": 1950
     },
     "added": [
       "tauceti:TauCetiRoadmap/AdicEtaleGeometry",
@@ -5200,14 +5199,14 @@
     ]
   },
   "proposals": {
-    "openPulls": 321,
-    "pulls": 246,
-    "layers": 1963,
+    "openPulls": 320,
+    "pulls": 244,
+    "layers": 1950,
     "unplaced": [
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-22T11:29:27Z",
-    "roadmaps": 255
+    "updatedAt": "2026-10-22T12:42:20Z",
+    "roadmaps": 253
   },
   "variant": "atlas"
 }

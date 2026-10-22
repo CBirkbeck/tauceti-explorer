@@ -1,5 +1,5 @@
 {
- "openPulls": 321,
+ "openPulls": 320,
  "pulls": [
   {
    "author": "kim-em",
@@ -110,7 +110,7 @@
    "number": 248,
    "sha": "affb2d0e03eeba7addf25dc4c72dd20643863fb8",
    "title": "Add roadmap: L-functions: completions and functional equations",
-   "updatedAt": "2026-10-20T16:09:20Z",
+   "updatedAt": "2026-10-22T12:34:39Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/248"
   },
   {
@@ -580,7 +580,7 @@
    "number": 856,
    "sha": "76d989bb35632159a858adf4da7f7f86f3676275",
    "title": "Arithmetic Galois representations and conductors",
-   "updatedAt": "2026-10-21T22:57:52Z",
+   "updatedAt": "2026-10-22T12:34:46Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/856"
   },
   {
@@ -898,7 +898,7 @@
    "number": 896,
    "sha": "7f2659392124fc032737ba5793d6a82218c18805",
    "title": "CharacteristicClasses: early classifiers and explicit supplier contracts",
-   "updatedAt": "2026-10-21T15:49:36Z",
+   "updatedAt": "2026-10-22T12:05:39Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/896"
   },
   {
@@ -943,20 +943,6 @@
    "title": "Local variational field theory: jets, Euler operators and Noether identities",
    "updatedAt": "2026-10-21T16:32:06Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/916"
-  },
-  {
-   "author": "kim-em",
-   "createdAt": "2026-10-14T19:41:33Z",
-   "draft": false,
-   "head": "TauCetiProject/TauCetiRoadmap",
-   "labels": [
-    "awaiting-review"
-   ],
-   "number": 918,
-   "sha": "eec4a66139a70f03ba7e81ad317028f9bec23071",
-   "title": "roadmap(RealAnalyticGeometry): semianalytic triangulation and Stein geometry",
-   "updatedAt": "2026-10-21T16:44:28Z",
-   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/918"
   },
   {
    "author": "CBirkbeck",
@@ -1015,7 +1001,7 @@
    "number": 924,
    "sha": "691b4b3310d33d5ad6b2b5224005a407eff9a1f8",
    "title": "Roadmap: automorphic L-functions and local factors",
-   "updatedAt": "2026-10-22T00:08:10Z",
+   "updatedAt": "2026-10-22T12:34:49Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/924"
   },
   {
@@ -1223,20 +1209,6 @@
    "title": "Add pseudodifferential operators and elliptic bundle analysis roadmap",
    "updatedAt": "2026-10-16T18:59:16Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/952"
-  },
-  {
-   "author": "kim-em",
-   "createdAt": "2026-10-15T03:32:35Z",
-   "draft": false,
-   "head": "TauCetiProject/TauCetiRoadmap",
-   "labels": [
-    "awaiting-review"
-   ],
-   "number": 954,
-   "sha": "69ef6cdb69a1f2dc225a17e9918ded6577fb0340",
-   "title": "Add integral currents and minimizing hypersurfaces roadmap",
-   "updatedAt": "2026-10-21T17:38:11Z",
-   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/954"
   },
   {
    "author": "kim-em",
@@ -1763,7 +1735,7 @@
    "number": 1037,
    "sha": "472d469cbfefba2088ae57463773283c643d2033",
    "title": "Automorphic forms on reductive groups",
-   "updatedAt": "2026-10-22T00:17:44Z",
+   "updatedAt": "2026-10-22T12:34:44Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1037"
   },
   {
@@ -1983,7 +1955,7 @@
    "number": 1057,
    "sha": "699c8cb13afaff25ca357fc102bb972f12a79469",
    "title": "Prismatic cohomology, Part I: delta rings, prisms and relative cohomology",
-   "updatedAt": "2026-10-20T19:38:03Z",
+   "updatedAt": "2026-10-22T12:42:20Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1057"
   },
   {
@@ -2984,7 +2956,7 @@
    "number": 1260,
    "sha": "6966ae7311dda1b71ecea07fc6677d9980b10497",
    "title": "Roadmap: cyclotomic class groups, Stickelberger and Herbrand–Ribet",
-   "updatedAt": "2026-10-22T00:39:00Z",
+   "updatedAt": "2026-10-22T12:34:46Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1260"
   },
   {
@@ -3005,7 +2977,7 @@
   {
    "author": "CBirkbeck",
    "createdAt": "2026-10-20T01:41:39Z",
-   "draft": true,
+   "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
     "awaiting-dependencies",
@@ -3014,7 +2986,7 @@
    "number": 1266,
    "sha": "cb2a639ac81dd3c7f7d3a3f6efd97332fdb61d40",
    "title": "Roadmap: hermitian K-theory of Poincaré categories",
-   "updatedAt": "2026-10-22T06:15:56Z",
+   "updatedAt": "2026-10-22T12:14:42Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1266"
   },
   {
@@ -3029,7 +3001,7 @@
    "number": 1270,
    "sha": "08a9b79d7c32794ce01c5952ca3c9fdf3ee9d247",
    "title": "Roadmap: completed cohomology and local–global compatibility",
-   "updatedAt": "2026-10-20T19:41:23Z",
+   "updatedAt": "2026-10-22T12:34:55Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1270"
   },
   {
@@ -3131,7 +3103,7 @@
    "number": 1306,
    "sha": "4b6c255c5a7af1f04ba62bcfd0f4f11e18b3c5c6",
    "title": "Roadmap: integral Iwasawa theory",
-   "updatedAt": "2026-10-20T14:22:35Z",
+   "updatedAt": "2026-10-22T12:42:18Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1306"
   },
   {
@@ -4010,10 +3982,6 @@
    "arxiv": "math.KT",
    "pull": 1212
   },
-  "TauCetiRoadmap/GeometricCurrents": {
-   "arxiv": "math.DG",
-   "pull": 954
-  },
   "TauCetiRoadmap/GeometricQuantization": {
    "arxiv": "math.SG",
    "pull": 1186
@@ -4401,10 +4369,6 @@
   "TauCetiRoadmap/RandomMatrices": {
    "arxiv": "math.PR",
    "pull": 397
-  },
-  "TauCetiRoadmap/RealAnalyticGeometry": {
-   "arxiv": "math.AG",
-   "pull": 918
   },
   "TauCetiRoadmap/ReductiveGroupsPartII": {
    "arxiv": "math.RT",
