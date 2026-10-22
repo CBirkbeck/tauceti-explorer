@@ -1,5 +1,5 @@
 {
- "openPulls": 322,
+ "openPulls": 323,
  "pulls": [
   {
    "author": "kim-em",
@@ -438,7 +438,7 @@
     "awaiting-review"
    ],
    "number": 792,
-   "sha": "7b84aae1803e4a145ea251a57f526061764a0ab2",
+   "sha": "70c4324977cd93dda7c67dec9d1ff6c39fa55a29",
    "stated": {
     "before": [
      248,
@@ -451,7 +451,7 @@
     ]
    },
    "title": "Roadmap: adelic algebraic groups (depends on #785)",
-   "updatedAt": "2026-10-20T14:15:43Z",
+   "updatedAt": "2026-10-22T16:40:49Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/792"
   },
   {
@@ -1851,7 +1851,7 @@
     "awaiting-review"
    ],
    "number": 928,
-   "sha": "256555e38f36b7545e8245a756015f187defc343",
+   "sha": "4e550b1e1d2dc5854831da3c392dd35877df0bae",
    "stated": {
     "before": [
      785,
@@ -1892,7 +1892,7 @@
     ]
    },
    "title": "Roadmap: algebraic modular forms and Serre weights",
-   "updatedAt": "2026-10-20T19:38:56Z",
+   "updatedAt": "2026-10-22T16:35:52Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/928"
   },
   {
@@ -1905,7 +1905,7 @@
     "awaiting-review"
    ],
    "number": 929,
-   "sha": "e9585a0c5f01a2ac0a0b40550d9a86b24679ae9c",
+   "sha": "6c2402d58d5a69022c132fcd7984ac5942818da7",
    "stated": {
     "before": [
      785,
@@ -1948,7 +1948,7 @@
     ]
    },
    "title": "Roadmap: Deligne weights, purity and the Weil bounds",
-   "updatedAt": "2026-10-20T19:38:43Z",
+   "updatedAt": "2026-10-22T16:41:06Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/929"
   },
   {
@@ -1961,7 +1961,7 @@
     "awaiting-review"
    ],
    "number": 931,
-   "sha": "b4365ef04ce96fa279a9b0d47b8ff3e0e9b58ebd",
+   "sha": "69bcab779acf5f63acd89379f4c4b9fa4f947c02",
    "stated": {
     "before": [
      785,
@@ -2020,7 +2020,7 @@
     ]
    },
    "title": "Roadmap: GL₂ automorphic representations and transfer",
-   "updatedAt": "2026-10-20T19:38:58Z",
+   "updatedAt": "2026-10-22T16:53:11Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/931"
   },
   {
@@ -2033,7 +2033,7 @@
     "awaiting-review"
    ],
    "number": 933,
-   "sha": "ce108212b4c3943e82fbbb3cf246ff5fd98ac835",
+   "sha": "d377db7b449b570511759aa16416f40f99f38050",
    "stated": {
     "before": [
      785,
@@ -2088,7 +2088,7 @@
     ]
    },
    "title": "Roadmap: complex Shimura varieties and canonical models",
-   "updatedAt": "2026-10-20T19:39:02Z",
+   "updatedAt": "2026-10-22T16:53:28Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/933"
   },
   {
@@ -2130,7 +2130,7 @@
     "awaiting-review"
    ],
    "number": 940,
-   "sha": "704695f005449a12113f028e2c1d927b5f74fa4b",
+   "sha": "5e363da4337d4fd8fc80133493ff83f9395d55c2",
    "stated": {
     "before": [
      816,
@@ -2144,7 +2144,7 @@
     ]
    },
    "title": "PadicPeriodRings: p-adic period rings foundation roadmap",
-   "updatedAt": "2026-10-21T23:09:26Z",
+   "updatedAt": "2026-10-22T17:06:33Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/940"
   },
   {
@@ -2241,7 +2241,7 @@
     "awaiting-review"
    ],
    "number": 964,
-   "sha": "3462f9cf351b8a4e8155579fc068f5ed65ece832",
+   "sha": "c7b50246bf7206344f0342e9e6f22bc7ec7970b8",
    "stated": {
     "before": [
      785,
@@ -2283,7 +2283,7 @@
     ]
    },
    "title": "FarguesFontaineDiamonds: the Fargues–Fontaine curve as a diamond",
-   "updatedAt": "2026-10-20T19:39:25Z",
+   "updatedAt": "2026-10-22T17:02:05Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/964"
   },
   {
@@ -2296,7 +2296,7 @@
     "awaiting-review"
    ],
    "number": 965,
-   "sha": "726658cfc1bf5f2e08afa2e197cbbc5f0ecb37fa",
+   "sha": "248aad6f75aec356575c9355c37500c3708e852c",
    "stated": {
     "before": [
      785,
@@ -2338,7 +2338,7 @@
     ]
    },
    "title": "AdicCoefficientsAndComparisons: adic coefficients and scheme–v-sheaf comparisons",
-   "updatedAt": "2026-10-20T19:39:05Z",
+   "updatedAt": "2026-10-22T17:06:49Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/965"
   },
   {
@@ -9446,8 +9446,8 @@
    "draft": true,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
-    "awaiting-dependencies",
-    "awaiting-review"
+    "awaiting-author",
+    "awaiting-dependencies"
    ],
    "number": 1306,
    "sha": "74947126043c39fbb3ddef3e06a0ec9bd2794d65",
@@ -9463,7 +9463,7 @@
     ]
    },
    "title": "Roadmap: integral Iwasawa theory",
-   "updatedAt": "2026-10-22T12:43:54Z",
+   "updatedAt": "2026-10-22T17:02:49Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1306"
   },
   {
@@ -9507,7 +9507,7 @@
     "awaiting-review"
    ],
    "number": 1309,
-   "sha": "ba1ddc17d6a03a026c638448d92b494ee78cddd7",
+   "sha": "5d116520a5d4ff777a186a77b0b648823d7f1909",
    "stated": {
     "before": [
      785,
@@ -9518,7 +9518,7 @@
     ]
    },
    "title": "Roadmap: Coleman power series",
-   "updatedAt": "2026-10-20T15:13:38Z",
+   "updatedAt": "2026-10-22T17:01:29Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1309"
   },
   {
@@ -9652,7 +9652,7 @@
     "awaiting-review"
    ],
    "number": 1313,
-   "sha": "c3dad319dd28b8dec9dca85265421575049bd5dc",
+   "sha": "b618cef901c166372fd5e8df9fd8da0778b52774",
    "stated": {
     "before": [
      1199
@@ -9662,7 +9662,7 @@
     ]
    },
    "title": "Roadmap: motives and algebraic cycles",
-   "updatedAt": "2026-10-20T19:38:30Z",
+   "updatedAt": "2026-10-22T17:04:51Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1313"
   },
   {
@@ -9675,13 +9675,13 @@
     "awaiting-review"
    ],
    "number": 1314,
-   "sha": "e610f0439a1fd779cae437d55d483516c0da09d0",
+   "sha": "3caf5c7f1d8548c285a3aab260368b41fa56e52a",
    "stated": {
     "before": [],
     "prerequisites": []
    },
    "title": "Roadmap: Habiro cyclotomic completions",
-   "updatedAt": "2026-10-22T13:08:43Z",
+   "updatedAt": "2026-10-22T17:03:31Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1314"
   },
   {
