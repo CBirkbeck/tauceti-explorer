@@ -413,7 +413,7 @@
     "awaiting-review"
    ],
    "number": 785,
-   "sha": "fed9686051ae2be62e04253ab8cbf9e045584790",
+   "sha": "1383569e956c4743fbc4259f965015592718c971",
    "stated": {
     "before": [
      446,
@@ -425,7 +425,7 @@
     ]
    },
    "title": "Roadmap: reductive groups, part II",
-   "updatedAt": "2026-10-22T15:53:34Z",
+   "updatedAt": "2026-10-22T16:16:27Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/785"
   },
   {
@@ -1564,7 +1564,7 @@
     "awaiting-review"
    ],
    "number": 922,
-   "sha": "e07a1fd4a2fddbc4b499cbafdd9701d359c97257",
+   "sha": "3c67283c79aac3df5939b3b4f9d11b22b1e009d8",
    "stated": {
     "before": [
      785,
@@ -1603,7 +1603,7 @@
     ]
    },
    "title": "Roadmap: étale cohomology of diamonds and its four operations",
-   "updatedAt": "2026-10-20T19:38:39Z",
+   "updatedAt": "2026-10-22T15:59:23Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/922"
   },
   {
@@ -1616,7 +1616,7 @@
     "awaiting-review"
    ],
    "number": 923,
-   "sha": "e18984688bc762ca5115bbabd7696f50a29e7cf6",
+   "sha": "5c827495aa3b7dc89c99c4957b7851074353b897",
    "stated": {
     "before": [
      785,
@@ -1658,7 +1658,7 @@
     ]
    },
    "title": "Roadmap: local Galois deformation rings and their components",
-   "updatedAt": "2026-10-20T19:38:35Z",
+   "updatedAt": "2026-10-22T16:06:50Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/923"
   },
   {
@@ -1671,7 +1671,7 @@
     "awaiting-review"
    ],
    "number": 924,
-   "sha": "691b4b3310d33d5ad6b2b5224005a407eff9a1f8",
+   "sha": "5d22a2349be8d4a99db20650f882afc4dfa83f87",
    "stated": {
     "before": [
      248,
@@ -1721,7 +1721,7 @@
     ]
    },
    "title": "Roadmap: automorphic L-functions and local factors",
-   "updatedAt": "2026-10-22T12:34:49Z",
+   "updatedAt": "2026-10-22T16:27:30Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/924"
   },
   {
@@ -1736,7 +1736,7 @@
     "mathlib"
    ],
    "number": 925,
-   "sha": "7d326fdba6d5dea86107c721218d026889c8965e",
+   "sha": "c5cfb92f8322cfdd96e1e20a651c7d7f47155941",
    "stated": {
     "before": [
      248,
@@ -1784,7 +1784,7 @@
     ]
    },
    "title": "Roadmap: automorphic spectral theory and trace distributions",
-   "updatedAt": "2026-10-20T19:38:50Z",
+   "updatedAt": "2026-10-22T16:21:56Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/925"
   },
   {
@@ -1797,7 +1797,7 @@
     "awaiting-review"
    ],
    "number": 927,
-   "sha": "3582e67a7523136f8eb6c7582f585ca11566888b",
+   "sha": "ac2b81072d5201949105ab0a172912700b9a8b36",
    "stated": {
     "before": [
      785,
@@ -1838,7 +1838,7 @@
     ]
    },
    "title": "Roadmap: six operations and duality for diamonds",
-   "updatedAt": "2026-10-20T19:38:41Z",
+   "updatedAt": "2026-10-22T16:27:51Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/927"
   },
   {
@@ -2630,7 +2630,7 @@
    "number": 992,
    "sha": "ffb25b53b2357f8f7f6b92e39a98651e416a9ac7",
    "title": "Add global holomorphic-function theory for plane domains",
-   "updatedAt": "2026-10-22T03:05:05Z",
+   "updatedAt": "2026-10-22T16:30:54Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/992"
   },
   {
@@ -9787,17 +9787,17 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1335,
-   "sha": "85e78c07dcc361ead6505c970a1181deee483819",
+   "sha": "afd0ce3f1baeb94050a2696438dd8728ab87a7b1",
    "stated": {
     "before": [],
     "prerequisites": []
    },
    "title": "ArithmeticDynamics: roadmap",
-   "updatedAt": "2026-10-22T15:16:35Z",
+   "updatedAt": "2026-10-22T16:24:13Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1335"
   },
   {
@@ -9806,17 +9806,17 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1336,
-   "sha": "72b615703f7fc5d175e519ddbb6e589d3d744c6c",
+   "sha": "e3c95fb7ca695785cb1b2e42085014f7a047ba5e",
    "stated": {
     "before": [],
     "prerequisites": []
    },
    "title": "ErdosProgressionPowers: roadmap",
-   "updatedAt": "2026-10-22T15:16:37Z",
+   "updatedAt": "2026-10-22T16:13:37Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1336"
   },
   {

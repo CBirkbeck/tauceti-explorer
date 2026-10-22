@@ -3538,18 +3538,18 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 41990232,
-  "htmlSha256": "51fcc64bbba54d2f97dc2623b8203bbcd30688e816a5eaebfacdab09eb83e9d9",
+  "htmlBytes": 41993286,
+  "htmlSha256": "6b1900dbbdf7afd1d1c65796490a3fc4bb843d70d1db6a6ab372961ca7573b75",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
-    "src/shell.html": "fbeab54e1afc52cfe399bb457a4e8fbc30db8680aac68b66985f83ebbf92fbf1",
+    "src/shell.html": "52b78d8c4249e554d8063b210f9dca01757ab5eec9d262c581debe8aa8d6ecbd",
     "src/style.css": "95dbecb3a99d2166cc7f6b51a66887427e91c94b6b38acbac68b491187818ea7",
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
     "src/universe.js": "787445f9dd50d74187c43bdb4cab36aeb8c7af5f2548b15d172b5d67384f65f4",
-    "src/graph.js": "fbab026292fe6f8a301214943ada7c19cd0447b01c4ed83f3f02712bea0f50bb",
+    "src/graph.js": "9c879e632737b763513b8a948739ae9ba12254dc6cd44b01fbe46b18206a6a89",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "ce2bcb7443a4bb483c4fc6cc08a4c0638e0453e085c8d4856e066773468f5c33",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
@@ -5203,7 +5203,7 @@
     "unplaced": [
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-22T15:53:55Z",
+    "updatedAt": "2026-10-22T16:30:54Z",
     "roadmaps": 253
   },
   "variant": "atlas"
