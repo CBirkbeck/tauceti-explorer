@@ -207,9 +207,9 @@
     "awaiting-review"
    ],
    "number": 284,
-   "sha": "1b5e9f98fd5ef4013bb24dc6317c600c07715e8f",
+   "sha": "fb7c47e275c3d1474bdfbde62d92d8e97222930e",
    "title": "feat: roadmap for high-dimensional differential topology and homotopy spheres",
-   "updatedAt": "2026-10-22T12:50:24Z",
+   "updatedAt": "2026-10-22T15:16:12Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/284"
   },
   {
@@ -413,7 +413,7 @@
     "awaiting-review"
    ],
    "number": 785,
-   "sha": "0d37c3f452ad9769ad7bfc257b5f283091814d85",
+   "sha": "f0ef582728c153e1211c3e1524922a10cef35194",
    "stated": {
     "before": [
      446,
@@ -425,7 +425,7 @@
     ]
    },
    "title": "Roadmap: reductive groups, part II",
-   "updatedAt": "2026-10-20T13:22:06Z",
+   "updatedAt": "2026-10-22T15:22:13Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/785"
   },
   {
@@ -518,9 +518,7 @@
      868,
      887,
      896,
-     918,
      940,
-     954,
      973,
      992,
      1056,
@@ -533,9 +531,7 @@
      887,
      896,
      908,
-     918,
      938,
-     954,
      973,
      992,
      1056,
@@ -543,7 +539,7 @@
     ]
    },
    "title": "Complex comparison, part II: coherent analytic sheaves, algebraization and the de Rham–Betti comparison",
-   "updatedAt": "2026-10-22T13:06:20Z",
+   "updatedAt": "2026-10-22T15:14:55Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/848"
   },
   {
@@ -813,7 +809,7 @@
     "awaiting-review"
    ],
    "number": 856,
-   "sha": "209932d7a453610e018db84bbda6eb89b386059a",
+   "sha": "0d2344daaa003a774d02fa494e88db8bb50088d6",
    "stated": {
     "before": [
      248,
@@ -841,7 +837,7 @@
     ]
    },
    "title": "Arithmetic Galois representations and conductors",
-   "updatedAt": "2026-10-22T13:44:58Z",
+   "updatedAt": "2026-10-22T14:18:12Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/856"
   },
   {
@@ -854,7 +850,7 @@
     "awaiting-review"
    ],
    "number": 857,
-   "sha": "2c8b22a1737d1660f1baf397926b41e90139a80d",
+   "sha": "013a9213642094a35a83bbb9842a8eb397064e0b",
    "stated": {
     "before": [
      816,
@@ -871,7 +867,7 @@
     ]
    },
    "title": "Crystalline cohomology, de Rham–Witt complexes and logarithmic structures",
-   "updatedAt": "2026-10-21T23:27:57Z",
+   "updatedAt": "2026-10-22T14:15:37Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/857"
   },
   {
@@ -884,7 +880,7 @@
     "awaiting-review"
    ],
    "number": 858,
-   "sha": "5b7027c11722984edb77acf2dc885be67aa4998a",
+   "sha": "09ad3409ed15b0c59ef59777caed53b0d2432ede",
    "stated": {
     "before": [
      785,
@@ -907,7 +903,7 @@
     "prerequisites": []
    },
    "title": "Continuous cohomology of profinite groups, part II: compact coefficients and arithmetic duality",
-   "updatedAt": "2026-10-20T19:37:38Z",
+   "updatedAt": "2026-10-22T14:24:43Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/858"
   },
   {
@@ -1004,7 +1000,7 @@
     "awaiting-review"
    ],
    "number": 868,
-   "sha": "fcd006d6bc45101851006e467004076e2359042d",
+   "sha": "83d00dd55ed8524df42e1610a6875df9efdfd356",
    "stated": {
     "before": [
      816,
@@ -1019,7 +1015,7 @@
     ]
    },
    "title": "Derived de Rham cohomology and the cotangent complex",
-   "updatedAt": "2026-10-20T13:21:59Z",
+   "updatedAt": "2026-10-22T14:33:13Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/868"
   },
   {
@@ -1032,7 +1028,7 @@
     "awaiting-review"
    ],
    "number": 869,
-   "sha": "17f60560d7f66aeca01e445f995e3172473fbf0f",
+   "sha": "1fa1c7d7447988efdf08df5936d6da2ffc2a009f",
    "stated": {
     "before": [
      248,
@@ -1070,7 +1066,7 @@
     ]
    },
    "title": "Selmer groups, Selmer complexes and Iwasawa cohomology",
-   "updatedAt": "2026-10-20T19:37:55Z",
+   "updatedAt": "2026-10-22T14:41:45Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/869"
   },
   {
@@ -1083,7 +1079,7 @@
     "awaiting-review"
    ],
    "number": 870,
-   "sha": "00b378117f1b0848222e660a77742443143d8776",
+   "sha": "e97468835ad3f7abc170db9a72432db6f3957863",
    "stated": {
     "before": [
      785,
@@ -1119,7 +1115,7 @@
     ]
    },
    "title": "Néron models and semistable abelian varieties, part II: genus-one fibrations and rational elliptic surfaces",
-   "updatedAt": "2026-10-20T19:37:53Z",
+   "updatedAt": "2026-10-22T14:47:38Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/870"
   },
   {
@@ -1132,7 +1128,7 @@
     "awaiting-review"
    ],
    "number": 871,
-   "sha": "92c6072dbbf366bc25c26897705800cece2b3ad9",
+   "sha": "7dca7ea300718839ee8030c95c010fe6c3414ec1",
    "stated": {
     "before": [
      785,
@@ -1149,7 +1145,7 @@
     "prerequisites": []
    },
    "title": "Arithmetic locally symmetric spaces and their cohomology",
-   "updatedAt": "2026-10-20T16:00:01Z",
+   "updatedAt": "2026-10-22T14:52:23Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/871"
   },
   {
@@ -1162,7 +1158,7 @@
     "awaiting-review"
    ],
    "number": 872,
-   "sha": "23d0de581c37f8a9edc102007e99e8ab37e46180",
+   "sha": "ec57b2b69b1cf3b179e5ab1409e6c73e8d00c57a",
    "stated": {
     "before": [
      785,
@@ -1188,7 +1184,7 @@
     ]
    },
    "title": "Commutative algebra for deformation theory and patching, part II: Kawasaki's Cohen–Macaulay blowing-ups",
-   "updatedAt": "2026-10-20T19:38:11Z",
+   "updatedAt": "2026-10-22T14:58:57Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/872"
   },
   {
@@ -1201,7 +1197,7 @@
     "awaiting-review"
    ],
    "number": 873,
-   "sha": "1b8f741b92693436a0dd0984a2c0c6ce7033a629",
+   "sha": "8f3e9b10141dd8cbf95522f70123cc0068ec67e1",
    "stated": {
     "before": [
      785,
@@ -1246,7 +1242,7 @@
     ]
    },
    "title": "Lefschetz pencils, nearby cycles and vanishing cycles",
-   "updatedAt": "2026-10-20T19:37:57Z",
+   "updatedAt": "2026-10-22T15:09:28Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/873"
   },
   {
@@ -1273,7 +1269,7 @@
     "awaiting-review"
    ],
    "number": 875,
-   "sha": "6e68ea2d8ef9c96fcd561e983d3b2cb8c1a25952",
+   "sha": "dfcb6b786ee07948465289e599be4c575cbd6bad",
    "stated": {
     "before": [
      785,
@@ -1303,7 +1299,7 @@
     "prerequisites": []
    },
    "title": "Classical analytic étale cohomology: the classical inputs to the étale cohomology of diamonds",
-   "updatedAt": "2026-10-20T19:37:59Z",
+   "updatedAt": "2026-10-22T15:14:06Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/875"
   },
   {
@@ -9342,8 +9338,10 @@
      1212,
      1227,
      1229,
+     1248,
      1260,
      1266,
+     1302,
      1306,
      1307,
      1310
@@ -9360,7 +9358,7 @@
     ]
    },
    "title": "Roadmap: K-theory of finite and local fields",
-   "updatedAt": "2026-10-22T10:28:07Z",
+   "updatedAt": "2026-10-22T15:15:20Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1281"
   },
   {
@@ -9799,7 +9797,7 @@
     "prerequisites": []
    },
    "title": "ArithmeticDynamics: roadmap",
-   "updatedAt": "2026-10-22T13:15:50Z",
+   "updatedAt": "2026-10-22T15:16:35Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1335"
   },
   {
@@ -9818,7 +9816,7 @@
     "prerequisites": []
    },
    "title": "ErdosProgressionPowers: roadmap",
-   "updatedAt": "2026-10-22T13:15:44Z",
+   "updatedAt": "2026-10-22T15:16:37Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1336"
   },
   {
@@ -9827,11 +9825,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1351,
-   "sha": "4605fbb0a2d9279b561f9467ab5cce09d7f2469e",
+   "sha": "fee71b66f0da361db8989d9cfeac99dbc3deea45",
    "stated": {
     "before": [
      785,
@@ -9895,7 +9893,7 @@
     ]
    },
    "title": "QWittVectors: roadmap",
-   "updatedAt": "2026-10-22T13:15:36Z",
+   "updatedAt": "2026-10-22T14:43:49Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1351"
   },
   {
@@ -9904,11 +9902,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1360,
-   "sha": "bd972d91ed7d5d8bd3dd2e7ee84b35853db32ba4",
+   "sha": "821d050f06cc9040ac92be84c316b28cd49d066c",
    "stated": {
     "before": [
      785,
@@ -10032,7 +10030,7 @@
     ]
    },
    "title": "ColemanIntegrationPartII: roadmap",
-   "updatedAt": "2026-10-22T13:15:30Z",
+   "updatedAt": "2026-10-22T14:48:26Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1360"
   },
   {
@@ -10041,11 +10039,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1364,
-   "sha": "dd8d7e6fda7516b9ab6806d5d75f5202332851c7",
+   "sha": "ad62fb065bfa4e288814a33beaeae5c01e47f914",
    "stated": {
     "before": [
      785,
@@ -10165,7 +10163,7 @@
     ]
    },
    "title": "CohomologyComparisonsPartII: roadmap",
-   "updatedAt": "2026-10-22T13:15:22Z",
+   "updatedAt": "2026-10-22T14:22:16Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1364"
   },
   {
@@ -10174,11 +10172,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1375,
-   "sha": "b82cbb70e85924d052746bdfe84156c20d8e201f",
+   "sha": "bf90a625e06e1b2a62bf5305afe77d220412d651",
    "stated": {
     "before": [
      785,
@@ -10204,7 +10202,7 @@
     ]
    },
    "title": "K3SurfacesAndSymplecticBoundedness: roadmap",
-   "updatedAt": "2026-10-22T13:15:14Z",
+   "updatedAt": "2026-10-22T14:22:25Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1375"
   },
   {
@@ -11058,17 +11056,17 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1407,
-   "sha": "c94888cd5b20bce1df7fd9eebcdaf15649e96c42",
+   "sha": "552db86c7d2a0e765863b1c96758aaba1f240d7c",
    "stated": {
     "before": [],
     "prerequisites": []
    },
    "title": "ConformalMappingPartII: roadmap",
-   "updatedAt": "2026-10-22T13:14:32Z",
+   "updatedAt": "2026-10-22T15:12:07Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1407"
   },
   {

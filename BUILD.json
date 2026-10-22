@@ -28,7 +28,7 @@
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 13,
   "bibliographicSources": 46,
-  "roadmapEdges": 4562,
+  "roadmapEdges": 4491,
   "stageEdges": 2601,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 42027527,
-  "htmlSha256": "e0d43e6e0d9052f61225857ae3ff544fc49c569e3612c24a0ed43aae04f70c3b",
+  "htmlBytes": 41982894,
+  "htmlSha256": "34e55a9b2e8649afb2fd77ab663f60a2e9aa3e5aaafba9b7b24a3636a1bc0c46",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -5203,7 +5203,7 @@
     "unplaced": [
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-22T14:06:14Z",
+    "updatedAt": "2026-10-22T15:22:13Z",
     "roadmaps": 253
   },
   "variant": "atlas"
