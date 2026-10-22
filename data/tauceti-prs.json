@@ -1,5 +1,5 @@
 {
- "openPulls": 323,
+ "openPulls": 321,
  "pulls": [
   {
    "author": "kim-em",
@@ -2351,7 +2351,7 @@
     "awaiting-review"
    ],
    "number": 966,
-   "sha": "2d82d078308ce615a612ad359f23208a95cd4359",
+   "sha": "e6a4fe859b9427b58bc592b2d98b1fbfd212c56f",
    "stated": {
     "before": [
      785,
@@ -2408,7 +2408,7 @@
     ]
    },
    "title": "PELModuli: Siegel and PEL moduli problems",
-   "updatedAt": "2026-10-20T19:39:21Z",
+   "updatedAt": "2026-10-22T17:14:17Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/966"
   },
   {
@@ -2421,7 +2421,7 @@
     "awaiting-review"
    ],
    "number": 968,
-   "sha": "4310d40ca7ffa001c627240183ce9dd6e926564b",
+   "sha": "62f31bcf28bdac1d98ca51680a40a408679313da",
    "stated": {
     "before": [
      785,
@@ -2476,7 +2476,7 @@
     ]
    },
    "title": "ModularSymbolsPadicLFunctions: modular symbols and analytic p-adic L-functions",
-   "updatedAt": "2026-10-20T19:39:27Z",
+   "updatedAt": "2026-10-22T17:19:51Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/968"
   },
   {
@@ -2489,7 +2489,7 @@
     "awaiting-review"
    ],
    "number": 970,
-   "sha": "68c3063020446f4dc0c3388249b058e27416f13d",
+   "sha": "d6e456ed0fcb067affce107374bf74f13814af15",
    "stated": {
     "before": [
      248,
@@ -2546,7 +2546,7 @@
     ]
    },
    "title": "Roadmap: small ramification and abelian-variety base cases",
-   "updatedAt": "2026-10-20T19:39:30Z",
+   "updatedAt": "2026-10-22T17:20:09Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/970"
   },
   {
@@ -2643,7 +2643,7 @@
     "awaiting-review"
    ],
    "number": 999,
-   "sha": "f8f8c2b09070d68ef4a7d35f53b9f34afa32abc7",
+   "sha": "40d60b681a1b4f2ac9b69b9e4ce09694193438f7",
    "stated": {
     "before": [
      785,
@@ -2725,7 +2725,7 @@
     ]
    },
    "title": "Roadmap: endoscopic transfer and unitary trace comparison",
-   "updatedAt": "2026-10-20T19:40:10Z",
+   "updatedAt": "2026-10-22T17:27:56Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/999"
   },
   {
@@ -2738,7 +2738,7 @@
     "awaiting-review"
    ],
    "number": 1000,
-   "sha": "bc305930098b63b1e8b7ee5415d3dd1a78c2562e",
+   "sha": "f2895a4afdbd3d653b18a2eb718f9ad04b492199",
    "stated": {
     "before": [
      785,
@@ -2798,7 +2798,7 @@
     ]
    },
    "title": "Roadmap: Arakelov geometry and heights of abelian varieties",
-   "updatedAt": "2026-10-20T19:39:54Z",
+   "updatedAt": "2026-10-22T17:28:28Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1000"
   },
   {
@@ -2811,7 +2811,7 @@
     "awaiting-review"
    ],
    "number": 1001,
-   "sha": "bc6e0cd9f3a40fd721ad24f5d473cbc3885303d1",
+   "sha": "84a13f10a304f3c6bc81bbb70bd8c88b4bca2215",
    "stated": {
     "before": [
      785,
@@ -2877,7 +2877,7 @@
     ]
    },
    "title": "Roadmap: weights and purity in étale cohomology",
-   "updatedAt": "2026-10-20T19:40:08Z",
+   "updatedAt": "2026-10-22T17:34:02Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1001"
   },
   {
@@ -2963,7 +2963,7 @@
     "awaiting-review"
    ],
    "number": 1004,
-   "sha": "76ea63c05d5822a0d493d8e647d30c79f40c8efa",
+   "sha": "bf09cb803f52c61eb033a8d59da7876d7287e2d4",
    "stated": {
     "before": [
      785,
@@ -3032,7 +3032,7 @@
     ]
    },
    "title": "Roadmap: Faltings finiteness and isogeny theorems",
-   "updatedAt": "2026-10-20T19:40:15Z",
+   "updatedAt": "2026-10-22T17:45:08Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1004"
   },
   {
@@ -3045,7 +3045,7 @@
     "awaiting-review"
    ],
    "number": 1005,
-   "sha": "5db7b73b405791d16da682c5f9e7c52c6b864fbf",
+   "sha": "893083daaaf2c0eece1322a7ed0a04571313ed45",
    "stated": {
     "before": [
      785,
@@ -3130,7 +3130,7 @@
     ]
    },
    "title": "Roadmap: Hilbert modular varieties and quaternionic Shimura curves",
-   "updatedAt": "2026-10-20T19:40:20Z",
+   "updatedAt": "2026-10-22T17:39:35Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1005"
   },
   {
@@ -3143,7 +3143,7 @@
     "awaiting-review"
    ],
    "number": 1006,
-   "sha": "c4cc6a16ac58b17b7da0ce4b7b9707d0fafda39f",
+   "sha": "fb0a94c9b9083d5353f05066974bb37760c9c5ae",
    "stated": {
     "before": [
      785,
@@ -3237,7 +3237,7 @@
     ]
    },
    "title": "Roadmap: regular algebraic automorphic Galois representations (Part II)",
-   "updatedAt": "2026-10-20T19:40:26Z",
+   "updatedAt": "2026-10-22T17:45:25Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1006"
   },
   {
@@ -3250,7 +3250,7 @@
     "awaiting-review"
    ],
    "number": 1007,
-   "sha": "2648a497579d81fab0cf0c1f8a4aca266e135776",
+   "sha": "81e9d0f8aca15f3ed498b19db6ff544216f857ed",
    "stated": {
     "before": [
      785,
@@ -3341,7 +3341,7 @@
     ]
    },
    "title": "Roadmap: Galois representations attached to modular and Hilbert modular forms",
-   "updatedAt": "2026-10-20T19:40:30Z",
+   "updatedAt": "2026-10-22T17:55:01Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1007"
   },
   {
@@ -3354,7 +3354,7 @@
     "awaiting-review"
    ],
    "number": 1013,
-   "sha": "763a7490a2789a6261c5f2dbd20543e14639cfc5",
+   "sha": "c9bed259e37c2877bda56bc341e6fb1fe093bbdd",
    "stated": {
     "before": [
      785,
@@ -3421,7 +3421,7 @@
     ]
    },
    "title": "Weight and level optimisation of residual modular representations",
-   "updatedAt": "2026-10-20T19:40:24Z",
+   "updatedAt": "2026-10-22T18:00:31Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1013"
   },
   {
@@ -9446,11 +9446,11 @@
    "draft": true,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
-    "awaiting-dependencies"
+    "awaiting-dependencies",
+    "awaiting-review"
    ],
    "number": 1306,
-   "sha": "74947126043c39fbb3ddef3e06a0ec9bd2794d65",
+   "sha": "b8493d12de895e2b62fe3ac9a9b14020ac31dae6",
    "stated": {
     "before": [
      248,
@@ -9463,7 +9463,7 @@
     ]
    },
    "title": "Roadmap: integral Iwasawa theory",
-   "updatedAt": "2026-10-22T17:02:49Z",
+   "updatedAt": "2026-10-22T17:15:54Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1306"
   },
   {
@@ -9500,7 +9500,7 @@
   {
    "author": "CBirkbeck",
    "createdAt": "2026-10-20T13:51:36Z",
-   "draft": true,
+   "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
     "awaiting-dependencies",
@@ -9518,7 +9518,7 @@
     ]
    },
    "title": "Roadmap: Coleman power series",
-   "updatedAt": "2026-10-22T17:01:29Z",
+   "updatedAt": "2026-10-22T17:19:04Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1309"
   },
   {
@@ -9668,7 +9668,7 @@
   {
    "author": "CBirkbeck",
    "createdAt": "2026-10-20T16:23:22Z",
-   "draft": true,
+   "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
     "awaiting-dependencies",
@@ -9681,7 +9681,7 @@
     "prerequisites": []
    },
    "title": "Roadmap: Habiro cyclotomic completions",
-   "updatedAt": "2026-10-22T17:03:31Z",
+   "updatedAt": "2026-10-22T17:19:10Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1314"
   },
   {
