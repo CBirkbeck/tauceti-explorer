@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-22T22:00Z",
+ "updated": "2026-10-22T22:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1462,7 +1462,7 @@
   "WeilConjectures": {
    "stage": "pr",
    "pr": 1208,
-   "head": "daa3895",
+   "head": "d90e186",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2); red team running",
    "review": {
     "recommendation": null,
@@ -1510,7 +1510,7 @@
   "StableHomotopyKTheory": {
    "stage": "pr",
    "pr": 1227,
-   "head": "8b81fab",
+   "head": "00bfbf7",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
@@ -1522,7 +1522,7 @@
   "SchemeKTheoryOperations": {
    "stage": "pr",
    "pr": 1229,
-   "head": "03713e1",
+   "head": "88dbd5a",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "approve",
@@ -1765,8 +1765,8 @@
    "head": "277eace",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
