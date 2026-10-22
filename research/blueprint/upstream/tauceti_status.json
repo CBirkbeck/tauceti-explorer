@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-22T18:00Z",
+ "updated": "2026-10-22T18:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -850,7 +850,7 @@
   "SerreWeightAndLevelOptimisation": {
    "stage": "pr",
    "pr": 1013,
-   "head": "763a749",
+   "head": "c9bed25",
    "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received",
    "review": {
     "recommendation": "approve",
@@ -862,7 +862,7 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "cec11c9",
+   "head": "82cf8af",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "changes",
