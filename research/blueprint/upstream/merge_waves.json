@@ -7,7 +7,7 @@
   "SchemeAndStackFoundations": 0,
   "SmoothRepresentationsOfLocalGroups": 2,
   "IntegralHeckeAndGaloisDeterminants": 2,
-  "GeometryOfNumbersAndQuadraticArithmetic": 5,
+  "GeometryOfNumbersAndQuadraticArithmetic": 4,
   "AdicEtaleGeometry": 1,
   "AdicSpacesPartII": 1,
   "DiamondsAndVStacks": 3,
@@ -114,7 +114,7 @@
   "RelativeFarguesFontaine": 25,
   "GeneralAlgebraicKTheory": 7,
   "JacobianChallengePartII": 15,
-  "StableHomotopyKTheory": 4,
+  "StableHomotopyKTheory": 5,
   "SchemeKTheoryOperations": 9,
   "VStackSheavesAndLisseCategories": 26,
   "MordellLawrenceVenkatesh": 26,
@@ -139,6 +139,19 @@
   "PadicLocalLanglandsForGL2Qp": 9,
   "MotivesAndAlgebraicCycles": 3,
   "HabiroCyclotomicCompletions": 1,
-  "PolylogarithmFunctions": 1
+  "PolylogarithmFunctions": 1,
+  "ArithmeticDynamics": 1,
+  "ErdosProgressionPowers": 1,
+  "QWittVectors": 1,
+  "ColemanIntegrationPartII": 1,
+  "CohomologyComparisonsPartII": 1,
+  "K3SurfacesAndSymplecticBoundedness": 1,
+  "QSeriesPartitionsAndMockModularForms": 1,
+  "SelmerIwasawaCohomologyPartII": 1,
+  "GanGrossPrasadUnitaryGroups": 1,
+  "AbelianSchemesAndArithmeticModuliPartII": 1,
+  "EffectiveClassNumbers": 1,
+  "ConformalMappingPartII": 1,
+  "ComputationalNumberTheory": 1
  }
 }
