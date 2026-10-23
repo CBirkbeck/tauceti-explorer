@@ -494,7 +494,7 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
       "stage": "pr",
       "pr": 879,
-      "head": "ef32031",
+      "head": "34f4657",
       "depends_on": [
         849,
         857,
@@ -511,7 +511,8 @@
         "recommendation": "changes",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 34f4657; confirmation pass pending"
       }
     },
     "EnhancedDerivedSheaves": {
