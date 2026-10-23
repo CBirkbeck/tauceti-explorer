@@ -898,13 +898,14 @@
     "PadicFamilies": {
       "stage": "pr",
       "pr": 1019,
-      "head": "97889a4",
+      "head": "418bd75",
       "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 418bd75; confirmation pass pending"
       }
     },
     "AnabelianGeometryAndNonabelianChabauty": {
