@@ -912,13 +912,14 @@
     "AnabelianGeometryAndNonabelianChabauty": {
       "stage": "pr",
       "pr": 1021,
-      "head": "afb40f8",
+      "head": "63d51d5",
       "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 63d51d5; confirmation pass pending"
       }
     },
     "DeformationAndDerivedPatchingAlgebra": {
