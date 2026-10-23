@@ -1678,13 +1678,14 @@
     "EulerSystemsAndKolyvaginSystems": {
       "stage": "pr",
       "pr": 1272,
-      "head": "372aff4",
+      "head": "d10d192",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at d10d192; confirmation pass pending"
       }
     },
     "KTheoryFiniteLocalFields": {
