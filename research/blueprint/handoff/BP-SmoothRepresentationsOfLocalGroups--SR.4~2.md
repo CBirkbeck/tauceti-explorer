@@ -1,6 +1,63 @@
 # Checkpoint: SR.4–SR.6 revision blocked by upstream ownership
 
-## Current checkpoint: codex-9FBT9M
+## Current checkpoint: codex-60PONi
+
+Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
+session `codex-60PONi`; 16 October 2026. **Blocked checkpoint; revision
+unfinished.** No second job was claimed.
+
+The bot confirmed this claim in
+[comment 6226492832](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6226492832).
+I read the issue body before claiming, but inspected its full discussion only
+after posting the claim. That missed the manager's explicit
+[stop instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6217693686):
+the revision is superseded by upstream ownership, and another claim requires
+an upstream-owner extension request. The earlier
+[maintainer instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6146993445)
+also directs roadmap changes upstream. All subsequent discussion was checked;
+none supplies an extension request. Automated release after checkpoint
+#10090 restored availability without resolving that instruction. Future
+selection must inspect the discussion before claiming and skip this job
+while the stop instruction applies.
+
+Live GitHub checks confirm that
+[upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+is open at `f24efef61443870dd47b64fd4de9828b0a685501`, carrying
+SmoothRepresentationsOfLocalGroups, while
+[PR #793](https://github.com/TauCetiProject/TauCetiRoadmap/pull/793)
+is merged. I inspected the immutable
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f24efef61443870dd47b64fd4de9828b0a685501/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md),
+Scope and ownership, SR.4.1, SR.5.2, SR.6.1 and SR.6.4–SR.6.5.
+It owns Satake, integral GL_n families and their integral second adjointness,
+finite-wild cocycles, excursion coefficients, center images and stable
+operators. General reductive consequences requiring the geometric action
+are outside its scope; that boundary does not authorize an atlas extension.
+README SHA-256:
+`8ad83c1c93c6f7dca2843d59e832a372d069f05db86040e36a364f98fa538d99`
+(accessed 16 October 2026). I also inspected the supplied read-only roadmap's
+ownership section and suggested-file opening. No shared upstream file was
+changed or built.
+
+Only this handoff changes. The packet and SR.4/SR.5/SR.6 coverage remain
+`partial`, and the existing review remains `needs_changes`. The unchanged
+inventory is 70 nodes (11 definitions, 6 constructions, 47 theorems,
+5 comparisons, 1 application), 55 API items, 51 unit tests, 14 planets,
+14 baseline declarations, 13 gaps and 17 requests. No mathematical source
+or baseline declaration was newly audited; no mathematical gap was resolved.
+
+Validation: blueprint checker 0 errors and 0 warnings; submission file check
+and whitespace check pass. The suggested Lean file was **not compiled in
+this session**, because no Lean or mathematical contract changed. No Lean
+process was started.
+
+Resume only after an upstream-owner extension request and a maintainer scope
+decision. Roadmap changes currently belong in upstream #785. Automated
+checkpoint release does not supply a new scope: the manager must reconcile
+availability with the explicit stop instruction. The existing review and
+earlier handoffs preserve the research worklist. All resumption evidence is
+linked here; no scratch file is needed.
+
+## Previous checkpoint: codex-9FBT9M
 
 Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
 session `codex-9FBT9M`; 16 October 2026. **Blocked checkpoint; revision
