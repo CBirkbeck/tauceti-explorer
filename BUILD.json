@@ -1,35 +1,35 @@
 {
-  "roadmaps": 419,
-  "stages": 3372,
-  "originalStages": 3372,
+  "roadmaps": 423,
+  "stages": 3395,
+  "originalStages": 3395,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3340,
-  "groups": 41,
+  "terminalTargets": 3363,
+  "groups": 42,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
   ],
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "dependencies": 419
+    "dependencies": 423
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
-  "areasWithRoadmaps": 41,
+  "areasWithRoadmaps": 42,
   "additionalRegions": 0,
-  "mathematicalSummaries": 419,
+  "mathematicalSummaries": 423,
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 3372,
+  "mathematicalStars": 3395,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 12,
   "bibliographicSources": 46,
-  "roadmapEdges": 5229,
-  "stageEdges": 2684,
+  "roadmapEdges": 5322,
+  "stageEdges": 2703,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 43062568,
-  "htmlSha256": "a356ae92e04bc1767a4f8d98a6bca4127ca14a468b0f0c1eeb1531b2f435bc64",
+  "htmlBytes": 43202002,
+  "htmlSha256": "953680ae1ee464f9fe184af56cf996e424e2e18699502de4b537955a6b9be637",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -5052,8 +5052,8 @@
       "partial": 274,
       "untouched": 114,
       "unassessed": 470,
-      "total": 3264,
-      "proposed": 2026
+      "total": 3287,
+      "proposed": 2049
     },
     "added": [
       "tauceti:TauCetiRoadmap/AdicEtaleGeometry",
@@ -5202,14 +5202,14 @@
     ]
   },
   "proposals": {
-    "openPulls": 331,
-    "pulls": 255,
-    "layers": 2026,
+    "openPulls": 335,
+    "pulls": 259,
+    "layers": 2049,
     "unplaced": [
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-23T09:31:25Z",
-    "roadmaps": 264
+    "updatedAt": "2026-10-23T12:43:00Z",
+    "roadmaps": 268
   },
   "variant": "atlas"
 }

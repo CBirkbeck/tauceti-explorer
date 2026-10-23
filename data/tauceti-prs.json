@@ -1,5 +1,5 @@
 {
- "openPulls": 331,
+ "openPulls": 335,
  "pulls": [
   {
    "author": "kim-em",
@@ -293,7 +293,7 @@
    "number": 446,
    "sha": "3e30589d8ea4e504afb02d56c16684cd29ceab43",
    "title": "Roadmap: CFSG list properties, recognition and Monster conjugacy",
-   "updatedAt": "2026-10-21T13:18:35Z",
+   "updatedAt": "2026-10-23T09:37:55Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/446"
   },
   {
@@ -1408,7 +1408,7 @@
    "number": 896,
    "sha": "d077cb4eea75fc3784d8d0741e5c853c9653ddca",
    "title": "CharacteristicClasses: universal classes, curvature and immersion obstructions",
-   "updatedAt": "2026-10-22T21:35:07Z",
+   "updatedAt": "2026-10-23T09:40:22Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/896"
   },
   {
@@ -1422,7 +1422,7 @@
    "number": 899,
    "sha": "163d43c3ec909a6ff5112e6b05359223cc677112",
    "title": "GroebnerGeometry: graded projective families and Veronese polarizations",
-   "updatedAt": "2026-10-21T15:56:30Z",
+   "updatedAt": "2026-10-23T09:37:00Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/899"
   },
   {
@@ -4220,14 +4220,14 @@
   {
    "author": "CBirkbeck",
    "createdAt": "2026-10-17T15:39:05Z",
-   "draft": true,
+   "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
     "awaiting-dependencies",
     "awaiting-review"
    ],
    "number": 1037,
-   "sha": "ee18ae0d6c781b9a16850cd0418cd0d0a3b11075",
+   "sha": "c00e22037db05714e6d9c274eece0c1b47c930be",
    "stated": {
     "before": [
      785,
@@ -4261,7 +4261,7 @@
     ]
    },
    "title": "Automorphic forms on reductive groups",
-   "updatedAt": "2026-10-23T09:12:42Z",
+   "updatedAt": "2026-10-23T10:01:19Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1037"
   },
   {
@@ -9241,11 +9241,11 @@
    "draft": true,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
-    "awaiting-dependencies",
-    "awaiting-review"
+    "awaiting-author",
+    "awaiting-dependencies"
    ],
    "number": 1270,
-   "sha": "131ce494976c7af802e3be8958c0b624a74f4f4d",
+   "sha": "363fa230105215ded8d25ecfba39d0ba0c848263",
    "stated": {
     "before": [
      785,
@@ -9314,7 +9314,8 @@
      1306,
      1307,
      1309,
-     1310
+     1310,
+     1422
     ],
     "prerequisites": [
      785,
@@ -9331,11 +9332,12 @@
      1007,
      1034,
      1035,
-     1066
+     1066,
+     1422
     ]
    },
    "title": "Roadmap: completed cohomology and local–global compatibility",
-   "updatedAt": "2026-10-23T09:31:25Z",
+   "updatedAt": "2026-10-23T12:41:15Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1270"
   },
   {
@@ -9344,11 +9346,11 @@
    "draft": true,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
-    "awaiting-dependencies"
+    "awaiting-dependencies",
+    "awaiting-review"
    ],
    "number": 1272,
-   "sha": "24c48e1af0f8aff36f7976bf6e31328e62681189",
+   "sha": "55a255f36a511c2fb896a4ecf757ecb8c22d7b09",
    "stated": {
     "before": [
      785,
@@ -9378,11 +9380,12 @@
     ],
     "prerequisites": [
      858,
-     869
+     869,
+     1306
     ]
    },
    "title": "Roadmap: Euler systems, Kolyvagin systems and higher-rank descent",
-   "updatedAt": "2026-10-23T09:29:08Z",
+   "updatedAt": "2026-10-23T12:01:31Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1272"
   },
   {
@@ -9508,14 +9511,14 @@
   {
    "author": "CBirkbeck",
    "createdAt": "2026-10-20T11:54:26Z",
-   "draft": true,
+   "draft": false,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
-    "awaiting-dependencies"
+    "awaiting-dependencies",
+    "awaiting-review"
    ],
    "number": 1302,
-   "sha": "d13a6dcffd9875267ad545889178c4efde48b826",
+   "sha": "c844a11be17572a76b1930d7d87c9e7a7286d3ec",
    "stated": {
     "before": [
      785,
@@ -9533,13 +9536,15 @@
      1248
     ],
     "prerequisites": [
+     1142,
      1212,
      1227,
+     1229,
      1248
     ]
    },
    "title": "Roadmap: K₂ symbols and Brauer groups",
-   "updatedAt": "2026-10-23T09:29:00Z",
+   "updatedAt": "2026-10-23T10:48:04Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1302"
   },
   {
@@ -9579,7 +9584,7 @@
     "awaiting-review"
    ],
    "number": 1307,
-   "sha": "9ff87a6640a16995649c409e1a035948284c9ebc",
+   "sha": "2ee5358db352767ff66678c5de02d35b2e5e09cc",
    "stated": {
     "before": [
      785,
@@ -9599,7 +9604,7 @@
     ]
    },
    "title": "Roadmap: noncommutative and equivariant Iwasawa theory",
-   "updatedAt": "2026-10-23T09:31:02Z",
+   "updatedAt": "2026-10-23T12:43:00Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1307"
   },
   {
@@ -9730,11 +9735,11 @@
    "draft": true,
    "head": "TauCetiProject/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
-    "awaiting-dependencies"
+    "awaiting-dependencies",
+    "awaiting-review"
    ],
    "number": 1312,
-   "sha": "4654028f73b9fa9d5e7dc9167d9a3be5f55c2896",
+   "sha": "f29f19957590d37dbdee011ee1952a3732112cb0",
    "stated": {
     "before": [
      785,
@@ -9758,7 +9763,7 @@
     ]
    },
    "title": "Roadmap: p-adic local Langlands for GL₂(ℚₚ)",
-   "updatedAt": "2026-10-23T09:30:24Z",
+   "updatedAt": "2026-10-23T10:00:06Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1312"
   },
   {
@@ -9771,7 +9776,7 @@
     "awaiting-review"
    ],
    "number": 1313,
-   "sha": "936433fe19a61fc480ab318b3068e175ff136895",
+   "sha": "2392294f3ce2071ada6cd66dd8da38fdc3a6c798",
    "stated": {
     "before": [
      785,
@@ -9809,11 +9814,14 @@
      1310
     ],
     "prerequisites": [
-     1199
+     848,
+     1199,
+     1229,
+     1281
     ]
    },
    "title": "Roadmap: motives and algebraic cycles",
-   "updatedAt": "2026-10-22T23:24:33Z",
+   "updatedAt": "2026-10-23T12:13:13Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1313"
   },
   {
@@ -9938,17 +9946,17 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-review",
+    "awaiting-author",
     "roadmap-worker"
    ],
    "number": 1335,
-   "sha": "afd0ce3f1baeb94050a2696438dd8728ab87a7b1",
+   "sha": "fdc28f5d6f5e32b7ab99fb32c44c372883eed031",
    "stated": {
     "before": [],
     "prerequisites": []
    },
    "title": "ArithmeticDynamics: roadmap",
-   "updatedAt": "2026-10-22T16:24:13Z",
+   "updatedAt": "2026-10-23T11:12:18Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1335"
   },
   {
@@ -9976,11 +9984,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-review",
+    "awaiting-author",
     "roadmap-worker"
    ],
    "number": 1351,
-   "sha": "0e4e64e36284b54826ab283331028340fc078901",
+   "sha": "a04ce9b03662ae9e3c8f2684ea11581886643bbe",
    "stated": {
     "before": [
      785,
@@ -10044,7 +10052,7 @@
     ]
    },
    "title": "QWittVectors: roadmap",
-   "updatedAt": "2026-10-22T23:27:49Z",
+   "updatedAt": "2026-10-23T11:36:41Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1351"
   },
   {
@@ -10181,7 +10189,7 @@
     ]
    },
    "title": "ColemanIntegrationPartII: roadmap",
-   "updatedAt": "2026-10-22T14:48:26Z",
+   "updatedAt": "2026-10-23T11:18:52Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1360"
   },
   {
@@ -10194,7 +10202,7 @@
     "roadmap-worker"
    ],
    "number": 1364,
-   "sha": "ad62fb065bfa4e288814a33beaeae5c01e47f914",
+   "sha": "899baf7fabda2b2448c3fb8d6d0f166b1e3e901a",
    "stated": {
     "before": [
      785,
@@ -10314,7 +10322,7 @@
     ]
    },
    "title": "CohomologyComparisonsPartII: roadmap",
-   "updatedAt": "2026-10-22T14:22:16Z",
+   "updatedAt": "2026-10-23T11:27:23Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1364"
   },
   {
@@ -10323,7 +10331,7 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-review",
+    "awaiting-author",
     "roadmap-worker"
    ],
    "number": 1375,
@@ -10353,7 +10361,7 @@
     ]
    },
    "title": "K3SurfacesAndSymplecticBoundedness: roadmap",
-   "updatedAt": "2026-10-22T14:22:25Z",
+   "updatedAt": "2026-10-23T12:36:39Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1375"
   },
   {
@@ -10500,7 +10508,7 @@
     ]
    },
    "title": "QSeriesPartitionsAndMockModularForms: roadmap",
-   "updatedAt": "2026-10-22T14:06:14Z",
+   "updatedAt": "2026-10-23T11:18:56Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1391"
   },
   {
@@ -10687,7 +10695,7 @@
     ]
    },
    "title": "SelmerIwasawaCohomologyPartII: roadmap",
-   "updatedAt": "2026-10-22T13:51:13Z",
+   "updatedAt": "2026-10-23T12:19:02Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1403"
   },
   {
@@ -10700,7 +10708,7 @@
     "roadmap-worker"
    ],
    "number": 1404,
-   "sha": "d603998985c0a470fcd05cc176eb087384af5354",
+   "sha": "db8ad410fdfb373011aa93d350c0c51b9c67b9a1",
    "stated": {
     "before": [
      785,
@@ -10912,7 +10920,7 @@
     ]
    },
    "title": "GanGrossPrasadUnitaryGroups: roadmap",
-   "updatedAt": "2026-10-22T13:43:26Z",
+   "updatedAt": "2026-10-23T12:41:20Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1404"
   },
   {
@@ -11203,7 +11211,7 @@
     "prerequisites": []
    },
    "title": "ConformalMappingPartII: roadmap",
-   "updatedAt": "2026-10-22T15:12:07Z",
+   "updatedAt": "2026-10-23T12:19:09Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1407"
   },
   {
@@ -11212,7 +11220,7 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-review",
+    "awaiting-author",
     "roadmap-worker"
    ],
    "number": 1408,
@@ -11332,7 +11340,7 @@
     ]
    },
    "title": "ComputationalNumberTheory: roadmap",
-   "updatedAt": "2026-10-22T15:29:04Z",
+   "updatedAt": "2026-10-23T12:05:37Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1408"
   },
   {
@@ -12265,6 +12273,8 @@
      792,
      816,
      820,
+     833,
+     834,
      848,
      849,
      850,
@@ -12366,7 +12376,7 @@
     ]
    },
    "title": "Polylogarithms: roadmap",
-   "updatedAt": "2026-10-23T05:11:15Z",
+   "updatedAt": "2026-10-23T10:13:11Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1424"
   },
   {
@@ -12386,6 +12396,7 @@
      792,
      816,
      820,
+     832,
      848,
      849,
      850,
@@ -12519,7 +12530,7 @@
     ]
    },
    "title": "HabiroRings: roadmap",
-   "updatedAt": "2026-10-23T06:07:34Z",
+   "updatedAt": "2026-10-23T10:13:13Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1425"
   },
   {
@@ -12531,9 +12542,9 @@
     "awaiting-review"
    ],
    "number": 1426,
-   "sha": "e5c199ca8074e0bb121936ec51ac9071b64ffd06",
+   "sha": "d3230d57cc78bca73cfcc4769c7a6e8a49ba3026",
    "title": "Add roadmap: neuromanifolds, parametrisations, and neurovarieties",
-   "updatedAt": "2026-10-23T06:48:54Z",
+   "updatedAt": "2026-10-23T12:03:35Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1426"
   },
   {
@@ -12849,6 +12860,226 @@
    "title": "HabiroCohomologyFoundations: roadmap",
    "updatedAt": "2026-10-23T07:53:44Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1428"
+  },
+  {
+   "author": "mycaule",
+   "createdAt": "2026-10-23T09:35:36Z",
+   "draft": false,
+   "head": "mycaule/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review"
+   ],
+   "number": 1429,
+   "sha": "5f648b5f80ba110bd0ef53af93a11e086faec6a8",
+   "title": "SchoolCurriculum: roadmap",
+   "updatedAt": "2026-10-23T09:35:44Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1429"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-23T09:50:50Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1430,
+   "sha": "7e41dae7ddf225852b56292ece8767ef6a9f3b8f",
+   "stated": {
+    "before": [
+     785,
+     792,
+     816,
+     820,
+     848,
+     849,
+     850,
+     851,
+     852,
+     853,
+     856,
+     857,
+     858,
+     868,
+     869,
+     871,
+     873,
+     875,
+     879,
+     936,
+     940,
+     1042,
+     1044,
+     1142,
+     1199,
+     1212,
+     1227,
+     1229,
+     1248,
+     1260,
+     1266,
+     1281,
+     1287,
+     1302,
+     1306,
+     1307,
+     1309,
+     1310,
+     1320,
+     1418
+    ],
+    "prerequisites": [
+     785,
+     792,
+     816,
+     820,
+     848,
+     849,
+     850,
+     851,
+     852,
+     853,
+     856,
+     857,
+     858,
+     868,
+     869,
+     871,
+     873,
+     875,
+     879,
+     936,
+     940,
+     1042,
+     1044,
+     1142,
+     1199,
+     1212,
+     1227,
+     1229,
+     1248,
+     1260,
+     1266,
+     1281,
+     1287,
+     1302,
+     1306,
+     1307,
+     1309,
+     1310,
+     1320,
+     1418
+    ]
+   },
+   "title": "K3BlochGroups: roadmap",
+   "updatedAt": "2026-10-23T09:50:53Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1430"
+  },
+  {
+   "author": "mycaule",
+   "createdAt": "2026-10-23T09:53:47Z",
+   "draft": false,
+   "head": "mycaule/TauCetiRoadmap",
+   "labels": [],
+   "number": 1431,
+   "sha": "d264bd59116bfda35494519fbdd7829715c4c84d",
+   "title": "GrothendieckNotesLemmas: general lemmas from the formalisation of Grothendieck's working notes",
+   "updatedAt": "2026-10-23T10:30:00Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1431"
+  },
+  {
+   "author": "CBirkbeck",
+   "createdAt": "2026-10-23T10:15:04Z",
+   "draft": true,
+   "head": "CBirkbeck/TauCetiRoadmap",
+   "labels": [
+    "awaiting-review",
+    "roadmap-worker"
+   ],
+   "number": 1432,
+   "sha": "e157ce336b06bec0268bf0f836d1689008212114",
+   "stated": {
+    "before": [
+     785,
+     792,
+     816,
+     820,
+     848,
+     849,
+     850,
+     851,
+     852,
+     853,
+     856,
+     857,
+     858,
+     868,
+     869,
+     871,
+     873,
+     875,
+     879,
+     940,
+     1042,
+     1044,
+     1199,
+     1212,
+     1227,
+     1229,
+     1248,
+     1260,
+     1266,
+     1281,
+     1302,
+     1306,
+     1307,
+     1309,
+     1310,
+     1418
+    ],
+    "prerequisites": [
+     785,
+     792,
+     816,
+     820,
+     848,
+     849,
+     850,
+     851,
+     852,
+     853,
+     856,
+     857,
+     858,
+     868,
+     869,
+     871,
+     873,
+     875,
+     879,
+     940,
+     1042,
+     1044,
+     1199,
+     1212,
+     1227,
+     1229,
+     1248,
+     1260,
+     1266,
+     1281,
+     1302,
+     1306,
+     1307,
+     1309,
+     1310,
+     1418
+    ]
+   },
+   "title": "K2SymbolsBrauerPartII: roadmap",
+   "updatedAt": "2026-10-23T10:15:07Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1432"
   }
  ],
  "repository": "TauCetiProject/TauCetiRoadmap",
@@ -13337,6 +13568,10 @@
    "arxiv": "math.AT",
    "pull": 1060
   },
+  "TauCetiRoadmap/GrothendieckNotesLemmas": {
+   "arxiv": "math.AC",
+   "pull": 1431
+  },
   "TauCetiRoadmap/GrothendieckPeriodConjecture": {
    "arxiv": "math.NT",
    "pull": 1059
@@ -13456,6 +13691,14 @@
   "TauCetiRoadmap/K2SymbolsBrauer": {
    "arxiv": "math.KT",
    "pull": 1302
+  },
+  "TauCetiRoadmap/K2SymbolsBrauerPartII": {
+   "arxiv": "math.NT",
+   "pull": 1432
+  },
+  "TauCetiRoadmap/K3BlochGroups": {
+   "arxiv": "math.KT",
+   "pull": 1430
   },
   "TauCetiRoadmap/K3Surfaces": {
    "arxiv": "math.AG",
@@ -13764,6 +14007,10 @@
   "TauCetiRoadmap/SchemeKTheoryOperations": {
    "arxiv": "math.KT",
    "pull": 1229
+  },
+  "TauCetiRoadmap/SchoolCurriculum": {
+   "arxiv": "math.GM",
+   "pull": 1429
   },
   "TauCetiRoadmap/SelmerIwasawaCohomology": {
    "arxiv": "math.NT",
