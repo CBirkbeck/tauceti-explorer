@@ -1571,13 +1571,14 @@
     "GeometricSatakeAndFusion": {
       "stage": "pr",
       "pr": 1235,
-      "head": "050bc14",
+      "head": "0652974",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 0652974; confirmation pass pending"
       }
     },
     "BunGAndNewtonStrata": {
