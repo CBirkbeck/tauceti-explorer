@@ -1789,13 +1789,14 @@
     "MotivesAndAlgebraicCycles": {
       "stage": "pr",
       "pr": 1313,
-      "head": "b6d1d37",
+      "head": "548737e",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 548737e; confirmation pass pending"
       }
     },
     "HabiroCyclotomicCompletions": {
