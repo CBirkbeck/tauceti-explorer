@@ -63,12 +63,12 @@ Generated 2026-10-22T23:40Z from the README supplier graph of every open pull re
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 7
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1103, #1104
-- #1142 AlgebraicKTheory (kim-em, other author)
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
