@@ -1715,13 +1715,14 @@
     "IntegralIwasawaTheory": {
       "stage": "pr",
       "pr": 1306,
-      "head": "ee1450e",
+      "head": "5d2ed25",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 5d2ed25; confirmation pass pending"
       }
     },
     "NoncommutativeAndEquivariantIwasawa": {
