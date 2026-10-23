@@ -790,13 +790,14 @@
     "PadicDifferentialEquationsAndRigidCohomology": {
       "stage": "pr",
       "pr": 1002,
-      "head": "277445c",
+      "head": "5ea2fe1",
       "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running",
       "review": {
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 5ea2fe1; confirmation pass pending"
       }
     },
     "FaltingsFinitenessAndIsogenyTheorems": {
