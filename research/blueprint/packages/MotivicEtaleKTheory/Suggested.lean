@@ -10,6 +10,7 @@ statable against the pinned APIs; it is not exhaustive. The finite Steinberg rel
 uses the actual Kummer classes and an equivariant biadditive coefficient pairing.
 Logarithmic symbols use absolute Kähler differentials and the existing exterior algebra.
 The positive-degree Chern factor fixes the factorial and sign independently of degree zero.
+The cubical orientation sign transports both sides of the Deligne regulator roof.
 -/
 
 namespace TauCetiRoadmap.MotivicEtaleKTheory
@@ -120,6 +121,35 @@ example : positiveChernFactor 2 = -1 := by
 example : positiveChernFactor 3 = (1 / 2 : ℚ) := by
   norm_num [positiveChernFactor]
 
+/-! ## Layer 12: orientation of the Deligne regulator roof -/
+
+/-- Integer sign used simultaneously on cycles and the two Deligne total complexes
+when reversing the cubical boundary convention (README 12.2). -/
+def cubicalOrientationSign (q : ℕ) : ℤ := (-1) ^ q
+
+/-- Consecutive cubical degrees have opposite orientation signs. -/
+theorem cubicalOrientationSign_succ (q : ℕ) :
+    cubicalOrientationSign (q + 1) = -cubicalOrientationSign q := by
+  simp [cubicalOrientationSign, pow_succ]
+
+/-- The orientation change is its own inverse. -/
+theorem cubicalOrientationSign_sq (q : ℕ) : cubicalOrientationSign q ^ 2 = 1 := by
+  change ((-1 : ℤ) ^ q) ^ 2 = 1
+  calc
+    ((-1 : ℤ) ^ q) ^ 2 = ((-1 : ℤ) ^ 2) ^ q := by
+      rw [← pow_mul, ← pow_mul, Nat.mul_comm q 2]
+    _ = 1 := by norm_num
+
+/-- Degree zero is fixed and degree one is reversed. -/
+example : cubicalOrientationSign 0 = 1 ∧ cubicalOrientationSign 1 = -1 := by
+  norm_num [cubicalOrientationSign]
+
+/-- With face values seven and two, reversing the boundary and degree-one sign
+commutes; degree two returns to sign one. -/
+example : cubicalOrientationSign 1 * (7 - 2) = cubicalOrientationSign 0 * (2 - 7) ∧
+    cubicalOrientationSign 2 = 1 := by
+  norm_num [cubicalOrientationSign]
+
 end
 
 end TauCetiRoadmap.MotivicEtaleKTheory
@@ -141,6 +171,11 @@ motivicPower, motivicBockstein, motivicAdemNormalForm, milnorOperation,
 nuVariety, nuLeVariety, normVariety, rostVariety, cechMotive, the relative Tate
 category, the generalized Rost motive, cobordismDegree, heightCharacteristic,
 fixedPoint_heightCharacteristic and normResidue.
+The Pfister-neighbor comparison additionally requires the quadratic supplier's
+algebraic pfisterChain_iff_isometry, pfisterSymbol_iff_isometry,
+pfisterSymbol_zero_iff_hyperbolic and pfisterSymbol_baseChange, before its
+cohomological invariant. The neighbor's isotropy-to-hyperbolicity comparison is
+pfisterNeighbor_isotropic_iff_hyperbolic in README 6.4.
 Layer 7: tensorDifferentialSymbol, milnorDifferentialSymbol,
 artinSchreierDifferential, logarithmicForms, modPLogarithmicSymbol,
 logarithmicLeadingTerm_eliminate, logarithmicGeneration_primeToDescent,
@@ -161,4 +196,9 @@ numberFieldDeligneRegulator, integralMotivicImage, integralMotivicLatticeCandida
 rationalIntegralPart, geometricEulerPolynomial, rubinEulerPolynomial,
 normCompatibleKFamily, selmerRegulator, arithmeticDeterminantLine,
 selmerLocalDeterminant and the conditional fundamental-line comparisons.
+These require the geometric supplier's logDeligneComplex, logDeligne_betti,
+logDeligne_hodge, logDeligne_realModel, logDeligne_compactificationComparison,
+logDeligne_A1, logDeligneSupport and logDeligneSupport_semipurity, with the
+period inclusion, cone shift, conjugation, products and support boundaries
+specified in the README's exact supplier contracts.
 -/
