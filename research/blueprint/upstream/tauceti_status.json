@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-23T14:10Z",
+  "updated": "2026-10-23T14:40Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -241,8 +241,7 @@
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 3710abd; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "AlgebraicModuliForArithmeticGeometry": {
@@ -576,13 +575,14 @@
     "LocalGaloisDeformationRings": {
       "stage": "pr",
       "pr": 923,
-      "head": "5c82749",
+      "head": "11b2c65",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 15bab3b",
       "review": {
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 11b2c65; confirmation pass pending"
       }
     },
     "AutomorphicLFunctionsAndLocalFactors": {
@@ -1683,7 +1683,7 @@
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
@@ -1731,7 +1731,7 @@
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
@@ -1755,7 +1755,7 @@
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
