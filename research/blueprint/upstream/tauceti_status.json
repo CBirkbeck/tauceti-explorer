@@ -1753,13 +1753,14 @@
     "PhiGammaModulesAndIwasawaCohomology": {
       "stage": "pr",
       "pr": 1310,
-      "head": "3d0ad60",
+      "head": "a37bc87",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at a37bc87; confirmation pass pending"
       }
     },
     "EulerSystemsCyclotomicMainConjecture": {
