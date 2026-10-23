@@ -1,17 +1,17 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-Codex (GPT-6), session `codex-fnApCm`, 16 October 2026. Issue
+Codex (GPT-6), session `codex-8xsE5C`, 16 October 2026. Issue
 [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint: the maintainer's scope instruction prevents this atlas revision.**
-The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6226012871)
-at 22:37:48 UTC, explicitly identifying this session and claim comment
-6226011298. This was the first
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6226419270)
+at 23:12:14 UTC, explicitly identifying this session and claim comment
+6226417512. This was the first
 eligible available issue on the manager's
 ordered list. Only this issue was claimed. This checkpoint continues
-[#10077](https://github.com/CBirkbeck/tauceti-explorer/pull/10077). Its
-[intake release](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6225882005)
-at 22:27:22 UTC made the job available again without changing its scope.
+[#10088](https://github.com/CBirkbeck/tauceti-explorer/pull/10088). Its
+[intake release](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6226331284)
+at 23:04:39 UTC made the job available again without changing its scope.
 
 ## Fresh scope and ownership checks
 
@@ -27,19 +27,19 @@ A fresh authenticated GitHub read confirms that
 [upstream PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
 merged on 14 October 2026 at 04:47:45 UTC, with merge commit
 `d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. A separate commits API read resolves current
-main to `fb90c183a4e16179828a81c75ecd2ae1f1d67dcc`. This session fetched and
-inspected the individual README and Suggested.lean at that exact commit:
+main to `e9306d3295ac691440b5a2893c435616d99e0d17`
+(commit timestamp 16 October 2026, 22:58:31 UTC). This session fetched and inspected the individual README and Suggested.lean at that exact commit:
 
-- [Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership)
+- [Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e9306d3295ac691440b5a2893c435616d99e0d17/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership)
   assigns the shared scheme foundations to this upstream roadmap and imports
   quasi-coherent algebras, relative Spec and graded algebras from their existing owners.
-- [Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms),
+- [Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e9306d3295ac691440b5a2893c435616d99e0d17/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms),
   especially §§0.1–0.3, already owns the small-affine-site comparison, qcqs
   direct-image algebra, relative-Spec morphism-property dictionary and general
   relative Proj. Thus even the genuine extensions distinguished by the historical
   atlas review now have an upstream owner. Layer 0 also owns henselization,
   excellence and perfection.
-- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e9306d3295ac691440b5a2893c435616d99e0d17/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
   imports AlgebraicVectorBundles and states Layer 0 interfaces, including
   `Proj.isPullback_baseChange` and the `Henselization` strand. Its absence of a
   declaration for a README-only target does not remove that target's owner.
@@ -148,7 +148,7 @@ scope table above to establish a permitted, nonduplicating task before changing
 the historical packet. Any upstream correction needs a separately authorized
 scope and editable destination. Previous
 ownership checkpoints merged in #9894, #9951, #9972, #9988, #9995, #10002,
-#10029, #10034, #10038, #10044, #10054, #10061, #10069 and #10077: this is the fifteenth submission of
+#10029, #10034, #10038, #10044, #10054, #10061, #10069, #10077 and #10088: this is the sixteenth submission of
 the unresolved boundary. Automatic checkpoint intake repeatedly restores
 availability without resolving the scope instruction. The queue needs a
 maintainer disposition that prevents this repetition; changing its labels or
