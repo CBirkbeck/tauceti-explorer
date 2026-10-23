@@ -1763,13 +1763,14 @@
     "EulerSystemsCyclotomicMainConjecture": {
       "stage": "pr",
       "pr": 1311,
-      "head": "f5a88df",
+      "head": "a961768",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at a961768; confirmation pass pending"
       }
     },
     "PadicLocalLanglandsForGL2Qp": {
