@@ -1777,13 +1777,14 @@
     "PadicLocalLanglandsForGL2Qp": {
       "stage": "pr",
       "pr": 1312,
-      "head": "29fce9f",
+      "head": "7af5d14",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 7af5d14; confirmation pass pending"
       }
     },
     "MotivesAndAlgebraicCycles": {
