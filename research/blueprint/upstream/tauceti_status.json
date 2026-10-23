@@ -1733,7 +1733,8 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 3ec4ff3; confirmation pass pending"
       }
     },
     "ColemanPowerSeries": {
