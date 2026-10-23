@@ -231,7 +231,7 @@
     "NeronModelsAndSemistableAbelianVarieties": {
       "stage": "pr",
       "pr": 852,
-      "head": "e46869a",
+      "head": "3710abd",
       "depends_on": [
         779,
         785
@@ -241,7 +241,8 @@
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 3710abd; confirmation pass pending"
       }
     },
     "AlgebraicModuliForArithmeticGeometry": {
