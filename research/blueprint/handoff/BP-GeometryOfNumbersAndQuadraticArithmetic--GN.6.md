@@ -1,14 +1,15 @@
 # BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6: blocked checkpoint
 
-Worker: Codex, session `codex-QVv6wk`. Date: 2026-10-16.
+Worker: Codex, session `codex-yMbV4R`. Date: 2026-10-16.
 Issue: [#9330](https://github.com/CBirkbeck/tauceti-explorer/issues/9330).
 Status: **blocked; no new mathematical plan submitted**.
 
 ## Current continuation
 
-Continued the checkpoint merged in [#10082](https://github.com/CBirkbeck/tauceti-explorer/pull/10082).
+Continued the checkpoint merged in [#10091](https://github.com/CBirkbeck/tauceti-explorer/pull/10091).
 Issue #9330 was the first available eligible issue in this run's manager list.
-The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6226070510).
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6226507743)
+at 23:19:47 UTC on 2026-10-16.
 No second issue was claimed.
 
 Re-read WORKERS.md, PROTOCOL.md, the expansion protocol, UPSTREAM_GUIDE.md,
@@ -23,7 +24,7 @@ rescinds that instruction or assigns a mathematical extension.
 
 Verified [TauCetiRoadmap PR #851](https://github.com/TauCetiProject/TauCetiRoadmap/pull/851)
 is **open** at head **2a81bf26f00972b7e17dc5105c2f8980ea7698b5**, unchanged
-from #10082. Fetched its README and Suggested.lean at that commit on
+from #10091. Fetched its README and Suggested.lean at that commit on
 2026-10-16. Their SHA-256 hashes are respectively
 `acd0d1ffa92b714c7c8f0dadda359b5519e587b11a73c9f27eef46b57c96bba0`
 and `976d6af3b394b2866680cb2bc6522c011beca641289fe52dd1d5c92db76bb89d`.
@@ -96,7 +97,8 @@ The earlier checkpoints are [#9966](https://github.com/CBirkbeck/tauceti-explore
 [#10053](https://github.com/CBirkbeck/tauceti-explorer/pull/10053),
 [#10065](https://github.com/CBirkbeck/tauceti-explorer/pull/10065),
 [#10072](https://github.com/CBirkbeck/tauceti-explorer/pull/10072), and
-[#10082](https://github.com/CBirkbeck/tauceti-explorer/pull/10082).
+[#10082](https://github.com/CBirkbeck/tauceti-explorer/pull/10082), followed by
+[#10091](https://github.com/CBirkbeck/tauceti-explorer/pull/10091).
 These checkpoints have repeatedly returned the issue to `state:available`
 without resolving the maintainer instruction. Availability has not resolved
 the ownership conflict. The queue keeps
