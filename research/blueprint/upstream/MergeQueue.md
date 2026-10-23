@@ -62,48 +62,48 @@ Generated 2026-10-23T11:00Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #934
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
-- #942 TangentialBordism (kim-em, other author)
+- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #1287 HomotopySpheres (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
-- #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #1212, #785, #792, #858, #1142, #1287, #248, #417, #894
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
-- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 7
+- #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #1212, #785, #792, #858, #1142, #1287, #248, #417, #894
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1103, #1104
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
 - #1266 HermitianKTheoryOfPoincareCategories — ready (approved at an earlier head); waits on #1212, #851
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 9
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #896, #973, #992
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
-- #1310 PhiGammaModulesAndIwasawaCohomology — draft; waits on #1306, #1307, #1309, #816, #857, #940
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #1405, #848, #853, #857
-- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
 - #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1227, #1229, #785, #792, #1142
-- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1310, #785, #940
+- #1310 PhiGammaModulesAndIwasawaCohomology — draft; waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 11
+- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #849, #248, #446
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
+- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1310, #785, #940
 
 ## Wave 12
 - #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #792, #816, #849, #853, #856, #940
