@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-23T22:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-23T23:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #914 FreeGroupsAndLimitGroups — draft
@@ -40,6 +40,7 @@ Generated 2026-10-23T22:10Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #973 TopologicalSheafCohomology (kim-em, other author)
@@ -62,16 +63,15 @@ Generated 2026-10-23T22:10Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #934
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
-- #896 CharacteristicClasses (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #942 TangentialBordism (kim-em, other author)
+- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
