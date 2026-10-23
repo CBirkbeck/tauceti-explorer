@@ -1667,13 +1667,14 @@
     "CompletedCohomologyAndLocalGlobalCompatibility": {
       "stage": "pr",
       "pr": 1270,
-      "head": "df8a866",
+      "head": "9f92e2b",
       "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 9f92e2b; confirmation pass pending"
       }
     },
     "EulerSystemsAndKolyvaginSystems": {
