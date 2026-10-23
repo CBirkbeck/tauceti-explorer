@@ -29,6 +29,7 @@ Generated 2026-10-22T23:40Z from the README supplier graph of every open pull re
 - #1424 Polylogarithms — draft
 - #1425 HabiroRings — draft
 - #1427 HabiroNahmSeries — draft
+- #1428 HabiroCohomologyFoundations — draft
 - #248 LFunctions (roed-math, other author)
 - #417 PointProcesses (mccorvie, other author)
 - #446 CFSGBasicProperties (kim-em, other author)
