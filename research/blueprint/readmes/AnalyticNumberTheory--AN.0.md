@@ -10,7 +10,7 @@ AN.0 and AN.1 import the arithmetic-series infrastructure and the pinned Riemann
 
 Tate’s adelic continuation, gamma factors and functional equations belong to AutomorphicLFunctionsAndLocalFactors AL.0–AL.1. GlobalNumberFields supplies the Hecke/ray/idele character dictionary and the primitive quadratic field character. ClassFieldTheory supplies reciprocity and abelian conductor comparisons. General finite-dimensional Artin conductors require the ArtinRepresentations supplier identified by NumberFieldArithmetic; the latter supplies ramification groups and permutation discriminant formulas. The quadratic CM/geodesic arithmetic dictionary belongs to GN.3, Eisenstein analysis to AS.1–AS.2, and the core-surface construction to the proposed FuchsianOrbifolds Part II.
 
-Qualitative number-field Chebotarev is imported from Chebotarev. Effective estimates belong to its designated Zeros of L-functions Layer8.7 supplier. Arithmetic-scheme Chebotarev needs a separate extension. AN.3 remains one layer; no reverse import from SV.2 is used. Generic Dirichlet-series and Tauberian material is owned by ArithmeticDirichletSeries. The current roadmaps and Tau Ceti exports are imported wherever they already provide the target.
+Qualitative number-field Chebotarev is imported from Chebotarev. Effective estimates belong to its designated Zeros of L-functions Layer8.7 supplier. Arithmetic-scheme Chebotarev is assigned to the proposed extension `ChebotarevPartIIArithmeticSchemes` described below; it has no adopted stage endpoint. AN.3 remains one layer; no reverse import from SV.2 is used. Generic Dirichlet-series and Tauberian material is owned by ArithmeticDirichletSeries. The current roadmaps and Tau Ceti exports are imported wherever they already provide the target.
 
 ## Conventions
 
@@ -5947,7 +5947,26 @@ Each extension has a precise scope. An endpoint is named only when it exists; a 
 
 ### Chebotarev density theorem, Part II: arithmetic schemes
 
-Normal integral schemes of finite type over Z, finite étale Galois covers, conjugacy-invariant Frobenius subsets of closed points, weighted natural-density normalization from Serre Lectures on N_X(p) §9 and the AV §2.14 application; recover number-field Chebotarev in relative dimension zero. Prove density of Frobenius in the profinite fundamental group and triviality of a finite cover split at a density-one set. Exact mixed-characteristic/finite-field component hypotheses and denominator must be read and stated before a quantitative density theorem.
+Proposed owner: `ChebotarevPartIIArithmeticSchemes`, extending Chebotarev. Adoption and a complete design with independently reviewed supplier chains are still required. AN.4 retains its number-field scope. This proposal supplies the precise contract for the missing extension without asserting an existing theorem endpoint.
+
+Let X be a nonempty normal integral scheme of finite type, dominant over Spec Z, with Krull dimension d≥1. Let Y→X be a connected finite étale Galois cover with finite group G, and let C⊆G be invariant under conjugation. For a closed point x, write q_x=#κ(x) and use arithmetic Frobenius, acting on residue fields by t↦t^q_x. Membership of its conjugacy class in C is independent of the point of Y above x; let S_C be this subset of closed points. Define π_C(Q) by counting these points with q_x≤Q, and π_X(Q) by counting all closed points with that bound. These counts must be finite. The target is
+
+\[
+\pi_X(Q)\sim\operatorname{Li}(Q^d),\qquad
+\frac{\pi_C(Q)}{\pi_X(Q)}\longrightarrow\delta=\frac{|C|}{|G|}.
+\]
+
+This is natural density in Serre's convention, not Dirichlet density. Serre, *Lectures on N_X(p)*, June2011 author text, §9.1.2 pp.132–133, §9.2.1 p.135 and Theorem9.11/Corollary9.12 p.137 give the hypotheses, convention and theorem. Start with the affine normal case; extend across a dense affine open using the zero density of its proper closed complement (§9.2, Proposition9.6 p.135 and Proposition9.9 p.136). Do not include an unrestricted positive-characteristic statement. For Spec F_p the constant connected degree-two cover has just one closed-point Frobenius class, so not every class occurs.
+
+For θ_C(Q)=Σ_(x∈S_C,q_x≤Q)log q_x, partial summation gives θ_C(Q)=δQ^d/d+o(Q^d). Thus the compatible weighted normalizations are dQ^(−d)θ_C(Q)→δ and θ_C(Q)/θ_X(Q)→δ. In the inspected Abdurrahman–Venkatesh preprint, arXiv2303.13436v1 §2.14 p.25, the displayed normalization omits d while assigning total density1. Its all-point limit is actually1/d. In particular A¹_Z has d=2 and unnormalized limit1/2. This correction is recorded as packet source issue E43; the missing characteristic restriction in §2.8 p.18 is E42. These observations concern the preprint and inspected IAS author copy; the published version was not obtained.
+
+The proof plan must extract Serre §9.4 pp.139–144, not just cite its final theorem: pass to an étale open and the constant-field quotient G/N, obtain geometrically irreducible fibres, supply uniform compact-support Betti bounds and twisted Frobenius fixed-point estimates, discard degree>1 points, and sum over the number-field base. Theorem9.14, Proposition9.15 and Lemmas9.16–9.17 locate these steps. Each geometric prerequisite needs an exact supplier or an explicit target in the new design. Existing qualitative number-field Chebotarev supplies the base-prime distribution; these consumers do not demand a new effective error estimate. No natural-density conclusion follows merely from knowing Dirichlet density.
+
+Required corollaries are occurrence of every conjugacy class, Zariski density of each class, and density of all conjugates of closed-point Frobenii in the profinite fundamental group, tested on every finite quotient. For two connected finite étale Galois covers, use their common connected Galois compositum: inclusion of complete-splitting sets is equivalent to inclusion of their open normal subgroups, hence to dominance of covers. A Z/2-torsor split on a set of corrected density1 is trivial, since a connected double cover has split density1/2 and a disconnected torsor over a connected base is split. Sources: Serre Corollary9.13 p.138; Schmidt–Stix, Proposition5.1 proof p.839 and Lemma5.2 proof pp.840–841; Abdurrahman–Venkatesh §2.14 pp.25–26.
+
+The new definitions need quotient functoriality, dense-open invariance, finite norm fibres and comparison with the existing number-field carrier on Spec O_K[1/N], where d=1. Give each definition its API and at least three discriminating tests in the new design. Mandatory checks include C=∅ (density0), C=G (density1), the identity class of a connected double cover (density1/2), the A¹_Z normalization above, and the Spec F_p counterexample. Recover the existing number-field natural and Dirichlet densities through their comparison results, discarding the finitely many removed primes.
+
+On adoption, the maintainer should reroute `PAPER-ABDURRAHMAN-VENKATESH-25/20` (source route4) and `PAPER-SCHMIDT-STIX-16/38,/84` (rejected route4, gapG4) to this Part II. Correct the former's hypotheses, normalization and unrelated review reason. Preserve the latter's regular connected flat arithmetic-model hypotheses and its rejection until an independently accepted extraction revision resolves G4. Selecting an owner does not accept that rejected route. The packet's `ownershipRequests` records both actions; neither extraction is edited here.
 
 ### RT-AREA-combinatorics/8
 
@@ -5980,6 +5999,10 @@ Supplier: ArtinRepresentations, named as the general conductor owner by current 
 ## Sources
 
 The targets are grouped by mathematics above. Source locators identify the theorems used; they do not prescribe a source-by-source development. The packet records editions, read ranges and original-proof boundaries.
+
+- `serre-nxp-primary-2011`: Jean-Pierre Serre, [Lectures on N_X(p)](https://www.college-de-france.fr/media/professeurs-honoraires/UPL47720_cours_Taiwan_avril__10juin_2011_.pdf). June2011 author text; Chapter9 §§9.1–9.4, pp.132–144, and selected Corollaries7.11–7.13, pp.96–97 read for the proposed scheme extension.
+- `av-primary-v1-density`: Amina Abdurrahman and Akshay Venkatesh, [Symplectic L-functions and symplectic Reidemeister torsion (mod squares)](https://arxiv.org/pdf/2303.13436v1). arXiv2303.13436v1; selected §§2.8,2.14, pp.18,25–26. The version of record was not obtained; packet E42/E43 are scoped to the inspected preprint.
+- `schmidt-stix-primary-published-density`: Alexander Schmidt and Jakob Stix, [Anabelian geometry with étale homotopy types](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf). Annals of Mathematics184(2016),817–868; selected proofs of Proposition5.1 and Lemma5.2, pp.838–841.
 
 - `tao-divisor-2008`: Terence Tao, [The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/). Author post, 23 September 2008, updated 24 September.
 - `kedlaya-ant-2025`: Kiran S. Kedlaya, [Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf). Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages.

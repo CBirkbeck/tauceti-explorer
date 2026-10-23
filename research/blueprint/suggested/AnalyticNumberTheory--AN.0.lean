@@ -1498,8 +1498,11 @@ example : ((Finset.range 14).filter (fun n : ℕ =>
     0 < n ∧ Squarefree n ∧ (∀ p ∈ n.primeFactors, p = 2 ∨ (p : ZMod 4) = 1) ∧
     n.primeFactors.card = 2)).card = 1 := by sorry
 
-/-! AN.4: concrete finite-factor and disc signatures. The canonical number-field
-Canonical number-field Artin carriers and their Euler-series interfaces are stated below. -/
+/-! AN.4: canonical number-field Artin carriers and their Euler-series interfaces.
+Arithmetic-scheme Chebotarev belongs to the proposed ChebotarevPartIIArithmeticSchemes
+extension described in the reader's "Extensions requiring an owner" section. Its dominant
+characteristic-zero hypotheses and dimension-dependent density normalization are not replaced
+by these number-field signatures; no scheme-theoretic declaration is asserted here. -/
 
 lemma artin_local_reciprocal_bound (d m : ℕ) (hm : m ≤ d)
     (θ : ℝ) (hθ0 : 0 ≤ θ) (hθ1 : θ < 1)
