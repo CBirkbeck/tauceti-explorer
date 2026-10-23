@@ -1,11 +1,11 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-22T18:20:44Z",
- "exported_at": "2026-10-22T18:20:44Z",
+ "cutoff": "2026-10-22T23:18:45Z",
+ "exported_at": "2026-10-22T23:18:45Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 464,
-  "recent": 10964,
+  "open": 609,
+  "recent": 10941,
   "total": 18188,
   "unattributed": {
    "no_label": 1622,
@@ -33,7 +33,7 @@
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "a5d7ba238ea53a3bd0cc31daec6eca45048a6a99",
+ "roadmap_head": "a07e2024f391f3022520c3f8ad194912b3eab614",
  "rows": [
   {
    "activity": {
@@ -148,7 +148,7 @@
    "activity": {
     "last": "2026-10-22T01:32:22Z",
     "open": 3,
-    "recent": 280,
+    "recent": 278,
     "since_report": 2,
     "total": 606,
     "weekly": [
@@ -563,7 +563,7 @@
   {
    "activity": {
     "last": "2026-10-21T20:33:42Z",
-    "open": 3,
+    "open": 2,
     "recent": 14,
     "since_report": 4,
     "total": 14,
@@ -645,7 +645,7 @@
   {
    "activity": {
     "last": "2026-10-22T06:10:21Z",
-    "open": 3,
+    "open": 5,
     "recent": 237,
     "since_report": 90,
     "total": 331,
@@ -789,8 +789,8 @@
   {
    "activity": {
     "last": "2026-10-22T12:26:14Z",
-    "open": 1,
-    "recent": 239,
+    "open": 2,
+    "recent": 238,
     "since_report": 8,
     "total": 261,
     "weekly": [
@@ -1033,7 +1033,7 @@
   {
    "activity": {
     "last": "2026-10-22T04:32:15Z",
-    "open": 5,
+    "open": 4,
     "recent": 6,
     "since_report": 4,
     "total": 6,
@@ -1358,7 +1358,7 @@
   {
    "activity": {
     "last": "2026-10-22T05:50:07Z",
-    "open": 5,
+    "open": 8,
     "recent": 44,
     "since_report": 9,
     "total": 44,
@@ -1440,7 +1440,7 @@
   {
    "activity": {
     "last": "2026-10-22T06:10:57Z",
-    "open": 4,
+    "open": 5,
     "recent": 135,
     "since_report": 8,
     "total": 166,
@@ -1922,8 +1922,8 @@
   {
    "activity": {
     "last": "2026-10-21T22:40:07Z",
-    "open": 2,
-    "recent": 423,
+    "open": 3,
+    "recent": 422,
     "since_report": 1,
     "total": 465,
     "weekly": [
@@ -2494,7 +2494,7 @@
   {
    "activity": {
     "last": "2026-10-22T04:54:15Z",
-    "open": 2,
+    "open": 5,
     "recent": 10,
     "since_report": 7,
     "total": 10,
@@ -3255,7 +3255,7 @@
    "activity": {
     "last": "2026-10-21T19:22:42Z",
     "open": 2,
-    "recent": 77,
+    "recent": 75,
     "since_report": 18,
     "total": 140,
     "weekly": [
@@ -3470,7 +3470,7 @@
   {
    "activity": {
     "last": "2026-10-22T06:10:23Z",
-    "open": 5,
+    "open": 6,
     "recent": 147,
     "since_report": 27,
     "total": 147,
@@ -3622,7 +3622,7 @@
   {
    "activity": {
     "last": "2026-10-22T06:10:42Z",
-    "open": 10,
+    "open": 12,
     "recent": 82,
     "since_report": 12,
     "total": 82,
@@ -4206,7 +4206,7 @@
   {
    "activity": {
     "last": "2026-10-22T16:37:33Z",
-    "open": 3,
+    "open": 5,
     "recent": 40,
     "since_report": 14,
     "total": 40,
@@ -4288,7 +4288,7 @@
   {
    "activity": {
     "last": "2026-10-22T12:26:50Z",
-    "open": 8,
+    "open": 11,
     "recent": 9,
     "since_report": null,
     "total": 9,
@@ -4699,7 +4699,7 @@
   {
    "activity": {
     "last": "2026-10-22T08:09:56Z",
-    "open": 4,
+    "open": 8,
     "recent": 35,
     "since_report": 9,
     "total": 35,
@@ -4897,7 +4897,7 @@
   {
    "activity": {
     "last": "2026-10-20T23:39:09Z",
-    "open": 3,
+    "open": 5,
     "recent": 382,
     "since_report": 7,
     "total": 507,
@@ -5043,7 +5043,7 @@
    "activity": {
     "last": "2026-10-22T00:58:23Z",
     "open": 1,
-    "recent": 118,
+    "recent": 111,
     "since_report": 21,
     "total": 154,
     "weekly": [
@@ -5300,7 +5300,7 @@
   {
    "activity": {
     "last": "2026-10-22T08:32:27Z",
-    "open": 5,
+    "open": 11,
     "recent": 35,
     "since_report": 14,
     "total": 35,
@@ -5383,7 +5383,7 @@
    "activity": {
     "last": "2026-10-22T05:48:43Z",
     "open": 2,
-    "recent": 133,
+    "recent": 132,
     "since_report": 15,
     "total": 195,
     "weekly": [
@@ -5505,7 +5505,7 @@
   {
    "activity": {
     "last": "2026-10-20T11:41:03Z",
-    "open": 3,
+    "open": 4,
     "recent": 1,
     "since_report": 0,
     "total": 1,
@@ -5587,7 +5587,7 @@
   {
    "activity": {
     "last": "2026-10-22T05:50:34Z",
-    "open": 3,
+    "open": 6,
     "recent": 196,
     "since_report": 41,
     "total": 337,
@@ -5818,7 +5818,7 @@
    "activity": {
     "last": "2026-10-21T18:18:57Z",
     "open": 5,
-    "recent": 68,
+    "recent": 67,
     "since_report": 5,
     "total": 118,
     "weekly": [
@@ -5925,7 +5925,7 @@
   {
    "activity": {
     "last": "2026-10-22T05:50:09Z",
-    "open": 3,
+    "open": 4,
     "recent": 6,
     "since_report": 3,
     "total": 6,
@@ -6007,7 +6007,7 @@
   {
    "activity": {
     "last": "2026-10-21T10:57:02Z",
-    "open": 5,
+    "open": 6,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -6059,7 +6059,7 @@
   {
    "activity": {
     "last": "2026-10-21T13:46:55Z",
-    "open": 2,
+    "open": 1,
     "recent": 35,
     "since_report": 6,
     "total": 35,
@@ -6161,7 +6161,7 @@
   {
    "activity": {
     "last": "2026-10-22T09:57:17Z",
-    "open": 7,
+    "open": 10,
     "recent": 172,
     "since_report": 28,
     "total": 235,
@@ -6416,7 +6416,7 @@
   {
    "activity": {
     "last": "2026-10-22T05:50:08Z",
-    "open": 1,
+    "open": 2,
     "recent": 124,
     "since_report": 5,
     "total": 231,
@@ -6712,7 +6712,7 @@
   {
    "activity": {
     "last": "2026-10-21T04:30:54Z",
-    "open": 1,
+    "open": 4,
     "recent": 142,
     "since_report": 4,
     "total": 142,
@@ -6890,6 +6890,70 @@
    "topic": "Algebraic Geometry"
   },
   {
+   "activity": null,
+   "arxiv": "math.PR",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/MarkovChainsAndRenewal",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7"
+   ],
+   "layer_lines": [
+    139,
+    163,
+    186,
+    234,
+    287,
+    311,
+    356,
+    390
+   ],
+   "layers": [
+    "Layer 0: Kernels, laws and simulation",
+    "Layer 1: Deterministic and strong Markov properties",
+    "Layer 2: State classification and occupation",
+    "Layer 3: Equilibrium and coupling",
+    "Layer 4: Ordinary renewal processes and renewal measures",
+    "Layer 5: Renewal limits",
+    "Layer 6: Renewal equations and excess life",
+    "Layer 7: Connections to Poisson processes"
+   ],
+   "links": [],
+   "name": "MarkovChainsAndRenewal",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/MarkovChainsAndRenewal/README.md",
+   "readme_sha": "cc6d7c2b67dca7f9d12966d9294ab320d4a84fba7db1b290187bfba7761cf590",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Markov chains and renewal processes",
+   "topic": "Probability"
+  },
+  {
    "activity": {
     "last": "2026-10-22T17:23:46Z",
     "open": 4,
@@ -7001,7 +7065,7 @@
   {
    "activity": {
     "last": "2026-10-22T08:09:58Z",
-    "open": 4,
+    "open": 5,
     "recent": 205,
     "since_report": 10,
     "total": 205,
@@ -7141,7 +7205,7 @@
   {
    "activity": {
     "last": "2026-10-21T07:59:48Z",
-    "open": 6,
+    "open": 8,
     "recent": 157,
     "since_report": 18,
     "total": 584,
@@ -7291,7 +7355,7 @@
   {
    "activity": {
     "last": "2026-10-22T12:26:13Z",
-    "open": 3,
+    "open": 5,
     "recent": 8,
     "since_report": 5,
     "total": 8,
@@ -7373,7 +7437,7 @@
   {
    "activity": {
     "last": "2026-10-22T08:32:28Z",
-    "open": 3,
+    "open": 4,
     "recent": 24,
     "since_report": 5,
     "total": 24,
@@ -7455,7 +7519,7 @@
   {
    "activity": {
     "last": "2026-10-22T09:02:06Z",
-    "open": 1,
+    "open": 2,
     "recent": 23,
     "since_report": null,
     "total": 23,
@@ -7539,7 +7603,7 @@
   {
    "activity": {
     "last": "2026-10-22T07:55:18Z",
-    "open": 3,
+    "open": 5,
     "recent": 5,
     "since_report": null,
     "total": 5,
@@ -7591,7 +7655,7 @@
   {
    "activity": {
     "last": "2026-10-22T09:57:18Z",
-    "open": 1,
+    "open": 6,
     "recent": 24,
     "since_report": 6,
     "total": 24,
@@ -7673,7 +7737,7 @@
   {
    "activity": {
     "last": "2026-10-19T07:36:24Z",
-    "open": 1,
+    "open": 2,
     "recent": 57,
     "since_report": 19,
     "total": 207,
@@ -7843,7 +7907,7 @@
   {
    "activity": {
     "last": "2026-10-22T04:53:25Z",
-    "open": 10,
+    "open": 11,
     "recent": 181,
     "since_report": 35,
     "total": 181,
@@ -8581,7 +8645,7 @@
   {
    "activity": {
     "last": "2026-10-21T23:59:03Z",
-    "open": 2,
+    "open": 5,
     "recent": 225,
     "since_report": 72,
     "total": 283,
@@ -8930,7 +8994,7 @@
   {
    "activity": {
     "last": "2026-10-21T21:27:01Z",
-    "open": 9,
+    "open": 19,
     "recent": 284,
     "since_report": 10,
     "total": 411,
@@ -9044,7 +9108,7 @@
   {
    "activity": {
     "last": "2026-10-22T12:26:49Z",
-    "open": 2,
+    "open": 5,
     "recent": 31,
     "since_report": null,
     "total": 31,
@@ -9439,7 +9503,7 @@
   {
    "activity": {
     "last": "2026-10-22T10:18:26Z",
-    "open": 1,
+    "open": 2,
     "recent": 31,
     "since_report": 8,
     "total": 31,
@@ -9687,7 +9751,7 @@
   {
    "activity": {
     "last": "2026-10-21T08:32:09Z",
-    "open": 0,
+    "open": 1,
     "recent": 11,
     "since_report": 1,
     "total": 11,
@@ -9859,8 +9923,8 @@
   {
    "activity": {
     "last": "2026-10-22T03:17:04Z",
-    "open": 1,
-    "recent": 243,
+    "open": 3,
+    "recent": 242,
     "since_report": 50,
     "total": 308,
     "weekly": [
@@ -10013,7 +10077,7 @@
    "activity": {
     "last": "2026-10-20T16:39:45Z",
     "open": 0,
-    "recent": 259,
+    "recent": 258,
     "since_report": 12,
     "total": 302,
     "weekly": [
@@ -10254,7 +10318,7 @@
   {
    "activity": {
     "last": "2026-10-21T21:33:25Z",
-    "open": 2,
+    "open": 3,
     "recent": 24,
     "since_report": 6,
     "total": 24,
@@ -10336,7 +10400,7 @@
   {
    "activity": {
     "last": "2026-10-22T02:50:14Z",
-    "open": 3,
+    "open": 5,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -10416,7 +10480,7 @@
   {
    "activity": {
     "last": "2026-10-22T09:57:45Z",
-    "open": 6,
+    "open": 9,
     "recent": 208,
     "since_report": 2,
     "total": 208,
@@ -10524,7 +10588,7 @@
   {
    "activity": {
     "last": null,
-    "open": 1,
+    "open": 2,
     "recent": 0,
     "since_report": null,
     "total": 0,
@@ -10576,8 +10640,8 @@
   {
    "activity": {
     "last": "2026-10-22T09:24:37Z",
-    "open": 23,
-    "recent": 795,
+    "open": 29,
+    "recent": 793,
     "since_report": 27,
     "total": 1677,
     "weekly": [
@@ -10956,8 +11020,8 @@
   {
    "activity": {
     "last": "2026-10-22T09:24:38Z",
-    "open": 21,
-    "recent": 863,
+    "open": 26,
+    "recent": 861,
     "since_report": 16,
     "total": 1755,
     "weekly": [
@@ -12335,7 +12399,7 @@
   {
    "activity": {
     "last": "2026-10-22T07:55:16Z",
-    "open": 7,
+    "open": 9,
     "recent": 19,
     "since_report": null,
     "total": 19,
@@ -12593,7 +12657,7 @@
   {
    "activity": {
     "last": "2026-10-22T02:36:19Z",
-    "open": 6,
+    "open": 8,
     "recent": 45,
     "since_report": 7,
     "total": 45,
@@ -12710,7 +12774,7 @@
   {
    "activity": {
     "last": "2026-10-22T06:10:43Z",
-    "open": 3,
+    "open": 4,
     "recent": 6,
     "since_report": 3,
     "total": 6,
@@ -12926,7 +12990,7 @@
   {
    "activity": {
     "last": "2026-10-22T00:36:17Z",
-    "open": 5,
+    "open": 6,
     "recent": 123,
     "since_report": 44,
     "total": 146,
@@ -13056,7 +13120,7 @@
   {
    "activity": {
     "last": "2026-10-22T09:02:07Z",
-    "open": 5,
+    "open": 6,
     "recent": 114,
     "since_report": 58,
     "total": 145,
@@ -13197,7 +13261,7 @@
   {
    "activity": {
     "last": "2026-10-22T17:23:44Z",
-    "open": 14,
+    "open": 16,
     "recent": 237,
     "since_report": 76,
     "total": 392,
@@ -13680,7 +13744,7 @@
   {
    "activity": {
     "last": "2026-10-22T05:50:59Z",
-    "open": 3,
+    "open": 4,
     "recent": 6,
     "since_report": 3,
     "total": 6,
@@ -13935,7 +13999,7 @@
   {
    "activity": {
     "last": "2026-10-21T14:03:23Z",
-    "open": 4,
+    "open": 6,
     "recent": 190,
     "since_report": 17,
     "total": 253,
@@ -14065,7 +14129,7 @@
    "activity": {
     "last": "2026-10-19T09:34:18Z",
     "open": 0,
-    "recent": 52,
+    "recent": 51,
     "since_report": 0,
     "total": 89,
     "weekly": [
@@ -14392,7 +14456,7 @@
   {
    "activity": {
     "last": "2026-07-23T16:02:45Z",
-    "open": 0,
+    "open": 1,
     "recent": 0,
     "since_report": 0,
     "total": 37,
@@ -14588,7 +14652,7 @@
   {
    "activity": {
     "last": "2026-10-22T09:57:17Z",
-    "open": 7,
+    "open": 10,
     "recent": 172,
     "since_report": 7,
     "total": 235,
@@ -14772,7 +14836,7 @@
   {
    "activity": {
     "last": "2026-10-21T19:20:53Z",
-    "open": 1,
+    "open": 3,
     "recent": 92,
     "since_report": 1,
     "total": 166,
@@ -14886,7 +14950,7 @@
   {
    "activity": {
     "last": "2026-10-13T09:53:06Z",
-    "open": 0,
+    "open": 1,
     "recent": 4,
     "since_report": 3,
     "total": 61,
