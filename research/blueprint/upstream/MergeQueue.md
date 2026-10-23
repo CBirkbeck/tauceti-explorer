@@ -60,16 +60,16 @@ Generated 2026-10-22T23:40Z from the README supplier graph of every open pull re
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #942 TangentialBordism (kim-em, other author)
-
-## Wave 5
-- #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #1287 HomotopySpheres (kim-em, other author)
 
-## Wave 6
+## Wave 5
 - #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #1212, #785, #792, #858, #1142, #1287, #248, #417, #894
+- #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
+- #942 TangentialBordism (kim-em, other author)
+
+## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
 
 ## Wave 7
