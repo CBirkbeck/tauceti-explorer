@@ -9097,7 +9097,7 @@
     "awaiting-review"
    ],
    "number": 1260,
-   "sha": "0f185a5cebdb54bdfbd0969d89066370e51396f5",
+   "sha": "9c9a49ab12fca9407be4df8aaabef5cf8567d52a",
    "stated": {
     "before": [
      785,
@@ -9110,7 +9110,7 @@
     "prerequisites": []
    },
    "title": "Roadmap: cyclotomic class groups, Stickelberger and Herbrand–Ribet",
-   "updatedAt": "2026-10-22T22:39:52Z",
+   "updatedAt": "2026-10-23T14:00:14Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1260"
   },
   {
@@ -9245,7 +9245,7 @@
     "awaiting-dependencies"
    ],
    "number": 1270,
-   "sha": "363fa230105215ded8d25ecfba39d0ba0c848263",
+   "sha": "9f92e2b38d88d0334f359024a6ea5106d7271d7d",
    "stated": {
     "before": [
      785,
@@ -9337,7 +9337,7 @@
     ]
    },
    "title": "Roadmap: completed cohomology and local–global compatibility",
-   "updatedAt": "2026-10-23T12:41:15Z",
+   "updatedAt": "2026-10-23T14:07:07Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1270"
   },
   {
@@ -9350,7 +9350,7 @@
     "awaiting-review"
    ],
    "number": 1272,
-   "sha": "55a255f36a511c2fb896a4ecf757ecb8c22d7b09",
+   "sha": "14e8e635cffb69f25afb041951bff81388cafc06",
    "stated": {
     "before": [
      785,
@@ -9385,7 +9385,7 @@
     ]
    },
    "title": "Roadmap: Euler systems, Kolyvagin systems and higher-rank descent",
-   "updatedAt": "2026-10-23T12:01:31Z",
+   "updatedAt": "2026-10-23T13:35:15Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1272"
   },
   {
@@ -9584,7 +9584,7 @@
     "awaiting-review"
    ],
    "number": 1307,
-   "sha": "2ee5358db352767ff66678c5de02d35b2e5e09cc",
+   "sha": "4a5bc0482dfeccdc14a03770e009fb8a0b268690",
    "stated": {
     "before": [
      785,
@@ -9598,13 +9598,15 @@
      1306
     ],
     "prerequisites": [
+     785,
      940,
      1142,
-     1212
+     1212,
+     1306
     ]
    },
    "title": "Roadmap: noncommutative and equivariant Iwasawa theory",
-   "updatedAt": "2026-10-23T12:43:00Z",
+   "updatedAt": "2026-10-23T13:58:14Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1307"
   },
   {
@@ -9680,7 +9682,7 @@
     "awaiting-review"
    ],
    "number": 1311,
-   "sha": "f5a88df143b4e19e5df470b8e1dd2ec2e666f99f",
+   "sha": "a961768f750387e158a14e9418d50267c279614a",
    "stated": {
     "before": [
      451,
@@ -9726,7 +9728,7 @@
     ]
    },
    "title": "Roadmap: Euler systems and the cyclotomic main conjecture",
-   "updatedAt": "2026-10-22T23:24:17Z",
+   "updatedAt": "2026-10-23T14:05:03Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1311"
   },
   {
@@ -9776,7 +9778,7 @@
     "awaiting-review"
    ],
    "number": 1313,
-   "sha": "2392294f3ce2071ada6cd66dd8da38fdc3a6c798",
+   "sha": "b6d1d3755db70e627c8639ca7c15800268b28bb9",
    "stated": {
     "before": [
      785,
@@ -9796,6 +9798,7 @@
      873,
      875,
      879,
+     899,
      940,
      1042,
      1044,
@@ -9814,14 +9817,44 @@
      1310
     ],
     "prerequisites": [
+     785,
+     792,
+     816,
+     820,
      848,
+     849,
+     850,
+     851,
+     852,
+     853,
+     856,
+     857,
+     858,
+     868,
+     873,
+     875,
+     879,
+     899,
+     940,
+     1042,
+     1044,
      1199,
+     1212,
+     1227,
      1229,
-     1281
+     1248,
+     1260,
+     1266,
+     1281,
+     1302,
+     1306,
+     1307,
+     1309,
+     1310
     ]
    },
    "title": "Roadmap: motives and algebraic cycles",
-   "updatedAt": "2026-10-23T12:13:13Z",
+   "updatedAt": "2026-10-23T13:13:03Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1313"
   },
   {
@@ -9984,11 +10017,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1351,
-   "sha": "a04ce9b03662ae9e3c8f2684ea11581886643bbe",
+   "sha": "c3c3d76df6399f3faa41a1cda67af3c545ff5a8f",
    "stated": {
     "before": [
      785,
@@ -10052,7 +10085,7 @@
     ]
    },
    "title": "QWittVectors: roadmap",
-   "updatedAt": "2026-10-23T11:36:41Z",
+   "updatedAt": "2026-10-23T14:00:32Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1351"
   },
   {
@@ -10331,11 +10364,11 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-author",
+    "awaiting-review",
     "roadmap-worker"
    ],
    "number": 1375,
-   "sha": "bf90a625e06e1b2a62bf5305afe77d220412d651",
+   "sha": "6627d126d371b60dace31070ea9a078042fb3525",
    "stated": {
     "before": [
      785,
@@ -10361,7 +10394,7 @@
     ]
    },
    "title": "K3SurfacesAndSymplecticBoundedness: roadmap",
-   "updatedAt": "2026-10-23T12:36:39Z",
+   "updatedAt": "2026-10-23T13:49:43Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1375"
   },
   {
@@ -10920,7 +10953,7 @@
     ]
    },
    "title": "GanGrossPrasadUnitaryGroups: roadmap",
-   "updatedAt": "2026-10-23T12:41:20Z",
+   "updatedAt": "2026-10-23T13:08:28Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1404"
   },
   {
@@ -11429,7 +11462,7 @@
     ]
    },
    "title": "ArithmeticDirichletSeriesPartII: roadmap",
-   "updatedAt": "2026-10-22T23:14:38Z",
+   "updatedAt": "2026-10-23T12:56:37Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1415"
   },
   {
@@ -11438,7 +11471,7 @@
    "draft": true,
    "head": "CBirkbeck/TauCetiRoadmap",
    "labels": [
-    "awaiting-review",
+    "awaiting-author",
     "roadmap-worker"
    ],
    "number": 1418,
@@ -11520,7 +11553,7 @@
     ]
    },
    "title": "ArithmeticKTheory: roadmap",
-   "updatedAt": "2026-10-23T00:16:54Z",
+   "updatedAt": "2026-10-23T13:00:48Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1418"
   },
   {

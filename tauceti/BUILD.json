@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 28351869,
-  "htmlSha256": "256d98181079f5ef0caae90caab917c51a7bb66fdda78e5d196212dd8eff754b",
+  "htmlBytes": 28352625,
+  "htmlSha256": "0ee90b045fb3bd4852e096145b8412395bff5c31e33d95a9ae57c320effc808e",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3556,10 +3556,10 @@
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
     "src/live.js": "56a9e4f288ea8bc49668095bf5463fdcb8dc5f827a09e80c000f193b8c94949c",
-    "src/app.js": "480fa8daa421854b6265d98fbf91b71d9f601e9d71aa680f19a963cbfff06899",
+    "src/app.js": "8c144dbf0a70551c807743385dd2ba82a358af51261c3e7b459be0204a38dc84",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "ac46ee6d849311e78e2926b47205ce025f19336e5fa1f9b5d9dde145b5ef879e",
+    "data/tauceti-progress.json": "16384afb91e8adc2e8bcc8bf51f7cf056d88fae6937aa1cf09bdc69f149f051d",
     "data/tauceti-new-roadmaps.json": "ad214e74f31aa9f03f5f29e99d3c5f4e5e05911541a84d65f70092e4116bce9c",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -5044,7 +5044,7 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-22T23:18:45Z",
+    "exportedAt": "2026-10-23T11:31:25Z",
     "roadmaps": 155,
     "unplaced": 1,
     "layers": {
