@@ -39,6 +39,7 @@ Generated 2026-10-24T22:00Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #934
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
+- #1486 QuiverRepresentationsPartII — draft; waits on #785
 - #896 CharacteristicClasses (kim-em, other author)
 
 ## Wave 4
