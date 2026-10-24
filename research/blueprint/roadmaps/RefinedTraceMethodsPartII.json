@@ -1,0 +1,292 @@
+{
+  "id": "RefinedTraceMethodsPartII",
+  "title": "Hochschild, cyclotomic and refined trace methods, Part II: henselian pairs",
+  "area": "ktheory",
+  "parent": "RefinedTraceMethods",
+  "summary": "This roadmap proves finite-coefficient henselian invariance of the fibre of the cyclotomic trace, using nonunital henselian algebra and pseudocoherent functors. It develops the resulting adic continuity, logarithmic pro comparisons, étale comparison range and quasisyntomic K-theory calculations, building on existing K-theory, cyclotomic, crystalline and prismatic roadmaps.",
+  "readme": "# Hochschild, cyclotomic and refined trace methods, Part II: henselian pairs\n\nThis roadmap extends the cyclotomic trace from nilpotent invariance to arbitrary henselian pairs. Its central theorem states that the finite-coefficient fibre of K→TC is henselian invariant. The proof combines nonunital henselian algebra, finite approximation of spectrum-valued functors and equal-characteristic logarithmic calculations. It then gives adic continuity with its F-finiteness boundary, pro logarithmic comparisons, étale trace comparisons and quasisyntomic K-theory consequences.\n\nThe objects K, THH, TC, cyclotomic spectra, derived completion, classical de Rham–Witt and syntomic complexes come from their existing owners. Ordinary Hochschild homology and K-zero constructions in Tau Ceti are reused. The independent derived p-adic tower continuation is assigned to RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses by the split proposal; its nine routed items are fully accounted for there.\n\nConventions: rings are commutative and unital, except for explicitly nonunital algebras; p is prime. Sp≥n uses homotopy grading. E/p^r denotes the cofiber of multiplication by p^r, not π*(E)/p^r; E with Z_p coefficients means its derived p-completion. K is connective unless the nonconnective symbol 𝕂 is shown. K^inv=fib(K→TC), and E(A,I)=fib(E(A)→E(A/I)). All inverse limits of spectra are homotopy limits. An F-finite Z_(p)-algebra means its reduction modulo p is finite over its Frobenius image. Finite free/retract objects form a small skeleton when forming functor categories; universes enlarge the category of all algebras without changing this test subcategory. Classical singular de Rham–Witt is never replaced silently by the saturated complex. Witt length r and ideal depth s are independent, even when a diagonal pro-system uses r=s.\n\nThe complete reader below states every target, proof route, API, test and supplier contract. All implementation statuses are unchecked. A complete plan means every routed target has an owner and a dependency chain, including explicitly open supplier requests; it does not assert formalisation or closed supplier work.\n\n- **HP.0: Nonunital henselian algebra.** Use the existing nonunital ring and unitization carriers to construct the category of henselian nonunital algebras, its free objects and reflection. Prove Gabber’s ambient-independence theorem, compatibility with Milnor squares and rational rescaling.\n- **HP.1: Finite-coefficient cyclotomic continuity.** Prove the connectivity, module calculation, finite homotopy-orbit approximation and uniform pro-constancy theorems that make TC modulo p preserve filtered colimits and realizations. Give the strict Dieudonné proof as a second route.\n- **HP.2: Finite approximation of functors.** Develop relative perfectness and pseudocoherence, their closure and recognition results, projective pseudocoherence on henselian nonunital rings, simplicial free resolutions and the axiomatic rigidity criterion.\n- **HP.3: Pseudocoherence of the trace functors.** Prove uniform general-linear homology stability and pseudocoherence of group chains, K, Eilenberg–MacLane spectra, THH and TC modulo p; prove projective-module K-zero rigidity.\n- **HP.4: Cartier defects and equal-characteristic rigidity.** Construct the kernel and cokernel of inverse Cartier minus one, prove étale base change and henselian invariance, and combine imported Geisser–Levine and Geisser–Hesselholt comparisons to treat ind-smooth local characteristic-p rings.\n- **HP.5: Rigidity of the cyclotomic trace fibre.** Pass nonconnective excision to the connective henselian setting, build the nonunital trace-fibre functor and apply axiomatic rigidity. Establish the finite-coefficient cartesian trace square for every henselian pair and exhibit failure of the integral analogue.\n- **HP.6: Adic continuity and its boundary.** Deduce finite-coefficient K-theory continuity for complete noetherian rings with F-finite reduction modulo p, using THH continuity. Establish the reverse implication to rigidity and the non-F-finite K-two discontinuity example with its exterior-weight obstruction.\n- **HP.7: Pro logarithmic comparisons.** Treat arbitrary characteristic-p relative Witt groups, the henselian surjectivity of restriction minus Frobenius, the pro Illusie sequence and pro Geisser–Levine theorem. Relate Milnor symbols, p-torsion and lifting in local rings.\n- **HP.8: Étale and semiperfect trace comparisons.** Identify the characteristic-p étale trace sheaves, prove the proper henselian comparison and the dimension-bounded Lichtenbaum–Quillen range. Compute perfect and semiperfect cases and the functorial complementary logarithmic summand for local characteristic-p rings.\n- **HP.9: Quasisyntomic K-theory consequences.** Export the connective TC comparison for quasiregular semiperfectoid rings, identify the weight-zero and weight-one consequences and characteristic-p crystalline eigenspaces, and prove quasisyntomic-local evenness using imported syntomic discreteness.\n",
+  "prerequisites": [
+    "ArcTopologyAndDescent",
+    "ArithmeticLocallySymmetricSpaces",
+    "CrystallineCohomology",
+    "DeformationAndDerivedPatchingAlgebra",
+    "DerivedDeRhamCohomology",
+    "EnhancedDerivedSheaves",
+    "GeneralAlgebraicKTheory",
+    "KTheoryFiniteLocalFields",
+    "KTheoryLowDegrees",
+    "PrismaticCohomology",
+    "RefinedTraceMethods",
+    "SchemeAndStackFoundations",
+    "SchemeKTheoryOperations",
+    "StableHomotopyKTheory"
+  ],
+  "stages": [
+    {
+      "key": "HP.0",
+      "title": "Nonunital henselian algebra",
+      "description": "Use the existing nonunital ring and unitization carriers to construct the category of henselian nonunital algebras, its free objects and reflection. Prove Gabber’s ambient-independence theorem, compatibility with Milnor squares and rational rescaling.\n\n**Nonunital and augmented algebras.** For each commutative R, construct an equivalence from nonunital commutative R-algebras to augmented commutative R-algebras. Send I to the existing Unitization R I with augmentation (r,x)↦r; send an augmentation A→R to its kernel. The unit and counit are natural algebra isomorphisms. Bundle this category over the existing carriers and nonunital algebra homomorphisms; its forgetful functor creates limits and sifted colimits. The augmentation ideal of R[X_s] is free on the set of variables.\n\n**Local nonunital algebras.** A nonunital commutative algebra I is local in the nonunital sense if for every x∈I there is y∈I with x+y+xy=0. Prove uniqueness of y and equivalence to 1+x being a unit in R⋉I for every x, hence to I lying in the Jacobson radical of R⋉I. This adjective does not assert that R⋉I is a local ring.\n\n**Localization at one plus the ideal.** The inclusion of local nonunital R-algebras has a left adjoint. Its value on I is the augmentation kernel of (R⋉I)[(1+I)⁻¹]→R. Maps I→J with J local factor uniquely through it; the construction is independent of the ambient unital presentation of I.\n\n**Henselian nonunital algebras.** A nonunital commutative R-algebra I is henselian if, for every n≥1 and g∈I[T], the equation T(1+T)^{n−1}+g(T)=0 has a unique solution in I. Interpret g by evaluation in the unitization, with coefficients in its augmentation ideal. This notion is independent of R and implies local nonunitality.\n\n**Henselian algebra limits and quotients.** The forgetful functor from henselian nonunital R-algebras to sets creates limits and sifted colimits. Quotients of a henselian nonunital algebra by any ideal are henselian. Changing the scalar ring along a compatible action does not change intrinsic henselianity.\n\n**Henselian reflection and finite free projectives.** The full inclusion of henselian nonunital R-algebras admits a left adjoint I↦Iʰ. Let R{X_s}⁺ be the reflection of the augmentation ideal of R[X_s]. It is free on the set of generators. This category is the category of models of a finitary algebraic theory; its compact projective objects are precisely retracts of free objects on finite sets. Here projectivity means lifting against surjective algebra maps, and compactness means preservation of filtered colimits by the set-valued Hom functor.\n\n**Gabber ambient independence.** For any ideal I of a commutative ring A, the pair (A,I) is henselian exactly when I with its inherited nonunital multiplication is henselian. Consequently any two unital embeddings of the same nonunital ring give the same henselian-pair condition.\n\n**Henselization and Milnor squares.** Given a Milnor square of commutative rings with surjective vertical maps and identified kernels I, henselizing each pair along I gives another Milnor square, both cartesian and cocartesian. If S→T is the horizontal map then Tʰ≅Sʰ⊗_S T and Iʰ≅I⊗_S Sʰ. This kernel is the intrinsic reflection of I, independent of S.\n\n**Rational free henselian algebras by rescaling.** For a finite set of variables, Q{X_1,…,X_n}⁺ is the filtered colimit of Z{X_1,…,X_n}⁺ indexed by positive integers ordered by divisibility, where the map from N to NM rescales every variable by M. The resulting rational scalar action is intrinsic.",
+      "requires": [
+        "EnhancedDerivedSheaves:E3",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "HP.1",
+      "title": "Finite-coefficient cyclotomic continuity",
+      "description": "Prove the connectivity, module calculation, finite homotopy-orbit approximation and uniform pro-constancy theorems that make TC modulo p preserve filtered colimits and realizations. Give the strict Dieudonné proof as a second route.\n\n**Connectivity of topological cyclic homology.** For a p-complete cyclotomic spectrum X with underlying spectrum in Sp≥n, TC(X) lies in Sp≥n−1. In particular TC/p on connective cyclotomic spectra preserves geometric realizations.\n\n**The trivial cyclotomic Eilenberg–MacLane algebra.** For HF_p with trivial cyclotomic structure, π*TC⁻=F_p[x] and π*TP=F_p[x,x⁻¹], |x|=−2. The canonical map is the polynomial inclusion, while cyclotomic Frobenius sends x to zero and acts identically on π0.\n\n**TC of trivial HF-p modules.** For a module X over the commutative cyclotomic algebra HF_p^triv, there is a natural fibre sequence TC(X)→X→X_hT. Thus TC on these modules preserves all colimits. For an HZ-module with circle action, the Euler class gives cofibres Σ⁻²X^hT→X^hT→X, X→X_hT→Σ²X_hT, and Σ⁻²X^hT→X^tT→X_hT. In particular the unit HF_p^triv is compact in Mod_(HF_p^triv)(CycSp), since its mapping spectrum into X is TC(X).\n\n**Finite-coefficient TC preserves colimits.** For connective cyclotomic spectra, TC(−)/p preserves all colimits in that connective subcategory. Consequently A↦TC(A)/p on connective E1 ring spectra preserves sifted colimits. The corresponding statements hold for /p^r, r≥1.\n\n**Finite homotopy-orbit approximation to TC.** Uniformly in connective cyclotomic X and n≥0, τ≤n(TC(X)/p) agrees with τ≤nTC(X⊗τ≤n+1(S/p)^triv). The latter untruncated functor lies in the thick subcategory generated by (X⊗HF_p^triv)_hT.\n\n**Uniform pro-zero criterion.** Let C admit countable coproducts and F_r:C→Ab be a tower of countable-coproduct-preserving functors. If lim F_r(c)=0 and lim¹ F_r(c)=0 for every c, then for every r some s≥r makes F_s→F_r the zero natural transformation. A corresponding criterion holds for spectra-valued functors in one common finite homotopy range [a,b] with vanishing inverse limit.\n\n**Uniform pro-constancy of finite-level TC.** For every k, the tower of functors X↦τ≤k(TC^r(X)/p) on connective cyclotomic spectra is pro-isomorphic to the constant functor τ≤k(TC(X)/p). Here TC^r is the finite-stage classical restriction/Frobenius construction supplied by RT.2.\n\n**TC and connective tower limits.** A tower of connective cyclotomic spectra has a limit created on underlying spectra; it is (−1)-connective. TC preserves this limit. Retain the derived inverse limit and its Milnor lim¹ terms.\n\n**Finitary Frobenius defects in strict Dieudonné complexes.** For a strict Dieudonné complex X set A^n=X^n/(VX^n+dVX^{n−1}) and B^n=X^n/(VX^n+dX^{n−1}); F induces F̄:A^n→B^n. The square from F−1:X^n/p→X^n/p to F̄−1:A^n→B^n is cartesian and cocartesian in abelian groups. Thus ker and coker of F−1 in each degree preserve filtered colimits of strict Dieudonné complexes.\n\n**Witt proof of characteristic-p TC continuity.** For a filtered diagram of ind-smooth F_p-algebras with colimit R, colim TC(R_i)/p≃TC(R)/p. Via the imported TR comparison, π_n(TC(R)/p) is an extension of coker(F−1 on WΩ_R^{n+1}/p) by ker(F−1 on WΩ_R^n/p).",
+      "requires": [
+        "CrystallineCohomology:CR.4",
+        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.6"
+      ]
+    },
+    {
+      "key": "HP.2",
+      "title": "Finite approximation of functors",
+      "description": "Develop relative perfectness and pseudocoherence, their closure and recognition results, projective pseudocoherence on henselian nonunital rings, simplicial free resolutions and the axiomatic rigidity criterion.\n\n**The suspension–loop Goodwillie tower.** There is a natural tower P_n of functors Sp→Sp receiving Σ∞Ω∞→P_n, with P_1(X)≃X and fib(P_n(X)→P_{n−1}(X))≃(X^{⊗n})_hΣ_n for n≥2. On Sp≥1 the map Σ∞Ω∞X→lim_n P_n(X) is an equivalence, and the connectivity of its comparison with P_n tends uniformly to infinity.\n\n**Perfect and pseudocoherent functors.** For a small category D, a functor F:D→Sp is perfect if it lies in the thick subcategory generated by Σ∞_+Hom_D(d,−). It is pseudocoherent if for every integer n there is a perfect P→F inducing an equivalence after τ≤n. An abelian-valued functor is finitely generated if it is a quotient of a finite sum of Z[Hom_D(d,−)]. Pseudocoherence implies a lower homotopy bound uniform on D.\n\n**Relative finite approximation.** For a small full subcategory D⊂C, define D-perfect functors using the thick closure of Σ∞_+Hom_C(d,−) for d∈D, and D-pseudocoherence by approximation at every cutoff. F is D-pseudocoherent iff it is left Kan extended from D and its restriction to D is pseudocoherent.\n\n**Recognition by truncations and cells.** Let D⊂C be a small full subcategory and F:C→Sp uniformly bounded below. Then F is D-pseudocoherent iff F is left Kan extended from D and every τ≤n(F|D) is compact in Fun(D,Sp≤n). Equivalently F has a cellular presentation by shifted D-corepresentables with finitely many cells in each degree and errors whose connectivity tends to infinity. Relative finite generation in degree zero means a finite sum of additive D-corepresentables surjects onto that functor.\n\n**Closure of relative pseudocoherence.** D-pseudocoherent functors form a thick subcategory. Geometric realizations preserve them for simplicial diagrams with a common lower bound. The same finite-skeleton argument treats the finite-skeletal homotopy colimits of Proposition 4.8. If D is closed under finite coproducts, pointwise smash products preserve relative pseudocoherence. The first nonzero homotopy functor of a pseudocoherent F is relatively finitely generated.\n\n**Goodwillie recognition through infinite loop spaces.** Let C have finite coproducts, D⊂C be small and full and contain the initial object and finite coproducts of its objects, and F:C→Sp≥1. Then F, Σ∞Ω∞F and Σ∞_+Ω∞F are D-pseudocoherent simultaneously. The initial object corepresents the constant sphere summand.\n\n**Recognition through integral homology.** For uniformly bounded-below F:C→Sp, F is D-pseudocoherent iff HZ⊗F is. The reverse implication requires the uniform lower bound.\n\n**Projective pseudocoherence on henselian algebras.** For henselian nonunital R-algebras take D to be a small skeleton of retracts of finite free objects. Projectively perfect, pseudocoherent and finitely generated mean the relative properties for D. A projectively pseudocoherent functor preserves filtered colimits. The functor I↦Σ∞_+(I^n), n≥0, is projectively perfect.\n\n**Gabber finite-generation vanishing lemma.** Let F:Ring^{nu,h}→Ab preserve filtered colimits, be projectively finitely generated and take short exact sequences to right exact sequences. If it vanishes on bounded-torsion rings and on Q-algebras, then F=0.\n\n**Axiomatic rigidity criterion.** Let F:Ring^{nu,h}→Sp be projectively pseudocoherent. Suppose it sends short exact sequences to fibre sequences, is invariant under quotients by nilpotent ideals and vanishes on every finite free henselian nonunital algebra over every prime field, including Q. Then F=0.\n\n**Left Kan extension by free resolutions.** Construct the augmented simplicial free resolution of a henselian nonunital R-algebra from the free/forgetful adjunction. Its underlying realization is the original discrete algebra. For E admitting sifted colimits, F is left Kan extended from finite free/retract objects iff it preserves filtered colimits and carries every simplicial diagram with discrete underlying realization I to a realization equivalence |F(I•)|≃F(I).",
+      "requires": [
+        "EnhancedDerivedSheaves:E3",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.3",
+        "RefinedTraceMethodsPartII:HP.0",
+        "StableHomotopyKTheory:H.5:spectra"
+      ]
+    },
+    {
+      "key": "HP.3",
+      "title": "Pseudocoherence of the trace functors",
+      "description": "Prove uniform general-linear homology stability and pseudocoherence of group chains, K, Eilenberg–MacLane spectra, THH and TC modulo p; prove projective-module K-zero rigidity.\n\n**Uniform general-linear homology stability.** For a commutative ring A of finite Bass stable rank s, stabilization H_i(GL_n(A),Z)→H_i(GL_∞(A),Z) is an isomorphism for n≥2i+s+2 (a deliberately nonoptimal range). For A=Z⋉I with I local nonunital, one can use one such bound independent of I, since the maximal spectrum is that of Z.\n\n**Finite approximation of general-linear group chains.** The functor I↦HZ⊗Σ∞_+BGL_∞(Z⋉I) on henselian nonunital rings is projectively pseudocoherent. The same assertion holds for each fixed finite n.\n\n**Projective-module K-zero rigidity.** For a henselian pair (A,I), reduction gives a bijection on isomorphism classes of finitely generated projective modules, compatible with direct sum and tensor product, and hence K0(A)≅K0(A/I). In particular K0(Z⋉I)≅Z for henselian nonunital I.\n\n**Pseudocoherence of algebraic K-theory.** The connective functor I↦K(Z⋉I) on henselian nonunital rings is projectively pseudocoherent; so is the relative functor fib(K(Z⋉I)→K(Z)).\n\n**Pseudocoherence of additive spectra.** On the category of finite free abelian groups, A↦HA is pseudocoherent. Consequently I↦H(I_add) and I↦H(Z⋉I)_add are projectively pseudocoherent on henselian nonunital rings.\n\n**Pseudocoherence of topological Hochschild homology.** The functor I↦THH(Z⋉I) is projectively pseudocoherent.\n\n**Pseudocoherence of finite-coefficient TC.** The functor I↦TC(Z⋉I)/p is projectively pseudocoherent, as is its augmentation fibre. The same holds with p^r coefficients.",
+      "requires": [
+        "ArithmeticLocallySymmetricSpaces:ALS.2",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "KTheoryLowDegrees:U.3",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethodsPartII:HP.0",
+        "RefinedTraceMethodsPartII:HP.1",
+        "RefinedTraceMethodsPartII:HP.2",
+        "SchemeAndStackFoundations:SF.0",
+        "StableHomotopyKTheory:H.3",
+        "StableHomotopyKTheory:H.5:spectra"
+      ]
+    },
+    {
+      "key": "HP.4",
+      "title": "Cartier defects and equal-characteristic rigidity",
+      "description": "Construct the kernel and cokernel of inverse Cartier minus one, prove étale base change and henselian invariance, and combine imported Geisser–Levine and Geisser–Hesselholt comparisons to treat ind-smooth local characteristic-p rings.\n\n**Cartier kernel and defect groups.** For an F_p-algebra R and n≥0, use the canonical inverse Cartier map C⁻¹:Ω_R^n→Ω_R^n/dΩ_R^{n−1}. Define ν^n(R)=ker(1−C⁻¹) and ν̃^n(R)=coker(1−C⁻¹); put both zero for n<0. The maps are additive and F_p-linear, not R-linear in the ordinary scalar structure. For ind-smooth R, inverse Cartier is the usual Cartier isomorphism onto closed forms modulo exact forms.\n\n**Étale base change for Cartier quotients.** If R→S is an étale map of F_p-algebras, Ω_R^n⊗_R S≅Ω_S^n and the Frobenius-twisted modules of forms modulo exact forms satisfy the corresponding base-change equivalence. These identifications intertwine inverse Cartier.\n\n**Smooth-local trace and Cartier defects.** For an ind-smooth F_p-algebra R, Geisser–Hesselholt gives 0→ν̃^{n+1}(R)→π_n(TC(R)/p)→ν^n(R)→0 for n≥−1. For local such R and n≥0, Geisser–Levine identifies K_n(R;Z/p) with ν^n(R), compatibly with trace and dlog. Therefore π_n(K^inv(R)/p)≅ν̃^{n+2}(R) for all n≥−2, with lower groups zero.\n\n**A henselian unit root identity.** If (R,I) is henselian, s∈I and n≥1, there is a unique x∈1+I with x−sx^n=1. This is the simple-root lift at x=1, and it is natural under maps of pairs.\n\n**Henselian invariance of Cartier defects.** For a henselian pair (R,I) of F_p-algebras, ν^n(R)→ν^n(R/I) is surjective and ν̃^n(R)→ν̃^n(R/I) is an isomorphism for all n≥0.\n\n**Ind-smooth local characteristic-p rigidity.** If (R,I) is henselian and both R and R/I are local ind-smooth F_p-algebras, then K^inv(R)/p→K^inv(R/I)/p is an equivalence.",
+      "requires": [
+        "CrystallineCohomology:CR.4",
+        "DerivedDeRhamCohomology:DD.0",
+        "DerivedDeRhamCohomology:DD.3",
+        "KTheoryFiniteLocalFields:L.6",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethodsPartII:HP.0",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "HP.5",
+      "title": "Rigidity of the cyclotomic trace fibre",
+      "description": "Pass nonconnective excision to the connective henselian setting, build the nonunital trace-fibre functor and apply axiomatic rigidity. Establish the finite-coefficient cartesian trace square for every henselian pair and exhibit failure of the integral analogue.\n\n**Connective henselian excision.** For a ring map f:A→B identifying a henselian ideal I⊂A with an ideal J⊂B, the square comparing K(A,I)→K(B,J) to nonconnective 𝕂(A,I)→𝕂(B,J) is cartesian. Hence the connective trace fibres K^inv(A,I)→K^inv(B,J) are equivalent.\n\n**Intrinsic nonunital trace fibre.** For henselian nonunital I define F_p(I)=fib(K^inv(Z⋉I)→K^inv(Z))/p. For any henselian embedding I⊂A this is naturally K^inv(A,I)/p. It sends short exact sequences of henselian nonunital rings to fibre sequences and is invariant under nilpotent quotients.\n\n**Rigidity of the cyclotomic trace fibre.** For every henselian pair (A,I), prime p and r≥1, K^inv(A)/p^r→K^inv(A/I)/p^r is an equivalence. Equivalently the cyclotomic trace square for A→A/I with Z/p^r coefficients is cartesian. The analogous assertion holds with any positive finite integer coefficient and after derived profinite completion.\n\n**Failure of integral henselian rigidity.** Let R=(F_p[[x]])^perf and I=ker(R→F_p)=⋃_n(x^{1/p^n}). This is a henselian pair, but K(R,I)→TC(R,I) is not an integral equivalence. Its K1 is the nonzero uniquely p-divisible group ker(R×→F_p×), while TC(R,I) is derived p-complete.",
+      "requires": [
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "GeneralAlgebraicKTheory:K.6",
+        "KTheoryFiniteLocalFields:L.2",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.3",
+        "RefinedTraceMethodsPartII:HP.0",
+        "RefinedTraceMethodsPartII:HP.2",
+        "RefinedTraceMethodsPartII:HP.3",
+        "RefinedTraceMethodsPartII:HP.4",
+        "StableHomotopyKTheory:H.6"
+      ]
+    },
+    {
+      "key": "HP.6",
+      "title": "Adic continuity and its boundary",
+      "description": "Deduce finite-coefficient K-theory continuity for complete noetherian rings with F-finite reduction modulo p, using THH continuity. Establish the reverse implication to rigidity and the non-F-finite K-two discontinuity example with its exterior-weight obstruction.\n\n**THH detects only the derived mod-p input.** If A⊗^L_ZF_p→B⊗^L_ZF_p is an equivalence, then THH(A)/p→THH(B)/p is an equivalence. For noetherian A, its ordinary p-adic completion Â_p satisfies this hypothesis.\n\n**Finite generation and pro base change for THH.** For noetherian F-finite Z_(p)-algebra A, ideal I and v≥1, THH_n(A;Z/p^v) is a finitely generated A-module and {THH_n(A;Z/p^v)⊗_A A/I^s}_s≅{THH_n(A/I^s;Z/p^v)}_s for all n≥0.\n\n**Adic continuity of THH.** If A is noetherian, I-adically complete and A/p is F-finite, then THH(A)/p^v≃lim_s THH(A/I^s)/p^v for every v≥1. The same comparison holds for TC.\n\n**Adic continuity of finite-coefficient K-theory.** For noetherian I-adically complete A with A/p F-finite, K(A)/p^r≃lim_s K(A/I^s)/p^r for all r≥1. Here the right side is the homotopy inverse limit, not just a limit of K groups.\n\n**Rigidity from complete-ring continuity.** Conversely, the finite-coefficient K-continuity theorem for all noetherian complete rings with F-finite mod-p reduction implies henselian trace rigidity for arbitrary pairs. This is a logical comparison of two proofs, not a prerequisite used in the proof of rigidity above.\n\n**Weight of an exterior two-form.** For a ring map B→A and ω∈Ω²_{A/B}, define its weight to be the least N≥0 for which ω=Σ_{i=1}^N a_i db_i∧dc_i. Such an N exists by the generators of Kähler forms. Over a field, if db_1,…,db_n,dc_1,…,dc_n are independent, then Σ_i db_i∧dc_i has weight n, including in characteristic two.\n\n**Discontinuity without F-finiteness.** For a characteristic-p field k with infinite p-basis, K(k[[t]])/p→lim_s K(k[t]/t^s)/p is not surjective on π2. In particular this holds for k=F_p(t_1,t_2,…).",
+      "requires": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DerivedDeRhamCohomology:DD.0",
+        "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "RefinedTraceMethods:RT.1",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.3",
+        "RefinedTraceMethodsPartII:HP.1",
+        "RefinedTraceMethodsPartII:HP.5",
+        "SchemeAndStackFoundations:SF.0",
+        "StableHomotopyKTheory:H.6"
+      ]
+    },
+    {
+      "key": "HP.7",
+      "title": "Pro logarithmic comparisons",
+      "description": "Treat arbitrary characteristic-p relative Witt groups, the henselian surjectivity of restriction minus Frobenius, the pro Illusie sequence and pro Geisser–Levine theorem. Relate Milnor symbols, p-torsion and lifting in local rings.\n\n**Relative logarithmic de Rham–Witt groups.** For any F_p-algebra R, ideal I, r≥1 and n≥0, use the classical p-typical de Rham–Witt complex W_rΩ_R^n. Let W_rΩ_{R,log}^n be the global sections of the Zariski sheaf image of dlog on n units; this equals the étale sheaf image by Morrow’s theorem. Define W_rΩ^n(R,I) and W_rΩ^n(R,I)_log as the kernels of reduction on ordinary and logarithmic groups respectively. These are not in general images of only globally chosen unit symbols on a nonlocal ring.\n\n**Relative logarithmic mod-p comparison.** For a henselian F_p-pair (R,I) such that R and R/I are ind-smooth, K_n(R,I;Z/p)≅Ω^n(R,I)_log for n≥0, naturally via trace and dlog.\n\n**Henselian surjectivity of restriction minus Frobenius.** If (R,I) is any henselian F_p-pair, then R−F:W_rΩ^n(R,I)→W_{r−1}Ω^n(R,I) is surjective for r≥2 and n≥0; at r=1 the target is W0=0.\n\n**Relative pro Illusie sequence.** For a regular noetherian F-finite F_p-algebra R henselian along I, n≥0 and fixed r≥1, the sequence 0→{W_sΩ^n(R,I^s)_log}_s --p^r→ {W_sΩ^n(R,I^s)_log}_s --R^{s−r}→ {W_rΩ^n(R,I^s)_log}_s→0 is exact in pro abelian groups, using the cofinal indices s≥r.\n\n**Diagonal pro Hochschild–Kostant–Rosenberg comparison.** For regular noetherian F-finite F_p-algebra R and any ideal I, the universal Witt-complex map gives {W_sΩ^n_{R/I^s}}_s≅{TR_n^s(R/I^s;p)}_s and {W_sΩ^n(R,I^s)}_s≅{TR_n^s(R,I^s;p)}_s. Likewise {W_sΩ_R^n}_s≅{TR_n^s(R;p)}_s. These are degreewise pro isomorphisms, not fixed-length full graded isomorphisms.\n\n**Henselian relative pro Geisser–Levine.** For regular noetherian F-finite R over F_p henselian along I, every n≥0 and r≥1, trace induces {K_n(R,I^s;Z/p^r)}_s≅{W_rΩ^n(R,I^s)_log}_s.\n\n**Pro Geisser–Levine for local rings.** For regular noetherian F-finite local F_p-algebra R and any ideal I, dlog identifies {K_n(R/I^s;Z/p^r)}_s with {W_rΩ^n_{R/I^s,log}}_s for n≥0,r≥1. The pro abelian group {K_n(R/I^s)}_s is p-torsion-free.\n\n**Milnor symbols and lifting classes.** If R is regular noetherian F-finite over F_p and R/I is local, the map {K_n^M(R/I^s)/p^r}_s→{K_n(R/I^s;Z/p^r)}_s is surjective with kernel equal to the dlog kernel, for classical or improved Milnor K. If R is itself local, 0→{K_n(R,I^s;Z/p^r)}→K_n(R;Z/p^r)→{K_n(R/I^s;Z/p^r)}→0 is pro-exact. Some finite s detects symbolic lifting of a class at R/I, and such a class lifts to integral K_n(R). The relative pro GL comparison holds for any ideal of such local R, without henselianity.",
+      "requires": [
+        "CrystallineCohomology:CR.4",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+        "GeneralAlgebraicKTheory:K.7",
+        "KTheoryFiniteLocalFields:L.6",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethodsPartII:HP.1",
+        "RefinedTraceMethodsPartII:HP.4",
+        "RefinedTraceMethodsPartII:HP.5",
+        "RefinedTraceMethodsPartII:HP.6",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "HP.8",
+      "title": "Étale and semiperfect trace comparisons",
+      "description": "Identify the characteristic-p étale trace sheaves, prove the proper henselian comparison and the dimension-bounded Lichtenbaum–Quillen range. Compute perfect and semiperfect cases and the functorial complementary logarithmic summand for local characteristic-p rings.\n\n**Rigid invariants over separably closed fields.** Let G:CommAlg_K→Ab preserve filtered colimits and be invariant under quotient by henselian ideals. If K is separably closed and L/K is any extension of separably closed fields, then G(K)→G(L) is an isomorphism.\n\n**Strictly henselian characteristic-p comparison.** For a strictly henselian local ring A whose residue field has characteristic p, K(A)/p^r→TC(A)/p^r is an equivalence for every r≥1.\n\n**The characteristic-p étale trace sheaves.** For any scheme X let i:X_p=X×Spec F_p→X. For every n∈Z and r≥1 there is a canonical identification of étale homotopy sheaves π_n(TC/p^r)≅i_*i^*π_n(K/p^r), compatible with the cyclotomic trace. Both sides are sheaves; this is not an assertion about presheaf sections on arbitrary X.\n\n**Affine characteristic-p étale cohomological dimension.** For any F_p-algebra A and any p-primary torsion abelian sheaf F on (Spec A)_et, H^j_et(Spec A,F)=0 for j>1. No noetherianity is required.\n\n**Proper henselian étale K-theory comparison.** If X is proper over Spec R and (R,pR) is henselian, its étale Postnikov-sheafified connective K-theory satisfies K̂_et(X)/p^r≃TC(X)/p^r for all r≥1. Here K̂_et is the limit of the étale sheafifications of the Postnikov truncations.\n\n**The p-adic Lichtenbaum–Quillen range.** Suppose (R,pR) is henselian, R/p has finite Krull dimension, and d≥1 satisfies [k(x):k(x)^p]≤p^d for every x∈Spec(R/p). Then trace K(R)/p^r→TC(R)/p^r is an isomorphism on π_n for all n≥d and r≥1. Consequently K(R)/p^r→K̂_et(R)/p^r has the same range.\n\n**Perfect characteristic-p K-theory and TC.** For a perfect F_p-algebra A and r≥1, K(A)/p^r≃τ≥0(TC(A)/p^r) and both have zero positive homotopy groups. π0 is the locally constant Z/p^r-valued functions on Spec A. Moreover π−1(TC(A)/p^r)=coker(F−1:W_r(A)→W_r(A)), with no lower homotopy groups.\n\n**Trace with semiperfect reduction.** If (R,pR) is henselian and Frobenius on R/pR is surjective, then K(R)/p^r≃τ≥0(TC(R)/p^r) for every r≥1, and K(R;Z_p)≃τ≥0TC(R;Z_p) after derived p-completion.\n\n**Nonarchimedean valuation-ring comparison.** Let C be a complete nonarchimedean field of residue characteristic p with perfect residue field. For its valuation ring O_C, K(O_C)/p^r≃τ≥0(TC(O_C)/p^r) and K(O_C;Z_p)≃τ≥0TC(O_C;Z_p).\n\n**Higher Witt defect functors.** For an F_p-algebra R take the polynomial F_p-algebra on its underlying set, map it onto R, and henselize along the kernel to obtain the fixed functorial presentation R′→R. For m≥0 define ν̃_r^m(R)=H¹_et(Spec R′, π_m(TC/p^r)); put it zero for m<0. Use homotopy sheaves on the étale site. This fixed-presentation construction preserves filtered colimits and is compatible with coefficient reduction. Presentation independence is a conclusion of explicit-witt-cokernel.\n\n**Functorial splitting on local characteristic-p rings.** For every local F_p-algebra R, r≥1 and n≥−1, there is a natural coefficient-compatible decomposition π_n(TC(R)/p^r)≅K_n(R;Z/p^r)⊕ν̃_r^{n+1}(R). The first inclusion is cyclotomic trace. For arbitrary F_p-algebras the same assertion holds after Zariski sheafification. This is a splitting of groups, not a claimed natural splitting of spectra.\n\n**Explicit Witt-cokernel complement.** For every F_p-algebra R, m≥0 and r≥1, ν̃_r^m(R)≅coker(π−F̄:W_rΩ_R^m→W_rΩ_R^m/dV^{r−1}Ω_R^{m−1}). Here π is projection, F̄ is the Frobenius factorization through this quotient, and Ω^{−1}=0. This includes singular R; it does not identify the classical complex with the saturated complex for singular rings. Consequently any ind-smooth henselian presentation gives canonically the same defect group, compatibly with ring maps and coefficient reduction.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.8",
+        "CrystallineCohomology:CR.4",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "GeneralAlgebraicKTheory:K.6",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethodsPartII:HP.0",
+        "RefinedTraceMethodsPartII:HP.1",
+        "RefinedTraceMethodsPartII:HP.4",
+        "RefinedTraceMethodsPartII:HP.5",
+        "RefinedTraceMethodsPartII:HP.7",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeKTheoryOperations:S.4",
+        "SchemeKTheoryOperations:S.6",
+        "StableHomotopyKTheory:H.6"
+      ]
+    },
+    {
+      "key": "HP.9",
+      "title": "Quasisyntomic K-theory consequences",
+      "description": "Export the connective TC comparison for quasiregular semiperfectoid rings, identify the weight-zero and weight-one consequences and characteristic-p crystalline eigenspaces, and prove quasisyntomic-local evenness using imported syntomic discreteness.\n\n**Quasiregular semiperfectoid K-theory and TC.** For a quasiregular semiperfectoid ring S, K(S;Z_p)≃τ≥0TC(S;Z_p). Under the BMS filtration and syntomic identifications, K_{2i}(S;Z_p)=H⁰(Z_p(i)(S)) and K_{2i−1}(S;Z_p)=H¹(Z_p(i)(S)) for i≥1, while K0 corresponds to H⁰ of weight zero. No claim that the global H¹ groups vanish in mixed characteristic is made here.\n\n**Low-degree K-theory on w-local rings.** For a w-local ring S (the closed points of Spec S form a closed subset and each connected component has exactly one closed point; finite Zariski covers split), K0(S) is the group of locally constant integer-valued functions, determinant identifies K1(S) with S×, and K2(S) is generated by products of units. If S× is p-divisible, then K1(S;Z_p)=0 and K2(S;Z_p)≅T_p(S×). Applied to the quasisyntomic w-local, p-divisible-unit basis, these formulas recover the weight-zero and weight-one syntomic sheaves already owned by PR.4.\n\n**Crystalline eigenspace K-theory.** For a quasiregular semiperfect F_p-algebra S, all positive odd K_n(S;Z_p) vanish and K_{2i}(S;Z_p)≅A_crys(S)^{φ=p^i} for i≥0, compatibly with products. The right side is the eigenspace in the uncompleted-for-Nygaard crystalline ring A_crys, not just its Nygaard completion.\n\n**Quasisyntomic-local evenness of K-theory.** On the p-complete quasisyntomic site, the sheafifications of π_{2i−1}K(−;Z_p) and π_{2i−1}K(−;Z/p^r) vanish for i≥1,r≥1. The even p-adic homotopy sheaves are p-torsion-free. This is local for the quasisyntomic topology, not a vanishing claim on every quasisyntomic ring.\n\n**Odd-degree surjectivity for rooted regular quotients.** Let R be a perfectoid Z_p[ζ_{p^∞}]^∧-algebra and f_1,…,f_s a regular sequence whose terms have compatible p-power roots. For S=R/(f_1,…,f_s), K_n(R;Z_p)→K_n(S;Z_p) is surjective for every odd n≥1. Thus evenness for R implies evenness for S; in particular K_*(O_C/p^a;Z_p) is even for a≥1 when C is a complete algebraically closed extension of Q_p.",
+      "requires": [
+        "DerivedDeRhamCohomology:DD.5",
+        "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+        "PrismaticCohomology:PR.4",
+        "RefinedTraceMethods:RT.6",
+        "RefinedTraceMethodsPartII:HP.8",
+        "SchemeAndStackFoundations:SF.2",
+        "StableHomotopyKTheory:H.6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CMM21",
+      "title": "K-theory and topological cyclic homology of henselian pairs",
+      "authors": "Dustin Clausen, Akhil Mathew and Matthew Morrow",
+      "edition": "arXiv:1803.10897v2 (20 July 2020), 59 pages; node page numbers refer to this version",
+      "url": "https://arxiv.org/abs/1803.10897v2",
+      "sha256": "ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c",
+      "readSections": [
+        "§§1–4, pp. 1–37",
+        "§5.1, pp. 37–41; §5.3, pp. 45–49",
+        "§6, pp. 50–56",
+        "§5.2, pp. 41–45, read to establish the separate tower route and source corrections"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "CMM21-journal",
+      "title": "K-theory and topological cyclic homology of henselian pairs",
+      "authors": "Dustin Clausen, Akhil Mathew and Matthew Morrow",
+      "edition": "JAMS 34 (2021), 411–473",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/CMM21.pdf",
+      "sha256": "40e40c18de3def69afcea2bb5cb67abfb56290755df942f913ae2a2c6a6a326e",
+      "readSections": [
+        "Remark 3.11; proof of Theorem 5.21; proof of Corollary 5.33; Proposition 6.12, checked against the arXiv findings",
+        "Definition 5.14, p. 455, checked against the unbounded tower counterexample"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BMS2",
+      "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow and Peter Scholze",
+      "edition": "Publ. Math. IHÉS 129 (2019), 199–310; printed page numbers",
+      "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00106-9.pdf",
+      "sha256": "6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd",
+      "readSections": [
+        "Theorems 7.14–7.15, Propositions 7.16–7.17, pp. 261–263",
+        "Remarks 7.19–7.20 and Proposition 7.21, pp. 263–264",
+        "Proposition 8.20 and Corollary 8.23, pp. 281–283"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BS22",
+      "title": "Prisms and prismatic cohomology",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1905.08229v4 (2022); read in the maintainer-cleared library",
+      "url": "https://arxiv.org/abs/1905.08229v4",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+      "readSections": [
+        "§14, Theorem 14.1, Corollaries 14.2–14.3 and Lemmas 14.4–14.5, pp. 97–101"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Morrow19",
+      "title": "K-theory and logarithmic Hodge–Witt sheaves of formal schemes in characteristic p",
+      "authors": "Matthew Morrow",
+      "edition": "Ann. Sci. Éc. Norm. Supér. 52 (2019), 1537–1601",
+      "url": "https://www.numdam.org/item/ASENS_2019__52_6_1537_0.pdf",
+      "sha256": "54988085dbe216661b2e3e7ff5ddc6479240f424b10a8c83727973f828ded4e2",
+      "readSections": [
+        "Proposition 2.20, p. 1557",
+        "Corollaries 4.1–4.2 and Remark 4.3, pp. 1566–1567",
+        "Corollary 4.8, p. 1573"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BLM",
+      "title": "Revisiting the de Rham–Witt complex",
+      "authors": "Bhargav Bhatt, Jacob Lurie and Akhil Mathew",
+      "edition": "Author PDF, version retrieved 19 October 2026; numbering differs from older versions",
+      "url": "https://www.math.ias.edu/~lurie/papers/Crystalline.pdf",
+      "sha256": "dad4e554ad5847a9c7410a42d8d4f8eb37afffae643ed55ccdf11471278ece0d",
+      "readSections": [
+        "Propositions 2.7.1 and 2.7.5, pp. 23–24",
+        "Proposition 4.3.3 and Remark 4.3.4, p. 49"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "vdK80",
+      "title": "Homology stability for linear groups",
+      "authors": "Wilberd van der Kallen",
+      "edition": "Invent. Math. 60 (1980), 269–295; scan includes a cover sheet",
+      "url": "https://webspace.science.uu.nl/~kalle101/homstab1980.pdf",
+      "sha256": "dbde8c28546336829113f7fa419b68241d32e1c816c34485621aaabbd98b75a5",
+      "readSections": [
+        "§1, pp. 269–271; §4.8 and its proof, pp. 287–288"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "DM17",
+      "title": "Finite generation and continuity of topological Hochschild and cyclic homology",
+      "authors": "Bjørn Ian Dundas and Matthew Morrow",
+      "edition": "Ann. Sci. Éc. Norm. Supér. 50 (2017), 201–238; published numbering",
+      "url": "https://www.numdam.org/item/10.24033/asens.2319.pdf",
+      "sha256": "f9aadefb0c48a164f977a6d4216d82211779cf1ce4a9fa1e1cab9c170abae8ca",
+      "readSections": [
+        "Corollary 2.2, p. 205",
+        "Theorem 4.7 and proof, pp. 221–222",
+        "Proposition 5.1, Lemma 5.2, Theorem 5.3, Corollary 5.4 and Theorem 5.5, pp. 223–226",
+        "Theorem 5.14 and Corollary 5.15, pp. 230–231"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}
