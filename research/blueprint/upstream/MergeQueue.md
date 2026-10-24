@@ -25,7 +25,6 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 
@@ -64,24 +63,25 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 9
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #896, #973, #992
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
-- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857
-- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
 - #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1227, #1229, #785, #792, #1142
-- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
+- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285
 
 ## Wave 11
+- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #849, #248, #446
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
+- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
 
 ## Wave 12
 - #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #792, #816, #849, #853, #856, #940
@@ -213,6 +213,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1235 GeometricSatakeAndFusion — ready (approved at an earlier head); waits on #1040, #1062, #1202, #1209, #1230, #1313, #785, #820, #850, #857, #879, #927, #965
 - #1360 ColemanIntegrationPartII — draft; waits on #1002, #1021, #1043, #1199, #785, #940
 - #1458 SolidAnalyticRings — draft; waits on #1227, #1230
+- #1469 HabiroNumberFields — draft; waits on #1043, #1212, #1227, #1281, #1314, #1320, #1351, #1391, #1418, #1430, #1432
 
 ## Wave 28
 - #1018 EllipticCurveModularity — ready (approved at an earlier head); waits on #1004, #1007, #1013, #1020, #849, #852, #856, #879, #913, #928
@@ -221,7 +222,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1040, #1171, #1172, #1175, #1178, #1225, #849, #850, #851, #856, #929
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1006, #1007, #1013, #1178, #849, #851, #852, #856, #857, #879, #913, #931, #933
 - #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1231, #850
-- #1425 HabiroRings — draft; waits on #1172, #1230, #1314, #1351, #1391, #1428, #1458
+- #1425 HabiroRings — draft; waits on #1172, #1230, #1314, #1351, #1391, #1428, #1458, #1469
 
 ## Wave 29
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
@@ -230,7 +231,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1336 ErdosProgressionPowers — draft; waits on #1004, #1007, #1013, #1018, #1126, #1231, #856, #929
 - #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1126, #924
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1035, #1069, #1084, #1085, #1310, #1312, #816, #854
-- #1427 HabiroNahmSeries — draft; waits on #1043, #1212, #1281, #1314, #1320, #1351, #1391, #1418, #1424, #1425, #1428, #1430, #851, #1125
+- #1427 HabiroNahmSeries — draft; waits on #1043, #1212, #1281, #1314, #1320, #1351, #1391, #1418, #1424, #1425, #1428, #1430, #1469, #851, #1125
 - #1466 HabiroCohomologyFoundationsPartII — draft; waits on #1044, #1057, #1065, #1070, #1227, #1314, #1351, #1425, #1428
 
 ## Wave 30
