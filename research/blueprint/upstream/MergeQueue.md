@@ -68,6 +68,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #896, #973, #992
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
 - #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
+- #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857
