@@ -44,49 +44,49 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #1287 HomotopySpheres (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #942 TangentialBordism (kim-em, other author)
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
 
 ## Wave 7
+- #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #1212, #785, #792, #858, #1142, #1287, #248, #417, #894
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1103, #1104
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 
 ## Wave 8
-- #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #1212, #785, #792, #858, #1142, #1287, #248, #417, #894
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
+- #1266 HermitianKTheoryOfPoincareCategories — ready (approved at an earlier head); waits on #1212, #851
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 9
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #896, #973, #992
-- #1266 HermitianKTheoryOfPoincareCategories — ready (approved at an earlier head); waits on #1212, #851
-- #1142 AlgebraicKTheory (kim-em, other author)
+- #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
-- #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
-
-## Wave 11
-- #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #849, #248, #446
 - #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1227, #1229, #785, #792, #1142
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285
 
-## Wave 12
+## Wave 11
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
-- #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #792, #816, #849, #853, #856, #940
-- #1037 AutomorphicFormsOnReductiveGroups — ready (approved at an earlier head); waits on #785, #792, #856, #871, #1015, #1145, #934
+- #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #849, #248, #446
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
 - #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
+
+## Wave 12
+- #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #792, #816, #849, #853, #856, #940
+- #1037 AutomorphicFormsOnReductiveGroups — ready (approved at an earlier head); waits on #785, #792, #856, #871, #1015, #1145, #934
 
 ## Wave 13
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #1199, #785, #792, #848, #849, #853, #856, #858
@@ -159,7 +159,6 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1035 CompletedCohomologyPartII — ready (approved at an earlier head); waits on #1034, #1307, #785, #848, #854, #858, #871, #913, #933
 - #1171 ArithmeticStatisticsPartI — ready (approved at an earlier head); waits on #1040, #1126, #1167, #785, #792, #849, #850, #851, #852, #858, #869, #929
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
-- #1424 Polylogarithms — draft; waits on #1043, #1212, #1227, #1229, #1281, #1302, #1306, #1313, #1320, #1418, #1430, #848, #853
 
 ## Wave 23
 - #1000 ArakelovGeometryAndAbelianHeights — ready (approved at an earlier head); waits on #1002, #848, #849, #852, #853, #858, #879, #966
@@ -187,6 +186,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1064 CohomologyComparisons — ready (approved at an earlier head); waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #1080, #849, #853, #854, #857, #868, #875, #879, #913, #940, #966
 - #1175 ArithmeticStatisticsPartV — ready (approved at an earlier head); waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #792, #850, #851
 - #1209 RelativeFarguesFontaine — ready (approved at an earlier head); waits on #1044, #1062, #1205, #820, #940, #964
+- #1461 BorelRegulators — draft; waits on #1037, #1199, #1212, #1227, #1229, #1306, #1418, #792, #848, #858, #871, #999, #248, #894, #896
 
 ## Wave 26
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1013, #1306, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #940, #966, #970, #999, #934
@@ -201,6 +201,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1314, #851, #925
 - #1408 ComputationalNumberTheory — draft; waits on #1017, #928, #253
 - #1420 MultiquadraticPartII — draft; waits on #1063, #925
+- #1424 Polylogarithms — draft; waits on #1043, #1212, #1227, #1229, #1281, #1302, #1306, #1313, #1320, #1418, #1430, #1461, #848, #853
 - #1428 HabiroCohomologyFoundations — draft; waits on #1042, #1044, #1057, #1064, #1065, #1314, #1351, #857, #868
 
 ## Wave 27
