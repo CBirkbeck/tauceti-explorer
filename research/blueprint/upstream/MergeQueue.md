@@ -223,7 +223,7 @@ Generated 2026-10-24T10:40Z from the README supplier graph of every open pull re
 - #1085 PerfectoidShimuraVarieties — ready (approved at an earlier head); waits on #1005, #1038, #1042, #1053, #1069, #1084, #785, #792, #816, #820, #848, #933, #966
 - #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1040, #1171, #1172, #1175, #1178, #1225, #849, #850, #851, #856, #929
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1006, #1007, #1013, #1178, #849, #851, #852, #856, #857, #879, #913, #931, #933
-- #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1231, #850
+- #1335 ArithmeticDynamics — draft; waits on #1000, #1017, #1046, #1231, #850
 - #1425 HabiroRings — draft; waits on #1172, #1230, #1314, #1351, #1391, #1428, #1458, #1469
 
 ## Wave 29
