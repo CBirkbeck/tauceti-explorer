@@ -7,7 +7,6 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1320 PolylogarithmFunctions — ready (approved at an earlier head)
 - #1407 ConformalMappingPartII — draft
 - #248 LFunctions (roed-math, other author)
-- #397 RandomMatrices (kim-em, other author)
 - #417 PointProcesses (mccorvie, other author)
 - #446 CFSGBasicProperties (kim-em, other author)
 - #447 ChevalleyGroups (kim-em, other author)
@@ -145,6 +144,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1351 QWittVectors — draft; waits on #1044, #1057, #1065, #1229, #1314, #857, #868
 - #1430 K3BlochGroups — draft; waits on #1212, #1227, #1229, #1281, #1302, #1320, #1418, #1142, #1287, #936
 - #1432 K2SymbolsBrauerPartII — draft; waits on #1212, #1281, #1302, #1418
+- #1470 MotivicEtaleKTheory — draft; waits on #1199, #1212, #1229, #1281, #1313, #848
 
 ## Wave 21
 - #933 ShimuraVarieties — ready (approved at an earlier head); waits on #785, #792, #848, #849, #850, #852, #853, #871, #913, #931
@@ -152,7 +152,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1040 EtaleDualityAndPerverseSheaves — ready (approved at an earlier head); waits on #848, #849, #850, #856, #873, #875, #924, #929, #931, #965, #896
 - #1043 ColemanIntegration — ready (approved at an earlier head); waits on #1002, #1039, #1320, #792, #851, #854
 - #1167 AnalyticNumberTheoryPartII — ready (approved at an earlier head); waits on #1126, #792, #856, #924, #925, #248, #253, #889
-- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126, #792, #851, #397
+- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126, #792, #851
 
 ## Wave 22
 - #966 PELModuli — ready (approved at an earlier head); waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #933
@@ -192,7 +192,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 ## Wave 26
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1013, #1306, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #940, #966, #970, #999, #934
 - #1019 PadicFamilies — ready (approved at an earlier head); waits on #1001, #1005, #1013, #1034, #1039, #1306, #1307, #785, #854, #858, #869, #879, #913, #920, #928, #931, #968, #934
-- #1021 AnabelianGeometryAndNonabelianChabauty — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #785, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #924, #929, #940, #966
+- #1021 AnabelianGeometryAndNonabelianChabauty — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #785, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #929, #940, #966
 - #1069 AutomorphicBundles — ready (approved at an earlier head); waits on #1005, #1038, #1040, #1053, #1062, #1064, #1080, #785, #792, #816, #848, #849, #853, #868, #871, #875, #879, #928, #933, #940, #965, #966
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017, #1167, #1171, #1173, #1174, #1175, #785, #792, #849, #850, #851, #852, #856, #858, #869, #929, #931, #933, #968, #970
 - #1230 VStackSheavesAndLisseCategories — ready (approved at an earlier head); waits on #1062, #1205, #1209, #1227, #785, #820, #875, #922, #927, #965
@@ -202,7 +202,7 @@ Generated 2026-10-23T23:50Z from the README supplier graph of every open pull re
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1314, #851, #925
 - #1408 ComputationalNumberTheory — draft; waits on #1017, #928, #253
 - #1420 MultiquadraticPartII — draft; waits on #1063, #925
-- #1424 Polylogarithms — draft; waits on #1043, #1212, #1227, #1229, #1281, #1302, #1306, #1313, #1320, #1418, #1430, #1461, #848, #853
+- #1424 Polylogarithms — draft; waits on #1043, #1212, #1227, #1229, #1281, #1302, #1306, #1313, #1320, #1418, #1430, #1461, #1470, #848, #853
 - #1428 HabiroCohomologyFoundations — draft; waits on #1042, #1044, #1057, #1064, #1065, #1314, #1351, #857, #868
 
 ## Wave 27
