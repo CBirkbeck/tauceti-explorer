@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-24T11:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-24T11:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready (approved at an earlier head)
@@ -141,7 +141,7 @@ Generated 2026-10-24T11:20Z from the README supplier graph of every open pull re
 - #1002 PadicDifferentialEquationsAndRigidCohomology — ready (approved at an earlier head); waits on #1313, #785, #849, #850, #854, #856, #857, #868, #873, #875, #879, #913, #929, #940, #965
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1065, #820, #857, #868, #875, #879, #940
 - #1126 AnalyticNumberTheoryPartI — ready (approved at an earlier head); waits on #792, #851, #856, #924, #925, #248, #253, #992
-- #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039, #1260, #1272, #1306, #1309, #869, #451
+- #1311 EulerSystemsCyclotomicMainConjecture — ready; waits on #1039, #1260, #1272, #1306, #1309, #869, #451
 - #1351 QWittVectors — draft; waits on #1044, #1057, #1065, #1229, #1314, #857, #868
 - #1430 K3BlochGroups — draft; waits on #1212, #1227, #1229, #1281, #1302, #1320, #1418, #1142, #1287, #936
 - #1432 K2SymbolsBrauerPartII — draft; waits on #1212, #1281, #1302, #1418
