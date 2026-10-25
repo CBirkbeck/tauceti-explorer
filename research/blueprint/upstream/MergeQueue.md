@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-25T17:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-25T22:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready (approved at an earlier head)
@@ -209,7 +209,7 @@ Generated 2026-10-25T17:50Z from the README supplier graph of every open pull re
 - #1069 AutomorphicBundles — ready (approved at an earlier head); waits on #1005, #1038, #1040, #1053, #1062, #1064, #1080, #785, #792, #816, #848, #849, #853, #868, #871, #875, #879, #928, #933, #940, #965, #966
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017, #1167, #1171, #1173, #1174, #1175, #785, #792, #849, #850, #851, #852, #856, #858, #869, #929, #931, #933, #968, #970
 - #1230 VStackSheavesAndLisseCategories — ready (approved at an earlier head); waits on #1062, #1205, #1209, #1227, #785, #820, #875, #922, #927, #965
-- #1231 MordellLawrenceVenkatesh — ready (approved at an earlier head); waits on #1001, #1004, #1017, #1034, #1040, #1062, #1063, #1225, #848, #849, #850, #852, #853, #856, #857, #858, #868, #879, #929, #940
+- #1231 MordellLawrenceVenkatesh — ready (approved at an earlier head); waits on #1001, #1004, #1017, #1034, #1040, #1062, #1063, #1225, #1545, #848, #849, #850, #852, #853, #856, #857, #858, #868, #879, #929, #940
 - #1264 EisensteinIdealAndRationalTorsion — ready (approved at an earlier head); waits on #1017, #1037, #1260, #849, #852, #856, #879, #913
 - #1364 CohomologyComparisonsPartII — draft; waits on #1002, #1044, #1062, #1064, #857, #940
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1314, #851, #925
@@ -239,6 +239,7 @@ Generated 2026-10-25T17:50Z from the README supplier graph of every open pull re
 - #1490 GlobalShtukasAndFunctionFieldLanglands — draft; waits on #1040, #1202, #1209, #1235, #1313, #1474, #785, #853, #858, #873, #875, #924, #929, #999
 - #1494 TropicalAndBerkovichArithmetic — draft; waits on #1021, #1043, #1046, #1053, #1199, #1360, #820, #852, #853, #875
 - #1498 PadicHodgeRegulators — draft; waits on #1043, #1062, #1064, #1229, #1281, #1302, #1306, #1307, #1309, #1310, #1320, #1360, #1364, #1418, #1430, #1461, #849, #852, #854, #858, #869, #879, #940
+- #1549 ClassicalAdicEtaleCohomologyPartII — draft; waits on #1044, #1062, #1084, #1199, #820, #858, #868, #875, #922, #965
 
 ## Wave 29
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
