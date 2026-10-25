@@ -15,6 +15,7 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
+- #934 QuaternionicModularForms (WilliamCoram, other author)
 - #936 FourManifolds (kim-em, other author)
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
@@ -47,7 +48,6 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #934 QuaternionicModularForms (WilliamCoram, other author)
 - #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 5
