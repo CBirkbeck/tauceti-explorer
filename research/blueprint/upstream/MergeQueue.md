@@ -213,7 +213,7 @@ Generated 2026-10-25T22:50Z from the README supplier graph of every open pull re
 - #1264 EisensteinIdealAndRationalTorsion — ready (approved at an earlier head); waits on #1017, #1037, #1260, #849, #852, #856, #879, #913
 - #1364 CohomologyComparisonsPartII — draft; waits on #1002, #1044, #1062, #1064, #857, #940
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1314, #851, #925
-- #1408 ComputationalNumberTheory — draft; waits on #1017, #928, #253
+- #1408 ComputationalNumberTheory — draft; waits on #1017, #1545, #928, #253
 - #1420 MultiquadraticPartII — draft; waits on #1063, #925
 - #1424 Polylogarithms — draft; waits on #1043, #1212, #1227, #1229, #1281, #1302, #1306, #1313, #1320, #1418, #1430, #1461, #1470, #848, #853, #999
 - #1428 HabiroCohomologyFoundations — draft; waits on #1042, #1044, #1057, #1064, #1065, #1314, #1351, #857, #868
