@@ -193,7 +193,7 @@ Generated 2026-10-25T00:20Z from the README supplier graph of every open pull re
 - #1175 ArithmeticStatisticsPartV — ready (approved at an earlier head); waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #792, #850, #851
 - #1209 RelativeFarguesFontaine — ready (approved at an earlier head); waits on #1044, #1062, #1205, #820, #940, #964
 - #1461 BorelRegulators — draft; waits on #1037, #1043, #1212, #1227, #1229, #1306, #1418, #1470, #792, #858, #871, #999, #248, #894, #896
-- #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1062, #1208, #1375, #848, #850, #853, #870, #879, #1286
+- #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1208, #1375, #848, #850, #853, #870, #879, #1286
 
 ## Wave 26
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1013, #1306, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #940, #966, #970, #999, #934
@@ -231,6 +231,7 @@ Generated 2026-10-25T00:20Z from the README supplier graph of every open pull re
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1006, #1007, #1013, #1178, #849, #851, #852, #856, #857, #879, #913, #931, #933
 - #1335 ArithmeticDynamics — draft; waits on #1000, #1017, #1046, #1231, #848, #850, #852, #853
 - #1425 HabiroRings — draft; waits on #1172, #1230, #1314, #1351, #1391, #1428, #1458, #1469
+- #1494 TropicalAndBerkovichArithmetic — draft; waits on #1021, #1043, #1046, #1360, #820, #852, #853, #875
 
 ## Wave 29
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
@@ -250,7 +251,7 @@ Generated 2026-10-25T00:20Z from the README supplier graph of every open pull re
 - #1270 CompletedCohomologyAndLocalGlobalCompatibility — ready (approved at an earlier head); waits on #1005, #1007, #1019, #1034, #1035, #1037, #1066, #1071, #1310, #1312, #1422, #785, #792, #816, #856, #871, #913, #920, #922, #923, #928, #931, #934
 - #1419 PolynomialGaloisGroupsPartII — draft; waits on #1126, #1336
 - #1484 EllipticCurveModularityWild3Adic — draft; waits on #1007, #1018, #1020, #1062, #1066, #1071, #1254, #1312, #850, #856, #879, #913, #923, #928, #931
-- #1487 GrossZagierAndArithmeticHeights — draft; waits on #1000, #1005, #1007, #1017, #1018, #1037, #1043, #1046, #1063, #1126, #1176, #1254, #1360, #1405, #1406, #785, #848, #849, #852, #869, #879, #913, #924, #925, #931, #933, #966, #968
+- #1487 GrossZagierAndArithmeticHeights — draft; waits on #1000, #1005, #1007, #1017, #1018, #1037, #1043, #1046, #1063, #1126, #1176, #1254, #1360, #1405, #1406, #1494, #785, #848, #849, #852, #869, #879, #913, #924, #925, #931, #933, #966, #968
 
 ## Wave 31
 - #1081 PotentialAutomorphyInfrastructure — ready (approved at an earlier head); waits on #1006, #1007, #1019, #1034, #1062, #1075, #1084, #1085, #1087, #1090, #785, #856, #871, #879, #920, #923, #924, #925, #999
