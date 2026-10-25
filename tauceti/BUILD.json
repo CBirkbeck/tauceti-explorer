@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 28352625,
-  "htmlSha256": "0ee90b045fb3bd4852e096145b8412395bff5c31e33d95a9ae57c320effc808e",
+  "htmlBytes": 28372669,
+  "htmlSha256": "317186626dfabaae0aeef8b2788771a38856d3c4d54cc3f4403bcdc0185af981",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3548,7 +3548,7 @@
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
-    "src/universe.js": "787445f9dd50d74187c43bdb4cab36aeb8c7af5f2548b15d172b5d67384f65f4",
+    "src/universe.js": "4e432a2f9a063fe0d8793d273aebbec62a9e1af87e72b28011848c96b00102c6",
     "src/graph.js": "384691fd20b1795edf6836009f4df3146e65ea1b80b0b52ca7f9e27048f8d780",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "ce2bcb7443a4bb483c4fc6cc08a4c0638e0453e085c8d4856e066773468f5c33",
@@ -3559,7 +3559,7 @@
     "src/app.js": "8c144dbf0a70551c807743385dd2ba82a358af51261c3e7b459be0204a38dc84",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "16384afb91e8adc2e8bcc8bf51f7cf056d88fae6937aa1cf09bdc69f149f051d",
+    "data/tauceti-progress.json": "ed0d9db007a2d81f8474b106d964d4b8d4a07abe295786736200da25c5823187",
     "data/tauceti-new-roadmaps.json": "ad214e74f31aa9f03f5f29e99d3c5f4e5e05911541a84d65f70092e4116bce9c",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -5044,14 +5044,14 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-23T11:31:25Z",
+    "exportedAt": "2026-10-25T12:31:59Z",
     "roadmaps": 155,
     "unplaced": 1,
     "layers": {
-      "done": 380,
-      "partial": 274,
-      "untouched": 114,
-      "unassessed": 470,
+      "done": 399,
+      "partial": 285,
+      "untouched": 129,
+      "unassessed": 425,
       "total": 1238
     },
     "added": [
