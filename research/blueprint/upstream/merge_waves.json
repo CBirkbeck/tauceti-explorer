@@ -15,7 +15,7 @@
   "EnhancedDerivedSheaves": 0,
   "AlgebraicModuliForArithmeticGeometry": 8,
   "ComplexComparisonPartII": 9,
-  "LocallyAnalyticDistributions": 11,
+  "LocallyAnalyticDistributions": 10,
   "DiophantineApproximationAndTranscendence": 0,
   "ClassicalArithmeticCompletion": 0,
   "InverseGaloisAndArithmeticFundamentalGroups": 13,
@@ -131,11 +131,11 @@
   "KTheoryFiniteLocalFields": 18,
   "K2SymbolsBrauer": 11,
   "IntegralIwasawaTheory": 3,
-  "NoncommutativeAndEquivariantIwasawa": 9,
+  "NoncommutativeAndEquivariantIwasawa": 8,
   "ColemanPowerSeries": 4,
-  "PhiGammaModulesAndIwasawaCohomology": 10,
+  "PhiGammaModulesAndIwasawaCohomology": 9,
   "EulerSystemsCyclotomicMainConjecture": 20,
-  "PadicLocalLanglandsForGL2Qp": 11,
+  "PadicLocalLanglandsForGL2Qp": 10,
   "MotivesAndAlgebraicCycles": 19,
   "HabiroCyclotomicCompletions": 1,
   "PolylogarithmFunctions": 1,
@@ -187,6 +187,7 @@
   "PadicHodgeRegulators": 28,
   "ModularIwasawaMainConjectures": 31,
   "CongruenceSpectralGap": 21,
-  "AdmissiblePairsAndPadicHodgeStructures": 33
+  "AdmissiblePairsAndPadicHodgeStructures": 33,
+  "EffectiveBoundsPartII": 23
  }
 }
