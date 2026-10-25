@@ -26,6 +26,7 @@ Generated 2026-10-25T17:50Z from the README supplier graph of every open pull re
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
+- #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
@@ -68,26 +69,25 @@ Generated 2026-10-25T17:50Z from the README supplier graph of every open pull re
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
-- #1142 AlgebraicKTheory (kim-em, other author)
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
 
 ## Wave 9
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #896, #973, #992
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
+- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857
+- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
 - #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1227, #1229, #785, #792, #1142
-- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
+- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285, #223, #896, #973
 
 ## Wave 11
-- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #849, #248, #446
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
-- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
 
 ## Wave 12
 - #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #792, #816, #849, #853, #856, #940
@@ -274,7 +274,7 @@ Generated 2026-10-25T17:50Z from the README supplier graph of every open pull re
 - #1182 CrystallineLocalGlobalCompatibilityCM — ready (approved at an earlier head); waits on #1006, #1019, #1034, #1035, #1062, #1075, #1081, #1090, #785, #856, #871, #920, #923
 - #1252 HeckeStacksAndLocalShtukas — ready (approved at an earlier head); waits on #1044, #1062, #1090, #1202, #1205, #1209, #1230, #1235, #1241, #785, #820, #875, #879, #927, #965, #999
 - #1423 HeegnerPointEulerSystems — draft; waits on #1004, #1005, #1013, #1017, #1018, #1062, #1176, #1254, #1272, #1311, #1406, #1487, #1498, #1499, #851, #852, #856, #858, #869, #879, #913, #931, #933
-- #1543 AutomorphicPadicLFunctionsPartII — draft; waits on #1254, #1405, #1496, #848, #879, #924
+- #1543 AutomorphicPadicLFunctionsPartII — draft; waits on #1254, #1405, #1496, #848, #849, #879, #924
 
 ## Wave 33
 - #1048 EllipticCurveModularityImaginaryQuadratic — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #1034, #1062, #1071, #1075, #1081, #1182, #848, #849, #850, #852, #856, #871, #873, #879, #913, #920, #923, #928, #931, #933, #970
