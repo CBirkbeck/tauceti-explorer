@@ -255,7 +255,7 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1419 PolynomialGaloisGroupsPartII — draft; waits on #1126, #1336
 - #1466 HabiroCohomologyFoundationsPartII — draft; waits on #1044, #1057, #1065, #1070, #1227, #1281, #1314, #1351, #1425, #1428, #1458, #1469, #1493
 - #1484 EllipticCurveModularityWild3Adic — draft; waits on #1007, #1018, #1020, #1062, #1066, #1071, #1254, #1312, #850, #856, #879, #913, #923, #928, #931
-- #1487 GrossZagierAndArithmeticHeights — draft; waits on #1000, #1005, #1007, #1017, #1018, #1037, #1043, #1046, #1063, #1126, #1176, #1254, #1360, #1405, #1406, #1494, #1498, #785, #848, #849, #852, #869, #879, #913, #924, #925, #931, #933, #966, #968
+- #1487 GrossZagierAndArithmeticHeights — draft; waits on #1000, #1005, #1007, #1017, #1018, #1037, #1043, #1046, #1063, #1126, #1176, #1254, #1313, #1360, #1405, #1406, #1494, #1498, #785, #848, #849, #852, #869, #879, #913, #924, #925, #931, #933, #966, #968
 - #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1175, #1336, #792, #850, #851
 
 ## Wave 31
