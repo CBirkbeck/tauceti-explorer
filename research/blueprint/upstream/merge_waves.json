@@ -183,6 +183,7 @@
   "RefinedTraceMethods": 29,
   "TropicalAndBerkovichArithmetic": 28,
   "SieveMethodsAndPrimePatterns": 30,
-  "PeriodsAndSpecialValues": 27
+  "PeriodsAndSpecialValues": 27,
+  "PadicHodgeRegulators": 28
  }
 }
