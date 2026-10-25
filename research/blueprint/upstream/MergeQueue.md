@@ -246,7 +246,7 @@ Generated 2026-10-25T22:50Z from the README supplier graph of every open pull re
 - #1071 GL2ModularityLifting — ready (approved at an earlier head); waits on #1005, #1007, #1013, #1020, #1034, #1039, #1062, #1066, #785, #856, #858, #879, #913, #920, #923, #928, #931, #970, #451
 - #1087 TorsionCohomologyInfrastructure — ready (approved at an earlier head); waits on #1006, #1035, #1040, #1053, #1062, #1069, #1084, #1085, #785, #871, #913, #925, #929, #999
 - #1335 ArithmeticDynamics — draft; waits on #1000, #1017, #1046, #1421, #1494, #1545, #848, #850, #851, #852, #853
-- #1336 ErdosProgressionPowers — draft; waits on #1001, #1007, #1013, #1017, #1018, #1126, #1231, #852, #856
+- #1336 ErdosProgressionPowers — draft; waits on #1001, #1007, #1013, #1017, #1018, #1126, #1231, #1545, #852, #856
 - #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1126, #924
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1035, #1053, #1069, #1084, #1085, #1310, #1312, #816, #854
 - #1427 HabiroNahmSeries — draft; waits on #1043, #1212, #1281, #1314, #1320, #1351, #1391, #1418, #1424, #1425, #1428, #1430, #1469, #1498, #851, #1125
