@@ -14,6 +14,7 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -25,7 +26,6 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
@@ -43,25 +43,25 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
 - #1486 QuiverRepresentationsPartII — draft; waits on #785
-- #896 CharacteristicClasses (kim-em, other author)
+- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #1287 HomotopySpheres (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #942 TangentialBordism (kim-em, other author)
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
 
 ## Wave 7
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1103, #1104
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
@@ -221,6 +221,7 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1360 ColemanIntegrationPartII — draft; waits on #1002, #1021, #1043, #1199, #785, #940
 - #1458 SolidAnalyticRings — draft; waits on #1227, #1230
 - #1469 HabiroNumberFields — draft; waits on #1043, #1212, #1227, #1281, #1314, #1320, #1351, #1391, #1418, #1430, #1432
+- #1496 PeriodsAndSpecialValues — draft; waits on #1002, #1006, #1021, #1039, #1040, #1199, #1208, #1212, #1306, #1307, #1313, #1320, #1375, #1418, #1461, #1470, #785, #848, #852, #856, #857, #858, #869, #879, #913, #924, #968, #1285
 
 ## Wave 28
 - #1018 EllipticCurveModularity — ready (approved at an earlier head); waits on #1004, #1007, #1013, #1020, #849, #852, #856, #879, #913, #928
@@ -242,7 +243,7 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1035, #1053, #1069, #1084, #1085, #1310, #1312, #816, #854
 - #1427 HabiroNahmSeries — draft; waits on #1043, #1212, #1281, #1314, #1320, #1351, #1391, #1418, #1424, #1425, #1428, #1430, #1469, #851, #1125
 - #1466 HabiroCohomologyFoundationsPartII — draft; waits on #1044, #1057, #1065, #1070, #1227, #1281, #1314, #1351, #1425, #1428, #1458, #1469
-- #1491 EllipticCurveModularityPartII — draft; waits on #1001, #1017, #1018, #1408, #852
+- #1491 EllipticCurveModularityPartII — draft; waits on #1001, #1007, #1013, #1017, #1018, #1254, #1264, #1272, #1408, #852, #856, #869, #913, #968
 - #1493 RefinedTraceMethods — draft; waits on #1044, #1057, #1064, #1065, #1070, #1212, #1227, #1248, #1281, #1302, #1351, #1425, #1428, #1458, #857, #868, #894, #896
 
 ## Wave 30
