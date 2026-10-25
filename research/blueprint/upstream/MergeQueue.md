@@ -229,7 +229,6 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1085 PerfectoidShimuraVarieties — ready (approved at an earlier head); waits on #1005, #1038, #1042, #1053, #1069, #1084, #785, #792, #816, #820, #848, #933, #966
 - #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1040, #1171, #1172, #1175, #1178, #1225, #849, #850, #851, #856, #929
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1006, #1007, #1013, #1178, #849, #851, #852, #856, #857, #879, #913, #931, #933
-- #1335 ArithmeticDynamics — draft; waits on #1000, #1017, #1046, #1231, #848, #850, #852, #853
 - #1425 HabiroRings — draft; waits on #1172, #1230, #1314, #1351, #1391, #1428, #1458, #1469
 - #1490 GlobalShtukasAndFunctionFieldLanglands — draft; waits on #1040, #1202, #1209, #1235, #1313, #1474, #785, #853, #858, #873, #875, #924, #929, #999
 - #1494 TropicalAndBerkovichArithmetic — draft; waits on #1021, #1043, #1046, #1360, #820, #852, #853, #875
@@ -239,6 +238,7 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
 - #1071 GL2ModularityLifting — ready (approved at an earlier head); waits on #1005, #1007, #1013, #1020, #1034, #1039, #1062, #1066, #785, #856, #858, #879, #913, #920, #923, #928, #931, #970, #451
 - #1087 TorsionCohomologyInfrastructure — ready (approved at an earlier head); waits on #1006, #1035, #1040, #1053, #1062, #1069, #1084, #1085, #785, #871, #913, #925, #929, #999
+- #1335 ArithmeticDynamics — draft; waits on #1000, #1017, #1046, #1231, #1494, #848, #850, #852, #853
 - #1336 ErdosProgressionPowers — draft; waits on #1001, #1007, #1013, #1017, #1018, #1126, #1231, #852, #856
 - #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1126, #924
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1035, #1053, #1069, #1084, #1085, #1310, #1312, #816, #854
