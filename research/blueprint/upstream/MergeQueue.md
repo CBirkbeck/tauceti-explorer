@@ -29,6 +29,7 @@ Generated 2026-10-25T12:00Z from the README supplier graph of every open pull re
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
 - #1333 EllipticIntegrals (jayyswan, other author)
+- #1397 ArtinAlgebras (haruhisa-enomoto, other author)
 
 ## Wave 2
 - #785 ReductiveGroupsPartII — ready (approved at an earlier head); waits on #446, #447
@@ -259,6 +260,7 @@ Generated 2026-10-25T12:00Z from the README supplier graph of every open pull re
 - #1484 EllipticCurveModularityWild3Adic — draft; waits on #1007, #1018, #1020, #1062, #1066, #1071, #1254, #1312, #850, #856, #879, #913, #923, #928, #931
 - #1487 GrossZagierAndArithmeticHeights — draft; waits on #1000, #1005, #1007, #1017, #1018, #1037, #1043, #1046, #1063, #1126, #1176, #1254, #1313, #1360, #1405, #1406, #1494, #1498, #785, #848, #849, #852, #869, #879, #913, #924, #925, #931, #933, #966, #968
 - #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1175, #1336, #792, #850, #851
+- #1547 CountingBundlesAndHallAlgebrasOfCurves — draft; waits on #1040, #1179, #1208, #1229, #1314, #1391, #1427, #1474, #1490, #1492, #785, #848, #853, #925, #929, #999, #1397
 
 ## Wave 31
 - #1081 PotentialAutomorphyInfrastructure — ready (approved at an earlier head); waits on #1006, #1007, #1019, #1034, #1062, #1075, #1084, #1085, #1087, #1090, #785, #856, #871, #879, #920, #923, #924, #925, #999
