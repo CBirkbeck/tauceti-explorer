@@ -243,7 +243,6 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1126, #924
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1035, #1053, #1069, #1084, #1085, #1310, #1312, #816, #854
 - #1427 HabiroNahmSeries — draft; waits on #1043, #1212, #1281, #1314, #1320, #1351, #1391, #1418, #1424, #1425, #1428, #1430, #1469, #1498, #851, #1125
-- #1466 HabiroCohomologyFoundationsPartII — draft; waits on #1044, #1057, #1065, #1070, #1227, #1281, #1314, #1351, #1425, #1428, #1458, #1469
 - #1491 EllipticCurveModularityPartII — draft; waits on #1001, #1007, #1013, #1017, #1018, #1254, #1264, #1272, #1408, #852, #856, #869, #913, #968
 - #1493 RefinedTraceMethods — draft; waits on #1044, #1057, #1064, #1065, #1070, #1212, #1227, #1248, #1281, #1302, #1351, #1425, #1428, #1458, #857, #868, #894, #896
 
@@ -252,6 +251,7 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1090 IgusaVarietiesAndTorsionConcentration — ready (approved at an earlier head); waits on #1006, #1040, #1053, #1062, #1084, #1085, #1087, #1235, #785, #792, #820, #849, #852, #858, #871, #873, #875, #879, #922, #927, #965, #966, #999
 - #1270 CompletedCohomologyAndLocalGlobalCompatibility — ready (approved at an earlier head); waits on #1005, #1007, #1019, #1034, #1035, #1037, #1066, #1071, #1310, #1312, #1422, #785, #792, #816, #856, #871, #913, #920, #922, #923, #928, #931, #934
 - #1419 PolynomialGaloisGroupsPartII — draft; waits on #1126, #1336
+- #1466 HabiroCohomologyFoundationsPartII — draft; waits on #1044, #1057, #1065, #1070, #1227, #1281, #1314, #1351, #1425, #1428, #1458, #1469, #1493
 - #1484 EllipticCurveModularityWild3Adic — draft; waits on #1007, #1018, #1020, #1062, #1066, #1071, #1254, #1312, #850, #856, #879, #913, #923, #928, #931
 - #1487 GrossZagierAndArithmeticHeights — draft; waits on #1000, #1005, #1007, #1017, #1018, #1037, #1043, #1046, #1063, #1126, #1176, #1254, #1360, #1405, #1406, #1494, #1498, #785, #848, #849, #852, #869, #879, #913, #924, #925, #931, #933, #966, #968
 - #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1175, #1336, #792, #850, #851
@@ -260,11 +260,12 @@ Generated 2026-10-25T01:30Z from the README supplier graph of every open pull re
 - #1081 PotentialAutomorphyInfrastructure — ready (approved at an earlier head); waits on #1006, #1007, #1019, #1034, #1062, #1075, #1084, #1085, #1087, #1090, #785, #856, #871, #879, #920, #923, #924, #925, #999
 - #1241 BunGAndNewtonStrata — ready (approved at an earlier head); waits on #1062, #1084, #1090, #1205, #1209, #1230, #1235, #785, #820, #853, #922, #927, #999
 - #1403 SelmerIwasawaCohomologyPartII — draft; waits on #1005, #1006, #1053, #1090, #1272, #1313, #785, #792, #856, #858, #869, #873, #920, #923, #933, #966, #999
-- #1423 HeegnerPointEulerSystems — draft; waits on #1004, #1005, #1013, #1017, #1018, #1062, #1176, #1254, #1272, #1311, #1406, #1487, #1498, #851, #852, #856, #858, #869, #879, #913, #931, #933
+- #1499 ModularIwasawaMainConjectures — draft; waits on #1007, #1013, #1018, #1019, #1039, #1062, #1310, #1487, #1498, #852, #856, #857, #858, #869, #928, #968
 
 ## Wave 32
 - #1182 CrystallineLocalGlobalCompatibilityCM — ready (approved at an earlier head); waits on #1006, #1019, #1034, #1035, #1062, #1075, #1081, #1090, #785, #856, #871, #920, #923
 - #1252 HeckeStacksAndLocalShtukas — ready (approved at an earlier head); waits on #1044, #1062, #1090, #1202, #1205, #1209, #1230, #1235, #1241, #785, #820, #875, #879, #927, #965, #999
+- #1423 HeegnerPointEulerSystems — draft; waits on #1004, #1005, #1013, #1017, #1018, #1062, #1176, #1254, #1272, #1311, #1406, #1487, #1498, #1499, #851, #852, #856, #858, #869, #879, #913, #931, #933
 
 ## Wave 33
 - #1048 EllipticCurveModularityImaginaryQuadratic — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #1034, #1062, #1071, #1075, #1081, #1182, #848, #849, #850, #852, #856, #871, #873, #879, #913, #920, #923, #928, #931, #933, #970
