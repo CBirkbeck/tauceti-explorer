@@ -1,11 +1,12 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-25T00:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-25T00:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready (approved at an earlier head)
 - #1320 PolylogarithmFunctions — ready (approved at an earlier head)
 - #1407 ConformalMappingPartII — draft
+- #1492 ClassicalGroupsPartII — draft
 - #248 LFunctions (roed-math, other author)
 - #417 PointProcesses (mccorvie, other author)
 - #446 CFSGBasicProperties (kim-em, other author)
@@ -13,6 +14,7 @@ Generated 2026-10-25T00:00Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -24,7 +26,6 @@ Generated 2026-10-25T00:00Z from the README supplier graph of every open pull re
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
@@ -42,25 +43,25 @@ Generated 2026-10-25T00:00Z from the README supplier graph of every open pull re
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
 - #1486 QuiverRepresentationsPartII — draft; waits on #785
-- #896 CharacteristicClasses (kim-em, other author)
+- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #1287 HomotopySpheres (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #942 TangentialBordism (kim-em, other author)
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
 
 ## Wave 7
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1103, #1104
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899

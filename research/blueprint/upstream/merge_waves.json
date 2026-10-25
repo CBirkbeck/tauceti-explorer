@@ -111,9 +111,9 @@
   "VectorBundlesAndIsocrystals": 24,
   "WeilConjectures": 24,
   "RelativeFarguesFontaine": 25,
-  "GeneralAlgebraicKTheory": 7,
+  "GeneralAlgebraicKTheory": 6,
   "JacobianChallengePartII": 15,
-  "StableHomotopyKTheory": 6,
+  "StableHomotopyKTheory": 5,
   "SchemeKTheoryOperations": 9,
   "VStackSheavesAndLisseCategories": 26,
   "MordellLawrenceVenkatesh": 26,
@@ -178,6 +178,7 @@
   "EnriquesSurfacesAndIntegralNonexistence": 25,
   "EllipticKTheory": 22,
   "GlobalShtukasAndFunctionFieldLanglands": 27,
-  "EllipticCurveModularityPartII": 29
+  "EllipticCurveModularityPartII": 29,
+  "ClassicalGroupsPartII": 1
  }
 }
