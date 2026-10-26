@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-26T14:50Z",
+ "updated": "2026-10-26T16:00Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -61,7 +61,7 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
    "head": "70c4324",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": ""
@@ -171,7 +171,7 @@
    ],
    "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -256,7 +256,7 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -386,7 +386,7 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -421,7 +421,7 @@
    ],
    "note": "N3 CHANGES answered 10-16",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -459,7 +459,7 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -485,7 +485,7 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -508,7 +508,7 @@
    ],
    "note": "N2 CHANGES answered 10-16",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -582,7 +582,7 @@
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -593,7 +593,7 @@
    "head": "c5cfb92",
    "note": "N3 CHANGES answered 10-16",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -619,7 +619,7 @@
    "head": "4e550b1",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -632,7 +632,7 @@
    "head": "6c2402d",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex)",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -644,7 +644,7 @@
    "head": "69bcab7",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -736,7 +736,7 @@
    "head": "d6e456e",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -748,7 +748,7 @@
    "head": "40d60b6",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1)",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -856,7 +856,7 @@
    "head": "82cf8af",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -868,7 +868,7 @@
    "head": "6c79d1c",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -892,7 +892,7 @@
    "head": "ed1464b",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -904,7 +904,7 @@
    "head": "63d51d5",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -988,7 +988,7 @@
    "head": "34e0692",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1036,7 +1036,7 @@
    "head": "5499fdb",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1060,7 +1060,7 @@
    "head": "63e3f03",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1072,7 +1072,7 @@
    "head": "ff0050b",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1096,7 +1096,7 @@
    "head": "22bee85",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1108,7 +1108,7 @@
    "head": "a99732e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1120,7 +1120,7 @@
    "head": "faca0d2",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 64); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1132,7 +1132,7 @@
    "head": "2a6d228",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1156,7 +1156,7 @@
    "head": "d797991",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1168,7 +1168,7 @@
    "head": "1e734ab",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1180,7 +1180,7 @@
    "head": "29f6025",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 66); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1192,7 +1192,7 @@
    "head": "d66a858",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1204,7 +1204,7 @@
    "head": "5b4ff38",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1216,7 +1216,7 @@
    "head": "ed632e6",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 48); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1228,7 +1228,7 @@
    "head": "47e1dbe",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 49); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1252,7 +1252,7 @@
    "head": "85d9feb",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1300,7 +1300,7 @@
    "head": "3b1a24f",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1312,7 +1312,7 @@
    "head": "92b9193",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part IV of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1324,7 +1324,7 @@
    "head": "a7cc3be",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part II of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1348,7 +1348,7 @@
    "head": "e6310b6",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1360,7 +1360,7 @@
    "head": "88461f2",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VI of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1372,7 +1372,7 @@
    "head": "cbcd49e",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1396,7 +1396,7 @@
    "head": "2d70821",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; final tier before CrystallineLocalGlobalCompatibilityCM); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1408,7 +1408,7 @@
    "head": "0969db7",
    "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1420,7 +1420,7 @@
    "head": "bf45c86",
    "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1432,7 +1432,7 @@
    "head": "3e9dc9d",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1444,7 +1444,7 @@
    "head": "c380d7d",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1456,7 +1456,7 @@
    "head": "d90e186",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1468,7 +1468,7 @@
    "head": "1fda507",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1480,7 +1480,7 @@
    "head": "e0552fe",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1492,7 +1492,7 @@
    "head": "79cf245",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1504,7 +1504,7 @@
    "head": "00bfbf7",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1528,7 +1528,7 @@
    "head": "0ca8db7",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1540,7 +1540,7 @@
    "head": "513c822",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1564,7 +1564,7 @@
    "head": "0652974",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1588,7 +1588,7 @@
    "head": "d7c04da",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1624,7 +1624,7 @@
    "head": "9c9a49a",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / Eisenstein supplier); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1660,8 +1660,8 @@
    "head": "7a5b2ea",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1708,7 +1708,7 @@
    "head": "5d2ed25",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -1744,8 +1744,8 @@
    "head": "6ec1d64",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1780,8 +1780,8 @@
    "head": "79b02f6",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
