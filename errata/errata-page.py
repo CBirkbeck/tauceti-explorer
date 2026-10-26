@@ -1128,6 +1128,8 @@ TEMPLATE = r"""<!DOCTYPE html>
 body{margin:0;font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg)}
 a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
 header{padding:16px 24px 10px;border-bottom:1px solid var(--line)}
+.warn{margin:10px 0 12px;padding:12px 16px;border:3px solid #b00020;background:#fff1f0;color:#7a0010;font-weight:700;font-size:1.05em;line-height:1.4}
+.warn small{display:block;font-weight:400;color:#5a0010;margin-top:4px}
 header h1{margin:0 0 4px;font-size:22px;font-weight:650}
 header .totals{font-size:15px}
 header .sub{color:var(--muted);font-size:13px;margin-top:3px}
@@ -1185,6 +1187,7 @@ footer p{margin:5px 0;max-width:1000px}
 <body>
 <header>
 <h1>Errata in published sources</h1>
+<div class="warn" role="alert">WARNING: everything on this page is PROVISIONAL. These mistakes were recorded by AI reviewers while checking roadmaps against the sources; NONE of them has been verified in Lean yet, and some may be wrong. Treat every entry as a claim to be checked, not as an established erratum.<small>Once the corresponding results are formalised in Lean the page will be updated to mark which entries are confirmed.</small></div>
 <div class="totals" id="totals">__HEADLINE__</div>
 <div class="sub">Generated __GENERATED__. Mistakes that Tau Ceti workers recorded in papers, books and notes while building roadmaps.</div>
 <div class="sub">Data: the board register (<code>errata/source-issues.json</code>, <code>errata/REGISTER.md</code>) and the explorer's legacy register (<code>errata/explorer/source-issues.json.gz</code>, to 2026-10-21), both in TauCetiProject/TauCetiRoadmapJobs at <code>__BOARDREV__</code>; duplicates merged. <a href="../">Tau Ceti explorer</a> · <a href="README.md">about this page</a></div>
