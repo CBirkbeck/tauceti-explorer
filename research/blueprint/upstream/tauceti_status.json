@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-26T17:10Z",
+ "updated": "2026-10-26T17:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -61,9 +61,9 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
    "head": "70c4324",
    "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": false,
+    "recommendation": "changes",
+    "current": true,
+    "draft": true,
     "maintainer": ""
    }
   },
@@ -339,7 +339,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "bd81c12",
+   "head": "34c518f",
    "depends_on": [
     779,
     856,
@@ -352,7 +352,7 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -793,12 +793,12 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "bf09cb8",
+   "head": "b15ae69",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
     "recommendation": "changes",
-    "current": true,
-    "draft": false,
+    "current": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -817,12 +817,12 @@
   "AutomorphicGaloisRepresentationsPartII": {
    "stage": "pr",
    "pr": 1006,
-   "head": "fb0a94c",
+   "head": "431c723",
    "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
-    "current": true,
-    "draft": false,
+    "current": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -1734,7 +1734,7 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
