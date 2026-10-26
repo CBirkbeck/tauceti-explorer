@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-26T16:40Z",
+ "updated": "2026-10-26T16:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -781,7 +781,7 @@
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "pr",
    "pr": 1002,
-   "head": "2ea6275",
+   "head": "78e1762",
    "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running",
    "review": {
     "recommendation": "approve",
@@ -985,7 +985,7 @@
   "EtaleDualityAndPerverseSheaves": {
    "stage": "pr",
    "pr": 1040,
-   "head": "34e0692",
+   "head": "d1fab8f",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
     "recommendation": "approve",
@@ -1081,7 +1081,7 @@
   "PadicHodgeTheory": {
    "stage": "pr",
    "pr": 1062,
-   "head": "4c4f1e8",
+   "head": "68c525c",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "approve",
@@ -1717,11 +1717,11 @@
   "NoncommutativeAndEquivariantIwasawa": {
    "stage": "pr",
    "pr": 1307,
-   "head": "388cd87",
+   "head": "8441b31",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1732,8 +1732,8 @@
    "head": "37908a0",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
