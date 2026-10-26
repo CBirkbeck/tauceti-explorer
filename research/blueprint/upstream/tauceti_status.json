@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-26T17:00Z",
+ "updated": "2026-10-26T17:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -265,7 +265,7 @@
   "LocallyAnalyticDistributions": {
    "stage": "pr",
    "pr": 854,
-   "head": "3a4526a",
+   "head": "8d9cae6",
    "depends_on": [
     780,
     813,
@@ -298,7 +298,7 @@
   "ArithmeticGaloisRepresentations": {
    "stage": "pr",
    "pr": 856,
-   "head": "761fa1e",
+   "head": "3e99d0d",
    "depends_on": [
     789,
     785
@@ -339,7 +339,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "09ad340",
+   "head": "bd81c12",
    "depends_on": [
     779,
     856,
@@ -351,7 +351,7 @@
    "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -494,7 +494,7 @@
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "stage": "pr",
    "pr": 879,
-   "head": "34f4657",
+   "head": "6fa669e",
    "depends_on": [
     849,
     857,
@@ -566,7 +566,7 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "11b2c65",
+   "head": "4fda98c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 15bab3b",
    "review": {
     "recommendation": "approve",
@@ -641,7 +641,7 @@
   "GL2AutomorphicRepresentationsAndTransfer": {
    "stage": "pr",
    "pr": 931,
-   "head": "69bcab7",
+   "head": "efb6d45",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
    "review": {
     "recommendation": "approve",
@@ -913,7 +913,7 @@
   "DeformationAndDerivedPatchingAlgebra": {
    "stage": "pr",
    "pr": 1034,
-   "head": "a3b5dea",
+   "head": "7b0ba72",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
    "review": {
     "recommendation": "approve",
@@ -925,7 +925,7 @@
   "CompletedCohomologyPartII": {
    "stage": "pr",
    "pr": 1035,
-   "head": "92dc4a1",
+   "head": "23229e5",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
    "review": {
     "recommendation": "approve",
@@ -1657,11 +1657,11 @@
   "CompletedCohomologyAndLocalGlobalCompatibility": {
    "stage": "pr",
    "pr": 1270,
-   "head": "7a5b2ea",
+   "head": "80918de",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1729,11 +1729,11 @@
   "ColemanPowerSeries": {
    "stage": "pr",
    "pr": 1309,
-   "head": "37908a0",
+   "head": "93d1d20",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
