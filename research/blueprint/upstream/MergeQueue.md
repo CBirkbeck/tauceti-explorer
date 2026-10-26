@@ -10,7 +10,6 @@ Generated 2026-10-26T14:30Z from the README supplier graph of every open pull re
 - #223 McKaySkewGroup (kim-em, other author)
 - #248 LFunctions (roed-math, other author)
 - #417 PointProcesses (mccorvie, other author)
-- #446 CFSGBasicProperties (kim-em, other author)
 - #447 ChevalleyGroups (kim-em, other author)
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
@@ -26,6 +25,7 @@ Generated 2026-10-26T14:30Z from the README supplier graph of every open pull re
 - #1050 LieGroupoidsPoisson (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
+- #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
@@ -33,7 +33,7 @@ Generated 2026-10-26T14:30Z from the README supplier graph of every open pull re
 - #1397 ArtinAlgebras (haruhisa-enomoto, other author)
 
 ## Wave 2
-- #785 ReductiveGroupsPartII — ready (approved at an earlier head); waits on #446, #447
+- #785 ReductiveGroupsPartII — ready (approved at an earlier head); waits on #447
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head); waits on #899
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
@@ -62,29 +62,28 @@ Generated 2026-10-26T14:30Z from the README supplier graph of every open pull re
 
 ## Wave 7
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940
-- #1142 AlgebraicKTheory (kim-em, other author)
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
+- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 9
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #896, #973, #992
+- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
-- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
+- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857
-- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
 - #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1227, #1229, #785, #792, #1142
-- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285, #223, #896, #973
 
 ## Wave 11
-- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #849, #248, #446
+- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #849, #248
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
 
 ## Wave 12
