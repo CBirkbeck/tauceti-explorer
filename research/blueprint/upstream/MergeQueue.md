@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-26T11:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-26T11:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready (approved at an earlier head)
@@ -197,7 +197,7 @@ Generated 2026-10-26T11:00Z from the README supplier graph of every open pull re
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #792, #848, #849, #852, #853, #858, #879, #913, #933, #966
 - #1063 MetaplecticAutomorphicForms — ready (approved at an earlier head); waits on #1037, #785, #792, #851, #856, #924, #925, #931, #999
 - #1064 CohomologyComparisons — ready (approved at an earlier head); waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #1080, #849, #853, #854, #857, #868, #875, #879, #913, #940, #966
-- #1175 ArithmeticStatisticsPartV — ready (approved at an earlier head); waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #792, #850, #851
+- #1175 ArithmeticStatisticsPartV — ready (approved at an earlier head); waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #1472, #792, #850, #851
 - #1209 RelativeFarguesFontaine — ready (approved at an earlier head); waits on #1044, #1062, #1205, #820, #940, #964
 - #1461 BorelRegulators — draft; waits on #1037, #1043, #1212, #1227, #1229, #1306, #1418, #1470, #792, #858, #871, #999, #248, #894, #896
 - #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1208, #1375, #848, #850, #853, #870, #879, #1286
