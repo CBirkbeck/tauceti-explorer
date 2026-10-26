@@ -15,6 +15,7 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -24,7 +25,7 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 - #1033 SubspaceTheorem (rwst, other author)
 - #1050 LieGroupoidsPoisson (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1104 AbhyankarLemma (tdupu, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
@@ -39,50 +40,48 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
-- #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 3
 - #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #934
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
 - #1486 QuiverRepresentationsPartII — draft; waits on #785
-- #896 CharacteristicClasses (kim-em, other author)
+- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1309 ColemanPowerSeries — ready (approved at an earlier head); waits on #1306
-- #1287 HomotopySpheres (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #942 TangentialBordism (kim-em, other author)
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #940
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
 
 ## Wave 7
-- #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1103, #1104
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
+- #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1104
+- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857, #899
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940, #1142
+- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 9
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #896, #973, #992
+- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
-- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
+- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857
-- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #785, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
 - #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1227, #1229, #785, #792, #1142
-- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1307, #1310, #785, #940
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285, #223, #896, #973
 
 ## Wave 11
@@ -97,7 +96,7 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #1199, #785, #792, #848, #849, #853, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #1212, #785, #792, #858, #1142, #1287, #248, #417, #894
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #858
-- #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #785, #849, #856, #857, #858, #868, #940, #1103
+- #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #785, #849, #856, #857, #858, #868, #940
 
 ## Wave 14
 - #852 NeronModelsAndSemistableAbelianVarieties — ready (approved at an earlier head); waits on #1307, #785, #848, #849, #850, #853, #856, #857, #879, #940
@@ -108,7 +107,7 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 ## Wave 15
 - #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #816, #849, #852, #858, #879, #940, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #785, #848, #850, #852, #853
-- #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #1103, #1104
+- #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #1104
 - #1202 LanglandsParameterStacks — ready (approved at an earlier head); waits on #1034, #785, #856
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #848, #849, #852, #853
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
