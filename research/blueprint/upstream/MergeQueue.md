@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-26T16:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-26T16:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -62,7 +62,7 @@ Generated 2026-10-26T16:00Z from the README supplier graph of every open pull re
 ## Wave 7
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #857, #868
-- #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1306, #1307, #1309, #816, #857, #940
+- #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 8
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #853, #857, #868, #1056, #887, #973, #992
@@ -120,7 +120,7 @@ Generated 2026-10-26T16:00Z from the README supplier graph of every open pull re
 - #1044 AInfCohomology — ready (approved at an earlier head); waits on #1042, #857, #858, #868, #875, #879, #940, #942
 
 ## Wave 17
-- #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #248, #253
+- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #248, #253
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #785, #816, #820, #875, #922
 - #1057 PrismaticCohomology — ready (approved at an earlier head); waits on #1042, #1044, #857, #868
 - #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head); waits on #1044, #1212, #1227, #1229, #1266, #1302, #851, #857, #858, #1142
