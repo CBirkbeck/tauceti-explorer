@@ -24,7 +24,6 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 - #1033 SubspaceTheorem (rwst, other author)
 - #1050 LieGroupoidsPoisson (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
-- #1104 AbhyankarLemma (tdupu, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
@@ -62,7 +61,7 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
 
 ## Wave 7
-- #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940, #1104
+- #857 CrystallineCohomology — ready (approved at an earlier head); waits on #820, #868, #940
 - #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 
 ## Wave 8
@@ -107,7 +106,7 @@ Generated 2026-10-26T12:30Z from the README supplier graph of every open pull re
 ## Wave 15
 - #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #816, #849, #852, #858, #879, #940, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #785, #848, #850, #852, #853
-- #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #1104
+- #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready (approved at an earlier head); waits on #1034, #785, #856
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #848, #849, #852, #853
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
