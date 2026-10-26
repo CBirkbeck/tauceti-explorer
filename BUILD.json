@@ -1,35 +1,35 @@
 {
-  "roadmaps": 457,
-  "stages": 3667,
-  "originalStages": 3667,
+  "roadmaps": 452,
+  "stages": 3641,
+  "originalStages": 3641,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3635,
-  "groups": 42,
+  "terminalTargets": 3609,
+  "groups": 41,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
   ],
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "dependencies": 457
+    "dependencies": 452
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
-  "areasWithRoadmaps": 42,
+  "areasWithRoadmaps": 41,
   "additionalRegions": 0,
-  "mathematicalSummaries": 457,
+  "mathematicalSummaries": 452,
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 3667,
+  "mathematicalStars": 3641,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 12,
   "bibliographicSources": 46,
-  "roadmapEdges": 10360,
-  "stageEdges": 2941,
+  "roadmapEdges": 13569,
+  "stageEdges": 2920,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 46541664,
-  "htmlSha256": "1f1bdaac5a634018400b67cef40bd85a60b5069e8a117befaca88e394a8dc810",
+  "htmlBytes": 47278409,
+  "htmlSha256": "6e662e70f1c2f9338fe8badb9988aac5698e8031003ad62a95a68c8c83a85a1a",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3559,8 +3559,8 @@
     "src/app.js": "8c144dbf0a70551c807743385dd2ba82a358af51261c3e7b459be0204a38dc84",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "f463855cb163fb3572ab571a1e1beb965eebaabefa1f5c536f27bcbbbce949b6",
-    "data/tauceti-new-roadmaps.json": "ad214e74f31aa9f03f5f29e99d3c5f4e5e05911541a84d65f70092e4116bce9c",
+    "data/tauceti-progress.json": "0052750f41924647df5140d45069b2b4e84a88f92367a5b7f156cf6d0f95bff8",
+    "data/tauceti-new-roadmaps.json": "6a70ae0fee7f4330fc167059ae2419c51cf567879fddb669dd272b812517b766",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -5044,16 +5044,16 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-26T05:38:23Z",
-    "roadmaps": 155,
+    "exportedAt": "2026-10-26T14:02:00Z",
+    "roadmaps": 157,
     "unplaced": 1,
     "layers": {
-      "done": 421,
-      "partial": 287,
-      "untouched": 105,
-      "unassessed": 425,
-      "total": 3559,
-      "proposed": 2321
+      "done": 427,
+      "partial": 284,
+      "untouched": 102,
+      "unassessed": 439,
+      "total": 3533,
+      "proposed": 2281
     },
     "added": [
       "tauceti:TauCetiRoadmap/AdicEtaleGeometry",
@@ -5074,6 +5074,7 @@
       "tauceti:TauCetiRoadmap/ComplexKahlerGeometry",
       "tauceti:TauCetiRoadmap/ComplexManifolds",
       "tauceti:TauCetiRoadmap/ComplexTori",
+      "tauceti:TauCetiRoadmap/ComputabilityTheory",
       "tauceti:TauCetiRoadmap/DGFloer",
       "tauceti:TauCetiRoadmap/DerivedModuleAlgebra",
       "tauceti:TauCetiRoadmap/DifferentialGeometry",
@@ -5103,6 +5104,7 @@
       "tauceti:TauCetiRoadmap/MassFormula",
       "tauceti:TauCetiRoadmap/MorseNovikov",
       "tauceti:TauCetiRoadmap/MorseTheory",
+      "tauceti:TauCetiRoadmap/Neuromanifolds",
       "tauceti:TauCetiRoadmap/NewtonPolygons",
       "tauceti:TauCetiRoadmap/NilpotentOrbits",
       "tauceti:TauCetiRoadmap/NoncommutativeGeometry",
@@ -5160,6 +5162,7 @@
       "tauceti:TauCetiRoadmap/BordismFormalGroups",
       "tauceti:TauCetiRoadmap/ComplexCurveModuli",
       "tauceti:TauCetiRoadmap/ComplexKahlerGeometry",
+      "tauceti:TauCetiRoadmap/ComputabilityTheory",
       "tauceti:TauCetiRoadmap/DerivedModuleAlgebra",
       "tauceti:TauCetiRoadmap/EtaleCohomologyFoundations",
       "tauceti:TauCetiRoadmap/FinancialMathematics",
@@ -5175,6 +5178,7 @@
       "tauceti:TauCetiRoadmap/KhovanovHomology",
       "tauceti:TauCetiRoadmap/MorseNovikov",
       "tauceti:TauCetiRoadmap/MorseTheory",
+      "tauceti:TauCetiRoadmap/Neuromanifolds",
       "tauceti:TauCetiRoadmap/NilpotentOrbits",
       "tauceti:TauCetiRoadmap/NoncommutativeGeometry",
       "tauceti:TauCetiRoadmap/OperatorAlgebraDynamics",
@@ -5202,15 +5206,15 @@
     ]
   },
   "proposals": {
-    "openPulls": 375,
-    "pulls": 293,
-    "layers": 2321,
+    "openPulls": 368,
+    "pulls": 286,
+    "layers": 2281,
     "unplaced": [
       "tauceti:TauCetiRoadmap/ArithmeticStatistics",
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-26T03:31:12Z",
-    "roadmaps": 302
+    "updatedAt": "2026-10-26T14:43:19Z",
+    "roadmaps": 295
   },
   "variant": "atlas"
 }
