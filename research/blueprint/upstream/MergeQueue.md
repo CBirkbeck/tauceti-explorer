@@ -1,9 +1,10 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-27T10:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-27T10:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1314 HabiroCyclotomicCompletions — ready (approved at an earlier head)
 - #1320 PolylogarithmFunctions — ready (approved at an earlier head)
 - #1407 ConformalMappingPartII — draft
@@ -24,7 +25,6 @@ Generated 2026-10-27T10:00Z from the README supplier graph of every open pull re
 - #1050 LieGroupoidsPoisson (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
@@ -38,6 +38,7 @@ Generated 2026-10-27T10:00Z from the README supplier graph of every open pull re
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #942 TangentialBordism (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 3
 - #792 AdelicAlgebraicGroups — ready; waits on #785, #248, #934
@@ -48,7 +49,6 @@ Generated 2026-10-27T10:00Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1309 ColemanPowerSeries — ready; waits on #1306
 
 ## Wave 5
