@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-27T10:30Z",
+ "updated": "2026-10-27T10:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1249,7 +1249,7 @@
   "IgusaVarietiesAndTorsionConcentration": {
    "stage": "pr",
    "pr": 1090,
-   "head": "85d9feb",
+   "head": "2429783",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
     "recommendation": "approve",
@@ -1429,7 +1429,7 @@
   "LanglandsParameterStacks": {
    "stage": "pr",
    "pr": 1202,
-   "head": "3e9dc9d",
+   "head": "f4a8f12",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
@@ -1561,7 +1561,7 @@
   "GeometricSatakeAndFusion": {
    "stage": "pr",
    "pr": 1235,
-   "head": "0652974",
+   "head": "ef635d8",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
@@ -1597,7 +1597,7 @@
   "HeckeStacksAndLocalShtukas": {
    "stage": "pr",
    "pr": 1252,
-   "head": "48d21c7",
+   "head": "79121fa",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
