@@ -256,7 +256,7 @@ Generated 2026-10-27T12:50Z from the README supplier graph of every open pull re
 ## Wave 33
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
 - #1071 GL2ModularityLifting — ready (approved at an earlier head); waits on #1005, #1007, #1013, #1020, #1034, #1039, #1062, #1066, #785, #856, #858, #879, #913, #920, #923, #928, #931, #970, #451
-- #1252 HeckeStacksAndLocalShtukas — ready (approved at an earlier head); waits on #1044, #1062, #1090, #1202, #1205, #1209, #1230, #1235, #1241, #1630, #785, #820, #875, #879, #927, #965, #999
+- #1252 HeckeStacksAndLocalShtukas — ready (approved at an earlier head); waits on #1006, #1044, #1062, #1090, #1202, #1205, #1209, #1230, #1235, #1241, #1630, #785, #820, #875, #879, #927, #965, #999
 - #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1126, #924
 - #1487 GrossZagierAndArithmeticHeights — draft; waits on #1000, #1005, #1007, #1017, #1018, #1037, #1043, #1046, #1063, #1126, #1176, #1254, #1313, #1360, #1405, #1494, #1498, #785, #848, #849, #852, #856, #869, #879, #913, #924, #925, #931, #933, #966, #968
 - #1491 EllipticCurveModularityPartII — draft; waits on #1000, #1001, #1007, #1013, #1017, #1018, #1229, #1254, #1264, #1272, #1302, #1408, #1432, #849, #852, #856, #869, #879, #913, #928, #968
