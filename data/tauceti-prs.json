@@ -1,5 +1,5 @@
 {
- "openPulls": 360,
+ "openPulls": 361,
  "pulls": [
   {
    "author": "kim-em",
@@ -18954,9 +18954,9 @@
     "awaiting-review"
    ],
    "number": 1397,
-   "sha": "7602f0d0f54e61eb151c8bbff52d4bc932845ab5",
+   "sha": "ca98ae00e944bab24ce4f5a6595a175730695d18",
    "title": "roadmap: Krull-Schmidt categories and Auslander-Reiten theory of Artin algebras",
-   "updatedAt": "2026-10-26T11:42:57Z",
+   "updatedAt": "2026-10-27T01:58:19Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1397"
   },
   {
@@ -27690,6 +27690,18 @@
    "title": "Polynomial Approximation in Sobolev Spaces",
    "updatedAt": "2026-10-26T11:30:15Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1612"
+  },
+  {
+   "author": "paulwedrich",
+   "createdAt": "2026-10-27T03:48:03Z",
+   "draft": false,
+   "head": "paulwedrich/TauCetiRoadmap",
+   "labels": [],
+   "number": 1629,
+   "sha": "4a912b82c436510f57caa3bf84a712fa6bd03683",
+   "title": "Add Foams roadmap",
+   "updatedAt": "2026-10-27T03:49:12Z",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1629"
   }
  ],
  "repository": "TauCetiProject/TauCetiRoadmap",
@@ -28137,6 +28149,10 @@
   "TauCetiRoadmap/FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "arxiv": "math.NT",
    "pull": 879
+  },
+  "TauCetiRoadmap/Foams": {
+   "arxiv": "math.QA",
+   "pull": 1629
   },
   "TauCetiRoadmap/FormalConnectionsOpers": {
    "arxiv": "math.AG",
