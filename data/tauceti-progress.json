@@ -1,12 +1,12 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-26T14:02:00Z",
- "exported_at": "2026-10-26T14:02:00Z",
+ "cutoff": "2026-10-26T21:18:26Z",
+ "exported_at": "2026-10-26T21:18:26Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 678,
-  "recent": 11003,
-  "total": 19219,
+  "open": 664,
+  "recent": 10991,
+  "total": 19281,
   "unattributed": {
    "no_label": 1652,
    "several_labels": 0,
@@ -28,17 +28,65 @@
    2827,
    3120,
    2319,
-   94
+   156
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "6fd1c2eb7c8517ac558dcfa91d6e9d128f9e0378",
+ "roadmap_head": "dc7e495f51632160fa044161ec580e7b78996191",
  "rows": [
+  {
+   "activity": null,
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/AbhyankarLemma",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3"
+   ],
+   "layer_lines": [
+    130,
+    222,
+    255,
+    292
+   ],
+   "layers": [
+    "Layer 0: extensions of a discrete valuation ring",
+    "Layer 1: ramification in codimension one",
+    "Layer 2: extension across a regular divisor",
+    "Layer 3: Abhyankar's lemma"
+   ],
+   "links": [],
+   "name": "AbhyankarLemma",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/AbhyankarLemma/README.md",
+   "readme_sha": "40933c6173539610604bae983d563e0f977c026bc31c9bd8ec700cb60fa9d9d6",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Abhyankar's lemma for a regular divisor",
+   "topic": "Algebraic Geometry"
+  },
   {
    "activity": {
     "last": "2026-10-24T08:48:16Z",
-    "open": 6,
+    "open": 7,
     "recent": 11,
     "since_report": 0,
     "total": 11,
@@ -148,11 +196,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T10:56:35Z",
-    "open": 4,
-    "recent": 267,
-    "since_report": 7,
-    "total": 611,
+    "last": "2026-10-26T20:36:06Z",
+    "open": 3,
+    "recent": 265,
+    "since_report": 2,
+    "total": 612,
     "weekly": [
      0,
      0,
@@ -169,7 +217,7 @@
      83,
      99,
      15,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -229,21 +277,17 @@
    "status": {
     "frontier": [
      {
-      "name": "The `ℚ_p⟨T₁,…,Tₙ⟩` example",
-      "text": "— a direct consequence of the general noetherianness and strong-noetherianness instances that has not been stated separately."
-     },
-     {
       "name": "Beyond this roadmap",
-      "text": "— the README places non-affinoidness of `𝒳`, vector bundles on the curve, perfectoid spaces and étale theory outside its scope. Further work on the curve belongs to a successor roadmap, for which the stably sheafy interval rings are the intended input."
+      "text": "— no milestone of this roadmap remains open. The README puts non-affinoidness of `𝒳`, vector bundles on the curve, perfectoid spaces, étale theory and fibre products outside its scope. Further work on the curve belongs to a successor roadmap, which would start from the stably sheafy interval rings."
      }
     ],
-    "glance": "Every layer of the roadmap is done. The general theory runs from Huber rings through Tate acyclicity, sheafiness and gluing, and the final application, the adic Fargues–Fontaine curve `𝒳 = 𝒴 / φ^ℤ`, is an adic space with no remaining hypothesis.",
+    "glance": "Every layer of the roadmap is done. The general theory runs from Huber rings through Tate acyclicity, sheafiness and gluing. The final application, the adic Fargues–Fontaine curve `𝒳 = 𝒴 / φ^ℤ`, is an adic space with no hypothesis left over. Current work fills in Layer 0 algebra and connects the theory to classical affinoid algebras.",
     "inherited": false,
     "path": "TauCetiRoadmap/AdicSpaces/STATUS.md",
     "progress_path": "TauCetiRoadmap/AdicSpaces/PROGRESS.md",
-    "report_sha": "7bd0d057697b9c298673dc44b5afaa1818d20d46824c83f9d7aa1e77cf97d691",
-    "to_sha": "fd486a548737649acea650f298f83c4eb643851e",
-    "ts": "2026-10-21T23:37:36Z"
+    "report_sha": "8f4087bf1b24b1fde0526a15400cc5738e41f0655a3bd05229db259b78fd8fc3",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "foundations of adic spaces",
    "topic": "Algebraic Geometry"
@@ -514,11 +558,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T08:17:05Z",
+    "last": "2026-10-26T19:44:04Z",
     "open": 4,
-    "recent": 19,
-    "since_report": 0,
-    "total": 19,
+    "recent": 20,
+    "since_report": 1,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -535,7 +579,7 @@
      0,
      0,
      19,
-     0
+     1
     ]
    },
    "arxiv": "math.RT",
@@ -596,11 +640,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T13:33:19Z",
+    "last": "2026-10-26T19:43:46Z",
     "open": 3,
-    "recent": 17,
-    "since_report": 0,
-    "total": 17,
+    "recent": 18,
+    "since_report": 1,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -617,7 +661,7 @@
      0,
      7,
      10,
-     0
+     1
     ]
    },
    "arxiv": "math.CV",
@@ -678,11 +722,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T00:42:55Z",
-    "open": 6,
-    "recent": 229,
-    "since_report": 4,
-    "total": 335,
+    "last": "2026-10-26T20:04:03Z",
+    "open": 5,
+    "recent": 227,
+    "since_report": 5,
+    "total": 336,
     "weekly": [
      0,
      0,
@@ -699,7 +743,7 @@
      70,
      77,
      27,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -817,11 +861,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T11:15:01Z",
-    "open": 4,
+    "last": "2026-10-26T16:41:54Z",
+    "open": 3,
     "recent": 231,
-    "since_report": 2,
-    "total": 270,
+    "since_report": 3,
+    "total": 271,
     "weekly": [
      0,
      0,
@@ -838,7 +882,7 @@
      72,
      92,
      23,
-     2
+     3
     ]
    },
    "arxiv": "math.AT",
@@ -943,7 +987,7 @@
    "activity": {
     "last": "2026-10-26T07:42:34Z",
     "open": 2,
-    "recent": 116,
+    "recent": 115,
     "since_report": 1,
     "total": 133,
     "weekly": [
@@ -1185,7 +1229,7 @@
    "activity": {
     "last": "2026-10-24T02:27:43Z",
     "open": 3,
-    "recent": 96,
+    "recent": 95,
     "since_report": 0,
     "total": 137,
     "weekly": [
@@ -1289,11 +1333,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T02:44:06Z",
-    "open": 7,
-    "recent": 11,
-    "since_report": 1,
-    "total": 11,
+    "last": "2026-10-26T20:36:05Z",
+    "open": 6,
+    "recent": 12,
+    "since_report": 2,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -1310,7 +1354,7 @@
      0,
      0,
      10,
-     1
+     2
     ]
    },
    "arxiv": "math.FA",
@@ -1414,7 +1458,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/BanachSpaceTheory/README.md",
-   "readme_sha": "84c493d9aba386add1302d2cf8d53c4773e9245531935f1eafb2418f4d511cf2",
+   "readme_sha": "b251d937b692662cbeb557122a0f5c4ae643d2a481eebb10ce72867fa8a769b3",
    "retired": null,
    "states": [],
    "status": {
@@ -1453,11 +1497,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T02:33:03Z",
+    "last": "2026-10-26T19:44:05Z",
     "open": 5,
-    "recent": 132,
-    "since_report": 1,
-    "total": 176,
+    "recent": 133,
+    "since_report": 2,
+    "total": 177,
     "weekly": [
      0,
      0,
@@ -1474,7 +1518,7 @@
      31,
      30,
      20,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -1687,6 +1731,146 @@
   },
   {
    "activity": {
+    "last": null,
+    "open": 2,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "arxiv": "math.LO",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/BorelEquivalenceRelations",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5"
+   ],
+   "layer_lines": [
+    191,
+    293,
+    384,
+    446,
+    485,
+    545
+   ],
+   "layers": [
+    "Layer 0 — Polish, Cantor-space and analytic-set infrastructure",
+    "Layer 1 — Baire category on products and on Cantor space",
+    "Layer 2 — Borel colorings, separation and Miller's ideals",
+    "Layer 3 — The G₀ dichotomy",
+    "Layer 4 — Silver's theorem",
+    "Layer 5 — Borel reducibility, smoothness and E₀"
+   ],
+   "links": [],
+   "name": "BorelEquivalenceRelations",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/BorelEquivalenceRelations/README.md",
+   "readme_sha": "a81e564fa8073d7981e0f90f73b85a59ac155da5b684354e8c72549f1524a80c",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Borel equivalence relations, the G₀ dichotomy and Silver's theorem",
+   "topic": "Logic"
+  },
+  {
+   "activity": {
+    "last": null,
+    "open": 22,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "arxiv": "math.GR",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/CFSGBasicProperties",
+   "layer_ids": [
+    "Milestone graph"
+   ],
+   "layer_lines": [
+    89
+   ],
+   "layers": [
+    "Milestone graph"
+   ],
+   "links": [],
+   "name": "CFSGBasicProperties",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/CFSGBasicProperties/README.md",
+   "readme_sha": "50fca4321fd7c3490cddbbdd0732bdf916bcefbd1deb4847bb0714a9ed368734",
+   "retired": null,
+   "states": [
+    "unassessed"
+   ],
+   "status": null,
+   "title": "finiteness and simplicity of the groups on the CFSG list",
+   "topic": "Group Theory"
+  },
+  {
+   "activity": {
     "last": "2026-10-19T20:53:25Z",
     "open": 0,
     "recent": 48,
@@ -1800,6 +1984,34 @@
    },
    "title": "stating the classification of finite simple groups",
    "topic": "Group Theory"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.AT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/CharacteristicClasses",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "CharacteristicClasses",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/CharacteristicClasses/README.md",
+   "readme_sha": "d1de981c032a668366994298024e2eb6a03258664b621baf9d91f1c27c833c5f",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Characteristic classes and Chern–Weil theory",
+   "topic": "Algebraic Topology"
   },
   {
    "activity": {
@@ -2093,11 +2305,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T20:50:55Z",
+    "last": "2026-10-26T18:30:42Z",
     "open": 4,
-    "recent": 15,
+    "recent": 16,
     "since_report": null,
-    "total": 15,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -2114,7 +2326,7 @@
      0,
      1,
      14,
-     0
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -2399,11 +2611,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T01:30:17Z",
-    "open": 8,
-    "recent": 32,
-    "since_report": 1,
-    "total": 32,
+    "last": "2026-10-26T20:04:06Z",
+    "open": 7,
+    "recent": 34,
+    "since_report": 3,
+    "total": 34,
     "weekly": [
      0,
      0,
@@ -2420,7 +2632,7 @@
      0,
      8,
      23,
-     1
+     3
     ]
    },
    "arxiv": "math.FA",
@@ -2511,11 +2723,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T00:42:34Z",
-    "open": 4,
-    "recent": 21,
-    "since_report": 2,
-    "total": 21,
+    "last": "2026-10-26T18:10:48Z",
+    "open": 3,
+    "recent": 22,
+    "since_report": 3,
+    "total": 22,
     "weekly": [
      0,
      0,
@@ -2532,7 +2744,7 @@
      0,
      0,
      20,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -2909,7 +3121,31 @@
    "topic": "Algebraic Geometry"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.LO",
    "assessment": {
     "detail": null,
@@ -2940,7 +3176,7 @@
    "activity": {
     "last": "2026-10-23T14:31:32Z",
     "open": 6,
-    "recent": 102,
+    "recent": 99,
     "since_report": 0,
     "total": 331,
     "weekly": [
@@ -3054,12 +3290,72 @@
    "topic": "Complex Variables"
   },
   {
+   "activity": null,
+   "arxiv": "math.LO",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/CountableModelCounting",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6"
+   ],
+   "layer_lines": [
+    277,
+    344,
+    412,
+    440,
+    477,
+    587,
+    746
+   ],
+   "layers": [
+    "Layer 0: classes of countable models",
+    "Layer 1: back-and-forth stratification and isolating ranks",
+    "Layer 2: the bounded-rank dichotomy",
+    "Layer 3: Morley's theorem",
+    "Layer 4: scattered classes and thinness criteria",
+    "Layer 5: Vaught's conjecture",
+    "Layer 6: a structure of internal Scott rank ω whose level-ω class is large"
+   ],
+   "links": [],
+   "name": "CountableModelCounting",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/CountableModelCounting/README.md",
+   "readme_sha": "e384e700ebf2ff366fa3f0bd2665b19fcbdba7177d8f0776e810f84996815867",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "counting countable models: Morley's theorem and the Vaught toolkit",
+   "topic": "Logic"
+  },
+  {
    "activity": {
-    "last": "2026-10-26T11:28:31Z",
-    "open": 6,
-    "recent": 121,
-    "since_report": 4,
-    "total": 188,
+    "last": "2026-10-26T19:27:24Z",
+    "open": 5,
+    "recent": 122,
+    "since_report": 5,
+    "total": 189,
     "weekly": [
      0,
      0,
@@ -3076,7 +3372,7 @@
      20,
      42,
      19,
-     2
+     3
     ]
    },
    "arxiv": "math.CT",
@@ -3197,11 +3493,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T13:48:29Z",
+    "last": "2026-10-26T16:41:28Z",
     "open": 4,
-    "recent": 135,
-    "since_report": 0,
-    "total": 135,
+    "recent": 136,
+    "since_report": 1,
+    "total": 136,
     "weekly": [
      0,
      0,
@@ -3218,14 +3514,14 @@
      52,
      59,
      24,
-     0
+     1
     ]
    },
    "arxiv": "math.SG",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "fundamental chains rel boundary of manifolds with corners; the cubical Serre spectral sequence",
@@ -3255,18 +3551,18 @@
     "Layer 11"
    ],
    "layer_lines": [
-    329,
-    358,
-    464,
-    508,
-    548,
-    588,
-    658,
-    703,
-    738,
-    774,
-    822,
-    854
+    413,
+    442,
+    837,
+    919,
+    959,
+    1004,
+    1063,
+    1108,
+    1452,
+    1487,
+    1538,
+    1568
    ],
    "layers": [
     "Layer 0: cubical singular chains",
@@ -3287,7 +3583,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/DGFloer/README.md",
-   "readme_sha": "fdb44314ab93d6179bbcf6372f125c22d3c3a5c292f5b3ea7b2da796aed13add",
+   "readme_sha": "a67033c8f1babc2c30beef6697134cce32e464c0150b5b19c02748b7de11ee74",
    "retired": null,
    "states": [
     "partial",
@@ -3341,7 +3637,7 @@
    "activity": {
     "last": "2026-10-24T11:52:25Z",
     "open": 1,
-    "recent": 58,
+    "recent": 54,
     "since_report": 0,
     "total": 143,
     "weekly": [
@@ -3557,11 +3853,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T12:13:28Z",
+    "last": "2026-10-26T18:29:39Z",
     "open": 17,
-    "recent": 159,
-    "since_report": 2,
-    "total": 159,
+    "recent": 160,
+    "since_report": 3,
+    "total": 160,
     "weekly": [
      0,
      0,
@@ -3578,7 +3874,7 @@
      18,
      90,
      49,
-     2
+     3
     ]
    },
    "arxiv": "math.DG",
@@ -3711,11 +4007,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T10:41:28Z",
-    "open": 11,
-    "recent": 95,
-    "since_report": 2,
-    "total": 95,
+    "last": "2026-10-26T20:52:09Z",
+    "open": 10,
+    "recent": 96,
+    "since_report": 3,
+    "total": 96,
     "weekly": [
      0,
      0,
@@ -3732,14 +4028,14 @@
      0,
      61,
      32,
-     2
+     3
     ]
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the lower bound |z| ≥ den(z)^(−d) house(z)^(1−d) for nonzero algebraic z",
@@ -3762,10 +4058,10 @@
    "layer_lines": [
     146,
     539,
-    911,
-    2054,
-    2746,
-    2926
+    951,
+    2098,
+    2790,
+    2970
    ],
    "layers": [
     "Layer 0: heights and approximation exponents",
@@ -3780,7 +4076,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md",
-   "readme_sha": "8665567e53197f0f31ad652ed3b769d0f92e5a756d2de0117a3741561bc27d94",
+   "readme_sha": "82771550516948180af0c26b25cbbcb640485fd8f024831c95b72e15d08042fd",
    "retired": null,
    "states": [
     "partial",
@@ -3826,11 +4122,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T22:37:23Z",
-    "open": 6,
-    "recent": 260,
-    "since_report": 2,
-    "total": 652,
+    "last": "2026-10-26T19:06:13Z",
+    "open": 5,
+    "recent": 262,
+    "since_report": 5,
+    "total": 655,
     "weekly": [
      0,
      0,
@@ -3847,7 +4143,7 @@
      78,
      93,
      33,
-     0
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -4167,7 +4463,7 @@
    "activity": {
     "last": "2026-10-25T18:32:57Z",
     "open": 1,
-    "recent": 104,
+    "recent": 101,
     "since_report": 2,
     "total": 363,
     "weekly": [
@@ -4353,11 +4649,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T18:44:56Z",
-    "open": 6,
-    "recent": 47,
-    "since_report": 0,
-    "total": 47,
+    "last": "2026-10-26T16:57:05Z",
+    "open": 5,
+    "recent": 48,
+    "since_report": 1,
+    "total": 48,
     "weekly": [
      0,
      0,
@@ -4374,7 +4670,7 @@
      0,
      17,
      30,
-     0
+     1
     ]
    },
    "arxiv": "math.AC",
@@ -4435,11 +4731,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T09:48:45Z",
+    "last": "2026-10-26T19:06:12Z",
     "open": 19,
-    "recent": 27,
-    "since_report": 2,
-    "total": 27,
+    "recent": 28,
+    "since_report": 3,
+    "total": 28,
     "weekly": [
      0,
      0,
@@ -4456,7 +4752,7 @@
      0,
      0,
      26,
-     1
+     2
     ]
    },
    "arxiv": "math.GR",
@@ -4654,7 +4950,7 @@
    "activity": {
     "last": "2026-10-26T00:43:22Z",
     "open": 3,
-    "recent": 121,
+    "recent": 120,
     "since_report": 2,
     "total": 154,
     "weekly": [
@@ -4771,11 +5067,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-23T23:06:46Z",
+    "last": "2026-10-26T18:48:24Z",
     "open": 3,
-    "recent": 19,
-    "since_report": 4,
-    "total": 19,
+    "recent": 20,
+    "since_report": 5,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -4792,7 +5088,7 @@
      0,
      10,
      9,
-     0
+     1
     ]
    },
    "arxiv": "math.AT",
@@ -5051,7 +5347,7 @@
   {
    "activity": {
     "last": "2026-10-25T21:07:01Z",
-    "open": 4,
+    "open": 5,
     "recent": 15,
     "since_report": 0,
     "total": 15,
@@ -5134,7 +5430,7 @@
    "activity": {
     "last": "2026-10-26T10:56:33Z",
     "open": 9,
-    "recent": 403,
+    "recent": 402,
     "since_report": 2,
     "total": 537,
     "weekly": [
@@ -5279,7 +5575,7 @@
    "activity": {
     "last": "2026-10-26T00:59:35Z",
     "open": 1,
-    "recent": 94,
+    "recent": 93,
     "since_report": 1,
     "total": 156,
     "weekly": [
@@ -5401,7 +5697,7 @@
    "activity": {
     "last": "2026-10-24T13:22:05Z",
     "open": 3,
-    "recent": 35,
+    "recent": 34,
     "since_report": 0,
     "total": 63,
     "weekly": [
@@ -5613,12 +5909,40 @@
    "topic": "Combinatorics"
   },
   {
+   "activity": null,
+   "arxiv": "math.AC",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/GroebnerGeometry",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "GroebnerGeometry",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/GroebnerGeometry/README.md",
+   "readme_sha": "d95bb26cd39834ed15b87f3191a9c077ba64aa58717d7e4a0df47f1bd15c21f9",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Gröbner bases, affine semigroups and algebraic degenerations",
+   "topic": "Commutative Algebra"
+  },
+  {
    "activity": {
-    "last": "2026-10-26T02:18:38Z",
-    "open": 8,
-    "recent": 126,
-    "since_report": 2,
-    "total": 200,
+    "last": "2026-10-26T19:27:23Z",
+    "open": 5,
+    "recent": 127,
+    "since_report": 4,
+    "total": 202,
     "weekly": [
      0,
      0,
@@ -5635,7 +5959,7 @@
      34,
      41,
      12,
-     2
+     4
     ]
    },
    "arxiv": "math.RT",
@@ -5804,11 +6128,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T13:33:21Z",
-    "open": 8,
-    "recent": 184,
-    "since_report": 1,
-    "total": 347,
+    "last": "2026-10-26T19:06:10Z",
+    "open": 7,
+    "recent": 185,
+    "since_report": 2,
+    "total": 348,
     "weekly": [
      2,
      5,
@@ -5825,7 +6149,7 @@
      56,
      62,
      27,
-     0
+     1
     ]
    },
    "arxiv": "math.SG",
@@ -6023,7 +6347,7 @@
    "activity": {
     "last": "2026-10-25T19:00:56Z",
     "open": 3,
-    "recent": 57,
+    "recent": 56,
     "since_report": 1,
     "total": 127,
     "weekly": [
@@ -6207,11 +6531,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T01:13:28Z",
-    "open": 5,
-    "recent": 9,
-    "since_report": 4,
-    "total": 9,
+    "last": "2026-10-26T19:27:43Z",
+    "open": 4,
+    "recent": 11,
+    "since_report": 6,
+    "total": 11,
     "weekly": [
      0,
      0,
@@ -6228,7 +6552,7 @@
      0,
      0,
      8,
-     1
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -6385,11 +6709,103 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T08:17:41Z",
-    "open": 7,
-    "recent": 191,
-    "since_report": 6,
-    "total": 254,
+    "last": "2026-10-26T18:30:44Z",
+    "open": 2,
+    "recent": 1,
+    "since_report": null,
+    "total": 1,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   "arxiv": "math.LO",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/InfinitaryModelExistence",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8"
+   ],
+   "layer_lines": [
+    162,
+    249,
+    315,
+    399,
+    483,
+    538,
+    597,
+    652,
+    768
+   ],
+   "layers": [
+    "Layer 0: the signature calculus of infinitary formulas",
+    "Layer 1: theories, entailment and fragments",
+    "Layer 2: fragment elementarity and downward Löwenheim–Skolem",
+    "Layer 3: consistency properties and model existence",
+    "Layer 4: types and omitting types",
+    "Layer 5: Morleyization",
+    "Layer 6: the graph translation",
+    "Layer 7: projective classes and interpolation",
+    "Layer 8: well-ordering"
+   ],
+   "links": [],
+   "name": "InfinitaryModelExistence",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/InfinitaryModelExistence/README.md",
+   "readme_sha": "c8f46074c727640d1bc63e6aebd3b7a4a120920052eaa105b54011e03f2839b7",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "infinitary model existence, omitting types and interpolation",
+   "topic": "Logic"
+  },
+  {
+   "activity": {
+    "last": "2026-10-26T18:29:43Z",
+    "open": 8,
+    "recent": 192,
+    "since_report": 7,
+    "total": 255,
     "weekly": [
      0,
      0,
@@ -6406,7 +6822,7 @@
      68,
      52,
      26,
-     5
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -6524,11 +6940,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T18:26:24Z",
+    "last": "2026-10-26T20:35:38Z",
     "open": 4,
-    "recent": 36,
-    "since_report": 0,
-    "total": 36,
+    "recent": 37,
+    "since_report": 1,
+    "total": 37,
     "weekly": [
      0,
      0,
@@ -6545,7 +6961,7 @@
      0,
      21,
      15,
-     0
+     1
     ]
    },
    "arxiv": "math.MG",
@@ -6639,11 +7055,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T02:33:02Z",
+    "last": "2026-10-26T20:52:07Z",
     "open": 6,
-    "recent": 117,
-    "since_report": 3,
-    "total": 237,
+    "recent": 115,
+    "since_report": 4,
+    "total": 238,
     "weekly": [
      3,
      3,
@@ -6660,7 +7076,7 @@
      21,
      40,
      13,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -6837,11 +7253,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-23T04:13:00Z",
+    "last": "2026-10-26T19:27:42Z",
     "open": 0,
-    "recent": 119,
-    "since_report": 0,
-    "total": 164,
+    "recent": 118,
+    "since_report": 1,
+    "total": 165,
     "weekly": [
      0,
      0,
@@ -6858,7 +7274,7 @@
      24,
      15,
      7,
-     0
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -7378,7 +7794,7 @@
   {
    "activity": {
     "last": "2026-10-26T13:02:53Z",
-    "open": 5,
+    "open": 6,
     "recent": 222,
     "since_report": 3,
     "total": 222,
@@ -7517,11 +7933,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T08:28:56Z",
-    "open": 5,
+    "last": "2026-10-26T18:30:43Z",
+    "open": 4,
     "recent": 130,
-    "since_report": 4,
-    "total": 595,
+    "since_report": 6,
+    "total": 597,
     "weekly": [
      0,
      0,
@@ -7538,7 +7954,7 @@
      34,
      34,
      18,
-     2
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -7667,11 +8083,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T06:48:30Z",
-    "open": 4,
-    "recent": 17,
-    "since_report": 0,
-    "total": 17,
+    "last": "2026-10-26T20:35:37Z",
+    "open": 3,
+    "recent": 18,
+    "since_report": 1,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -7688,7 +8104,7 @@
      0,
      0,
      17,
-     0
+     1
     ]
    },
    "arxiv": "math.GT",
@@ -8025,11 +8441,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T06:56:52Z",
-    "open": 7,
-    "recent": 42,
-    "since_report": 3,
-    "total": 42,
+    "last": "2026-10-26T20:04:05Z",
+    "open": 6,
+    "recent": 43,
+    "since_report": 4,
+    "total": 43,
     "weekly": [
      0,
      0,
@@ -8046,7 +8462,7 @@
      0,
      15,
      24,
-     3
+     4
     ]
    },
    "arxiv": "math.OA",
@@ -8109,7 +8525,7 @@
    "activity": {
     "last": "2026-10-24T00:49:30Z",
     "open": 0,
-    "recent": 50,
+    "recent": 49,
     "since_report": 0,
     "total": 210,
     "weekly": [
@@ -8275,11 +8691,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T05:55:24Z",
-    "open": 12,
-    "recent": 199,
-    "since_report": 6,
-    "total": 199,
+    "last": "2026-10-26T20:04:26Z",
+    "open": 11,
+    "recent": 200,
+    "since_report": 7,
+    "total": 200,
     "weekly": [
      0,
      0,
@@ -8296,7 +8712,7 @@
      39,
      103,
      56,
-     1
+     2
     ]
    },
    "arxiv": "math.FA",
@@ -9014,11 +9430,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T00:43:24Z",
-    "open": 10,
-    "recent": 223,
-    "since_report": 3,
-    "total": 293,
+    "last": "2026-10-26T20:04:04Z",
+    "open": 9,
+    "recent": 222,
+    "since_report": 4,
+    "total": 294,
     "weekly": [
      0,
      0,
@@ -9035,7 +9451,7 @@
      64,
      94,
      29,
-     2
+     3
     ]
    },
    "arxiv": "math.OC",
@@ -9266,7 +9682,7 @@
    "activity": {
     "last": "2026-10-24T09:17:03Z",
     "open": 0,
-    "recent": 143,
+    "recent": 140,
     "since_report": 0,
     "total": 163,
     "weekly": [
@@ -9358,11 +9774,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T01:42:03Z",
-    "open": 7,
+    "last": "2026-10-26T19:43:49Z",
+    "open": 6,
     "recent": 287,
-    "since_report": 6,
-    "total": 436,
+    "since_report": 7,
+    "total": 437,
     "weekly": [
      5,
      10,
@@ -9379,7 +9795,7 @@
      86,
      120,
      35,
-     3
+     4
     ]
    },
    "arxiv": "math.AP",
@@ -10007,11 +10423,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T04:23:16Z",
+    "last": "2026-10-26T18:30:46Z",
     "open": 0,
-    "recent": 68,
-    "since_report": 3,
-    "total": 119,
+    "recent": 67,
+    "since_report": 4,
+    "total": 120,
     "weekly": [
      0,
      0,
@@ -10028,7 +10444,7 @@
      15,
      6,
      3,
-     2
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -10291,7 +10707,7 @@
    "activity": {
     "last": "2026-10-25T23:54:14Z",
     "open": 5,
-    "recent": 216,
+    "recent": 212,
     "since_report": 3,
     "total": 319,
     "weekly": [
@@ -10432,7 +10848,7 @@
    "activity": {
     "last": "2026-10-25T11:24:01Z",
     "open": 1,
-    "recent": 197,
+    "recent": 194,
     "since_report": 0,
     "total": 304,
     "weekly": [
@@ -10555,10 +10971,54 @@
    "topic": "Group Theory"
   },
   {
+   "activity": null,
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/PurityOfBranchLocus",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2"
+   ],
+   "layer_lines": [
+    134,
+    300,
+    317
+   ],
+   "layers": [
+    "Layer 0: pointwise notions and local algebra",
+    "Layer 1: étale localization",
+    "Layer 2: purity of the branch locus"
+   ],
+   "links": [],
+   "name": "PurityOfBranchLocus",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/PurityOfBranchLocus/README.md",
+   "readme_sha": "30f3519bcae54c9a83690f06539a17c068825269db5b428caa3c1a109c116bdc",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "purity of the branch locus",
+   "topic": "Algebraic Geometry"
+  },
+  {
    "activity": {
     "last": "2026-10-25T13:51:53Z",
     "open": 0,
-    "recent": 161,
+    "recent": 160,
     "since_report": 0,
     "total": 211,
     "weekly": [
@@ -10753,7 +11213,7 @@
   {
    "activity": {
     "last": "2026-10-25T17:40:27Z",
-    "open": 3,
+    "open": 4,
     "recent": 12,
     "since_report": 3,
     "total": 12,
@@ -10866,7 +11326,7 @@
   {
    "activity": {
     "last": "2026-10-26T11:54:56Z",
-    "open": 8,
+    "open": 9,
     "recent": 244,
     "since_report": 4,
     "total": 244,
@@ -10971,11 +11431,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T23:44:27Z",
+    "last": "2026-10-26T18:29:41Z",
     "open": 4,
-    "recent": 6,
-    "since_report": 3,
-    "total": 6,
+    "recent": 7,
+    "since_report": 4,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -10992,7 +11452,7 @@
      0,
      0,
      6,
-     0
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -11053,11 +11513,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T10:56:32Z",
-    "open": 36,
-    "recent": 805,
-    "since_report": 8,
-    "total": 1734,
+    "last": "2026-10-26T19:06:11Z",
+    "open": 35,
+    "recent": 801,
+    "since_report": 9,
+    "total": 1735,
     "weekly": [
      4,
      3,
@@ -11074,7 +11534,7 @@
      273,
      256,
      122,
-     8
+     9
     ]
    },
    "arxiv": "math.AG",
@@ -11247,11 +11707,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T11:24:00Z",
-    "open": 6,
-    "recent": 9,
-    "since_report": 1,
-    "total": 9,
+    "last": "2026-10-26T18:29:42Z",
+    "open": 5,
+    "recent": 10,
+    "since_report": 2,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -11268,7 +11728,7 @@
      0,
      0,
      9,
-     0
+     1
     ]
    },
    "arxiv": "math.RT",
@@ -11463,11 +11923,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T13:02:54Z",
-    "open": 28,
-    "recent": 819,
-    "since_report": 16,
-    "total": 1802,
+    "last": "2026-10-26T20:35:39Z",
+    "open": 25,
+    "recent": 821,
+    "since_report": 6,
+    "total": 1806,
     "weekly": [
      0,
      0,
@@ -11484,7 +11944,7 @@
      293,
      158,
      79,
-     8
+     12
     ]
    },
    "arxiv": "math.RT",
@@ -11512,16 +11972,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -11529,16 +11989,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "Representation theory",
    "topic": "Representation Theory"
@@ -11614,16 +12074,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -11631,16 +12091,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "The Ado–Iwasawa theorem and faithful finite-dimensional Lie representations",
    "topic": "Representation Theory"
@@ -11716,16 +12176,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -11733,16 +12193,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "character theory of finite groups, and computing character tables",
    "topic": "Representation Theory"
@@ -11809,16 +12269,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -11826,16 +12286,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "finite-dimensional representations of the classical groups",
    "topic": "Representation Theory"
@@ -11899,16 +12359,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -11916,16 +12376,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "representations of compact groups and the Peter-Weyl theorem",
    "topic": "Representation Theory"
@@ -12012,16 +12472,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12029,16 +12489,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "induction, restriction, and Mackey theory for finite groups",
    "topic": "Representation Theory"
@@ -12119,16 +12579,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12136,16 +12596,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "Lie groups and the Lie algebra correspondence",
    "topic": "Representation Theory"
@@ -12233,16 +12693,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12250,16 +12710,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas",
    "topic": "Representation Theory"
@@ -12315,16 +12775,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12332,16 +12792,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "induction theorems in Grothendieck groups of modular representations",
    "topic": "Representation Theory"
@@ -12407,16 +12867,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12424,16 +12884,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "quiver representations, path algebras, and Gabriel's theorem",
    "topic": "Representation Theory"
@@ -12493,16 +12953,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12510,16 +12970,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "root systems, Weyl groups, and the Cartan-Killing classification",
    "topic": "Representation Theory"
@@ -12598,16 +13058,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12615,16 +13075,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "representations of the symmetric group, Specht modules, and Schur-Weyl duality",
    "topic": "Representation Theory"
@@ -12692,16 +13152,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12709,16 +13169,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "semisimple algebras, Artin-Wedderburn, and the structure of their modules",
    "topic": "Representation Theory"
@@ -12735,7 +13195,7 @@
      "Layer 1": "the quotient C[G_n]/(eps+1) = Cliff and the classification of the irreducible representations of G_n",
      "Layer 2": "complex Spin topology: connected for n at least 2, simply connected for n at least 3",
      "Layer 3": "the complex-group differential comparison for Spin",
-     "Layer 4": "the odd-line sign comparison and Spin/Pin action equivariance",
+     "Layer 4": "the odd-line sign comparison: J conjugation between the two line-sign actions and the faithful sum of the two odd spinor modules",
      "Layer 5": "the low-rank type D cases, the fork automorphism swapping the half-spin weights, and the group-level corollary",
      "Layer 7": "the Spin(p,q) image and path-connectedness for p+q at least 3; the (1,1) image and trivial radical of so(p,q) are done",
      "Layer 8": "an order-three outer automorphism of Spin8; only the Lie-algebra stage over Q exists",
@@ -12808,16 +13268,16 @@
    "status": {
     "frontier": [
      {
+      "name": "The odd-line sign comparison",
+      "text": "— in odd dimension, show that flipping the line coordinate conjugates the spinor action by the parity involution, and that the two actions together give `Cliff ≅ End S × End S`. This is the last item of spin Layer 4."
+     },
+     {
       "name": "The Harish-Chandra isomorphism",
       "text": "— show that the linear projection hits every Weyl invariant. Orbit separation is already proved, so this would also give the converse: equal central characters force a single dot orbit."
      },
      {
       "name": "Brauer–Schur–Weyl duality",
-      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, now that the inclusion and the harmonic–trace splitting exist. Then assemble the symplectic generators, which already satisfy the Brauer relations, into an algebra action."
-     },
-     {
-      "name": "Closing Schur–Weyl Layer 7",
-      "text": "— the symmetry of RSK under inversion, and the dual Jacobi–Trudi identity beyond one column."
+      "text": "— show that the orthogonal Brauer image fills the commutant of `O(n)`, given the inclusion and the harmonic–trace splitting. Then assemble the symplectic generators, which already satisfy the relations and commute with `Sp`, into an algebra action."
      },
      {
       "name": "Almost-split sequences",
@@ -12825,16 +13285,16 @@
      },
      {
       "name": "The Gassmann pair in `S₁₆`",
-      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate. The orbit-sum basis of Layer 2.1 is still owed."
+      "text": "— realise `C₄ × C₄` and `Q₈ × C₂` by their regular actions, and use the cycle-type criterion to show they are almost conjugate but not conjugate."
      }
     ],
-    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Root systems now also has the rational Cartan–Killing classification. Induction–restriction lacks only its Gassmann layers. Highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
+    "glance": "Six roadmaps are complete: root systems, semisimple algebras, compact groups, character theory, modular induction and Ado–Iwasawa. Induction–restriction lacks only its Gassmann layers, and highest weight is done through Layer 6. Schur–Weyl duality, the classical groups, spin representations, quivers and Lie groups are partial. Affine Weyl geometry, the Fourier form of the Weyl formula, and the Lie-group layers from complexification onward have not begun.",
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "03e26cc7af48f48edb97c30063714072ecde7802535e88595fbceacc87a5d2c9",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
+    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
    },
    "title": "Clifford algebras, the Pin and Spin groups, and spin representations",
    "topic": "Representation Theory"
@@ -12930,7 +13390,7 @@
   {
    "activity": {
     "last": "2026-10-23T23:06:47Z",
-    "open": 3,
+    "open": 4,
     "recent": 4,
     "since_report": 0,
     "total": 4,
@@ -13493,11 +13953,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T01:42:01Z",
-    "open": 7,
-    "recent": 126,
-    "since_report": 2,
-    "total": 158,
+    "last": "2026-10-26T19:44:06Z",
+    "open": 5,
+    "recent": 127,
+    "since_report": 4,
+    "total": 160,
     "weekly": [
      0,
      0,
@@ -13514,7 +13974,7 @@
      22,
      47,
      16,
-     2
+     4
     ]
    },
    "arxiv": "math.RT",
@@ -13624,11 +14084,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T04:11:18Z",
-    "open": 7,
+    "last": "2026-10-26T14:00:02Z",
+    "open": 6,
     "recent": 114,
-    "since_report": 3,
-    "total": 157,
+    "since_report": 4,
+    "total": 158,
     "weekly": [
      0,
      0,
@@ -13645,7 +14105,7 @@
      27,
      31,
      23,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -13769,11 +14229,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T11:43:39Z",
-    "open": 13,
-    "recent": 255,
-    "since_report": 9,
-    "total": 432,
+    "last": "2026-10-26T20:52:08Z",
+    "open": 12,
+    "recent": 262,
+    "since_report": 16,
+    "total": 439,
     "weekly": [
      0,
      0,
@@ -13790,7 +14250,7 @@
      3,
      98,
      147,
-     4
+     11
     ]
    },
    "arxiv": "math.PR",
@@ -13925,6 +14385,150 @@
    },
    "title": "standard probability distributions and their elementary theory",
    "topic": "Probability"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SubspaceTheorem",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8",
+    "Layer 9"
+   ],
+   "layer_lines": [
+    301,
+    425,
+    510,
+    580,
+    771,
+    987,
+    1211,
+    1390,
+    1501,
+    1706
+   ],
+   "layers": [
+    "Layer 0: absolute values above a place and the `S`-adic dictionary",
+    "Layer 1: approximation exponents",
+    "Layer 2: the auxiliary polynomial over a number field",
+    "Layer 3: Roth's theorem",
+    "Layer 4: parallelepipeds over a number field",
+    "Layer 5: the Subspace machinery",
+    "Layer 6: the Subspace Theorem",
+    "Layer 7: approximation of algebraic numbers, and transcendence",
+    "Layer 8: unit equations and Diophantine equations",
+    "Layer 9: counting subspaces"
+   ],
+   "links": [],
+   "name": "SubspaceTheorem",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/SubspaceTheorem/README.md",
+   "readme_sha": "76466e92e2ef54f2c48a2901b1de4c3d1182ad13acb15af641395845b5cf4118",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Roth's theorem and the Subspace Theorem over number fields",
+   "topic": "Number Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-26T19:43:48Z",
+    "open": 0,
+    "recent": 1,
+    "since_report": null,
+    "total": 1,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SuccessiveMinima",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3"
+   ],
+   "layer_lines": [
+    169,
+    266,
+    607,
+    779
+   ],
+   "layers": [
+    "Layer 0: Gram determinants and integral bases with a prescribed flag",
+    "Layer 1: Successive minima",
+    "Layer 2: Minkowski's lower inequality and the linear forms theorem",
+    "Layer 3: Translate volumes and consequences of the upper inequality"
+   ],
+   "links": [],
+   "name": "SuccessiveMinima",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/SuccessiveMinima/README.md",
+   "readme_sha": "f8dbfd613dfe18745131acb7fda1e580c57a1ca2b2c1c05a9a9511cbc89c9426",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "successive minima and Minkowski's theorems",
+   "topic": "Number Theory"
   },
   {
    "activity": {
@@ -14586,6 +15190,34 @@
    "topic": "Number Theory"
   },
   {
+   "activity": null,
+   "arxiv": "math.KT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/TopologicalKTheory",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "TopologicalKTheory",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/TopologicalKTheory/README.md",
+   "readme_sha": "39d312ca35c4c67e60a13d57a1686459236d2a724b8cfe6f47b7f6c8edfee3d8",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Topological K-theory of vector bundles",
+   "topic": "K-Theory and Homology"
+  },
+  {
    "activity": {
     "last": "2026-10-24T05:48:42Z",
     "open": 6,
@@ -14670,7 +15302,7 @@
   {
    "activity": {
     "last": "2026-10-25T13:18:23Z",
-    "open": 6,
+    "open": 7,
     "recent": 20,
     "since_report": 0,
     "total": 20,
@@ -14751,11 +15383,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T10:56:45Z",
-    "open": 4,
-    "recent": 194,
-    "since_report": 6,
-    "total": 269,
+    "last": "2026-10-26T20:35:36Z",
+    "open": 3,
+    "recent": 198,
+    "since_report": 11,
+    "total": 274,
     "weekly": [
      0,
      0,
@@ -14772,7 +15404,7 @@
      72,
      62,
      19,
-     6
+     11
     ]
    },
    "arxiv": "math.RT",
@@ -14981,7 +15613,7 @@
    "activity": {
     "last": "2026-10-23T01:18:30Z",
     "open": 0,
-    "recent": 29,
+    "recent": 28,
     "since_report": 0,
     "total": 137,
     "weekly": [
@@ -15404,11 +16036,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T08:17:41Z",
-    "open": 7,
-    "recent": 191,
-    "since_report": 26,
-    "total": 254,
+    "last": "2026-10-26T18:29:43Z",
+    "open": 8,
+    "recent": 192,
+    "since_report": 27,
+    "total": 255,
     "weekly": [
      0,
      0,
@@ -15425,7 +16057,7 @@
      68,
      52,
      26,
-     5
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -15590,7 +16222,7 @@
    "activity": {
     "last": "2026-10-26T00:43:44Z",
     "open": 0,
-    "recent": 85,
+    "recent": 79,
     "since_report": 0,
     "total": 170,
     "weekly": [
@@ -15896,7 +16528,7 @@
    "activity": {
     "last": "2026-10-22T06:28:09Z",
     "open": 0,
-    "recent": 17,
+    "recent": 16,
     "since_report": 0,
     "total": 129,
     "weekly": [
@@ -16007,6 +16639,7 @@
   "Geometric Topology",
   "Group Theory",
   "Information Theory",
+  "K-Theory and Homology",
   "Logic",
   "Metric Geometry",
   "Number Theory",

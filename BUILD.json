@@ -1,10 +1,10 @@
 {
-  "roadmaps": 452,
-  "stages": 3641,
-  "originalStages": 3641,
+  "roadmaps": 457,
+  "stages": 3663,
+  "originalStages": 3663,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3609,
+  "terminalTargets": 3631,
   "groups": 46,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -12,24 +12,24 @@
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "dependencies": 452
+    "dependencies": 457
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
   "areasWithRoadmaps": 41,
   "additionalRegions": 0,
-  "mathematicalSummaries": 452,
+  "mathematicalSummaries": 457,
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 3641,
+  "mathematicalStars": 3663,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 12,
   "bibliographicSources": 46,
-  "roadmapEdges": 13569,
-  "stageEdges": 2920,
+  "roadmapEdges": 12957,
+  "stageEdges": 2937,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 53416248,
-  "htmlSha256": "351c7337e91de2c28dac9d7076800e2dcd2b9752315966da16d293003fea2fdc",
+  "htmlBytes": 54483748,
+  "htmlSha256": "8040638902cffd8070b5696777d907c50c3ce2dd71dbd2c1645df9359562cf31",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3559,8 +3559,8 @@
     "src/app.js": "5df509381759af376e888f33e51e461fc663e20af6aea1a228eb66d0e0f02622",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "0052750f41924647df5140d45069b2b4e84a88f92367a5b7f156cf6d0f95bff8",
-    "data/tauceti-new-roadmaps.json": "6a70ae0fee7f4330fc167059ae2419c51cf567879fddb669dd272b812517b766",
+    "data/tauceti-progress.json": "b78fbbe5a2459fb9ef324db988a8a9b556d58f54af336fb9df4da2c75f36d03e",
+    "data/tauceti-new-roadmaps.json": "71bef9b4ecbe1244e6429d33adaa6e745edc145e31a10bd4d4cdc4760bbd0391",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -5045,18 +5045,19 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-26T14:02:00Z",
-    "roadmaps": 157,
+    "exportedAt": "2026-10-26T21:18:26Z",
+    "roadmaps": 168,
     "unplaced": 1,
     "layers": {
       "done": 427,
       "partial": 284,
       "untouched": 102,
-      "unassessed": 439,
-      "total": 3533,
-      "proposed": 2281
+      "unassessed": 504,
+      "total": 3555,
+      "proposed": 2238
     },
     "added": [
+      "tauceti:TauCetiRoadmap/AbhyankarLemma",
       "tauceti:TauCetiRoadmap/AdicEtaleGeometry",
       "tauceti:TauCetiRoadmap/AdicSpacesPartII",
       "tauceti:TauCetiRoadmap/AdicSpacesPartIII",
@@ -5068,6 +5069,9 @@
       "tauceti:TauCetiRoadmap/BanachAlgebras",
       "tauceti:TauCetiRoadmap/BanachSpaceTheory",
       "tauceti:TauCetiRoadmap/BordismFormalGroups",
+      "tauceti:TauCetiRoadmap/BorelEquivalenceRelations",
+      "tauceti:TauCetiRoadmap/CFSGBasicProperties",
+      "tauceti:TauCetiRoadmap/CharacteristicClasses",
       "tauceti:TauCetiRoadmap/ClassicalArithmeticCompletion",
       "tauceti:TauCetiRoadmap/ClassifyingSpaces",
       "tauceti:TauCetiRoadmap/CompactOperators",
@@ -5076,6 +5080,7 @@
       "tauceti:TauCetiRoadmap/ComplexManifolds",
       "tauceti:TauCetiRoadmap/ComplexTori",
       "tauceti:TauCetiRoadmap/ComputabilityTheory",
+      "tauceti:TauCetiRoadmap/CountableModelCounting",
       "tauceti:TauCetiRoadmap/DGFloer",
       "tauceti:TauCetiRoadmap/DerivedModuleAlgebra",
       "tauceti:TauCetiRoadmap/DifferentialGeometry",
@@ -5091,11 +5096,13 @@
       "tauceti:TauCetiRoadmap/GeometricMeasureTheory",
       "tauceti:TauCetiRoadmap/GeometricRepresentationCategories",
       "tauceti:TauCetiRoadmap/GraphConnectivityAndFlows",
+      "tauceti:TauCetiRoadmap/GroebnerGeometry",
       "tauceti:TauCetiRoadmap/HamiltonianFloerOperations",
       "tauceti:TauCetiRoadmap/HeightsAndUnits",
       "tauceti:TauCetiRoadmap/Hyperfunctions",
       "tauceti:TauCetiRoadmap/ImaginaryQuadraticClassNumber",
       "tauceti:TauCetiRoadmap/InfinitaryLogic",
+      "tauceti:TauCetiRoadmap/InfinitaryModelExistence",
       "tauceti:TauCetiRoadmap/IntegralLattices",
       "tauceti:TauCetiRoadmap/Isoperimetry",
       "tauceti:TauCetiRoadmap/KhovanovHomology",
@@ -5128,6 +5135,7 @@
       "tauceti:TauCetiRoadmap/PivotalSpherical",
       "tauceti:TauCetiRoadmap/PositiveScalarCurvature",
       "tauceti:TauCetiRoadmap/ProfiniteArithmetic",
+      "tauceti:TauCetiRoadmap/PurityOfBranchLocus",
       "tauceti:TauCetiRoadmap/QuantumGroups",
       "tauceti:TauCetiRoadmap/Rank24LatticeConstructions",
       "tauceti:TauCetiRoadmap/RealAlgebraicGeometry",
@@ -5142,6 +5150,8 @@
       "tauceti:TauCetiRoadmap/SchubertGeometry",
       "tauceti:TauCetiRoadmap/SeibergWittenTheory",
       "tauceti:TauCetiRoadmap/SpinGeometry",
+      "tauceti:TauCetiRoadmap/SubspaceTheorem",
+      "tauceti:TauCetiRoadmap/SuccessiveMinima",
       "tauceti:TauCetiRoadmap/SymplecticGeometry",
       "tauceti:TauCetiRoadmap/SymplecticGeometry/ContactGeometry",
       "tauceti:TauCetiRoadmap/SymplecticGeometry/ConvexityToric",
@@ -5151,6 +5161,7 @@
       "tauceti:TauCetiRoadmap/TauberianBoundaryConvergence",
       "tauceti:TauCetiRoadmap/TaubesGromov",
       "tauceti:TauCetiRoadmap/ThetaSeries",
+      "tauceti:TauCetiRoadmap/TopologicalKTheory",
       "tauceti:TauCetiRoadmap/TypeAHeckeAlgebras",
       "tauceti:TauCetiRoadmap/Yamabe",
       "tauceti:Completed/RestrictedProducts"
@@ -5161,6 +5172,7 @@
       "tauceti:TauCetiRoadmap/BanachAlgebras",
       "tauceti:TauCetiRoadmap/BanachSpaceTheory",
       "tauceti:TauCetiRoadmap/BordismFormalGroups",
+      "tauceti:TauCetiRoadmap/CharacteristicClasses",
       "tauceti:TauCetiRoadmap/ComplexCurveModuli",
       "tauceti:TauCetiRoadmap/ComplexKahlerGeometry",
       "tauceti:TauCetiRoadmap/ComputabilityTheory",
@@ -5173,6 +5185,7 @@
       "tauceti:TauCetiRoadmap/GeometricCurrents",
       "tauceti:TauCetiRoadmap/GeometricRepresentationCategories",
       "tauceti:TauCetiRoadmap/GraphConnectivityAndFlows",
+      "tauceti:TauCetiRoadmap/GroebnerGeometry",
       "tauceti:TauCetiRoadmap/HamiltonianFloerOperations",
       "tauceti:TauCetiRoadmap/Hyperfunctions",
       "tauceti:TauCetiRoadmap/ImaginaryQuadraticClassNumber",
@@ -5202,20 +5215,21 @@
       "tauceti:TauCetiRoadmap/SymplecticGeometry/IntegrableSystems",
       "tauceti:TauCetiRoadmap/TauberianBoundaryConvergence",
       "tauceti:TauCetiRoadmap/TaubesGromov",
+      "tauceti:TauCetiRoadmap/TopologicalKTheory",
       "tauceti:TauCetiRoadmap/TypeAHeckeAlgebras",
       "tauceti:TauCetiRoadmap/Yamabe"
     ]
   },
   "proposals": {
-    "openPulls": 368,
-    "pulls": 286,
-    "layers": 2281,
+    "openPulls": 360,
+    "pulls": 280,
+    "layers": 2238,
     "unplaced": [
       "tauceti:TauCetiRoadmap/ArithmeticStatistics",
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-26T14:43:19Z",
-    "roadmaps": 295
+    "updatedAt": "2026-10-27T00:17:35Z",
+    "roadmaps": 289
   },
   "variant": "atlas"
 }
