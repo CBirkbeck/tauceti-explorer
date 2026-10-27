@@ -28,7 +28,6 @@ Generated 2026-10-27T17:50Z from the README supplier graph of every open pull re
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
-- #1333 EllipticIntegrals (jayyswan, other author)
 - #1397 ArtinAlgebras (haruhisa-enomoto, other author)
 
 ## Wave 2
@@ -274,7 +273,7 @@ Generated 2026-10-27T17:50Z from the README supplier graph of every open pull re
 - #1419 PolynomialGaloisGroupsPartII — draft; waits on #1126, #1336
 - #1423 HeegnerPointEulerSystems — draft; waits on #1004, #1005, #1013, #1017, #1018, #1062, #1176, #1254, #1272, #1311, #1406, #1487, #1498, #1499, #851, #852, #856, #858, #869, #879, #913, #931, #933
 - #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1175, #1336, #792, #850, #851
-- #1496 PeriodsAndSpecialValues — draft; waits on #1002, #1006, #1021, #1039, #1040, #1043, #1075, #1199, #1208, #1212, #1306, #1307, #1313, #1320, #1375, #1418, #1461, #1470, #785, #848, #852, #856, #857, #858, #869, #879, #913, #924, #968, #970, #1285, #1333
+- #1496 PeriodsAndSpecialValues — draft; waits on #1002, #1006, #1021, #1039, #1040, #1043, #1075, #1199, #1208, #1212, #1306, #1307, #1313, #1320, #1375, #1418, #1461, #1470, #785, #848, #852, #856, #857, #858, #869, #879, #913, #924, #968, #970, #1285
 
 ## Wave 36
 - #1182 CrystallineLocalGlobalCompatibilityCM — ready (approved at an earlier head); waits on #1006, #1019, #1034, #1035, #1062, #1075, #1081, #1090, #785, #856, #871, #920, #923
