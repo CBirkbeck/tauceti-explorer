@@ -1,10 +1,10 @@
 {
-  "roadmaps": 460,
-  "stages": 3689,
-  "originalStages": 3689,
+  "roadmaps": 463,
+  "stages": 3720,
+  "originalStages": 3720,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3657,
+  "terminalTargets": 3688,
   "groups": 46,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -12,24 +12,24 @@
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "dependencies": 460
+    "dependencies": 463
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
   "areasWithRoadmaps": 41,
   "additionalRegions": 0,
-  "mathematicalSummaries": 460,
+  "mathematicalSummaries": 463,
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 3689,
+  "mathematicalStars": 3720,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 245,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 12,
   "bibliographicSources": 46,
-  "roadmapEdges": 13205,
-  "stageEdges": 2960,
+  "roadmapEdges": 13472,
+  "stageEdges": 2988,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 54783606,
-  "htmlSha256": "18b0c7095db844431ac4c581d3121b3c86f54aea7710ff622bcbe647fae79e10",
+  "htmlBytes": 55076809,
+  "htmlSha256": "cf4471925342ad7420a52ed15b514039d20c4637955d4c6e6dc66d2da18692fd",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -5053,8 +5053,8 @@
       "partial": 291,
       "untouched": 113,
       "unassessed": 485,
-      "total": 3581,
-      "proposed": 2264
+      "total": 3612,
+      "proposed": 2295
     },
     "added": [
       "tauceti:TauCetiRoadmap/AbhyankarLemma",
@@ -5221,15 +5221,15 @@
     ]
   },
   "proposals": {
-    "openPulls": 370,
-    "pulls": 283,
-    "layers": 2264,
+    "openPulls": 375,
+    "pulls": 286,
+    "layers": 2295,
     "unplaced": [
       "tauceti:TauCetiRoadmap/ArithmeticStatistics",
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-27T18:50:22Z",
-    "roadmaps": 292
+    "updatedAt": "2026-10-27T22:51:58Z",
+    "roadmaps": 295
   },
   "variant": "atlas"
 }
