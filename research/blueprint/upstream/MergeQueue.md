@@ -17,6 +17,7 @@ Generated 2026-10-27T15:50Z from the README supplier graph of every open pull re
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
+- #942 TangentialBordism (kim-em, other author)
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)
@@ -27,26 +28,25 @@ Generated 2026-10-27T15:50Z from the README supplier graph of every open pull re
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
-- #1287 HomotopySpheres (kim-em, other author)
 - #1333 EllipticIntegrals (jayyswan, other author)
 - #1397 ArtinAlgebras (haruhisa-enomoto, other author)
 
 ## Wave 2
 - #785 ReductiveGroupsPartII — ready; waits on #1630, #447
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #253 ZerosOfLFunctions (roed-math, other author)
-- #942 TangentialBordism (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
+- #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 3
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
 - #1486 QuiverRepresentationsPartII — draft; waits on #785
 
 ## Wave 4
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1309 ColemanPowerSeries — ready; waits on #1306
 
 ## Wave 5
