@@ -26876,7 +26876,7 @@
     "awaiting-review"
    ],
    "number": 1688,
-   "sha": "830917b1519a6763937c77f6cc58b6b40c61ecfa",
+   "sha": "097023f2f2619463c45278502659080307011353",
    "stated": {
     "before": [
      785,
@@ -26896,7 +26896,7 @@
     "prerequisites": []
    },
    "title": "Roadmap: smooth representations of local groups (depends on #785)",
-   "updatedAt": "2026-10-28T18:28:49Z",
+   "updatedAt": "2026-10-28T23:15:59Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1688"
   },
   {
@@ -28213,9 +28213,9 @@
     "roadmap-worker"
    ],
    "number": 1711,
-   "sha": "78a7609398910bf42122010f55bc0516abc3435e",
+   "sha": "4926d5bf69bd81fe5bd0dee93a6be02b368fdbe3",
    "title": "feat: roadmap for artin representations",
-   "updatedAt": "2026-10-28T22:19:28Z",
+   "updatedAt": "2026-10-28T23:24:15Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1711"
   },
   {
@@ -28453,9 +28453,9 @@
     "roadmap-worker"
    ],
    "number": 1727,
-   "sha": "06262ce5b1b93c1b66a2ddb272201ebc8a52a4fa",
+   "sha": "804f704bb0ff24c65c7b955faf885c9dbebcff17",
    "title": "feat: roadmap for adelic images and modular curves",
-   "updatedAt": "2026-10-28T22:18:25Z",
+   "updatedAt": "2026-10-28T23:19:12Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1727"
   },
   {
@@ -29607,10 +29607,6 @@
   "TauCetiRoadmap/RandomGraphs": {
    "arxiv": "math.LO",
    "pull": 1223
-  },
-  "TauCetiRoadmap/ReductiveGroupsPartII": {
-   "arxiv": "math.RT",
-   "pull": 1688
   },
   "TauCetiRoadmap/RefinedTraceMethods": {
    "arxiv": "math.KT",
