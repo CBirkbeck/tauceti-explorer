@@ -592,13 +592,14 @@
     "AutomorphicSpectralTheory": {
       "stage": "pr",
       "pr": 925,
-      "head": "c5cfb92",
+      "head": "3faace5",
       "note": "N3 CHANGES answered 10-16",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 3faace5; confirmation pass pending"
       },
       "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 5ad7671 (§§7.0a–7.0c cyclic transfer; §§7.1a–7.1d quantitative/auxiliary targets); ready for re-review"
     },
