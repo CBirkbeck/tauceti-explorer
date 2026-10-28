@@ -734,13 +734,14 @@
     "SmallRamificationAndAbelianVarietyBaseCases": {
       "stage": "pr",
       "pr": 970,
-      "head": "d6e456e",
+      "head": "b7abeaa",
       "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at b7abeaa; confirmation pass pending"
       }
     },
     "EndoscopicTransferAndUnitaryTraceComparison": {
