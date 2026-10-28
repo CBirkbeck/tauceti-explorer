@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-27T16:02:16Z",
- "exported_at": "2026-10-27T16:02:16Z",
+ "cutoff": "2026-10-28T06:35:21Z",
+ "exported_at": "2026-10-28T06:35:21Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 660,
-  "recent": 11155,
-  "total": 19650,
+  "open": 715,
+  "recent": 11250,
+  "total": 19931,
   "unattributed": {
-   "no_label": 1659,
+   "no_label": 1667,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    2827,
    3120,
    2319,
-   525
+   806
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "d2e0f0d323cf817cdf8a11c7a2fabd0a3f0ec828",
+ "roadmap_head": "4d14cbd5ba21a1804ca78c9989b9ea485bcfad08",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-27T08:48:07Z",
+    "last": "2026-10-28T01:41:32Z",
     "open": 0,
-    "recent": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -109,11 +109,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T05:09:08Z",
+    "last": "2026-10-27T21:15:41Z",
     "open": 4,
-    "recent": 15,
-    "since_report": 4,
-    "total": 15,
+    "recent": 16,
+    "since_report": 5,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -130,7 +130,7 @@
      0,
      0,
      11,
-     4
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -220,109 +220,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T20:36:06Z",
-    "open": 2,
-    "recent": 261,
-    "since_report": 2,
-    "total": 612,
-    "weekly": [
-     0,
-     0,
-     0,
-     23,
-     107,
-     53,
-     51,
-     26,
-     31,
-     19,
-     42,
-     61,
-     83,
-     99,
-     15,
-     2
-    ]
-   },
-   "arxiv": "math.AG",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/AdicSpaces",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6"
-   ],
-   "layer_lines": [
-    129,
-    266,
-    354,
-    450,
-    547,
-    624,
-    684
-   ],
-   "layers": [
-    "Layer 0: topological algebra, Huber rings, and Tate algebras",
-    "Layer 1: valuation spectra and continuous valuations",
-    "Layer 2: affinoid spectra and rational subsets",
-    "Layer 3: rational localisation and the structure presheaf",
-    "Layer 4: sheafiness and Tate acyclicity",
-    "Layer 5: adic spaces and elementary geometry",
-    "Layer 6: the adic Fargues–Fontaine curve"
-   ],
-   "links": [],
-   "name": "AdicSpaces",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/AdicSpaces/README.md",
-   "readme_sha": "7122aa4b7675d54725ac49c515738b32eb34ef89f3dcd0751daf8c628ef6b795",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Beyond this roadmap",
-      "text": "— no milestone of this roadmap remains open. The README puts non-affinoidness of `𝒳`, vector bundles on the curve, perfectoid spaces, étale theory and fibre products outside its scope. Further work on the curve belongs to a successor roadmap, which would start from the stably sheafy interval rings."
-     }
-    ],
-    "glance": "Every layer of the roadmap is done. The general theory runs from Huber rings through Tate acyclicity, sheafiness and gluing. The final application, the adic Fargues–Fontaine curve `𝒳 = 𝒴 / φ^ℤ`, is an adic space with no hypothesis left over. Current work fills in Layer 0 algebra and connects the theory to classical affinoid algebras.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/AdicSpaces/STATUS.md",
-    "progress_path": "TauCetiRoadmap/AdicSpaces/PROGRESS.md",
-    "report_sha": "8f4087bf1b24b1fde0526a15400cc5738e41f0655a3bd05229db259b78fd8fc3",
-    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
-    "ts": "2026-10-26T06:42:33Z"
-   },
-   "title": "foundations of adic spaces",
-   "topic": "Algebraic Geometry"
-  },
-  {
-   "activity": {
-    "last": "2026-10-27T15:29:34Z",
-    "open": 4,
-    "recent": 24,
-    "since_report": 2,
-    "total": 24,
+    "last": "2026-10-27T21:15:16Z",
+    "open": 3,
+    "recent": 25,
+    "since_report": 3,
+    "total": 25,
     "weekly": [
      0,
      0,
@@ -339,14 +241,14 @@
      0,
      9,
      13,
-     2
+     3
     ]
    },
    "arxiv": "math.AG",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer R0": "Artin-Rees strictness and sheafiness (R0.2), the Huber-pair completed tensor product (R0.3), and R0.4 to R0.20 from Banach modules to tilde-limits"
@@ -372,7 +274,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/AdicSpacesPartII/README.md",
-   "readme_sha": "63ef7252bd74856f163f4262b99fc0f390076b24f6270414d27ecedc707f7698",
+   "readme_sha": "692b3bdeb99e10c39e08acc426bee9880ebe476a374afaaf9a1f75b9d05dfc21",
    "retired": null,
    "states": [
     "partial",
@@ -414,11 +316,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-23T10:53:44Z",
-    "open": 3,
-    "recent": 2,
+    "last": "2026-10-27T21:11:48Z",
+    "open": 2,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -435,7 +337,7 @@
      0,
      0,
      2,
-     0
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -482,11 +384,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:26:51Z",
-    "open": 6,
-    "recent": 11,
-    "since_report": 6,
-    "total": 11,
+    "last": "2026-10-27T17:51:02Z",
+    "open": 7,
+    "recent": 12,
+    "since_report": 7,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -503,7 +405,7 @@
      0,
      0,
      7,
-     4
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -583,7 +485,7 @@
   {
    "activity": {
     "last": "2026-10-27T11:13:23Z",
-    "open": 1,
+    "open": 2,
     "recent": 23,
     "since_report": 4,
     "total": 23,
@@ -665,7 +567,7 @@
   {
    "activity": {
     "last": "2026-10-27T14:10:25Z",
-    "open": 1,
+    "open": 4,
     "recent": 20,
     "since_report": 3,
     "total": 20,
@@ -746,11 +648,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T05:26:03Z",
-    "open": 6,
-    "recent": 225,
-    "since_report": 6,
-    "total": 337,
+    "last": "2026-10-28T01:07:10Z",
+    "open": 4,
+    "recent": 226,
+    "since_report": 9,
+    "total": 340,
     "weekly": [
      0,
      0,
@@ -767,7 +669,7 @@
      70,
      77,
      27,
-     3
+     6
     ]
    },
    "arxiv": "math.AG",
@@ -885,11 +787,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T23:53:07Z",
-    "open": 3,
-    "recent": 231,
-    "since_report": 4,
-    "total": 272,
+    "last": "2026-10-28T01:04:53Z",
+    "open": 6,
+    "recent": 229,
+    "since_report": 6,
+    "total": 274,
     "weekly": [
      0,
      0,
@@ -906,7 +808,7 @@
      72,
      92,
      23,
-     4
+     6
     ]
    },
    "arxiv": "math.AT",
@@ -1009,11 +911,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:28:49Z",
+    "last": "2026-10-27T16:47:57Z",
     "open": 1,
-    "recent": 114,
-    "since_report": 4,
-    "total": 136,
+    "recent": 113,
+    "since_report": 5,
+    "total": 137,
     "weekly": [
      0,
      0,
@@ -1030,7 +932,7 @@
      26,
      33,
      21,
-     4
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -1127,11 +1029,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:54:03Z",
-    "open": 7,
-    "recent": 17,
-    "since_report": 3,
-    "total": 17,
+    "last": "2026-10-27T16:50:39Z",
+    "open": 8,
+    "recent": 18,
+    "since_report": 4,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -1148,14 +1050,14 @@
      0,
      0,
      14,
-     3
+     4
     ]
    },
    "arxiv": "math.GR",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 1": "inversion identifying UCB with the f(xu) space, exchanging left and right translation",
@@ -1203,7 +1105,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/AmenableGroups/README.md",
-   "readme_sha": "51be0dfb64115f2b4fa585b7fdf7435900536966ec8f1a49a6143d3e25ca4710",
+   "readme_sha": "6a2d78cf4b615184a51a482603fe550550f99f66d9dfbc67dbdb42aac0be7cb5",
    "retired": null,
    "states": [
     "partial",
@@ -1252,8 +1154,8 @@
   {
    "activity": {
     "last": "2026-10-27T07:38:32Z",
-    "open": 3,
-    "recent": 94,
+    "open": 5,
+    "recent": 91,
     "since_report": 1,
     "total": 138,
     "weekly": [
@@ -1400,7 +1302,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/BanachAlgebras/README.md",
-   "readme_sha": "b695d7cbfcf8a7966ae29a1c6198e36c2ef0d51e2bbb6cf119bea66b470d19dd",
+   "readme_sha": "103ad1e52b6071ec4d2dad9390d005686186b62be1ec23b83cba3e494aae1787",
    "retired": null,
    "states": [],
    "status": {
@@ -1440,7 +1342,7 @@
   {
    "activity": {
     "last": "2026-10-27T05:26:47Z",
-    "open": 5,
+    "open": 6,
     "recent": 54,
     "since_report": 1,
     "total": 54,
@@ -1521,11 +1423,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:39:39Z",
+    "last": "2026-10-27T19:14:26Z",
     "open": 5,
     "recent": 136,
-    "since_report": 8,
-    "total": 183,
+    "since_report": 10,
+    "total": 185,
     "weekly": [
      0,
      0,
@@ -1542,14 +1444,14 @@
      31,
      30,
      20,
-     8
+     10
     ]
    },
    "arxiv": "math.AG",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 1": "1.6 label semantics in degrees 6 to 11",
@@ -1618,7 +1520,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/BelyiMaps/README.md",
-   "readme_sha": "6831a42886019fc10409abc1bf9db904322dde80105caeaeee8a79d0092d2645",
+   "readme_sha": "a74b049f605382629e7b7bde131b3d0dbc33042f53affc86884eb97d5efa7e39",
    "retired": null,
    "states": [
     "done",
@@ -1674,7 +1576,7 @@
   {
    "activity": {
     "last": "2026-10-27T07:39:38Z",
-    "open": 6,
+    "open": 7,
     "recent": 18,
     "since_report": 2,
     "total": 18,
@@ -1755,11 +1657,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:38:02Z",
+    "last": "2026-10-27T23:37:33Z",
     "open": 1,
-    "recent": 4,
+    "recent": 5,
     "since_report": null,
-    "total": 4,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -1776,7 +1678,7 @@
      0,
      0,
      0,
-     4
+     5
     ]
    },
    "arxiv": "math.LO",
@@ -1819,7 +1721,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/BorelEquivalenceRelations/README.md",
-   "readme_sha": "a81e564fa8073d7981e0f90f73b85a59ac155da5b684354e8c72549f1524a80c",
+   "readme_sha": "444ed232022799d5c3ec650caf5e22ac1f247e862496f455a8bc15668fcb1e86",
    "retired": null,
    "states": [
     "unassessed",
@@ -1835,11 +1737,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 22,
-    "recent": 0,
+    "last": "2026-10-28T01:03:45Z",
+    "open": 23,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -1856,7 +1758,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.GR",
@@ -2012,7 +1914,7 @@
   {
    "activity": {
     "last": "2026-10-27T05:08:10Z",
-    "open": 0,
+    "open": 2,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -2063,149 +1965,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T02:31:19Z",
-    "open": 0,
-    "recent": 21,
-    "since_report": 1,
-    "total": 108,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     15,
-     17,
-     22,
-     33,
-     10,
-     5,
-     3,
-     2,
-     1
-    ]
-   },
-   "arxiv": "math.NT",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/Chebotarev",
-   "layer_ids": [
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 7",
-    "Layer 8",
-    "Layer 9",
-    "Layer 10",
-    "Layer 11",
-    "Layer 12",
-    "Layer 13",
-    "Layer 14"
-   ],
-   "layer_lines": [
-    159,
-    175,
-    192,
-    205,
-    216,
-    231,
-    245,
-    320,
-    370,
-    410,
-    425,
-    495,
-    590,
-    609
-   ],
-   "layers": [
-    "Layer 1: consumed Frobenius classes and powers of conjugacy classes",
-    "Layer 2: Frobenius prime sets and finite exceptional sets",
-    "Layer 3: prime sums and density normalization",
-    "Layer 4: cyclotomic Galois characters",
-    "Layer 5: ray-class counting and continuation",
-    "Layer 6: cyclotomic Dirichlet density",
-    "Layer 7: the auxiliary prime and the crossing data",
-    "Layer 8: the cyclic fixed-field fibre",
-    "Layer 9: abelian Chebotarev",
-    "Layer 10: Dirichlet-density Chebotarev",
-    "Layer 11: the Frobenius von Mangoldt coefficient and its summatory functions",
-    "Layer 12: the weighted transfer package and the Tauberian theorem",
-    "Layer 13: `ϑ_C` and `π_C`",
-    "Layer 14: natural density and consistency theorems"
-   ],
-   "links": [],
-   "name": "Chebotarev",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/Chebotarev/README.md",
-   "readme_sha": "28488091d47ef77d2718b7cf6a3fe61d0de0f8b81a8dff8fdc3afd1fb2446fc3",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Nothing remains on the roadmap as written.",
-      "text": "Every layer's milestones are proved in the source, so what is left is consolidation rather than new mathematics."
-     },
-     {
-      "name": "Interface names",
-      "text": "— the README's public list names `cyclotomicCharacterWeight`, but the library uses `galoisCharacterWeight`. The README should be updated, or an alias added, so that consumers know which name to use."
-     },
-     {
-      "name": "Splitting types in natural density",
-      "text": "— the splitting-type and residue-degree corollaries are stated for Dirichlet density only. Their natural-density forms should follow from the natural-density theorem by the same finite union of Frobenius fibres."
-     },
-     {
-      "name": "Effective Chebotarev",
-      "text": "— error terms, zero-free regions and the exceptional-zero contribution are out of scope by design. They belong to the Zeros of L-functions roadmap, which consumes `frobeniusPsi`, `frobeniusTheta` and `frobeniusPrimeCount` from this one."
-     }
-    ],
-    "glance": "The summit has been reached. The library proves the Chebotarev density theorem over an arbitrary number field in three forms, Dirichlet density, natural density and prime counting, with no `sorry` in the Chebotarev sources. The splitting, non-Galois and arithmetic-progression corollaries are proved, and so are the roadmap's acceptance tests. Every milestone of the fourteen layers is proved.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/Chebotarev/STATUS.md",
-    "progress_path": "TauCetiRoadmap/Chebotarev/PROGRESS.md",
-    "report_sha": "1e2a0d844728fbac92d9e473d52b8d3643cf919b1e52e887488386c96ede2fc4",
-    "to_sha": "69cd1ab4dcfbb6676e344f3f193e63473eab5a3d",
-    "ts": "2026-10-25T14:11:34Z"
-   },
-   "title": "the Chebotarev density theorem",
-   "topic": "Number Theory"
-  },
-  {
-   "activity": {
-    "last": "2026-10-27T11:35:33Z",
+    "last": "2026-10-27T21:17:49Z",
     "open": 6,
-    "recent": 357,
-    "since_report": 2,
-    "total": 474,
+    "recent": 356,
+    "since_report": 4,
+    "total": 476,
     "weekly": [
      0,
      0,
@@ -2222,7 +1986,7 @@
      140,
      91,
      18,
-     2
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -2353,11 +2117,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T04:35:46Z",
-    "open": 3,
-    "recent": 19,
+    "last": "2026-10-28T01:06:20Z",
+    "open": 4,
+    "recent": 21,
     "since_report": null,
-    "total": 19,
+    "total": 21,
     "weekly": [
      0,
      0,
@@ -2374,7 +2138,7 @@
      0,
      1,
      14,
-     4
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -2441,11 +2205,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T00:59:03Z",
+    "last": "2026-10-28T01:27:49Z",
     "open": 3,
-    "recent": 46,
-    "since_report": 3,
-    "total": 46,
+    "recent": 48,
+    "since_report": 5,
+    "total": 48,
     "weekly": [
      0,
      0,
@@ -2462,7 +2226,7 @@
      0,
      21,
      24,
-     1
+     3
     ]
    },
    "arxiv": "math.AT",
@@ -2547,11 +2311,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T14:10:21Z",
-    "open": 1,
-    "recent": 172,
-    "since_report": 6,
-    "total": 309,
+    "last": "2026-10-28T01:07:09Z",
+    "open": 2,
+    "recent": 170,
+    "since_report": 7,
+    "total": 310,
     "weekly": [
      5,
      1,
@@ -2568,7 +2332,7 @@
      42,
      39,
      20,
-     6
+     7
     ]
    },
    "arxiv": "math.GT",
@@ -2659,11 +2423,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:23:15Z",
-    "open": 3,
-    "recent": 40,
-    "since_report": 9,
-    "total": 40,
+    "last": "2026-10-27T23:37:09Z",
+    "open": 2,
+    "recent": 41,
+    "since_report": 10,
+    "total": 41,
     "weekly": [
      0,
      0,
@@ -2680,7 +2444,7 @@
      0,
      8,
      23,
-     9
+     10
     ]
    },
    "arxiv": "math.FA",
@@ -2771,11 +2535,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T02:15:44Z",
-    "open": 3,
-    "recent": 23,
-    "since_report": 4,
-    "total": 23,
+    "last": "2026-10-28T01:25:22Z",
+    "open": 6,
+    "recent": 25,
+    "since_report": 6,
+    "total": 25,
     "weekly": [
      0,
      0,
@@ -2792,7 +2556,7 @@
      0,
      0,
      20,
-     3
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -2853,11 +2617,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:08:12Z",
-    "open": 8,
-    "recent": 13,
-    "since_report": 5,
-    "total": 13,
+    "last": "2026-10-27T23:37:51Z",
+    "open": 7,
+    "recent": 16,
+    "since_report": 8,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -2874,7 +2638,7 @@
      0,
      0,
      8,
-     5
+     8
     ]
    },
    "arxiv": "math.CV",
@@ -2896,7 +2660,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/ComplexKahlerGeometry/README.md",
-   "readme_sha": "dc44b84ed32cad3a2dc6de08aa5a66c40c43c0d61b64ffaf255764908d533804",
+   "readme_sha": "79fbf4c3834a827d6f01fa71a6c9355dd53b0029f76403c8c29e88ce2fefc71d",
    "retired": null,
    "states": [],
    "status": {
@@ -2935,11 +2699,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T23:56:28Z",
-    "open": 1,
-    "recent": 7,
-    "since_report": 3,
-    "total": 7,
+    "last": "2026-10-28T02:08:38Z",
+    "open": 3,
+    "recent": 8,
+    "since_report": 4,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -2956,7 +2720,7 @@
      0,
      0,
      5,
-     2
+     3
     ]
    },
    "arxiv": "math.CV",
@@ -3056,11 +2820,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:21:39Z",
-    "open": 6,
-    "recent": 10,
-    "since_report": 2,
-    "total": 10,
+    "last": "2026-10-28T01:41:33Z",
+    "open": 8,
+    "recent": 12,
+    "since_report": 4,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -3077,7 +2841,7 @@
      0,
      0,
      8,
-     2
+     4
     ]
    },
    "arxiv": "math.AG",
@@ -3170,11 +2934,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 1,
-    "recent": 0,
+    "last": "2026-10-27T23:40:26Z",
+    "open": 3,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -3191,7 +2955,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.LO",
@@ -3222,11 +2986,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T10:40:12Z",
-    "open": 2,
-    "recent": 98,
-    "since_report": 3,
-    "total": 334,
+    "last": "2026-10-27T17:52:11Z",
+    "open": 3,
+    "recent": 96,
+    "since_report": 4,
+    "total": 335,
     "weekly": [
      5,
      8,
@@ -3243,7 +3007,7 @@
      27,
      24,
      14,
-     3
+     4
     ]
    },
    "arxiv": "math.CV",
@@ -3339,11 +3103,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T03:41:26Z",
-    "open": 1,
-    "recent": 2,
+    "last": "2026-10-27T23:37:53Z",
+    "open": 0,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -3360,7 +3124,7 @@
      0,
      0,
      0,
-     2
+     3
     ]
    },
    "arxiv": "math.LO",
@@ -3406,7 +3170,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/CountableModelCounting/README.md",
-   "readme_sha": "e384e700ebf2ff366fa3f0bd2665b19fcbdba7177d8f0776e810f84996815867",
+   "readme_sha": "6679eb81015c624a166960c00c5c97fe71457c4216c4fdcc728eea03a28e5e63",
    "retired": null,
    "states": [
     "unassessed",
@@ -3423,11 +3187,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T13:18:24Z",
-    "open": 7,
-    "recent": 120,
-    "since_report": 7,
-    "total": 191,
+    "last": "2026-10-28T01:26:09Z",
+    "open": 6,
+    "recent": 121,
+    "since_report": 13,
+    "total": 197,
     "weekly": [
      0,
      0,
@@ -3444,7 +3208,7 @@
      20,
      42,
      19,
-     5
+     11
     ]
    },
    "arxiv": "math.CT",
@@ -3566,7 +3330,7 @@
   {
    "activity": {
     "last": "2026-10-26T23:54:29Z",
-    "open": 2,
+    "open": 3,
     "recent": 138,
     "since_report": 2,
     "total": 138,
@@ -3707,144 +3471,8 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T14:10:24Z",
-    "open": 2,
-    "recent": 54,
-    "since_report": 2,
-    "total": 145,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     16,
-     11,
-     11,
-     11,
-     11,
-     32,
-     18,
-     7,
-     15,
-     11,
-     2
-    ]
-   },
-   "arxiv": "math.CO",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {
-     "Layer 5": "optional: state the Dirac, finite-atomic and mixed regression examples as named lemmas"
-    },
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/DenseGraphLimits",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 7",
-    "Layer 8a",
-    "Layer 8b",
-    "Layer 9a",
-    "Layer 9b",
-    "Layer 9c"
-   ],
-   "layer_lines": [
-    232,
-    238,
-    255,
-    282,
-    292,
-    300,
-    312,
-    337,
-    343,
-    363,
-    402,
-    423,
-    525
-   ],
-   "layers": [
-    "Layer 0 — finite-graph and measure scaffolding",
-    "Layer 1 — core objects and their basic API",
-    "Layer 2 — counting, regularity, total boundedness",
-    "Layer 3 — the AE / `AEEqFun` view",
-    "Layer 4 — completeness and compactness",
-    "Layer 5 — coupling and map cut distance agree",
-    "Layer 6 — separation and convergence equivalence",
-    "Layer 7 — applications and validation",
-    "Layer 8a — quantum graphs and reflection positivity",
-    "Layer 8b — Lovász–Szegedy representability",
-    "Layer 9a — finite and joint graphon sampling",
-    "Layer 9b — exchangeable graph laws and graphon mixtures",
-    "Layer 9c — sampling convergence"
-   ],
-   "links": [],
-   "name": "DenseGraphLimits",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/DenseGraphLimits/README.md",
-   "readme_sha": "814e769001ea035cbaff04a422828fc27f10ccd5d8763b60852e29c00a4ef940",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "No stated milestone remains open",
-      "text": "— every layer's targets are proved. Further work goes beyond what the roadmap requires as written."
-     },
-     {
-      "name": "Remaining reusable homes",
-      "text": "— the README wants the dyadic-martingale `L¹`-convergence lemmas and the `AEEqFun` ergonomics in general `TauCeti/` homes. This report has not confirmed where either lives now."
-     },
-     {
-      "name": "Atomic regressions as named results",
-      "text": "— Layer 5's Dirac, finite-atomic and mixed regression checks are still unnamed examples. They would need to become named lemmas before anyone downstream could cite them."
-     },
-     {
-      "name": "Generic representation compatibility",
-      "text": "— the graph-level side of the relational adapter is now in place. Showing that a generic relational Aldous–Hoover theorem, specialized to graphs, induces the same mixing measure depends on that theorem existing in the Exchangeability roadmap. This report does not establish whether it does."
-     }
-    ],
-    "glance": "Every layer's stated milestones are proved, from the graphon carrier through both representation summits and sampling convergence, and the representation and limit-existence theorems hold on any atomless standard Borel carrier. The graph-specific exchangeable laws now also adapt to a generic relational-law API, as the README requires. What remains is housekeeping.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/DenseGraphLimits/STATUS.md",
-    "progress_path": "TauCetiRoadmap/DenseGraphLimits/PROGRESS.md",
-    "report_sha": "10842ea8536b9f649e554102ff1ad594adaf2247eaf88823c2001a3a65f0ca98",
-    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
-    "ts": "2026-10-25T09:09:58Z"
-   },
-   "title": "dense graph limits and graphons",
-   "topic": "Combinatorics"
-  },
-  {
-   "activity": {
     "last": "2026-10-27T12:23:13Z",
-    "open": 4,
+    "open": 6,
     "recent": 18,
     "since_report": 1,
     "total": 18,
@@ -3925,11 +3553,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:28:51Z",
-    "open": 14,
-    "recent": 165,
-    "since_report": 8,
-    "total": 165,
+    "last": "2026-10-27T16:50:13Z",
+    "open": 13,
+    "recent": 166,
+    "since_report": 9,
+    "total": 166,
     "weekly": [
      0,
      0,
@@ -3946,7 +3574,7 @@
      18,
      90,
      49,
-     8
+     9
     ]
    },
    "arxiv": "math.DG",
@@ -4079,11 +3707,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T05:26:23Z",
-    "open": 11,
-    "recent": 97,
-    "since_report": 2,
-    "total": 97,
+    "last": "2026-10-27T23:38:54Z",
+    "open": 14,
+    "recent": 99,
+    "since_report": 4,
+    "total": 99,
     "weekly": [
      0,
      0,
@@ -4100,14 +3728,14 @@
      0,
      61,
      32,
-     4
+     6
     ]
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "the lower bound |z| ≥ den(z)^(−d) house(z)^(1−d) for nonzero algebraic z",
@@ -4149,7 +3777,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md",
-   "readme_sha": "82771550516948180af0c26b25cbbcb640485fd8f024831c95b72e15d08042fd",
+   "readme_sha": "31b99e3c8438981d7e0570708ffa71a96726b0e1ec942cf753814323e9865f6e",
    "retired": null,
    "states": [
     "partial",
@@ -4195,11 +3823,112 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:55:01Z",
-    "open": 7,
-    "recent": 261,
-    "since_report": 8,
-    "total": 658,
+    "last": "2026-10-23T14:30:29Z",
+    "open": 3,
+    "recent": 1,
+    "since_report": 0,
+    "total": 38,
+    "weekly": [
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "optional: connect the packing and doubling API to Mathlib's ZLattice and covolume",
+     "Layer 3": "regulator lower bounds for positive unit rank and the volume computations for the class number formula"
+    },
+    "source": "marker"
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/EffectiveBounds",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3"
+   ],
+   "layer_lines": [
+    97,
+    106,
+    126,
+    138
+   ],
+   "layers": [
+    "Layer 0: the geometry-of-numbers engine",
+    "Layer 1: effective upper bounds",
+    "Layer 2: effective Hermite–Minkowski",
+    "Layer 3: regulators and unit-lattice volume"
+   ],
+   "links": [],
+   "name": "EffectiveBounds",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/EffectiveBounds/README.md",
+   "readme_sha": "3f2928bf05b4f1b9331849f7b4be40c9b0b0d318932f986d0c006340e4d1a724",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "partial"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Regulator lower bounds for positive unit rank",
+      "text": "— the core of Layer 3. Everything present reduces to a zero-dimensional unit lattice, and no lower bound on the covolume exists for positive rank."
+     },
+     {
+      "name": "Volume computations for the analytic class number formula",
+      "text": "— the second half of Layer 3; not started."
+     },
+     {
+      "name": "`ZLattice` reconciliation of the engine",
+      "text": "— the packing and doubling API lives on additive subgroups of `ι → ℂ`. Whether it connects to Mathlib's `ZLattice` and covolume API has not been established."
+     },
+     {
+      "name": "Brauer–Siegel",
+      "text": "— `log(h_F·R_F) ∼ log √|d_F|` with explicit constants. It is untouched, and it needs the Layer-3 regulator bounds first."
+     }
+    ],
+    "glance": "The maintainers have declared this roadmap complete. The Layer-1 explicit bounds, the Layer-0 lattice-point engine and the Layer-2 summit, an explicit count of number fields of bounded discriminant, are all proved without sorry. Layer 3 (regulators) has only its rank-zero base case, and the Brauer–Siegel horizon has not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/EffectiveBounds/STATUS.md",
+    "progress_path": "TauCetiRoadmap/EffectiveBounds/PROGRESS.md",
+    "report_sha": "4b3c1ecb389a929a7b0d77845d033c374168b57f0c514c9d34210ff71008f260",
+    "to_sha": "315040461dd16f4333a14977d01a661f2c11e50a",
+    "ts": "2026-10-23T17:09:14Z"
+   },
+   "title": "effective arithmetic bounds and geometry of numbers",
+   "topic": "Number Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-28T01:27:33Z",
+    "open": 9,
+    "recent": 260,
+    "since_report": 12,
+    "total": 662,
     "weekly": [
      0,
      0,
@@ -4216,7 +3945,7 @@
      78,
      93,
      33,
-     6
+     10
     ]
    },
    "arxiv": "math.NT",
@@ -4333,11 +4062,99 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T04:07:06Z",
-    "open": 5,
-    "recent": 13,
-    "since_report": 7,
-    "total": 13,
+    "last": null,
+    "open": 2,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "arxiv": "math.CA",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/EllipticIntegrals",
+   "layer_ids": [
+    "Milestone 1",
+    "Milestone 2",
+    "Milestone 3",
+    "Milestone 4",
+    "Milestone 5",
+    "Milestone 6",
+    "Milestone 7",
+    "Milestone 8"
+   ],
+   "layer_lines": [
+    232,
+    275,
+    300,
+    313,
+    340,
+    351,
+    387,
+    422
+   ],
+   "layers": [
+    "Milestone 1: the Legendre integrals",
+    "Milestone 2: the complete integrals as functions of the modulus",
+    "Milestone 3: the logarithmic singularity and Legendre's relation",
+    "Milestone 4: the arithmetic–geometric mean",
+    "Milestone 5: special values",
+    "Milestone 6: Carlson's symmetric integrals",
+    "Milestone 7: Jacobi elliptic functions of a real variable",
+    "Milestone 8: geometry and the Weierstrass bridge"
+   ],
+   "links": [],
+   "name": "EllipticIntegrals",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/EllipticIntegrals/README.md",
+   "readme_sha": "999eef805ee01413bc1e0301e1c619b95f8ea7f7641e9bb8006835e515d05263",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Elliptic integrals, the AGM, and Jacobi elliptic functions",
+   "topic": "Classical Analysis and ODEs"
+  },
+  {
+   "activity": {
+    "last": "2026-10-28T01:04:05Z",
+    "open": 6,
+    "recent": 14,
+    "since_report": 8,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -4354,7 +4171,7 @@
      0,
      0,
      11,
-     2
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -4452,11 +4269,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T08:28:45Z",
+    "last": "2026-10-28T01:26:57Z",
     "open": 4,
-    "recent": 12,
-    "since_report": 5,
-    "total": 12,
+    "recent": 14,
+    "since_report": 7,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -4473,7 +4290,7 @@
      0,
      0,
      9,
-     3
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -4534,114 +4351,8 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T00:25:19Z",
-    "open": 1,
-    "recent": 93,
-    "since_report": 3,
-    "total": 364,
-    "weekly": [
-     2,
-     14,
-     39,
-     20,
-     34,
-     21,
-     15,
-     11,
-     9,
-     15,
-     37,
-     23,
-     13,
-     41,
-     12,
-     1
-    ]
-   },
-   "arxiv": "math.PR",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/Exchangeability",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 7",
-    "Layer 8"
-   ],
-   "layer_lines": [
-    275,
-    343,
-    383,
-    444,
-    504,
-    573,
-    636,
-    832,
-    931
-   ],
-   "layers": [
-    "Layer 0: sequence laws, finite marginals, and symmetry notions",
-    "Layer 1: product kernels and mixtures",
-    "Layer 2: process tails and path-space dynamics",
-    "Layer 3: L² averaging library and the standard-Borel de Finetti route",
-    "Layer 4: reverse martingales and conditional-expectation limits",
-    "Layer 5: Koopman operators and invariant σ-algebras",
-    "Layer 6: directing measures and de Finetti representation",
-    "Layer 7: public API and examples",
-    "Layer 8: generalized exchangeability and representation theorems"
-   ],
-   "links": [],
-   "name": "Exchangeability",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/Exchangeability/README.md",
-   "readme_sha": "6983d6da35f29742971c47d02aabd34cfcd2d163c3f205617de9ddeb84748945",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Moving general infrastructure to general homes.",
-      "text": "This is the README's parallel ongoing goal. Path laws, tails, block averages, i.i.d. and Markov-chain mixtures, excursions, and the Aldous–Hoover noise and codings now live in general process modules. A sizeable exchangeability directory remains, and the supplied material does not establish how much of it is still symmetry-free infrastructure that should move."
-     }
-    ],
-    "glance": "Every layer is done. The de Finetti–Ryll-Nardzewski summit was reached by all three classical routes, Layer 8 has every representation theorem it names through Aldous–Hoover for jointly exchangeable arrays, and finite de Finetti now also has its total-variation form. What remains is the README's ongoing goal of moving general infrastructure out of the exchangeability namespace, which is well advanced.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/Exchangeability/STATUS.md",
-    "progress_path": "TauCetiRoadmap/Exchangeability/PROGRESS.md",
-    "report_sha": "2c262be3c7c5872619f7fd0721f94f17799563cda5d649d5e00598cfb87eb6f4",
-    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
-    "ts": "2026-10-24T23:22:30Z"
-   },
-   "title": "exchangeability and de Finetti",
-   "topic": "Probability"
-  },
-  {
-   "activity": {
     "last": "2026-10-24T08:56:19Z",
-    "open": 1,
+    "open": 2,
     "recent": 6,
     "since_report": 4,
     "total": 6,
@@ -4722,11 +4433,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T05:46:18Z",
-    "open": 5,
-    "recent": 49,
-    "since_report": 2,
-    "total": 49,
+    "last": "2026-10-28T01:27:15Z",
+    "open": 6,
+    "recent": 52,
+    "since_report": 5,
+    "total": 52,
     "weekly": [
      0,
      0,
@@ -4743,7 +4454,7 @@
      0,
      17,
      30,
-     2
+     5
     ]
    },
    "arxiv": "math.AC",
@@ -4804,11 +4515,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:27:58Z",
-    "open": 16,
-    "recent": 39,
-    "since_report": 14,
-    "total": 39,
+    "last": "2026-10-28T01:05:44Z",
+    "open": 15,
+    "recent": 41,
+    "since_report": 16,
+    "total": 41,
     "weekly": [
      0,
      0,
@@ -4825,7 +4536,7 @@
      0,
      0,
      26,
-     13
+     15
     ]
    },
    "arxiv": "math.GR",
@@ -4939,11 +4650,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T10:26:58Z",
+    "last": "2026-10-27T17:51:31Z",
     "open": 3,
-    "recent": 20,
-    "since_report": 1,
-    "total": 20,
+    "recent": 21,
+    "since_report": 2,
+    "total": 21,
     "weekly": [
      0,
      0,
@@ -4960,7 +4671,7 @@
      0,
      1,
      18,
-     1
+     2
     ]
    },
    "arxiv": "math.OA",
@@ -5021,11 +4732,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:38:33Z",
-    "open": 3,
-    "recent": 117,
-    "since_report": 4,
-    "total": 156,
+    "last": "2026-10-27T23:39:45Z",
+    "open": 6,
+    "recent": 114,
+    "since_report": 6,
+    "total": 158,
     "weekly": [
      0,
      0,
@@ -5042,7 +4753,7 @@
      27,
      25,
      13,
-     3
+     5
     ]
    },
    "arxiv": "math.CV",
@@ -5141,7 +4852,7 @@
   {
    "activity": {
     "last": "2026-10-27T07:54:28Z",
-    "open": 3,
+    "open": 6,
     "recent": 24,
     "since_report": 4,
     "total": 24,
@@ -5304,11 +5015,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T02:46:10Z",
-    "open": 9,
-    "recent": 47,
-    "since_report": 4,
-    "total": 47,
+    "last": "2026-10-27T16:51:33Z",
+    "open": 7,
+    "recent": 49,
+    "since_report": 6,
+    "total": 49,
     "weekly": [
      0,
      0,
@@ -5325,7 +5036,7 @@
      0,
      20,
      24,
-     3
+     5
     ]
    },
    "arxiv": "math.MG",
@@ -5419,11 +5130,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T21:15:12Z",
+    "last": "2026-10-28T01:05:59Z",
     "open": 4,
-    "recent": 16,
-    "since_report": 1,
-    "total": 16,
+    "recent": 17,
+    "since_report": 2,
+    "total": 17,
     "weekly": [
      0,
      0,
@@ -5440,7 +5151,7 @@
      0,
      0,
      15,
-     1
+     2
     ]
    },
    "arxiv": "math.RT",
@@ -5501,11 +5212,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T10:56:33Z",
-    "open": 14,
+    "last": "2026-10-28T01:07:31Z",
+    "open": 11,
     "recent": 400,
-    "since_report": 2,
-    "total": 537,
+    "since_report": 8,
+    "total": 543,
     "weekly": [
      3,
      9,
@@ -5522,7 +5233,7 @@
      214,
      57,
      44,
-     2
+     8
     ]
    },
    "arxiv": "math.GT",
@@ -5646,11 +5357,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T23:54:57Z",
+    "last": "2026-10-28T01:05:24Z",
     "open": 1,
-    "recent": 94,
-    "since_report": 2,
-    "total": 157,
+    "recent": 95,
+    "since_report": 4,
+    "total": 159,
     "weekly": [
      0,
      0,
@@ -5667,7 +5378,7 @@
      30,
      16,
      8,
-     2
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -5768,11 +5479,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T23:54:03Z",
-    "open": 2,
-    "recent": 34,
-    "since_report": 1,
-    "total": 64,
+    "last": "2026-10-28T01:06:24Z",
+    "open": 1,
+    "recent": 35,
+    "since_report": 2,
+    "total": 65,
     "weekly": [
      0,
      0,
@@ -5789,7 +5500,7 @@
      10,
      9,
      4,
-     1
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -5901,11 +5612,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T13:33:27Z",
-    "open": 4,
-    "recent": 58,
-    "since_report": 7,
-    "total": 58,
+    "last": "2026-10-28T01:27:36Z",
+    "open": 8,
+    "recent": 62,
+    "since_report": 11,
+    "total": 62,
     "weekly": [
      0,
      0,
@@ -5922,7 +5633,7 @@
      0,
      4,
      47,
-     7
+     11
     ]
    },
    "arxiv": "math.CO",
@@ -5983,11 +5694,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 3,
-    "recent": 0,
+    "last": "2026-10-27T17:49:59Z",
+    "open": 2,
+    "recent": 3,
     "since_report": null,
-    "total": 0,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -6004,7 +5715,7 @@
      0,
      0,
      0,
-     0
+     3
     ]
    },
    "arxiv": "math.AC",
@@ -6035,11 +5746,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:54:33Z",
-    "open": 5,
-    "recent": 127,
-    "since_report": 5,
-    "total": 203,
+    "last": "2026-10-28T01:04:04Z",
+    "open": 6,
+    "recent": 123,
+    "since_report": 6,
+    "total": 204,
     "weekly": [
      0,
      0,
@@ -6056,7 +5767,7 @@
      34,
      41,
      12,
-     5
+     6
     ]
    },
    "arxiv": "math.RT",
@@ -6143,11 +5854,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T13:35:08Z",
-    "open": 5,
-    "recent": 6,
-    "since_report": 0,
-    "total": 6,
+    "last": "2026-10-27T21:16:53Z",
+    "open": 4,
+    "recent": 8,
+    "since_report": 2,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -6164,7 +5875,7 @@
      0,
      0,
      6,
-     0
+     2
     ]
    },
    "arxiv": "math.SG",
@@ -6225,11 +5936,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:48:13Z",
-    "open": 7,
-    "recent": 187,
-    "since_report": 7,
-    "total": 353,
+    "last": "2026-10-28T01:24:47Z",
+    "open": 8,
+    "recent": 186,
+    "since_report": 11,
+    "total": 357,
     "weekly": [
      2,
      5,
@@ -6246,7 +5957,7 @@
      56,
      62,
      27,
-     6
+     10
     ]
    },
    "arxiv": "math.SG",
@@ -6443,8 +6154,8 @@
   {
    "activity": {
     "last": "2026-10-25T19:00:56Z",
-    "open": 3,
-    "recent": 52,
+    "open": 4,
+    "recent": 50,
     "since_report": 1,
     "total": 127,
     "weekly": [
@@ -6546,11 +6257,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T23:55:32Z",
-    "open": 3,
-    "recent": 10,
-    "since_report": 1,
-    "total": 10,
+    "last": "2026-10-28T01:04:56Z",
+    "open": 2,
+    "recent": 11,
+    "since_report": 2,
+    "total": 11,
     "weekly": [
      0,
      0,
@@ -6567,7 +6278,7 @@
      0,
      0,
      9,
-     1
+     2
     ]
    },
    "arxiv": "math.CV",
@@ -6628,11 +6339,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:38:15Z",
+    "last": "2026-10-28T01:27:12Z",
     "open": 6,
-    "recent": 15,
-    "since_report": 10,
-    "total": 15,
+    "recent": 18,
+    "since_report": 13,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -6649,7 +6360,7 @@
      0,
      0,
      8,
-     7
+     10
     ]
    },
    "arxiv": "math.NT",
@@ -6710,107 +6421,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T01:22:22Z",
-    "open": 2,
-    "recent": 40,
-    "since_report": 2,
-    "total": 40,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     21,
-     17,
-     2
-    ]
-   },
-   "arxiv": "math.LO",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {
-     "Layer 3": "worked example only: the Lw1w sentence for a fixed well-order type"
-    },
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/InfinitaryLogic",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3"
-   ],
-   "layer_lines": [
-    291,
-    403,
-    501,
-    566
-   ],
-   "layers": [
-    "Layer 0: infinitary syntax and semantics",
-    "Layer 1: back-and-forth, potential isomorphism, and Karp's theorem",
-    "Layer 2: internal stabilization",
-    "Layer 3: Scott rank, canonical formulas, and Scott's theorem"
-   ],
-   "links": [],
-   "name": "InfinitaryLogic",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/InfinitaryLogic/README.md",
-   "readme_sha": "e3f81458629b0aaa1934b268b4c2ed0f5775ea16d5b172b34f6dabc24574a681",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "The well-order example",
-      "text": "— write the Lω₁ω sentence whose countable models are exactly the well-orders of a fixed countable order type, a class with no first-order axiomatization. It is the last worked example in the README."
-     },
-     {
-      "name": "Alignment with Mathlib's infinitary syntax",
-      "text": "— the README asks the local syntax to follow the names and shapes in the open mathlib4#42758, and to be replaced by imports if Mathlib takes it up. The supplied material does not show whether that has happened."
-     },
-     {
-      "name": "Beyond v1",
-      "text": "— relationalizing function and constant symbols, and the out-of-scope topics such as López–Escobar and Barwise compactness, belong to separate roadmaps."
-     }
-    ],
-    "glance": "The v1 summit is proved: Scott's isomorphism theorem holds for countable structures in countable relational languages, with no counting hypothesis, and all four layers have every milestone the README names. Only one worked example is still missing: the Lω₁ω sentence for a fixed well-order type.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/InfinitaryLogic/STATUS.md",
-    "progress_path": "TauCetiRoadmap/InfinitaryLogic/PROGRESS.md",
-    "report_sha": "43d81b736cd7191fee0b84378140cceb69745a4f9a9f130d54f1778dba9424d9",
-    "to_sha": "e8ea0d187d0e20fa24ab5f68cfc27b2d40b876bd",
-    "ts": "2026-10-25T17:19:50Z"
-   },
-   "title": "infinitary syntax, back-and-forth, and Scott analysis",
-   "topic": "Logic"
-  },
-  {
-   "activity": {
-    "last": "2026-10-26T23:56:40Z",
-    "open": 5,
-    "recent": 2,
-    "since_report": 1,
-    "total": 2,
+    "last": "2026-10-28T01:26:56Z",
+    "open": 1,
+    "recent": 6,
+    "since_report": 5,
+    "total": 6,
     "weekly": [
      0,
      0,
@@ -6827,14 +6442,14 @@
      0,
      0,
      0,
-     2
+     6
     ]
    },
    "arxiv": "math.LO",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "language maps, occurrence sets and symbol locality, sublanguages and the small presentation, substitution for bound positions",
@@ -6882,7 +6497,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/InfinitaryModelExistence/README.md",
-   "readme_sha": "c8f46074c727640d1bc63e6aebd3b7a4a120920052eaa105b54011e03f2839b7",
+   "readme_sha": "f23efeb77f5df0a6da16143525e845138caca054db03ae764c54a8e1fe456339",
    "retired": null,
    "states": [
     "untouched",
@@ -6931,11 +6546,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T09:24:12Z",
-    "open": 11,
-    "recent": 199,
-    "since_report": 14,
-    "total": 262,
+    "last": "2026-10-27T23:38:07Z",
+    "open": 8,
+    "recent": 203,
+    "since_report": 20,
+    "total": 268,
     "weekly": [
      0,
      0,
@@ -6952,7 +6567,7 @@
      68,
      52,
      26,
-     13
+     19
     ]
    },
    "arxiv": "math.NT",
@@ -7070,11 +6685,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T03:55:46Z",
-    "open": 3,
-    "recent": 41,
-    "since_report": 5,
-    "total": 41,
+    "last": "2026-10-28T01:27:34Z",
+    "open": 4,
+    "recent": 42,
+    "since_report": 6,
+    "total": 42,
     "weekly": [
      0,
      0,
@@ -7091,7 +6706,7 @@
      0,
      21,
      15,
-     5
+     6
     ]
    },
    "arxiv": "math.MG",
@@ -7185,11 +6800,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:21:37Z",
-    "open": 3,
-    "recent": 113,
-    "since_report": 8,
-    "total": 242,
+    "last": "2026-10-27T19:13:44Z",
+    "open": 4,
+    "recent": 112,
+    "since_report": 9,
+    "total": 243,
     "weekly": [
      3,
      3,
@@ -7206,7 +6821,7 @@
      21,
      40,
      13,
-     6
+     7
     ]
    },
    "arxiv": "math.AG",
@@ -7301,11 +6916,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T23:56:25Z",
+    "last": "2026-10-28T01:05:22Z",
     "open": 12,
-    "recent": 13,
-    "since_report": 1,
-    "total": 13,
+    "recent": 15,
+    "since_report": 3,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -7322,7 +6937,7 @@
      0,
      0,
      12,
-     1
+     3
     ]
    },
    "arxiv": "math.GT",
@@ -7383,11 +6998,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T19:27:42Z",
-    "open": 1,
-    "recent": 111,
-    "since_report": 1,
-    "total": 165,
+    "last": "2026-10-27T17:52:13Z",
+    "open": 3,
+    "recent": 103,
+    "since_report": 2,
+    "total": 166,
     "weekly": [
      0,
      0,
@@ -7404,14 +7019,14 @@
      24,
      15,
      7,
-     1
+     2
     ]
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -7444,7 +7059,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/LocalFieldsRamification/README.md",
-   "readme_sha": "ba0b46beb1899d5dce1c0f105ee85e2f7829db055da9c381f1c356a0750e6a66",
+   "readme_sha": "245abd6876b2f234dbd9bcd518f62c25bb9df3de49dc6daec5cb63278021cc58",
    "retired": null,
    "states": [
     "done",
@@ -7481,121 +7096,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T00:42:56Z",
-    "open": 2,
-    "recent": 147,
-    "since_report": 1,
-    "total": 147,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     1,
-     55,
-     42,
-     39,
-     9,
-     1
-    ]
-   },
-   "arxiv": "math.NT",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/LocalGaloisGroups",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 7",
-    "Layer 8"
-   ],
-   "layer_lines": [
-    233,
-    299,
-    367,
-    417,
-    432,
-    447,
-    564,
-    654,
-    1132
-   ],
-   "layers": [
-    "Layer 0: the arithmetic carrier and intrinsic invariants",
-    "Layer 1: local cohomology with trivial coefficients",
-    "Layer 2: inflation from the maximal pro-p quotient",
-    "Layer 3: finite generation and generator ranks of `G_K(p)`",
-    "Layer 4: the Shafarevich-Demushkin dichotomy",
-    "Layer 5: roots of unity, q, and cyclotomic orientation",
-    "Layer 6: arithmetic marked presentations",
-    "Layer 7: exact rank of the full absolute Galois group",
-    "Layer 8: marked arithmetic acceptance instances"
-   ],
-   "links": [],
-   "name": "LocalGaloisGroups",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/LocalGaloisGroups/README.md",
-   "readme_sha": "7588263d1bdf2e57b3150b90956a7a00e4b1ffd5f1f693e2eb616bca730d9e6f",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Explicit generators under finite extensions",
-      "text": ": the finite-extension compatibility places `G_L(p)` inside `G_K(p)` abstractly. It does not say how the marked generators of `G_L(p)` are written in those of `G_K(p)`. The roadmap does not ask for this, but it is the natural next refinement."
-     },
-     {
-      "name": "Retiring the local cyclotomic character",
-      "text": ": the README expects this roadmap's `localCyclotomicCharacter` to be replaced by Tau Ceti's own once the pin moves. That is maintenance, not mathematics."
-     }
-    ],
-    "glance": "Every layer is done. The Shafarevich–Demushkin dichotomy for `G_K(p)` is proved with every marked branch, all three acceptance instances and now functoriality of the marked presentations, and the full `G_K` has exactly `[K:ℚ_p] + 2` topological generators.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/LocalGaloisGroups/STATUS.md",
-    "progress_path": "TauCetiRoadmap/LocalGaloisGroups/PROGRESS.md",
-    "report_sha": "bc0b14c17634d4309843d945a5d83075ec75bd7c80faaec04d73869a62a08fc1",
-    "to_sha": "e8ea0d187d0e20fa24ab5f68cfc27b2d40b876bd",
-    "ts": "2026-10-25T17:19:50Z"
-   },
-   "title": "local Galois groups of p-adic fields",
-   "topic": "Number Theory"
-  },
-  {
-   "activity": {
-    "last": "2026-10-25T06:03:56Z",
-    "open": 4,
-    "recent": 6,
-    "since_report": 2,
-    "total": 6,
+    "last": "2026-10-27T16:47:56Z",
+    "open": 5,
+    "recent": 7,
+    "since_report": 3,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -7612,7 +7117,7 @@
      0,
      0,
      6,
-     0
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -7693,11 +7198,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T03:00:04Z",
-    "open": 2,
-    "recent": 4,
-    "since_report": 2,
-    "total": 4,
+    "last": "2026-10-27T23:40:45Z",
+    "open": 4,
+    "recent": 5,
+    "since_report": 3,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -7714,14 +7219,14 @@
      0,
      0,
      3,
-     1
+     2
     ]
    },
    "arxiv": "math.PR",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "kernels from countable transition weights with PMF/matrix adapters, law equivalence for arbitrary processes, the uniform sampler, examples",
@@ -7766,7 +7271,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/MarkovChainsAndRenewal/README.md",
-   "readme_sha": "cc6d7c2b67dca7f9d12966d9294ab320d4a84fba7db1b290187bfba7761cf590",
+   "readme_sha": "18a3cfd4d5f059069703d0fd2f4b26cdfff0e611afa64b6cb2c1b25c6a2b805e",
    "retired": null,
    "states": [
     "partial",
@@ -7814,11 +7319,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T06:28:00Z",
+    "last": "2026-10-28T01:26:34Z",
     "open": 6,
-    "recent": 19,
-    "since_report": 1,
-    "total": 19,
+    "recent": 21,
+    "since_report": 3,
+    "total": 21,
     "weekly": [
      0,
      0,
@@ -7835,14 +7340,14 @@
      0,
      9,
      8,
-     2
+     4
     ]
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 3": "a.e. separability of Eisenstein polynomials, a.e. measurability of rootCount, the local fibre count, and the root-count integral",
@@ -7878,7 +7383,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/MassFormula/README.md",
-   "readme_sha": "98690c28bb00a2385f452542cd3a140fb9aaab877515aa81e07eda4347cb51c0",
+   "readme_sha": "8a03dc165676b8f93667572d33a271bdc95fcb82fef63412053385e73c0f85cb",
    "retired": null,
    "states": [
     "done",
@@ -7923,11 +7428,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:28:00Z",
-    "open": 6,
-    "recent": 227,
-    "since_report": 8,
-    "total": 227,
+    "last": "2026-10-28T01:25:43Z",
+    "open": 9,
+    "recent": 229,
+    "since_report": 10,
+    "total": 229,
     "weekly": [
      0,
      0,
@@ -7944,7 +7449,7 @@
      95,
      85,
      35,
-     7
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -8063,11 +7568,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:35:55Z",
-    "open": 10,
-    "recent": 133,
-    "since_report": 11,
-    "total": 602,
+    "last": "2026-10-28T01:26:10Z",
+    "open": 12,
+    "recent": 135,
+    "since_report": 16,
+    "total": 607,
     "weekly": [
      0,
      0,
@@ -8084,7 +7589,7 @@
      34,
      34,
      18,
-     9
+     14
     ]
    },
    "arxiv": "math.NT",
@@ -8214,7 +7719,7 @@
   {
    "activity": {
     "last": "2026-10-27T15:29:35Z",
-    "open": 2,
+    "open": 4,
     "recent": 21,
     "since_report": 4,
     "total": 21,
@@ -8296,7 +7801,7 @@
   {
    "activity": {
     "last": "2026-10-27T07:22:31Z",
-    "open": 3,
+    "open": 4,
     "recent": 33,
     "since_report": 4,
     "total": 33,
@@ -8378,7 +7883,7 @@
   {
    "activity": {
     "last": "2026-10-27T00:10:56Z",
-    "open": 0,
+    "open": 2,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -8420,7 +7925,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/Neuromanifolds/README.md",
-   "readme_sha": "db9a1c2665d46b8e405aaa12a309fb61d61d3b667ec9b87be5ff5032e0c543f6",
+   "readme_sha": "1ef152d5c9f47426f4949bbb5a46b87c9527e2738bfd470351a49863e5f1dcc4",
    "retired": null,
    "states": [],
    "status": null,
@@ -8429,11 +7934,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T23:45:19Z",
+    "last": "2026-10-28T01:25:42Z",
     "open": 4,
-    "recent": 28,
+    "recent": 29,
     "since_report": null,
-    "total": 28,
+    "total": 29,
     "weekly": [
      0,
      0,
@@ -8450,7 +7955,7 @@
      0,
      14,
      14,
-     0
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -8513,11 +8018,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T03:00:17Z",
-    "open": 4,
-    "recent": 15,
-    "since_report": 1,
-    "total": 15,
+    "last": "2026-10-27T23:40:24Z",
+    "open": 6,
+    "recent": 16,
+    "since_report": 2,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -8534,7 +8039,7 @@
      0,
      0,
      12,
-     3
+     4
     ]
    },
    "arxiv": "math.RT",
@@ -8595,11 +8100,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:28:47Z",
+    "last": "2026-10-28T01:27:46Z",
     "open": 4,
-    "recent": 47,
-    "since_report": 8,
-    "total": 47,
+    "recent": 54,
+    "since_report": 15,
+    "total": 54,
     "weekly": [
      0,
      0,
@@ -8616,7 +8121,7 @@
      0,
      15,
      24,
-     8
+     15
     ]
    },
    "arxiv": "math.OA",
@@ -8677,97 +8182,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:38:49Z",
-    "open": 0,
-    "recent": 51,
+    "last": "2026-10-28T01:25:04Z",
+    "open": 7,
+    "recent": 24,
     "since_report": 4,
-    "total": 214,
-    "weekly": [
-     5,
-     7,
-     10,
-     10,
-     19,
-     12,
-     14,
-     11,
-     5,
-     18,
-     16,
-     20,
-     10,
-     13,
-     4,
-     4
-    ]
-   },
-   "arxiv": "math.FA",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/OneParameterSemigroups",
-   "layer_ids": [
-    "Part A",
-    "Part B",
-    "Part C"
-   ],
-   "layer_lines": [
-    90,
-    162,
-    204
-   ],
-   "layers": [
-    "Part A — Strongly continuous semigroups",
-    "Part B — Completely monotone (and Bernstein) functions",
-    "Part C — Positive-definite functions and Bochner's theorem"
-   ],
-   "links": [],
-   "name": "OneParameterSemigroups",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/OneParameterSemigroups/README.md",
-   "readme_sha": "ce806a27d23697d07617d9ad3a9ac2ada10b8ae9fc5d229579db63565d2a0b9e",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "README housekeeping",
-      "text": ": the README still describes the LCA stretch of Bochner as not begun, although the theorem is in the library. With every milestone proved, the roadmap is a candidate to be marked complete."
-     },
-     {
-      "name": "Handing the resolvent core across",
-      "text": ": the README gives the scalar generalization of the shared resolvent core to `OperatorTheory/SelfAdjointSpectralTheory`. The core here is stated for topological modules, so that roadmap can consume it directly. Whether that roadmap needs more is for its own report to say."
-     }
-    ],
-    "glance": "All three parts are done. Every named milestone is proved, along with two stretch results, Stone's theorem and Bochner's theorem on locally compact abelian groups. The last open API item, the description of the extreme rays of the completely monotone cone, is now closed in both directions.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/OneParameterSemigroups/STATUS.md",
-    "progress_path": "TauCetiRoadmap/OneParameterSemigroups/PROGRESS.md",
-    "report_sha": "7dbecaa09bd5f5b0a4c16d21d3abee20826e4be791ea7e5715b9f731d4722e8f",
-    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
-    "ts": "2026-10-25T09:09:58Z"
-   },
-   "title": "one-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
-   "topic": "Functional Analysis"
-  },
-  {
-   "activity": {
-    "last": "2026-10-27T05:08:42Z",
-    "open": 5,
-    "recent": 22,
-    "since_report": 2,
-    "total": 22,
+    "total": 24,
     "weekly": [
      0,
      0,
@@ -8784,7 +8203,7 @@
      0,
      5,
      15,
-     2
+     4
     ]
    },
    "arxiv": "math.OA",
@@ -8806,7 +8225,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/OperatorAlgebraDynamics/README.md",
-   "readme_sha": "a9aa88c88a66d931516067e58b47948cdbb9e8895c57126f9ce9a74d5b4c9fd8",
+   "readme_sha": "8caf5a4b7f6ff2a3b6824083edcb6e591e194fbc7874c219b7b5b00e1512c7d9",
    "retired": null,
    "states": [],
    "status": {
@@ -8846,7 +8265,7 @@
   {
    "activity": {
     "last": "2026-10-27T15:26:53Z",
-    "open": 11,
+    "open": 12,
     "recent": 204,
     "since_report": 11,
     "total": 204,
@@ -8918,7 +8337,7 @@
     "inherited": false,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -8988,7 +8407,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9064,7 +8483,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9141,7 +8560,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9199,7 +8618,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9273,7 +8692,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9347,7 +8766,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9434,7 +8853,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9517,7 +8936,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9575,7 +8994,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/OperatorTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/OperatorTheory/PROGRESS.md",
-    "report_sha": "b3032ab8158b9eb4106bcd07ffa7d71ef638d1e0ae73407e38f4c0c5794c10bf",
+    "report_sha": "dd9775c6439b837dc12a458bb584c4b127709ff1e0aacbabe9ad382668d83523",
     "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
     "ts": "2026-10-24T23:22:30Z"
    },
@@ -9584,11 +9003,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T14:11:22Z",
-    "open": 13,
-    "recent": 225,
-    "since_report": 8,
-    "total": 298,
+    "last": "2026-10-28T01:27:47Z",
+    "open": 9,
+    "recent": 232,
+    "since_report": 19,
+    "total": 309,
     "weekly": [
      0,
      0,
@@ -9605,14 +9024,14 @@
      64,
      94,
      29,
-     7
+     18
     ]
    },
    "arxiv": "math.OC",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 10": "convergence of minimizing movements to maximal-slope or EVI flows, varying-carrier Gamma-convergence, relaxed slopes",
@@ -9695,7 +9114,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/OptimalTransport/README.md",
-   "readme_sha": "54b87ef74d97179e78d0057b1a5e8df315024d7343613b434f61cbe95faf577c",
+   "readme_sha": "b3658037ebb419d969a95f65364f5362e0a793b5eff35f586a2e2627ad5c6afd",
    "retired": null,
    "states": [
     "done",
@@ -9835,8 +9254,8 @@
   {
    "activity": {
     "last": "2026-10-24T09:17:03Z",
-    "open": 0,
-    "recent": 132,
+    "open": 2,
+    "recent": 128,
     "since_report": 0,
     "total": 163,
     "weekly": [
@@ -9860,9 +9279,9 @@
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {},
     "source": "marker"
@@ -9892,7 +9311,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/OrthogonalSpinGroups/README.md",
-   "readme_sha": "4490ab4a95c3fbb1f14c0ba9b46a2e246cfbe688bbffe0ac6584fa72d36f21a3",
+   "readme_sha": "6dbef2105bc67ef37eb57b02fb27428cd8c663f5d74281fc18884aab91965d22",
    "retired": null,
    "states": [
     "done",
@@ -9928,11 +9347,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:29:31Z",
-    "open": 7,
-    "recent": 284,
-    "since_report": 10,
-    "total": 440,
+    "last": "2026-10-28T01:05:56Z",
+    "open": 4,
+    "recent": 289,
+    "since_report": 15,
+    "total": 445,
     "weekly": [
      5,
      10,
@@ -9949,7 +9368,7 @@
      86,
      120,
      35,
-     7
+     12
     ]
    },
    "arxiv": "math.AP",
@@ -10042,11 +9461,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T10:08:45Z",
-    "open": 2,
-    "recent": 40,
-    "since_report": 1,
-    "total": 40,
+    "last": "2026-10-28T01:25:41Z",
+    "open": 5,
+    "recent": 42,
+    "since_report": 3,
+    "total": 42,
     "weekly": [
      0,
      0,
@@ -10063,14 +9482,14 @@
      0,
      10,
      29,
-     1
+     3
     ]
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "Full module norm comparisons, compatible normed gauge models and required examples.",
@@ -10113,7 +9532,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/PadicFunctionalAnalysis/README.md",
-   "readme_sha": "25034d7df4c77b5b6a301186aac79e1740adcc642a8042befdba23e1bb91017f",
+   "readme_sha": "f4d043481a1b925e607fab3e278bcc80c5b0beff2d666ec09825c28dfd7750f9",
    "retired": null,
    "states": [
     "partial",
@@ -10159,11 +9578,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T00:39:27Z",
-    "open": 6,
-    "recent": 35,
-    "since_report": 2,
-    "total": 35,
+    "last": "2026-10-28T01:27:35Z",
+    "open": 5,
+    "recent": 38,
+    "since_report": 5,
+    "total": 38,
     "weekly": [
      0,
      0,
@@ -10180,7 +9599,7 @@
      0,
      19,
      14,
-     2
+     5
     ]
    },
    "arxiv": "math.NT",
@@ -10371,7 +9790,7 @@
   {
    "activity": {
     "last": "2026-10-26T23:23:16Z",
-    "open": 0,
+    "open": 1,
     "recent": 19,
     "since_report": 1,
     "total": 19,
@@ -10396,9 +9815,9 @@
    },
    "arxiv": "math.GR",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 5": "not a target here; it belongs to the arithmetic successor of BelyiMaps"
@@ -10416,12 +9835,12 @@
     "Layer 5"
    ],
    "layer_lines": [
-    145,
-    191,
-    294,
-    354,
-    489,
-    518
+    149,
+    195,
+    298,
+    358,
+    493,
+    522
    ],
    "layers": [
     "Layer 0: peripheral systems",
@@ -10436,7 +9855,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/PeripheralActions/README.md",
-   "readme_sha": "8c021ac61ad9bfe9be447af6c451d309c5ff67884b49e4524d06106b690778b5",
+   "readme_sha": "606f635c18452a4f94a9916532e31c8de03c46fb21da6992b5ac6ce58a78cea3",
    "retired": null,
    "states": [
     "done",
@@ -10474,11 +9893,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:30:25Z",
-    "open": 4,
-    "recent": 42,
-    "since_report": 2,
-    "total": 42,
+    "last": "2026-10-27T23:37:10Z",
+    "open": 1,
+    "recent": 44,
+    "since_report": 4,
+    "total": 44,
     "weekly": [
      0,
      0,
@@ -10495,7 +9914,7 @@
      0,
      18,
      23,
-     1
+     3
     ]
    },
    "arxiv": "math.QA",
@@ -10614,118 +10033,8 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T18:30:46Z",
-    "open": 0,
-    "recent": 64,
-    "since_report": 4,
-    "total": 120,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     2,
-     6,
-     8,
-     23,
-     18,
-     36,
-     15,
-     6,
-     3,
-     3
-    ]
-   },
-   "arxiv": "math.NT",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/PolynomialGaloisGroups",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 9"
-   ],
-   "layer_lines": [
-    442,
-    532,
-    653,
-    711,
-    777,
-    1054,
-    1172,
-    1385
-   ],
-   "layers": [
-    "Layer 0: the permutation representation of a polynomial",
-    "Layer 1: permutation groups, blocks, and wreath products",
-    "Layer 2: the dictionary between Galois theory and permutations",
-    "Layer 3: the discriminant and the alternating group",
-    "Layer 4: resolvents",
-    "Layer 5: Frobenius specialization",
-    "Layer 6: transitive subgroups of `Sₙ` for `n ≤ 5`, and the label predicates",
-    "Layer 9: `Sₙ` as a Galois group over `ℚ`"
-   ],
-   "links": [],
-   "name": "PolynomialGaloisGroups",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/PolynomialGaloisGroups/README.md",
-   "readme_sha": "5dcb80b0bb4846e52dac8669db54cb6206b81c314cfa66e07041170f631ace57",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Nothing within the stated scope remains.",
-      "text": "Every milestone of the listed layers is proved. The README puts Hilbert irreducibility, the realization of Aₙ over ℚ, transitive groups in degrees 6 to 11 and Chebotarev density outside this roadmap, so further work would need a new roadmap."
-     },
-     {
-      "name": "Existence of admissible Tschirnhaus transforms",
-      "text": "— the classical statement that over an infinite field some T separates the roots. The README excludes it as a milestone, but it is the natural complement to the transport theorem."
-     },
-     {
-      "name": "Characteristic two",
-      "text": "— the discriminant test is vacuous there, since every monic discriminant is a square. The replacement is Berlekamp's invariant, which the README puts outside this roadmap."
-     }
-    ],
-    "glance": "Every milestone of every listed layer is proved. The summit is Sₙ as a Galois group over ℚ in every degree, and beside it stands the labelled classification of transitive subgroups of Sₙ for n ≤ 5. Recent work has completed the invariants of the label table, most recently the full cycle types of each row, and has made the separability hypothesis on resolvents an explicit piece of evidence.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/PolynomialGaloisGroups/STATUS.md",
-    "progress_path": "TauCetiRoadmap/PolynomialGaloisGroups/PROGRESS.md",
-    "report_sha": "6b8cb161345acccfef39913ff4bb59c5647dff3cf9c2bb63520b6b0f4c905e2b",
-    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
-    "ts": "2026-10-21T00:36:19Z"
-   },
-   "title": "Galois groups of polynomials",
-   "topic": "Number Theory"
-  },
-  {
-   "activity": {
     "last": "2026-10-27T00:54:47Z",
-    "open": 2,
+    "open": 4,
     "recent": 17,
     "since_report": 1,
     "total": 17,
@@ -10806,101 +10115,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-21T19:43:41Z",
-    "open": 1,
-    "recent": 41,
-    "since_report": 0,
-    "total": 41,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     30,
-     9,
-     0,
-     2,
-     0
-    ]
-   },
-   "arxiv": "math.GR",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/ProfiniteArithmetic",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3"
-   ],
-   "layer_lines": [
-    219,
-    330,
-    437,
-    570
-   ],
-   "layers": [
-    "Layer 0: the ring structure on the profinite integers",
-    "Layer 1: profinite powers and `ℤ_ℓ`-powers",
-    "Layer 2: continuous automorphisms and outer automorphisms",
-    "Layer 3: the closed lower central series and its graded Lie ring"
-   ],
-   "links": [],
-   "name": "ProfiniteArithmetic",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/ProfiniteArithmetic/README.md",
-   "readme_sha": "78297dc32e458b1d43b924959623efc38e4d0e7219a95eed3752efd7ef9e3d6e",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "Nothing on this roadmap remains open.",
-      "text": "Every milestone the README lists for Layers 0 to 3 is proved. The next work belongs to the consumers the README names, PeripheralActions, BelyiMaps, ProfiniteProPGroups and LocalFieldsRamification, which can now use the outer action, the `ẑ`-power and the graded Lie algebra by name."
-     },
-     {
-      "name": "Higher degrees for free pro-`p` groups",
-      "text": "— the README stops at degree one. Identifying `gr_k` of a free pro-`p` group beyond that, as the free Lie algebra over `ℤ_p`, is not a milestone here, and nothing for it is established in this roadmap's material."
-     }
-    ],
-    "glance": "All four layers are done. They cover the ring `ẑ` with its decomposition and units, the profinite and `ℓ`-adic powers, continuous automorphisms with the congruence topology and the outer action of an extension, and the graded `ℤ_p`-Lie algebra of the closed lower central series with free pro-`p` bases in degrees zero and one. The README's worked examples are now essentially all in as well.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/ProfiniteArithmetic/STATUS.md",
-    "progress_path": "TauCetiRoadmap/ProfiniteArithmetic/PROGRESS.md",
-    "report_sha": "9e917d27cb5f5d5ad86d5f41285566d5400be9f022762208f12a731473dde70f",
-    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
-    "ts": "2026-10-25T09:09:58Z"
-   },
-   "title": "profinite integers, profinite powers, and continuous automorphisms",
-   "topic": "Group Theory"
-  },
-  {
-   "activity": {
-    "last": "2026-10-27T01:08:05Z",
-    "open": 9,
-    "recent": 213,
-    "since_report": 7,
-    "total": 323,
+    "last": "2026-10-28T01:26:07Z",
+    "open": 5,
+    "recent": 221,
+    "since_report": 19,
+    "total": 335,
     "weekly": [
      0,
      0,
@@ -10917,14 +10136,14 @@
      78,
      48,
      18,
-     4
+     16
     ]
    },
    "arxiv": "math.GR",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 0": "closure of discrete modules under finite products is not stated; subgroups, quotients and the internal hom are",
@@ -10963,8 +10182,8 @@
     1363,
     1549,
     1739,
-    2088,
-    2160
+    2091,
+    2163
    ],
    "layers": [
     "Layer 0: discrete modules and continuous sections",
@@ -10987,7 +10206,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/ProfiniteCohomology/README.md",
-   "readme_sha": "0b2a790b4355294d199b7d6e9a053243858165e033687dd7310c3d4ba5136c68",
+   "readme_sha": "d98c3de694ffbb79d03482b37501f56bc8ff1c6d5845afb7c64eef0cc51662ae",
    "retired": null,
    "states": [
     "partial",
@@ -11037,137 +10256,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T11:24:01Z",
-    "open": 1,
-    "recent": 182,
-    "since_report": 0,
-    "total": 304,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     3,
-     4,
-     10,
-     16,
-     96,
-     125,
-     31,
-     14,
-     5,
-     0
-    ]
-   },
-   "arxiv": "math.GR",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/ProfiniteProPGroups",
-   "layer_ids": [
-    "Layer 0",
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 7",
-    "Layer 8",
-    "Layer 9 prerequisites",
-    "Layer 9",
-    "Layer 10"
-   ],
-   "layer_lines": [
-    125,
-    179,
-    245,
-    306,
-    529,
-    678,
-    1004,
-    1176,
-    1399,
-    1648,
-    1971,
-    2107
-   ],
-   "layers": [
-    "Layer 0: profinite foundations",
-    "Layer 1: supernatural order and index",
-    "Layer 2: profinite Sylow theory",
-    "Layer 3: pro-`p` groups, the maximal pro-`p` quotient, Frattini theory, generation",
-    "Layer 4: free pro-`p` and pro-`C` groups on finite sets",
-    "Layer 5: presentations, extensions, and the rank interpretations",
-    "Layer 6: cohomological dimension of pro-`p` groups",
-    "Layer 7: Demushkin groups, their invariants, and the orientation",
-    "Layer 8: the central-tower comparison method and finite-quotient determinacy",
-    "Layer 9 prerequisites: two owned inputs",
-    "Layer 9: the classification of Demushkin groups",
-    "Layer 10: free pro-`C` groups on profinite spaces"
-   ],
-   "links": [],
-   "name": "ProfiniteProPGroups",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/ProfiniteProPGroups/README.md",
-   "readme_sha": "4a432bdd8ba446c50ca1a84a1e0022bf7faa6df9515a56b46bad363a9d2281f7",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "No named milestone remains open.",
-      "text": "Every layer's statements are proved in the library."
-     },
-     {
-      "name": "Labute's factorizations are unused by the classification",
-      "text": "— Theorems 5 and 6 were proved by constrained successive approximation. The factorizations of the relator class, now extended to `2`-adic exponents in the `{±1} × U^(f)` branch, complete the README's planned route but are not used anywhere else in the library."
-     },
-     {
-      "name": "Consumers downstream",
-      "text": "— `LocalGaloisGroups` named the pro-`p` kernel theorem and lifting along an extension class as its inputs. Both exist, as does the continuous splitting of pro-`p` extensions over free pro-`p` groups with prescribed values on generators."
-     }
-    ],
-    "glance": "Every layer is done. The summit, the classification of Demushkin groups, is proved in every case and is now stated as an equivalence. Recent work adds consequences and supporting theory around a finished roadmap and opens no new targets.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/ProfiniteProPGroups/STATUS.md",
-    "progress_path": "TauCetiRoadmap/ProfiniteProPGroups/PROGRESS.md",
-    "report_sha": "a1675bac50eedbfa6e38eb9e72eb5ccb7ad8639487d5f445bbe5ca808b54607b",
-    "to_sha": "69cd1ab4dcfbb6676e344f3f193e63473eab5a3d",
-    "ts": "2026-10-25T14:11:34Z"
-   },
-   "title": "profinite and pro-`p` groups",
-   "topic": "Group Theory"
-  },
-  {
-   "activity": {
-    "last": null,
-    "open": 1,
-    "recent": 0,
+    "last": "2026-10-27T23:38:53Z",
+    "open": 0,
+    "recent": 2,
     "since_report": null,
-    "total": 0,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -11184,7 +10277,7 @@
      0,
      0,
      0,
-     0
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -11231,11 +10324,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T13:51:53Z",
-    "open": 1,
-    "recent": 147,
-    "since_report": 0,
-    "total": 211,
+    "last": "2026-10-28T01:05:57Z",
+    "open": 3,
+    "recent": 143,
+    "since_report": 2,
+    "total": 213,
     "weekly": [
      0,
      0,
@@ -11252,7 +10345,7 @@
      43,
      32,
      19,
-     0
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -11260,9 +10353,9 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "ok",
+    "reason": "not-transcribed",
     "remaining": {},
-    "source": "marker"
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/QuadraticFormInvariants",
@@ -11279,16 +10372,16 @@
     "Layer 9"
    ],
    "layer_lines": [
-    799,
-    938,
-    1025,
-    1122,
-    1218,
-    1340,
-    1480,
-    2175,
-    2566,
-    2679
+    871,
+    1010,
+    1097,
+    1194,
+    1290,
+    1412,
+    1552,
+    2247,
+    2638,
+    2749
    ],
    "layers": [
     "Layer 0: square classes, diagonal calculus, and chain equivalence",
@@ -11307,19 +10400,19 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/QuadraticFormInvariants/README.md",
-   "readme_sha": "5221c62cb98c724d5bc1ddbed7e55e96be4b6265450add8adacb88cabd4b418c",
+   "readme_sha": "1232d451b7dd1a1c2b0328a737a82ab58a19b27e0c177e8a24a1f556d08702d7",
    "retired": null,
    "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
@@ -11336,7 +10429,7 @@
     "inherited": false,
     "path": "TauCetiRoadmap/QuadraticFormInvariants/STATUS.md",
     "progress_path": "TauCetiRoadmap/QuadraticFormInvariants/PROGRESS.md",
-    "report_sha": "03bc6324e93fe302d4c2706f3a798b828bbdd0ca09c8c0ebad4cfc255285b5fc",
+    "report_sha": "d2f6a77d3f12164642eb25d6f31f3142b9eb5d3a5f139e90410f40c377ece941",
     "to_sha": "e8ea0d187d0e20fa24ab5f68cfc27b2d40b876bd",
     "ts": "2026-10-25T17:19:50Z"
    },
@@ -11427,11 +10520,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T14:11:20Z",
-    "open": 2,
-    "recent": 15,
-    "since_report": 6,
-    "total": 15,
+    "last": "2026-10-28T01:41:34Z",
+    "open": 3,
+    "recent": 16,
+    "since_report": 7,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -11448,7 +10541,7 @@
      0,
      0,
      12,
-     3
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -11540,112 +10633,6 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:38:18Z",
-    "open": 9,
-    "recent": 258,
-    "since_report": 20,
-    "total": 260,
-    "weekly": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     5,
-     53,
-     102,
-     41,
-     40,
-     19
-    ]
-   },
-   "arxiv": "math.AG",
-   "assessment": {
-    "detail": null,
-    "notes": {},
-    "readme_changed": false,
-    "reason": "ok",
-    "remaining": {},
-    "source": "marker"
-   },
-   "completed": false,
-   "id": "TauCetiRoadmap/RealAlgebraicGeometry",
-   "layer_ids": [
-    "Layer 1",
-    "Layer 2",
-    "Layer 3",
-    "Layer 4",
-    "Layer 5",
-    "Layer 6",
-    "Layer 7",
-    "Layer 8"
-   ],
-   "layer_lines": [
-    128,
-    231,
-    298,
-    341,
-    374,
-    437,
-    479,
-    646
-   ],
-   "layers": [
-    "Layer 1: univariate real algebra",
-    "Layer 2: subresultants",
-    "Layer 3: sign determination and semialgebraic descriptions",
-    "Layer 4: roots in continuous families",
-    "Layer 5: Collins delineability and stacks",
-    "Layer 6: CAD and quantifier elimination",
-    "Layer 7: analytic preparation and McCallum projection",
-    "Layer 8: Lazard evaluation and projection"
-   ],
-   "links": [],
-   "name": "RealAlgebraicGeometry",
-   "parent": null,
-   "parent_id": null,
-   "readme": "TauCetiRoadmap/RealAlgebraicGeometry/README.md",
-   "readme_sha": "90042ab5929cc7307e694c618e30bb9ee0d4d4e79b5e3c9c7bb1cc88f9567e24",
-   "retired": null,
-   "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
-   ],
-   "status": {
-    "frontier": [
-     {
-      "name": "No README milestone remains open.",
-      "text": "Every layer's targets are proved in the library. By the README's own scope choice, the topological and CAD results stay over `ℝ` rather than an arbitrary real closed field."
-     },
-     {
-      "name": "Lazard's theorem in the native coordinate order",
-      "text": ": optional. The validity theorem reads the Lazard valuation with the coordinates reversed. This matches how Lazard evaluation treats them during the recursion, and since Lazard valuation is not invariant under permuting coordinates, the order is part of the statement."
-     }
-    ],
-    "glance": "All eight layers are done. Over `ℝ` the roadmap has the full Collins route to CAD and unconditional quantifier elimination. It also has McCallum's order-invariant projection under well-orientedness, and Lazard's valuation-invariant projection, which needs no such hypothesis.",
-    "inherited": false,
-    "path": "TauCetiRoadmap/RealAlgebraicGeometry/STATUS.md",
-    "progress_path": "TauCetiRoadmap/RealAlgebraicGeometry/PROGRESS.md",
-    "report_sha": "50897c2c4163be13360e02856df39e1b1b9bd5db2552df5e013340379270ffb8",
-    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
-    "ts": "2026-10-25T09:09:58Z"
-   },
-   "title": "Real algebraic geometry: sign determination and cylindrical decomposition",
-   "topic": "Algebraic Geometry"
-  },
-  {
-   "activity": {
     "last": "2026-10-26T18:29:41Z",
     "open": 3,
     "recent": 7,
@@ -11689,7 +10676,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/RealAnalyticGeometry/README.md",
-   "readme_sha": "48a704874a0da25389f38b5fb258a60044519ec87db3c8d63a5f0a29ba8d7f08",
+   "readme_sha": "2bab326be15f72924ea92dbddf011e18e92fa09366e283988d8b49284d8b937e",
    "retired": null,
    "states": [],
    "status": {
@@ -11728,11 +10715,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:54:59Z",
+    "last": "2026-10-28T01:25:21Z",
     "open": 37,
-    "recent": 815,
-    "since_report": 28,
-    "total": 1754,
+    "recent": 823,
+    "since_report": 43,
+    "total": 1769,
     "weekly": [
      4,
      3,
@@ -11749,7 +10736,7 @@
      273,
      256,
      122,
-     28
+     43
     ]
    },
    "arxiv": "math.AG",
@@ -11922,11 +10909,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T06:02:15Z",
+    "last": "2026-10-27T19:13:43Z",
     "open": 5,
-    "recent": 13,
-    "since_report": 5,
-    "total": 13,
+    "recent": 15,
+    "since_report": 7,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -11943,7 +10930,7 @@
      0,
      0,
      9,
-     4
+     6
     ]
    },
    "arxiv": "math.RT",
@@ -12004,11 +10991,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T08:48:06Z",
-    "open": 6,
-    "recent": 31,
-    "since_report": 4,
-    "total": 31,
+    "last": "2026-10-28T01:26:59Z",
+    "open": 4,
+    "recent": 33,
+    "since_report": 6,
+    "total": 33,
     "weekly": [
      0,
      0,
@@ -12025,7 +11012,7 @@
      0,
      10,
      19,
-     2
+     4
     ]
    },
    "arxiv": "math.CO",
@@ -12138,11 +11125,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:38:04Z",
-    "open": 25,
-    "recent": 823,
-    "since_report": 28,
-    "total": 1828,
+    "last": "2026-10-28T01:26:08Z",
+    "open": 22,
+    "recent": 821,
+    "since_report": 45,
+    "total": 1845,
     "weekly": [
      0,
      0,
@@ -12159,7 +11146,7 @@
      293,
      158,
      79,
-     34
+     51
     ]
    },
    "arxiv": "math.RT",
@@ -12211,7 +11198,7 @@
     "inherited": false,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -12313,7 +11300,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -12415,7 +11402,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -12508,7 +11495,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -12598,7 +11585,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -12711,7 +11698,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -12818,7 +11805,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -12932,7 +11919,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -13014,7 +12001,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -13106,7 +12093,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -13192,7 +12179,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -13297,7 +12284,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -13391,7 +12378,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -13507,7 +12494,7 @@
     "inherited": true,
     "path": "TauCetiRoadmap/RepresentationTheory/STATUS.md",
     "progress_path": "TauCetiRoadmap/RepresentationTheory/PROGRESS.md",
-    "report_sha": "7334bd23720a7ed188223b6213d3ae29bb43a81b8f9c1309c5689267ffb4d5cb",
+    "report_sha": "01dece7d7e48419cf7c8222b4115c23daeae4ce2dc2ae6f128d87f60237b17c3",
     "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
     "ts": "2026-10-26T06:42:33Z"
    },
@@ -13516,11 +12503,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T01:22:21Z",
-    "open": 3,
-    "recent": 36,
+    "last": "2026-10-28T01:55:40Z",
+    "open": 6,
+    "recent": 39,
     "since_report": null,
-    "total": 36,
+    "total": 39,
     "weekly": [
      0,
      0,
@@ -13537,7 +12524,7 @@
      0,
      6,
      28,
-     2
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -13586,7 +12573,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/RestrictedPowerSeries/README.md",
-   "readme_sha": "fb7ebaa755523b8c246a9ed4e2b3b75d6af71d7ed68191679fdcfa3057a3f6b2",
+   "readme_sha": "874fb0f571d4b7bdebd0664b99087882801c3ff45e5ea45dcdcfe39533a23ba1",
    "retired": null,
    "states": [
     "unassessed",
@@ -13604,11 +12591,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:34:58Z",
+    "last": "2026-10-27T16:47:55Z",
     "open": 3,
-    "recent": 6,
-    "since_report": 2,
-    "total": 6,
+    "recent": 7,
+    "since_report": 3,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -13625,7 +12612,7 @@
      0,
      0,
      4,
-     2
+     3
     ]
    },
    "arxiv": "math.DG",
@@ -13687,7 +12674,7 @@
   {
    "activity": {
     "last": "2026-10-27T01:08:06Z",
-    "open": 5,
+    "open": 7,
     "recent": 21,
     "since_report": 4,
     "total": 21,
@@ -13805,11 +12792,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:14:00Z",
-    "open": 9,
-    "recent": 65,
-    "since_report": 10,
-    "total": 65,
+    "last": "2026-10-28T02:08:39Z",
+    "open": 10,
+    "recent": 72,
+    "since_report": 17,
+    "total": 72,
     "weekly": [
      0,
      0,
@@ -13826,7 +12813,7 @@
      0,
      22,
      34,
-     9
+     16
     ]
    },
    "arxiv": "math.AG",
@@ -13922,11 +12909,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T05:26:48Z",
-    "open": 6,
-    "recent": 11,
-    "since_report": 2,
-    "total": 11,
+    "last": "2026-10-27T21:15:19Z",
+    "open": 3,
+    "recent": 14,
+    "since_report": 5,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -13943,7 +12930,7 @@
      0,
      0,
      9,
-     2
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -14005,7 +12992,7 @@
   {
    "activity": {
     "last": "2026-10-25T17:55:51Z",
-    "open": 0,
+    "open": 1,
     "recent": 8,
     "since_report": 3,
     "total": 8,
@@ -14086,11 +13073,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T05:46:52Z",
-    "open": 4,
-    "recent": 14,
-    "since_report": 2,
-    "total": 14,
+    "last": "2026-10-28T01:06:58Z",
+    "open": 5,
+    "recent": 16,
+    "since_report": 4,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -14107,7 +13094,7 @@
      0,
      0,
      12,
-     2
+     4
     ]
    },
    "arxiv": "math.DG",
@@ -14168,11 +13155,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:08:14Z",
-    "open": 5,
-    "recent": 129,
-    "since_report": 11,
-    "total": 167,
+    "last": "2026-10-27T16:48:31Z",
+    "open": 6,
+    "recent": 126,
+    "since_report": 12,
+    "total": 168,
     "weekly": [
      0,
      0,
@@ -14189,7 +13176,7 @@
      22,
      47,
      16,
-     11
+     12
     ]
    },
    "arxiv": "math.RT",
@@ -14299,11 +13286,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:26:52Z",
-    "open": 6,
-    "recent": 112,
-    "since_report": 9,
-    "total": 163,
+    "last": "2026-10-28T01:26:33Z",
+    "open": 8,
+    "recent": 115,
+    "since_report": 14,
+    "total": 168,
     "weekly": [
      0,
      0,
@@ -14320,7 +13307,7 @@
      27,
      31,
      23,
-     7
+     12
     ]
    },
    "arxiv": "math.AG",
@@ -14444,11 +13431,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:48:15Z",
-    "open": 13,
-    "recent": 286,
-    "since_report": 28,
-    "total": 464,
+    "last": "2026-10-28T01:06:23Z",
+    "open": 12,
+    "recent": 295,
+    "since_report": 37,
+    "total": 473,
     "weekly": [
      0,
      0,
@@ -14465,14 +13452,14 @@
      3,
      98,
      147,
-     36
+     45
     ]
    },
    "arxiv": "math.PR",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
      "Layer 10": "truncated and skew normal, Bates and triangular; densities and cdfs of the noncentral t, F and Beta laws",
@@ -14546,7 +13533,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/StandardDistributions/README.md",
-   "readme_sha": "570b4674e33f287b544e31bd4b70e94ffdc62fe3f079da6b86617b1392e8e2e3",
+   "readme_sha": "b2f66314aae9b6afd33588f3e918508e316123f5d62f1e437fe69e63446a3ae4",
    "retired": null,
    "states": [
     "done",
@@ -14602,11 +13589,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T14:11:21Z",
-    "open": 0,
-    "recent": 1,
+    "last": "2026-10-28T01:03:07Z",
+    "open": 2,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -14623,7 +13610,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -14698,11 +13685,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:37:23Z",
-    "open": 3,
-    "recent": 6,
-    "since_report": 5,
-    "total": 6,
+    "last": "2026-10-27T21:17:25Z",
+    "open": 2,
+    "recent": 8,
+    "since_report": 7,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -14719,7 +13706,7 @@
      0,
      0,
      0,
-     6
+     8
     ]
    },
    "arxiv": "math.NT",
@@ -14806,7 +13793,7 @@
   {
    "activity": {
     "last": "2026-10-27T11:54:35Z",
-    "open": 0,
+    "open": 8,
     "recent": 15,
     "since_report": 9,
     "total": 15,
@@ -15177,11 +14164,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:22:30Z",
-    "open": 3,
-    "recent": 7,
-    "since_report": 2,
-    "total": 7,
+    "last": "2026-10-27T17:50:22Z",
+    "open": 2,
+    "recent": 8,
+    "since_report": 3,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -15198,7 +14185,7 @@
      0,
      0,
      5,
-     2
+     3
     ]
    },
    "arxiv": "math.CA",
@@ -15341,11 +14328,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:29:32Z",
-    "open": 5,
-    "recent": 24,
-    "since_report": 9,
-    "total": 24,
+    "last": "2026-10-28T01:03:43Z",
+    "open": 7,
+    "recent": 25,
+    "since_report": 10,
+    "total": 25,
     "weekly": [
      0,
      0,
@@ -15362,7 +14349,7 @@
      0,
      0,
      16,
-     8
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -15463,7 +14450,31 @@
    "topic": "Number Theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-10-28T01:27:14Z",
+    "open": 0,
+    "recent": 1,
+    "since_report": null,
+    "total": 1,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
    "arxiv": "math.KT",
    "assessment": {
     "detail": null,
@@ -15492,11 +14503,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:38:03Z",
-    "open": 6,
-    "recent": 7,
-    "since_report": 2,
-    "total": 7,
+    "last": "2026-10-28T02:08:37Z",
+    "open": 7,
+    "recent": 8,
+    "since_report": 3,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -15513,7 +14524,7 @@
      0,
      0,
      6,
-     1
+     2
     ]
    },
    "arxiv": "math.QA",
@@ -15535,7 +14546,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/TypeAHeckeAlgebras/README.md",
-   "readme_sha": "8f797bf84428da08a93a308012a1e7237062b3efce6055604ba007b7f6c4a686",
+   "readme_sha": "873fc352ad0322fea129fca12ce139d793a8b554348a23abceeb57e8152a6066",
    "retired": null,
    "states": [],
    "status": {
@@ -15574,11 +14585,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T13:18:23Z",
+    "last": "2026-10-27T21:11:49Z",
     "open": 7,
-    "recent": 20,
-    "since_report": 0,
-    "total": 20,
+    "recent": 21,
+    "since_report": 1,
+    "total": 21,
     "weekly": [
      0,
      0,
@@ -15595,7 +14606,7 @@
      0,
      8,
      12,
-     0
+     1
     ]
    },
    "arxiv": "math.DG",
@@ -15656,11 +14667,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T10:27:26Z",
+    "last": "2026-10-28T01:06:56Z",
     "open": 3,
-    "recent": 208,
-    "since_report": 12,
-    "total": 285,
+    "recent": 207,
+    "since_report": 14,
+    "total": 287,
     "weekly": [
      0,
      0,
@@ -15677,7 +14688,7 @@
      72,
      62,
      19,
-     22
+     24
     ]
    },
    "arxiv": "math.RT",
@@ -15782,9 +14793,107 @@
   },
   {
    "activity": {
+    "last": "2026-10-28T01:26:58Z",
+    "open": 6,
+    "recent": 269,
+    "since_report": 12,
+    "total": 622,
+    "weekly": [
+     0,
+     0,
+     0,
+     23,
+     107,
+     53,
+     51,
+     26,
+     31,
+     19,
+     42,
+     61,
+     83,
+     99,
+     15,
+     12
+    ]
+   },
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/AdicSpaces",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6"
+   ],
+   "layer_lines": [
+    135,
+    272,
+    360,
+    456,
+    554,
+    631,
+    691
+   ],
+   "layers": [
+    "Layer 0: topological algebra, Huber rings, and Tate algebras",
+    "Layer 1: valuation spectra and continuous valuations",
+    "Layer 2: affinoid spectra and rational subsets",
+    "Layer 3: rational localisation and the structure presheaf",
+    "Layer 4: sheafiness and Tate acyclicity",
+    "Layer 5: adic spaces and elementary geometry",
+    "Layer 6: the adic Fargues–Fontaine curve"
+   ],
+   "links": [],
+   "name": "AdicSpaces",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/AdicSpaces/README.md",
+   "readme_sha": "421a1540a785dd06a75fbd7c683993d6f096a9876aca846046cd66ac944b3eab",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Beyond this roadmap",
+      "text": "— no milestone of this roadmap remains open. The README puts non-affinoidness of `𝒳`, vector bundles on the curve, perfectoid spaces, étale theory and fibre products outside its scope. Further work on the curve belongs to a successor roadmap, which would start from the stably sheafy interval rings."
+     }
+    ],
+    "glance": "Every layer of the roadmap is done. The general theory runs from Huber rings through Tate acyclicity, sheafiness and gluing. The final application, the adic Fargues–Fontaine curve `𝒳 = 𝒴 / φ^ℤ`, is an adic space with no hypothesis left over. Current work fills in Layer 0 algebra and connects the theory to classical affinoid algebras.",
+    "inherited": false,
+    "path": "Completed/AdicSpaces/STATUS.md",
+    "progress_path": "Completed/AdicSpaces/PROGRESS.md",
+    "report_sha": "8f4087bf1b24b1fde0526a15400cc5738e41f0655a3bd05229db259b78fd8fc3",
+    "to_sha": "b257e0ff255355b2b692c1311d061d2b4dc84e53",
+    "ts": "2026-10-26T06:42:33Z"
+   },
+   "title": "foundations of adic spaces",
+   "topic": "Algebraic Geometry"
+  },
+  {
+   "activity": {
     "last": "2026-10-19T09:34:18Z",
     "open": 0,
-    "recent": 33,
+    "recent": 30,
     "since_report": 0,
     "total": 89,
     "weekly": [
@@ -15884,11 +14993,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-23T01:18:30Z",
-    "open": 2,
-    "recent": 26,
-    "since_report": 0,
-    "total": 137,
+    "last": "2026-10-28T01:07:12Z",
+    "open": 0,
+    "recent": 31,
+    "since_report": 5,
+    "total": 142,
     "weekly": [
      0,
      0,
@@ -15905,7 +15014,7 @@
      9,
      5,
      1,
-     0
+     5
     ]
    },
    "arxiv": "math.NT",
@@ -16002,6 +15111,144 @@
     "ts": "2026-10-26T01:30:01Z"
    },
    "title": "arithmetic Dirichlet series and Tauberian methods",
+   "topic": "Number Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-27T02:31:19Z",
+    "open": 0,
+    "recent": 20,
+    "since_report": 1,
+    "total": 108,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     15,
+     17,
+     22,
+     33,
+     10,
+     5,
+     3,
+     2,
+     1
+    ]
+   },
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/Chebotarev",
+   "layer_ids": [
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8",
+    "Layer 9",
+    "Layer 10",
+    "Layer 11",
+    "Layer 12",
+    "Layer 13",
+    "Layer 14"
+   ],
+   "layer_lines": [
+    159,
+    175,
+    192,
+    205,
+    216,
+    231,
+    245,
+    320,
+    370,
+    410,
+    425,
+    495,
+    593,
+    612
+   ],
+   "layers": [
+    "Layer 1: consumed Frobenius classes and powers of conjugacy classes",
+    "Layer 2: Frobenius prime sets and finite exceptional sets",
+    "Layer 3: prime sums and density normalization",
+    "Layer 4: cyclotomic Galois characters",
+    "Layer 5: ray-class counting and continuation",
+    "Layer 6: cyclotomic Dirichlet density",
+    "Layer 7: the auxiliary prime and the crossing data",
+    "Layer 8: the cyclic fixed-field fibre",
+    "Layer 9: abelian Chebotarev",
+    "Layer 10: Dirichlet-density Chebotarev",
+    "Layer 11: the Frobenius von Mangoldt coefficient and its summatory functions",
+    "Layer 12: the weighted transfer package and the Tauberian theorem",
+    "Layer 13: `ϑ_C` and `π_C`",
+    "Layer 14: natural density and consistency theorems"
+   ],
+   "links": [],
+   "name": "Chebotarev",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/Chebotarev/README.md",
+   "readme_sha": "1bcf8cd418e90a2ca63deaa31cf45b86dde345837f59fec31d1ce14933652c39",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Nothing remains on the roadmap as written.",
+      "text": "Every layer's milestones are proved in the source, so what is left is consolidation rather than new mathematics."
+     },
+     {
+      "name": "Interface names",
+      "text": "— the README's public list names `cyclotomicCharacterWeight`, but the library uses `galoisCharacterWeight`. The README should be updated, or an alias added, so that consumers know which name to use."
+     },
+     {
+      "name": "Splitting types in natural density",
+      "text": "— the splitting-type and residue-degree corollaries are stated for Dirichlet density only. Their natural-density forms should follow from the natural-density theorem by the same finite union of Frobenius fibres."
+     },
+     {
+      "name": "Effective Chebotarev",
+      "text": "— error terms, zero-free regions and the exceptional-zero contribution are out of scope by design. They belong to the Zeros of L-functions roadmap, which consumes `frobeniusPsi`, `frobeniusTheta` and `frobeniusPrimeCount` from this one."
+     }
+    ],
+    "glance": "The summit has been reached. The library proves the Chebotarev density theorem over an arbitrary number field in three forms, Dirichlet density, natural density and prime counting, with no `sorry` in the Chebotarev sources. The splitting, non-Galois and arithmetic-progression corollaries are proved, and so are the roadmap's acceptance tests. Every milestone of the fourteen layers is proved.",
+    "inherited": false,
+    "path": "Completed/Chebotarev/STATUS.md",
+    "progress_path": "Completed/Chebotarev/PROGRESS.md",
+    "report_sha": "1e2a0d844728fbac92d9e473d52b8d3643cf919b1e52e887488386c96ede2fc4",
+    "to_sha": "69cd1ab4dcfbb6676e344f3f193e63473eab5a3d",
+    "ts": "2026-10-25T14:11:34Z"
+   },
+   "title": "the Chebotarev density theorem",
    "topic": "Number Theory"
   },
   {
@@ -16110,104 +15357,245 @@
   },
   {
    "activity": {
-    "last": "2026-10-23T14:30:29Z",
+    "last": "2026-10-27T16:49:33Z",
     "open": 0,
-    "recent": 1,
-    "since_report": 0,
-    "total": 38,
+    "recent": 54,
+    "since_report": 4,
+    "total": 147,
     "weekly": [
      0,
-     3,
      0,
      0,
      0,
      0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     1,
-     0
+     16,
+     11,
+     11,
+     11,
+     11,
+     32,
+     18,
+     7,
+     15,
+     11,
+     4
     ]
    },
-   "arxiv": "math.NT",
+   "arxiv": "math.CO",
    "assessment": {
-    "detail": null,
+    "detail": "the README changed after this report, so these states assess it as it was then",
     "notes": {},
-    "readme_changed": false,
+    "readme_changed": true,
     "reason": "ok",
     "remaining": {
-     "Layer 0": "optional: connect the packing and doubling API to Mathlib's ZLattice and covolume",
-     "Layer 3": "regulator lower bounds for positive unit rank and the volume computations for the class number formula"
+     "Layer 5": "optional: state the Dirac, finite-atomic and mixed regression examples as named lemmas"
     },
     "source": "marker"
    },
    "completed": true,
-   "id": "Completed/EffectiveBounds",
+   "id": "Completed/DenseGraphLimits",
    "layer_ids": [
     "Layer 0",
     "Layer 1",
     "Layer 2",
-    "Layer 3"
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8a",
+    "Layer 8b",
+    "Layer 9a",
+    "Layer 9b",
+    "Layer 9c"
    ],
    "layer_lines": [
-    96,
-    105,
-    125,
-    137
+    232,
+    238,
+    255,
+    282,
+    292,
+    300,
+    312,
+    344,
+    350,
+    370,
+    412,
+    433,
+    540
    ],
    "layers": [
-    "Layer 0: the geometry-of-numbers engine",
-    "Layer 1: effective upper bounds",
-    "Layer 2: effective Hermite–Minkowski",
-    "Layer 3: regulators and unit-lattice volume"
+    "Layer 0 — finite-graph and measure scaffolding",
+    "Layer 1 — core objects and their basic API",
+    "Layer 2 — counting, regularity, total boundedness",
+    "Layer 3 — the AE / `AEEqFun` view",
+    "Layer 4 — completeness and compactness",
+    "Layer 5 — coupling and map cut distance agree",
+    "Layer 6 — separation and convergence equivalence",
+    "Layer 7 — applications and validation",
+    "Layer 8a — quantum graphs and reflection positivity",
+    "Layer 8b — Lovász–Szegedy representability",
+    "Layer 9a — finite and joint graphon sampling",
+    "Layer 9b — exchangeable graph laws and graphon mixtures",
+    "Layer 9c — sampling convergence"
    ],
    "links": [],
-   "name": "EffectiveBounds",
+   "name": "DenseGraphLimits",
    "parent": null,
    "parent_id": null,
-   "readme": "Completed/EffectiveBounds/README.md",
-   "readme_sha": "5c436d080fbdd4a94bb2f626b574b9c660b4b40d7ddfe0554c16e2227466713e",
+   "readme": "Completed/DenseGraphLimits/README.md",
+   "readme_sha": "87cd3cbd3995f92a6d06334cf9e8cf1f1eeb8a3f92d45e2e4affec26cd4810e1",
    "retired": null,
    "states": [
     "done",
     "done",
     "done",
-    "partial"
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Regulator lower bounds for positive unit rank",
-      "text": "— the core of Layer 3. Everything present reduces to a zero-dimensional unit lattice, and no lower bound on the covolume exists for positive rank."
+      "name": "No stated milestone remains open",
+      "text": "— every layer's targets are proved. Further work goes beyond what the roadmap requires as written."
      },
      {
-      "name": "Volume computations for the analytic class number formula",
-      "text": "— the second half of Layer 3; not started."
+      "name": "Remaining reusable homes",
+      "text": "— the README wants the dyadic-martingale `L¹`-convergence lemmas and the `AEEqFun` ergonomics in general `TauCeti/` homes. This report has not confirmed where either lives now."
      },
      {
-      "name": "`ZLattice` reconciliation of the engine",
-      "text": "— the packing and doubling API lives on additive subgroups of `ι → ℂ`. Whether it connects to Mathlib's `ZLattice` and covolume API has not been established."
+      "name": "Atomic regressions as named results",
+      "text": "— Layer 5's Dirac, finite-atomic and mixed regression checks are still unnamed examples. They would need to become named lemmas before anyone downstream could cite them."
      },
      {
-      "name": "Brauer–Siegel",
-      "text": "— `log(h_F·R_F) ∼ log √|d_F|` with explicit constants. It is untouched, and it needs the Layer-3 regulator bounds first."
+      "name": "Generic representation compatibility",
+      "text": "— the graph-level side of the relational adapter is now in place. Showing that a generic relational Aldous–Hoover theorem, specialized to graphs, induces the same mixing measure depends on that theorem existing in the Exchangeability roadmap. This report does not establish whether it does."
      }
     ],
-    "glance": "The maintainers have declared this roadmap complete. The Layer-1 explicit bounds, the Layer-0 lattice-point engine and the Layer-2 summit, an explicit count of number fields of bounded discriminant, are all proved without sorry. Layer 3 (regulators) has only its rank-zero base case, and the Brauer–Siegel horizon has not begun.",
+    "glance": "Every layer's stated milestones are proved, from the graphon carrier through both representation summits and sampling convergence, and the representation and limit-existence theorems hold on any atomless standard Borel carrier. The graph-specific exchangeable laws now also adapt to a generic relational-law API, as the README requires. What remains is housekeeping.",
     "inherited": false,
-    "path": "Completed/EffectiveBounds/STATUS.md",
-    "progress_path": "Completed/EffectiveBounds/PROGRESS.md",
-    "report_sha": "9171f3faa7eb1081e38d233dc0ea97bf078b2d89fa132eface8765f5d3563425",
-    "to_sha": "315040461dd16f4333a14977d01a661f2c11e50a",
-    "ts": "2026-10-23T17:09:14Z"
+    "path": "Completed/DenseGraphLimits/STATUS.md",
+    "progress_path": "Completed/DenseGraphLimits/PROGRESS.md",
+    "report_sha": "10842ea8536b9f649e554102ff1ad594adaf2247eaf88823c2001a3a65f0ca98",
+    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
+    "ts": "2026-10-25T09:09:58Z"
    },
-   "title": "effective arithmetic bounds and geometry of numbers",
-   "topic": "Number Theory"
+   "title": "dense graph limits and graphons",
+   "topic": "Combinatorics"
+  },
+  {
+   "activity": {
+    "last": "2026-10-27T00:25:19Z",
+    "open": 1,
+    "recent": 90,
+    "since_report": 3,
+    "total": 364,
+    "weekly": [
+     2,
+     14,
+     39,
+     20,
+     34,
+     21,
+     15,
+     11,
+     9,
+     15,
+     37,
+     23,
+     13,
+     41,
+     12,
+     1
+    ]
+   },
+   "arxiv": "math.PR",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/Exchangeability",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8"
+   ],
+   "layer_lines": [
+    275,
+    343,
+    383,
+    444,
+    504,
+    573,
+    636,
+    832,
+    931
+   ],
+   "layers": [
+    "Layer 0: sequence laws, finite marginals, and symmetry notions",
+    "Layer 1: product kernels and mixtures",
+    "Layer 2: process tails and path-space dynamics",
+    "Layer 3: L² averaging library and the standard-Borel de Finetti route",
+    "Layer 4: reverse martingales and conditional-expectation limits",
+    "Layer 5: Koopman operators and invariant σ-algebras",
+    "Layer 6: directing measures and de Finetti representation",
+    "Layer 7: public API and examples",
+    "Layer 8: generalized exchangeability and representation theorems"
+   ],
+   "links": [],
+   "name": "Exchangeability",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/Exchangeability/README.md",
+   "readme_sha": "778c68c43316cb08437ea5f96d30284c70140a43fbc83c1fb228589e1fd2b25a",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Moving general infrastructure to general homes.",
+      "text": "This is the README's parallel ongoing goal. Path laws, tails, block averages, i.i.d. and Markov-chain mixtures, excursions, and the Aldous–Hoover noise and codings now live in general process modules. A sizeable exchangeability directory remains, and the supplied material does not establish how much of it is still symmetry-free infrastructure that should move."
+     }
+    ],
+    "glance": "Every layer is done. The de Finetti–Ryll-Nardzewski summit was reached by all three classical routes, Layer 8 has every representation theorem it names through Aldous–Hoover for jointly exchangeable arrays, and finite de Finetti now also has its total-variation form. What remains is the README's ongoing goal of moving general infrastructure out of the exchangeability namespace, which is well advanced.",
+    "inherited": false,
+    "path": "Completed/Exchangeability/STATUS.md",
+    "progress_path": "Completed/Exchangeability/PROGRESS.md",
+    "report_sha": "2c262be3c7c5872619f7fd0721f94f17799563cda5d649d5e00598cfb87eb6f4",
+    "to_sha": "271e1af4dd54c50b9192cf3e213b7686843a0b3a",
+    "ts": "2026-10-24T23:22:30Z"
+   },
+   "title": "exchangeability and de Finetti",
+   "topic": "Probability"
   },
   {
    "activity": {
@@ -16309,11 +15697,107 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T09:24:12Z",
-    "open": 11,
-    "recent": 199,
-    "since_report": 34,
-    "total": 262,
+    "last": "2026-10-27T01:22:22Z",
+    "open": 2,
+    "recent": 40,
+    "since_report": 2,
+    "total": 40,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     21,
+     17,
+     2
+    ]
+   },
+   "arxiv": "math.LO",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {
+     "Layer 3": "worked example only: the Lw1w sentence for a fixed well-order type"
+    },
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/InfinitaryLogic",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3"
+   ],
+   "layer_lines": [
+    291,
+    403,
+    501,
+    566
+   ],
+   "layers": [
+    "Layer 0: infinitary syntax and semantics",
+    "Layer 1: back-and-forth, potential isomorphism, and Karp's theorem",
+    "Layer 2: internal stabilization",
+    "Layer 3: Scott rank, canonical formulas, and Scott's theorem"
+   ],
+   "links": [],
+   "name": "InfinitaryLogic",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/InfinitaryLogic/README.md",
+   "readme_sha": "1810b7fabae160c3638aef4a092a858f25ee8a5f9beb47e70d6e78464813370c",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "The well-order example",
+      "text": "— write the Lω₁ω sentence whose countable models are exactly the well-orders of a fixed countable order type, a class with no first-order axiomatization. It is the last worked example in the README."
+     },
+     {
+      "name": "Alignment with Mathlib's infinitary syntax",
+      "text": "— the README asks the local syntax to follow the names and shapes in the open mathlib4#42758, and to be replaced by imports if Mathlib takes it up. The supplied material does not show whether that has happened."
+     },
+     {
+      "name": "Beyond v1",
+      "text": "— relationalizing function and constant symbols, and the out-of-scope topics such as López–Escobar and Barwise compactness, belong to separate roadmaps."
+     }
+    ],
+    "glance": "The v1 summit is proved: Scott's isomorphism theorem holds for countable structures in countable relational languages, with no counting hypothesis, and all four layers have every milestone the README names. Only one worked example is still missing: the Lω₁ω sentence for a fixed well-order type.",
+    "inherited": false,
+    "path": "Completed/InfinitaryLogic/STATUS.md",
+    "progress_path": "Completed/InfinitaryLogic/PROGRESS.md",
+    "report_sha": "43d81b736cd7191fee0b84378140cceb69745a4f9a9f130d54f1778dba9424d9",
+    "to_sha": "e8ea0d187d0e20fa24ab5f68cfc27b2d40b876bd",
+    "ts": "2026-10-25T17:19:50Z"
+   },
+   "title": "infinitary syntax, back-and-forth, and Scott analysis",
+   "topic": "Logic"
+  },
+  {
+   "activity": {
+    "last": "2026-10-27T23:38:07Z",
+    "open": 8,
+    "recent": 203,
+    "since_report": 6,
+    "total": 268,
     "weekly": [
      0,
      0,
@@ -16330,7 +15814,7 @@
      68,
      52,
      26,
-     13
+     19
     ]
    },
    "arxiv": "math.NT",
@@ -16383,22 +15867,140 @@
     "frontier": [
      {
       "name": "General dyadic decomposition",
-      "text": "— extend the cyclic and rank-two block results to arbitrary nondegenerate 2-primary quadratic modules; the supplied results do not establish a complete normal form or isometry decision procedure."
+      "text": "— extend the cyclic and rank-two block results to arbitrary nondegenerate 2-primary quadratic modules; no complete normal form or isometry decision procedure is established."
+     },
+     {
+      "name": "Unimodular classification beyond rank nine",
+      "text": "— the neighbour results already identify two-neighbours of `Iₙ` without norm-one vectors as `Dₙ⁺` when `8 ∣ n`, but no classification in rank ten or above, including even rank sixteen, has landed."
+     },
+     {
+      "name": "Local densities at the bad primes",
+      "text": "— densities and their Euler product are established only at primes not dividing `2 det A`; the dyadic density and densities at primes dividing the determinant are not, so no mass formula can yet be assembled."
      },
      {
       "name": "Pinned root-data bridge",
-      "text": "— construct integral lattices directly from Tau Ceti's pinned root data with the Cartan Gram matrices; the completed roadmap permits coordinate constructions for its ADE examples."
+      "text": "— for `E₈` the lattice is now identified with the weight lattice of the pinned root datum, matching isometries with datum automorphisms; no such bridge exists for the other ADE types, whose lattices are still built from coordinates."
      }
     ],
-    "glance": "The five-layer roadmap is complete: the lattice and finite-form APIs support the overlattice correspondence, the ADE discriminant calculations, and the `D₈⁺ ≅ E₈` glue isometry. The broader finite-form classification has partial dyadic results, but no required layer of this roadmap remains partial or untouched.",
+    "glance": "All five layers are done: the lattice and finite-form APIs carry the overlattice correspondence, the ADE discriminant tables, and the `D₈⁺ ≅ E₈` glue isometry. Work beyond the charter now includes the classification of positive definite unimodular lattices up to rank nine and a growing genus theory, while the dyadic normal form for finite quadratic modules and the mass formula remain partial or absent.",
     "inherited": false,
     "path": "Completed/IntegralLattices/STATUS.md",
     "progress_path": "Completed/IntegralLattices/PROGRESS.md",
-    "report_sha": "aae4fae29da63c22fb42267131b3782c6c0adde75ac94242b2addbc12a929634",
-    "to_sha": "d9aa9a97a4bbac408801d24d6faf32e5f3994f62",
-    "ts": "2026-10-20T03:37:01Z"
+    "report_sha": "33d643ffc9d51cbc24a1ea2a8dd0430be59871f43873d46fa8225abcde762cd3",
+    "to_sha": "dd217c4e42e821e7ac02aea4b5c46beb15c7b629",
+    "ts": "2026-10-27T10:39:33Z"
    },
    "title": "integral lattices, discriminant forms, and overlattices",
+   "topic": "Number Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-27T20:02:50Z",
+    "open": 2,
+    "recent": 146,
+    "since_report": 2,
+    "total": 148,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     55,
+     42,
+     39,
+     9,
+     2
+    ]
+   },
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/LocalGaloisGroups",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8"
+   ],
+   "layer_lines": [
+    233,
+    299,
+    367,
+    417,
+    432,
+    447,
+    564,
+    654,
+    1132
+   ],
+   "layers": [
+    "Layer 0: the arithmetic carrier and intrinsic invariants",
+    "Layer 1: local cohomology with trivial coefficients",
+    "Layer 2: inflation from the maximal pro-p quotient",
+    "Layer 3: finite generation and generator ranks of `G_K(p)`",
+    "Layer 4: the Shafarevich-Demushkin dichotomy",
+    "Layer 5: roots of unity, q, and cyclotomic orientation",
+    "Layer 6: arithmetic marked presentations",
+    "Layer 7: exact rank of the full absolute Galois group",
+    "Layer 8: marked arithmetic acceptance instances"
+   ],
+   "links": [],
+   "name": "LocalGaloisGroups",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/LocalGaloisGroups/README.md",
+   "readme_sha": "7588263d1bdf2e57b3150b90956a7a00e4b1ffd5f1f693e2eb616bca730d9e6f",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Explicit generators under finite extensions",
+      "text": ": the finite-extension compatibility places `G_L(p)` inside `G_K(p)` abstractly. It does not say how the marked generators of `G_L(p)` are written in those of `G_K(p)`. The roadmap does not ask for this, but it is the natural next refinement."
+     },
+     {
+      "name": "Retiring the local cyclotomic character",
+      "text": ": the README expects this roadmap's `localCyclotomicCharacter` to be replaced by Tau Ceti's own once the pin moves. That is maintenance, not mathematics."
+     }
+    ],
+    "glance": "Every layer is done. The Shafarevich–Demushkin dichotomy for `G_K(p)` is proved with every marked branch, all three acceptance instances and now functoriality of the marked presentations, and the full `G_K` has exactly `[K:ℚ_p] + 2` topological generators.",
+    "inherited": false,
+    "path": "Completed/LocalGaloisGroups/STATUS.md",
+    "progress_path": "Completed/LocalGaloisGroups/PROGRESS.md",
+    "report_sha": "bc0b14c17634d4309843d945a5d83075ec75bd7c80faaec04d73869a62a08fc1",
+    "to_sha": "e8ea0d187d0e20fa24ab5f68cfc27b2d40b876bd",
+    "ts": "2026-10-25T17:19:50Z"
+   },
+   "title": "local Galois groups of p-adic fields",
    "topic": "Number Theory"
   },
   {
@@ -16493,11 +16095,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-26T00:43:44Z",
-    "open": 1,
-    "recent": 68,
-    "since_report": 0,
-    "total": 170,
+    "last": "2026-10-28T01:27:48Z",
+    "open": 0,
+    "recent": 66,
+    "since_report": 2,
+    "total": 172,
     "weekly": [
      0,
      0,
@@ -16514,7 +16116,7 @@
      10,
      18,
      9,
-     1
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -16604,6 +16206,92 @@
    },
    "title": "number fields, ramification, Frobenius, and the LMFDB invariants",
    "topic": "Number Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-28T01:27:13Z",
+    "open": 2,
+    "recent": 55,
+    "since_report": 8,
+    "total": 218,
+    "weekly": [
+     5,
+     7,
+     10,
+     10,
+     19,
+     12,
+     14,
+     11,
+     5,
+     18,
+     16,
+     20,
+     10,
+     13,
+     4,
+     8
+    ]
+   },
+   "arxiv": "math.FA",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/OneParameterSemigroups",
+   "layer_ids": [
+    "Part A",
+    "Part B",
+    "Part C"
+   ],
+   "layer_lines": [
+    90,
+    162,
+    204
+   ],
+   "layers": [
+    "Part A — Strongly continuous semigroups",
+    "Part B — Completely monotone (and Bernstein) functions",
+    "Part C — Positive-definite functions and Bochner's theorem"
+   ],
+   "links": [],
+   "name": "OneParameterSemigroups",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/OneParameterSemigroups/README.md",
+   "readme_sha": "c9c8211483969fb64a18d8718cf5f1f5024910ea1fce50bd24a1dba61ed2d774",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "README housekeeping",
+      "text": ": the README still describes the LCA stretch of Bochner as not begun, although the theorem is in the library. With every milestone proved, the roadmap is a candidate to be marked complete."
+     },
+     {
+      "name": "Handing the resolvent core across",
+      "text": ": the README gives the scalar generalization of the shared resolvent core to `OperatorTheory/SelfAdjointSpectralTheory`. The core here is stated for topological modules, so that roadmap can consume it directly. Whether that roadmap needs more is for its own report to say."
+     }
+    ],
+    "glance": "All three parts are done. Every named milestone is proved, along with two stretch results, Stone's theorem and Bochner's theorem on locally compact abelian groups. The last open API item, the description of the extreme rays of the completely monotone cone, is now closed in both directions.",
+    "inherited": false,
+    "path": "Completed/OneParameterSemigroups/STATUS.md",
+    "progress_path": "Completed/OneParameterSemigroups/PROGRESS.md",
+    "report_sha": "7dbecaa09bd5f5b0a4c16d21d3abee20826e4be791ea7e5715b9f731d4722e8f",
+    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
+    "ts": "2026-10-25T09:09:58Z"
+   },
+   "title": "one-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "topic": "Functional Analysis"
   },
   {
    "activity": {
@@ -16698,6 +16386,438 @@
    },
    "title": "weighted orthogonal L² bases — completeness, Hilbert-basis structure, and product bases of orthogonal systems",
    "topic": "Classical Analysis and ODEs"
+  },
+  {
+   "activity": {
+    "last": "2026-10-26T18:30:46Z",
+    "open": 0,
+    "recent": 62,
+    "since_report": 4,
+    "total": 120,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     6,
+     8,
+     23,
+     18,
+     36,
+     15,
+     6,
+     3,
+     3
+    ]
+   },
+   "arxiv": "math.NT",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/PolynomialGaloisGroups",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 9"
+   ],
+   "layer_lines": [
+    442,
+    532,
+    653,
+    711,
+    777,
+    1054,
+    1172,
+    1385
+   ],
+   "layers": [
+    "Layer 0: the permutation representation of a polynomial",
+    "Layer 1: permutation groups, blocks, and wreath products",
+    "Layer 2: the dictionary between Galois theory and permutations",
+    "Layer 3: the discriminant and the alternating group",
+    "Layer 4: resolvents",
+    "Layer 5: Frobenius specialization",
+    "Layer 6: transitive subgroups of `Sₙ` for `n ≤ 5`, and the label predicates",
+    "Layer 9: `Sₙ` as a Galois group over `ℚ`"
+   ],
+   "links": [],
+   "name": "PolynomialGaloisGroups",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/PolynomialGaloisGroups/README.md",
+   "readme_sha": "efbe8b472e2c99d671facef21d0b81f188367ebbd2b92d82b859c7bb96263594",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Nothing within the stated scope remains.",
+      "text": "Every milestone of the listed layers is proved. The README puts Hilbert irreducibility, the realization of Aₙ over ℚ, transitive groups in degrees 6 to 11 and Chebotarev density outside this roadmap, so further work would need a new roadmap."
+     },
+     {
+      "name": "Existence of admissible Tschirnhaus transforms",
+      "text": "— the classical statement that over an infinite field some T separates the roots. The README excludes it as a milestone, but it is the natural complement to the transport theorem."
+     },
+     {
+      "name": "Characteristic two",
+      "text": "— the discriminant test is vacuous there, since every monic discriminant is a square. The replacement is Berlekamp's invariant, which the README puts outside this roadmap."
+     }
+    ],
+    "glance": "Every milestone of every listed layer is proved. The summit is Sₙ as a Galois group over ℚ in every degree, and beside it stands the labelled classification of transitive subgroups of Sₙ for n ≤ 5. Recent work has completed the invariants of the label table, most recently the full cycle types of each row, and has made the separability hypothesis on resolvents an explicit piece of evidence.",
+    "inherited": false,
+    "path": "Completed/PolynomialGaloisGroups/STATUS.md",
+    "progress_path": "Completed/PolynomialGaloisGroups/PROGRESS.md",
+    "report_sha": "6b8cb161345acccfef39913ff4bb59c5647dff3cf9c2bb63520b6b0f4c905e2b",
+    "to_sha": "c1c6773446bac0f89a4abc381a38d2ab43040bc5",
+    "ts": "2026-10-21T00:36:19Z"
+   },
+   "title": "Galois groups of polynomials",
+   "topic": "Number Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-27T21:16:51Z",
+    "open": 0,
+    "recent": 42,
+    "since_report": 1,
+    "total": 42,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     30,
+     9,
+     0,
+     2,
+     1
+    ]
+   },
+   "arxiv": "math.GR",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/ProfiniteArithmetic",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3"
+   ],
+   "layer_lines": [
+    223,
+    334,
+    441,
+    580
+   ],
+   "layers": [
+    "Layer 0: the ring structure on the profinite integers",
+    "Layer 1: profinite powers and `ℤ_ℓ`-powers",
+    "Layer 2: continuous automorphisms and outer automorphisms",
+    "Layer 3: the closed lower central series and its graded Lie ring"
+   ],
+   "links": [],
+   "name": "ProfiniteArithmetic",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/ProfiniteArithmetic/README.md",
+   "readme_sha": "d39ac99916970d18d8c85c45583342544e116f2ed5b09386c8cbcff36e3e903b",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "Nothing on this roadmap remains open.",
+      "text": "Every milestone the README lists for Layers 0 to 3 is proved. The next work belongs to the consumers the README names, PeripheralActions, BelyiMaps, ProfiniteProPGroups and LocalFieldsRamification, which can now use the outer action, the `ẑ`-power and the graded Lie algebra by name."
+     },
+     {
+      "name": "Higher degrees for free pro-`p` groups",
+      "text": "— the README stops at degree one. Identifying `gr_k` of a free pro-`p` group beyond that, as the free Lie algebra over `ℤ_p`, is not a milestone here, and nothing for it is established in this roadmap's material."
+     }
+    ],
+    "glance": "All four layers are done. They cover the ring `ẑ` with its decomposition and units, the profinite and `ℓ`-adic powers, continuous automorphisms with the congruence topology and the outer action of an extension, and the graded `ℤ_p`-Lie algebra of the closed lower central series with free pro-`p` bases in degrees zero and one. The README's worked examples are now essentially all in as well.",
+    "inherited": false,
+    "path": "Completed/ProfiniteArithmetic/STATUS.md",
+    "progress_path": "Completed/ProfiniteArithmetic/PROGRESS.md",
+    "report_sha": "9e917d27cb5f5d5ad86d5f41285566d5400be9f022762208f12a731473dde70f",
+    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
+    "ts": "2026-10-25T09:09:58Z"
+   },
+   "title": "profinite integers, profinite powers, and continuous automorphisms",
+   "topic": "Group Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-27T23:39:44Z",
+    "open": 1,
+    "recent": 169,
+    "since_report": 2,
+    "total": 306,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     3,
+     4,
+     10,
+     16,
+     96,
+     125,
+     31,
+     14,
+     5,
+     2
+    ]
+   },
+   "arxiv": "math.GR",
+   "assessment": {
+    "detail": "the README changed after this report, so these states assess it as it was then",
+    "notes": {},
+    "readme_changed": true,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/ProfiniteProPGroups",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8",
+    "Layer 9 prerequisites",
+    "Layer 9",
+    "Layer 10"
+   ],
+   "layer_lines": [
+    131,
+    185,
+    251,
+    312,
+    535,
+    684,
+    1010,
+    1182,
+    1407,
+    1656,
+    1979,
+    2115
+   ],
+   "layers": [
+    "Layer 0: profinite foundations",
+    "Layer 1: supernatural order and index",
+    "Layer 2: profinite Sylow theory",
+    "Layer 3: pro-`p` groups, the maximal pro-`p` quotient, Frattini theory, generation",
+    "Layer 4: free pro-`p` and pro-`C` groups on finite sets",
+    "Layer 5: presentations, extensions, and the rank interpretations",
+    "Layer 6: cohomological dimension of pro-`p` groups",
+    "Layer 7: Demushkin groups, their invariants, and the orientation",
+    "Layer 8: the central-tower comparison method and finite-quotient determinacy",
+    "Layer 9 prerequisites: two owned inputs",
+    "Layer 9: the classification of Demushkin groups",
+    "Layer 10: free pro-`C` groups on profinite spaces"
+   ],
+   "links": [],
+   "name": "ProfiniteProPGroups",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/ProfiniteProPGroups/README.md",
+   "readme_sha": "26d57319c40755472495eb91bf66cbe4f0613a67f0d86f41e0d3debd45c1fdc0",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "No named milestone remains open.",
+      "text": "Every layer's statements are proved in the library."
+     },
+     {
+      "name": "Labute's factorizations are unused by the classification",
+      "text": "— Theorems 5 and 6 were proved by constrained successive approximation. The factorizations of the relator class, now extended to `2`-adic exponents in the `{±1} × U^(f)` branch, complete the README's planned route but are not used anywhere else in the library."
+     },
+     {
+      "name": "Consumers downstream",
+      "text": "— `LocalGaloisGroups` named the pro-`p` kernel theorem and lifting along an extension class as its inputs. Both exist, as does the continuous splitting of pro-`p` extensions over free pro-`p` groups with prescribed values on generators."
+     }
+    ],
+    "glance": "Every layer is done. The summit, the classification of Demushkin groups, is proved in every case and is now stated as an equivalence. Recent work adds consequences and supporting theory around a finished roadmap and opens no new targets.",
+    "inherited": false,
+    "path": "Completed/ProfiniteProPGroups/STATUS.md",
+    "progress_path": "Completed/ProfiniteProPGroups/PROGRESS.md",
+    "report_sha": "a1675bac50eedbfa6e38eb9e72eb5ccb7ad8639487d5f445bbe5ca808b54607b",
+    "to_sha": "69cd1ab4dcfbb6676e344f3f193e63473eab5a3d",
+    "ts": "2026-10-25T14:11:34Z"
+   },
+   "title": "profinite and pro-`p` groups",
+   "topic": "Group Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-27T23:37:31Z",
+    "open": 7,
+    "recent": 255,
+    "since_report": 23,
+    "total": 263,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     5,
+     53,
+     102,
+     41,
+     40,
+     22
+    ]
+   },
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "ok",
+    "remaining": {},
+    "source": "marker"
+   },
+   "completed": true,
+   "id": "Completed/RealAlgebraicGeometry",
+   "layer_ids": [
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8"
+   ],
+   "layer_lines": [
+    128,
+    231,
+    298,
+    341,
+    374,
+    437,
+    479,
+    646
+   ],
+   "layers": [
+    "Layer 1: univariate real algebra",
+    "Layer 2: subresultants",
+    "Layer 3: sign determination and semialgebraic descriptions",
+    "Layer 4: roots in continuous families",
+    "Layer 5: Collins delineability and stacks",
+    "Layer 6: CAD and quantifier elimination",
+    "Layer 7: analytic preparation and McCallum projection",
+    "Layer 8: Lazard evaluation and projection"
+   ],
+   "links": [],
+   "name": "RealAlgebraicGeometry",
+   "parent": null,
+   "parent_id": null,
+   "readme": "Completed/RealAlgebraicGeometry/README.md",
+   "readme_sha": "90042ab5929cc7307e694c618e30bb9ee0d4d4e79b5e3c9c7bb1cc88f9567e24",
+   "retired": null,
+   "states": [
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done",
+    "done"
+   ],
+   "status": {
+    "frontier": [
+     {
+      "name": "No README milestone remains open.",
+      "text": "Every layer's targets are proved in the library. By the README's own scope choice, the topological and CAD results stay over `ℝ` rather than an arbitrary real closed field."
+     },
+     {
+      "name": "Lazard's theorem in the native coordinate order",
+      "text": ": optional. The validity theorem reads the Lazard valuation with the coordinates reversed. This matches how Lazard evaluation treats them during the recursion, and since Lazard valuation is not invariant under permuting coordinates, the order is part of the statement."
+     }
+    ],
+    "glance": "All eight layers are done. Over `ℝ` the roadmap has the full Collins route to CAD and unconditional quantifier elimination. It also has McCallum's order-invariant projection under well-orientedness, and Lazard's valuation-invariant projection, which needs no such hypothesis.",
+    "inherited": false,
+    "path": "Completed/RealAlgebraicGeometry/STATUS.md",
+    "progress_path": "Completed/RealAlgebraicGeometry/PROGRESS.md",
+    "report_sha": "50897c2c4163be13360e02856df39e1b1b9bd5db2552df5e013340379270ffb8",
+    "to_sha": "d96e9ceca01f4548b817649c5ae95e33c6fc3ae4",
+    "ts": "2026-10-25T09:09:58Z"
+   },
+   "title": "Real algebraic geometry: sign determination and cylindrical decomposition",
+   "topic": "Algebraic Geometry"
   },
   {
    "activity": {
@@ -16801,7 +16921,7 @@
    "activity": {
     "last": "2026-10-22T06:28:09Z",
     "open": 0,
-    "recent": 16,
+    "recent": 13,
     "since_report": 0,
     "total": 129,
     "weekly": [
