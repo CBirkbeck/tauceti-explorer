@@ -539,13 +539,14 @@
     "GlobalGaloisDeformations": {
       "stage": "pr",
       "pr": 920,
-      "head": "b0adf32",
+      "head": "c3a764e",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next)",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at c3a764e; confirmation pass pending"
       }
     },
     "ClassicalArithmeticCompletion": {
