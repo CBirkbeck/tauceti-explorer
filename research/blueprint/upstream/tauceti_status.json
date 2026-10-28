@@ -151,12 +151,13 @@
         818
       ],
       "note": "ChatGPT Pro N3 APPROVE 10-16 (two non-blocking suggestions); ready",
-      "head": "193b217",
+      "head": "b251000",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": ""
+        "maintainer": "",
+        "note": "final-review repairs applied at b251000; confirmation pass pending"
       }
     },
     "ComplexComparisonPartII": {
