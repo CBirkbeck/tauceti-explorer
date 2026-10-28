@@ -357,7 +357,7 @@
     "DerivedDeRhamCohomology": {
       "stage": "pr",
       "pr": 868,
-      "head": "ca8f0e8",
+      "head": "e0b83c0",
       "depends_on": [
         857,
         818,
@@ -369,7 +369,8 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at e0b83c0; confirmation pass pending"
       }
     },
     "SelmerIwasawaCohomology": {
