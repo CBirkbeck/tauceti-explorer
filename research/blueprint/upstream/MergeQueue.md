@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T08:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T09:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -80,11 +80,11 @@ Generated 2026-10-28T08:50Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
 
 ## Wave 12
-- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #1312, #785, #792, #849, #248
+- #856 ArithmeticGaloisRepresentations — draft; waits on #1312, #785, #792, #849, #248
 - #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1630, #785, #792, #1142
 
 ## Wave 13
-- #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #1312, #1630, #792, #816, #849, #853, #856, #940
+- #858 ArithmeticGaloisDuality — draft; waits on #1306, #1307, #1312, #1630, #792, #816, #849, #853, #856, #940
 - #1037 AutomorphicFormsOnReductiveGroups — ready (approved at an earlier head); waits on #785, #792, #856, #871, #1015, #1145, #934
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
 
