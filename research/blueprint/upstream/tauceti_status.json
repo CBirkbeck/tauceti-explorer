@@ -606,13 +606,14 @@
     "DiamondSixOperations": {
       "stage": "pr",
       "pr": 927,
-      "head": "ac2b810",
+      "head": "f893965",
       "note": "N4 CHANGES answered 10-16",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at f893965; confirmation pass pending"
       },
       "maintainer": "READY FOR APPROVAL 2026-10-16 (roed-math); S6.3 noetherian correction applied at f9bb79c"
     },
