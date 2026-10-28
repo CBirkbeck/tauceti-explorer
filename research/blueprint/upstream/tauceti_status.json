@@ -1503,13 +1503,14 @@
     "StableHomotopyKTheory": {
       "stage": "pr",
       "pr": 1227,
-      "head": "0448ae2",
+      "head": "1475fb2",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": false,
-        "maintainer": "CHANGES_REQUESTED"
+        "maintainer": "CHANGES_REQUESTED",
+        "note": "final-review repairs applied at 1475fb2; confirmation pass pending"
       }
     },
     "SchemeKTheoryOperations": {
