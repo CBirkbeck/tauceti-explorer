@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-28T09:40Z",
+  "updated": "2026-10-28T10:00Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -130,7 +130,7 @@
       "review": {
         "recommendation": "changes",
         "current": false,
-        "draft": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -298,7 +298,7 @@
     "ArithmeticGaloisRepresentations": {
       "stage": "pr",
       "pr": 856,
-      "head": "be6fbd1",
+      "head": "3e99d0d",
       "depends_on": [
         789,
         785
@@ -306,10 +306,9 @@
       "note": "N1 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at be6fbd1; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "CrystallineCohomology": {
@@ -340,7 +339,7 @@
     "ArithmeticGaloisDuality": {
       "stage": "pr",
       "pr": 858,
-      "head": "1510b10",
+      "head": "0f301e0",
       "depends_on": [
         779,
         856,
@@ -352,9 +351,10 @@
       "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 0f301e0; confirmation pass pending"
       }
     },
     "DerivedDeRhamCohomology": {
