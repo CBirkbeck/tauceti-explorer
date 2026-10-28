@@ -431,16 +431,17 @@
     "DeformationAndDerivedPatchingAlgebraPartII": {
       "stage": "pr",
       "pr": 872,
-      "head": "ec57b2b",
+      "head": "3b9100e",
       "depends_on": [
         779
       ],
       "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 3b9100e; confirmation pass pending"
       }
     },
     "LefschetzPencilsAndVanishingCycles": {
