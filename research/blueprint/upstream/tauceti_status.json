@@ -1129,13 +1129,14 @@
     "PrismaticCohomologyPartII": {
       "stage": "pr",
       "pr": 1065,
-      "head": "2a6d228",
+      "head": "45495a1",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
       "review": {
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 45495a1; confirmation pass pending"
       }
     },
     "AutomorphicBundles": {
