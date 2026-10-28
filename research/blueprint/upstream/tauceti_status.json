@@ -246,7 +246,7 @@
     "AlgebraicModuliForArithmeticGeometry": {
       "stage": "pr",
       "pr": 853,
-      "head": "cb5236f",
+      "head": "fddc35f",
       "depends_on": [
         779,
         785,
@@ -256,9 +256,10 @@
       "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at fddc35f; confirmation pass pending"
       }
     },
     "LocallyAnalyticDistributions": {
