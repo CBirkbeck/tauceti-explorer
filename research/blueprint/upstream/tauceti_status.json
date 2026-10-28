@@ -447,7 +447,7 @@
     "LefschetzPencilsAndVanishingCycles": {
       "stage": "pr",
       "pr": 873,
-      "head": "8f3e9b1",
+      "head": "dbf5ba2",
       "depends_on": [
         779,
         792,
@@ -462,9 +462,10 @@
       "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at dbf5ba2; confirmation pass pending"
       },
       "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 469a2c2 (§5.11 profinite degree, continuous powers); ready for re-review"
     },
