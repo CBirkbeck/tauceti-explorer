@@ -471,7 +471,7 @@
     "ClassicalAdicEtaleCohomology": {
       "stage": "pr",
       "pr": 875,
-      "head": "dfcb6b7",
+      "head": "d99fe53",
       "depends_on": [
         817,
         813,
@@ -488,9 +488,10 @@
       "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at d99fe53; confirmation pass pending"
       }
     },
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
