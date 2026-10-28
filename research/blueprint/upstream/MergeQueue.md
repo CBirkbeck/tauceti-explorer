@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T06:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T07:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -68,7 +68,7 @@ Generated 2026-10-28T06:50Z from the README supplier graph of every open pull re
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 9
-- #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #1630, #848, #853, #857
+- #849 AbelianSchemesAndArithmeticModuli — draft; waits on #1630, #848, #853, #857
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #1312, #785, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285, #223, #973
@@ -89,13 +89,13 @@ Generated 2026-10-28T06:50Z from the README supplier graph of every open pull re
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
 
 ## Wave 14
-- #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #1199, #1630, #785, #792, #848, #849, #853, #856, #858
-- #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #1212, #1630, #785, #792, #858, #1142, #1287, #248, #417
+- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1199, #1630, #785, #792, #848, #849, #853, #856, #858
+- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1630, #785, #792, #858, #1142, #1287, #248, #417
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #785, #849, #856, #857, #858, #868, #940
 
 ## Wave 15
-- #852 NeronModelsAndSemistableAbelianVarieties — ready (approved at an earlier head); waits on #1307, #785, #848, #849, #850, #853, #856, #857, #879, #940
+- #852 NeronModelsAndSemistableAbelianVarieties — draft; waits on #1307, #785, #848, #849, #850, #853, #856, #857, #879, #940
 - #1034 DeformationAndDerivedPatchingAlgebra — ready (approved at an earlier head); waits on #1312, #1630, #785, #858, #872
 - #1154 InductionRestrictionPartII — ready (approved at an earlier head); waits on #850
 - #1266 HermitianKTheoryOfPoincareCategories — ready (approved at an earlier head); waits on #1212, #1630, #851
