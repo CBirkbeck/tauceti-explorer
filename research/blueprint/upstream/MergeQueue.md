@@ -55,31 +55,23 @@ Generated with the SVG (2026-10-28T14:50Z). A wave can merge once every wave bel
 - DiamondSixOperations: PR #927 — ready; external prerequisites #816
 - GlobalGaloisDeformations: PR #920 — draft; external prerequisites #1310, #1312
 - LocalGaloisDeformationRings: PR #923 — ready; external prerequisites #1310, #1312
+- ModularCurvesPartII: PR #913 — draft; external prerequisites #1225
 - ShimuraData: PR #1038 — ready
 
 ## Wave 14
-- AdicCoefficientsAndComparisons: PR #965 — ready
-- ClassicalAdicEtaleCohomology: PR #875 — draft
-- EtaleDualityAndPerverseSheaves: PR #1040 — ready
-- LefschetzPencilsAndVanishingCycles: PR #873 — draft
-
-## Wave 15
-- ModularCurvesPartII: PR #913 — draft; external prerequisites #1225
-
-## Wave 16
 - AlgebraicModularFormsAndSerreWeights: PR #928 — ready
 - DeligneWeightsAndPurity: PR #929 — ready
+- PELModuli: PR #966 — ready
+- ShimuraVarieties: PR #933 — ready
 
-## Wave 17
+## Wave 15
 - AutomorphicLFunctionsAndLocalFactors: PR #924 — draft; external prerequisites #248, #253
-- PadicDifferentialEquationsAndRigidCohomology: PR #1002 — ready; external prerequisites #1307, #1313, #1504, #940
-
-## Wave 18
-- AutomorphicSpectralTheory: PR #925 — draft; external prerequisites #1027, #248, #889
+- CompletedCohomologyPartII: PR #1035 — ready; external prerequisites #1307, #1312
 - WeightsInEtaleCohomology: PR #1001 — ready; external prerequisites #940
 
-## Wave 19
+## Wave 16
 - AInfCohomology: PR #1044 — ready; external prerequisites #942, #1307, #1310, #1312, #1313, #816, #940
+- AutomorphicSpectralTheory: PR #925 — draft; external prerequisites #1027, #248, #889
 - PadicHodgeTheory: PR #1062 — ready; external prerequisites #942, #1307, #1310, #1312, #1313, #816, #940
 - PerfectoidQuotients: PR #1042 — ready; external prerequisites #942, #1307, #1310, #1312, #1313, #816, #940
 - PrismaticCohomology: PR #1057 — ready; external prerequisites #942, #1307, #1310, #1312, #1313, #816, #940
@@ -87,66 +79,68 @@ Generated with the SVG (2026-10-28T14:50Z). A wave can merge once every wave bel
 - PrismaticCohomologyPartIII: PR #1070 — ready; external prerequisites #942, #1307, #1310, #1312, #1313, #816, #940
 - PrismaticCohomologyPartIV: PR #1080 — ready; external prerequisites #942, #1307, #1310, #1312, #1313, #816, #940
 
-## Wave 20
-- ColemanIntegration: PR #1043 — ready; external prerequisites #1306, #1320, #1430, #1470
-- DirichletPadicLFunctions: PR #1039 — ready; external prerequisites #1306, #1320, #1430, #1470
-- FarguesFontaineDiamonds: PR #964 — ready
-
-## Wave 21
-- EndoscopicTransferAndUnitaryTraceComparison: PR #999 — ready
-
-## Wave 22
-- GL2AutomorphicRepresentationsAndTransfer: PR #931 — ready; external prerequisites #934, #1312
-
-## Wave 23
-- PELModuli: PR #966 — ready
-- ShimuraVarieties: PR #933 — ready
-
-## Wave 24
-- CompletedCohomologyPartII: PR #1035 — ready; external prerequisites #1307, #1312
-
-## Wave 25
+## Wave 17
 - CohomologyComparisons: PR #1064 — ready; external prerequisites #940
+- FarguesFontaineDiamonds: PR #964 — ready
 - HilbertModularVarietiesAndShimuraCurves: PR #1005 — ready; external prerequisites #934
 
-## Wave 26
+## Wave 18
 - AutomorphicBundles: PR #1069 — ready; external prerequisites #816, #940
-- GL2ModularityLifting: PR #1071 — ready; external prerequisites #451
 - ShimuraCompactifications: PR #1053 — ready; external prerequisites #816, #940
 
-## Wave 27
+## Wave 19
+- EndoscopicTransferAndUnitaryTraceComparison: PR #999 — ready
+
+## Wave 20
+- GL2AutomorphicRepresentationsAndTransfer: PR #931 — ready; external prerequisites #934, #1312
+
+## Wave 21
+- AdicCoefficientsAndComparisons: PR #965 — ready
+- ClassicalAdicEtaleCohomology: PR #875 — draft
+- EtaleDualityAndPerverseSheaves: PR #1040 — ready
+- LefschetzPencilsAndVanishingCycles: PR #873 — draft
+
+## Wave 22
+- HodgeTateAndCanonicalSubgroups: PR #1084 — ready
+- PadicDifferentialEquationsAndRigidCohomology: PR #1002 — ready; external prerequisites #1307, #1313, #1504, #940
+
+## Wave 23
 - ArakelovGeometryAndAbelianHeights: PR #1000 — ready
 - AutomorphicGaloisRepresentationsPartII: PR #1006 — draft; external prerequisites #1202, #1205, #1230, #1235, #1310, #940
-- HodgeTateAndCanonicalSubgroups: PR #1084 — ready
-
-## Wave 28
-- FaltingsFinitenessAndIsogenyTheorems: PR #1004 — ready; external prerequisites #1225, #1405, #940
+- ColemanIntegration: PR #1043 — ready; external prerequisites #1306, #1320, #1430, #1470
+- DirichletPadicLFunctions: PR #1039 — ready; external prerequisites #1306, #1320, #1430, #1470
 - PerfectoidShimuraVarieties: PR #1085 — ready; external prerequisites #816
-- PotentialModularityAndCompatibleSystems: PR #1075 — ready
 
-## Wave 29
-- ClassicalSerreModularity: PR #1020 — ready
+## Wave 24
+- FaltingsFinitenessAndIsogenyTheorems: PR #1004 — ready; external prerequisites #1225, #1405, #940
+- GL2ModularityLifting: PR #1071 — ready; external prerequisites #451
 - TorsionCohomologyInfrastructure: PR #1087 — ready
 
-## Wave 30
+## Wave 25
 - IgusaVarietiesAndTorsionConcentration: PR #1090 — ready; external prerequisites #1235
+- PotentialModularityAndCompatibleSystems: PR #1075 — ready
+
+## Wave 26
+- ClassicalSerreModularity: PR #1020 — ready
+
+## Wave 27
 - OrdinaryAutomorphicFormsAndModularityLifting: PR #1066 — ready
 
-## Wave 31
+## Wave 28
 - SmallRamificationAndAbelianVarietyBaseCases: PR #970 — ready; external prerequisites #248
 
-## Wave 32
+## Wave 29
 - AutomorphicGaloisRepresentations: PR #1007 — ready; external prerequisites #934, #1306, #940
 
-## Wave 33
+## Wave 30
 - SerreWeightAndLevelOptimisation: PR #1013 — ready; external prerequisites #1306
 
-## Wave 34
+## Wave 31
 - EllipticCurveModularity: PR #1018 — ready
 - ModularSymbolsPadicLFunctions: PR #968 — ready; external prerequisites #934, #1306, #1307, #940
 - PadicFamilies: PR #1019 — ready; external prerequisites #934, #1306, #1307, #940
 
-## Wave 35
+## Wave 32
 - AnalyticNumberTheoryPartI: PR #1126 — ready; external prerequisites #248, #253, #889, #992, #1154, #1225, #1472
 - AnalyticNumberTheoryPartII: PR #1167 — ready; external prerequisites #248, #253, #889, #992, #1154, #1225, #1472
 - ArithmeticStatisticsPartI: PR #1171 — ready; external prerequisites #248, #253, #889, #992, #1154, #1225, #1472
@@ -159,18 +153,18 @@ Generated with the SVG (2026-10-28T14:50Z). A wave can merge once every wave bel
 - ArithmeticStatisticsPartVIII: PR #1179 — ready; external prerequisites #248, #253, #889, #992, #1154, #1225, #1472
 - PotentialAutomorphyInfrastructure: PR #1081 — ready
 
-## Wave 36
+## Wave 33
 - CrystallineLocalGlobalCompatibilityCM: PR #1182 — ready
 - HeightsRationalPointsAndObstructions: PR #1017 — ready
 
-## Wave 37
+## Wave 34
 - AnabelianGeometryAndNonabelianChabauty: PR #1021 — ready; external prerequisites #1313, #940
 
-## Wave 38
+## Wave 35
 - EffectiveDiophantineMethods: PR #1046 — ready
 
-## Wave 39
+## Wave 36
 - EllipticCurveModularityImaginaryQuadratic: PR #1048 — ready
 
-## Wave 40
+## Wave 37
 - ModularityAndLanglandsExtensions: PR #1180 — ready; external prerequisites #1036, #1063, #1202
