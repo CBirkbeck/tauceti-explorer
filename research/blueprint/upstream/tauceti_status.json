@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-28T20:40Z",
+  "updated": "2026-10-28T22:40Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -54,10 +54,9 @@
       "head": "6008aed",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 6008aed; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
@@ -122,8 +121,7 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 2fa7064; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "PerfectoidSpaces": {
@@ -166,8 +164,7 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 06c89e2; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "AbelianSchemesAndArithmeticModuli": {
@@ -184,8 +181,7 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 21a8758; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "InverseGaloisAndArithmeticFundamentalGroups": {
@@ -203,8 +199,7 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 5ae28d2; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "GeometryOfNumbersAndQuadraticArithmetic": {
@@ -220,8 +215,7 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at cd2b780; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "NeronModelsAndSemistableAbelianVarieties": {
@@ -236,9 +230,8 @@
       "review": {
         "recommendation": "approve",
         "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 12643b0; confirmation pass pending"
+        "draft": true,
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "AlgebraicModuliForArithmeticGeometry": {
@@ -256,14 +249,13 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 959c641; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "LocallyAnalyticDistributions": {
       "stage": "pr",
       "pr": 854,
-      "head": "0441e08",
+      "head": "5126fe0",
       "depends_on": [
         780,
         813,
@@ -272,8 +264,8 @@
       "note": "N1 CHANGES answered 10-16",
       "review": {
         "recommendation": "approve",
-        "current": true,
-        "draft": false,
+        "current": false,
+        "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -304,15 +296,16 @@
       "note": "N1 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "approve",
-        "current": true,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "current": false,
+        "draft": true,
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 682bd29; confirmation pass pending"
       }
     },
     "CrystallineCohomology": {
       "stage": "pr",
       "pr": 857,
-      "head": "a4d676d",
+      "head": "6ab379a",
       "depends_on": [
         779,
         789,
@@ -328,9 +321,9 @@
       ],
       "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
         "current": false,
-        "draft": false,
+        "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -348,8 +341,8 @@
       ],
       "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
       "review": {
-        "recommendation": "approve",
-        "current": false,
+        "recommendation": "changes",
+        "current": true,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
