@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T10:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T10:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -32,7 +32,7 @@ Generated 2026-10-28T10:20Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #785 ReductiveGroupsPartII — ready; waits on #1630, #447
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
+- #820 DiamondsAndVStacks — ready; waits on #1199
 - #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
@@ -77,7 +77,7 @@ Generated 2026-10-28T10:20Z from the README supplier graph of every open pull re
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 
 ## Wave 11
-- #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #934
+- #792 AdelicAlgebraicGroups — ready; waits on #785, #248, #934
 
 ## Wave 12
 - #856 ArithmeticGaloisRepresentations — draft; waits on #1312, #785, #792, #849, #248
