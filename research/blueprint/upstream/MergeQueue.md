@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T05:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T06:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -32,14 +32,14 @@ Generated 2026-10-28T05:50Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #785 ReductiveGroupsPartII — ready; waits on #1630, #447
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199
+- #820 DiamondsAndVStacks — draft; waits on #1199
 - #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
 - #1287 HomotopySpheres (kim-em, other author)
 
 ## Wave 3
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
+- #816 PerfectoidTowers — draft; waits on #820
 - #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #785, #248, #451
 - #1486 QuiverRepresentationsPartII — draft; waits on #785
@@ -62,7 +62,7 @@ Generated 2026-10-28T05:50Z from the README supplier graph of every open pull re
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 8
-- #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1199, #1630, #853, #857, #868, #1056, #887, #973, #992
+- #848 ComplexComparisonPartII — draft; waits on #1199, #1630, #853, #857, #868, #1056, #887, #973, #992
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #1630, #853, #1142
 - #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310, #785, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
@@ -77,7 +77,7 @@ Generated 2026-10-28T05:50Z from the README supplier graph of every open pull re
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 
 ## Wave 11
-- #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #934
+- #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
 
 ## Wave 12
 - #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #1312, #785, #792, #849, #248
