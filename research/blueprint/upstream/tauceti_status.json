@@ -721,13 +721,14 @@
     "ModularSymbolsPadicLFunctions": {
       "stage": "pr",
       "pr": 968,
-      "head": "62f31bc",
+      "head": "7ddb09f",
       "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at bf4b921",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 7ddb09f; confirmation pass pending"
       }
     },
     "SmallRamificationAndAbelianVarietyBaseCases": {
