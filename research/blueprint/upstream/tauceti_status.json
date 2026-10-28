@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-28T13:50Z",
+ "updated": "2026-10-28T14:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -63,7 +63,7 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": ""
    }
   },
@@ -128,7 +128,7 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -188,7 +188,7 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -556,7 +556,7 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at ee31f87 (C8.48a relative tautness; §§0.1–0.4 from EnhancedDerivedSheaves); ready for re-review"
@@ -581,7 +581,7 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -593,7 +593,7 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 5ad7671 (§§7.0a–7.0c cyclic transfer; §§7.1a–7.1d quantitative/auxiliary targets); ready for re-review"
