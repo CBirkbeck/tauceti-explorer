@@ -11,28 +11,28 @@ Generated with the SVG (2026-10-28T20:40Z). A wave can merge once every wave bel
 
 ## Wave 2
 - AdelicAlgebraicGroups: PR #792 — draft; external prerequisites #248, #934
-- ComplexComparisonPartII: PR #848 — draft; external prerequisites #1056, #887, #973, #992, #1199, #1701
+- AlgebraicModuliForArithmeticGeometry: PR #853 — draft; external prerequisites #1199, #1701
 - IntegralHeckeAndGaloisDeterminants: PR #785 — draft; external prerequisites #1701
 
 ## Wave 3
-- InverseGaloisAndArithmeticFundamentalGroups: PR #850 — draft; external prerequisites #1199
+- ComplexComparisonPartII: PR #848 — draft; external prerequisites #1056, #887, #973, #992, #1199, #1701
 
 ## Wave 4
-- ArithmeticGaloisRepresentations: PR #856 — ready; external prerequisites #248, #1312
+- AbelianSchemesAndArithmeticModuli: PR #849 — draft
 
 ## Wave 5
+- InverseGaloisAndArithmeticFundamentalGroups: PR #850 — draft; external prerequisites #1199
+
+## Wave 6
+- ArithmeticGaloisRepresentations: PR #856 — ready; external prerequisites #248, #1312
+
+## Wave 7
 - CrystallineCohomology: PR #857 — ready; external prerequisites #1701, #940
 - DerivedDeRhamCohomology: PR #868 — draft; external prerequisites #1701, #940
 
-## Wave 6
-- AlgebraicModuliForArithmeticGeometry: PR #853 — draft; external prerequisites #1199, #1701
-- LocallyAnalyticDistributions: PR #854 — ready; external prerequisites #1310, #1312
-
-## Wave 7
-- AbelianSchemesAndArithmeticModuli: PR #849 — draft
-
 ## Wave 8
 - FiniteFlatGroupsAndIntegralPadicHodgeTheory: PR #879 — draft; external prerequisites #1260, #1307, #1312, #1701, #940
+- LocallyAnalyticDistributions: PR #854 — ready; external prerequisites #1310, #1312
 
 ## Wave 9
 - NeronModelsAndSemistableAbelianVarieties: PR #852 — ready; external prerequisites #1307, #940
