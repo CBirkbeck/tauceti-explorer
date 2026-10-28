@@ -628,13 +628,14 @@
     "DeligneWeightsAndPurity": {
       "stage": "pr",
       "pr": 929,
-      "head": "6c2402d",
+      "head": "87323d1",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex)",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 87323d1; confirmation pass pending"
       }
     },
     "GL2AutomorphicRepresentationsAndTransfer": {
