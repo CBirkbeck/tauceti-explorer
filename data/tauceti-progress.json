@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-28T06:35:21Z",
- "exported_at": "2026-10-28T06:35:21Z",
+ "cutoff": "2026-10-28T18:22:58Z",
+ "exported_at": "2026-10-28T18:22:58Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 715,
-  "recent": 11250,
-  "total": 19931,
+  "open": 728,
+  "recent": 11358,
+  "total": 20151,
   "unattributed": {
-   "no_label": 1667,
+   "no_label": 1673,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,17 +28,17 @@
    2827,
    3120,
    2319,
-   806
+   1026
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "4d14cbd5ba21a1804ca78c9989b9ea485bcfad08",
+ "roadmap_head": "2b363a2b5643eed47f0cf2ed7ffcc85141b79af4",
  "rows": [
   {
    "activity": {
     "last": "2026-10-28T01:41:32Z",
-    "open": 0,
+    "open": 1,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -109,11 +109,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T21:15:41Z",
+    "last": "2026-10-28T13:12:08Z",
     "open": 4,
-    "recent": 16,
-    "since_report": 5,
-    "total": 16,
+    "recent": 17,
+    "since_report": 6,
+    "total": 17,
     "weekly": [
      0,
      0,
@@ -130,7 +130,7 @@
      0,
      0,
      11,
-     5
+     6
     ]
    },
    "arxiv": "math.AG",
@@ -221,7 +221,7 @@
   {
    "activity": {
     "last": "2026-10-27T21:15:16Z",
-    "open": 3,
+    "open": 4,
     "recent": 25,
     "since_report": 3,
     "total": 25,
@@ -317,7 +317,7 @@
   {
    "activity": {
     "last": "2026-10-27T21:11:48Z",
-    "open": 2,
+    "open": 3,
     "recent": 3,
     "since_report": null,
     "total": 3,
@@ -384,11 +384,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T17:51:02Z",
+    "last": "2026-10-28T12:14:27Z",
     "open": 7,
-    "recent": 12,
-    "since_report": 7,
-    "total": 12,
+    "recent": 15,
+    "since_report": 10,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -405,7 +405,7 @@
      0,
      0,
      7,
-     5
+     8
     ]
    },
    "arxiv": "math.AG",
@@ -484,11 +484,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:13:23Z",
+    "last": "2026-10-28T16:33:28Z",
     "open": 2,
-    "recent": 23,
-    "since_report": 4,
-    "total": 23,
+    "recent": 24,
+    "since_report": 5,
+    "total": 24,
     "weekly": [
      0,
      0,
@@ -505,7 +505,7 @@
      0,
      0,
      19,
-     4
+     5
     ]
    },
    "arxiv": "math.RT",
@@ -566,11 +566,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T14:10:25Z",
+    "last": "2026-10-28T06:55:26Z",
     "open": 4,
-    "recent": 20,
-    "since_report": 3,
-    "total": 20,
+    "recent": 21,
+    "since_report": 4,
+    "total": 21,
     "weekly": [
      0,
      0,
@@ -587,7 +587,7 @@
      0,
      7,
      10,
-     3
+     4
     ]
    },
    "arxiv": "math.CV",
@@ -648,11 +648,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:07:10Z",
-    "open": 4,
-    "recent": 226,
-    "since_report": 9,
-    "total": 340,
+    "last": "2026-10-28T09:22:36Z",
+    "open": 6,
+    "recent": 225,
+    "since_report": 10,
+    "total": 341,
     "weekly": [
      0,
      0,
@@ -669,7 +669,7 @@
      70,
      77,
      27,
-     6
+     7
     ]
    },
    "arxiv": "math.AG",
@@ -789,7 +789,7 @@
    "activity": {
     "last": "2026-10-28T01:04:53Z",
     "open": 6,
-    "recent": 229,
+    "recent": 228,
     "since_report": 6,
     "total": 274,
     "weekly": [
@@ -912,8 +912,8 @@
   {
    "activity": {
     "last": "2026-10-27T16:47:57Z",
-    "open": 1,
-    "recent": 113,
+    "open": 2,
+    "recent": 110,
     "since_report": 5,
     "total": 137,
     "weekly": [
@@ -1029,11 +1029,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T16:50:39Z",
-    "open": 8,
-    "recent": 18,
-    "since_report": 4,
-    "total": 18,
+    "last": "2026-10-28T16:12:57Z",
+    "open": 6,
+    "recent": 20,
+    "since_report": 6,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -1050,7 +1050,7 @@
      0,
      0,
      14,
-     4
+     6
     ]
    },
    "arxiv": "math.GR",
@@ -1153,11 +1153,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:38:32Z",
-    "open": 5,
-    "recent": 91,
-    "since_report": 1,
-    "total": 138,
+    "last": "2026-10-28T09:52:48Z",
+    "open": 4,
+    "recent": 93,
+    "since_report": 3,
+    "total": 140,
     "weekly": [
      0,
      0,
@@ -1174,7 +1174,7 @@
      26,
      23,
      13,
-     1
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -1259,11 +1259,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:39:18Z",
+    "last": "2026-10-28T14:40:47Z",
     "open": 3,
-    "recent": 19,
-    "since_report": 9,
-    "total": 19,
+    "recent": 20,
+    "since_report": 10,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -1280,7 +1280,7 @@
      0,
      0,
      10,
-     9
+     10
     ]
    },
    "arxiv": "math.FA",
@@ -1341,11 +1341,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T05:26:47Z",
+    "last": "2026-10-28T11:47:45Z",
     "open": 6,
-    "recent": 54,
-    "since_report": 1,
-    "total": 54,
+    "recent": 56,
+    "since_report": 3,
+    "total": 56,
     "weekly": [
      0,
      0,
@@ -1362,7 +1362,7 @@
      0,
      31,
      22,
-     1
+     3
     ]
    },
    "arxiv": "math.FA",
@@ -1424,8 +1424,8 @@
   {
    "activity": {
     "last": "2026-10-27T19:14:26Z",
-    "open": 5,
-    "recent": 136,
+    "open": 6,
+    "recent": 135,
     "since_report": 10,
     "total": 185,
     "weekly": [
@@ -1575,11 +1575,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T07:39:38Z",
-    "open": 7,
-    "recent": 18,
-    "since_report": 2,
-    "total": 18,
+    "last": "2026-10-28T14:05:37Z",
+    "open": 8,
+    "recent": 20,
+    "since_report": 4,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -1596,7 +1596,7 @@
      0,
      1,
      15,
-     2
+     4
     ]
    },
    "arxiv": "math.AT",
@@ -1658,7 +1658,7 @@
   {
    "activity": {
     "last": "2026-10-27T23:37:33Z",
-    "open": 1,
+    "open": 2,
     "recent": 5,
     "since_report": null,
     "total": 5,
@@ -1737,11 +1737,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:03:45Z",
-    "open": 23,
-    "recent": 1,
+    "last": "2026-10-28T14:52:48Z",
+    "open": 24,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -1758,7 +1758,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.GR",
@@ -1964,12 +1964,76 @@
    "topic": "Algebraic Topology"
   },
   {
+   "activity": null,
+   "arxiv": "math.GR",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/ChevalleyGroups",
+   "layer_ids": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "layer_lines": [
+    175,
+    195,
+    241,
+    311,
+    377,
+    455,
+    628,
+    664
+   ],
+   "layers": [
+    "C0: the Chevalley basis",
+    "C1: the simply connected module",
+    "C2: Chevalley data, their group schemes, and root data",
+    "C3: the group over a field",
+    "C4: flatness, the big cell, and points over an algebraically closed field",
+    "C5: endomorphisms and their character maps",
+    "C6: Chevalley's comparison theorem",
+    "C7: exceptional isogenies of group schemes"
+   ],
+   "links": [],
+   "name": "ChevalleyGroups",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/ChevalleyGroups/README.md",
+   "readme_sha": "defe76d671302cb1461dc111ba4ad7671c6ca0e4e4c5ee67cba7e12f27ebbf11",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Chevalley groups and the Chevalley–Demazure group schemes",
+   "topic": "Group Theory"
+  },
+  {
    "activity": {
-    "last": "2026-10-27T21:17:49Z",
-    "open": 6,
-    "recent": 356,
-    "since_report": 4,
-    "total": 476,
+    "last": "2026-10-28T08:13:27Z",
+    "open": 8,
+    "recent": 355,
+    "since_report": 5,
+    "total": 477,
     "weekly": [
      0,
      0,
@@ -1986,7 +2050,7 @@
      140,
      91,
      18,
-     4
+     5
     ]
    },
    "arxiv": "math.NT",
@@ -2117,11 +2181,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:06:20Z",
-    "open": 4,
-    "recent": 21,
+    "last": "2026-10-28T17:27:20Z",
+    "open": 7,
+    "recent": 24,
     "since_report": null,
-    "total": 21,
+    "total": 24,
     "weekly": [
      0,
      0,
@@ -2138,7 +2202,7 @@
      0,
      1,
      14,
-     6
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -2205,11 +2269,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:49Z",
-    "open": 3,
-    "recent": 48,
-    "since_report": 5,
-    "total": 48,
+    "last": "2026-10-28T12:46:02Z",
+    "open": 4,
+    "recent": 51,
+    "since_report": 8,
+    "total": 51,
     "weekly": [
      0,
      0,
@@ -2226,7 +2290,7 @@
      0,
      21,
      24,
-     3
+     6
     ]
    },
    "arxiv": "math.AT",
@@ -2311,11 +2375,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:07:09Z",
-    "open": 2,
-    "recent": 170,
-    "since_report": 7,
-    "total": 310,
+    "last": "2026-10-28T07:18:05Z",
+    "open": 3,
+    "recent": 169,
+    "since_report": 8,
+    "total": 311,
     "weekly": [
      5,
      1,
@@ -2332,7 +2396,7 @@
      42,
      39,
      20,
-     7
+     8
     ]
    },
    "arxiv": "math.GT",
@@ -2423,11 +2487,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:37:09Z",
+    "last": "2026-10-28T17:04:24Z",
     "open": 2,
-    "recent": 41,
-    "since_report": 10,
-    "total": 41,
+    "recent": 43,
+    "since_report": 12,
+    "total": 43,
     "weekly": [
      0,
      0,
@@ -2444,7 +2508,7 @@
      0,
      8,
      23,
-     10
+     12
     ]
    },
    "arxiv": "math.FA",
@@ -2535,11 +2599,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:25:22Z",
-    "open": 6,
-    "recent": 25,
-    "since_report": 6,
-    "total": 25,
+    "last": "2026-10-28T15:11:19Z",
+    "open": 4,
+    "recent": 28,
+    "since_report": 9,
+    "total": 28,
     "weekly": [
      0,
      0,
@@ -2556,7 +2620,7 @@
      0,
      0,
      20,
-     5
+     8
     ]
    },
    "arxiv": "math.AG",
@@ -2617,11 +2681,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:37:51Z",
+    "last": "2026-10-28T15:10:58Z",
     "open": 7,
-    "recent": 16,
-    "since_report": 8,
-    "total": 16,
+    "recent": 18,
+    "since_report": 10,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -2638,7 +2702,7 @@
      0,
      0,
      8,
-     8
+     10
     ]
    },
    "arxiv": "math.CV",
@@ -2699,11 +2763,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T02:08:38Z",
+    "last": "2026-10-28T07:00:11Z",
     "open": 3,
-    "recent": 8,
-    "since_report": 4,
-    "total": 8,
+    "recent": 9,
+    "since_report": 5,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -2720,7 +2784,7 @@
      0,
      0,
      5,
-     3
+     4
     ]
    },
    "arxiv": "math.CV",
@@ -2820,11 +2884,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:41:33Z",
-    "open": 8,
-    "recent": 12,
-    "since_report": 4,
-    "total": 12,
+    "last": "2026-10-28T11:05:34Z",
+    "open": 10,
+    "recent": 14,
+    "since_report": 6,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -2841,7 +2905,7 @@
      0,
      0,
      8,
-     4
+     6
     ]
    },
    "arxiv": "math.AG",
@@ -2934,11 +2998,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:40:26Z",
-    "open": 3,
-    "recent": 1,
+    "last": "2026-10-28T06:55:26Z",
+    "open": 2,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -2955,7 +3019,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.LO",
@@ -2986,11 +3050,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T17:52:11Z",
-    "open": 3,
+    "last": "2026-10-28T09:40:34Z",
+    "open": 2,
     "recent": 96,
-    "since_report": 4,
-    "total": 335,
+    "since_report": 6,
+    "total": 337,
     "weekly": [
      5,
      8,
@@ -3007,7 +3071,7 @@
      27,
      24,
      14,
-     4
+     6
     ]
    },
    "arxiv": "math.CV",
@@ -3104,7 +3168,7 @@
   {
    "activity": {
     "last": "2026-10-27T23:37:53Z",
-    "open": 0,
+    "open": 1,
     "recent": 3,
     "since_report": null,
     "total": 3,
@@ -3187,11 +3251,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:09Z",
+    "last": "2026-10-28T09:29:41Z",
     "open": 6,
-    "recent": 121,
-    "since_report": 13,
-    "total": 197,
+    "recent": 123,
+    "since_report": 15,
+    "total": 199,
     "weekly": [
      0,
      0,
@@ -3208,7 +3272,7 @@
      20,
      42,
      19,
-     11
+     13
     ]
    },
    "arxiv": "math.CT",
@@ -3471,11 +3535,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T12:23:13Z",
-    "open": 6,
-    "recent": 18,
-    "since_report": 1,
-    "total": 18,
+    "last": "2026-10-28T14:05:34Z",
+    "open": 7,
+    "recent": 20,
+    "since_report": 3,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -3492,7 +3556,7 @@
      0,
      0,
      17,
-     1
+     3
     ]
    },
    "arxiv": "math.AC",
@@ -3553,11 +3617,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T16:50:13Z",
+    "last": "2026-10-28T13:28:21Z",
     "open": 13,
-    "recent": 166,
-    "since_report": 9,
-    "total": 166,
+    "recent": 167,
+    "since_report": 10,
+    "total": 167,
     "weekly": [
      0,
      0,
@@ -3574,7 +3638,7 @@
      18,
      90,
      49,
-     9
+     10
     ]
    },
    "arxiv": "math.DG",
@@ -3707,11 +3771,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:38:54Z",
-    "open": 14,
-    "recent": 99,
-    "since_report": 4,
-    "total": 99,
+    "last": "2026-10-28T09:13:56Z",
+    "open": 12,
+    "recent": 102,
+    "since_report": 7,
+    "total": 102,
     "weekly": [
      0,
      0,
@@ -3728,7 +3792,7 @@
      0,
      61,
      32,
-     6
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -3924,11 +3988,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:33Z",
+    "last": "2026-10-28T17:27:19Z",
     "open": 9,
-    "recent": 260,
-    "since_report": 12,
-    "total": 662,
+    "recent": 262,
+    "since_report": 18,
+    "total": 668,
     "weekly": [
      0,
      0,
@@ -3945,7 +4009,7 @@
      78,
      93,
      33,
-     10
+     16
     ]
    },
    "arxiv": "math.NT",
@@ -4150,11 +4214,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:04:05Z",
+    "last": "2026-10-28T07:03:07Z",
     "open": 6,
-    "recent": 14,
-    "since_report": 8,
-    "total": 14,
+    "recent": 15,
+    "since_report": 9,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -4171,7 +4235,7 @@
      0,
      0,
      11,
-     3
+     4
     ]
    },
    "arxiv": "math.AG",
@@ -4269,11 +4333,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:57Z",
-    "open": 4,
-    "recent": 14,
-    "since_report": 7,
-    "total": 14,
+    "last": "2026-10-28T10:09:18Z",
+    "open": 3,
+    "recent": 16,
+    "since_report": 9,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -4290,7 +4354,7 @@
      0,
      0,
      9,
-     5
+     7
     ]
    },
    "arxiv": "math.AG",
@@ -4351,11 +4415,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T08:56:19Z",
+    "last": "2026-10-28T09:29:38Z",
     "open": 2,
-    "recent": 6,
-    "since_report": 4,
-    "total": 6,
+    "recent": 7,
+    "since_report": 5,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -4372,7 +4436,7 @@
      0,
      0,
      6,
-     0
+     1
     ]
    },
    "arxiv": "math.PR",
@@ -4433,11 +4497,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:15Z",
+    "last": "2026-10-28T15:10:59Z",
     "open": 6,
-    "recent": 52,
-    "since_report": 5,
-    "total": 52,
+    "recent": 55,
+    "since_report": 8,
+    "total": 55,
     "weekly": [
      0,
      0,
@@ -4454,7 +4518,7 @@
      0,
      17,
      30,
-     5
+     8
     ]
    },
    "arxiv": "math.AC",
@@ -4515,11 +4579,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:05:44Z",
+    "last": "2026-10-28T16:48:36Z",
     "open": 15,
-    "recent": 41,
-    "since_report": 16,
-    "total": 41,
+    "recent": 50,
+    "since_report": 25,
+    "total": 50,
     "weekly": [
      0,
      0,
@@ -4536,7 +4600,7 @@
      0,
      0,
      26,
-     15
+     24
     ]
    },
    "arxiv": "math.GR",
@@ -4651,7 +4715,7 @@
   {
    "activity": {
     "last": "2026-10-27T17:51:31Z",
-    "open": 3,
+    "open": 4,
     "recent": 21,
     "since_report": 2,
     "total": 21,
@@ -4732,11 +4796,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:39:45Z",
-    "open": 6,
-    "recent": 114,
-    "since_report": 6,
-    "total": 158,
+    "last": "2026-10-28T10:44:45Z",
+    "open": 5,
+    "recent": 115,
+    "since_report": 11,
+    "total": 163,
     "weekly": [
      0,
      0,
@@ -4753,7 +4817,7 @@
      27,
      25,
      13,
-     5
+     10
     ]
    },
    "arxiv": "math.CV",
@@ -4852,7 +4916,7 @@
   {
    "activity": {
     "last": "2026-10-27T07:54:28Z",
-    "open": 6,
+    "open": 7,
     "recent": 24,
     "since_report": 4,
     "total": 24,
@@ -4934,7 +4998,7 @@
   {
    "activity": {
     "last": "2026-10-27T10:27:48Z",
-    "open": 0,
+    "open": 1,
     "recent": 9,
     "since_report": 5,
     "total": 9,
@@ -5015,11 +5079,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T16:51:33Z",
-    "open": 7,
-    "recent": 49,
-    "since_report": 6,
-    "total": 49,
+    "last": "2026-10-28T14:40:46Z",
+    "open": 8,
+    "recent": 51,
+    "since_report": 8,
+    "total": 51,
     "weekly": [
      0,
      0,
@@ -5036,7 +5100,7 @@
      0,
      20,
      24,
-     5
+     7
     ]
    },
    "arxiv": "math.MG",
@@ -5131,7 +5195,7 @@
   {
    "activity": {
     "last": "2026-10-28T01:05:59Z",
-    "open": 4,
+    "open": 6,
     "recent": 17,
     "since_report": 2,
     "total": 17,
@@ -5212,11 +5276,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:07:31Z",
+    "last": "2026-10-28T16:48:33Z",
     "open": 11,
     "recent": 400,
-    "since_report": 8,
-    "total": 543,
+    "since_report": 13,
+    "total": 548,
     "weekly": [
      3,
      9,
@@ -5233,7 +5297,7 @@
      214,
      57,
      44,
-     8
+     13
     ]
    },
    "arxiv": "math.GT",
@@ -5357,11 +5421,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:05:24Z",
-    "open": 1,
+    "last": "2026-10-28T06:29:44Z",
+    "open": 0,
     "recent": 95,
-    "since_report": 4,
-    "total": 159,
+    "since_report": 5,
+    "total": 160,
     "weekly": [
      0,
      0,
@@ -5378,7 +5442,7 @@
      30,
      16,
      8,
-     4
+     5
     ]
    },
    "arxiv": "math.NT",
@@ -5612,11 +5676,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:36Z",
+    "last": "2026-10-28T12:30:42Z",
     "open": 8,
-    "recent": 62,
-    "since_report": 11,
-    "total": 62,
+    "recent": 64,
+    "since_report": 13,
+    "total": 64,
     "weekly": [
      0,
      0,
@@ -5633,7 +5697,7 @@
      0,
      4,
      47,
-     11
+     13
     ]
    },
    "arxiv": "math.CO",
@@ -5695,7 +5759,7 @@
   {
    "activity": {
     "last": "2026-10-27T17:49:59Z",
-    "open": 2,
+    "open": 3,
     "recent": 3,
     "since_report": null,
     "total": 3,
@@ -5746,11 +5810,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:04:04Z",
-    "open": 6,
-    "recent": 123,
-    "since_report": 6,
-    "total": 204,
+    "last": "2026-10-28T11:47:44Z",
+    "open": 5,
+    "recent": 125,
+    "since_report": 9,
+    "total": 207,
     "weekly": [
      0,
      0,
@@ -5767,7 +5831,7 @@
      34,
      41,
      12,
-     6
+     9
     ]
    },
    "arxiv": "math.RT",
@@ -5855,7 +5919,7 @@
   {
    "activity": {
     "last": "2026-10-27T21:16:53Z",
-    "open": 4,
+    "open": 5,
     "recent": 8,
     "since_report": 2,
     "total": 8,
@@ -5936,11 +6000,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:24:47Z",
-    "open": 8,
-    "recent": 186,
-    "since_report": 11,
-    "total": 357,
+    "last": "2026-10-28T14:52:49Z",
+    "open": 7,
+    "recent": 188,
+    "since_report": 14,
+    "total": 360,
     "weekly": [
      2,
      5,
@@ -5957,7 +6021,7 @@
      56,
      62,
      27,
-     10
+     13
     ]
    },
    "arxiv": "math.SG",
@@ -6057,11 +6121,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T05:04:01Z",
-    "open": 3,
-    "recent": 44,
-    "since_report": 0,
-    "total": 44,
+    "last": "2026-10-28T09:12:12Z",
+    "open": 1,
+    "recent": 47,
+    "since_report": 3,
+    "total": 47,
     "weekly": [
      0,
      0,
@@ -6078,7 +6142,7 @@
      0,
      22,
      22,
-     0
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -6153,11 +6217,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T19:00:56Z",
-    "open": 4,
-    "recent": 50,
-    "since_report": 1,
-    "total": 127,
+    "last": "2026-10-28T06:58:28Z",
+    "open": 3,
+    "recent": 51,
+    "since_report": 2,
+    "total": 128,
     "weekly": [
      0,
      0,
@@ -6174,7 +6238,7 @@
      3,
      7,
      21,
-     0
+     1
     ]
    },
    "arxiv": "math.DG",
@@ -6257,11 +6321,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:04:56Z",
-    "open": 2,
-    "recent": 11,
-    "since_report": 2,
-    "total": 11,
+    "last": "2026-10-28T14:52:47Z",
+    "open": 1,
+    "recent": 12,
+    "since_report": 3,
+    "total": 12,
     "weekly": [
      0,
      0,
@@ -6278,7 +6342,7 @@
      0,
      0,
      9,
-     2
+     3
     ]
    },
    "arxiv": "math.CV",
@@ -6340,7 +6404,7 @@
   {
    "activity": {
     "last": "2026-10-28T01:27:12Z",
-    "open": 6,
+    "open": 8,
     "recent": 18,
     "since_report": 13,
     "total": 18,
@@ -6421,11 +6485,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:56Z",
-    "open": 1,
-    "recent": 6,
-    "since_report": 5,
-    "total": 6,
+    "last": "2026-10-28T09:22:37Z",
+    "open": 0,
+    "recent": 8,
+    "since_report": 7,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -6442,7 +6506,7 @@
      0,
      0,
      0,
-     6
+     8
     ]
    },
    "arxiv": "math.LO",
@@ -6546,11 +6610,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:38:07Z",
+    "last": "2026-10-28T14:53:14Z",
     "open": 8,
-    "recent": 203,
-    "since_report": 20,
-    "total": 268,
+    "recent": 201,
+    "since_report": 21,
+    "total": 269,
     "weekly": [
      0,
      0,
@@ -6567,7 +6631,7 @@
      68,
      52,
      26,
-     19
+     20
     ]
    },
    "arxiv": "math.NT",
@@ -6686,7 +6750,7 @@
   {
    "activity": {
     "last": "2026-10-28T01:27:34Z",
-    "open": 4,
+    "open": 5,
     "recent": 42,
     "since_report": 6,
     "total": 42,
@@ -6801,8 +6865,8 @@
   {
    "activity": {
     "last": "2026-10-27T19:13:44Z",
-    "open": 4,
-    "recent": 112,
+    "open": 6,
+    "recent": 111,
     "since_report": 9,
     "total": 243,
     "weekly": [
@@ -6916,11 +6980,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:05:22Z",
-    "open": 12,
-    "recent": 15,
-    "since_report": 3,
-    "total": 15,
+    "last": "2026-10-28T16:49:06Z",
+    "open": 10,
+    "recent": 18,
+    "since_report": 6,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -6937,7 +7001,7 @@
      0,
      0,
      12,
-     3
+     6
     ]
    },
    "arxiv": "math.GT",
@@ -6998,11 +7062,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T17:52:13Z",
-    "open": 3,
-    "recent": 103,
-    "since_report": 2,
-    "total": 166,
+    "last": "2026-10-28T07:08:23Z",
+    "open": 2,
+    "recent": 94,
+    "since_report": 3,
+    "total": 167,
     "weekly": [
      0,
      0,
@@ -7019,7 +7083,7 @@
      24,
      15,
      7,
-     2
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -7096,11 +7160,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T16:47:56Z",
-    "open": 5,
-    "recent": 7,
-    "since_report": 3,
-    "total": 7,
+    "last": "2026-10-28T17:27:21Z",
+    "open": 6,
+    "recent": 9,
+    "since_report": 5,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -7117,7 +7181,7 @@
      0,
      0,
      6,
-     1
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -7198,11 +7262,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:40:45Z",
-    "open": 4,
-    "recent": 5,
-    "since_report": 3,
-    "total": 5,
+    "last": "2026-10-28T14:22:05Z",
+    "open": 5,
+    "recent": 7,
+    "since_report": 5,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -7219,7 +7283,7 @@
      0,
      0,
      3,
-     2
+     4
     ]
    },
    "arxiv": "math.PR",
@@ -7319,11 +7383,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:34Z",
-    "open": 6,
-    "recent": 21,
-    "since_report": 3,
-    "total": 21,
+    "last": "2026-10-28T10:44:43Z",
+    "open": 4,
+    "recent": 24,
+    "since_report": 6,
+    "total": 24,
     "weekly": [
      0,
      0,
@@ -7340,7 +7404,7 @@
      0,
      9,
      8,
-     4
+     7
     ]
    },
    "arxiv": "math.NT",
@@ -7428,11 +7492,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:25:43Z",
-    "open": 9,
-    "recent": 229,
-    "since_report": 10,
-    "total": 229,
+    "last": "2026-10-28T10:47:11Z",
+    "open": 10,
+    "recent": 231,
+    "since_report": 12,
+    "total": 231,
     "weekly": [
      0,
      0,
@@ -7449,7 +7513,7 @@
      95,
      85,
      35,
-     9
+     11
     ]
    },
    "arxiv": "math.NT",
@@ -7568,11 +7632,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:10Z",
-    "open": 12,
-    "recent": 135,
-    "since_report": 16,
-    "total": 607,
+    "last": "2026-10-28T13:12:07Z",
+    "open": 9,
+    "recent": 138,
+    "since_report": 22,
+    "total": 613,
     "weekly": [
      0,
      0,
@@ -7589,7 +7653,7 @@
      34,
      34,
      18,
-     14
+     20
     ]
    },
    "arxiv": "math.NT",
@@ -7718,11 +7782,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:29:35Z",
-    "open": 4,
-    "recent": 21,
-    "since_report": 4,
-    "total": 21,
+    "last": "2026-10-28T15:57:13Z",
+    "open": 3,
+    "recent": 23,
+    "since_report": 6,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -7739,7 +7803,7 @@
      0,
      0,
      17,
-     4
+     6
     ]
    },
    "arxiv": "math.GT",
@@ -7801,7 +7865,7 @@
   {
    "activity": {
     "last": "2026-10-27T07:22:31Z",
-    "open": 4,
+    "open": 6,
     "recent": 33,
     "since_report": 4,
     "total": 33,
@@ -7882,11 +7946,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T00:10:56Z",
-    "open": 2,
-    "recent": 1,
+    "last": "2026-10-28T15:11:00Z",
+    "open": 4,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -7903,7 +7967,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -7934,11 +7998,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:25:42Z",
-    "open": 4,
-    "recent": 29,
+    "last": "2026-10-28T14:22:04Z",
+    "open": 2,
+    "recent": 31,
     "since_report": null,
-    "total": 29,
+    "total": 31,
     "weekly": [
      0,
      0,
@@ -7955,7 +8019,7 @@
      0,
      14,
      14,
-     1
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -8018,11 +8082,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:40:24Z",
-    "open": 6,
-    "recent": 16,
-    "since_report": 2,
-    "total": 16,
+    "last": "2026-10-28T07:21:34Z",
+    "open": 5,
+    "recent": 17,
+    "since_report": 3,
+    "total": 17,
     "weekly": [
      0,
      0,
@@ -8039,7 +8103,7 @@
      0,
      0,
      12,
-     4
+     5
     ]
    },
    "arxiv": "math.RT",
@@ -8100,11 +8164,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:46Z",
-    "open": 4,
-    "recent": 54,
-    "since_report": 15,
-    "total": 54,
+    "last": "2026-10-28T08:00:30Z",
+    "open": 3,
+    "recent": 56,
+    "since_report": 17,
+    "total": 56,
     "weekly": [
      0,
      0,
@@ -8121,7 +8185,7 @@
      0,
      15,
      24,
-     15
+     17
     ]
    },
    "arxiv": "math.OA",
@@ -8182,11 +8246,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:25:04Z",
+    "last": "2026-10-28T17:27:22Z",
     "open": 7,
-    "recent": 24,
-    "since_report": 4,
-    "total": 24,
+    "recent": 25,
+    "since_report": 5,
+    "total": 25,
     "weekly": [
      0,
      0,
@@ -8203,7 +8267,7 @@
      0,
      5,
      15,
-     4
+     5
     ]
    },
    "arxiv": "math.OA",
@@ -8264,11 +8328,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T15:26:53Z",
-    "open": 12,
-    "recent": 204,
-    "since_report": 11,
-    "total": 204,
+    "last": "2026-10-28T16:49:07Z",
+    "open": 10,
+    "recent": 208,
+    "since_report": 15,
+    "total": 208,
     "weekly": [
      0,
      0,
@@ -8285,7 +8349,7 @@
      39,
      103,
      56,
-     6
+     10
     ]
    },
    "arxiv": "math.FA",
@@ -9003,11 +9067,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:47Z",
-    "open": 9,
-    "recent": 232,
-    "since_report": 19,
-    "total": 309,
+    "last": "2026-10-28T12:30:43Z",
+    "open": 7,
+    "recent": 233,
+    "since_report": 21,
+    "total": 311,
     "weekly": [
      0,
      0,
@@ -9024,7 +9088,7 @@
      64,
      94,
      29,
-     18
+     20
     ]
    },
    "arxiv": "math.OC",
@@ -9171,11 +9235,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T18:26:58Z",
-    "open": 6,
-    "recent": 14,
-    "since_report": 0,
-    "total": 14,
+    "last": "2026-10-28T10:30:29Z",
+    "open": 7,
+    "recent": 15,
+    "since_report": 1,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -9192,7 +9256,7 @@
      0,
      0,
      14,
-     0
+     1
     ]
    },
    "arxiv": "math.DG",
@@ -9255,7 +9319,7 @@
    "activity": {
     "last": "2026-10-24T09:17:03Z",
     "open": 2,
-    "recent": 128,
+    "recent": 126,
     "since_report": 0,
     "total": 163,
     "weekly": [
@@ -9347,11 +9411,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:05:56Z",
+    "last": "2026-10-28T06:55:25Z",
     "open": 4,
-    "recent": 289,
-    "since_report": 15,
-    "total": 445,
+    "recent": 287,
+    "since_report": 16,
+    "total": 446,
     "weekly": [
      5,
      10,
@@ -9368,7 +9432,7 @@
      86,
      120,
      35,
-     12
+     13
     ]
    },
    "arxiv": "math.AP",
@@ -9461,11 +9525,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:25:41Z",
+    "last": "2026-10-28T15:11:38Z",
     "open": 5,
-    "recent": 42,
-    "since_report": 3,
-    "total": 42,
+    "recent": 46,
+    "since_report": 7,
+    "total": 46,
     "weekly": [
      0,
      0,
@@ -9482,7 +9546,7 @@
      0,
      10,
      29,
-     3
+     7
     ]
    },
    "arxiv": "math.NT",
@@ -9578,11 +9642,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:35Z",
-    "open": 5,
-    "recent": 38,
-    "since_report": 5,
-    "total": 38,
+    "last": "2026-10-28T10:45:52Z",
+    "open": 7,
+    "recent": 39,
+    "since_report": 6,
+    "total": 39,
     "weekly": [
      0,
      0,
@@ -9599,7 +9663,7 @@
      0,
      19,
      14,
-     5
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -9701,11 +9765,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-24T08:48:18Z",
+    "last": "2026-10-28T14:22:07Z",
     "open": 5,
-    "recent": 7,
+    "recent": 10,
     "since_report": null,
-    "total": 7,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -9722,7 +9786,7 @@
      0,
      0,
      7,
-     0
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -9894,7 +9958,7 @@
   {
    "activity": {
     "last": "2026-10-27T23:37:10Z",
-    "open": 1,
+    "open": 2,
     "recent": 44,
     "since_report": 4,
     "total": 44,
@@ -10033,11 +10097,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T00:54:47Z",
+    "last": "2026-10-28T07:16:31Z",
     "open": 4,
-    "recent": 17,
-    "since_report": 1,
-    "total": 17,
+    "recent": 18,
+    "since_report": 2,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -10054,7 +10118,7 @@
      0,
      0,
      16,
-     1
+     2
     ]
    },
    "arxiv": "math.DG",
@@ -10115,11 +10179,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:07Z",
-    "open": 5,
-    "recent": 221,
-    "since_report": 19,
-    "total": 335,
+    "last": "2026-10-28T09:13:58Z",
+    "open": 4,
+    "recent": 224,
+    "since_report": 24,
+    "total": 340,
     "weekly": [
      0,
      0,
@@ -10136,7 +10200,7 @@
      78,
      48,
      18,
-     16
+     21
     ]
    },
    "arxiv": "math.GR",
@@ -10324,11 +10388,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:05:57Z",
-    "open": 3,
+    "last": "2026-10-28T06:57:03Z",
+    "open": 1,
     "recent": 143,
-    "since_report": 2,
-    "total": 213,
+    "since_report": 4,
+    "total": 215,
     "weekly": [
      0,
      0,
@@ -10345,7 +10409,7 @@
      43,
      32,
      19,
-     2
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -10438,11 +10502,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T02:31:20Z",
+    "last": "2026-10-28T10:30:30Z",
     "open": 2,
-    "recent": 32,
-    "since_report": 2,
-    "total": 32,
+    "recent": 33,
+    "since_report": 3,
+    "total": 33,
     "weekly": [
      0,
      0,
@@ -10459,7 +10523,7 @@
      0,
      12,
      19,
-     1
+     2
     ]
    },
    "arxiv": "math.OA",
@@ -10520,11 +10584,115 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:41:34Z",
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "arxiv": "math.PR",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/RandomMatrices",
+   "layer_ids": [
+    "Layer 0",
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8",
+    "Layer 9",
+    "Layer 10",
+    "Layer 11"
+   ],
+   "layer_lines": [
+    219,
+    270,
+    365,
+    481,
+    579,
+    658,
+    767,
+    860,
+    948,
+    1091,
+    1171,
+    1248
+   ],
+   "layers": [
+    "Layer 0: probability arguments invariant under extension",
+    "Layer 1: spectral measures and deterministic estimates",
+    "Layer 2: concentration, replacement and norm bounds",
+    "Layer 3: transforms, moments and named spectral laws",
+    "Layer 4: Wigner and sample-covariance global laws",
+    "Layer 5: invariant ensembles and exact integration",
+    "Layer 6: free probability and asymptotic freeness",
+    "Layer 7: deformations, covariance spectra and spikes",
+    "Layer 8: point processes and Gaussian local statistics",
+    "Layer 9: logarithmic energy and large deviations",
+    "Layer 10: Itô calculus and Dyson Brownian motion",
+    "Layer 11: small singular values and the circular law"
+   ],
+   "links": [],
+   "name": "RandomMatrices",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/RandomMatrices/README.md",
+   "readme_sha": "fc4681d9f9392adedf1cc6b96bb2028e1a87207069639a5bf97b2004bdec0b49",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "random matrices",
+   "topic": "Probability"
+  },
+  {
+   "activity": {
+    "last": "2026-10-28T14:22:28Z",
     "open": 3,
-    "recent": 16,
-    "since_report": 7,
-    "total": 16,
+    "recent": 18,
+    "since_report": 9,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -10541,7 +10709,7 @@
      0,
      0,
      12,
-     4
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -10715,11 +10883,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:25:21Z",
-    "open": 37,
+    "last": "2026-10-28T13:28:45Z",
+    "open": 36,
     "recent": 823,
-    "since_report": 43,
-    "total": 1769,
+    "since_report": 48,
+    "total": 1774,
     "weekly": [
      4,
      3,
@@ -10736,7 +10904,7 @@
      273,
      256,
      122,
-     43
+     48
     ]
    },
    "arxiv": "math.AG",
@@ -10909,11 +11077,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T19:13:43Z",
+    "last": "2026-10-28T06:31:37Z",
     "open": 5,
-    "recent": 15,
-    "since_report": 7,
-    "total": 15,
+    "recent": 16,
+    "since_report": 8,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -10930,7 +11098,7 @@
      0,
      0,
      9,
-     6
+     7
     ]
    },
    "arxiv": "math.RT",
@@ -11125,11 +11293,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:08Z",
-    "open": 22,
-    "recent": 821,
-    "since_report": 45,
-    "total": 1845,
+    "last": "2026-10-28T16:48:35Z",
+    "open": 23,
+    "recent": 817,
+    "since_report": 46,
+    "total": 1846,
     "weekly": [
      0,
      0,
@@ -11146,7 +11314,7 @@
      293,
      158,
      79,
-     51
+     52
     ]
    },
    "arxiv": "math.RT",
@@ -12503,11 +12671,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:55:40Z",
-    "open": 6,
-    "recent": 39,
+    "last": "2026-10-28T14:40:48Z",
+    "open": 7,
+    "recent": 40,
     "since_report": null,
-    "total": 39,
+    "total": 40,
     "weekly": [
      0,
      0,
@@ -12524,7 +12692,7 @@
      0,
      6,
      28,
-     5
+     6
     ]
    },
    "arxiv": "math.AG",
@@ -12591,11 +12759,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T16:47:55Z",
-    "open": 3,
-    "recent": 7,
-    "since_report": 3,
-    "total": 7,
+    "last": "2026-10-28T12:00:47Z",
+    "open": 2,
+    "recent": 9,
+    "since_report": 5,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -12612,7 +12780,7 @@
      0,
      0,
      4,
-     3
+     5
     ]
    },
    "arxiv": "math.DG",
@@ -12673,11 +12841,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T01:08:06Z",
-    "open": 7,
-    "recent": 21,
-    "since_report": 4,
-    "total": 21,
+    "last": "2026-10-28T13:49:09Z",
+    "open": 6,
+    "recent": 23,
+    "since_report": 6,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -12694,7 +12862,7 @@
      0,
      6,
      12,
-     3
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -12793,7 +12961,7 @@
   {
    "activity": {
     "last": "2026-10-28T02:08:39Z",
-    "open": 10,
+    "open": 13,
     "recent": 72,
     "since_report": 17,
     "total": 72,
@@ -12909,11 +13077,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T21:15:19Z",
+    "last": "2026-10-28T16:32:35Z",
     "open": 3,
-    "recent": 14,
-    "since_report": 5,
-    "total": 14,
+    "recent": 15,
+    "since_report": 6,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -12930,7 +13098,7 @@
      0,
      0,
      9,
-     5
+     6
     ]
    },
    "arxiv": "math.AG",
@@ -12991,11 +13159,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-25T17:55:51Z",
-    "open": 1,
-    "recent": 8,
-    "since_report": 3,
-    "total": 8,
+    "last": "2026-10-28T15:11:16Z",
+    "open": 0,
+    "recent": 10,
+    "since_report": 5,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -13012,7 +13180,7 @@
      0,
      0,
      8,
-     0
+     2
     ]
    },
    "arxiv": "math.DG",
@@ -13073,11 +13241,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:06:58Z",
-    "open": 5,
-    "recent": 16,
-    "since_report": 4,
-    "total": 16,
+    "last": "2026-10-28T08:00:27Z",
+    "open": 2,
+    "recent": 20,
+    "since_report": 8,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -13094,7 +13262,7 @@
      0,
      0,
      12,
-     4
+     8
     ]
    },
    "arxiv": "math.DG",
@@ -13156,8 +13324,8 @@
   {
    "activity": {
     "last": "2026-10-27T16:48:31Z",
-    "open": 6,
-    "recent": 126,
+    "open": 7,
+    "recent": 125,
     "since_report": 12,
     "total": 168,
     "weekly": [
@@ -13286,11 +13454,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:33Z",
-    "open": 8,
-    "recent": 115,
-    "since_report": 14,
-    "total": 168,
+    "last": "2026-10-28T15:11:15Z",
+    "open": 10,
+    "recent": 116,
+    "since_report": 16,
+    "total": 170,
     "weekly": [
      0,
      0,
@@ -13307,7 +13475,7 @@
      27,
      31,
      23,
-     12
+     14
     ]
    },
    "arxiv": "math.AG",
@@ -13431,11 +13599,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:06:23Z",
-    "open": 12,
-    "recent": 295,
-    "since_report": 37,
-    "total": 473,
+    "last": "2026-10-28T16:33:29Z",
+    "open": 13,
+    "recent": 302,
+    "since_report": 44,
+    "total": 480,
     "weekly": [
      0,
      0,
@@ -13452,7 +13620,7 @@
      3,
      98,
      147,
-     45
+     52
     ]
    },
    "arxiv": "math.PR",
@@ -13685,11 +13853,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T21:17:25Z",
-    "open": 2,
-    "recent": 8,
-    "since_report": 7,
-    "total": 8,
+    "last": "2026-10-28T14:52:50Z",
+    "open": 3,
+    "recent": 14,
+    "since_report": 13,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -13706,7 +13874,7 @@
      0,
      0,
      0,
-     8
+     14
     ]
    },
    "arxiv": "math.NT",
@@ -13792,11 +13960,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T11:54:35Z",
+    "last": "2026-10-28T17:04:22Z",
     "open": 8,
-    "recent": 15,
-    "since_report": 9,
-    "total": 15,
+    "recent": 25,
+    "since_report": 19,
+    "total": 25,
     "weekly": [
      0,
      0,
@@ -13813,7 +13981,7 @@
      0,
      0,
      12,
-     3
+     13
     ]
    },
    "arxiv": "math.SG",
@@ -14164,11 +14332,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T17:50:22Z",
-    "open": 2,
-    "recent": 8,
-    "since_report": 3,
-    "total": 8,
+    "last": "2026-10-28T15:11:01Z",
+    "open": 1,
+    "recent": 10,
+    "since_report": 5,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -14185,7 +14353,7 @@
      0,
      0,
      5,
-     3
+     5
     ]
    },
    "arxiv": "math.CA",
@@ -14328,11 +14496,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:03:43Z",
-    "open": 7,
-    "recent": 25,
-    "since_report": 10,
-    "total": 25,
+    "last": "2026-10-28T14:40:50Z",
+    "open": 8,
+    "recent": 27,
+    "since_report": 12,
+    "total": 27,
     "weekly": [
      0,
      0,
@@ -14349,7 +14517,7 @@
      0,
      0,
      16,
-     9
+     11
     ]
    },
    "arxiv": "math.NT",
@@ -14451,11 +14619,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:14Z",
-    "open": 0,
-    "recent": 1,
+    "last": "2026-10-28T12:57:51Z",
+    "open": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -14472,7 +14640,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.KT",
@@ -14503,11 +14671,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T02:08:37Z",
+    "last": "2026-10-28T17:27:53Z",
     "open": 7,
-    "recent": 8,
-    "since_report": 3,
-    "total": 8,
+    "recent": 9,
+    "since_report": 4,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -14524,7 +14692,7 @@
      0,
      0,
      6,
-     2
+     3
     ]
    },
    "arxiv": "math.QA",
@@ -14585,11 +14753,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T21:11:49Z",
-    "open": 7,
-    "recent": 21,
-    "since_report": 1,
-    "total": 21,
+    "last": "2026-10-28T17:04:45Z",
+    "open": 6,
+    "recent": 24,
+    "since_report": 4,
+    "total": 24,
     "weekly": [
      0,
      0,
@@ -14606,7 +14774,7 @@
      0,
      8,
      12,
-     1
+     4
     ]
    },
    "arxiv": "math.DG",
@@ -14668,8 +14836,8 @@
   {
    "activity": {
     "last": "2026-10-28T01:06:56Z",
-    "open": 3,
-    "recent": 207,
+    "open": 4,
+    "recent": 206,
     "since_report": 14,
     "total": 287,
     "weekly": [
@@ -14793,11 +14961,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:26:58Z",
-    "open": 6,
-    "recent": 269,
-    "since_report": 12,
-    "total": 622,
+    "last": "2026-10-28T09:52:49Z",
+    "open": 4,
+    "recent": 267,
+    "since_report": 15,
+    "total": 625,
     "weekly": [
      0,
      0,
@@ -14814,7 +14982,7 @@
      83,
      99,
      15,
-     12
+     15
     ]
    },
    "arxiv": "math.AG",
@@ -14893,7 +15061,7 @@
    "activity": {
     "last": "2026-10-19T09:34:18Z",
     "open": 0,
-    "recent": 30,
+    "recent": 29,
     "since_report": 0,
     "total": 89,
     "weekly": [
@@ -15117,7 +15285,7 @@
    "activity": {
     "last": "2026-10-27T02:31:19Z",
     "open": 0,
-    "recent": 20,
+    "recent": 19,
     "since_report": 1,
     "total": 108,
     "weekly": [
@@ -15359,7 +15527,7 @@
    "activity": {
     "last": "2026-10-27T16:49:33Z",
     "open": 0,
-    "recent": 54,
+    "recent": 53,
     "since_report": 4,
     "total": 147,
     "weekly": [
@@ -15495,7 +15663,7 @@
    "activity": {
     "last": "2026-10-27T00:25:19Z",
     "open": 1,
-    "recent": 90,
+    "recent": 85,
     "since_report": 3,
     "total": 364,
     "weekly": [
@@ -15601,7 +15769,7 @@
    "activity": {
     "last": "2026-10-26T23:56:43Z",
     "open": 0,
-    "recent": 17,
+    "recent": 16,
     "since_report": 1,
     "total": 76,
     "weekly": [
@@ -15697,11 +15865,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T01:22:22Z",
-    "open": 2,
-    "recent": 40,
-    "since_report": 2,
-    "total": 40,
+    "last": "2026-10-28T09:22:35Z",
+    "open": 1,
+    "recent": 41,
+    "since_report": 3,
+    "total": 41,
     "weekly": [
      0,
      0,
@@ -15718,7 +15886,7 @@
      0,
      21,
      17,
-     2
+     3
     ]
    },
    "arxiv": "math.LO",
@@ -15793,11 +15961,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:38:07Z",
+    "last": "2026-10-28T14:53:14Z",
     "open": 8,
-    "recent": 203,
-    "since_report": 6,
-    "total": 268,
+    "recent": 201,
+    "since_report": 7,
+    "total": 269,
     "weekly": [
      0,
      0,
@@ -15814,7 +15982,7 @@
      68,
      52,
      26,
-     19
+     20
     ]
    },
    "arxiv": "math.NT",
@@ -16097,7 +16265,7 @@
    "activity": {
     "last": "2026-10-28T01:27:48Z",
     "open": 0,
-    "recent": 66,
+    "recent": 56,
     "since_report": 2,
     "total": 172,
     "weekly": [
@@ -16209,11 +16377,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-28T01:27:13Z",
-    "open": 2,
+    "last": "2026-10-28T09:12:13Z",
+    "open": 1,
     "recent": 55,
-    "since_report": 8,
-    "total": 218,
+    "since_report": 10,
+    "total": 220,
     "weekly": [
      5,
      7,
@@ -16230,7 +16398,7 @@
      10,
      13,
      4,
-     8
+     10
     ]
    },
    "arxiv": "math.FA",
@@ -16391,7 +16559,7 @@
    "activity": {
     "last": "2026-10-26T18:30:46Z",
     "open": 0,
-    "recent": 62,
+    "recent": 59,
     "since_report": 4,
     "total": 120,
     "weekly": [
@@ -16591,7 +16759,7 @@
    "activity": {
     "last": "2026-10-27T23:39:44Z",
     "open": 1,
-    "recent": 169,
+    "recent": 161,
     "since_report": 2,
     "total": 306,
     "weekly": [
@@ -16715,11 +16883,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-27T23:37:31Z",
-    "open": 7,
+    "last": "2026-10-28T07:26:30Z",
+    "open": 4,
     "recent": 255,
-    "since_report": 23,
-    "total": 263,
+    "since_report": 26,
+    "total": 266,
     "weekly": [
      0,
      0,
@@ -16736,7 +16904,7 @@
      102,
      41,
      40,
-     22
+     25
     ]
    },
    "arxiv": "math.AG",
