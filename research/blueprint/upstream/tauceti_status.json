@@ -195,7 +195,7 @@
     "InverseGaloisAndArithmeticFundamentalGroups": {
       "stage": "pr",
       "pr": 850,
-      "head": "d7ebcb9",
+      "head": "c16afe1",
       "depends_on": [
         779,
         785,
@@ -205,9 +205,10 @@
       "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at c16afe1; confirmation pass pending"
       }
     },
     "GeometryOfNumbersAndQuadraticArithmetic": {
