@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T10:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T10:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -49,7 +49,7 @@ Generated 2026-10-28T10:10Z from the README supplier graph of every open pull re
 - #1309 ColemanPowerSeries — ready; waits on #1306
 
 ## Wave 5
-- #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #1630, #940
+- #868 DerivedDeRhamCohomology — draft; waits on #1630, #940
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #785, #940
 - #1307 NoncommutativeAndEquivariantIwasawa — ready (approved at an earlier head); waits on #1212, #1306, #785, #940, #1142
 
