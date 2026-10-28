@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T12:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T12:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -94,7 +94,7 @@ Generated 2026-10-28T12:20Z from the README supplier graph of every open pull re
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1199, #1630, #785, #792, #848, #849, #853, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1630, #785, #792, #858, #1142, #1287, #248, #417
 - #872 DeformationAndDerivedPatchingAlgebraPartII — draft; waits on #858
-- #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #1688, #849, #856, #857, #858, #868, #940
+- #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready; waits on #1260, #1307, #1312, #1688, #849, #856, #857, #858, #868, #940
 
 ## Wave 15
 - #852 NeronModelsAndSemistableAbelianVarieties — draft; waits on #1307, #1688, #785, #848, #849, #850, #853, #856, #857, #879, #940
