@@ -173,7 +173,7 @@
     "AbelianSchemesAndArithmeticModuli": {
       "stage": "pr",
       "pr": 849,
-      "head": "9b54c40",
+      "head": "21a8758",
       "depends_on": [
         779,
         848,
@@ -182,9 +182,10 @@
       "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 21a8758; confirmation pass pending"
       }
     },
     "InverseGaloisAndArithmeticFundamentalGroups": {
