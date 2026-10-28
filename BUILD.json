@@ -1,10 +1,10 @@
 {
-  "roadmaps": 475,
-  "stages": 3815,
-  "originalStages": 3815,
+  "roadmaps": 499,
+  "stages": 4016,
+  "originalStages": 4016,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3783,
+  "terminalTargets": 3984,
   "groups": 46,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -12,24 +12,24 @@
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "dependencies": 475
+    "dependencies": 499
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
   "areasWithRoadmaps": 41,
   "additionalRegions": 0,
-  "mathematicalSummaries": 475,
+  "mathematicalSummaries": 499,
   "editedRoadmapSummaries": 29,
   "curatedStagePresentations": 42,
   "administrativeStages": 0,
-  "mathematicalStars": 3815,
+  "mathematicalStars": 4016,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 244,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 18,
   "bibliographicSources": 46,
-  "roadmapEdges": 13963,
-  "stageEdges": 3071,
+  "roadmapEdges": 12690,
+  "stageEdges": 3248,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 56078215,
-  "htmlSha256": "08abcf0afe9cf426acece2b57fa2f568ec7281e6aa12e815f4113d485c5601f9",
+  "htmlBytes": 57034987,
+  "htmlSha256": "dd044647c8c92f4b23ff6adced0625a7389edc2dafef9d255f28eed7e32025f4",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3556,7 +3556,7 @@
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
     "src/live.js": "56a9e4f288ea8bc49668095bf5463fdcb8dc5f827a09e80c000f193b8c94949c",
-    "src/app.js": "5df509381759af376e888f33e51e461fc663e20af6aea1a228eb66d0e0f02622",
+    "src/app.js": "a0b024c0b31ecf48758ee7e84a2dafee7ced7b80cfc70334a9035f69d7c27145",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/tauceti-progress.json": "f1a43b15a4cdd5fb66742d3d956da63f3c2d5924189c27f85950879a81719a38",
@@ -3574,7 +3574,7 @@
     "data/roadmap-distances.json": "9d12add653030effa17fccafd3538ed6cbd1f4e9aacb3385c15e6c85e665af41",
     "data/galaxy-layout.json": "b90cf7109c39ced45d075d238991396669d02cadc5d54a1deed89e359ed09d15",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
-    "data/mathlib-disk.json": "b560a94287d047457e98c23a3369be3016d1f4e10a2683f493439d1feafa0eb9",
+    "data/mathlib-disk.json": "ed71ddb7f911e20e0e4a22793ad9f422e790f26bab1873aa7c18b82d26bf77cf",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
     "vendor/D3-LICENSE.txt": "7a3cb0e5055874e67db9aa2d5fe26de23204fa994ffbad198901ffe9c812a717",
@@ -5053,8 +5053,8 @@
       "partial": 291,
       "untouched": 113,
       "unassessed": 523,
-      "total": 3707,
-      "proposed": 2362
+      "total": 3908,
+      "proposed": 2563
     },
     "added": [
       "tauceti:TauCetiRoadmap/AbhyankarLemma",
@@ -5225,15 +5225,15 @@
     ]
   },
   "proposals": {
-    "openPulls": 401,
-    "pulls": 294,
-    "layers": 2362,
+    "openPulls": 427,
+    "pulls": 320,
+    "layers": 2563,
     "unplaced": [
       "tauceti:TauCetiRoadmap/ArithmeticStatistics",
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-28T19:42:53Z",
-    "roadmaps": 304
+    "updatedAt": "2026-10-28T23:14:45Z",
+    "roadmaps": 328
   },
   "variant": "atlas"
 }
