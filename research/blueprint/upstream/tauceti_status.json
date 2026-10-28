@@ -522,13 +522,14 @@
     "ModularCurvesPartII": {
       "stage": "pr",
       "pr": 913,
-      "head": "35be0c8",
+      "head": "b12d5ad",
       "note": "N3 CHANGES answered 10-16",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at b12d5ad; confirmation pass pending"
       }
     },
     "FreeGroupsAndLimitGroups": {
