@@ -162,7 +162,7 @@
     "ComplexComparisonPartII": {
       "stage": "pr",
       "pr": 848,
-      "head": "cefe3c3",
+      "head": "7380744",
       "depends_on": [
         779,
         853
@@ -170,9 +170,10 @@
       "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 7380744; confirmation pass pending"
       }
     },
     "AbelianSchemesAndArithmeticModuli": {
