@@ -657,13 +657,14 @@
     "ShimuraVarieties": {
       "stage": "pr",
       "pr": 933,
-      "head": "d377db7",
+      "head": "e7d7bdc",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 6cc4f59",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at e7d7bdc; confirmation pass pending"
       }
     },
     "EtaleCohomologyFoundations": {
