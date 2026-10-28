@@ -1068,13 +1068,14 @@
     "PrismaticCohomology": {
       "stage": "pr",
       "pr": 1057,
-      "head": "ff0050b",
+      "head": "ddcc1c2",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
       "review": {
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at ddcc1c2; confirmation pass pending"
       }
     },
     "PadicHodgeTheory": {
