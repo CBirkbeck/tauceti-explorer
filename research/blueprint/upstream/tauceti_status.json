@@ -377,7 +377,7 @@
     "SelmerIwasawaCohomology": {
       "stage": "pr",
       "pr": 869,
-      "head": "1fa1c7d",
+      "head": "eb754dc",
       "depends_on": [
         858,
         779,
@@ -387,9 +387,10 @@
       "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at eb754dc; confirmation pass pending"
       }
     },
     "NeronModelsAndSemistableAbelianVarietiesPartII": {
