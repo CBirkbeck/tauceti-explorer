@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T12:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T12:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -72,7 +72,7 @@ Generated 2026-10-28T12:00Z from the README supplier graph of every open pull re
 ## Wave 9
 - #849 AbelianSchemesAndArithmeticModuli — draft; waits on #1630, #848, #853, #857
 - #854 LocallyAnalyticDistributions — draft; waits on #1310, #1312, #785, #857
-- #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #1688, #1689, #785, #792, #848
+- #871 ArithmeticLocallySymmetricSpaces — draft; waits on #1688, #1689, #785, #792, #848
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285, #223, #973
 
 ## Wave 10
@@ -103,7 +103,7 @@ Generated 2026-10-28T12:00Z from the README supplier graph of every open pull re
 - #1266 HermitianKTheoryOfPoincareCategories — ready (approved at an earlier head); waits on #1212, #1630, #851
 
 ## Wave 16
-- #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #816, #849, #852, #858, #879, #940, #248
+- #869 SelmerIwasawaCohomology — draft; waits on #1306, #1307, #816, #849, #852, #858, #879, #940, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #785, #848, #850, #852, #853
 - #873 LefschetzPencilsAndVanishingCycles — draft; waits on #1630, #792, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready (approved at an earlier head); waits on #1034, #1630, #1688, #1689, #785, #856
@@ -111,7 +111,7 @@ Generated 2026-10-28T12:00Z from the README supplier graph of every open pull re
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
 
 ## Wave 17
-- #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #1630, #820, #853, #856, #857, #858, #873
+- #875 ClassicalAdicEtaleCohomology — draft; waits on #1630, #820, #853, #856, #857, #858, #873
 - #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #1037, #1225, #1689, #785, #792, #848, #849, #852, #853, #856, #871, #873
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #1310, #1312, #1688, #1689, #785, #792, #853, #856, #858, #869, #879
 - #1232 RelativeJacobiansAndIntegralCurveModels — ready (approved at an earlier head); waits on #1225, #785, #848, #849, #852, #853, #879
