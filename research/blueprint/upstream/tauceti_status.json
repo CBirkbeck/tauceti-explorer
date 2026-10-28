@@ -697,13 +697,14 @@
     "AdicCoefficientsAndComparisons": {
       "stage": "pr",
       "pr": 965,
-      "head": "248aad6",
+      "head": "000e3d5",
       "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 4a7b4d8",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 000e3d5; confirmation pass pending"
       }
     },
     "PELModuli": {
