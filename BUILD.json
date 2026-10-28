@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 56966241,
-  "htmlSha256": "d30cc97a55b521c74f7b7312356c018f1d49c2c65bee323f6dbb10d6d218bf19",
+  "htmlBytes": 56968622,
+  "htmlSha256": "1d6d0cd1f9a8e3a6b0679757ab98b81a00790cbe086359f4089b3002e047b1d8",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3574,7 +3574,7 @@
     "data/roadmap-distances.json": "9d12add653030effa17fccafd3538ed6cbd1f4e9aacb3385c15e6c85e665af41",
     "data/galaxy-layout.json": "b90cf7109c39ced45d075d238991396669d02cadc5d54a1deed89e359ed09d15",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
-    "data/mathlib-disk.json": "b560a94287d047457e98c23a3369be3016d1f4e10a2683f493439d1feafa0eb9",
+    "data/mathlib-disk.json": "ed71ddb7f911e20e0e4a22793ad9f422e790f26bab1873aa7c18b82d26bf77cf",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
     "vendor/D3-LICENSE.txt": "7a3cb0e5055874e67db9aa2d5fe26de23204fa994ffbad198901ffe9c812a717",
@@ -5232,7 +5232,7 @@
       "tauceti:TauCetiRoadmap/ArithmeticStatistics",
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-28T23:24:15Z",
+    "updatedAt": "2026-10-28T23:29:17Z",
     "roadmaps": 327
   },
   "variant": "atlas"

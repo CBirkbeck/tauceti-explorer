@@ -415,7 +415,7 @@
     ]
    },
    "title": "Roadmap: adelic algebraic groups (depends on #785)",
-   "updatedAt": "2026-10-28T23:14:45Z",
+   "updatedAt": "2026-10-28T23:27:26Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/792"
   },
   {
@@ -28333,9 +28333,9 @@
     "roadmap-worker"
    ],
    "number": 1719,
-   "sha": "8605d76e9fbffd4357f4b06c6a62d9eeb93f6991",
+   "sha": "b5908b3d72d9fbfbf4ca27247530b76d1ab6bc72",
    "title": "feat: roadmap for bianchi modular forms",
-   "updatedAt": "2026-10-28T22:18:47Z",
+   "updatedAt": "2026-10-28T23:29:17Z",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/1719"
   },
   {
