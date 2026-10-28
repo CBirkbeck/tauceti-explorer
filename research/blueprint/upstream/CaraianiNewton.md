@@ -68,7 +68,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 9
 
 - **Merged package:** CrystallineCohomology + DerivedDeRhamCohomology
-  - **CrystallineCohomology** — Crystalline cohomology, de Rham–Witt and logarithmic foundations. Plan 2/2 accepted · package accepted · CN needs 8/11 layers · **Tau Ceti: pull request #857 open** · reviewer recommends approval · move down: PadicDifferentialEquationsAndRigidCohomology (9), FiniteFlatGroupsAndIntegralPadicHodgeTheory (6), PadicHodgeTheory (4), AInfCohomology (3), LefschetzPencilsAndVanishingCycles (1)
+  - **CrystallineCohomology** — Crystalline cohomology, de Rham–Witt and logarithmic foundations. Plan 2/2 accepted · package accepted · CN needs 8/11 layers · **Tau Ceti: pull request #857 open** · reviewer recommends approval (at earlier head None; current head a4d676d) · move down: PadicDifferentialEquationsAndRigidCohomology (9), FiniteFlatGroupsAndIntegralPadicHodgeTheory (6), PadicHodgeTheory (4), AInfCohomology (3), LefschetzPencilsAndVanishingCycles (1)
   - **DerivedDeRhamCohomology** — Derived de Rham cohomology and its algebraic foundations. Plan 1/1 accepted · package accepted · CN needs 4/7 layers · **Tau Ceti: pull request #868 open** · move down: PerfectoidQuotients (16), AInfCohomology (3), PadicHodgeTheory (2)
 - **HeightsRationalPointsAndObstructions** — Heights, rational points and obstructions. Plan 1/1 accepted · package accepted · CN needs 2/7 layers · **Tau Ceti: pull request #1017 open** · reviewer recommends approval (at earlier head None; current head 82cf8af) · move down: NeronModelsAndSemistableAbelianVarieties (7), FaltingsFinitenessAndIsogenyTheorems (1)
 

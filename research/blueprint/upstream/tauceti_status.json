@@ -312,7 +312,7 @@
     "CrystallineCohomology": {
       "stage": "pr",
       "pr": 857,
-      "head": "013a921",
+      "head": "a4d676d",
       "depends_on": [
         779,
         789,
@@ -329,9 +329,10 @@
       "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running",
       "review": {
         "recommendation": "approve",
-        "current": true,
+        "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at a4d676d; confirmation pass pending"
       }
     },
     "ArithmeticGaloisDuality": {
