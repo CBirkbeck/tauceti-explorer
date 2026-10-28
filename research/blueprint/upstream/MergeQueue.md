@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T09:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T09:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -54,7 +54,7 @@ Generated 2026-10-28T09:20Z from the README supplier graph of every open pull re
 - #1307 NoncommutativeAndEquivariantIwasawa — ready (approved at an earlier head); waits on #1212, #1306, #785, #940, #1142
 
 ## Wave 6
-- #857 CrystallineCohomology — ready (approved at an earlier head); waits on #1630, #820, #868, #940
+- #857 CrystallineCohomology — ready; waits on #1630, #820, #868, #940
 
 ## Wave 7
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1199, #1630, #785, #857
