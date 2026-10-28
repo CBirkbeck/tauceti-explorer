@@ -117,12 +117,13 @@
         818
       ],
       "note": "maintainer-ordered: no dependency on #453 (seminormality owned in D6.9) 10-16",
-      "head": "45a9638",
+      "head": "2fa7064",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 2fa7064; confirmation pass pending"
       }
     },
     "PerfectoidSpaces": {
