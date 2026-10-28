@@ -233,7 +233,7 @@
     "NeronModelsAndSemistableAbelianVarieties": {
       "stage": "pr",
       "pr": 852,
-      "head": "3710abd",
+      "head": "1e38e26",
       "depends_on": [
         779,
         785
@@ -241,9 +241,10 @@
       "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 1e38e26; confirmation pass pending"
       }
     },
     "AlgebraicModuliForArithmeticGeometry": {
