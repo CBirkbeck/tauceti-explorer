@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-28T08:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-28T08:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -57,7 +57,7 @@ Generated 2026-10-28T08:00Z from the README supplier graph of every open pull re
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #1630, #820, #868, #940
 
 ## Wave 7
-- #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #1630, #785, #857
+- #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1199, #1630, #785, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #1630, #857, #868
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1309, #816, #857, #940
 
@@ -69,7 +69,7 @@ Generated 2026-10-28T08:00Z from the README supplier graph of every open pull re
 
 ## Wave 9
 - #849 AbelianSchemesAndArithmeticModuli — draft; waits on #1630, #848, #853, #857
-- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #1312, #785, #857
+- #854 LocallyAnalyticDistributions — draft; waits on #1310, #1312, #785, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #848, #853, #857, #1285, #223, #973
 
