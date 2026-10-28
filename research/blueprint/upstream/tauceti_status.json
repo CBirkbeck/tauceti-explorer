@@ -359,7 +359,7 @@
     "DerivedDeRhamCohomology": {
       "stage": "pr",
       "pr": 868,
-      "head": "b5fce18",
+      "head": "9641592",
       "depends_on": [
         857,
         818,
@@ -369,9 +369,10 @@
       "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 9641592; confirmation pass pending"
       }
     },
     "SelmerIwasawaCohomology": {
