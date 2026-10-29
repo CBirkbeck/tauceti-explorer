@@ -1,35 +1,35 @@
 {
-  "roadmaps": 498,
-  "stages": 4009,
-  "originalStages": 4009,
+  "roadmaps": 517,
+  "stages": 4168,
+  "originalStages": 4168,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 3977,
-  "groups": 46,
+  "terminalTargets": 4136,
+  "groups": 47,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
   ],
   "classifiedRoadmaps": 211,
   "estimatedRoadmaps": 0,
   "distanceBases": {
-    "dependencies": 498
+    "dependencies": 517
   },
   "pairwiseJudgements": 1001,
   "unmappedAreas": 0,
-  "areasWithRoadmaps": 41,
+  "areasWithRoadmaps": 42,
   "additionalRegions": 0,
-  "mathematicalSummaries": 498,
+  "mathematicalSummaries": 517,
   "editedRoadmapSummaries": 29,
   "curatedStagePresentations": 42,
   "administrativeStages": 0,
-  "mathematicalStars": 4009,
+  "mathematicalStars": 4168,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 244,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 18,
   "bibliographicSources": 46,
-  "roadmapEdges": 12664,
-  "stageEdges": 3242,
+  "roadmapEdges": 13958,
+  "stageEdges": 3382,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -3538,8 +3538,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 56968622,
-  "htmlSha256": "1d6d0cd1f9a8e3a6b0679757ab98b81a00790cbe086359f4089b3002e047b1d8",
+  "htmlBytes": 58983264,
+  "htmlSha256": "14d025ad67c43945bb2df9676ff7fb5e34b89323d2e30de75bd766166c26fdd0",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -3559,8 +3559,8 @@
     "src/app.js": "a0b024c0b31ecf48758ee7e84a2dafee7ced7b80cfc70334a9035f69d7c27145",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "f1a43b15a4cdd5fb66742d3d956da63f3c2d5924189c27f85950879a81719a38",
-    "data/tauceti-new-roadmaps.json": "48bcdf76602c557b79c34f122937ca8bd679b37d0ebce403da46e8af4c6fe850",
+    "data/tauceti-progress.json": "24f260980b1841babeb073009ab81dfc058d9ee1ca45dcfc72d210211d4874d4",
+    "data/tauceti-new-roadmaps.json": "fe1ab03696d92ab318025f763542fbedcd60cd6c062d1d0c5b20608d2e5592a9",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -5045,16 +5045,16 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-28T18:22:58Z",
-    "roadmaps": 171,
+    "exportedAt": "2026-10-28T20:01:02Z",
+    "roadmaps": 172,
     "unplaced": 1,
     "layers": {
       "done": 418,
       "partial": 291,
       "untouched": 113,
-      "unassessed": 523,
-      "total": 3901,
-      "proposed": 2556
+      "unassessed": 530,
+      "total": 4060,
+      "proposed": 2708
     },
     "added": [
       "tauceti:TauCetiRoadmap/AbhyankarLemma",
@@ -5140,6 +5140,7 @@
       "tauceti:TauCetiRoadmap/RandomMatrices",
       "tauceti:TauCetiRoadmap/Rank24LatticeConstructions",
       "tauceti:TauCetiRoadmap/RealAnalyticGeometry",
+      "tauceti:TauCetiRoadmap/ReductiveGroupsPartII",
       "tauceti:TauCetiRoadmap/ReflectionInvariantTheory",
       "tauceti:TauCetiRoadmap/Regularity",
       "tauceti:TauCetiRoadmap/RepresentationTheory/ModularInduction",
@@ -5225,15 +5226,15 @@
     ]
   },
   "proposals": {
-    "openPulls": 427,
-    "pulls": 320,
-    "layers": 2556,
+    "openPulls": 449,
+    "pulls": 338,
+    "layers": 2708,
     "unplaced": [
       "tauceti:TauCetiRoadmap/ArithmeticStatistics",
       "tauceti:TauCetiRoadmap/CohomologicalPointCounting"
     ],
-    "updatedAt": "2026-10-28T23:29:17Z",
-    "roadmaps": 327
+    "updatedAt": "2026-10-29T14:24:13Z",
+    "roadmaps": 345
   },
   "variant": "atlas"
 }
