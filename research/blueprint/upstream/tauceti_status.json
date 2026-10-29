@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-29T12:40Z",
+  "updated": "2026-10-29T17:40Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -51,7 +51,7 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-      "head": "a319853",
+      "head": "75b67e0",
       "review": {
         "recommendation": "changes",
         "current": false,
@@ -145,9 +145,9 @@
       "note": "ChatGPT Pro N3 APPROVE 10-16 (two non-blocking suggestions); ready",
       "head": "ad8056c",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": ""
       }
     },
@@ -205,18 +205,17 @@
     "GeometryOfNumbersAndQuadraticArithmetic": {
       "stage": "pr",
       "pr": 851,
-      "head": "48bc9a6",
+      "head": "f5de135",
       "depends_on": [
         792,
         785
       ],
       "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 48bc9a6; confirmation pass pending"
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "NeronModelsAndSemistableAbelianVarieties": {
@@ -395,9 +394,9 @@
       ],
       "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -412,9 +411,9 @@
       ],
       "note": "N3 CHANGES answered 10-16",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -478,14 +477,14 @@
       "review": {
         "recommendation": "approve",
         "current": true,
-        "draft": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
       "stage": "pr",
       "pr": 879,
-      "head": "0e779dc",
+      "head": "b4c015e",
       "depends_on": [
         849,
         857,
@@ -499,9 +498,9 @@
       ],
       "note": "N2 CHANGES answered 10-16",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -512,12 +511,12 @@
     "ModularCurvesPartII": {
       "stage": "pr",
       "pr": 913,
-      "head": "b12d5ad",
+      "head": "82d96e2",
       "note": "N3 CHANGES answered 10-16",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -531,9 +530,9 @@
       "head": "c3a764e",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next)",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -547,9 +546,9 @@
       "head": "e465c50",
       "note": "companion: C4.1 consumes DiamondsAndVStacks D4.11 10-16",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       },
       "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at ee31f87 (C8.48a relative tautness; §§0.1–0.4 from EnhancedDerivedSheaves); ready for re-review"
@@ -560,16 +559,16 @@
       "head": "3580989",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 15bab3b",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
     "AutomorphicLFunctionsAndLocalFactors": {
       "stage": "pr",
       "pr": 924,
-      "head": "e8f16d4",
+      "head": "68712cd",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
@@ -581,13 +580,14 @@
     "AutomorphicSpectralTheory": {
       "stage": "pr",
       "pr": 925,
-      "head": "3faace5",
+      "head": "8081596",
       "note": "N3 CHANGES answered 10-16",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 8081596; confirmation pass pending"
       },
       "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 5ad7671 (§§7.0a–7.0c cyclic transfer; §§7.1a–7.1d quantitative/auxiliary targets); ready for re-review"
     },
@@ -597,9 +597,9 @@
       "head": "f893965",
       "note": "N4 CHANGES answered 10-16",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       },
       "maintainer": "READY FOR APPROVAL 2026-10-16 (roed-math); S6.3 noetherian correction applied at f9bb79c"
@@ -607,7 +607,7 @@
     "AlgebraicModularFormsAndSerreWeights": {
       "stage": "pr",
       "pr": 928,
-      "head": "9d42cd1",
+      "head": "7e28cb1",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
       "review": {
         "recommendation": "changes",
@@ -620,7 +620,7 @@
     "DeligneWeightsAndPurity": {
       "stage": "pr",
       "pr": 929,
-      "head": "87323d1",
+      "head": "6045677",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex)",
       "review": {
         "recommendation": "changes",
@@ -636,7 +636,7 @@
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
