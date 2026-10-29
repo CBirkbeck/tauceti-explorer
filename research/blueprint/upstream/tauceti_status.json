@@ -207,7 +207,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic": {
       "stage": "pr",
       "pr": 851,
-      "head": "cd2b780",
+      "head": "cb1195a",
       "depends_on": [
         792,
         785
@@ -215,9 +215,10 @@
       "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at cb1195a; confirmation pass pending"
       }
     },
     "NeronModelsAndSemistableAbelianVarieties": {
