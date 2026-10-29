@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-29T01:10Z",
+  "updated": "2026-10-29T08:40Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -51,12 +51,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-      "head": "1f7bd94",
+      "head": "2262a60",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 2262a60; confirmation pass pending"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
@@ -116,7 +117,7 @@
         818
       ],
       "note": "maintainer-ordered: no dependency on #453 (seminormality owned in D6.9) 10-16",
-      "head": "2fa7064",
+      "head": "97edda2",
       "review": {
         "recommendation": "changes",
         "current": false,
@@ -154,7 +155,7 @@
     "ComplexComparisonPartII": {
       "stage": "pr",
       "pr": 848,
-      "head": "06c89e2",
+      "head": "41fb122",
       "depends_on": [
         779,
         853
@@ -170,7 +171,7 @@
     "AbelianSchemesAndArithmeticModuli": {
       "stage": "pr",
       "pr": 849,
-      "head": "21a8758",
+      "head": "e77dd51",
       "depends_on": [
         779,
         848,
@@ -187,7 +188,7 @@
     "InverseGaloisAndArithmeticFundamentalGroups": {
       "stage": "pr",
       "pr": 850,
-      "head": "5ae28d2",
+      "head": "a5186ac",
       "depends_on": [
         779,
         785,
@@ -213,7 +214,7 @@
       "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
@@ -221,14 +222,14 @@
     "NeronModelsAndSemistableAbelianVarieties": {
       "stage": "pr",
       "pr": 852,
-      "head": "12643b0",
+      "head": "8986e52",
       "depends_on": [
         779,
         785
       ],
       "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
         "current": false,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
@@ -247,7 +248,7 @@
       "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
       "review": {
         "recommendation": "changes",
-        "current": false,
+        "current": true,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
@@ -255,7 +256,7 @@
     "LocallyAnalyticDistributions": {
       "stage": "pr",
       "pr": 854,
-      "head": "5126fe0",
+      "head": "444887a",
       "depends_on": [
         780,
         813,
@@ -263,7 +264,7 @@
       ],
       "note": "N1 CHANGES answered 10-16",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
         "current": false,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
@@ -288,18 +289,17 @@
     "ArithmeticGaloisRepresentations": {
       "stage": "pr",
       "pr": 856,
-      "head": "53b7d06",
+      "head": "2194655",
       "depends_on": [
         789,
         785
       ],
       "note": "N1 CHANGES answered 10-16; draft",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 53b7d06; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "CrystallineCohomology": {
@@ -321,9 +321,9 @@
       ],
       "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -341,9 +341,9 @@
       ],
       "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
@@ -359,16 +359,16 @@
       ],
       "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
+        "recommendation": "approve",
+        "current": true,
+        "draft": false,
         "maintainer": "REVIEW_REQUIRED"
       }
     },
     "SelmerIwasawaCohomology": {
       "stage": "pr",
       "pr": 869,
-      "head": "cbf830f",
+      "head": "3f518a0",
       "depends_on": [
         858,
         779,
