@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-28T22:40Z",
+  "updated": "2026-10-29T00:40Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -51,10 +51,10 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-      "head": "6008aed",
+      "head": "1f7bd94",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED"
       }
@@ -66,7 +66,7 @@
         785
       ],
       "note": "carried on #785 (ReductiveGroupsPartII) since the maintainer merged #793/#789 into that branch on 2026-10-14; SR.3a.2 companion repair applied 2026-10-16 at b853d91",
-      "head": "830917b",
+      "head": "097023f",
       "review": {
         "recommendation": "changes",
         "current": false,
@@ -145,8 +145,8 @@
       "note": "ChatGPT Pro N3 APPROVE 10-16 (two non-blocking suggestions); ready",
       "head": "8dfcc4b",
       "review": {
-        "recommendation": "approve",
-        "current": false,
+        "recommendation": "changes",
+        "current": true,
         "draft": true,
         "maintainer": ""
       }
@@ -296,10 +296,9 @@
       "note": "N1 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "approve",
-        "current": false,
+        "current": true,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at 682bd29; confirmation pass pending"
+        "maintainer": "REVIEW_REQUIRED"
       }
     },
     "CrystallineCohomology": {
@@ -330,7 +329,7 @@
     "ArithmeticGaloisDuality": {
       "stage": "pr",
       "pr": 858,
-      "head": "c26bdae",
+      "head": "c47fce6",
       "depends_on": [
         779,
         856,
@@ -342,9 +341,10 @@
       "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at c47fce6; confirmation pass pending"
       }
     },
     "DerivedDeRhamCohomology": {
