@@ -958,14 +958,15 @@
     "DeformationAndDerivedPatchingAlgebra": {
       "stage": "pr",
       "pr": 1034,
-      "head": "dc87c78",
+      "head": "96614c5",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
       "review": {
         "recommendation": "changes",
-        "current": true,
+        "current": false,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED",
-        "ai": false
+        "ai": false,
+        "note": "final-review repairs applied at 96614c5; confirmation pass pending"
       }
     },
     "CompletedCohomologyPartII": {
