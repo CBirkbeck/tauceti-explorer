@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-30T13:30Z",
+ "updated": "2026-10-30T13:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -895,8 +895,8 @@
    "head": "92d2ce0",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -921,8 +921,8 @@
    "head": "6a07636",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -934,8 +934,8 @@
    "head": "f3b762c",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -944,10 +944,10 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "63d51d5",
+   "head": "8cf11a2",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
