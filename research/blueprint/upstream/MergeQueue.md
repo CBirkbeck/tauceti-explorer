@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-30T22:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-30T22:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -95,7 +95,7 @@ Generated 2026-10-30T22:20Z from the README supplier graph of every open pull re
 - #852 NeronModelsAndSemistableAbelianVarieties — ready; waits on #1307, #1688, #848, #849, #850, #853, #856, #857, #879, #940
 - #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #1037, #1688, #1689, #792, #850, #853, #856, #858, #871, #929, #253
 - #928 AlgebraicModularFormsAndSerreWeights — ready; waits on #1037, #848, #849, #856, #879, #913
-- #1034 DeformationAndDerivedPatchingAlgebra — ready (approved at an earlier head); waits on #1312, #1630, #1689, #1701, #858, #872
+- #1034 DeformationAndDerivedPatchingAlgebra — ready; waits on #1312, #1630, #1689, #1701, #858, #872
 - #1154 InductionRestrictionPartII — ready (approved at an earlier head); waits on #850
 - #1266 HermitianKTheoryOfPoincareCategories — ready (approved at an earlier head); waits on #1212, #1630, #851
 
@@ -247,7 +247,7 @@ Generated 2026-10-30T22:20Z from the README supplier graph of every open pull re
 - #1549 ClassicalAdicEtaleCohomologyPartII — draft; waits on #1044, #1062, #1084, #1199, #1630, #1701, #820, #858, #868, #875, #922, #965
 
 ## Wave 36
-- #1020 ClassicalSerreModularity — ready (approved at an earlier head); waits on #1005, #1007, #1013, #1034, #1062, #856, #879, #920, #923, #928, #931, #970
+- #1020 ClassicalSerreModularity — ready; waits on #1005, #1007, #1013, #1034, #1062, #856, #879, #920, #923, #928, #931, #970
 - #1087 TorsionCohomologyInfrastructure — ready (approved at an earlier head); waits on #1006, #1035, #1040, #1053, #1062, #1069, #1084, #1085, #1689, #871, #913, #925, #929, #999
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1006, #1007, #1013, #1178, #849, #851, #852, #856, #857, #879, #913, #931, #933
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1035, #1053, #1069, #1084, #1085, #1310, #1312, #816, #854
