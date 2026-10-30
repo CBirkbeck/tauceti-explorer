@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-30T15:20Z",
+ "updated": "2026-10-30T15:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -944,11 +944,11 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "8cf11a2",
+   "head": "f8c6414",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -973,8 +973,8 @@
    "head": "4445922",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -996,10 +996,10 @@
   "AutomorphicFormsOnReductiveGroups": {
    "stage": "pr",
    "pr": 1037,
-   "head": "c00e220",
+   "head": "98c5550",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 22); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
