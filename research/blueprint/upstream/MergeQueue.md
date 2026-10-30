@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-30T13:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-30T13:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -200,8 +200,8 @@ Generated 2026-10-30T13:00Z from the README supplier graph of every open pull re
 
 ## Wave 31
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready; waits on #1000, #1001, #1002, #1225, #1405, #792, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
-- #1005 HilbertModularVarietiesAndShimuraCurves — draft; waits on #1001, #1034, #1037, #1038, #1688, #1689, #792, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #928, #929, #931, #933, #966, #934
-- #1017 HeightsRationalPointsAndObstructions — draft; waits on #1000, #1171, #1173, #1174, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879
+- #1005 HilbertModularVarietiesAndShimuraCurves — ready; waits on #1001, #1034, #1037, #1038, #1688, #1689, #792, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #928, #929, #931, #933, #966, #934
+- #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1000, #1171, #1173, #1174, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879
 - #1175 ArithmeticStatisticsPartV — ready (approved at an earlier head); waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #1472, #792, #850, #851
 - #1209 RelativeFarguesFontaine — ready (approved at an earlier head); waits on #1044, #1062, #1205, #1701, #820, #940, #964
 - #1461 BorelRegulators — draft; waits on #1037, #1043, #1212, #1227, #1229, #1306, #1418, #1470, #792, #858, #871, #999
@@ -212,7 +212,7 @@ Generated 2026-10-30T13:00Z from the README supplier graph of every open pull re
 
 ## Wave 32
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #1037, #1306, #1689, #852, #856, #858, #879, #913, #920, #923, #928, #931
-- #1021 AnabelianGeometryAndNonabelianChabauty — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #1701, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #929, #940, #966
+- #1021 AnabelianGeometryAndNonabelianChabauty — draft; waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #1701, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #929, #940, #966
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #792, #848, #849, #852, #853, #858, #879, #913, #933, #966
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017, #1167, #1171, #1173, #1174, #1175, #792, #849, #850, #851, #852, #856, #858, #869, #929, #931, #933, #968, #970
 - #1230 VStackSheavesAndLisseCategories — ready (approved at an earlier head); waits on #1062, #1205, #1209, #1227, #1630, #1688, #820, #875, #922, #927, #965
@@ -222,7 +222,7 @@ Generated 2026-10-30T13:00Z from the README supplier graph of every open pull re
 - #1424 Polylogarithms — draft; waits on #1043, #1212, #1227, #1229, #1281, #1302, #1306, #1313, #1320, #1418, #1430, #1461, #1470, #848, #853, #999
 
 ## Wave 33
-- #1019 PadicFamilies — draft; waits on #1001, #1005, #1013, #1034, #1039, #1306, #1307, #1689, #1701, #854, #858, #869, #879, #913, #920, #928, #931, #968, #934
+- #1019 PadicFamilies — ready (approved at an earlier head); waits on #1001, #1005, #1013, #1034, #1039, #1306, #1307, #1689, #1701, #854, #858, #869, #879, #913, #920, #928, #931, #968, #934
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1002, #1017, #1021, #1043, #849, #851, #852, #879, #913, #929
 - #1069 AutomorphicBundles — ready (approved at an earlier head); waits on #1005, #1038, #1040, #1053, #1062, #1064, #1080, #1630, #792, #816, #848, #849, #853, #868, #871, #875, #879, #928, #933, #940, #965, #966
 - #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1126, #1167, #1171, #1172, #1174, #1175, #1176, #792, #849, #852, #853, #858, #869
