@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-30T08:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-30T08:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -200,7 +200,7 @@ Generated 2026-10-30T08:20Z from the README supplier graph of every open pull re
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1314, #851, #925
 
 ## Wave 31
-- #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1225, #1405, #792, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
+- #1004 FaltingsFinitenessAndIsogenyTheorems — ready; waits on #1000, #1001, #1002, #1225, #1405, #792, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
 - #1005 HilbertModularVarietiesAndShimuraCurves — ready (approved at an earlier head); waits on #1001, #1034, #1037, #1038, #1688, #1689, #792, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #928, #929, #931, #933, #966, #934
 - #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1000, #1171, #1173, #1174, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879
 - #1175 ArithmeticStatisticsPartV — ready (approved at an earlier head); waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #1472, #792, #850, #851

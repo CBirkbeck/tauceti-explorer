@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-30T08:20Z",
+ "updated": "2026-10-30T08:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -775,11 +775,11 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "4174d95",
+   "head": "3f9167c",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1)",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -814,7 +814,7 @@
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "pr",
    "pr": 1002,
-   "head": "186e611",
+   "head": "e3ae167",
    "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running",
    "review": {
     "recommendation": "changes",
@@ -830,8 +830,8 @@
    "head": "b83ebd4",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
