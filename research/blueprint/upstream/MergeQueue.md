@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-30T20:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-30T20:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -217,7 +217,7 @@ Generated 2026-10-30T20:20Z from the README supplier graph of every open pull re
 
 ## Wave 32
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #1037, #1306, #1689, #852, #856, #858, #879, #913, #920, #923, #928, #931
-- #1021 AnabelianGeometryAndNonabelianChabauty — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #1701, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #929, #940, #966
+- #1021 AnabelianGeometryAndNonabelianChabauty — ready; waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #1701, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #929, #940, #966
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #792, #848, #849, #852, #853, #858, #879, #913, #933, #966
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017, #1167, #1171, #1173, #1174, #1175, #792, #849, #850, #851, #852, #856, #858, #869, #929, #931, #933, #968, #970
 - #1231 MordellLawrenceVenkatesh — ready (approved at an earlier head); waits on #1001, #1004, #1017, #1034, #1040, #1062, #1063, #1225, #1545, #848, #849, #850, #852, #853, #856, #857, #858, #868, #879, #929, #940
