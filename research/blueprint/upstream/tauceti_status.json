@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-30T14:22Z",
+ "updated": "2026-10-30T14:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -905,7 +905,7 @@
   "ClassicalSerreModularity": {
    "stage": "pr",
    "pr": 1020,
-   "head": "1d19567",
+   "head": "8c36ec0",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
    "review": {
     "recommendation": "changes",
@@ -948,7 +948,7 @@
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -957,10 +957,10 @@
   "DeformationAndDerivedPatchingAlgebra": {
    "stage": "pr",
    "pr": 1034,
-   "head": "7b0ba72",
+   "head": "dc87c78",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -970,10 +970,10 @@
   "CompletedCohomologyPartII": {
    "stage": "pr",
    "pr": 1035,
-   "head": "23229e5",
+   "head": "4445922",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -983,10 +983,10 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
    "pr": 1036,
-   "head": "563d1cb",
+   "head": "bf5759f",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
