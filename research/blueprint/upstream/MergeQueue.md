@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-31T11:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-31T11:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -167,7 +167,7 @@ Generated 2026-10-31T11:20Z from the README supplier graph of every open pull re
 - #1208 WeilConjectures — ready (approved at an earlier head); waits on #1002, #1040, #1062, #848, #849, #850, #856, #870, #929
 
 ## Wave 25
-- #1063 MetaplecticAutomorphicForms — ready (approved at an earlier head); waits on #1037, #1688, #792, #851, #856, #924, #925, #931, #999
+- #1063 MetaplecticAutomorphicForms — ready; waits on #1037, #1688, #792, #851, #856, #924, #925, #931, #999
 - #1175 ArithmeticStatisticsPartV — ready (approved at an earlier head); waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #1472, #792, #850, #851
 - #1209 RelativeFarguesFontaine — ready (approved at an earlier head); waits on #1044, #1062, #1205, #1701, #820, #940, #964
 - #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1208, #1375, #848, #850, #853, #870, #879, #1286
