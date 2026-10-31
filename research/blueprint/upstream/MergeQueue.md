@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-31T04:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-31T05:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
@@ -154,7 +154,7 @@ Generated 2026-10-31T04:50Z from the README supplier graph of every open pull re
 - #1531 ArithmeticStatistics — draft; waits on #1126, #1167
 
 ## Wave 24
-- #1043 ColemanIntegration — draft; waits on #1002, #1039, #1320, #1430, #1470, #1701, #792, #851, #854
+- #1043 ColemanIntegration — ready (approved at an earlier head); waits on #1002, #1039, #1320, #1430, #1470, #1701, #792, #851, #854
 - #1062 PadicHodgeTheory — ready (approved at an earlier head); waits on #1002, #1042, #1044, #1057, #1307, #1310, #1312, #1313, #1630, #1701, #816, #820, #849, #852, #856, #857, #858, #868, #869, #875, #879, #923, #940, #966
 - #1172 ArithmeticStatisticsPartIV — ready (approved at an earlier head); waits on #1126, #1167, #1171
 - #1173 ArithmeticStatisticsPartII — ready (approved at an earlier head); waits on #1167, #1171, #849, #851, #852, #853, #858, #869
@@ -234,7 +234,7 @@ Generated 2026-10-31T04:50Z from the README supplier graph of every open pull re
 ## Wave 36
 - #1007 AutomorphicGaloisRepresentations — ready; waits on #1001, #1005, #1006, #1013, #1306, #1689, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #940, #966, #970, #999, #934
 - #1019 PadicFamilies — ready; waits on #1001, #1005, #1013, #1034, #1039, #1306, #1307, #1689, #1701, #854, #858, #869, #879, #913, #920, #928, #931, #968, #934
-- #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1002, #1017, #1021, #1043, #849, #851, #852, #879, #913, #929
+- #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #849, #851, #852, #879, #913, #929
 - #1069 AutomorphicBundles — ready (approved at an earlier head); waits on #1005, #1038, #1040, #1053, #1062, #1064, #1080, #1630, #792, #816, #848, #849, #853, #868, #871, #875, #879, #928, #933, #940, #965, #966
 - #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1126, #1167, #1171, #1172, #1174, #1175, #1176, #792, #849, #852, #853, #858, #869
 - #1360 ColemanIntegrationPartII — draft; waits on #1002, #1021, #1043, #1199, #940
