@@ -14,24 +14,24 @@ Generated with the SVG (2026-10-31T12:40Z). A wave can merge once every wave bel
 - IntegralHeckeAndGaloisDeterminants: PR #785 — draft; external prerequisites #1701
 
 ## Wave 3
-- InverseGaloisAndArithmeticFundamentalGroups: PR #850 — AI approved; external prerequisites #1199
-
-## Wave 4
-- ArithmeticGaloisRepresentations: PR #856 — AI approved; external prerequisites #1312
-
-## Wave 5
 - CrystallineCohomology: PR #857 — AI approved; external prerequisites #1701, #940
 - DerivedDeRhamCohomology: PR #868 — AI approved; external prerequisites #1701, #940
 
-## Wave 6
+## Wave 4
 - AlgebraicModuliForArithmeticGeometry: PR #853 — AI approved; external prerequisites #1199, #1701
 - LocallyAnalyticDistributions: PR #854 — AI approved; external prerequisites #1310, #1312
 
-## Wave 7
+## Wave 5
 - ComplexComparisonPartII: PR #848 — AI approved; external prerequisites #1056, #992, #1199, #1701
 
-## Wave 8
+## Wave 6
 - AbelianSchemesAndArithmeticModuli: PR #849 — AI approved
+
+## Wave 7
+- InverseGaloisAndArithmeticFundamentalGroups: PR #850 — AI approved; external prerequisites #1199
+
+## Wave 8
+- ArithmeticGaloisRepresentations: PR #856 — AI approved; external prerequisites #1312
 
 ## Wave 9
 - FiniteFlatGroupsAndIntegralPadicHodgeTheory: PR #879 — AI approved; external prerequisites #1260, #1307, #1312, #1701, #940
@@ -114,32 +114,32 @@ Generated with the SVG (2026-10-31T12:40Z). A wave can merge once every wave bel
 
 ## Wave 27
 - ArakelovGeometryAndAbelianHeights: PR #1000 — AI approved
-- ClassicalSerreModularity: PR #1020 — AI approved
+- AutomorphicGaloisRepresentationsPartII: PR #1006 — AI approved; external prerequisites #1202, #1205, #1230, #1235, #1310, #940
 - HodgeTateAndCanonicalSubgroups: PR #1084 — ready; external prerequisites #1080, #1701
 
 ## Wave 28
 - FaltingsFinitenessAndIsogenyTheorems: PR #1004 — AI approved; external prerequisites #1225, #1405, #940
 - HeightsRationalPointsAndObstructions: PR #1017 — AI approved; external prerequisites #1171, #1173, #1174
-- OrdinaryAutomorphicFormsAndModularityLifting: PR #1066 — ready
 - PerfectoidShimuraVarieties: PR #1085 — ready; external prerequisites #816
+- PotentialModularityAndCompatibleSystems: PR #1075 — ready
 
 ## Wave 29
 - AnabelianGeometryAndNonabelianChabauty: PR #1021 — AI approved; external prerequisites #1313, #1701, #940
-- PotentialModularityAndCompatibleSystems: PR #1075 — ready
+- ClassicalSerreModularity: PR #1020 — AI approved
+- TorsionCohomologyInfrastructure: PR #1087 — ready
 
 ## Wave 30
 - EffectiveDiophantineMethods: PR #1046 — AI approved
-- SmallRamificationAndAbelianVarietyBaseCases: PR #970 — AI approved
+- IgusaVarietiesAndTorsionConcentration: PR #1090 — ready; external prerequisites #1235
+- OrdinaryAutomorphicFormsAndModularityLifting: PR #1066 — ready
 
 ## Wave 31
-- AutomorphicGaloisRepresentationsPartII: PR #1006 — AI approved; external prerequisites #1202, #1205, #1230, #1235, #1310, #940
+- SmallRamificationAndAbelianVarietyBaseCases: PR #970 — AI approved
 
 ## Wave 32
 - AutomorphicGaloisRepresentations: PR #1007 — AI approved; external prerequisites #934, #1306, #940
-- TorsionCohomologyInfrastructure: PR #1087 — ready
 
 ## Wave 33
-- IgusaVarietiesAndTorsionConcentration: PR #1090 — ready; external prerequisites #1235
 - SerreWeightAndLevelOptimisation: PR #1013 — AI approved; external prerequisites #1306
 
 ## Wave 34
