@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-31T16:20Z",
+ "updated": "2026-10-31T16:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1178,7 +1178,7 @@
   "OrdinaryAutomorphicFormsAndModularityLifting": {
    "stage": "pr",
    "pr": 1066,
-   "head": "67b9167",
+   "head": "4264526",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 64); red team running",
    "review": {
     "recommendation": "changes",
@@ -1207,8 +1207,8 @@
    "head": "54e21dd",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 47); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1217,7 +1217,7 @@
   "PrismaticCohomologyPartIII": {
    "stage": "pr",
    "pr": 1070,
-   "head": "49586b5",
+   "head": "cc1571e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
@@ -1233,8 +1233,8 @@
    "head": "673cfcb",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1246,8 +1246,8 @@
    "head": "29f6025",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 66); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
