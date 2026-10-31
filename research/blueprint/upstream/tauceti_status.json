@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-31T21:30Z",
+ "updated": "2026-10-31T21:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1269,10 +1269,10 @@
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
    "pr": 1081,
-   "head": "1b9b2a0",
+   "head": "8ee2f17",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1285,8 +1285,8 @@
    "head": "06ce518",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 48); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1298,8 +1298,8 @@
    "head": "917a589",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 49); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1308,14 +1308,14 @@
   "TorsionCohomologyInfrastructure": {
    "stage": "pr",
    "pr": 1087,
-   "head": "d3fb40f",
+   "head": "2199ac5",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "IgusaVarietiesAndTorsionConcentration": {
