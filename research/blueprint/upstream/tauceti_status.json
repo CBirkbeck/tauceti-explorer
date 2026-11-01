@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-01T20:30Z",
+ "updated": "2026-11-01T20:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1841,7 +1841,7 @@
   "ColemanPowerSeries": {
    "stage": "pr",
    "pr": 1309,
-   "head": "93f18d4",
+   "head": "f9fecdf",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
@@ -1854,7 +1854,7 @@
   "PhiGammaModulesAndIwasawaCohomology": {
    "stage": "pr",
    "pr": 1310,
-   "head": "606424f",
+   "head": "2b59ba3",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
@@ -1870,8 +1870,8 @@
    "head": "9fc63e3",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1884,7 +1884,7 @@
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1906,11 +1906,11 @@
   "HabiroCyclotomicCompletions": {
    "stage": "pr",
    "pr": 1314,
-   "head": "3caf5c7",
+   "head": "ff6a775",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1919,11 +1919,11 @@
   "PolylogarithmFunctions": {
    "stage": "pr",
    "pr": 1320,
-   "head": "a4f224a",
+   "head": "f13ce0d",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
