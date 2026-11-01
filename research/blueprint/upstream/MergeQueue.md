@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-01T18:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-01T18:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready
@@ -47,7 +47,7 @@ Generated 2026-11-01T18:10Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #868 DerivedDeRhamCohomology — ready; waits on #1630, #1701, #940
-- #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #1306, #1689, #940
+- #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #1689, #940
 - #1307 NoncommutativeAndEquivariantIwasawa — ready (approved at an earlier head); waits on #1212, #1306, #1688, #1689, #1701, #940, #1142
 
 ## Wave 6
@@ -83,7 +83,7 @@ Generated 2026-11-01T18:10Z from the README supplier graph of every open pull re
 
 ## Wave 13
 - #858 ArithmeticGaloisDuality — ready; waits on #1306, #1307, #1312, #1630, #1701, #792, #816, #849, #853, #856, #940
-- #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
+- #1302 K2SymbolsBrauer — draft; waits on #1212, #1227, #1229, #1248, #1142
 
 ## Wave 14
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready; waits on #1199, #1630, #792, #848, #849, #853, #856, #858
@@ -240,7 +240,7 @@ Generated 2026-11-01T18:10Z from the README supplier graph of every open pull re
 - #1020 ClassicalSerreModularity — ready; waits on #1005, #1007, #1013, #1034, #1062, #856, #879, #920, #923, #928, #931, #970
 - #1084 HodgeTateAndCanonicalSubgroups — ready; waits on #1005, #1038, #1053, #1062, #1064, #1069, #1080, #1630, #1701, #820, #849, #852, #853, #857, #875, #879, #922, #933, #966
 - #1179 ArithmeticStatisticsPartVIII — draft; waits on #1040, #1171, #1172, #1175, #1178, #1225, #849, #850, #851, #856, #929
-- #1254 ComplexMultiplicationAndExplicitReciprocity — draft; waits on #1006, #1007, #1013, #1178, #849, #851, #852, #856, #857, #879, #913, #931, #933
+- #1254 ComplexMultiplicationAndExplicitReciprocity — ready; waits on #1006, #1007, #1013, #1178, #849, #851, #852, #856, #857, #879, #913, #931, #933
 - #1466 HabiroCohomologyFoundationsPartII — draft; waits on #1044, #1057, #1065, #1070, #1227, #1281, #1314, #1351, #1425, #1428, #1458, #1469, #1493, #1630
 - #1494 TropicalAndBerkovichArithmetic — draft; waits on #1021, #1043, #1046, #1053, #1199, #1360, #820, #852, #853, #875
 - #1498 PadicHodgeRegulators — draft; waits on #1043, #1062, #1064, #1229, #1281, #1302, #1306, #1307, #1309, #1310, #1320, #1360, #1364, #1418, #1430, #1461, #849, #852, #854, #858, #869, #879, #940
