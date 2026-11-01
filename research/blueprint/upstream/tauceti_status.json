@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-01T13:30Z",
+ "updated": "2026-11-01T13:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1376,8 +1376,8 @@
    "head": "4ced5ee",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1402,8 +1402,8 @@
    "head": "86c4511",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part II of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1425,24 +1425,24 @@
   "ArithmeticStatisticsPartV": {
    "stage": "pr",
    "pr": 1175,
-   "head": "232ade3",
+   "head": "afd499a",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartVI": {
    "stage": "pr",
    "pr": 1176,
-   "head": "d8b9a95",
+   "head": "d854ec8",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VI of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1454,8 +1454,8 @@
    "head": "4e1f614",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1468,7 +1468,7 @@
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VIII of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1477,11 +1477,11 @@
   "ModularityAndLanglandsExtensions": {
    "stage": "pr",
    "pr": 1180,
-   "head": "05a5276",
+   "head": "e3a0748",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; final tier before CrystallineLocalGlobalCompatibilityCM); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1493,8 +1493,8 @@
    "head": "762a228",
    "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1503,10 +1503,10 @@
   "ResolutionOfSingularitiesCharacteristicZero": {
    "stage": "pr",
    "pr": 1199,
-   "head": "c537be5",
+   "head": "caddfb3",
    "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1516,7 +1516,7 @@
   "LanglandsParameterStacks": {
    "stage": "pr",
    "pr": 1202,
-   "head": "40c74a3",
+   "head": "1e9f8e8",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "changes",
@@ -1529,14 +1529,14 @@
   "VectorBundlesAndIsocrystals": {
    "stage": "pr",
    "pr": 1205,
-   "head": "f805de8",
+   "head": "c7a0b33",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "WeilConjectures": {
@@ -1545,8 +1545,8 @@
    "head": "ade9515",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1555,7 +1555,7 @@
   "RelativeFarguesFontaine": {
    "stage": "pr",
    "pr": 1209,
-   "head": "95b4855",
+   "head": "956b64b",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "changes",
@@ -1568,7 +1568,7 @@
   "GeneralAlgebraicKTheory": {
    "stage": "pr",
    "pr": 1212,
-   "head": "f16a788",
+   "head": "1cb5cc3",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "approve",
