@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-01T12:20Z",
+ "updated": "2026-11-01T12:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1363,8 +1363,8 @@
    "head": "1458ecb",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1373,7 +1373,7 @@
   "ArithmeticStatisticsPartI": {
    "stage": "pr",
    "pr": 1171,
-   "head": "b60ad1c",
+   "head": "4ced5ee",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
@@ -1399,7 +1399,7 @@
   "ArithmeticStatisticsPartII": {
    "stage": "pr",
    "pr": 1173,
-   "head": "1e084f6",
+   "head": "86c4511",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part II of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
@@ -1415,11 +1415,11 @@
    "head": "478eb42",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part III of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartV": {
@@ -1429,7 +1429,7 @@
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1442,7 +1442,7 @@
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VI of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1451,7 +1451,7 @@
   "ArithmeticStatisticsPartVII": {
    "stage": "pr",
    "pr": 1178,
-   "head": "84f8c47",
+   "head": "4e1f614",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
@@ -1464,7 +1464,7 @@
   "ArithmeticStatisticsPartVIII": {
    "stage": "pr",
    "pr": 1179,
-   "head": "7a03a23",
+   "head": "c1c3396",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VIII of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
@@ -1490,7 +1490,7 @@
   "CrystallineLocalGlobalCompatibilityCM": {
    "stage": "pr",
    "pr": 1182,
-   "head": "bc0f822",
+   "head": "762a228",
    "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
    "review": {
     "recommendation": "changes",
@@ -1503,11 +1503,11 @@
   "ResolutionOfSingularitiesCharacteristicZero": {
    "stage": "pr",
    "pr": 1199,
-   "head": "bf45c86",
+   "head": "c537be5",
    "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1516,10 +1516,10 @@
   "LanglandsParameterStacks": {
    "stage": "pr",
    "pr": 1202,
-   "head": "f4a8f12",
+   "head": "40c74a3",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1529,10 +1529,10 @@
   "VectorBundlesAndIsocrystals": {
    "stage": "pr",
    "pr": 1205,
-   "head": "c380d7d",
+   "head": "f805de8",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1542,10 +1542,10 @@
   "WeilConjectures": {
    "stage": "pr",
    "pr": 1208,
-   "head": "d90e186",
+   "head": "ade9515",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1555,10 +1555,10 @@
   "RelativeFarguesFontaine": {
    "stage": "pr",
    "pr": 1209,
-   "head": "1fda507",
+   "head": "95b4855",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
