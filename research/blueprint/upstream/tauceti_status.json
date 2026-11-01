@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-01T19:20Z",
+ "updated": "2026-11-01T19:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1597,8 +1597,8 @@
    "head": "5f92355",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1741,7 +1741,7 @@
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Eisenstein ideal); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1754,7 +1754,7 @@
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1766,8 +1766,8 @@
    "head": "3bb343b",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1776,10 +1776,10 @@
   "EulerSystemsAndKolyvaginSystems": {
    "stage": "pr",
    "pr": 1272,
-   "head": "3bb0e86",
+   "head": "ccd7e7a",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1805,11 +1805,11 @@
    "head": "31b3d54",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "IntegralIwasawaTheory": {
@@ -1819,7 +1819,7 @@
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1841,11 +1841,11 @@
   "ColemanPowerSeries": {
    "stage": "pr",
    "pr": 1309,
-   "head": "93d1d20",
+   "head": "93f18d4",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1854,10 +1854,10 @@
   "PhiGammaModulesAndIwasawaCohomology": {
    "stage": "pr",
    "pr": 1310,
-   "head": "8cb314e",
+   "head": "606424f",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1867,10 +1867,10 @@
   "EulerSystemsCyclotomicMainConjecture": {
    "stage": "pr",
    "pr": 1311,
-   "head": "804fe8a",
+   "head": "9fc63e3",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1880,11 +1880,11 @@
   "PadicLocalLanglandsForGL2Qp": {
    "stage": "pr",
    "pr": 1312,
-   "head": "92e93dd",
+   "head": "845e537",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1909,8 +1909,8 @@
    "head": "3caf5c7",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1922,8 +1922,8 @@
    "head": "a4f224a",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
