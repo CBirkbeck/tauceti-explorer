@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-01T17:30Z",
+ "updated": "2026-11-01T17:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1594,7 +1594,7 @@
   "StableHomotopyKTheory": {
    "stage": "pr",
    "pr": 1227,
-   "head": "30f4891",
+   "head": "bfc4b59",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
@@ -1649,8 +1649,8 @@
    "head": "3b336e5",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: modular curves); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1672,10 +1672,10 @@
   "BunGAndNewtonStrata": {
    "stage": "pr",
    "pr": 1241,
-   "head": "3c00bed",
+   "head": "27690bf",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1685,11 +1685,11 @@
   "KTheoryLowDegrees": {
    "stage": "pr",
    "pr": 1248,
-   "head": "35517eb",
+   "head": "91f4cf2",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1711,10 +1711,10 @@
   "ComplexMultiplicationAndExplicitReciprocity": {
    "stage": "pr",
    "pr": 1254,
-   "head": "0c6c6e2",
+   "head": "615f9de",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / BSD); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1724,11 +1724,11 @@
   "CyclotomicClassGroupsAndStickelberger": {
    "stage": "pr",
    "pr": 1260,
-   "head": "9c9a49a",
+   "head": "5de2052",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / Eisenstein supplier); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1737,10 +1737,10 @@
   "EisensteinIdealAndRationalTorsion": {
    "stage": "pr",
    "pr": 1264,
-   "head": "5e63f27",
+   "head": "1131560",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Eisenstein ideal); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1750,10 +1750,10 @@
   "HermitianKTheoryOfPoincareCategories": {
    "stage": "pr",
    "pr": 1266,
-   "head": "5a6365d",
+   "head": "21253b9",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1763,10 +1763,10 @@
   "CompletedCohomologyAndLocalGlobalCompatibility": {
    "stage": "pr",
    "pr": 1270,
-   "head": "80918de",
+   "head": "b6c9115",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1776,11 +1776,11 @@
   "EulerSystemsAndKolyvaginSystems": {
    "stage": "pr",
    "pr": 1272,
-   "head": "7a0e642",
+   "head": "3bb0e86",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1789,10 +1789,10 @@
   "KTheoryFiniteLocalFields": {
    "stage": "pr",
    "pr": 1281,
-   "head": "afe02e8",
+   "head": "3c5b201",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
