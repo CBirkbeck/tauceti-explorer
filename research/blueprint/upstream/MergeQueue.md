@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-01T18:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-01T18:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready
@@ -47,7 +47,7 @@ Generated 2026-11-01T18:20Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #868 DerivedDeRhamCohomology — ready; waits on #1630, #1701, #940
-- #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #1689, #940
+- #1260 CyclotomicClassGroupsAndStickelberger — ready; waits on #1306, #1689, #940
 - #1307 NoncommutativeAndEquivariantIwasawa — ready (approved at an earlier head); waits on #1212, #1306, #1688, #1689, #1701, #940, #1142
 
 ## Wave 6
@@ -123,7 +123,7 @@ Generated 2026-11-01T18:20Z from the README supplier graph of every open pull re
 - #927 DiamondSixOperations — ready; waits on #1630, #1688, #816, #820, #875, #922
 - #1039 DirichletPadicLFunctions — ready; waits on #1306, #854, #924
 - #1057 PrismaticCohomology — ready; waits on #1042, #1044, #1630, #1701, #857, #868
-- #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head); waits on #1044, #1212, #1227, #1229, #1266, #1302, #1701, #851, #857, #858, #1142
+- #1281 KTheoryFiniteLocalFields — ready; waits on #1044, #1212, #1227, #1229, #1266, #1302, #1701, #851, #857, #858, #1142
 
 ## Wave 20
 - #931 GL2AutomorphicRepresentationsAndTransfer — ready; waits on #1037, #1312, #1688, #792, #848, #856, #871, #873, #875, #924, #925, #928, #934

@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-01T18:20Z",
+ "updated": "2026-11-01T18:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1594,7 +1594,7 @@
   "StableHomotopyKTheory": {
    "stage": "pr",
    "pr": 1227,
-   "head": "bfc4b59",
+   "head": "5f92355",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
@@ -1685,11 +1685,11 @@
   "KTheoryLowDegrees": {
    "stage": "pr",
    "pr": 1248,
-   "head": "91f4cf2",
+   "head": "4d2f327",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1727,8 +1727,8 @@
    "head": "5de2052",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / Eisenstein supplier); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1737,7 +1737,7 @@
   "EisensteinIdealAndRationalTorsion": {
    "stage": "pr",
    "pr": 1264,
-   "head": "1131560",
+   "head": "27586f6",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Eisenstein ideal); red team running",
    "review": {
     "recommendation": "changes",
@@ -1750,7 +1750,7 @@
   "HermitianKTheoryOfPoincareCategories": {
    "stage": "pr",
    "pr": 1266,
-   "head": "21253b9",
+   "head": "6ac7dac",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
@@ -1763,7 +1763,7 @@
   "CompletedCohomologyAndLocalGlobalCompatibility": {
    "stage": "pr",
    "pr": 1270,
-   "head": "b6c9115",
+   "head": "3bb343b",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running",
    "review": {
     "recommendation": "changes",
@@ -1780,7 +1780,7 @@
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1792,8 +1792,8 @@
    "head": "3c5b201",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1802,10 +1802,10 @@
   "K2SymbolsBrauer": {
    "stage": "pr",
    "pr": 1302,
-   "head": "c844a11",
+   "head": "31b3d54",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
