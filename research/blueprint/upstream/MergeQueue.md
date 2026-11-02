@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-02T16:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-02T23:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready
@@ -137,7 +137,7 @@ Generated 2026-11-02T16:40Z from the README supplier graph of every open pull re
 - #966 PELModuli — ready; waits on #792, #848, #849, #852, #853, #858, #879, #913, #933
 - #970 SmallRamificationAndAbelianVarietyBaseCases — ready; waits on #849, #850, #852, #856, #879, #923, #928, #931, #933
 - #1065 PrismaticCohomologyPartII — ready; waits on #1042, #1044, #1057, #1630, #1701, #857, #868
-- #1313 MotivesAndAlgebraicCycles — ready (approved at an earlier head); waits on #1199, #1229, #1281, #1630, #848
+- #1313 MotivesAndAlgebraicCycles — draft; waits on #1199, #1229, #1281, #1630, #848
 - #1418 ArithmeticKTheory — draft; waits on #1212, #1227, #1229, #1248, #1260, #1266, #1281, #1302, #1306, #792, #851, #858, #869, #871, #1287
 
 ## Wave 21
