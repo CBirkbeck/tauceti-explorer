@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-03T06:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-03T07:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready
@@ -216,7 +216,7 @@ Generated 2026-11-03T06:40Z from the README supplier graph of every open pull re
 - #1176 ArithmeticStatisticsPartVI — ready; waits on #1017, #1167, #1171, #1173, #1174, #1175, #792, #849, #850, #851, #852, #856, #858, #869, #929, #931, #933, #968, #970
 - #1230 VStackSheavesAndLisseCategories — ready; waits on #1062, #1205, #1209, #1227, #1630, #1688, #820, #875, #922, #927, #965
 - #1231 MordellLawrenceVenkatesh — draft; waits on #1001, #1004, #1017, #1034, #1040, #1062, #1063, #1225, #1545, #848, #849, #850, #852, #853, #856, #857, #858, #868, #879, #929, #940
-- #1264 EisensteinIdealAndRationalTorsion — draft; waits on #1017, #1037, #1260, #849, #852, #856, #879, #913
+- #1264 EisensteinIdealAndRationalTorsion — ready; waits on #1017, #1037, #1260, #849, #852, #856, #879, #913
 - #1408 ComputationalNumberTheory — draft; waits on #1017, #1545, #928, #253
 - #1424 Polylogarithms — draft; waits on #1043, #1212, #1227, #1229, #1281, #1302, #1306, #1313, #1320, #1418, #1430, #1461, #1470, #848, #853, #999
 
