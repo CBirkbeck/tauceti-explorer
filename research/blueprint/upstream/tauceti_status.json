@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-03T11:20Z",
+ "updated": "2026-11-03T11:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -697,7 +697,7 @@
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 3ed1fc3",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -944,7 +944,7 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "4d9f8a5",
+   "head": "5df4b21",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "changes",
@@ -1468,7 +1468,7 @@
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VIII of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1701,8 +1701,8 @@
    "head": "5775c9b",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
