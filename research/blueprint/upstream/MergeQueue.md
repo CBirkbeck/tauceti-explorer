@@ -21,7 +21,6 @@ Generated 2026-11-03T15:40Z from the README supplier graph of every open pull re
 - #936 FourManifolds (kim-em, other author)
 - #942 TangentialBordism (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)
-- #1050 LieGroupoidsPoisson (kim-em, other author)
 - #1125 QuantumEnvelopingAlgebras (kim-em, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
@@ -206,7 +205,7 @@ Generated 2026-11-03T15:40Z from the README supplier graph of every open pull re
 - #1006 AutomorphicGaloisRepresentationsPartII — ready; waits on #1001, #1002, #1037, #1040, #1062, #1202, #1205, #1230, #1235, #1310, #1630, #1688, #1689, #820, #852, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #940, #964, #965, #966, #970, #999
 - #1038 ShimuraData — ready; waits on #1037, #792, #848, #849, #871, #933, #966
 - #1064 CohomologyComparisons — ready; waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #1080, #1630, #1701, #849, #853, #854, #857, #868, #875, #879, #913, #940, #966
-- #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1225, #1701, #792, #848, #849, #851, #853, #879, #929, #933, #966, #1050
+- #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1225, #1701, #792, #848, #849, #851, #853, #879, #929, #933, #966
 - #1489 EllipticKTheory — draft; waits on #1001, #1040, #1212, #1227, #1229, #1232, #1248, #1281, #1302, #1313, #1418, #1430, #1470, #1630, #852, #858, #869, #929
 
 ## Wave 31
