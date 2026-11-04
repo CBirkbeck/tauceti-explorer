@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-04T12:30Z",
+ "updated": "2026-11-04T12:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -83,10 +83,10 @@
     793
    ],
    "note": "carried on #785 (ReductiveGroupsPartII) since the maintainer merged #793/#789 into that branch on 2026-10-14; SR.3a.2 companion repair applied 2026-10-16 at b853d91",
-   "head": "3a71153",
+   "head": "0609cf2",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "",
     "ai": true
@@ -693,11 +693,11 @@
   "PadicPeriodRings": {
    "stage": "pr",
    "pr": 940,
-   "head": "038fba6",
+   "head": "32476ef",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 3ed1fc3",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -736,11 +736,11 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "04e8720",
+   "head": "697b514",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired) awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 0f4df97",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -749,11 +749,11 @@
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
    "pr": 968,
-   "head": "7ddb09f",
+   "head": "1c1215a",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at bf4b921",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -762,11 +762,11 @@
   "SmallRamificationAndAbelianVarietyBaseCases": {
    "stage": "pr",
    "pr": 970,
-   "head": "b7abeaa",
+   "head": "c03aea7",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -788,11 +788,11 @@
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "pr",
    "pr": 1000,
-   "head": "f2895a4",
+   "head": "326df09",
    "note": "ported 2026-10-16 (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -801,11 +801,11 @@
   "WeightsInEtaleCohomology": {
    "stage": "pr",
    "pr": 1001,
-   "head": "501bdc1",
+   "head": "9e753f8",
    "note": "ported 2026-10-16 (tier 12); both author-side red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -827,11 +827,11 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "b83ebd4",
+   "head": "d7f9613",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -853,11 +853,11 @@
   "AutomorphicGaloisRepresentationsPartII": {
    "stage": "pr",
    "pr": 1006,
-   "head": "8ea8284",
+   "head": "902b706",
    "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -866,11 +866,11 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "d72821d",
+   "head": "38be382",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -879,11 +879,11 @@
   "SerreWeightAndLevelOptimisation": {
    "stage": "pr",
    "pr": 1013,
-   "head": "5999164",
+   "head": "0825d40",
    "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -892,11 +892,11 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "92d2ce0",
+   "head": "3961ac8",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -905,11 +905,11 @@
   "ClassicalSerreModularity": {
    "stage": "pr",
    "pr": 1020,
-   "head": "bacf7a7",
+   "head": "e8c5264",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -918,11 +918,11 @@
   "EllipticCurveModularity": {
    "stage": "pr",
    "pr": 1018,
-   "head": "6a07636",
+   "head": "b7c957c",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -931,11 +931,11 @@
   "PadicFamilies": {
    "stage": "pr",
    "pr": 1019,
-   "head": "f3b762c",
+   "head": "2be7557",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -957,10 +957,10 @@
   "DeformationAndDerivedPatchingAlgebra": {
    "stage": "pr",
    "pr": 1034,
-   "head": "c94eeb0",
+   "head": "1548fe7",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -970,11 +970,11 @@
   "CompletedCohomologyPartII": {
    "stage": "pr",
    "pr": 1035,
-   "head": "4445922",
+   "head": "1788162",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -983,11 +983,11 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
    "pr": 1036,
-   "head": "bf5759f",
+   "head": "ee7d010",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1126,11 +1126,11 @@
   "PrismaticCohomology": {
    "stage": "pr",
    "pr": 1057,
-   "head": "36d19e5",
+   "head": "f4fa89d",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1139,11 +1139,11 @@
   "PadicHodgeTheory": {
    "stage": "pr",
    "pr": 1062,
-   "head": "33a1e09",
+   "head": "c1968e3",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1152,11 +1152,11 @@
   "MetaplecticAutomorphicForms": {
    "stage": "pr",
    "pr": 1063,
-   "head": "22bee85",
+   "head": "ebe857f",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1165,11 +1165,11 @@
   "CohomologyComparisons": {
    "stage": "pr",
    "pr": 1064,
-   "head": "bee1248",
+   "head": "248dcf1",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1178,11 +1178,11 @@
   "OrdinaryAutomorphicFormsAndModularityLifting": {
    "stage": "pr",
    "pr": 1066,
-   "head": "d7f95e2",
+   "head": "61b27fa",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 64); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1191,11 +1191,11 @@
   "PrismaticCohomologyPartII": {
    "stage": "pr",
    "pr": 1065,
-   "head": "34bf812",
+   "head": "100d0f8",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1204,11 +1204,11 @@
   "AutomorphicBundles": {
    "stage": "pr",
    "pr": 1069,
-   "head": "54e21dd",
+   "head": "fd74684",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 47); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1217,11 +1217,11 @@
   "PrismaticCohomologyPartIII": {
    "stage": "pr",
    "pr": 1070,
-   "head": "cc1571e",
+   "head": "057c513",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1230,11 +1230,11 @@
   "GL2ModularityLifting": {
    "stage": "pr",
    "pr": 1071,
-   "head": "673cfcb",
+   "head": "e40b412",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1243,11 +1243,11 @@
   "PotentialModularityAndCompatibleSystems": {
    "stage": "pr",
    "pr": 1075,
-   "head": "d54b60d",
+   "head": "5a6a670",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 66); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1256,11 +1256,11 @@
   "PrismaticCohomologyPartIV": {
    "stage": "pr",
    "pr": 1080,
-   "head": "385c7a4",
+   "head": "8b90896",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1269,11 +1269,11 @@
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
    "pr": 1081,
-   "head": "8ee2f17",
+   "head": "0f3131e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1282,11 +1282,11 @@
   "HodgeTateAndCanonicalSubgroups": {
    "stage": "pr",
    "pr": 1084,
-   "head": "06ce518",
+   "head": "d6aad63",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 48); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1295,11 +1295,11 @@
   "PerfectoidShimuraVarieties": {
    "stage": "pr",
    "pr": 1085,
-   "head": "917a589",
+   "head": "cfba9f7",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 49); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1308,11 +1308,11 @@
   "TorsionCohomologyInfrastructure": {
    "stage": "pr",
    "pr": 1087,
-   "head": "2199ac5",
+   "head": "264642f",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1321,11 +1321,11 @@
   "IgusaVarietiesAndTorsionConcentration": {
    "stage": "pr",
    "pr": 1090,
-   "head": "710c2e5",
+   "head": "5447ef6",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1334,11 +1334,11 @@
   "AnalyticNumberTheoryPartI": {
    "stage": "pr",
    "pr": 1126,
-   "head": "89a4c37",
+   "head": "a4886b9",
    "note": "ported 2026-10-18 from the accepted explorer package (tier 38); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1347,11 +1347,11 @@
   "InductionRestrictionPartII": {
    "stage": "pr",
    "pr": 1154,
-   "head": "3fdfae2",
+   "head": "ec14866",
    "note": "ported 2026-10-18 from the accepted explorer package (outside the Caraiani–Newton closure; supplier of ArithmeticStatisticsPartV); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1386,11 +1386,11 @@
   "ArithmeticStatisticsPartIV": {
    "stage": "pr",
    "pr": 1172,
-   "head": "56759b5",
+   "head": "87e4cd8",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part IV of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1412,11 +1412,11 @@
   "ArithmeticStatisticsPartIII": {
    "stage": "pr",
    "pr": 1174,
-   "head": "478eb42",
+   "head": "0a63762",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part III of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1464,11 +1464,11 @@
   "ArithmeticStatisticsPartVIII": {
    "stage": "pr",
    "pr": 1179,
-   "head": "a91c9b8",
+   "head": "e4005e8",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VIII of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1542,11 +1542,11 @@
   "WeilConjectures": {
    "stage": "pr",
    "pr": 1208,
-   "head": "ade9515",
+   "head": "029d8c2",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1581,11 +1581,11 @@
   "JacobianChallengePartII": {
    "stage": "pr",
    "pr": 1225,
-   "head": "02f420e",
+   "head": "0c19546",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1620,11 +1620,11 @@
   "VStackSheavesAndLisseCategories": {
    "stage": "pr",
    "pr": 1230,
-   "head": "014d321",
+   "head": "3a80c09",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1659,11 +1659,11 @@
   "GeometricSatakeAndFusion": {
    "stage": "pr",
    "pr": 1235,
-   "head": "623fd52",
+   "head": "140b5a7",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1672,11 +1672,11 @@
   "BunGAndNewtonStrata": {
    "stage": "pr",
    "pr": 1241,
-   "head": "27690bf",
+   "head": "c7d0555",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1698,11 +1698,11 @@
   "HeckeStacksAndLocalShtukas": {
    "stage": "pr",
    "pr": 1252,
-   "head": "5775c9b",
+   "head": "025265d",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1711,11 +1711,11 @@
   "ComplexMultiplicationAndExplicitReciprocity": {
    "stage": "pr",
    "pr": 1254,
-   "head": "615f9de",
+   "head": "acfb819",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / BSD); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1724,11 +1724,11 @@
   "CyclotomicClassGroupsAndStickelberger": {
    "stage": "pr",
    "pr": 1260,
-   "head": "5de2052",
+   "head": "10bc9eb",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / Eisenstein supplier); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1737,11 +1737,11 @@
   "EisensteinIdealAndRationalTorsion": {
    "stage": "pr",
    "pr": 1264,
-   "head": "27586f6",
+   "head": "42dad9e",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Eisenstein ideal); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1763,11 +1763,11 @@
   "CompletedCohomologyAndLocalGlobalCompatibility": {
    "stage": "pr",
    "pr": 1270,
-   "head": "3bb343b",
+   "head": "e4fba33",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1802,11 +1802,11 @@
   "K2SymbolsBrauer": {
    "stage": "pr",
    "pr": 1302,
-   "head": "31b3d54",
+   "head": "6a7f84a",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1815,11 +1815,11 @@
   "IntegralIwasawaTheory": {
    "stage": "pr",
    "pr": 1306,
-   "head": "5d2ed25",
+   "head": "d619817",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1867,11 +1867,11 @@
   "EulerSystemsCyclotomicMainConjecture": {
    "stage": "pr",
    "pr": 1311,
-   "head": "9fc63e3",
+   "head": "0ae2bbd",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1893,11 +1893,11 @@
   "MotivesAndAlgebraicCycles": {
    "stage": "pr",
    "pr": 1313,
-   "head": "04e21d3",
+   "head": "f5059f3",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
