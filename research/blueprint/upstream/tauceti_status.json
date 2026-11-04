@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-04T19:20Z",
+ "updated": "2026-11-04T19:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -230,14 +230,14 @@
   "NeronModelsAndSemistableAbelianVarieties": {
    "stage": "pr",
    "pr": 852,
-   "head": "df080b7",
+   "head": "f9e0aff",
    "depends_on": [
     779,
     785
    ],
    "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -300,14 +300,14 @@
   "ArithmeticGaloisRepresentations": {
    "stage": "pr",
    "pr": 856,
-   "head": "07dd8f4",
+   "head": "15c286d",
    "depends_on": [
     789,
     785
    ],
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
