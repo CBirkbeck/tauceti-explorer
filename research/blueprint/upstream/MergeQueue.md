@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-04T18:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-04T19:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1199 ResolutionOfSingularitiesCharacteristicZero — ready
@@ -84,7 +84,7 @@ Generated 2026-11-04T18:40Z from the README supplier graph of every open pull re
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1701, #1798, #858
 
 ## Wave 12
-- #852 NeronModelsAndSemistableAbelianVarieties — ready (approved at an earlier head); waits on #1307, #1688, #848, #849, #850, #853, #856, #857, #879, #940
+- #852 NeronModelsAndSemistableAbelianVarieties — draft; waits on #1307, #1688, #848, #849, #850, #853, #856, #857, #879, #940
 - #1034 DeformationAndDerivedPatchingAlgebra — ready; waits on #1312, #1630, #1689, #1701, #858, #872
 - #1154 InductionRestrictionPartII — ready (approved at an earlier head); waits on #850
 - #1266 HermitianKTheoryOfPoincareCategories — ready; waits on #1212, #1630, #851
@@ -161,7 +161,7 @@ Generated 2026-11-04T18:40Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — draft; waits on #1688, #934
 
 ## Wave 28
-- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #1312, #1688, #1689, #792, #849
+- #856 ArithmeticGaloisRepresentations — draft; waits on #1312, #1688, #1689, #792, #849
 - #1038 ShimuraData — ready; waits on #1037, #792, #848, #849, #871, #933, #966
 - #1418 ArithmeticKTheory — draft; waits on #1212, #1227, #1229, #1248, #1260, #1266, #1281, #1302, #1306, #792, #851, #858, #869, #871, #1287
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126, #792, #851
