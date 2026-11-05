@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-05T07:20Z",
+ "updated": "2026-11-05T07:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -300,7 +300,7 @@
   "ArithmeticGaloisRepresentations": {
    "stage": "pr",
    "pr": 856,
-   "head": "c2b7db7",
+   "head": "cdbe447",
    "depends_on": [
     789,
     785
@@ -680,7 +680,7 @@
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 6cc4f59",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -996,11 +996,11 @@
   "AutomorphicFormsOnReductiveGroups": {
    "stage": "pr",
    "pr": 1037,
-   "head": "e8f59c8",
+   "head": "753cac0",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 22); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
