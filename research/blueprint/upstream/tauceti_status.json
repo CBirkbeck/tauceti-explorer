@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-07T14:20Z",
+ "updated": "2026-11-07T14:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -194,7 +194,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "506a7ed",
+   "head": "7a351f7",
    "depends_on": [
     779,
     785,
@@ -204,7 +204,7 @@
    "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -213,7 +213,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "f8d56e6",
+   "head": "ebaa5bb",
    "depends_on": [
     792,
     785
@@ -221,7 +221,7 @@
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -663,10 +663,10 @@
   "GL2AutomorphicRepresentationsAndTransfer": {
    "stage": "pr",
    "pr": 931,
-   "head": "385d7a8",
+   "head": "8d94672",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -788,11 +788,11 @@
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "pr",
    "pr": 1000,
-   "head": "b494946",
+   "head": "801dbbf",
    "note": "ported 2026-10-16 (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1334,7 +1334,7 @@
   "AnalyticNumberTheoryPartI": {
    "stage": "pr",
    "pr": 1126,
-   "head": "20d500c",
+   "head": "2b9b7af",
    "note": "ported 2026-10-18 from the accepted explorer package (tier 38); red team running",
    "review": {
     "recommendation": "changes",
@@ -1363,8 +1363,8 @@
    "head": "480e1c2",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1425,7 +1425,7 @@
   "ArithmeticStatisticsPartV": {
    "stage": "pr",
    "pr": 1175,
-   "head": "e95c80e",
+   "head": "9816798",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
@@ -1451,7 +1451,7 @@
   "ArithmeticStatisticsPartVII": {
    "stage": "pr",
    "pr": 1178,
-   "head": "a20e647",
+   "head": "effcdf5",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
@@ -1584,8 +1584,8 @@
    "head": "2354d71",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
