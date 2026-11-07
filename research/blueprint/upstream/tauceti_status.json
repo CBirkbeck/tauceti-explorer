@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-07T09:20Z",
+ "updated": "2026-11-07T09:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -194,7 +194,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "a5186ac",
+   "head": "506a7ed",
    "depends_on": [
     779,
     785,
@@ -203,8 +203,8 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1334,7 +1334,7 @@
   "AnalyticNumberTheoryPartI": {
    "stage": "pr",
    "pr": 1126,
-   "head": "294c990",
+   "head": "20d500c",
    "note": "ported 2026-10-18 from the accepted explorer package (tier 38); red team running",
    "review": {
     "recommendation": "changes",
@@ -1360,10 +1360,10 @@
   "AnalyticNumberTheoryPartII": {
    "stage": "pr",
    "pr": 1167,
-   "head": "a7edaf5",
+   "head": "480e1c2",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1425,10 +1425,10 @@
   "ArithmeticStatisticsPartV": {
    "stage": "pr",
    "pr": 1175,
-   "head": "2a319ea",
+   "head": "e95c80e",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1451,10 +1451,10 @@
   "ArithmeticStatisticsPartVII": {
    "stage": "pr",
    "pr": 1178,
-   "head": "5b44ba1",
+   "head": "a20e647",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1581,7 +1581,7 @@
   "JacobianChallengePartII": {
    "stage": "pr",
    "pr": 1225,
-   "head": "1e5949a",
+   "head": "2354d71",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
     "recommendation": "changes",
@@ -1623,8 +1623,8 @@
    "head": "d7ccf5e",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
