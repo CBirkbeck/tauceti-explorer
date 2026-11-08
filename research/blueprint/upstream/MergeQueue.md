@@ -16,6 +16,7 @@ Generated 2026-11-08T20:40Z from the README supplier graph of every open pull re
 - #1892 JacobianChallenge — draft; waits on #1656
 - #1913 ZerosOfLFunctions — draft
 - #1914 ImaginaryQuadraticClassNumber — draft
+- #2008 AnalyticNumberTheoryPartIII — draft
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)

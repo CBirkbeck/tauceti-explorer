@@ -50,7 +50,7 @@
   "PerfectoidQuotients": 9,
   "PrismaticCohomology": 19,
   "CohomologyComparisons": 29,
-  "AnalyticNumberTheory": 15,
+  "AnalyticNumberTheory": 18,
   "ArithmeticStatistics": 30,
   "ColemanIntegration": 25,
   "DirichletPadicLFunctions": 20,
@@ -281,6 +281,7 @@
   "AnalyticToricGeometryPartII": 29,
   "SymplecticReidemeisterTorsionModSquares": 28,
   "ChromaticHomotopyTheory": 37,
-  "QuantumGroups": 1
+  "QuantumGroups": 1,
+  "AnalyticNumberTheoryPartIII": 1
  }
 }
