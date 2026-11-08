@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-08T10:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-08T11:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1101 ModularCurves — draft
@@ -14,7 +14,6 @@ Generated 2026-11-08T10:40Z from the README supplier graph of every open pull re
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
 - #1913 ZerosOfLFunctions — draft
-- #223 McKaySkewGroup (kim-em, other author)
 - #545 AbundanceStatement (RoktimMascharak, other author)
 - #861 HilbertModules (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -129,7 +128,7 @@ Generated 2026-11-08T10:40Z from the README supplier graph of every open pull re
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #1310, #1312, #1656, #1688, #1689, #792, #853, #856, #858, #869, #879
 - #1232 RelativeJacobiansAndIntegralCurveModels — ready; waits on #1101, #1225, #1656, #1892, #848, #849, #852, #853, #879
 - #1272 EulerSystemsAndKolyvaginSystems — ready; waits on #1306, #1701, #1914, #856, #858, #869
-- #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #1656, #1891, #1892, #848, #853, #857, #870, #1285, #223
+- #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #1656, #1891, #1892, #848, #853, #857, #870, #1285
 
 ## Wave 18
 - #920 GlobalGaloisDeformations — ready; waits on #1037, #1101, #1656, #1689, #856, #858, #869, #923
