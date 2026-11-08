@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-08T10:30Z",
+ "updated": "2026-11-08T10:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1334,10 +1334,10 @@
   "AnalyticNumberTheoryPartI": {
    "stage": "pr",
    "pr": 1126,
-   "head": "2b9b7af",
+   "head": "ead4cdb",
    "note": "ported 2026-10-18 from the accepted explorer package (tier 38); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1360,11 +1360,11 @@
   "AnalyticNumberTheoryPartII": {
    "stage": "pr",
    "pr": 1167,
-   "head": "480e1c2",
+   "head": "04c35a1",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1501,17 +1501,8 @@
    }
   },
   "ResolutionOfSingularitiesCharacteristicZero": {
-   "stage": "pr",
-   "pr": 1199,
-   "head": "caddfb3",
-   "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "LanglandsParameterStacks": {
    "stage": "pr",
