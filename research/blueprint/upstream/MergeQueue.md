@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-08T16:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-08T16:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready
@@ -54,7 +54,7 @@ Generated 2026-11-08T16:00Z from the README supplier graph of every open pull re
 - #1954 ExplicitZetaBounds — draft; waits on #1126, #1495, #1913
 
 ## Wave 6
-- #792 AdelicAlgebraicGroups — ready; waits on #1126, #1167, #1495, #1656, #1688
+- #792 AdelicAlgebraicGroups — draft; waits on #1126, #1167, #1495, #1656, #1688
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #1410, #1701, #1891, #816
 - #1486 QuiverRepresentationsPartII — draft; waits on #1688
 - #1689 IntegralHeckeAndGaloisDeterminants — ready (approved at an earlier head); waits on #1656, #1688, #1701
@@ -138,13 +138,13 @@ Generated 2026-11-08T16:00Z from the README supplier graph of every open pull re
 - #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #1656, #1754, #1891, #857, #873, #875
 
 ## Wave 19
-- #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #1037, #1126, #1167, #1656, #1688, #1689, #1891, #1892, #792, #850, #853, #856, #858, #871, #929
+- #924 AutomorphicLFunctionsAndLocalFactors — draft; waits on #1037, #1126, #1167, #1656, #1688, #1689, #1891, #1892, #792, #850, #853, #856, #858, #871, #929
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #1630, #1656, #1688, #816, #820, #875, #922
 - #1057 PrismaticCohomology — ready (approved at an earlier head); waits on #1042, #1044, #1630, #1656, #1701, #1891, #857, #868
 - #1281 KTheoryFiniteLocalFields — ready; waits on #1044, #1212, #1227, #1229, #1248, #1266, #1302, #1656, #1701, #1891, #851, #857, #858, #1142
 
 ## Wave 20
-- #925 AutomorphicSpectralTheory — ready; waits on #1037, #1126, #1167, #1656, #1688, #792, #856, #858, #871, #924, #1027
+- #925 AutomorphicSpectralTheory — draft; waits on #1037, #1126, #1167, #1656, #1688, #792, #856, #858, #871, #924, #1027
 - #965 AdicCoefficientsAndComparisons — ready; waits on #1630, #1656, #1891, #820, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready (approved at an earlier head); waits on #1306, #1309, #854, #924
