@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-08T01:30Z",
+ "updated": "2026-11-08T01:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -194,7 +194,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "b275043",
+   "head": "c60423f",
    "depends_on": [
     779,
     785,
@@ -308,7 +308,7 @@
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -840,7 +840,7 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "f46b229",
+   "head": "8a037af",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
@@ -866,7 +866,7 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "7c77901",
+   "head": "0ae744f",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
    "review": {
     "recommendation": "changes",
@@ -931,11 +931,11 @@
   "PadicFamilies": {
    "stage": "pr",
    "pr": 1019,
-   "head": "ec14657",
+   "head": "dd500bf",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
