@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-08T16:20Z",
+ "updated": "2026-11-08T16:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -51,7 +51,7 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-   "head": "d2e6304",
+   "head": "734ad39",
    "review": {
     "recommendation": "changes",
     "current": true,
@@ -213,7 +213,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "6143cad",
+   "head": "5180edf",
    "depends_on": [
     792,
     785
@@ -221,7 +221,7 @@
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -595,11 +595,11 @@
   "AutomorphicLFunctionsAndLocalFactors": {
    "stage": "pr",
    "pr": 924,
-   "head": "f4dd981",
+   "head": "330bb72",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -608,11 +608,11 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "e73fe1f",
+   "head": "5efd146",
    "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1360,11 +1360,11 @@
   "AnalyticNumberTheoryPartII": {
    "stage": "pr",
    "pr": 1167,
-   "head": "26d0e1f",
+   "head": "0717d3f",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
