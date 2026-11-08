@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-08T18:40Z",
+ "updated": "2026-11-08T19:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -159,7 +159,7 @@
   "ComplexComparisonPartII": {
    "stage": "pr",
    "pr": 848,
-   "head": "6723806",
+   "head": "9cd29e4",
    "depends_on": [
     779,
     853
@@ -167,7 +167,7 @@
    "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -308,7 +308,7 @@
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -612,7 +612,7 @@
    "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -840,7 +840,7 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "906cb79",
+   "head": "8a9e596",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
@@ -866,7 +866,7 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "79040a7",
+   "head": "480c64f",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
    "review": {
     "recommendation": "changes",
@@ -1334,7 +1334,7 @@
   "AnalyticNumberTheoryPartI": {
    "stage": "pr",
    "pr": 1126,
-   "head": "979e68c",
+   "head": "70913eb",
    "note": "ported 2026-10-18 from the accepted explorer package (tier 38); red team running",
    "review": {
     "recommendation": "changes",
@@ -1364,7 +1364,7 @@
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
