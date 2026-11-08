@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-08T04:40Z",
+ "updated": "2026-11-08T05:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -194,7 +194,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "c60423f",
+   "head": "4eb9274",
    "depends_on": [
     779,
     785,
@@ -204,7 +204,7 @@
    "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -213,7 +213,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "da750f5",
+   "head": "102e668",
    "depends_on": [
     792,
     785
@@ -676,7 +676,7 @@
   "ShimuraVarieties": {
    "stage": "pr",
    "pr": 933,
-   "head": "ff31cd8",
+   "head": "c62ab38",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 6cc4f59",
    "review": {
     "recommendation": "changes",
@@ -840,7 +840,7 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "ec03322",
+   "head": "8cd16c2",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
@@ -866,7 +866,7 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "f8d3cf8",
+   "head": "34d87ef",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
    "review": {
     "recommendation": "changes",
@@ -1230,11 +1230,11 @@
   "GL2ModularityLifting": {
    "stage": "pr",
    "pr": 1071,
-   "head": "4286b04",
+   "head": "cd7fa5e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1425,11 +1425,11 @@
   "ArithmeticStatisticsPartV": {
    "stage": "pr",
    "pr": 1175,
-   "head": "5243b92",
+   "head": "d9683d8",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
