@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-08T12:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-08T12:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1101 ModularCurves — draft
@@ -32,13 +32,13 @@ Generated 2026-11-08T12:10Z from the README supplier graph of every open pull re
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 3
-- #1126 AnalyticNumberTheoryPartI — ready; waits on #1913, #1914
+- #1126 AnalyticNumberTheoryPartI — draft; waits on #1913, #1914
 - #1227 StableHomotopyKTheory — ready; waits on #1701, #1798, #1142, #942
 - #1656 SchemeAndStackFoundations — draft; waits on #1101, #1892, #545
 
 ## Wave 4
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
-- #1167 AnalyticNumberTheoryPartII — ready (approved at an earlier head); waits on #1126, #1913
+- #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #1913
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
 - #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126
