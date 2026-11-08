@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-08T13:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-08T14:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1101 ModularCurves — draft
@@ -189,7 +189,7 @@ Generated 2026-11-08T13:40Z from the README supplier graph of every open pull re
 - #1712 CharacterSumsOverFiniteFields — draft; waits on #1039, #1504, #1545, #925
 
 ## Wave 25
-- #1000 ArakelovGeometryAndAbelianHeights — draft; waits on #1002, #1656, #848, #849, #852, #853, #858, #879, #966
+- #1000 ArakelovGeometryAndAbelianHeights — ready; waits on #1002, #1656, #848, #849, #852, #853, #858, #879, #966
 - #1043 ColemanIntegration — ready (approved at an earlier head); waits on #1002, #1039, #1212, #1320, #1418, #1430, #1470, #1701, #1892, #792, #851, #854
 - #1062 PadicHodgeTheory — ready (approved at an earlier head); waits on #1002, #1042, #1044, #1057, #1307, #1310, #1312, #1313, #1630, #1656, #1701, #816, #820, #849, #852, #856, #857, #858, #868, #869, #875, #879, #923, #940, #966
 - #1174 ArithmeticStatisticsPartIII — ready (approved at an earlier head); waits on #1126, #1167, #1171, #1173, #1656, #792, #849, #850, #851, #858, #869, #924, #929
@@ -296,7 +296,7 @@ Generated 2026-11-08T13:40Z from the README supplier graph of every open pull re
 
 ## Wave 34
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #1892, #849, #852, #856, #879, #913, #928, #931, #966, #970
-- #1071 GL2ModularityLifting — draft; waits on #1005, #1007, #1013, #1020, #1034, #1062, #1066, #1306, #1312, #1689, #856, #858, #879, #913, #920, #923, #928, #931, #970
+- #1071 GL2ModularityLifting — ready; waits on #1005, #1007, #1013, #1020, #1034, #1062, #1066, #1306, #1312, #1689, #856, #858, #879, #913, #920, #923, #928, #931, #970
 - #1090 IgusaVarietiesAndTorsionConcentration — ready (approved at an earlier head); waits on #1006, #1040, #1053, #1062, #1084, #1085, #1087, #1101, #1205, #1209, #1230, #1235, #1630, #1656, #1688, #1689, #1891, #792, #820, #849, #852, #858, #871, #873, #875, #879, #922, #927, #965, #966, #999
 - #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1101, #1126, #1914, #1945, #924, #931
 - #1427 HabiroNahmSeries — draft; waits on #1043, #1212, #1281, #1314, #1320, #1351, #1391, #1418, #1424, #1425, #1428, #1430, #1469, #1498, #851
