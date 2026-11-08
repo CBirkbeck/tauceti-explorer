@@ -13,9 +13,9 @@ Generated 2026-11-08T19:40Z from the README supplier graph of every open pull re
 - #1798 DGFloer — draft
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
-- #1892 JacobianChallenge — draft; waits on #1656
 - #1913 ZerosOfLFunctions — draft
 - #1914 ImaginaryQuadraticClassNumber — draft
+- #545 AbundanceStatement (RoktimMascharak, other author)
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)
@@ -27,53 +27,53 @@ Generated 2026-11-08T19:40Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #1126 AnalyticNumberTheoryPartI — draft; waits on #1913, #1914
-- #545 AbundanceStatement (RoktimMascharak, other author)
+- #1656 SchemeAndStackFoundations — draft; waits on #1892, #545
 - #942 TangentialBordism (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 3
+- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #1913
 - #1227 StableHomotopyKTheory — ready; waits on #1701, #1798, #1142, #942
-- #1656 SchemeAndStackFoundations — draft; waits on #1892, #545
+- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
+- #1892 JacobianChallenge — draft; waits on #1656
 
 ## Wave 4
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
+- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
-- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126, #1167
-- #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1656, #792
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1701, #1892
 
 ## Wave 5
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1630, #1701
 - #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1407, #1421
 - #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630, #1656, #1701
-- #1954 ExplicitZetaBounds — draft; waits on #1126, #1495, #1913
 
 ## Wave 6
-- #792 AdelicAlgebraicGroups — draft; waits on #1126, #1167, #1495, #1656, #1688
+- #792 AdelicAlgebraicGroups — draft; waits on #1126, #1167, #1656, #1688
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #1410, #1701, #1891, #816
 - #1486 QuiverRepresentationsPartII — draft; waits on #1688
 - #1689 IntegralHeckeAndGaloisDeterminants — ready (approved at an earlier head); waits on #1656, #1688, #1701
-- #1945 ExplicitPrimeCounting — draft; waits on #1126, #1495, #1913, #1954
 
 ## Wave 7
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #1630, #1656, #1701, #940
 - #1306 IntegralIwasawaTheory — draft; waits on #1656, #1689, #1701, #1891
+- #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1656, #792
 
 ## Wave 8
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #1630, #1656, #1701, #1891, #1892, #820, #868, #940
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #1689, #1892, #940
 - #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212, #1306, #1656, #1688, #1689, #1701, #1891, #1914, #940, #1142
 - #1309 ColemanPowerSeries — ready; waits on #1306
+- #1954 ExplicitZetaBounds — draft; waits on #1126, #1495, #1913
 
 ## Wave 9
 - #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1630, #1656, #1701, #1892, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #1630, #1656, #1701, #857, #868
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1306, #1307, #1309, #1701, #816, #857, #940
+- #1945 ExplicitPrimeCounting — draft; waits on #1126, #1495, #1913, #1954
 
 ## Wave 10
 - #848 ComplexComparisonPartII — draft; waits on #1630, #1656, #1701, #1891, #1892, #853, #857, #868
