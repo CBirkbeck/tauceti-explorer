@@ -34,7 +34,6 @@ Generated 2026-11-08T19:40Z from the README supplier graph of every open pull re
 ## Wave 3
 - #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #1913
 - #1227 StableHomotopyKTheory — ready; waits on #1701, #1798, #1142, #942
-- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126
 - #1656 SchemeAndStackFoundations — draft; waits on #1892, #545
 
 ## Wave 4
@@ -42,13 +41,14 @@ Generated 2026-11-08T19:40Z from the README supplier graph of every open pull re
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
 - #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
-- #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1656
+- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126, #1167
+- #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1656, #792
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1701, #1892
-- #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1407, #1421
 
 ## Wave 5
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1630, #1701
+- #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1407, #1421
 - #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630, #1656, #1701
 - #1954 ExplicitZetaBounds — draft; waits on #1126, #1495, #1913
@@ -216,7 +216,7 @@ Generated 2026-11-08T19:40Z from the README supplier graph of every open pull re
 - #1461 BorelRegulators — draft; waits on #1037, #1043, #1212, #1227, #1229, #1306, #1418, #1470, #1656, #792, #858, #871, #999
 - #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1208, #1375, #1656, #1891, #1892, #848, #850, #853, #870, #879, #1286
 - #1489 EllipticKTheory — draft; waits on #1001, #1040, #1212, #1227, #1229, #1232, #1248, #1281, #1302, #1313, #1418, #1430, #1470, #1656, #1892, #852, #858, #869, #929
-- #1944 ExplicitNumberFields — draft; waits on #1126, #1913, #1914, #1945, #1946, #1948, #1954
+- #1944 ExplicitNumberFields — draft; waits on #1126, #1260, #1913, #1914, #1945, #1946, #1948, #1954
 
 ## Wave 28
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1225, #1405, #1656, #1892, #792, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
