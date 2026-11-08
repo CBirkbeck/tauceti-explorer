@@ -7,6 +7,7 @@ Generated 2026-11-08T14:40Z from the README supplier graph of every open pull re
 - #1314 HabiroCyclotomicCompletions — ready
 - #1320 PolylogarithmFunctions — ready
 - #1407 ConformalMappingPartII — draft
+- #1649 QuantumGroups — draft
 - #1701 DerivedModuleAlgebra — draft
 - #1731 RootSystemsPartII — draft
 - #1768 DeRhamCohomologyAndDuality — draft
