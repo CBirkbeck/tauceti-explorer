@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-08T13:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-08T13:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1101 ModularCurves — draft
@@ -53,7 +53,7 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1891 EtaleCohomologyFoundations — draft; waits on #1101, #1630, #1656, #1701
 
 ## Wave 6
-- #792 AdelicAlgebraicGroups — ready; waits on #1656, #1688
+- #792 AdelicAlgebraicGroups — ready; waits on #1126, #1167, #1495, #1656, #1688
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #1410, #1701, #1891, #816
 - #1486 QuiverRepresentationsPartII — draft; waits on #1688
 - #1689 IntegralHeckeAndGaloisDeterminants — ready (approved at an earlier head); waits on #1656, #1688, #1701
@@ -93,7 +93,7 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1056 FormalConnectionsOpers (kim-em, other author)
 
 ## Wave 12
-- #856 ArithmeticGaloisRepresentations — draft; waits on #1101, #1312, #1410, #1656, #1688, #1689, #1891, #1892, #792, #849
+- #856 ArithmeticGaloisRepresentations — draft; waits on #1101, #1126, #1312, #1410, #1656, #1688, #1689, #1891, #1892, #792, #849
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1142
 
 ## Wave 13
@@ -101,8 +101,8 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1688, #1891, #792, #856, #871
 
 ## Wave 14
-- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1101, #1630, #1656, #1798, #1891, #1892, #792, #848, #849, #853, #856, #858
-- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1227, #1630, #792, #858, #1142
+- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1101, #1495, #1630, #1656, #1798, #1891, #1892, #792, #848, #849, #853, #856, #858
+- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1227, #1421, #1495, #1630, #792, #858, #1142
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1656, #1701, #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1101, #1260, #1307, #1312, #1656, #1688, #1701, #1891, #849, #856, #857, #858, #868, #940
 
@@ -139,13 +139,13 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #1656, #1754, #1891, #857, #873, #875
 
 ## Wave 19
-- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #1656, #1688, #1689, #1891, #1892, #1913, #792, #850, #853, #856, #858, #871, #929
+- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #1126, #1167, #1656, #1688, #1689, #1891, #1892, #792, #850, #853, #856, #858, #871, #929
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #1630, #1656, #1688, #816, #820, #875, #922
 - #1057 PrismaticCohomology — ready (approved at an earlier head); waits on #1042, #1044, #1630, #1656, #1701, #1891, #857, #868
 - #1281 KTheoryFiniteLocalFields — ready; waits on #1044, #1212, #1227, #1229, #1248, #1266, #1302, #1656, #1701, #1891, #851, #857, #858, #1142
 
 ## Wave 20
-- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #1656, #1688, #792, #856, #858, #871, #924, #1027
+- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #1126, #1167, #1656, #1688, #792, #856, #858, #871, #924, #1027
 - #965 AdicCoefficientsAndComparisons — ready; waits on #1630, #1656, #1891, #820, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready (approved at an earlier head); waits on #1306, #1309, #854, #924
@@ -201,7 +201,7 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1001 WeightsInEtaleCohomology — ready (approved at an earlier head); waits on #1002, #1044, #1062, #1630, #1656, #1701, #1891, #1892, #849, #850, #852, #856, #857, #868, #873, #879, #913, #928, #929, #931, #940
 - #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1000, #1171, #1173, #1174, #1656, #1891, #1892, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879
 - #1080 PrismaticCohomologyPartIV — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1062, #1065, #1070, #1630, #1656, #1701, #820, #857, #868, #875, #922
-- #1175 ArithmeticStatisticsPartV — draft; waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #1472, #1656, #792, #850, #851
+- #1175 ArithmeticStatisticsPartV — draft; waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #1472, #1495, #1656, #792, #850, #851
 - #1205 VectorBundlesAndIsocrystals — ready; waits on #1002, #1044, #1062, #1070, #1310, #1656, #820, #857, #879, #922, #927, #940, #964
 - #1208 WeilConjectures — ready (approved at an earlier head); waits on #1002, #1040, #1062, #1656, #1891, #848, #849, #850, #856, #870, #929
 - #1946 ExplicitMultiplicativeFunctions — draft; waits on #1126, #1495, #1913, #1945, #1948, #1954
@@ -245,7 +245,7 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1040, #1171, #1172, #1175, #1178, #1225, #1798, #1892, #849, #850, #851, #852, #856, #929
 - #1231 MordellLawrenceVenkatesh — ready; waits on #1001, #1004, #1017, #1034, #1040, #1062, #1063, #1101, #1225, #1545, #1656, #1798, #1891, #1892, #848, #849, #850, #852, #853, #856, #857, #858, #868, #879, #929, #940
 - #1235 GeometricSatakeAndFusion — ready (approved at an earlier head); waits on #1040, #1062, #1202, #1205, #1209, #1230, #1313, #1630, #1656, #1688, #1891, #820, #850, #857, #879, #927, #965
-- #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1545, #1913, #928
+- #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1545, #1913, #1944, #1945, #1954, #928
 - #1458 SolidAnalyticRings — draft; waits on #1227, #1230, #1630
 - #1494 TropicalAndBerkovichArithmetic — draft; waits on #1021, #1043, #1046, #1053, #1360, #1656, #820, #852, #853, #875
 - #1647 AnalyticToricGeometryPartII — draft; waits on #1053, #1208, #1656, #1891, #816, #849, #875
@@ -298,7 +298,7 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #1892, #849, #852, #856, #879, #913, #928, #931, #966, #970
 - #1071 GL2ModularityLifting — draft; waits on #1005, #1007, #1013, #1020, #1034, #1062, #1066, #1306, #1312, #1689, #856, #858, #879, #913, #920, #923, #928, #931, #970
 - #1090 IgusaVarietiesAndTorsionConcentration — ready (approved at an earlier head); waits on #1006, #1040, #1053, #1062, #1084, #1085, #1087, #1101, #1205, #1209, #1230, #1235, #1630, #1656, #1688, #1689, #1891, #792, #820, #849, #852, #858, #871, #873, #875, #879, #922, #927, #965, #966, #999
-- #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1101, #1126, #1914, #924, #931
+- #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1101, #1126, #1914, #1945, #924, #931
 - #1427 HabiroNahmSeries — draft; waits on #1043, #1212, #1281, #1314, #1320, #1351, #1391, #1418, #1424, #1425, #1428, #1430, #1469, #1498, #851
 - #1491 EllipticCurveModularityPartII — draft; waits on #1000, #1001, #1007, #1013, #1017, #1018, #1019, #1101, #1229, #1254, #1264, #1272, #1302, #1408, #1432, #1892, #1914, #849, #852, #856, #869, #879, #913, #928, #968
 - #1493 RefinedTraceMethods — draft; waits on #1044, #1057, #1064, #1065, #1070, #1212, #1227, #1229, #1248, #1281, #1302, #1351, #1425, #1428, #1458, #1630, #857, #868
@@ -309,7 +309,7 @@ Generated 2026-11-08T13:30Z from the README supplier graph of every open pull re
 - #1075 PotentialModularityAndCompatibleSystems — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1007, #1013, #1019, #1020, #1034, #1037, #1062, #1066, #1071, #1656, #1689, #1891, #1892, #792, #848, #849, #850, #852, #853, #856, #858, #879, #920, #923, #928, #931, #933, #970, #999
 - #1241 BunGAndNewtonStrata — ready (approved at an earlier head); waits on #1062, #1084, #1090, #1101, #1205, #1209, #1230, #1235, #1656, #820, #853, #922, #927, #999
 - #1270 CompletedCohomologyAndLocalGlobalCompatibility — ready; waits on #1005, #1007, #1019, #1020, #1034, #1035, #1037, #1066, #1071, #1172, #1306, #1310, #1312, #1422, #1688, #1689, #792, #816, #856, #871, #913, #920, #922, #923, #928, #931
-- #1336 ErdosProgressionPowers — draft; waits on #1001, #1007, #1013, #1017, #1018, #1101, #1126, #1231, #1408, #1491, #1545, #1891, #1914, #852, #856
+- #1336 ErdosProgressionPowers — draft; waits on #1001, #1007, #1013, #1017, #1018, #1101, #1126, #1231, #1408, #1491, #1495, #1545, #1891, #1914, #852, #856
 - #1403 SelmerIwasawaCohomologyPartII — draft; waits on #1005, #1006, #1053, #1090, #1272, #1313, #1656, #1688, #1689, #1891, #792, #856, #858, #869, #873, #920, #923, #933, #966, #999
 - #1466 HabiroCohomologyFoundationsPartII — draft; waits on #1044, #1057, #1065, #1070, #1227, #1281, #1314, #1351, #1425, #1428, #1458, #1469, #1493, #1630
 - #1484 EllipticCurveModularityWild3Adic — draft; waits on #1007, #1018, #1020, #1062, #1066, #1071, #1101, #1254, #1312, #849, #850, #856, #879, #913, #923, #928, #931
