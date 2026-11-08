@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-08T19:40Z",
+ "updated": "2026-11-08T20:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -213,7 +213,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "5180edf",
+   "head": "04dd46e",
    "depends_on": [
     792,
     785
@@ -300,7 +300,7 @@
   "ArithmeticGaloisRepresentations": {
    "stage": "pr",
    "pr": 856,
-   "head": "27e9e34",
+   "head": "2cbcfe8",
    "depends_on": [
     789,
     785
@@ -308,7 +308,7 @@
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -599,7 +599,7 @@
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -608,11 +608,11 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "5efd146",
+   "head": "723640b",
    "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
