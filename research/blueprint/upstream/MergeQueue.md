@@ -13,9 +13,9 @@ Generated 2026-11-08T19:40Z from the README supplier graph of every open pull re
 - #1798 DGFloer — draft
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
+- #1892 JacobianChallenge — draft; waits on #1656
 - #1913 ZerosOfLFunctions — draft
 - #1914 ImaginaryQuadraticClassNumber — draft
-- #545 AbundanceStatement (RoktimMascharak, other author)
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)
@@ -27,25 +27,25 @@ Generated 2026-11-08T19:40Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #1126 AnalyticNumberTheoryPartI — draft; waits on #1913, #1914
-- #1656 SchemeAndStackFoundations — draft; waits on #1892, #545
+- #545 AbundanceStatement (RoktimMascharak, other author)
 - #942 TangentialBordism (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 3
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #1913
 - #1227 StableHomotopyKTheory — ready; waits on #1701, #1798, #1142, #942
-- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
-- #1892 JacobianChallenge — draft; waits on #1656
+- #1656 SchemeAndStackFoundations — draft; waits on #1892, #545
 
 ## Wave 4
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
+- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
+- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126, #1167
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1701, #1892
 
 ## Wave 5
+- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1630, #1701
 - #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1407, #1421
 - #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
