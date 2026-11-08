@@ -13,39 +13,38 @@ Generated 2026-11-08T14:40Z from the README supplier graph of every open pull re
 - #1798 DGFloer — draft
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
-- #1892 JacobianChallenge — draft; waits on #1656
 - #1913 ZerosOfLFunctions — draft
-- #861 HilbertModules (kim-em, other author)
+- #545 AbundanceStatement (RoktimMascharak, other author)
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)
+- #1142 AlgebraicKTheory (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1158 SpectralManifolds (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
+- #1656 SchemeAndStackFoundations — draft; waits on #1101, #1892, #545
 - #1914 ImaginaryQuadraticClassNumber — draft; waits on #1101
-- #545 AbundanceStatement (RoktimMascharak, other author)
 - #942 TangentialBordism (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 3
+- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1126 AnalyticNumberTheoryPartI — draft; waits on #1913, #1914
 - #1227 StableHomotopyKTheory — ready; waits on #1701, #1798, #1142, #942
-- #1656 SchemeAndStackFoundations — draft; waits on #1101, #1892, #545
+- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
+- #1892 JacobianChallenge — draft; waits on #1656
 
 ## Wave 4
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
+- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #1913
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
-- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1126
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1701, #1892
 
 ## Wave 5
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1656
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1630, #1701
@@ -345,7 +344,7 @@ Generated 2026-11-08T14:40Z from the README supplier graph of every open pull re
 
 ## Wave 38
 - #1048 EllipticCurveModularityImaginaryQuadratic — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1034, #1062, #1075, #1081, #1101, #1182, #1656, #1892, #848, #849, #850, #852, #856, #871, #873, #879, #913, #920, #923, #931, #933, #970
-- #1815 SmoothRepresentationsOfLocalGroupsPartII — draft; waits on #1688, #1828, #1832, #924, #925, #999, #1015, #861
+- #1815 SmoothRepresentationsOfLocalGroupsPartII — draft; waits on #1688, #1828, #1832, #924, #925, #999, #1015
 - #1816 AutomorphicCongruences — draft; waits on #1006, #1013, #1019, #1020, #1034, #1039, #1053, #1063, #1066, #1069, #1071, #1090, #1270, #1272, #1306, #1310, #1311, #1312, #1487, #1498, #1543, #1688, #1689, #1804, #858, #869, #920, #923, #924, #925, #966, #968
 
 ## Wave 39
