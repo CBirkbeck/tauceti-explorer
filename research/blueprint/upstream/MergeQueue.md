@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-08T23:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-08T23:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready
@@ -98,7 +98,7 @@ Generated 2026-11-08T23:10Z from the README supplier graph of every open pull re
 
 ## Wave 13
 - #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #1312, #1630, #1656, #1701, #1891, #792, #816, #849, #853, #856, #940
-- #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #1688, #1891, #792, #856, #871
+- #1037 AutomorphicFormsOnReductiveGroups — ready (approved at an earlier head); waits on #1688, #1891, #792, #856, #871
 
 ## Wave 14
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1495, #1630, #1656, #1798, #1891, #1892, #792, #848, #849, #853, #856, #858
