@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-09T14:20Z",
+ "updated": "2026-11-09T14:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -69,8 +69,8 @@
    "note": "carried on #785 (ReductiveGroupsPartII) since the maintainer merged #793/#789 into that branch on 2026-10-14; SR.3a.2 companion repair applied 2026-10-16 at b853d91",
    "head": "3208d03",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -176,7 +176,7 @@
   "AbelianSchemesAndArithmeticModuli": {
    "stage": "pr",
    "pr": 849,
-   "head": "bb1d12a",
+   "head": "a007331",
    "depends_on": [
     779,
     848,
@@ -230,7 +230,7 @@
   "NeronModelsAndSemistableAbelianVarieties": {
    "stage": "pr",
    "pr": 852,
-   "head": "e816215",
+   "head": "f2f4bf5",
    "depends_on": [
     779,
     785
@@ -238,7 +238,7 @@
    "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -840,7 +840,7 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "388e2e6",
+   "head": "afb8391",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
@@ -892,11 +892,11 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "49a5570",
+   "head": "3dc9d71",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1403,7 +1403,7 @@
   "ArithmeticStatisticsPartIII": {
    "stage": "pr",
    "pr": 1174,
-   "head": "0a63762",
+   "head": "d732072",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part III of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "approve",
@@ -1576,7 +1576,7 @@
   "StableHomotopyKTheory": {
    "stage": "pr",
    "pr": 1227,
-   "head": "f645066",
+   "head": "6ebf6e2",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "approve",
@@ -1589,10 +1589,10 @@
   "SchemeKTheoryOperations": {
    "stage": "pr",
    "pr": 1229,
-   "head": "78ba9e5",
+   "head": "6732a6a",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
