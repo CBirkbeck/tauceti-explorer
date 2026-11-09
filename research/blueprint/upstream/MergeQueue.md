@@ -3,6 +3,7 @@
 Generated 2026-11-09T08:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
+- #1145 SmoothBanachRepresentations — draft
 - #1168 FuchsianOrbifolds — draft
 - #1314 HabiroCyclotomicCompletions — ready
 - #1320 PolylogarithmFunctions — ready
@@ -16,6 +17,7 @@ Generated 2026-11-09T08:40Z from the README supplier graph of every open pull re
 - #1892 JacobianChallenge — draft; waits on #1656
 - #1914 ImaginaryQuadraticClassNumber — draft
 - #2008 AnalyticNumberTheoryPartIII — draft
+- #117 LaguerreJacobi (weiscadence, other author)
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)
@@ -227,6 +229,7 @@ Generated 2026-11-09T08:40Z from the README supplier graph of every open pull re
 ## Wave 28
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1225, #1405, #1411, #1656, #1892, #792, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
 - #1013 SerreWeightAndLevelOptimisation — ready (approved at an earlier head); waits on #1005, #1037, #1306, #1411, #1689, #852, #856, #858, #879, #913, #920, #923, #928, #931
+- #1015 NoncompactQuantumSymmetry — draft; waits on #1037, #1063, #1145, #1027, #117
 - #1035 CompletedCohomologyPartII — ready; waits on #1005, #1034, #1307, #1312, #1630, #1688, #1689, #1701, #848, #854, #858, #871, #913, #933
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1002, #1017, #1021, #1043, #1656, #1892, #849, #851, #852, #879, #913, #929
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #1656, #1892, #792, #848, #849, #852, #853, #858, #879, #913, #933, #966
@@ -350,7 +353,7 @@ Generated 2026-11-09T08:40Z from the README supplier graph of every open pull re
 
 ## Wave 38
 - #1048 EllipticCurveModularityImaginaryQuadratic — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1034, #1062, #1075, #1081, #1182, #1411, #1656, #1892, #848, #849, #850, #852, #856, #871, #873, #879, #913, #920, #923, #931, #933, #970
-- #1815 SmoothRepresentationsOfLocalGroupsPartII — draft; waits on #1688, #1828, #1832, #924, #925, #999, #1015
+- #1815 SmoothRepresentationsOfLocalGroupsPartII — draft; waits on #1015, #1688, #1828, #1832, #924, #925, #999
 - #1816 AutomorphicCongruences — draft; waits on #1006, #1013, #1019, #1020, #1034, #1039, #1053, #1063, #1066, #1069, #1071, #1090, #1270, #1272, #1306, #1310, #1311, #1312, #1487, #1498, #1543, #1688, #1689, #1804, #858, #869, #920, #923, #924, #925, #966, #968
 
 ## Wave 39
@@ -366,7 +369,7 @@ Generated 2026-11-09T08:40Z from the README supplier graph of every open pull re
 - #1817 GSp4NonregularModularityLifting — draft; waits on #1006, #1007, #1034, #1038, #1053, #1062, #1069, #1075, #1084, #1180, #1422, #1688, #1689, #1823, #849, #856, #879, #920, #923, #924, #999
 - #1824 AutomorphyLiftingBeyondTaylorWiles — draft; waits on #1034, #1035, #1037, #1062, #1180, #1248, #1411, #1688, #1689, #1701, #792, #856, #858, #871, #913, #920, #923, #925
 - #1829 TriangulineVarietyAndItsLocalModel — draft; waits on #1034, #1062, #1180, #1270, #1310, #1656, #1828, #854, #923
-- #1837 GlobalGaloisDeformationsPartII — draft; waits on #1006, #1007, #1020, #1066, #1071, #1180, #1307, #1411, #1474, #1689, #856, #858, #920, #923, #924, #925, #928, #1015
+- #1837 GlobalGaloisDeformationsPartII — draft; waits on #1006, #1007, #1015, #1020, #1066, #1071, #1180, #1307, #1411, #1474, #1689, #856, #858, #920, #923, #924, #925, #928
 
 ## Wave 41
 - #1732 RankZeroOneBSDPartII — draft; waits on #1018, #1171, #1174, #1176, #1178, #1272, #1423, #1487, #1744, #869
@@ -374,4 +377,4 @@ Generated 2026-11-09T08:40Z from the README supplier graph of every open pull re
 - #1758 TwistedAutomorphicDescents — draft; waits on #1037, #1180, #1404, #1688, #851, #924, #925, #999
 - #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1037, #1404, #1504, #1688, #1913, #792, #924, #925, #1158, #992
 - #1805 RankOneConverse — draft; waits on #1007, #1013, #1018, #1063, #1171, #1176, #1423, #1487, #1491, #1816, #858, #869, #913, #924, #931
-- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1037, #1404, #1688, #1815, #792, #851, #853, #925, #999, #1015, #1027, #1056, #1145
+- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1015, #1037, #1145, #1404, #1688, #1815, #792, #851, #853, #925, #999, #1027, #1056
