@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-09T06:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-09T06:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1168 FuchsianOrbifolds — draft
@@ -40,7 +40,7 @@ Generated 2026-11-09T06:40Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
-- #1126 AnalyticNumberTheoryPartI — ready; waits on #1168, #1411, #1913, #1914
+- #1126 AnalyticNumberTheoryPartI — maintainer approved; waits on #1168, #1411, #1913, #1914
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1701, #1892
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
