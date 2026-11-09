@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-08T23:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-09T00:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready
@@ -46,7 +46,7 @@ Generated 2026-11-08T23:40Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
-- #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #1411, #1913
+- #1167 AnalyticNumberTheoryPartII — ready; waits on #1126, #1411, #1913
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1411, #1630, #1701
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630, #1656, #1701
 
@@ -103,7 +103,7 @@ Generated 2026-11-08T23:40Z from the README supplier graph of every open pull re
 - #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1688, #1891, #792, #856, #871
 
 ## Wave 14
-- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1411, #1495, #1630, #1656, #1798, #1891, #1892, #792, #848, #849, #853, #856, #858
+- #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #1411, #1495, #1630, #1656, #1798, #1891, #1892, #792, #848, #849, #853, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1227, #1411, #1421, #1495, #1630, #792, #858, #1142
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1656, #1701, #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #1411, #1656, #1688, #1701, #1891, #849, #856, #857, #858, #868, #940
@@ -147,7 +147,7 @@ Generated 2026-11-08T23:40Z from the README supplier graph of every open pull re
 - #1281 KTheoryFiniteLocalFields — ready; waits on #1044, #1212, #1227, #1229, #1248, #1266, #1302, #1411, #1656, #1701, #1891, #851, #857, #858, #1142
 
 ## Wave 20
-- #925 AutomorphicSpectralTheory — draft; waits on #1037, #1126, #1167, #1411, #1656, #1688, #792, #856, #858, #871, #924, #1027
+- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #1126, #1167, #1411, #1656, #1688, #792, #856, #858, #871, #924, #1027
 - #965 AdicCoefficientsAndComparisons — ready; waits on #1630, #1656, #1891, #820, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1411, #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready (approved at an earlier head); waits on #1306, #1309, #854, #924
