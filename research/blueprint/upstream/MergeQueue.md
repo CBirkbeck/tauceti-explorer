@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-09T20:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-09T20:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -79,7 +79,7 @@ Generated 2026-11-09T20:20Z from the README supplier graph of every open pull re
 - #1954 ExplicitZetaBounds — draft; waits on #1495, #1913
 
 ## Wave 10
-- #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1630, #1656, #1701, #1892, #857
+- #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #1630, #1656, #1701, #1892, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #1630, #1656, #1701, #857, #868
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1306, #1307, #1309, #1411, #1701, #816, #857, #940
 - #1945 ExplicitPrimeCounting — draft; waits on #1411, #1495, #1913, #1954
