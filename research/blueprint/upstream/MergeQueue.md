@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-09T19:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-09T19:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -51,7 +51,7 @@ Generated 2026-11-09T19:00Z from the README supplier graph of every open pull re
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
-- #1688 SmoothRepresentationsOfLocalGroups — draft; waits on #1411, #1630, #1701
+- #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1411, #1630, #1701
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630, #1656, #1701
 
 ## Wave 6
@@ -84,7 +84,7 @@ Generated 2026-11-09T19:00Z from the README supplier graph of every open pull re
 
 ## Wave 10
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1630, #1656, #1701, #1891, #1892, #853, #857, #868
-- #1229 SchemeKTheoryOperations — draft; waits on #1212, #1227, #1630, #1656, #1892, #853, #1142
+- #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #1630, #1656, #1892, #853, #1142
 - #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310, #1411, #1656, #1688, #1689, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #1656, #853
 
@@ -122,7 +122,7 @@ Generated 2026-11-09T19:00Z from the README supplier graph of every open pull re
 ## Wave 16
 - #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1312, #1411, #1656, #1701, #816, #849, #852, #858, #879, #940
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1656, #1891, #1892, #848, #850, #852, #853
-- #873 LefschetzPencilsAndVanishingCycles — draft; waits on #1630, #1656, #1701, #1891, #792, #848, #849, #850, #852, #853, #856, #857, #858
+- #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #1630, #1656, #1701, #1891, #792, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1411, #1630, #1656, #1688, #1689, #1701, #856, #1056
 - #1225 JacobianChallengePartII — ready; waits on #1656, #1892, #848, #849, #852, #853
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
