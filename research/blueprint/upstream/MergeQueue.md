@@ -1,13 +1,13 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-09T18:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-09T18:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
 - #1168 FuchsianOrbifolds — draft
 - #1314 HabiroCyclotomicCompletions — ready
 - #1320 PolylogarithmFunctions — ready
-- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
+- #1411 ClassFieldTheory — draft; waits on #1410
 - #1649 QuantumGroups — draft
 - #1701 DerivedModuleAlgebra — draft
 - #1731 RootSystemsPartII — draft
@@ -30,28 +30,30 @@ Generated 2026-11-09T18:30Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #1411 ClassFieldTheory — draft; waits on #1410
+- #1913 ZerosOfLFunctions — draft; waits on #1411
 - #545 AbundanceStatement (RoktimMascharak, other author)
 - #942 TangentialBordism (kim-em, other author)
 
 ## Wave 3
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1701, #1798, #1142, #942
+- #1167 AnalyticNumberTheoryPartII — ready; waits on #1168, #1411, #1913
+- #1227 StableHomotopyKTheory — ready; waits on #1701, #1798, #1142, #942
 - #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #545
-- #1713 PadicExtensionFamilies — draft; waits on #1410, #1411
-- #1913 ZerosOfLFunctions — draft; waits on #1411
+- #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 4
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
-- #1167 AnalyticNumberTheoryPartII — ready; waits on #1168, #1411, #1913
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
+- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
+- #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
+- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1701, #1892
-- #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 5
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
-- #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
-- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1688 SmoothRepresentationsOfLocalGroups — draft; waits on #1411, #1630, #1701
+- #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1421
+- #1713 PadicExtensionFamilies — draft; waits on #1410, #1411
+- #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630, #1656, #1701
 
 ## Wave 6
@@ -59,8 +61,6 @@ Generated 2026-11-09T18:30Z from the README supplier graph of every open pull re
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #1410, #1411, #1701, #1891, #816
 - #1486 QuiverRepresentationsPartII — draft; waits on #1688
 - #1689 IntegralHeckeAndGaloisDeterminants — ready (approved at an earlier head); waits on #1411, #1656, #1688, #1701
-- #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1421
-- #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
 
 ## Wave 7
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #1630, #1656, #1701, #940
@@ -198,7 +198,7 @@ Generated 2026-11-09T18:30Z from the README supplier graph of every open pull re
 - #1000 ArakelovGeometryAndAbelianHeights — ready; waits on #1002, #1411, #1656, #848, #849, #852, #853, #858, #879, #966
 - #1043 ColemanIntegration — ready (approved at an earlier head); waits on #1002, #1039, #1212, #1320, #1411, #1418, #1430, #1470, #1701, #1892, #792, #851, #854
 - #1062 PadicHodgeTheory — ready (approved at an earlier head); waits on #1002, #1042, #1044, #1057, #1307, #1310, #1312, #1313, #1411, #1630, #1656, #1701, #816, #820, #849, #852, #856, #857, #858, #868, #869, #875, #879, #923, #940, #966
-- #1174 ArithmeticStatisticsPartIII — ready (approved at an earlier head); waits on #1167, #1171, #1173, #1411, #1656, #792, #849, #850, #851, #858, #869, #924, #929
+- #1174 ArithmeticStatisticsPartIII — ready; waits on #1167, #1171, #1173, #1411, #1656, #792, #849, #850, #851, #858, #869, #924, #929
 - #1828 SpringerResolutionAndCharacteristicCycles — draft; waits on #1034, #1038, #1040, #1312, #1630, #1656, #848, #1056
 - #1948 ExplicitCharacterSumsAndSieves — draft; waits on #1495, #1712, #1945, #1954
 
