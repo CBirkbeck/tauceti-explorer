@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-09T03:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-09T03:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1168 FuchsianOrbifolds — draft
@@ -61,7 +61,7 @@ Generated 2026-11-09T03:30Z from the README supplier graph of every open pull re
 
 ## Wave 7
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #1630, #1656, #1701, #940
-- #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #1411, #1656, #1689, #1701, #1891
+- #1306 IntegralIwasawaTheory — ready; waits on #1411, #1656, #1689, #1701, #1891
 - #1495 SieveMethodsAndPrimePatterns — draft; waits on #1126, #1167, #1656, #792
 - #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1407, #1421
 - #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
