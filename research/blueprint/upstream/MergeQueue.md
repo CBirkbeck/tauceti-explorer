@@ -71,6 +71,7 @@ Generated 2026-11-09T02:50Z from the README supplier graph of every open pull re
 
 ## Wave 9
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #1630, #1656, #1701, #1891, #1892, #820, #868, #940
+- #1169 TeichmullerGeometry — draft; waits on #1168, #2026
 - #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #1411, #1689, #1892, #940
 - #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212, #1306, #1411, #1656, #1688, #1689, #1701, #1891, #1914, #940, #1142
 - #1309 ColemanPowerSeries — ready; waits on #1306
