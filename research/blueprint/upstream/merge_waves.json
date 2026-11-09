@@ -50,7 +50,7 @@
   "PerfectoidQuotients": 10,
   "PrismaticCohomology": 20,
   "CohomologyComparisons": 30,
-  "AnalyticNumberTheory": 17,
+  "AnalyticNumberTheory": 16,
   "ArithmeticStatistics": 31,
   "ColemanIntegration": 26,
   "DirichletPadicLFunctions": 21,
@@ -151,7 +151,7 @@
   "GanGrossPrasadUnitaryGroups": 41,
   "AbelianSchemesAndArithmeticModuliPartII": 28,
   "EffectiveClassNumbers": 35,
-  "ConformalMappingPartII": 1,
+  "ConformalMappingPartII": 2,
   "ComputationalNumberTheory": 30,
   "ArithmeticDirichletSeriesPartII": 6,
   "ArithmeticKTheory": 21,
@@ -284,6 +284,8 @@
   "QuantumGroups": 1,
   "AnalyticNumberTheoryPartIII": 1,
   "ClassFieldTheory": 2,
-  "PadicExtensionFamilies": 3
+  "PadicExtensionFamilies": 3,
+  "ArithmeticFuchsianGroups": 8,
+  "FuchsianOrbifolds": 1
  }
 }
