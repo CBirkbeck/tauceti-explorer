@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-09T02:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-09T02:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1314 HabiroCyclotomicCompletions — ready
@@ -95,7 +95,7 @@ Generated 2026-11-09T02:00Z from the README supplier graph of every open pull re
 - #1056 FormalConnectionsOpers (kim-em, other author)
 
 ## Wave 12
-- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #1126, #1167, #1312, #1410, #1411, #1656, #1688, #1689, #1891, #1892, #792, #849
+- #856 ArithmeticGaloisRepresentations — ready; waits on #1126, #1167, #1312, #1410, #1411, #1656, #1688, #1689, #1891, #1892, #792, #849
 - #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1411, #1142
 
 ## Wave 13
