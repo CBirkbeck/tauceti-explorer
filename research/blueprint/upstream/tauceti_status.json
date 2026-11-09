@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-09T15:30Z",
+ "updated": "2026-11-09T15:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -67,10 +67,10 @@
     785
    ],
    "note": "carried on #785 (ReductiveGroupsPartII) since the maintainer merged #793/#789 into that branch on 2026-10-14; SR.3a.2 companion repair applied 2026-10-16 at b853d91",
-   "head": "3208d03",
+   "head": "1b376be",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -176,7 +176,7 @@
   "AbelianSchemesAndArithmeticModuli": {
    "stage": "pr",
    "pr": 849,
-   "head": "a007331",
+   "head": "4ed5f32",
    "depends_on": [
     779,
     848,
@@ -230,7 +230,7 @@
   "NeronModelsAndSemistableAbelianVarieties": {
    "stage": "pr",
    "pr": 852,
-   "head": "f2f4bf5",
+   "head": "861f8ce",
    "depends_on": [
     779,
     785
@@ -247,7 +247,7 @@
   "AlgebraicModuliForArithmeticGeometry": {
    "stage": "pr",
    "pr": 853,
-   "head": "69cc13f",
+   "head": "d0a9af8",
    "depends_on": [
     779,
     785,
@@ -455,7 +455,7 @@
   "LefschetzPencilsAndVanishingCycles": {
    "stage": "pr",
    "pr": 873,
-   "head": "7321504",
+   "head": "f8c8b5b",
    "depends_on": [
     779,
     792,
@@ -650,10 +650,10 @@
   "DeligneWeightsAndPurity": {
    "stage": "pr",
    "pr": 929,
-   "head": "e0046cb",
+   "head": "5930b27",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex)",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -840,7 +840,7 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "afb8391",
+   "head": "3cac94e",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered",
    "review": {
     "recommendation": "changes",
@@ -895,8 +895,8 @@
    "head": "3dc9d71",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1364,10 +1364,10 @@
   "ArithmeticStatisticsPartI": {
    "stage": "pr",
    "pr": 1171,
-   "head": "508af00",
+   "head": "95df277",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1576,7 +1576,7 @@
   "StableHomotopyKTheory": {
    "stage": "pr",
    "pr": 1227,
-   "head": "6ebf6e2",
+   "head": "23a1323",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "approve",
@@ -1589,7 +1589,7 @@
   "SchemeKTheoryOperations": {
    "stage": "pr",
    "pr": 1229,
-   "head": "6732a6a",
+   "head": "78121a2",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
