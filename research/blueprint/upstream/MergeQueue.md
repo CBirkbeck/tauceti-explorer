@@ -7,7 +7,7 @@ Generated 2026-11-09T15:00Z from the README supplier graph of every open pull re
 - #1168 FuchsianOrbifolds — draft
 - #1314 HabiroCyclotomicCompletions — ready
 - #1320 PolylogarithmFunctions — ready
-- #1411 ClassFieldTheory — draft; waits on #1410
+- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
 - #1649 QuantumGroups — draft
 - #1701 DerivedModuleAlgebra — draft
 - #1731 RootSystemsPartII — draft
@@ -30,30 +30,28 @@ Generated 2026-11-09T15:00Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #1913 ZerosOfLFunctions — draft; waits on #1411
+- #1411 ClassFieldTheory — draft; waits on #1410
 - #545 AbundanceStatement (RoktimMascharak, other author)
 - #942 TangentialBordism (kim-em, other author)
 
 ## Wave 3
-- #1167 AnalyticNumberTheoryPartII — ready; waits on #1168, #1411, #1913
 - #1227 StableHomotopyKTheory — draft; waits on #1701, #1798, #1142, #942
 - #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #545
-- #992 GlobalHolomorphicFunctions (kim-em, other author)
+- #1713 PadicExtensionFamilies — draft; waits on #1410, #1411
+- #1913 ZerosOfLFunctions — draft; waits on #1411
 
 ## Wave 4
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
+- #1167 AnalyticNumberTheoryPartII — ready; waits on #1168, #1411, #1913
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
-- #1410 RamificationOfCompleteDiscretelyValuedFields — draft; waits on #1656
-- #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
-- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1701, #1892
+- #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 5
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
+- #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
+- #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1411, #1630, #1701
-- #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1421
-- #1713 PadicExtensionFamilies — draft; waits on #1410, #1411
-- #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630, #1656, #1701
 
 ## Wave 6
@@ -61,6 +59,8 @@ Generated 2026-11-09T15:00Z from the README supplier graph of every open pull re
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #1410, #1411, #1701, #1891, #816
 - #1486 QuiverRepresentationsPartII — draft; waits on #1688
 - #1689 IntegralHeckeAndGaloisDeterminants — ready (approved at an earlier head); waits on #1411, #1656, #1688, #1701
+- #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1421
+- #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
 
 ## Wave 7
 - #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #1630, #1656, #1701, #940
