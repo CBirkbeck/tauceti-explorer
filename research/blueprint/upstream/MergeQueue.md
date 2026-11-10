@@ -1,20 +1,20 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-10T03:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-10T04:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
-- #1314 HabiroCyclotomicCompletions — ready
+- #1314 HabiroCyclotomicCompletions — maintainer approved
 - #1411 ClassFieldTheory — draft
 - #1649 QuantumGroups — draft
 - #1798 DGFloer — draft
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
+- #1892 JacobianChallenge — draft; waits on #1656
 - #1914 ImaginaryQuadraticClassNumber — draft
 - #2008 AnalyticNumberTheoryPartIII — draft
 - #2085 DeRhamCohomologyAndDuality — draft
 - #117 LaguerreJacobi (weiscadence, other author)
-- #545 AbundanceStatement (RoktimMascharak, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
@@ -26,26 +26,26 @@ Generated 2026-11-10T03:40Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #545
 - #1713 PadicExtensionFamilies — draft; waits on #1411
 - #1913 ZerosOfLFunctions — draft; waits on #1411
+- #545 AbundanceStatement (RoktimMascharak, other author)
 - #942 TangentialBordism (kim-em, other author)
 
 ## Wave 3
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1167 AnalyticNumberTheoryPartII — ready; waits on #1411, #1913
 - #1227 StableHomotopyKTheory — ready; waits on #1798, #1142, #942
-- #1892 JacobianChallenge — draft; waits on #1656
+- #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #545
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 4
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
+- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1892
 
 ## Wave 5
+- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1411, #1630
 - #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1421
 - #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
