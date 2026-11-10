@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-10T08:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-10T09:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -10,10 +10,10 @@ Generated 2026-11-10T08:40Z from the README supplier graph of every open pull re
 - #1798 DGFloer — draft
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
+- #1892 JacobianChallenge — draft; waits on #1656
 - #2008 AnalyticNumberTheoryPartIII — draft
 - #2085 DeRhamCohomologyAndDuality — draft
 - #117 LaguerreJacobi (weiscadence, other author)
-- #545 AbundanceStatement (RoktimMascharak, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
@@ -25,26 +25,26 @@ Generated 2026-11-10T08:40Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #545
 - #1713 PadicExtensionFamilies — draft; waits on #1411
 - #1913 ZerosOfLFunctions — draft; waits on #1411
+- #545 AbundanceStatement (RoktimMascharak, other author)
 - #942 TangentialBordism (kim-em, other author)
 
 ## Wave 3
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1167 AnalyticNumberTheoryPartII — ready; waits on #1411, #1913
 - #1227 StableHomotopyKTheory — ready; waits on #1798, #1142, #942
-- #1892 JacobianChallenge — draft; waits on #1656
+- #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #545
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 4
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
+- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656, #1142
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1892
 
 ## Wave 5
+- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1411, #1630
 - #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1421
 - #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
@@ -203,7 +203,7 @@ Generated 2026-11-10T08:40Z from the README supplier graph of every open pull re
 - #1080 PrismaticCohomologyPartIV — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1062, #1065, #1070, #1630, #1656, #820, #857, #868, #875, #922
 - #1175 ArithmeticStatisticsPartV — ready; waits on #1154, #1167, #1171, #1172, #1173, #1174, #1411, #1472, #1495, #1656, #792, #850, #851
 - #1205 VectorBundlesAndIsocrystals — ready; waits on #1002, #1044, #1062, #1070, #1310, #1411, #1656, #820, #857, #879, #922, #927, #940, #964
-- #1208 WeilConjectures — ready; waits on #1002, #1040, #1062, #1656, #1891, #848, #849, #850, #856, #870, #929
+- #1208 WeilConjectures — ready (approved at an earlier head); waits on #1002, #1040, #1062, #1656, #1891, #848, #849, #850, #856, #870, #929
 - #1946 ExplicitMultiplicativeFunctions — draft; waits on #1495, #1913, #1945, #1948, #1954
 
 ## Wave 27
