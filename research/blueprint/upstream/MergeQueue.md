@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-10T19:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-10T19:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -148,7 +148,7 @@ Generated 2026-11-10T19:20Z from the README supplier graph of every open pull re
 - #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #1167, #1411, #1656, #1688, #792, #856, #858, #871, #924, #1027
 - #965 AdicCoefficientsAndComparisons — ready; waits on #1630, #1656, #1891, #820, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1411, #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
-- #1039 DirichletPadicLFunctions — ready (approved at an earlier head); waits on #1306, #1309, #854, #924
+- #1039 DirichletPadicLFunctions — ready; waits on #1306, #1309, #854, #924
 - #1065 PrismaticCohomologyPartII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1630, #1656, #857, #868
 - #1313 MotivesAndAlgebraicCycles — ready (approved at an earlier head); waits on #1229, #1281, #1630, #1656, #1891, #848
 - #1418 ArithmeticKTheory — draft; waits on #1212, #1227, #1229, #1248, #1260, #1266, #1281, #1302, #1306, #1411, #1656, #1891, #1892, #792, #851, #858, #869, #871, #924
