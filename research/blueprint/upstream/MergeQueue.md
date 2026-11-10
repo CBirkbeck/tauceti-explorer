@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-10T09:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-10T09:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -203,7 +203,7 @@ Generated 2026-11-10T09:10Z from the README supplier graph of every open pull re
 - #1080 PrismaticCohomologyPartIV — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1062, #1065, #1070, #1630, #1656, #820, #857, #868, #875, #922
 - #1175 ArithmeticStatisticsPartV — ready; waits on #1154, #1167, #1171, #1172, #1173, #1174, #1411, #1472, #1495, #1656, #792, #850, #851
 - #1205 VectorBundlesAndIsocrystals — ready; waits on #1002, #1044, #1062, #1070, #1310, #1411, #1656, #820, #857, #879, #922, #927, #940, #964
-- #1208 WeilConjectures — ready (approved at an earlier head); waits on #1002, #1040, #1062, #1656, #1891, #848, #849, #850, #856, #870, #929
+- #1208 WeilConjectures — ready; waits on #1002, #1040, #1062, #1656, #1891, #848, #849, #850, #856, #870, #929
 - #1946 ExplicitMultiplicativeFunctions — draft; waits on #1495, #1913, #1945, #1948, #1954
 
 ## Wave 27
