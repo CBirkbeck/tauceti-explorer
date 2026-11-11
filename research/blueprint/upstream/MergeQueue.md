@@ -32,7 +32,6 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1167 AnalyticNumberTheoryPartII — ready; waits on #1411, #1913
 - #1227 StableHomotopyKTheory — ready; waits on #1798
 - #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #2140, #545
-- #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 4
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
@@ -366,6 +365,6 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1732 RankZeroOneBSDPartII — draft; waits on #1018, #1171, #1174, #1176, #1178, #1272, #1423, #1487, #1744, #869
 - #1746 AbelianSurfacesModularity — draft; waits on #1004, #1006, #1007, #1018, #1020, #1036, #1037, #1053, #1066, #1180, #1232, #1405, #1720, #1817, #849, #850, #852, #853, #856, #879, #923, #924, #931, #933, #999
 - #1758 TwistedAutomorphicDescents — draft; waits on #1037, #1180, #1404, #1688, #851, #924, #925, #999
-- #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1037, #1404, #1504, #1688, #1913, #792, #924, #925, #1158, #992
+- #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1037, #1404, #1504, #1688, #1913, #792, #924, #925, #1158
 - #1805 RankOneConverse — draft; waits on #1007, #1013, #1018, #1063, #1171, #1176, #1423, #1487, #1491, #1816, #858, #869, #913, #924, #931
 - #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1015, #1037, #1145, #1404, #1688, #1815, #792, #851, #853, #925, #999, #1027, #1056
