@@ -8,12 +8,12 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1411 ClassFieldTheory — draft
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
-- #1892 JacobianChallenge — draft; waits on #1656
 - #2008 AnalyticNumberTheoryPartIII — draft
 - #2085 DeRhamCohomologyAndDuality — draft
 - #2127 SmoothBundlesConnections — draft
 - #2140 ModularCurves — draft
 - #117 LaguerreJacobi (weiscadence, other author)
+- #545 AbundanceStatement (RoktimMascharak, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
 - #948 StringOrientation (kim-em, other author)
@@ -24,26 +24,26 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
+- #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #2140, #545
 - #1713 PadicExtensionFamilies — draft; waits on #1411
 - #1798 DGFloer — draft; waits on #2127
 - #1913 ZerosOfLFunctions — draft; waits on #1411
-- #545 AbundanceStatement (RoktimMascharak, other author)
 
 ## Wave 3
+- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
 - #1167 AnalyticNumberTheoryPartII — ready; waits on #1411, #1913
-- #1656 SchemeAndStackFoundations — draft; waits on #1411, #1892, #2140, #545
+- #1892 JacobianChallenge — draft; waits on #1656
 - #942 TangentialBordism (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 
 ## Wave 4
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1656
+- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1227 StableHomotopyKTheory — ready; waits on #1798, #942
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1630 EnhancedDerivedSheaves — draft; waits on #1656, #1892
 
 ## Wave 5
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227, #1656
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1411, #1630
 - #1693 DiophantineApproximationAndTranscendencePartII — draft; waits on #1421
