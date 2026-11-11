@@ -17,7 +17,6 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
-- #1027 UnboundedOperators (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1158 SpectralManifolds (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
@@ -135,7 +134,7 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1281 KTheoryFiniteLocalFields — ready; waits on #1044, #1212, #1227, #1229, #1248, #1266, #1302, #1411, #1891, #851, #857, #858
 
 ## Wave 18
-- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #1167, #1411, #1688, #792, #856, #858, #871, #924, #1027
+- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #1167, #1411, #1688, #792, #856, #858, #871, #924
 - #965 AdicCoefficientsAndComparisons — ready; waits on #1630, #1891, #820, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1411, #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready; waits on #1306, #1309, #854, #924
@@ -165,7 +164,7 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #966 PELModuli — ready (approved at an earlier head); waits on #1411, #1891, #2140, #792, #848, #849, #852, #853, #858, #879, #913, #933
 - #970 SmallRamificationAndAbelianVarietyBaseCases — ready (approved at an earlier head); waits on #1411, #1892, #2140, #849, #850, #852, #856, #879, #923, #928, #931, #933
 - #1171 ArithmeticStatisticsPartI — ready; waits on #1040, #1167, #1272, #1411, #1892, #792, #849, #850, #851, #852, #858, #869, #879, #929
-- #1504 CongruenceSpectralGap — draft; waits on #1037, #1040, #1688, #1891, #1913, #792, #856, #871, #873, #924, #925, #929, #931, #1027
+- #1504 CongruenceSpectralGap — draft; waits on #1037, #1040, #1688, #1891, #1913, #792, #856, #871, #873, #924, #925, #929, #931
 - #1694 AlgebraicTopologyPartII — draft; waits on #1040, #1227, #1313, #1798, #2127, #848, #850
 - #1743 EtaleDualityAndPerverseSheavesPartII — draft; waits on #1034, #1040, #1042, #1630, #1755, #1796, #1891, #853, #873, #875
 
@@ -212,7 +211,7 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 ## Wave 26
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1225, #1405, #1411, #1892, #792, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
 - #1013 SerreWeightAndLevelOptimisation — ready (approved at an earlier head); waits on #1005, #1037, #1306, #1411, #1689, #852, #856, #858, #879, #913, #920, #923, #928, #931
-- #1015 NoncompactQuantumSymmetry — draft; waits on #1037, #1063, #1145, #1027, #117
+- #1015 NoncompactQuantumSymmetry — draft; waits on #1037, #1063, #1145, #117
 - #1035 CompletedCohomologyPartII — ready; waits on #1005, #1034, #1307, #1312, #1630, #1688, #1689, #848, #854, #858, #871, #913, #933
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1002, #1017, #1021, #1043, #1892, #849, #851, #852, #879, #913, #929
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #1892, #2140, #792, #848, #849, #852, #853, #858, #879, #913, #933, #966
@@ -360,4 +359,4 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1758 TwistedAutomorphicDescents — draft; waits on #1037, #1180, #1404, #1688, #851, #924, #925, #999
 - #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1037, #1404, #1504, #1688, #1913, #792, #924, #925, #1158
 - #1805 RankOneConverse — draft; waits on #1007, #1013, #1018, #1063, #1171, #1176, #1423, #1487, #1491, #1816, #858, #869, #913, #924, #931
-- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1015, #1037, #1145, #1404, #1688, #1815, #792, #851, #853, #925, #999, #1027, #1056
+- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1015, #1037, #1145, #1404, #1688, #1815, #792, #851, #853, #925, #999, #1056
