@@ -293,7 +293,6 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1491 EllipticCurveModularityPartII — draft; waits on #1000, #1001, #1007, #1013, #1017, #1018, #1019, #1229, #1254, #1264, #1272, #1302, #1408, #1432, #1892, #2140, #849, #852, #856, #869, #879, #913, #928, #968
 - #1493 RefinedTraceMethods — draft; waits on #1044, #1057, #1064, #1065, #1070, #1212, #1227, #1229, #1248, #1281, #1302, #1351, #1425, #1428, #1458, #1630, #857, #868
 - #1692 AnticyclotomicLocalUnits — draft; waits on #1018, #1035, #1306, #1309, #1411, #1498, #2140, #858, #869, #913
-- #1810 EllipticModularityEffectiveComparisons — draft; waits on #1000, #1004, #1007, #1013, #1017, #1018, #1021, #1254, #1264, #1272, #1411, #852, #856, #879, #913, #928, #929, #968
 
 ## Wave 33
 - #1075 PotentialModularityAndCompatibleSystems — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1007, #1013, #1019, #1020, #1034, #1037, #1062, #1066, #1071, #1411, #1689, #1891, #1892, #792, #848, #849, #850, #852, #853, #856, #858, #879, #920, #923, #928, #931, #933, #970, #999
