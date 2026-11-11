@@ -16,7 +16,6 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #545 AbundanceStatement (RoktimMascharak, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
-- #948 StringOrientation (kim-em, other author)
 - #1027 UnboundedOperators (kim-em, other author)
 - #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1158 SpectralManifolds (kim-em, other author)
@@ -159,7 +158,7 @@ Generated 2026-11-10T22:40Z from the README supplier graph of every open pull re
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1065, #1310, #1630, #1656, #820, #857, #868, #875, #879, #940
 - #1311 EulerSystemsCyclotomicMainConjecture — ready; waits on #1039, #1260, #1272, #1306, #1309, #1411, #869
 - #1351 QWittVectors — draft; waits on #1044, #1057, #1065, #1229, #1281, #1314, #1630, #1656, #857, #868
-- #1430 K3BlochGroups — draft; waits on #1212, #1227, #1229, #1281, #1302, #1418, #936, #948
+- #1430 K3BlochGroups — draft; waits on #1212, #1227, #1229, #1281, #1302, #1418, #936
 - #1432 K2SymbolsBrauerPartII — draft; waits on #1212, #1248, #1281, #1302, #1411, #1418, #1656, #1891, #858, #869, #873
 - #1470 MotivicEtaleKTheory — draft; waits on #1212, #1229, #1281, #1313, #1630, #1656, #1891, #848
 - #1691 GeometryOfNumbersAndQuadraticArithmeticPartII — draft; waits on #1212, #1266, #1281, #1418, #1656, #851
