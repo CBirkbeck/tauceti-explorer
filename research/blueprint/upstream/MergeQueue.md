@@ -14,6 +14,7 @@ Generated 2026-11-11T16:30Z from the README supplier graph of every open pull re
 - #2085 DeRhamCohomologyAndDuality — draft
 - #2127 SmoothBundlesConnections — draft
 - #2140 ModularCurves — draft
+- #2212 RootSystems — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -83,11 +84,11 @@ Generated 2026-11-11T16:30Z from the README supplier graph of every open pull re
 
 ## Wave 10
 - #856 ArithmeticGaloisRepresentations — ready; waits on #1167, #1312, #1411, #1688, #1689, #1891, #1892, #2140, #792, #849
-- #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1411
+- #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1227, #1229, #1248, #1411, #2212
 
 ## Wave 11
 - #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1306, #1307, #1312, #1411, #1630, #1891, #792, #816, #849, #853, #856, #940
-- #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1688, #1891, #792, #856, #871
+- #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1688, #1891, #2212, #792, #856, #871
 
 ## Wave 12
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready; waits on #1411, #1495, #1630, #1798, #1891, #1892, #2140, #792, #848, #849, #853, #856, #858
@@ -105,7 +106,7 @@ Generated 2026-11-11T16:30Z from the README supplier graph of every open pull re
 ## Wave 14
 - #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1312, #1411, #816, #849, #852, #858, #879, #940
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1891, #1892, #2140, #848, #850, #852, #853
-- #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1630, #1891, #2140, #792, #848, #849, #850, #852, #853, #856, #857, #858
+- #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1630, #1891, #2140, #2212, #792, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1411, #1630, #1688, #1689, #856, #1056
 - #1225 JacobianChallengePartII — ready; waits on #1892, #848, #849, #852, #853
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #2140, #852, #856
@@ -319,7 +320,7 @@ Generated 2026-11-11T16:30Z from the README supplier graph of every open pull re
 - #1804 KatoEulerSystems — draft; waits on #1007, #1017, #1018, #1019, #1229, #1270, #1272, #1302, #1307, #1424, #1491, #1498, #1891, #2140, #858, #869, #913, #924, #931, #968
 - #1814 TopologicalMirrorSymmetryForHitchinSystems — draft; waits on #1040, #1064, #1313, #1411, #1547, #1891, #1892, #848, #849, #853, #856, #858, #929, #999
 - #1833 ArakelovGeometryAndAbelianHeightsPartII — draft; waits on #1000, #1017, #1225, #1313, #1335, #1487, #1494, #1841, #1892, #848, #852, #873
-- #1844 HeckeStacksAndLocalShtukasPartII — draft; waits on #1230, #1235, #1241, #1688, #850
+- #1844 HeckeStacksAndLocalShtukasPartII — draft; waits on #1230, #1235, #1241, #1688, #2212, #850
 
 ## Wave 35
 - #1182 CrystallineLocalGlobalCompatibilityCM — ready; waits on #1006, #1019, #1034, #1035, #1062, #1075, #1081, #1087, #1090, #1411, #1688, #1689, #856, #871, #920, #923
