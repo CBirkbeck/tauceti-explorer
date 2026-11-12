@@ -30,8 +30,9 @@ The function-field work here stops at the independent arithmetic minor-count est
 The symmetric-lattice shrinking theorem belongs to FunctionFieldLatticesAndShrinking, Part II;
 the independent affine dimension, polynomial-box and Padé inputs belong to the early part of
 GeometricCircleMethodAndMappingSpaces. Mapping spaces and their cohomology are consumers.
-ArithmeticDynamics, Part II owns the Markoff action, congruence classification and orbit
-comparison used by the class-number endpoint. AnalyticNumberTheory owns divisor estimates and
+The integral-orbit continuation of ArithmeticDynamics is required for the Markoff action,
+congruence classification and orbit comparison used by the class-number endpoint. AnalyticNumberTheory
+owns divisor estimates and
 Siegel–Walfisz; ClassicalArithmeticCompletion owns the conductor facts; the precise finite-field
 correlation and sieve contracts below distinguish elementary character theory from the stronger
 inputs needed here. None of these ownership statements supplies a proof of an extension.
@@ -141,10 +142,16 @@ distinguished character, and record dependence on `r`. A generic Weil estimate w
 exceptional tuples does not supply either interface. The complete Burgess and Graham–Ringrose
 arguments are analytic targets of Layer 1, beyond quoted endpoint inequalities.
 
-From **AnalyticNumberTheory `AN.2`**, consume Siegel–Walfisz for primes in reduced residue
-classes, with ineffective constants. Its required extension is the `Λ`-weighted version,
-uniform over all subintervals of `[1,N]` and `q≤log^B N`, with main term length divided by
-`φ(q)`, arbitrary logarithmic saving, and an explicit treatment of nonunit prime-power classes.
+From **AnalyticNumberTheory Part I, §0.32**, consume `siegel_walfisz` in its native
+`ψ` form: for every `A,B>0` there are ineffective `C>0` and `x₀` such that, simultaneously
+for real `x≥x₀`, positive `q≤(log x)^B` and units `a∈ZMod q`,
+`|ψ(x;q,a)−x/φ(q)|≤C x(log x)^(−A)`. Here `ψ` sums `Λ(n)` over `1≤n≤x` in the indicated
+class, including prime powers. Use the signature
+in that roadmap's `Suggested.lean` together with its [§0.32](../AnalyticNumberTheoryPartI/README.md#s0-32).
+Layer 5 derives `mangoldt_interval_progression` and `mangoldt_nonunit_progression` below.
+These local adapters retain all subintervals and separate nonunit classes from the reduced-class
+main term.
+
 From **SieveMethodsAndPrimePatterns `SV.2`**, consume the exact finite Vaughan identity and
 its coefficient energies: thresholds are positive, `B=⌊N/(V+1)⌋`, the incomplete logarithmic
 coefficient is retained, and the two energies are bounded by `(M-L)(log M)^2` and `M-L`.
@@ -184,10 +191,13 @@ section locus and Fano line locus. Use existing schemes and Grassmannians. Bézo
 not this geometric input. Determinant bounds in Layer 6 use these contracts with constants
 independent of the coefficients.
 
-From **ArithmeticDynamics, Part II**, require the Markoff integral action with sign and
-permutation conventions, the congruence-admissibility classification, geometric density of
-the applicable integral fibers, and the generic orbit-growth comparison. The analytic sector
-and variance estimates here do not establish those arithmetic action statements.
+From the **integral-orbit continuation of ArithmeticDynamics**, require the Markoff integral
+action with sign and permutation conventions, the congruence-admissibility classification,
+geometric density of the applicable integral fibers, and the generic orbit-growth comparison.
+These statements concern varying integral level sets. The finite-field zero-fiber action,
+prime lifting and primitive squarefree lifting of **ArithmeticDynamics Part II, MD.0–MD.7**
+do not supply them. The analytic sector and variance estimates here do not establish those
+arithmetic action statements.
 
 ## How to read the build
 
@@ -339,6 +349,9 @@ The basic API consists of the following statements.
 - d=1,q=2,a=1 gives0, agreeing with complete additive orthogonality.
 - d=2,q=3,a=1 gives i√3.
 
+The boundary target `completePowerSum.quadratic_at_eight` states
+`completePowerSum(2,8,1)=4 exp(iπ/4)`, retaining the nonzero two-adic base.
+
 *Needs:* Mathlib `fourier`; Mathlib `fourier_coe_apply`; Mathlib `fourier_neg`; Mathlib `fourier_zero`.
 
 Prove `complete_power_bound` (complete monomial sum bound). For every d≥3 there is C_d>0 such that for all q≥1
@@ -393,6 +406,8 @@ The basic API consists of the following statements.
   whose sum is1, and let Q grow with ε=(δ−1)/(2n) when n≥3. The asserted upper bound then tends to0.
 - Its bound applies to an interval beginning at M=−20 as well as at zero; one extracted constant works for both
   shifts.
+
+The corresponding boundary theorem targets are `shortCharacterHypothesis.cubic`, `shortCharacterHypothesis.not_of_gt_one`.
 
 *Needs:* Mathlib `MulChar.IsQuadratic`.
 
@@ -1246,6 +1261,8 @@ The basic API consists of the following statements.
 - For b₂=1 and other b_l=0, C=1 gives25 while C=2 gives9.
 - For D=0,r≥1, the count is1 even with a nonzero phase.
 
+The corresponding boundary theorem target is `functionFieldPolarCount.nonzero_coefficient`.
+
 *Needs:* Layer 1 `polarForm`; Mathlib `Polynomial.coeff`; Mathlib `Polynomial.support`; Mathlib `Fintype.card`.
 
 Prove `function_field_count_identity` (differencing coefficient-count identity). Assume char F_q=p>k=r+1. For
@@ -1968,6 +1985,8 @@ The basic API consists of the following statements.
 - The zero map ℝ→ℝ fails every finite C.
 - The identity datum with a=2 fails every finite C.
 
+The corresponding boundary theorem target is `brascampLiebBound.not_zero_map`.
+
 *Needs:* Mathlib `MeasureTheory.integral`.
 
 Prove `brascamp_lieb_finiteness` (brascamp–lieb finiteness criterion). For surjective L_j:H→H_j and 0<a_j≤1, a
@@ -2308,6 +2327,8 @@ The basic API consists of the following statements.
 - d=2,s=2,m=1,q=3 gives1/3.
 - d=2,s=2,m=0,q=3 gives−2/3, not2/3.
 
+The corresponding boundary theorem target is `waringSeriesCoeff.quadratic_at_three`.
+
 *Needs:* Layer 1 `completePowerSum`; Mathlib `fourier_neg`; Mathlib `fourier_add`.
 
 Prove `waring_series_multiplicative` (singular-series coefficient multiplicativity). For positive coprime u,v,
@@ -2344,6 +2365,8 @@ The basic API consists of the following statements.
 - For d=4,s=9,m=15 the value is0 despite absolute convergence. Fourth powers are0 or1 modulo16, so nine
   variables cannot give15; the two-adic local factor vanishes. This rejects an always-positive series.
 
+The corresponding boundary theorem targets are `waringSingularSeries.linear`, `waringSingularSeries.zero_variables`, `waringSingularSeries.fourth_power_obstruction`.
+
 *Needs:* Layer 4 `waringSeriesCoeff`; Mathlib `tprod`; Mathlib `Multipliable`.
 
 Prove `waring_series_absolute_convergence` (waring singular-series absolute convergence). For d≥3 and s≥2d+1,
@@ -2378,6 +2401,8 @@ The basic API consists of the following statements.
 - d=1,s=2 gives1.
 - d=1,s=3 gives1/2.
 - d=2,s=3 givesπ/4, matching the Gamma ratio with the native2π convention.
+
+The corresponding boundary theorem targets are `waringSingularIntegral.linear_two`, `waringSingularIntegral.linear_three`.
 
 *Needs:* Mathlib `MeasureTheory.integral`; Mathlib `MeasureTheory.IntegrableOn`.
 
@@ -2435,6 +2460,8 @@ The basic API consists of the following statements.
   This is a vanishing local obstruction, rather than positivity supplied by the definition.
 - For d=2,s=2,m=1,p=3 the factor is4/3: there are4 solutions modulo3, all primitive, and4·3^{e−1} modulo3^e. This
   separates the correct q^{s−1} normalization from q^s and detects omission of the e=0 term.
+
+The corresponding boundary theorem targets are `waringLocalFactor.linear`, `waringLocalFactor.two_squares_at_three`, `waringLocalFactor.fourth_power_obstruction`.
 
 *Needs:* Layer 4 `waringSeriesCoeff`; Layer 4 `waringCongruenceCount`; Mathlib `tprod`; Mathlib `Multipliable`;
 Mathlib `Filter.Tendsto`.
@@ -2577,6 +2604,8 @@ The basic API consists of the following statements.
 - F=0,target1,p=5 has density0.
 - F=XY,target1,n=2,r=1,p=5 has density4/5, since both factors must be units.
 
+The corresponding boundary theorem targets are `formPadicDensity.projection`, `formPadicDensity.inconsistent`.
+
 *Needs:* Layer 4 `formNormalizedCount`; Mathlib `Filter.limUnder`.
 
 Define `weightedRealDensity` (weighted real fiber density). For F:ℝⁿ→ℝʳ,targetm and real weightw,
@@ -2601,6 +2630,8 @@ The basic API consists of the following statements.
 - n=r=1,F(x)=x,w=1_[0,1],m=1/2 gives1.
 - The same equation/weight at m=0 gives1/2.
 - At m=2 it gives0.
+
+The corresponding boundary theorem targets are `weightedRealDensity.interval_interior`, `weightedRealDensity.interval_boundary`.
 
 *Needs:* Mathlib `Filter.limUnder`; Mathlib `MeasureTheory.integral`.
 
@@ -2896,6 +2927,8 @@ The basic API consists of the following statements.
 - N=6 gives(log2)^3 from(2,2,2).
 - N=7 gives3(log2)^2log3 from the three permutations of(2,2,3).
 
+The corresponding boundary theorem targets are `mangoldtTripleCount.below_first_triple`, `mangoldtTripleCount.first_triple`.
+
 *Needs:* Layer 2 `mangoldtExponentialSum`; Layer 2 `torus_coefficient_extraction`.
 
 Define `ternaryPrimeSeries` (ternary prime singular series). ternaryPrimeSeries(N) is the native product over
@@ -2936,13 +2969,50 @@ and complete proof §1.)
 *Needs:* Layer 5 `prime_bilinear_estimates`; `SieveMethodsAndPrimePatterns:SV.2/vaughan-type-i-ii`;
 `SieveMethodsAndPrimePatterns:SV.2/vaughan-coefficient-energy`.
 
+Prove `mangoldt_interval_progression` (interval form of weighted Siegel–Walfisz). For every
+`A,B>0` there are ineffective constants `C>0,N₀≥3`, chosen before `N,q,a,u,v`, such that
+for every integer `N≥N₀`, positive integer `q≤(log N)^B`, unit `a∈ZMod q` and real
+`0≤u≤v≤N`,
+`|Σ_{u<n≤v, n≡a (mod q)} Λ(n)−(v−u)/φ(q)|≤C N(log N)^(−A)`.
+The error is scaled by `N`, with no lower bound on the interval length. The case `q=1`
+uses its unique unit residue class. This is an endpoint adapter of the supplier's ψ theorem.
+([AnalyticNumberTheory Part I, §0.32](../AnalyticNumberTheoryPartI/README.md#s0-32);
+[Tao, prime circle method](#taoprimes2015), Proposition 24, §2, interval use of Siegel–Walfisz;
+the web notes have no page numbering.)
+
+*Needs:* AnalyticNumberTheory Part I §0.32 `siegel_walfisz` in ψ form;
+Mathlib `ArithmeticFunction.vonMangoldt_le_log`.
+
+For the endpoint proof put `Y=N(log N)^(−A−2)`. If `x<Y`, use `0≤ψ(x;q,a)≤Y log N`
+and `0≤x/φ(q)≤Y`. If `Y≤x≤N`, then eventually `log x≥(log N)/2` and
+`(log N)^B≤(log x)^(B+1)`. Apply the supplier with exponents `A+2,B+1` and enlarge
+`N₀` before choosing any modulus or endpoint. Subtract the resulting uniform estimates
+at `u` and `v`. Thus a very small endpoint never silently inherits the inadmissible
+hypothesis `q≤(log u)^B`.
+
+Prove `mangoldt_nonunit_progression` (prime-power bound in a nonunit class). For `N≥3`,
+`q≥1`, a nonunit `a∈ZMod q`, and `0≤u≤v≤N`,
+`0≤Σ_{u<n≤v, n≡a (mod q)} Λ(n)≤ω(q) log N`, where `ω(q)` counts distinct prime
+divisors. There is no length main term. A contributing `n` is a prime power `p^j`
+with `p|q`; for each such `p` all its powers up to `N` contribute at most `log N`.
+The assertion also bounds the norm after multiplication by any unit-modulus phase.
+For `q=1` the nonunit hypothesis is empty. ([Tao, prime circle method](#taoprimes2015),
+Proposition 24 proof, §2, discarded noncoprime residue classes; the stated explicit
+`ω(q)` bound follows by separating their prime powers.)
+
+*Needs:* Mathlib `ArithmeticFunction.vonMangoldt_apply`,
+`ArithmeticFunction.vonMangoldt_apply_pow`, `Nat.primeFactors`;
+Layer 2 `mangoldtExponentialSum`.
+
 Prove `prime_major_arc_approximation` (von mangoldt major-arc approximation). For
 N≥3,1≤u≤v≤N,q≥1,gcd(a,q)=1,θ=a/q+ξ/q, one has Σ_{u≤n≤v}Λ(n)e(nθ)=μ(q)/φ(q)∫_u^v
 e(ξx/q)dx+O_A((q+N|ξ|)N(logN)^{-A}). The implied constant is ineffective. End-point changes of length≤1 are
-absorbed in the error. This analytic input is imported from the exact AN Siegel–Walfisz theorem and partial
-summation, not from VMV. ([Tao, prime circle method](#taoprimes2015), Proposition24 and complete proof §2.)
+absorbed in the error. Use the interval adapter and partial summation with phase `e(ξx/q)`, whose total variation
+cost is at most `1+2πN|ξ|/q`. Sum over the unit classes, use the nonunit bound separately,
+and evaluate the reduced additive sum to obtain `μ(q)`. ([Tao, prime circle method](#taoprimes2015), Proposition24 and complete proof §2.)
 
-*Needs:* `AnalyticNumberTheory:AN.2/siegel-walfisz`; Layer 1 `finite_completion`; `AnalyticNumberTheory:AN.2`.
+*Needs:* Layer 5 `mangoldt_interval_progression`; Layer 5 `mangoldt_nonunit_progression`;
+Layer 1 `finite_completion`; AnalyticNumberTheory Part I §0.32 `siegel_walfisz`.
 
 Prove `vinogradov_three_prime_asymptotic` (vinogradov weighted three-prime asymptotic). For everyA>0 andN≥3,
 mangoldtTripleCount(N)=ternaryPrimeSeries(N)N²/2+O_A(N²(logN)^{-A}); the constant is ineffective. For
@@ -2975,6 +3045,8 @@ The basic API consists of the following statements.
 - Q=x²,m=1,w=1_[−2,2] gives2.
 - Zero weight gives0 for every Q,m.
 - Q=x²,m=4,w=1_[−3/2,3/2] gives2 since the arguments are±1, not±2.
+
+The corresponding boundary theorem target is `weightedQuadraticCount.two_unit_roots`.
 
 *Needs:* Layer 4 `weightedRealDensity`; Mathlib `MvPolynomial.eval₂`.
 
@@ -3014,6 +3086,8 @@ The basic API consists of the following statements.
 - f=0,m=0,S=[−1,1]²,P=0 gives1, not an infinite count.
 - f=X₀,m=0,S=[−1,1]²,P=1 gives3.
 - An empty region gives0 even for f=0,m=0.
+
+The corresponding boundary theorem targets are `scaledRegionCount.zero_dilation`, `scaledRegionCount.projection_box`.
 
 *Needs:* Mathlib `MvPolynomial.eval₂`; Mathlib `Fintype.card`.
 
@@ -3091,6 +3165,8 @@ The basic API consists of the following statements.
 - a=3,K=13,k=14 gives0.
 - a=4,K=k=29 gives1, from(2,1); the even-a parity convention is retained.
 
+The corresponding boundary theorem target is `markoffRepresentationCount.first_positive_slice`.
+
 *Needs:* Layer 5 `markoffSector`; Mathlib `Fintype.card`.
 
 Define `markoffAggregate` (moving-plane aggregate). For integers A,K≥0, b_A(K,k)=Σ_{3≤a≤A,√A≤a}r_a(K,k). The
@@ -3109,6 +3185,8 @@ The basic API consists of the following statements.
 - A=2 gives0 for all K,k.
 - A=3,K=k=14 gives1.
 - K=0 gives0.
+
+The corresponding boundary theorem target is `markoffAggregate.first_positive_slice`.
 
 *Needs:* Layer 5 `markoffRepresentationCount`.
 
@@ -3222,6 +3300,8 @@ The basic API consists of the following statements.
 - X³ is not an affine form: its zero fiber is reducible.
 - X₀ in two variables fails essential dependence although all its fibers are irreducible.
 
+The corresponding boundary theorem targets are `isAffineForm.linear`, `isAffineForm.not_cube`.
+
 *Needs:* Mathlib `MvPolynomial.homogeneousComponent`; Mathlib `MvPolynomial.pderiv`; Mathlib
 `MvPolynomial.eval₂`.
 
@@ -3244,6 +3324,9 @@ The basic API consists of the following statements.
 - The two-point fiber x²=1 is entirely integral and is dense.
 - x²=2 has geometric points and no integral points, so is not dense.
 
+The boundary targets `formZariskiDense.projection` and `formZariskiDense.not_hyperbola`
+assert density on the fiber `X₀=2` in two variables and failure of density on `XY=1`, respectively.
+
 *Needs:* Mathlib `MvPolynomial.eval₂`.
 
 Define `formPerfect` (perfect affine polynomial). An integral polynomialf is perfect when only finitely many
@@ -3265,6 +3348,8 @@ The basic API consists of the following statements.
 - f=0 is perfect: its sole admissible target0 has a dense integer lattice.
 - f=XY is not perfect. Every nonzero integer k is admissible through (1,k), but XY=k has finitely many
   integral divisor pairs on an infinite geometric curve, so infinitely many admissible fibers fail density.
+
+The corresponding boundary theorem targets are `formPerfect.linear`, `formPerfect.not_hyperbola`.
 
 *Needs:* Layer 4 `formAdmissible`; Layer 5 `formZariskiDense`.
 
@@ -3290,6 +3375,8 @@ The basic API consists of the following statements.
 - f=XY is not almost perfect: every nonzero admissible fiber fails density, so the exceptional proportion
   tends to1, rather than0.
 
+The corresponding boundary theorem targets are `formAlmostPerfect.linear`, `formAlmostPerfect.not_hyperbola`.
+
 *Needs:* Layer 5 `formZariskiDense`; Layer 4 `formAdmissible`.
 
 Define `formFull` (full affine polynomial). An integral polynomialf is full when for every naturalT the
@@ -3310,6 +3397,8 @@ The basic API consists of the following statements.
 - f=x₁ in two variables is full.
 - f=x in one variable is not full, although it is perfect.
 - f=0 in one variable is full: target0 has infinitely many points.
+
+The corresponding boundary theorem targets are `formFull.projection`, `formFull.not_linear`.
 
 *Needs:* Layer 4 `formAdmissible`.
 
@@ -3401,7 +3490,7 @@ almost-all Markoff theorem. ([Ghosh–Sarnak](#ghoshsarnak2022), Remark1.3 pp.7�
 ### Dependencies
 
 Use Layer 1, Layer 2, Layer 3, Layer 4. Use the native Mathlib APIs listed at each target and the supplier
-contracts `AnalyticNumberTheory:AN.2`, `SieveMethodsAndPrimePatterns:SV.2`.
+contracts AnalyticNumberTheory Part I §0.32 `siegel_walfisz` and `SieveMethodsAndPrimePatterns:SV.2`.
 
 For the optimized Waring range prove positive-trapezoidal-kernel coefficient reconstruction, target-dependent weighted coefficient tails, and the radius and arc comparisons at nonintegral cutoffs. These are stronger than the classical `2^k+1` argument. For primes, combine the exact weighted Siegel–Walfisz and Vaughan contracts with the type I/II estimates, then remove prime powers with an error small relative to the positive odd main term.
 

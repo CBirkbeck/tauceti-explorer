@@ -22,29 +22,44 @@ open Classical
 def intervalCorrelation (A : ℤ) (N : ℕ) (b : ℤ → ℂ) (t : ℤ) : ℂ :=
   ∑ n ∈ Finset.Ioc A (A + (N : ℤ)), b (n + t) * conj (b n)
 
-example (b : ℤ → ℂ) (t : ℤ) : intervalCorrelation (-3) 0 b t = 0 := by sorry
+example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) 1 = Complex.I := by
+  rw [intervalCorrelation, show Finset.Ioc (0:ℤ) (0+↑(2:ℕ)) = {1,2} by decide]
+  norm_num
 
-example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) 0 = 2 := by sorry
-
-example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) 1 = Complex.I := by sorry
-
-example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) (-1) = -Complex.I := by sorry
+example : intervalCorrelation 0 2 (fun n => if n = 1 then 1 else if n = 2 then Complex.I else 0) (-1) = -Complex.I := by
+  rw [intervalCorrelation, show Finset.Ioc (0:ℤ) (0+↑(2:ℕ)) = {1,2} by decide]
+  norm_num
 
 /-- Symmetric Dirichlet kernel. D_H(α)=Σ_{−H≤m≤H}fourier(m)(α) for H∈ℕ and α∈ℝ/ℤ. -/
 def symmetricDirichletKernel (H : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
   ∑ m ∈ Finset.Icc (-(H : ℤ)) H, fourier m α
 
-example : symmetricDirichletKernel 0 = 1 := by sorry
+example : symmetricDirichletKernel 0 = 1 := by
+  funext α
+  simp [symmetricDirichletKernel]
 
-example : symmetricDirichletKernel 1 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = -1 := by sorry
+example : symmetricDirichletKernel 1 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = -1 := by
+  rw [symmetricDirichletKernel, show Finset.Icc (-↑(1:ℕ):ℤ) ↑(1:ℕ) = {-1,0,1} by decide]
+  norm_num only [Finset.sum_insert, Finset.sum_singleton, Finset.mem_insert, Finset.mem_singleton, not_false_eq_true, fourier_coe_apply]
+  norm_num
+  rw [show 2 * (Real.pi : ℂ) * Complex.I * (1/2) = Real.pi * Complex.I by ring]
+  simp [Complex.exp_neg, Complex.exp_pi_mul_I]
 
 /-- One-sided Dirichlet kernel. D_H⁺(α)=Σ_{1≤m≤H}fourier(m)(α) for H∈ℕ and α∈ℝ/ℤ. -/
 def oneSidedDirichletKernel (H : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
   ∑ m ∈ Finset.Icc (1 : ℤ) H, fourier m α
 
-example : oneSidedDirichletKernel 0 = 0 := by sorry
+example : oneSidedDirichletKernel 0 = 0 := by
+  funext α
+  simp [oneSidedDirichletKernel]
 
-example : oneSidedDirichletKernel 1 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = -1 := by sorry
+example : oneSidedDirichletKernel 1 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = -1 := by
+  norm_num only [oneSidedDirichletKernel, Nat.cast_one, Finset.Icc_self, Finset.sum_singleton]
+  rw [fourier_coe_apply]
+  convert Complex.exp_pi_mul_I using 1
+  congr 1
+  push_cast
+  ring
 
 /-- FIMR short-character hypothesis. shortCharacterHypothesis(n,δ) means n≥3, δ>0, and: for each ε>0 there is C(n,δ,ε)>0 such that for every integer Q≥3, every real nonprincipal character χ modulo 1≤q≤Q, every M∈ℤ and 1≤N≤Q^(1/n), |Σ_{M<m≤M+N}χ(m)|≤C Q^((1−δ)/n+ε). -/
 def shortCharacterHypothesis (n : ℕ) (δ : ℝ) : Prop :=
@@ -54,13 +69,17 @@ def shortCharacterHypothesis (n : ℕ) (δ : ℝ) : Prop :=
       1 ≤ N → (N : ℝ) ≤ Real.rpow Q (n : ℝ)⁻¹ →
       ‖∑ m ∈ Finset.Ioc M (M+N), χ (m : ZMod q)‖ ≤ C*Real.rpow Q ((1-δ)/(n : ℝ)+ε)
 
-example (δ : ℝ) : ¬ shortCharacterHypothesis 2 δ := by sorry
+example (δ : ℝ) : ¬ shortCharacterHypothesis 2 δ := by
+  simp [shortCharacterHypothesis]
 
-example (n : ℕ) : ¬ shortCharacterHypothesis n 0 := by sorry
+example (n : ℕ) : ¬ shortCharacterHypothesis n 0 := by
+  simp [shortCharacterHypothesis]
 
-example : shortCharacterHypothesis 3 (1/48) := by sorry
+/-- The cubic short-character hypothesis holds with saving 1/48. -/
+theorem shortCharacterHypothesis.cubic : shortCharacterHypothesis 3 (1/48) := by sorry
 
-example (n : ℕ) (δ : ℝ) (hδ : 1 < δ) : ¬ shortCharacterHypothesis n δ := by sorry
+/-- A saving greater than one contradicts the singleton character sum. -/
+theorem shortCharacterHypothesis.not_of_gt_one (n : ℕ) (δ : ℝ) (hδ : 1 < δ) : ¬ shortCharacterHypothesis n δ := by sorry
 
 /-- Polar forms. For a commutative ring R, n,r≥0, a tensor c indexed by (r+1)-tuples of n coordinate indices, and r vectors u, define polarForm(c,u)_j=(r+1)!Σ_{a∈(Fin n)^r}c(a₁,…,a_r,j)∏_{t=1}^r u^(t)_{a_t}. -/
 def polarForm {R : Type*} [CommRing R] (n r : ℕ)
@@ -68,18 +87,22 @@ def polarForm {R : Type*} [CommRing R] (n r : ℕ)
   (Nat.factorial (r+1) : R) * ∑ a : Fin r → Fin n,
     c (Fin.snoc a j) * ∏ t : Fin r, u t (a t)
 
-example : polarForm 1 2 (fun _ => (1 : ℚ)) (fun _ _ => 1) 0 = 6 := by sorry
+example : polarForm 1 2 (fun _ => (1 : ℚ)) (fun _ _ => 1) 0 = 6 := by
+  norm_num [polarForm, Fin.prod_univ_succ, Fin.sum_univ_succ]
 
-example : polarForm 1 2 (fun _ => (1 : ℚ)) (fun t _ => if t=0 then 0 else 1) 0 = 0 := by sorry
+example : polarForm 1 2 (fun _ => (1 : ℚ)) (fun t _ => if t=0 then 0 else 1) 0 = 0 := by
+  norm_num [polarForm, Fin.prod_univ_succ, Fin.sum_univ_succ]
 
 /-- Common polar-zero locus. polarZeroLocus(c) is the native set of r vector tuples u for which polarForm(c,u)_j=0 for every j. -/
 def polarZeroLocus {R : Type*} [CommRing R] (n r : ℕ)
     (c : (Fin (r+1) → Fin n) → R) : Set (Fin r → Fin n → R) :=
   {u | ∀ j, polarForm n r c u j = 0}
 
-example : (fun _ _ => (1 : ℚ)) ∉ polarZeroLocus 1 2 (fun _ => 1) := by sorry
+example : (fun _ _ => (1 : ℚ)) ∉ polarZeroLocus 1 2 (fun _ => 1) := by
+  norm_num [polarZeroLocus, polarForm, Fin.prod_univ_succ, Fin.sum_univ_succ, Fin.forall_fin_succ]
 
-example : (fun t _ => if t=0 then (0 : ℚ) else 1) ∈ polarZeroLocus 1 2 (fun _ => 1) := by sorry
+example : (fun t _ => if t=0 then (0 : ℚ) else 1) ∈ polarZeroLocus 1 2 (fun _ => 1) := by
+  norm_num [polarZeroLocus, polarForm, Fin.prod_univ_succ, Fin.sum_univ_succ, Fin.forall_fin_succ]
 
 /-- Function-field differencing count. For finite F_q, tensor c of degree k=r+1, b_l∈F_q, box cutoff D≥0 and coefficient cutoff C≥0, functionFieldPolarCount(c,b,D,C) counts arrays a∈F_q^{r×n×D}. -/
 def functionFieldPolarCount {F : Type*} [Field F] [Fintype F] [DecidableEq F]
@@ -90,17 +113,18 @@ def functionFieldPolarCount {F : Type*} [Field F] [Fintype F] [DecidableEq F]
         (fun t j => ∑ i : Fin D, Polynomial.C (a t j i) * Polynomial.X^i.val) j
       ∑ v ∈ P.support, b (v+l)*P.coeff v = 0)).card
 
-example [Fact (Nat.Prime 5)] : functionFieldPolarCount 1 2 1 1 (fun _ => (1 : ZMod 5)) (fun _ => 0) = 25 := by sorry
+example [Fact (Nat.Prime 5)] : functionFieldPolarCount 1 2 1 1 (fun _ => (1 : ZMod 5)) (fun _ => 0) = 25 := by
+  norm_num [functionFieldPolarCount, polarForm, Finset.Icc, Fin.prod_univ_succ, Fin.sum_univ_succ]
 
-example [Fact (Nat.Prime 5)] : functionFieldPolarCount 1 2 1 1 (fun _ => (1 : ZMod 5)) (fun l => if l=1 then 1 else 0) = 9 := by sorry
+/-- The nonzero first coefficient leaves nine polar pairs over the field of five elements. -/
+theorem functionFieldPolarCount.nonzero_coefficient [Fact (Nat.Prime 5)] : functionFieldPolarCount 1 2 1 1 (fun _ => (1 : ZMod 5)) (fun l => if l=1 then 1 else 0) = 9 := by sorry
 
 /-- Complete monomial exponential sum. completePowerSum(d,q,a)=Σ_{x mod q}exp(2πiax^d/q), represented by the native finite residue range x=0,…,q−1 and native fourier(ax^d) evaluated at1/q in AddCircle1. -/
 def completePowerSum (d q : ℕ) (a : ℤ) : ℂ :=
   ∑ x : Fin q, fourier (a * (x.val : ℤ)^d) (((1 : ℝ)/q : ℝ) : AddCircle (1 : ℝ))
 
-example : completePowerSum 3 0 1 = 0 := by sorry
-
-example : completePowerSum 3 1 7 = 1 := by sorry
+example : completePowerSum 3 1 7 = 1 := by
+  simp [completePowerSum]
 
 /-- Completion of finite sums. Analysis/Fourier/ZMod.lean, dft_apply and invDFT_apply, lines108–121 at the pin. -/
 theorem finite_completion {q : ℕ} [NeZero q] (f : ZMod q → ℂ) (I : Finset ℤ) :
@@ -165,19 +189,31 @@ def weightedTorusSum {ι : Type*} (n : ℕ) (A : Finset ι)
   ∑ a ∈ A, w a * ∏ j : Fin n, fourier (Φ a j) (α j)
 
 example (n : ℕ) (Φ : ℤ → Fin n → ℤ) (w : ℤ → ℂ)
-    (α : Fin n → AddCircle (1 : ℝ)) : weightedTorusSum n ∅ Φ w α = 0 := by sorry
+    (α : Fin n → AddCircle (1 : ℝ)) : weightedTorusSum n ∅ Φ w α = 0 := by
+  simp [weightedTorusSum]
 
 example : weightedTorusSum 1 ({0} : Finset ℤ) (fun _ _ => -1) (fun _ => 2)
-    (fun _ => ((1 / 4 : ℝ) : AddCircle (1 : ℝ))) = -2 * Complex.I := by sorry
+    (fun _ => ((1 / 4 : ℝ) : AddCircle (1 : ℝ))) = -2 * Complex.I := by
+  have h : fourier (-1) (((1/4 : ℝ)) : AddCircle (1 : ℝ)) = -Complex.I := by
+    rw [fourier_coe_apply]
+    convert Complex.exp_neg_pi_div_two_mul_I using 1
+    congr 1
+    push_cast
+    ring
+  simp only [weightedTorusSum, Finset.sum_singleton, Fin.prod_univ_one]
+  rw [h]
+  ring
 
 /-- Moment-curve Weyl sum. For n,N≥0 natural, momentWeylSum(n,N)(α)=Σ_{1≤m≤N}∏_{j∈Fin n}fourier(m^(j+1))(αⱼ). -/
 def momentWeylSum (n N : ℕ) (α : Fin n → AddCircle (1 : ℝ)) : ℂ :=
   weightedTorusSum n (Finset.Icc 1 N)
     (fun m j => (m : ℤ) ^ (j.val + 1)) (fun _ => 1) α
 
-example (n : ℕ) (α : Fin n → AddCircle (1 : ℝ)) : momentWeylSum n 0 α = 0 := by sorry
+example (n : ℕ) (α : Fin n → AddCircle (1 : ℝ)) : momentWeylSum n 0 α = 0 := by
+  simp [momentWeylSum, weightedTorusSum]
 
-example : momentWeylSum 2 3 0 = 3 := by sorry
+example : momentWeylSum 2 3 0 = 3 := by
+  norm_num [momentWeylSum, weightedTorusSum, fourier_eval_zero, Nat.card_Icc]
 
 /-- Vinogradov mean value. Define vinogradovMeanValue(n,s,N) as the number of ordered pairs (x,y)∈{1,…,N}ˢ×{1,…,N}ˢ satisfying Σ_ixᵢʲ=Σ_iyᵢʲ for every j=1,…,n. -/
 def vinogradovMeanValue (n s N : ℕ) : ℕ :=
@@ -185,70 +221,98 @@ def vinogradovMeanValue (n s N : ℕ) : ℕ :=
     ∀ j : Fin n, (∑ i : Fin s, ((xy.1 i).val + 1) ^ (j.val + 1)) =
       ∑ i : Fin s, ((xy.2 i).val + 1) ^ (j.val + 1)}
 
-example : vinogradovMeanValue 2 2 2 = 6 := by sorry
+example : vinogradovMeanValue 2 2 2 = 6 := by
+  unfold vinogradovMeanValue
+  decide +kernel
 
-example : vinogradovMeanValue 2 3 2 = 20 := by sorry
+example : vinogradovMeanValue 2 3 2 = 20 := by
+  unfold vinogradovMeanValue
+  decide +kernel
 
 /-- Monomial Weyl sum. powerWeylSum(d,N,α)=Σ_{x=1}^N fourier(x^d)(α) on native AddCircle1. -/
 def powerWeylSum (d N : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
   ∑ x ∈ Finset.Icc 1 N, fourier ((x : ℤ)^d) α
 
-example : powerWeylSum 3 0 0 = 0 := by sorry
+example : powerWeylSum 3 0 0 = 0 := by
+  simp [powerWeylSum]
 
-example : powerWeylSum 1 2 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = 0 := by sorry
+example : powerWeylSum 1 2 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = 0 := by
+  rw [powerWeylSum, show Finset.Icc 1 2 = {1,2} by decide]
+  norm_num only [Finset.sum_insert, Finset.sum_singleton, Finset.mem_singleton, not_false_eq_true, fourier_coe_apply]
+  norm_num
+  convert show Complex.exp (Real.pi * Complex.I) + Complex.exp (2 * Real.pi * Complex.I) = 0 by simp [Complex.exp_pi_mul_I, Complex.exp_two_pi_mul_I] using 1
+  congr 1 <;> ring
 
 /-- Von Mangoldt exponential sum. mangoldtExponentialSum(N,α)=Σ_{1≤n≤N}Λ(n)e(nα), with native nonnegative real von Mangoldt coefficients. -/
 def mangoldtExponentialSum (N : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
   weightedTorusSum 1 (Finset.Icc 1 N) (fun m _ => (m : ℤ))
     (fun m => (ArithmeticFunction.vonMangoldt m : ℂ)) (fun _ => α)
 
-example : mangoldtExponentialSum 0 0=0 := by sorry
+example : mangoldtExponentialSum 0 0=0 := by
+  simp [mangoldtExponentialSum, weightedTorusSum]
 
-example : mangoldtExponentialSum 4 0=(2*Real.log 2+Real.log 3 : ℝ) := by sorry
+example : mangoldtExponentialSum 4 0=(2*Real.log 2+Real.log 3 : ℝ) := by
+  unfold mangoldtExponentialSum weightedTorusSum
+  rw [show Finset.Icc 1 4 = {1,2,3,4} by decide]
+  have h4 : ArithmeticFunction.vonMangoldt 4 = Real.log 2 := by
+    rw [show 4 = 2^2 by norm_num, ArithmeticFunction.vonMangoldt_apply_pow (by decide), ArithmeticFunction.vonMangoldt_apply_prime (by norm_num)]
+    norm_num
+  simp [h4, ArithmeticFunction.vonMangoldt_apply_prime (show Nat.Prime 2 by norm_num), ArithmeticFunction.vonMangoldt_apply_prime (show Nat.Prime 3 by norm_num)]
+  ring
 
 /-- Reduced rational arc indices. For a natural denominator cutoff Q, reducedArcIndices(Q) is the finite set of pairs (a,q) with 1≤q≤Q, 0≤a<q and gcd(a,q)=1. -/
 def reducedArcIndices (Q : ℕ) : Finset (ℕ × ℕ) :=
   ((Finset.range (Q + 1)).product (Finset.range (Q + 1))).filter
     (fun aq => 1 ≤ aq.2 ∧ aq.1 < aq.2 ∧ Nat.Coprime aq.1 aq.2)
 
-example : reducedArcIndices 0 = ∅ := by sorry
+example : reducedArcIndices 0 = ∅ := by
+  decide
 
-example : reducedArcIndices 1 = {(0,1)} := by sorry
+example : reducedArcIndices 1 = {(0,1)} := by
+  decide
 
 /-- Rational major arc. For a pair (a,q) of natural numbers and a real radius η, majorArc((a,q),η) is the native closed metric ball of radius η about (a/q mod 1) in AddCircle(1). -/
 def majorArc (aq : ℕ × ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) :=
   Metric.closedBall (((aq.1 : ℝ) / aq.2 : ℝ) : AddCircle (1 : ℝ)) η
 
-example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc (0,1) (1/10) := by sorry
+example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc (0,1) (1/10) := by
+  norm_num [majorArc, Metric.mem_closedBall, dist_eq_norm, UnitAddCircle.norm_eq]
 
-example : ((1/4 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc (0,1) (1/4) := by sorry
+example : ((1/4 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc (0,1) (1/4) := by
+  norm_num [majorArc, Metric.mem_closedBall, dist_eq_norm, UnitAddCircle.norm_eq]
 
 /-- Major arcs. majorArcs(Q,η) is the finite union of majorArc((a,q),η) over reducedArcIndices(Q), as a native Set(AddCircle(1)). -/
 def majorArcs (Q : ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) :=
   ⋃ aq ∈ reducedArcIndices Q, majorArc aq η
 
-example : majorArcs 0 1 = ∅ := by sorry
+example : majorArcs 0 1 = ∅ := by
+  simp [majorArcs, reducedArcIndices]
 
-example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArcs 1 (1/10) := by sorry
+example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArcs 1 (1/10) := by
+  have h : reducedArcIndices 1 = {(0,1)} := by decide
+  simpa [majorArcs, h, majorArc, Metric.mem_closedBall, dist_eq_norm, UnitAddCircle.norm_eq] using (show |(19/20:ℝ)-round (19/20:ℝ)| ≤ 1/10 by norm_num)
 
 /-- Major arcs with denominator-dependent widths. denominatorMajorArcs(Q,η) is the finite union of native closed torus balls majorArc((a,q),η/q) over reducedArcIndices(Q). -/
 def denominatorMajorArcs (Q : ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) :=
   ⋃ aq ∈ reducedArcIndices Q, majorArc aq (η / (aq.2 : ℝ))
 
-example : denominatorMajorArcs 0 1 = ∅ := by sorry
+example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ denominatorMajorArcs 1 (1/10) := by
+  have h : reducedArcIndices 1 = {(0,1)} := by decide
+  norm_num [denominatorMajorArcs, h, majorArc, Metric.mem_closedBall, dist_eq_norm, UnitAddCircle.norm_eq]
 
-example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ denominatorMajorArcs 1 (1/10) := by sorry
-
-example : ((23/40 : ℝ) : AddCircle (1 : ℝ)) ∉ denominatorMajorArcs 2 (1/10) := by sorry
-
-example : ((1/2 : ℝ) : AddCircle (1 : ℝ)) ∈ denominatorMajorArcs 2 0 := by sorry
+example : ((23/40 : ℝ) : AddCircle (1 : ℝ)) ∉ denominatorMajorArcs 2 (1/10) := by
+  have h : reducedArcIndices 2 = {(0,1),(1,2)} := by decide
+  norm_num [denominatorMajorArcs, h, majorArc, Metric.mem_closedBall, dist_eq_norm, ← QuotientAddGroup.mk_sub, UnitAddCircle.norm_eq]
 
 /-- Minor arcs. minorArcs(Q,η) is the native set complement of majorArcs(Q,η) in AddCircle(1). -/
 def minorArcs (Q : ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) := (majorArcs Q η)ᶜ
 
-example : (0 : AddCircle (1 : ℝ)) ∈ minorArcs 0 1 := by sorry
+example : (0 : AddCircle (1 : ℝ)) ∈ minorArcs 0 1 := by
+  simp [minorArcs, majorArcs, reducedArcIndices]
 
-example : (0 : AddCircle (1 : ℝ)) ∉ minorArcs 1 0 := by sorry
+example : (0 : AddCircle (1 : ℝ)) ∉ minorArcs 1 0 := by
+  have h : reducedArcIndices 1 = {(0,1)} := by decide
+  simp [minorArcs, majorArcs, h, majorArc]
 
 /-- Torus coefficient-counting identity. §1 p.633 and Theorem4.1 pp.637–638. -/
 theorem torus_coefficient_extraction {ι : Type*} (n : ℕ) (A : Finset ι)
@@ -296,17 +360,23 @@ theorem uniform_function_field_minor_count (n r d : ℕ) (hn : 1 ≤ n)
 def momentCurve (n : ℕ) (t : ℝ) : EuclideanSpace ℝ (Fin n) :=
   WithLp.toLp 2 (fun j => t ^ (j.val + 1))
 
-example : momentCurve 2 2 = WithLp.toLp 2 (fun j : Fin 2 => if j = 0 then 2 else 4) := by sorry
+example : momentCurve 2 2 = WithLp.toLp 2 (fun j : Fin 2 => if j = 0 then 2 else 4) := by
+  ext j
+  fin_cases j <;> norm_num [momentCurve]
 
-example : momentCurve 0 3 = 0 := by sorry
+example : momentCurve 0 3 = 0 := by
+  ext j
+  exact Fin.elim0 j
 
 /-- Decoupling weight. For a native Euclidean centre c, real radius R>0 and natural E, decouplingWeight(n,E,c,R)(x)=(1+‖x−c‖/R)^(−E). -/
 def decouplingWeight (n E : ℕ) (c : EuclideanSpace ℝ (Fin n)) (R : ℝ)
     (x : EuclideanSpace ℝ (Fin n)) : ℝ := ((1 + ‖x - c‖ / R) ^ E)⁻¹
 
-example : decouplingWeight 1 2 0 1 (WithLp.toLp 2 (fun _ => 1)) = 1/4 := by sorry
+example : decouplingWeight 1 2 0 1 (WithLp.toLp 2 (fun _ => 1)) = 1/4 := by
+  norm_num [decouplingWeight, EuclideanSpace.norm_eq, Fin.sum_univ_succ]
 
-example (x : EuclideanSpace ℝ (Fin 2)) : decouplingWeight 2 0 0 1 x = 1 := by sorry
+example (x : EuclideanSpace ℝ (Fin 2)) : decouplingWeight 2 0 0 1 x = 1 := by
+  simp [decouplingWeight]
 
 /-- Moment-curve extension operator. For a real interval [a,b], complex amplitude g and x∈EuclideanSpace ℝ (Fin n), momentExtension(n,a,b,g)(x)=∫_[a,b]g(t)exp(2πiΣ_jx_jt^(j+1))dt, using native Lebesgue measure and Bochner integration. -/
 def momentExtension (n : ℕ) (a b : ℝ) (g : ℝ → ℂ)
@@ -314,9 +384,12 @@ def momentExtension (n : ℕ) (a b : ℝ) (g : ℝ → ℂ)
   ∫ t in Set.Icc a b, g t * Complex.exp
     ((2 * Real.pi * (∑ j : Fin n, x j * t ^ (j.val + 1)) : ℝ) * Complex.I)
 
-example : momentExtension 1 0 1 (fun _ => 1) 0 = 1 := by sorry
+example : momentExtension 1 0 1 (fun _ => 1) 0 = 1 := by
+  norm_num [momentExtension, MeasureTheory.integral_const, Real.volume_Icc]
 
-example : momentExtension 2 1 0 (fun _ => 1) = 0 := by sorry
+example : momentExtension 2 1 0 (fun _ => 1) = 0 := by
+  funext x
+  simp [momentExtension]
 
 /-- Brascamp–Lieb inequality predicate. For Euclidean H,H_j,continuous linear L_j,positive exponents a_j and C≥0, brascampLiebBound(L,a,C) means that every family of nonnegative integrable f_j has integrable product ∏f_j(L_jx)^a_j and integral≤C∏(∫f_j)^a_j. -/
 def brascampLiebBound (n m : ℕ) (d : Fin m → ℕ)
@@ -327,9 +400,12 @@ def brascampLiebBound (n m : ℕ) (d : Fin m → ℕ)
     Integrable (fun x => ∏ j, Real.rpow (f j (L j x)) (a j)) ∧
     (∫ x, ∏ j, Real.rpow (f j (L j x)) (a j)) ≤ C * ∏ j, Real.rpow (∫ y, f j y) (a j)
 
-example : brascampLiebBound 1 1 (fun _ => 1) (fun _ => ContinuousLinearMap.id ℝ _) (fun _ => 1) 1 := by sorry
+example : brascampLiebBound 1 1 (fun _ => 1) (fun _ => ContinuousLinearMap.id ℝ _) (fun _ => 1) 1 := by
+  intro f _ hf
+  simpa [Fin.prod_univ_succ] using And.intro (hf 0) (le_refl (∫ x, f 0 x))
 
-example (C : ℝ) : ¬ brascampLiebBound 1 1 (fun _ => 1) (fun _ => 0) (fun _ => 1) C := by sorry
+/-- The zero map in dimension one cannot satisfy any finite Brascamp–Lieb bound. -/
+theorem brascampLiebBound.not_zero_map (C : ℝ) : ¬ brascampLiebBound 1 1 (fun _ => 1) (fun _ => 0) (fun _ => 1) C := by sorry
 
 /-- Critical moment-curve decoupling theorem. Theorem1.2 p.635; weight extension p.637; §§6–10. -/
 theorem critical_decoupling (n E : ℕ) (hn : 2 ≤ n) (hE : 100*n ≤ E)
@@ -405,18 +481,23 @@ def waringSeriesCoeff (d s m q : ℕ) : ℂ :=
       fourier (-(a.val : ℤ)*(m : ℤ)) (((1 : ℝ)/q : ℝ) : AddCircle (1 : ℝ))
     else 0
 
-example : waringSeriesCoeff 3 7 1 0 = 0 := by sorry
+example : waringSeriesCoeff 3 7 1 0 = 0 := by
+  simp [waringSeriesCoeff]
 
-example : waringSeriesCoeff 2 2 0 3 = -2/3 := by sorry
+/-- The quadratic coefficient at modulus three detects its negative sign. -/
+theorem waringSeriesCoeff.quadratic_at_three : waringSeriesCoeff 2 2 0 3 = -2/3 := by sorry
 
 /-- Waring singular series. waringSingularSeries(d,s,m)=Σ_{q≥1}A_{d,s,m}(q), implemented with native tsum over all naturals and A(0)=0. -/
 def waringSingularSeries (d s m : ℕ) : ℂ := ∑' q : ℕ, waringSeriesCoeff d s m q
 
-example (m : ℕ) : waringSingularSeries 1 2 m = 1 := by sorry
+/-- The linear two-variable singular series has value one. -/
+theorem waringSingularSeries.linear (m : ℕ) : waringSingularSeries 1 2 m = 1 := by sorry
 
-example : waringSingularSeries 1 0 0 = 0 := by sorry
+/-- The divergent zero-variable series has native totalized value zero. -/
+theorem waringSingularSeries.zero_variables : waringSingularSeries 1 0 0 = 0 := by sorry
 
-example : waringSingularSeries 4 9 15 = 0 := by sorry
+/-- The modulo-sixteen obstruction kills the convergent fourth-power series. -/
+theorem waringSingularSeries.fourth_power_obstruction : waringSingularSeries 4 9 15 = 0 := by sorry
 
 /-- Waring singular integral. I_{d,s}=∫_{β∈ℝ}(∫_{0≤t≤1}exp(2πiβt^d)dt)^s exp(−2πiβ)dβ, using native Lebesgue measure and Bochner integration. -/
 def waringSingularIntegral (d s : ℕ) : ℂ :=
@@ -424,54 +505,79 @@ def waringSingularIntegral (d s : ℕ) : ℂ :=
     Complex.exp ((2*Real.pi*β*t^d : ℝ)*Complex.I))^s *
       Complex.exp ((-2*Real.pi*β : ℝ)*Complex.I)
 
-example : waringSingularIntegral 1 2 = 1 := by sorry
+/-- The linear two-variable singular integral has value one. -/
+theorem waringSingularIntegral.linear_two : waringSingularIntegral 1 2 = 1 := by sorry
 
-example : waringSingularIntegral 1 3 = 1/2 := by sorry
+/-- The linear three-variable singular integral has value one half. -/
+theorem waringSingularIntegral.linear_three : waringSingularIntegral 1 3 = 1/2 := by sorry
 
 /-- Waring congruence solution count. For a positive natural modulus q, waringCongruenceCount(d,s,m,q) is the native cardinality of the subtype of x∈(ZMod q)^s with Σ_ix_i^d=m modq. -/
 def waringCongruenceCount (d s m q : ℕ) [NeZero q] : ℕ :=
   Fintype.card {x : Fin s → ZMod q // (∑ i : Fin s, (x i)^d) = (m : ZMod q)}
 
-example : waringCongruenceCount 2 2 1 3 = 4 := by sorry
+example : waringCongruenceCount 2 2 1 3 = 4 := by
+  unfold waringCongruenceCount
+  decide +kernel
 
-example : waringCongruenceCount 3 0 0 2 = 1 ∧ waringCongruenceCount 3 0 1 2 = 0 := by sorry
+example : waringCongruenceCount 3 0 0 2 = 1 ∧ waringCongruenceCount 3 0 1 2 = 0 := by
+  unfold waringCongruenceCount
+  decide +kernel
 
 /-- Waring local factor. For a prime p, χ_{d,s,m}(p)=Σ_{e≥0}A_{d,s,m}(p^e), using native tsum. -/
 def waringLocalFactor (d s m p : ℕ) : ℂ :=
   ∑' e : ℕ, waringSeriesCoeff d s m (p^e)
 
-example : waringLocalFactor 1 2 1 3 = 1 := by sorry
+/-- The linear local factor at three has value one. -/
+theorem waringLocalFactor.linear : waringLocalFactor 1 2 1 3 = 1 := by sorry
 
-example : waringLocalFactor 2 2 1 3 = 4/3 := by sorry
+/-- The two-square local factor at three has value four thirds. -/
+theorem waringLocalFactor.two_squares_at_three : waringLocalFactor 2 2 1 3 = 4/3 := by sorry
 
-example : waringLocalFactor 4 9 15 2 = 0 := by sorry
+/-- The modulo-sixteen obstruction kills the two-adic fourth-power factor. -/
+theorem waringLocalFactor.fourth_power_obstruction : waringLocalFactor 4 9 15 2 = 0 := by sorry
 
 /-- Polynomial-system congruence count. For n variables, r integral polynomial equations F_j and integral target m_j, formCongruenceCount(n,r,q,F,m) is the cardinality of x∈(ℤ/qℤ)ⁿ with F_j(x)=m_j for all j. -/
 def formCongruenceCount (n r q : ℕ) [NeZero q]
     (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) : ℕ :=
   Fintype.card {x : Fin n → ZMod q // ∀ j, MvPolynomial.eval₂ (Int.castRingHom (ZMod q)) x (F j) = (m j : ZMod q)}
 
-example : formCongruenceCount 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by sorry
+example : formCongruenceCount 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by
+  norm_num [formCongruenceCount, Fintype.card_subtype, Fin.forall_fin_succ]
+  decide +kernel
 
-example : formCongruenceCount 2 1 5 (fun _ => 0) (fun _ => 1) = 0 := by sorry
+example : formCongruenceCount 2 1 5 (fun _ => 0) (fun _ => 1) = 0 := by
+  norm_num [formCongruenceCount, Fintype.card_subtype, Fin.forall_fin_succ]
+  decide +kernel
 
 /-- Normalized polynomial-system residue mass. For q≥1 put formNormalizedCount=q^{−(n−r)}formCongruenceCount. -/
 def formNormalizedCount (n r q : ℕ) [NeZero q]
     (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) : ℝ :=
   (formCongruenceCount n r q F m : ℝ) / (q : ℝ)^((n : ℤ)-r)
 
-example : formNormalizedCount 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 1 := by sorry
+example : formNormalizedCount 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 1 := by
+  unfold formNormalizedCount
+  have h : formCongruenceCount 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by
+    norm_num [formCongruenceCount, Fintype.card_subtype, Fin.forall_fin_succ]
+    decide +kernel
+  norm_num [h]
 
-example : formNormalizedCount 2 2 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by sorry
+example : formNormalizedCount 2 2 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by
+  unfold formNormalizedCount
+  have h : formCongruenceCount 2 2 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by
+    norm_num [formCongruenceCount, Fintype.card_subtype, Fin.forall_fin_succ]
+    decide +kernel
+  norm_num [h]
 
 /-- Polynomial-system p-adic representation density. formPadicDensity(F,m,p) is the native real limit choice of formNormalizedCount at p^t,t→∞. -/
 def formPadicDensity (n r p : ℕ) [NeZero p]
     (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) : ℝ :=
   Filter.limUnder Filter.atTop (fun t : ℕ => formNormalizedCount n r (p^t) F m)
 
-example : formPadicDensity 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 1 := by sorry
+/-- A coordinate projection has normalized five-adic density one. -/
+theorem formPadicDensity.projection : formPadicDensity 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 1 := by sorry
 
-example : formPadicDensity 2 1 5 (fun _ => 0) (fun _ => 1) = 0 := by sorry
+/-- An inconsistent constant equation has five-adic density zero. -/
+theorem formPadicDensity.inconsistent : formPadicDensity 2 1 5 (fun _ => 0) (fun _ => 1) = 0 := by sorry
 
 /-- Weighted real fiber density. For F:ℝⁿ→ℝʳ,targetm and real weightw, weightedRealDensity is lim_{ε→0+}(2ε)^{−r}∫_{∀j|F_j(x)−m_j|<ε}w(x)dx, implemented by the native limit choice and with separate existence hypotheses. -/
 def weightedRealDensity (n r : ℕ) (F : EuclideanSpace ℝ (Fin n) → Fin r → ℝ)
@@ -479,10 +585,12 @@ def weightedRealDensity (n r : ℕ) (F : EuclideanSpace ℝ (Fin n) → Fin r �
   Filter.limUnder (nhdsWithin (0 : ℝ) (Set.Ioi 0)) (fun ε =>
     (2*ε)^(-(r : ℤ)) * ∫ x in {x | ∀ j, |F x j-m j| < ε}, w x)
 
-example : weightedRealDensity 1 1 (fun x _ => x 0) (fun _ => 1/2)
+/-- An interior point of the unit interval has symmetric tube density one. -/
+theorem weightedRealDensity.interval_interior : weightedRealDensity 1 1 (fun x _ => x 0) (fun _ => 1/2)
     (fun x => if x 0 ∈ Set.Icc (0 : ℝ) 1 then 1 else 0) = 1 := by sorry
 
-example : weightedRealDensity 1 1 (fun x _ => x 0) (fun _ => 0)
+/-- An endpoint of the unit interval has symmetric tube density one half. -/
+theorem weightedRealDensity.interval_boundary : weightedRealDensity 1 1 (fun x _ => x 0) (fun _ => 0)
     (fun x => if x 0 ∈ Set.Icc (0 : ℝ) 1 then 1 else 0) = 1/2 := by sorry
 
 /-- Markoff finite residue mass. For q≥1, δ_q(k)=q^{-2}#{x∈(ℤ/qℤ)³:x₁²+x₂²+x₃²+x₁x₂x₃=k}. -/
@@ -491,9 +599,19 @@ def markoffResidueMass (q : ℕ) [NeZero q] (k : ℤ) : ℝ :=
     MvPolynomial.X 0^2+MvPolynomial.X 1^2+MvPolynomial.X 2^2+
       MvPolynomial.X 0*MvPolynomial.X 1*MvPolynomial.X 2) (fun _ => k)
 
-example : markoffResidueMass 4 3 = 0 := by sorry
+example : markoffResidueMass 4 3 = 0 := by
+  unfold markoffResidueMass formNormalizedCount
+  have h : formCongruenceCount 3 1 4 (fun _ => MvPolynomial.X 0^2+MvPolynomial.X 1^2+MvPolynomial.X 2^2+MvPolynomial.X 0*MvPolynomial.X 1*MvPolynomial.X 2) (fun _ => 3) = 0 := by
+    norm_num [formCongruenceCount, Fintype.card_subtype, Fin.forall_fin_succ]
+    decide +kernel
+  norm_num [h]
 
-example : markoffResidueMass 8 1 = 3/4 := by sorry
+example : markoffResidueMass 8 1 = 3/4 := by
+  unfold markoffResidueMass formNormalizedCount
+  have h : formCongruenceCount 3 1 8 (fun _ => MvPolynomial.X 0^2+MvPolynomial.X 1^2+MvPolynomial.X 2^2+MvPolynomial.X 0*MvPolynomial.X 1*MvPolynomial.X 2) (fun _ => 1) = 48 := by
+    norm_num [formCongruenceCount, Fintype.card_subtype, Fin.forall_fin_succ]
+    decide +kernel
+  norm_num [h]
 
 /-- Quaternary Markoff pair mass. For q≥1 let δ_q(a,b)=q^{-3}#{x,y∈(ℤ/qℤ)²:g_a(x)−g_b(y)=b²−a²}, g_a(u,v)=u²+v²+auv. -/
 def markoffPairMass (q : ℕ) [NeZero q] (a b : ℤ) : ℝ :=
@@ -502,17 +620,41 @@ def markoffPairMass (q : ℕ) [NeZero q] (a b : ℤ) : ℝ :=
     (MvPolynomial.X 2^2+MvPolynomial.X 3^2+MvPolynomial.C b*MvPolynomial.X 2*MvPolynomial.X 3))
     (fun _ => b^2-a^2)
 
-example : markoffPairMass 1 4 3 = 1 := by sorry
+example : markoffPairMass 1 4 3 = 1 := by
+  unfold markoffPairMass formNormalizedCount
+  have h : formCongruenceCount 4 1 1 (fun _ => MvPolynomial.X 0^2+MvPolynomial.X 1^2+MvPolynomial.C 4*MvPolynomial.X 0*MvPolynomial.X 1-
+      (MvPolynomial.X 2^2+MvPolynomial.X 3^2+MvPolynomial.C 3*MvPolynomial.X 2*MvPolynomial.X 3))
+      (fun _ => 3^2-4^2) = 1 := by
+    unfold formCongruenceCount
+    simp only [Subsingleton.elim (α := ZMod 1) _ (0 : ZMod 1)]
+    simp
+  rw [h]
+  norm_num
 
-example : markoffPairMass 4 4 3 = 5/4 := by sorry
+example : markoffPairMass 4 4 3 = 5/4 := by
+  unfold markoffPairMass formNormalizedCount
+  have h : formCongruenceCount 4 1 4 (fun _ => MvPolynomial.X 0^2+MvPolynomial.X 1^2+MvPolynomial.C 4*MvPolynomial.X 0*MvPolynomial.X 1-
+      (MvPolynomial.X 2^2+MvPolynomial.X 3^2+MvPolynomial.C 3*MvPolynomial.X 2*MvPolynomial.X 3))
+      (fun _ => 3^2-4^2) = 80 := by
+    norm_num [formCongruenceCount, Fintype.card_subtype, Fin.forall_fin_succ]
+    decide +kernel
+  rw [h]
+  norm_num
 
 /-- Congruence admissibility. An integral polynomial f in n variables and integerk are congruence-admissible when f(x)=k has a solution in(ℤ/qℤ)ⁿ for every positive integerq. -/
 def formAdmissible (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ) : Prop :=
   ∀ (q : ℕ) [NeZero q], ∃ x : Fin n → ZMod q, f.eval₂ (Int.castRingHom (ZMod q)) x = (k : ZMod q)
 
-example : formAdmissible 1 (MvPolynomial.X 0) 2 := by sorry
+example : formAdmissible 1 (MvPolynomial.X 0) 2 := by
+  intro q _
+  exact ⟨fun _ => 2, by simp⟩
 
-example : ¬formAdmissible 1 (MvPolynomial.X 0^2) 2 := by sorry
+example : ¬formAdmissible 1 (MvPolynomial.X 0^2) 2 := by
+  intro h
+  obtain ⟨x, hx⟩ := h 4
+  have hsq : (x 0) ^ 2 = (2 : ZMod 4) := by simpa using hx
+  have hnone : ∀ z : ZMod 4, z^2 ≠ 2 := by decide +kernel
+  exact hnone (x 0) hsq
 
 /-- Waring singular-series absolute convergence. §6.1 pp.35–39 and §6.2 pp.39–47, statements and proofs. -/
 theorem waring_series_absolute_convergence (d s m : ℕ) (hd : 3 ≤ d) (hs : 2*d+1 ≤ s) :
@@ -553,9 +695,13 @@ theorem markoff_two_adic_density (k : ℤ) (hk : k≠0 ∧ k≠4) :
 def waringPositiveCount (d s m : ℕ) : ℕ :=
   Fintype.card {x : Fin s → Fin m // (∑ i : Fin s, ((x i).val+1)^d) = m}
 
-example : waringPositiveCount 1 2 4 = 3 := by sorry
+example : waringPositiveCount 1 2 4 = 3 := by
+  unfold waringPositiveCount
+  decide +kernel
 
-example : waringPositiveCount 2 2 5 = 2 := by sorry
+example : waringPositiveCount 2 2 5 = 2 := by
+  unfold waringPositiveCount
+  decide +kernel
 
 /-- Weighted integral quadratic representation count. For integral polynomial Q of degree2,targetm>0,real compactly supported weightw, weightedQuadraticCount is Σ_{x∈ℤⁿ,Q(x)=m}w(x/√m). -/
 def weightedQuadraticCount (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ)
@@ -563,19 +709,23 @@ def weightedQuadraticCount (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ)
   ∑' x : Fin n → ℤ, if MvPolynomial.eval x Q = (m : ℤ) then
     w (WithLp.toLp 2 (fun j => (x j : ℝ)/Real.sqrt m)) else 0
 
-example : weightedQuadraticCount 1 (MvPolynomial.X 0^2) 1
+/-- Scaling the roots of x squared equals four evaluates the weight at plus and minus one. -/
+theorem weightedQuadraticCount.two_unit_roots : weightedQuadraticCount 1 (MvPolynomial.X 0^2) 1
     (fun x => if |x 0| ≤ 2 then 1 else 0) = 2 := by sorry
 
-example (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ) : weightedQuadraticCount n Q m (fun _ => 0) = 0 := by sorry
+example (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ) : weightedQuadraticCount n Q m (fun _ => 0) = 0 := by
+  simp [weightedQuadraticCount]
 
 /-- Markoff moving-plane sector. For d>0 let S_d⊂ℝ² consist of s₁,s₂≥0 with 0≤s₁²−ds₂²≤1 and 2√d s₂≤s₁≤3√d s₂. -/
 def markoffSector (d : ℝ) : Set (EuclideanSpace ℝ (Fin 2)) :=
   {s | 0 ≤ s 0 ∧ 0 ≤ s 1 ∧ 0 ≤ (s 0)^2-d*(s 1)^2 ∧
     (s 0)^2-d*(s 1)^2 ≤ 1 ∧ 2*Real.sqrt d*s 1 ≤ s 0 ∧ s 0 ≤ 3*Real.sqrt d*s 1}
 
-example : (0 : EuclideanSpace ℝ (Fin 2)) ∈ markoffSector 1 := by sorry
+example : (0 : EuclideanSpace ℝ (Fin 2)) ∈ markoffSector 1 := by
+  norm_num [markoffSector]
 
-example : WithLp.toLp 2 ![(2 : ℝ),1] ∉ markoffSector 1 := by sorry
+example : WithLp.toLp 2 ![(2 : ℝ),1] ∉ markoffSector 1 := by
+  norm_num [markoffSector, WithLp.toLp]
 
 /-- Sector-restricted Markoff count. For integers a≥3, K≥1 and 1≤k≤K let r_a(K,k) count integral x₁,x₂≥0 with x₁²+x₂²+ax₁x₂+a²=k and (2x₁+ax₂,x₂)∈√(4K)S_{a²−4}. -/
 def markoffRepresentationCount (a K : ℕ) (k : ℤ) : ℕ :=
@@ -586,56 +736,63 @@ def markoffRepresentationCount (a K : ℕ) (k : ℤ) : ℕ :=
       2*(x.1 : ℝ)+a*x.2 ≤ 3*Real.sqrt ((a : ℝ)^2-4)*(x.2 : ℝ))).card
   else 0
 
-example : markoffRepresentationCount 3 14 14 = 1 := by sorry
+/-- The first indicated positive Markoff slice contains one point. -/
+theorem markoffRepresentationCount.first_positive_slice : markoffRepresentationCount 3 14 14 = 1 := by sorry
 
-example : markoffRepresentationCount 3 13 14 = 0 := by sorry
+example : markoffRepresentationCount 3 13 14 = 0 := by
+  norm_num [markoffRepresentationCount]
 
 /-- Moving-plane aggregate. For integers A,K≥0, b_A(K,k)=Σ_{3≤a≤A,√A≤a}r_a(K,k). -/
 def markoffAggregate (K A : ℕ) (k : ℤ) : ℕ :=
   ∑ a ∈ (Finset.Icc 3 A).filter (fun (a : ℕ) => Real.sqrt A ≤ (a : ℝ)),
     markoffRepresentationCount a K k
 
-example (K : ℕ) (k : ℤ) : markoffAggregate K 2 k = 0 := by sorry
+example (K : ℕ) (k : ℤ) : markoffAggregate K 2 k = 0 := by
+  simp [markoffAggregate]
 
-example : markoffAggregate 14 3 14 = 1 := by sorry
+/-- The first indicated aggregate retains its unique positive slice point. -/
+theorem markoffAggregate.first_positive_slice : markoffAggregate 14 3 14 = 1 := by sorry
 
 /-- Moving-plane variance. For K,A≥0,q≥1 and real c, V(K,A,q,c)=Σ_{1≤k≤K}(b_A(K,k)−c(log A)δ_q(k))². -/
 def markoffVariance (K A q : ℕ) [NeZero q] (c : ℝ) : ℝ :=
   ∑ k ∈ Finset.Icc 1 K, ((markoffAggregate K A k : ℝ)-c*Real.log A*markoffResidueMass q k)^2
 
-example (A q : ℕ) [NeZero q] (c : ℝ) : markoffVariance 0 A q c = 0 := by sorry
+example (A q : ℕ) [NeZero q] (c : ℝ) : markoffVariance 0 A q c = 0 := by
+  simp [markoffVariance]
 
-example (K q : ℕ) [NeZero q] (c : ℝ) : markoffVariance K 1 q c = 0 := by sorry
+example (K q : ℕ) [NeZero q] (c : ℝ) : markoffVariance K 1 q c = 0 := by
+  simp [markoffVariance, markoffAggregate]
 
 /-- Ordered von Mangoldt triple count. mangoldtTripleCount(N)=Σ_{a,b,c≥1,a+b+c=N}Λ(a)Λ(b)Λ(c), using ordered triples. -/
 def mangoldtTripleCount (N : ℕ) : ℝ :=
   ∑ x : Fin 3 → Fin (N+1), if (∑ i, (x i).val)=N then
     ∏ i, ArithmeticFunction.vonMangoldt (x i).val else 0
 
-example : mangoldtTripleCount 5=0 := by sorry
+/-- Below six no ordered triple has three nonzero Mangoldt weights. -/
+theorem mangoldtTripleCount.below_first_triple : mangoldtTripleCount 5=0 := by sorry
 
-example : mangoldtTripleCount 6=(Real.log 2)^3 := by sorry
+/-- At six the unique nonzero weighted triple is (2,2,2). -/
+theorem mangoldtTripleCount.first_triple : mangoldtTripleCount 6=(Real.log 2)^3 := by sorry
 
 /-- Ternary prime singular series. ternaryPrimeSeries(N) is the native product over primes of1−(p−1)^{-2} whenp|N, and1+(p−1)^{-3} otherwise; nonprimes contribute1. -/
 def ternaryPrimeSeries (N : ℕ) : ℝ := ∏' p : ℕ,
   if p.Prime then if p ∣ N then 1-((p : ℝ)-1)^(-2 : ℤ) else 1+((p : ℝ)-1)^(-3 : ℤ) else 1
 
-example : ternaryPrimeSeries 8=0 := by sorry
-
-example : (if (2 : ℕ) ∣ 7 then (1-((2 : ℝ)-1)^(-2 : ℤ)) else 1+((2 : ℝ)-1)^(-3 : ℤ))=2 ∧
-    (if (2 : ℕ) ∣ 8 then (1-((2 : ℝ)-1)^(-2 : ℤ)) else 1+((2 : ℝ)-1)^(-3 : ℤ))=0 := by sorry
-
-example : (if (3 : ℕ) ∣ 9 then (1-((3 : ℝ)-1)^(-2 : ℤ)) else 1+((3 : ℝ)-1)^(-3 : ℤ))=3/4 ∧
-    (if (3 : ℕ) ∣ 7 then (1-((3 : ℝ)-1)^(-2 : ℤ)) else 1+((3 : ℝ)-1)^(-3 : ℤ))=9/8 := by sorry
+example : ternaryPrimeSeries 8=0 := by
+  unfold ternaryPrimeSeries
+  apply tprod_of_exists_eq_zero
+  exact ⟨2, by norm_num⟩
 
 /-- Integral fiber count in a dilated region. scaledRegionCount(f,m,S,P) is the number of integerx with f(x)=m and x∈P·S, whereS is a native real Euclidean set andP a real scalar. -/
 def scaledRegionCount {n : ℕ} (f : MvPolynomial (Fin n) ℤ) (m : ℤ)
     (S : Set (EuclideanSpace ℝ (Fin n))) (P : ℝ) : ℕ :=
   Nat.card {x : Fin n → ℤ // f.eval x=m ∧ WithLp.toLp 2 (fun i => (x i : ℝ)) ∈ (P • ·) '' S}
 
-example : scaledRegionCount (0 : MvPolynomial (Fin 2) ℤ) 0 {x | ∀ i, |x i| ≤ 1} 0=1 := by sorry
+/-- Zero dilation of the nonempty box retains the origin once. -/
+theorem scaledRegionCount.zero_dilation : scaledRegionCount (0 : MvPolynomial (Fin 2) ℤ) 0 {x | ∀ i, |x i| ≤ 1} 0=1 := by sorry
 
-example : scaledRegionCount (MvPolynomial.X 0 : MvPolynomial (Fin 2) ℤ) 0 {x | ∀ i, |x i| ≤ 1} 1=3 := by sorry
+/-- The coordinate projection has three integral points in the unit box. -/
+theorem scaledRegionCount.projection_box : scaledRegionCount (MvPolynomial.X 0 : MvPolynomial (Fin 2) ℤ) 0 {x | ∀ i, |x i| ≤ 1} 1=3 := by sorry
 
 /-- Algebraic density of integral fibers. For an integral polynomialf and targetk, formZariskiDense means that every polynomialg over an algebraic closure ofℚ vanishing on all embedded integral solutions f(x)=k also vanishes on the entire geometric fiber. -/
 def formZariskiDense (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ) : Prop :=
@@ -643,17 +800,21 @@ def formZariskiDense (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ) : Prop :
     (∀ x : Fin n → ℤ, f.eval x=k → g.eval (fun i => (x i : AlgebraicClosure ℚ))=0) →
     ∀ y : Fin n → AlgebraicClosure ℚ, f.eval₂ (Int.castRingHom (AlgebraicClosure ℚ)) y=(k : AlgebraicClosure ℚ) → g.eval y=0
 
-example : formZariskiDense 2 (MvPolynomial.X 0) 2 := by sorry
+/-- The integral points on a projection fiber are geometrically dense. -/
+theorem formZariskiDense.projection : formZariskiDense 2 (MvPolynomial.X 0) 2 := by sorry
 
-example : ¬ formZariskiDense 2 (MvPolynomial.X 0 * MvPolynomial.X 1) 1 := by sorry
+/-- The finite integral points of XY equals one are not geometrically dense. -/
+theorem formZariskiDense.not_hyperbola : ¬ formZariskiDense 2 (MvPolynomial.X 0 * MvPolynomial.X 1) 1 := by sorry
 
 /-- Perfect affine polynomial. An integral polynomialf is perfect when only finitely many admissible integersk have a fiber whose integral points are not Zariski dense. -/
 def formPerfect (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
   {k : ℤ | formAdmissible n f k ∧ ¬formZariskiDense n f k}.Finite
 
-example : formPerfect 1 (MvPolynomial.X 0) := by sorry
+/-- The one-variable identity is perfect. -/
+theorem formPerfect.linear : formPerfect 1 (MvPolynomial.X 0) := by sorry
 
-example : ¬ formPerfect 2 (MvPolynomial.X 0 * MvPolynomial.X 1) := by sorry
+/-- The hyperbola polynomial is not perfect. -/
+theorem formPerfect.not_hyperbola : ¬ formPerfect 2 (MvPolynomial.X 0 * MvPolynomial.X 1) := by sorry
 
 /-- Almost-perfect affine polynomial. An integral polynomialf is almost perfect when, in the symmetric interval|k|≤K, the proportion of admissible targets failing integral-point Zariski density tends to0. -/
 def formAlmostPerfect (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
@@ -662,9 +823,11 @@ def formAlmostPerfect (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
       formAdmissible n f k ∧ ¬formZariskiDense n f k)).card : ℝ)/
     (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card : ℝ)) atTop (nhds 0)
 
-example : formAlmostPerfect 1 (MvPolynomial.X 0) := by sorry
+/-- The one-variable identity is almost perfect. -/
+theorem formAlmostPerfect.linear : formAlmostPerfect 1 (MvPolynomial.X 0) := by sorry
 
-example : ¬ formAlmostPerfect 2 (MvPolynomial.X 0 * MvPolynomial.X 1) := by sorry
+/-- The hyperbola polynomial is not almost perfect. -/
+theorem formAlmostPerfect.not_hyperbola : ¬ formAlmostPerfect 2 (MvPolynomial.X 0 * MvPolynomial.X 1) := by sorry
 
 /-- Full affine polynomial. An integral polynomialf is full when for every naturalT the proportion of admissible|k|≤K with fewer thanT distinct integral representations tends to0. -/
 def formFull (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
@@ -673,9 +836,11 @@ def formFull (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
       ¬∃ s : Finset (Fin n → ℤ), T ≤ s.card ∧ ∀ x ∈ s, f.eval x=k)).card : ℝ)/
     (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card : ℝ)) atTop (nhds 0)
 
-example : formFull 2 (MvPolynomial.X 0) := by sorry
+/-- A projection with a free integral coordinate is full. -/
+theorem formFull.projection : formFull 2 (MvPolynomial.X 0) := by sorry
 
-example : ¬formFull 1 (MvPolynomial.X 0) := by sorry
+/-- The one-variable identity has too few representations to be full. -/
+theorem formFull.not_linear : ¬formFull 1 (MvPolynomial.X 0) := by sorry
 
 /-- Essential absolutely irreducible affine form. isAffineForm(f) requires positive total degree, essential dependence of its leading homogeneous part on every variable, and absolute irreducibility of f−k for every geometric constantk. -/
 def isAffineForm (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
@@ -685,9 +850,11 @@ def isAffineForm (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
       ((MvPolynomial.homogeneousComponent f.totalDegree f).map (Int.castRingHom ℚ)))=0 → v=0) ∧
   ∀ k : AlgebraicClosure ℚ, Irreducible (f.map (Int.castRingHom (AlgebraicClosure ℚ))-MvPolynomial.C k)
 
-example : isAffineForm 1 (MvPolynomial.X 0) := by sorry
+/-- The one-variable identity is an essential absolutely irreducible affine form. -/
+theorem isAffineForm.linear : isAffineForm 1 (MvPolynomial.X 0) := by sorry
 
-example : ¬isAffineForm 1 (MvPolynomial.X 0^3) := by sorry
+/-- The repeated zero fiber excludes the cube from affine forms. -/
+theorem isAffineForm.not_cube : ¬isAffineForm 1 (MvPolynomial.X 0^3) := by sorry
 
 /-- Classical Waring asymptotic. §6.1 pp.34–39, statements and full proofs. -/
 theorem waring_classical_asymptotic (d s : ℕ) (hd : 3 ≤ d) (hs : 2^d+1 ≤ s) :
@@ -756,18 +923,36 @@ def boundedProjectivePointCount {n : ℕ} (F : MvPolynomial (Fin n) ℤ) (B : Fi
     ∃ i : Fin n, 0 < ((k i).val : ℤ)-(B i : ℤ) ∧
       ∀ j : Fin n, j < i → ((k j).val : ℤ)-(B j : ℤ)=0}
 
-example : boundedProjectivePointCount (MvPolynomial.X (0 : Fin 3)) (fun _ => 1)=4 := by sorry
+example : boundedProjectivePointCount (MvPolynomial.X (0 : Fin 3)) (fun _ => 1)=4 := by
+  unfold boundedProjectivePointCount
+  norm_num only [MvPolynomial.eval_X]
+  decide +kernel
 
-example (F : MvPolynomial (Fin 3) ℤ) : boundedProjectivePointCount F (fun _ => 0)=0 := by sorry
+example (F : MvPolynomial (Fin 3) ℤ) : boundedProjectivePointCount F (fun _ => 0)=0 := by
+  unfold boundedProjectivePointCount
+  apply Fintype.card_eq_zero_iff.mpr
+  constructor
+  rintro ⟨k, hk⟩
+  rcases hk.2.2 with ⟨i, hi, _⟩
+  simp at hi
 
 /-- Equivalence of binary-form representations. For rational binary formG and integral vectorsx,y, binaryFormEquivalent(G,x,y) means that some invertible rational linear mapM preservesG identically and sendsx toy. -/
 def binaryFormEquivalent (G : MvPolynomial (Fin 2) ℚ) (x y : Fin 2 → ℤ) : Prop :=
   ∃ M : (Fin 2 → ℚ) ≃ₗ[ℚ] (Fin 2 → ℚ),
     (∀ z : Fin 2 → ℚ, G.eval (M z)=G.eval z) ∧ M (fun i => (x i : ℚ))=(fun i => (y i : ℚ))
 
-example : binaryFormEquivalent (MvPolynomial.X 0^3+MvPolynomial.X 1^3) ![1,0] ![0,1] := by sorry
+example : binaryFormEquivalent (MvPolynomial.X 0^3+MvPolynomial.X 1^3) ![1,0] ![0,1] := by
+  refine ⟨LinearEquiv.funCongrLeft ℚ ℚ (Equiv.swap (0 : Fin 2) 1), ?_, ?_⟩
+  · intro z
+    simp [add_comm]
+  · ext i
+    fin_cases i <;> norm_num
 
-example : ¬binaryFormEquivalent (MvPolynomial.X 0^3+MvPolynomial.X 1^3) ![1,1] ![2,0] := by sorry
+example : ¬binaryFormEquivalent (MvPolynomial.X 0^3+MvPolynomial.X 1^3) ![1,1] ![2,0] := by
+  rintro ⟨M, hM, hxy⟩
+  have h := hM (fun i => ((![1, 1] i : ℤ) : ℚ))
+  rw [hxy] at h
+  norm_num at h
 
 /-- Uniform rational plane-curve bound. §1 pp.553–555 and562; §2 p.564; complete §3 pp.567–575 in the specified arXiv reprint. -/
 theorem uniform_ternary_curve_bound (d : ℕ) (hd : 2 ≤ d) (ε : ℝ) (hε : 0 < ε) :
@@ -792,11 +977,15 @@ theorem surface_all_points_bound (d : ℕ) (hd : 2 ≤ d) (ε : ℝ) (hε : 0<ε
 
 
 /-- The two-adic quadratic base at modulus eight has nonzero mass. -/
-example : completePowerSum 2 8 1 =
+theorem completePowerSum.quadratic_at_eight : completePowerSum 2 8 1 =
     4 * Complex.exp (Complex.I * Real.pi / 4) := by sorry
 
 /-- The modulus-two quadratic base vanishes. -/
-example : completePowerSum 2 2 1 = 0 := by sorry
+example : completePowerSum 2 2 1 = 0 := by
+  norm_num [completePowerSum, Fin.sum_univ_succ, fourier_coe_apply]
+  rw [show 2 * (Real.pi : ℂ) * Complex.I * (1/2) = Real.pi * Complex.I by ring,
+    Complex.exp_pi_mul_I]
+  ring
 
 /-!
 The README also specifies `crtCharacterEquiv`, `cubicHInvariant` and
