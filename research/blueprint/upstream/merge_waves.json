@@ -50,7 +50,7 @@
   "PerfectoidQuotients": 7,
   "PrismaticCohomology": 17,
   "CohomologyComparisons": 27,
-  "AnalyticNumberTheory": 19,
+  "AnalyticNumberTheory": 15,
   "ArithmeticStatistics": 28,
   "ColemanIntegration": 23,
   "DirichletPadicLFunctions": 18,
@@ -281,6 +281,16 @@
   "DeRhamCohomologyAndDuality": 1,
   "SmoothBundlesConnections": 1,
   "ModularCurves": 1,
-  "RootSystems": 1
+  "RootSystems": 1,
+  "GeometricFreyMazur": 1,
+  "ReductiveGroupsPartIII": 1,
+  "FourierDeligneTransform": 1,
+  "QuasiregularMaps": 1,
+  "PotentialAutomorphyInfrastructurePartII": 1,
+  "GL2ModularityLiftingPartII": 1,
+  "ExponentialSumsAndCircleMethodPartII": 1,
+  "EllipticCurveModularityTotallyReal": 1,
+  "AdicSpacesPartV": 1,
+  "YangMillsConnectionsAndCaloricGauge": 1
  }
 }
