@@ -1,0 +1,42 @@
+{
+  "id": "AnabelianGeometryAndNonabelianChabautyPartII",
+  "title": "Anabelian geometry and nonabelian Chabauty, Part II: duplicate-route disposition",
+  "area": "arithmeticgeometry",
+  "status": "merge-proposed",
+  "canonicalRoadmap": "GaloisSectionsPadicPeriodMaps",
+  "summary": "This generated identifier has no mathematical scope beyond the accepted GaloisSectionsPadicPeriodMaps plan. This file records a merge proposal for the maintainer, not a second roadmap for publication.",
+  "readme": "The requested Betts–Stix continuation is owned by GaloisSectionsPadicPeriodMaps. See the companion reader and packet for the complete 48-item routing crosswalk and retirement evidence. No layers are introduced under this duplicate identifier. Resolve the merge proposal before any promotion.",
+  "prerequisites": [
+    "GaloisSectionsPadicPeriodMaps"
+  ],
+  "stages": [],
+  "sources": [
+    {
+      "id": "bs-v1",
+      "title": "Galois sections and p-adic period mappings",
+      "authors": "L. Alexander Betts and Jakob Stix",
+      "edition": "arXiv:2204.13674v1, 28 April 2022, 59 pages. Published in Annals of Mathematics 201 (2025), 79–166; the published revision was not compared. All locators here use v1.",
+      "url": "https://arxiv.org/pdf/2204.13674v1",
+      "sha256": "7d4b7d49c09b979ce4485251ea6f77527fcdb7c516ed7296d20c42e947ef0c18",
+      "readSections": [
+        "Introduction, pp. 1–6",
+        "Lemma 2.15, Proposition 2.16, Definition 2.17, Remark 2.18 and Proposition 2.19, pp. 12–13",
+        "Theorem 3.22 statement and Lemma 3.23 with proof, pp. 28–29",
+        "Definitions 6.1–6.2, Lemma 6.4 and Theorem 6.5, pp. 43–44",
+        "Remark 6.21, Corollary 6.22, proof of Theorem 6.5 and Remark 6.23, pp. 53–54",
+        "Theorem 7.1, relative symplectic pair, section restriction and Proposition 7.2, pp. 54–56"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "merge",
+      "roadmaps": [
+        "AnabelianGeometryAndNonabelianChabautyPartII",
+        "GaloisSectionsPadicPeriodMaps"
+      ],
+      "detail": "The whole brief of #3475 is route 1 of PAPER-BETTS-STIX-25. That route explicitly names GaloisSectionsPadicPeriodMaps and fixed job DESIGN-BETTS-STIX (#952). All 48 routed items already have targets in its accepted packet. RT-PAPER-BETTS-STIX-25/1 independently confirmed that #3475 is a generated duplicate; REV-DESIGN-BETTS-STIX accepted the canonical plan and its identical retirement proposal.",
+      "proposal": "Keep GaloisSectionsPadicPeriodMaps and its SPM.0–SPM.9 layers, nodes, prerequisites, API, tests, planets and open supplier requests unchanged. Fold this generated route into DESIGN-BETTS-STIX and retire DESIGN-AnabelianGeometryAndNonabelianChabautyPartII. Do not promote this disposition as a second roadmap or start a second design/review/package chain. The maintainer applies the queue correction; this job changes no queue or catalogue files."
+    }
+  ]
+}
