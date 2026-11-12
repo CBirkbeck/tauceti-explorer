@@ -1,4 +1,96 @@
-# Independent review of FIX-RT-AREA-iwasawa-3~3
+# Current checkpoint: round three is superseded by accepted round four
+
+Refs #5869. Codex, session `codex-w6sPoG`, 18 October 2026. Input revision
+`a11f844efe3aa71e3608ae9e47a50d7f5463259d`; branch
+`codex-w6sPoG-review-iwasawa-3`. The bot confirmed this session's
+[claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5869#issuecomment-6256176851)
+in [its reply](https://github.com/CBirkbeck/tauceti-explorer/issues/5869#issuecomment-6256178129).
+This session authored neither fix round and claimed no second job.
+
+**Blocked checkpoint: reconcile the obsolete dispatch before another
+continuation.** The earlier report below remains an attributed historical
+review. Its outstanding corrections have since been addressed by
+[fix round four](../redteam/RT-AREA-iwasawa-3.fixes-4.md), merged in
+[PR #10263](https://github.com/CBirkbeck/tauceti-explorer/pull/10263), and
+[independently accepted](REV-FIX-RT-AREA-iwasawa-3~4.md) in
+[PR #10311](https://github.com/CBirkbeck/tauceti-explorer/pull/10311).
+The live successor review issue [#8926](https://github.com/CBirkbeck/tauceti-explorer/issues/8926)
+is closed with `state:done`. Repeating the old missing-exponent,
+model-hypothesis and full-comparison objections would describe stale inputs.
+
+## Fresh dispatch evidence
+
+Read the live #5869 again after claim confirmation, all eight original
+findings and verifier decisions, both fix reports, both review reports, the
+current three packet review objects and their histories, and the actual
+completion predicate in `research/blueprint/issues.py`.
+
+All three shared packets currently have an **accepted** top-level review
+by `independent-review-REV-FIX-RT-AREA-iwasawa-3~4`, dated 18 October 2026.
+The last round-three Motives review is preserved in `reviewHistory`.
+Fresh calls to the unchanged `issues.deliverables_complete` give:
+
+| Dispatch contract | Queue state | Completion result |
+|---|---|---|
+| Round three, seven generated outputs | pending | false |
+| Round three, only its three live-issue outputs substituted in memory | unchanged | false |
+| Round four, nine generated outputs | done | true |
+
+This differs from the preceding checkpoint: narrowing the old dispatch no
+longer suffices. The predicate compares only the **top-level** reviewer with
+the exact job identifier. The two jobs share Motives, GH.0 and Kato, so their
+required reviewer strings cannot simultaneously occupy those objects.
+Restamping the three packets for round three would make the accepted
+round-four completion predicate false. No file was restamped or modified
+to demonstrate this; the conflict follows directly from the two output
+lists and that equality check.
+
+The older edit-scope mismatch also persists: #5869 names the Motives pair
+and report, while its queue adds the GH.0 and Kato packet/suggested pairs.
+Scope clarification was requested while the current state was investigated.
+Expanding those paths alone would not resolve the successor-review conflict.
+
+## Mathematical work already disposed of by the successor
+
+The following is a cross-reference to the completed round-four review,
+**not a new source certification by this session**:
+
+| Finding | Current successor disposition |
+|---|---|
+| /1 | Accepted: independent good models and the unramified local field are separate from the selected-CM conductor condition. |
+| /2 | Accepted: the symmetric-power contribution has twist k−2, giving total twist k−r. |
+| /3 | Accepted: the Hecke exponent is r′−1, with the linear and quadratic Euler factors and distinguishing scalar tests. |
+| /4 | Accepted: the dual-exponential target uses filtration steps and the correct vanishing endpoint. |
+| /5 | Accepted: the Iwasawa twist precedes specialization and localization. |
+| /6 | Accepted: local duality retains the Pontryagin dual and direct restriction limit. |
+| /7 | Accepted: divisor pushforward replaces the false pullback identity. |
+| /8 | Accepted as a specification: the actual full localized comparison algebra, extended fibres, comparison point, heap and both actions are explicit targets. |
+
+The successor report contains its own primary-source locators, checks and
+limits. Its acceptance does not close the unrelated Motives gaps or certify
+formal implementation. Those qualifications remain in force.
+
+## Validation and handoff
+
+Fresh full `scripts/check_blueprint.py` runs pass for Motives (182 nodes),
+GH.0 (66) and Kato (40), each with **zero errors and zero warnings**.
+These are structural checks; this continuation did not reread the primary
+papers or pinned Lean declarations and does not claim a new mathematical
+audit. Whitespace, intake-file and parsed preservation checks also pass.
+No Lean file changed, so Lean was not rerun. Earlier elaboration
+receipts remain attributed to their original sessions. No link map or
+restructuring proposal changed.
+
+Only this report and the [handoff](../handoff/REV-FIX-RT-AREA-iwasawa-3~3.md)
+change. Every packet, review object/history, reader and suggested file is
+preserved. The maintainer should retire the superseded round-three dispatch
+or reconcile predecessor completion with accepted successor reviews before
+redispatching it. Neither queue repair nor manual issue closure is within
+this job's allowed files. The checkpoint is submitted as a draft for
+maintainer disposition, avoiding another automatic release of the obsolete
+job. No second claim, promotion, label change or manual merge was performed.
+
+## Historical review — 17 October 2026
 
 Refs #5869. Codex (GPT-6), session `codex-HPeDsW`, 17 October 2026.
 Input revision `b626c0b9290b778007613c1986c248fb254beacb`;
