@@ -1,9 +1,9 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T14:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T15:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #820 DiamondsAndVStacks — ready (approved at an earlier head)
+- #820 DiamondsAndVStacks — draft
 - #1145 SmoothBanachRepresentations — draft
 - #1314 HabiroCyclotomicCompletions — ready (approved at an earlier head)
 - #1807 decycle-main — draft
@@ -43,6 +43,7 @@ Generated 2026-11-13T14:40Z from the README supplier graph of every open pull re
 - #2271 GaloisActionOnEtaleCohomology — draft
 - #2272 SchemeAndStackFoundationsPartII — draft
 - #2273 NonabelianLevelStructures — draft
+- #2276 LogicAndDefinabilityInNumberTheory — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -52,7 +53,7 @@ Generated 2026-11-13T14:40Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #816 PerfectoidTowers — ready (approved at an earlier head); waits on #820
+- #816 PerfectoidTowers — draft; waits on #820
 - #1167 AnalyticNumberTheoryPartII — ready; waits on #1913
 - #1411 IntegralLattices — draft; waits on #2212
 - #1630 EnhancedDerivedSheaves — draft; waits on #1892
@@ -66,7 +67,7 @@ Generated 2026-11-13T14:40Z from the README supplier graph of every open pull re
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630, #2140
 
 ## Wave 4
-- #792 AdelicAlgebraicGroups — ready; waits on #1167, #1411, #1688
+- #792 AdelicAlgebraicGroups — draft; waits on #1167, #1411, #1688
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #1891, #816
 - #1212 GeneralAlgebraicKTheory — ready; waits on #1227
 - #1486 QuiverRepresentationsPartII — draft; waits on #1688
@@ -226,7 +227,7 @@ Generated 2026-11-13T14:40Z from the README supplier graph of every open pull re
 
 ## Wave 25
 - #1005 HilbertModularVarietiesAndShimuraCurves — ready; waits on #1001, #1034, #1037, #1038, #1688, #1689, #1891, #1892, #2140, #792, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #924, #925, #928, #929, #931, #933, #966
-- #1021 AnabelianGeometryAndNonabelianChabauty — draft; waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #1418, #1891, #1892, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #929, #940, #966
+- #1021 AnabelianGeometryAndNonabelianChabauty — ready; waits on #1000, #1001, #1002, #1017, #1043, #1062, #1313, #1418, #1891, #1892, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #929, #940, #966
 - #1063 MetaplecticAutomorphicForms — ready (approved at an earlier head); waits on #1037, #1411, #1688, #792, #851, #856, #924, #925, #931, #999
 - #1176 ArithmeticStatisticsPartVI — ready; waits on #1017, #1167, #1171, #1173, #1174, #1175, #1892, #2140, #792, #849, #850, #851, #852, #856, #858, #869, #929, #931, #933, #968, #970
 - #1209 RelativeFarguesFontaine — ready; waits on #1034, #1044, #1062, #1205, #820, #940, #964
@@ -346,7 +347,7 @@ Generated 2026-11-13T14:40Z from the README supplier graph of every open pull re
 - #1742 GeneralAlgebraicKTheoryPartII — draft; waits on #1044, #1057, #1212, #1227, #1229, #1248, #1281, #1351, #1493, #1630, #1733, #1798, #2140
 - #1757 ScholzeFunctorAndModpCohomologyOfTheLubinTateTower — draft; waits on #1005, #1007, #1034, #1035, #1044, #1062, #1075, #1084, #1085, #1090, #1248, #1270, #1307, #1312, #1688, #1891, #816, #820, #875, #922, #923, #931, #999
 - #1804 KatoEulerSystems — draft; waits on #1007, #1017, #1018, #1019, #1229, #1270, #1272, #1302, #1307, #1424, #1491, #1498, #1891, #2140, #858, #869, #913, #924, #931, #968
-- #1814 TopologicalMirrorSymmetryForHitchinSystems — draft; waits on #1040, #1064, #1313, #1547, #1891, #1892, #848, #849, #853, #856, #858, #929, #999
+- #1814 TopologicalMirrorSymmetryForHitchinSystems — draft; waits on #1040, #1064, #1313, #1547, #1891, #1892, #2276, #848, #849, #853, #856, #858, #929, #999
 - #1833 ArakelovGeometryAndAbelianHeightsPartII — draft; waits on #1000, #1017, #1225, #1313, #1335, #1487, #1494, #1841, #1892, #848, #852, #873
 - #1844 HeckeStacksAndLocalShtukasPartII — draft; waits on #1230, #1235, #1241, #1688, #2212, #850
 
