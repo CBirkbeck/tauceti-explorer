@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T18:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T19:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -10,7 +10,7 @@ Generated 2026-11-13T18:50Z from the README supplier graph of every open pull re
 - #1415 ArithmeticDirichletSeriesPartII — draft
 - #1421 ProbabilisticAndMetricNumberTheory — draft
 - #1486 QuiverRepresentationsPartII — draft
-- #1689 IntegralHeckeAndGaloisDeterminants — ready
+- #1689 IntegralHeckeAndGaloisDeterminants — ready (approved at an earlier head)
 - #1807 decycle-main — draft
 - #1808 decycle6-mc-ssf — draft
 - #1892 JacobianChallenge — draft
