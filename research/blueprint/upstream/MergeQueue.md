@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T18:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T18:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -110,7 +110,7 @@ Generated 2026-11-13T18:10Z from the README supplier graph of every open pull re
 
 ## Wave 8
 - #848 ComplexComparisonPartII — draft; waits on #1630, #1891, #1892, #2127, #853, #857, #868
-- #1229 SchemeKTheoryOperations — draft; waits on #1212, #1227, #1630, #1892, #853
+- #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #1630, #1892, #853
 - #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310, #1688, #1689, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
