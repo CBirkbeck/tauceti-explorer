@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T18:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T18:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -77,8 +77,8 @@ Generated 2026-11-13T18:00Z from the README supplier graph of every open pull re
 - #1838 ProbabilisticAndMetricNumberTheoryPartII — draft; waits on #1415, #1421
 
 ## Wave 3
-- #1227 StableHomotopyKTheory — maintainer approved; waits on #1411, #1798
-- #1688 SmoothRepresentationsOfLocalGroups — maintainer approved; waits on #1630
+- #1227 StableHomotopyKTheory — draft; waits on #1411, #1798
+- #1688 SmoothRepresentationsOfLocalGroups — draft; waits on #1630
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630
 
 ## Wave 4
@@ -89,7 +89,7 @@ Generated 2026-11-13T18:00Z from the README supplier graph of every open pull re
 - #1689 IntegralHeckeAndGaloisDeterminants — ready; waits on #1688
 
 ## Wave 5
-- #868 DerivedDeRhamCohomology — draft; waits on #1630, #940
+- #868 DerivedDeRhamCohomology — ready (approved at an earlier head); waits on #1630, #940
 - #1306 IntegralIwasawaTheory — ready; waits on #1689, #1891
 - #1495 SieveMethodsAndPrimePatterns — draft; waits on #1411, #792
 - #2026 ArithmeticFuchsianGroups — draft; waits on #1913, #792
@@ -146,7 +146,7 @@ Generated 2026-11-13T18:00Z from the README supplier graph of every open pull re
 - #1839 ProfiniteCohomologyPartII — draft; waits on #1302, #850, #858
 
 ## Wave 14
-- #869 SelmerIwasawaCohomology — draft; waits on #1306, #1307, #1312, #816, #849, #852, #858, #879, #940
+- #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #1306, #1307, #1312, #816, #849, #852, #858, #879, #940
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1411, #1891, #1892, #848, #850, #852, #853
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #1891, #2212, #792, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #1688, #1689, #856, #1056
