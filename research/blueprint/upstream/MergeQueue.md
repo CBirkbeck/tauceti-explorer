@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T16:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T16:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #820 DiamondsAndVStacks — draft
@@ -70,13 +70,13 @@ Generated 2026-11-13T16:00Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #816 PerfectoidTowers — draft; waits on #820
-- #1167 AnalyticNumberTheoryPartII — ready; waits on #1913
+- #1167 AnalyticNumberTheoryPartII — maintainer approved; waits on #1913
 - #1411 IntegralLattices — draft; waits on #2212
 - #1630 EnhancedDerivedSheaves — draft; waits on #1892
 - #1798 DGFloer — draft; waits on #2127
 
 ## Wave 3
-- #1227 StableHomotopyKTheory — ready; waits on #1411, #1798
+- #1227 StableHomotopyKTheory — maintainer approved; waits on #1411, #1798
 - #1415 ArithmeticDirichletSeriesPartII — draft; waits on #1167
 - #1421 ProbabilisticAndMetricNumberTheory — draft; waits on #1167
 - #1688 SmoothRepresentationsOfLocalGroups — ready; waits on #1630
