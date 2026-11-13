@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T19:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T20:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -171,7 +171,7 @@ Generated 2026-11-13T19:40Z from the README supplier graph of every open pull re
 - #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #1037, #1689, #1891, #1892, #850, #853, #856, #858, #871, #929
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #1630, #816, #875, #922
 - #1057 PrismaticCohomology — ready (approved at an earlier head); waits on #1042, #1044, #1630, #1891, #857, #868
-- #1281 KTheoryFiniteLocalFields — draft; waits on #1044, #1212, #1229, #1248, #1266, #1302, #1891, #851, #857, #858
+- #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head); waits on #1044, #1212, #1229, #1248, #1266, #1302, #1891, #851, #857, #858
 
 ## Wave 18
 - #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #856, #858, #871, #924
