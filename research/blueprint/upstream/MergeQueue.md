@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T16:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T17:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #820 DiamondsAndVStacks — draft
@@ -70,7 +70,7 @@ Generated 2026-11-13T16:50Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #816 PerfectoidTowers — draft; waits on #820
-- #1167 AnalyticNumberTheoryPartII — maintainer approved; waits on #1913
+- #1167 AnalyticNumberTheoryPartII — draft; waits on #1913
 - #1411 IntegralLattices — draft; waits on #2212
 - #1630 EnhancedDerivedSheaves — draft; waits on #1892
 - #1798 DGFloer — draft; waits on #2127
@@ -150,7 +150,7 @@ Generated 2026-11-13T16:50Z from the README supplier graph of every open pull re
 
 ## Wave 14
 - #869 SelmerIwasawaCohomology — draft; waits on #1306, #1307, #1312, #816, #849, #852, #858, #879, #940
-- #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #1891, #1892, #2140, #848, #850, #852, #853
+- #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1411, #1891, #1892, #2140, #848, #850, #852, #853
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #1891, #2140, #2212, #792, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #1688, #1689, #856, #1056
 - #1225 JacobianChallengePartII — ready; waits on #1892, #848, #849, #852, #853
@@ -185,7 +185,7 @@ Generated 2026-11-13T16:50Z from the README supplier graph of every open pull re
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready; waits on #1306, #1309, #854, #924
 - #1065 PrismaticCohomologyPartII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1630, #857, #868
-- #1313 MotivesAndAlgebraicCycles — ready (approved at an earlier head); waits on #1229, #1281, #1630, #1891, #848
+- #1313 MotivesAndAlgebraicCycles — draft; waits on #1229, #1281, #1630, #1891, #848
 - #1418 ArithmeticKTheory — draft; waits on #1212, #1227, #1229, #1248, #1260, #1266, #1281, #1302, #1306, #1891, #1892, #792, #851, #858, #869, #871, #924
 - #1755 ArcTopologyAndDescent — draft; waits on #1042, #1057, #1229, #1630, #1891, #2286, #820, #868, #875
 
