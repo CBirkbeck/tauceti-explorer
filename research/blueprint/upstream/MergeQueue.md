@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T11:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T12:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #820 DiamondsAndVStacks — ready (approved at an earlier head)
@@ -184,7 +184,7 @@ Generated 2026-11-13T11:50Z from the README supplier graph of every open pull re
 - #1743 EtaleDualityAndPerverseSheavesPartII — draft; waits on #1034, #1040, #1042, #1630, #1755, #1796, #1891, #853, #873, #875
 
 ## Wave 22
-- #1002 PadicDifferentialEquationsAndRigidCohomology — draft; waits on #1307, #1313, #1504, #1630, #1891, #1892, #849, #850, #854, #856, #857, #868, #873, #875, #879, #913, #929, #940, #965
+- #1002 PadicDifferentialEquationsAndRigidCohomology — ready (approved at an earlier head); waits on #1307, #1313, #1504, #1630, #1891, #1892, #849, #850, #854, #856, #857, #868, #873, #875, #879, #913, #929, #940, #965
 - #1038 ShimuraData — ready; waits on #1037, #792, #848, #849, #871, #933, #966
 - #1172 ArithmeticStatisticsPartIV — ready (approved at an earlier head); waits on #1167, #1171
 - #1173 ArithmeticStatisticsPartII — ready; waits on #1167, #1171, #1892, #849, #851, #852, #853, #858, #869
