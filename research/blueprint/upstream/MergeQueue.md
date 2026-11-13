@@ -26,6 +26,9 @@ Generated 2026-11-13T10:40Z from the README supplier graph of every open pull re
 - #2185 EllipticCurveModularityTotallyReal — draft
 - #2212 RootSystems — draft
 - #2254 LefschetzPencilsAndVanishingCyclesPartII — draft
+- #2255 MathematicalBilliards — draft
+- #2256 EndoscopicTransferAndUnitaryTraceComparisonPartII — draft
+- #2257 PadicHodgeParametersInLocallyAnalyticRepresentations — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
