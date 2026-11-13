@@ -50,7 +50,7 @@
   "PerfectoidQuotients": 7,
   "PrismaticCohomology": 17,
   "CohomologyComparisons": 27,
-  "AnalyticNumberTheory": 15,
+  "AnalyticNumberTheory": 17,
   "ArithmeticStatistics": 28,
   "ColemanIntegration": 23,
   "DirichletPadicLFunctions": 18,
@@ -303,6 +303,12 @@
   "CompletedCohomologyAndLocalGlobalCompatibilityPartII": 1,
   "InverseGaloisAndArithmeticFundamentalGroupsPartII": 1,
   "VectorBundlesAndIsocrystalsPartII": 1,
-  "CrystallineCohomologyPartII": 1
+  "CrystallineCohomologyPartII": 1,
+  "MappingClassGroupsAndCanonicalRepresentations": 1,
+  "IntegralIwasawaTheoryPartII": 1,
+  "OrdinaryAutomorphicFormsAndModularityLiftingPartII": 1,
+  "GaloisActionOnEtaleCohomology": 1,
+  "SchemeAndStackFoundationsPartII": 1,
+  "NonabelianLevelStructures": 1
  }
 }
