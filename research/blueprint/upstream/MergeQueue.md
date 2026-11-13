@@ -29,6 +29,14 @@ Generated 2026-11-13T12:00Z from the README supplier graph of every open pull re
 - #2255 MathematicalBilliards — draft
 - #2256 EndoscopicTransferAndUnitaryTraceComparisonPartII — draft
 - #2257 PadicHodgeParametersInLocallyAnalyticRepresentations — draft
+- #2258 LocalFieldsRamificationPartII — draft
+- #2259 PerfectoidQuotientsPartII — draft
+- #2260 AmenableTracesOnCStarAlgebras — draft
+- #2261 MetaplecticAutomorphicFormsPartII — draft
+- #2262 CompletedCohomologyAndLocalGlobalCompatibilityPartII — draft
+- #2263 InverseGaloisAndArithmeticFundamentalGroupsPartII — draft
+- #2264 VectorBundlesAndIsocrystalsPartII — draft
+- #2265 CrystallineCohomologyPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -140,7 +148,7 @@ Generated 2026-11-13T12:00Z from the README supplier graph of every open pull re
 - #928 AlgebraicModularFormsAndSerreWeights — ready (approved at an earlier head); waits on #1037, #1891, #1892, #2140, #848, #849, #856, #879, #913
 - #929 DeligneWeightsAndPurity — ready; waits on #1891, #1892, #2140, #849, #850, #856, #858, #873, #913
 - #1044 AInfCohomology — ready (approved at an earlier head); waits on #1042, #1630, #857, #858, #868, #875, #879, #940
-- #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #1754, #1891, #857, #873, #875
+- #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #1754, #1891, #2258, #857, #873, #875
 
 ## Wave 17
 - #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #1037, #1167, #1688, #1689, #1891, #1892, #792, #850, #853, #856, #858, #871, #929
@@ -168,12 +176,12 @@ Generated 2026-11-13T12:00Z from the README supplier graph of every open pull re
 - #1432 K2SymbolsBrauerPartII — draft; waits on #1212, #1248, #1281, #1302, #1418, #1891, #858, #869, #873
 - #1470 MotivicEtaleKTheory — draft; waits on #1212, #1229, #1281, #1313, #1630, #1891, #848
 - #1691 GeometryOfNumbersAndQuadraticArithmeticPartII — draft; waits on #1212, #1266, #1281, #1411, #1418, #851
-- #1834 QuadraticFormInvariantsPartII — draft; waits on #1266, #1281, #1302, #1313, #1796, #851, #858, #875, #929
+- #1834 QuadraticFormInvariantsPartII — draft; waits on #1266, #1281, #1302, #1313, #1796, #2258, #851, #858, #875, #929
 
 ## Wave 20
 - #933 ShimuraVarieties — ready; waits on #2140, #792, #848, #849, #850, #852, #853, #856, #871, #913, #931
 - #1040 EtaleDualityAndPerverseSheaves — ready (approved at an earlier head); waits on #1630, #1891, #1892, #848, #849, #850, #856, #873, #875, #924, #929, #931, #965
-- #1840 PurityForFlatCohomology — draft; waits on #1034, #1042, #1057, #1065, #1070, #1630, #1891, #2140, #858, #868, #873, #879
+- #1840 PurityForFlatCohomology — draft; waits on #1034, #1042, #1057, #1065, #1070, #1630, #1891, #2140, #2259, #858, #868, #873, #879
 
 ## Wave 21
 - #966 PELModuli — ready (approved at an earlier head); waits on #1891, #2140, #792, #848, #849, #852, #853, #858, #879, #913, #933
@@ -181,7 +189,7 @@ Generated 2026-11-13T12:00Z from the README supplier graph of every open pull re
 - #1171 ArithmeticStatisticsPartI — ready; waits on #1040, #1167, #1272, #1411, #1892, #792, #849, #850, #851, #852, #858, #869, #879, #929
 - #1504 CongruenceSpectralGap — draft; waits on #1037, #1040, #1688, #1891, #1913, #792, #856, #871, #873, #924, #925, #929, #931
 - #1694 AlgebraicTopologyPartII — draft; waits on #1040, #1227, #1313, #1798, #2127, #848, #850
-- #1743 EtaleDualityAndPerverseSheavesPartII — draft; waits on #1034, #1040, #1042, #1630, #1755, #1796, #1891, #853, #873, #875
+- #1743 EtaleDualityAndPerverseSheavesPartII — draft; waits on #1034, #1040, #1042, #1630, #1755, #1796, #1891, #2259, #853, #873, #875
 
 ## Wave 22
 - #1002 PadicDifferentialEquationsAndRigidCohomology — ready (approved at an earlier head); waits on #1307, #1313, #1504, #1630, #1891, #1892, #849, #850, #854, #856, #857, #868, #873, #875, #879, #913, #929, #940, #965
@@ -267,7 +275,7 @@ Generated 2026-11-13T12:00Z from the README supplier graph of every open pull re
 - #1490 GlobalShtukasAndFunctionFieldLanglands — draft; waits on #1040, #1202, #1209, #1235, #1313, #1474, #1688, #1689, #1891, #1892, #853, #858, #873, #875, #924, #925, #929, #999
 - #1531 ArithmeticStatistics — draft; waits on #1171, #1172, #1173, #1174, #1175, #1176, #1178, #1179
 - #1739 GaloisSectionsPadicPeriodMaps — draft; waits on #1001, #1017, #1021, #1040, #1062, #1064, #1231, #1891, #848, #849, #850, #853, #856, #858
-- #1759 CstConjectureForDaggerVarieties — draft; waits on #1062, #1064, #1205, #854, #857, #875
+- #1759 CstConjectureForDaggerVarieties — draft; waits on #1062, #1064, #1205, #2264, #854, #857, #875
 - #1760 DeligneWeightsAndPurityPartII — draft; waits on #1040, #1053, #1647, #1891, #849, #856, #873, #875, #879, #929
 - #1830 DiamondsAndVStacksPartII — draft; waits on #1057, #1229, #1235, #1755, #2140, #820, #879, #922, #965
 - #1841 StableReductionPartII — draft; waits on #1034, #1053, #1225, #1231, #1375, #1405, #1630, #1892, #2140, #848, #849, #852, #853, #913, #966
