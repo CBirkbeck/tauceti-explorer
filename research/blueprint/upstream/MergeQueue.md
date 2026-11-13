@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-13T15:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-13T15:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #820 DiamondsAndVStacks — draft
@@ -96,13 +96,13 @@ Generated 2026-11-13T15:20Z from the README supplier graph of every open pull re
 - #1945 ExplicitPrimeCounting — draft; waits on #1495, #1913, #1954
 
 ## Wave 8
-- #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #1630, #1891, #1892, #2127, #2140, #853, #857, #868
+- #848 ComplexComparisonPartII — draft; waits on #1630, #1891, #1892, #2127, #2140, #853, #857, #868
 - #1229 SchemeKTheoryOperations — draft; waits on #1212, #1227, #1630, #1892, #853
 - #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310, #1688, #1689, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 9
-- #849 AbelianSchemesAndArithmeticModuli — ready; waits on #1630, #1891, #1892, #2140, #848, #853, #857
+- #849 AbelianSchemesAndArithmeticModuli — draft; waits on #1630, #1891, #1892, #2140, #848, #853, #857
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #1310, #1312, #857
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #1630, #1688, #1689, #1891, #792, #848
 - #1248 KTheoryLowDegrees — ready; waits on #1212, #1227, #1229, #1630, #1892, #792
@@ -120,8 +120,8 @@ Generated 2026-11-13T15:20Z from the README supplier graph of every open pull re
 - #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1411, #1688, #1891, #2212, #792, #856, #871
 
 ## Wave 12
-- #850 InverseGaloisAndArithmeticFundamentalGroups — ready; waits on #1495, #1630, #1798, #1891, #1892, #2140, #792, #848, #849, #853, #856, #858
-- #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #1212, #1227, #1411, #1421, #1495, #1630, #792, #858
+- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1495, #1630, #1798, #1891, #1892, #2140, #792, #848, #849, #853, #856, #858
+- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1227, #1411, #1421, #1495, #1630, #792, #858
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #1688, #1891, #2140, #849, #856, #857, #858, #868, #940
 
