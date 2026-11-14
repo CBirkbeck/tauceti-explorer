@@ -50,7 +50,7 @@
   "PerfectoidQuotients": 7,
   "PrismaticCohomology": 17,
   "CohomologyComparisons": 27,
-  "AnalyticNumberTheory": 17,
+  "AnalyticNumberTheory": 14,
   "ArithmeticStatistics": 28,
   "ColemanIntegration": 23,
   "DirichletPadicLFunctions": 18,
@@ -323,6 +323,8 @@
   "KloostermanSheavesAndBesselIsocrystals": 1,
   "NonordinaryCMSpecialValues": 1,
   "PotentialAutomorphyDworkMotivesPartII": 1,
-  "LocallyAnalyticRepresentationsOfLocalGroups": 1
+  "LocallyAnalyticRepresentationsOfLocalGroups": 1,
+  "PadicDifferentialEquationsAndRigidCohomologyPartII": 1,
+  "KloostermanMomentsAndPotentialAutomorphy": 1
  }
 }

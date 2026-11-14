@@ -64,6 +64,8 @@ Generated 2026-11-14T02:00Z from the README supplier graph of every open pull re
 - #2290 NonordinaryCMSpecialValues — draft
 - #2291 PotentialAutomorphyDworkMotivesPartII — draft
 - #2294 LocallyAnalyticRepresentationsOfLocalGroups — draft
+- #2300 PadicDifferentialEquationsAndRigidCohomologyPartII — draft
+- #2301 KloostermanMomentsAndPotentialAutomorphy — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
