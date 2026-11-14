@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-14T02:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-14T06:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -66,6 +66,7 @@ Generated 2026-11-14T02:00Z from the README supplier graph of every open pull re
 - #2294 LocallyAnalyticRepresentationsOfLocalGroups — draft
 - #2300 PadicDifferentialEquationsAndRigidCohomologyPartII — draft
 - #2301 KloostermanMomentsAndPotentialAutomorphy — draft
+- #2302 SpectralSequencesAndConvergence — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -146,7 +147,7 @@ Generated 2026-11-14T02:00Z from the README supplier graph of every open pull re
 
 ## Wave 14
 - #869 SelmerIwasawaCohomology — draft; waits on #1306, #1307, #1312, #816, #849, #852, #858, #879, #940
-- #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1411, #1891, #1892, #848, #850, #852, #853
+- #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #1891, #1892, #848, #850, #852, #853
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #1891, #2212, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #1689, #856, #1056
 - #1225 JacobianChallengePartII — ready; waits on #1892, #848, #849, #852, #853
