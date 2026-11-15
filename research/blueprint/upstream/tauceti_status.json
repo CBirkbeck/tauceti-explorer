@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T05:30Z",
+ "updated": "2026-11-15T05:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -184,7 +184,7 @@
    ],
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -201,7 +201,7 @@
    ],
    "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -307,7 +307,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "8180432",
+   "head": "66647f8",
    "depends_on": [
     779,
     856,
@@ -347,7 +347,7 @@
   "SelmerIwasawaCohomology": {
    "stage": "pr",
    "pr": 869,
-   "head": "ebadda3",
+   "head": "8e1b4ae",
    "depends_on": [
     858,
     779,
@@ -356,7 +356,7 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": null,
     "maintainer": null,
@@ -366,7 +366,7 @@
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
    "stage": "pr",
    "pr": 870,
-   "head": "9027cc3",
+   "head": "bfb3830",
    "depends_on": [
     852,
     779,
@@ -375,7 +375,7 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": null,
     "maintainer": null,
@@ -410,7 +410,7 @@
    "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -433,7 +433,7 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -444,7 +444,7 @@
   "ClassicalAdicEtaleCohomology": {
    "stage": "pr",
    "pr": 875,
-   "head": "fc1c03a",
+   "head": "4b7a299",
    "depends_on": [
     817,
     813,
@@ -460,8 +460,8 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -498,10 +498,10 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "5d81b10",
+   "head": "9be1eb8",
    "note": "N3 CHANGES answered 10-16",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -515,11 +515,11 @@
   "GlobalGaloisDeformations": {
    "stage": "pr",
    "pr": 920,
-   "head": "c3a764e",
+   "head": "373d2c5",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next)",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -536,7 +536,7 @@
    "note": "companion: C4.1 consumes DiamondsAndVStacks D4.11 10-16",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -546,10 +546,10 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "23fae83",
+   "head": "e8e7f63",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 15bab3b",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -924,7 +924,7 @@
    "head": "53608b1",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -1015,7 +1015,7 @@
    "head": "46c6938",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1045,7 +1045,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "EffectiveDiophantineMethods": {
@@ -1453,11 +1453,11 @@
   "LanglandsParameterStacks": {
    "stage": "pr",
    "pr": 1202,
-   "head": "032037c",
+   "head": "04801e3",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1574,10 +1574,10 @@
   "RelativeJacobiansAndIntegralCurveModels": {
    "stage": "pr",
    "pr": 1232,
-   "head": "f6d3602",
+   "head": "2af2fd0",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: modular curves); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1616,8 +1616,8 @@
    "head": "101144f",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1704,11 +1704,11 @@
   "EulerSystemsAndKolyvaginSystems": {
    "stage": "pr",
    "pr": 1272,
-   "head": "ccd7e7a",
+   "head": "a0e5702",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1734,7 +1734,7 @@
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1756,7 +1756,7 @@
   "NoncommutativeAndEquivariantIwasawa": {
    "stage": "pr",
    "pr": 1307,
-   "head": "77cb9a8",
+   "head": "45811bd",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
