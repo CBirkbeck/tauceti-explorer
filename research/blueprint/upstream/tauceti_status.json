@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T23:30Z",
+ "updated": "2026-11-15T23:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -108,9 +108,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "AbelianSchemesAndArithmeticModuli": {
@@ -198,9 +198,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "LocallyAnalyticDistributions": {
@@ -255,30 +255,8 @@
    }
   },
   "CrystallineCohomology": {
-   "stage": "pr",
-   "pr": 857,
-   "head": "b97c462",
-   "depends_on": [
-    779,
-    789,
-    813,
-    814,
-    815,
-    818,
-    820,
-    853,
-    849,
-    854,
-    868
-   ],
-   "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticGaloisDuality": {
    "stage": "pr",
@@ -302,23 +280,8 @@
    }
   },
   "DerivedDeRhamCohomology": {
-   "stage": "pr",
-   "pr": 868,
-   "head": "9c29cd5",
-   "depends_on": [
-    857,
-    818,
-    779,
-    789
-   ],
-   "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "SelmerIwasawaCohomology": {
    "stage": "pr",
@@ -732,11 +695,11 @@
   "WeightsInEtaleCohomology": {
    "stage": "pr",
    "pr": 1001,
-   "head": "2103290",
+   "head": "7faeb58",
    "note": "ported 2026-10-16 (tier 12); both author-side red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -758,11 +721,11 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "19961e7",
+   "head": "f1f8fc9",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -823,7 +786,7 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "525f074",
+   "head": "ece41e2",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "changes",
@@ -914,11 +877,11 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
    "pr": 1036,
-   "head": "e144184",
+   "head": "f4b7dbb",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -966,28 +929,19 @@
   "EtaleDualityAndPerverseSheaves": {
    "stage": "pr",
    "pr": 1040,
-   "head": "ceff72f",
+   "head": "8f73cc3",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
    }
   },
   "PerfectoidQuotients": {
-   "stage": "pr",
-   "pr": 1042,
-   "head": "46c6938",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ColemanIntegration": {
    "stage": "pr",
@@ -1018,7 +972,7 @@
   "EffectiveDiophantineMethods": {
    "stage": "pr",
    "pr": 1046,
-   "head": "e98a4b0",
+   "head": "9c393ae",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
    "review": {
     "recommendation": "changes",
@@ -1286,11 +1240,11 @@
   "ArithmeticStatisticsPartI": {
    "stage": "pr",
    "pr": 1171,
-   "head": "95df277",
+   "head": "38b54bc",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1393,8 +1347,8 @@
    "head": "01bc07c",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; final tier before CrystallineLocalGlobalCompatibilityCM); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1446,10 +1400,10 @@
   "WeilConjectures": {
    "stage": "pr",
    "pr": 1208,
-   "head": "9587601",
+   "head": "71279d6",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
