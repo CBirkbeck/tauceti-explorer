@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T20:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T20:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #940 PadicPeriodRings — maintainer approved
@@ -105,7 +105,7 @@ Generated 2026-11-15T20:40Z from the README supplier graph of every open pull re
 ## Wave 6
 - #849 AbelianSchemesAndArithmeticModuli — draft; waits on #1630, #848, #853, #857
 - #854 LocallyAnalyticDistributions — draft; waits on #1310, #1312, #857
-- #871 ArithmeticLocallySymmetricSpaces — ready; waits on #1630, #848
+- #871 ArithmeticLocallySymmetricSpaces — maintainer approved; waits on #1630, #848
 - #1248 KTheoryLowDegrees — ready; waits on #1212, #1229, #1630
 - #1741 SchemeKTheoryOperationsPartII — draft; waits on #1212, #1229, #1630
 - #1754 AlgebraicModuliForArithmeticGeometryPartII — draft; waits on #848, #853
