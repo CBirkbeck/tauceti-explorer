@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T20:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T20:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -91,12 +91,12 @@ Generated 2026-11-15T20:10Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #940 PadicPeriodRings — maintainer approved; waits on #1891
-- #1306 IntegralIwasawaTheory — ready; waits on #1689, #1891
+- #1306 IntegralIwasawaTheory — maintainer approved; waits on #1689, #1891
 - #1954 ExplicitZetaBounds — draft; waits on #1495, #1913
 
 ## Wave 5
 - #868 DerivedDeRhamCohomology — draft; waits on #1630, #940
-- #1260 CyclotomicClassGroupsAndStickelberger — ready; waits on #1306, #1689, #1892, #940
+- #1260 CyclotomicClassGroupsAndStickelberger — maintainer approved; waits on #1306, #1689, #1892, #940
 - #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212, #1306, #1689, #1891, #940
 - #1309 ColemanPowerSeries — ready; waits on #1306
 - #1945 ExplicitPrimeCounting — draft; waits on #1495, #1913, #1954
@@ -322,7 +322,7 @@ Generated 2026-11-15T20:10Z from the README supplier graph of every open pull re
 - #1822 AlgebraicModularFormsAndSerreWeightsPartII — draft; waits on #1053, #1069, #1084, #849, #856, #879, #928
 
 ## Wave 31
-- #1018 EllipticCurveModularity — draft; waits on #1004, #1007, #1013, #1020, #1892, #849, #852, #856, #879, #913
+- #1018 EllipticCurveModularity — ready (approved at an earlier head); waits on #1004, #1007, #1013, #1020, #1892, #849, #852, #856, #879, #913
 - #1066 OrdinaryAutomorphicFormsAndModularityLifting — ready; waits on #1005, #1007, #1013, #1019, #1020, #1034, #1039, #1062, #1306, #1307, #1689, #856, #858, #920, #923, #928, #931
 - #1087 TorsionCohomologyInfrastructure — ready; waits on #1006, #1035, #1040, #1053, #1062, #1069, #1084, #1085, #1689, #871, #913, #925, #929, #999
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1035, #1053, #1069, #1084, #1085, #1310, #1312, #854
