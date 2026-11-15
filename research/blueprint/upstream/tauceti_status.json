@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T04:30Z",
+ "updated": "2026-11-15T04:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -130,8 +130,8 @@
    ],
    "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -148,7 +148,7 @@
    ],
    "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -158,7 +158,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "9432671",
+   "head": "2b715c7",
    "depends_on": [
     779,
     785,
@@ -167,8 +167,8 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -184,7 +184,7 @@
    ],
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -201,7 +201,7 @@
    ],
    "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -238,8 +238,8 @@
    ],
    "note": "N1 CHANGES answered 10-16",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -271,7 +271,7 @@
    ],
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -307,7 +307,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "77ae83a",
+   "head": "8180432",
    "depends_on": [
     779,
     856,
@@ -393,8 +393,8 @@
    ],
    "note": "N3 CHANGES answered 10-16",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -403,13 +403,13 @@
   "DeformationAndDerivedPatchingAlgebraPartII": {
    "stage": "pr",
    "pr": 872,
-   "head": "f9fd940",
+   "head": "51b4ae2",
    "depends_on": [
     779
    ],
    "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": null,
     "maintainer": null,
@@ -437,7 +437,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 469a2c2 (§5.11 profinite degree, continuous powers); ready for re-review"
   },
@@ -470,7 +470,7 @@
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "stage": "pr",
    "pr": 879,
-   "head": "9856719",
+   "head": "74989e9",
    "depends_on": [
     849,
     857,
@@ -921,7 +921,7 @@
   "DeformationAndDerivedPatchingAlgebra": {
    "stage": "pr",
    "pr": 1034,
-   "head": "fab28ea",
+   "head": "53608b1",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
    "review": {
     "recommendation": "changes",
@@ -967,7 +967,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "ShimuraData": {
@@ -1016,7 +1016,7 @@
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1456,11 +1456,11 @@
    "head": "032037c",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "VectorBundlesAndIsocrystals": {
@@ -1521,7 +1521,7 @@
    "head": "2354d71",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1538,7 +1538,7 @@
    "head": "1dfb7dd",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1613,7 +1613,7 @@
   "KTheoryLowDegrees": {
    "stage": "pr",
    "pr": 1248,
-   "head": "11269aa",
+   "head": "101144f",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
@@ -1678,10 +1678,10 @@
   "HermitianKTheoryOfPoincareCategories": {
    "stage": "pr",
    "pr": 1266,
-   "head": "db6600d",
+   "head": "8d4143b",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1730,11 +1730,11 @@
   "K2SymbolsBrauer": {
    "stage": "pr",
    "pr": 1302,
-   "head": "902ff2b",
+   "head": "607bfa8",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1756,11 +1756,11 @@
   "NoncommutativeAndEquivariantIwasawa": {
    "stage": "pr",
    "pr": 1307,
-   "head": "a638121",
+   "head": "77cb9a8",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1811,8 +1811,8 @@
    "head": "90b8808",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true

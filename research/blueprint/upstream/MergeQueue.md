@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T04:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T04:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -98,7 +98,7 @@ Generated 2026-11-15T04:30Z from the README supplier graph of every open pull re
 ## Wave 5
 - #868 DerivedDeRhamCohomology — draft; waits on #1630, #940
 - #1260 CyclotomicClassGroupsAndStickelberger — ready; waits on #1306, #1689, #1892, #940
-- #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212, #1306, #1689, #1891, #940
+- #1307 NoncommutativeAndEquivariantIwasawa — ready (approved at an earlier head); waits on #1212, #1306, #1689, #1891, #940
 - #1309 ColemanPowerSeries — ready; waits on #1306
 - #1945 ExplicitPrimeCounting — draft; waits on #1495, #1913, #1954
 
@@ -107,13 +107,13 @@ Generated 2026-11-15T04:30Z from the README supplier graph of every open pull re
 
 ## Wave 7
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1630, #1892, #857
-- #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #1630, #857, #868
+- #1042 PerfectoidQuotients — ready; waits on #1630, #857, #868
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 8
 - #848 ComplexComparisonPartII — draft; waits on #1630, #1891, #1892, #2127, #853, #857, #868
 - #1229 SchemeKTheoryOperations — ready; waits on #1212, #1630, #1892, #853
-- #1312 PadicLocalLanglandsForGL2Qp — ready (approved at an earlier head); waits on #1307, #1310, #1689, #940
+- #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310, #1689, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 9
@@ -128,7 +128,7 @@ Generated 2026-11-15T04:30Z from the README supplier graph of every open pull re
 
 ## Wave 10
 - #856 ArithmeticGaloisRepresentations — draft; waits on #1312, #1689, #1891, #1892, #849
-- #1302 K2SymbolsBrauer — ready; waits on #1212, #1229, #1248, #2212
+- #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1229, #1248, #2212
 
 ## Wave 11
 - #858 ArithmeticGaloisDuality — draft; waits on #1306, #1307, #1312, #1630, #1891, #816, #849, #853, #856, #940
@@ -151,7 +151,7 @@ Generated 2026-11-15T04:30Z from the README supplier graph of every open pull re
 - #869 SelmerIwasawaCohomology — draft; waits on #1306, #1307, #1312, #816, #849, #852, #858, #879, #940
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #1891, #1892, #848, #850, #852, #853
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #1891, #2212, #848, #849, #850, #852, #853, #856, #857, #858
-- #1202 LanglandsParameterStacks — ready (approved at an earlier head); waits on #1034, #1630, #1689, #856, #1056
+- #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #1689, #856, #1056
 - #1225 JacobianChallengePartII — ready; waits on #1892, #848, #849, #852, #853
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1034, #1042, #1630, #1892, #2286, #868, #872
