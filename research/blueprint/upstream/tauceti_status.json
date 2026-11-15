@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T03:30Z",
+ "updated": "2026-11-15T03:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -123,14 +123,14 @@
   "ComplexComparisonPartII": {
    "stage": "pr",
    "pr": 848,
-   "head": "a021e44",
+   "head": "e8889ef",
    "depends_on": [
     779,
     853
    ],
    "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": null,
     "maintainer": null,
@@ -148,7 +148,7 @@
    ],
    "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -230,7 +230,7 @@
   "LocallyAnalyticDistributions": {
    "stage": "pr",
    "pr": 854,
-   "head": "473fb50",
+   "head": "87685e1",
    "depends_on": [
     780,
     813,
@@ -238,7 +238,7 @@
    ],
    "note": "N1 CHANGES answered 10-16",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": null,
     "maintainer": null,
@@ -271,7 +271,7 @@
    ],
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -281,7 +281,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "5231bad",
+   "head": "b97c462",
    "depends_on": [
     779,
     789,
@@ -297,7 +297,7 @@
    ],
    "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": null,
     "maintainer": null,
@@ -337,8 +337,8 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -385,7 +385,7 @@
   "ArithmeticLocallySymmetricSpaces": {
    "stage": "pr",
    "pr": 871,
-   "head": "4f8e95a",
+   "head": "9882c81",
    "depends_on": [
     792,
     793,
@@ -660,8 +660,8 @@
    "head": "842f937",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 3ed1fc3",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -963,11 +963,11 @@
    "head": "4a03177",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 22); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "ShimuraData": {
@@ -1012,14 +1012,14 @@
   "PerfectoidQuotients": {
    "stage": "pr",
    "pr": 1042,
-   "head": "6fb01ee",
+   "head": "46c6938",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "ColemanIntegration": {
@@ -1538,7 +1538,7 @@
    "head": "1dfb7dd",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1613,11 +1613,11 @@
   "KTheoryLowDegrees": {
    "stage": "pr",
    "pr": 1248,
-   "head": "4d2f327",
+   "head": "11269aa",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1652,10 +1652,10 @@
   "CyclotomicClassGroupsAndStickelberger": {
    "stage": "pr",
    "pr": 1260,
-   "head": "10bc9eb",
+   "head": "f2e0f0d",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / Eisenstein supplier); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1733,8 +1733,8 @@
    "head": "902ff2b",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1746,8 +1746,8 @@
    "head": "72d834e",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1756,7 +1756,7 @@
   "NoncommutativeAndEquivariantIwasawa": {
    "stage": "pr",
    "pr": 1307,
-   "head": "6f7588d",
+   "head": "a638121",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
@@ -1782,10 +1782,10 @@
   "PhiGammaModulesAndIwasawaCohomology": {
    "stage": "pr",
    "pr": 1310,
-   "head": "09f2de3",
+   "head": "e1f38c1",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1808,11 +1808,11 @@
   "PadicLocalLanglandsForGL2Qp": {
    "stage": "pr",
    "pr": 1312,
-   "head": "84416ad",
+   "head": "90b8808",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true

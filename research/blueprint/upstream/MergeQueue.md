@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T03:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T03:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -91,8 +91,8 @@ Generated 2026-11-15T03:30Z from the README supplier graph of every open pull re
 - #1891 EtaleCohomologyFoundations — draft; waits on #1630
 
 ## Wave 4
-- #940 PadicPeriodRings — ready (approved at an earlier head); waits on #1891, #816
-- #1306 IntegralIwasawaTheory — ready (approved at an earlier head); waits on #1689, #1891
+- #940 PadicPeriodRings — ready; waits on #1891, #816
+- #1306 IntegralIwasawaTheory — ready; waits on #1689, #1891
 - #1954 ExplicitZetaBounds — draft; waits on #1495, #1913
 
 ## Wave 5
@@ -107,20 +107,20 @@ Generated 2026-11-15T03:30Z from the README supplier graph of every open pull re
 
 ## Wave 7
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1630, #1892, #857
-- #1042 PerfectoidQuotients — ready; waits on #1630, #857, #868
+- #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #1630, #857, #868
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 8
 - #848 ComplexComparisonPartII — draft; waits on #1630, #1891, #1892, #2127, #853, #857, #868
 - #1229 SchemeKTheoryOperations — ready; waits on #1212, #1630, #1892, #853
-- #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310, #1689, #940
+- #1312 PadicLocalLanglandsForGL2Qp — ready (approved at an earlier head); waits on #1307, #1310, #1689, #940
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 9
 - #849 AbelianSchemesAndArithmeticModuli — draft; waits on #1630, #1891, #1892, #848, #853, #857
 - #854 LocallyAnalyticDistributions — draft; waits on #1310, #1312, #857
 - #871 ArithmeticLocallySymmetricSpaces — draft; waits on #1630, #1689, #1891, #848
-- #1248 KTheoryLowDegrees — ready; waits on #1212, #1229, #1630, #1892
+- #1248 KTheoryLowDegrees — ready (approved at an earlier head); waits on #1212, #1229, #1630, #1892
 - #1741 SchemeKTheoryOperationsPartII — draft; waits on #1212, #1229, #1630, #1892
 - #1754 AlgebraicModuliForArithmeticGeometryPartII — draft; waits on #1891, #1892, #848, #853
 - #1806 EtaleHomotopyTypes — draft; waits on #1630, #1891, #848, #857
@@ -128,7 +128,7 @@ Generated 2026-11-15T03:30Z from the README supplier graph of every open pull re
 
 ## Wave 10
 - #856 ArithmeticGaloisRepresentations — draft; waits on #1312, #1689, #1891, #1892, #849
-- #1302 K2SymbolsBrauer — ready (approved at an earlier head); waits on #1212, #1229, #1248, #2212
+- #1302 K2SymbolsBrauer — ready; waits on #1212, #1229, #1248, #2212
 
 ## Wave 11
 - #858 ArithmeticGaloisDuality — draft; waits on #1306, #1307, #1312, #1630, #1891, #816, #849, #853, #856, #940
