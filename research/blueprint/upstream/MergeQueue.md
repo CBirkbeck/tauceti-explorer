@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T06:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T06:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -144,14 +144,14 @@ Generated 2026-11-15T06:30Z from the README supplier graph of every open pull re
 - #852 NeronModelsAndSemistableAbelianVarieties — draft; waits on #1307, #1891, #1892, #848, #849, #850, #853, #856, #857, #879, #940
 - #1034 DeformationAndDerivedPatchingAlgebra — ready; waits on #1312, #1630, #1689, #858, #872
 - #1154 InductionRestrictionPartII — ready; waits on #850
-- #1266 HermitianKTheoryOfPoincareCategories — ready (approved at an earlier head); waits on #1212, #1630, #851
+- #1266 HermitianKTheoryOfPoincareCategories — ready; waits on #1212, #1630, #851
 - #1839 ProfiniteCohomologyPartII — draft; waits on #1302, #850, #858
 
 ## Wave 14
 - #869 SelmerIwasawaCohomology — draft; waits on #1306, #1307, #1312, #816, #849, #852, #858, #879, #940
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #1891, #1892, #848, #850, #852, #853
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #1891, #2212, #848, #849, #850, #852, #853, #856, #857, #858
-- #1202 LanglandsParameterStacks — ready (approved at an earlier head); waits on #1034, #1630, #1689, #856, #1056
+- #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #1689, #856, #1056
 - #1225 JacobianChallengePartII — ready; waits on #1892, #848, #849, #852, #853
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1034, #1042, #1630, #1892, #2286, #868, #872
@@ -176,11 +176,11 @@ Generated 2026-11-15T06:30Z from the README supplier graph of every open pull re
 - #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #1037, #1689, #1891, #1892, #850, #853, #856, #858, #871, #929
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #1630, #816, #875, #922
 - #1057 PrismaticCohomology — ready (approved at an earlier head); waits on #1042, #1044, #1630, #1891, #857, #868
-- #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head); waits on #1044, #1212, #1229, #1248, #1266, #1302, #1891, #851, #857, #858
+- #1281 KTheoryFiniteLocalFields — ready; waits on #1044, #1212, #1229, #1248, #1266, #1302, #1891, #851, #857, #858
 
 ## Wave 18
-- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #856, #858, #871, #924
-- #965 AdicCoefficientsAndComparisons — ready; waits on #1630, #1891, #875, #922, #927
+- #925 AutomorphicSpectralTheory — ready; waits on #1037, #856, #858, #871, #924
+- #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #1630, #1891, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready; waits on #1306, #1309, #854, #924
 - #1065 PrismaticCohomologyPartII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1630, #857, #868
@@ -191,7 +191,7 @@ Generated 2026-11-15T06:30Z from the README supplier graph of every open pull re
 ## Wave 19
 - #931 GL2AutomorphicRepresentationsAndTransfer — ready (approved at an earlier head); waits on #1037, #1312, #1891, #848, #856, #871, #873, #875, #924, #925, #928
 - #964 FarguesFontaineDiamonds — ready; waits on #1630, #922, #965
-- #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1065, #1310, #1630, #857, #868, #875, #879, #940
+- #1070 PrismaticCohomologyPartIII — ready; waits on #1042, #1044, #1057, #1065, #1310, #1630, #857, #868, #875, #879, #940
 - #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039, #1260, #1272, #1306, #1309, #869
 - #1351 QWittVectors — draft; waits on #1044, #1057, #1065, #1229, #1281, #1314, #1630, #857, #868
 - #1430 K3BlochGroups — draft; waits on #1212, #1229, #1281, #1302, #1418, #936
