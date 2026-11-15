@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T21:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T22:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #940 PadicPeriodRings — maintainer approved
@@ -121,7 +121,7 @@ Generated 2026-11-15T21:50Z from the README supplier graph of every open pull re
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #849, #856, #857, #858, #868, #940
 
 ## Wave 10
-- #852 NeronModelsAndSemistableAbelianVarieties — draft; waits on #1307, #848, #849, #850, #853, #856, #857, #879, #940
+- #852 NeronModelsAndSemistableAbelianVarieties — ready; waits on #1307, #848, #849, #850, #853, #856, #857, #879, #940
 - #1034 DeformationAndDerivedPatchingAlgebra — ready; waits on #1312, #1630, #858, #872
 - #1154 InductionRestrictionPartII — ready; waits on #850
 - #1266 HermitianKTheoryOfPoincareCategories — ready; waits on #1212, #1630, #851
