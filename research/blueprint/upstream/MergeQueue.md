@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T22:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T22:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -71,14 +71,14 @@ Generated 2026-11-15T22:40Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #868 DerivedDeRhamCohomology — maintainer approved; waits on #1630
+- #868 DerivedDeRhamCohomology — draft; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212
 - #1798 DGFloer — draft; waits on #2127
 - #1945 ExplicitPrimeCounting — draft; waits on #1954
 
 ## Wave 3
-- #857 CrystallineCohomology — maintainer approved; waits on #1630, #868
+- #857 CrystallineCohomology — draft; waits on #1630, #868
 
 ## Wave 4
 - #853 AlgebraicModuliForArithmeticGeometry — maintainer approved; waits on #1630, #857
@@ -86,7 +86,7 @@ Generated 2026-11-15T22:40Z from the README supplier graph of every open pull re
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1307, #1309, #857
 
 ## Wave 5
-- #848 ComplexComparisonPartII — draft; waits on #1630, #2127, #853, #857, #868
+- #848 ComplexComparisonPartII — maintainer approved; waits on #1630, #2127, #853, #857, #868
 - #1229 SchemeKTheoryOperations — ready; waits on #1212, #1630, #853
 - #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
