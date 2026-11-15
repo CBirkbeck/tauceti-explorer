@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T06:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T07:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -69,6 +69,8 @@ Generated 2026-11-15T06:50Z from the README supplier graph of every open pull re
 - #2302 SpectralSequencesAndConvergence — draft
 - #2307 SpectralSequencesAndConvergencePartII — draft
 - #2338 CohomologyOfGroups — draft
+- #2342 HigherHidaAndColemanTheory — draft
+- #2343 FinitenessAndDualityOfGroups — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -150,14 +152,14 @@ Generated 2026-11-15T06:50Z from the README supplier graph of every open pull re
 ## Wave 14
 - #869 SelmerIwasawaCohomology — draft; waits on #1306, #1307, #1312, #816, #849, #852, #858, #879, #940
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #1891, #1892, #848, #850, #852, #853
-- #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #1891, #2212, #848, #849, #850, #852, #853, #856, #857, #858
+- #873 LefschetzPencilsAndVanishingCycles — draft; waits on #1411, #1630, #1891, #2212, #848, #849, #850, #852, #853, #856, #857, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #1689, #856, #1056
 - #1225 JacobianChallengePartII — ready; waits on #1892, #848, #849, #852, #853
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1034, #1042, #1630, #1892, #2286, #868, #872
 
 ## Wave 15
-- #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #1630, #1891, #1892, #856, #857, #858, #873
+- #875 ClassicalAdicEtaleCohomology — draft; waits on #1630, #1891, #1892, #856, #857, #858, #873
 - #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #1037, #1225, #1260, #1689, #1891, #1892, #848, #849, #852, #853, #856, #871, #873
 - #923 LocalGaloisDeformationRings — draft; waits on #1034, #1310, #1312, #1689, #853, #856, #858, #869, #879
 - #1232 RelativeJacobiansAndIntegralCurveModels — ready (approved at an earlier head); waits on #1225, #1892, #848, #849, #852, #853, #879
