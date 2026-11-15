@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T08:20Z",
+ "updated": "2026-11-15T08:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -566,7 +566,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "AutomorphicSpectralTheory": {
@@ -707,7 +707,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ModularSymbolsPadicLFunctions": {
@@ -733,7 +733,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "EndoscopicTransferAndUnitaryTraceComparison": {
@@ -746,7 +746,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ArakelovGeometryAndAbelianHeights": {
@@ -772,7 +772,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "PadicDifferentialEquationsAndRigidCohomology": {
@@ -785,7 +785,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
@@ -980,7 +980,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "DirichletPadicLFunctions": {
@@ -1032,7 +1032,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "AInfCohomology": {
@@ -1110,7 +1110,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "MetaplecticAutomorphicForms": {
@@ -1227,7 +1227,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "PotentialAutomorphyInfrastructure": {
@@ -1339,7 +1339,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartII": {
@@ -1352,7 +1352,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartIII": {
@@ -1391,7 +1391,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "ArithmeticStatisticsPartVII": {
@@ -1486,7 +1486,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "RelativeFarguesFontaine": {
@@ -1802,7 +1802,7 @@
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "PadicLocalLanglandsForGL2Qp": {
@@ -1828,7 +1828,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "HabiroCyclotomicCompletions": {
