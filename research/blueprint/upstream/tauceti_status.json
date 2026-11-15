@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T20:20Z",
+ "updated": "2026-11-15T20:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -53,20 +53,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "IntegralHeckeAndGaloisDeterminants": {
-   "stage": "pr",
-   "pr": 785,
-   "depends_on": [
-    793
-   ],
-   "note": "carried on #785 (ReductiveGroupsPartII) since the maintainer merged #793/#789 into that branch on 2026-10-14; SR.3a.2 companion repair applied 2026-10-16 at b853d91",
-   "head": "cb05366",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AdicEtaleGeometry": {
    "stage": "main",
@@ -327,9 +315,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "APPROVED",
+    "ai": true
    }
   },
   "SelmerIwasawaCohomology": {
@@ -346,9 +334,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
@@ -365,9 +353,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticLocallySymmetricSpaces": {
@@ -383,9 +371,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "DeformationAndDerivedPatchingAlgebraPartII": {
@@ -818,11 +806,11 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "480c64f",
+   "head": "9b742e1",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -873,8 +861,8 @@
    "head": "5baf484",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1006,7 +994,7 @@
     "recommendation": "approve",
     "current": true,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -1221,10 +1209,10 @@
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
    "pr": 1081,
-   "head": "0f3131e",
+   "head": "eeb6a5b",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1428,7 +1416,7 @@
    "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1614,10 +1602,10 @@
   "HeckeStacksAndLocalShtukas": {
    "stage": "pr",
    "pr": 1252,
-   "head": "025265d",
+   "head": "7b6a2e2",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1783,11 +1771,11 @@
   "EulerSystemsCyclotomicMainConjecture": {
    "stage": "pr",
    "pr": 1311,
-   "head": "3c32836",
+   "head": "860969a",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
