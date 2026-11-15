@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T12:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T12:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -288,8 +288,8 @@ Generated 2026-11-15T12:30Z from the README supplier graph of every open pull re
 - #1737 ExoticMonoidalStructuresAndAbstractAutomorphicity — draft; waits on #1037, #1063, #1474, #1630, #858, #924, #931
 
 ## Wave 28
-- #1006 AutomorphicGaloisRepresentationsPartII — ready (approved at an earlier head); waits on #1001, #1002, #1037, #1040, #1062, #1202, #1205, #1230, #1235, #1310, #1630, #1689, #1891, #852, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #940, #964, #965, #966, #970, #999
-- #1069 AutomorphicBundles — ready (approved at an earlier head); waits on #1005, #1038, #1040, #1053, #1062, #1064, #1080, #1630, #1891, #848, #849, #853, #868, #871, #875, #879, #928, #933, #940, #965, #966
+- #1006 AutomorphicGaloisRepresentationsPartII — ready; waits on #1001, #1002, #1037, #1040, #1062, #1202, #1205, #1230, #1235, #1310, #1630, #1689, #1891, #852, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #940, #964, #965, #966, #970, #999
+- #1069 AutomorphicBundles — ready; waits on #1005, #1038, #1040, #1053, #1062, #1064, #1080, #1630, #1891, #848, #849, #853, #868, #871, #875, #879, #928, #933, #940, #965, #966
 - #1335 ArithmeticDynamics — draft; waits on #1000, #1017, #1046, #1494, #1545, #848, #850, #851, #852, #853, #856
 - #1364 CohomologyComparisonsPartII — draft; waits on #1002, #1043, #1044, #1062, #1064, #1630, #1891, #857, #940
 - #1428 HabiroCohomologyFoundations — draft; waits on #1042, #1044, #1057, #1064, #1065, #1314, #1351, #1630, #857, #868
