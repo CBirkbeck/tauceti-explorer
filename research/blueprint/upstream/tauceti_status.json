@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T10:20Z",
+ "updated": "2026-11-15T10:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -730,8 +730,8 @@
    "head": "1af544e",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1)",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -779,14 +779,14 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "c882669",
+   "head": "19961e7",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "HilbertModularVarietiesAndShimuraCurves": {
@@ -831,10 +831,10 @@
   "SerreWeightAndLevelOptimisation": {
    "stage": "pr",
    "pr": 1013,
-   "head": "0825d40",
+   "head": "9f2eed7",
    "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -922,11 +922,11 @@
   "CompletedCohomologyPartII": {
    "stage": "pr",
    "pr": 1035,
-   "head": "867beac",
+   "head": "e9263dc",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -991,7 +991,7 @@
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1016,8 +1016,8 @@
    "head": "9d45df9",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1026,7 +1026,7 @@
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
-   "head": "9196e93",
+   "head": "d02775e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
@@ -1039,10 +1039,10 @@
   "EffectiveDiophantineMethods": {
    "stage": "pr",
    "pr": 1046,
-   "head": "cc98c49",
+   "head": "c3224c8",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1065,10 +1065,10 @@
   "ShimuraCompactifications": {
    "stage": "pr",
    "pr": 1053,
-   "head": "5ba1eb2",
+   "head": "35c6b80",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1323,8 +1323,8 @@
    "head": "058901c",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part IV of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1385,14 +1385,14 @@
   "ArithmeticStatisticsPartVII": {
    "stage": "pr",
    "pr": 1178,
-   "head": "ddbc3d0",
+   "head": "28c3435",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartVIII": {
@@ -1483,8 +1483,8 @@
    "head": "068d2af",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1540,7 +1540,7 @@
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1656,7 +1656,7 @@
    "head": "e49787c",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Eisenstein ideal); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
