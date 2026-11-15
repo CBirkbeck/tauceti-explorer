@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T07:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T08:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -161,7 +161,7 @@ Generated 2026-11-15T07:50Z from the README supplier graph of every open pull re
 ## Wave 15
 - #875 ClassicalAdicEtaleCohomology — draft; waits on #1630, #1891, #1892, #856, #857, #858, #873
 - #913 ModularCurvesPartII — ready; waits on #1037, #1225, #1260, #1689, #1891, #1892, #848, #849, #852, #853, #856, #871, #873
-- #923 LocalGaloisDeformationRings — draft; waits on #1034, #1310, #1312, #1689, #853, #856, #858, #869, #879
+- #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #1310, #1312, #1689, #853, #856, #858, #869, #879
 - #1232 RelativeJacobiansAndIntegralCurveModels — ready; waits on #1225, #1892, #848, #849, #852, #853, #879
 - #1272 EulerSystemsAndKolyvaginSystems — ready; waits on #1306, #856, #858, #869
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1307, #1411, #1891, #1892, #848, #853, #857, #870, #1285
@@ -185,7 +185,7 @@ Generated 2026-11-15T07:50Z from the README supplier graph of every open pull re
 - #965 AdicCoefficientsAndComparisons — ready; waits on #1630, #1891, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — draft; waits on #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready; waits on #1306, #1309, #854, #924
-- #1065 PrismaticCohomologyPartII — draft; waits on #1042, #1044, #1057, #1630, #857, #868
+- #1065 PrismaticCohomologyPartII — ready; waits on #1042, #1044, #1057, #1630, #857, #868
 - #1313 MotivesAndAlgebraicCycles — ready (approved at an earlier head); waits on #1229, #1281, #1630, #1891, #848
 - #1418 ArithmeticKTheory — draft; waits on #1212, #1229, #1248, #1260, #1266, #1281, #1302, #1306, #1891, #1892, #851, #858, #869, #871, #924
 - #1755 ArcTopologyAndDescent — draft; waits on #1042, #1057, #1229, #1630, #1891, #2286, #868, #875
@@ -194,7 +194,7 @@ Generated 2026-11-15T07:50Z from the README supplier graph of every open pull re
 - #931 GL2AutomorphicRepresentationsAndTransfer — ready (approved at an earlier head); waits on #1037, #1312, #1891, #848, #856, #871, #873, #875, #924, #925, #928
 - #964 FarguesFontaineDiamonds — ready (approved at an earlier head); waits on #1630, #922, #965
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1065, #1310, #1630, #857, #868, #875, #879, #940
-- #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039, #1260, #1272, #1306, #1309, #869
+- #1311 EulerSystemsCyclotomicMainConjecture — draft; waits on #1039, #1260, #1272, #1306, #1309, #869
 - #1351 QWittVectors — draft; waits on #1044, #1057, #1065, #1229, #1281, #1314, #1630, #857, #868
 - #1430 K3BlochGroups — draft; waits on #1212, #1229, #1281, #1302, #1418, #936
 - #1432 K2SymbolsBrauerPartII — draft; waits on #1212, #1248, #1281, #1302, #1418, #1891, #858, #869, #873
