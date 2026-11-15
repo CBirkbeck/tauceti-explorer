@@ -1,6 +1,6 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-11-15T21:30Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-11-15T21:40Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
 
 **Where it stands.** The `top` label covers tiers 1–4. Of the thirteen tier 1–4 roadmaps, four are on main: SchemeAndStackFoundations (#779, with its étale-invariance/scheme-Frobenius follow-up #943), PadicMeasuresIwasawaAlgebras (#780), AdicSpacesPartII (#817) and RigidAnalyticGeometry (#937). The rest are open pull requests on TauCetiRoadmap: #785 ReductiveGroupsPartII (whose branch also carries SmoothRepresentationsOfLocalGroups and IntegralHeckeAndGaloisDeterminants, merged into it from #793 and #789) with #792 AdelicAlgebraicGroups stacked on it, and the adic stack #813 AdicSpacesPartIII ← #814 AdicEtaleGeometry ← #818 PerfectoidSpaces ← #815 AdicSpacesPartIV ← #820 DiamondsAndVStacks ← #816 PerfectoidTowers, restacked onto main after #817 merged. Every open roadmap pull request of ours is re-reviewed by ChatGPT Pro on each new head; a pull request is marked ready only while its latest verdict is an approval.
 **Needed.** The main roadmap, EllipticCurveModularityImaginaryQuadratic, reaches 94 roadmaps (601 layers) through the atlas's stage links. 6 of them (AutomorphicPadicLFunctions, ComputationalNumberTheory, FiniteFieldsAndCharacterSums, PadicHodgeRegulators, RelativeFarguesFontaine, SieveMethodsAndPrimePatterns) are left out of the order: five are reached only through an upward citation of a single layer (that notion moves down into the citing roadmap), and ComputationalNumberTheory is dropped: the explicit modular-curve data it supplied become hypotheses of the final theorem, while EffectiveDiophantineMethods keeps a minimal certified-numerics layer of its own (see `drops.json`), leaving 88 roadmaps (581 layers). Node-by-node packet citations reach 55 more (Habiro, K-theory, Euler systems and others); those are stray citations to be removed, not needs.
@@ -51,7 +51,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 6
 
-- **InverseGaloisAndArithmeticFundamentalGroups** — Inverse Galois theory and arithmetic fundamental groups. Plan 1/1 accepted · package accepted · CN needs 3/7 layers · **Tau Ceti: pull request #850 open** · reviewer recommends approval · cites outside the 94: InductionRestrictionPartII (14)
+- **InverseGaloisAndArithmeticFundamentalGroups** — Inverse Galois theory and arithmetic fundamental groups. Plan 1/1 accepted · package accepted · CN needs 3/7 layers · **Tau Ceti: pull request #850 open** · reviewer recommends approval (at earlier head None; current head 6aa0831) · cites outside the 94: InductionRestrictionPartII (14)
 - **AbelianSchemesAndArithmeticModuli** — Abelian Schemes And Arithmetic Moduli. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · **Tau Ceti: pull request #849 open** · reviewer recommends approval · move down: FiniteFlatGroupsAndIntegralPadicHodgeTheory (3), ArithmeticGaloisRepresentations (1)
 
 ## Tier 7
@@ -74,8 +74,8 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 10
 
-- **DeformationAndDerivedPatchingAlgebra** — Commutative algebra for deformation theory and patching. Plan 11/11 accepted · package not yet · CN needs 9/9 layers · **Tau Ceti: pull request #1034 open** · reviewer recommends approval
-- **FiniteFlatGroupsAndIntegralPadicHodgeTheory** — Finite flat group schemes and integral p-adic Hodge theory. Plan 1/1 accepted · package accepted · CN needs 6/6 layers · **Tau Ceti: pull request #879 open** · reviewer recommends approval · move down: PadicHodgeTheory (30), PadicDifferentialEquationsAndRigidCohomology (1)
+- **DeformationAndDerivedPatchingAlgebra** — Commutative algebra for deformation theory and patching. Plan 11/11 accepted · package not yet · CN needs 9/9 layers · **Tau Ceti: pull request #1034 open**
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory** — Finite flat group schemes and integral p-adic Hodge theory. Plan 1/1 accepted · package accepted · CN needs 6/6 layers · **Tau Ceti: pull request #879 open** · reviewer recommends approval (at earlier head None; current head 9a9505b) · move down: PadicHodgeTheory (30), PadicDifferentialEquationsAndRigidCohomology (1)
 - **Merged package:** AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles
   - **AdicCoefficientsAndComparisons** — Adic coefficients and comparison with schemes. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · **Tau Ceti: pull request #965 open** · reviewer recommends approval · move down: DiamondSixOperations (13), DiamondEtaleCohomology (12)
   - **ClassicalAdicEtaleCohomology** — The classical analytic cohomology inputs to diamonds. Plan 5/5 accepted · package accepted · CN needs 10/10 layers · **Tau Ceti: pull request #875 open** · cites outside the 94: TropicalAndBerkovichArithmetic (20)
@@ -129,8 +129,8 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
   - **ColemanIntegration** — Coleman integration and noncritical Dirichlet L-values. Plan 1/1 accepted · package not yet · CN needs 2/4 layers · **Tau Ceti: pull request #1043 open** · reviewer recommends approval · cites outside the 94: Polylogarithms (11), BorelRegulators (2)
   - **DirichletPadicLFunctions** — Dirichlet p-adic L-functions, special values, and Eisenstein measures. Plan 6/6 accepted · package not yet · CN needs 5/6 layers · **Tau Ceti: pull request #1039 open** · reviewer recommends approval · cites outside the 94: QSeriesPartitionsAndMockModularForms (4), IntegralIwasawaTheory (2), StableHomotopyKTheory (1)
 - **Merged package:** GlobalGaloisDeformations + LocalGaloisDeformationRings
-  - **GlobalGaloisDeformations** — Global Galois deformation rings. Plan 1/1 accepted · package accepted · CN needs 6/8 layers · **Tau Ceti: pull request #920 open** · reviewer recommends approval
-  - **LocalGaloisDeformationRings** — Local Galois deformation rings and their components. Plan 1/1 accepted · package accepted · CN needs 7/8 layers · **Tau Ceti: pull request #923 open** · reviewer recommends approval · cites outside the 94: PadicLocalLanglandsForGL2Qp (1)
+  - **GlobalGaloisDeformations** — Global Galois deformation rings. Plan 1/1 accepted · package accepted · CN needs 6/8 layers · **Tau Ceti: pull request #920 open** · reviewer recommends approval (at earlier head None; current head 9e4960f)
+  - **LocalGaloisDeformationRings** — Local Galois deformation rings and their components. Plan 1/1 accepted · package accepted · CN needs 7/8 layers · **Tau Ceti: pull request #923 open** · reviewer recommends approval (at earlier head None; current head ba39a43) · cites outside the 94: PadicLocalLanglandsForGL2Qp (1)
 - **Merged package:** AutomorphicBundles + ShimuraCompactifications
   - **AutomorphicBundles** — Automorphic bundles and classical automorphic forms. Plan 2/2 accepted · package accepted · CN needs 4/9 layers · **Tau Ceti: pull request #1069 open** · reviewer recommends approval · move down: HodgeTateAndCanonicalSubgroups (3)
   - **ShimuraCompactifications** — Toroidal compactifications and boundary geometry. Plan 2/3 accepted · package not yet · CN needs 7/9 layers · **Tau Ceti: pull request #1053 open** · move down: HodgeTateAndCanonicalSubgroups (2), AutomorphicGaloisRepresentationsPartII (1)
@@ -176,7 +176,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 23
 
-- **PotentialAutomorphyInfrastructure** — Reusable infrastructure for potential automorphy over CM fields. Plan 1/1 accepted · package not yet · CN needs 5/6 layers · **Tau Ceti: pull request #1081 open** · cites outside the 94: PotentialAutomorphyInfrastructurePartII (2)
+- **PotentialAutomorphyInfrastructure** — Reusable infrastructure for potential automorphy over CM fields. Plan 1/1 accepted · package not yet · CN needs 5/6 layers · **Tau Ceti: pull request #1081 open** · reviewer recommends approval · cites outside the 94: PotentialAutomorphyInfrastructurePartII (2)
 - **SmallRamificationAndAbelianVarietyBaseCases** — Small ramification and the base cases for Serre modularity. Plan 1/1 accepted · package accepted · CN needs 6/6 layers · **Tau Ceti: pull request #970 open** · reviewer recommends approval
 
 ## Tier 24
@@ -189,7 +189,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 26
 
-- **ModularityAndLanglandsExtensions** — Modularity, automorphy and Langlands endpoint extensions. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1180 open** · reviewer recommends approval (at earlier head None; current head ef0ff5e) · cites outside the 94: PotentialAutomorphyInfrastructurePartII (31), MetaplecticAutomorphicForms (3), ExcursionOperatorsAndSpectralAction (1)
+- **ModularityAndLanglandsExtensions** — Modularity, automorphy and Langlands endpoint extensions. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1180 open** · cites outside the 94: PotentialAutomorphyInfrastructurePartII (31), MetaplecticAutomorphicForms (3), ExcursionOperatorsAndSpectralAction (1)
 
 ## Tier 27
 
@@ -197,5 +197,5 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 28
 
-- **EllipticCurveModularityImaginaryQuadratic** — Modularity of elliptic curves, Part II: imaginary quadratic fields. Plan 1/1 accepted · package not yet · CN needs 8/8 layers · **Tau Ceti: pull request #1048 open** · reviewer recommends approval (at earlier head None; current head 3a57165)
+- **EllipticCurveModularityImaginaryQuadratic** — Modularity of elliptic curves, Part II: imaginary quadratic fields. Plan 1/1 accepted · package not yet · CN needs 8/8 layers · **Tau Ceti: pull request #1048 open**
 
