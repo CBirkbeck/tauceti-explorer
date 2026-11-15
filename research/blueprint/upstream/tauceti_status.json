@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T11:30Z",
+ "updated": "2026-11-15T11:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -782,8 +782,8 @@
    "head": "19961e7",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -834,8 +834,8 @@
    "head": "9f2eed7",
    "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -887,7 +887,7 @@
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -925,8 +925,8 @@
    "head": "e9263dc",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -987,7 +987,7 @@
   "EtaleDualityAndPerverseSheaves": {
    "stage": "pr",
    "pr": 1040,
-   "head": "54256cd",
+   "head": "3546ffe",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
     "recommendation": "changes",
@@ -1043,7 +1043,7 @@
    "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1065,7 +1065,7 @@
   "ShimuraCompactifications": {
    "stage": "pr",
    "pr": 1053,
-   "head": "35c6b80",
+   "head": "4e3083c",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
    "review": {
     "recommendation": "changes",
@@ -1120,8 +1120,8 @@
    "head": "fff3df0",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1388,8 +1388,8 @@
    "head": "28c3435",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1398,10 +1398,10 @@
   "ArithmeticStatisticsPartVIII": {
    "stage": "pr",
    "pr": 1179,
-   "head": "e4005e8",
+   "head": "882274e",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VIII of the ArithmeticStatistics split); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",

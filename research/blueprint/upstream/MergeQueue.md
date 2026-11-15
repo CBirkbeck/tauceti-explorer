@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T11:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T11:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -253,13 +253,13 @@ Generated 2026-11-15T11:30Z from the README supplier graph of every open pull re
 - #1944 ExplicitNumberFields — draft; waits on #1260, #1913, #1945, #1946, #1948, #1954
 
 ## Wave 26
-- #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1225, #1405, #1892, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
-- #1013 SerreWeightAndLevelOptimisation — ready (approved at an earlier head); waits on #1005, #1037, #1306, #1689, #852, #856, #858, #879, #913, #920, #923, #928, #931
+- #1004 FaltingsFinitenessAndIsogenyTheorems — ready; waits on #1000, #1001, #1002, #1225, #1405, #1892, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
+- #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #1037, #1306, #1689, #852, #856, #858, #879, #913, #920, #923, #928, #931
 - #1015 NoncompactQuantumSymmetry — draft; waits on #1037, #1063, #1145, #117
-- #1035 CompletedCohomologyPartII — ready (approved at an earlier head); waits on #1005, #1034, #1307, #1312, #1630, #1689, #848, #854, #858, #871, #913, #933
+- #1035 CompletedCohomologyPartII — ready; waits on #1005, #1034, #1307, #1312, #1630, #1689, #848, #854, #858, #871, #913, #933
 - #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #1411, #1892, #849, #851, #852, #879, #913, #929
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #1892, #848, #849, #852, #853, #858, #879, #913, #933, #966
-- #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1171, #1172, #1174, #1175, #1176, #1892, #849, #852, #853, #858, #869, #913
+- #1178 ArithmeticStatisticsPartVII — ready; waits on #1017, #1171, #1172, #1174, #1175, #1176, #1892, #849, #852, #853, #858, #869, #913
 - #1230 VStackSheavesAndLisseCategories — ready; waits on #1062, #1205, #1209, #1630, #1891, #875, #922, #927, #965
 - #1360 ColemanIntegrationPartII — draft; waits on #1002, #1021, #1043, #1892, #940
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1314, #1411, #851, #925
@@ -274,8 +274,8 @@ Generated 2026-11-15T11:30Z from the README supplier graph of every open pull re
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
 
 ## Wave 27
-- #1019 PadicFamilies — ready (approved at an earlier head); waits on #1001, #1005, #1013, #1034, #1039, #1306, #1307, #1310, #1689, #854, #858, #869, #879, #913, #920, #928, #931, #968
-- #1064 CohomologyComparisons — ready (approved at an earlier head); waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #1080, #1411, #1630, #1891, #849, #853, #854, #857, #868, #875, #879, #913, #940, #966
+- #1019 PadicFamilies — ready; waits on #1001, #1005, #1013, #1034, #1039, #1306, #1307, #1310, #1689, #854, #858, #869, #879, #913, #920, #928, #931, #968
+- #1064 CohomologyComparisons — ready; waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #1080, #1411, #1630, #1891, #849, #853, #854, #857, #868, #875, #879, #913, #940, #966
 - #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1040, #1171, #1172, #1175, #1178, #1225, #1798, #1892, #849, #850, #851, #852, #856, #929
 - #1231 MordellLawrenceVenkatesh — ready; waits on #1001, #1004, #1017, #1034, #1040, #1062, #1063, #1225, #1545, #1798, #1891, #1892, #848, #849, #850, #852, #853, #856, #857, #858, #868, #879, #929, #940
 - #1235 GeometricSatakeAndFusion — ready (approved at an earlier head); waits on #1040, #1062, #1202, #1205, #1209, #1230, #1313, #1630, #1891, #850, #857, #879, #927, #965
