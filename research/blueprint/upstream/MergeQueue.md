@@ -1,12 +1,12 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T22:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T22:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #940 PadicPeriodRings — maintainer approved
+- #940 PadicPeriodRings — draft
 - #1145 SmoothBanachRepresentations — draft
 - #1212 GeneralAlgebraicKTheory — ready
-- #1306 IntegralIwasawaTheory — maintainer approved
+- #1306 IntegralIwasawaTheory — draft
 - #1314 HabiroCyclotomicCompletions — ready
 - #1411 IntegralLattices — draft
 - #1630 EnhancedDerivedSheaves — draft
@@ -116,7 +116,7 @@ Generated 2026-11-15T22:00Z from the README supplier graph of every open pull re
 
 ## Wave 9
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798, #848, #849, #853, #856, #858
-- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1411, #1630, #858
+- #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #1212, #1411, #1630, #858
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #849, #856, #857, #858, #868, #940
 
