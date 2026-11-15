@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T02:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T02:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -97,8 +97,8 @@ Generated 2026-11-15T02:30Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #868 DerivedDeRhamCohomology — draft; waits on #1630, #940
-- #1260 CyclotomicClassGroupsAndStickelberger — ready (approved at an earlier head); waits on #1306, #1689, #1892, #940
-- #1307 NoncommutativeAndEquivariantIwasawa — ready (approved at an earlier head); waits on #1212, #1306, #1689, #1891, #940
+- #1260 CyclotomicClassGroupsAndStickelberger — ready; waits on #1306, #1689, #1892, #940
+- #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212, #1306, #1689, #1891, #940
 - #1309 ColemanPowerSeries — ready; waits on #1306
 - #1945 ExplicitPrimeCounting — draft; waits on #1495, #1913, #1954
 
@@ -107,7 +107,7 @@ Generated 2026-11-15T02:30Z from the README supplier graph of every open pull re
 
 ## Wave 7
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1630, #1892, #857
-- #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #1630, #857, #868
+- #1042 PerfectoidQuotients — ready; waits on #1630, #857, #868
 - #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1306, #1307, #1309, #816, #857, #940
 
 ## Wave 8
