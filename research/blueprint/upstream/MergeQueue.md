@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T07:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T07:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #816 PerfectoidTowers — draft
@@ -100,7 +100,7 @@ Generated 2026-11-15T07:10Z from the README supplier graph of every open pull re
 ## Wave 5
 - #868 DerivedDeRhamCohomology — draft; waits on #1630, #940
 - #1260 CyclotomicClassGroupsAndStickelberger — ready; waits on #1306, #1689, #1892, #940
-- #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #1689, #1891, #940
+- #1307 NoncommutativeAndEquivariantIwasawa — ready (approved at an earlier head); waits on #1212, #1306, #1689, #1891, #940
 - #1309 ColemanPowerSeries — ready; waits on #1306
 - #1945 ExplicitPrimeCounting — draft; waits on #1495, #1913, #1954
 
@@ -185,7 +185,7 @@ Generated 2026-11-15T07:10Z from the README supplier graph of every open pull re
 - #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #1630, #1891, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #1689, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — ready; waits on #1306, #1309, #854, #924
-- #1065 PrismaticCohomologyPartII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1630, #857, #868
+- #1065 PrismaticCohomologyPartII — draft; waits on #1042, #1044, #1057, #1630, #857, #868
 - #1313 MotivesAndAlgebraicCycles — ready (approved at an earlier head); waits on #1229, #1281, #1630, #1891, #848
 - #1418 ArithmeticKTheory — draft; waits on #1212, #1229, #1248, #1260, #1266, #1281, #1302, #1306, #1891, #1892, #851, #858, #869, #871, #924
 - #1755 ArcTopologyAndDescent — draft; waits on #1042, #1057, #1229, #1630, #1891, #2286, #868, #875
