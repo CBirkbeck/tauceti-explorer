@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T19:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T19:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -257,7 +257,7 @@ Generated 2026-11-15T19:00Z from the README supplier graph of every open pull re
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #1037, #1306, #1689, #852, #856, #858, #879, #913, #920, #923, #928, #931
 - #1015 NoncompactQuantumSymmetry — draft; waits on #1037, #1063, #1145, #117
 - #1035 CompletedCohomologyPartII — ready; waits on #1005, #1034, #1307, #1312, #1630, #1689, #848, #854, #858, #871, #913, #933
-- #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #1411, #1892, #849, #851, #852, #879, #913, #929
+- #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1002, #1017, #1021, #1043, #1411, #1892, #849, #851, #852, #879, #913, #929
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #1892, #848, #849, #852, #853, #858, #879, #913, #933, #966
 - #1178 ArithmeticStatisticsPartVII — ready; waits on #1017, #1171, #1172, #1174, #1175, #1176, #1892, #849, #852, #853, #858, #869, #913
 - #1230 VStackSheavesAndLisseCategories — ready; waits on #1062, #1205, #1209, #1630, #1891, #875, #922, #927, #965
@@ -304,7 +304,7 @@ Generated 2026-11-15T19:00Z from the README supplier graph of every open pull re
 
 ## Wave 29
 - #1007 AutomorphicGaloisRepresentations — ready; waits on #1001, #1005, #1006, #1013, #1306, #1310, #1689, #1891, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #940, #966, #970, #999
-- #1084 HodgeTateAndCanonicalSubgroups — draft; waits on #1005, #1038, #1053, #1062, #1064, #1069, #1080, #1630, #849, #852, #853, #857, #875, #879, #922, #933, #966
+- #1084 HodgeTateAndCanonicalSubgroups — ready (approved at an earlier head); waits on #1005, #1038, #1053, #1062, #1064, #1069, #1080, #1630, #849, #852, #853, #857, #875, #879, #922, #933, #966
 - #1498 PadicHodgeRegulators — draft; waits on #1043, #1062, #1064, #1229, #1281, #1302, #1306, #1307, #1309, #1310, #1360, #1364, #1418, #1424, #1430, #1461, #849, #852, #854, #858, #869, #879, #940
 - #1734 SheafTheoreticSmithTheory — draft; waits on #1034, #1040, #1202, #1209, #1235, #1490, #1630, #1891, #856, #1056
 - #1809 SheafConvolutionOnAbelianVarieties — draft; waits on #1038, #1040, #1062, #1225, #1231, #1313, #1405, #1828, #1841, #1891, #1892, #2277, #848, #849, #853, #929
