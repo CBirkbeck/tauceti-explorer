@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T22:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T22:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #940 PadicPeriodRings — draft
@@ -76,7 +76,7 @@ Generated 2026-11-15T22:10Z from the README supplier graph of every open pull re
 ## Wave 2
 - #868 DerivedDeRhamCohomology — maintainer approved; waits on #1630, #940
 - #1169 TeichmullerGeometry — draft; waits on #2026
-- #1260 CyclotomicClassGroupsAndStickelberger — maintainer approved; waits on #1306, #940
+- #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #1306, #940
 - #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212, #1306, #940
 - #1309 ColemanPowerSeries — ready; waits on #1306
 - #1798 DGFloer — draft; waits on #2127
@@ -97,7 +97,7 @@ Generated 2026-11-15T22:10Z from the README supplier graph of every open pull re
 - #1472 GenericDoublePointInterpolation — draft; waits on #853
 
 ## Wave 6
-- #849 AbelianSchemesAndArithmeticModuli — draft; waits on #1630, #848, #853, #857
+- #849 AbelianSchemesAndArithmeticModuli — maintainer approved; waits on #1630, #848, #853, #857
 - #854 LocallyAnalyticDistributions — ready; waits on #1310, #1312, #857
 - #871 ArithmeticLocallySymmetricSpaces — maintainer approved; waits on #1630, #848
 - #1248 KTheoryLowDegrees — ready; waits on #1212, #1229, #1630
@@ -115,7 +115,7 @@ Generated 2026-11-15T22:10Z from the README supplier graph of every open pull re
 - #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1411, #856, #871
 
 ## Wave 9
-- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798, #848, #849, #853, #856, #858
+- #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #1630, #1798, #848, #849, #853, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #1212, #1411, #1630, #858
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #849, #856, #857, #858, #868, #940
@@ -363,7 +363,7 @@ Generated 2026-11-15T22:10Z from the README supplier graph of every open pull re
 - #1816 AutomorphicCongruences — draft; waits on #1006, #1013, #1019, #1020, #1034, #1039, #1053, #1063, #1066, #1069, #1071, #1090, #1270, #1272, #1306, #1310, #1311, #1312, #1411, #1487, #1498, #1543, #1804, #858, #869, #920, #923, #924, #925, #966, #968
 
 ## Wave 34
-- #1180 ModularityAndLanglandsExtensions — ready (approved at an earlier head); waits on #1006, #1007, #1018, #1019, #1020, #1034, #1036, #1037, #1046, #1048, #1062, #1063, #1071, #1075, #1081, #1084, #1171, #1182, #1202, #1310, #1630, #854, #856, #857, #858, #871, #879, #913, #923, #924, #925, #931, #964, #999
+- #1180 ModularityAndLanglandsExtensions — draft; waits on #1006, #1007, #1018, #1019, #1020, #1034, #1036, #1037, #1046, #1048, #1062, #1063, #1071, #1075, #1081, #1084, #1171, #1182, #1202, #1310, #1630, #854, #856, #857, #858, #871, #879, #913, #923, #924, #925, #931, #964, #999
 - #1499 ModularIwasawaMainConjectures — draft; waits on #1007, #1013, #1018, #1019, #1039, #1062, #1310, #1487, #1498, #1804, #1816, #852, #856, #857, #858, #869, #928, #968
 - #1845 GlobalShtukasAndFunctionFieldLanglandsPartII — draft; waits on #1002, #1040, #1202, #1252, #1313, #1474, #1490, #1815, #2289, #856, #922, #927, #929
 
