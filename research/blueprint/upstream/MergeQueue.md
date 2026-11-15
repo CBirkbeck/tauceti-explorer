@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T09:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-15T09:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -137,7 +137,7 @@ Generated 2026-11-15T09:10Z from the README supplier graph of every open pull re
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1495, #1630, #1798, #1891, #1892, #848, #849, #853, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1411, #1495, #1630, #858
 - #872 DeformationAndDerivedPatchingAlgebraPartII — draft; waits on #1798, #858
-- #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — draft; waits on #1260, #1307, #1312, #1891, #849, #856, #857, #858, #868, #940
+- #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1260, #1307, #1312, #1891, #849, #856, #857, #858, #868, #940
 
 ## Wave 13
 - #852 NeronModelsAndSemistableAbelianVarieties — draft; waits on #1307, #1891, #1892, #848, #849, #850, #853, #856, #857, #879, #940
@@ -191,7 +191,7 @@ Generated 2026-11-15T09:10Z from the README supplier graph of every open pull re
 - #931 GL2AutomorphicRepresentationsAndTransfer — ready; waits on #1037, #1312, #1891, #848, #856, #871, #873, #875, #924, #925, #928
 - #964 FarguesFontaineDiamonds — ready; waits on #1630, #922, #965
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1042, #1044, #1057, #1065, #1310, #1630, #857, #868, #875, #879, #940
-- #1311 EulerSystemsCyclotomicMainConjecture — draft; waits on #1039, #1260, #1272, #1306, #1309, #869
+- #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039, #1260, #1272, #1306, #1309, #869
 - #1351 QWittVectors — draft; waits on #1044, #1057, #1065, #1229, #1281, #1314, #1630, #857, #868
 - #1430 K3BlochGroups — draft; waits on #1212, #1229, #1281, #1302, #1418, #936
 - #1432 K2SymbolsBrauerPartII — draft; waits on #1212, #1248, #1281, #1302, #1418, #1891, #858, #869, #873
