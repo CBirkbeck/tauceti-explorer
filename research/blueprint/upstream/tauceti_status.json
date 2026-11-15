@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T03:10Z",
+ "updated": "2026-11-15T03:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1620,7 +1620,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "HeckeStacksAndLocalShtukas": {
@@ -1659,7 +1659,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "EisensteinIdealAndRationalTorsion": {
@@ -1737,7 +1737,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "IntegralIwasawaTheory": {
@@ -1763,7 +1763,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "ColemanPowerSeries": {
@@ -1815,7 +1815,7 @@
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "MotivesAndAlgebraicCycles": {
