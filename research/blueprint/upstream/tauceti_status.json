@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T17:30Z",
+ "updated": "2026-11-15T17:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -618,11 +618,11 @@
    "head": "9b8725e",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "ShimuraVarieties": {
@@ -870,11 +870,11 @@
   "EllipticCurveModularity": {
    "stage": "pr",
    "pr": 1018,
-   "head": "c45ecff",
+   "head": "3593d3b",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -935,10 +935,10 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
    "pr": 1036,
-   "head": "983a1f7",
+   "head": "e144184",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1130,11 +1130,11 @@
   "OrdinaryAutomorphicFormsAndModularityLifting": {
    "stage": "pr",
    "pr": 1066,
-   "head": "e2406a3",
+   "head": "e906412",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 64); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1234,7 +1234,7 @@
   "HodgeTateAndCanonicalSubgroups": {
    "stage": "pr",
    "pr": 1084,
-   "head": "333737c",
+   "head": "c6ed07f",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 48); red team running",
    "review": {
     "recommendation": "changes",
@@ -1250,8 +1250,8 @@
    "head": "8842452",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 49); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1260,11 +1260,11 @@
   "TorsionCohomologyInfrastructure": {
    "stage": "pr",
    "pr": 1087,
-   "head": "264642f",
+   "head": "1f49a76",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1276,8 +1276,8 @@
    "head": "5447ef6",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1630,8 +1630,8 @@
    "head": "fa8fcda",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / BSD); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
