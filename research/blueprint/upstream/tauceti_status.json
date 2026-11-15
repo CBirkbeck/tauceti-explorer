@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-15T07:30Z",
+ "updated": "2026-11-15T07:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -403,7 +403,7 @@
   "DeformationAndDerivedPatchingAlgebraPartII": {
    "stage": "pr",
    "pr": 872,
-   "head": "39f9ecd",
+   "head": "d046bf8",
    "depends_on": [
     779
    ],
@@ -444,7 +444,7 @@
   "ClassicalAdicEtaleCohomology": {
    "stage": "pr",
    "pr": 875,
-   "head": "4b7a299",
+   "head": "f5f3982",
    "depends_on": [
     817,
     813,
@@ -501,8 +501,8 @@
    "head": "9be1eb8",
    "note": "N3 CHANGES answered 10-16",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -518,8 +518,8 @@
    "head": "373d2c5",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next)",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -546,7 +546,7 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "e8e7f63",
+   "head": "e41a82c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 15bab3b",
    "review": {
     "recommendation": "changes",
@@ -572,11 +572,11 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "2920b0d",
+   "head": "759fa5b",
    "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -589,8 +589,8 @@
    "head": "a795f1d",
    "note": "N4 CHANGES answered 10-16",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -603,8 +603,8 @@
    "head": "8ff864c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -617,8 +617,8 @@
    "head": "fae1b73",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex)",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -627,10 +627,10 @@
   "GL2AutomorphicRepresentationsAndTransfer": {
    "stage": "pr",
    "pr": 931,
-   "head": "52b00d9",
+   "head": "5b20d73",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -643,7 +643,7 @@
    "head": "314489c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 6cc4f59",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -674,11 +674,11 @@
   "FarguesFontaineDiamonds": {
    "stage": "pr",
    "pr": 964,
-   "head": "389338f",
+   "head": "f96f9b6",
    "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at cd66f9e",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -690,8 +690,8 @@
    "head": "c8f8961",
    "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 4a7b4d8",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -703,8 +703,8 @@
    "head": "697b514",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired) awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 0f4df97",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -729,8 +729,8 @@
    "head": "92d13bb",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -755,11 +755,11 @@
    "head": "5fc305b",
    "note": "ported 2026-10-16 (tier 16); both red-team passes applied",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "WeightsInEtaleCohomology": {
@@ -781,11 +781,11 @@
    "head": "457e49f",
    "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
@@ -976,11 +976,11 @@
    "head": "b4aa112",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 24); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "DirichletPadicLFunctions": {
@@ -999,10 +999,10 @@
   "EtaleDualityAndPerverseSheaves": {
    "stage": "pr",
    "pr": 1040,
-   "head": "d1318fe",
+   "head": "763a08d",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1038,7 +1038,7 @@
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
-   "head": "8356bcc",
+   "head": "99b809b",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
@@ -1093,8 +1093,8 @@
    "head": "c0c3cf0",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1158,11 +1158,11 @@
    "head": "7c47f52",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": false
+    "ai": true
    }
   },
   "AutomorphicBundles": {
@@ -1181,11 +1181,11 @@
   "PrismaticCohomologyPartIII": {
    "stage": "pr",
    "pr": 1070,
-   "head": "dd23fb3",
+   "head": "4a860b5",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1577,8 +1577,8 @@
    "head": "2af2fd0",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: modular curves); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1708,7 +1708,7 @@
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1759,8 +1759,8 @@
    "head": "45811bd",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1795,10 +1795,10 @@
   "EulerSystemsCyclotomicMainConjecture": {
    "stage": "pr",
    "pr": 1311,
-   "head": "8eeb3ed",
+   "head": "e6971b4",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -1828,7 +1828,7 @@
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "ai": false
    }
   },
   "HabiroCyclotomicCompletions": {
