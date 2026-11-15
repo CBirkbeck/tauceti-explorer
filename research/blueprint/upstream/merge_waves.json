@@ -50,7 +50,7 @@
   "PerfectoidQuotients": 4,
   "PrismaticCohomology": 14,
   "CohomologyComparisons": 24,
-  "AnalyticNumberTheory": 18,
+  "AnalyticNumberTheory": 16,
   "ArithmeticStatistics": 25,
   "ColemanIntegration": 20,
   "DirichletPadicLFunctions": 15,
@@ -310,6 +310,7 @@
   "SpectralSequencesAndConvergencePartII": 1,
   "CohomologyOfGroups": 1,
   "HigherHidaAndColemanTheory": 1,
-  "FinitenessAndDualityOfGroups": 1
+  "FinitenessAndDualityOfGroups": 1,
+  "CountableStructureSpacesPartII": 1
  }
 }
