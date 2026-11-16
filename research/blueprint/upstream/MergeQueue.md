@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T07:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T07:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -83,7 +83,7 @@ Generated 2026-11-16T07:40Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #1169 TeichmullerGeometry — draft; waits on #2026
-- #1229 SchemeKTheoryOperations — maintainer approved; waits on #1630
+- #1229 SchemeKTheoryOperations — draft; waits on #1630
 - #1310 PhiGammaModulesAndIwasawaCohomology — maintainer approved; waits on #1307
 - #1798 DGFloer — draft; waits on #2127
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
