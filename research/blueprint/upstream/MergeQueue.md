@@ -83,7 +83,6 @@ Generated 2026-11-16T09:20Z from the README supplier graph of every open pull re
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
-- #1145 SmoothBanachRepresentations (kim-em, other author)
 - #1158 SpectralManifolds (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
