@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-16T08:30Z",
+ "updated": "2026-11-16T08:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1389,17 +1389,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "SchemeKTheoryOperations": {
-   "stage": "pr",
-   "pr": 1229,
-   "head": "1dfb7dd",
-   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "VStackSheavesAndLisseCategories": {
    "stage": "pr",
@@ -1467,17 +1458,8 @@
    }
   },
   "KTheoryLowDegrees": {
-   "stage": "pr",
-   "pr": 1248,
-   "head": "101144f",
-   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "HeckeStacksAndLocalShtukas": {
    "stage": "pr",
@@ -1592,34 +1574,16 @@
    "note": "merged into TauCetiRoadmap"
   },
   "NoncommutativeAndEquivariantIwasawa": {
-   "stage": "pr",
-   "pr": 1307,
-   "head": "45811bd",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ColemanPowerSeries": {
    "stage": "main",
    "note": "merged into TauCetiRoadmap"
   },
   "PhiGammaModulesAndIwasawaCohomology": {
-   "stage": "pr",
-   "pr": 1310,
-   "head": "e1f38c1",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "EulerSystemsCyclotomicMainConjecture": {
    "stage": "pr",
