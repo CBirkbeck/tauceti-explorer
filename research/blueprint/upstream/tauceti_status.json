@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-16T00:30Z",
+ "updated": "2026-11-16T00:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -97,44 +97,17 @@
    "note": "merged into TauCetiRoadmap"
   },
   "ComplexComparisonPartII": {
-   "stage": "pr",
-   "pr": 848,
-   "head": "226fb29",
-   "depends_on": [
-    779,
-    853
-   ],
-   "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AbelianSchemesAndArithmeticModuli": {
-   "stage": "pr",
-   "pr": 849,
-   "head": "4ed5f32",
-   "depends_on": [
-    779,
-    848,
-    853
-   ],
-   "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "6aa0831",
+   "head": "ae4cbfc",
    "depends_on": [
     779,
     785,
@@ -185,23 +158,8 @@
    }
   },
   "AlgebraicModuliForArithmeticGeometry": {
-   "stage": "pr",
-   "pr": 853,
-   "head": "e5f9c4c",
-   "depends_on": [
-    779,
-    785,
-    817,
-    813
-   ],
-   "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "LocallyAnalyticDistributions": {
    "stage": "pr",
@@ -322,22 +280,8 @@
    }
   },
   "ArithmeticLocallySymmetricSpaces": {
-   "stage": "pr",
-   "pr": 871,
-   "head": "9882c81",
-   "depends_on": [
-    792,
-    793,
-    785
-   ],
-   "note": "N3 CHANGES answered 10-16",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "DeformationAndDerivedPatchingAlgebraPartII": {
    "stage": "pr",
@@ -1439,11 +1383,11 @@
   "JacobianChallengePartII": {
    "stage": "pr",
    "pr": 1225,
-   "head": "2354d71",
+   "head": "c997aa5",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1482,11 +1426,11 @@
   "MordellLawrenceVenkatesh": {
    "stage": "pr",
    "pr": 1231,
-   "head": "3756140",
+   "head": "9bbc6cb",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -1495,11 +1439,11 @@
   "RelativeJacobiansAndIntegralCurveModels": {
    "stage": "pr",
    "pr": 1232,
-   "head": "2af2fd0",
+   "head": "748430a",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: modular curves); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
