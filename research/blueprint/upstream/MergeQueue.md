@@ -1,12 +1,12 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T05:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T05:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
 - #1212 GeneralAlgebraicKTheory — maintainer approved
-- #1309 ColemanPowerSeries — ready
-- #1314 HabiroCyclotomicCompletions — maintainer approved
+- #1309 ColemanPowerSeries — maintainer approved
+- #1314 HabiroCyclotomicCompletions — draft
 - #1411 IntegralLattices — draft
 - #1630 EnhancedDerivedSheaves — draft
 - #1693 DiophantineApproximationAndTranscendencePartII — draft
@@ -79,20 +79,20 @@ Generated 2026-11-16T05:40Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #1169 TeichmullerGeometry — draft; waits on #2026
-- #1229 SchemeKTheoryOperations — ready; waits on #1212, #1630
-- #1307 NoncommutativeAndEquivariantIwasawa — ready; waits on #1212
+- #1229 SchemeKTheoryOperations — maintainer approved; waits on #1212, #1630
+- #1307 NoncommutativeAndEquivariantIwasawa — maintainer approved; waits on #1212
 - #1798 DGFloer — draft; waits on #2127
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 - #1056 FormalConnectionsOpers (kim-em, other author)
 
 ## Wave 3
-- #1248 KTheoryLowDegrees — ready; waits on #1212, #1229, #1630
-- #1310 PhiGammaModulesAndIwasawaCohomology — ready; waits on #1307, #1309
+- #1248 KTheoryLowDegrees — maintainer approved; waits on #1212, #1229, #1630
+- #1310 PhiGammaModulesAndIwasawaCohomology — maintainer approved; waits on #1307, #1309
 - #1741 SchemeKTheoryOperationsPartII — draft; waits on #1212, #1229, #1630
 
 ## Wave 4
-- #1302 K2SymbolsBrauer — ready; waits on #1212, #1229, #1248
-- #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310
+- #1302 K2SymbolsBrauer — maintainer approved; waits on #1212, #1229, #1248
+- #1312 PadicLocalLanglandsForGL2Qp — maintainer approved; waits on #1307, #1310
 
 ## Wave 5
 - #854 LocallyAnalyticDistributions — draft; waits on #1310, #1312
@@ -100,7 +100,7 @@ Generated 2026-11-16T05:40Z from the README supplier graph of every open pull re
 
 ## Wave 6
 - #858 ArithmeticGaloisDuality — draft; waits on #1307, #1312, #1630, #856
-- #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1411, #856
+- #1037 AutomorphicFormsOnReductiveGroups — maintainer approved; waits on #1411, #856
 
 ## Wave 7
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798, #856, #858
@@ -116,7 +116,7 @@ Generated 2026-11-16T05:40Z from the README supplier graph of every open pull re
 - #1839 ProfiniteCohomologyPartII — draft; waits on #1302, #850, #858
 
 ## Wave 9
-- #869 SelmerIwasawaCohomology — draft; waits on #1307, #1312, #852, #858, #879
+- #869 SelmerIwasawaCohomology — ready; waits on #1307, #1312, #852, #858, #879
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready; waits on #1411, #850, #852
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #850, #852, #856, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #856, #1056
