@@ -68,6 +68,7 @@ Generated 2026-11-16T05:10Z from the README supplier graph of every open pull re
 - #2425 BallQuotientsAndComplexHyperbolicLattices — draft
 - #2427 LieGroupsPartII — draft
 - #2433 ArithmeticKTheoryPartII — draft
+- #2438 LogicAndDefinabilityInNumberTheoryPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
