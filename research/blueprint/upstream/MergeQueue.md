@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T04:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T05:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -95,10 +95,10 @@ Generated 2026-11-16T04:50Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #854 LocallyAnalyticDistributions — draft; waits on #1310, #1312
-- #856 ArithmeticGaloisRepresentations — ready; waits on #1312
+- #856 ArithmeticGaloisRepresentations — draft; waits on #1312
 
 ## Wave 6
-- #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #1307, #1312, #1630, #856
+- #858 ArithmeticGaloisDuality — draft; waits on #1307, #1312, #1630, #856
 - #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1411, #856
 
 ## Wave 7
