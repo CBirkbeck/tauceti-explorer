@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T11:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T11:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — draft
@@ -8,7 +8,6 @@ Generated 2026-11-16T11:20Z from the README supplier graph of every open pull re
 - #1630 EnhancedDerivedSheaves — draft
 - #1693 DiophantineApproximationAndTranscendencePartII — draft
 - #1807 decycle-main — draft
-- #1808 decycle6-mc-ssf — draft
 - #2026 ArithmeticFuchsianGroups — draft
 - #2127 SmoothBundlesConnections — draft
 - #2130 GeometricFreyMazur — draft
@@ -122,7 +121,7 @@ Generated 2026-11-16T11:20Z from the README supplier graph of every open pull re
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411, #870, #1285
 
 ## Wave 7
-- #920 GlobalGaloisDeformations — draft; waits on #869, #923
+- #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #869, #923
 - #922 DiamondEtaleCohomology — ready; waits on #1630, #875
 - #928 AlgebraicModularFormsAndSerreWeights — ready (approved at an earlier head); waits on #879, #913
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #850, #873, #913
@@ -217,7 +216,7 @@ Generated 2026-11-16T11:20Z from the README supplier graph of every open pull re
 - #1035 CompletedCohomologyPartII — ready; waits on #1005, #1034, #1630, #913, #933
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1002, #1017, #1021, #1043, #1411, #851, #852, #879, #913, #929
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #852, #879, #913, #933, #966
-- #1178 ArithmeticStatisticsPartVII — ready; waits on #1017, #1171, #1172, #1174, #1175, #1176, #852, #869, #913
+- #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1171, #1172, #1174, #1175, #1176, #852, #869, #913
 - #1230 VStackSheavesAndLisseCategories — ready; waits on #1062, #1205, #1209, #1630, #875, #922, #927, #965
 - #1360 ColemanIntegrationPartII — draft; waits on #1002, #1021, #1043
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1411, #851, #925
