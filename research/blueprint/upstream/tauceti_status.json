@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-16T07:50Z",
+ "updated": "2026-11-16T08:00Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -294,9 +294,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "LefschetzPencilsAndVanishingCycles": {
@@ -318,9 +318,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 469a2c2 (§5.11 profinite degree, continuous powers); ready for re-review"
   },
@@ -345,9 +345,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
@@ -1474,9 +1474,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "HeckeStacksAndLocalShtukas": {
@@ -1599,9 +1599,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "ColemanPowerSeries": {
@@ -1616,9 +1616,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "EulerSystemsCyclotomicMainConjecture": {

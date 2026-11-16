@@ -1,10 +1,10 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T07:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T08:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
-- #1307 NoncommutativeAndEquivariantIwasawa — maintainer approved
+- #1307 NoncommutativeAndEquivariantIwasawa — draft
 - #1411 IntegralLattices — draft
 - #1630 EnhancedDerivedSheaves — draft
 - #1693 DiophantineApproximationAndTranscendencePartII — draft
@@ -84,13 +84,13 @@ Generated 2026-11-16T07:50Z from the README supplier graph of every open pull re
 ## Wave 2
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1229 SchemeKTheoryOperations — draft; waits on #1630
-- #1310 PhiGammaModulesAndIwasawaCohomology — maintainer approved; waits on #1307
+- #1310 PhiGammaModulesAndIwasawaCohomology — draft; waits on #1307
 - #1798 DGFloer — draft; waits on #2127
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 - #1056 FormalConnectionsOpers (kim-em, other author)
 
 ## Wave 3
-- #1248 KTheoryLowDegrees — maintainer approved; waits on #1229, #1630
+- #1248 KTheoryLowDegrees — draft; waits on #1229, #1630
 - #1312 PadicLocalLanglandsForGL2Qp — maintainer approved; waits on #1307, #1310
 - #1741 SchemeKTheoryOperationsPartII — draft; waits on #1229, #1630
 
@@ -106,7 +106,7 @@ Generated 2026-11-16T07:50Z from the README supplier graph of every open pull re
 ## Wave 6
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1411, #1630, #858
-- #872 DeformationAndDerivedPatchingAlgebraPartII — draft; waits on #1798, #858
+- #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1307, #1312, #856, #858
 
 ## Wave 7
@@ -119,14 +119,14 @@ Generated 2026-11-16T07:50Z from the README supplier graph of every open pull re
 ## Wave 8
 - #869 SelmerIwasawaCohomology — draft; waits on #1307, #1312, #852, #858, #879
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #850, #852
-- #873 LefschetzPencilsAndVanishingCycles — draft; waits on #1411, #1630, #850, #852, #856, #858
+- #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #850, #852, #856, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #856, #1056
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #852
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852, #856
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1034, #1630, #2286, #872
 
 ## Wave 9
-- #875 ClassicalAdicEtaleCohomology — draft; waits on #1630, #856, #858, #873
+- #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #1630, #856, #858, #873
 - #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #1037, #1225, #852, #856, #873
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #1310, #1312, #856, #858, #869, #879
 - #1232 RelativeJacobiansAndIntegralCurveModels — ready (approved at an earlier head); waits on #1225, #852, #879
