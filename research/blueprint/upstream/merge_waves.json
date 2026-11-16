@@ -47,10 +47,10 @@
   "PadicDifferentialEquationsAndRigidCohomology": 13,
   "AInfCohomology": 7,
   "PadicHodgeTheory": 14,
-  "PerfectoidQuotients": 8,
+  "PerfectoidQuotients": 10,
   "PrismaticCohomology": 8,
   "CohomologyComparisons": 18,
-  "AnalyticNumberTheory": 6,
+  "AnalyticNumberTheory": 8,
   "ArithmeticStatistics": 19,
   "ColemanIntegration": 14,
   "DirichletPadicLFunctions": 9,
@@ -315,6 +315,7 @@
   "QuasicoherentSheavesOnPrestacks": 1,
   "RiemannianManifoldsWithConvexBoundary": 1,
   "PELModuliPartII": 1,
-  "ZagierConjecturePolylogarithms": 1
+  "ZagierConjecturePolylogarithms": 1,
+  "GrossZagierAndArithmeticHeightsPartII": 1
  }
 }

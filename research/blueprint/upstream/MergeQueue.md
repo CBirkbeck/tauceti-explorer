@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T11:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T11:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — draft
@@ -78,6 +78,7 @@ Generated 2026-11-16T11:10Z from the README supplier graph of every open pull re
 - #2451 RiemannianManifoldsWithConvexBoundary — draft
 - #2453 PELModuliPartII — draft
 - #2454 ZagierConjecturePolylogarithms — draft
+- #2457 GrossZagierAndArithmeticHeightsPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -121,7 +122,7 @@ Generated 2026-11-16T11:10Z from the README supplier graph of every open pull re
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411, #870, #1285
 
 ## Wave 7
-- #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #869, #923
+- #920 GlobalGaloisDeformations — draft; waits on #869, #923
 - #922 DiamondEtaleCohomology — ready; waits on #1630, #875
 - #928 AlgebraicModularFormsAndSerreWeights — ready (approved at an earlier head); waits on #879, #913
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #850, #873, #913
