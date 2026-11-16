@@ -1,6 +1,6 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-11-16T09:20Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-11-16T09:40Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
 
 **Where it stands.** The `top` label covers tiers 1–4. Of the thirteen tier 1–4 roadmaps, four are on main: SchemeAndStackFoundations (#779, with its étale-invariance/scheme-Frobenius follow-up #943), PadicMeasuresIwasawaAlgebras (#780), AdicSpacesPartII (#817) and RigidAnalyticGeometry (#937). The rest are open pull requests on TauCetiRoadmap: #785 ReductiveGroupsPartII (whose branch also carries SmoothRepresentationsOfLocalGroups and IntegralHeckeAndGaloisDeterminants, merged into it from #793 and #789) with #792 AdelicAlgebraicGroups stacked on it, and the adic stack #813 AdicSpacesPartIII ← #814 AdicEtaleGeometry ← #818 PerfectoidSpaces ← #815 AdicSpacesPartIV ← #820 DiamondsAndVStacks ← #816 PerfectoidTowers, restacked onto main after #817 merged. Every open roadmap pull request of ours is re-reviewed by ChatGPT Pro on each new head; a pull request is marked ready only while its latest verdict is an approval.
 **Needed.** The main roadmap, EllipticCurveModularityImaginaryQuadratic, reaches 94 roadmaps (601 layers) through the atlas's stage links. 6 of them (AutomorphicPadicLFunctions, ComputationalNumberTheory, FiniteFieldsAndCharacterSums, PadicHodgeRegulators, RelativeFarguesFontaine, SieveMethodsAndPrimePatterns) are left out of the order: five are reached only through an upward citation of a single layer (that notion moves down into the citing roadmap), and ComputationalNumberTheory is dropped: the explicit modular-curve data it supplied become hypotheses of the final theorem, while EffectiveDiophantineMethods keeps a minimal certified-numerics layer of its own (see `drops.json`), leaving 88 roadmaps (581 layers). Node-by-node packet citations reach 55 more (Habiro, K-theory, Euler systems and others); those are stray citations to be removed, not needs.
@@ -41,7 +41,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 3/3 accepted · package accepted · CN needs 7/11 layers · **Tau Ceti: merged** · move down: DerivedDeRhamCohomology (11) · cites outside the 94: StableHomotopyKTheory (7)
 - **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 12/13 accepted · package not yet · CN needs 10/12 layers · **Tau Ceti: merged**
-- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 5/5 accepted · package not yet · CN needs 5/5 layers · **Tau Ceti: pull request #854 open** · reviewer recommends approval
+- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 5/5 accepted · package not yet · CN needs 5/5 layers · **Tau Ceti: merged**
 - **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 5/5 accepted · package not yet · CN needs 2/6 layers · **Tau Ceti: merged** · move down: ClassicalArithmeticCompletion (1)
 
 ## Tier 5
@@ -56,12 +56,12 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 7
 
-- **ArithmeticGaloisRepresentations** — Arithmetic Galois representations and conductors. Plan 8/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #856 open** · reviewer recommends approval · move down: NeronModelsAndSemistableAbelianVarieties (8), PadicHodgeTheory (7), AutomorphicLFunctionsAndLocalFactors (4), ArithmeticGaloisDuality (1) · cites outside the 94: FunctionFieldArithmetic (1)
+- **ArithmeticGaloisRepresentations** — Arithmetic Galois representations and conductors. Plan 8/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: merged** · move down: NeronModelsAndSemistableAbelianVarieties (8), PadicHodgeTheory (7), AutomorphicLFunctionsAndLocalFactors (4), ArithmeticGaloisDuality (1) · cites outside the 94: FunctionFieldArithmetic (1)
 
 ## Tier 8
 
 - **Merged package:** ArithmeticGaloisDuality + SelmerIwasawaCohomology
-  - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 1/1 accepted · package accepted · CN needs 7/8 layers · **Tau Ceti: pull request #858 open** · cites outside the 94: FunctionFieldArithmetic (11)
+  - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 1/1 accepted · package accepted · CN needs 7/8 layers · **Tau Ceti: merged** · cites outside the 94: FunctionFieldArithmetic (11)
   - **SelmerIwasawaCohomology** — Selmer groups, continuous integral cohomology, and Iwasawa cohomology. Plan 1/1 accepted · package not yet · CN needs 3/5 layers · **Tau Ceti: pull request #869 open** · reviewer recommends approval · cites outside the 94: IntegralIwasawaTheory (1)
 - **NeronModelsAndSemistableAbelianVarieties** — Néron models and semistable abelian varieties. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #852 open** · reviewer recommends approval (at earlier head None; current head 6234348) · move down: PadicHodgeTheory (2) · cites outside the 94: NeronModelsAndSemistableAbelianVarietiesPartII (1)
 
@@ -86,7 +86,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **Merged package:** ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups
   - **ArithmeticLocallySymmetricSpaces** — Arithmetic locally symmetric spaces and their cohomology. Plan 1/1 accepted · package accepted · CN needs 8/8 layers · **Tau Ceti: merged** · move down: AutomorphicSpectralTheory (5), CompletedCohomologyPartII (3), AutomorphicGaloisRepresentationsPartII (3) · cites outside the 94: AdditiveCombinatorics (2)
-  - **AutomorphicFormsOnReductiveGroups** — Automorphic forms on reductive groups. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · **Tau Ceti: pull request #1037 open** · reviewer recommends approval · move down: ShimuraData (5), AutomorphicSpectralTheory (3), AutomorphicLFunctionsAndLocalFactors (2), ModularCurvesPartII (1)
+  - **AutomorphicFormsOnReductiveGroups** — Automorphic forms on reductive groups. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · **Tau Ceti: merged** · move down: ShimuraData (5), AutomorphicSpectralTheory (3), AutomorphicLFunctionsAndLocalFactors (2), ModularCurvesPartII (1)
 - **ModularCurvesPartII** — Modular Curves PartII. Plan 6/6 accepted · package accepted · CN needs 20/20 layers · **Tau Ceti: pull request #913 open** · reviewer recommends approval (at earlier head None; current head 12ed412) · move down: EtaleDualityAndPerverseSheaves (13), LefschetzPencilsAndVanishingCycles (4), WeightsInEtaleCohomology (1)
 - **DiamondEtaleCohomology** — Étale cohomology of diamonds and its four operations. Plan 3/3 accepted · package accepted · CN needs 10/10 layers · **Tau Ceti: pull request #922 open** · reviewer recommends approval · cites outside the 94: SchemeKTheoryOperations (1)
 - **DeligneWeightsAndPurity** — Deligne weights, purity and the Weil bounds. Plan 3/3 accepted · package accepted · CN needs 10/11 layers · **Tau Ceti: pull request #929 open** · reviewer recommends approval (at earlier head None; current head 1cb457e) · cites outside the 94: WeilConjectures (10), FunctionFieldArithmetic (3)
