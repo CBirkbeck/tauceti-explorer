@@ -1,11 +1,11 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T06:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T07:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
-- #1212 GeneralAlgebraicKTheory — maintainer approved
-- #1309 ColemanPowerSeries — maintainer approved
+- #1212 GeneralAlgebraicKTheory — draft
+- #1309 ColemanPowerSeries — draft
 - #1411 IntegralLattices — draft
 - #1630 EnhancedDerivedSheaves — draft
 - #1693 DiophantineApproximationAndTranscendencePartII — draft
@@ -106,7 +106,7 @@ Generated 2026-11-16T06:40Z from the README supplier graph of every open pull re
 ## Wave 7
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #1411, #1630, #858
-- #872 DeformationAndDerivedPatchingAlgebraPartII — draft; waits on #1798, #858
+- #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1307, #1312, #856, #858
 
 ## Wave 8
@@ -118,7 +118,7 @@ Generated 2026-11-16T06:40Z from the README supplier graph of every open pull re
 
 ## Wave 9
 - #869 SelmerIwasawaCohomology — draft; waits on #1307, #1312, #852, #858, #879
-- #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #850, #852
+- #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1411, #850, #852
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #850, #852, #856, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #856, #1056
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #852
