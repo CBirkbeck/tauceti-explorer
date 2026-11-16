@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T07:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T07:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -70,6 +70,10 @@ Generated 2026-11-16T07:10Z from the README supplier graph of every open pull re
 - #2438 LogicAndDefinabilityInNumberTheoryPartII — draft
 - #2439 IgusaVarietiesAndTorsionConcentrationPartII — draft
 - #2440 ComplexHessianEquations — draft
+- #2443 Varifolds — draft
+- #2444 DiracScatteringAndNonlinearFourierTransform — draft
+- #2445 EllipticCurveModularityImaginaryQuadraticPartII — draft
+- #2446 VirtualFundamentalClassPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -126,7 +130,7 @@ Generated 2026-11-16T07:10Z from the README supplier graph of every open pull re
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1034, #1630, #2286, #872
 
 ## Wave 10
-- #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #1630, #856, #858, #873
+- #875 ClassicalAdicEtaleCohomology — draft; waits on #1630, #856, #858, #873
 - #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #1037, #1225, #852, #856, #873
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #1310, #1312, #856, #858, #869, #879
 - #1232 RelativeJacobiansAndIntegralCurveModels — ready (approved at an earlier head); waits on #1225, #852, #879

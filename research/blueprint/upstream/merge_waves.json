@@ -47,10 +47,10 @@
   "PadicDifferentialEquationsAndRigidCohomology": 17,
   "AInfCohomology": 11,
   "PadicHodgeTheory": 18,
-  "PerfectoidQuotients": 12,
+  "PerfectoidQuotients": 14,
   "PrismaticCohomology": 12,
   "CohomologyComparisons": 22,
-  "AnalyticNumberTheory": 10,
+  "AnalyticNumberTheory": 12,
   "ArithmeticStatistics": 23,
   "ColemanIntegration": 18,
   "DirichletPadicLFunctions": 13,
@@ -315,6 +315,10 @@
   "ArithmeticKTheoryPartII": 1,
   "LogicAndDefinabilityInNumberTheoryPartII": 1,
   "IgusaVarietiesAndTorsionConcentrationPartII": 1,
-  "ComplexHessianEquations": 1
+  "ComplexHessianEquations": 1,
+  "Varifolds": 1,
+  "DiracScatteringAndNonlinearFourierTransform": 1,
+  "EllipticCurveModularityImaginaryQuadraticPartII": 1,
+  "VirtualFundamentalClassPartII": 1
  }
 }
