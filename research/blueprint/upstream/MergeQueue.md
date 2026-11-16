@@ -80,6 +80,7 @@ Generated 2026-11-16T15:40Z from the README supplier graph of every open pull re
 - #2457 GrossZagierAndArithmeticHeightsPartII — draft
 - #2459 MotivesAndAlgebraicCyclesPartII — draft
 - #2461 MordellLawrenceVenkateshPartII — draft
+- #2463 ShimuraVarietiesPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
