@@ -92,7 +92,6 @@ Generated 2026-11-16T14:20Z from the README supplier graph of every open pull re
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1798 DGFloer — draft; waits on #2127
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
-- #1056 FormalConnectionsOpers (kim-em, other author)
 
 ## Wave 3
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798
@@ -109,7 +108,7 @@ Generated 2026-11-16T14:20Z from the README supplier graph of every open pull re
 - #869 SelmerIwasawaCohomology — draft; waits on #852, #879
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #850, #852
 - #873 LefschetzPencilsAndVanishingCycles — draft; waits on #1411, #1630, #850, #852
-- #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #1056
+- #1202 LanglandsParameterStacks — ready; waits on #1034, #1630
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #852
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1034, #1630, #2286, #872
@@ -185,7 +184,7 @@ Generated 2026-11-16T14:20Z from the README supplier graph of every open pull re
 - #1043 ColemanIntegration — ready; waits on #1002, #1039, #1418, #1430, #1470, #851
 - #1062 PadicHodgeTheory — ready; waits on #1002, #1044, #1057, #1313, #1630, #852, #869, #875, #879, #923, #966
 - #1174 ArithmeticStatisticsPartIII — ready (approved at an earlier head); waits on #1171, #1173, #850, #851, #869, #924, #929
-- #1828 SpringerResolutionAndCharacteristicCycles — draft; waits on #1034, #1038, #1040, #1630, #1056
+- #1828 SpringerResolutionAndCharacteristicCycles — draft; waits on #1034, #1038, #1040, #1630
 - #1948 ExplicitCharacterSumsAndSieves — draft; waits on #1712
 
 ## Wave 15
@@ -265,7 +264,7 @@ Generated 2026-11-16T14:20Z from the README supplier graph of every open pull re
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1013, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #966, #970, #999
 - #1084 HodgeTateAndCanonicalSubgroups — ready; waits on #1005, #1038, #1053, #1062, #1064, #1069, #1080, #1630, #852, #875, #879, #922, #933, #966
 - #1498 PadicHodgeRegulators — draft; waits on #1043, #1062, #1064, #1281, #1360, #1364, #1418, #1424, #1430, #1461, #852, #869, #879
-- #1734 SheafTheoreticSmithTheory — draft; waits on #1034, #1040, #1202, #1209, #1235, #1490, #1630, #1056
+- #1734 SheafTheoreticSmithTheory — draft; waits on #1034, #1040, #1202, #1209, #1235, #1490, #1630
 - #1809 SheafConvolutionOnAbelianVarieties — draft; waits on #1038, #1040, #1062, #1225, #1231, #1313, #1405, #1828, #1841, #2277, #929
 - #1823 AutomorphicBundlesPartII — draft; waits on #1001, #1005, #1034, #1053, #1069, #1230, #1630, #913, #925, #999
 - #1831 FunctionFieldArithmeticPartII — draft; waits on #1002, #1474, #1490, #850, #929
@@ -361,4 +360,4 @@ Generated 2026-11-16T14:20Z from the README supplier graph of every open pull re
 - #1758 TwistedAutomorphicDescents — draft; waits on #1180, #1404, #2277, #851, #924, #925, #999
 - #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1404, #1504, #924, #925, #1158
 - #1805 RankOneConverse — draft; waits on #1007, #1013, #1018, #1063, #1171, #1176, #1423, #1487, #1491, #1816, #869, #913, #924, #931
-- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1015, #1404, #1815, #851, #925, #999, #1056
+- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1015, #1404, #1815, #851, #925, #999
