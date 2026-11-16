@@ -79,6 +79,7 @@ Generated 2026-11-16T13:10Z from the README supplier graph of every open pull re
 - #2454 ZagierConjecturePolylogarithms — draft
 - #2457 GrossZagierAndArithmeticHeightsPartII — draft
 - #2459 MotivesAndAlgebraicCyclesPartII — draft
+- #2461 MordellLawrenceVenkateshPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
