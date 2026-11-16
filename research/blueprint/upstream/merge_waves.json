@@ -315,6 +315,10 @@
   "EllipticCurveModularityImaginaryQuadraticPartII": 1,
   "VirtualFundamentalClassPartII": 1,
   "HochschildHomologyAndHKR": 1,
-  "HardSphereDynamicsAndKineticLimits": 1
+  "HardSphereDynamicsAndKineticLimits": 1,
+  "QuasicoherentSheavesOnPrestacks": 1,
+  "RiemannianManifoldsWithConvexBoundary": 1,
+  "PELModuliPartII": 1,
+  "ZagierConjecturePolylogarithms": 1
  }
 }
