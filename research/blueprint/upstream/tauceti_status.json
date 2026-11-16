@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-16T06:20Z",
+ "updated": "2026-11-16T06:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -126,7 +126,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "3b084ef",
+   "head": "81b8a64",
    "depends_on": [
     792,
     785
@@ -134,7 +134,7 @@
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -143,7 +143,7 @@
   "NeronModelsAndSemistableAbelianVarieties": {
    "stage": "pr",
    "pr": 852,
-   "head": "09e9d04",
+   "head": "6234348",
    "depends_on": [
     779,
     785
@@ -263,7 +263,7 @@
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
    "stage": "pr",
    "pr": 870,
-   "head": "bfb3830",
+   "head": "9d01aa2",
    "depends_on": [
     852,
     779,
@@ -273,7 +273,7 @@
    "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": null,
     "maintainer": null,
     "ai": false
@@ -294,9 +294,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "LefschetzPencilsAndVanishingCycles": {
@@ -381,11 +381,11 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "9be1eb8",
+   "head": "12ed412",
    "note": "N3 CHANGES answered 10-16",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -483,11 +483,11 @@
   "AlgebraicModularFormsAndSerreWeights": {
    "stage": "pr",
    "pr": 928,
-   "head": "8ff864c",
+   "head": "329c449",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -704,7 +704,7 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "9b742e1",
+   "head": "65e9909",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
    "review": {
     "recommendation": "changes",
@@ -756,11 +756,11 @@
   "EllipticCurveModularity": {
    "stage": "pr",
    "pr": 1018,
-   "head": "5baf484",
+   "head": "e4cd919",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -821,7 +821,7 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
    "pr": 1036,
-   "head": "f4b7dbb",
+   "head": "cb6cb1b",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
     "recommendation": "approve",
@@ -1223,11 +1223,11 @@
   "ArithmeticStatisticsPartIII": {
    "stage": "pr",
    "pr": 1174,
-   "head": "b20a75d",
+   "head": "4a3584c",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part III of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1504,11 +1504,11 @@
   "ComplexMultiplicationAndExplicitReciprocity": {
    "stage": "pr",
    "pr": 1254,
-   "head": "fa8fcda",
+   "head": "36aadba",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / BSD); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -1679,17 +1679,8 @@
    }
   },
   "HabiroCyclotomicCompletions": {
-   "stage": "pr",
-   "pr": 1314,
-   "head": "3bcc428",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "PolylogarithmFunctions": {
    "stage": "main",
