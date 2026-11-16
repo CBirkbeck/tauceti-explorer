@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-15T23:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T00:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -83,7 +83,7 @@ Generated 2026-11-15T23:50Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #849 AbelianSchemesAndArithmeticModuli — maintainer approved; waits on #1630, #848, #853
-- #871 ArithmeticLocallySymmetricSpaces — maintainer approved; waits on #1630, #848
+- #871 ArithmeticLocallySymmetricSpaces — draft; waits on #1630, #848
 - #1248 KTheoryLowDegrees — ready; waits on #1212, #1229, #1630
 - #1312 PadicLocalLanglandsForGL2Qp — ready; waits on #1307, #1310
 - #1741 SchemeKTheoryOperationsPartII — draft; waits on #1212, #1229, #1630
