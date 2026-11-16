@@ -317,6 +317,8 @@
   "Varifolds": 1,
   "DiracScatteringAndNonlinearFourierTransform": 1,
   "EllipticCurveModularityImaginaryQuadraticPartII": 1,
-  "VirtualFundamentalClassPartII": 1
+  "VirtualFundamentalClassPartII": 1,
+  "HochschildHomologyAndHKR": 1,
+  "HardSphereDynamicsAndKineticLimits": 1
  }
 }
