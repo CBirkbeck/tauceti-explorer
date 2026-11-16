@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T06:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T06:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -69,6 +69,8 @@ Generated 2026-11-16T06:10Z from the README supplier graph of every open pull re
 - #2427 LieGroupsPartII — draft
 - #2433 ArithmeticKTheoryPartII — draft
 - #2438 LogicAndDefinabilityInNumberTheoryPartII — draft
+- #2439 IgusaVarietiesAndTorsionConcentrationPartII — draft
+- #2440 ComplexHessianEquations — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -117,7 +119,7 @@ Generated 2026-11-16T06:10Z from the README supplier graph of every open pull re
 
 ## Wave 9
 - #869 SelmerIwasawaCohomology — draft; waits on #1307, #1312, #852, #858, #879
-- #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready; waits on #1411, #850, #852
+- #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411, #850, #852
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #850, #852, #856, #858
 - #1202 LanglandsParameterStacks — ready; waits on #1034, #1630, #856, #1056
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #852
