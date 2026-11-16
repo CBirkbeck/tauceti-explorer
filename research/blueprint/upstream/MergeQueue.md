@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-16T02:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-16T04:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1145 SmoothBanachRepresentations — draft
@@ -67,6 +67,7 @@ Generated 2026-11-16T02:40Z from the README supplier graph of every open pull re
 - #2424 SchrodingerOperatorsAndSpectralTypes — draft
 - #2425 BallQuotientsAndComplexHyperbolicLattices — draft
 - #2427 LieGroupsPartII — draft
+- #2433 ArithmeticKTheoryPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
@@ -101,7 +102,7 @@ Generated 2026-11-16T02:40Z from the README supplier graph of every open pull re
 - #1037 AutomorphicFormsOnReductiveGroups — ready; waits on #1411, #856
 
 ## Wave 7
-- #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #1630, #1798, #856, #858
+- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798, #856, #858
 - #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #1212, #1411, #1630, #858
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #1798, #858
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #1307, #1312, #856, #858

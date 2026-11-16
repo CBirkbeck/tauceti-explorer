@@ -47,10 +47,10 @@
   "PadicDifferentialEquationsAndRigidCohomology": 17,
   "AInfCohomology": 11,
   "PadicHodgeTheory": 18,
-  "PerfectoidQuotients": 14,
+  "PerfectoidQuotients": 16,
   "PrismaticCohomology": 12,
   "CohomologyComparisons": 22,
-  "AnalyticNumberTheory": 12,
+  "AnalyticNumberTheory": 14,
   "ArithmeticStatistics": 23,
   "ColemanIntegration": 18,
   "DirichletPadicLFunctions": 13,
@@ -312,6 +312,7 @@
   "DimerModelsAndLozengeTilings": 1,
   "SchrodingerOperatorsAndSpectralTypes": 1,
   "BallQuotientsAndComplexHyperbolicLattices": 1,
-  "LieGroupsPartII": 1
+  "LieGroupsPartII": 1,
+  "ArithmeticKTheoryPartII": 1
  }
 }
