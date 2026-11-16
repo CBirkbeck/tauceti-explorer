@@ -64,6 +64,9 @@ Generated 2026-11-16T01:50Z from the README supplier graph of every open pull re
 - #2420 GaussianIsoperimetryAndClusters — draft
 - #2421 SchattenClassesAndSchurMultipliers — draft
 - #2422 DimerModelsAndLozengeTilings — draft
+- #2424 SchrodingerOperatorsAndSpectralTypes — draft
+- #2425 BallQuotientsAndComplexHyperbolicLattices — draft
+- #2427 LieGroupsPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
