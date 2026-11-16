@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-16T17:10Z",
+ "updated": "2026-11-16T17:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -430,9 +430,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    },
    "maintainer": "READY FOR APPROVAL 2026-10-16 (roed-math); S6.3 noetherian correction applied at f9bb79c"
   },
@@ -444,9 +444,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 1509f4f (R15.4 dyadic twists; R15.5A.1 coefficient places; pairing-based char poly); ready for re-review"
   },
@@ -458,9 +458,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "GL2AutomorphicRepresentationsAndTransfer": {
@@ -471,9 +471,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ShimuraVarieties": {
@@ -484,9 +484,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EtaleCohomologyFoundations": {
@@ -509,9 +509,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AdicCoefficientsAndComparisons": {
@@ -522,9 +522,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PELModuli": {
@@ -535,9 +535,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ModularSymbolsPadicLFunctions": {
@@ -548,9 +548,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "SmallRamificationAndAbelianVarietyBaseCases": {
@@ -561,9 +561,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EndoscopicTransferAndUnitaryTraceComparison": {
@@ -574,9 +574,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArakelovGeometryAndAbelianHeights": {
@@ -587,9 +587,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "WeightsInEtaleCohomology": {
@@ -600,9 +600,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PadicDifferentialEquationsAndRigidCohomology": {
@@ -613,9 +613,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
@@ -626,9 +626,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "HilbertModularVarietiesAndShimuraCurves": {
@@ -639,9 +639,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AutomorphicGaloisRepresentationsPartII": {
@@ -652,9 +652,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AutomorphicGaloisRepresentations": {
@@ -665,9 +665,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "SerreWeightAndLevelOptimisation": {
@@ -678,9 +678,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "HeightsRationalPointsAndObstructions": {
@@ -691,9 +691,9 @@
    "review": {
     "recommendation": "changes",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ClassicalSerreModularity": {
@@ -704,9 +704,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EllipticCurveModularity": {
@@ -717,9 +717,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PadicFamilies": {
@@ -730,9 +730,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AnabelianGeometryAndNonabelianChabauty": {
@@ -743,9 +743,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "DeformationAndDerivedPatchingAlgebra": {
@@ -756,9 +756,9 @@
    "review": {
     "recommendation": "changes",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "CompletedCohomologyPartII": {
@@ -769,9 +769,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
@@ -782,9 +782,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AutomorphicFormsOnReductiveGroups": {
@@ -799,9 +799,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "DirichletPadicLFunctions": {
@@ -812,9 +812,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EtaleDualityAndPerverseSheaves": {
@@ -825,9 +825,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PerfectoidQuotients": {
@@ -842,9 +842,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AInfCohomology": {
@@ -855,9 +855,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EffectiveDiophantineMethods": {
@@ -868,9 +868,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EllipticCurveModularityImaginaryQuadratic": {
@@ -881,9 +881,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ShimuraCompactifications": {
@@ -894,9 +894,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PrismaticCohomology": {
@@ -907,9 +907,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PadicHodgeTheory": {
@@ -920,9 +920,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "MetaplecticAutomorphicForms": {
@@ -933,9 +933,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "CohomologyComparisons": {
@@ -946,9 +946,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "OrdinaryAutomorphicFormsAndModularityLifting": {
@@ -959,9 +959,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PrismaticCohomologyPartII": {
@@ -972,9 +972,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AutomorphicBundles": {
@@ -985,9 +985,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PrismaticCohomologyPartIII": {
@@ -998,9 +998,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "GL2ModularityLifting": {
@@ -1011,9 +1011,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PotentialModularityAndCompatibleSystems": {
@@ -1024,9 +1024,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PrismaticCohomologyPartIV": {
@@ -1037,9 +1037,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PotentialAutomorphyInfrastructure": {
@@ -1050,9 +1050,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "HodgeTateAndCanonicalSubgroups": {
@@ -1063,9 +1063,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PerfectoidShimuraVarieties": {
@@ -1076,9 +1076,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "TorsionCohomologyInfrastructure": {
@@ -1089,9 +1089,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "IgusaVarietiesAndTorsionConcentration": {
@@ -1102,9 +1102,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AnalyticNumberTheoryPartI": {
@@ -1119,9 +1119,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "AnalyticNumberTheoryPartII": {
@@ -1136,9 +1136,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartIV": {
@@ -1149,9 +1149,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartII": {
@@ -1162,9 +1162,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartIII": {
@@ -1175,9 +1175,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartV": {
@@ -1188,9 +1188,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartVI": {
@@ -1201,9 +1201,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartVII": {
@@ -1214,9 +1214,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ArithmeticStatisticsPartVIII": {
@@ -1227,9 +1227,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ModularityAndLanglandsExtensions": {
@@ -1240,9 +1240,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "CrystallineLocalGlobalCompatibilityCM": {
@@ -1253,9 +1253,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ResolutionOfSingularitiesCharacteristicZero": {
@@ -1270,9 +1270,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "VectorBundlesAndIsocrystals": {
@@ -1283,9 +1283,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "WeilConjectures": {
@@ -1296,9 +1296,9 @@
    "review": {
     "recommendation": "changes",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "RelativeFarguesFontaine": {
@@ -1309,9 +1309,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "GeneralAlgebraicKTheory": {
@@ -1326,9 +1326,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "StableHomotopyKTheory": {
@@ -1347,9 +1347,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "MordellLawrenceVenkatesh": {
@@ -1360,9 +1360,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "RelativeJacobiansAndIntegralCurveModels": {
@@ -1373,9 +1373,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "GeometricSatakeAndFusion": {
@@ -1386,9 +1386,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "BunGAndNewtonStrata": {
@@ -1399,9 +1399,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "KTheoryLowDegrees": {
@@ -1416,9 +1416,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "ComplexMultiplicationAndExplicitReciprocity": {
@@ -1429,9 +1429,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "CyclotomicClassGroupsAndStickelberger": {
@@ -1446,9 +1446,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "HermitianKTheoryOfPoincareCategories": {
@@ -1459,9 +1459,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "CompletedCohomologyAndLocalGlobalCompatibility": {
@@ -1472,9 +1472,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "EulerSystemsAndKolyvaginSystems": {
@@ -1485,9 +1485,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "KTheoryFiniteLocalFields": {
@@ -1498,9 +1498,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "K2SymbolsBrauer": {
@@ -1531,9 +1531,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "PadicLocalLanglandsForGL2Qp": {
@@ -1548,9 +1548,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "HabiroCyclotomicCompletions": {
