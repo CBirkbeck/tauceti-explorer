@@ -61,6 +61,9 @@ Generated 2026-11-16T00:40Z from the README supplier graph of every open pull re
 - #2342 HigherHidaAndColemanTheory — draft
 - #2343 FinitenessAndDualityOfGroups — draft
 - #2418 CountableStructureSpacesPartII — draft
+- #2420 GaussianIsoperimetryAndClusters — draft
+- #2421 SchattenClassesAndSchurMultipliers — draft
+- #2422 DimerModelsAndLozengeTilings — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #936 FourManifolds (kim-em, other author)
