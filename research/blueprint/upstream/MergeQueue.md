@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T19:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T21:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head)
@@ -74,7 +74,6 @@ Generated 2026-11-17T19:40Z from the README supplier graph of every open pull re
 - #2461 MordellLawrenceVenkateshPartII — draft
 - #2463 ShimuraVarietiesPartII — draft
 - #903 references (kim-em, other author)
-- #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
@@ -84,7 +83,7 @@ Generated 2026-11-17T19:40Z from the README supplier graph of every open pull re
 - #1057 PrismaticCohomology — ready; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1313 MotivesAndAlgebraicCycles — ready; waits on #1281, #1630
-- #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411, #1285
+- #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411
 - #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #2258
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 
@@ -262,7 +261,7 @@ Generated 2026-11-17T19:40Z from the README supplier graph of every open pull re
 - #1081 PotentialAutomorphyInfrastructure — ready; waits on #1006, #1007, #1019, #1021, #1038, #1062, #1075, #1084, #1085, #1087, #1090, #920, #923, #924, #931, #966, #999
 - #1252 HeckeStacksAndLocalShtukas — ready; waits on #1006, #1062, #1090, #1205, #1209, #1230, #1235, #1241, #1630, #965, #999
 - #1419 PolynomialGaloisGroupsPartII — draft; waits on #1336
-- #1496 PeriodsAndSpecialValues — draft; waits on #1001, #1002, #1006, #1021, #1039, #1040, #1043, #1075, #1208, #1313, #1375, #1411, #1418, #1461, #1470, #924, #968, #970, #1285
+- #1496 PeriodsAndSpecialValues — draft; waits on #1001, #1002, #1006, #1021, #1039, #1040, #1043, #1075, #1208, #1313, #1375, #1411, #1418, #1461, #1470, #924, #968, #970
 - #1695 ComplexMultiplicationAndExplicitReciprocityPartII — draft; waits on #1000, #1005, #1017, #1038, #1063, #1069, #1254, #1411, #1487, #1738, #2284, #924, #933, #966
 - #1742 GeneralAlgebraicKTheoryPartII — draft; waits on #1057, #1281, #1351, #1493, #1630, #1733, #1798
 - #1757 ScholzeFunctorAndModpCohomologyOfTheLubinTateTower — draft; waits on #1005, #1007, #1035, #1062, #1075, #1084, #1085, #1090, #1270, #2282, #2284, #2287, #923, #931, #999
