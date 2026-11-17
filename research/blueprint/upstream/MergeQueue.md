@@ -5,7 +5,6 @@ Generated 2026-11-17T08:30Z from the README supplier graph of every open pull re
 ## Wave 1
 - #1411 IntegralLattices — draft
 - #1630 EnhancedDerivedSheaves — draft
-- #1693 DiophantineApproximationAndTranscendencePartII — draft
 - #1807 decycle-main — draft
 - #2026 ArithmeticFuchsianGroups — draft
 - #2127 SmoothBundlesConnections — draft
