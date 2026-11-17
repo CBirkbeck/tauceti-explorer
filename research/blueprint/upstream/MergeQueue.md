@@ -1,12 +1,12 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T22:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T22:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #923 LocalGaloisDeformationRings — maintainer approved
-- #929 DeligneWeightsAndPurity — maintainer approved
-- #1272 EulerSystemsAndKolyvaginSystems — maintainer approved
-- #1281 KTheoryFiniteLocalFields — maintainer approved
+- #929 DeligneWeightsAndPurity — draft
+- #1272 EulerSystemsAndKolyvaginSystems — draft
+- #1281 KTheoryFiniteLocalFields — draft
 - #1411 IntegralLattices — draft
 - #1630 EnhancedDerivedSheaves — draft
 - #1796 AdicCoefficientsAndComparisonsPartII — draft
@@ -87,7 +87,7 @@ Generated 2026-11-17T22:10Z from the README supplier graph of every open pull re
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 
 ## Wave 3
-- #931 GL2AutomorphicRepresentationsAndTransfer — maintainer approved; waits on #924
+- #931 GL2AutomorphicRepresentationsAndTransfer — draft; waits on #924
 - #964 FarguesFontaineDiamonds — ready; waits on #1630, #965
 - #968 ModularSymbolsPadicLFunctions — ready; waits on #923, #924
 - #1039 DirichletPadicLFunctions — ready; waits on #924
@@ -126,7 +126,7 @@ Generated 2026-11-17T22:10Z from the README supplier graph of every open pull re
 - #1712 CharacterSumsOverFiniteFields — draft; waits on #1039, #1504
 
 ## Wave 7
-- #1000 ArakelovGeometryAndAbelianHeights — ready (approved at an earlier head); waits on #1002, #966
+- #1000 ArakelovGeometryAndAbelianHeights — maintainer approved; waits on #1002, #966
 - #1043 ColemanIntegration — ready; waits on #1002, #1039, #1418, #1430, #1470
 - #1062 PadicHodgeTheory — ready; waits on #1002, #1057, #1313, #1630, #923, #966
 - #1174 ArithmeticStatisticsPartIII — ready (approved at an earlier head); waits on #1171, #1173, #924, #929
@@ -136,7 +136,7 @@ Generated 2026-11-17T22:10Z from the README supplier graph of every open pull re
 ## Wave 8
 - #999 EndoscopicTransferAndUnitaryTraceComparison — ready; waits on #1040, #1062, #924, #929, #931, #933, #965, #966
 - #1001 WeightsInEtaleCohomology — ready (approved at an earlier head); waits on #1002, #1062, #1630, #929, #931
-- #1017 HeightsRationalPointsAndObstructions — draft; waits on #1000, #1171, #1173, #1174, #1411
+- #1017 HeightsRationalPointsAndObstructions — ready; waits on #1000, #1171, #1173, #1174, #1411
 - #1080 PrismaticCohomologyPartIV — ready; waits on #1057, #1062, #1065, #1070, #1630
 - #1175 ArithmeticStatisticsPartV — ready; waits on #1171, #1172, #1173, #1174, #1411
 - #1205 VectorBundlesAndIsocrystals — ready; waits on #1002, #1062, #1070, #964
