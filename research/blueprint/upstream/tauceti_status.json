@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-16T23:40Z",
+ "updated": "2026-11-17T07:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -240,20 +240,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "DeformationAndDerivedPatchingAlgebraPartII": {
-   "stage": "pr",
-   "pr": 872,
-   "head": "d046bf8",
-   "depends_on": [
-    779
-   ],
-   "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-   "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "LefschetzPencilsAndVanishingCycles": {
    "stage": "pr",
@@ -307,28 +295,8 @@
    }
   },
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
-   "stage": "pr",
-   "pr": 879,
-   "head": "9a9505b",
-   "depends_on": [
-    849,
-    857,
-    869,
-    852,
-    868,
-    779,
-    850,
-    856,
-    793
-   ],
-   "note": "N2 CHANGES answered 10-16",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "EnhancedDerivedSheaves": {
    "stage": "main",
