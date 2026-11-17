@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T22:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T22:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #923 LocalGaloisDeformationRings — maintainer approved
@@ -79,10 +79,10 @@ Generated 2026-11-17T22:00Z from the README supplier graph of every open pull re
 ## Wave 2
 - #920 GlobalGaloisDeformations — maintainer approved; waits on #923
 - #924 AutomorphicLFunctionsAndLocalFactors — maintainer approved; waits on #929
-- #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #1630
+- #965 AdicCoefficientsAndComparisons — maintainer approved; waits on #1630
 - #1057 PrismaticCohomology — ready; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
-- #1313 MotivesAndAlgebraicCycles — ready; waits on #1281, #1630
+- #1313 MotivesAndAlgebraicCycles — maintainer approved; waits on #1281, #1630
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 
@@ -99,7 +99,7 @@ Generated 2026-11-17T22:00Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #933 ShimuraVarieties — maintainer approved; waits on #931
-- #1040 EtaleDualityAndPerverseSheaves — ready (approved at an earlier head); waits on #1630, #924, #929, #931, #965
+- #1040 EtaleDualityAndPerverseSheaves — maintainer approved; waits on #1630, #924, #929, #931, #965
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1057, #1065, #1630
 - #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039, #1272
 - #1351 QWittVectors — draft; waits on #1057, #1065, #1281, #1630
@@ -108,7 +108,7 @@ Generated 2026-11-17T22:00Z from the README supplier graph of every open pull re
 - #1691 GeometryOfNumbersAndQuadraticArithmeticPartII — draft; waits on #1281, #1411, #1418
 
 ## Wave 5
-- #966 PELModuli — ready; waits on #933
+- #966 PELModuli — maintainer approved; waits on #933
 - #970 SmallRamificationAndAbelianVarietyBaseCases — ready; waits on #923, #931, #933
 - #1171 ArithmeticStatisticsPartI — ready (approved at an earlier head); waits on #1040, #1272, #1411, #929
 - #1504 CongruenceSpectralGap — draft; waits on #1040, #924, #929, #931
@@ -117,7 +117,7 @@ Generated 2026-11-17T22:00Z from the README supplier graph of every open pull re
 - #1840 PurityForFlatCohomology — draft; waits on #1057, #1065, #1070, #1630, #2259
 
 ## Wave 6
-- #1002 PadicDifferentialEquationsAndRigidCohomology — ready; waits on #1313, #1504, #1630, #929, #965
+- #1002 PadicDifferentialEquationsAndRigidCohomology — maintainer approved; waits on #1313, #1504, #1630, #929, #965
 - #1038 ShimuraData — ready; waits on #933, #966
 - #1172 ArithmeticStatisticsPartIV — ready; waits on #1171
 - #1173 ArithmeticStatisticsPartII — ready; waits on #1171
