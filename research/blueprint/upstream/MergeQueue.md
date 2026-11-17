@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T08:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T08:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1411 IntegralLattices — draft
@@ -89,14 +89,14 @@ Generated 2026-11-17T08:00Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1411, #1630
-- #1034 DeformationAndDerivedPatchingAlgebra — ready; waits on #1630
+- #1034 DeformationAndDerivedPatchingAlgebra — maintainer approved; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1798 DGFloer — draft; waits on #2127
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 
 ## Wave 3
 - #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798
-- #1202 LanglandsParameterStacks — ready; waits on #1034, #1630
+- #1202 LanglandsParameterStacks — maintainer approved; waits on #1034, #1630
 - #1266 HermitianKTheoryOfPoincareCategories — ready; waits on #1630, #851
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1034, #1630, #2286
 
