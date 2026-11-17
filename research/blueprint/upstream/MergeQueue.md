@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T11:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T12:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1411 IntegralLattices — draft
@@ -94,7 +94,7 @@ Generated 2026-11-17T11:40Z from the README supplier graph of every open pull re
 ## Wave 4
 - #869 SelmerIwasawaCohomology — ready; waits on #852
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1411, #850, #852
-- #873 LefschetzPencilsAndVanishingCycles — ready; waits on #1411, #1630, #850, #852
+- #873 LefschetzPencilsAndVanishingCycles — maintainer approved; waits on #1411, #1630, #850, #852
 - #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #852
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852
 
