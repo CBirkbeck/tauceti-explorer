@@ -14,7 +14,6 @@ Generated 2026-11-17T19:40Z from the README supplier graph of every open pull re
 - #2026 ArithmeticFuchsianGroups — draft
 - #2130 GeometricFreyMazur — draft
 - #2131 ReductiveGroupsPartIII — draft
-- #2132 FourierDeligneTransform — draft
 - #2134 QuasiregularMaps — draft
 - #2135 PotentialAutomorphyInfrastructurePartII — draft
 - #2137 GL2ModularityLiftingPartII — draft
@@ -75,7 +74,6 @@ Generated 2026-11-17T19:40Z from the README supplier graph of every open pull re
 - #2461 MordellLawrenceVenkateshPartII — draft
 - #2463 ShimuraVarietiesPartII — draft
 - #903 references (kim-em, other author)
-- #1158 SpectralManifolds (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
 
@@ -308,6 +306,6 @@ Generated 2026-11-17T19:40Z from the README supplier graph of every open pull re
 - #1732 RankZeroOneBSDPartII — draft; waits on #1018, #1171, #1174, #1176, #1178, #1272, #1423, #1487, #1744
 - #1746 AbelianSurfacesModularity — draft; waits on #1004, #1006, #1007, #1018, #1020, #1036, #1053, #1066, #1180, #1405, #1720, #1817, #2135, #923, #924, #931, #933, #999
 - #1758 TwistedAutomorphicDescents — draft; waits on #1180, #1404, #2277, #924, #999
-- #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1404, #1504, #924, #1158
+- #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1404, #1504, #924
 - #1805 RankOneConverse — draft; waits on #1007, #1013, #1018, #1063, #1171, #1176, #1423, #1487, #1491, #1816, #924, #931
 - #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1015, #1404, #1815, #999
