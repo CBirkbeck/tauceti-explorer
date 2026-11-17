@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T07:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T08:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1411 IntegralLattices — draft
@@ -129,7 +129,7 @@ Generated 2026-11-17T07:40Z from the README supplier graph of every open pull re
 - #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #2258, #873, #875
 
 ## Wave 8
-- #924 AutomorphicLFunctionsAndLocalFactors — draft; waits on #850, #929
+- #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #850, #929
 - #927 DiamondSixOperations — ready; waits on #1630, #875, #922
 - #1057 PrismaticCohomology — ready; waits on #1044, #1630
 - #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head); waits on #1044, #1266, #851
