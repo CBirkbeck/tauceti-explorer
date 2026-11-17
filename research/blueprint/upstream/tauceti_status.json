@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-17T19:10Z",
+ "updated": "2026-11-17T19:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -157,42 +157,12 @@
    "note": "merged into TauCetiRoadmap"
   },
   "SelmerIwasawaCohomology": {
-   "stage": "pr",
-   "pr": 869,
-   "head": "8e1b4ae",
-   "depends_on": [
-    858,
-    779,
-    780,
-    818
-   ],
-   "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
-   "stage": "pr",
-   "pr": 870,
-   "head": "9d01aa2",
-   "depends_on": [
-    852,
-    779,
-    785,
-    853
-   ],
-   "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticLocallySymmetricSpaces": {
    "stage": "main",
@@ -278,18 +248,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "DiamondSixOperations": {
-   "stage": "pr",
-   "pr": 927,
-   "head": "a795f1d",
-   "note": "N4 CHANGES answered 10-16",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   },
-   "maintainer": "READY FOR APPROVAL 2026-10-16 (roed-math); S6.3 noetherian correction applied at f9bb79c"
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AlgebraicModularFormsAndSerreWeights": {
    "stage": "main",
@@ -684,17 +644,8 @@
    }
   },
   "AInfCohomology": {
-   "stage": "pr",
-   "pr": 1044,
-   "head": "d02775e",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
-   "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "EffectiveDiophantineMethods": {
    "stage": "pr",
@@ -948,17 +899,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "InductionRestrictionPartII": {
-   "stage": "pr",
-   "pr": 1154,
-   "head": "a3cedf1",
-   "note": "ported 2026-10-18 from the accepted explorer package (outside the Caraiani–Newton closure; supplier of ArithmeticStatisticsPartV); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AnalyticNumberTheoryPartII": {
    "stage": "main",
@@ -1184,17 +1126,8 @@
    }
   },
   "RelativeJacobiansAndIntegralCurveModels": {
-   "stage": "pr",
-   "pr": 1232,
-   "head": "748430a",
-   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: modular curves); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "GeometricSatakeAndFusion": {
    "stage": "pr",
@@ -1270,17 +1203,8 @@
    }
   },
   "HermitianKTheoryOfPoincareCategories": {
-   "stage": "pr",
-   "pr": 1266,
-   "head": "8d4143b",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "CompletedCohomologyAndLocalGlobalCompatibility": {
    "stage": "pr",
