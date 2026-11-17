@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T12:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T12:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1411 IntegralLattices — draft
@@ -95,12 +95,12 @@ Generated 2026-11-17T12:10Z from the README supplier graph of every open pull re
 - #869 SelmerIwasawaCohomology — ready; waits on #852
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1411, #850, #852
 - #873 LefschetzPencilsAndVanishingCycles — maintainer approved; waits on #1411, #1630, #850, #852
-- #1225 JacobianChallengePartII — ready (approved at an earlier head); waits on #852
+- #1225 JacobianChallengePartII — maintainer approved; waits on #852
 - #1545 EllipticLegendreCharacterInterfaces — draft; waits on #852
 
 ## Wave 5
-- #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #1630, #873
-- #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #1225, #852, #873
+- #875 ClassicalAdicEtaleCohomology — maintainer approved; waits on #1630, #873
+- #913 ModularCurvesPartII — maintainer approved; waits on #1225, #852, #873
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #869
 - #1232 RelativeJacobiansAndIntegralCurveModels — ready (approved at an earlier head); waits on #1225, #852
 - #1272 EulerSystemsAndKolyvaginSystems — ready; waits on #869
@@ -109,7 +109,7 @@ Generated 2026-11-17T12:10Z from the README supplier graph of every open pull re
 ## Wave 6
 - #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #869, #923
 - #922 DiamondEtaleCohomology — ready; waits on #1630, #875
-- #928 AlgebraicModularFormsAndSerreWeights — ready (approved at an earlier head); waits on #913
+- #928 AlgebraicModularFormsAndSerreWeights — maintainer approved; waits on #913
 - #929 DeligneWeightsAndPurity — ready; waits on #850, #873, #913
 - #1044 AInfCohomology — ready (approved at an earlier head); waits on #1630, #875
 - #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #2258, #873, #875
@@ -121,7 +121,7 @@ Generated 2026-11-17T12:10Z from the README supplier graph of every open pull re
 - #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head); waits on #1044, #1266, #851
 
 ## Wave 8
-- #925 AutomorphicSpectralTheory — ready; waits on #924
+- #925 AutomorphicSpectralTheory — maintainer approved; waits on #924
 - #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #1630, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready; waits on #869, #913, #923, #924, #928
 - #1039 DirichletPadicLFunctions — ready; waits on #924
