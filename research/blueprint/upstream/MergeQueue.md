@@ -76,7 +76,6 @@ Generated 2026-11-17T18:00Z from the README supplier graph of every open pull re
 - #2459 MotivesAndAlgebraicCyclesPartII — draft
 - #2461 MordellLawrenceVenkateshPartII — draft
 - #2463 ShimuraVarietiesPartII — draft
-- #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
 - #1158 SpectralManifolds (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
@@ -173,7 +172,7 @@ Generated 2026-11-17T18:00Z from the README supplier graph of every open pull re
 ## Wave 10
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #1405, #929, #933, #966
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #920, #923, #931
-- #1015 NoncompactQuantumSymmetry — draft; waits on #1063, #117
+- #1015 NoncompactQuantumSymmetry — draft; waits on #1063
 - #1035 CompletedCohomologyPartII — ready; waits on #1005, #1630, #933
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1002, #1017, #1021, #1043, #1411, #929
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1000, #1002, #1005, #1038, #933, #966
