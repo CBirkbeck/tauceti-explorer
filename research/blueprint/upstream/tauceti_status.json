@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-17T10:40Z",
+ "updated": "2026-11-17T11:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -118,9 +118,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "APPROVED",
+    "ai": true
    }
   },
   "GeometryOfNumbersAndQuadraticArithmetic": {
@@ -135,9 +135,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "APPROVED",
+    "ai": true
    }
   },
   "NeronModelsAndSemistableAbelianVarieties": {
@@ -152,9 +152,9 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "APPROVED",
+    "ai": true
    }
   },
   "AlgebraicModuliForArithmeticGeometry": {
@@ -211,9 +211,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED",
+    "ai": true
    }
   },
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
@@ -717,17 +717,8 @@
    }
   },
   "DeformationAndDerivedPatchingAlgebra": {
-   "stage": "pr",
-   "pr": 1034,
-   "head": "22d4907",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
-   "review": {
-    "recommendation": "changes",
-    "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "CompletedCohomologyPartII": {
    "stage": "pr",
@@ -1231,17 +1222,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "LanglandsParameterStacks": {
-   "stage": "pr",
-   "pr": 1202,
-   "head": "04801e3",
-   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "VectorBundlesAndIsocrystals": {
    "stage": "pr",
