@@ -1,14 +1,15 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T21:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T21:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #923 LocalGaloisDeformationRings — ready (approved at an earlier head)
-- #929 DeligneWeightsAndPurity — ready
+- #923 LocalGaloisDeformationRings — maintainer approved
+- #929 DeligneWeightsAndPurity — maintainer approved
 - #1272 EulerSystemsAndKolyvaginSystems — maintainer approved
-- #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head)
+- #1281 KTheoryFiniteLocalFields — maintainer approved
 - #1411 IntegralLattices — draft
 - #1630 EnhancedDerivedSheaves — draft
+- #1796 AdicCoefficientsAndComparisonsPartII — draft
 - #1798 DGFloer — draft
 - #1807 decycle-main — draft
 - #2026 ArithmeticFuchsianGroups — draft
@@ -21,7 +22,6 @@ Generated 2026-11-17T21:30Z from the README supplier graph of every open pull re
 - #2185 EllipticCurveModularityTotallyReal — draft
 - #2256 EndoscopicTransferAndUnitaryTraceComparisonPartII — draft
 - #2257 PadicHodgeParametersInLocallyAnalyticRepresentations — draft
-- #2258 LocalFieldsRamificationPartII — draft
 - #2259 PerfectoidQuotientsPartII — draft
 - #2261 MetaplecticAutomorphicFormsPartII — draft
 - #2262 CompletedCohomologyAndLocalGlobalCompatibilityPartII — draft
@@ -78,17 +78,16 @@ Generated 2026-11-17T21:30Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #923
-- #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #929
+- #924 AutomorphicLFunctionsAndLocalFactors — maintainer approved; waits on #929
 - #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #1630
 - #1057 PrismaticCohomology — ready; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1313 MotivesAndAlgebraicCycles — ready; waits on #1281, #1630
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411
-- #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #2258
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 
 ## Wave 3
-- #931 GL2AutomorphicRepresentationsAndTransfer — ready; waits on #924
+- #931 GL2AutomorphicRepresentationsAndTransfer — maintainer approved; waits on #924
 - #964 FarguesFontaineDiamonds — ready; waits on #1630, #965
 - #968 ModularSymbolsPadicLFunctions — ready; waits on #923, #924
 - #1039 DirichletPadicLFunctions — ready; waits on #924
@@ -96,10 +95,10 @@ Generated 2026-11-17T21:30Z from the README supplier graph of every open pull re
 - #1418 ArithmeticKTheory — draft; waits on #1281, #924
 - #1470 MotivicEtaleKTheory — draft; waits on #1281, #1313, #1630
 - #1755 ArcTopologyAndDescent — draft; waits on #1057, #1630
-- #1834 QuadraticFormInvariantsPartII — draft; waits on #1281, #1313, #1796, #2258, #929
+- #1834 QuadraticFormInvariantsPartII — draft; waits on #1281, #1313, #1796, #929
 
 ## Wave 4
-- #933 ShimuraVarieties — ready; waits on #931
+- #933 ShimuraVarieties — maintainer approved; waits on #931
 - #1040 EtaleDualityAndPerverseSheaves — ready (approved at an earlier head); waits on #1630, #924, #929, #931, #965
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1057, #1065, #1630
 - #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039, #1272

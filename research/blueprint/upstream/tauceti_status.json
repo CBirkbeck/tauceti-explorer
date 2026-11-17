@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-17T21:30Z",
+ "updated": "2026-11-17T21:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -226,7 +226,7 @@
     "recommendation": "approve",
     "current": false,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -239,7 +239,7 @@
     "recommendation": "approve",
     "current": true,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -264,7 +264,7 @@
     "recommendation": "approve",
     "current": true,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -277,7 +277,7 @@
     "recommendation": "approve",
     "current": true,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -290,7 +290,7 @@
     "recommendation": "approve",
     "current": true,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -491,7 +491,7 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "ece41e2",
+   "head": "aa448b0",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "changes",
@@ -1241,7 +1241,7 @@
     "recommendation": "approve",
     "current": false,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
