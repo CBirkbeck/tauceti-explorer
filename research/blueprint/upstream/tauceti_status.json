@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-17T23:30Z",
+ "updated": "2026-11-17T23:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -197,17 +197,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "GlobalGaloisDeformations": {
-   "stage": "pr",
-   "pr": 920,
-   "head": "9e4960f",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next)",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ClassicalArithmeticCompletion": {
    "stage": "main",
@@ -218,30 +209,12 @@
    "note": "merged into TauCetiRoadmap"
   },
   "LocalGaloisDeformationRings": {
-   "stage": "pr",
-   "pr": 923,
-   "head": "ba39a43",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 15bab3b",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AutomorphicLFunctionsAndLocalFactors": {
-   "stage": "pr",
-   "pr": 924,
-   "head": "19069a6",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AutomorphicSpectralTheory": {
    "stage": "main",
@@ -264,17 +237,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "ShimuraVarieties": {
-   "stage": "pr",
-   "pr": 933,
-   "head": "314489c",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 6cc4f59",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "EtaleCohomologyFoundations": {
    "stage": "main",
@@ -315,17 +279,8 @@
    }
   },
   "PELModuli": {
-   "stage": "pr",
-   "pr": 966,
-   "head": "ba37185",
-   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired) awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 0f4df97",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
@@ -1247,17 +1202,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "MotivesAndAlgebraicCycles": {
-   "stage": "pr",
-   "pr": 1313,
-   "head": "4cfd9b7",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "HabiroCyclotomicCompletions": {
    "stage": "main",
