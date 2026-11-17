@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T12:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T12:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #869 SelmerIwasawaCohomology — ready
@@ -77,13 +77,12 @@ Generated 2026-11-17T12:40Z from the README supplier graph of every open pull re
 - #2463 ShimuraVarietiesPartII — draft
 - #117 LaguerreJacobi (weiscadence, other author)
 - #903 references (kim-em, other author)
-- #936 FourManifolds (kim-em, other author)
 - #1158 SpectralManifolds (kim-em, other author)
 - #1285 K3Surfaces (kim-em, other author)
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #851 GeometryOfNumbersAndQuadraticArithmetic — maintainer approved; waits on #1411, #1630
+- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1411, #1630
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #1411
 - #873 LefschetzPencilsAndVanishingCycles — maintainer approved; waits on #1411, #1630
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #869
@@ -93,15 +92,15 @@ Generated 2026-11-17T12:40Z from the README supplier graph of every open pull re
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 
 ## Wave 3
-- #875 ClassicalAdicEtaleCohomology — maintainer approved; waits on #1630, #873
-- #913 ModularCurvesPartII — maintainer approved; waits on #1225, #873
+- #875 ClassicalAdicEtaleCohomology — draft; waits on #1630, #873
+- #913 ModularCurvesPartII — draft; waits on #1225, #873
 - #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #869, #923
 - #1266 HermitianKTheoryOfPoincareCategories — ready; waits on #1630, #851
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411, #870, #1285
 
 ## Wave 4
 - #922 DiamondEtaleCohomology — maintainer approved; waits on #1630, #875
-- #928 AlgebraicModularFormsAndSerreWeights — maintainer approved; waits on #913
+- #928 AlgebraicModularFormsAndSerreWeights — draft; waits on #913
 - #929 DeligneWeightsAndPurity — ready; waits on #873, #913
 - #1044 AInfCohomology — ready (approved at an earlier head); waits on #1630, #875
 - #1796 AdicCoefficientsAndComparisonsPartII — draft; waits on #2258, #873, #875
@@ -128,7 +127,7 @@ Generated 2026-11-17T12:40Z from the README supplier graph of every open pull re
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1044, #1057, #1065, #1630, #875
 - #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039, #1272, #869
 - #1351 QWittVectors — draft; waits on #1044, #1057, #1065, #1281, #1630
-- #1430 K3BlochGroups — draft; waits on #1281, #1418, #936
+- #1430 K3BlochGroups — draft; waits on #1281, #1418
 - #1432 K2SymbolsBrauerPartII — draft; waits on #1281, #1418, #869, #873
 - #1470 MotivicEtaleKTheory — draft; waits on #1281, #1313, #1630
 - #1691 GeometryOfNumbersAndQuadraticArithmeticPartII — draft; waits on #1266, #1281, #1411, #1418, #851
