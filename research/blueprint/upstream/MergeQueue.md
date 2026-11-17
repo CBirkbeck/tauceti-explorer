@@ -1,11 +1,11 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T18:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T18:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #869 SelmerIwasawaCohomology — maintainer approved
+- #869 SelmerIwasawaCohomology — draft
 - #929 DeligneWeightsAndPurity — ready
-- #1154 InductionRestrictionPartII — maintainer approved
+- #1154 InductionRestrictionPartII — draft
 - #1232 RelativeJacobiansAndIntegralCurveModels — maintainer approved
 - #1411 IntegralLattices — draft
 - #1545 EllipticLegendreCharacterInterfaces — draft
@@ -82,10 +82,10 @@ Generated 2026-11-17T18:40Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #870 NeronModelsAndSemistableAbelianVarietiesPartII — maintainer approved; waits on #1411
+- #870 NeronModelsAndSemistableAbelianVarietiesPartII — draft; waits on #1411
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #869
 - #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #929
-- #927 DiamondSixOperations — maintainer approved; waits on #1630
+- #927 DiamondSixOperations — draft; waits on #1630
 - #1044 AInfCohomology — maintainer approved; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1266 HermitianKTheoryOfPoincareCategories — maintainer approved; waits on #1630
