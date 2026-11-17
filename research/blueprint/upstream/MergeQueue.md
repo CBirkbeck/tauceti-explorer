@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T13:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T13:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #869 SelmerIwasawaCohomology — ready
@@ -99,7 +99,7 @@ Generated 2026-11-17T13:10Z from the README supplier graph of every open pull re
 - #1375 K3SurfacesAndSymplecticBoundedness — draft; waits on #1411, #870, #1285
 
 ## Wave 4
-- #922 DiamondEtaleCohomology — maintainer approved; waits on #1630, #875
+- #922 DiamondEtaleCohomology — draft; waits on #1630, #875
 - #928 AlgebraicModularFormsAndSerreWeights — draft; waits on #913
 - #929 DeligneWeightsAndPurity — ready; waits on #873, #913
 - #1044 AInfCohomology — ready (approved at an earlier head); waits on #1630, #875
@@ -112,7 +112,7 @@ Generated 2026-11-17T13:10Z from the README supplier graph of every open pull re
 - #1281 KTheoryFiniteLocalFields — ready (approved at an earlier head); waits on #1044, #1266, #851
 
 ## Wave 6
-- #925 AutomorphicSpectralTheory — maintainer approved; waits on #924
+- #925 AutomorphicSpectralTheory — draft; waits on #924
 - #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #1630, #875, #922, #927
 - #968 ModularSymbolsPadicLFunctions — ready; waits on #869, #913, #923, #924, #928
 - #1039 DirichletPadicLFunctions — ready; waits on #924
