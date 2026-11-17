@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-17T22:20Z",
+ "updated": "2026-11-17T22:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -256,30 +256,12 @@
    "note": "merged into TauCetiRoadmap"
   },
   "DeligneWeightsAndPurity": {
-   "stage": "pr",
-   "pr": 929,
-   "head": "ff93d18",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex)",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "GL2AutomorphicRepresentationsAndTransfer": {
-   "stage": "pr",
-   "pr": 931,
-   "head": "9b8725e",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; answered 10-16 ~10:45Z at 7035f1c",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ShimuraVarieties": {
    "stage": "pr",
@@ -1220,30 +1202,12 @@
    }
   },
   "EulerSystemsAndKolyvaginSystems": {
-   "stage": "pr",
-   "pr": 1272,
-   "head": "a0e5702",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "KTheoryFiniteLocalFields": {
-   "stage": "pr",
-   "pr": 1281,
-   "head": "f92d21b",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "K2SymbolsBrauer": {
    "stage": "main",
