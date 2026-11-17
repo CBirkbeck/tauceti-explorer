@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T21:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T22:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #923 LocalGaloisDeformationRings — maintainer approved
@@ -77,7 +77,7 @@ Generated 2026-11-17T21:50Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #923
+- #920 GlobalGaloisDeformations — maintainer approved; waits on #923
 - #924 AutomorphicLFunctionsAndLocalFactors — maintainer approved; waits on #929
 - #965 AdicCoefficientsAndComparisons — ready (approved at an earlier head); waits on #1630
 - #1057 PrismaticCohomology — ready; waits on #1630
