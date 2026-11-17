@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-17T12:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-17T12:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1411 IntegralLattices — draft
@@ -79,14 +79,14 @@ Generated 2026-11-17T12:20Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #850 InverseGaloisAndArithmeticFundamentalGroups — maintainer approved; waits on #1630, #1798
+- #850 InverseGaloisAndArithmeticFundamentalGroups — draft; waits on #1630, #1798
 - #851 GeometryOfNumbersAndQuadraticArithmetic — maintainer approved; waits on #1411, #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1735 DirectSummandsAndBigCohenMacaulay — draft; waits on #1630, #2286
 - #1806 EtaleHomotopyTypes — draft; waits on #1630
 
 ## Wave 3
-- #852 NeronModelsAndSemistableAbelianVarieties — maintainer approved; waits on #850
+- #852 NeronModelsAndSemistableAbelianVarieties — draft; waits on #850
 - #1154 InductionRestrictionPartII — ready; waits on #850
 - #1266 HermitianKTheoryOfPoincareCategories — ready; waits on #1630, #851
 - #1839 ProfiniteCohomologyPartII — draft; waits on #850
