@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T07:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T07:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1172 ArithmeticStatisticsPartIV — maintainer approved
@@ -106,7 +106,7 @@ Generated 2026-11-18T07:40Z from the README supplier graph of every open pull re
 - #1063 MetaplecticAutomorphicForms — ready; waits on #1411, #999
 - #1080 PrismaticCohomologyPartIV — ready; waits on #1062, #1065, #1070, #1630
 - #1176 ArithmeticStatisticsPartVI — ready; waits on #1017, #1173, #1174, #1175
-- #1205 VectorBundlesAndIsocrystals — ready; waits on #1062, #1070
+- #1205 VectorBundlesAndIsocrystals — maintainer approved; waits on #1062, #1070
 - #1264 EisensteinIdealAndRationalTorsion — ready; waits on #1017
 - #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1017
 - #1461 BorelRegulators — draft; waits on #1043, #999
@@ -117,13 +117,13 @@ Generated 2026-11-18T07:40Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1001, #1405
-- #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005
+- #1013 SerreWeightAndLevelOptimisation — maintainer approved; waits on #1005
 - #1015 NoncompactQuantumSymmetry — draft; waits on #1063
 - #1035 CompletedCohomologyPartII — ready; waits on #1005, #1630
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1017, #1021, #1043, #1411
 - #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1005
 - #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1172, #1174, #1175, #1176
-- #1209 RelativeFarguesFontaine — ready; waits on #1062, #1205
+- #1209 RelativeFarguesFontaine — maintainer approved; waits on #1062, #1205
 - #1360 ColemanIntegrationPartII — draft; waits on #1021, #1043
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1172, #1411
 - #1420 MultiquadraticPartII — draft; waits on #1063, #1411
@@ -139,7 +139,7 @@ Generated 2026-11-18T07:40Z from the README supplier graph of every open pull re
 - #1019 PadicFamilies — ready; waits on #1001, #1005, #1013
 - #1064 CohomologyComparisons — ready; waits on #1035, #1062, #1065, #1070, #1080, #1411, #1630
 - #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1172, #1175, #1178, #1798
-- #1230 VStackSheavesAndLisseCategories — ready; waits on #1062, #1205, #1209, #1630
+- #1230 VStackSheavesAndLisseCategories — maintainer approved; waits on #1062, #1205, #1209, #1630
 - #1231 MordellLawrenceVenkatesh — ready; waits on #1001, #1004, #1017, #1062, #1063, #1798
 - #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1411, #1944
 - #1494 TropicalAndBerkovichArithmetic — draft; waits on #1021, #1043, #1046, #1053, #1360
@@ -151,7 +151,7 @@ Generated 2026-11-18T07:40Z from the README supplier graph of every open pull re
 
 ## Wave 7
 - #1069 AutomorphicBundles — ready; waits on #1005, #1053, #1062, #1064, #1080, #1630
-- #1235 GeometricSatakeAndFusion — ready; waits on #1062, #1205, #1209, #1230, #1630
+- #1235 GeometricSatakeAndFusion — maintainer approved; waits on #1062, #1205, #1209, #1230, #1630
 - #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1494
 - #1364 CohomologyComparisonsPartII — draft; waits on #1043, #1062, #1064, #1630
 - #1428 HabiroCohomologyFoundations — draft; waits on #1064, #1065, #1351, #1630
@@ -163,7 +163,7 @@ Generated 2026-11-18T07:40Z from the README supplier graph of every open pull re
 - #1841 StableReductionPartII — draft; waits on #1053, #1231, #1405, #1630
 
 ## Wave 8
-- #1006 AutomorphicGaloisRepresentationsPartII — ready; waits on #1001, #1062, #1205, #1230, #1235, #1630, #999
+- #1006 AutomorphicGaloisRepresentationsPartII — maintainer approved; waits on #1001, #1062, #1205, #1230, #1235, #1630, #999
 - #1084 HodgeTateAndCanonicalSubgroups — ready; waits on #1005, #1053, #1062, #1064, #1069, #1080, #1630
 - #1490 GlobalShtukasAndFunctionFieldLanglands — draft; waits on #1209, #1235, #1474, #999
 - #1498 PadicHodgeRegulators — draft; waits on #1043, #1062, #1064, #1360, #1364, #1424, #1430, #1461
