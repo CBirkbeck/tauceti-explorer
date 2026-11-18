@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-18T07:30Z",
+ "updated": "2026-11-18T07:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -280,9 +280,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "ArakelovGeometryAndAbelianHeights": {
@@ -297,9 +297,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "PadicDifferentialEquationsAndRigidCohomology": {
@@ -328,7 +328,7 @@
     "recommendation": "approve",
     "current": true,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -495,7 +495,7 @@
     "recommendation": "approve",
     "current": true,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -554,9 +554,9 @@
    "review": {
     "recommendation": "approve",
     "current": true,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "MetaplecticAutomorphicForms": {
@@ -633,7 +633,7 @@
     "recommendation": "changes",
     "current": false,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
@@ -754,17 +754,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticStatisticsPartI": {
-   "stage": "pr",
-   "pr": 1171,
-   "head": "38b54bc",
-   "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticStatisticsPartIV": {
    "stage": "pr",
@@ -801,7 +792,7 @@
     "recommendation": "approve",
     "current": false,
     "draft": false,
-    "maintainer": "REVIEW_REQUIRED",
+    "maintainer": "APPROVED",
     "ai": true
    }
   },
