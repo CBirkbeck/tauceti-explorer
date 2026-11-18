@@ -1,10 +1,10 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T08:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T08:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #1172 ArithmeticStatisticsPartIV — maintainer approved
-- #1173 ArithmeticStatisticsPartII — maintainer approved
+- #1172 ArithmeticStatisticsPartIV — draft
+- #1173 ArithmeticStatisticsPartII — draft
 - #1311 EulerSystemsCyclotomicMainConjecture — maintainer approved
 - #1411 IntegralLattices — draft
 - #1430 K3BlochGroups — draft
@@ -80,7 +80,7 @@ Generated 2026-11-18T08:00Z from the README supplier graph of every open pull re
 ## Wave 2
 - #1043 ColemanIntegration — maintainer approved; waits on #1430
 - #1062 PadicHodgeTheory — draft; waits on #1630
-- #1065 PrismaticCohomologyPartII — maintainer approved; waits on #1630
+- #1065 PrismaticCohomologyPartII — draft; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1174 ArithmeticStatisticsPartIII — maintainer approved; waits on #1173
 - #1691 GeometryOfNumbersAndQuadraticArithmeticPartII — draft; waits on #1411
@@ -102,7 +102,7 @@ Generated 2026-11-18T08:00Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #1005 HilbertModularVarietiesAndShimuraCurves — maintainer approved; waits on #1001
-- #1021 AnabelianGeometryAndNonabelianChabauty — ready; waits on #1001, #1017, #1043, #1062
+- #1021 AnabelianGeometryAndNonabelianChabauty — maintainer approved; waits on #1001, #1017, #1043, #1062
 - #1063 MetaplecticAutomorphicForms — ready; waits on #1411, #999
 - #1080 PrismaticCohomologyPartIV — maintainer approved; waits on #1062, #1065, #1070, #1630
 - #1176 ArithmeticStatisticsPartVI — ready; waits on #1017, #1173, #1174, #1175
