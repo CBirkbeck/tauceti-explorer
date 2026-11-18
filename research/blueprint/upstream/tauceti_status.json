@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-18T18:30Z",
+ "updated": "2026-11-18T18:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -291,10 +291,10 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "6e78298",
+   "head": "a5da376",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -342,7 +342,7 @@
   "ClassicalSerreModularity": {
    "stage": "pr",
    "pr": 1020,
-   "head": "51382fb",
+   "head": "4a4f50e",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
    "review": {
     "recommendation": "approve",
@@ -359,7 +359,7 @@
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -402,7 +402,7 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
    "pr": 1036,
-   "head": "a99e7e3",
+   "head": "d30b928",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
     "recommendation": "approve",
@@ -467,17 +467,8 @@
    }
   },
   "ShimuraCompactifications": {
-   "stage": "pr",
-   "pr": 1053,
-   "head": "4e3083c",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
-   "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "PrismaticCohomology": {
    "stage": "main",
@@ -490,7 +481,7 @@
   "MetaplecticAutomorphicForms": {
    "stage": "pr",
    "pr": 1063,
-   "head": "fece991",
+   "head": "bc0cc87",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
    "review": {
     "recommendation": "approve",
@@ -503,7 +494,7 @@
   "CohomologyComparisons": {
    "stage": "pr",
    "pr": 1064,
-   "head": "634fb2d",
+   "head": "8621723",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running",
    "review": {
     "recommendation": "approve",
@@ -550,7 +541,7 @@
   "GL2ModularityLifting": {
    "stage": "pr",
    "pr": 1071,
-   "head": "63cc987",
+   "head": "308c1fa",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
    "review": {
     "recommendation": "approve",
@@ -574,17 +565,8 @@
    }
   },
   "PrismaticCohomologyPartIV": {
-   "stage": "pr",
-   "pr": 1080,
-   "head": "57f0c7a",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
@@ -680,17 +662,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticStatisticsPartV": {
-   "stage": "pr",
-   "pr": 1175,
-   "head": "2a99ce1",
-   "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticStatisticsPartVI": {
    "stage": "pr",
@@ -734,7 +707,7 @@
   "ModularityAndLanglandsExtensions": {
    "stage": "pr",
    "pr": 1180,
-   "head": "4c191e8",
+   "head": "123b48a",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; final tier before CrystallineLocalGlobalCompatibilityCM); red team running",
    "review": {
     "recommendation": "changes",
@@ -800,7 +773,7 @@
   "MordellLawrenceVenkatesh": {
    "stage": "pr",
    "pr": 1231,
-   "head": "3e917e8",
+   "head": "32a0090",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
     "recommendation": "approve",
@@ -851,7 +824,7 @@
   "ComplexMultiplicationAndExplicitReciprocity": {
    "stage": "pr",
    "pr": 1254,
-   "head": "6db62f7",
+   "head": "cbe06cc",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / BSD); red team running",
    "review": {
     "recommendation": "approve",
