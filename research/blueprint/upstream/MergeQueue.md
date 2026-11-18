@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T00:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T00:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #968 ModularSymbolsPadicLFunctions — ready
@@ -104,7 +104,7 @@ Generated 2026-11-18T00:00Z from the README supplier graph of every open pull re
 - #1828 SpringerResolutionAndCharacteristicCycles — draft; waits on #1038, #1040, #1630
 
 ## Wave 5
-- #1002 PadicDifferentialEquationsAndRigidCohomology — maintainer approved; waits on #1504, #1630, #965
+- #1002 PadicDifferentialEquationsAndRigidCohomology — draft; waits on #1504, #1630, #965
 - #1172 ArithmeticStatisticsPartIV — ready; waits on #1171
 - #1173 ArithmeticStatisticsPartII — ready; waits on #1171
 - #1516 EffectiveBoundsPartII — draft; waits on #1171
@@ -112,7 +112,7 @@ Generated 2026-11-18T00:00Z from the README supplier graph of every open pull re
 - #1840 PurityForFlatCohomology — draft; waits on #1057, #1065, #1070, #1630, #2259
 
 ## Wave 6
-- #1000 ArakelovGeometryAndAbelianHeights — maintainer approved; waits on #1002
+- #1000 ArakelovGeometryAndAbelianHeights — draft; waits on #1002
 - #1043 ColemanIntegration — ready; waits on #1002, #1039, #1418, #1430, #1470
 - #1062 PadicHodgeTheory — ready; waits on #1002, #1057, #1630
 - #1174 ArithmeticStatisticsPartIII — ready (approved at an earlier head); waits on #1171, #1173
