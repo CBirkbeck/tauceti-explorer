@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-18T20:30Z",
+ "updated": "2026-11-18T20:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -472,7 +472,7 @@
   "MetaplecticAutomorphicForms": {
    "stage": "pr",
    "pr": 1063,
-   "head": "bc0cc87",
+   "head": "0639793",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
    "review": {
     "recommendation": "approve",
@@ -532,10 +532,10 @@
   "GL2ModularityLifting": {
    "stage": "pr",
    "pr": 1071,
-   "head": "308c1fa",
+   "head": "53ba61a",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
@@ -545,7 +545,7 @@
   "PotentialModularityAndCompatibleSystems": {
    "stage": "pr",
    "pr": 1075,
-   "head": "034c860",
+   "head": "73acfa3",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 66); red team running",
    "review": {
     "recommendation": "approve",
@@ -562,7 +562,7 @@
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
    "pr": 1081,
-   "head": "5b0a4d9",
+   "head": "584324b",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
     "recommendation": "approve",
@@ -617,8 +617,8 @@
    "head": "25763ac",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -711,7 +711,7 @@
   "CrystallineLocalGlobalCompatibilityCM": {
    "stage": "pr",
    "pr": 1182,
-   "head": "005f571",
+   "head": "4ac51c6",
    "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
    "review": {
     "recommendation": "approve",

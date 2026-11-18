@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T20:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T20:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head)
@@ -10,11 +10,11 @@ Generated 2026-11-18T20:30Z from the README supplier graph of every open pull re
 - #1492 ClassicalGroupsPartII — draft
 - #1630 EnhancedDerivedSheaves — draft
 - #1647 AnalyticToricGeometryPartII — draft
-- #1712 CharacterSumsOverFiniteFields — draft
 - #1798 DGFloer — draft
 - #1807 decycle-main — draft
 - #1830 DiamondsAndVStacksPartII — draft
 - #1843 FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII — draft
+- #1948 ExplicitCharacterSumsAndSieves — draft
 - #2026 ArithmeticFuchsianGroups — draft
 - #2130 GeometricFreyMazur — draft
 - #2134 QuasiregularMaps — draft
@@ -85,7 +85,7 @@ Generated 2026-11-18T20:30Z from the README supplier graph of every open pull re
 - #1825 RelativeFarguesFontainePartII — draft; waits on #2284
 - #1836 GeometricSatakeAndFusionPartII — draft; waits on #1830
 - #1840 PurityForFlatCohomology — draft; waits on #1630
-- #1948 ExplicitCharacterSumsAndSieves — draft; waits on #1712
+- #1946 ExplicitMultiplicativeFunctions — draft; waits on #1948
 
 ## Wave 3
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1017, #1411
@@ -100,20 +100,20 @@ Generated 2026-11-18T20:30Z from the README supplier graph of every open pull re
 - #1644 EllAdicHomotopyTypesAndWeights — draft; waits on #1806, #2279
 - #1645 SymplecticReidemeisterTorsionModSquares — draft; waits on #1063
 - #1759 CstConjectureForDaggerVarieties — draft; waits on #1064, #2264
-- #1946 ExplicitMultiplicativeFunctions — draft; waits on #1948
+- #1944 ExplicitNumberFields — draft; waits on #1946, #1948
 
 ## Wave 4
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1405
 - #1071 GL2ModularityLifting — draft; waits on #1007, #1020, #1066
 - #1084 HodgeTateAndCanonicalSubgroups — ready (approved at an earlier head); waits on #1064, #1069, #1630
 - #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1176
+- #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1411, #1944
 - #1490 GlobalShtukasAndFunctionFieldLanglands — draft; waits on #1474
 - #1494 TropicalAndBerkovichArithmetic — draft; waits on #1046, #1360
 - #1498 PadicHodgeRegulators — draft; waits on #1064, #1360, #1364, #1424
 - #1720 AbelianVarietiesOverFiniteFields — draft; waits on #1474
 - #1737 ExoticMonoidalStructuresAndAbstractAutomorphicity — draft; waits on #1063, #1474, #1630
 - #1823 AutomorphicBundlesPartII — draft; waits on #1069, #1630
-- #1944 ExplicitNumberFields — draft; waits on #1946, #1948
 
 ## Wave 5
 - #1018 EllipticCurveModularity — ready (approved at an earlier head); waits on #1004, #1007, #1020
@@ -123,7 +123,6 @@ Generated 2026-11-18T20:30Z from the README supplier graph of every open pull re
 - #1231 MordellLawrenceVenkatesh — ready (approved at an earlier head); waits on #1004, #1017, #1063, #1798
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1007, #1178, #1411
 - #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1494
-- #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1411, #1944
 - #1469 HabiroNumberFields — draft; waits on #1498
 - #1549 ClassicalAdicEtaleCohomologyPartII — draft; waits on #1084, #1630
 - #1734 SheafTheoreticSmithTheory — draft; waits on #1490, #1630
