@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T07:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T08:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1172 ArithmeticStatisticsPartIV — maintainer approved
@@ -92,9 +92,9 @@ Generated 2026-11-18T07:50Z from the README supplier graph of every open pull re
 ## Wave 3
 - #999 EndoscopicTransferAndUnitaryTraceComparison — draft; waits on #1062
 - #1001 WeightsInEtaleCohomology — draft; waits on #1062, #1630
-- #1017 HeightsRationalPointsAndObstructions — ready; waits on #1173, #1174, #1411
+- #1017 HeightsRationalPointsAndObstructions — maintainer approved; waits on #1173, #1174, #1411
 - #1070 PrismaticCohomologyPartIII — maintainer approved; waits on #1065, #1630
-- #1175 ArithmeticStatisticsPartV — ready; waits on #1172, #1173, #1174, #1411
+- #1175 ArithmeticStatisticsPartV — maintainer approved; waits on #1172, #1173, #1174, #1411
 - #1208 WeilConjectures — maintainer approved; waits on #1062
 - #1351 QWittVectors — draft; waits on #1065, #1630
 - #1743 EtaleDualityAndPerverseSheavesPartII — draft; waits on #1630, #1755, #2259
@@ -104,7 +104,7 @@ Generated 2026-11-18T07:50Z from the README supplier graph of every open pull re
 - #1005 HilbertModularVarietiesAndShimuraCurves — maintainer approved; waits on #1001
 - #1021 AnabelianGeometryAndNonabelianChabauty — ready; waits on #1001, #1017, #1043, #1062
 - #1063 MetaplecticAutomorphicForms — ready; waits on #1411, #999
-- #1080 PrismaticCohomologyPartIV — ready; waits on #1062, #1065, #1070, #1630
+- #1080 PrismaticCohomologyPartIV — maintainer approved; waits on #1062, #1065, #1070, #1630
 - #1176 ArithmeticStatisticsPartVI — ready; waits on #1017, #1173, #1174, #1175
 - #1205 VectorBundlesAndIsocrystals — maintainer approved; waits on #1062, #1070
 - #1264 EisensteinIdealAndRationalTorsion — ready; waits on #1017
@@ -119,9 +119,9 @@ Generated 2026-11-18T07:50Z from the README supplier graph of every open pull re
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1001, #1405
 - #1013 SerreWeightAndLevelOptimisation — maintainer approved; waits on #1005
 - #1015 NoncompactQuantumSymmetry — draft; waits on #1063
-- #1035 CompletedCohomologyPartII — ready; waits on #1005, #1630
+- #1035 CompletedCohomologyPartII — maintainer approved; waits on #1005, #1630
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1017, #1021, #1043, #1411
-- #1053 ShimuraCompactifications — ready (approved at an earlier head); waits on #1005
+- #1053 ShimuraCompactifications — maintainer approved; waits on #1005
 - #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1172, #1174, #1175, #1176
 - #1209 RelativeFarguesFontaine — maintainer approved; waits on #1062, #1205
 - #1360 ColemanIntegrationPartII — draft; waits on #1021, #1043
