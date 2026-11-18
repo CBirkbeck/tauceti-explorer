@@ -105,7 +105,6 @@ Generated 2026-11-18T16:40Z from the README supplier graph of every open pull re
 - #1756 AutomorphicLFunctionsAndLocalFactorsPartII — draft; waits on #1063
 - #1760 DeligneWeightsAndPurityPartII — draft; waits on #1053, #1647
 - #1946 ExplicitMultiplicativeFunctions — draft; waits on #1948
-- #1015 NoncompactQuantumSymmetry (kim-em, other author)
 
 ## Wave 4
 - #1004 FaltingsFinitenessAndIsogenyTheorems — draft; waits on #1405
