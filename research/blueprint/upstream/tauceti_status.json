@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-18T16:20Z",
+ "updated": "2026-11-18T16:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -294,8 +294,8 @@
    "head": "d663a77",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
-    "recommendation": "approve",
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -306,17 +306,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "AutomorphicGaloisRepresentationsPartII": {
-   "stage": "pr",
-   "pr": 1006,
-   "head": "902b706",
-   "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
@@ -338,7 +329,7 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "aa448b0",
+   "head": "b30550a",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "changes",
@@ -551,7 +542,7 @@
   "AutomorphicBundles": {
    "stage": "pr",
    "pr": 1069,
-   "head": "e7943cd",
+   "head": "435cb4c",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 47); red team running",
    "review": {
     "recommendation": "approve",
@@ -620,7 +611,7 @@
   "HodgeTateAndCanonicalSubgroups": {
    "stage": "pr",
    "pr": 1084,
-   "head": "2f69c39",
+   "head": "e1c1e91",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 48); red team running",
    "review": {
     "recommendation": "approve",
@@ -752,7 +743,7 @@
   "ModularityAndLanglandsExtensions": {
    "stage": "pr",
    "pr": 1180,
-   "head": "183af0c",
+   "head": "4c191e8",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; final tier before CrystallineLocalGlobalCompatibilityCM); red team running",
    "review": {
     "recommendation": "changes",
