@@ -1,12 +1,12 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T00:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T05:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #968 ModularSymbolsPadicLFunctions — ready
-- #970 SmallRamificationAndAbelianVarietyBaseCases — ready
-- #1038 ShimuraData — ready
-- #1039 DirichletPadicLFunctions — ready
+- #968 ModularSymbolsPadicLFunctions — maintainer approved
+- #970 SmallRamificationAndAbelianVarietyBaseCases — maintainer approved
+- #1038 ShimuraData — maintainer approved
+- #1039 DirichletPadicLFunctions — maintainer approved
 - #1411 IntegralLattices — draft
 - #1418 ArithmeticKTheory — draft
 - #1492 ClassicalGroupsPartII — draft
@@ -77,8 +77,8 @@ Generated 2026-11-18T00:40Z from the README supplier graph of every open pull re
 - #1286 EnriquesSurfaces (kim-em, other author)
 
 ## Wave 2
-- #964 FarguesFontaineDiamonds — ready; waits on #1630
-- #1057 PrismaticCohomology — ready; waits on #1630
+- #964 FarguesFontaineDiamonds — maintainer approved; waits on #1630
+- #1057 PrismaticCohomology — maintainer approved; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1171 ArithmeticStatisticsPartI — ready (approved at an earlier head); waits on #1411
 - #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head); waits on #1039
