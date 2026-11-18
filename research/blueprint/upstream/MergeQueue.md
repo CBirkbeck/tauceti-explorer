@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T09:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T10:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1005 HilbertModularVarietiesAndShimuraCurves — maintainer approved
@@ -77,7 +77,7 @@ Generated 2026-11-18T09:50Z from the README supplier graph of every open pull re
 - #1035 CompletedCohomologyPartII — maintainer approved; waits on #1005, #1630
 - #1053 ShimuraCompactifications — maintainer approved; waits on #1005
 - #1063 MetaplecticAutomorphicForms — ready; waits on #1411
-- #1070 PrismaticCohomologyPartIII — maintainer approved; waits on #1630
+- #1070 PrismaticCohomologyPartIII — draft; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1175 ArithmeticStatisticsPartV — maintainer approved; waits on #1174, #1411
 - #1351 QWittVectors — draft; waits on #1630
