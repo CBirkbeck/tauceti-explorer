@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T15:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T15:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1013 SerreWeightAndLevelOptimisation — draft
@@ -107,7 +107,7 @@ Generated 2026-11-18T15:10Z from the README supplier graph of every open pull re
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
 
 ## Wave 4
-- #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1405
+- #1004 FaltingsFinitenessAndIsogenyTheorems — draft; waits on #1405
 - #1006 AutomorphicGaloisRepresentationsPartII — ready; waits on #1230, #1235, #1630
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1017, #1021, #1411
 - #1069 AutomorphicBundles — ready (approved at an earlier head); waits on #1053, #1064, #1080, #1630
