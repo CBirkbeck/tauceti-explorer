@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T23:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T23:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head)
@@ -116,7 +116,7 @@ Generated 2026-11-18T23:20Z from the README supplier graph of every open pull re
 - #1823 AutomorphicBundlesPartII — draft; waits on #1069, #1630
 
 ## Wave 5
-- #1018 EllipticCurveModularity — ready (approved at an earlier head); waits on #1004, #1007, #1020
+- #1018 EllipticCurveModularity — ready; waits on #1004, #1007, #1020
 - #1075 PotentialModularityAndCompatibleSystems — ready (approved at an earlier head); waits on #1007, #1019, #1020, #1066, #1071
 - #1085 PerfectoidShimuraVarieties — ready (approved at an earlier head); waits on #1069, #1084
 - #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1178, #1798
@@ -130,7 +130,7 @@ Generated 2026-11-18T23:20Z from the README supplier graph of every open pull re
 - #1831 FunctionFieldArithmeticPartII — draft; waits on #1474, #1490
 
 ## Wave 6
-- #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1007, #1018, #1020
+- #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready; waits on #1004, #1007, #1018, #1020
 - #1087 TorsionCohomologyInfrastructure — ready (approved at an earlier head); waits on #1069, #1084, #1085
 - #1406 EffectiveClassNumbers — draft; waits on #1018, #1046, #1411
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1019, #1069, #1084, #1085
