@@ -1,9 +1,9 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T15:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T15:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #1013 SerreWeightAndLevelOptimisation — ready
+- #1013 SerreWeightAndLevelOptimisation — draft
 - #1053 ShimuraCompactifications — maintainer approved
 - #1411 IntegralLattices — draft
 - #1461 BorelRegulators — draft
@@ -79,7 +79,7 @@ Generated 2026-11-18T15:00Z from the README supplier graph of every open pull re
 - #1080 PrismaticCohomologyPartIV — maintainer approved; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1175 ArithmeticStatisticsPartV — maintainer approved; waits on #1411
-- #1230 VStackSheavesAndLisseCategories — ready; waits on #1630
+- #1230 VStackSheavesAndLisseCategories — draft; waits on #1630
 - #1424 Polylogarithms — draft; waits on #1461, #1798
 - #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1411, #1286
 - #1647 AnalyticToricGeometryPartII — draft; waits on #1053
@@ -93,7 +93,7 @@ Generated 2026-11-18T15:00Z from the README supplier graph of every open pull re
 - #1021 AnabelianGeometryAndNonabelianChabauty — ready; waits on #1017
 - #1064 CohomologyComparisons — ready (approved at an earlier head); waits on #1035, #1080, #1411, #1630
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017, #1175
-- #1235 GeometricSatakeAndFusion — ready; waits on #1230, #1630
+- #1235 GeometricSatakeAndFusion — draft; waits on #1230, #1630
 - #1264 EisensteinIdealAndRationalTorsion — ready (approved at an earlier head); waits on #1017
 - #1391 QSeriesPartitionsAndMockModularForms — draft; waits on #1063, #1411
 - #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1017
