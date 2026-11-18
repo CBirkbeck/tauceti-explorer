@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-18T08:30Z",
+ "updated": "2026-11-18T08:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -273,34 +273,16 @@
    "note": "merged into TauCetiRoadmap"
   },
   "EndoscopicTransferAndUnitaryTraceComparison": {
-   "stage": "pr",
-   "pr": 999,
-   "head": "1af544e",
-   "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1)",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "main",
    "note": "merged into TauCetiRoadmap"
   },
   "WeightsInEtaleCohomology": {
-   "stage": "pr",
-   "pr": 1001,
-   "head": "c6f2ea0",
-   "note": "ported 2026-10-16 (tier 12); both author-side red-team passes applied",
-   "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "main",
@@ -547,17 +529,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "PadicHodgeTheory": {
-   "stage": "pr",
-   "pr": 1062,
-   "head": "f919453",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "MetaplecticAutomorphicForms": {
    "stage": "pr",
@@ -599,17 +572,8 @@
    }
   },
   "PrismaticCohomologyPartII": {
-   "stage": "pr",
-   "pr": 1065,
-   "head": "7c47f52",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AutomorphicBundles": {
    "stage": "pr",
@@ -758,30 +722,12 @@
    "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticStatisticsPartIV": {
-   "stage": "pr",
-   "pr": 1172,
-   "head": "058901c",
-   "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part IV of the ArithmeticStatistics split); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticStatisticsPartII": {
-   "stage": "pr",
-   "pr": 1173,
-   "head": "c5b1568",
-   "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part II of the ArithmeticStatistics split); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "ArithmeticStatisticsPartIII": {
    "stage": "pr",
@@ -1086,17 +1032,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "EulerSystemsCyclotomicMainConjecture": {
-   "stage": "pr",
-   "pr": 1311,
-   "head": "096363b",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
-   "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "PadicLocalLanglandsForGL2Qp": {
    "stage": "main",
