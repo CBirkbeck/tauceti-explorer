@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-18T17:30Z",
+ "updated": "2026-11-18T17:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -291,11 +291,11 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "d663a77",
+   "head": "6e78298",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -329,7 +329,7 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "b30550a",
+   "head": "25ef4f1",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round",
    "review": {
     "recommendation": "changes",
@@ -355,7 +355,7 @@
   "EllipticCurveModularity": {
    "stage": "pr",
    "pr": 1018,
-   "head": "125d861",
+   "head": "ed6ed86",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied",
    "review": {
     "recommendation": "approve",
@@ -396,17 +396,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "CompletedCohomologyPartII": {
-   "stage": "pr",
-   "pr": 1035,
-   "head": "e9263dc",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
@@ -483,9 +474,9 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
-    "maintainer": "APPROVED",
-    "ai": true
+    "draft": null,
+    "maintainer": null,
+    "ai": false
    }
   },
   "PrismaticCohomology": {
@@ -598,7 +589,7 @@
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
    "pr": 1081,
-   "head": "e3b1d27",
+   "head": "5b0a4d9",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
     "recommendation": "approve",
@@ -624,7 +615,7 @@
   "PerfectoidShimuraVarieties": {
    "stage": "pr",
    "pr": 1085,
-   "head": "5835d22",
+   "head": "7679e95",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 49); red team running",
    "review": {
     "recommendation": "approve",
@@ -650,7 +641,7 @@
   "IgusaVarietiesAndTorsionConcentration": {
    "stage": "pr",
    "pr": 1090,
-   "head": "f5134b7",
+   "head": "25763ac",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
     "recommendation": "approve",
@@ -730,7 +721,7 @@
   "ArithmeticStatisticsPartVIII": {
    "stage": "pr",
    "pr": 1179,
-   "head": "57cb56d",
+   "head": "b1c8e5a",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VIII of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": "changes",
@@ -809,7 +800,7 @@
   "MordellLawrenceVenkatesh": {
    "stage": "pr",
    "pr": 1231,
-   "head": "b1f69cc",
+   "head": "3e917e8",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running",
    "review": {
     "recommendation": "approve",
