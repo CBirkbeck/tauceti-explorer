@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-18T15:20Z",
+ "updated": "2026-11-18T15:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -291,7 +291,7 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "9283112",
+   "head": "d663a77",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied",
    "review": {
     "recommendation": "approve",
@@ -332,17 +332,8 @@
    }
   },
   "SerreWeightAndLevelOptimisation": {
-   "stage": "pr",
-   "pr": 1013,
-   "head": "9f2eed7",
-   "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
@@ -761,11 +752,11 @@
   "ModularityAndLanglandsExtensions": {
    "stage": "pr",
    "pr": 1180,
-   "head": "73b52a7",
+   "head": "183af0c",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; final tier before CrystallineLocalGlobalCompatibilityCM); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -821,17 +812,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "VStackSheavesAndLisseCategories": {
-   "stage": "pr",
-   "pr": 1230,
-   "head": "e674772",
-   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "MordellLawrenceVenkatesh": {
    "stage": "pr",
@@ -851,17 +833,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "GeometricSatakeAndFusion": {
-   "stage": "pr",
-   "pr": 1235,
-   "head": "392d28e",
-   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "BunGAndNewtonStrata": {
    "stage": "pr",
@@ -913,7 +886,7 @@
   "EisensteinIdealAndRationalTorsion": {
    "stage": "pr",
    "pr": 1264,
-   "head": "6459965",
+   "head": "237383f",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Eisenstein ideal); red team running",
    "review": {
     "recommendation": "approve",
