@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T07:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T07:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1311 EulerSystemsCyclotomicMainConjecture — ready (approved at an earlier head)
@@ -76,7 +76,7 @@ Generated 2026-11-18T07:00Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #1062 PadicHodgeTheory — maintainer approved; waits on #1630
-- #1065 PrismaticCohomologyPartII — ready; waits on #1630
+- #1065 PrismaticCohomologyPartII — maintainer approved; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1171 ArithmeticStatisticsPartI — draft; waits on #1411
 - #1430 K3BlochGroups — draft; waits on #1418
@@ -91,11 +91,11 @@ Generated 2026-11-18T07:00Z from the README supplier graph of every open pull re
 - #1948 ExplicitCharacterSumsAndSieves — draft; waits on #1712
 
 ## Wave 3
-- #999 EndoscopicTransferAndUnitaryTraceComparison — ready; waits on #1062
-- #1001 WeightsInEtaleCohomology — ready (approved at an earlier head); waits on #1062, #1630
+- #999 EndoscopicTransferAndUnitaryTraceComparison — maintainer approved; waits on #1062
+- #1001 WeightsInEtaleCohomology — maintainer approved; waits on #1062, #1630
 - #1043 ColemanIntegration — ready; waits on #1418, #1430, #1470
 - #1070 PrismaticCohomologyPartIII — ready (approved at an earlier head); waits on #1065, #1630
-- #1172 ArithmeticStatisticsPartIV — ready; waits on #1171
+- #1172 ArithmeticStatisticsPartIV — maintainer approved; waits on #1171
 - #1173 ArithmeticStatisticsPartII — ready; waits on #1171
 - #1208 WeilConjectures — ready; waits on #1062
 - #1351 QWittVectors — draft; waits on #1065, #1630
