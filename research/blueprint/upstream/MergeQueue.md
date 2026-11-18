@@ -1,11 +1,11 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T10:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T11:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #1005 HilbertModularVarietiesAndShimuraCurves — maintainer approved
-- #1043 ColemanIntegration — maintainer approved
-- #1205 VectorBundlesAndIsocrystals — ready
+- #1005 HilbertModularVarietiesAndShimuraCurves — draft
+- #1043 ColemanIntegration — draft
+- #1205 VectorBundlesAndIsocrystals — draft
 - #1411 IntegralLattices — draft
 - #1489 EllipticKTheory — draft
 - #1492 ClassicalGroupsPartII — draft
@@ -76,7 +76,7 @@ Generated 2026-11-18T10:40Z from the README supplier graph of every open pull re
 - #1017 HeightsRationalPointsAndObstructions — maintainer approved; waits on #1411
 - #1035 CompletedCohomologyPartII — maintainer approved; waits on #1005, #1630
 - #1053 ShimuraCompactifications — maintainer approved; waits on #1005
-- #1063 MetaplecticAutomorphicForms — ready; waits on #1411
+- #1063 MetaplecticAutomorphicForms — ready (approved at an earlier head); waits on #1411
 - #1080 PrismaticCohomologyPartIV — maintainer approved; waits on #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
 - #1175 ArithmeticStatisticsPartV — maintainer approved; waits on #1411
