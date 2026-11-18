@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T22:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T23:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head)
@@ -187,7 +187,7 @@ Generated 2026-11-18T22:40Z from the README supplier graph of every open pull re
 - #1832 ExcursionOperatorsAndSpectralActionPartII — draft; waits on #1241, #1252
 
 ## Wave 11
-- #1180 ModularityAndLanglandsExtensions — ready (approved at an earlier head); waits on #1007, #1018, #1019, #1020, #1036, #1046, #1048, #1063, #1071, #1075, #1081, #1084, #1182, #1630
+- #1180 ModularityAndLanglandsExtensions — draft; waits on #1007, #1018, #1019, #1020, #1036, #1046, #1048, #1063, #1071, #1075, #1081, #1084, #1182, #1630
 - #1423 HeegnerPointEulerSystems — draft; waits on #1004, #1017, #1018, #1048, #1176, #1254, #1406, #1487, #1498, #1499, #1804, #1816
 - #1744 CMRankZeroConverse — draft; waits on #1007, #1018, #1178, #1254, #1498, #1499, #1804, #2281
 - #1815 SmoothRepresentationsOfLocalGroupsPartII — draft; waits on #1832
