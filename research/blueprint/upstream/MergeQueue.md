@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-18T17:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-18T18:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head)
@@ -71,7 +71,7 @@ Generated 2026-11-18T17:50Z from the README supplier graph of every open pull re
 - #903 references (kim-em, other author)
 
 ## Wave 2
-- #1017 HeightsRationalPointsAndObstructions — draft; waits on #1411
+- #1017 HeightsRationalPointsAndObstructions — ready; waits on #1411
 - #1020 ClassicalSerreModularity — ready (approved at an earlier head); waits on #1007
 - #1063 MetaplecticAutomorphicForms — ready (approved at an earlier head); waits on #1411
 - #1080 PrismaticCohomologyPartIV — draft; waits on #1630
