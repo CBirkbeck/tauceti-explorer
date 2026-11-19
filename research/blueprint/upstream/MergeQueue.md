@@ -67,6 +67,8 @@ Generated 2026-11-19T07:40Z from the README supplier graph of every open pull re
 - #2461 MordellLawrenceVenkateshPartII — draft
 - #2463 ShimuraVarietiesPartII — draft
 - #2539 ReflectionInvariantTheory — draft
+- #2541 CFSGBasicProperties — draft
+- #2542 AmenableGroups — draft
 - #903 references (kim-em, other author)
 
 ## Wave 2
