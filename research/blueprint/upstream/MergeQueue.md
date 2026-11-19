@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-19T05:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-19T06:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head)
@@ -103,7 +103,7 @@ Generated 2026-11-19T05:40Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1405
-- #1071 GL2ModularityLifting — draft; waits on #1007, #1020, #1066
+- #1071 GL2ModularityLifting — ready (approved at an earlier head); waits on #1007, #1020, #1066
 - #1084 HodgeTateAndCanonicalSubgroups — ready (approved at an earlier head); waits on #1064, #1069, #1630
 - #1178 ArithmeticStatisticsPartVII — ready (approved at an earlier head); waits on #1017, #1176
 - #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1411, #1944
