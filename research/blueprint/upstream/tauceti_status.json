@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-19T00:20Z",
+ "updated": "2026-11-19T00:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -342,11 +342,11 @@
   "ClassicalSerreModularity": {
    "stage": "pr",
    "pr": 1020,
-   "head": "1123d34",
+   "head": "71ddfdb",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED",
     "ai": false
@@ -476,7 +476,7 @@
    "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -532,7 +532,7 @@
   "GL2ModularityLifting": {
    "stage": "pr",
    "pr": 1071,
-   "head": "53ba61a",
+   "head": "0ba9e9a",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
    "review": {
     "recommendation": "changes",
@@ -566,7 +566,7 @@
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
@@ -617,8 +617,8 @@
    "head": "24ecf8d",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
     "ai": true
