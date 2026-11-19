@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-19T11:50Z",
+ "updated": "2026-11-19T15:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -488,7 +488,7 @@
    "head": "8621723",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED",
@@ -515,7 +515,7 @@
   "AutomorphicBundles": {
    "stage": "pr",
    "pr": 1069,
-   "head": "435cb4c",
+   "head": "a271f73",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 47); red team running",
    "review": {
     "recommendation": "approve",
@@ -711,7 +711,7 @@
   "CrystallineLocalGlobalCompatibilityCM": {
    "stage": "pr",
    "pr": 1182,
-   "head": "0d802b1",
+   "head": "2e636ba",
    "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
    "review": {
     "recommendation": "approve",
@@ -802,7 +802,7 @@
   "HeckeStacksAndLocalShtukas": {
    "stage": "pr",
    "pr": 1252,
-   "head": "9abac1e",
+   "head": "c849a74",
    "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
    "review": {
     "recommendation": "approve",
