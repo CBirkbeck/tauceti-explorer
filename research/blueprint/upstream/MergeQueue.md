@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-19T02:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-19T03:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head)
@@ -70,7 +70,7 @@ Generated 2026-11-19T02:40Z from the README supplier graph of every open pull re
 
 ## Wave 2
 - #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1411
-- #1020 ClassicalSerreModularity — draft; waits on #1007
+- #1020 ClassicalSerreModularity — ready (approved at an earlier head); waits on #1007
 - #1063 MetaplecticAutomorphicForms — ready; waits on #1411
 - #1064 CohomologyComparisons — ready (approved at an earlier head); waits on #1411, #1630
 - #1169 TeichmullerGeometry — draft; waits on #2026
@@ -118,7 +118,7 @@ Generated 2026-11-19T02:40Z from the README supplier graph of every open pull re
 - #1018 EllipticCurveModularity — ready; waits on #1004, #1007, #1020
 - #1075 PotentialModularityAndCompatibleSystems — ready (approved at an earlier head); waits on #1007, #1019, #1020, #1066, #1071
 - #1085 PerfectoidShimuraVarieties — ready (approved at an earlier head); waits on #1069, #1084
-- #1179 ArithmeticStatisticsPartVIII — ready (approved at an earlier head); waits on #1178, #1798
+- #1179 ArithmeticStatisticsPartVIII — draft; waits on #1178, #1798
 - #1231 MordellLawrenceVenkatesh — ready; waits on #1004, #1017, #1063, #1798
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1007, #1178, #1411
 - #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1494
