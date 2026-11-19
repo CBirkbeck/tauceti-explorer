@@ -36,7 +36,7 @@
   "NeronModelsAndSemistableAbelianVarieties": 0,
   "ModularCurvesPartII": 0,
   "AlgebraicModularFormsAndSerreWeights": 0,
-  "CompletedCohomologyPartII": 0,
+  "CompletedCohomologyPartII": 1,
   "AdicCoefficientsAndComparisons": 0,
   "ClassicalAdicEtaleCohomology": 0,
   "EtaleDualityAndPerverseSheaves": 0,
@@ -251,6 +251,7 @@
   "CircleMethodThreePrimes": 1,
   "ChevalleyGroups": 1,
   "CompactOperators": 1,
-  "CombinatorialHeegaardFloer": 1
+  "CombinatorialHeegaardFloer": 1,
+  "ComplexCurveModuli": 1
  }
 }
