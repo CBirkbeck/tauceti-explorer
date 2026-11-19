@@ -252,6 +252,8 @@
   "ChevalleyGroups": 1,
   "CompactOperators": 1,
   "CombinatorialHeegaardFloer": 1,
-  "ComplexCurveModuli": 1
+  "ComplexCurveModuli": 1,
+  "ComplexTori": 1,
+  "ComplexManifolds": 1
  }
 }

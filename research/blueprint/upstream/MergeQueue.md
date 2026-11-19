@@ -74,6 +74,8 @@ Generated 2026-11-19T11:50Z from the README supplier graph of every open pull re
 - #2546 CompactOperators — draft
 - #2547 CompletedCohomologyPartII — draft
 - #2548 ComplexCurveModuli — draft
+- #2549 ComplexManifolds — draft
+- #2550 ComplexTori — draft
 - #903 references (kim-em, other author)
 
 ## Wave 2
@@ -100,7 +102,7 @@ Generated 2026-11-19T11:50Z from the README supplier graph of every open pull re
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017
 - #1264 EisensteinIdealAndRationalTorsion — ready (approved at an earlier head); waits on #1017
 - #1364 CohomologyComparisonsPartII — draft; waits on #1064, #1630
-- #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1017
+- #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1017, #2549
 - #1428 HabiroCohomologyFoundations — draft; waits on #1064, #1630
 - #1474 FunctionFieldArithmetic — draft; waits on #1063, #2284
 - #1644 EllAdicHomotopyTypesAndWeights — draft; waits on #1806, #2279
@@ -129,7 +131,7 @@ Generated 2026-11-19T11:50Z from the README supplier graph of every open pull re
 - #1179 ArithmeticStatisticsPartVIII — ready; waits on #1178, #1798
 - #1231 MordellLawrenceVenkatesh — ready; waits on #1004, #1017, #1063, #1798
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1007, #1178, #1411
-- #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1494
+- #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1494, #2549
 - #1469 HabiroNumberFields — draft; waits on #1498
 - #1549 ClassicalAdicEtaleCohomologyPartII — draft; waits on #1084, #1630
 - #1734 SheafTheoreticSmithTheory — draft; waits on #1490, #1630
