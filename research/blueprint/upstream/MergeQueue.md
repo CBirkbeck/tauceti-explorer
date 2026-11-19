@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-19T00:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-19T00:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head)
@@ -143,7 +143,7 @@ Generated 2026-11-19T00:00Z from the README supplier graph of every open pull re
 - #1841 StableReductionPartII — draft; waits on #1231, #1405, #1630
 
 ## Wave 7
-- #1090 IgusaVarietiesAndTorsionConcentration — draft; waits on #1084, #1085, #1087, #1630
+- #1090 IgusaVarietiesAndTorsionConcentration — ready (approved at an earlier head); waits on #1084, #1085, #1087, #1630
 - #1270 CompletedCohomologyAndLocalGlobalCompatibility — ready (approved at an earlier head); waits on #1007, #1019, #1020, #1066, #1071, #1422
 - #1336 ErdosProgressionPowers — draft; waits on #1007, #1017, #1018, #1231, #1408, #1491
 - #1427 HabiroNahmSeries — draft; waits on #1424, #1425, #1428, #1469, #1498
