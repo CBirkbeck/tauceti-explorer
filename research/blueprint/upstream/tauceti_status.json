@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-11-20T07:30Z",
+ "updated": "2026-11-20T07:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -310,17 +310,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "AutomorphicGaloisRepresentations": {
-   "stage": "pr",
-   "pr": 1007,
-   "head": "c24c682",
-   "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running",
-   "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "SerreWeightAndLevelOptimisation": {
    "stage": "main",
@@ -366,17 +357,8 @@
    }
   },
   "PadicFamilies": {
-   "stage": "pr",
-   "pr": 1019,
-   "head": "4275264",
-   "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied",
-   "review": {
-    "recommendation": "approve",
-    "current": false,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "main",
@@ -470,17 +452,8 @@
    "note": "merged into TauCetiRoadmap"
   },
   "MetaplecticAutomorphicForms": {
-   "stage": "pr",
-   "pr": 1063,
-   "head": "0639793",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
-   "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": null,
-    "maintainer": null,
-    "ai": false
-   }
+   "stage": "main",
+   "note": "merged into TauCetiRoadmap"
   },
   "CohomologyComparisons": {
    "stage": "pr",
