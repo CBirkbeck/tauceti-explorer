@@ -118,6 +118,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #2668 StablePeriodicCurved — draft
 - #2669 StableReduction — draft
 - #2678 SubspaceTheorem — draft
+- #2682 StandardDistributions — draft
 - #903 references (kim-em, other author)
 
 ## Wave 2
@@ -209,7 +210,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #1090 IgusaVarietiesAndTorsionConcentration — ready; waits on #1084, #1085, #1087, #1630, #2627
 - #1270 CompletedCohomologyAndLocalGlobalCompatibility — ready (approved at an earlier head); waits on #1020, #1066, #1071, #1422, #2547
 - #1419 PolynomialGaloisGroupsPartII — draft; waits on #1336
-- #1427 HabiroNahmSeries — draft; waits on #1424, #1425, #1428, #1469, #1498, #2576
+- #1427 HabiroNahmSeries — draft; waits on #1424, #1425, #1428, #1469, #1498, #2576, #2682
 - #1493 RefinedTraceMethods — draft; waits on #1064, #1425, #1428, #1458, #1630, #2574
 - #1695 ComplexMultiplicationAndExplicitReciprocityPartII — draft; waits on #1017, #1069, #1254, #1411, #1487, #1738, #2284
 - #1833 ArakelovGeometryAndAbelianHeightsPartII — draft; waits on #1017, #1335, #1487, #1494, #1841

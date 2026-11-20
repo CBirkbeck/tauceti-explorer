@@ -301,6 +301,7 @@
   "SpectralManifolds": 1,
   "StableReduction": 1,
   "StablePeriodicCurved": 1,
-  "SubspaceTheorem": 1
+  "SubspaceTheorem": 1,
+  "StandardDistributions": 1
  }
 }
