@@ -123,6 +123,7 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 - #2687 CotangentLagrangian — draft
 - #2690 HamiltonianReduction — draft
 - #2691 IntegrableSystems — draft
+- #2696 SymplecticGeometry — draft
 - #903 references (kim-em, other author)
 
 ## Wave 2
@@ -134,7 +135,7 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 - #1696 FuchsianOrbifoldsPartII — draft; waits on #1411, #2548, #2576
 - #1745 HilbertModularVarietiesAndShimuraCurvesPartII — draft; waits on #2135, #2278, #2282, #2547
 - #1760 DeligneWeightsAndPurityPartII — draft; waits on #1647
-- #1798 DGFloer — draft; waits on #2574, #2642, #2690
+- #1798 DGFloer — draft; waits on #2574, #2642, #2690, #2696
 - #1825 RelativeFarguesFontainePartII — draft; waits on #2284, #2609
 - #1830 DiamondsAndVStacksPartII — draft; waits on #2627
 - #1843 FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII — draft; waits on #2627
@@ -266,4 +267,4 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 - #1746 AbelianSurfacesModularity — draft; waits on #1004, #1018, #1020, #1036, #1066, #1180, #1405, #1720, #1817, #2135
 - #1758 TwistedAutomorphicDescents — draft; waits on #1180, #1404
 - #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1404, #2614, #2642, #2657
-- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1404, #1815, #2581, #2614, #2628, #2642, #2690
+- #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1404, #1815, #2581, #2614, #2628, #2642, #2690, #2696
