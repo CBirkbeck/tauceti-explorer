@@ -299,6 +299,8 @@
   "ScatteringDiagrams": 1,
   "SeibergWittenTheory": 1,
   "RestrictedPowerSeries": 1,
-  "SpectralManifolds": 1
+  "SpectralManifolds": 1,
+  "StableReduction": 1,
+  "StablePeriodicCurved": 1
  }
 }
