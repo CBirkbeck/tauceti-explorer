@@ -126,9 +126,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 ## Wave 2
 - #1017 HeightsRationalPointsAndObstructions — ready; waits on #1411, #2631, #2669, #2678
 - #1066 OrdinaryAutomorphicFormsAndModularityLifting — ready (approved at an earlier head); waits on #1020, #2626
-- #1360 ColemanIntegrationPartII — draft; waits on #2558, #2669
 - #1474 FunctionFieldArithmetic — draft; waits on #2284, #2627
-- #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1411
 - #1630 EnhancedDerivedSheaves — draft; waits on #2574, #2669
 - #1645 SymplecticReidemeisterTorsionModSquares — draft; waits on #2642
 - #1696 FuchsianOrbifoldsPartII — draft; waits on #1411, #2548, #2576
@@ -149,7 +147,6 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017, #2627, #2639
 - #1264 EisensteinIdealAndRationalTorsion — ready (approved at an earlier head); waits on #1017, #2627
 - #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1017, #2549, #2593
-- #1424 Polylogarithms — draft; waits on #1798
 - #1458 SolidAnalyticRings — draft; waits on #1630, #2288
 - #1490 GlobalShtukasAndFunctionFieldLanglands — draft; waits on #1474
 - #1720 AbelianVarietiesOverFiniteFields — draft; waits on #1474
@@ -167,7 +164,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #1364 CohomologyComparisonsPartII — draft; waits on #1064, #1630, #2585
 - #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1411, #1944, #2609
 - #1428 HabiroCohomologyFoundations — draft; waits on #1064, #1630
-- #1494 TropicalAndBerkovichArithmetic — draft; waits on #1046, #1360, #2656, #2669
+- #1494 TropicalAndBerkovichArithmetic — draft; waits on #1046, #2656, #2669
 - #1644 EllAdicHomotopyTypesAndWeights — draft; waits on #1806, #2279, #2574
 - #1734 SheafTheoreticSmithTheory — draft; waits on #1490, #1630, #2627
 - #1759 CstConjectureForDaggerVarieties — draft; waits on #1064, #2264
@@ -181,7 +178,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #1254 ComplexMultiplicationAndExplicitReciprocity — ready (approved at an earlier head); waits on #1178, #1411, #2593, #2627
 - #1335 ArithmeticDynamics — draft; waits on #1017, #1046, #1494, #2549, #2576, #2627, #2656
 - #1496 PeriodsAndSpecialValues — draft; waits on #1075, #1411, #2556, #2669
-- #1498 PadicHodgeRegulators — draft; waits on #1064, #1360, #1364, #1424
+- #1498 PadicHodgeRegulators — draft; waits on #1064, #1364
 - #1823 AutomorphicBundlesPartII — draft; waits on #1069, #1630
 
 ## Wave 6
@@ -204,7 +201,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #1336 ErdosProgressionPowers — draft; waits on #1017, #1018, #1231, #1408, #1491, #2593, #2627
 - #1422 OverconvergentAutomorphicForms — draft; waits on #1069, #1084, #1085, #2547
 - #1425 HabiroRings — draft; waits on #1428, #1458, #1469, #1630
-- #1487 GrossZagierAndArithmeticHeights — draft; waits on #1017, #1018, #1046, #1176, #1254, #1360, #1405, #1406, #1411, #1494, #1498, #2593, #2609, #2627, #2669
+- #1487 GrossZagierAndArithmeticHeights — draft; waits on #1017, #1018, #1046, #1176, #1254, #1405, #1406, #1411, #1494, #1498, #2593, #2609, #2627, #2669
 - #1738 FaltingsFinitenessAndIsogenyTheoremsPartII — draft; waits on #1004, #1069, #1491
 - #1809 SheafConvolutionOnAbelianVarieties — draft; waits on #1231, #1405, #1841
 
@@ -212,7 +209,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #1090 IgusaVarietiesAndTorsionConcentration — ready; waits on #1084, #1085, #1087, #1630, #2627
 - #1270 CompletedCohomologyAndLocalGlobalCompatibility — ready (approved at an earlier head); waits on #1020, #1066, #1071, #1422, #2547
 - #1419 PolynomialGaloisGroupsPartII — draft; waits on #1336
-- #1427 HabiroNahmSeries — draft; waits on #1424, #1425, #1428, #1469, #1498, #2576, #2682
+- #1427 HabiroNahmSeries — draft; waits on #1425, #1428, #1469, #1498, #2576, #2682
 - #1493 RefinedTraceMethods — draft; waits on #1064, #1425, #1428, #1458, #1630, #2574
 - #1695 ComplexMultiplicationAndExplicitReciprocityPartII — draft; waits on #1017, #1069, #1254, #1411, #1487, #1738, #2284
 - #1833 ArakelovGeometryAndAbelianHeightsPartII — draft; waits on #1017, #1335, #1487, #1494, #1841
@@ -227,7 +224,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #1687 AnalyticStacks — draft; waits on #1458, #1493, #1630
 - #1733 StableHomotopyKTheoryPartII — draft; waits on #1493, #1498, #1630
 - #1757 ScholzeFunctorAndModpCohomologyOfTheLubinTateTower — draft; waits on #1075, #1084, #1085, #1090, #1270, #2282, #2284, #2287, #2547
-- #1804 KatoEulerSystems — draft; waits on #1017, #1018, #1270, #1424, #1491, #1498, #2627
+- #1804 KatoEulerSystems — draft; waits on #1017, #1018, #1270, #1491, #1498, #2627
 - #1821 HeightsRationalPointsAndObstructionsPartII — draft; waits on #1017, #1335, #1405, #1494, #1833, #1841
 
 ## Wave 10
