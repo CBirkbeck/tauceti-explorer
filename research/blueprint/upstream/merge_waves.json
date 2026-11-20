@@ -59,7 +59,7 @@
   "HilbertModularVarietiesAndShimuraCurves": 0,
   "GlobalGaloisDeformations": 0,
   "LocalGaloisDeformationRings": 0,
-  "ModularSymbolsPadicLFunctions": 1,
+  "ModularSymbolsPadicLFunctions": 0,
   "PadicFamilies": 2,
   "AutomorphicBundles": 4,
   "ShimuraCompactifications": 2,
@@ -301,6 +301,7 @@
   "RestrictedPowerSeries": 1,
   "SpectralManifolds": 1,
   "StableReduction": 1,
-  "StablePeriodicCurved": 1
+  "StablePeriodicCurved": 1,
+  "SubspaceTheorem": 1
  }
 }
