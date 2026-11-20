@@ -302,6 +302,7 @@
   "StableReduction": 1,
   "StablePeriodicCurved": 1,
   "SubspaceTheorem": 1,
-  "StandardDistributions": 1
+  "StandardDistributions": 1,
+  "ContactGeometry": 1
  }
 }

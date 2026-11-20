@@ -119,6 +119,7 @@ Generated 2026-11-20T07:40Z from the README supplier graph of every open pull re
 - #2669 StableReduction — draft
 - #2678 SubspaceTheorem — draft
 - #2682 StandardDistributions — draft
+- #2684 ContactGeometry — draft
 - #903 references (kim-em, other author)
 
 ## Wave 2
