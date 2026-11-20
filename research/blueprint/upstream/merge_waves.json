@@ -60,7 +60,7 @@
   "GlobalGaloisDeformations": 0,
   "LocalGaloisDeformationRings": 0,
   "ModularSymbolsPadicLFunctions": 1,
-  "PadicFamilies": 1,
+  "PadicFamilies": 2,
   "AutomorphicBundles": 4,
   "ShimuraCompactifications": 2,
   "ArakelovGeometryAndAbelianHeights": 0,
@@ -297,6 +297,7 @@
   "ComputabilityTheory": 1,
   "SNumbers": 1,
   "ScatteringDiagrams": 1,
-  "SeibergWittenTheory": 1
+  "SeibergWittenTheory": 1,
+  "RestrictedPowerSeries": 1
  }
 }
