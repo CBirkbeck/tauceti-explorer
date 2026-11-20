@@ -110,6 +110,7 @@ Generated 2026-11-19T15:40Z from the README supplier graph of every open pull re
 - #2639 InductionRestriction — draft
 - #2642 LieGroups — draft
 - #2644 ModularInduction — draft
+- #2648 SNumbers — draft
 - #903 references (kim-em, other author)
 
 ## Wave 2
