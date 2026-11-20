@@ -6,9 +6,7 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 - #1020 ClassicalSerreModularity — ready (approved at an earlier head)
 - #1411 IntegralLattices — draft
 - #1492 ClassicalGroupsPartII — draft
-- #1647 AnalyticToricGeometryPartII — draft
-- #1948 ExplicitCharacterSumsAndSieves — draft
-- #2130 GeometricFreyMazur — draft
+- #1760 DeligneWeightsAndPurityPartII — draft
 - #2134 QuasiregularMaps — draft
 - #2135 PotentialAutomorphyInfrastructurePartII — draft
 - #2137 GL2ModularityLiftingPartII — draft
@@ -18,7 +16,6 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 - #2257 PadicHodgeParametersInLocallyAnalyticRepresentations — draft
 - #2261 MetaplecticAutomorphicFormsPartII — draft
 - #2262 CompletedCohomologyAndLocalGlobalCompatibilityPartII — draft
-- #2264 VectorBundlesAndIsocrystalsPartII — draft
 - #2266 MappingClassGroupsAndCanonicalRepresentations — draft
 - #2267 IntegralIwasawaTheoryPartII — draft
 - #2268 OrdinaryAutomorphicFormsAndModularityLiftingPartII — draft
@@ -33,7 +30,6 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 - #2284 LubinTateFormalModulesAndQuasiCanonicalLifts — draft
 - #2285 LevelOneAutomorphicFormsForClassicalGroups — draft
 - #2287 ProetaleCohomologyOfPAdicCurvesAndTowers — draft
-- #2288 VStackSheavesAndLisseCategoriesPartII — draft
 - #2289 KloostermanSheavesAndBesselIsocrystals — draft
 - #2290 NonordinaryCMSpecialValues — draft
 - #2291 PotentialAutomorphyDworkMotivesPartII — draft
@@ -129,35 +125,31 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 ## Wave 2
 - #1017 HeightsRationalPointsAndObstructions — ready; waits on #1411, #2631, #2669, #2678
 - #1066 OrdinaryAutomorphicFormsAndModularityLifting — ready (approved at an earlier head); waits on #1020, #2626
+- #1169 TeichmullerGeometry — draft; waits on #2548, #2576
 - #1474 FunctionFieldArithmetic — draft; waits on #2284, #2627
 - #1630 EnhancedDerivedSheaves — draft; waits on #2574, #2669
+- #1644 EllAdicHomotopyTypesAndWeights — draft; waits on #2279, #2574
 - #1645 SymplecticReidemeisterTorsionModSquares — draft; waits on #2642
-- #1696 FuchsianOrbifoldsPartII — draft; waits on #1411, #2548, #2576
 - #1745 HilbertModularVarietiesAndShimuraCurvesPartII — draft; waits on #2135, #2278, #2282, #2547
-- #1760 DeligneWeightsAndPurityPartII — draft; waits on #1647
 - #1798 DGFloer — draft; waits on #2574, #2642, #2690, #2696
 - #1825 RelativeFarguesFontainePartII — draft; waits on #2284, #2609
-- #1830 DiamondsAndVStacksPartII — draft; waits on #2627
+- #1836 GeometricSatakeAndFusionPartII — draft; waits on #2627
 - #1843 FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII — draft; waits on #2627
-- #1946 ExplicitMultiplicativeFunctions — draft; waits on #1948, #2626
-- #2026 ArithmeticFuchsianGroups — draft; waits on #2576, #2626, #2642
+- #1946 ExplicitMultiplicativeFunctions — draft; waits on #2626
 
 ## Wave 3
 - #1046 EffectiveDiophantineMethods — ready (approved at an earlier head); waits on #1017, #1411, #2609, #2656, #2669
 - #1064 CohomologyComparisons — ready (approved at an earlier head); waits on #1411, #1630, #2547
 - #1071 GL2ModularityLifting — ready (approved at an earlier head); waits on #1020, #1066
-- #1169 TeichmullerGeometry — draft; waits on #2026, #2548, #2576
 - #1176 ArithmeticStatisticsPartVI — ready (approved at an earlier head); waits on #1017, #2627, #2639
 - #1264 EisensteinIdealAndRationalTorsion — ready (approved at an earlier head); waits on #1017, #2627
 - #1405 AbelianSchemesAndArithmeticModuliPartII — draft; waits on #1017, #2549, #2593
-- #1458 SolidAnalyticRings — draft; waits on #1630, #2288
+- #1458 SolidAnalyticRings — draft; waits on #1630
 - #1490 GlobalShtukasAndFunctionFieldLanglands — draft; waits on #1474
 - #1720 AbelianVarietiesOverFiniteFields — draft; waits on #1474
 - #1737 ExoticMonoidalStructuresAndAbstractAutomorphicity — draft; waits on #1474, #1630
-- #1806 EtaleHomotopyTypes — draft; waits on #1630, #2624
-- #1836 GeometricSatakeAndFusionPartII — draft; waits on #1830, #2627
 - #1840 PurityForFlatCohomology — draft; waits on #1630, #2627
-- #1944 ExplicitNumberFields — draft; waits on #1946, #1948, #2593, #2626
+- #1944 ExplicitNumberFields — draft; waits on #1946, #2593, #2626
 
 ## Wave 4
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1405
@@ -168,9 +160,8 @@ Generated 2026-11-20T09:10Z from the README supplier graph of every open pull re
 - #1408 ComputationalNumberTheory — draft; waits on #1017, #1046, #1411, #1944, #2609
 - #1428 HabiroCohomologyFoundations — draft; waits on #1064, #1630
 - #1494 TropicalAndBerkovichArithmetic — draft; waits on #1046, #2656, #2669
-- #1644 EllAdicHomotopyTypesAndWeights — draft; waits on #1806, #2279, #2574
 - #1734 SheafTheoreticSmithTheory — draft; waits on #1490, #1630, #2627
-- #1759 CstConjectureForDaggerVarieties — draft; waits on #1064, #2264
+- #1759 CstConjectureForDaggerVarieties — draft; waits on #1064
 - #1831 FunctionFieldArithmeticPartII — draft; waits on #1474, #1490, #2627
 
 ## Wave 5
