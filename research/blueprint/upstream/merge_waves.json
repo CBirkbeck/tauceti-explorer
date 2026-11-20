@@ -301,6 +301,8 @@
   "SubspaceTheorem": 1,
   "StandardDistributions": 1,
   "ContactGeometry": 1,
-  "CotangentLagrangian": 1
+  "CotangentLagrangian": 1,
+  "IntegrableSystems": 1,
+  "HamiltonianReduction": 1
  }
 }
