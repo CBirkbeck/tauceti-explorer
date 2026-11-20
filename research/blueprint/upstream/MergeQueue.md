@@ -113,6 +113,7 @@ Generated 2026-11-19T15:40Z from the README supplier graph of every open pull re
 - #2650 ScatteringDiagrams — draft
 - #2651 SeibergWittenTheory — draft
 - #2656 RestrictedPowerSeries — draft
+- #2657 SpectralManifolds — draft
 - #903 references (kim-em, other author)
 
 ## Wave 2
@@ -262,5 +263,5 @@ Generated 2026-11-19T15:40Z from the README supplier graph of every open pull re
 ## Wave 14
 - #1746 AbelianSurfacesModularity — draft; waits on #1004, #1007, #1018, #1020, #1036, #1066, #1180, #1405, #1720, #1817, #2135
 - #1758 TwistedAutomorphicDescents — draft; waits on #1180, #1404
-- #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1404, #2614, #2642
+- #1761 AutomorphicSpectralTheoryPartII — draft; waits on #1404, #2614, #2642, #2657
 - #1842 QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups — draft; waits on #1404, #1815, #2581, #2614, #2628, #2642
