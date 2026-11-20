@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-11-19T15:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-11-20T07:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #1411 IntegralLattices — draft
@@ -119,10 +119,10 @@ Generated 2026-11-19T15:40Z from the README supplier graph of every open pull re
 - #903 references (kim-em, other author)
 
 ## Wave 2
-- #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #2546, #2609, #2656
+- #1007 AutomorphicGaloisRepresentations — maintainer approved; waits on #2546, #2609, #2656
 - #1017 HeightsRationalPointsAndObstructions — ready; waits on #1411, #2631, #2669
-- #1019 PadicFamilies — ready (approved at an earlier head); waits on #2656
-- #1063 MetaplecticAutomorphicForms — ready; waits on #1411, #2576
+- #1019 PadicFamilies — maintainer approved; waits on #2656
+- #1063 MetaplecticAutomorphicForms — maintainer approved; waits on #1411, #2576
 - #1360 ColemanIntegrationPartII — draft; waits on #2558, #2669
 - #1488 EnriquesSurfacesAndIntegralNonexistence — draft; waits on #1411
 - #1630 EnhancedDerivedSheaves — draft; waits on #2574, #2669
